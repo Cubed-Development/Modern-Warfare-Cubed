@@ -2,7 +2,7 @@
 name: Incompatibility report
 about: Report incompatibilities with other mods here
 title: "[INCOMPATIBILITY] {your title here}"
-labels: ''
+labels: Incompatibility
 assignees: ''
 
 ---
