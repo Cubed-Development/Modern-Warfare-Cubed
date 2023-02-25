@@ -1,4 +1,4 @@
-package cc.panada.MWC.util;
+package cc.panada.MWC.Utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,10 +9,12 @@ import java.net.URISyntaxException;
 public class ModReference {
 
 
-    public static final String MOD_ID = "MWC";
+    public static final String MOD_ID = "mwc";
     public static final String NAME = "Modern Warfare Cubed";
     public static final String VERSION = "@VERSION@";
     public static final Logger MWC_LOG = LogManager.getLogger(MOD_ID);
+    public static final String CLIENT_PROXY_CLASS = "panda.MWC.Proxy.ClientProxy";
+    public static final String COMMON_PROXY_CLASS = "panda.MWC.Proxy.CommonProxy";
     public static URI ISSUE;
 
     static {

@@ -1,11 +1,12 @@
 package cc.panada.MWC;
 
+import cc.panada.MWC.Proxy.CommonProxy;
 import cc.panada.MWC.handler.ConfigHandler;
-import cc.panada.MWC.util.ModReference;
+import cc.panada.MWC.Utils.ModReference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -18,6 +19,8 @@ public class MWC {
     public static MWC INSTANCE;
 
     public static final Minecraft mc = Minecraft.getMinecraft();
+    @SidedProxy(clientSide = ModReference.CLIENT_PROXY_CLASS, serverSide = ModReference.COMMON_PROXY_CLASS)
+    public static CommonProxy proxy;
 
     public static final ResourceLocation bugIcon = new ResourceLocation(ModReference.MOD_ID + ":textures/gui/bugIcon.png");
     public static final ResourceLocation menuButtons = new ResourceLocation(ModReference.MOD_ID + ":textures/gui/menuButtons.png");

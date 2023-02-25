@@ -6,7 +6,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 
-import static cc.panada.MWC.util.ModReference.MWC_LOG;
+import static cc.panada.MWC.Utils.ModReference.MWC_LOG;
 
 /**
  * This class handle everything related to the config system.
@@ -178,6 +178,8 @@ public class ConfigHandler {
      */
     public static void writeMainConfig() {
         initWriter(MWC.mainConfigFile);
+
+        // Config Output
 
         writer.println("Main configuration file for Modern Warfare Cubed");
         writer.println("I advice to use the in game configuration menu instead of manually editing this file");

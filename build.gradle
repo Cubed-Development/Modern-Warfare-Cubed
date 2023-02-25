@@ -1,56 +1,80 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        maven {
-            name 'Forge'
-            url 'https://maven.minecraftforge.net'
-        }
-    }
-    dependencies {
-        classpath 'com.anatawa12.forge:ForgeGradle:2.3-1.0.7'
-    }
+plugins {
+    // <other plugins omitted>
+    id 'wtf.gofancy.fancygradle' version '1.1.+'
+    id 'eclipse'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '5.1.+'
 }
-
-apply plugin: 'net.minecraftforge.gradle.forge'
 
 // Add MWC version to the jar name
 version project.mod_version
 
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+
+fancyGradle {
+    patches {
+        resources
+    }
+}
+
 minecraft {
-    version = '1.12.2-14.23.5.2847'
-    mappings = 'stable_39'
-    runDir = 'run'
+    mappings channel: 'stable', version: '39-1.12'
 
-    def args = ['-Dforge.logging.console.level=debug']
+    runs {
+        client {
+            workingDirectory project.file('run')
 
-    replace('@VERSION@', project.mod_version)
-    replaceIn('ModReference.java')
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
+        }
+
+        def args = ['-Dforge.logging.console.level=debug']
+        server {
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
+        }
+    }
 }
 
 // Replace version in `mcmod.info`
-processResources {
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-        expand 'version': project.mod_version
-    }
-}
 
 // Create configuration to include embedded dependencies into the jar
 configurations {
     implementation
     compile.extendsFrom(embed)
 }
-
 dependencies {
-    implementation 'net.jafama:jafama:2.+'
-    embed 'net.jafama:jafama:2.+'
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2859'
 }
 
 jar {
     // Add all embedded dependencies into the jar
     from(configurations.embed.collect {it.isDirectory() ? it : zipTree(it)})
+    manifest {
+        attributes([
+                "Specification-Title": "Modern Warfare Cubed",
+                "Implementation-Version": "0.5.1",
+                "Implementation-Title": project.name
+        ])
+    }
+}
 
-    manifest.attributes([
-            'ModSide': 'BOTH',
-    ])
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file:///${project.projectDir}/mcmodsrepo"
+        }
+    }
 }
