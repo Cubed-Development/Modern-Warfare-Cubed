@@ -58,12 +58,15 @@ Another massive thank you to all of the contributors, and members of the develop
 
 **Official Development Team**
 - [Paneedah](https://github.com/Paneedah) - Lead Developer
+- [BurnhamR](https://github.com/BurnhamR) - Lead Developer
 - [Desoroxxx](https://github.com/JustDesoroxxx) - Head Developer
 
 <br>
 
 **Official Design Team**
+- DeletedUser#9471 - Full-Stack Designer
 - SneakyDanny#1024 - Model Designer
+- ‡Arathorne84‡🍉#6930 - Model Designer
 
 <br>
 
