@@ -1,3 +1,18 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# IntelliJ
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
 # Compiled class file
 *.class
 
