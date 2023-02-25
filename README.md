@@ -1,6 +1,6 @@
 <h1 align="center">Modern Warfare Cubed</h1>
 
-<h5 align="center">A well optimized, open source Modern Warfare style mod, made in light of Vic's Modern Warfare!</h5>
+<h5 align="center">A well optimized, open source Modern Warfare rewrite, made in light of Vic's Modern Warfare!</h5>
 
 <p align="center">
   <a href="https://github.com/Paneedah/Modern-Warfare-Cubed/releases">
