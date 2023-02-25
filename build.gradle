@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name 'Forge'
+            url 'https://maven.minecraftforge.net'
+        }
+    }
+    dependencies {
+        classpath 'com.anatawa12.forge:ForgeGradle:2.3-1.0.7'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+// Add MWC version to the jar name
+version project.mod_version
+
+minecraft {
+    version = '1.12.2-14.23.5.2847'
+    mappings = 'stable_39'
+    runDir = 'run'
+
+    def args = ['-Dforge.logging.console.level=debug']
+
+    replace('@VERSION@', project.mod_version)
+    replaceIn('ModReference.java')
+}
+
+// Replace version in `mcmod.info`
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version': project.mod_version
+    }
+}
+
+// Create configuration to include embedded dependencies into the jar
+configurations {
+    implementation
+    compile.extendsFrom(embed)
+}
+
+dependencies {
+    implementation 'net.jafama:jafama:2.+'
+    embed 'net.jafama:jafama:2.+'
+}
+
+jar {
+    // Add all embedded dependencies into the jar
+    from(configurations.embed.collect {it.isDirectory() ? it : zipTree(it)})
+
+    manifest.attributes([
+            'ModSide': 'BOTH',
+    ])
+}
