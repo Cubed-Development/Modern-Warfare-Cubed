@@ -67,6 +67,7 @@ Another massive thank you to all of the contributors, and members of the develop
 - DeletedUser#9471 - Full-Stack Designer
 - SneakyDanny#1024 - Model Designer
 - ‡Arathorne84‡🍉#6930 - Model Designer
+- Vic4Games#1615 - Full-Stack Designer
 
 <br>
 
