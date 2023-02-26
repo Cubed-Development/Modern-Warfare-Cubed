@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "mwc",
+    "name": "Modern Warfare Cubed",
+    "description": "Modern Warfare Cubed, VMW: Forked. PMW",
+    "version": "${version}",
+    "mcversion": "1.12.2",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["Panda"],
+    "credits": "Panda Team",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
