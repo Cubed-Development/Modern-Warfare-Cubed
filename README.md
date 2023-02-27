@@ -74,6 +74,6 @@ Another massive thank you to all of the contributors, and members of the develop
 
 **Our Contributors**
 
-<a href="https://github.com/Paneedah/paneedah-modern-warfare/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Paneedah/paneedah-modern-warfare"/>
+<a href="https://github.com/Paneedah/Modern-Warfare-Cubed/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Paneedah/Modern-Warfare-Cubed"/>
 </a>
