@@ -29,6 +29,8 @@ minecraft {
 
 // Replace version in `mcmod.info`
 processResources {
+    duplicatesStrategy = 'include'
+
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
         expand 'version': project.mod_version
