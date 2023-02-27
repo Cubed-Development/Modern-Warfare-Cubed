@@ -64,15 +64,16 @@ Another massive thank you to all of the contributors, and members of the develop
 <br>
 
 **Official Design Team**
+- SneakyDanny#1024 - Lead Designer
 - DeletedUser#9471 - Full-Stack Designer
-- SneakyDanny#1024 - Model Designer
-- ‡Arathorne84‡🍉#6930 - Model Designer
 - Vic4Games#1615 - Full-Stack Designer
-
+- ‡Arathorne84‡🍉#6930 - Model Designer
+- StinkyCake#5932 - Model / Texture Designer
+- YamaEikiShiki#0828 - Model Designer
 <br>
 
 **Our Contributors**
 
-<a href="https://github.com/Paneedah/paneedah-modern-warfare/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Paneedah/paneedah-modern-warfare"/>
+<a href="https://github.com/Paneedah/Modern-Warfare-Cubed/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Paneedah/Modern-Warfare-Cubed"/>
 </a>
