@@ -60,6 +60,7 @@ Another massive thank you to all of the contributors, and members of the develop
 - [Paneedah](https://github.com/Paneedah) - Lead Developer
 - [BurnhamR](https://github.com/BurnhamR) - Lead Developer
 - [Desoroxxx](https://github.com/JustDesoroxxx) - Head Developer
+- [SticksPluto](https://github.com/SticksPluto) - Contributor
 
 <br>
 
