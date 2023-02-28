@@ -29,7 +29,7 @@ minecraft {
 
 // Replace version in `mcmod.info`
 processResources {
-    duplicatesStrategy = 'include'
+    duplicatesStrategy 'include'
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
@@ -43,7 +43,16 @@ configurations {
     compile.extendsFrom(embed)
 }
 
+repositories{
+    maven {
+        name 'GeckoLib'
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven'
+    }
+}
+
 dependencies {
+    implementation 'software.bernie.geckolib:geckolib-forge-1.12.2:3.0.31'
+
     implementation 'net.jafama:jafama:2.+'
     embed 'net.jafama:jafama:2.+'
 }
