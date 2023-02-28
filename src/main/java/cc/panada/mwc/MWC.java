@@ -3,9 +3,7 @@ package cc.panada.mwc;
 import cc.panada.mwc.handler.ConfigHandler;
 import cc.panada.mwc.utils.ModReference;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import java.io.File;
@@ -17,9 +15,6 @@ public class MWC {
     public static MWC INSTANCE;
 
     public static final Minecraft mc = Minecraft.getMinecraft();
-
-    public static final ResourceLocation bugIcon = new ResourceLocation(ModReference.MOD_ID + ":textures/gui/bugIcon.png");
-    public static final ResourceLocation menuButtons = new ResourceLocation(ModReference.MOD_ID + ":textures/gui/menuButtons.png");
 
     public static File mainConfigFile;
 
@@ -41,10 +36,5 @@ public class MWC {
         //KeyBindings.init();
 
         //MinecraftForge.EVENT_BUS.register(KeyInputHandler.class);
-    }
-
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent postInitializationEvent) {
-        //MinecraftForge.EVENT_BUS.register(new GuiHandler());
     }
 }
