@@ -47,6 +47,8 @@ Review your changes and make sure everything looks good. Then click the green "C
 
 Wait for your pull request to be reviewed by other contributors. You may need to make some changes based on their feedback. Once your pull request is approved, your changes will be merged into the main codebase.
 
+---
+
 ## Conclusion
 Remember to always communicate clearly with other contributors and follow the project's coding standards and guidelines. __Good luck with your contributions to Modern Warfare Cubed!__
 
