@@ -1,17 +1,16 @@
-package cc.panada.MWC;
+package cc.panada.mwc;
 
-import cc.panada.MWC.handler.ConfigHandler;
-import cc.panada.MWC.util.ModReference;
+import cc.panada.mwc.handler.ConfigHandler;
+import cc.panada.mwc.utils.ModReference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import java.io.File;
 
-@Mod(modid = ModReference.MOD_ID, name = ModReference.NAME, version = ModReference.VERSION, guiFactory = "cc.panada.MWC.config.MWCConfigGuiFactory")
+@Mod(modid = ModReference.MOD_ID, name = ModReference.NAME, version = ModReference.VERSION, guiFactory = "cc.panada.mwc.config.MWCConfigGuiFactory")
 public class MWC {
 
     @Mod.Instance(ModReference.MOD_ID)
@@ -36,7 +35,7 @@ public class MWC {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent preInitializationEvent) {
-        mainConfigFile = new File(preInitializationEvent.getModConfigurationDirectory() + "/MWC/Config.txt");
+        mainConfigFile = new File(preInitializationEvent.getModConfigurationDirectory() + "/mwc/Config.txt");
 
         ConfigHandler.init();
         //KeyBindings.init();

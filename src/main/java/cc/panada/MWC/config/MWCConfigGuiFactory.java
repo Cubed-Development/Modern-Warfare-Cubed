@@ -1,6 +1,6 @@
-package cc.panada.MWC.config;
+package cc.panada.mwc.config;
 
-//import cc.panada.MWC.gui.menu.Page0;
+//import cc.panada.mwc.gui.menu.Page0;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.fml.client.IModGuiFactory;
