@@ -23,7 +23,8 @@ Launch IntelliJ Idea, then click `Open` navigate to the repository you just clon
 
 Open the Gradle panel on the right side of IntelliJ IDEA then open the `Tasks` "folder" then `forgegradle` now double click `setupDecompWorkspace`.
 
-Once the `setupDecompWorkspace` has finished double click `runClient` to launch the client, same for `runServer` except it launches the server.
+Once the `setupDecompWorkspace` has finished, reload Gradle, once finished double click `runClient` to launch the client, same for `runServer` except it launches the server.
+
 
 ---
 
