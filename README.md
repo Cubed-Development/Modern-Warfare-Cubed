@@ -11,12 +11,12 @@
     <img src="https://img.shields.io/github/last-commit/Paneedah/Modern-Warfare-Cubed?logo=GitHub&style=for-the-badge">
   </a>
   
-  <a href="https://patreon.com/ModernWarfareCubed">
-    <img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3DModernWarfareCubed%26type%3Dpatrons&style=for-the-badge"/>
-  </a>
-  
   <a href="https://discord.gg/k5WPk93K7b">
     <img src="https://img.shields.io/discord/801852948854079489?label=Discord&logo=discord&style=for-the-badge">
+  </a>
+  
+  <a href="https://patreon.com/ModernWarfareCubed">
+    <img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3DModernWarfareCubed%26type%3Dpatrons&style=for-the-badge"/>
   </a>
 </p>
 
