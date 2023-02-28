@@ -1,12 +1,12 @@
-package cc.panada.MWC.handler;
+package cc.panada.mwc.handler;
 
-import cc.panada.MWC.MWC;
+import cc.panada.mwc.MWC;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 
-import static cc.panada.MWC.util.ModReference.MWC_LOG;
+import static cc.panada.mwc.utils.ModReference.MWC_LOG;
 
 /**
  * This class handle everything related to the config system.

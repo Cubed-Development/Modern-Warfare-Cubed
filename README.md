@@ -22,21 +22,13 @@
 
 <br>
 
-<h2 align="center">Compilation Instructions</h2>
-
-<br>
-
-{temporary text, replace me with actual instructions on how to compile the code}
-
-<br>
-
 <h2 align="center">How do I contribute?</h2>
 
 <br>
 
 Anyone and everyone is welcome to contribute and help out with the project!
 
-To contribute, please create a Fork of any branch on our project and feel free to submit Pull Requests as you see fit with any features, bug fixes, optimizations, etc.!
+To contribute, please follow the [contributing guide](https://github.com/Paneedah/Modern-Warfare-Cubed/blob/master/CONTRIBUTING.md).
 
 <br>
 
@@ -60,6 +52,7 @@ Another massive thank you to all of the contributors, and members of the develop
 - [Paneedah](https://github.com/Paneedah) - Lead Developer
 - [BurnhamR](https://github.com/BurnhamR) - Lead Developer
 - [Desoroxxx](https://github.com/JustDesoroxxx) - Head Developer
+- [SticksPluto](https://github.com/SticksPluto) - Contributor
 
 <br>
 
