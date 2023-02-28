@@ -13,6 +13,8 @@ public class ModReference {
     public static final String NAME = "Modern Warfare Cubed";
     public static final String VERSION = "@VERSION@";
     public static final Logger MWC_LOG = LogManager.getLogger(MOD_ID);
+    public static final String CLIENT_PROXY_CLASS = "cc.panada.MWC.proxy.ClientProxy";
+    public static final String COMMON_PROXY_CLASS = "cc.panada.MWC.proxy.CommonProxy";
     public static URI ISSUE;
 
     static {

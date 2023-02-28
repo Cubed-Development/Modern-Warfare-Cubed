@@ -1,5 +1,12 @@
 # HUD
 
+#ItemGroups
+itemGroup.resourcestab=Resources
+
+#Items
+
+#Blocks
+
 # Menu
 menu.mwc=§l= Modern Warfare Cubed =
 menu.bugReport=Found a §cbug§a? Click to report it!

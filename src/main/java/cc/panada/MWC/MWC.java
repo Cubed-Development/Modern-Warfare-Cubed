@@ -1,11 +1,16 @@
 package cc.panada.MWC;
 
 import cc.panada.MWC.handler.ConfigHandler;
+import cc.panada.MWC.proxy.CommonProxy;
 import cc.panada.MWC.util.ModReference;
+import cc.panada.MWC.gui.ResourcesTab;
 import net.minecraft.client.Minecraft;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -33,6 +38,8 @@ public class MWC {
     public MWC() {
         INSTANCE = this;
     }
+    @SidedProxy(clientSide = ModReference.CLIENT_PROXY_CLASS, serverSide = ModReference.COMMON_PROXY_CLASS)
+    public static CommonProxy proxy;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent preInitializationEvent) {
@@ -45,7 +52,14 @@ public class MWC {
     }
 
     @Mod.EventHandler
+    public static void init(FMLInitializationEvent event) {
+
+    }
+
+    @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent postInitializationEvent) {
         //MinecraftForge.EVENT_BUS.register(new GuiHandler());
     }
+
+    public static final CreativeTabs ResourcesTab = new ResourcesTab(CreativeTabs.getNextID(),"resourcestab");
 }
