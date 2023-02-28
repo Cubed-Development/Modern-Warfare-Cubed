@@ -1,4 +1,4 @@
-package cc.panada.MWC.proxy;
+package cc.panada.mwc.proxy;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;

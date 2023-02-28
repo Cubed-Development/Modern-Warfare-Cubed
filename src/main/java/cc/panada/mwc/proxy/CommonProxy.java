@@ -1,4 +1,4 @@
-package cc.panada.MWC.proxy;
+package cc.panada.mwc.proxy;
 
 import net.minecraft.item.Item;
 

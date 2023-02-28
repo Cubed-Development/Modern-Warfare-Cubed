@@ -1,4 +1,4 @@
-package cc.panada.MWC.init;
+package cc.panada.mwc.init;
 
 import net.minecraft.block.Block;
 import java.util.ArrayList;

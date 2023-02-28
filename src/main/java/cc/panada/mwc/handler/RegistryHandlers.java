@@ -1,8 +1,8 @@
-package cc.panada.MWC.handler;
+package cc.panada.mwc.handler;
 
-import cc.panada.MWC.util.IHasModel;
-import cc.panada.MWC.init.ModItems;
-import cc.panada.MWC.init.ModBlocks;
+import cc.panada.mwc.utils.IHasModel;
+import cc.panada.mwc.init.ModItems;
+import cc.panada.mwc.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;

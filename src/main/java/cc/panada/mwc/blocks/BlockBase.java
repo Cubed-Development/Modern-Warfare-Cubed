@@ -1,9 +1,9 @@
-package cc.panada.MWC.blocks;
+package cc.panada.mwc.blocks;
 
-import cc.panada.MWC.MWC;
-import cc.panada.MWC.init.ModBlocks;
-import cc.panada.MWC.init.ModItems;
-import cc.panada.MWC.util.IHasModel;
+import cc.panada.mwc.MWC;
+import cc.panada.mwc.init.ModBlocks;
+import cc.panada.mwc.init.ModItems;
+import cc.panada.mwc.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;

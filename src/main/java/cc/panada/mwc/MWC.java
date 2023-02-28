@@ -1,13 +1,12 @@
-package cc.panada.MWC;
+package cc.panada.mwc;
 
-import cc.panada.MWC.handler.ConfigHandler;
-import cc.panada.MWC.proxy.CommonProxy;
-import cc.panada.MWC.util.ModReference;
-import cc.panada.MWC.gui.ResourcesTab;
+import cc.panada.mwc.handler.ConfigHandler;
+import cc.panada.mwc.proxy.CommonProxy;
+import cc.panada.mwc.utils.ModReference;
+import cc.panada.mwc.gui.ResourcesTab;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

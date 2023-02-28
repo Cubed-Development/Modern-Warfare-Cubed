@@ -1,8 +1,5 @@
-package cc.panada.MWC.init;
+package cc.panada.mwc.init;
 
-import cc.panada.MWC.MWC;
-import cc.panada.MWC.items.ItemBase;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 import java.util.ArrayList;

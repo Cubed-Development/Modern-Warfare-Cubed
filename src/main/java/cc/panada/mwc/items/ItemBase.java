@@ -1,8 +1,8 @@
-package cc.panada.MWC.items;
+package cc.panada.mwc.items;
 
-import cc.panada.MWC.MWC;
-import cc.panada.MWC.init.ModItems;
-import cc.panada.MWC.util.IHasModel;
+import cc.panada.mwc.MWC;
+import cc.panada.mwc.init.ModItems;
+import cc.panada.mwc.utils.IHasModel;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
