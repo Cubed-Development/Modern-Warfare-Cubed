@@ -1,8 +1,6 @@
-package cc.panada.mwc.main;
+package cc.panada.mwc.registry;
 
-import cc.panada.mwc.blocks.CopperOre;
-import cc.panada.mwc.blocks.SulfurOre;
-import cc.panada.mwc.blocks.TinOre;
+import cc.panada.mwc.other.*;
 import cc.panada.mwc.creativetabs.ResourcesTab;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -22,28 +20,24 @@ public class MainRegistry {
 
     public static final CreativeTabs resourceTab = new ResourcesTab(CreativeTabs.getNextID(), "resourceTab");
 
-    // Blocks
-
-    public static final List<Block> blocks = new ArrayList<>();
-
-    public static final Block COPPER_ORE = new CopperOre();
-    public static final Block SULFUR_ORE = new SulfurOre();
-    public static final Block TIN_ORE = new TinOre();
-
     // Items
 
     public static final List<Item> items = new ArrayList<>();
 
-    public static final Item COPPER_CHUNK = initItem("copper_chunk", resourceTab);
-    public static final Item GUNMETAL_INGOT = initItem("gunmetal_ingot", resourceTab);
-    public static final Item GUNPLATE = initItem("gunplate", resourceTab);
-    public static final Item SMALL_GUNPLATE = initItem("small_gunplate", resourceTab);
+    public static final Item COPPER_CHUNK = new ItemBase("copper_chunk", resourceTab);
+    public static final Item SULFUR = new ItemBase("sulfur", resourceTab);
+    public static final Item TIN = new ItemBase("tin", resourceTab);
+    public static final Item GUNMETAL_INGOT = new ItemBase("gunmetal_ingot", resourceTab);
+    public static final Item GUNPLATE = new ItemBase("gunplate", resourceTab);
+    public static final Item SMALL_GUNPLATE = new ItemBase("small_gunplate", resourceTab);
 
-    public static Item initItem(String name, CreativeTabs tab) {
-        Item item = new Item().setRegistryName(name).setTranslationKey(name).setCreativeTab(tab);
-        items.add(item);
-        return item;
-    }
+    // Blocks
+
+    public static final List<Block> blocks = new ArrayList<>();
+
+    public static final Block COPPER_ORE = new BlockOreBase("copper_ore", COPPER_CHUNK, 3.0f, 5.0f, "pickaxe", 2, resourceTab);
+    public static final Block SULFUR_ORE = new BlockOreBase("sulfur_ore", SULFUR, 2.0F, 5.0F, "pickaxe", 2, resourceTab);
+    public static final Block TIN_ORE = new BlockOreBase("tin_ore", TIN, 2.0F, 5.0F, "pickaxe", 2, resourceTab);
 
     public static void preInit() {
         for (Block block : blocks) {
