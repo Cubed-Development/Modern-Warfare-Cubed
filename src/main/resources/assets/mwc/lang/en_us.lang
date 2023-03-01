@@ -32,3 +32,18 @@ menu.example2.description=Sets example decimal value
 menu.example3.title=Example Feature
 
 menu.example3.description=Enables example feature.
+
+# Creative Tabs
+itemGroup.resourceTab=MWC Resources
+
+# Blocks
+
+tile.copper_ore.name=Copper Ore
+tile.sulfur_ore.name=Sulfur Ore
+tile.tin_ore.name=Tin Ore
+
+# Items
+item.copper_chunk.name=Copper Chunks
+item.gunmetal_ingot.name=Gunmetal Ingot
+item.gunplate.name=Gunmetal Plate
+item.small_gunplate.name=Small Gunmetal Plate

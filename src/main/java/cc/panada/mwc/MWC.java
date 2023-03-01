@@ -1,6 +1,7 @@
 package cc.panada.mwc;
 
 import cc.panada.mwc.handler.ConfigHandler;
+import cc.panada.mwc.main.MainRegistry;
 import cc.panada.mwc.utils.ModReference;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Mod;
@@ -33,6 +34,7 @@ public class MWC {
         mainConfigFile = new File(preInitializationEvent.getModConfigurationDirectory() + "/MWC/Config.txt");
 
         ConfigHandler.init();
+        MainRegistry.preInit();
         //KeyBindings.init();
 
         //MinecraftForge.EVENT_BUS.register(KeyInputHandler.class);
