@@ -1,7 +1,7 @@
 package cc.panada.mwc;
 
 import cc.panada.mwc.handler.ConfigHandler;
-import cc.panada.mwc.main.MainRegistry;
+import cc.panada.mwc.registry.MainRegistry;
 import cc.panada.mwc.utils.ModReference;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Mod;

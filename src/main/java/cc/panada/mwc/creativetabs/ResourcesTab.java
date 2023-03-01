@@ -1,6 +1,6 @@
 package cc.panada.mwc.creativetabs;
 
-import cc.panada.mwc.main.MainRegistry;
+import cc.panada.mwc.registry.MainRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
