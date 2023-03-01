@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "normal": { "model": "mwc:sulfur_ore" }
+  }
+}
