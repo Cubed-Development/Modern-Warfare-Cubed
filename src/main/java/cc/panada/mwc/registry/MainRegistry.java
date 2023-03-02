@@ -27,7 +27,7 @@ public class MainRegistry {
 
     public static final Item COPPER_CHUNK = new ItemBase("copper_chunk", resourceTab);
     public static final Item SULFUR = new ItemBase("sulfur", resourceTab);
-    public static final Item TIN = new ItemBase("tin", resourceTab);
+    public static final Item TIN_CHUNK = new ItemBase("tin_chunk", resourceTab);
     public static final Item GUNMETAL_INGOT = new ItemBase("gunmetal_ingot", resourceTab);
     public static final Item GUNPLATE = new ItemBase("gunplate", resourceTab);
     public static final Item SMALL_GUNPLATE = new ItemBase("small_gunplate", resourceTab);
@@ -38,7 +38,7 @@ public class MainRegistry {
 
     public static final Block COPPER_ORE = new BlockOreBase("copper_ore", COPPER_CHUNK, 3.0f, 5.0f, "pickaxe", 2, resourceTab);
     public static final Block SULFUR_ORE = new BlockOreBase("sulfur_ore", SULFUR, 2.0F, 5.0F, "pickaxe", 2, resourceTab);
-    public static final Block TIN_ORE = new BlockOreBase("tin_ore", TIN, 2.0F, 5.0F, "pickaxe", 2, resourceTab);
+    public static final Block TIN_ORE = new BlockOreBase("tin_ore", TIN_CHUNK, 2.0F, 5.0F, "pickaxe", 2, resourceTab);
 
     public static void preInit() {
         for (final Block block : blocks) {
