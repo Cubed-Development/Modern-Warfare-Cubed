@@ -27,8 +27,7 @@ public class BlockBase extends Block {
         return worldIn.getBlockState(pos.down()).isSideSolid(worldIn, pos, EnumFacing.UP);
     }
 
-    public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
-    {
+    public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL); {
         this.setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
 
@@ -80,8 +79,7 @@ public class BlockBase extends Block {
     }
 
     @Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos,EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos,EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return getDefaultState().withProperty(FACING, placer.getHorizontalFacing());
     }
 
@@ -92,12 +90,9 @@ public class BlockBase extends Block {
 
     @Override
     public void observedNeighborChange(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        if(!this.canBlockStayBoolean) {
-
-        } else {
+        if(this.canBlockStayBoolean) {
             worldIn.setBlockToAir(pos);
             InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(MainRegistry.WORKBENCH));
-        }
     }
 
     @Override
@@ -116,10 +111,8 @@ public class BlockBase extends Block {
     }
 
     @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
-        switch(((EnumFacing)state.getValue(FACING)))
-        {
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        switch(((EnumFacing)state.getValue(FACING))) {
             case SOUTH:
             default:
                 return BlockModel;
