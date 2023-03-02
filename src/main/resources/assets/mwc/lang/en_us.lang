@@ -35,7 +35,7 @@ menu.example3.description=Enables example feature.
 
 # Creative Tabs
 itemGroup.resourceTab=MWC Resources
-itemGroup.otherTab=MWC Workbench's | Others
+itemGroup.otherTab=MWC General
 
 # Blocks
 tile.copper_ore.name=Copper Ore
