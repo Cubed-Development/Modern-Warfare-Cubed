@@ -47,8 +47,7 @@ public class MainRegistry {
     // Blocks
 
     public static final List<Block> blocks = new ArrayList<>();
-    public static final Block WORKBENCH = new BlockBase("workbench", Material.IRON, 3.0f, 5.0f, "pickaxe", 1, MainRegistry.otherTab,false,false,
-            new AxisAlignedBB(-0.45D, 0.0D, 0.0D, 1.55D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, -0.45D, 1.0D, 1.0D, 1.55D),false);
+    public static final Block WORKBENCH = new BlockBase("workbench", Material.IRON, 3.0f, 5.0f, "pickaxe", 1, MainRegistry.otherTab, false, false, new AxisAlignedBB(-0.45D, 0.0D, 0.0D, 1.55D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, -0.45D, 1.0D, 1.0D, 1.55D),false);
     public static final Block COPPER_ORE = new BlockOreBase("copper_ore", COPPER_CHUNK, 3.0f, 5.0f, "pickaxe", 2, resourceTab);
     public static final Block SULFUR_ORE = new BlockOreBase("sulfur_ore", SULFUR, 2.0F, 5.0F, "pickaxe", 2, resourceTab);
     public static final Block TIN_ORE = new BlockOreBase("tin_ore", TIN, 2.0F, 5.0F, "pickaxe", 2, resourceTab);
