@@ -122,5 +122,4 @@ public class BlockBase extends Block {
                 return BlockModel_WE;
         }
     }
-
 }
