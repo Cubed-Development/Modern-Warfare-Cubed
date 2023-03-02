@@ -115,7 +115,7 @@ public class BlockBase extends Block {
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         switch(((EnumFacing)state.getValue(FACING))) {
             case SOUTH:
-            default:
+                default:
                 return BlockModel;
             case EAST:
             case WEST:
