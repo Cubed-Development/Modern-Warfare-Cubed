@@ -8,6 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import org.jetbrains.annotations.NotNull;
 
 public class BlockBase extends Block {
 
@@ -16,7 +17,14 @@ public class BlockBase extends Block {
     private final boolean opaqueCub;
     private final boolean FullCube;
 
-    public BlockBase(String name, Material soundMaterial, float hardness, float resistance, CreativeTabs creativeTabs, boolean opaqueCube, boolean FullCube, AxisAlignedBB axisAlignedBB) {
+    public BlockBase(@NotNull final String name,
+                     @NotNull final Material soundMaterial,
+                     final float hardness,
+                     final float resistance,
+                     @NotNull final CreativeTabs creativeTabs,
+                     final boolean opaqueCube,
+                     final boolean FullCube,
+                     @NotNull final AxisAlignedBB axisAlignedBB) {
         super(soundMaterial);
 
         this.opaqueCub = opaqueCube;
@@ -35,17 +43,17 @@ public class BlockBase extends Block {
     }
 
     @Override
-    public boolean isOpaqueCube(IBlockState state) {
+    public boolean isOpaqueCube(@NotNull final IBlockState state) {
         return opaqueCub;
     }
 
     @Override
-    public boolean isFullCube(IBlockState state) {
+    public boolean isFullCube(@NotNull final IBlockState state) {
         return FullCube;
     }
 
     @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+    public @NotNull AxisAlignedBB getBoundingBox(@NotNull final IBlockState state, @NotNull final IBlockAccess source, @NotNull final BlockPos pos) {
         return BlockModel;
     }
 }

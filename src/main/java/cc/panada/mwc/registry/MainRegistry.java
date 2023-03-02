@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MainRegistry {
 
@@ -40,11 +41,12 @@ public class MainRegistry {
     public static final Block TIN_ORE = new BlockOreBase("tin_ore", TIN, 2.0F, 5.0F, "pickaxe", 2, resourceTab);
 
     public static void preInit() {
-        for (Block block : blocks) {
+        for (final Block block : blocks) {
             ForgeRegistries.BLOCKS.register(block);
 
             ResourceLocation registryName = block.getRegistryName();
             ItemBlock itemBlock = new ItemBlock(block);
+            assert registryName != null;
             itemBlock.setRegistryName(registryName);
 
             ForgeRegistries.ITEMS.register(itemBlock);
@@ -53,7 +55,7 @@ public class MainRegistry {
 
         for (Item item : items) {
             ForgeRegistries.ITEMS.register(item);
-            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Objects.requireNonNull(item.getRegistryName()), "inventory"));
         }
     }
 }

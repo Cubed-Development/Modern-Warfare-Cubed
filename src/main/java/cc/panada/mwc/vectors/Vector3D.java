@@ -1,5 +1,7 @@
 package cc.panada.mwc.vectors;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Represents a three-dimensional vector with `x`, `y`, and `z` coordinates.
  * <p>
@@ -29,7 +31,7 @@ public class Vector3D {
 	 * @param inputY The Y coordinate
 	 * @param inputZ The Z coordinate
 	 */
-	public Vector3D(float inputX, float inputY, float inputZ) {
+	public Vector3D(final float inputX, final float inputY, final float inputZ) {
 		x = inputX;
 		y = inputY;
 		z = inputZ;
@@ -40,7 +42,7 @@ public class Vector3D {
 	 *
 	 * @param inputVector The vector to copy the coordinates from
 	 */
-	public Vector3D(Vector3D inputVector) {
+	public Vector3D(@NotNull final Vector3D inputVector) {
 		x = inputVector.x;
 		y = inputVector.y;
 		z = inputVector.z;
@@ -51,7 +53,7 @@ public class Vector3D {
 	 *
 	 * @param inputVector The vector to copy from
 	 */
-	public void copy(Vector3D inputVector) {
+	public void copy(@NotNull final Vector3D inputVector) {
 		x = inputVector.x;
 		y = inputVector.y;
 		z = inputVector.z;
@@ -64,7 +66,7 @@ public class Vector3D {
 	 * @param inputY The Y coordinate
 	 * @param inputZ The Z coordinate
 	 */
-	public void set(float inputX, float inputY, float inputZ) {
+	public void set(final float inputX, final float inputY, final float inputZ) {
 		x = inputX;
 		y = inputY;
 		z = inputZ;
@@ -75,7 +77,7 @@ public class Vector3D {
 	 *
 	 * @param inputVector The vector to add
 	 */
-	public void add(Vector3D inputVector) {
+	public void add(@NotNull final Vector3D inputVector) {
 		x += inputVector.x;
 		y += inputVector.y;
 		z += inputVector.z;
@@ -93,7 +95,7 @@ public class Vector3D {
 	 *
 	 * @param multiplier The value to multiply the coordinates by
 	 */
-	public void scale(float multiplier) {
+	public void scale(final float multiplier) {
 		x *= multiplier;
 		y *= multiplier;
 		z *= multiplier;
@@ -110,7 +112,7 @@ public class Vector3D {
 	 * @param partialTicks The fraction of elapsed time between two frames in a frame-based animation
 	 * @param newVector The new vector to store the interpolated coordinates in
 	 */
-	public void partialVector(Vector3D previousVector, float partialTicks, Vector3D newVector) {
+	public void partialVector(@NotNull final Vector3D previousVector, final float partialTicks, @NotNull final Vector3D newVector) {
 		newVector.x = previousVector.x + (x - previousVector.x) * partialTicks;
 		newVector.y = previousVector.y + (y - previousVector.y) * partialTicks;
 		newVector.z = previousVector.z + (z - previousVector.z) * partialTicks;

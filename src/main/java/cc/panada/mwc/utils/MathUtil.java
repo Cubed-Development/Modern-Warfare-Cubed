@@ -26,8 +26,8 @@ public class MathUtil {
 	 * @param max The maximum value to clamp to
 	 * @return The clamped value
 	 */
-	public static float clampMinFirst(float input, float min, float max) {
-		return input < min ? min : input > max ? max : input;
+	public static float clampMinFirst(final float input, final float min, final float max) {
+		return input < min ? min : Math.min(input, max);
 	}
 
 	/**
@@ -38,8 +38,8 @@ public class MathUtil {
 	 * @param max The maximum value to clamp to
 	 * @return The clamped value
 	 */
-	public static float clampMaxFirst(float input, float min, float max) {
-		return input > max ? max : input < min ? min : input;
+	public static float clampMaxFirst(final float input, final float min, final float max) {
+		return input > max ? max : Math.max(input, min);
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class MathUtil {
 	 * @param max The maximum value to clamp to
 	 * @return The clamped value
 	 */
-	public static float clampTest(float input, float min, float max) {
+	public static float clampTest(final float input, final float min, final float max) {
 		if (input < min) {
 			MWC_LOG.info("Clamped to minimum");
 			return min;
@@ -71,7 +71,7 @@ public class MathUtil {
 	 * @param input The float number to get the absolute value of
 	 * @return The absolute value of the input
 	 */
-	public static float absolute(float input) {
+	public static float absolute(final float input) {
 		return input >= 0 ? input : -input;
 	}
 
@@ -84,7 +84,7 @@ public class MathUtil {
 	 * @param input2 The second input
 	 * @return The absolute maximum of the two inputs
 	 */
-	public static float absoluteMax(float input1, float input2) {
+	public static float absoluteMax(final float input1, final float input2) {
 		absolute1 = input1 >= 0 ? input1 : -input1;
 		absolute2 = input2 >= 0 ? input2 : -input2;
 		return Math.max(absolute1, absolute2);
@@ -99,7 +99,7 @@ public class MathUtil {
 	 * @param add The value to add or subtract.
 	 * @return The result of adding or subtracting the add value from the input value.
 	 */
-	public static float addOrSubtractBasedOnSign(float input, float add) {
+	public static float addOrSubtractBasedOnSign(final float input, final float add) {
 		return input < 0 ? input - add : input + add;
 	}
 
@@ -110,7 +110,7 @@ public class MathUtil {
 	 * @param decimals The number of decimal places to round to.
 	 * @return The rounded number.
 	 */
-	public static float round(float input, int decimals) {
+	public static float round(final float input, final int decimals) {
 		// Convert input to an integer by multiplying it by 10^decimals and rounding it
 		rounded = (int) FastMath.round(input * FastMath.pow(10, decimals));
         // Divide the rounded number by 10^decimals to get the rounded result
@@ -123,7 +123,7 @@ public class MathUtil {
 	 * @param input The boolean value to convert
 	 * @return 1 if the input is true, 0 if the input is false
 	 */
-	public static int boolToInt(boolean input) {
+	public static int boolToInt(final boolean input) {
 		return input ? 1 : 0;
 	}
 }

@@ -3,10 +3,11 @@ package cc.panada.mwc.creativetabs;
 import cc.panada.mwc.registry.MainRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class ResourcesTab extends CreativeTabs {
 
-    public ResourcesTab(int index, String label) {
+    public ResourcesTab(final int index, @NotNull final String label) {
         super(index, label);
     }
 

@@ -1,6 +1,7 @@
 package cc.panada.mwc.handler;
 
 import cc.panada.mwc.MWC;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -60,7 +61,7 @@ public class ConfigHandler {
      *
      * @param file The file object to create streams for
      */
-    private static void initStreams(File file) {
+    private static void initStreams(@NotNull final File file) {
         try {
             fileInputStream = new FileInputStream(file);
             inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
@@ -102,7 +103,7 @@ public class ConfigHandler {
      *
      * @param file The file object to create writer for
      */
-    private static void initWriter(File file) {
+    private static void initWriter(@NotNull final File file) {
         try {
             writer = new PrintWriter(file.getPath(), "UTF-8");
 
@@ -130,7 +131,7 @@ public class ConfigHandler {
      * @param file The file object that could not be found
      * @return True if the file was created successfully, false otherwise
      */
-    private static boolean handleFileNotFound(String message, String source, File file) {
+    private static boolean handleFileNotFound(@NotNull final String message, @NotNull final String source, @NotNull final File file) {
         MWC_LOG.error("Cannot init " + source + " for " + file + " as the file does not exist, details: " + message);
         MWC_LOG.warn("Trying to create file " + file);
 
@@ -213,7 +214,7 @@ public class ConfigHandler {
      * @param numberOfLines The number of lines to skip in the file
      * @throws IOException If an I/O error occurs while reading the file
      */
-    private static void skipLines(int numberOfLines) throws IOException {
+    private static void skipLines(final int numberOfLines) throws IOException {
         for (int i = 0; i < numberOfLines; i++)
             bufferedReader.readLine();
     }

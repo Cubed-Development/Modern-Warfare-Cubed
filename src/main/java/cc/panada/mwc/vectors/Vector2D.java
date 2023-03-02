@@ -26,7 +26,7 @@ public class Vector2D {
      * @param inputX The X coordinate
      * @param inputY The Y coordinate
      */
-    public Vector2D(float inputX, float inputY) {
+    public Vector2D(final float inputX, final float inputY) {
         x = inputX;
         y = inputY;
     }

@@ -19,10 +19,9 @@ public class MWC {
 
     public static File mainConfigFile;
 
+    // Config Values
     public static boolean exampleFeature;
-
     public static int exampleValue;
-
     public static float exampleDecimalValue;
 
     public MWC() {
@@ -30,7 +29,7 @@ public class MWC {
     }
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent preInitializationEvent) {
+    public void preInit(final FMLPreInitializationEvent preInitializationEvent) {
         mainConfigFile = new File(preInitializationEvent.getModConfigurationDirectory() + "/MWC/Config.txt");
 
         ConfigHandler.init();

@@ -55,6 +55,8 @@ dependencies {
 
     implementation 'net.jafama:jafama:2.+'
     embed 'net.jafama:jafama:2.+'
+
+    implementation group: 'org.jetbrains', name: 'annotations', version: '24.0.0'
 }
 
 jar {

@@ -6,6 +6,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
@@ -13,7 +14,13 @@ public class BlockOreBase extends BlockOre {
 
     private final Item itemDrop;
 
-    public BlockOreBase(String name, Item itemDrop, float hardness, float resistance, String harvest, int harvestLevel, CreativeTabs creativeTabs) {
+    public BlockOreBase(@NotNull final String name,
+                        @NotNull final Item itemDrop,
+                        final float hardness,
+                        final float resistance,
+                        @NotNull final String harvest,
+                        final int harvestLevel,
+                        @NotNull final CreativeTabs creativeTabs) {
         setHardness(hardness);
         setResistance(resistance);
 
@@ -29,7 +36,7 @@ public class BlockOreBase extends BlockOre {
     }
 
     @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+    public @NotNull Item getItemDropped(@NotNull final IBlockState state, @NotNull final Random rand, final int fortune) {
         return itemDrop;
     }
 
