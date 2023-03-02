@@ -91,8 +91,6 @@ public class BlockBase extends Block {
     @Override
     public void observedNeighborChange(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
         if(!this.canBlockStayBoolean) {
-
-        } else {
             worldIn.setBlockToAir(pos);
             InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(MainRegistry.WORKBENCH));
         }
