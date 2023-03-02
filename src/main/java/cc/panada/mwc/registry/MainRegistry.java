@@ -26,6 +26,8 @@ public class MainRegistry {
             return new ItemStack(MainRegistry.GUNMETAL_INGOT);
         }
     };
+    
+    
     public static final CreativeTabs otherTab = new CreativeTabs(CreativeTabs.getNextID(), "otherTab") {
         @Override
         public ItemStack createIcon() {
@@ -51,7 +53,6 @@ public class MainRegistry {
     public static final Block COPPER_ORE = new BlockOreBase("copper_ore", COPPER_CHUNK, 3.0f, 5.0f, "pickaxe", 2, resourceTab);
     public static final Block SULFUR_ORE = new BlockOreBase("sulfur_ore", SULFUR, 2.0F, 5.0F, "pickaxe", 2, resourceTab);
     public static final Block TIN_ORE = new BlockOreBase("tin_ore", TIN, 2.0F, 5.0F, "pickaxe", 2, resourceTab);
-
 
     public static void preInit() {
         for (Block block : blocks) {
