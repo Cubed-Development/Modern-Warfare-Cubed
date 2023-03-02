@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "facing=up": {"model": "mwc:workbench"},
+
+    "facing=south": {"model": "mwc:workbench"},
+
+    "facing=east": {"model": "mwc:workbench","y":270},
+
+    "facing=west": {"model": "mwc:workbench","y":90},
+
+    "facing=north": {"model": "mwc:workbench","y":180}
+  }
+}

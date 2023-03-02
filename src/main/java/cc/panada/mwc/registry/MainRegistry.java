@@ -1,13 +1,15 @@
 package cc.panada.mwc.registry;
 
 import cc.panada.mwc.other.*;
-import cc.panada.mwc.creativetabs.ResourcesTab;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
@@ -18,7 +20,20 @@ public class MainRegistry {
 
     // Creative Tabs
 
-    public static final CreativeTabs resourceTab = new ResourcesTab(CreativeTabs.getNextID(), "resourceTab");
+    public static final CreativeTabs resourceTab = new CreativeTabs(CreativeTabs.getNextID(), "resourceTab") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(MainRegistry.GUNMETAL_INGOT);
+        }
+    };
+    
+    
+    public static final CreativeTabs otherTab = new CreativeTabs(CreativeTabs.getNextID(), "otherTab") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(MainRegistry.WORKBENCH);
+        }
+    };
 
     // Items
 
@@ -34,7 +49,7 @@ public class MainRegistry {
     // Blocks
 
     public static final List<Block> blocks = new ArrayList<>();
-
+    public static final Block WORKBENCH = new BlockBase("workbench", Material.IRON, 3.0f, 5.0f, "pickaxe", 1, MainRegistry.otherTab, false, false, new AxisAlignedBB(-0.45D, 0, 0, 1.55D, 1, 1), new AxisAlignedBB(0, 0, -0.45D, 1, 1, 1.55D),true);
     public static final Block COPPER_ORE = new BlockOreBase("copper_ore", COPPER_CHUNK, 3.0f, 5.0f, "pickaxe", 2, resourceTab);
     public static final Block SULFUR_ORE = new BlockOreBase("sulfur_ore", SULFUR, 2.0F, 5.0F, "pickaxe", 2, resourceTab);
     public static final Block TIN_ORE = new BlockOreBase("tin_ore", TIN, 2.0F, 5.0F, "pickaxe", 2, resourceTab);

@@ -35,10 +35,11 @@ menu.example3.description=Enables example feature.
 
 # Creative Tabs
 itemGroup.resourceTab=MWC Resources
+itemGroup.otherTab=MWC General
 
 # Blocks
-
 tile.copper_ore.name=Copper Ore
+tile.workbench.name=Workbench
 tile.sulfur_ore.name=Sulfur Ore
 tile.tin_ore.name=Tin Ore
 
@@ -47,3 +48,5 @@ item.copper_chunk.name=Copper Chunks
 item.gunmetal_ingot.name=Gunmetal Ingot
 item.gunplate.name=Gunmetal Plate
 item.small_gunplate.name=Small Gunmetal Plate
+item.tin.name=Tin
+item.sulfur.name=Sulfur
