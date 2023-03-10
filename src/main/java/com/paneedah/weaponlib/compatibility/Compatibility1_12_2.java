@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.ai.EntityCustomMob;
 import com.paneedah.weaponlib.compatibility.CompatibleParticle.CompatibleParticleBreaking;
-import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.particle.CompatibleBloodParticle;
 import com.paneedah.weaponlib.particle.CompatibleDiggingParticle;

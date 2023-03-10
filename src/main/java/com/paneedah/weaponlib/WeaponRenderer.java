@@ -13,9 +13,9 @@ import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.compatibility.CompatibleWeaponRenderer;
 import com.paneedah.weaponlib.compatibility.Interceptors;
-import com.paneedah.weaponlib.config.BalancePackManager;
-import com.paneedah.weaponlib.config.Projectiles;
-import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.configold.BalancePackManager;
+import com.paneedah.weaponlib.configold.Projectiles;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import com.paneedah.weaponlib.render.MuzzleFlashRenderer;
 import com.paneedah.weaponlib.render.Shaders;
@@ -3322,19 +3322,9 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		            renderContext.getAgeInTicks());
 		    sqDistance = projectView.squareDistanceTo(player.posX, player.posY, player.posZ);
 		}
-		
-		Float renderOptimization = null;
-		Projectiles projectilesConfig = clientModContext.configurationManager.getProjectiles();
-		if(projectilesConfig != null) {
-		      renderOptimization = projectilesConfig.getRenderOptimization();
-		}
-		if(renderOptimization == null) {
-		    renderOptimization = 0.25f;
-		}
+
 		double volumeThreshold = sqDistance;
-		
-		
-		
+
 		if(sqDistance > Interceptors.OPTIMIZATION_MODE_MIN)
 			Interceptors.setRenderVolumeThreshold(volumeThreshold - Interceptors.OPTIMIZATION_MODE_MIN);
 		
@@ -3342,15 +3332,6 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		
 		try {
 			if(!AnimationModeProcessor.getInstance().shouldIsolateCategory()) {
-			
-				
-				
-			
-				
-				//System.out.println("yo");
-			//	test1 = 1;
-				
-				
 			//	GlStateManager.translate(0, 0, test1);
 				//GlStateManager.translate(-0.05*test1, 0.01*test1, 0);
 				//GlStateManager.rotate(-10f*test1, 1, 1, 0);
@@ -3384,22 +3365,24 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		        }
 		    }
 		    
-		    if(DebugCommand.debugFlag == 7) return;
+		    if(DebugCommand.debugFlag == 7)
+				return;
 			
 		} finally {
-			//System.out.println("yo");
 		    Interceptors.setRenderVolumeThreshold(0.0);
 		}
 		
 		
 		
 		
-		if(DebugCommand.debugFlag == 8) return;
+		if(DebugCommand.debugFlag == 8)
+			return;
 		
 		if(!OpenGLSelectionHelper.isInSelectionPass && ModernConfigManager.enableAllShaders && ModernConfigManager.enableGunShaders) Shaders.gunLightingShader.release();
 		
 		
-		if(DebugCommand.debugFlag == 9) return;
+		if(DebugCommand.debugFlag == 9)
+			return;
 		
 		
 		if(!AnimationModeProcessor.getInstance().getFPSMode()) renderPostRenderers(renderContext);

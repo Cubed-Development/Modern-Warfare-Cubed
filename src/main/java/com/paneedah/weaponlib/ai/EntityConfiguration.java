@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleBiomeType;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import com.paneedah.weaponlib.compatibility.CompatibleSound;
-import com.paneedah.weaponlib.config.AIEntity;
+import com.paneedah.weaponlib.configold.AIEntity;
 import com.paneedah.weaponlib.mission.MissionOffering;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;

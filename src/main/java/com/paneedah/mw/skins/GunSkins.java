@@ -5,7 +5,7 @@ import com.paneedah.mw.utils.ModReference;
 import com.paneedah.weaponlib.CommonRegistry;
 import com.paneedah.weaponlib.ItemSkin;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 
 public class GunSkins {
 

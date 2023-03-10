@@ -6,7 +6,7 @@ import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.animation.MultipartTransition;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import org.lwjgl.opengl.GL11;
 
 public class PlayerAnimations {

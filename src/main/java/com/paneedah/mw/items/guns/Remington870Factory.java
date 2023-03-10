@@ -9,7 +9,7 @@ import com.paneedah.mw.weapons.AuxiliaryAttachments;
 import com.paneedah.mw.wearables.Bullets;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transition;
-import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.configold.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 

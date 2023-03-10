@@ -6,7 +6,7 @@ import com.paneedah.mw.ores.Ores;
 import com.paneedah.mw.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import net.minecraft.client.renderer.GlStateManager;

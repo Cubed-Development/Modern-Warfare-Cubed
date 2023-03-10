@@ -5,7 +5,8 @@ import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
-import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
+import com.paneedah.weaponlib.configold.BalancePackManager;
 import com.paneedah.weaponlib.network.TypeRegistry;
 import com.paneedah.weaponlib.perspective.OpticalScopePerspective;
 import com.paneedah.weaponlib.perspective.Perspective;
@@ -595,25 +596,12 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     public DynamicShaderGroupSource getShaderSource(DynamicShaderPhase phase) {
 	    if(isAimed() && phase == DynamicShaderPhase.POST_WORLD_OPTICAL_SCOPE_RENDER) {
 	        ItemScope scope = getScope();
-	        if(scope.isOptical()) {
-	        	
-	        	
-	            return scope.hasNightVision() && nightVisionOn ? NIGHT_VISION_SOURCE 
-	                    : VIGNETTE_SOURCE;
-	        }
+	        if(scope.isOptical())
+	            return scope.hasNightVision() && nightVisionOn ? NIGHT_VISION_SOURCE : VIGNETTE_SOURCE;
 	    }
 
-	    Boolean blurOnAim = true;
-	    if(getWeapon() != null && getWeapon().getModContext() != null && getWeapon().getModContext().getConfigurationManager().getProjectiles() != null) {
-	        blurOnAim = getWeapon().getModContext().getConfigurationManager().getProjectiles().isBlurOnAim();
-	        if(blurOnAim == null) {
-	            blurOnAim = true;
-	        }
-	    }
 	    float progress = getAimChangeProgress();
-        return blurOnAim
-                && phase == DynamicShaderPhase.PRE_ITEM_RENDER
-                && (isAimed() || (progress > 0f && progress < 1f)) ? BLUR_SOURCE : null;
+        return ModernConfigManager.enableBlurOnAim && phase == DynamicShaderPhase.PRE_ITEM_RENDER && (isAimed() || (progress > 0f && progress < 1f)) ? BLUR_SOURCE : null;
     }
    	
    	public void setLoadIterationCount(int loadIterationCount) {

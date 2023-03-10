@@ -6,7 +6,7 @@ import com.paneedah.weaponlib.CustomArmor;
 import com.paneedah.weaponlib.CustomArmor.Builder;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 

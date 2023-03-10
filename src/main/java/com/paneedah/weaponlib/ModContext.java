@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.*;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.crafting.RecipeManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.GrenadeRenderer;

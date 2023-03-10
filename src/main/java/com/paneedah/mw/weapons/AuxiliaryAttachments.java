@@ -8,7 +8,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import org.lwjgl.opengl.GL11;
 
 public class AuxiliaryAttachments {

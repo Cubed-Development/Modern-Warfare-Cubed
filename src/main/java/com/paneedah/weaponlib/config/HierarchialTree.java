@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.config.novel;
+package com.paneedah.weaponlib.config;
 
 import java.io.IOException;
 import java.io.OutputStream;

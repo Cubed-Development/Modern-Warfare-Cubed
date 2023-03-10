@@ -7,7 +7,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.SpriteSheetTools.Sprite;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;

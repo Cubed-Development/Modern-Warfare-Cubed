@@ -11,7 +11,7 @@ import com.paneedah.mw.weapons.Magazines;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
-import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.configold.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;

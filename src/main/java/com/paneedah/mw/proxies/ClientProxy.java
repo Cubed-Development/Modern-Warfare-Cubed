@@ -8,7 +8,7 @@ import com.paneedah.mw.utils.ModReference;
 import com.paneedah.mw.wearables.Armors;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.model.AmmoPress;

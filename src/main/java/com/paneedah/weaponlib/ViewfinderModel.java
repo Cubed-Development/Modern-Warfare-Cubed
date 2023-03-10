@@ -2,7 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.compatibility.FlatSurfaceModelBox;
-import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.perspective.OpticalScopePerspective;
 import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
 import com.paneedah.weaponlib.render.scopes.Reticle;

@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.config.novel;
+package com.paneedah.weaponlib.config;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraftforge.fml.client.config.ConfigGuiType;
@@ -23,8 +23,7 @@ public class SynchronizedConfigElement extends DummyConfigElement {
 		this.registryName = registryName;
 	}
 	
-	
-	
+
 	@Override
 	public boolean requiresMcRestart() {
 		return super.requiresMcRestart();

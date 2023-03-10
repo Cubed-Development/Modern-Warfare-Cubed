@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.config;
+package com.paneedah.weaponlib.configold;
 
 import com.google.gson.JsonObject;
 

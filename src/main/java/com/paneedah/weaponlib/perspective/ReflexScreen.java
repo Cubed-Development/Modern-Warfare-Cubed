@@ -8,7 +8,7 @@ import com.paneedah.weaponlib.CustomRenderer;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
-import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.model.ScreenModel;
 import com.paneedah.weaponlib.render.Shaders;
 import com.paneedah.weaponlib.render.scopes.CyclicList;

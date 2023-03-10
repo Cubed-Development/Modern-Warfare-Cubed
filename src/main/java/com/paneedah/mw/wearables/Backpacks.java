@@ -5,7 +5,7 @@ import com.paneedah.weaponlib.ItemStorage;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;

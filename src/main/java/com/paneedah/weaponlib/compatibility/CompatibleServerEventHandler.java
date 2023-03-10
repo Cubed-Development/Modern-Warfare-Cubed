@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.compatibility;
 
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.configold.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.jim.util.ByteArrayUtils;
 import com.paneedah.weaponlib.network.packets.BalancePackClient;

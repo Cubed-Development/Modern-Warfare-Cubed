@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.compatibility;
 
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import com.paneedah.weaponlib.compatibility.shells.ShellRegistry;
-import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.InstancedShellObject;
 import com.paneedah.weaponlib.render.WavefrontLoader;
 import com.paneedah.weaponlib.render.WavefrontModel;

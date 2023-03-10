@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.compatibility.CompatibleReflection;
-import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.Bloom;
 import com.paneedah.weaponlib.render.DepthTexture;
 import com.paneedah.weaponlib.render.HDRFramebuffer;

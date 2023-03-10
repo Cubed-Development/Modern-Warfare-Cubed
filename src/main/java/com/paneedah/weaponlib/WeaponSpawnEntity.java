@@ -3,7 +3,8 @@ package com.paneedah.weaponlib;
 import com.paneedah.weaponlib.compatibility.CompatibleBlockState;
 import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
 import com.paneedah.weaponlib.compatibility.CompatibleTargetPoint;
-import com.paneedah.weaponlib.config.Projectiles;
+import com.paneedah.weaponlib.config.ModernConfigManager;
+import com.paneedah.weaponlib.configold.Projectiles;
 import com.paneedah.weaponlib.jim.util.HitUtil;
 import com.paneedah.weaponlib.network.packets.BloodPacketClient;
 import io.netty.buffer.ByteBuf;
@@ -91,8 +92,6 @@ public class WeaponSpawnEntity extends EntityProjectile {
 		
 		this.spawnRocketParticles = spawnRocketParticles;
 		
-		//System.out.println(weapon + " 4 " + spawnRocketParticles);
-		
 		this.birthStamp = System.currentTimeMillis();
 		
 		this.setSize(0.30F, 0.30F);
@@ -100,24 +99,15 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
 	@Override
 	public void onUpdate() {
-		
-	
-		
-		
 	    super.onUpdate();
-	    
-	   
-	    
-	
+
 	    /*
 	    if(System.currentTimeMillis() - birthStamp > 1500) { 
 	    	//System.out.println("Killed rogue bullet");
 	    	setDead();
 	    }
 	    */
-	    
-	  
-	   
+
 	}
 	
 
@@ -149,7 +139,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 	                weapon.getModContext().getExplosionSound());
 	    } else if(position.getEntityHit() != null) {
 
-            Projectiles projectilesConfig = weapon.getModContext().getConfigurationManager().getProjectiles();
+            //Projectiles projectilesConfig = weapon.getModContext().getConfigurationManager().getProjectiles();
 
             if(this.getThrower() != null) {
                 position.getEntityHit().attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
@@ -177,10 +167,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
             //double magnitude = Math.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ) + 1;
             
-            float bleedingCoefficient = weapon.getBleedingCoefficient();
-            
-            if (projectilesConfig.getBleedingOnHit() != null)
-                bleedingCoefficient *= projectilesConfig.getBleedingOnHit();
+            float bleedingCoefficient = weapon.getBleedingCoefficient() * ModernConfigManager.enableBleedingOnHit;
             
             if(bleedingCoefficient > 0.0f) {
                 int count = (int)(getParticleCount (damage) * bleedingCoefficient);

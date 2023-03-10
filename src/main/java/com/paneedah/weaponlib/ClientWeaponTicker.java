@@ -2,8 +2,8 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
-import com.paneedah.weaponlib.config.BalancePackManager;
-import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.configold.BalancePackManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.melee.ItemMelee;
 import net.minecraft.client.settings.KeyBinding;

@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.render.bgl;
 
-import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import org.apache.commons.lang3.SystemUtils;
 import org.lwjgl.opengl.*;
 

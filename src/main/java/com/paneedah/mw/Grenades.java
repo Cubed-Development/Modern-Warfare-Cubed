@@ -7,7 +7,7 @@ import com.paneedah.weaponlib.AttachmentBuilder;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 
 public class Grenades {

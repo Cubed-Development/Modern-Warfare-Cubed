@@ -8,7 +8,7 @@
  import com.paneedah.weaponlib.animation.gui.AnimationGUI;
  import com.paneedah.weaponlib.animation.movement.WeaponRotationHandler;
  import com.paneedah.weaponlib.command.DebugCommand;
- import com.paneedah.weaponlib.config.BalancePackManager;
+ import com.paneedah.weaponlib.configold.BalancePackManager;
  import com.paneedah.weaponlib.render.*;
  import com.paneedah.weaponlib.render.SpriteSheetTools.Sprite;
  import com.paneedah.weaponlib.shader.jim.Shader;

@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.animation;
 
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.model.Bullet556;
 
 public class SpecialAttachments {

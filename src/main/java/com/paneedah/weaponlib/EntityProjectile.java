@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.*;
-import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

@@ -12,7 +12,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
-import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.configold.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;

@@ -1,5 +1,5 @@
 
-package com.paneedah.weaponlib.config;
+package com.paneedah.weaponlib.configold;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

@@ -5,8 +5,8 @@ import com.google.gson.JsonObject;
 import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
-import com.paneedah.weaponlib.config.BalancePackManager;
-import com.paneedah.weaponlib.config.BalancePackManager.BalancePack;
+import com.paneedah.weaponlib.configold.BalancePackManager;
+import com.paneedah.weaponlib.configold.BalancePackManager.BalancePack;
 import io.netty.buffer.ByteBuf;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;

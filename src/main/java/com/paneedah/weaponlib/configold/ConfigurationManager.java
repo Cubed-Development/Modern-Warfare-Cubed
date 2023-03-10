@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.config;
+package com.paneedah.weaponlib.configold;
 
 import javax.xml.bind.*;
 import javax.xml.transform.Source;
@@ -190,46 +190,7 @@ public class ConfigurationManager {
                 });
             }
 
-            System.out.println("userConfig = " + userConfig);
             if(userConfig != null) {
-                Float renderOptimization = userConfig.getProjectiles().getRenderOptimization();
-                if(renderOptimization != null) {
-                    if(renderOptimization < RENDER_OPTIMIZATION_MIN) {
-                        renderOptimization = RENDER_OPTIMIZATION_MIN;
-                    } else if(renderOptimization > RENDER_OPTIMIZATION_MAX) {
-                        renderOptimization = RENDER_OPTIMIZATION_MAX;
-                    }
-                    defaultUpdatableConfig.getProjectiles().setRenderOptimization(renderOptimization);
-                }
-                Float bleedingOnHit = userConfig.getProjectiles().getBleedingOnHit();
-                if(bleedingOnHit != null) {
-                    if(bleedingOnHit < BLEEDING_ON_HIT_COEFFICIENT_MIN) {
-                        bleedingOnHit = BLEEDING_ON_HIT_COEFFICIENT_MIN;
-                    } else if(bleedingOnHit > BLEEDING_ON_HIT_COEFFICIENT_MAX) {
-                        bleedingOnHit = BLEEDING_ON_HIT_COEFFICIENT_MAX;
-                    }
-                    defaultUpdatableConfig.getProjectiles().setBleedingOnHit(bleedingOnHit);
-                }
-
-                System.out.println(".isDestroyGlassBlocks() = " + userConfig.getProjectiles().isDestroyGlassBlocks());
-                defaultUpdatableConfig.getProjectiles().setDestroyGlassBlocks(userConfig.getProjectiles().isDestroyGlassBlocks());
-                System.out.println(".isDestroyGlassBlocks() = " + userConfig.getProjectiles().isDestroyGlassBlocks());
-
-                if(userConfig.getProjectiles().isKnockbackOnHit() == null) {
-                    defaultUpdatableConfig.getProjectiles().setKnockbackOnHit(
-                            userConfig.getProjectiles().isKnockbackOnHit());
-                }
-
-                if(userConfig.getProjectiles().isMuzzleEffects() == null) {
-                    defaultUpdatableConfig.getProjectiles().setMuzzleEffects(
-                            userConfig.getProjectiles().isMuzzleEffects());
-                }
-
-                if(userConfig.getProjectiles().isBlurOnAim() == null) {
-                    defaultUpdatableConfig.getProjectiles().setBlurOnAim(
-                            userConfig.getProjectiles().isBlurOnAim());
-                }
-
                 for(Gun gun: userConfig.getProjectiles().getGun()) {
                     if(gun.getDamage() < MIN_GUN_DAMAGE_MULTIPLIER || gun.getDamage() > MAX_GUN_DAMAGE_MULTIPLIER) {
                         gun.setDamage(DEFAULT_GUN_DAMAGE_MULTIPLIER);

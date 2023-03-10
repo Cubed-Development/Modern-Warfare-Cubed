@@ -3,7 +3,7 @@ package com.paneedah.mw;
 import com.paneedah.mw.proxies.CommonProxy;
 import com.paneedah.weaponlib.HighIQSpawnEgg;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 
 public class CustomSpawnEggs {
 	

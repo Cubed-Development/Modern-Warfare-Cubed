@@ -12,7 +12,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
-import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.configold.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;

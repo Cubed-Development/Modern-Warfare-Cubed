@@ -1,5 +1,5 @@
 
-package com.paneedah.weaponlib.config;
+package com.paneedah.weaponlib.configold;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

@@ -4,7 +4,7 @@ import com.paneedah.mw.ModernWarfareMod;
 import com.paneedah.mw.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleItems;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.melee.MeleeSkin;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;

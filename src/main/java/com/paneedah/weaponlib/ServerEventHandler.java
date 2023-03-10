@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.*;
-import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.configold.BalancePackManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
 import com.paneedah.weaponlib.inventory.EntityInventorySyncMessage;

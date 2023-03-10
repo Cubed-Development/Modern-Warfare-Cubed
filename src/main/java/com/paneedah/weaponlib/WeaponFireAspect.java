@@ -3,7 +3,8 @@ package com.paneedah.weaponlib;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.compatibility.CompatibleSound;
-import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
+import com.paneedah.weaponlib.configold.BalancePackManager;
 import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import com.paneedah.weaponlib.network.packets.BulletShellClient;
 import com.paneedah.weaponlib.network.packets.GunFXPacket;
@@ -307,16 +308,11 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	PositionedSoundRecord psr = new PositionedSoundRecord(weapon.getEndOfShootSound().getSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, mc.player.getPosition().up(5));
         	playShootSound(psr);
         	//mc.getSoundHandler().playSound(psr);
-          
-           
         }
-        
-       
-        if(currentAmmo == 1) {
+
+        if(currentAmmo == 1)
         	 weaponInstance.setSlideLock(true);
-        }
-        
-        
+
         float recoilAmount = weaponInstance.getRecoil();
        
         if(BalancePackManager.shouldChangeWeaponRecoil(weapon)) recoilAmount = (float) BalancePackManager.getNewWeaponRecoil(weapon);
@@ -331,23 +327,10 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         ClientValueRepo.recoilWoundY += recoilAmount * 0.7f;
         
 
-        Boolean muzzleFlash = modContext.getConfigurationManager().getProjectiles().isMuzzleEffects();
-        if(muzzleFlash == null || muzzleFlash) {
-            if(weapon.builder.flashIntensity > 0 ) {
-            	
-            	
-            	
-            		modContext.getEffectManager().spawnFlashParticle(player, weapon.builder.flashIntensity,
-                            weapon.builder.flashScale.get(),
-                            weaponInstance.isAimed() ? FLASH_X_OFFSET_ZOOMED : compatibility.getEffectOffsetX()
-                                    + weapon.builder.flashOffsetX.get(),
-                                    weaponInstance.isAimed() ? -1.55f :
-                                    compatibility.getEffectOffsetY() + weapon.builder.flashOffsetY.get(),
-                            weapon.builder.flashTexture);
-            	
-            	
-                
-            }  
+        if(ModernConfigManager.enableMuzzleEffects && weapon.builder.flashIntensity > 0) {
+            modContext.getEffectManager().spawnFlashParticle(player, weapon.builder.flashIntensity, weapon.builder.flashScale.get(),
+                    weaponInstance.isAimed() ? FLASH_X_OFFSET_ZOOMED : compatibility.getEffectOffsetX() + weapon.builder.flashOffsetX.get(),
+                    weaponInstance.isAimed() ? -1.55f : compatibility.getEffectOffsetY() + weapon.builder.flashOffsetY.get(), weapon.builder.flashTexture);
         }
         
        
@@ -363,16 +346,13 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
                     compatibility.getEffectOffsetY() + weapon.builder.smokeOffsetY.get()+0.3f);
         }
 
-        if(weapon.isShellCasingEjectEnabled() && weaponInstance != null)  {
-        	
-        	
-        	float fovMult = 0.0f;
-        	if(mc.gameSettings.fovSetting < 70f) {
-        		fovMult = (mc.gameSettings.fovSetting/50);
-        	} else {
-        		fovMult = -(mc.gameSettings.fovSetting/200f);
-            	
-        	}
+        if(weapon.isShellCasingEjectEnabled())  {
+
+        	float fovMult = mc.gameSettings.fovSetting < 70f ? (mc.gameSettings.fovSetting/50) : -(mc.gameSettings.fovSetting/200f);
+
+            // Panda: Replaced this with the above line, undo if it breaks anything for whatever reason.
+        	//if (mc.gameSettings.fovSetting < 70f) fovMult = (mc.gameSettings.fovSetting/50);
+        	//else fovMult = -(mc.gameSettings.fovSetting/200f);
         	//System.out.println(fovMult);
         	
         	

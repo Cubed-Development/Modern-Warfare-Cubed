@@ -4,7 +4,7 @@ import com.paneedah.mw.models.GasDetector;
 import com.paneedah.mw.utils.ModReference;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.electronics.ItemTablet;
 import com.paneedah.weaponlib.electronics.ItemWirelessCamera;

@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.compatibility;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
-import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
 import com.paneedah.weaponlib.numerical.LissajousCurve;
 import com.paneedah.weaponlib.render.NewScreenshakingManager;

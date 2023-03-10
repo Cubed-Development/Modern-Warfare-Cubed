@@ -26,7 +26,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleChannel;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleMaterial;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
 import com.paneedah.weaponlib.vehicle.network.VehiclePhysSerializer;
 import net.minecraft.client.model.ModelBiped;

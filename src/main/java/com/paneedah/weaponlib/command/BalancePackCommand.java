@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.command;
 
 import com.paneedah.weaponlib.CommonModContext;
-import com.paneedah.weaponlib.config.BalancePackManager;
-import com.paneedah.weaponlib.config.BalancePackManager.BalancePack;
+import com.paneedah.weaponlib.configold.BalancePackManager;
+import com.paneedah.weaponlib.configold.BalancePackManager.BalancePack;
 import com.paneedah.weaponlib.network.packets.BalancePackClient;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.text.TextComponentString;

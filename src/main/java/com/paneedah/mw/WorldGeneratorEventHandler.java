@@ -3,7 +3,7 @@ package com.paneedah.mw;
 import com.paneedah.mw.ores.Ores;
 import com.paneedah.weaponlib.compatibility.CompatibleBlocks;
 import com.paneedah.weaponlib.compatibility.CompatibleWorldGenerator;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;

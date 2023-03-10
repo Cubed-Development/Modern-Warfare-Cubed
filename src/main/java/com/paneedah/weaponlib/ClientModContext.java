@@ -7,7 +7,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleChannel;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderingRegistry;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.workbench.GUIContainerWorkbench;
 import com.paneedah.weaponlib.electronics.EntityWirelessCamera;

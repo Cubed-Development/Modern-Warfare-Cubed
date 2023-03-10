@@ -8,7 +8,7 @@ import com.paneedah.mw.utils.ModReference;
 import com.paneedah.mw.wearables.Bullets;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import org.lwjgl.opengl.GL11;
 

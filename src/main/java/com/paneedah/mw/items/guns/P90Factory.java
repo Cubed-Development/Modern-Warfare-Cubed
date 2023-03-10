@@ -15,7 +15,7 @@ import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
-import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.configold.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;

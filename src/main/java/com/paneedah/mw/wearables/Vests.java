@@ -4,7 +4,7 @@ import com.paneedah.mw.ModernWarfareMod;
 import com.paneedah.weaponlib.ItemVest;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.configold.ConfigurationManager;
 import net.minecraft.creativetab.CreativeTabs;
 import org.lwjgl.opengl.GL11;
 

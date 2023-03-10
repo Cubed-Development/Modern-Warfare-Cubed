@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.config.novel;
+package com.paneedah.weaponlib.config;
 
 import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import net.minecraftforge.common.config.Config.RangeDouble;
@@ -10,27 +10,19 @@ import net.minecraftforge.fml.common.Loader;
 
 import java.io.File;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import static com.paneedah.mw.utils.ModReference.log;
 
 public class ModernConfigManager {
 	
-	private static HashMap<Field, Property> elementMappings = new HashMap<>();
+	private static final HashMap<Field, Property> elementMappings = new HashMap<>();
 	
-	private static List<Field> MODERN_CONFIG_FIELDS = new ArrayList<>();
+	//private static final List<Field> MODERN_CONFIG_FIELDS = new ArrayList<>();
 	
 	public static final String CATEGORY_RENDERING = "rendering";
 	public static final String CATEGORY_RENDERING_SCREENSHADERS = "rendering.screenshaders";
 	public static final String CATEGORY_GAMEPLAY = "gameplay";
-	public static final String CATEGORY_OLD_CONFIG = "oldconfig";
-
-	private static ArrayList<String> categories = new ArrayList<>();
-
-	@ConfigSync(category = CATEGORY_OLD_CONFIG, comment = "Should glass blocks be breakable by bullets?")
-	public static boolean bulletBreakGlass = true;
 	
 	@ConfigSync(category = CATEGORY_RENDERING, comment = "Setting this to false disables all shaders, enabling allows to select which shaders are used.")
 	public static boolean enableAllShaders = true;
@@ -73,7 +65,7 @@ public class ModernConfigManager {
 	public static boolean onScreenRainAndSnow = true;
 	
 	@RequiresMcRestart
-	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the HDR framebuffer, requires restart. \nThe HDR is the cause of a lot of shader incompat, \nbut Bloom will look weird without it")
+	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the HDR framebuffer, requires restart. The HDR is the cause of a lot of shader incompat, but Bloom will look weird without it")
 	public static boolean enableHDRFramebuffer = true;
 	
 	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the fancy VMW snow/rain")
@@ -91,6 +83,19 @@ public class ModernConfigManager {
 	
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the black background on the ammo counter.")
 	public static boolean enableAmmoCounterBackground = true;
+
+	@RangeInt(min = 0, max = 1)
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should players bleed when hit?")
+	public static float enableBleedingOnHit = 1.0F;
+
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should glass blocks be breakable by bullets?")
+	public static boolean bulletBreakGlass = true;
+
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables muzzle effects.")
+	public static boolean enableMuzzleEffects = true;
+
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should blur be applied when aiming?")
+	public static boolean enableBlurOnAim = true;
 	
 	//@ConfigSync(category = CATEGORY_RENDERING, comment = "Turns on the custom render for third person, may improve compat.")
 	//public static boolean enableThirdPersonAnimations = true;
@@ -98,12 +103,6 @@ public class ModernConfigManager {
 	private static Configuration config = null;
 
 	private static boolean isLoaded = false;
-	
-	static {
-
-		// Register all categories
-		
-	}
 	
 	public static void updateField(Field f, Object value) {
 		
@@ -143,11 +142,11 @@ public class ModernConfigManager {
 		
 		try {
 			if(f.getType() == int.class) {
-				
 				boolean isRanged = f.isAnnotationPresent(RangeInt.class);
 				if(!isRanged) {
 					property = config.get(annotation.category(), f.getName(), f.getInt(null), annotation.comment());
 					f.set(null, property.getInt());
+
 				} else {
 					RangeInt rangedAnnotation = f.getAnnotation(RangeInt.class);
 					property = config.get(annotation.category(), f.getName(), f.getInt(null), annotation.comment(), rangedAnnotation.min(), rangedAnnotation.max());
@@ -157,28 +156,29 @@ public class ModernConfigManager {
 			} else if(f.getType() == boolean.class) {
 				property = config.get(annotation.category(), f.getName(), f.getBoolean(null), annotation.comment());
 				f.set(null, property.getBoolean());
+
 			} else if(f.getType() == String.class) {
 				property = config.get(annotation.category(), f.getName(), (String) f.get(null), annotation.comment());
 				f.set(null, property.getString());
+
 			} else if(f.getType() == double.class) {
-				
 				boolean isRanged = f.isAnnotationPresent(RangeDouble.class);
 				if(!isRanged) {
 					property = config.get(annotation.category(), f.getName(), f.getDouble(null), annotation.comment());
 					f.set(null, property.getDouble());
+
 				} else {
 					RangeDouble range = f.getAnnotation(RangeDouble.class);
 					property = config.get(annotation.category(), f.getName(), f.getDouble(null), annotation.comment(), range.min(), range.max());
 					f.set(null, property.getDouble());
 				}
-				
-				
 			}
+
 		} catch(IllegalArgumentException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
 
-		if(f.isAnnotationPresent(RequiresMcRestart.class)) {
+		if (f.isAnnotationPresent(RequiresMcRestart.class) && property != null) {
 			property.setRequiresMcRestart(true);
 		}
 
@@ -202,7 +202,7 @@ public class ModernConfigManager {
 		for(Field f : ModernConfigManager.class.getFields()) {
 			ConfigSync annotation = f.getAnnotation(ConfigSync.class);
 			if(annotation == null) continue;
-			MODERN_CONFIG_FIELDS.add(f);
+			//MODERN_CONFIG_FIELDS.add(f);
 
 			registerProperty(f, annotation);
 			
