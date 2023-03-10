@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.configold;
+package com.paneedah.weaponlib.config;
 
 import com.paneedah.weaponlib.config.VMWModConfigGUI;
 import net.minecraft.client.Minecraft;
