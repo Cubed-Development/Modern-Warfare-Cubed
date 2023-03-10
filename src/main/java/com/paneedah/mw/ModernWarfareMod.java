@@ -25,12 +25,11 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 
-@Mod(modid = ModReference.id, version = ModernWarfareMod.VERSION, guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory")
+@Mod(modid = ModReference.id, name = ModReference.name, version = ModReference.version, guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory")
 public class ModernWarfareMod {
 
 	private static final String DEFAULT_CONFIG_RESOURCE = "/mw.cfg";
     private static final String MODERN_WARFARE_CONFIG_FILE_NAME = "ModernWarfare.cfg";
-	public static final String VERSION = "@VERSION@";
 
     @SidedProxy(serverSide = "com.paneedah.weaponlib.CommonModContext", clientSide = "com.paneedah.weaponlib.ClientModContext")
     public static ModContext MOD_CONTEXT;
@@ -86,8 +85,7 @@ public class ModernWarfareMod {
 	    if (parentDirectory != null)
 	        configFile = new File(parentDirectory, MODERN_WARFARE_CONFIG_FILE_NAME);
 
-		configurationManager = new ConfigurationManager.Builder()
-		        .withUserConfiguration(configFile)
+		configurationManager = new ConfigurationManager.Builder().withUserConfiguration(configFile)
 		        .withDefaultConfiguration(new StreamSource(getClass().getResourceAsStream(DEFAULT_CONFIG_RESOURCE)))
 		        .build();
     }
