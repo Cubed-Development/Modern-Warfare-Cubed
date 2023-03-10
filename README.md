@@ -1,6 +1,6 @@
 <h1 align="center">Modern Warfare Cubed</h1>
 
-<h5 align="center">A well optimized, open source Modern Warfare rewrite, made in light of Vic's Modern Warfare!</h5>
+<h5 align="center">A well optimized, open source Modern Warfare fork, made in light of Vic's Modern Warfare!</h5>
 
 <p align="center">
   <a href="https://github.com/Paneedah/Modern-Warfare-Cubed/releases">
@@ -42,7 +42,7 @@ Our developers are hand-picked by current members of the Development Team. The m
 
 <br>
 
-Massive shoutout to the author of [Vic's Modern Warfare Mod](https://github.com/vic4games/modern-warfare), [Vic4Games](https://github.com/vic4games) and the rest of his team for the original mod concept, and some of the textures / models / other assets that have been utilized from their mod.
+Massive shoutout to the author of [Vic's Modern Warfare Mod](https://github.com/vic4games/modern-warfare), [Vic4Games](https://github.com/vic4games) and the rest of his team for the original mod, and some of the textures / models / other assets that have been utilized from their mod.
 
 Another massive thank you to all of the contributors, and members of the development team. We wouldn't be where we are now without the support from you all!
 
