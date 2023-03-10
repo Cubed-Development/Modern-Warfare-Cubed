@@ -402,26 +402,16 @@ public class CustomGui extends CompatibleGui {
 	
 	
 	public void handleOpenDoorHUD(RenderGameOverlayEvent.Pre event, double scaledWidth, double scaledHeight) {
-		
-		
-		
+
 		 if(ModernConfigManager.enableOpenDoorDisplay) {
          	EntityPlayer player = mc.player;
-         	
-         	
-         	
-        
-         	
+
          	if(shouldRenderDoorOverlay) {
-         		
-         		
          		int openDoorX = (int) (scaledWidth * OPEN_DOOR_PERCENT_WIDTH_POS);
 		        int openDoorY = (int) (scaledHeight * OPEN_DOOR_PERCENT_HEIGHT_POS);
 		        
                 drawCenteredString(FONT_RENDERER, String.format(BRACKET_FORMATTER, KeyBindings.openDoor.getDisplayName()), openDoorX, openDoorY, FlatUIColors.SUN_FLOWER);
                 drawCenteredString(FONT_RENDERER, LangTools.formatName(OPENDOOR_TEXT_LANG_KEY), openDoorX, openDoorY + OPEN_DOOR_KEY_Y_OFFSET, FlatUIColors.WHITE);
-                
-            		
      		}
          	
          	if(VectorTools.vectorsEqual(cachedPlayerPosition, player.getPositionVector())
@@ -442,21 +432,11 @@ public class CustomGui extends CompatibleGui {
          	
          	RayTraceResult rtr = player.world.rayTraceBlocks(originVector, originVector.add(player.getLookVec().scale(OPENDOOR_REACH_OVERLAY_DISTANCE)), false, true, false);
 	 		if(rtr != null) {
- 	 			IBlockState state = player.world.getBlockState(rtr.getBlockPos());
- 	 			if(state.getBlock() instanceof BlockDoor) {
- 	 				shouldRenderDoorOverlay = true;
- 	 				 
- 	 			}
- 	 		
- 	 		}
-	 		
-	 		
-	 		
+				IBlockState state = player.world.getBlockState(rtr.getBlockPos());
+				if (state.getBlock() instanceof BlockDoor)
+					shouldRenderDoorOverlay = true;
+			}
          }
-		 
-		 
-		 
-		 
 	}
 	
 
