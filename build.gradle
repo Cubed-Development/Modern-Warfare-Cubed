@@ -74,3 +74,9 @@ jar {
             'ForceLoadAsMod': 'true'
     ])
 }
+
+idea {
+    module {
+        excludeDirs = [file(".github"), file(".gradle"), file(".idea"), file("build"), file("gradle"), file("run")]
+    }
+}
