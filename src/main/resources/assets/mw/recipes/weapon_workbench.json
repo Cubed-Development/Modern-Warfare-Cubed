@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["X#X","X X"],"key":{"#":{"item":"minecraft:crafting_table"},"X":{"item":"minecraft:iron_ingot"}},"result":{"item":"mw:weapon_workbench","count":1}}

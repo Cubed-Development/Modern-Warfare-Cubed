@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://moderwarfaremod.org/config" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://moderwarfaremod.org/config">
+
+    <element name="configuration" type="tns:Configuration"></element>
+
+    <complexType name="Configuration">
+        <sequence>
+            <element name="ores" type="tns:Ores" minOccurs="0"
+                maxOccurs="1">
+            </element>
+            <element name="explosions" type="tns:Explosions"
+                minOccurs="0" maxOccurs="1">
+            </element>
+            <element name="projectiles" type="tns:Projectiles"
+                minOccurs="0" maxOccurs="1">
+            </element>
+            <element name="gui" type="tns:Gui" minOccurs="0"
+                maxOccurs="1">
+            </element>
+            <element name="ai" type="tns:AI" maxOccurs="1"
+                minOccurs="0">
+            </element>
+        </sequence>
+    </complexType>
+
+    <complexType name="Ores">
+        <sequence>
+            <element name="ore" type="tns:Ore" minOccurs="0" maxOccurs="unbounded"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="Ore">
+        <attribute name="name" type="string"></attribute>
+        <attribute name="spawnsPerChunk" type="int"></attribute>
+    </complexType>
+
+    <complexType name="Explosions">
+        <attribute name="damage" type="float"></attribute>
+        <attribute name="dropBlockChance" type="float"></attribute>
+    </complexType>
+
+    <complexType name="Projectiles">
+    	<sequence>
+    		<element name="gun" type="tns:Gun" maxOccurs="unbounded"
+    			minOccurs="0">
+    		</element>
+    	</sequence>
+    	<attribute name="bleedingOnHit" type="float"></attribute>
+	<attribute name="destroyGlassBlocks" type="boolean"></attribute>
+	<attribute name="knockbackOnHit" type="boolean"></attribute>
+	<attribute name="muzzleEffects" type="boolean"></attribute>
+	<attribute name="blurOnAim" type="boolean"></attribute>
+	<attribute name="renderOptimization" type="float"></attribute>
+    </complexType>
+
+    <complexType name="Gui">
+        <attribute name="statusBarPosition" use="required">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="top-right"></enumeration>
+                    <enumeration value="bottom-right"></enumeration>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+
+    <complexType name="Gun">
+    	  <attribute name="id" type="string"></attribute>
+    	  <attribute name="enabled" type="boolean" default="true"></attribute>
+    	  <attribute name="damage" type="float" default="1.0"></attribute>
+    </complexType>
+
+    <complexType name="AIEntity">
+        <sequence>
+            <element name="equipment" type="tns:EntityEquipment" maxOccurs="unbounded" minOccurs="0"></element>
+        </sequence>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="health" type="float"></attribute>
+        <attribute name="spawn" type="float"></attribute>
+    </complexType>
+
+    <complexType name="AI">
+        <sequence>
+            <element name="entity" type="tns:AIEntity" maxOccurs="unbounded" minOccurs="0"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="EntityEquipment">
+        <sequence>
+            <element name="attachment" type="tns:Attachment" maxOccurs="unbounded" minOccurs="0"></element>
+        </sequence>
+        <attribute name="id" type="string"></attribute>
+        <attribute name="weight" type="float"></attribute>
+    </complexType>
+
+    <complexType name="Attachment">
+        <attribute name="id" type="string"></attribute>
+    </complexType>
+</schema>

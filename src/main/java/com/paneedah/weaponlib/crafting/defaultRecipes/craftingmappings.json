@@ -1,0 +1,7240 @@
+{
+  "recipes": [
+    {
+      "entryName": "mw:acr",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 8
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 12
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:aac_honey_badger",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 8
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 12
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ak101",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 8
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 12
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mw:izhmash_ak12",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 8
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 12
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ak15",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 8
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 13
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ak47",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 8
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 13
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 6
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ak74",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 8
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 13
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 6
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:aps",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 2
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 4
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ar10_super_sass",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 10
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 14
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ar15",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 10
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:arx160",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:beowulf_50_cal",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 10
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 13
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:cz805_bren",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:famas_f1",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:fmg9",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 5
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 8
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:fnfal",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 14
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:g11",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:g36c",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:glock_18c",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 3
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:glock_19",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 3
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:hk_p12",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 2
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:desert_eagle",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:k2c1",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:kbp_9a91",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:kriss_vector",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 5
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 8
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:m110_sass",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 14
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:m16a1",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:m16a4",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:m17",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 3
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:m38_dmr",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:m4a1",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:m82_barrett",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 16
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 20
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 9
+        }
+      ]
+    },
+    {
+      "entryName": "mw:m9a1",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 3
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:fiveseven",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 3
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:mac10",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 8
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 5
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:makarov_pm",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 3
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:malyuk",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 8
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 13
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:mk14_ebr",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 14
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:g3",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 14
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:mp443",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 3
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:mp5a5",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 5
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mw:mp7",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 5
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:sig_mpx",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 5
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ngsw_r",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 8
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 13
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mw:origin12",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 10
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 14
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mw:p226",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 3
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:p90",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 7
+        }
+      ]
+    },
+    {
+      "entryName": "mw:scar_h_cqc",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 8
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 15
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mw:scar_l",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:sccy_cpx_2",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 3
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:scorpion_evo3_a1",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 7
+        }
+      ]
+    },
+    {
+      "entryName": "mw:sig556",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:sig_mcx",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:svd_dragunov",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 14
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 6
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 8
+        }
+      ]
+    },
+    {
+      "entryName": "mw:type20",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ump_45",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 7
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 5
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mw:vp70",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 3
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:vss_vintorez",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 10
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 15
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 5
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:zbroyar_z10",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 11
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 14
+        },
+		{
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:turret",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 5
+        },
+		{
+          "entryName": "mw:GunmetalPlate",
+          "isOreDictionary": false,
+          "count": 6
+        },
+		{
+          "entryName": "mw:M4A1",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:turretupgraded",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 4
+        },
+		{
+          "entryName": "mw:turret",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:turretsilenced",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+		{
+          "entryName": "mw:turretupgraded",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:FABDefenseMount",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:P90swordfish",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScarHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScarHHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScarMidWestIndustriesHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScarMLOKHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SIG556Handguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SIG556HandguardRailed",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SIG556HandguardKA",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SIG556Grip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScarLReceiver",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:KrissVectorReceiver",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:KrissVector556Handguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 5
+        },
+        {
+          "entryName": "minecraft:string",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "minecraft:paper",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VectorMk1ModularHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VectorCarbineHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VectorTapedGrip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "minecraft:string",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:paper",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Origin12Handguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Origin12Grip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Origin12Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRHandGuardBlack",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRWEMSKHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRWEMSKHandguardTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRPrecisionHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRPrecisionHandGuardTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRSBRHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRSBRHandGuardTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRPolymerHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRPolymerHandguardTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRSquareDropHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRSquareDropHandguardTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HoneyBadgerHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HoneyBadgerMatrixArmsHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:G3A1Handguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:G3HandguardRailed",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M14Body",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M14DMRSocomChassis",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Mk14TanBody",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Mk14SnowBody",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Mk14BlackBody",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M14Cover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M14TriRailCover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M14Rail",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScarStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScarRetractableStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScarAdapterStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScarHStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VectorStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VectorStockAdapter",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 5
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:UMP45Receiver",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:UMP9Receiver",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:UMP45Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MAC10Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MAC21Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRStockBlack",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRFixedStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRFixedStockTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRPRSStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRPRSStockTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRLongRangeStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ACRPDWStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:UTGTriRailHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP5BMHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MIMP5MHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScorpionEVO3A1HandguardShort",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScorpionEVO3A1HandguardLong",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MIMP5TRRail",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MIMP5MRail",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M16A1ScopeMount",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:FamasF1ScopeMount",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M16A1PicatinnyRail",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:FamasF1PicatinnyRail",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:NGSWRRail",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M9A1Slide",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M9A1Body",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SamuraiEdgeSlide",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SamuraiEdgeBody",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SamuraiEdgeMount",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Glock19Body",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Glock19XBody",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:GlockRazorbackBody",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Glock19Slide",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Glock18CSlide",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Glock18CCNCslide",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Glock19XSlide",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:GlockRazorbackSlide",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Glock19RockslideOlive",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Glock19GhostPrecisionSlide",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SCCYCPX2Body",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SCCYCPX2BodyTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SCCYCPX2BodyTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "minecraft:string",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "minecraft:paper",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SCCYCPX2Slide",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SCCYCPX2BSlide",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:P226Slide",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MakarovBody",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MakarovPMSlide",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MakarovPBSlide",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MakarovPBBody",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MAC10Body",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP5NavyHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP5A5HandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP5SDHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP5HOGUEGrip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:APSGrip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:APSStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MAC10Grip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP5Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP5A3Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP5A4Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP5StockAdapter",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:LVOAVHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AR15FN15Handguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M38HandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HK416HandGuardBlackAndTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Mk18HandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Mk18HandGuardBlack",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Block2SOCOMHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:FSSTacLiteHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M4MagpulHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M4MagpulHandGuardTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M4Receiver",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VLTORReceiver",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HoneyBadgerReceiver",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HoneyBadgerReceiverBlack",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HoneyBadgerKnightsReceiver",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HoneyBadgerKnightsReceiverBlack",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M4HandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M16HandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M16A1Handguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M4CarbineHandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M16A4HandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SIGMCXHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SIGMCXHandguardShort",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MPXHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MPXHandguardExtended",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MPXHandguardRailed",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HeraArmsGrip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M4Grip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M4GripTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SOCOM_Grip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M4GripGray",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HK416Grip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HK416GripTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M110Grip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK47Grip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK101Grip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AKErgoGrip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AKErgoGripTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK12Grip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK12ErgoGrip",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HoneyBadgerStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HoneyBadgerStockBlack",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:G3Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP7Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP7MilSpecStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK47stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:DragunovGripStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Dragunov98Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:RPKstock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:RPKbarrel",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK101Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK12Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK12ZenitcoStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VSSVintorezStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ASValStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VSSVintorezMilspecStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:CollapsableMOEStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MagpulCTRStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MagpulCTRStockTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MilSpecStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MilSpecStockTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HeraArmsStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HK416Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M16Stock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HK416StockTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ARPRSPrecisionStock",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK47HandleGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:DragunovHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 5
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Dragunov98Handguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK101HandGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:G11HandguardK1",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:G11HandguardK2",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AKMagpulHandleGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AKMagpulHandleGuardTan",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MLOKHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MLOKExtendedHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK15HandleGuard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:RPK16handguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK12Handguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK12BHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:KBP9A91Handguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:KBP9A91CompactHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:KBP9A91KulaTacHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VSSVintorezHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ASValHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VSSVintorezTriRailMount",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK47Dustcover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:DragunovDustCover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Dragunov98DustCover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AKMDustcover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK101DustCover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VeprDustCover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK15DustCover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK12DustCover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK12BDustCover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VSSVintorezDustCover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VSSMDustCover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:FNFALDustCover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SA58DustCover",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:FNFALHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:planks",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:FNFALPARAHandguard",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:PSO1",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:okp7",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:fmg9carryhandle",
+      "craftingGroup": "ATTACHMENT_MODIFICATION",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Reflex",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:BijiaReflex",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MicroReflex",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Acog",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Specter",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Holographic2",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HolographicAlt",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:EotechHybrid2",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VortexSight",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MicroT1",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AimpointCompM2",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AimpointCompM5",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:RMRsight",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Kobra",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:KobraGen3",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:KobraMount",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:LeupoldRailScope",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:NightRaiderScope",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Silencer556x45",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Silencer545x39",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Silencer762x39",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SilencerPBS",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Silencer9mm",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SamuraiEdgeSuppressor",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Silencer9x39mm",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:KBP9A91Suppressor",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Silencer45ACP",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Silencer762x54",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Silencer762x51",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Silencer50BMG",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SilencerMP7",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Silencer357",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Silencer12Gauge",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Silencer300AACBlackout",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Silencer65x39",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "Silencer57x38",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Laser",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Laser2",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SCCYCPX2Laser",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Grip2",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:JunoGrip",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AngledGrip",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:StubbyGrip",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VGrip",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bipod",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Glock18Cstock",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VP70Stock",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPolymerComposite",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:TritiumRearSights",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MBUSRearSights",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HK416RearSights",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:K2C1RearSight",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScorpionRearSight",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScorpionFrontSight",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP7IronSights",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP7IronSightsStanding",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK15ironsight",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK12ironsight",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M4FrontSight",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HK416FrontSight",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MBUSFrontSight",
+      "craftingGroup": "ATTACHMENT_NORMAL",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet3006Springfield",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet8x58",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet792x33Kurz",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet50BMG",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet20x82mm",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet408CT",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet308Winchester",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet792x57",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet762x54",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet762x51",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Shotgun12Gauge",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Shotgun4G",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet762x35",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet765x21",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet762x39",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet556x45",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet65",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet545x39",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet4570",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet4440",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet45ACP",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet357",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet44",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet40SW",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet50AE",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet50Beowulf",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet500",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet380ACP",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet763x25",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet9x39mm",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet9x19mm",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet9x18mm",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet57x28mm",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet46x30mm",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet10mm",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Bullet473x33mm",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "mw:CopperIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VectorMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VectorDrumMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M4A1Mag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:G11Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:NGSWR_Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:FamasF1Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:BeowulfMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HoneyBadgerMag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M38Mag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:socom_mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Stanag50",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Stanag60",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Stanag100",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mw:G36CMag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK101Mag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK74Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK74Mag60",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK60Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK15Mag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK75Mag545x39",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK12Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK47PMAGTan",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK47Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK50Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK75Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:AK100Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:DragunovMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Origin12Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Origin12DrumMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M9Mag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:FiveSevenMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:SamuraiEdgeMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:sccycpx2mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:sccycpx2magext",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M9Mag30",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M9DrumMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP443Mag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M17Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MakarovMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:USP45Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:APSMag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:GlockMag13",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Glock18Cmag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:GlockMag50",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M82Mag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mw:KBP9A91Mag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M110Mag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Z10Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:FNFALMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:G3Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Mk14EBRmag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:M14Drum50",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP5A5Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:HK50Drum",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP7Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MP7Mag20",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:UMP45Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:UMP9Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MPXMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScorpionMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:P90Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:MAC10Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ScarHMag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Scar40Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Scar60Mag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VSSVintorezMag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:ASValMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:VP70mag_2",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mw:GunmetalIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Marine_helmet",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Marine_chest",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 8
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Marine_boots",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Spetznaz_helmet",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Spetznaz_chest",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 8
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Spetznaz_boots",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Spec_Ops_helmet",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Spec_Ops_chest",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 8
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Spec_Ops_boots",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Urban_helmet",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Urban_chest",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 8
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Urban_boots",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Ghillie_helmet",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:leaves",
+          "isOreDictionary": false,
+          "count": 10
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Ghillie_chest",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 8
+        },
+        {
+          "entryName": "minecraft:leaves",
+          "isOreDictionary": false,
+          "count": 14
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Ghillie_boots",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 6
+        },
+        {
+          "entryName": "minecraft:leaves",
+          "isOreDictionary": false,
+          "count": 8
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Blackcamo_chest",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 8
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Forest_chest",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 8
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Blackjeans_boots",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 7
+        }
+      ]
+    },
+    {
+      "entryName": "mw:Khakijeans_boots",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 7
+        }
+      ]
+    },
+    {
+      "entryName": "mw:m43a_chest_harness",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "entryName": "mw:flyye_field_compact_plate_carrier",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:molle_black",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:molle_green",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:molle_urban",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:swat_vest",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 5
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "entryName": "mw:usmc_vest",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 6
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:usmc_vest_green",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 6
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:usmc_vest_black",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 6
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:usmc_vest_urban",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:CarbonFiber",
+          "isOreDictionary": false,
+          "count": 6
+        },
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:combat_sustainment_backpack",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:combat_sustainment_backpack_black",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:combat_sustainment_backpack_forest",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mw:assault_backpack",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:assault_backpack_black",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:assault_backpack_forest",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:f5switchbladebackpack",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mw:tru_spec_cordura_backpack",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 7
+        }
+      ]
+    },
+    {
+      "entryName": "mw:tru_spec_cordura_backpack_black",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 7
+        }
+      ]
+    },
+    {
+      "entryName": "mw:tru_spec_cordura_backpack_forest",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 7
+        }
+      ]
+    },
+    {
+      "entryName": "mw:duffle_bag",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mw:SteelIngot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "mw:SyntheticPlastic",
+          "isOreDictionary": false,
+          "count": 9
+        }
+      ]
+    }
+  ]
+}

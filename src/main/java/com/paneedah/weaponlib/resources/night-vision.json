@@ -1,0 +1,36 @@
+{
+    "targets": [
+        "swap"
+    ],
+    "passes": [
+        {
+            "name": "weaponlib:night-vision",
+            "intarget": "minecraft:main",
+            "outtarget": "swap",
+            "auxtargets": [
+                {
+                    "name": "NoiseSampler",
+                    "id": "weaponlib:noise",
+                    "width": 512,
+                    "height": 512,
+                    "bilinear": false
+                },
+                {
+                    "name": "GogglesOverlaySampler",
+                    "id": "weaponlib:goggles_overlay",
+                    "width": 685,
+                    "height": 385,
+                    "bilinear": false
+                }
+            ],
+            "uniforms": [
+
+            ]
+        },
+        {
+            "name": "blit",
+            "intarget": "swap",
+            "outtarget": "minecraft:main"
+        }
+    ]
+}
