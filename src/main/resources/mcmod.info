@@ -6,8 +6,8 @@
     "version": "${version}",
     "mcversion": "1.12.2",
     "url": "https://github.com/Paneedah/paneedah-modern-warfare",
-    "authorList": ["Paneedah, Desoroxxx, DavidRoseLincs, Vic4Games, Vic4GamesTeam, Skyy"],
-    "credits": "VMW Team",
+    "authorList": ["Paneedah, Desoroxxx"],
+    "credits": "DavidRoseLincs, SticksDev, Skyy, Vic4Games, Vic4GamesTeam",
     "logoFile": "",
     "screenshots": [],
     "dependencies": []
