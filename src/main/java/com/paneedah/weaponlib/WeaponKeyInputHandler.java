@@ -22,7 +22,7 @@ import org.lwjgl.input.Keyboard;
 
 import java.util.function.Function;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {

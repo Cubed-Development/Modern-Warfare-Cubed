@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import static com.paneedah.mw.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.log;
 
 public class ConfigurationManager {
 

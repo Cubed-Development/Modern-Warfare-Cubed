@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.compatibility.CompatibleWeaponRenderer;
 import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.configold.BalancePackManager;
-import com.paneedah.weaponlib.configold.Projectiles;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import com.paneedah.weaponlib.render.MuzzleFlashRenderer;
@@ -41,8 +40,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
-import static com.paneedah.mw.utils.ModReference.log;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponRenderer extends CompatibleWeaponRenderer {

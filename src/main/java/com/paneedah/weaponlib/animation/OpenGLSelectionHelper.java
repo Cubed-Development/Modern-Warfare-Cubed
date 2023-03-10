@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL30;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 //https://www.lighthouse3d.com/tutorials/opengl-selection-tutorial/
 public class OpenGLSelectionHelper {

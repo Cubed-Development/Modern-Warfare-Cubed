@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.compatibility;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public abstract class CompatibleEntityRenderer extends Render<Entity> {
 

@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.tracking;
 import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import io.netty.buffer.ByteBuf;
 
-import static com.paneedah.mw.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.log;
 
 public class SyncPlayerEntityTrackerMessage implements CompatibleMessage {
 

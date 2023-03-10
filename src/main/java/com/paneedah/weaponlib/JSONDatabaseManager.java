@@ -9,7 +9,7 @@ import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import static com.paneedah.mw.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.log;
 
 public abstract class JSONDatabaseManager {
 

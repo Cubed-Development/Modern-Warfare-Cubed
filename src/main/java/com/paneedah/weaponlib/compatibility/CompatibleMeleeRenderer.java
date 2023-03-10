@@ -34,7 +34,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiConsumer;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public abstract class CompatibleMeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 	

@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
-import com.paneedah.mw.proxies.ClientProxy;
+import com.paneedah.mwc.proxies.ClientProxy;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;

@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL12;
 
 import java.nio.FloatBuffer;
 
-import static com.paneedah.mw.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.log;
 
 /**
  * Depth texture class that holds a depth buffer with a depth texture attachment that allows

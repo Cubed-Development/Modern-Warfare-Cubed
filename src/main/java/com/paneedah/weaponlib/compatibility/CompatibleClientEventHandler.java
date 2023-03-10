@@ -44,7 +44,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 
 /**

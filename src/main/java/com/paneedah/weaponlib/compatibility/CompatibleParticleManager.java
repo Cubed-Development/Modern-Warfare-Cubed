@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.compatibility;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.particle.ParticleManager;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class CompatibleParticleManager {
    

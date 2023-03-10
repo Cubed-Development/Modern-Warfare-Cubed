@@ -8,7 +8,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.LinkedList;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class RadarChart {
 	

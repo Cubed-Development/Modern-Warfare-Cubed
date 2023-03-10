@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
-import static com.paneedah.mw.utils.ModReference.log;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.log;
 
 public class ShaderManager {
 	

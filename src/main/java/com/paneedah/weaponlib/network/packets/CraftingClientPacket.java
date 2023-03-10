@@ -11,7 +11,7 @@ import com.paneedah.weaponlib.network.advanced.data.PacketSerializer;
 
 import java.io.ByteArrayOutputStream;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class CraftingClientPacket extends SimplePacket {
 	

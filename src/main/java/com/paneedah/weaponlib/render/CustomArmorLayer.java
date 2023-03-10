@@ -17,7 +17,7 @@ import net.minecraft.util.ResourceLocation;
 
 import java.util.function.BiConsumer;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
 

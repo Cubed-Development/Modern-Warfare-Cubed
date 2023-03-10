@@ -12,7 +12,7 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 
-import static com.paneedah.mw.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.log;
 
 public class ModernConfigManager {
 	

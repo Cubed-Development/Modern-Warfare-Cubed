@@ -8,7 +8,7 @@ import org.lwjgl.input.Mouse;
 
 import java.awt.*;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class Slider implements IElement{
 

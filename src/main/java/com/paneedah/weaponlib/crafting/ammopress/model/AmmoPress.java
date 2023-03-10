@@ -11,7 +11,7 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.Arrays;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 // Made with Blockbench 4.3.1
 // Exported for Minecraft version 1.7 - 1.12

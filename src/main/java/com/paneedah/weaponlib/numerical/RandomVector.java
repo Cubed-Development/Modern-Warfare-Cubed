@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.numerical;
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import net.minecraft.util.math.Vec3d;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 
 /**

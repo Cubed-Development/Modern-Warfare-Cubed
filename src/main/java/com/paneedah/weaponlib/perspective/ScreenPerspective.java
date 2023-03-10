@@ -5,7 +5,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
 import com.paneedah.weaponlib.compatibility.Framebuffers;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public abstract class ScreenPerspective extends Perspective<RenderableState> {
 

@@ -11,8 +11,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
-import static com.paneedah.mw.utils.ModReference.log;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class DebugPositioner {

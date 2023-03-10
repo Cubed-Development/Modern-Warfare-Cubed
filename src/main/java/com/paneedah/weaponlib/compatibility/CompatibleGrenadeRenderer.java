@@ -30,7 +30,7 @@ import javax.vecmath.Matrix4f;
 import java.util.Collections;
 import java.util.List;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public abstract class CompatibleGrenadeRenderer extends ModelSourceRenderer implements IBakedModel {
 

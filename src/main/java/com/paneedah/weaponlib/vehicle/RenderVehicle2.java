@@ -29,7 +29,7 @@ import org.lwjgl.util.vector.Matrix4f;
 import javax.vecmath.Matrix3f;
 import javax.vecmath.Vector3d;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class RenderVehicle2 extends CompatibleEntityRenderer
 {

@@ -58,8 +58,8 @@ import java.nio.FloatBuffer;
 import java.util.List;
 import java.util.Random;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
-import static com.paneedah.mw.utils.ModReference.log;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.log;
 
 @SideOnly(Side.CLIENT)
 public class CompatibleWorldRenderer extends EntityRenderer

@@ -27,8 +27,8 @@ import java.util.Deque;
 import java.util.UUID;
 import java.util.concurrent.LinkedBlockingDeque;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
-import static com.paneedah.mw.utils.ModReference.log;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 

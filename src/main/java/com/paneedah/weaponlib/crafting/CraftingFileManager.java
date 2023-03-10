@@ -15,8 +15,8 @@ import org.apache.commons.io.IOUtils;
 import java.io.*;
 import java.util.Arrays;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
-import static com.paneedah.mw.utils.ModReference.log;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.log;
 
 public class CraftingFileManager extends JSONDatabaseManager {
 

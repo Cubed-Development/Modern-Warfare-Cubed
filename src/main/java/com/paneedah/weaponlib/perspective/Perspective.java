@@ -11,7 +11,7 @@ import com.paneedah.weaponlib.shader.DynamicShaderGroupManager;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.shader.Framebuffer;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public abstract class Perspective<S> {
 

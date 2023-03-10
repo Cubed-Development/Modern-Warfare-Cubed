@@ -10,7 +10,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class SmokeFX extends CompatibleParticle {

@@ -64,7 +64,7 @@
  import java.util.List;
  import java.util.Map;
 
- import static com.paneedah.mw.proxies.ClientProxy.mc;
+ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 		
 
 public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer implements IBakedModel {
