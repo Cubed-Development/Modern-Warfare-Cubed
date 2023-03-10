@@ -16,7 +16,7 @@ public class BlockSulfurOre extends Block {
         super(Material.ROCK);
 
         setTranslationKey(ModReference.id + "_" + "SulfurOre");
-        //setBlockTextureName(ModReference.MWC_ID + ":" + "sulfurore");
+        //setBlockTextureName(ModReference.id + ":" + "sulfurore");
         setHardness(6F);
         setResistance(15F);
         setSoundType(SoundType.STONE); 

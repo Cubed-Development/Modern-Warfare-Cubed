@@ -9,7 +9,7 @@ public class ItemTinIngot extends Item {
 	public ItemTinIngot() {
 		setMaxStackSize(64);
 		setTranslationKey(ModReference.id + "_" + "TinIngot");
-		//setTextureName(ModReference.MWC_ID + ":" + "TinIngot");
+		//setTextureName(ModReference.id + ":" + "TinIngot");
 		setCreativeTab(ModernWarfareMod.BlocksTab);
 	}
 }

@@ -503,7 +503,7 @@ public class AuxiliaryAttachments {
 //                .withModel(new com.paneedah.mwc.models.P226rearsight(), "p226rearsight.png")
 //                .withModel(new com.paneedah.mwc.models.P226frontsight(), "p226frontsight.png")
 //                .withName("P226Slide")
-//                .withRenderablePart().withModId(ModReference.MWC_ID).withTextureName("Dummy.png")
+//                .withRenderablePart().withModId(ModReference.id).withTextureName("Dummy.png")
 //                .build(ModernWarfareMod.MOD_CONTEXT);
         
         PythonChamber = new AttachmentBuilder<Weapon>()

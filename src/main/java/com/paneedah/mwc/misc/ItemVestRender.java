@@ -8,7 +8,7 @@ public class ItemVestRender extends Item {
     public ItemVestRender() {
         setMaxStackSize(1);
         setTranslationKey(ModReference.id + "_" + "vestrender");
-//        setTextureName(ModReference.MWC_ID + ":" + "syntheticplastic");
+//        setTextureName(ModReference.id + ":" + "syntheticplastic");
 //        setCreativeTab(ModernWarfareMod.BlocksTab);
     }
 }

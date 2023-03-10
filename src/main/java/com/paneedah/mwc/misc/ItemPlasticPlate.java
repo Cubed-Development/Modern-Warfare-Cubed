@@ -9,7 +9,7 @@ public class ItemPlasticPlate extends Item {
     public ItemPlasticPlate() {
         setMaxStackSize(64);
         setTranslationKey(ModReference.id + "_" + "PlasticPlate");
-//        setTextureName(ModReference.MWC_ID + ":" + "plasticplate");
+//        setTextureName(ModReference.id + ":" + "plasticplate");
         setCreativeTab(ModernWarfareMod.BlocksTab);
     }
 }

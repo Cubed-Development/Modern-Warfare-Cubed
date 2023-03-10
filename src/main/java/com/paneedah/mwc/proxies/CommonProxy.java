@@ -106,25 +106,25 @@ public class CommonProxy {
         
         Backpack = new ItemStorage.Builder().withName("Backpack").withSize(32).withTextureName("knapsack").withTab(CreativeTabs.tabMisc).withModel(new TabletModel()).withModelTextureName("IPad.png").withGuiTextureName("inventoryitem.png").withCustomEquippedPositioning((player, stack) -> { GL11.glScalef(0.3f, 1f, 1f); GL11.glTranslatef(0f, 0f, 0.3f); }).build(ModernWarfareMod.MOD_CONTEXT);
 
-        compatibility.registerItem(ModReference.MWC_ID, ElectronicCircuitBoard, "Electronics");
-        compatibility.registerItem(ModReference.MWC_ID, OpticGlass, "OpticGlass");
-        compatibility.registerItem(ModReference.MWC_ID, Cloth, "Cloth");
-        compatibility.registerItem(ModReference.MWC_ID, TanCloth, "TanCloth");
-        compatibility.registerItem(ModReference.MWC_ID, GreenCloth, "GreenCloth");
-        compatibility.registerItem(ModReference.MWC_ID, AluminumPlate, "AluminumPlate");
-        compatibility.registerItem(ModReference.MWC_ID, SteelPlate, "SteelPlate");
-        compatibility.registerItem(ModReference.MWC_ID, BigSteelPlate, "BigSteelPlate");
-        compatibility.registerItem(ModReference.MWC_ID, MiniSteelPlate, "MiniSteelPlate");
-        compatibility.registerItem(ModReference.MWC_ID, MetalComponents, "MetalComponents");
-        compatibility.registerItem(ModReference.MWC_ID, Transistor, "Transistor");
-        compatibility.registerItem(ModReference.MWC_ID, Resistor, "Resistor");
-        compatibility.registerItem(ModReference.MWC_ID, Inductor, "Inductor");
-        compatibility.registerItem(ModReference.MWC_ID, Diode, "Diode");
-        compatibility.registerItem(ModReference.MWC_ID, Capacitor, "Capacitor");
-        compatibility.registerItem(ModReference.MWC_ID, CopperWiring, "CopperWiring");
-        compatibility.registerItem(ModReference.MWC_ID, Piston, "Piston");
-        compatibility.registerItem(ModReference.MWC_ID, LaserPointer, "LaserPointer");
-        compatibility.registerItem(ModReference.MWC_ID, Plastic, "plastic");
+        compatibility.registerItem(ModReference.id, ElectronicCircuitBoard, "Electronics");
+        compatibility.registerItem(ModReference.id, OpticGlass, "OpticGlass");
+        compatibility.registerItem(ModReference.id, Cloth, "Cloth");
+        compatibility.registerItem(ModReference.id, TanCloth, "TanCloth");
+        compatibility.registerItem(ModReference.id, GreenCloth, "GreenCloth");
+        compatibility.registerItem(ModReference.id, AluminumPlate, "AluminumPlate");
+        compatibility.registerItem(ModReference.id, SteelPlate, "SteelPlate");
+        compatibility.registerItem(ModReference.id, BigSteelPlate, "BigSteelPlate");
+        compatibility.registerItem(ModReference.id, MiniSteelPlate, "MiniSteelPlate");
+        compatibility.registerItem(ModReference.id, MetalComponents, "MetalComponents");
+        compatibility.registerItem(ModReference.id, Transistor, "Transistor");
+        compatibility.registerItem(ModReference.id, Resistor, "Resistor");
+        compatibility.registerItem(ModReference.id, Inductor, "Inductor");
+        compatibility.registerItem(ModReference.id, Diode, "Diode");
+        compatibility.registerItem(ModReference.id, Capacitor, "Capacitor");
+        compatibility.registerItem(ModReference.id, CopperWiring, "CopperWiring");
+        compatibility.registerItem(ModReference.id, Piston, "Piston");
+        compatibility.registerItem(ModReference.id, LaserPointer, "LaserPointer");
+        compatibility.registerItem(ModReference.id, Plastic, "plastic");
         */
         
         UniversalSoundRegistry.init();

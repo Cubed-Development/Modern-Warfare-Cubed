@@ -16,7 +16,7 @@ public class BlockGraphiteOre extends Block {
         super(Material.ROCK);
 
         setTranslationKey(ModReference.id + "_" + "GraphiteOre");
-        //setBlockTextureName(ModReference.MWC_ID + ":" + "graphiteore");
+        //setBlockTextureName(ModReference.id + ":" + "graphiteore");
         setHardness(6F);
         setResistance(15F);
         setSoundType(SoundType.STONE); 

@@ -56,7 +56,7 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
 //                                .withLevel(Level.EASY)
 //                                .withReward(Attachments.ACOG)
 //                                .withReward(Guns.M4A1)
-//                                .build(ModReference.MWC_ID)
+//                                .build(ModReference.id)
 //                )
 //
 //                .withMissionOffering(
@@ -68,7 +68,7 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
 //                                .withCooldownTime(500)
 //                                .withLevel(Level.EASY)
 //                                .withReward(Guns.M4A1)
-//                                .build(ModReference.MWC_ID))
+//                                .build(ModReference.id))
 //
 //                .withMissionOffering(
 //
@@ -79,7 +79,7 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
 //                                .withCooldownTime(1000)
 //                                .withLevel(Level.EASY)
 //                                .withReward(Guns.M4A1)
-//                                .build(ModReference.MWC_ID))
+//                                .build(ModReference.id))
 //
 //                .withMissionOffering(
 //
@@ -90,7 +90,7 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
 //                                .withLevel(Level.EASY)
 //                                .withReward(Items.APPLE, 5)
 //                                .withReward(Items.DIAMOND_SWORD)
-//                                .build(ModReference.MWC_ID)
+//                                .build(ModReference.id)
 //
 //                )
 //
@@ -104,7 +104,7 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
 //                                .withReward(Items.DIAMOND_AXE)
 //                                .withReward(Items.DIAMOND_PICKAXE)
 //                                .withReward(Items.DIAMOND_BOOTS)
-//                                .build(ModReference.MWC_ID)
+//                                .build(ModReference.id)
 //
 //                )
 //
@@ -118,7 +118,7 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
 //                                .withReward(Items.DIAMOND_PICKAXE)
 //                                .withReward(Items.DIAMOND_BOOTS)
 //                                .withReward(Items.DIAMOND_SWORD)
-//                                .build(ModReference.MWC_ID)
+//                                .build(ModReference.id)
 //                )
 //
 //                .withMissionOffering(
@@ -132,7 +132,7 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
 //                                .withReward(Items.DIAMOND_PICKAXE)
 //                                .withReward(Items.DIAMOND_BOOTS)
 //                                .withReward(Items.DIAMOND_SWORD)
-//                                .build(ModReference.MWC_ID)
+//                                .build(ModReference.id)
 //                )
 
 //                .withMissionOffering(
@@ -146,7 +146,7 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
 //                                .withReward(Items.DIAMOND_PICKAXE)
 //                                .withReward(Items.DIAMOND_BOOTS)
 //                                .withReward(Items.DIAMOND_SWORD)
-//                                .build(ModReference.MWC_ID)
+//                                .build(ModReference.id)
 //
 //                )
 //
@@ -161,7 +161,7 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
 //                                .withReward(Items.DIAMOND_PICKAXE)
 //                                .withReward(Items.DIAMOND_BOOTS)
 //                                .withReward(Items.DIAMOND_SWORD)
-//                                .build(ModReference.MWC_ID)
+//                                .build(ModReference.id)
 //
 //                )
 //                
@@ -175,7 +175,7 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
 //                                .withReward(Items.DIAMOND_PICKAXE)
 //                                .withReward(Items.DIAMOND_BOOTS)
 //                                .withReward(Items.DIAMOND_SWORD)
-//                                .build(ModReference.MWC_ID)
+//                                .build(ModReference.id)
 //
 //                )
 //                
@@ -189,7 +189,7 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
 //                                .withReward(Items.DIAMOND_PICKAXE)
 //                                .withReward(Items.DIAMOND_BOOTS)
 //                                .withReward(Items.DIAMOND_SWORD)
-//                                .build(ModReference.MWC_ID)
+//                                .build(ModReference.id)
 //
 //                )
 //                
@@ -203,7 +203,7 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
 //                                .withReward(Items.DIAMOND_PICKAXE)
 //                                .withReward(Items.DIAMOND_BOOTS)
 //                                .withReward(Items.DIAMOND_SWORD)
-//                                .build(ModReference.MWC_ID)
+//                                .build(ModReference.id)
 //
 //                )
 //                
@@ -217,7 +217,7 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
 //                                .withReward(Items.DIAMOND_PICKAXE)
 //                                .withReward(Items.DIAMOND_BOOTS)
 //                                .withReward(Items.DIAMOND_SWORD)
-//                                .build(ModReference.MWC_ID)
+//                                .build(ModReference.id)
 //
 //                )
                 .withIntroDialog(

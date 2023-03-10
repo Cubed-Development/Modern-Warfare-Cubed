@@ -14,7 +14,7 @@ public class BlockLeadOre extends Block {
         super(Material.ROCK);
 
         setTranslationKey(ModReference.id + "_" + "LeadOre");
-        //setBlockTextureName(ModReference.MWC_ID + ":" + "leadore");
+        //setBlockTextureName(ModReference.id + ":" + "leadore");
         setHardness(6F);
         setResistance(15F);
         setSoundType(SoundType.STONE); 

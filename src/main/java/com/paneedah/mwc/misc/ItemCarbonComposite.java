@@ -9,7 +9,7 @@ public class ItemCarbonComposite extends Item {
     public ItemCarbonComposite() {
         setMaxStackSize(64);
         setTranslationKey(ModReference.id + "_" + "CarbonComposite");
-        //setTextureName(ModReference.MWC_ID + ":" + "carboncomposite");
+        //setTextureName(ModReference.id + ":" + "carboncomposite");
         setCreativeTab(ModernWarfareMod.BlocksTab);
     }
 }

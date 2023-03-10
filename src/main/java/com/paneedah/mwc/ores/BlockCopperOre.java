@@ -14,7 +14,7 @@ public class BlockCopperOre extends Block {
         super(Material.ROCK);
 
         setTranslationKey(ModReference.id + "_" + "CopperOre");
-        //setBlockTextureName(ModReference.MWC_ID + ":" + "copperore");
+        //setBlockTextureName(ModReference.id + ":" + "copperore");
         setHardness(6F);
         setResistance(15F);
         setSoundType(SoundType.STONE); 

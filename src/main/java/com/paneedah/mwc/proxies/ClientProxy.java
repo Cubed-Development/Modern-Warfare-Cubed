@@ -85,7 +85,7 @@ public class ClientProxy extends CommonProxy {
 
         modelMesher.register(Ores.VestRender, 0, new ModelResourceLocation(ModReference.id + ":vestrender", "inventory"));
 
-        //modelMesher.register(CommonProxy.AKMIron, 0, new ModelResourceLocation(ModReference.MWC_ID + ":akmiron", "inventory"));
+        //modelMesher.register(CommonProxy.AKMIron, 0, new ModelResourceLocation(ModReference.id + ":akmiron", "inventory"));
 
         modelMesher.register(Armors.Dclassboots, 0, new ModelResourceLocation(ModReference.id + ":dclass_boots", "inventory"));
         modelMesher.register(Armors.Dclasschest, 0, new ModelResourceLocation(ModReference.id + ":dclass_chest", "inventory"));

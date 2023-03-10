@@ -9,7 +9,7 @@ public class ItemGunmetalPlate extends Item {
     public ItemGunmetalPlate() {
         setMaxStackSize(64);
         setTranslationKey(ModReference.id + "_" + "GunmetalPlate");
-//        setTextureName(ModReference.MWC_ID + ":" + "gunmetalplate");
+//        setTextureName(ModReference.id + ":" + "gunmetalplate");
         setCreativeTab(ModernWarfareMod.BlocksTab);
     }
 }

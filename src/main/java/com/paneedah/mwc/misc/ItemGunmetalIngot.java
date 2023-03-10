@@ -9,7 +9,7 @@ public class ItemGunmetalIngot extends Item {
 	public ItemGunmetalIngot() {
 		setMaxStackSize(64);
 		setTranslationKey(ModReference.id + "_" + "GunmetalIngot");
-//		setTextureName(ModReference.MWC_ID + ":" + "gunmetalingot");
+//		setTextureName(ModReference.id + ":" + "gunmetalingot");
 		setCreativeTab(ModernWarfareMod.BlocksTab);
 	}
 }

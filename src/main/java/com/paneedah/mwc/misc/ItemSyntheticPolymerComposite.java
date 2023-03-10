@@ -9,7 +9,7 @@ public class ItemSyntheticPolymerComposite extends Item {
     public ItemSyntheticPolymerComposite() {
         setMaxStackSize(64);
         setTranslationKey(ModReference.id + "_" + "SyntheticPolymerComposite");
-//        setTextureName(ModReference.MWC_ID + ":" + "syntheticpolymercomposite");
+//        setTextureName(ModReference.id + ":" + "syntheticpolymercomposite");
         setCreativeTab(ModernWarfareMod.BlocksTab);
     }
 }

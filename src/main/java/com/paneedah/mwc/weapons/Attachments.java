@@ -5912,7 +5912,7 @@ public class Attachments {
 //                    }
 //                })
 //                .withName("Glock18CBody")
-//                .withRenderablePart().withModId(ModReference.MWC_ID).withTextureName("Dummy.png")
+//                .withRenderablePart().withModId(ModReference.id).withTextureName("Dummy.png")
 //                .build(ModernWarfareMod.MOD_CONTEXT);
         
         Glock19XBody = new AttachmentBuilder<Weapon>()

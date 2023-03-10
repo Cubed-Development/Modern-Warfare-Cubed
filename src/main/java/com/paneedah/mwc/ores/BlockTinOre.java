@@ -13,7 +13,7 @@ public class BlockTinOre extends Block {
     public BlockTinOre() {
         super(Material.ROCK);
 
-        //setBlockName(ModReference.MWC_ID + "_" + "TinOre");
+        //setBlockName(ModReference.id + "_" + "TinOre");
         setTranslationKey(ModReference.id + ":" + "tinore");
         setHardness(6F);
         setResistance(15F);

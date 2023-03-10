@@ -9,7 +9,7 @@ public class ItemSteelIngot extends Item {
 	public ItemSteelIngot() {
 		setMaxStackSize(64);
 		setTranslationKey(ModReference.id + "_" + "SteelIngot");
-//		setTextureName(ModReference.MWC_ID + ":" + "steelingot");
+//		setTextureName(ModReference.id + ":" + "steelingot");
 		setCreativeTab(ModernWarfareMod.BlocksTab);
 	}
 }
