@@ -38,6 +38,8 @@ Please try to reproduce the issue with as few other mods as possible. Then check
 
 ## Logs or/and crash reports
 
+***Please use https://mclo.gs/ to upload your logs and crash reports***
+
 ## Versions
 
 - Modern Warfare Cubed: [e.g. MWC-0.1-Dev-1] 
