@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityRenderer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
@@ -32,7 +33,7 @@ public class EntityGrenadeRenderer extends CompatibleEntityRenderer {
         GrenadeRenderer renderer = itemGrenade.getRenderer();
 
         mc.renderEngine.bindTexture(
-                new ResourceLocation(renderer.getClientModContext().getModId(), // TODO: init entity with mod context
+                new ResourceLocation(ModReference.id, // TODO: init entity with mod context
                 "textures/models/" + itemGrenade.getTextureName()));
 
         ModelBase model = renderer.getModel();

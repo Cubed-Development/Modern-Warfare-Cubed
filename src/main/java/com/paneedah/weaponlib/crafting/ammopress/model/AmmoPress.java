@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.crafting.ammopress.model;
 
 
+import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -21,10 +22,10 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 public class AmmoPress extends ModelBase {
 	
 	private Bullet bulletModel = new Bullet();
-	private ResourceLocation bulletTexture = new ResourceLocation("mw:textures/blocks/bullet.png");
+	private ResourceLocation bulletTexture = new ResourceLocation(ModReference.id + ":textures/blocks/bullet.png");
 	
 	private Gunpowder gunpowderModel = new Gunpowder();
-	private ResourceLocation powderTexture = new ResourceLocation("mw:textures/blocks/gunpowder.png");
+	private ResourceLocation powderTexture = new ResourceLocation(ModReference.id + ":textures/blocks/gunpowder.png");
 	
 	
 	private final ModelRenderer bone13;

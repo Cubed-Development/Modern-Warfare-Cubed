@@ -22,7 +22,7 @@ public class DesertEagleFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("desert_eagle")
         .withFireRate(0.2f)
         .withRecoil(5f)
@@ -125,7 +125,7 @@ public class DesertEagleFactory implements GunFactory {
         })
         .withTextureNames("deagle")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Glock18C())
             //.withTextureName("M9")
             //.withWeaponProximity(0.99F)

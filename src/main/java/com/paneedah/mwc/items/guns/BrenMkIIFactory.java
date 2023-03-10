@@ -21,7 +21,7 @@ public class BrenMkIIFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("bren_mkii")
         .withFireRate(0.5f)
         .withRecoil(2.5f)
@@ -112,7 +112,7 @@ public class BrenMkIIFactory {
         })
         .withTextureNames("brenmkii")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new BrenMkII())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

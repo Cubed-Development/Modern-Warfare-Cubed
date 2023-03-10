@@ -22,7 +22,7 @@ public class G2ContenderFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("g2_contender")
         .withAmmoCapacity(1)
         .withFireRate(0.3f)
@@ -114,7 +114,7 @@ public class G2ContenderFactory implements GunFactory {
         .withCompatibleBullet(Bullets.Bullet4570, (model) -> {})
         .withTextureNames("g2contender")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new G2Contender())
             //.withTextureName("Remington900")
             //.withWeaponProximity(0.99F)

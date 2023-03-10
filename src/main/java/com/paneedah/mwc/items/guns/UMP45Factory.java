@@ -25,7 +25,7 @@ public class UMP45Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("ump_45")
         .withFireRate(0.6f)
         .withRecoil(2f)
@@ -309,7 +309,7 @@ public class UMP45Factory {
         })
         .withTextureNames("ump45")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new UMP45())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

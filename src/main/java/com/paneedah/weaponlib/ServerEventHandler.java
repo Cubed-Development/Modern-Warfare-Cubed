@@ -35,11 +35,9 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
 public class ServerEventHandler extends CompatibleServerEventHandler {
 
     private ModContext modContext;
-    private String modId;
 
-    public ServerEventHandler(ModContext modContext, String modId) {
+    public ServerEventHandler(ModContext modContext) {
         this.modContext = modContext;
-        this.modId = modId;
     }
     
     @Override
@@ -237,11 +235,6 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
                 }
             }
         }
-    }
-
-    @Override
-    public String getModId() {
-        return modId;
     }
 
     @Override

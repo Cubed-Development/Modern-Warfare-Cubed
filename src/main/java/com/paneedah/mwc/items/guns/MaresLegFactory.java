@@ -22,7 +22,7 @@ public class MaresLegFactory implements GunFactory {
     @SuppressWarnings("unchecked")
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("mares_leg")
 //      .withAmmo(CommonProxy.Remington870Mag)
         .withAmmoCapacity(6)
@@ -114,7 +114,7 @@ public class MaresLegFactory implements GunFactory {
         .withCompatibleBullet(Bullets.Bullet44, (model) -> {})
         .withTextureNames("M1873")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new MaresLeg())
             //.withTextureName("Remington900")
             //.withWeaponProximity(0.99F)

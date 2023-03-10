@@ -26,7 +26,7 @@ public class F2000Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("f2000")
         .withFireRate(0.85f)
         .withRecoil(1.5f)
@@ -373,7 +373,7 @@ public class F2000Factory {
         })
         .withTextureNames("gun")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new F2000())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.ai;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleBiomeType;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
@@ -485,12 +486,12 @@ public class EntityConfiguration {
                 EnumDifficulty[] difficultyValues = EnumDifficulty.values();
                 
                 entityConfig.getEquipment().forEach(ee -> {
-                    Item equipmentItem = compatibility.findItemByName(context.getModId(), ee.getId());
+                    Item equipmentItem = compatibility.findItemByName(ee.getId());
                     if(equipmentItem != null) {
                         Equipment equipment = new Equipment();
                         equipment.item = equipmentItem;
                         equipment.attachments = ee.getAttachment().stream()
-                                .map(a -> compatibility.findItemByName(context.getModId(), a.getId()))
+                                .map(a -> compatibility.findItemByName(a.getId()))
                                 .filter(e -> e instanceof ItemAttachment<?>)
                                 .map(a -> (ItemAttachment<?>)a)
                                 .collect(Collectors.toList());
@@ -559,22 +560,22 @@ public class EntityConfiguration {
             configuration.dialogContent = Collections.unmodifiableList(introDialogs);
             
             if(introImage != null) {
-                configuration.introImage = new ResourceLocation(context.getModId(), 
+                configuration.introImage = new ResourceLocation(ModReference.id,
                         "textures/gui/" + introImage);
             }
             
             if(dialogBackground != null) {
-                configuration.dialogBackground = new ResourceLocation(context.getModId(), 
+                configuration.dialogBackground = new ResourceLocation(ModReference.id, 
                         "textures/gui/" + dialogBackground);
             }
             
             if(rewardsBackground != null) {
-                configuration.rewardsBackground = new ResourceLocation(context.getModId(), 
+                configuration.rewardsBackground = new ResourceLocation(ModReference.id, 
                         "textures/gui/" + rewardsBackground);
             }
             
             if(missionSelectionBackground != null) {
-                configuration.missionSelectionBackground = new ResourceLocation(context.getModId(), 
+                configuration.missionSelectionBackground = new ResourceLocation(ModReference.id, 
                         "textures/gui/" + missionSelectionBackground);
             }
             
@@ -585,7 +586,7 @@ public class EntityConfiguration {
             SecondaryEntityRegistry.map.put(name, entityClass);
             
             compatibility.registerModEntity(entityClass, entityName, 
-                    modEntityId, context.getMod(), context.getModId(), trackingRange, updateFrequency, sendVelocityUpdates);
+                    modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
             
             
             
@@ -609,7 +610,7 @@ public class EntityConfiguration {
             
             if(compatibility.isClientSide()) {
                 for(TexturedModel tmv: texturedModelVariants) {
-                    tmv.textureResource = new ResourceLocation(context.getModId(), "textures/entity/" + tmv.textureName);
+                    tmv.textureResource = new ResourceLocation(ModReference.id, "textures/entity/" + tmv.textureName);
                     try {
                         tmv.model = (ModelBiped) Class.forName(tmv.modelClassName).newInstance();
                     } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {

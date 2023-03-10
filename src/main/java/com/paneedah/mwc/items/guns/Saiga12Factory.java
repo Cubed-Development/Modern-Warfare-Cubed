@@ -21,7 +21,7 @@ public class Saiga12Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("saiga12")
         .withFireRate(0.4f)
         .withRecoil(5f)
@@ -112,7 +112,7 @@ public class Saiga12Factory {
         })
         .withTextureNames("gun")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Saiga12())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

@@ -23,7 +23,7 @@ public class Remington700Factory implements GunFactory {
     @SuppressWarnings("unchecked")
 	public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("remington_700")
         .withFireRate(0.16f)
         .withEjectRoundRequired()
@@ -266,7 +266,7 @@ public class Remington700Factory implements GunFactory {
         })
         .withTextureNames("remington700")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Remington700())
             //.withTextureName("AWP")
             //.withWeaponProximity(0.99F)

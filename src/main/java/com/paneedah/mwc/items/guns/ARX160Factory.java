@@ -24,7 +24,7 @@ public class ARX160Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("arx160")
         .withFireRate(0.75f)
         .withRecoil(2.5f)
@@ -359,7 +359,7 @@ public class ARX160Factory implements GunFactory {
         })
         .withTextureNames("arx160")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new Glock18C())
             .withADSBeizer(new Vec3d(0, 5, 0))
             .withActionPiece(AuxiliaryAttachments.ARX160Action)

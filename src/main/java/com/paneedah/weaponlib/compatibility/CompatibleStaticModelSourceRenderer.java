@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.StaticModelSourceRenderer.Builder;
 import net.minecraft.block.state.IBlockState;
@@ -225,7 +226,7 @@ public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRen
 		ModelSource modelSource = (ModelSource)itemStack.getItem();
 
         for(Tuple<ModelBase, String> texturedModel: modelSource.getTexturedModels()) {
-			mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId() + ":textures/models/" + texturedModel.getV()));
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + texturedModel.getV()));
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
 			ModelBase model = texturedModel.getU();

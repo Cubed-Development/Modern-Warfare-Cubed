@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.compatibility;
 
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.configold.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
@@ -41,9 +42,7 @@ import java.io.ByteArrayOutputStream;
  * - Added TO-DOs for necessary sections
  */
 public abstract class CompatibleServerEventHandler {
-
-    public abstract String getModId();
-
+    
 	@SubscribeEvent
 	public void onItemToss(ItemTossEvent itemTossEvent) {
 		onCompatibleItemToss(itemTossEvent);
@@ -128,21 +127,21 @@ public abstract class CompatibleServerEventHandler {
 	public void attachCapability(AttachCapabilitiesEvent<Entity> event)
 	{
 	    if(event.getObject() instanceof EntityPlayer) {
-	        ResourceLocation PLAYER_ENTITY_TRACKER = new ResourceLocation(getModId(), "PLAYER_ENTITY_TRACKER");
+	        ResourceLocation PLAYER_ENTITY_TRACKER = new ResourceLocation(ModReference.id, "PLAYER_ENTITY_TRACKER");
 	        event.addCapability(PLAYER_ENTITY_TRACKER, new CompatiblePlayerEntityTrackerProvider());
 	        
-	        ResourceLocation extraFlagsResourceLocation = new ResourceLocation(getModId(), "PLAYER_ENTITY_FLAGS");
+	        ResourceLocation extraFlagsResourceLocation = new ResourceLocation(ModReference.id, "PLAYER_ENTITY_FLAGS");
             event.addCapability(extraFlagsResourceLocation, new CompatibleExtraEntityFlags());
             
-            ResourceLocation customInventoryLocation = new ResourceLocation(getModId(), "PLAYER_CUSTOM_INVENTORY");
+            ResourceLocation customInventoryLocation = new ResourceLocation(ModReference.id, "PLAYER_CUSTOM_INVENTORY");
 
             event.addCapability(customInventoryLocation, new CompatibleCustomPlayerInventoryCapability());
             
-            ResourceLocation playerMissionsResourceLocation = new ResourceLocation(getModId(), "PLAYER_MISSIONS");
+            ResourceLocation playerMissionsResourceLocation = new ResourceLocation(ModReference.id, "PLAYER_MISSIONS");
             event.addCapability(playerMissionsResourceLocation, new CompatibleMissionCapability());
 	    }
 	    
-        ResourceLocation exposureResourceLocation = new ResourceLocation(getModId(), "EXPOSURE");
+        ResourceLocation exposureResourceLocation = new ResourceLocation(ModReference.id, "EXPOSURE");
         event.addCapability(exposureResourceLocation, new CompatibleExposureCapability());
 	    
 	}

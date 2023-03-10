@@ -16,7 +16,7 @@ public class BaseballBatNailsFactory implements MeleeFactory {
     @Override
     public Item createMelee(CommonProxy commonProxy) {
         return new ItemMelee.Builder()
-                .withModId(ModReference.id)
+        
                 .withName("baseball_bat_nails")
                 .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
                 .withTextureNames("bat_nails")
@@ -30,7 +30,7 @@ public class BaseballBatNailsFactory implements MeleeFactory {
                 .withHeavyAttackSound("swoosh")
                 .withRenderer(
                         new MeleeRenderer.Builder()
-                                .withModId(ModReference.id)
+                        
                                 .withModel(new com.paneedah.mwc.models.BatNails())
                                 .withAnimationDuration(300)
                                 .withInventoryPositioning(itemStack -> {

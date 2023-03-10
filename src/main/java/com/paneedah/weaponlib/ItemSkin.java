@@ -22,7 +22,7 @@ public class ItemSkin extends ItemAttachment<Weapon> {
 
 		@Override
 		protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
-			ItemSkin skin = new ItemSkin(getModId(), AttachmentCategory.SKIN, getModel(), getTextureName(), null, null, null);
+			ItemSkin skin = new ItemSkin(AttachmentCategory.SKIN, getModel(), getTextureName(), null, null, null);
 			skin.textureVariants = this.textureVariants;
 			return skin;
 		}
@@ -59,10 +59,10 @@ public class ItemSkin extends ItemAttachment<Weapon> {
 
 	private List<String> textureVariants;
 
-	public ItemSkin(String modId, AttachmentCategory category, ModelBase model, String textureName, String crosshair,
+	public ItemSkin(AttachmentCategory category, ModelBase model, String textureName, String crosshair,
 			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
 			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
-		super(modId, category, model, textureName, crosshair, apply, remove);
+		super(category, model, textureName, crosshair, apply, remove);
 	}
 
 	public String getTextureName() {

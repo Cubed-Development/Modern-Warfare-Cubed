@@ -69,7 +69,7 @@ public class CommonProxy {
     }
 
     public void preInit(final ModernWarfareMod mod, final ConfigurationManager configurationManager, final CompatibleFmlPreInitializationEvent initializationEvent) {
-        ModernWarfareMod.MOD_CONTEXT.preInit(mod, ModReference.id, configurationManager, initializationEvent, new CompatibleChannel(ModernWarfareMod.CHANNEL));
+        ModernWarfareMod.MOD_CONTEXT.preInit(mod, configurationManager, initializationEvent, new CompatibleChannel(ModernWarfareMod.CHANNEL));
 
         ModernWarfareMod.MOD_CONTEXT.setChangeZoomSound("OpticZoom");
         ModernWarfareMod.MOD_CONTEXT.setNightVisionOnSound("nightvision_on");
@@ -156,11 +156,11 @@ public class CommonProxy {
         new BaseballBatNailsFactory().createMelee(this);
         new NightStickFactory().createMelee(this);
         
-        ModernWarfareMod.MOD_CONTEXT.preInitEnd(mod, ModReference.id, configurationManager, initializationEvent, ModernWarfareMod.MOD_CONTEXT.getChannel());
+        ModernWarfareMod.MOD_CONTEXT.preInitEnd(mod, configurationManager, initializationEvent, ModernWarfareMod.MOD_CONTEXT.getChannel());
     }
 
     public void init(final ModernWarfareMod mod, final ConfigurationManager configurationManager, final CompatibleFmlInitializationEvent initializationEvent) {
-        ModernWarfareMod.MOD_CONTEXT.init(mod, ModReference.id);
+        ModernWarfareMod.MOD_CONTEXT.init(mod);
 
         Entities.init(this);
         Vehicles.init(this);

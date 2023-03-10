@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.inventory;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleGuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -25,7 +26,7 @@ public class CustomPlayerInventoryGuiContainer extends CompatibleGuiContainer {
      * Normally I use '(ModInfo.MOD_ID, "textures/...")', but it can be done
      * this way as well
      */
-    private static final ResourceLocation iconLocation = new ResourceLocation("mw", "textures/gui/custom_inventory.png");
+    private static final ResourceLocation iconLocation = new ResourceLocation(ModReference.id, "textures/gui/custom_inventory.png");
 
 
     /**

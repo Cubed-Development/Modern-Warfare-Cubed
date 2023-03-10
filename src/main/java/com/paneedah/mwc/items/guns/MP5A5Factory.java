@@ -28,7 +28,7 @@ public class MP5A5Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("mp5a5")
         .withFireRate(0.8f)
         .withRecoil(1.5f)
@@ -416,7 +416,7 @@ public class MP5A5Factory {
         })
         .withTextureNames("mp5")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new MP5())
             .withADSBeizer(new Vec3d(0.2, 1.7, 0.5))
             //.withTextureName("AK47")

@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["X#R","XXX"],"key":{"#":{"item":"minecraft:crafting_table"},"X":{"item":"minecraft:iron_ingot"},"R":{"item":"mwc:SteelIngot"}},"result":{"item":"mwc:ammo_press","count":1}}

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.crafting.ammopress;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ItemBullet;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -40,7 +41,7 @@ import static net.minecraft.util.text.TextFormatting.WHITE;
 public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPress> {
 	
 	// Ammo press texture location
-	private static final ResourceLocation AMMO_PRESS_TEX = new ResourceLocation("mw:textures/gui/ammosheet.png");
+	private static final ResourceLocation AMMO_PRESS_TEX = new ResourceLocation(ModReference.id + ":textures/gui/ammosheet.png");
 
 	// Selectors & Quantity Box
 	private GUIButtonCustom bulletSelector, magazineSelector;

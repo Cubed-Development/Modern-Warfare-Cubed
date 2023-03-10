@@ -19,7 +19,7 @@ public class AUGFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("steyr_aug_a1")
         //.withAmmoCapacity(30)
         .withFireRate(0.75f)
@@ -518,7 +518,7 @@ public class AUGFactory implements GunFactory {
         })
         .withTextureNames("aug")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new AUG())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);

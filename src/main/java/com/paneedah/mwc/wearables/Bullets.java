@@ -57,7 +57,7 @@ public class Bullets {
 //    public static ItemBullet Bullet9x18mm;
 
     public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event) {
-        Grenade40mm = new ItemBullet.Builder().withModId(ModReference.id)
+        Grenade40mm = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("Grenade40mm").withMaxStackSize(64)
                 .withModel(new com.paneedah.mwc.models.GL06Grenade(), "GL06.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", CompatibleItems.GUNPOWDER)
@@ -79,7 +79,7 @@ public class Bullets {
                 }).withTextureName("Dummy.png")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
-        M202Rocket = new ItemBullet.Builder().withModId(ModReference.id)
+        M202Rocket = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("m202rocket").withMaxStackSize(64)
                 .withModel(new com.paneedah.mwc.models.M202Rocket(), "gun.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", Ores.GunmetalPlate, Ores.GunmetalIngot)
@@ -101,7 +101,7 @@ public class Bullets {
                 }).withTextureName("Dummy.png")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
-        RPGRocket = new ItemBullet.Builder().withModId(ModReference.id)
+        RPGRocket = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("rpg7_rocket").withMaxStackSize(64)
                 .withModel(new com.paneedah.mwc.models.RPG7rocketPROJECTILE(), "rpg7.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", Ores.GunmetalPlate, Ores.GunmetalIngot)
@@ -123,7 +123,7 @@ public class Bullets {
                 }).withTextureName("Dummy.png")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
-        EnergyCase = new ItemBullet.Builder().withModId(ModReference.id)
+        EnergyCase = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("EnergyCase")
                 .withModel(new com.paneedah.mwc.models.EnergyCase(), "gun.png")
                 //.withMaxStackSize(500)
@@ -145,7 +145,7 @@ public class Bullets {
                     GL11.glScaled(1.4F, 1.4F, 1.4f);
                 }).withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
-        PlasmaCapsule = new ItemBullet.Builder().withModId(ModReference.id)
+        PlasmaCapsule = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("PlasmaCapsule")
                 .withModel(new com.paneedah.mwc.models.ChainsawFuel(), "PlasmaCapsule.png")
                 //.withMaxStackSize(500)
@@ -169,7 +169,7 @@ public class Bullets {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet3006Springfield = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet3006Springfield")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletspringfield.png")
@@ -193,7 +193,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet8x58 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet8x58")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet8x58.png")
@@ -217,7 +217,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet792x33Kurz = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet792x33Kurz")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
@@ -241,7 +241,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet50BMG = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet50BMG")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
@@ -265,7 +265,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet20x82mm = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet20x82mm")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet20x82.png")
@@ -289,7 +289,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet408CT = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet408CT")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
@@ -313,7 +313,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet308Winchester = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet308Winchester")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletspringfield.png")
@@ -337,7 +337,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet792x57 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet792x57")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet8x58.png")
@@ -361,7 +361,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet762x54 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet762x54")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet762x54.png")
@@ -384,7 +384,7 @@ public class Bullets {
                 .withTextureName("Dummy.png")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
-        Bullet762x51 = new ItemBullet.Builder().withModId(ModReference.id)
+        Bullet762x51 = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet762x51")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
@@ -407,7 +407,7 @@ public class Bullets {
                 .withTextureName("Dummy.png")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
-        Shotgun12Guage = new ItemBullet.Builder().withModId(ModReference.id)
+        Shotgun12Guage = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("Shotgun12Gauge")
                 .withModel(new com.paneedah.mwc.models.Shotgun12Gauge(), "Shotgun12Gauge.png")
                 .withFirstPersonPositioning((player, itemStack) -> {
@@ -427,7 +427,7 @@ public class Bullets {
                     GL11.glScaled(1.4F, 1.4F, 1.4f);
                 }).withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
-        Shotgun4G = new ItemBullet.Builder().withModId(ModReference.id)
+        Shotgun4G = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("Shotgun4G")
                 .withModel(new com.paneedah.mwc.models.Shotgun12Gauge(), "Shotgun4Gauge.png")
                 .withFirstPersonPositioning((player, itemStack) -> {
@@ -448,7 +448,7 @@ public class Bullets {
                 }).withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet762x35 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet762x35")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
@@ -472,7 +472,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet765x21 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet765x21")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet765x21.png")
@@ -496,7 +496,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet762x39 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet762x39")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet762x39.png")
@@ -520,7 +520,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
 
         Bullet556x45 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet556x45")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
@@ -544,7 +544,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet65 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet65")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
@@ -568,7 +568,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet545x39 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet545x39")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet545x39.png")
@@ -592,7 +592,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet4570 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet4570")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet765x21.png")
@@ -616,7 +616,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet4440 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet4440")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet765x21.png")
@@ -640,7 +640,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
     
         Bullet45ACP = new ItemBullet.Builder()
-        	.withModId(ModReference.id)
+        	
             .withCreativeTab(ModernWarfareMod.AmmoTab)
             .withName("Bullet45ACP")
             .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
@@ -664,7 +664,7 @@ public class Bullets {
             .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet357 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet357")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
@@ -688,7 +688,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet44 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet44")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
@@ -712,7 +712,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet40SW = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet40SW")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
@@ -736,7 +736,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet50AE = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet50AE")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet50ae.png")
@@ -760,7 +760,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet50Beowulf = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet50Beowulf")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
@@ -784,7 +784,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet500 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet500")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
@@ -808,7 +808,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet380ACP = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet380ACP")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
@@ -832,7 +832,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet763x25 = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet763x25")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
@@ -855,7 +855,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet9x39mm = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet9x39mm")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet50ae.png")
@@ -879,7 +879,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet9x19mm = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet9x19mm")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
@@ -903,7 +903,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet9x18mm = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet9x18mm")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet9x18.png")
@@ -926,7 +926,7 @@ public class Bullets {
                 .withTextureName("Dummy.png")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
-        Bullet57x28mm = new ItemBullet.Builder().withModId(ModReference.id)
+        Bullet57x28mm = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet57x28mm")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
@@ -950,7 +950,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet46x30mm = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet46x30mm")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
@@ -974,7 +974,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet10mm = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet10mm")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
@@ -998,7 +998,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         Bullet473x33mm = new ItemBullet.Builder()
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withName("Bullet473x33mm")
                 .withModel(new com.paneedah.mwc.models.Bulletcaseless(), "bulletcaseless.png")

@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.JSONDatabaseManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -25,7 +26,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
 	// Main file / directory
 	
-	private static final File DIRECTORY = new File(Loader.instance().getConfigDir() + "/mw/crafting");
+	private static final File DIRECTORY = new File(Loader.instance().getConfigDir() + "/mwc/crafting");
 	private static final File CACHE_DIR = new File(DIRECTORY, "cache/");
 	private static final File MAIN_FILE = new File(DIRECTORY, "craftingmappings.json");
 	private static final String DEFAULT_CRAFTING_MAPPINGS = "com/paneedah/weaponlib/crafting/defaultRecipes/craftingmappings.json";
@@ -74,7 +75,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 		// Entry json object
 		JsonObject obj = new JsonObject();
 		mainArray.add(obj);
-		obj.addProperty(NAME_KEY, "mw:bullet50ae");
+		obj.addProperty(NAME_KEY, ModReference.id + ":bullet50ae");
 		obj.addProperty(CRAFTING_GROUP_KEY, CraftingGroup.BULLET.toString());
 
 		CraftingEntry[] recipe = new CraftingEntry[] { new CraftingEntry(Blocks.ACACIA_FENCE, 4) };

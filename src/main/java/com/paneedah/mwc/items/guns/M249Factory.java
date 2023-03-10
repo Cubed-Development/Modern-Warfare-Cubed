@@ -21,7 +21,7 @@ public class M249Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m249")
         .withFireRate(0.7f)
         .withRecoil(2f)
@@ -339,7 +339,7 @@ public class M249Factory {
         })
         .withTextureNames("m249")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new M249())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

@@ -19,7 +19,7 @@ public class M60E4Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m60e4")
         .withFireRate(0.6f)
         .withRecoil(2f)
@@ -313,7 +313,7 @@ public class M60E4Factory {
         })
         .withTextureNames("m60")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new M60())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

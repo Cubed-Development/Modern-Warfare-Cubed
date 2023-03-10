@@ -21,7 +21,7 @@ public class HK417Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("hk_417")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.75f)
@@ -597,7 +597,7 @@ public class HK417Factory implements GunFactory {
 		})
 		.withTextureNames("hk417")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new HK417())
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);

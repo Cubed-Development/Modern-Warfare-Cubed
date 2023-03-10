@@ -19,7 +19,7 @@ public class GasGrenadeFactory implements GrenadeFactory {
     @Override
     public ItemGrenade createGrenade(CommonProxy commonProxy) {
         return new ItemGrenade.Builder()
-                .withModId(ModReference.id)
+        
                 .withName("GasGrenade")
                 .withCreativeTab(ModernWarfareMod.GrenadesTab)
                 .withTextureNames("gasgrenade")
@@ -48,7 +48,7 @@ public class GasGrenadeFactory implements GrenadeFactory {
 //                                )
                 .withRenderer(
                         new GrenadeRenderer.Builder()
-                        .withModId(ModReference.id)
+                
                         .withModel(new gasgrenade())
                         .withAnimationDuration(500)
 

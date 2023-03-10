@@ -27,7 +27,7 @@ public class VSSVintorezFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("vss_vintorez")
         .withFireRate(0.7f)
         .withRecoil(1.5f)
@@ -354,7 +354,7 @@ public class VSSVintorezFactory {
         })
         .withTextureNames("vssvintorez")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new VSSVintorez())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

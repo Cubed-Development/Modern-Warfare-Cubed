@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -183,7 +184,6 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
                 .withInventoryModelPositioning(builder.inventoryModelPositioning)
                 .withFirstPersonHandPositioning(builder.firstPersonLeftHandPositioning, builder.firstPersonRightHandPositioning)
                 .withModContext(modContext)
-                .withModId(modContext.getModId())
                 .build();
             }
         }
@@ -204,8 +204,7 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
 //            if(!guiTextureName.startsWith("textures/gui/")) {
 //                guiTextureName = "textures/gui/" + guiTextureName;
 //            }
-//            ResourceLocation guiTextureLocation = new ResourceLocation(modContext.getModId(), 
-//                    addFileExtension(guiTextureName, ".png"));
+//            ResourceLocation guiTextureLocation = new ResourceLocation(addFileExtension(guiTextureName, ".png"));
             
             
             
@@ -218,7 +217,7 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
             
             item.modelFileString = this.modelFileString;
             item.properTextureName = this.properTextureName;
-            item.setTranslationKey(modContext.getModId() + "_" + name);
+            item.setTranslationKey(ModReference.id + "_" + name);
             
             // Register hook
             CraftingRegistry.registerHook(item);

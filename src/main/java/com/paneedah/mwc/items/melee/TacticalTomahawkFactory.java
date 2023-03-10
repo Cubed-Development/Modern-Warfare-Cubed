@@ -16,7 +16,7 @@ public class TacticalTomahawkFactory implements MeleeFactory {
     @Override
     public Item createMelee(CommonProxy commonProxy) {
         return new ItemMelee.Builder()
-                .withModId(ModReference.id)
+        
                 .withName("tactical_tomahawk")
                 .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
                 .withTextureNames("tacticaltomahawk")
@@ -30,7 +30,7 @@ public class TacticalTomahawkFactory implements MeleeFactory {
                 .withHeavyAttackSound("swoosh")
                 .withRenderer(
                         new MeleeRenderer.Builder()
-                                .withModId(ModReference.id)
+                        
                                 .withModel(new com.paneedah.mwc.models.TacticalTomahawk())
                                 .withAnimationDuration(400)
                                 .withInventoryPositioning(itemStack -> {

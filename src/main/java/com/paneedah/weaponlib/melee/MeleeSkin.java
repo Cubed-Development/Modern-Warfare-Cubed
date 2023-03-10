@@ -25,7 +25,7 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
 
 		@Override
 		protected ItemAttachment<ItemMelee> createAttachment(ModContext modContext) {
-		    MeleeSkin skin = new MeleeSkin(getModId(), AttachmentCategory.SKIN, getModel(), getTextureName(), null, null, null);
+		    MeleeSkin skin = new MeleeSkin(AttachmentCategory.SKIN, getModel(), getTextureName(), null, null, null);
 			skin.textureVariants = this.textureVariants;
 			return skin;
 		}
@@ -53,10 +53,10 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
 	
 	private List<String> textureVariants;
 	
-	public MeleeSkin(String modId, AttachmentCategory category, ModelBase model, String textureName, String crosshair,
+	public MeleeSkin(AttachmentCategory category, ModelBase model, String textureName, String crosshair,
 			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<ItemMelee> apply,
 			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<ItemMelee> remove) {
-		super(modId, category, model, textureName, crosshair, apply, remove);
+		super(category, model, textureName, crosshair, apply, remove);
 	}
 
 	public String getTextureName() {

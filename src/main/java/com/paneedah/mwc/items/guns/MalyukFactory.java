@@ -27,7 +27,7 @@ public class MalyukFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("malyuk")
         .withFireRate(0.6f)
         .withRecoil(3.5f)
@@ -316,7 +316,7 @@ public class MalyukFactory {
         })
         .withTextureNames("malyuk")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new Malyuk())
             .withActionPiece(AuxiliaryAttachments.Malyukaction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))

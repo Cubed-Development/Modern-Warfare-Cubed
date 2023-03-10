@@ -43,8 +43,6 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         private CreativeTabs creativeTab;
         private MeleeRenderer renderer;
 
-        private String modId;
-
         Map<ItemAttachment<ItemMelee>, CompatibleAttachment<ItemMelee>> compatibleAttachments = new HashMap<>();
 
         private Class<? extends WeaponSpawnEntity> spawnEntityClass;
@@ -64,11 +62,6 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         public Supplier<Integer> heavyAttackCooldownTimeout = () -> DEFAULT_HEAVY_ATTACK_COOLDOWN_TIMEOUT;
 
         private Object[] craftingRecipe;
-
-        public Builder withModId(String modId) {
-            this.modId = modId;
-            return this;
-        }
 
         public Builder withInformationProvider(Function<ItemStack, List<String>> informationProvider) {
             this.informationProvider = informationProvider;
@@ -111,9 +104,6 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         }
 
         public Builder withTextureNames(String... textureNames) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
             for (String textureName : textureNames) {
                 this.textureNames.add(textureName.toLowerCase() + ".png");
             }
@@ -121,18 +111,12 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         }
 
         public Builder withAttackSound(String attackSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.attackSound = attackSound.toLowerCase(); //modId + ":" + shootSound;
+            this.attackSound = attackSound.toLowerCase(); //ModReference.id + ":" + shootSound;
             return this;
         }
 
         public Builder withHeavyAttackSound(String heavyAttackSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.heavyAttackSound = heavyAttackSound.toLowerCase(); //modId + ":" + reloadSound;
+            this.heavyAttackSound = heavyAttackSound.toLowerCase(); //ModReference.id + ":" + reloadSound;
             return this;
         }
 
@@ -197,9 +181,6 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         }
 
         public ItemMelee build(ModContext modContext) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
 
             if (name == null) {
                 throw new IllegalStateException("Item name not provided");

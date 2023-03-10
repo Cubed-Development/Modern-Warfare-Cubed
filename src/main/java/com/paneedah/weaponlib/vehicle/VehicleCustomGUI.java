@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.vehicle;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.KeyBindings;
 import com.paneedah.weaponlib.animation.jim.KeyStateAnimator;
 import com.paneedah.weaponlib.render.ScreenRenderer;
@@ -234,7 +235,7 @@ public class VehicleCustomGUI extends Gui {
 		// enmd
 		
 		// render knob
-		ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/gui/caricons.png");
+		ResourceLocation loc = new ResourceLocation(ModReference.id + ":textures/gui/caricons.png");
 		mc.getTextureManager().bindTexture(loc);
 		GlStateManager.color(1.0f, 1.0f, 1.0f);
 		GL11.glTranslated(x+nX, y+nZ, 0);

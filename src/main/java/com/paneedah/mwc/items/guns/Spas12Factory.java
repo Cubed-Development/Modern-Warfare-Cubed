@@ -21,7 +21,7 @@ public class Spas12Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("spas_12")
 //      .withAmmo(CommonProxy.Remington870Mag)
         .withAmmoCapacity(7)
@@ -219,7 +219,7 @@ public class Spas12Factory implements GunFactory {
         .withCompatibleBullet(Bullets.Shotgun12Guage, (model) -> {})
         .withTextureNames("spas12")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Spas12())
             //.withTextureName("Remington900")
             //.withWeaponProximity(0.99F)

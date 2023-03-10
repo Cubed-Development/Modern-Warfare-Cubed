@@ -21,7 +21,7 @@ public class M712Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m712")
         .withFireRate(0.75f)
         .withRecoil(4f)
@@ -119,7 +119,7 @@ public class M712Factory implements GunFactory {
         })
         .withTextureNames("m712")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new M712())
             //.withTextureName("M9")
             //.withWeaponProximity(0.99F)

@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.mission;
 
 import com.google.gson.*;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.mission.MissionReward.ItemReward;
 import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.item.crafting.CraftingManager;
@@ -24,15 +25,13 @@ import static com.paneedah.mwc.utils.ModReference.log;
 public class MissionManager {
     
     private Gson gson;
-    private String modId;
     private Map<String, MissionOffering> offeringsByName = new HashMap<>();
     private Map<UUID, MissionOffering> offeringsById = new HashMap<>();
     private Map<String, List<UUID>> entityOfferings = new HashMap<>();
     private File missionsDir;
     private  File entityMissionsFile;
     
-    public MissionManager(String modId, File missionsDir, File entityMissionsFile) {
-        this.modId = modId;
+    public MissionManager(File missionsDir, File entityMissionsFile) {
         this.missionsDir = missionsDir;
         this.entityMissionsFile = entityMissionsFile;
         this.gson = new GsonBuilder()
@@ -130,14 +129,14 @@ public class MissionManager {
         FileSystem filesystem = null;
 
         try {
-            URL url = AdvancementManager.class.getResource("/assets/" + modId + "/sounds.json");
+            URL url = AdvancementManager.class.getResource("/assets/" + ModReference.id + "/sounds.json");
 
             if (url != null) {
                 URI uri = url.toURI();
                 Path path;
 
                 if ("file".equals(uri.getScheme())) {
-                    URL resource = CraftingManager.class.getResource("/assets/" + modId + "/missions");
+                    URL resource = CraftingManager.class.getResource("/assets/" + ModReference.id + "/missions");
                     if(resource == null) {
                         return;
                     }
@@ -150,7 +149,7 @@ public class MissionManager {
                     }
 
                     filesystem = FileSystems.newFileSystem(uri, Collections.emptyMap());
-                    path = filesystem.getPath("/assets/" + modId + "/missions");
+                    path = filesystem.getPath("/assets/" + ModReference.id + "/missions");
                 }
 
                 Iterator<Path> iterator = Files.walk(path).iterator();

@@ -30,7 +30,7 @@ public class APSFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("aps")
         .withFireRate(0.6f)
         .withRecoil(3f)
@@ -129,7 +129,7 @@ public class APSFactory implements GunFactory {
       })
         .withTextureNames("APS")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new APS())
             .withActionPiece(
             		AuxiliaryAttachments.APSslide)

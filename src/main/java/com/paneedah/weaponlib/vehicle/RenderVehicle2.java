@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.vehicle;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityRenderer;
 import com.paneedah.weaponlib.debug.DebugRenderer;
@@ -34,7 +35,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 public class RenderVehicle2 extends CompatibleEntityRenderer
 {
 	
-	public static final ResourceLocation VEHICLE_SHADOW = new ResourceLocation("mw" + ":" + "textures/entity/vehicleshadow.png");
+	public static final ResourceLocation VEHICLE_SHADOW = new ResourceLocation(ModReference.id + ":textures/entity/vehicleshadow.png");
 	
 	
     private static ThreadLocal<Matrix4f> cameraTransformMatrix = new ThreadLocal<>();
@@ -510,7 +511,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 				GlStateManager.enableBlend();
 				GL11.glScaled(1.0001, 1.0001, 1.0001);
 				GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
-				ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/entity/audis4lights.png");
+				ResourceLocation loc = new ResourceLocation(ModReference.id + ":textures/entity/audis4lights.png");
 				
 				context.renderAlternateTexture(loc);
 				
@@ -520,7 +521,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 			
 		}
 		
-		ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/entity/suspensionblue.png");
+		ResourceLocation loc = new ResourceLocation(ModReference.id + ":textures/entity/suspensionblue.png");
 		mc.getTextureManager().bindTexture(loc);
 		
 		

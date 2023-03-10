@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.particle.vehicle;
 
+import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.particle.ParticleFootStep;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -14,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 
 public class TireTracks extends ParticleFootStep {
 
-	private static final ResourceLocation NORMAL_TRACK = new ResourceLocation("mw" + ":" + "textures/particle/tiretracknormal.png");
+	private static final ResourceLocation NORMAL_TRACK = new ResourceLocation(ModReference.id + ":textures/particle/tiretracknormal.png");
 	public int footstepAge;
     public int footstepMaxAge;
     public TextureManager currentFootStepsIn;

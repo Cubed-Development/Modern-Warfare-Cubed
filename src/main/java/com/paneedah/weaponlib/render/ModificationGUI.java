@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.FlaggedAttachment;
 import com.paneedah.weaponlib.command.DebugCommand;
@@ -35,7 +36,7 @@ public class ModificationGUI {
 
 	
 	// Texture for gui
-	private static final ResourceLocation MODIFICATION_GUI_TEXTURES = new ResourceLocation("mw:textures/gui/modificationguisheet.png");
+	private static final ResourceLocation MODIFICATION_GUI_TEXTURES = new ResourceLocation(ModReference.id + ":textures/gui/modificationguisheet.png");
 
 	
 	private static final double SIDEBAR_SCALE = 0.8;
@@ -192,7 +193,7 @@ public class ModificationGUI {
 		 * Returns the modification group based on the ID
 		 * (Attachment = 0, Modification = 1, Customization = 2)
 		 * 
-		 * @param ID (0-2)
+		 * @param id (0-2)
 		 * @return Modification group
 		 */
 		public static ModificationGroup fromID(int id) {

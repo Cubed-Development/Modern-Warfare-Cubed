@@ -24,7 +24,7 @@ public class M1911Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m1911")
         .withFireRate(0.5f)
         .withRecoil(3f)
@@ -121,7 +121,7 @@ public class M1911Factory implements GunFactory {
         })
         .withTextureNames("m1911")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             //.withBakedModel(WavefrontLoader.loadWeaponModel("m1911test", Arrays.asList("body", "handle"), false))
             //.withTextureName("M9")
             //.withWeaponProximity(0.99F)

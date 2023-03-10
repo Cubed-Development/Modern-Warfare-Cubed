@@ -28,11 +28,11 @@ import java.io.File;
 @Mod(modid = ModReference.id, name = ModReference.name, version = ModReference.version, guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory")
 public class ModernWarfareMod {
 
-    private static final String MODERN_WARFARE_CONFIG_FILE_NAME = "ModernWarfare.cfg";
+    private static final String MODERN_WARFARE_CONFIG_FILE_NAME = "Modern Warfare Cubed.cfg";
 
     // Todo: Strip XML out
     // The bad XML config
-    private static final String DEFAULT_CONFIG_RESOURCE = "/mw.cfg";
+    private static final String DEFAULT_CONFIG_RESOURCE = "/mwc.cfg";
 
     @SidedProxy(serverSide = "com.paneedah.weaponlib.CommonModContext", clientSide = "com.paneedah.weaponlib.ClientModContext")
     public static ModContext MOD_CONTEXT;

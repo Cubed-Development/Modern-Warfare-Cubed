@@ -21,7 +21,7 @@ public class M134Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m134")
         .withFireRate(0.9999999f)
         .withRecoil(1f)
@@ -72,7 +72,7 @@ public class M134Factory implements GunFactory {
         })
         .withTextureNames("gun")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new M134())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);

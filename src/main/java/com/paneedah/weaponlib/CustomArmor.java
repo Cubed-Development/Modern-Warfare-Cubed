@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleCustomArmor;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import com.paneedah.weaponlib.compatibility.CompatibleSound;
@@ -97,8 +98,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 return bootsModel;
             }
         }
-
-        private String modId;
+        
         private String textureName;
         @SuppressWarnings("unused")
         private String iconName;
@@ -125,11 +125,6 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
         private double shieldIndicatorHeight = 15;
         private String shieldIndicatorMaskTextureName;
         private String shieldIndicatorProgressBarTextureName;
-
-        public Builder withModId(String modId) {
-            this.modId = modId;
-            return this;
-        }
 
         public Builder withCreativeTab(CreativeTabs creativeTab) {
             this.creativeTab = creativeTab;
@@ -190,7 +185,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
         public Builder withCompatibleAttachment(AttachmentCategory category, ModelBase attachmentModel, String textureName,
                 Consumer<ModelBase> positioner) {
-            ItemAttachment<CustomArmor> item = new ItemAttachment<CustomArmor>(modId, category, attachmentModel, textureName, null);
+            ItemAttachment<CustomArmor> item = new ItemAttachment<CustomArmor>(category, attachmentModel, textureName, null);
             compatibleAttachments.put(item, new CompatibleAttachment<CustomArmor>(item, positioner));
             return this;
         }
@@ -240,11 +235,8 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 //              }
 //            }
 
-            if (modId == null)
-                throw new IllegalStateException("ModId is not set");
-
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
-            CustomArmor armorHelmet = new CustomArmor(modId, unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
+            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
                     unlocalizedHelmetName, textureName, chestModel, hudTextureName);
 
             if (creativeTab != null)
@@ -254,7 +246,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             compatibility.registerItem(armorHelmet, unlocalizedHelmetName.toLowerCase());
 
             String unlocalizedChestName = unlocalizedName + "_chest";
-            CustomArmor armorChest = new CustomArmor(modId, unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.CHEST,
+            CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.CHEST,
                     unlocalizedChestName, textureName, chestModel, hudTextureName);
             if(creativeTab != null) {
                 armorChest.setCreativeTab(creativeTab);
@@ -263,7 +255,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             compatibility.registerItem(armorChest, unlocalizedChestName.toLowerCase());
 
             String unlocalizedBootsName = unlocalizedName + "_boots";
-            CustomArmor armorBoots = new CustomArmor(modId, unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET,
+            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET,
                     unlocalizedBootsName, textureName, bootsModel, hudTextureName);
 
             if(armorBoots != null)
@@ -311,11 +303,8 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             if(context.isClient() && helmetModel == null)
                 helmetModel = HelmetModelFactory.create(modelClassName);
 
-            if (modId == null)
-                throw new IllegalStateException("ModId is not set");
-
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
-            CustomArmor armorHelmet = new CustomArmor(modId, unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
+            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
                     unlocalizedHelmetName, textureName, helmetModel, hudTextureName);
             
             CraftingRegistry.registerHook(armorHelmet);
@@ -343,12 +332,8 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 chestModel = ChestModelFactory.createModel(modelClassName);
             }
 
-            if(modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-
             String unlocalizedChestName = unlocalizedName + "_chest";
-            CustomArmor armorChest = new CustomArmor(modId, unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.CHEST,
+            CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.CHEST,
                     unlocalizedChestName, textureName, chestModel, hudTextureName);
             
             CraftingRegistry.registerHook(armorChest);
@@ -378,11 +363,8 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             if (isClient && bootsModel == null)
                 bootsModel = BootsModelFactory.createModel(modelClassName);
 
-            if (modId == null)
-                throw new IllegalStateException("ModId is not set");
-
             String unlocalizedBootsName = unlocalizedName + "_boots";
-            CustomArmor armorBoots = new CustomArmor(modId, unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET,
+            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET,
                     unlocalizedBootsName, textureName, bootsModel, hudTextureName);
             
             CraftingRegistry.registerHook(armorBoots);
@@ -432,24 +414,24 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 	private CraftingGroup craftGroup;
 
 
-    private CustomArmor(String modId, String unlocalizedArmorSetName, ArmorMaterial material, int renderIndex,
+    private CustomArmor(String unlocalizedArmorSetName, ArmorMaterial material, int renderIndex,
             CompatibleEntityEquipmentSlot armorType, String iconName, String textureName,
             ModelBiped model, String hudTextureName) {
-        super(modId, material, renderIndex, armorType, iconName.toLowerCase(), textureName, model, hudTextureName);
+        super(material, renderIndex, armorType, iconName.toLowerCase(), textureName, model, hudTextureName);
         this.compatibleEquipmentType = armorType;
         this.unlocalizedArmorSetName = unlocalizedArmorSetName;
     }
 
     public String getHudTexture() {
-        return modId + ":" + "textures/hud/" + hudTextureName + ".png";
+        return ModReference.id + ":textures/hud/" + hudTextureName + ".png";
     }
     
     public String getShieldIndicatorMaskTextureName() {
-        return modId + ":" + "textures/hud/" + shieldIndicatorMaskTextureName + ".png";
+        return ModReference.id + ":textures/hud/" + shieldIndicatorMaskTextureName + ".png";
     }
     
     public String getShieldIndicatorProgressBarTextureName() {
-        return modId + ":" + "textures/hud/" + shieldIndicatorProgressBarTextureName + ".png";
+        return ModReference.id + ":textures/hud/" + shieldIndicatorProgressBarTextureName + ".png";
     }
     
     public String getUnlocalizedArmorSetName() {

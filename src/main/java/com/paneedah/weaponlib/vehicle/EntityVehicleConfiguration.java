@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.vehicle;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.EntityClassFactory;
 import com.paneedah.weaponlib.EntityConfiguration;
 import com.paneedah.weaponlib.ModContext;
@@ -342,13 +343,13 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
                     .generateEntitySubclass(baseClass, modEntityId, configuration);
 
             compatibility.registerModEntity(entityClass, entityName, 
-                    modEntityId, context.getMod(), context.getModId(), trackingRange, updateFrequency, sendVelocityUpdates);
+                    modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
 
             ItemVehicle vehicleItem = new ItemVehicle(entityName, entityClass);
             
-            compatibility.registerItem(context.getModId(), vehicleItem, entityName);
-            //System.out.println("Renderer Registrar: " + ("mw:"  + entityName));
-            //ModelLoader.setCustomModelResourceLocation(vehicleItem, 0, new net.minecraft.client.renderer.block.model.ModelResourceLocation("mw:"  + entityName, "inventory"));
+            compatibility.registerItem(vehicleItem, entityName);
+            //System.out.println("Renderer Registrar: " + (ModReference.id + ":"  + entityName));
+            //ModelLoader.setCustomModelResourceLocation(vehicleItem, 0, new net.minecraft.client.renderer.block.model.ModelResourceLocation(ModReference.id + ":"  + entityName, "inventory"));
             
             // register the item renderer
           

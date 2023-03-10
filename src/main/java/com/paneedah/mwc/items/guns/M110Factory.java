@@ -24,7 +24,7 @@ public class M110Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m110_sass")
         .withFireRate(0.65f)
         .withRecoil(6f)
@@ -377,7 +377,7 @@ public class M110Factory implements GunFactory {
         })
         .withTextureNames("m110")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new M110())
             .withADSBeizer(new Vec3d(0.2, 1.7, 0.5))
             .withEntityPositioning(itemStack -> {

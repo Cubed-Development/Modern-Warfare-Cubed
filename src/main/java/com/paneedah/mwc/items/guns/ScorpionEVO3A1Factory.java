@@ -24,7 +24,7 @@ public class ScorpionEVO3A1Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("scorpion_evo3_a1")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.999f)
@@ -361,7 +361,7 @@ public class ScorpionEVO3A1Factory implements GunFactory {
         }, false, false)
 		.withTextureNames("scorpionevo3a1")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new ScorpionEVO3A1())
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);

@@ -25,7 +25,7 @@ public class AK47Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("ak47")
         .withFireRate(0.6f)
         .withRecoil(4f)
@@ -495,7 +495,7 @@ public class AK47Factory {
         }, false, false)
         .withTextureNames("ak47")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new AK47())
             .withActionPiece(AuxiliaryAttachments.AKaction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))

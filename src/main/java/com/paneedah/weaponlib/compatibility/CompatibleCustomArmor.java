@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.Render;
@@ -20,24 +21,22 @@ public class CompatibleCustomArmor extends ItemArmor {
 	protected String textureName;
 	protected ModelBiped model;
 	protected String hudTextureName;
-	protected String modId;
 
-	protected CompatibleCustomArmor(String modId, ArmorMaterial material, int renderIndex, CompatibleEntityEquipmentSlot armorType, String iconName, String textureName,
+	protected CompatibleCustomArmor(ArmorMaterial material, int renderIndex, CompatibleEntityEquipmentSlot armorType, String iconName, String textureName,
 			ModelBiped model, String hudTextureName) {
 		super(material, renderIndex, armorType.getSlot());
-		this.modId = modId;
 		this.textureName = textureName;
 		this.model = model;
 		this.hudTextureName = hudTextureName;
 	}
 
 	public String getHudTexture() {
-		return modId + ":" + "textures/hud/" + hudTextureName + ".png";
+		return ModReference.id + ":textures/hud/" + hudTextureName + ".png";
 	}
 
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-		return modId + ":textures/models/" + textureName + ".png";
+		return ModReference.id + ":textures/models/" + textureName + ".png";
 	}
 
 	@Override

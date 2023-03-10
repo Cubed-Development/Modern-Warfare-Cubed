@@ -25,7 +25,7 @@ public class HK_P12Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("hk_p12")
         .withFireRate(0.3f)
         .withRecoil(4f)
@@ -181,7 +181,7 @@ public class HK_P12Factory implements GunFactory {
         }, false, false)
         .withTextureNames("usp45")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new USP45())
             .withActionPiece(
             		AuxiliaryAttachments.P12_Slide)

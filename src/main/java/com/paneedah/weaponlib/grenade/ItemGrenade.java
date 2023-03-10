@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleItem;
@@ -43,7 +44,6 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
     public static class Builder {
 
         protected String name;
-        protected String modId;
         protected ModelBase model;
         protected String textureName;
         protected Consumer<ItemStack> entityPositioning;
@@ -105,11 +105,6 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
             return this;
         }
 
-        public Builder withModId(String modId) {
-            this.modId = modId;
-            return this;
-        }
-
         public Builder withModel(ModelBase model) {
             this.model = model;
             return this;
@@ -166,9 +161,6 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
         }
 
         public Builder withTextureNames(String... textureNames) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
             for (String textureName : textureNames) {
                 this.textureNames.add(textureName.toLowerCase() + ".png");
             }
@@ -317,7 +309,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
         public ItemGrenade build(ModContext modContext) {
 
             ItemGrenade grenade = new ItemGrenade(this, modContext);
-            grenade.setTranslationKey(modId + "_" + name);
+            grenade.setTranslationKey(ModReference.id + "_" + name);
             grenade.setCreativeTab(tab);
             grenade.maxStackSize = maxStackSize;
 

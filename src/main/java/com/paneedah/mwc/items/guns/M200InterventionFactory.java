@@ -22,7 +22,7 @@ public class M200InterventionFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m200_intervention")
         .withFireRate(0.16f)
         .withEjectRoundRequired()
@@ -271,7 +271,7 @@ public class M200InterventionFactory implements GunFactory {
 //        })
         .withTextureNames("intervention")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Intervention())
             //.withTextureName("AWP")
             //.withWeaponProximity(0.99F)

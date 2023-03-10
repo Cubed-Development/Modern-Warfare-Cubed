@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render.bgl.weather;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import net.minecraft.client.Minecraft;
@@ -40,10 +41,10 @@ public class ModernWeatherRenderer extends IRenderHandler {
 	//private int previousThirdPerson;
 	
 	// Textures
-	public static final ResourceLocation RAIN_LIGHT = new ResourceLocation("mw:textures/environment/lightrain.png");
-	public static final ResourceLocation RAIN_MEDIUM = new ResourceLocation("mw:textures/environment/mediumrain.png");
-	public static final ResourceLocation RAIN_HEAVY = new ResourceLocation("mw:textures/environment/heavyrain.png");
-	public static final ResourceLocation RAIN_INSANE = new ResourceLocation("mw:textures/environment/insanerain.png");
+	public static final ResourceLocation RAIN_LIGHT = new ResourceLocation(ModReference.id + ":textures/environment/lightrain.png");
+	public static final ResourceLocation RAIN_MEDIUM = new ResourceLocation(ModReference.id + ":textures/environment/mediumrain.png");
+	public static final ResourceLocation RAIN_HEAVY = new ResourceLocation(ModReference.id + ":textures/environment/heavyrain.png");
+	public static final ResourceLocation RAIN_INSANE = new ResourceLocation(ModReference.id + ":textures/environment/insanerain.png");
 	
 	/**
 	 * Check if it is raining or snowing
@@ -238,7 +239,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 		
 		
 		// Snow pass
-		mc.getTextureManager().bindTexture(new ResourceLocation("mw:textures/environment/christmassnow.png"));
+		mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/environment/christmassnow.png"));
 		timer = -ClientValueRepo.TICKER.getLerpedFloat()/25f;
 		bb = t.getBuffer();
 		bb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);

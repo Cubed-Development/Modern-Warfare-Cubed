@@ -23,7 +23,7 @@ public class SW500MagnumFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("sw_500_magnum")
         .withAmmoCapacity(6)
         .withMaxBulletsPerReload(6)
@@ -107,7 +107,7 @@ public class SW500MagnumFactory implements GunFactory {
         .withCompatibleBullet(Bullets.Bullet500, (model) -> {})
         .withTextureNames("taurusraginghunter")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new SW500Magnum())
             //.withTextureName("XEagle")
             //.withWeaponProximity(0.99F)

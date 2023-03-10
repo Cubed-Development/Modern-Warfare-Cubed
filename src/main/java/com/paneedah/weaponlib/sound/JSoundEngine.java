@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.sound;
 
+import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.openal.AL10;
@@ -102,7 +103,7 @@ public class JSoundEngine {
 			return AL10.AL_FALSE;
 		}
 
-		ResourceLocation loc = new ResourceLocation("mw" + ":" + "sounds/m4a1.wav");
+		ResourceLocation loc = new ResourceLocation(ModReference.id + ":sounds/m4a1.wav");
 		InputStream is = null;
 		try {
 			is = mc.getResourceManager().getResource(loc).getInputStream();

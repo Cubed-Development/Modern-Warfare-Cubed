@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.shader.jim;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.compress.utils.IOUtils;
@@ -20,7 +21,7 @@ public class ShaderManager {
 
 	public static Shader loadVMWShader(String name, Attribute...attribs) {
 		
-		return loadShader(new ResourceLocation("mw:shaders/" + name), attribs);
+		return loadShader(new ResourceLocation(ModReference.id + ":shaders/" + name), attribs);
 	}
 	
 	public static Shader loadShader(ResourceLocation file, Attribute...attribs) {

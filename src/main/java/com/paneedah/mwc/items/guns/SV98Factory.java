@@ -22,7 +22,7 @@ public class SV98Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("sv98")
         .withFireRate(0.16f)
         .withEjectRoundRequired()
@@ -216,7 +216,7 @@ public class SV98Factory implements GunFactory {
         })
         .withTextureNames("sv98")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new SV98())
             //.withTextureName("AWP")
             //.withWeaponProximity(0.99F)

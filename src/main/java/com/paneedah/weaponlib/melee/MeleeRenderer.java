@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
@@ -65,7 +66,6 @@ public class MeleeRenderer extends CompatibleMeleeRenderer {
 
 		private long totalHeavyAttackingDuration;
 
-		private String modId;
 
 		private float normalRandomizingRate = DEFAULT_RANDOMIZING_RATE; // movements per second, e.g. 0.25 = 0.25 movements per second = 1 movement in 3 minutes
 
@@ -84,11 +84,6 @@ public class MeleeRenderer extends CompatibleMeleeRenderer {
 		private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningEjectSpentRound = new LinkedHashMap<>();
 		private boolean hasRecoilPositioningDefined;
         public int animationDuration = DEFAULT_ANIMATION_DURATION;
-
-		public Builder withModId(String modId) {
-			this.modId = modId;
-			return this;
-		}
 
 		public Builder withModel(ModelBase model) {
 			this.model = model;
@@ -273,10 +268,6 @@ public class MeleeRenderer extends CompatibleMeleeRenderer {
 				return null;
 			}
 
-			if(modId == null) {
-				throw new IllegalStateException("ModId is not set");
-			}
-
 			if(inventoryPositioning == null) {
 				inventoryPositioning = itemStack -> {GL11.glTranslatef(0,  0.12f, 0);};
 			}
@@ -438,12 +429,6 @@ public class MeleeRenderer extends CompatibleMeleeRenderer {
 		public ModelBase getModel() {
 			return model;
 		}
-
-		public String getModId() {
-			return modId;
-		}
-
-
 	}
 
 	private Builder builder;
@@ -681,8 +666,7 @@ public class MeleeRenderer extends CompatibleMeleeRenderer {
 		}
 
 		if(builder.getTextureName() != null) {
-			mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId()
-					+ ":textures/models/" + builder.getTextureName()));
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + builder.getTextureName()));
 		} else {
 			String textureName = null;
 			CompatibleAttachment<?> compatibleSkin = attachments.stream()
@@ -704,7 +688,7 @@ public class MeleeRenderer extends CompatibleMeleeRenderer {
 				textureName = weapon.getTextureName();
 			}
 
-			mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId()
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id
 					+ ":textures/models/" + textureName));
 		}
 
@@ -755,7 +739,7 @@ public class MeleeRenderer extends CompatibleMeleeRenderer {
 		}
 
 		for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-			mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId()
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id
 					+ ":textures/models/" + texturedModel.getV()));
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);

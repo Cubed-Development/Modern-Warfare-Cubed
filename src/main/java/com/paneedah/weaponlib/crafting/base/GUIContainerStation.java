@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.crafting.base;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.gui.GuiRenderUtil;
 import com.paneedah.weaponlib.compatibility.CompatibleGuiContainer;
@@ -38,8 +39,8 @@ import java.util.concurrent.TimeUnit;
 public abstract class GUIContainerStation<T extends TileEntityStation> extends CompatibleGuiContainer {
 	
 	// Textures for the GUI
-	protected static final ResourceLocation GUI_TEX = new ResourceLocation("mw:textures/gui/workshop_sheet.png");
-	protected static final ResourceLocation GUI_INV_TEX = new ResourceLocation("mw:textures/gui/workbench_inv_sheet.png");
+	protected static final ResourceLocation GUI_TEX = new ResourceLocation(ModReference.id + ":textures/gui/workshop_sheet.png");
+	protected static final ResourceLocation GUI_INV_TEX = new ResourceLocation(ModReference.id + ":textures/gui/workbench_inv_sheet.png");
 
 	// GUI dimensions
 	private static final int GUI_TEXTURE_WIDTH = 402;

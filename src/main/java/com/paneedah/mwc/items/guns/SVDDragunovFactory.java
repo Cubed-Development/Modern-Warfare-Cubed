@@ -25,7 +25,7 @@ public class SVDDragunovFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("svd_dragunov")
         .withFireRate(0.3f)
         .withRecoil(4f)
@@ -326,7 +326,7 @@ public class SVDDragunovFactory {
         }, false, false)
         .withTextureNames("dragunov")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Dragunov())
             .withActionPiece(AuxiliaryAttachments.DragunovAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))

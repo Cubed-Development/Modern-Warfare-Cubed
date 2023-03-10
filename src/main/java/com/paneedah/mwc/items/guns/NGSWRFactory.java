@@ -23,7 +23,7 @@ public class NGSWRFactory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("ngsw_r")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.75f)
@@ -418,7 +418,7 @@ public class NGSWRFactory implements GunFactory {
 		})
 		.withTextureNames("ngswr")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new NGSWR())
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);

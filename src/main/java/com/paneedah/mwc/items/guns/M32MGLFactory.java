@@ -20,7 +20,7 @@ public class M32MGLFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m32_mgl")
 //      .withAmmo(CommonProxy.AR15Mag)
         .withAmmoCapacity(6)
@@ -294,7 +294,7 @@ public class M32MGLFactory implements GunFactory {
         })
         .withTextureNames("gun")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new M32())
             .withPrepareFirstLoadIterationAnimationDuration(1800)
             .withAllLoadIterationAnimationsCompletedDuration(1400)

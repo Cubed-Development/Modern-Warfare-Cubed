@@ -26,7 +26,7 @@ public class G3Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("g3")
         .withFireRate(0.5f)
         .withRecoil(3f)
@@ -365,7 +365,7 @@ public class G3Factory {
         })
         .withTextureNames("g3")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new G3())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

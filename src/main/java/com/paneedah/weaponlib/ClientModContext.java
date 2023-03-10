@@ -72,20 +72,20 @@ public class ClientModContext extends CommonModContext {
     }
 
 	@Override
-    public void preInit(Object mod, String modId, ConfigurationManager configurationManager, 
+    public void preInit(Object mod, ConfigurationManager configurationManager,
             CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
-		super.preInit(mod, modId, configurationManager, event, channel);
+		super.preInit(mod, configurationManager, event, channel);
 
 		aspectRatio = (float)mc.displayWidth / mc.displayHeight;
 
-		ClientCommandHandler.instance.registerCommand(new DebugCommand(modId));
+		ClientCommandHandler.instance.registerCommand(new DebugCommand());
 		
-		ClientCommandHandler.instance.registerCommand(new MainCommand(modId, this));
+		ClientCommandHandler.instance.registerCommand(new MainCommand(this));
 		
 		
 		this.statusMessageCenter = new StatusMessageCenter();
 
-		rendererRegistry = new CompatibleRenderingRegistry(modId);
+		rendererRegistry = new CompatibleRenderingRegistry();
 		
 		rendererRegistry.preInit();
 
@@ -136,13 +136,13 @@ public class ClientModContext extends CommonModContext {
 	
 	
 	@Override
-	public void init(Object mod, String modid) {
-	    super.init(mod, modid);
+	public void init(Object mod) {
+	    super.init(mod);
 	    
 	    //compatibility.registerRenderingRegistry(rendererRegistry);
 	 
 	    rendererRegistry.registerEntityRenderingHandler(WeaponSpawnEntity.class, new SpawnEntityRenderer());
-	    rendererRegistry.registerEntityRenderingHandler(EntityWirelessCamera.class, new WirelessCameraRenderer(modId));
+	    rendererRegistry.registerEntityRenderingHandler(EntityWirelessCamera.class, new WirelessCameraRenderer());
 	    rendererRegistry.registerEntityRenderingHandler(EntityShellCasing.class, new ShellCasingRenderer());
 	    rendererRegistry.registerEntityRenderingHandler(EntityGrenade.class, new EntityGrenadeRenderer());
 	    rendererRegistry.registerEntityRenderingHandler(EntitySmokeGrenade.class, new EntityGrenadeRenderer());
@@ -263,10 +263,6 @@ public class ClientModContext extends CommonModContext {
 
     public Map<Object, Integer> getInventoryTextureMap() {
         return inventoryTextureMap;
-    }
-
-    public String getModId() {
-        return modId;
     }
 
     @Override

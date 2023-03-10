@@ -24,7 +24,7 @@ public class M16A4Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("m16a4")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.8f)
@@ -716,7 +716,7 @@ public class M16A4Factory implements GunFactory {
 		})
 		.withTextureNames("m16a4")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new M16A4())
 			.withADSBeizer(new Vec3d(0.2, 1.7, 0.5))
 			.withEntityPositioning(itemStack -> {

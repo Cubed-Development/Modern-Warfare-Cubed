@@ -68,7 +68,7 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the HDR framebuffer, requires restart. The HDR is the cause of a lot of shader incompat, but Bloom will look weird without it")
 	public static boolean enableHDRFramebuffer = true;
 	
-	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the fancy VMW snow/rain")
+	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the fancy MWC snow/rain")
 	public static boolean enableFancyRainAndSnow = true;
 	
 	
@@ -196,7 +196,7 @@ public class ModernConfigManager {
 			return;
 
 		isLoaded = true;
-		config = new Configuration(new File(Loader.instance().getConfigDir(), "mw.cfg"));
+		config = new Configuration(new File(Loader.instance().getConfigDir(), "mwc.cfg"));
 		
 		// Initialize this class' fields
 		for(Field f : ModernConfigManager.class.getFields()) {

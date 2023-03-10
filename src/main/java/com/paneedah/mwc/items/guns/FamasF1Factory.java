@@ -26,7 +26,7 @@ public class FamasF1Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("famas_f1")
         .withFireRate(0.8f)
         .withRecoil(2.5f)
@@ -305,7 +305,7 @@ public class FamasF1Factory {
         })
         .withTextureNames("famasf1")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new FamasF1())
             // Todo: Load model using WavefrontLoader.java
 //            .withActionPiece(AuxiliaryAttachments.FamasF1Action)

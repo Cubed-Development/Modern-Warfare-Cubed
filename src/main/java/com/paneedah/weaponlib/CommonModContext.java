@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.MagazineReloadAspect.LoadPermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.EnterAttachmentModePermit;
@@ -122,8 +123,6 @@ public class CommonModContext implements ModContext {
             return material.equals(other.material);
         }
     }
-    
-    protected String modId;
 
 	protected Object mod;
 	
@@ -182,11 +181,10 @@ public class CommonModContext implements ModContext {
     
     
 	@Override
-    public void preInit(Object mod, String modId, ConfigurationManager configurationManager,
+    public void preInit(Object mod, ConfigurationManager configurationManager,
             CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
 		this.mod = mod;
 	    this.channel = channel;
-		this.modId = modId;
 
 		this.configurationManager = configurationManager;
 
@@ -341,7 +339,7 @@ public class CommonModContext implements ModContext {
         		HighIQPickupPacket.class, 47, CompatibleSide.SERVER);
         
         
-		ServerEventHandler serverHandler = new ServerEventHandler(this, modId);
+		ServerEventHandler serverHandler = new ServerEventHandler(this);
         compatibility.registerWithFmlEventBus(serverHandler);
         compatibility.registerWithEventBus(serverHandler);
 
@@ -355,19 +353,19 @@ public class CommonModContext implements ModContext {
 		CompatibleCustomPlayerInventoryCapability.register(this);
 		CompatibleMissionCapability.register(this);
 
-        compatibility.registerModEntity(WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, modId, 64, 3, true);
-        compatibility.registerModEntity(EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, modId, 200, 3, true);
-        compatibility.registerModEntity(EntityShellCasing.class, "ShellCasing" + modEntityID, modEntityID++, mod, modId, 64, 500, true);
-        compatibility.registerModEntity(EntityGrenade.class, "Grenade" + modEntityID, modEntityID++, mod, modId, 64, 10000, false);
-        compatibility.registerModEntity(EntitySmokeGrenade.class, "SmokeGrenade" + modEntityID, modEntityID++, mod, modId, 64, 10000, false);
-        compatibility.registerModEntity(EntityGasGrenade.class, "GasGrenade" + modEntityID, modEntityID++, mod, modId, 64, 10000, false);
-        compatibility.registerModEntity(EntityFlashGrenade.class, "FlashGrenade" + modEntityID, modEntityID++, mod, modId, 64, 10000, false);
+        compatibility.registerModEntity(WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
+        compatibility.registerModEntity(EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, 200, 3, true);
+        compatibility.registerModEntity(EntityShellCasing.class, "ShellCasing" + modEntityID, modEntityID++, mod, 64, 500, true);
+        compatibility.registerModEntity(EntityGrenade.class, "Grenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        compatibility.registerModEntity(EntitySmokeGrenade.class, "SmokeGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        compatibility.registerModEntity(EntityGasGrenade.class, "GasGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        compatibility.registerModEntity(EntityFlashGrenade.class, "FlashGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
 
-        compatibility.registerModEntity(EntitySpreadable.class, "EntitySpreadable" + modEntityID, modEntityID++, mod, modId, 64, 3, false);
+        compatibility.registerModEntity(EntitySpreadable.class, "EntitySpreadable" + modEntityID, modEntityID++, mod, 64, 3, false);
 
-        //compatibility.registerModEntity(EntityVehicle.class, "EntityVehicle" + modEntityID, modEntityID++, mod, modId, 64, 3, false);
+        //compatibility.registerModEntity(EntityVehicle.class, "EntityVehicle" + modEntityID, modEntityID++, mod, 64, 3, false);
 
-//        compatibility.registerModEntity(EntityCustomMob.class, "CustomMob" + modEntityID, modEntityID++, mod, modId, 64, 3, true);
+//        compatibility.registerModEntity(EntityCustomMob.class, "CustomMob" + modEntityID, modEntityID++, mod, 64, 3, true);
 //
 //        EntityRegistry.addSpawn(EntityCustomMob.class, 1, 1, 3, EnumCreatureType.MONSTER, 
 //                BiomeDictionary.getBiomesForType(Type.PLAINS));
@@ -388,8 +386,8 @@ public class CommonModContext implements ModContext {
 //        CriteriaTriggers.INVENTORY_CHANGED.addListener(
 //                null, new ICriterionTrigger.Listener(inventoryChangeTriggerInstance, null, "Custom inventory change"));
         
-     //   File missionsDir = new File(new File(event.getEvent().getSuggestedConfigurationFile().getParent(), "mw"), "missions");
-       // File entityMissionFile = new File(new File(event.getEvent().getSuggestedConfigurationFile().getParent(), "mw"), "entity_mission_offerings.json");
+     //   File missionsDir = new File(new File(event.getEvent().getSuggestedConfigurationFile().getParent(), "mwc"), "missions");
+       // File entityMissionFile = new File(new File(event.getEvent().getSuggestedConfigurationFile().getParent(), "mwc"), "entity_mission_offerings.json");
 
         
        
@@ -397,16 +395,16 @@ public class CommonModContext implements ModContext {
      
        // compatibility.registerBlock(this, new WorkbenchBlock("workbench", Material.ROCK), "workbench");
         
-       // this.missionManager = new MissionManager(modId, missionsDir, entityMissionFile);
+       // this.missionManager = new MissionManager(missionsDir, entityMissionFile);
 	}
 	
 	@Override
-	public void preInitEnd(Object mod, String modId, ConfigurationManager configurationManager,
+	public void preInitEnd(Object mod, ConfigurationManager configurationManager,
 			CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
-		compatibility.registerTileEntity(TileEntityWorkbench.class, "mw:tileworkbench");
+		compatibility.registerTileEntity(TileEntityWorkbench.class, ModReference.id + ":tileworkbench");
 		compatibility.registerBlock(this, new WorkbenchBlock(this, "weapon_workbench", Material.WOOD), "weapon_workbench");
 		
-		compatibility.registerTileEntity(TileEntityAmmoPress.class, "mw:tileammopress");
+		compatibility.registerTileEntity(TileEntityAmmoPress.class, ModReference.id + ":tileammopress");
 		compatibility.registerBlock(this, new BlockAmmoPress(this, "ammo_press", Material.IRON), "ammo_press");	
 	}
 	
@@ -416,7 +414,7 @@ public class CommonModContext implements ModContext {
 	}
 
     @Override
-    public void init(Object mod, String modid) {
+    public void init(Object mod) {
     
         compatibility.registerGuiHandler(mod, new GuiHandler());
     }
@@ -439,7 +437,7 @@ public class CommonModContext implements ModContext {
 	    if(sound == null) {
 	        return null;
 	    }
-		ResourceLocation soundResourceLocation = new ResourceLocation(modId, sound);
+		ResourceLocation soundResourceLocation = new ResourceLocation(ModReference.id, sound);
 		return registerSound(soundResourceLocation);
 	}
 
@@ -624,7 +622,7 @@ public class CommonModContext implements ModContext {
 
     @Override
     public ResourceLocation getNamedResource(String name) {
-        return new ResourceLocation(modId, name);
+        return new ResourceLocation(ModReference.id, name);
     }
 
     @Override
@@ -640,11 +638,6 @@ public class CommonModContext implements ModContext {
     @Override
     public GrenadeAttackAspect getGrenadeAttackAspect() {
         return grenadeAttackAspect;
-    }
-
-    @Override
-    public String getModId() {
-        return modId;
     }
     
     @Override

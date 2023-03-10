@@ -19,7 +19,7 @@ public class M1928ThompsonFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m1928_thompson")
 //        .withAmmoCapacity(50)
         .withFireRate(0.75f)
@@ -123,7 +123,7 @@ public class M1928ThompsonFactory {
         })
         .withTextureNames("m1a1thompson")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new M1928Thompson())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

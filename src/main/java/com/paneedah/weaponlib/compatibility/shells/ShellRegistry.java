@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.compatibility.shells;
 
 import akka.japi.Pair;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.render.WavefrontLoader;
 import com.paneedah.weaponlib.render.WavefrontModel;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
@@ -48,7 +49,7 @@ public class ShellRegistry {
 	 */
 	public static void addShellToRegistry(Type type, String modelName, String textureName) {
 		shellRegistrar.put(type, new Pair<WavefrontModel, ResourceLocation>(WavefrontLoader.loadSubModel(modelName, "casing"),
-				new ResourceLocation("mw:textures/models/" + textureName + ".png")));
+				new ResourceLocation(ModReference.id + ":textures/models/" + textureName + ".png")));
 	}
 	
 	public static HashMap<Shell.Type, Pair<WavefrontModel, ResourceLocation>> getShellMappings() {

@@ -23,7 +23,7 @@ public class AR15Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("ar15")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.8f)
@@ -721,7 +721,7 @@ public class AR15Factory implements GunFactory {
 		})
 		.withTextureNames("ar15")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new AR15())
 			.withActionPiece(AuxiliaryAttachments.AR15Action)
             .withActionTransform(new Transform().withPosition(0, 0, 0.7))

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.shader.jim.Shader;
 import com.paneedah.weaponlib.shader.jim.ShaderManager;
 import net.minecraft.client.Minecraft;
@@ -67,7 +68,7 @@ public class ModernSkyRenderer extends IRenderHandler {
 		    1.0f,-1.0f, 1.0f
 		};
 	
-	private static final String str = "mw:textures/sky/hd/";
+	private static final String str = ModReference.id + ":textures/sky/hd/";
 	
 	public static ByteBuffer readByteBuffer3(BufferedImage image) {
     	
@@ -192,7 +193,7 @@ GlStateManager.disableCull();
 		skyShader.use();
 		
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-		ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/crosshairs/okp.png");
+		ResourceLocation loc = new ResourceLocation(ModReference.id + ":textures/crosshairs/okp.png");
 	
 		mc.getTextureManager().bindTexture(loc);
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);

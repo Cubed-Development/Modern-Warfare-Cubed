@@ -23,7 +23,7 @@ public class AR10SuperSASSFactory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("ar10_super_sass")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.8f)
@@ -620,7 +620,7 @@ public class AR10SuperSASSFactory implements GunFactory {
 		})
 		.withTextureNames("m16a4")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new M16A4())
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);

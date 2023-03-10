@@ -19,7 +19,7 @@ public class SA80Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("sa80")
         //.withAmmoCapacity(30)
         .withFireRate(0.6f)
@@ -107,7 +107,7 @@ public class SA80Factory implements GunFactory {
         })
         .withTextureNames("sa80")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new SA80())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);

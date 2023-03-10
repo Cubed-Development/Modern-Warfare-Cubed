@@ -23,7 +23,7 @@ public class Beowulf50CalFactory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("beowulf_50_cal")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.3f)
@@ -625,7 +625,7 @@ public class Beowulf50CalFactory implements GunFactory {
 		})
 		.withTextureNames("beowulf50cal")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new Beowulf50Cal())
 			.withActionPiece(AuxiliaryAttachments.BeowulfAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))

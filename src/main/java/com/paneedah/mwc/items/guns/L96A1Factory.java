@@ -19,7 +19,7 @@ public class L96A1Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("l96a1")
         .withFireRate(0.16f)
         .withEjectRoundRequired()
@@ -256,7 +256,7 @@ public class L96A1Factory implements GunFactory {
 //        })
         .withTextureNames("l96")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new L96())
             //.withTextureName("AWP")
             //.withWeaponProximity(0.99F)

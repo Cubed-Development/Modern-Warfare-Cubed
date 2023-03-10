@@ -27,7 +27,7 @@ public class G36CFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("g36c")
         .withFireRate(0.75f)
         .withRecoil(2.5f)
@@ -306,7 +306,7 @@ public class G36CFactory implements GunFactory {
         })
         .withTextureNames("g36c")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new G36C())
             .withActionPiece(AuxiliaryAttachments.G36CAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))

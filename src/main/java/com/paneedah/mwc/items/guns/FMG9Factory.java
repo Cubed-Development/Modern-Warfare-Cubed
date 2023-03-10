@@ -27,7 +27,7 @@ public class FMG9Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("fmg9")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.8f)
@@ -262,7 +262,7 @@ public class FMG9Factory implements GunFactory {
 		})
 		.withTextureNames("fmg9")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new FMG9())
 			.withADSBeizer(new Vec3d(0.2, 1.7, 0.5))
 			.withEntityPositioning(itemStack -> {

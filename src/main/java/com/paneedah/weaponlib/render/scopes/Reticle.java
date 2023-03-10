@@ -1,9 +1,10 @@
 package com.paneedah.weaponlib.render.scopes;
 
+import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
-import java.awt.*;
+import java.awt.Color;
 
 public class Reticle {
 	
@@ -28,7 +29,7 @@ public class Reticle {
 	
 	public Reticle(String textureName, float textureScale, int background) {
 		this.reticleType = Type.HOLOGRAPHIC;
-		this.reticleTexture = new ResourceLocation("mw:textures/crosshairs/" + textureName + ".png");
+		this.reticleTexture = new ResourceLocation(ModReference.id + ":textures/crosshairs/" + textureName + ".png");
 		this.textureScale = textureScale;
 		this.backgroundColor = extractColorFromHex(background);
 	}

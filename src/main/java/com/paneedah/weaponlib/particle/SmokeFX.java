@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.particle;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleParticle;
 import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -81,7 +82,7 @@ public class SmokeFX extends CompatibleParticle {
 
     	
     	
-    	mc.getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/smokes/smokesheet.png"));
+    	mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/smokes/smokesheet.png"));
 
     	Random urandom = new Random(333);
 		

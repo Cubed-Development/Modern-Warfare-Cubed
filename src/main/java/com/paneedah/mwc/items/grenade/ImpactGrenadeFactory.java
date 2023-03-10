@@ -16,7 +16,7 @@ public class ImpactGrenadeFactory implements GrenadeFactory {
     @Override
     public ItemGrenade createGrenade(CommonProxy commonProxy) {
         return new ItemGrenade.Builder()
-                .withModId(ModReference.id)
+        
                 .withName("ImpactGrenade")
                 .withCreativeTab(ModernWarfareMod.GrenadesTab)
                 .withTextureNames("ImpactGrenade")
@@ -33,7 +33,7 @@ public class ImpactGrenadeFactory implements GrenadeFactory {
                 .withExplosionOnImpact()
                 .withDestroyingBlocks(false)
                 .withRenderer(new GrenadeRenderer.Builder()
-                        .withModId(ModReference.id)
+                
                         .withModel(new ImpactGrenade())
                         .withAnimationDuration(500)
                          .withThrownEntityPositioning(() -> {

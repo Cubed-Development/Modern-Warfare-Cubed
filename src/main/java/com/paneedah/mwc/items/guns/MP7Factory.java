@@ -28,7 +28,7 @@ public class MP7Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("mp7")
         .withFireRate(0.9f)
         .withRecoil(1f)
@@ -317,7 +317,7 @@ public class MP7Factory {
         })
         .withTextureNames("mp7")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new MP7())
             .withADSBeizer(new Vec3d(0.2, 1.7, -3))
             //.withTextureName("AK47")

@@ -66,16 +66,16 @@ public class Ores {
         SulfurDust = new ItemSulfurDust();
 
         SteelDust = new ItemSteelDust();
-        SteelIngot = new CraftingItem("SteelIngot", ModReference.id, Ores.SteelIngot, 0.3, ModernWarfareMod.BlocksTab);
+        SteelIngot = new CraftingItem("SteelIngot", Ores.SteelIngot, 0.3, ModernWarfareMod.BlocksTab);
         
         GunmetalComposite = new ItemGunmetalComposite();
         GunmetalIngot = new ItemGunmetalIngot();
-        GunmetalIngot = new CraftingItem("GunmetalIngot", ModReference.id, Ores.GunmetalIngot, 0.3, ModernWarfareMod.BlocksTab);
+        GunmetalIngot = new CraftingItem("GunmetalIngot", Ores.GunmetalIngot, 0.3, ModernWarfareMod.BlocksTab);
         GunmetalPlate = new ItemGunmetalPlate();
-        GunmetalPlate = new CraftingItem("GunmetalPlate", ModReference.id, Ores.GunmetalPlate, 0.3, ModernWarfareMod.BlocksTab);
+        GunmetalPlate = new CraftingItem("GunmetalPlate", Ores.GunmetalPlate, 0.3, ModernWarfareMod.BlocksTab);
         
         CarbonComposite = new ItemCarbonComposite();
-        CarbonComposite = new CraftingItem("CarbonComposite", ModReference.id, Ores.CarbonComposite, 0.3, ModernWarfareMod.BlocksTab);
+        CarbonComposite = new CraftingItem("CarbonComposite", Ores.CarbonComposite, 0.3, ModernWarfareMod.BlocksTab);
         CarbonFiber = new ItemCarbonFiber();
         SyntheticPolymerComposite = new ItemSyntheticPolymerComposite();
         SyntheticPlastic = new ItemSyntheticPlastic();
@@ -83,33 +83,33 @@ public class Ores {
         VestRender = new ItemVestRender();
         
         compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, LeadOre, "LeadOre");
-        compatibility.registerItem(ModReference.id, LeadIngot, "leadingot");
+        compatibility.registerItem(LeadIngot, "leadingot");
 
         compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, CopperOre, "CopperOre");
-        compatibility.registerItem(ModReference.id, CopperIngot, "CopperIngot");
+        compatibility.registerItem(CopperIngot, "CopperIngot");
         
         compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, GraphiteOre, "GraphiteOre");
-        compatibility.registerItem(ModReference.id, GraphiteChunk, "GraphiteChunk");
+        compatibility.registerItem(GraphiteChunk, "GraphiteChunk");
 
         compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, TinOre, "TinOre");
-        compatibility.registerItem(ModReference.id, TinIngot, "TinIngot");
+        compatibility.registerItem(TinIngot, "TinIngot");
 
         compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, SulfurOre, "SulfurOre");
-        compatibility.registerItem(ModReference.id, SulfurDust, "SulfureDust");
+        compatibility.registerItem(SulfurDust, "SulfurDust");
 
-        compatibility.registerItem(ModReference.id, SteelDust, "SteelDust");
-        compatibility.registerItem(ModReference.id, SteelIngot, "SteelIngot");
+        compatibility.registerItem(SteelDust, "SteelDust");
+        compatibility.registerItem(SteelIngot, "SteelIngot");
         
-        compatibility.registerItem(ModReference.id, GunmetalIngot, "GunmetalIngot");
-        compatibility.registerItem(ModReference.id, GunmetalPlate, "GunmetalPlate");
-        compatibility.registerItem(ModReference.id, GunmetalComposite, "GunmetalComposite");
+        compatibility.registerItem(GunmetalIngot, "GunmetalIngot");
+        compatibility.registerItem(GunmetalPlate, "GunmetalPlate");
+        compatibility.registerItem(GunmetalComposite, "GunmetalComposite");
         
-        compatibility.registerItem(ModReference.id, CarbonComposite, "CarbonComposite");
-        compatibility.registerItem(ModReference.id, CarbonFiber, "CarbonFiber");
-        compatibility.registerItem(ModReference.id, SyntheticPolymerComposite, "SyntheticPolymerComposite");
-        compatibility.registerItem(ModReference.id, SyntheticPlastic, "SyntheticPlastic");
+        compatibility.registerItem(CarbonComposite, "CarbonComposite");
+        compatibility.registerItem(CarbonFiber, "CarbonFiber");
+        compatibility.registerItem(SyntheticPolymerComposite, "SyntheticPolymerComposite");
+        compatibility.registerItem(SyntheticPlastic, "SyntheticPlastic");
         
-        compatibility.registerItem(ModReference.id, VestRender, "vestrender");
+        compatibility.registerItem(VestRender, "vestrender");
 
         OreDictionary.registerOre(INGOT_LEAD, LeadIngot);
         OreDictionary.registerOre(INGOT_COPPER, CopperIngot);

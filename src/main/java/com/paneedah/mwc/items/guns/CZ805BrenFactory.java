@@ -24,7 +24,7 @@ public class CZ805BrenFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("cz805_bren")
         .withFireRate(0.8f)
         .withRecoil(3f)
@@ -346,7 +346,7 @@ public class CZ805BrenFactory implements GunFactory {
         })
         .withTextureNames("cz805bren")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new CZ805Bren())
             .withActionPiece(AuxiliaryAttachments.BrenAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))

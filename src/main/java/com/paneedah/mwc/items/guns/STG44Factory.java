@@ -21,7 +21,7 @@ public class STG44Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("stg44")
         .withFireRate(0.6f)
         .withRecoil(3f)
@@ -120,7 +120,7 @@ public class STG44Factory {
         })
         .withTextureNames("stg44")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new STG44())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

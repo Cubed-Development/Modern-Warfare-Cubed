@@ -20,7 +20,7 @@ public class M1941JohnsonRifleFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m1941_johnson_rifle")
         .withAmmoCapacity(10)
         .withFireRate(0.5f)
@@ -117,7 +117,7 @@ public class M1941JohnsonRifleFactory {
         })
         .withTextureNames("johnsonrifle") 
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new JohnsonRifle())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -32,11 +33,8 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	private List<ModelSourceRenderer> renderers = new ArrayList<>();
 	private Set<String> modelSourceLocations = new HashSet<>();
 	private List<Consumer<RenderItem>> delayedRegistrations = new ArrayList<>();
-	
-	private String modId;
 
-	public CompatibleRenderingRegistry(String modId) {
-		this.modId = modId;
+	public CompatibleRenderingRegistry() {
 //		ModelLoaderRegistry.registerLoader(this);
 //		{
 //          Not needed anymore
@@ -57,8 +55,8 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	        renderers.add((ModelSourceRenderer) renderer);
 	    }
 		
-		modelSourceLocations.add(modId + ":models/item/" + name);
-		ModelResourceLocation modelID = new ModelResourceLocation(modId + ":" + name, "inventory");
+		modelSourceLocations.add(ModReference.id + ":models/item/" + name);
+		ModelResourceLocation modelID = new ModelResourceLocation(ModReference.id + ":" + name, "inventory");
 		if(renderer != null) {
 		    ((ModelSourceRenderer) renderer).setResourceLocation(modelID);
 		}
@@ -73,7 +71,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	    // TODO: figure out what's going on with this name
         if(renderer != null) {
             renderers.add((ModelSourceRenderer) renderer);
-            modelSourceLocations.add(modId + ":models/item/" + name);
+            modelSourceLocations.add(ModReference.id + ":models/item/" + name);
         }
         
         ModelResourceLocation modelID = new ModelResourceLocation(name, "inventory");
@@ -94,7 +92,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	@Override
 	public boolean accepts(ResourceLocation modelLocation) {
 		// Do not accept attachments
-		return modId.equals(modelLocation.getNamespace()) && modelSourceLocations.contains(modelLocation.toString());
+		return ModReference.id.equals(modelLocation.getNamespace()) && modelSourceLocations.contains(modelLocation.toString());
 	}
 
 	@Override

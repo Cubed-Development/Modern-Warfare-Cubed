@@ -1,6 +1,7 @@
  package com.paneedah.weaponlib.compatibility;
 
  import com.google.common.collect.Maps;
+ import com.paneedah.mwc.utils.ModReference;
  import com.paneedah.weaponlib.*;
  import com.paneedah.weaponlib.WeaponRenderer.Builder;
  import com.paneedah.weaponlib.animation.*;
@@ -506,7 +507,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			if (!OpenGLSelectionHelper.isInSelectionPass && AnimationModeProcessor.getInstance().getFPSMode()) {
 
 				GlStateManager.pushMatrix();
-				ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/hud/grid.png");
+				ResourceLocation loc = new ResourceLocation(ModReference.id + ":textures/hud/grid.png");
 
 				Shader grid = Shaders.grid;
 				// GlStateManager.rotate(45f, 0, 1, 0);
@@ -728,7 +729,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 
 			// Bloom.initializeMultisample();
 
-			// gunLightingShader = ShaderManager.loadShader(new ResourceLocation("mw" + ":"
+			// gunLightingShader = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":"
 			// + "shaders/gunlight"));
 			if (player != null && player.getHeldItemMainhand() != null
 					&& player.getHeldItemMainhand().getItem() instanceof Weapon) {
@@ -801,7 +802,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			
 			
 			
-			// gunLightingShader = ShaderManager.loadShader(new ResourceLocation("mw" + ":"
+			// gunLightingShader = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":"
 			// + "shaders/gunlight"));
 
 			/*

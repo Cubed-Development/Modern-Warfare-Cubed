@@ -28,7 +28,7 @@ public class KBP9A91Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("kbp_9a91")
         .withFireRate(0.7f)
         .withRecoil(2f)
@@ -159,7 +159,7 @@ public class KBP9A91Factory {
         })
         .withTextureNames("kbp9a91")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new KBP9A91())
             .withActionPiece(AuxiliaryAttachments.KBP9A91action)
             .withActionTransform(new Transform().withPosition(0, 0, 0.8))

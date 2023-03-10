@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.Transform;
 import net.minecraft.util.ResourceLocation;
 
@@ -18,7 +19,7 @@ import static com.paneedah.mwc.utils.ModReference.log;
 
 public class BBLoader {
 	
-	public static String directory  = "mw" + ":" + "animations/";
+	public static String directory  = ModReference.id + ":animations/";
 	public static Gson gson = (new GsonBuilder()).create();
 	public static String version = "1.8.0";
 

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.shader.jim.Shader;
 import com.paneedah.weaponlib.shader.jim.ShaderManager;
 import net.minecraft.util.ResourceLocation;
@@ -25,8 +26,8 @@ public class Shaders {
 	
 	public static Shader axis = ShaderManager.loadVMWShader("axis");
 	
-	public static Shader downsample = ShaderManager.loadShader(new ResourceLocation("mw" + ":" + "shaders/downsample"));
-	public static Shader upsample = ShaderManager.loadShader(new ResourceLocation("mw" + ":" + "shaders/upsample"));
+	public static Shader downsample = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/downsample"));
+	public static Shader upsample = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/upsample"));
 	
 	
 	public static  Shader brightnessShader = ShaderManager.loadVMWShader("brightness");

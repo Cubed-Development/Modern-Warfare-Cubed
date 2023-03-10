@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.vehicle;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.MultipartRenderStateManager;
 import com.paneedah.weaponlib.animation.MultipartTransition;
@@ -190,7 +191,7 @@ public class HierarchicalRendererBuilder<Part, State extends RenderState> {
             
             
 
-            ResourceLocation textureResource = new ResourceLocation(modContext.getModId(), 
+            ResourceLocation textureResource = new ResourceLocation(ModReference.id,
                     "textures/entity/" + partConfiguration.textureName + ( partConfiguration.textureName.endsWith(".png") ? "" : ".png"));
 
             Supplier<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>> stateManagerSupplier = 

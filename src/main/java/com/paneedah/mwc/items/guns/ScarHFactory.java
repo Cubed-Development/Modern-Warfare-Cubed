@@ -26,7 +26,7 @@ public class ScarHFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("scar_h_cqc")
         .withFireRate(0.55f)
         .withRecoil(4f)
@@ -392,7 +392,7 @@ public class ScarHFactory implements GunFactory {
         })
         .withTextureNames("scarh")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new ScarH())
             .withActionPiece(AuxiliaryAttachments.ScarHAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1.3))

@@ -21,7 +21,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("taurus_raging_hunter")
         .withAmmoCapacity(6)
         .withFireRate(0.2f)
@@ -112,7 +112,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
         .withCompatibleBullet(Bullets.Bullet44, (model) -> {})
         .withTextureNames("taurusraginghunter")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new TaurusRagingHunter())
             //.withTextureName("XEagle")
             //.withWeaponProximity(0.99F)

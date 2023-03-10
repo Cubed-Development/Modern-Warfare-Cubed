@@ -26,7 +26,7 @@ public class MP443Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("mp443")
         .withFireRate(0.5f)
         .withRecoil(2f)
@@ -108,7 +108,7 @@ public class MP443Factory implements GunFactory {
         })
         .withTextureNames("mp443")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new MP443())
             .withActionPiece(
             		Attachments.MP443Slide)

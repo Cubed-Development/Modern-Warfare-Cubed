@@ -20,7 +20,6 @@ public class SpecialAttachments {
 	            
 	            .withName("magazine_extra")
 	            .withRenderablePart()
-	            .withModId("mw")
 	            .withTextureName("Dummy.png").build(context);
 		
 		

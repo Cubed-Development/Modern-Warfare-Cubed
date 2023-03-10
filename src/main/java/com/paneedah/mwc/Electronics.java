@@ -79,12 +79,12 @@ public class Electronics {
                             GL11.glTranslatef(0.040000f, -0.575000f, 0.125000f);
                         })
                 .withName("tablet")
-                .withModId(ModReference.id)
+        
                 .withTextureName("Dummy.png")
                 .build(ModernWarfareMod.MOD_CONTEXT);
 
         new ItemWirelessCamera.Builder()
-        .withModId(ModReference.id)
+
         .withName("wcam")
         .withCreativeTab(ModernWarfareMod.GadgetsTab)
         .withModel(new CameraModel(), "gun")
@@ -207,7 +207,7 @@ public class Electronics {
 //                    GL11.glTranslatef(0f, -0.1f, 0.8f);
                 })
         .withName("gas-detector")
-        .withModId(ModReference.id)
+
         .withTextureName("Dummy.png")
         .build(ModernWarfareMod.MOD_CONTEXT);
     }

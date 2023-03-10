@@ -20,7 +20,7 @@ public class NinthSinFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("ninth_sin")
         .withFireRate(0.9999999f)
         .withRecoil(0.0f)
@@ -124,7 +124,7 @@ public class NinthSinFactory implements GunFactory {
         })
         .withTextureNames("ninthsin")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new NinthSin())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);

@@ -1,10 +1,11 @@
 package com.paneedah.weaponlib.render;
 
+import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.util.ResourceLocation;
 
 public class ResourceManager {
 	
-	public static final ResourceLocation GUN_ICON_SHEET = new ResourceLocation("mw:textures/gui/guniconsheet.png");
+	public static final ResourceLocation GUN_ICON_SHEET = new ResourceLocation(ModReference.id + ":textures/gui/guniconsheet.png");
 	
 
 }

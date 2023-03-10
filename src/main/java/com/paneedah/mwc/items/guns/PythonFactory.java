@@ -19,7 +19,7 @@ public class PythonFactory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("Python")
 		.withAmmoCapacity(6)
 		.withFireRate(0.2f)
@@ -88,7 +88,7 @@ public class PythonFactory implements GunFactory {
 		.withCompatibleBullet(Bullets.Bullet357, (model) -> {})
 		.withTextureNames("Python")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new Python())
 			//.withTextureName("XEagle")
 			//.withWeaponProximity(0.99F)

@@ -20,7 +20,7 @@ public class MeleeSkins {
     public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event) {
         CrimsonBlood = new MeleeSkin.Builder()
         .withTextureVariant("TacKnifeCrimsonBlood")
-        .withModId(ModReference.id)
+
         .withCreativeTab(ModernWarfareMod.AttachmentsTab)
         .withName("CrimsonBlood")
         .withCraftingRecipe("AR",
@@ -31,7 +31,7 @@ public class MeleeSkins {
 
         Chrome = new MeleeSkin.Builder()
         .withTextureVariant("TacKnifeChrome")
-        .withModId(ModReference.id)
+
         .withCreativeTab(ModernWarfareMod.AttachmentsTab)
         .withName("Chrome")
         .withCraftingRecipe("AR",
@@ -42,7 +42,7 @@ public class MeleeSkins {
 
         GodWillsIt = new MeleeSkin.Builder()
         .withTextureVariant("TacKnifeGodWillsIt")
-        .withModId(ModReference.id)
+
         .withCreativeTab(ModernWarfareMod.AttachmentsTab)
         .withName("GodWillsIt")
         .withCraftingRecipe("AR",
@@ -53,7 +53,7 @@ public class MeleeSkins {
 
         Murasaki = new MeleeSkin.Builder()
         .withTextureVariant("TacKnifeMurasaki")
-        .withModId(ModReference.id)
+
         .withCreativeTab(ModernWarfareMod.AttachmentsTab)
         .withName("Murasaki")
         .withCraftingRecipe("AA",
@@ -63,7 +63,7 @@ public class MeleeSkins {
 
         Evangelion = new MeleeSkin.Builder()
         .withTextureVariant("TacKnifeEvangelion")
-        .withModId(ModReference.id)
+
         .withCreativeTab(ModernWarfareMod.AttachmentsTab)
         .withName("Evangelion")
         .withCraftingRecipe("AR",

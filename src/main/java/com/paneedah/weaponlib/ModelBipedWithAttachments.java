@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleModelBiped;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -58,12 +59,11 @@ public class ModelBipedWithAttachments extends CompatibleModelBiped {
 		return delegate.toString();
 	}
 
-	public void renderAttachments(String modId, List<CompatibleAttachment<?>> attachments, Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void renderAttachments(List<CompatibleAttachment<?>> attachments, Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		for(CompatibleAttachment<?> compatibleAttachment: attachments) {
 			if(compatibleAttachment != null) {
 				for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-					mc.renderEngine.bindTexture(new ResourceLocation(modId 
-							+ ":textures/models/" + texturedModel.getV()));
+					mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + texturedModel.getV()));
 					GL11.glPushMatrix();
 					if(compatibleAttachment.getModelPositioning() != null) {
 						compatibleAttachment.getModelPositioning().accept(texturedModel.getU());

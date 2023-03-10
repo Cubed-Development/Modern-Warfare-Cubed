@@ -25,7 +25,7 @@ public class MakarovPMFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("makarov_pm")
         .withFireRate(0.3f)
         .withRecoil(2f)
@@ -138,7 +138,7 @@ public class MakarovPMFactory implements GunFactory {
         })
         .withTextureNames("makarovpm")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Glock18C())
             .withActionPiece(
             		Attachments.MakarovSlide)

@@ -19,7 +19,7 @@ public class S710TricunFactory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("s7_10_tricun")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.85f)
@@ -439,7 +439,7 @@ public class S710TricunFactory implements GunFactory {
 //		})
 		.withTextureNames("s710tricun")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new S710Tricun())
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);

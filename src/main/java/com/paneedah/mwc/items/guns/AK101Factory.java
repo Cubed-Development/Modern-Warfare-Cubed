@@ -28,7 +28,7 @@ public class AK101Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("ak101")
 //        .withAmmoCapacity(30)
         .withFireRate(0.6f)
@@ -474,7 +474,7 @@ public class AK101Factory {
 	    })
         .withTextureNames("bareak")
         .withRenderer(new WeaponRenderer.Builder()
-                .withModId(ModReference.id)
+        
                 .withModel(new AK101())
                 .withActionPiece(AuxiliaryAttachments.AK15action)
                 .withActionTransform(new Transform().withPosition(0, 0, 1))

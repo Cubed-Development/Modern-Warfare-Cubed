@@ -16,7 +16,7 @@ public class NightStickFactory implements MeleeFactory {
     @Override
     public Item createMelee(CommonProxy commonProxy) {
         return new ItemMelee.Builder()
-                .withModId(ModReference.id)
+        
                 .withName("night_stick")
                 .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
                 .withTextureNames("gun")
@@ -30,7 +30,7 @@ public class NightStickFactory implements MeleeFactory {
                 .withHeavyAttackSound("swoosh")
                 .withRenderer(
                         new MeleeRenderer.Builder()
-                                .withModId(ModReference.id)
+                        
                                 .withModel(new com.paneedah.mwc.models.PoliceBaton())
                                 .withAnimationDuration(200)
                                 .withInventoryPositioning(itemStack -> {

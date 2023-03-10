@@ -25,7 +25,7 @@ public class FNFALFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("fnfal")
         .withFireRate(0.6f)
         .withRecoil(5f)
@@ -352,7 +352,7 @@ public class FNFALFactory {
         })
         .withTextureNames("fnfal")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new FNFAL())
             .withActionPiece(AuxiliaryAttachments.FNFALAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))

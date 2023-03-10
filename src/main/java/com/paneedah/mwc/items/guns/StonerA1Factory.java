@@ -22,7 +22,7 @@ public class StonerA1Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("stonera1")
         .withFireRate(0.8f)
         .withRecoil(2f)
@@ -372,7 +372,7 @@ public class StonerA1Factory {
         })
         .withTextureNames("gun")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new StonerA1())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

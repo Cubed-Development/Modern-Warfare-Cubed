@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
@@ -86,8 +87,8 @@ public abstract class CompatibleClientEventHandler {
 	public static Vec3d debugmuzzlePosition = new Vec3d(0, -1, -6.5);
 	public static Vec3d magRotPositioner = Vec3d.ZERO;
 	public static Stack<MuzzleFlash> muzzleFlashStack = new Stack<>();
-	public static ResourceLocation FLASH = new ResourceLocation("mw" + ":" + "textures/flashes/flash1.png");
-	public static ResourceLocation FLASHF = new ResourceLocation("mw" + ":" + "textures/flashes/flashfront2.png");
+	public static ResourceLocation FLASH = new ResourceLocation(ModReference.id + ":textures/flashes/flash1.png");
+	public static ResourceLocation FLASHF = new ResourceLocation(ModReference.id + ":textures/flashes/flashfront2.png");
 
 
 	@SideOnly(Side.CLIENT)
@@ -591,8 +592,8 @@ public abstract class CompatibleClientEventHandler {
 	public void onTextureStitchEvent(TextureStitchEvent.Pre event) {
 		event.getMap().registerSprite(getModContext()
 				.getNamedResource(CompatibleParticle.CompatibleParticleBreaking.TEXTURE_BLOOD_PARTICLES));
-		carParticles = event.getMap().registerSprite(new ResourceLocation("mw" + ":" + "particle/carparticle"));
-		//smoke1 = event.getMap().registerSprite(new ResourceLocation("mw" + ":" + "smokes/smokesheet"));
+		carParticles = event.getMap().registerSprite(new ResourceLocation(ModReference.id + ":particle/carparticle"));
+		//smoke1 = event.getMap().registerSprite(new ResourceLocation(ModReference.id + ":smokes/smokesheet"));
 	}
 
 	protected abstract void onCompatibleRenderTickEvent(CompatibleRenderTickEvent compatibleRenderTickEvent);

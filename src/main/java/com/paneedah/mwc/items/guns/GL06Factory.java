@@ -20,7 +20,7 @@ public class GL06Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("gl06")
 //      .withAmmo(CommonProxy.AR15Mag)
         .withAmmoCapacity(1)
@@ -155,7 +155,7 @@ public class GL06Factory implements GunFactory {
         })
         .withTextureNames("GL06")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new GL06())
             //.withTextureName("M4A1")
             //.withWeaponProximity(0.99F)

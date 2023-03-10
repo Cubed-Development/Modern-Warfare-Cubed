@@ -59,7 +59,7 @@ public class BulletHoleRenderer {
 		GlStateManager.enableTexture2D();
 		GlStateManager.disableCull();
 		
-		//ResourceLocation rl = new ResourceLocation("mw:textures/entity/bullethole.png");
+		//ResourceLocation rl = new ResourceLocation(ModReference.id + ":textures/entity/bullethole.png");
 
 		// TODO: Actually add the texture
 		// mc.getTextureManager().bindTexture(rl);

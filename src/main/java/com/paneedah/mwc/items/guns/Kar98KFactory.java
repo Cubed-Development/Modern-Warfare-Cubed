@@ -21,7 +21,7 @@ public class Kar98KFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("Kar98K")
 //      .withAmmo(CommonProxy.XWPMag)
         .withAmmoCapacity(5)
@@ -275,7 +275,7 @@ public class Kar98KFactory implements GunFactory {
         })
         .withTextureNames("M1903A3")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Kar98K())
             .withPrepareFirstLoadIterationAnimationDuration(1100)
             .withAllLoadIterationAnimationsCompletedDuration(800)

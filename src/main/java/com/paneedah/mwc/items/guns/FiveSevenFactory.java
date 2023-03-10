@@ -25,7 +25,7 @@ public class FiveSevenFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("fiveseven")
         .withFireRate(0.5f)
         .withRecoil(2f)
@@ -141,7 +141,7 @@ public class FiveSevenFactory implements GunFactory {
         })
         .withTextureNames("fiveseven")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new FiveSeven())
             .withActionPiece(
             		Attachments.FiveSevenSlide)

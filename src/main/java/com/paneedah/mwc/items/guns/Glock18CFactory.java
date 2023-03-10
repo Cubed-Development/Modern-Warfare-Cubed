@@ -27,7 +27,7 @@ public class Glock18CFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("glock_18c")
         .withFireRate(0.999f)
         .withRecoil(3f)
@@ -191,7 +191,7 @@ public class Glock18CFactory implements GunFactory {
         })
         .withTextureNames("glock18c")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Glock18C())
             .withActionPiece(
             		Attachments.Glock18CCNCSlide,

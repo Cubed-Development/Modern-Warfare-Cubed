@@ -24,7 +24,7 @@ public class Type20Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("type20")
 		.withFireRate(0.65f)
 		.withRecoil(3f)
@@ -337,7 +337,7 @@ public class Type20Factory implements GunFactory {
       })
         .withTextureNames("type20")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new Type20())
             .withActionPiece(AuxiliaryAttachments.ACRAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))

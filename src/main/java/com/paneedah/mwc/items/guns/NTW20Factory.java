@@ -24,7 +24,7 @@ public class NTW20Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("ntw_20")
         .withFireRate(0.1f)
         .withEjectRoundRequired()
@@ -90,7 +90,7 @@ public class NTW20Factory implements GunFactory {
         })
         .withTextureNames("gun2")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new NTW20())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);

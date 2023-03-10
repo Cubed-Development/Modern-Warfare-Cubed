@@ -24,7 +24,7 @@ public class Origin12Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("origin12")
         .withFireRate(0.3f)
         .withRecoil(9f)
@@ -375,7 +375,7 @@ public class Origin12Factory {
         }, false, false)
         .withTextureNames("origin12")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Origin12())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

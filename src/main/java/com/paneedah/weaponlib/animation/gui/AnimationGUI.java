@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.animation.gui;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.PlayerWeaponInstance;
@@ -41,7 +42,7 @@ public class AnimationGUI {
 	private static AnimationGUI instance = new AnimationGUI();
 	
 	
-	public static final ResourceLocation TEXTURES = new ResourceLocation("mw" + ":" + "textures/hud/animguio.png");
+	public static final ResourceLocation TEXTURES = new ResourceLocation(ModReference.id + ":textures/hud/animguio.png");
 	
 	
 
@@ -484,7 +485,7 @@ public class AnimationGUI {
 	}
 	
 	public static void renderTexturedRect(int id, double x, double y, double w, double h) {
-		mc.getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/hud/animguio.png"));
+		mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/hud/animguio.png"));
 		
 		GlStateManager.enableAlpha();
 		GlStateManager.enableBlend();

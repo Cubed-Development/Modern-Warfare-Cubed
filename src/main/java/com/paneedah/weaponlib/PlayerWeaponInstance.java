@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.command.DebugCommand;
@@ -62,7 +63,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
             .withUniform("Reticle", context -> {
             	
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-            	mc.getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/hud/reticle1.png"));
+            	mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/hud/reticle1.png"));
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
             	
             	return 4;

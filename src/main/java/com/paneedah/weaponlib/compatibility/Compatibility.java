@@ -118,12 +118,9 @@ public interface Compatibility {
 	
 	public void registerItem(Item item, ResourceLocation name);
 
-	public void registerItem(String modId, Item item, String name);
-
 	public void runInMainClientThread(Runnable runnable);
 
-	public void registerModEntity(Class<? extends Entity> class1, String string, int i, Object mod,
-	        String modId, int j, int k, boolean b);
+	public void registerModEntity(Class<? extends Entity> class1, String string, int i, Object mod, int j, int k, boolean b);
 
 	public void registerRenderingRegistry(CompatibleRenderingRegistry rendererRegistry);
 
@@ -224,7 +221,7 @@ public interface Compatibility {
     public ItemStack tryConsumingCompatibleItem(List<? extends Item> compatibleParts, int maxSize,
             EntityPlayer player, @SuppressWarnings("unchecked") Predicate<ItemStack> ...conditions);
 
-    public Item findItemByName(String modId, String itemName);
+    public Item findItemByName(String itemName);
 
     public CompatibleRayTraceResult rayTraceBlocks(Entity entity, CompatibleVec3 vec3, CompatibleVec3 vec31);
 

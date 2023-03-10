@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.BulletHoleRenderer.BulletHole;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
@@ -116,8 +117,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         long loadIterationTimeout = Weapon.DEFAULT_LOAD_ITERATION_TIMEOUT_TICKS;
 
         
-        
-        private String modId;
+
 
         boolean crosshairFullScreen = false;
         boolean crosshairZoomedFullScreen = false;
@@ -274,11 +274,6 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         public boolean isUsingNewSystem() {
         	return this.newSys;
         }
-        
-        public Builder withModId(String modId) {
-            this.modId = modId;
-            return this;
-        }
 
         public Builder withEjectRoundRequired() {
             this.ejectSpentRoundRequired = true;
@@ -371,9 +366,6 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withTextureNames(String... textureNames) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
             for (String textureName : textureNames) {
                 this.textureNames.add(textureName.toLowerCase() + ".png");
             }
@@ -381,27 +373,18 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withCrosshair(String crosshair) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.crosshair = modId + ":" + "textures/crosshairs/" + crosshair.toLowerCase() + ".png";
+            this.crosshair = ModReference.id + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
             return this;
         }
 
         public Builder withCrosshair(String crosshair, boolean fullScreen) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.crosshair = modId + ":" + "textures/crosshairs/" + crosshair.toLowerCase() + ".png";
+            this.crosshair = ModReference.id + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
             this.crosshairFullScreen = fullScreen;
             return this;
         }
 
         public Builder withCrosshairRunning(String crosshairRunning) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.crosshairRunning = modId + ":" + "textures/crosshairs/" + crosshairRunning.toLowerCase() + ".png";
+            this.crosshairRunning = ModReference.id + ":textures/crosshairs/" + crosshairRunning.toLowerCase() + ".png";
             return this;
         }
 
@@ -410,114 +393,72 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withCrosshairZoomed(String crosshairZoomed, boolean fullScreen) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.crosshairZoomed = modId + ":" + "textures/crosshairs/" + crosshairZoomed.toLowerCase() + ".png";
+            this.crosshairZoomed = ModReference.id + ":textures/crosshairs/" + crosshairZoomed.toLowerCase() + ".png";
             this.crosshairZoomedFullScreen = fullScreen;
             return this;
         }
         
         public Builder withMuzzlePosition(Vec3d pos) {
-        	 if (modId == null) {
-                 throw new IllegalStateException("ModId is not set");
-             }
         	this.muzzlePosition = pos;
         	return this;
         }
 
         public Builder withShootSound(String shootSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.shootSound = shootSound.toLowerCase(); //modId + ":" + shootSound;
+            this.shootSound = shootSound.toLowerCase(); //ModReference.id + ":" + shootSound;
             return this;
         }
         
         public Builder withEndOfShootSound(String endOfShootSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.endOfShootSound = endOfShootSound.toLowerCase(); //modId + ":" + shootSound;
+            this.endOfShootSound = endOfShootSound.toLowerCase(); //ModReference.id + ":" + shootSound;
             return this;
         }
 
         public Builder withEjectSpentRoundSound(String ejectSpentRoundSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
             this.ejectSpentRoundSound = ejectSpentRoundSound.toLowerCase();
             return this;
         }
 
         public Builder withSilencedShootSound(String silencedShootSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
             this.silencedShootSound = silencedShootSound.toLowerCase();
             return this;
         }
         
         public Builder withBurstShootSound(String burstShootSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.burstShootSound = burstShootSound.toLowerCase(); //modId + ":" + shootSound;
+            this.burstShootSound = burstShootSound.toLowerCase(); //ModReference.id + ":" + shootSound;
             return this;
         }
         
         public Builder withSilencedBurstShootSound(String silencedBurstShootSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.silencedBurstShootSound = silencedBurstShootSound.toLowerCase(); //modId + ":" + shootSound;
+            this.silencedBurstShootSound = silencedBurstShootSound.toLowerCase(); //ModReference.id + ":" + shootSound;
             return this;
         }
 
         public Builder withReloadSound(String reloadSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.reloadSound = reloadSound.toLowerCase(); //modId + ":" + reloadSound;
+            this.reloadSound = reloadSound.toLowerCase(); //ModReference.id + ":" + reloadSound;
             return this;
         }
         
         public Builder withReloadIterationSound(String reloadIterationSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.reloadIterationSound = reloadIterationSound.toLowerCase(); //modId + ":" + reloadSound;
+            this.reloadIterationSound = reloadIterationSound.toLowerCase(); //ModReference.id + ":" + reloadSound;
             return this;
         }
         
         public Builder withInspectSound(String inspectSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.inspectSound = inspectSound.toLowerCase(); //modId + ":" + reloadSound;
+            this.inspectSound = inspectSound.toLowerCase(); //ModReference.id + ":" + reloadSound;
             return this;
         }
         
         public Builder withDrawSound(String drawSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.drawSound = drawSound.toLowerCase(); //modId + ":" + reloadSound;
+            this.drawSound = drawSound.toLowerCase(); //ModReference.id + ":" + reloadSound;
             return this;
         }
         
         public Builder withAllReloadIterationsCompletedSound(String allReloadIterationCompletedSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.allReloadIterationsCompletedSound = allReloadIterationCompletedSound.toLowerCase(); //modId + ":" + reloadSound;
+            this.allReloadIterationsCompletedSound = allReloadIterationCompletedSound.toLowerCase(); //ModReference.id + ":" + reloadSound;
             return this;
         }
 
         public Builder withUnloadSound(String unloadSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
             this.unloadSound = unloadSound.toLowerCase();
             return this;
         }
@@ -533,10 +474,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withExceededMaxShotsSound(String shootSound) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.exceededMaxShotsSound = shootSound.toLowerCase(); //modId + ":" + shootSound;
+            this.exceededMaxShotsSound = shootSound.toLowerCase(); //ModReference.id + ":" + shootSound;
             return this;
         }
 
@@ -670,7 +608,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withSpawnEntityModelTexture(String ammoModelTextureName) {
-            this.ammoModelTextureName = modId + ":" + "textures/models/" + ammoModelTextureName.toLowerCase() + ".png";
+            this.ammoModelTextureName = ModReference.id + ":textures/models/" + ammoModelTextureName.toLowerCase() + ".png";
             return this;
         }
 
@@ -690,7 +628,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withShellCasingModelTexture(String shellModelTextureName) {
-            this.shellCasingModelTextureName = modId + ":" + "textures/models/" + shellModelTextureName.toLowerCase() + ".png";
+            this.shellCasingModelTextureName = ModReference.id + ":textures/models/" + shellModelTextureName.toLowerCase() + ".png";
             return this;
         }
 
@@ -761,10 +699,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
         
         public Builder withFlashTexture(String flashTexture) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
-            this.flashTexture = modId + ":" + "textures/particle/" + flashTexture.toLowerCase() + ".png";
+            this.flashTexture = ModReference.id + ":textures/particle/" + flashTexture.toLowerCase() + ".png";
             return this;
         }
 
@@ -815,24 +750,18 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
         
         public Builder withExplosionParticleTexture(String explosionParticleTexture) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
             if(explosionParticleTexture.endsWith(".png") && explosionParticleTexture.length() > 4) {
                 explosionParticleTexture = explosionParticleTexture.substring(0, explosionParticleTexture.length() - 4);
             }
-            this.explosionParticleTexture = modId + ":" + "textures/particle/" + explosionParticleTexture.toLowerCase() + ".png";
+            this.explosionParticleTexture = ModReference.id + ":textures/particle/" + explosionParticleTexture.toLowerCase() + ".png";
             return this;
         }
         
         public Builder withSmokeParticleTexture(String smokeParticleTexture) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
             if(smokeParticleTexture.endsWith(".png") && smokeParticleTexture.length() > 4) {
                 smokeParticleTexture = smokeParticleTexture.substring(0, smokeParticleTexture.length() - 4);
             }
-            this.smokeParticleTexture = modId + ":" + "textures/particle/" + smokeParticleTexture.toLowerCase() + ".png";
+            this.smokeParticleTexture = ModReference.id + ":textures/particle/" + smokeParticleTexture.toLowerCase() + ".png";
             return this;
         }
         
@@ -866,9 +795,6 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Weapon build(ModContext modContext) {
-            if (modId == null) {
-                throw new IllegalStateException("ModId is not set");
-            }
 
             if (name == null) {
                 throw new IllegalStateException("Weapon name not provided");

@@ -25,7 +25,7 @@ public class KrissVectorFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("kriss_vector")
         .withFireRate(0.999f)
         .withRecoil(2.5f)
@@ -527,7 +527,7 @@ public class KrissVectorFactory {
 		})
         .withTextureNames("krissvector")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new KrissVector())
             .withADSBeizer(new Vec3d(0.2, 1.7, 0.5))
             //.withTextureName("AK47")

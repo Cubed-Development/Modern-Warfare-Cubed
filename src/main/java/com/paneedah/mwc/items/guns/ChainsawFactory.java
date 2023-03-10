@@ -20,7 +20,7 @@ public class ChainsawFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("chainsaw")
         .withFireRate(0.9999999f)
         .withRecoil(1f)
@@ -73,7 +73,7 @@ public class ChainsawFactory implements GunFactory {
          })
         .withTextureNames("chainsaw")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Chainsaw())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);

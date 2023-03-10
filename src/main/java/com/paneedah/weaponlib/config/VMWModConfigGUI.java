@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.config;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.config.*;
 import com.paneedah.weaponlib.config.HierarchialTree.Branch;
 import net.minecraft.client.gui.GuiButton;
@@ -24,13 +25,7 @@ public class VMWModConfigGUI extends GuiConfig {
 	private static boolean shouldUpdateCache = true;
 	
 	public VMWModConfigGUI(GuiScreen parentScreen) {
-		super(parentScreen,
-				getElements(),
-				"mw",
-				false,
-				false,
-				"Finally... a config!");
-		
+		super(parentScreen, getElements(), ModReference.id, false, false, "Finally... a config!");
 	}
 	
 	

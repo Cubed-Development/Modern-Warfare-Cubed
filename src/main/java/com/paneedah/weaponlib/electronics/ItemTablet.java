@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.electronics;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.perspective.PerspectiveRenderer;
 import net.minecraft.entity.EntityLivingBase;
@@ -50,7 +51,7 @@ implements PlayerItemInstanceFactory<PlayerTabletInstance, TabletState>, Updatab
     private Builder<T> builder;
     
     private ItemTablet(Builder<T> builder) {
-        super(builder.getModId(), AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null, 
+        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null,
                 null, null);
         this.builder = builder;
         

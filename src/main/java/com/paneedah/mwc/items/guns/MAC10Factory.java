@@ -28,7 +28,7 @@ public class MAC10Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("mac10")
         .withFireRate(0.999f)
         .withRecoil(1f)
@@ -292,7 +292,7 @@ public class MAC10Factory {
         })
         .withTextureNames("gun")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new MAC10())
             .withADSBeizer(new Vec3d(0.0, 4, -3))
             .withActionPiece(Attachments.MAC10Action)

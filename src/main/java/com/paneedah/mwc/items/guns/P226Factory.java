@@ -28,7 +28,7 @@ public class P226Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("p226")
         .withFireRate(0.5f)
         .withRecoil(2f)
@@ -159,7 +159,7 @@ public class P226Factory implements GunFactory {
         })
         .withTextureNames("p226")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new P226())
             .withActionPiece(
             		Attachments.P226Slide)

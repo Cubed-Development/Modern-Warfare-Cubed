@@ -19,10 +19,10 @@ public interface ModContext {
 
 	public boolean isClient();
 	
-	public void preInitEnd(Object mod, String modId, ConfigurationManager configurationManager,
+	public void preInitEnd(Object mod, ConfigurationManager configurationManager,
 			CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
 
-	public void preInit(Object mod, String modId, ConfigurationManager configurationManager,
+	public void preInit(Object mod, ConfigurationManager configurationManager,
 			CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
 
 	public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
@@ -100,8 +100,6 @@ public interface ModContext {
 
 	public GrenadeAttackAspect getGrenadeAttackAspect();
 
-	public String getModId();
-
 	public EffectManager getEffectManager();
 
 	public ConfigurationManager getConfigurationManager();
@@ -112,7 +110,7 @@ public interface ModContext {
 
 	public void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider);
 
-	public void init(Object mod, String modid);
+	public void init(Object mod);
 
 	public MaterialImpactSound getMaterialImpactSound(CompatibleBlockState blockState, WeaponSpawnEntity entity);
 

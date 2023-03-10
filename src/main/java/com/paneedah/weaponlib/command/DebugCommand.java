@@ -47,11 +47,8 @@ public class DebugCommand extends CompatibleCommand {
 
     
     public static int debugFlag = 0;
-    
-    private String modId;
 
-    public DebugCommand(String modId) {
-        this.modId = modId;
+    public DebugCommand() {
     }
 
     @Override
@@ -64,7 +61,7 @@ public class DebugCommand extends CompatibleCommand {
     }
     
     public String getDefaultPrefix() {
-    	return TextFormatting.BOLD + "" + TextFormatting.GOLD + "(" + TextFormatting.DARK_GRAY + "MW" + TextFormatting.GOLD + ") ";
+    	return TextFormatting.BOLD + "" + TextFormatting.GOLD + "(" + TextFormatting.DARK_GRAY + "MWC" + TextFormatting.GOLD + ") ";
     }
 
     @Override
@@ -542,7 +539,7 @@ public class DebugCommand extends CompatibleCommand {
             default:
                 String partName = args[1];
 
-                Item item = compatibility.findItemByName(modId, partName);
+                Item item = compatibility.findItemByName(partName);
                 Part part = null;
                 if(item instanceof Part) {
                     part = (Part) item;

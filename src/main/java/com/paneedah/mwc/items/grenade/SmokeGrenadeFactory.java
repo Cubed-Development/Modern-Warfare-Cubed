@@ -19,7 +19,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
     @Override
     public ItemGrenade createGrenade(CommonProxy commonProxy) {
         return new ItemGrenade.Builder()
-                .withModId(ModReference.id)
+        
                 .withName("M18White")
                 .withCreativeTab(ModernWarfareMod.GrenadesTab)
                 .withTextureNames("M18White")
@@ -39,7 +39,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                 .withRotationSlowdownFactor(() -> 0.99f)
                 .withRenderer(
                         new GrenadeRenderer.Builder()
-                        .withModId(ModReference.id)
+                
                         .withModel(new M18())
                         .withAnimationDuration(500)
 

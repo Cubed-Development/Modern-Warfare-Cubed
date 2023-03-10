@@ -29,7 +29,7 @@ public class Glock19Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("glock_19")
         .withFireRate(0.999f)
         .withRecoil(2f)
@@ -234,7 +234,7 @@ public class Glock19Factory implements GunFactory {
         })
         .withTextureNames("glock19")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Glock18C())
             .withActionPiece(
             		Attachments.Glock19Slide, 

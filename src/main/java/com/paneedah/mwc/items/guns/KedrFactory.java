@@ -21,7 +21,7 @@ public class KedrFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("pp91_kedr")
         .withFireRate(0.7f)
         .withRecoil(2f)
@@ -75,7 +75,7 @@ public class KedrFactory {
         })
         .withTextureNames("kedr")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Kedr())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
@@ -173,8 +174,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		private long totalDrawingDuration;
 		private long totalLoadIterationDuration;
 		
-		
-		private String modId;
+
 
 		private int recoilAnimationDuration = DEFAULT_RECOIL_ANIMATION_DURATION;
 		private int shootingAnimationDuration = DEFAULT_SHOOTING_ANIMATION_DURATION;
@@ -227,7 +227,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		private boolean hasRecoilPositioningDefined;
 		
 		
-		// VMW 3.0
+		
 		public Transform firstPersonTransform;
 		public Transform firstPersonLeftHandTransform;
 		public Transform firstPersonRightHandTransform;
@@ -340,11 +340,6 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		
 		public long getCompoundReloadEmptyDuration() {
 			return compoundReloadEmptyContainer.getDuration();
-		}
-		
-		public Builder withModId(String modId) {
-			this.modId = modId;
-			return this;
 		}
 
 		public Builder withModel(ModelBase model) {
@@ -461,7 +456,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 			return this;
 		}
 		
-		// VMW 3.0
+		
 		
 		
 		
@@ -1081,10 +1076,6 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
             this.firstPersonCustomPositioningLoadIterationsCompleted.put(part, Arrays.asList(transitions));
             return this;
         }
-		
-		/*
-		 * VMW 3.0
-		 */
 		
 		public boolean isUsingNewSystem() {
 			return this.threePointOh;
@@ -1759,10 +1750,6 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 				return null;
 			}
 
-			if(modId == null) {
-				throw new IllegalStateException("ModId is not set");
-			}
-
 			if(inventoryPositioning == null) {
 				inventoryPositioning = itemStack -> {GL11.glTranslatef(0,  0.12f, 0);};
 			}
@@ -2279,10 +2266,6 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 
 		public WavefrontModel getBakedModel() {
 			return bakedModel;
-		}
-
-		public String getModId() {
-			return modId;
 		}
 
 		public String getAnimationFileName() {
@@ -3120,8 +3103,8 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
         }
     }
 	
-	public static ResourceLocation SPARKS_ONE = new ResourceLocation("mw" + ":" + "textures/flashes/sparks1.png");
-	public static ResourceLocation FLASHF = new ResourceLocation("mw" + ":" + "textures/flashes/flashfront2.png");
+	public static ResourceLocation SPARKS_ONE = new ResourceLocation(ModReference.id + ":textures/flashes/sparks1.png");
+	public static ResourceLocation FLASHF = new ResourceLocation(ModReference.id + ":textures/flashes/flashfront2.png");
 
 	public static ItemAttachment<Weapon> magicMagReplacement;
 	public static boolean updateMagicMagazine;
@@ -3170,7 +3153,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		boolean shot = false;
 		if(renderContext.getPlayer() != null && (ClientEventHandler.checkShot(renderContext.getPlayer().getEntityId()) || AnimationGUI.getInstance().forceFlash.isState())) {
 			shot = true;
-			//flash = ShaderManager.loadShader(new ResourceLocation("mw" + ":" + "shaders/flash"));
+			//flash = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/flash"));
 			
 		//	Bloom.bindBloomBuffer();
 		//	MuzzleFlashRenderer.renderFlash(renderContext.getPlayer().getEntityId(), weaponItemStack, true);
@@ -3230,8 +3213,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 
 		if(getBuilder().getTextureName() != null) {
 			
-			mc.renderEngine.bindTexture(new ResourceLocation(getBuilder().getModId()
-					+ ":textures/models/" + getBuilder().getTextureName()));
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + getBuilder().getTextureName()));
 		} else {
 			String textureName = null;
 			/*
@@ -3254,14 +3236,13 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 				textureName = weapon.getTextureName();
 			}
 
-			mc.renderEngine.bindTexture(new ResourceLocation(getBuilder().getModId()
-					+ ":textures/models/" + textureName));
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + textureName));
 		}
 		
 		
 		if(DebugCommand.debugFlag == 3) return;
 		
-		//gunLightingShader = ShaderManager.loadShader(new ResourceLocation("mw" + ":" + "shaders/gunlight"));
+		//gunLightingShader = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/gunlight"));
 	    
 		//Shaders.gunLightingShader = ShaderManager.loadVMWShader("gunlight");
 		
@@ -3279,7 +3260,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		
 				ItemSkin itemSkin = (ItemSkin) skin;
 				GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 3);
-				mc.getTextureManager().bindTexture(new ResourceLocation(clientModContext.getModId() + ":textures/models/" + itemSkin.getTextureName() + ".png"));
+				mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + itemSkin.getTextureName() + ".png"));
 				
 				GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 			}
@@ -3334,7 +3315,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 			//	GlStateManager.translate(0, 0, test1);
 				//GlStateManager.translate(-0.05*test1, 0.01*test1, 0);
 				//GlStateManager.rotate(-10f*test1, 1, 1, 0);
-				//mc.getTextureManager().bindTexture(new ResourceLocation("mw:textures/items/sexmoiv.png"));
+				//mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/items/sexmoiv.png"));
 
 				if (getBuilder().getModel() != null) {
 					getBuilder().getModel().render(this.player,
@@ -3652,8 +3633,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 	   
 	    
 		for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-			mc.renderEngine.bindTexture(new ResourceLocation(getBuilder().getModId()
-					+ ":textures/models/" + texturedModel.getV()));
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + texturedModel.getV()));
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
 			

@@ -19,7 +19,7 @@ public class SupernovaFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("supernova")
 //      .withAmmo(CommonProxy.Remington870Mag)
         .withAmmoCapacity(7)
@@ -234,7 +234,7 @@ public class SupernovaFactory implements GunFactory {
         .withCompatibleBullet(Bullets.Shotgun12Guage, (model) -> {})
         .withTextureNames("supernova")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new Supernova())
             //.withTextureName("Remington900")
             //.withWeaponProximity(0.99F)

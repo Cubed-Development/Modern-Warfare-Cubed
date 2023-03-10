@@ -22,7 +22,7 @@ public class AS50Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("as50")
         .withFireRate(0.1f)
         .withRecoil(14f)
@@ -268,7 +268,7 @@ public class AS50Factory implements GunFactory {
         })
         .withTextureNames("as50")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new AS50())
             //.withTextureName("AWP")
             //.withWeaponProximity(0.99F)

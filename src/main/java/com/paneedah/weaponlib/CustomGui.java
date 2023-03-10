@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.proxies.ClientProxy;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.StatusMessageCenter.Message;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
@@ -8,9 +9,9 @@ import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import com.paneedah.weaponlib.compatibility.CompatibleGui;
 import com.paneedah.weaponlib.compatibility.CompatibleMathHelper;
 import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.configold.BalancePackManager;
 import com.paneedah.weaponlib.configold.ConfigurationManager.StatusBarPosition;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.electronics.ItemWirelessCamera;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
@@ -40,9 +41,9 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import org.lwjgl.opengl.GL11;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 import static net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType.*;
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class CustomGui extends CompatibleGui {
 
@@ -57,7 +58,7 @@ public class CustomGui extends CompatibleGui {
 	
 	public static VehicleCustomGUI vehicleGUIOverlay = new VehicleCustomGUI();
 	
-	public static final ResourceLocation AMMO_COUNTER_TEXTURES = new ResourceLocation("mw:textures/hud/ammoiconsheet.png");
+	public static final ResourceLocation AMMO_COUNTER_TEXTURES = new ResourceLocation(ModReference.id + ":textures/hud/ammoiconsheet.png");
 
 	private static FontRenderer FONT_RENDERER = null;
 	

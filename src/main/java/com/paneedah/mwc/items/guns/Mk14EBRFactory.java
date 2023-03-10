@@ -24,7 +24,7 @@ public class Mk14EBRFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("mk14_ebr")
         .withFireRate(0.7f)
         .withRecoil(4.5f)
@@ -454,7 +454,7 @@ public class Mk14EBRFactory {
         })
         .withTextureNames("m14dmr")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new M14())
             .withActionPiece(AuxiliaryAttachments.Mk14EBRaction)
             .withActionTransform(new Transform().withPosition(0, 0, 0.95))

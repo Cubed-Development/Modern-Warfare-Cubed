@@ -25,7 +25,7 @@ public class UziFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("uzi")
         .withFireRate(0.7f)
         .withRecoil(2f)
@@ -154,7 +154,7 @@ public class UziFactory implements GunFactory {
         })
         .withTextureNames("gun")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Uzi())
             //.withTextureName("M9")
             //.withWeaponProximity(0.99F)

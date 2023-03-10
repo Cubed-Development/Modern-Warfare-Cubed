@@ -19,7 +19,7 @@ public class M1CarbineFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m1_carbine")
         .withFireRate(0.55f)
         .withRecoil(4.5f)
@@ -257,7 +257,7 @@ public class M1CarbineFactory {
          })
         .withTextureNames("m1carbine")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new M1Carbine())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

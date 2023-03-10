@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
@@ -82,7 +83,6 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 		private long totalTakingPinOffDuration;
 		private long totalThrowingDuration;
 
-		private String modId;
 
 		private float normalRandomizingRate = DEFAULT_RANDOMIZING_RATE; // movements per second, e.g. 0.25 = 0.25 movements per second = 1 movement in 3 minutes
 		private float normalRandomizingAmplitude = DEFAULT_NORMAL_RANDOMIZING_AMPLITUDE;
@@ -90,12 +90,6 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
         private Supplier<Float> xCenterOffset = () -> 0f;
         private Supplier<Float> yCenterOffset = () -> 0f;
         private Supplier<Float> zCenterOffset = () -> 0f;
-
-
-		public Builder withModId(String modId) {
-			this.modId = modId;
-			return this;
-		}
 
 		public Builder withModel(ModelBase model) {
 			this.model = model;
@@ -303,10 +297,6 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 		public GrenadeRenderer build() {
 			if(!compatibility.isClientSide()) {
 				return null;
-			}
-
-			if(modId == null) {
-				throw new IllegalStateException("ModId is not set");
 			}
 
 			if(inventoryPositioning == null) {
@@ -529,11 +519,6 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 		public ModelBase getModel() {
 			return model;
 		}
-
-		public String getModId() {
-			return modId;
-		}
-
 	}
 
 	private Builder builder;
@@ -828,8 +813,7 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 			Positioner<Part, RenderContext<RenderableState>> positioner) {
 
 		if(builder.getTextureName() != null) {
-			mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId()
-					+ ":textures/models/" + builder.getTextureName()));
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + builder.getTextureName()));
 		} else {
 			String textureName = null;
 
@@ -838,8 +822,7 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 				textureName = weapon.getTextureName();
 			}
 
-			mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId()
-					+ ":textures/models/" + textureName));
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + textureName));
 		}
 
 		//limbSwing, float flimbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale
@@ -901,8 +884,7 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 	    }
 
 	    for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-	        mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId()
-	                + ":textures/models/" + texturedModel.getV()));
+	        mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + texturedModel.getV()));
 	        GL11.glPushMatrix();
 	        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
 	        if(compatibleAttachment.getModelPositioning() != null) {

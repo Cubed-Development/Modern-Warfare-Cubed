@@ -19,7 +19,7 @@ public class APC9Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("apc9")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.85f)
@@ -302,7 +302,7 @@ public class APC9Factory implements GunFactory {
 		})
 		.withTextureNames("apc9")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new APC9())
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);

@@ -21,7 +21,7 @@ public class M1897Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("M1897")
 //		.withAmmo(CommonProxy.Remington870Mag)
 		.withAmmoCapacity(4)
@@ -126,7 +126,7 @@ public class M1897Factory implements GunFactory {
 		.withCompatibleBullet(Bullets.Shotgun12Guage, (model) -> {})
 		.withTextureNames("m1897")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new M1897())
 			//.withTextureName("Remington900")
 			//.withWeaponProximity(0.99F)

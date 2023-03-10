@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -60,24 +61,22 @@ public class ItemAttachment<T> extends CompatibleItem implements ModelSource, IM
         public void apply(ItemAttachment<T> itemAttachment, PlayerMeleeInstance instance);
     }
 
-	protected ItemAttachment(String modId, AttachmentCategory category, ModelBase model, String textureName, String crosshair,
+	protected ItemAttachment(AttachmentCategory category, ModelBase model, String textureName, String crosshair,
 			ApplyHandler<T> apply, ApplyHandler<T> remove) {
-		//this.modId = modId;
 		this.category = category;
 //		if(model != null) {
 //			this.texturedModels.add(new Tuple<ModelBase, String>(model, textureName));
 //		}
 		this.textureName = textureName.toLowerCase();
-		this.crosshair = crosshair != null ? modId + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
+		this.crosshair = crosshair != null ? ModReference.id + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;
 	}
 
-	protected ItemAttachment(String modId, AttachmentCategory category, String crosshair,
+	protected ItemAttachment(AttachmentCategory category, String crosshair,
 			ApplyHandler<T> apply, ApplyHandler<T> remove) {
-		//this.modId = modId;
 		this.category = category;
-		this.crosshair = crosshair != null ? modId + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
+		this.crosshair = crosshair != null ? ModReference.id + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;
 	}
@@ -136,12 +135,12 @@ public class ItemAttachment<T> extends CompatibleItem implements ModelSource, IM
 		return this;
 	}
 
-	public ItemAttachment(String modId, AttachmentCategory category, String crosshair) {
-		this(modId, category, crosshair, (a, w, p) -> {}, (a, w, p) -> {});
+	public ItemAttachment(AttachmentCategory category, String crosshair) {
+		this(category, crosshair, (a, w, p) -> {}, (a, w, p) -> {});
 	}
 
-	public ItemAttachment(String modId, AttachmentCategory category, ModelBase attachment, String textureName, String crosshair) {
-		this(modId, category, attachment, textureName, crosshair, (a, w, p) -> {}, (a, w ,p) -> {});
+	public ItemAttachment(AttachmentCategory category, ModelBase attachment, String textureName, String crosshair) {
+		this(category, attachment, textureName, crosshair, (a, w, p) -> {}, (a, w ,p) -> {});
 	}
 
 	public AttachmentCategory getCategory() {

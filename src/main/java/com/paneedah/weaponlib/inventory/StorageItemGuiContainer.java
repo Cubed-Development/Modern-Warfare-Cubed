@@ -14,7 +14,7 @@ public class StorageItemGuiContainer extends CompatibleGuiContainer {
     private float xSize_lo;
     private float ySize_lo;
 
-    private ResourceLocation guiTextureLocation; // = new ResourceLocation("mw", "textures/gui/inventoryitem.png");
+    private ResourceLocation guiTextureLocation; // = new ResourceLocation(ModReference.id, "textures/gui/inventoryitem.png");
 
     /** The inventory to render on screen */
     private final StorageInventory inventory;

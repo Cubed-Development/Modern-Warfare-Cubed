@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.AttachmentContainer;
 import com.paneedah.weaponlib.CompatibleAttachment;
@@ -23,7 +24,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class MuzzleFlashRenderer {
 	
-	public static ResourceLocation FLASH_SHEET = new ResourceLocation("mw" + ":" + "textures/flashes/sheet.png");
+	public static ResourceLocation FLASH_SHEET = new ResourceLocation(ModReference.id + ":textures/flashes/sheet.png");
 
 	private static boolean assignedParameters = false;
 	
@@ -136,7 +137,7 @@ public class MuzzleFlashRenderer {
 	
 		if(isSuppressedFlash) {
 			Sprite suppressedSprite = SpriteSheetTools.getSquareSprite(0, 512, 512, 512);
-			mc.getTextureManager().bindTexture(new ResourceLocation("mw:textures/flashes/supre.png"));
+			mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/flashes/supre.png"));
 	    	
 			//GlStateManager.disableTexture2D();
 	    	renderFlippedCrossPlane(suppressedSprite, 1, 0.0, 0, size/2, size/2);

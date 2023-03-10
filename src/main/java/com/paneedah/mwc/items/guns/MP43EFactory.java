@@ -23,7 +23,7 @@ public class MP43EFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("MP43E")
         .withAmmoCapacity(2)
         .withFireRate(0.3f)
@@ -83,7 +83,7 @@ public class MP43EFactory implements GunFactory {
         .withCompatibleBullet(Bullets.Shotgun12Guage, (model) -> {})
         .withTextureNames("MP43E")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new MP43E())
             //.withTextureName("Remington900")
             //.withWeaponProximity(0.99F)

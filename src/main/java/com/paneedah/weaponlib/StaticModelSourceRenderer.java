@@ -31,15 +31,9 @@ public class StaticModelSourceRenderer extends CompatibleStaticModelSourceRender
 		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioning;
 		private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioning;
 		
-		
-		private String modId;
+
 		private ModContext modContext;
 		private boolean isHiddenInInventory;
-		
-		public Builder withModId(String modId) {
-			this.modId = modId;
-			return this;
-		}
 		
 		public Builder withHiddenInventory(boolean isHiddenInInventory) {
 		    this.isHiddenInInventory = isHiddenInInventory;
@@ -106,10 +100,6 @@ public class StaticModelSourceRenderer extends CompatibleStaticModelSourceRender
 		}
 
 		public StaticModelSourceRenderer build() {
-			if(modId == null) {
-				throw new IllegalStateException("ModId is not set");
-			}
-			
 			if(inventoryPositioning == null) {
 				inventoryPositioning = itemStack -> {
 				    if(isHiddenInInventory) GL11.glScalef(0f, 0f, 0f);
@@ -207,10 +197,6 @@ public class StaticModelSourceRenderer extends CompatibleStaticModelSourceRender
 		public BiConsumer<EntityPlayer, ItemStack> getCustomEquippedPositioning() {
             return customEquippedPositioning;
         }
-
-		public String getModId() {
-			return modId;
-		}
 	}
 
 	private StaticModelSourceRenderer(Builder builder) {

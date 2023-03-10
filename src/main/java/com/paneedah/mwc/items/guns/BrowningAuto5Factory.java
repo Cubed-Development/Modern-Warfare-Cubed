@@ -21,7 +21,7 @@ public class BrowningAuto5Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("browning_auto_5")
 //      .withAmmo(CommonProxy.Remington870Mag)
         .withAmmoCapacity(4)
@@ -77,7 +77,7 @@ public class BrowningAuto5Factory implements GunFactory {
         .withCompatibleBullet(Bullets.Shotgun12Guage, (model) -> {})
         .withTextureNames("browningauto5")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new BrowningAuto5())
             //.withTextureName("Remington900")
             //.withWeaponProximity(0.99F)

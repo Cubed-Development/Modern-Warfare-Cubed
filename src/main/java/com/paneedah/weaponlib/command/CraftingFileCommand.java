@@ -10,7 +10,7 @@ public class CraftingFileCommand extends TidyCompatibleCommand {
 	private static final String STATUS_KEY = "status";
 	
 	public CraftingFileCommand() {
-		super("mwcraftingmanager", "MW Crafting Manager");
+		super("mwccraftingmanager", "MWC Crafting Manager");
 		addMainOption(RELOAD_KEY, "Reloads the current crafting setup");
 		addMainOption(STATUS_KEY, "Provides current crafting file manager status");
 		initCommand();

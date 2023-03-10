@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ItemStorage;
 import com.paneedah.weaponlib.ItemVest;
 import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
@@ -60,7 +61,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
             	ItemStorage storage = (ItemStorage) backpackStack.getItem();
             	ModelBase model = (ModelBase) storage.getTexturedModels().get(0).getU();
     			
-            	ResourceLocation resource = new ResourceLocation("mw:textures/models/" + storage.getTexturedModels().get(0).getV());
+            	ResourceLocation resource = new ResourceLocation(ModReference.id + ":textures/models/" + storage.getTexturedModels().get(0).getV());
             	
             	
             	doEquipmentRender(model, player, backpackStack, storage.getCustomEquippedPositioning(), resource, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
@@ -72,7 +73,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
         		ItemStorage storage = (ItemStorage) backpackStack.getItem();
             	
             	ModelBiped biped = GearModelRepository.pull(storage.getModelFileString());
-            	ResourceLocation resource = new ResourceLocation("mw:textures/models/" + storage.getProperTextureName());
+            	ResourceLocation resource = new ResourceLocation(ModReference.id + "textures/models/" + storage.getProperTextureName());
         		mc.getTextureManager().bindTexture(resource);
         		doEquipmentRender(biped, player, null, (a, b) -> {}, resource, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
             	//System.out.println("yo1");
@@ -92,7 +93,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
             	ItemVest storage = (ItemVest) vestStack.getItem();
             	ModelBase model = (ModelBase) storage.getTexturedModels().get(0).getU();	
     			
-            	ResourceLocation resource = new ResourceLocation("mw:textures/models/" + storage.getTexturedModels().get(0).getV());
+            	ResourceLocation resource = new ResourceLocation(ModReference.id + "textures/models/" + storage.getTexturedModels().get(0).getV());
             	
             	doEquipmentRender(model, player, vestStack, storage.getCustomEquippedPositioning(), resource, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
             	return;
@@ -104,13 +105,13 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
             	ItemVest storage = (ItemVest) vestStack.getItem();
             	
             	ModelBiped biped = GearModelRepository.pull(storage.getModelFileString());
-            	ResourceLocation resource = new ResourceLocation("mw:textures/models/" + storage.getProperTextureName());
+            	ResourceLocation resource = new ResourceLocation(ModReference.id + "textures/models/" + storage.getProperTextureName());
         		mc.getTextureManager().bindTexture(resource);
         		doEquipmentRender(biped, player, null, (a, b) -> {}, resource, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
             	//System.out.println("yo2");
             	
             	/*
-            	ResourceLocation resource = new ResourceLocation("mw:textures/models/usmc.png");
+            	ResourceLocation resource = new ResourceLocation(ModReference.id + "textures/models/usmc.png");
         		mc.getTextureManager().bindTexture(resource);
         		doEquipmentRender(modeld, player, null, (a, b) -> {}, resource, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
             	*/

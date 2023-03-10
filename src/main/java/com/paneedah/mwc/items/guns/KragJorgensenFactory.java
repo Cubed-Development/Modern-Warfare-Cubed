@@ -21,7 +21,7 @@ public class KragJorgensenFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("Krag_Jorgensen")
 //      .withAmmo(CommonProxy.XWPMag)
         .withAmmoCapacity(5)
@@ -141,7 +141,7 @@ public class KragJorgensenFactory implements GunFactory {
         })
         .withTextureNames("KragJorgensen")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new KragJorgensen())
             .withPrepareFirstLoadIterationAnimationDuration(1000)
             .withAllLoadIterationAnimationsCompletedDuration(400)

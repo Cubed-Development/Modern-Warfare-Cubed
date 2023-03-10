@@ -24,7 +24,7 @@ public class SIGMCXFactory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("sig_mcx")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.75f)
@@ -556,7 +556,7 @@ public class SIGMCXFactory implements GunFactory {
 		})
 		.withTextureNames("sigmcx")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new SIGMCX())
 			.withADSBeizer(new Vec3d(0, 4, 0))
 			.withEntityPositioning(itemStack -> {

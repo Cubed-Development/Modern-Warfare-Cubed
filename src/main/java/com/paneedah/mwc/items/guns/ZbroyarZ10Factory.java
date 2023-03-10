@@ -24,7 +24,7 @@ public class ZbroyarZ10Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("zbroyar_z10")
         .withFireRate(0.65f)
         .withRecoil(6f)
@@ -395,7 +395,7 @@ public class ZbroyarZ10Factory implements GunFactory {
         })
         .withTextureNames("z10")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Z10())
             .withADSBeizer(new Vec3d(0.2, 1.7, 0.5))
             .withEntityPositioning(itemStack -> {

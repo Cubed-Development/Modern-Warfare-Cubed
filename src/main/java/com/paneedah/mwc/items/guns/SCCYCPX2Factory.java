@@ -29,7 +29,7 @@ public class SCCYCPX2Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("sccy_cpx_2")
         .withFireRate(0.5f)
         .withRecoil(2f)
@@ -150,7 +150,7 @@ public class SCCYCPX2Factory implements GunFactory {
         })
         .withTextureNames("glock18c")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Glock18C())
             .withActionPiece(
             		Attachments.SCCYCPX2Slide,

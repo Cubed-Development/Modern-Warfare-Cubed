@@ -20,7 +20,7 @@ public class SSG08Factory implements GunFactory {
     @SuppressWarnings("unchecked")
 	public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("ssg_08")
         .withFireRate(0.16f)
         .withEjectRoundRequired()
@@ -245,7 +245,7 @@ public class SSG08Factory implements GunFactory {
         })
         .withTextureNames("SSG08")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new SSG08())
             //.withTextureName("AWP")
             //.withWeaponProximity(0.99F)

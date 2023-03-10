@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.render;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import com.paneedah.weaponlib.shader.jim.Shader;
 import com.paneedah.weaponlib.shader.jim.ShaderManager;
@@ -21,9 +22,9 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class Dloom {
 	
-	public static Shader downsample2 = ShaderManager.loadShader(new ResourceLocation("mw" + ":" + "shaders/downsample2"));
-	public static Shader bloom_h = ShaderManager.loadShader(new ResourceLocation("mw" + ":" + "shaders/bloom_h"));
-	public static Shader bloom_v = ShaderManager.loadShader(new ResourceLocation("mw" + ":" + "shaders/bloom_v"));
+	public static Shader downsample2 = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/downsample2"));
+	public static Shader bloom_h = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/bloom_h"));
+	public static Shader bloom_v = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/bloom_v"));
 	
 	public static final int bloomLayers = 4;
     public static Framebuffer[] bloomBuffers;
@@ -215,7 +216,7 @@ public class Dloom {
 		
 		Bloom.downsample.release();*/
 		
-		//Bloom.downsample = ShaderManager.loadShader(new ResourceLocation("mw" + ":" + "shaders/downsample"));
+		//Bloom.downsample = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/downsample"));
 		
 		
 		bloomBuffers[0].bindFramebuffer(true);

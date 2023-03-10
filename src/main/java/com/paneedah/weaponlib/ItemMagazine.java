@@ -62,7 +62,7 @@ Reloadable, Updatable, Part {
 		
 		@Override
 		protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
-			ItemMagazine magazine = new ItemMagazine(getModId(), getModel(), getTextureName(), ammo);
+			ItemMagazine magazine = new ItemMagazine(getModel(), getTextureName(), ammo);
 			magazine.reloadingTimeout = reloadingTimeout;
 	
 			magazine.compatibleBullets = new ArrayList<>(compatibleBullets);
@@ -86,16 +86,16 @@ Reloadable, Updatable, Part {
 	private ModContext modContext;
 	private Vec3d rotPoint;
 	
-	ItemMagazine(String modId, ModelBase model, String textureName, int ammo) {
-		this(modId, model, textureName, ammo, null, null);
+	ItemMagazine(ModelBase model, String textureName, int ammo) {
+		this(model, textureName, ammo, null, null);
 	}
 	
 	
 
-	ItemMagazine(String modId, ModelBase model, String textureName, int ammo,
+	ItemMagazine(ModelBase model, String textureName, int ammo,
 			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
 			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
-		super(modId, AttachmentCategory.MAGAZINE, model, textureName, null, apply, remove);
+		super(AttachmentCategory.MAGAZINE, model, textureName, null, apply, remove);
 		this.ammo = ammo;
 		setMaxStackSize(DEFAULT_MAX_STACK_SIZE);
 	}

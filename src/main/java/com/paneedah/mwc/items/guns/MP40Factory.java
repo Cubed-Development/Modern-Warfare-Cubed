@@ -21,7 +21,7 @@ public class MP40Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("mp40")
         .withFireRate(0.55f)
         .withRecoil(1.5f)
@@ -114,7 +114,7 @@ public class MP40Factory {
         })
         .withTextureNames("mp40")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new MP40())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

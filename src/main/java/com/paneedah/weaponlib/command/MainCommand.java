@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.command;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.compatibility.CompatibleCommand;
@@ -24,19 +25,17 @@ public class MainCommand extends CompatibleCommand {
 
     private static final String ARG_SHOW = "show";
 
-    private String modId;
     private String mainCommandName;
     private ModContext modContext;
 
-    public MainCommand(String modId, ModContext modContext) {
-        this.modId = modId;
+    public MainCommand(ModContext modContext) {
         this.modContext = modContext;
-        this.mainCommandName = modId;
+        this.mainCommandName = ModReference.id;
     }
 
     @Override
     public String getCompatibleName() {
-        return modId;
+        return ModReference.id;
     }
 
     @Override

@@ -18,7 +18,7 @@ public class FuseGrenadeFactory implements GrenadeFactory {
     @Override
     public ItemGrenade createGrenade(CommonProxy commonProxy) {
         return new ItemGrenade.Builder()
-                .withModId(ModReference.id)
+        
                 .withName("M67Frag")
                 .withCreativeTab(ModernWarfareMod.GrenadesTab)
                 .withTextureNames("M67Frag")
@@ -40,7 +40,7 @@ public class FuseGrenadeFactory implements GrenadeFactory {
                 .withDestroyingBlocks(false)
                 .withRenderer(
                         new GrenadeRenderer.Builder()
-                        .withModId(ModReference.id)
+                
                         .withModel(new M67Frag())
                         .withAnimationDuration(500)
 

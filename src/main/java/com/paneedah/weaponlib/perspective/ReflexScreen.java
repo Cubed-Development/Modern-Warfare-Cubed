@@ -4,6 +4,7 @@
 package com.paneedah.weaponlib.perspective;
 
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.CustomRenderer;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
@@ -83,7 +84,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		//reflexReticle.use();
 		
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-		ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/crosshairs/okp.png");
+		ResourceLocation loc = new ResourceLocation(ModReference.id + ":textures/crosshairs/okp.png");
 	
 		mc.getTextureManager().bindTexture(loc);
 		
@@ -288,7 +289,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		
 		
 
-		//reflexReticle = ShaderManager.loadShader(new ResourceLocation("mw" + ":" + "shaders/reflex"));
+		//reflexReticle = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/reflex"));
 		//first
 	//	Dloom.bloomData.bindFramebuffer(true);\
 		

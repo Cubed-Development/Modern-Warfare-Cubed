@@ -22,7 +22,7 @@ public class DSR1Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("dsr1")
         .withFireRate(0.16f)
         .withEjectRoundRequired()
@@ -259,7 +259,7 @@ public class DSR1Factory implements GunFactory {
         })
         .withTextureNames("dsr1")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new DSR1())
             //.withTextureName("AWP")
             //.withWeaponProximity(0.99F)

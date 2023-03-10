@@ -22,7 +22,7 @@ public class ChiappaRhinoFactory implements GunFactory {
     @SuppressWarnings("unchecked")
 	public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("chiappa_rhino")
         .withAmmoCapacity(6)
         .withMaxBulletsPerReload(6)
@@ -80,7 +80,7 @@ public class ChiappaRhinoFactory implements GunFactory {
         .withCompatibleBullet(Bullets.Bullet357, (model) -> {})
         .withTextureNames("chiapparhino")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new ChiappaRhino()) 
             //.withTextureName("XEagle")
             //.withWeaponProximity(0.99F)

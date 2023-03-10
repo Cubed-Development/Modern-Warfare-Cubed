@@ -28,7 +28,7 @@ public class P90Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("p90")
         .withFireRate(0.85f)
         .withRecoil(1.5f)
@@ -367,7 +367,7 @@ public class P90Factory {
         })
         .withTextureNames("p90")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new P90())
             .withADSBeizer(new Vec3d(0.2, 6, -1))
             //.withTextureName("AK47")

@@ -21,7 +21,7 @@ public class RPG7Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("rpg7")
 //      .withAmmo(CommonProxy.AR15Mag)
         .withAmmoCapacity(1)
@@ -56,7 +56,7 @@ public class RPG7Factory implements GunFactory {
         })
         .withTextureNames("rpg7")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new RPG7())
             //.withTextureName("M4A1")
             //.withWeaponProximity(0.99F)

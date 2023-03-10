@@ -28,7 +28,7 @@ public class VP70Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("vp70")
         .withFireRate(0.9f)
         .withRecoil(2f)
@@ -111,7 +111,7 @@ public class VP70Factory implements GunFactory {
         })
         .withTextureNames("vp70")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new VP70())
             //.withTextureName("M9")
             //.withWeaponProximity(0.99F)

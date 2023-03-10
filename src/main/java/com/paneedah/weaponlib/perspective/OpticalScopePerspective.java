@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.perspective;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
 import com.paneedah.weaponlib.shader.jim.Shader;
@@ -96,7 +97,7 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
 		
 	};
 	
-	public static Shader scope = ShaderManager.loadShader(new ResourceLocation("mw" + ":" + "shaders/vignette"))
+	public static Shader scope = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/vignette"))
     		.withUniforms(PROJECTION_MATRIX);
    
     
@@ -108,7 +109,7 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
     	if(reload) {
     		//System.out.println("yo");
     		//System.out.println("yo");
-    		scope = ShaderManager.loadShader(new ResourceLocation("mw" + ":" + "shaders/vignette"));
+    		scope = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/vignette"));
     	}
     	
     	//GlStateManager.enableAlpha();

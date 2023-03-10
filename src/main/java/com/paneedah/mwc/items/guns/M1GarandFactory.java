@@ -21,7 +21,7 @@ public class M1GarandFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m1_garand")
         .withAmmoCapacity(8)
         .withFireRate(0.2f)
@@ -116,7 +116,7 @@ public class M1GarandFactory implements GunFactory {
         })
         .withTextureNames("M1Garand")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+
             .withModel(new M1Garand())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.particle;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.particle.vehicle.TurbulentSmokeParticle;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.entity.Entity;
@@ -15,8 +16,8 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
 
-	public static final ResourceLocation SMOKE1 = new ResourceLocation("mw" + ":" + "textures/smokes/smokesheet.png");
-	public static final ResourceLocation SMOKE2 = new ResourceLocation("mw" + ":" + "textures/smokes/smokes2.png");
+	public static final ResourceLocation SMOKE1 = new ResourceLocation(ModReference.id + ":textures/smokes/smokesheet.png");
+	public static final ResourceLocation SMOKE2 = new ResourceLocation(ModReference.id + ":textures/smokes/smokes2.png");
 	
 	
 	public int ran = 0;
@@ -96,7 +97,7 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
 	        //GlStateManager.enableBlend();
 	        
 	        double angle = Math.PI/4;
-	        mc.getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/smokes/smoke4.png"));
+	        mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/smokes/smoke4.png"));
 	    	GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 	    	GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
 	    

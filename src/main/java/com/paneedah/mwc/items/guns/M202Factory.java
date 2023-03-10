@@ -22,7 +22,7 @@ public class M202Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m202")
 //      .withAmmo(CommonProxy.AR15Mag)
         .withAmmoCapacity(4)
@@ -62,7 +62,7 @@ public class M202Factory implements GunFactory {
       })
         .withTextureNames("m202")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new M202())
             //.withTextureName("M4A1")
             //.withWeaponProximity(0.99F)

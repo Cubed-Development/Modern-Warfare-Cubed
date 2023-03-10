@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.tile;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleMaterial;
@@ -107,12 +108,12 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         if(!VMWHooksHandler.isOnServer()) {
         	ClientEventHandler.BLANKMAPPED_LIST.add(tileEntityBlock);
         }
-        tileEntityBlock.setBlockName(modContext.getModId() + "_" + name);
+        tileEntityBlock.setBlockName(ModReference.id + "_" + name);
         tileEntityBlock.setHardness(hardness);
         tileEntityBlock.setResistance(resistance);
         tileEntityBlock.setCreativeTab(creativeTab);
         tileEntityBlock.setBoundingBox(boundingBox);
-        ResourceLocation textureResource = new ResourceLocation(modContext.getModId(), textureName);
+        ResourceLocation textureResource = new ResourceLocation(ModReference.id, textureName);
         tileEntityBlock.setBlockTextureName(textureResource.toString());
         compatibility.registerTileEntity(tileEntityClass, "tile" + name);
         
@@ -137,9 +138,9 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
 
 //                mc.getRenderItem().getItemModelMesher()
 //                    .register(Item.getItemFromBlock(tileEntityBlock), 0,
-//                        new ModelResourceLocation(context.getModId() + ":" + name, "inventory"));
+//                        new ModelResourceLocation(ModReference.id + ":" + name, "inventory"));
                 
-//                ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(context.getModId() + ":" + name, "inventory");
+//                ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(ModReference.id + ":" + name, "inventory");
 //                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(tileEntityBlock), 0, itemModelResourceLocation);
                 
                 ModelBase model = (ModelBase) Class.forName(modelClassName).newInstance();

@@ -19,7 +19,7 @@ public class MAS21Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("mas_21")
         .withFireRate(0.5f)
         .withRecoil(2f)
@@ -137,7 +137,7 @@ public class MAS21Factory implements GunFactory {
 		    })
         .withTextureNames("mas21")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new MAS21())
             //.withTextureName("M9")
             //.withWeaponProximity(0.99F)

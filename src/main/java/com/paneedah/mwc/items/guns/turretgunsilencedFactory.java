@@ -23,7 +23,7 @@ public class turretgunsilencedFactory implements GunFactory {
     @SuppressWarnings("unchecked")
 	public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("turretgunsilenced")
         .withFireRate(0.6f)
         .withRecoil(3f)
@@ -74,7 +74,7 @@ public class turretgunsilencedFactory implements GunFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
         .withTextureNames("scarl")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Glock18C())
             .withActionPiece(AuxiliaryAttachments.ScarAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1.3))

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.compatibility.FlatSurfaceModelBox;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -19,7 +20,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class ViewfinderModel extends ModelBase {
 	
-	private static final ResourceLocation SCOPE_GRIME_TEXTURE = new ResourceLocation("mw" + ":" + "textures/hud/scopedirt.png");
+	private static final ResourceLocation SCOPE_GRIME_TEXTURE = new ResourceLocation(ModReference.id + ":textures/hud/scopedirt.png");
 
 	private ModelRenderer surfaceRenderer;
 	private FlatSurfaceModelBox box;
@@ -135,7 +136,7 @@ public class ViewfinderModel extends ModelBase {
     	
     	/* Code for a future hybrid scope
     	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+7);
-		ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/crosshairs/reflexret.png");
+		ResourceLocation loc = new ResourceLocation(ModReference.id + ":textures/crosshairs/reflexret.png");
 		mc.getTextureManager().bindTexture(loc);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);

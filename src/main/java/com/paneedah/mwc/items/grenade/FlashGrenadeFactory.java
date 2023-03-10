@@ -19,7 +19,7 @@ public class FlashGrenadeFactory implements GrenadeFactory {
     @Override
     public ItemGrenade createGrenade(CommonProxy commonProxy) {
         return new ItemGrenade.Builder()
-                .withModId(ModReference.id)
+        
                 .withType(Type.FLASH)
                 .withName("Flash")
                 .withCreativeTab(ModernWarfareMod.GrenadesTab)
@@ -42,7 +42,7 @@ public class FlashGrenadeFactory implements GrenadeFactory {
                 .withDestroyingBlocks(false)
                 .withRenderer(
                         new GrenadeRenderer.Builder()
-                        .withModId(ModReference.id)
+                
                         .withModel(new FlashGrenade())
                         .withAnimationDuration(500)
 

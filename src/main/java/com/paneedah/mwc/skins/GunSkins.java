@@ -21,7 +21,7 @@ public class GunSkins {
     public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event) {
         GunSkins.WoodlandCamo = new ItemSkin.Builder()
         		.withTextureVariant("woodlandcamo")
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
                 .withName("WoodlandCamo")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
@@ -29,7 +29,7 @@ public class GunSkins {
         
         GunSkins.PinkCamo = new ItemSkin.Builder()
         		.withTextureVariant("pinkcamo")
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
                 .withName("PinkCamo")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
@@ -37,7 +37,7 @@ public class GunSkins {
         
         GunSkins.ArcticCamo = new ItemSkin.Builder()
         		.withTextureVariant("arcticcamo")
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
                 .withName("ArcticCamo")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
@@ -45,7 +45,7 @@ public class GunSkins {
         
         GunSkins.BlueCamo = new ItemSkin.Builder()
         		.withTextureVariant("bluecamo")
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
                 .withName("BlueCamo")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
@@ -53,7 +53,7 @@ public class GunSkins {
         
         GunSkins.Unit01Camo = new ItemSkin.Builder()
         		.withTextureVariant("unit01camo")
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
                 .withName("Unit01Camo")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
@@ -61,7 +61,7 @@ public class GunSkins {
         
         GunSkins.BloodForestCamo = new ItemSkin.Builder()
         		.withTextureVariant("bloodforestcamo")
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
                 .withName("BloodForestCamo")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
@@ -69,7 +69,7 @@ public class GunSkins {
         
         GunSkins.DiamondCamo = new ItemSkin.Builder()
         		.withTextureVariant("diamondcamo")
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
                 .withName("DiamondCamo")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
@@ -77,7 +77,7 @@ public class GunSkins {
         
         GunSkins.GoldCamo = new ItemSkin.Builder()
         		.withTextureVariant("goldcamo")
-        		.withModId(ModReference.id)
+
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
                 .withName("GoldCamo")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);

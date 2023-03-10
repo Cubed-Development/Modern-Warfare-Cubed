@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.electronics;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
@@ -25,7 +26,6 @@ public class ItemWirelessCamera extends CompatibleItem implements ModelSource {
     public static class Builder {
 
         protected String name;
-        protected String modId;
         protected ModelBase model;
         protected String textureName;
         protected Consumer<ItemStack> entityPositioning;
@@ -60,11 +60,6 @@ public class ItemWirelessCamera extends CompatibleItem implements ModelSource {
 
         public Builder withCreativeTab(CreativeTabs tab) {
             this.tab = tab;
-            return this;
-        }
-
-        public Builder withModId(String modId) {
-            this.modId = modId;
             return this;
         }
 
@@ -165,14 +160,14 @@ public class ItemWirelessCamera extends CompatibleItem implements ModelSource {
         public ItemWirelessCamera build(ModContext modContext) {
 
             ItemWirelessCamera camera = new ItemWirelessCamera(this, modContext);
-            camera.setTranslationKey(modId + "_" + name);
+            camera.setTranslationKey(ModReference.id + "_" + name);
             camera.setCreativeTab(tab);
 //            camera.setPostRenderer(postRenderer);
 //            camera.setName(name);
             camera.maxStackSize = maxStackSize;
 
 //            if(textureName != null) {
-//                camera.textureName = modId + ":" + stripFileExtension(textureName, ".png");
+//                camera.textureName = ModReference.id + ":" + stripFileExtension(textureName, ".png");
 //            }
 
             texturedModels.forEach(tm -> camera.texturedModels.add(new Tuple<>(tm.getU(), addFileExtension(tm.getV(), ".png"))));
@@ -225,7 +220,6 @@ public class ItemWirelessCamera extends CompatibleItem implements ModelSource {
             .withInventoryModelPositioning(inventoryModelPositioning)
             .withFirstPersonHandPositioning(firstPersonLeftHandPositioning, firstPersonRightHandPositioning)
             .withModContext(modContext)
-            .withModId(modId)
             .build();
         }
     }

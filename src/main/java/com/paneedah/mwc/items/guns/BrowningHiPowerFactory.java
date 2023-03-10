@@ -25,7 +25,7 @@ public class BrowningHiPowerFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("browning_hi_power")
         .withFireRate(0.65f)
         .withRecoil(4f)
@@ -91,7 +91,7 @@ public class BrowningHiPowerFactory implements GunFactory {
 //        })
         .withTextureNames("BrowningHiPower")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new BrowningHiPower())
             //.withTextureName("M9")
             //.withWeaponProximity(0.99F)

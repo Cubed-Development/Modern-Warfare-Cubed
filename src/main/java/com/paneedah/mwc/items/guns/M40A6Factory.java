@@ -22,7 +22,7 @@ public class M40A6Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m40a6")
         .withFireRate(0.16f)
         .withEjectRoundRequired()
@@ -275,7 +275,7 @@ public class M40A6Factory implements GunFactory {
         })
         .withTextureNames("gunwerkshamr")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new GunwerksHAMR())
             .withADSBeizer(new Vec3d(-0.2, 5.0, -1.0))
             //.withTextureName("AWP")

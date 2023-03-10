@@ -24,7 +24,7 @@ public class SIG556Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("sig556")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.8f)
@@ -498,7 +498,7 @@ public class SIG556Factory implements GunFactory {
 		})
 		.withTextureNames("sig556")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new SIG556())
 			.withADSBeizer(new Vec3d(0.2, 1.7, 0.5))
 			.withActionPiece(AuxiliaryAttachments.SIG556Action)

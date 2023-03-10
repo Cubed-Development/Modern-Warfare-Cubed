@@ -21,7 +21,7 @@ public class SpringfieldFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("Springfield")
 //      .withAmmo(CommonProxy.XWPMag)
         .withAmmoCapacity(5)
@@ -133,7 +133,7 @@ public class SpringfieldFactory implements GunFactory {
         })
         .withTextureNames("M1903A3")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new Springfield())
             .withPrepareFirstLoadIterationAnimationDuration(1100)
             .withAllLoadIterationAnimationsCompletedDuration(1000)

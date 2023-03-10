@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib;
 
 import akka.japi.Predicate;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.compatibility.ModelRegistryServerInterchange;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -65,7 +66,7 @@ public class HighIQSpawnEgg extends CompatibleItem implements IModernCrafting {
 			egg.setEntitySpawnName(this.entitySpawnName);
 			egg.setCreativeTab(this.creativeTab);
 			egg.setTranslationKey(this.registryName);
-			egg.setRegistryName("mw", this.registryName);
+			egg.setRegistryName(ModReference.id, this.registryName);
 			egg.setID(this.id);
 
 			SecondaryEntityRegistry.pickupMap.put(this.id, egg);
@@ -139,7 +140,7 @@ public class HighIQSpawnEgg extends CompatibleItem implements IModernCrafting {
 					// SecondaryEntityRegistry.map.get(getEntitySpawnName()).getConstructor(World.class).newInstance(worldIn);
 
 					NBTTagCompound btc = new NBTTagCompound();
-					btc.setString("id", "mw:" + getEntitySpawnName());
+					btc.setString("id", ModReference.id + ":" + getEntitySpawnName());
 					Entity entity = AnvilChunkLoader.readWorldEntityPos(btc, worldIn, pos.getX() + 0.5, pos.up().getY(),
 							pos.getZ() + 0.5, true);
 

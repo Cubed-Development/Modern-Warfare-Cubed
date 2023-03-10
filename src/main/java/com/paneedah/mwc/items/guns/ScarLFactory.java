@@ -27,7 +27,7 @@ public class ScarLFactory implements GunFactory {
     @SuppressWarnings("unchecked")
 	public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("scar_l")
         .withFireRate(0.6f)
         .withRecoil(3f)
@@ -411,7 +411,7 @@ public class ScarLFactory implements GunFactory {
         })
         .withTextureNames("scarl")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new ScarL())
             .withActionPiece(AuxiliaryAttachments.ScarAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1.3))

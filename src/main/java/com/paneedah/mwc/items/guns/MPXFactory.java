@@ -24,7 +24,7 @@ public class MPXFactory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id)
+		
 		.withName("sig_mpx")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.85f)
@@ -369,7 +369,7 @@ public class MPXFactory implements GunFactory {
         }, false, false)
 		.withTextureNames("mpx")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withModId(ModReference.id)
+			
 			.withModel(new MPX())
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);

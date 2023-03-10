@@ -29,7 +29,7 @@ public class ACRFactory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
-		.withModId(ModReference.id) // MOD ID
+		
 		.withName("acr") // Name of the item and model
 		.withFireRate(0.65f) // Fire rate in rounds per minute
 		.withRecoil(3f) // Recoil in degrees
@@ -683,7 +683,7 @@ public class ACRFactory implements GunFactory {
         // BUILDS THE GUN
         .withTextureNames("acr")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new BushmasterACR())
             .withActionPiece(AuxiliaryAttachments.ACRAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))

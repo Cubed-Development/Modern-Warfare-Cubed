@@ -26,7 +26,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-                .withModId(ModReference.id) // MOD ID
+                
                 .withName("aac_honey_badger") // Name of the item and model
                 .withFireRate(0.80f) // Fire rate in rounds per minute
                 .withRecoil(3f) // Recoil in degrees
@@ -588,7 +588,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 // BUILDS THE GUN
                 .withTextureNames("aachoneybadger")
                 .withRenderer(new WeaponRenderer.Builder()
-                        .withModId(ModReference.id)
+                
                         .withModel(new AACHoneyBadger())
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.5F, 0.5F, 0.5F);

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.crafting.items;
 
+import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -14,8 +15,8 @@ public class CraftingItem extends Item {
 	private double recoveryPercentage;
 	
 	
-	public CraftingItem(String name, String modID, Item recoveryScrap, double recoveryPercentage, CreativeTabs tab) {
-		setTranslationKey(modID + "_" + name);
+	public CraftingItem(String name, Item recoveryScrap, double recoveryPercentage, CreativeTabs tab) {
+		setTranslationKey(ModReference.id + "_" + name);
 		setMaxStackSize(64);
 		setCreativeTab(tab);
 		

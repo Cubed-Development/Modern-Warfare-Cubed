@@ -27,7 +27,7 @@ public class M82Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m82_barrett")
         .withFireRate(0.1f)
         .withRecoil(15f)
@@ -274,7 +274,7 @@ public class M82Factory implements GunFactory {
         })
         .withTextureNames("m82")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new M82())
             .withActionPiece(AuxiliaryAttachments.M82Action)
             .withActionTransform(new Transform().withPosition(0, 0, 1.5))

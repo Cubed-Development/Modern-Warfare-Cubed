@@ -22,7 +22,7 @@ public class DP28Factory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("dp28")
         .withFireRate(0.5f)
         .withRecoil(4f)
@@ -119,7 +119,7 @@ public class DP28Factory {
         })
         .withTextureNames("gun")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new DP28())
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)

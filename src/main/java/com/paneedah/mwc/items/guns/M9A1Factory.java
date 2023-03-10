@@ -28,7 +28,7 @@ public class M9A1Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("m9a1")
         .withFireRate(0.5f)
         .withRecoil(2f)
@@ -200,7 +200,7 @@ public class M9A1Factory implements GunFactory {
 		    })
         .withTextureNames("M9A1")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new M9A1())
             .withActionPiece(
             		Attachments.M9A1Slide,

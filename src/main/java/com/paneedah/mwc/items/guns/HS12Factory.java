@@ -22,7 +22,7 @@ public class HS12Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("hs12")
         .withAmmoCapacity(2)
         .withMaxBulletsPerReload(4)
@@ -182,7 +182,7 @@ public class HS12Factory implements GunFactory {
         .withCompatibleBullet(Bullets.Shotgun12Guage, (model) -> {})
         .withTextureNames("gun")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new HS12())
             //.withTextureName("Remington900")
             //.withWeaponProximity(0.99F)

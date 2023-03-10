@@ -22,7 +22,7 @@ public class KS23Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModReference.id)
+
         .withName("ks23")
 //      .withAmmo(CommonProxy.Remington870Mag)
         .withAmmoCapacity(4)
@@ -149,7 +149,7 @@ public class KS23Factory implements GunFactory {
         })
         .withTextureNames("ks23")
         .withRenderer(new WeaponRenderer.Builder()
-            .withModId(ModReference.id)
+    
             .withModel(new KS23())
             //.withTextureName("Remington900")
             //.withWeaponProximity(0.99F)

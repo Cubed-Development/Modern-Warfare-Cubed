@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
 import com.paneedah.weaponlib.crafting.*;
@@ -21,7 +22,6 @@ public class AttachmentBuilder<T> {
 	public static int noRecipe = 0;
 	
 	protected String name;
-	protected String modId;
 	protected ModelBase model;
 	protected String textureName;
 	
@@ -88,11 +88,6 @@ public class AttachmentBuilder<T> {
 	
 	public AttachmentBuilder<T> withRotationPoint(double x, double y, double z) {
 		this.rotationPoint = new Vec3d(x, y, z);
-		return this;
-	}
-
-	public AttachmentBuilder<T> withModId(String modId) {
-		this.modId = modId;
 		return this;
 	}
 
@@ -246,15 +241,13 @@ public class AttachmentBuilder<T> {
 	}
 
 	protected ItemAttachment<T> createAttachment(ModContext modContext) {
-		return new ItemAttachment<T>(
-				getModId(), attachmentCategory, crosshair,
-				apply, remove);
+		return new ItemAttachment<T>(attachmentCategory, crosshair, apply, remove);
 	}
 
 	@SuppressWarnings("deprecation")
 	public ItemAttachment<T> build(ModContext modContext) {
 		ItemAttachment<T> attachment = createAttachment(modContext);
-		attachment.setTranslationKey(getModId() + "_" + name);
+		attachment.setTranslationKey(ModReference.id + "_" + name);
 		attachment.setCreativeTab(tab);
 		attachment.setPostRenderer(postRenderer);
 		attachment.setName(name);
@@ -276,7 +269,7 @@ public class AttachmentBuilder<T> {
 		    attachment.setInformationProvider(informationProvider);
 		}
 		if(getTextureName() != null) {
-			attachment.setTextureName(getModId() + ":" + stripFileExtension(getTextureName(), ".png"));
+			attachment.setTextureName(ModReference.id + ":" + stripFileExtension(getTextureName(), ".png"));
 		}
 
 		if(isRenderablePart) {
@@ -355,7 +348,6 @@ public class AttachmentBuilder<T> {
 		.withInventoryModelPositioning(inventoryModelPositioning)
 		.withFirstPersonHandPositioning(firstPersonLeftHandPositioning, firstPersonRightHandPositioning)
 		.withModContext(modContext)
-		.withModId(getModId())
 		.build();
 	}
 
@@ -371,10 +363,6 @@ public class AttachmentBuilder<T> {
 	public <V extends ItemAttachment<T>> V build(ModContext modContext, Class<V> target) {
 		return target.cast(build(modContext));
 	}
-
-    public String getModId() {
-        return modId;
-    }
 
     public ModelBase getModel() {
         return model;

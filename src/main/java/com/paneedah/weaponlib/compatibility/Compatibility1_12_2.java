@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.ai.EntityCustomMob;
@@ -289,35 +290,16 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public void registerItem(Item item, String name) {
-    	
-    	
-    	
-        item.setRegistryName("mw", name); // temporary hack
+        item.setRegistryName(ModReference.id, name); // temporary hack
         ForgeRegistries.ITEMS.register(item);
-        //GameRegistry.register(item, new ResourceLocation("mw", name)); // temporary hack
+        //GameRegistry.register(item, new ResourceLocation(ModReference.id, name)); // temporary hack
     }
     
     @Override
     public void registerItem(Item item, ResourceLocation name) {
         item.setRegistryName(name); // temporary hack
         ForgeRegistries.ITEMS.register(item);
-        //GameRegistry.register(item, new ResourceLocation("mw", name)); // temporary hack
-    }
-
-    @Override
-    public void registerItem(String modId, Item item, String name) {
-        if(item.getRegistryName() == null) {
-            String registryName = item.getTranslationKey().toLowerCase();
-            int indexOfPrefix = registryName.indexOf("." + modId);
-            if(indexOfPrefix > 0) {
-                registryName = registryName.substring(indexOfPrefix + modId.length() + 2);
-            }
-            item.setRegistryName(modId, registryName);
-        }
-        
-        //System.out.println("REGISTRY: " + item.getRegistryName());
-        //GameRegistry.register(item);
-        ForgeRegistries.ITEMS.register(item);
+        //GameRegistry.register(item, new ResourceLocation(ModReference.id, name)); // temporary hack
     }
 
     @Override
@@ -327,10 +309,9 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void registerModEntity(Class<? extends Entity> entityClass, String entityName, int id, Object mod,
-            String modId, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {
+    public void registerModEntity(Class<? extends Entity> entityClass, String entityName, int id, Object mod, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {
         net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity
-            (new ResourceLocation(modId, entityName), entityClass, entityName, id, mod, trackingRange, updateFrequency, sendsVelocityUpdates);
+            (new ResourceLocation(ModReference.id, entityName), entityClass, entityName, id, mod, trackingRange, updateFrequency, sendsVelocityUpdates);
 
     }
 
@@ -534,7 +515,7 @@ public class Compatibility1_12_2 implements Compatibility {
         //GameRegistry.addShapedRecipe(itemStack, materials);
         ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, materials)
                 .setMirrored(false)
-                .setRegistryName("mw", itemStack.getItem().getTranslationKey() + "_recipe"));
+                .setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
 
     }
 
@@ -544,7 +525,7 @@ public class Compatibility1_12_2 implements Compatibility {
         ForgeRegistries.RECIPES.register(
                 new ShapedOreRecipe(null, itemStack, materials)
                 .setMirrored(false)
-                .setRegistryName("mw", itemStack.getItem().getTranslationKey() + "_recipe") // TODO: temporary hack
+                .setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") // TODO: temporary hack
                 );
     }
 
@@ -562,14 +543,13 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public void registerBlock(ModContext context, Block block, String name) {
-        String modId = context.getModId();
         if(block.getRegistryName() == null) {
-            if(block.getTranslationKey().length() < modId.length() + 2 + 5) {
+            if(block.getTranslationKey().length() < ModReference.id.length() + 2 + 5) {
                 throw new IllegalArgumentException("Unlocalize block name too short " + block.getTranslationKey());
             }
             String unlocalizedName = block.getTranslationKey().toLowerCase();
-            String registryName = unlocalizedName.substring(5 + modId.length() + 1);
-            block.setRegistryName(modId, registryName);
+            String registryName = unlocalizedName.substring(5 + ModReference.id.length() + 1);
+            block.setRegistryName(ModReference.id, registryName);
         }
 
         //GameRegistry.register(block);
@@ -877,8 +857,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public Item findItemByName(String modId, String itemName) {
-        return Item.REGISTRY.getObject(new ResourceLocation(modId, itemName));
+    public Item findItemByName(String itemName) {
+        return Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, itemName));
     }
 
     @Override
