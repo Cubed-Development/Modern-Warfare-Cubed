@@ -8,7 +8,6 @@ import com.paneedah.mwc.items.melee.NightStickFactory;
 import com.paneedah.mwc.items.melee.TacticalTomahawkFactory;
 import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.skins.GunSkins;
-import com.paneedah.mwc.skins.MeleeSkins;
 import com.paneedah.mwc.tileentities.TileEntities;
 import com.paneedah.mwc.vehicle.Vehicles;
 import com.paneedah.mwc.weapons.Attachments;
@@ -140,7 +139,6 @@ public class CommonProxy {
         Attachments.init(mod, initializationEvent);
         AuxiliaryAttachments.init(mod, initializationEvent);
         GunSkins.init(mod, initializationEvent);
-        MeleeSkins.init(mod, initializationEvent);
         Bullets.init(mod, initializationEvent);
         Magazines.init(mod, initializationEvent);
         Guns.init(mod, initializationEvent, this);

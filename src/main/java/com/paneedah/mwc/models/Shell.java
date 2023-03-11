@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.model;
+package com.paneedah.mwc.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
