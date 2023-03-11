@@ -25,7 +25,7 @@ public class Blocks {
 
     public static OreBase[] blocks;
 
-    public static void init(){
+    public static void init() {
         copperOre = new OreBase("copper_ore");
 
         tinOre = new OreBase("tin_ore");
@@ -52,13 +52,13 @@ public class Blocks {
     }
 
     @SubscribeEvent
-    public static void registerBlocks(RegistryEvent.Register<Block> blockRegistryEvent){
+    public static void registerBlocks(RegistryEvent.Register<Block> blockRegistryEvent) {
         init();
         blockRegistryEvent.getRegistry().registerAll(blocks);
     }
 
     @SubscribeEvent
-    public static void registerItemBlock(RegistryEvent.Register<Item> itemRegistryEvent){
+    public static void registerItemBlock(RegistryEvent.Register<Item> itemRegistryEvent) {
         Item[] items = new Item[blocks.length];
 
         for (int i = 0; i < blocks.length; i++) {
@@ -70,11 +70,9 @@ public class Blocks {
     }
 
     @SubscribeEvent
-    public static void registerRenders(ModelRegistryEvent modelRegistryEvent){
+    public static void registerRenders(ModelRegistryEvent modelRegistryEvent) {
         for (Block block : blocks){
-            if(block instanceof BlockBase || block instanceof OreBase){
-                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName().toString(), "inventory"));
-            }
+            if(block instanceof BlockBase || block instanceof OreBase) ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName().toString(), "inventory"));
         }
     }
 }
