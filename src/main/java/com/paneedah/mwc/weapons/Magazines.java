@@ -4,11 +4,9 @@ import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.models.UMP45mag;
 import com.paneedah.mwc.models.UMP9Mag;
 import com.paneedah.mwc.ores.Ores;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.wearables.Bullets;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import org.lwjgl.opengl.GL11;
 
@@ -134,7 +132,7 @@ public class Magazines {
     public static ItemMagazine FuelCell;
     public static ItemMagazine NinthSinMag;
 
-    public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
     	
         Magazines.FuelCell = new ItemMagazine.Builder().withAmmo(1000)
                 .withName("FuelCell")

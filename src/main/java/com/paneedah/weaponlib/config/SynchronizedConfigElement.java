@@ -8,8 +8,8 @@ import java.lang.reflect.Field;
 
 public class SynchronizedConfigElement extends DummyConfigElement {
 	
-	private Field relatedField;
-	private String registryName;
+	private final Field relatedField;
+	private final String registryName;
 
 	public SynchronizedConfigElement(Field relatedField, String name, String registryName, Object defaultValue, ConfigGuiType typeOfParameter, String langKey) {
 		super(name, defaultValue, typeOfParameter, langKey);
@@ -31,7 +31,6 @@ public class SynchronizedConfigElement extends DummyConfigElement {
 	
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return I18n.format(registryName);
 	}
 	

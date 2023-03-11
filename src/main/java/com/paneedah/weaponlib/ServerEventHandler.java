@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.*;
-import com.paneedah.weaponlib.configold.BalancePackManager;
+import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
 import com.paneedah.weaponlib.inventory.EntityInventorySyncMessage;
@@ -82,7 +82,7 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
                     doseNbt.setFloat("dose", ((SpreadableExposure) exposure).getLastDose());
                 }
                 if(!exposure.isEffective(compatibility.world(e.getEntity()))) {
-                    System.out.println("Removing expired exposure " + exposure);
+                    //System.out.println("Removing expired exposure " + exposure);
                     iterator.remove();
                     effectiveUpdate = true;
                 }

@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.config;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.config.*;
 import com.paneedah.weaponlib.config.HierarchialTree.Branch;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;

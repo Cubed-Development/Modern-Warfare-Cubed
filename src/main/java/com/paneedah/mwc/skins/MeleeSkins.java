@@ -1,10 +1,8 @@
 package com.paneedah.mwc.skins;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleItems;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.melee.MeleeSkin;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
@@ -17,7 +15,7 @@ public class MeleeSkins {
     public static MeleeSkin Murasaki;
     public static MeleeSkin Evangelion;
 
-    public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
         CrimsonBlood = new MeleeSkin.Builder()
         .withTextureVariant("TacKnifeCrimsonBlood")
 

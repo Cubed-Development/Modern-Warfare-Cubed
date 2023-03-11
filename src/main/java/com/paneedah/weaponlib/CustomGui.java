@@ -9,9 +9,8 @@ import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import com.paneedah.weaponlib.compatibility.CompatibleGui;
 import com.paneedah.weaponlib.compatibility.CompatibleMathHelper;
 import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
+import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.configold.BalancePackManager;
-import com.paneedah.weaponlib.configold.ConfigurationManager.StatusBarPosition;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.electronics.ItemWirelessCamera;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
@@ -52,9 +51,9 @@ public class CustomGui extends CompatibleGui {
 	private static final int STATUS_BAR_BOTTOM_OFFSET = 15;
 	private static final int STATUS_BAR_TOP_OFFSET = 10;
 
-	private WeaponAttachmentAspect attachmentAspect;
-	private ModContext modContext;
-	private StatusBarPosition statusBarPosition;
+	private final WeaponAttachmentAspect attachmentAspect;
+	private final ModContext modContext;
+	private final String statusBarPosition;
 	
 	public static VehicleCustomGUI vehicleGUIOverlay = new VehicleCustomGUI();
 	
@@ -68,7 +67,7 @@ public class CustomGui extends CompatibleGui {
 	public CustomGui(Minecraft mc, ModContext modContext, WeaponAttachmentAspect attachmentAspect) {
 		this.modContext = modContext;
 		this.attachmentAspect = attachmentAspect;
-		this.statusBarPosition = modContext.getConfigurationManager().getStatusBarPosition();
+		this.statusBarPosition = ModernConfigManager.statusBarPosition;
 		
 	}
 	
@@ -636,7 +635,7 @@ public class CustomGui extends CompatibleGui {
 
     private int getStatusBarXPosition(int width, String text, FontRenderer fontRender) {
         int x;
-        if(statusBarPosition == StatusBarPosition.BOTTOM_RIGHT || statusBarPosition == StatusBarPosition.TOP_RIGHT) {
+        if(statusBarPosition.equals("BOTTOM_RIGHT") || statusBarPosition.equals("TOP_RIGHT")) {
             x = width - 80;
             int stringWidth = fontRender.getStringWidth(text);
             if(stringWidth > 80 ) {
@@ -652,10 +651,10 @@ public class CustomGui extends CompatibleGui {
     private int getStatusBarYPosition(int height) {
         int yPos;
         switch(statusBarPosition) {
-        case TOP_RIGHT: case TOP_LEFT:
+        case "TOP_RIGHT": case "TOP_LEFT":
             yPos = STATUS_BAR_TOP_OFFSET;
             break;
-        case BOTTOM_RIGHT: case BOTTOM_LEFT:
+        case "BOTTOM_RIGHT": case "BOTTOM_LEFT":
             yPos = height - STATUS_BAR_BOTTOM_OFFSET;
             break;
         default:

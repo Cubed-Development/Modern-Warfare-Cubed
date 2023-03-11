@@ -3,13 +3,12 @@ package com.paneedah.weaponlib.animation;
 
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.model.Bullet556;
 
 public class SpecialAttachments {
 	public static ItemAttachment<Weapon> MagicMag;
 	
-	public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event, ModContext context) {
+	public static void init(Object mod, CompatibleFmlPreInitializationEvent event, ModContext context) {
 		
 		MagicMag = new AttachmentBuilder<Weapon>()
 	            .withCategory(AttachmentCategory.MAGICMAG)

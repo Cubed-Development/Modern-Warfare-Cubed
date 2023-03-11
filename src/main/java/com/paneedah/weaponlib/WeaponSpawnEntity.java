@@ -77,9 +77,6 @@ public class WeaponSpawnEntity extends EntityProjectile {
 		super(world, player, speed, gravityVelocity, inaccuracy);
 		this.weapon = weapon;
 		this.damage = damage;
-		
-	
-		
 		this.explosionRadius = explosionRadius;
 		this.isDestroyingBlocks = isDestroyingBlocks;
 		this.explosionParticleAgeCoefficient = explosionParticleAgeCoefficient;
@@ -166,7 +163,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
             //double magnitude = Math.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ) + 1;
             
-            float bleedingCoefficient = weapon.getBleedingCoefficient() * ModernConfigManager.enableBleedingOnHit;
+            double bleedingCoefficient = weapon.getBleedingCoefficient() * ModernConfigManager.enableBleedingOnHit;
             
             if(bleedingCoefficient > 0.0f) {
                 int count = (int)(getParticleCount (damage) * bleedingCoefficient);

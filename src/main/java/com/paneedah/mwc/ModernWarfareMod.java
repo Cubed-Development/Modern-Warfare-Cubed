@@ -8,8 +8,7 @@ import com.paneedah.weaponlib.command.BalancePackCommand;
 import com.paneedah.weaponlib.command.CraftingFileCommand;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.configold.BalancePackManager;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
+import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
@@ -22,16 +21,9 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
-import javax.xml.transform.stream.StreamSource;
-import java.io.File;
-
 @Mod(modid = ModReference.id, name = ModReference.name, version = ModReference.version, guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory")
 public class ModernWarfareMod {
 
-    private static final String MODERN_WARFARE_CONFIG_FILE_NAME = "Modern Warfare Cubed.cfg";
-
-    // Todo: Strip XML out
-    // The bad XML config
     private static final String DEFAULT_CONFIG_RESOURCE = "/mwc.cfg";
 
     @SidedProxy(serverSide = "com.paneedah.weaponlib.CommonModContext", clientSide = "com.paneedah.weaponlib.ClientModContext")
@@ -51,26 +43,20 @@ public class ModernWarfareMod {
     @SidedProxy(serverSide = "com.paneedah.mwc.proxies.CommonProxy", clientSide = "com.paneedah.mwc.proxies.ClientProxy")
     public static CommonProxy proxy;
 
-    private ConfigurationManager configurationManager;
-
     @EventHandler
     public void init(FMLPreInitializationEvent event) {
-        initConfigurationManager(event);
-        proxy.preInit(this, configurationManager, new CompatibleFmlPreInitializationEvent(event));
+        proxy.preInit(this, new CompatibleFmlPreInitializationEvent(event));
         initRecipies(event);
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        proxy.init(this, configurationManager, new CompatibleFmlInitializationEvent(event));
+        proxy.init(this, new CompatibleFmlInitializationEvent(event));
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        if (configurationManager != null)
-            configurationManager.save();
-        
-        proxy.postInit(this, configurationManager, event);
+        proxy.postInit(this, event);
     }
     
     @EventHandler
@@ -79,18 +65,6 @@ public class ModernWarfareMod {
         event.registerServerCommand(new CraftingFileCommand());
         BalancePackManager.loadDirectory();
         CraftingFileManager.getInstance().loadDirectory();
-    }
-
-    private void initConfigurationManager(FMLPreInitializationEvent event) {
-        File parentDirectory = event.getSuggestedConfigurationFile().getParentFile();
-	    File configFile = new File(MODERN_WARFARE_CONFIG_FILE_NAME);
-
-	    if (parentDirectory != null)
-	        configFile = new File(parentDirectory, MODERN_WARFARE_CONFIG_FILE_NAME);
-
-		configurationManager = new ConfigurationManager.Builder().withUserConfiguration(configFile)
-		        .withDefaultConfiguration(new StreamSource(getClass().getResourceAsStream(DEFAULT_CONFIG_RESOURCE)))
-		        .build();
     }
 
     // ItemRecipes

@@ -6,7 +6,6 @@ import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import net.minecraft.client.renderer.GlStateManager;
@@ -551,7 +550,7 @@ public class Attachments {
     
     public static ItemAttachment<Weapon> MAC10Action;
 
-    public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
     	
     	G11HandguardK1 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)

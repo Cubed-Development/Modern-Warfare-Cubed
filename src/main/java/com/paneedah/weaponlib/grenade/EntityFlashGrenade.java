@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.grenade;
 
-import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.LightExposure;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.*;
@@ -155,13 +154,12 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
     }
 
     private void explode() {
-
         log.debug("Exploding {}", this);
         
         explosionStrength = 0.1f;
-        Explosion.createServerSideExplosion(modContext, compatibility.world(this), this,
-                this.posX, this.posY, this.posZ, explosionStrength, false, true, false, 1f, 1f, 1.5f, 1f, null, null, 
-                modContext.getFlashExplosionSound());
+        //Explosion.createServerSideExplosion(modContext, compatibility.world(this), this,
+        //        this.posX, this.posY, this.posZ, explosionStrength, false, true, false, 1f, 1f, 1.5f, 1f, null, null,
+        //        modContext.getFlashExplosionSound());
 
 
         List<?> nearbyEntities = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this,

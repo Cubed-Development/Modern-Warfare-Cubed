@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.grenade;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -143,25 +144,16 @@ public class EntityGrenade extends AbstractEntityGrenade {
     }
 
     private void explode() {
-
-    		
         log.debug("Exploding {}", this);
-        
-       
-       
+
         Explosion.createServerSideExplosion(modContext, compatibility.world(this), this,
                 this.posX, this.posY, this.posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null, 
                 modContext.getExplosionSound());
         
- 
-        
-        
-        
         List<?> nearbyEntities = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this,
                 compatibility.getBoundingBox(this).expand(5, 5, 5));
 
-        Float damageCoefficient = modContext.getConfigurationManager().getExplosions().getDamage();
-
+        float damageCoefficient = (float)ModernConfigManager.explosionDamage;
         float effectiveRadius = itemGrenade.getEffectiveRadius() * damageCoefficient; // 5 block sphere with this entity as a center
         float fragmentDamage = itemGrenade.getFragmentDamage();
 

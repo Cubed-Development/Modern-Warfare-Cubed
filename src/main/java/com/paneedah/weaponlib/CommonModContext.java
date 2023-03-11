@@ -8,7 +8,6 @@ import com.paneedah.weaponlib.WeaponAttachmentAspect.ExitAttachmentModePermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.CompoundPermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.UnloadPermit;
 import com.paneedah.weaponlib.compatibility.*;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.RecipeManager;
 import com.paneedah.weaponlib.crafting.ammopress.BlockAmmoPress;
@@ -166,8 +165,6 @@ public class CommonModContext implements ModContext {
 	private int modEntityID = 256;
 
     private GrenadeAttackAspect grenadeAttackAspect;
-
-    protected ConfigurationManager configurationManager;
     
     private Map<Integer, String> registeredTextureNames = new HashMap<>();
     
@@ -177,16 +174,11 @@ public class CommonModContext implements ModContext {
     
     protected static ThreadLocal<ModContext> currentContext = new ThreadLocal<>();
 
-    
-    
-    
+
 	@Override
-    public void preInit(Object mod, ConfigurationManager configurationManager,
-            CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
+    public void preInit(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
 		this.mod = mod;
 	    this.channel = channel;
-
-		this.configurationManager = configurationManager;
 
 		this.weaponReloadAspect = new WeaponReloadAspect(this);
 		this.magazineReloadAspect = new MagazineReloadAspect(this);
@@ -399,8 +391,7 @@ public class CommonModContext implements ModContext {
 	}
 	
 	@Override
-	public void preInitEnd(Object mod, ConfigurationManager configurationManager,
-			CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
+	public void preInitEnd(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
 		compatibility.registerTileEntity(TileEntityWorkbench.class, ModReference.id + ":tileworkbench");
 		compatibility.registerBlock(this, new WorkbenchBlock(this, "weapon_workbench", Material.WOOD), "weapon_workbench");
 		
@@ -648,11 +639,6 @@ public class CommonModContext implements ModContext {
     @Override
     public EffectManager getEffectManager() {
         throw new IllegalStateException();
-    }
-
-    @Override
-    public ConfigurationManager getConfigurationManager() {
-        return configurationManager;
     }
 
     @Override

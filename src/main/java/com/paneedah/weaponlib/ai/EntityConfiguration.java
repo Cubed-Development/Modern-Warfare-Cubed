@@ -5,7 +5,8 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleBiomeType;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import com.paneedah.weaponlib.compatibility.CompatibleSound;
-import com.paneedah.weaponlib.configold.AIEntity;
+import com.paneedah.weaponlib.config.AIEntityNew;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.mission.MissionOffering;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
@@ -21,7 +22,6 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
@@ -46,7 +46,7 @@ public class EntityConfiguration {
         Function<EntityLiving, EntityAIBase> taskSupplier;
     }
     
-    static class Equipment {
+    public static class Equipment {
         Item item;
         List<ItemAttachment<?>> attachments;
     }
@@ -254,8 +254,7 @@ public class EntityConfiguration {
         	return this;
         }
 
-        private Builder withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, 
-                EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
+        private Builder withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
             if(item == null) {
                 log.warn("Attempted to configure entity equipment with null item");
                 return this;
@@ -470,45 +469,84 @@ public class EntityConfiguration {
             
             int modEntityId = entityIdSupplier.get();
             String entityName = name != null ? name : baseClass.getSimpleName() + "Ext" + modEntityId;
-            AIEntity entityConfig = context.getConfigurationManager().getAIEntity(entityName);
+            AIEntityNew entityConfig = ModernConfigManager.aiEntities.get(entityName);
             
             WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
             
-            if(entityConfig == null || entityConfig.getEquipment().isEmpty())  {
-                // if no equipment configured externally, use the default configuration
-                equipmentOptions.forEach((key, value) -> {
-                    equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight);
-                });
+            if(entityConfig == null || ModernConfigManager.terroristEquipmentConfiguration == null || ModernConfigManager.terroristEquipmentConfiguration.isEmpty()) {
+                equipmentOptions.forEach((key, value) -> equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
+
             } else {
                 Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
 
                 EnumDifficulty difficultyLevel = EnumDifficulty.EASY;
                 EnumDifficulty[] difficultyValues = EnumDifficulty.values();
-                
-                entityConfig.getEquipment().forEach(ee -> {
-                    Item equipmentItem = compatibility.findItemByName(ee.getId());
-                    if(equipmentItem != null) {
-                        Equipment equipment = new Equipment();
-                        equipment.item = equipmentItem;
-                        equipment.attachments = ee.getAttachment().stream()
-                                .map(a -> compatibility.findItemByName(a.getId()))
-                                .filter(e -> e instanceof ItemAttachment<?>)
-                                .map(a -> (ItemAttachment<?>)a)
-                                .collect(Collectors.toList());
-                        
-                        for(int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {      
-                            equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item, 
-                                    equipment.attachments.toArray(new ItemAttachment<?>[0])), 
-                                    new EquipmentValue(equipment, ee.getWeight()));
-                        }
-                    } else {
-                        log.warn("Attempted to configure entity equipment with invalid item {}", ee.getId());
+
+                String[] attachments = ModernConfigManager.terroristEquipmentConfiguration.split(", ");
+                for (String attachment : attachments) {
+                    String[] parts = attachment.split(":");
+                    if (parts.length < 2) {
+                        ModReference.log.warn("Invalid attachment configuration for entity " + name + ": " + attachment + ". Expected format: <gunId>:<weight>[:<attachment>...]");
+                        continue;
                     }
-                    
-                });
-                
-               
-                
+
+                    String gunId = parts[0];
+                    double weight;
+                    try { weight = Double.parseDouble(parts[1]); } catch (NumberFormatException e) {
+                        ModReference.log.warn("Invalid weight for gun " + name + ": " + parts[1] + ". Expected a valid double.");
+                        continue;
+                    }
+
+                    Item gun = compatibility.findItemByName(gunId);
+                    if (gun == null) {
+                        ModReference.log.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
+                        continue;
+                    }
+
+                    Equipment equipment = new Equipment();
+                    equipment.item = gun;
+                    equipment.attachments = new ArrayList<>();
+
+                    if (parts.length >= 3) {
+                        for (String attachmentId : Arrays.asList(parts).subList(2, parts.length)) {
+                            Item att = compatibility.findItemByName(attachmentId);
+                            if (!(att instanceof ItemAttachment)) {
+                                ModReference.log.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
+                                continue;
+                            }
+
+                            equipment.attachments.add((ItemAttachment<?>)att);
+                        }
+                    }
+
+                    for (int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
+                        equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item, equipment.attachments.toArray(new ItemAttachment<?>[0])),
+                                new EquipmentValue(equipment, (float)weight));
+                    }
+                }
+
+                // Old code for reference (in case I need to revert)
+                //entityConfig.getEquipment().forEach(ee -> {
+                //    Item equipmentItem = compatibility.findItemByName(ee.getId());
+                //    if(equipmentItem != null) {
+                //        Equipment equipment = new Equipment();
+                //        equipment.item = equipmentItem;
+                //        equipment.attachments = ee.getAttachment().stream()
+                //                .map(a -> compatibility.findItemByName(a.getId()))
+                //                .filter(e -> e instanceof ItemAttachment<?>)
+                //                .map(a -> (ItemAttachment<?>)a)
+                //                .collect(Collectors.toList());
+//
+                //        for(int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
+                //            equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item,
+                //                            equipment.attachments.toArray(new ItemAttachment<?>[0])),
+                //                    new EquipmentValue(equipment, ee.getWeight()));
+                //        }
+                //    } else {
+                //        log.warn("Attempted to configure entity equipment with invalid item {}", ee.getId());
+                //    }
+                //});
+
                 equipmentOptions.forEach((key, value) -> {
                     equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight);
                 });
@@ -527,7 +565,7 @@ public class EntityConfiguration {
             configuration.deathSound = context.registerSound(deathSound);
             configuration.stepSound = context.registerSound(stepSound);
             configuration.lootTable = lootTable;
-            configuration.maxHealth = entityConfig != null ? entityConfig.getHealth() * maxHealth : maxHealth;
+            configuration.maxHealth = ModernConfigManager.terroristHealth * maxHealth;
             configuration.maxSpeed = maxSpeed;
             configuration.followRange = followRange;
             configuration.canSpawnHere = canSpawnHere;
@@ -594,18 +632,12 @@ public class EntityConfiguration {
                 compatibility.registerEgg(context, entityClass, entityName, primaryEggColor, secondaryEggColor);
             }
             
-          
-            
-            
+
             for(Spawn spawn: spawns) {
             	//int weightedProb = spawn.weightedProb;
                 int weightedProb = entityConfig != null ? (int)(entityConfig.getSpawn() * spawn.weightedProb) : spawn.weightedProb;
-                //System.out.println("All you hoes need to rememeber who you're talking to: " + this.name + " -> " + weightedProb);
-                if(weightedProb > 0) {
-                	  
-                    compatibility.addSpawn(safeCast(entityClass), weightedProb, 
-                            spawn.min, spawn.max, spawn.biomeTypes);
-                }
+                if(weightedProb > 0)
+                    compatibility.addSpawn(safeCast(entityClass), weightedProb, spawn.min, spawn.max, spawn.biomeTypes);
             }
             
             if(compatibility.isClientSide()) {

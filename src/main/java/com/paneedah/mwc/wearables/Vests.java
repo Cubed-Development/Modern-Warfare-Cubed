@@ -4,14 +4,12 @@ import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.weaponlib.ItemVest;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import net.minecraft.creativetab.CreativeTabs;
 import org.lwjgl.opengl.GL11;
 
 public class Vests {
 
-    public static void preInit(Object mod, ConfigurationManager configurationManager,
-            CompatibleFmlPreInitializationEvent event) {
+    public static void preInit(Object mod, CompatibleFmlPreInitializationEvent event) {
 
     	new ItemVest.Builder()
         .withName("m43a_chest_harness")

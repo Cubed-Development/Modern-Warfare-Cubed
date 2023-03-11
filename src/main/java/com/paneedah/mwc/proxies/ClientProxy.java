@@ -8,7 +8,6 @@ import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.wearables.Armors;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.model.AmmoPress;
@@ -41,8 +40,8 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void preInit(final ModernWarfareMod mod, final ConfigurationManager configurationManager, final CompatibleFmlPreInitializationEvent initializationEvent) {
-        super.preInit(mod, configurationManager, initializationEvent);
+    public void preInit(final ModernWarfareMod mod, final CompatibleFmlPreInitializationEvent initializationEvent) {
+        super.preInit(mod, initializationEvent);
 
         final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
 
@@ -55,10 +54,10 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void init(final ModernWarfareMod mod, final ConfigurationManager configurationManager, final CompatibleFmlInitializationEvent initializationEvent) {
-        super.init(mod, configurationManager, initializationEvent);
+    public void init(final ModernWarfareMod mod, final CompatibleFmlInitializationEvent initializationEvent) {
+        super.init(mod, initializationEvent);
 
-        PlayerAnimations.init(mod, configurationManager, initializationEvent);
+        PlayerAnimations.init(mod, initializationEvent);
 
         final ItemModelMesher modelMesher = mc.getRenderItem().getItemModelMesher();
 
@@ -153,7 +152,7 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void postInit(final ModernWarfareMod mod, final ConfigurationManager configurationManager, final FMLPostInitializationEvent initializationEvent) {
+    public void postInit(final ModernWarfareMod mod, final FMLPostInitializationEvent initializationEvent) {
         mc.getRenderManager().getSkinMap().forEach((p, r) -> r.addLayer(new CustomArmorLayer(r)));
     }
 }
