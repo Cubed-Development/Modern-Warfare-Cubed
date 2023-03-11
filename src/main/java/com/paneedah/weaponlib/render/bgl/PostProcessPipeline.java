@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.render.bgl;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
@@ -11,6 +10,7 @@ import com.paneedah.weaponlib.render.DepthTexture;
 import com.paneedah.weaponlib.render.HDRFramebuffer;
 import com.paneedah.weaponlib.render.Shaders;
 import com.paneedah.weaponlib.render.bgl.weather.ModernWeatherRenderer;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
@@ -38,7 +38,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 /**
  * Post-processing pipeline enabling modern post effects to be applied in
  * Minecraft
- *
+ * 
  * @author Jim Holden, 2022
  */
 public class PostProcessPipeline {
@@ -47,21 +47,21 @@ public class PostProcessPipeline {
 	private static int height = -1;
 
 	// Textures
-	public static final ResourceLocation HEAT_DISTORTION = new ResourceLocation(ModReference.id + ":textures/maps/heatdistortion.png");
-	public static final ResourceLocation CLOUD_SPRITE = new ResourceLocation(ModReference.id + ":textures/maps/cloudsprite.png");
-	public static final ResourceLocation RAIN_DROP_TEXTURE = new ResourceLocation(ModReference.id + ":textures/maps/raindrop.png");
-	public static final ResourceLocation SNOW_FLAKE_TEXTURE = new ResourceLocation(ModReference.id + ":textures/maps/snowflake.png");
+	public static final ResourceLocation HEAT_DISTORTION = new ResourceLocation("mw:textures/maps/heatdistortion.png");
+	public static final ResourceLocation CLOUD_SPRITE = new ResourceLocation("mw:textures/maps/cloudsprite.png");
+	public static final ResourceLocation RAIN_DROP_TEXTURE = new ResourceLocation("mw:textures/maps/raindrop.png");
+	public static final ResourceLocation SNOW_FLAKE_TEXTURE = new ResourceLocation("mw:textures/maps/snowflake.png");
 
 	// Float buffers
-	private static FloatBuffer projectionBuffer = BufferUtils.createFloatBuffer(16);
-	private static FloatBuffer modelViewBuffer = BufferUtils.createFloatBuffer(16);
+	private static final FloatBuffer projectionBuffer = BufferUtils.createFloatBuffer(16);
+	private static final FloatBuffer modelViewBuffer = BufferUtils.createFloatBuffer(16);
 
 	private static final FloatBuffer PROJECTION_MATRIX_BUFFER = BufferUtils.createFloatBuffer(16);
 	private static final FloatBuffer MODELVIEW_MATRIX_BUFFER = BufferUtils.createFloatBuffer(16);
 	// private static final FloatBuffer INVERSE_VIEW_PROJECTION_BUFFER =
 	// BufferUtils.createFloatBuffer(16);
 
-	private static LightManager lightManager = new LightManager();
+	private static final LightManager lightManager = new LightManager();
 
 	public static Framebuffer distortionBuffer;
 	// public static Framebuffer maskingBuffer;
@@ -74,22 +74,22 @@ public class PostProcessPipeline {
 	private static int depthBuffer = -1;
 	private static int depthTexture = -1;
 	*/
-
+	
 	private static int fauxColorTexture = -1;
-
-
+	
+	
 	private static DepthTexture scopeDepthTexture;
 	private static DepthTexture normalDepthTexture;
 
-
+	
 	// Tells us if the player has flipped the configuration option
 	private static boolean persistenceWeatherStatus = false;
 	private static boolean swappedWeatherRenderer = false;
-
+	
 	// Gives us the original weather renderer to swap back to
 	private static IRenderHandler originalWeatherRenderer;
-
-
+	
+	
 	private static final ModernWeatherRenderer modernWeatherRenderer = new ModernWeatherRenderer();
 
 	private static final float ALPHA_MULTIPLIER_DISTORTION = 0.5f;
@@ -102,7 +102,7 @@ public class PostProcessPipeline {
 	/**
 	 * This is a useful tool to easily render things to the distortion buffer
 	 * without making GL calls in areas where it is inconvienent to.
-	 *
+	 * 
 	 * @author Homer Riva-Cambrin, 2022
 	 * @version September 28th, 2022
 	 */
@@ -158,7 +158,7 @@ public class PostProcessPipeline {
 	/**
 	 * Creates a distortion point at the set coordinates with a certain size and
 	 * life
-	 *
+	 * 
 	 * @param x    - (X) coordinate in the world
 	 * @param y    - (Y) coordinate in the world
 	 * @param z    - (Z) coordinate in the world
@@ -171,7 +171,7 @@ public class PostProcessPipeline {
 
 	/**
 	 * Returns the game's light manager, this handles all the dyanmic world lights
-	 *
+	 * 
 	 * @return light manager
 	 */
 	public static LightManager getLightManager() {
@@ -180,7 +180,7 @@ public class PostProcessPipeline {
 
 	/**
 	 * Getter method for obtaining the weather renderer class
-	 *
+	 * 
 	 * @return the weather renderer
 	 */
 	public static ModernWeatherRenderer getWeatherRenderer() {
@@ -194,22 +194,19 @@ public class PostProcessPipeline {
 		if(!swappedWeatherRenderer || (ModernConfigManager.enableFancyRainAndSnow != persistenceWeatherStatus)) {
 			persistenceWeatherStatus = ModernConfigManager.enableFancyRainAndSnow;
 
-
 			if(persistenceWeatherStatus) {
-				if(!swappedWeatherRenderer) originalWeatherRenderer = mc.world.provider.getWeatherRenderer();
+				if(!swappedWeatherRenderer)
+					originalWeatherRenderer = mc.world.provider.getWeatherRenderer();
+
 				mc.world.provider.setWeatherRenderer(modernWeatherRenderer);
+
 			} else {
 				mc.world.provider.setWeatherRenderer(originalWeatherRenderer);
 			}
-
+			
 			swappedWeatherRenderer = true;
-
 		}
-
-
 	}
-
-
 
 	/**
 	 * Obtains the current modelview & projection matrices, inverts them, and stores
@@ -243,39 +240,37 @@ public class PostProcessPipeline {
 		 * inverseProjView.store(INVERSE_VIEW_PROJECTION_BUFFER);
 		 * INVERSE_VIEW_PROJECTION_BUFFER.rewind();
 		 */
-
 	}
-
-
+	
+	
 	public static boolean shouldDoFog() {
 		return false;
 		//return ModernConfigManager.enableAllShaders && ModernConfigManager.enableWorldShaders && getFogIntensity() != 0;
 	}
-
-
+	
+	
 
 
 	public static void recreateDepthFramebuffer() {
-
-		if(normalDepthTexture == null)
+		if (normalDepthTexture == null)
 			normalDepthTexture = new DepthTexture(width, height);
 		normalDepthTexture.recreateBuffer(width, height);
 
 		/*
 		Framebuffer buffer = mc.getFramebuffer();
-
+		
 		if(normalDepthTexture == null) {
 			normalDepthTexture = new DepthTexture(buffer.framebufferWidth, buffer.framebufferHeight);
 		}
-
+		
 		// Method automatically tests if it should so there
 		// is very little overhead here.
 		normalDepthTexture.recreateBuffer(buffer.framebufferWidth, buffer.framebufferHeight);
-
+		
 		// Blit the buffer onto the scope's depth texture
 		normalDepthTexture.blitOn(buffer, true);
 		*/
-
+		
 
 		/*
 		// If there is a depth buffer, delete it
@@ -286,7 +281,7 @@ public class PostProcessPipeline {
 		if (depthTexture == -1)
 			depthTexture = GL11.glGenTextures();
 
-
+		
 
 		// Depth buffer
 		depthBuffer = OpenGlHelper.glGenFramebuffers();
@@ -305,11 +300,11 @@ public class PostProcessPipeline {
 		// Stupid OpenGL spec requires this
 		// for older computers
 
-
+		
 		// GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL11.GL_RGB, width, height, 0,
 		// GL11.GL_RGB,
 		// GL11.GL_UNSIGNED_BYTE, (IntBuffer) null);
-
+		
 
 		// (new org.apache.logging.log4j.core.log()).setl
 
@@ -343,38 +338,38 @@ public class PostProcessPipeline {
 		 * if (bruh != OpenGlHelper.GL_FRAMEBUFFER_COMPLETE) { System.out.
 		 * println("Failed to create depth texture framebuffer! This is an error!"); }
 		 * else { System.out.println("Succesfully created DEPTH framebuffer!"); }
-		 *
+		 * 
 		 */
 	}
-
-
-
+	
+	
+	
 	public static void blitScopeDepthTexture(Framebuffer buffer) {
 		if(scopeDepthTexture == null) {
 			scopeDepthTexture = new DepthTexture(buffer.framebufferWidth, buffer.framebufferHeight);
 		}
-
+		
 		// Method automatically tests if it should so there
 		// is very little overhead here.
 		scopeDepthTexture.recreateBuffer(buffer.framebufferWidth, buffer.framebufferHeight);
-
+		
 		// Blit the buffer onto the scope's depth texture
 		scopeDepthTexture.blitOn(buffer, true);
-
+		
 	}
-
+	
 	public static DepthTexture getScopeDepthTexture() {
 		return scopeDepthTexture;
 	}
 
 	public static void blitDepth() {
-
+		
 		Framebuffer buffer = mc.getFramebuffer();
-
+		
 		if(normalDepthTexture == null)
 			normalDepthTexture = new DepthTexture(buffer.framebufferWidth, buffer.framebufferHeight);
-
-
+		
+	
 		// Blit the buffer onto the main depth texture
 		normalDepthTexture.blitOn(buffer, true);
 
@@ -398,30 +393,25 @@ public class PostProcessPipeline {
 	/**
 	 * Checks to see if the screen size has changed, or if we are just initializing
 	 * these buffers in order to determine if they must be recreated
-	 *
+	 * 
 	 * @return true if the framebuffers need to be remade
 	 */
 	public static boolean shouldRecreateFramebuffer() {
-		if (width == -1 || height == -1) {
+		if (width == -1 || height == -1)
 			return true;
-		} else if (mc.displayWidth != width || mc.displayHeight != height) {
-			return true;
-		} else {
-			return false;
-		}
 
+		return mc.displayWidth != width || mc.displayHeight != height;
 	}
 
 	/**
 	 * Recreates the various framebuffers that were initialized
 	 */
 	public static void recreateFramebuffers() {
-
 		width = mc.displayWidth;
 		height = mc.displayHeight;
 
 		recreateDepthFramebuffer();
-
+		
 		// Create color attachment
 		if (fauxColorTexture == -1)
 			fauxColorTexture = GL11.glGenTextures();
@@ -441,13 +431,12 @@ public class PostProcessPipeline {
 		if (secondaryWorldBuffer != null)
 			secondaryWorldBuffer.deleteFramebuffer();
 		secondaryWorldBuffer = new HDRFramebuffer(width, height, true);
-
 	}
 
 	/**
 	 * Transforms a 3-dimensional vector according to a 4x4 matrix (i.e. OpenGL
 	 * matrices)
-	 *
+	 * 
 	 * @param vec - A 3-component vector
 	 * @param mat - A [4x4] matrix
 	 * @return Transformed vector
@@ -479,7 +468,7 @@ public class PostProcessPipeline {
 		GLCompatible.glBlitFramebuffer(0, 0, width, height, 0, 0, width, height, GL11.GL_DEPTH_BUFFER_BIT,
 				GL11.GL_NEAREST);
 
-
+	
 		distortionBuffer.bindFramebuffer(false);
 
 		*/
@@ -581,39 +570,29 @@ public class PostProcessPipeline {
 
 	}
 
-
-
-
 	public static float getFogIntensity() {
-		if(mc == null || mc.world == null) {
+		if (mc.world == null)
 			return 0.0f;
-		}
 		return BASE_FOG_INTENSITY * mc.world.getRainStrength(mc.getRenderPartialTicks());
 	}
-
+	
 	public static float[] getBaseFogColor() {
 		return BASE_FOG_COLOR;
 	}
-
+	
 	/**
 	 * Called at the end of the world render, copies the framebuffer into a second
 	 * buffer, applies post effects, and renders it back
 	 */
 	public static void doWorldProcessing() {
-
-
-
-
-		if(!ModernConfigManager.enableWorldShaders) return;
-
-		if(true) {
-
-			if(ModernConfigManager.enableAllShaders && ModernConfigManager.onScreenRainAndSnow) drawRainBuffer();
-
+		if(!ModernConfigManager.enableWorldShaders)
 			return;
-		}
 
-		//if(true) return;
+		if(ModernConfigManager.enableAllShaders && ModernConfigManager.onScreenRainAndSnow)
+			drawRainBuffer();
+
+		if(true) // I don't know why Jim did this, but removing it renders a white screen.
+			 return;
 
 		//Shaders.postWorld = ShaderManager.loadVMWShader("postworld");
 
@@ -628,7 +607,6 @@ public class PostProcessPipeline {
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 6);
 		GlStateManager.bindTexture(normalDepthTexture.getTexture());
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
-
 
 		fillGLBuffers();
 
@@ -645,9 +623,6 @@ public class PostProcessPipeline {
 		Shaders.postWorld.uniform3f("baseFogColor", getBaseFogColor()[0], getBaseFogColor()[1], getBaseFogColor()[2]);
 		// Shaders.postWorld.uniform1f("help", 0.2f);
 		// Shaders.postWorld.uniform1f("joe[0]", 1.0f);
-
-
-
 
 		// GL20.glUniform1f(GL20.getloc, v0);
 
@@ -676,8 +651,8 @@ public class PostProcessPipeline {
 		// Rebind the MC Framebuffer
 		mc.getFramebuffer().bindFramebuffer(false);
 
-		if(ModernConfigManager.enableAllShaders && ModernConfigManager.onScreenRainAndSnow) drawRainBuffer();
-
+		if(ModernConfigManager.enableAllShaders && ModernConfigManager.onScreenRainAndSnow)
+			drawRainBuffer();
 	}
 
 	/**
@@ -692,8 +667,7 @@ public class PostProcessPipeline {
 		ScaledResolution scaledresolution = new ScaledResolution(mc);
 		GlStateManager.matrixMode(5889);
 		GlStateManager.loadIdentity();
-		GlStateManager.ortho(0.0D, scaledresolution.getScaledWidth_double(), scaledresolution.getScaledHeight_double(),
-				0.0D, 1000.0D, 3000.0D);
+		GlStateManager.ortho(0.0D, scaledresolution.getScaledWidth_double(), scaledresolution.getScaledHeight_double(), 0.0D, 1000.0D, 3000.0D);
 		GlStateManager.matrixMode(5888);
 		GlStateManager.loadIdentity();
 		GlStateManager.translate(0.0F, 0.0F, -2000.0F);
@@ -706,30 +680,27 @@ public class PostProcessPipeline {
 	/*
 	 * Raindrop[id] { posX, posY, velX, velY, scale, sizeTarget, time, life,
 	 * stretch, texture} [0] [1] [2] [3] [4] [5] [6] [7] [8] [9]
-	 *
+	 * 
 	 * Total size of Array = (4 bytes per float) x (16 drops) x (9 properties) = 512
 	 * bytes
-	 *
+	 * 
 	 */
 	public static float[][] rainDrops = new float[64][9];
 	public static long inRainTimestamp = System.currentTimeMillis();
-
-
+	
+	
 	// Turns off when there are no more 'active' drops
 	private static boolean rainKeepAlive = false;
-
-
+	
+	
 	public static void drawRainBuffer() {
-
-
 		float rainStrength = mc.world.getRainStrength(mc.getRenderPartialTicks());
 		boolean isRain = ModernWeatherRenderer.isRainingOrSnowing(mc.player.getPosition());
-
-
+	
 		// Cancels rain render when there are no drops left to dry and there
 		// is no rain.
-		if(rainStrength == 0.0 && !rainKeepAlive) return;
-
+		if(rainStrength == 0.0 && !rainKeepAlive)
+			return;
 
 		Biome playerBiome = mc.world.getBiome(mc.player.getPosition());
 
@@ -778,21 +749,21 @@ public class PostProcessPipeline {
 		// Prepare
 		prepareRainBuffer();
 		/*
-		 * ResourceLocation res = new ResourceLocation(ModReference.id + ":" +
+		 * ResourceLocation res = new ResourceLocation("mw" + ":" +
 		 * "textures/maps/snowflake.png");
-		 *
+		 * 
 		 * GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER,
 		 * GL11.GL_LINEAR); GL11.glTexParameteri(GL11.GL_TEXTURE_2D,
 		 * GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
 		 */
-
+		
 		rainKeepAlive = false;
 
 		double dt = 0.05;
 		for (float[] raindrop : rainDrops) {
 			if (raindrop[7] == 0f)
 				continue;
-
+			
 			rainKeepAlive = true;
 
 			if (raindrop[9] == 1) {
@@ -841,15 +812,14 @@ public class PostProcessPipeline {
 		}
 
 		//System.out.println("There are " + (rainKeepAlive ? "still" : "no") + " drops left.");
-
+		
 		// Clean up GlStates
 		endRainBufferRender();
-
 	}
 
 	/**
 	 * Draws a rain drop on the screen with a certain stretch and size factor
-	 *
+	 * 
 	 * @param x       - X-coordinate for raindrop
 	 * @param y       - Y-coordinate for raindrop
 	 * @param size    - Size of raindrop
@@ -908,11 +878,7 @@ public class PostProcessPipeline {
 			// Project.gluPerspective(fovModValue, (float) mc.displayWidth / (float)
 			// mc.displayHeight, 0.05F, fpt * MathHelper.SQRT_2);
 
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
+		} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
 			e.printStackTrace();
 		}
 
@@ -936,13 +902,12 @@ public class PostProcessPipeline {
 	 * are flat (i.e. film grain)
 	 */
 	public static void doPostProcess() {
-
-
-
-		if(!ModernConfigManager.enableScreenShaders) return;
-
-		if(ModernConfigManager.bloomEffect) Bloom.doBloom();
-
+		if (!ModernConfigManager.enableScreenShaders)
+			return;
+		
+		if (ModernConfigManager.bloomEffect)
+			Bloom.doBloom();
+		
 		// if(true) return;
 
 		if (AnimationModeProcessor.getInstance().getFPSMode())
@@ -980,7 +945,6 @@ public class PostProcessPipeline {
 		// Return to default texture unit
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 
-
 		//Shaders.post = ShaderManager.loadVMWShader("post");
 		Shaders.post.use();
 
@@ -993,11 +957,10 @@ public class PostProcessPipeline {
 		Shaders.post.uniform2f("windowSize", 1.0f / mc.displayWidth, 1.0f / mc.displayHeight);
 		Shaders.post.boolean1b("isSnow", !isRain);
 		Shaders.post.uniform1f("timer", ClientValueRepo.TICKER.getLerpedFloat());
-
+		
 		Shaders.post.boolean1b("enableFilmGrain", ModernConfigManager.filmGrain);
 		Shaders.post.uniform1f("mdf", (float) ModernConfigManager.filmGrainIntensity);
 		Shaders.post.boolean1b("onScreenLiquids", ModernConfigManager.onScreenRainAndSnow);
-
 
 		// Draw full-screen triangle in order to ensure the fragment shader
 		// runs for every pixel on screen
