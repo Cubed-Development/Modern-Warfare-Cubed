@@ -1,11 +1,9 @@
 package com.paneedah.mwc.skins;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.CommonRegistry;
 import com.paneedah.weaponlib.ItemSkin;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 
 public class GunSkins {
 
@@ -18,7 +16,7 @@ public class GunSkins {
     public static ItemSkin BloodForestCamo;
     public static ItemSkin GoldCamo;
 
-    public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
         GunSkins.WoodlandCamo = new ItemSkin.Builder()
         		.withTextureVariant("woodlandcamo")
 

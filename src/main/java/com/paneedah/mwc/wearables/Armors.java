@@ -1,12 +1,10 @@
 package com.paneedah.mwc.wearables;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.CustomArmor;
 import com.paneedah.weaponlib.CustomArmor.Builder;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 
@@ -98,9 +96,8 @@ public class Armors {
     static ArmorMaterial Astronaut = compatibility.addArmorMaterial(
     		"Astronaut", "Astronaut", 33, new int[] { 1, 2, 2, 1 }, 15, null, 0); // TODO:
 
-    public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event, ModContext modContext) {
+    public static void init(Object mod, CompatibleFmlPreInitializationEvent event, ModContext modContext) {
     	Builder marineArmorBuilder = new CustomArmor.Builder()
-    			
     			.withMaterial(Armors.Marine)
                 .withUnlocalizedName("Marine")
                 .withTextureName("USMC")

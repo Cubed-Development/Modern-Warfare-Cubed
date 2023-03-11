@@ -2,13 +2,11 @@ package com.paneedah.mwc.weapons;
 
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.AttachmentBuilder;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import org.lwjgl.opengl.GL11;
 
 public class AuxiliaryAttachments {
@@ -228,7 +226,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> ChainA;
     public static ItemAttachment<Weapon> ChainB;
     
-    public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
         
     	
     	PanelUpper = new AttachmentBuilder<Weapon>()

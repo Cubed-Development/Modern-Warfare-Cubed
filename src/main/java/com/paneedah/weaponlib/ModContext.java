@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.*;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.crafting.RecipeManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.GrenadeRenderer;
@@ -19,11 +18,9 @@ public interface ModContext {
 
 	public boolean isClient();
 	
-	public void preInitEnd(Object mod, ConfigurationManager configurationManager,
-			CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
+	public void preInitEnd(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
 
-	public void preInit(Object mod, ConfigurationManager configurationManager,
-			CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
+	public void preInit(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
 
 	public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
 
@@ -101,8 +98,6 @@ public interface ModContext {
 	public GrenadeAttackAspect getGrenadeAttackAspect();
 
 	public EffectManager getEffectManager();
-
-	public ConfigurationManager getConfigurationManager();
 
 	public Object getMod();
 

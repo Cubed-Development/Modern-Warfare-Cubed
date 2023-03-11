@@ -10,7 +10,6 @@ import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.skins.GunSkins;
 import com.paneedah.mwc.skins.MeleeSkins;
 import com.paneedah.mwc.tileentities.TileEntities;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.vehicle.Vehicles;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -26,7 +25,6 @@ import com.paneedah.weaponlib.compatibility.CompatibleChannel;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleMaterial;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
 import com.paneedah.weaponlib.vehicle.network.VehiclePhysSerializer;
 import net.minecraft.client.model.ModelBiped;
@@ -68,8 +66,8 @@ public class CommonProxy {
         return false;
     }
 
-    public void preInit(final ModernWarfareMod mod, final ConfigurationManager configurationManager, final CompatibleFmlPreInitializationEvent initializationEvent) {
-        ModernWarfareMod.MOD_CONTEXT.preInit(mod, configurationManager, initializationEvent, new CompatibleChannel(ModernWarfareMod.CHANNEL));
+    public void preInit(final ModernWarfareMod mod, final CompatibleFmlPreInitializationEvent initializationEvent) {
+        ModernWarfareMod.MOD_CONTEXT.preInit(mod, initializationEvent, new CompatibleChannel(ModernWarfareMod.CHANNEL));
 
         ModernWarfareMod.MOD_CONTEXT.setChangeZoomSound("OpticZoom");
         ModernWarfareMod.MOD_CONTEXT.setNightVisionOnSound("nightvision_on");
@@ -133,22 +131,22 @@ public class CommonProxy {
         DataSerializers.registerSerializer(VehicleDataSerializer.SERIALIZER);
         DataSerializers.registerSerializer(VehiclePhysSerializer.SERIALIZER);
 
-        SpecialAttachments.init(mod, configurationManager, initializationEvent, ModernWarfareMod.MOD_CONTEXT);
+        SpecialAttachments.init(mod, initializationEvent, ModernWarfareMod.MOD_CONTEXT);
         
-        Backpacks.preInit(mod, configurationManager, initializationEvent);
-        Vests.preInit(mod, configurationManager, initializationEvent);
+        Backpacks.preInit(mod, initializationEvent);
+        Vests.preInit(mod, initializationEvent);
         Ores.init();
-        Armors.init(mod, configurationManager, initializationEvent, ModernWarfareMod.MOD_CONTEXT);
-        Attachments.init(mod, configurationManager, initializationEvent);
-        AuxiliaryAttachments.init(mod, configurationManager, initializationEvent);
-        GunSkins.init(mod, configurationManager, initializationEvent);
-        MeleeSkins.init(mod, configurationManager, initializationEvent);
-        Bullets.init(mod, configurationManager, initializationEvent);
-        Magazines.init(mod, configurationManager, initializationEvent);
-        Guns.init(mod, configurationManager, initializationEvent, this);
-        com.paneedah.mwc.Electronics.init(mod, configurationManager, initializationEvent);
-        Grenades.init(mod, configurationManager, initializationEvent, this);
-        CustomSpawnEggs.init(mod, configurationManager, initializationEvent, this);
+        Armors.init(mod, initializationEvent, ModernWarfareMod.MOD_CONTEXT);
+        Attachments.init(mod, initializationEvent);
+        AuxiliaryAttachments.init(mod, initializationEvent);
+        GunSkins.init(mod, initializationEvent);
+        MeleeSkins.init(mod, initializationEvent);
+        Bullets.init(mod, initializationEvent);
+        Magazines.init(mod, initializationEvent);
+        Guns.init(mod, initializationEvent, this);
+        Electronics.init(mod, initializationEvent);
+        Grenades.init(mod, initializationEvent, this);
+        CustomSpawnEggs.init(mod, initializationEvent, this);
         TileEntities.init(this);
         
         new TacticalTomahawkFactory().createMelee(this);
@@ -156,18 +154,18 @@ public class CommonProxy {
         new BaseballBatNailsFactory().createMelee(this);
         new NightStickFactory().createMelee(this);
         
-        ModernWarfareMod.MOD_CONTEXT.preInitEnd(mod, configurationManager, initializationEvent, ModernWarfareMod.MOD_CONTEXT.getChannel());
+        ModernWarfareMod.MOD_CONTEXT.preInitEnd(mod, initializationEvent, ModernWarfareMod.MOD_CONTEXT.getChannel());
     }
 
-    public void init(final ModernWarfareMod mod, final ConfigurationManager configurationManager, final CompatibleFmlInitializationEvent initializationEvent) {
+    public void init(final ModernWarfareMod mod, final CompatibleFmlInitializationEvent initializationEvent) {
         ModernWarfareMod.MOD_CONTEXT.init(mod);
 
         Entities.init(this);
         Vehicles.init(this);
         
-        compatibility.registerWorldGenerator(new WorldGeneratorEventHandler(configurationManager), 0);
+        compatibility.registerWorldGenerator(new WorldGeneratorEventHandler(), 0);
     }
 
-    public void postInit(final ModernWarfareMod mod, final ConfigurationManager configurationManager, final FMLPostInitializationEvent initializationEvent) {
+    public void postInit(final ModernWarfareMod mod, final FMLPostInitializationEvent initializationEvent) {
     }
 }

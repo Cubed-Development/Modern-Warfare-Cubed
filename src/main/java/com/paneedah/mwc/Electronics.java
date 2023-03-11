@@ -1,10 +1,8 @@
 package com.paneedah.mwc;
 
 import com.paneedah.mwc.models.GasDetector;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.electronics.ItemTablet;
 import com.paneedah.weaponlib.electronics.ItemWirelessCamera;
@@ -19,7 +17,7 @@ public class Electronics {
 
     public static ItemAttachment<Object> Tablet;
 
-    public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
         Tablet = new ItemTablet.Builder<>()
                 .withViewfinderPositioning((p, s) -> {
                     float scale = 5.9f;

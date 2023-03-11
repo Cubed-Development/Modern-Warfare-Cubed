@@ -7,7 +7,6 @@ import com.paneedah.weaponlib.compatibility.CompatibleChannel;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderingRegistry;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.workbench.GUIContainerWorkbench;
 import com.paneedah.weaponlib.electronics.EntityWirelessCamera;
@@ -72,9 +71,8 @@ public class ClientModContext extends CommonModContext {
     }
 
 	@Override
-    public void preInit(Object mod, ConfigurationManager configurationManager,
-            CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
-		super.preInit(mod, configurationManager, event, channel);
+    public void preInit(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
+		super.preInit(mod, event, channel);
 
 		aspectRatio = (float)mc.displayWidth / mc.displayHeight;
 

@@ -6,12 +6,11 @@ import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.animation.MultipartTransition;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import org.lwjgl.opengl.GL11;
 
 public class PlayerAnimations {
 
-    public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlInitializationEvent event) {
+    public static void init(Object mod, CompatibleFmlInitializationEvent event) {
         PlayerTransitionProvider playerTransitionProvider = new PlayerTransitionProvider.Builder()
                 .withProningTransition(new MultipartTransition<Part, RenderContext<RenderableState>>(
                         Part.MAIN, renderContext -> {

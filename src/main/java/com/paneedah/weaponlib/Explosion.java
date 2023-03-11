@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -55,20 +56,16 @@ public class Explosion {
             String explosionParticleTextureName,
             String smokeParticleTextureName,
             CompatibleSound explosionSound) {
-    	
-    	Float damageCoefficient = modContext.getConfigurationManager().getExplosions().getDamage();
-        explosionStrength *= damageCoefficient;
-
-        Explosion explosion = new Explosion(modContext, world, entity, posX, posY, posZ, explosionStrength, isFlaming, 
-                isSmoking, particleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient,
-                explosionParticleTextureName, smokeParticleTextureName, explosionSound);
 
         world.createExplosion(entity, entity.posX, entity.posY + 1.0f, entity.posZ, 4.0F, true);
         
         /*
-        if(true) return;
-        
-        
+        explosionStrength *= ModernConfigManager.explosionDamage;
+
+        Explosion explosion = new Explosion(modContext, world, entity, posX, posY, posZ, explosionStrength, isFlaming,
+                isSmoking, particleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient,
+                explosionParticleTextureName, smokeParticleTextureName, explosionSound);
+
         isDestroyingBlocks = true;
         explosion.doExplosionA();
         explosion.doExplosionB(false, isDestroyingBlocks);
@@ -305,68 +302,67 @@ public class Explosion {
 
                 CompatibleBlockState blockState = compatibility.getBlockAtPosition(world, blockpos);
 
-                if (spawnParticles) {
-                    for(int i = 0; i < 1; i++) {
-                        double d0 = (double) ((float) blockpos.getBlockPosX() + this.world.rand.nextFloat());
-                        double d1 = (double) ((float) blockpos.getBlockPosY() + this.world.rand.nextFloat());
-                        double d2 = (double) ((float) blockpos.getBlockPosZ() + this.world.rand.nextFloat());
-                        double d3 = d0 - this.explosionX;
-                        double d4 = d1 - this.explosionY;
-                        double d5 = d2 - this.explosionZ;
-                        double d6 = (double) CompatibleMathHelper.sqrt_double(d3 * d3 + d4 * d4 + d5 * d5);
-                        d3 = d3 / d6;
-                        d4 = d4 / d6;
-                        d5 = d5 / d6;
-                        double d7 = 4D /*0.5D*/ / (d6 / (double) this.explosionSize + 0.1D);
-                        d7 = d7 * (double) (this.world.rand.nextFloat() * this.world.rand.nextFloat() + 0.3F);
-                        d3 = d3 * d7;
-                        d4 = d4 * d7;
-                        d5 = d5 * d7;
-                        
-                        
-                        /*
-                        if(blockState.getBlockState().getBlock() != Blocks.AIR) {
-                        	Vec3d posVect = new Vec3d((d0 + this.explosionX) / 2.0D,
-                                    (d1 + this.explosionY) / 2.0D,
-                                    (d2 + this.explosionZ) / 2.0D);
-                            
-                            Vec3d directionVector = posVect.subtract(new Vec3d(this.explosionX, this.explosionY, this.explosionZ)).normalize();
-                            
-                            
-                            for(int n = 0; n < 5; ++n) {
-                            	double spread = 0.1;
-                            	new Vec3d(RandomUtil.getRandomWithNegatives(spread), RandomUtil.getRandomDoubleInclusive(0.0, spread), RandomUtil.getRandomWithNegatives(spread)).add(directionVector);
-                            	
-                            	//CompatibleDiggingParticle cdp = new CompatibleDiggingParticle(mc.world, posVect.x, posVect.y, posVect.z,
-                                 //       spreadVector.x, spreadVector.y, spreadVector.z, blockState.getBlockState());
-                        		//cdp.setBlockPos(blockpos.getBlockPos());
-                        	//	mc.effectRenderer.addEffect(cdp);
-                            }
-                            
-                        
-                        }
-						*/
-                        
-                        
-                        /*
-                        modContext.getEffectManager().spawnExplosionParticle(
-                                (d0 + this.explosionX) / 2.0D,
-                                (d1 + this.explosionY) / 2.0D,
-                                (d2 + this.explosionZ) / 2.0D,
-                                d3 / 2, d4 * 2, d5 / 2,
-                                explosionParticleScaleCoefficient * world.rand.nextFloat(),
-                                (int)((15 + (int)(world.rand.nextFloat() * 10)) * explosionParticleAgeCoefficient),
-                                explosionParticleTextureName);
-                        */
-                    }
 
-                }
+//                if (spawnParticles) {
+//                    for(int i = 0; i < 1; i++) {
+//                        double d0 = (double) ((float) blockpos.getBlockPosX() + this.world.rand.nextFloat());
+//                        double d1 = (double) ((float) blockpos.getBlockPosY() + this.world.rand.nextFloat());
+//                        double d2 = (double) ((float) blockpos.getBlockPosZ() + this.world.rand.nextFloat());
+//                        double d3 = d0 - this.explosionX;
+//                        double d4 = d1 - this.explosionY;
+//                        double d5 = d2 - this.explosionZ;
+//                        double d6 = (double) CompatibleMathHelper.sqrt_double(d3 * d3 + d4 * d4 + d5 * d5);
+//                        d3 = d3 / d6;
+//                        d4 = d4 / d6;
+//                        d5 = d5 / d6;
+//                        double d7 = 4D /*0.5D*/ / (d6 / (double) this.explosionSize + 0.1D);
+//                        d7 = d7 * (double) (this.world.rand.nextFloat() * this.world.rand.nextFloat() + 0.3F);
+//                        d3 = d3 * d7;
+//                        d4 = d4 * d7;
+//                        d5 = d5 * d7;
+//
+//
+//                        /*
+//                        if(blockState.getBlockState().getBlock() != Blocks.AIR) {
+//                        	Vec3d posVect = new Vec3d((d0 + this.explosionX) / 2.0D,
+//                                    (d1 + this.explosionY) / 2.0D,
+//                                    (d2 + this.explosionZ) / 2.0D);
+//
+//                            Vec3d directionVector = posVect.subtract(new Vec3d(this.explosionX, this.explosionY, this.explosionZ)).normalize();
+//
+//
+//                            for(int n = 0; n < 5; ++n) {
+//                            	double spread = 0.1;
+//                            	new Vec3d(RandomUtil.getRandomWithNegatives(spread), RandomUtil.getRandomDoubleInclusive(0.0, spread), RandomUtil.getRandomWithNegatives(spread)).add(directionVector);
+//
+//                            	//CompatibleDiggingParticle cdp = new CompatibleDiggingParticle(mc.world, posVect.x, posVect.y, posVect.z,
+//                                 //       spreadVector.x, spreadVector.y, spreadVector.z, blockState.getBlockState());
+//                        		//cdp.setBlockPos(blockpos.getBlockPos());
+//                        	//	mc.effectRenderer.addEffect(cdp);
+//                            }
+//
+//
+//                        }
+//						*/
+//
+//
+//                        /*
+//                        modContext.getEffectManager().spawnExplosionParticle(
+//                                (d0 + this.explosionX) / 2.0D,
+//                                (d1 + this.explosionY) / 2.0D,
+//                                (d2 + this.explosionZ) / 2.0D,
+//                                d3 / 2, d4 * 2, d5 / 2,
+//                                explosionParticleScaleCoefficient * world.rand.nextFloat(),
+//                                (int)((15 + (int)(world.rand.nextFloat() * 10)) * explosionParticleAgeCoefficient),
+//                                explosionParticleTextureName);
+//                        */
+//                    }
+//
+//                }
 
                 if (destroyBlocks && !compatibility.isAirBlock(blockState)) {
-                    if (compatibility.canDropBlockFromExplosion(blockState, this)) {
-                        compatibility.dropBlockAsItemWithChance(this.world, blockState, blockpos,
-                                modContext.getConfigurationManager().getExplosions().getDropBlockChance() * (1.0F / this.explosionSize), 0);
-                    }
+                    if (compatibility.canDropBlockFromExplosion(blockState, this))
+                        compatibility.dropBlockAsItemWithChance(this.world, blockState, blockpos, (float)ModernConfigManager.explodedBlockDropChance * (1.0F / this.explosionSize), 0);
 
                     compatibility.onBlockExploded(world, blockState, blockpos, this);
                 }
