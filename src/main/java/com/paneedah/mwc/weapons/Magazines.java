@@ -32,7 +32,6 @@ public class Magazines {
     public static ItemMagazine AK101Mag;
     public static ItemMagazine AK74Mag;
     public static ItemMagazine AK74Mag60;
-    public static ItemMagazine AKMVulcanMag;
     public static ItemMagazine AK60Mag;
     public static ItemMagazine AK15Mag;
     public static ItemMagazine AK12Mag;
@@ -958,32 +957,6 @@ public class Magazines {
                     GL11.glRotatef(0F, 1f, 0f, 0f);
                     GL11.glRotatef(-5F, 0f, 0f, 1f);
                     GL11.glScaled(0.6F, 0.6F, 0.6f);
-                })
-                .withMaxStackSize(6)
-                .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
-        
-        Magazines.AKMVulcanMag = new ItemMagazine.Builder()
-        		.withAmmo(30)
-        		.withCompatibleBullet(Bullets.Bullet545x39)
-        		.withName("AKMVulcanMag")
-                .withCreativeTab(ModernWarfareMod.AmmoTab)
-                .withModel(new com.paneedah.mwc.models.AK74VulcanMag(), "ak74vulcanmag.png")
-
-                .withFirstPersonPositioning((player, itemStack) -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
-                }).withInventoryPositioning((itemStack) -> {
-                    GL11.glTranslatef(0.3F, 0.7F, -2.7F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(0F, 1f, 0f, 0f);
-                    GL11.glRotatef(-5F, 0f, 0f, 1f);
-                    GL11.glScaled(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
