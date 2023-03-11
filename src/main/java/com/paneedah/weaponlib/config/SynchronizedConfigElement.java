@@ -22,7 +22,6 @@ public class SynchronizedConfigElement extends DummyConfigElement {
 		this.relatedField = relatedField;
 		this.registryName = registryName;
 	}
-	
 
 	@Override
 	public boolean requiresMcRestart() {
@@ -36,28 +35,21 @@ public class SynchronizedConfigElement extends DummyConfigElement {
 	
 	@Override
 	public String getQualifiedName() {
-		// TODO Auto-generated method stub
 		return super.getQualifiedName();
 	}
 	
 	@Override
 	public void set(Object value) {
-		
 		// Sync value with config
 		ModernConfigManager.updateField(this.relatedField, value);
 		
 		this.value = value;
-		
 		super.set(value);
 	}
 	
 	@Override
 	public void set(Object[] aVal) {
 		System.out.println("CEO 2");
-		// TODO Auto-generated method stub
 		super.set(aVal);
 	}
-	
-	
-
 }

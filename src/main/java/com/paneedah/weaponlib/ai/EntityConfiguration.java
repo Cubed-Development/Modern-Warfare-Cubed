@@ -5,7 +5,7 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleBiomeType;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import com.paneedah.weaponlib.compatibility.CompatibleSound;
-import com.paneedah.weaponlib.config.AIEntityNew;
+import com.paneedah.weaponlib.config.AIEntity;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.mission.MissionOffering;
 import net.minecraft.client.model.ModelBiped;
@@ -469,7 +469,7 @@ public class EntityConfiguration {
             
             int modEntityId = entityIdSupplier.get();
             String entityName = name != null ? name : baseClass.getSimpleName() + "Ext" + modEntityId;
-            AIEntityNew entityConfig = ModernConfigManager.aiEntities.get(entityName);
+            AIEntity entityConfig = ModernConfigManager.aiEntities.get(entityName);
             
             WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
             

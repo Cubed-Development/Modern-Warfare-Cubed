@@ -41,10 +41,9 @@ public class HierarchialTree<K> {
 		/**
 		 * List of all the subbranches
 		 */
-		private List<Branch<K>> subBranchList = new ArrayList<>();
-		
-		
-		private List<K> nodes = new ArrayList<K>();
+		private final List<Branch<K>> subBranchList = new ArrayList<>();
+
+		private final List<K> nodes = new ArrayList<>();
 		
 		public Branch(String key, Branch<K> parent) {
 			this.key = key;
@@ -104,7 +103,6 @@ public class HierarchialTree<K> {
 			return this.nodes.iterator();
 		}
 		
-		
 		/**
 		 * Recursive tree walk that prints sub-branches
 		 *  
@@ -118,7 +116,6 @@ public class HierarchialTree<K> {
 				System.out.println(print);
 				branch.getValue().print(i + 1);
 			}
-			
 		}
 		
 		/**
@@ -133,8 +130,7 @@ public class HierarchialTree<K> {
 			}
 			return total;
 		}
-		
-		
+
 		/**
 		 * Returns the pathway through a reverse walk up the tree,
 		 * procedurally generating the new pathway.
@@ -189,6 +185,7 @@ public class HierarchialTree<K> {
 		public Branch<K> addBranch(String pathway) {
 			if(!pathway.contains(".") && !subBranches.containsKey(pathway)) {
 				return putBranch(pathway, new Branch<K>(pathway, this));
+
 			} else if(pathway.contains(".")) {
 				String head = pathway.substring(0, pathway.indexOf("."));
 				if(!subBranches.containsKey(head)) {
@@ -199,30 +196,25 @@ public class HierarchialTree<K> {
 			} else {
 				return subBranches.get(pathway);
 			}
-			
 		}
-		
 	}
 	
 	
 	/**
 	 * Stores all the roots at the top of the tree
 	 */
-	private HashMap<String, Branch<K>> roots = new HashMap<>(1, 0.7f);
+	private final HashMap<String, Branch<K>> roots = new HashMap<>(1, 0.7f);
  	
 	/**
 	 * Stores all the roots in a list in order for fast access
 	 * while iterating.
 	 */
-	private List<Branch<K>> rootsList = new ArrayList<>();
+	private final List<Branch<K>> rootsList = new ArrayList<>();
 	
 	public HierarchialTree() {
 		
 	}
-	
-	
-	
-	
+
 	private Branch<K> putBranch(String key, Branch<K> newBranch) {
 		rootsList.add(newBranch);
 		roots.put(key, newBranch);
@@ -238,6 +230,7 @@ public class HierarchialTree<K> {
 	public Branch<K> addBranch(String pathway) {
 		if(!pathway.contains(".") && !roots.containsKey(pathway)) {
 			return putBranch(pathway, new Branch<K>(pathway, null));
+
 		} else if(pathway.contains(".")) {
 			String head = pathway.substring(0, pathway.indexOf("."));
 			if(!roots.containsKey(head)) {
@@ -248,12 +241,11 @@ public class HierarchialTree<K> {
 		} else {
 			return roots.get(pathway);
 		}
-		
 	}
 	
 	/**
 	 * Tree walk with System output stream
-	 * 
+	 *
 	 * Common use implementation of {@link HierarchialTree#print(OutputStream)}
 	 */
 	public void print() {
@@ -274,10 +266,12 @@ public class HierarchialTree<K> {
 		for(Entry<String, Branch<K>> branch : roots.entrySet()) {
 			try {
 				output.write((branch.getKey() + (branch.getValue().size() != 0 ? " (" + branch.getValue().size() + ")" : "") + "\n").getBytes());
+
 			} catch (IOException e) {
 				System.err.println("Error writing to output stream");
 				e.printStackTrace();
 			}
+
 			branch.getValue().print(1);
 		}
 	}
@@ -292,15 +286,13 @@ public class HierarchialTree<K> {
 		if(pathway.contains(".")) {
 			String[] split = pathway.split("\\.");
 			return addBranch(pathway).parent.pruneBranch(split[split.length - 1]);
+
 		} else {
-			
 			Branch<K> rootBranch = roots.get(pathway);
 			roots.remove(pathway);
 			rootsList.remove(rootBranch);
 			return rootBranch;
 		}
-	
-		
 	}
 
 	/**
@@ -318,7 +310,6 @@ public class HierarchialTree<K> {
 	 * Fetches a branch's nodes
 	 * 
 	 * @param pathway - pathway, with branch order separated by periods.
-	 * @param node - node to be inserted
 	 */
 	public List<K> fetchNodes(String pathway) {
 		return addBranch(pathway).nodes;
@@ -332,9 +323,9 @@ public class HierarchialTree<K> {
 	 */
 	public int getTotalBranches() {
 		int total = 0;
-		for(Entry<String, Branch<K>> entry : this.roots.entrySet()) {
+		for(Entry<String, Branch<K>> entry : this.roots.entrySet())
 			total += entry.getValue().totalBranchesBeneath() + 1;
-		}
+
 		return total;
 	}
 	
@@ -363,8 +354,5 @@ public class HierarchialTree<K> {
 		System.out.println(tree.fetchNodes("root.branchA.branchAA.branchAAa"));
 		System.out.println(tree.getTotalBranches());
 		*/
-		
 	}
-	
-
 }
