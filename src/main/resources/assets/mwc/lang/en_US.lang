@@ -8,7 +8,6 @@ item.atv_polaris_sportsman_850_2019.name=2019 Polaris Sportsman 850
 
 entity.terrorist.name=Terrorist
 entity.zombieBlistered.name=Blistered Zombie
-entity.zombieBlistered.name=Blistered Zombie
 entity.zombieRipper.name=Ripper Zombie
 entity.tornzombie.name=Torn Zombie
 entity.necromorph.name=Necromorph
@@ -572,7 +571,7 @@ item.mwc_Mk48HandGuard.name=Mk48 Handguard
 item.mwc_M249UpperHandGuard.name=M249 Upper Handguard
 item.mwc_Mk48UpperHandGuard.name=Mk48 Upper Handguard
 item.mwc_G3A1Handguard.name=G3 Handguard
-item.mwc_G3A1Handguard.name=G3 Railed Handguard
+item.mwc_G3A1HandguardRailed.name=G3 Railed Handguard
 item.mwc_DSR1Handguard.name=DSR-1 Handguard
 item.mwc_DSR1HandguardRailed.name=DSR-1 Railed Handguard
 item.mwc_MP5BMHandGuard.name=MP5BM Handguard
@@ -912,11 +911,11 @@ tile.ammo_press.name=Ammo Press
 
 tile.mwc_turret_base.name=Turret Base
 
-tile.mwc:tinore.name=Tin Ore
-tile.mwc_GraphiteOre.name=Graphite Ore
-tile.mwc_LeadOre.name=Lead Ore
-tile.mwc_CopperOre.name=Copper Ore
-tile.mwc_SulfurOre.name=Sulfur Ore
+tile.tin_ore.name=Tin Ore
+tile.graphite_ore.name=Graphite Ore
+tile.lead_ore.name=Lead Ore
+tile.copper_ore.name=Copper Ore
+tile.sulfur_ore.name=Sulfur Ore
 
 item.mwc_CarbonComposite.name=Carbon Composite
 item.mwc_SteelIngot.name=Steel Ingot

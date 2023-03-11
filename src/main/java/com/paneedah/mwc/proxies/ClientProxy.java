@@ -21,7 +21,6 @@ import com.paneedah.weaponlib.render.CustomArmorLayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -61,11 +60,6 @@ public class ClientProxy extends CommonProxy {
 
         final ItemModelMesher modelMesher = mc.getRenderItem().getItemModelMesher();
 
-        modelMesher.register(Item.getItemFromBlock(Ores.CopperOre), 0, new ModelResourceLocation(ModReference.id + ":copperore", "inventory"));
-        modelMesher.register(Item.getItemFromBlock(Ores.SulfurOre), 0, new ModelResourceLocation(ModReference.id + ":sulfurore", "inventory"));
-        modelMesher.register(Item.getItemFromBlock(Ores.TinOre), 0, new ModelResourceLocation(ModReference.id + ":tinore", "inventory"));
-        modelMesher.register(Item.getItemFromBlock(Ores.LeadOre), 0, new ModelResourceLocation(ModReference.id + ":leadore", "inventory"));
-        modelMesher.register(Item.getItemFromBlock(Ores.GraphiteOre), 0, new ModelResourceLocation(ModReference.id + ":graphiteore", "inventory"));
 
         modelMesher.register(Ores.CopperIngot, 0, new ModelResourceLocation(ModReference.id + ":copperingot", "inventory"));
         modelMesher.register(Ores.LeadIngot, 0, new ModelResourceLocation(ModReference.id + ":leadingot", "inventory"));
