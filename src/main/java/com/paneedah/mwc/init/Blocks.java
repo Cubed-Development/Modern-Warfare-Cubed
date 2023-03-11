@@ -17,48 +17,48 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = ModReference.id)
 public class Blocks {
 
-    public static OreBase copper_ore;
-    public static OreBase tin_ore;
-    public static OreBase sulfur_ore;
-    public static OreBase lead_ore;
-    public static OreBase graphite_ore;
+    public static OreBase copperOre;
+    public static OreBase tinOre;
+    public static OreBase sulfurOre;
+    public static OreBase leadOre;
+    public static OreBase graphiteOre;
 
     public static OreBase[] blocks;
 
     public static void init(){
-        copper_ore = new OreBase("copper_ore");
+        copperOre = new OreBase("copper_ore");
 
-        tin_ore = new OreBase("tin_ore");
+        tinOre = new OreBase("tin_ore");
 
-        lead_ore = new OreBase("lead_ore");
+        leadOre = new OreBase("lead_ore");
 
-        sulfur_ore = new OreBase("sulfur_ore");
-        sulfur_ore.isSmeltable(false);
-        sulfur_ore.setItemDropped(Ores.SulfurDust);
-        sulfur_ore.setDropAmount(2, 5);
+        sulfurOre = new OreBase("sulfur_ore");
+        sulfurOre.isSmeltable(false);
+        sulfurOre.setItemDropped(Ores.SulfurDust);
+        sulfurOre.setDropAmount(2, 5);
 
-        graphite_ore = new OreBase("graphite_ore");
-        graphite_ore.isSmeltable(false);
-        graphite_ore.setItemDropped(Ores.GraphiteChunk);
-        graphite_ore.setDropAmount(1, 3);
+        graphiteOre = new OreBase("graphite_ore");
+        graphiteOre.isSmeltable(false);
+        graphiteOre.setItemDropped(Ores.GraphiteChunk);
+        graphiteOre.setDropAmount(1, 3);
 
         blocks = new OreBase[]{
-                copper_ore,
-                tin_ore,
-                sulfur_ore,
-                lead_ore,
-                graphite_ore
+                copperOre,
+                tinOre,
+                sulfurOre,
+                leadOre,
+                graphiteOre
         };
     }
 
     @SubscribeEvent
-    public static void registerBlocks(RegistryEvent.Register<Block> e){
+    public static void registerBlocks(RegistryEvent.Register<Block> blockRegistryEvent){
         init();
-        e.getRegistry().registerAll(blocks);
+        blockRegistryEvent.getRegistry().registerAll(blocks);
     }
 
     @SubscribeEvent
-    public static void registerItemBlock(RegistryEvent.Register<Item> e){
+    public static void registerItemBlock(RegistryEvent.Register<Item> itemRegistryEvent){
         Item[] items = new Item[blocks.length];
 
         for (int i = 0; i < blocks.length; i++) {
@@ -66,11 +66,11 @@ public class Blocks {
             items[i].setRegistryName(blocks[i].getRegistryName());
         }
 
-        e.getRegistry().registerAll(items);
+        itemRegistryEvent.getRegistry().registerAll(items);
     }
 
     @SubscribeEvent
-    public static void registerRenders(ModelRegistryEvent e){
+    public static void registerRenders(ModelRegistryEvent modelRegistryEvent){
         for (Block block : blocks){
             if(block instanceof BlockBase || block instanceof OreBase){
                 ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName().toString(), "inventory"));

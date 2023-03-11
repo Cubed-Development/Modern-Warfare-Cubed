@@ -13,9 +13,9 @@ public class RecipeManager {
 
     public static void init(ModContext modContext) {
 
-        compatibility.addSmelting(Blocks.copper_ore, new ItemStack(Ores.CopperIngot), 5f);
-        compatibility.addSmelting(Blocks.lead_ore, new ItemStack(Ores.LeadIngot), 5f);
-        compatibility.addSmelting(Blocks.tin_ore, new ItemStack(Ores.TinIngot), 5f);
+        compatibility.addSmelting(Blocks.copperOre, new ItemStack(Ores.CopperIngot), 5f);
+        compatibility.addSmelting(Blocks.leadOre, new ItemStack(Ores.LeadIngot), 5f);
+        compatibility.addSmelting(Blocks.tinOre, new ItemStack(Ores.TinIngot), 5f);
         compatibility.addSmelting(Ores.GunmetalComposite, new ItemStack(Ores.GunmetalIngot), 5f);
         compatibility.addSmelting(Ores.SulfurDust, compatibility.createItemStack(CompatibleItems.GUNPOWDER, 1, 0), 5f);
         compatibility.addSmelting(Ores.SteelDust, new ItemStack(Ores.SteelIngot), 1f);

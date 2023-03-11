@@ -16,7 +16,7 @@ public class BlockBase extends Block {
 
         setHardness(6F);
         setResistance(15F);
-        setHarvestLevel("pickaxe",2);
+        setHarvestLevel("pickaxe", 2);
         setCreativeTab(ModernWarfareMod.BlocksTab);
     }
 

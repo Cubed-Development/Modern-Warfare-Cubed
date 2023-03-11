@@ -15,6 +15,6 @@ public class BlocksTab extends CreativeTabs {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ItemStack createIcon() {
-		return new ItemStack(Blocks.copper_ore);
+		return new ItemStack(Blocks.copperOre);
 	}
 }

@@ -9,10 +9,11 @@ import net.minecraft.item.Item;
 import java.util.Random;
 
 public class OreBase extends BlockOre {
+
     Item itemBlock, drop;
     int harvestLevel = 2, minDrop = 1, maxDrop = 1;
     boolean smelt = true;
-    public OreBase(String registryName){
+    public OreBase(String registryName) {
         setRegistryName(registryName);
         setTranslationKey(registryName);
 
