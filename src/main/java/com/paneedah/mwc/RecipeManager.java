@@ -1,5 +1,6 @@
 package com.paneedah.mwc;
 
+import com.paneedah.mwc.init.Blocks;
 import com.paneedah.mwc.ores.Ores;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleItems;
@@ -12,9 +13,9 @@ public class RecipeManager {
 
     public static void init(ModContext modContext) {
 
-        compatibility.addSmelting(Ores.CopperOre, new ItemStack(Ores.CopperIngot), 5f);
-        compatibility.addSmelting(Ores.LeadOre, new ItemStack(Ores.LeadIngot), 5f);
-        compatibility.addSmelting(Ores.TinOre, new ItemStack(Ores.TinIngot), 5f);
+        compatibility.addSmelting(Blocks.copperOre, new ItemStack(Ores.CopperIngot), 5f);
+        compatibility.addSmelting(Blocks.leadOre, new ItemStack(Ores.LeadIngot), 5f);
+        compatibility.addSmelting(Blocks.tinOre, new ItemStack(Ores.TinIngot), 5f);
         compatibility.addSmelting(Ores.GunmetalComposite, new ItemStack(Ores.GunmetalIngot), 5f);
         compatibility.addSmelting(Ores.SulfurDust, compatibility.createItemStack(CompatibleItems.GUNPOWDER, 1, 0), 5f);
         compatibility.addSmelting(Ores.SteelDust, new ItemStack(Ores.SteelIngot), 1f);
