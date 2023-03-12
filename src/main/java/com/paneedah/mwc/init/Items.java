@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.Mod;
 public class Items {
 
     public static ItemBase sulfur_dust = new ItemBase();
+
     public static void init() {
 
     }
