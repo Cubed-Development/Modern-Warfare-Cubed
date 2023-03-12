@@ -1,6 +1,6 @@
 package com.paneedah.mwc;
 
-import com.paneedah.mwc.init.Blocks;
+import com.paneedah.mwc.init.MwBlocks;
 import com.paneedah.weaponlib.compatibility.CompatibleBlocks;
 import com.paneedah.weaponlib.compatibility.CompatibleWorldGenerator;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -25,19 +25,19 @@ public class WorldGeneratorEventHandler extends CompatibleWorldGenerator {
         int x = chunkX * 16;
         int z = chunkZ * 16;
 
-        addOreSpawn(Blocks.copperOre, CompatibleBlocks.STONE, world, ModernConfigManager.copperSpawnsPerChunk,
+        addOreSpawn(MwBlocks.copperOre, CompatibleBlocks.STONE, world, ModernConfigManager.copperSpawnsPerChunk,
                 random, x, z, 9, 9, 6 + random.nextInt(4), 2, 110);
 
-        addOreSpawn(Blocks.sulfurOre, CompatibleBlocks.STONE, world, ModernConfigManager.sulfurSpawnsPerChunk,
+        addOreSpawn(MwBlocks.sulfurOre, CompatibleBlocks.STONE, world, ModernConfigManager.sulfurSpawnsPerChunk,
                 random, x, z, 13, 13, 6 + random.nextInt(7), 5, 90);
 
-        addOreSpawn(Blocks.tinOre, CompatibleBlocks.STONE, world, ModernConfigManager.tinSpawnsPerChunk,
+        addOreSpawn(MwBlocks.tinOre, CompatibleBlocks.STONE, world, ModernConfigManager.tinSpawnsPerChunk,
                 random, x, z, 9, 9, 6 + random.nextInt(4), 2, 80);
 
-        addOreSpawn(Blocks.leadOre, CompatibleBlocks.STONE, world, ModernConfigManager.leadSpawnsPerChunk,
+        addOreSpawn(MwBlocks.leadOre, CompatibleBlocks.STONE, world, ModernConfigManager.leadSpawnsPerChunk,
                 random, x, z, 9, 9, 6 + random.nextInt(4), 2, 80);
 
-        addOreSpawn(Blocks.graphiteOre, CompatibleBlocks.STONE, world, ModernConfigManager.graphiteSpawnsPerChunk,
+        addOreSpawn(MwBlocks.graphiteOre, CompatibleBlocks.STONE, world, ModernConfigManager.graphiteSpawnsPerChunk,
                 random, x, z, 9, 9, 6 + random.nextInt(4), 2, 80);
     }
 

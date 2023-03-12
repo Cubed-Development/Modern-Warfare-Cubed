@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MwItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -87,9 +87,9 @@ public class MP5A5Factory {
                  3f) // z
          
          .withModernRecipe( new
-	        		CraftingEntry(Ores.CarbonComposite, 7), new
-	        		CraftingEntry(Ores.GunmetalPlate, 5), new
-	        		CraftingEntry(Ores.SteelIngot, 5))
+	        		CraftingEntry(MwItems.carbonComposite, 7), new
+	        		CraftingEntry(MwItems.gunmetalPlate, 5), new
+	        		CraftingEntry(MwItems.steelIngot, 5))
          
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.STOCK)

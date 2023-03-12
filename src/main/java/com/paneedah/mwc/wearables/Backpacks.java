@@ -41,7 +41,7 @@ public class Backpacks {
     
     public static Item G2Gunslinger2Backpack;
 
-    public static void preInit(Object mod, CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
         
         TacticalPushPack = new ItemStorage.Builder()
         .withName("tactical_push_backpack")

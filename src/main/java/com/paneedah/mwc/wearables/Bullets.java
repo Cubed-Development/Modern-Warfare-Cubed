@@ -1,7 +1,7 @@
 package com.paneedah.mwc.wearables;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.ores.Ores;
+import com.paneedah.mwc.init.MwItems;
 import com.paneedah.weaponlib.ItemBullet;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleItems;
@@ -80,7 +80,7 @@ public class Bullets {
         M202Rocket = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("m202rocket").withMaxStackSize(64)
                 .withModel(new com.paneedah.mwc.models.M202Rocket(), "gun.png")
-                .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", Ores.GunmetalPlate, Ores.GunmetalIngot)
+                .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", MwItems.gunmetalPlate, MwItems.gunmetalIngot)
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -1.2F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -102,7 +102,7 @@ public class Bullets {
         RPGRocket = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("rpg7_rocket").withMaxStackSize(64)
                 .withModel(new com.paneedah.mwc.models.RPG7rocketPROJECTILE(), "rpg7.png")
-                .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", Ores.GunmetalPlate, Ores.GunmetalIngot)
+                .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", MwItems.gunmetalPlate, MwItems.gunmetalIngot)
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -1.2F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);

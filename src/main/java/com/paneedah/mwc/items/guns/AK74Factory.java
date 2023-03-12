@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MwItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -91,15 +91,15 @@ public class AK74Factory {
                 3f) // z
         
         .withModernRecipe( new
-        		CraftingEntry(Ores.CarbonComposite, 8), new
-        		CraftingEntry(Ores.GunmetalPlate, 12), new
-        		CraftingEntry(Ores.SteelIngot, 5))
+        		CraftingEntry(MwItems.carbonComposite, 8), new
+        		CraftingEntry(MwItems.gunmetalPlate, 12), new
+        		CraftingEntry(MwItems.steelIngot, 5))
         
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withCrafting(CraftingComplexity.MEDIUM,
-                Ores.GunmetalIngot,
-                Ores.GunmetalPlate)
+                MwItems.gunmetalIngot,
+                MwItems.gunmetalPlate)
 //        .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
         .withCompatibleAttachment(Attachments.AK47Stock, (model) -> {
 //            GL11.glTranslatef(0f, 0f, 1f);

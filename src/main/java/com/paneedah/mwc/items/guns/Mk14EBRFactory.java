@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MwItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -83,9 +83,9 @@ public class Mk14EBRFactory {
                  6f) // z
          
          .withModernRecipe( new
-	        		CraftingEntry(Ores.CarbonComposite, 8), new
-	        		CraftingEntry(Ores.GunmetalPlate, 15), new
-	        		CraftingEntry(Ores.SteelIngot, 8))
+	        		CraftingEntry(MwItems.carbonComposite, 8), new
+	        		CraftingEntry(MwItems.gunmetalPlate, 15), new
+	        		CraftingEntry(MwItems.steelIngot, 8))
          
 //        .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)

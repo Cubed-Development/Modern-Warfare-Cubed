@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MwItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -87,9 +87,9 @@ public class MAC10Factory {
                 3f) // z
         
         .withModernRecipe( new
-        		CraftingEntry(Ores.CarbonComposite, 8), new
-        		CraftingEntry(Ores.GunmetalPlate, 5), new
-        		CraftingEntry(Ores.SteelIngot, 4))
+        		CraftingEntry(MwItems.carbonComposite, 8), new
+        		CraftingEntry(MwItems.gunmetalPlate, 5), new
+        		CraftingEntry(MwItems.steelIngot, 4))
         
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)

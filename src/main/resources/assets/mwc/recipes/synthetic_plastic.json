@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "FF"
+  ],
+  "key": {
+    "X": {
+      "item": "mwc:synthetic_polymer_composite"
+    },
+    "F": {
+      "type": "forge:ore_dict",
+      "ore": "string"
+    }
+  },
+  "result": {
+    "item": "mwc:synthetic_plastic",
+    "count": 4
+  }
+}

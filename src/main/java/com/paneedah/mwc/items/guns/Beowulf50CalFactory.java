@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MwItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -79,9 +79,9 @@ public class Beowulf50CalFactory implements GunFactory {
         "10rnd .50 Beowulf Magazine"))
 		
 		.withModernRecipe( new
-        		CraftingEntry(Ores.CarbonComposite, 10), new
-        		CraftingEntry(Ores.GunmetalPlate, 13), new
-        		CraftingEntry(Ores.SteelIngot, 6))
+        		CraftingEntry(MwItems.carbonComposite, 10), new
+        		CraftingEntry(MwItems.gunmetalPlate, 13), new
+        		CraftingEntry(MwItems.steelIngot, 6))
 		 
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)

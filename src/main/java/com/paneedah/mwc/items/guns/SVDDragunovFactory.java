@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MwItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -85,9 +85,9 @@ public class SVDDragunovFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.STOCK)
         .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
         
-        .withModernRecipe(new CraftingEntry(Ores.SteelIngot, 12), new
-        		CraftingEntry(Ores.CarbonComposite, 14), new
-        		CraftingEntry(Ores.GunmetalPlate, 18), new
+        .withModernRecipe(new CraftingEntry(MwItems.steelIngot, 12), new
+        		CraftingEntry(MwItems.carbonComposite, 14), new
+        		CraftingEntry(MwItems.gunmetalPlate, 18), new
         		CraftingEntry(Blocks.PLANKS, 10))
         
         .withCompatibleAttachment(Attachments.DragunovGripStock, true, (model) -> {

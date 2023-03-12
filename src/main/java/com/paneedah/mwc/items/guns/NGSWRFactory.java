@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MwItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -79,9 +79,9 @@ public class NGSWRFactory implements GunFactory {
         "20rnd 6.5mm Magazine"))
 		
 		.withModernRecipe( new
-        		CraftingEntry(Ores.CarbonComposite, 8), new
-        		CraftingEntry(Ores.GunmetalPlate, 13), new
-        		CraftingEntry(Ores.SteelIngot, 3))
+        		CraftingEntry(MwItems.carbonComposite, 8), new
+        		CraftingEntry(MwItems.gunmetalPlate, 13), new
+        		CraftingEntry(MwItems.steelIngot, 3))
 		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                1f, // x 
