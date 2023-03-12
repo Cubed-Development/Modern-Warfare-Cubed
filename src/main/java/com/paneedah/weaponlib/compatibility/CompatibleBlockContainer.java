@@ -55,15 +55,12 @@ public abstract class CompatibleBlockContainer extends BlockContainer {
     }
     
     @Override
-    public final boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
-            EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        return onBlockActivated(worldIn, new CompatibleBlockPos(pos), 
-                new CompatibleBlockState(state), playerIn, CompatibleEnumHand.valueOf(hand),
-                CompatibleEnumFacing.valueOf(facing), hitX, hitY, hitZ);
+    public final boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        return onBlockActivated(worldIn, new CompatibleBlockPos(pos), new CompatibleBlockState(state), playerIn, CompatibleEnumHand.valueOf(hand), facing, hitX, hitY, hitZ);
     }
     
     public boolean onBlockActivated(World worldIn, CompatibleBlockPos pos, CompatibleBlockState state, EntityPlayer playerIn,
-            CompatibleEnumHand hand, CompatibleEnumFacing facing, float hitX, float hitY, float hitZ) {
+            CompatibleEnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         return false;
     }
     
