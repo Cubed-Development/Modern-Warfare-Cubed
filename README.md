@@ -53,6 +53,7 @@ Another massive thank you to all of the contributors, and members of the develop
 - [BurnhamR](https://github.com/BurnhamR) - Lead Developer
 - [Desoroxxx](https://github.com/JustDesoroxxx) - Head Developer
 - [SticksDev](https://github.com/SticksDeveloper) - Developer
+- [Azurae](https://github.com/azuraerae) - Developer
 
 <br>
 
