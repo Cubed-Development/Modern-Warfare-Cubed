@@ -27,9 +27,8 @@ public class CraftingFileManager extends JSONDatabaseManager {
 	private static final File DIRECTORY = new File(Loader.instance().getConfigDir() + "/mwc/crafting");
 	private static final File CACHE_DIR = new File(DIRECTORY, "cache/");
 	private static final File MAIN_FILE = new File(DIRECTORY, "craftingmappings.json");
-	private static final String DEFAULT_CRAFTING_MAPPINGS = "com/paneedah/weaponlib/crafting/defaultRecipes/craftingmappings.json";
-	
-	
+	private static final String DEFAULT_CRAFTING_MAPPINGS = "craftingmappings.json";
+
 	private static final String CACHE_EXTENSION = ".cache";
 	
 	// Current file hash
@@ -46,7 +45,6 @@ public class CraftingFileManager extends JSONDatabaseManager {
 	private static final String ENTRY_ITEM_NAME_KEY = "entryName";
 	private static final String ORE_DICTIONARY_DEFAULT_ITEM = "defaultItem";
 
-	
 	// {-1: Not loaded, 1: Default mappings, 2: Custom Mappings } 
 	private int loadingStatus = -1;
 	
@@ -106,10 +104,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 				// Custom mode
 			
 				FileInputStream fis = new FileInputStream(MAIN_FILE);
-				//System.out.println("LOading custom " + fis.available());
-			
 				int avaliable = fis.available();
-				//System.out.printf("Avaliable bytes: %s\n", avaliable);
 				
 				for(int i = 0; i < avaliable; ++i)
 					baos.write(fis.read());
@@ -122,9 +117,6 @@ public class CraftingFileManager extends JSONDatabaseManager {
 				for(int i = 0; i < is.available(); ++i) baos.write(is.read());
 				is.close();
 			}
-
-			return baos;
-
 		} catch(IOException e) { e.printStackTrace(); }
 
 		return baos;
@@ -155,8 +147,6 @@ public class CraftingFileManager extends JSONDatabaseManager {
 			// Loop through the custom array and see if we have a custom entry for it.
 			for (int j = 0; j < customArray.size(); ++j) {
 				JsonObject customRecipeTemp = (JsonObject) customArray.get(j);
-
-				System.out.println(customRecipeTemp.get(NAME_KEY).getAsString() + " -- " + defaultRecipe.get(NAME_KEY).getAsString());
 
 				if (customRecipeTemp.get(NAME_KEY).getAsString().equalsIgnoreCase(defaultRecipe.get(NAME_KEY).getAsString())) {
 					customRecipe = customRecipeTemp;
@@ -225,71 +215,6 @@ public class CraftingFileManager extends JSONDatabaseManager {
 			// Register the recipe
 			CraftingRegistry.registerRecipe(item, recipeCraftingGroup, entryArray);
 		}
-
-		/* PANDA: This is the old code, which is now deprecated. Keeping in case I need to revert.
-		// JsonArray main
-		JsonArray mainArray = object.get("recipes").getAsJsonArray();
-
-		for (int i = 0; i < mainArray.size(); ++i) {
-			JsonObject recipe = (JsonObject) mainArray.get(i);
-
-			// First we should validate the JSON and see if the entry
-			// can actually be loaded.
-			if (!recipe.has(NAME_KEY) || !recipe.has(CRAFTING_GROUP_KEY) || !recipe.has(RECIPE_ARRAY_KEY)) {
-				log.debug("Invalid recipe for recipe {}!", i);
-				continue;
-			}
-
-			String recipeName = recipe.get(NAME_KEY).getAsString();
-			CraftingGroup recipeCraftingGroup = CraftingGroup.valueOf(recipe.get(CRAFTING_GROUP_KEY).getAsString());
-
-			// Make sure we actually have a hook for this recipe.
-			if (!CraftingRegistry.hasHook(recipeName)) {
-				log.debug("Recipe named {} does not link up to any items in the registry! Skipping it.", recipeName);
-				continue;
-			}
-
-			boolean cancellationFlag = false;
-			JsonArray subRecipeArray = recipe.get(RECIPE_ARRAY_KEY).getAsJsonArray();
-			CraftingEntry[] entryArray = new CraftingEntry[subRecipeArray.size()];
-			for (int r = 0; r < subRecipeArray.size(); ++r) {
-				JsonObject subRecipe = subRecipeArray.get(r).getAsJsonObject();
-				boolean isOreDictionary = false;
-
-				// Validate subrecipe
-				// First let's check to see if it has the ESSENTIAL keys
-				if (!subRecipe.has(ENTRY_ITEM_NAME_KEY) || !subRecipe.has(COUNT_KEY)) {
-					log.debug("Sub-recipe no. {} for recipe {} missing essential keys.", r, recipeName);
-					cancellationFlag = true;
-					break;
-				}
-
-				// Make sure OreDictionary set up properly
-				if (subRecipe.has(ORE_DICTIONARY_BOOLEAN_KEY)) {
-					isOreDictionary = subRecipe.get(ORE_DICTIONARY_BOOLEAN_KEY).getAsBoolean();
-					if (isOreDictionary && !subRecipe.has(ORE_DICTIONARY_DEFAULT_ITEM)) {
-						log.debug("Sub-recipe no. {} for recipe {} states it is OreDictionary, but does not provide a default item.", r, recipeName);
-						cancellationFlag = true;
-						break;
-					}
-				}
-
-				if (isOreDictionary) {
-					Item defaultItem = Item.getByNameOrId(subRecipe.get(ORE_DICTIONARY_DEFAULT_ITEM).getAsString());
-					entryArray[r] = new CraftingEntry(defaultItem, subRecipe.get(ENTRY_ITEM_NAME_KEY).getAsString(), subRecipe.get(COUNT_KEY).getAsInt());
-				} else {
-					entryArray[r] = new CraftingEntry(Item.getByNameOrId(subRecipe.get(ENTRY_ITEM_NAME_KEY).getAsString()), subRecipe.get(COUNT_KEY).getAsInt());
-				}
-			}
-
-			// Allows us to skip the recipe if there are problems
-			if (cancellationFlag)
-				continue;
-
-			// Register the recipe
-			CraftingRegistry.registerRecipe(Item.getByNameOrId(recipeName), recipeCraftingGroup, entryArray);
-		}
-		 */
 	}
 
 	@Override
