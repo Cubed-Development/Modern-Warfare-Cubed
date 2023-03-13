@@ -4,14 +4,13 @@ import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.misc.*;
 import com.paneedah.mwc.resources.ItemSulfurDust;
 import com.paneedah.mwc.resources.ItemTinIngot;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.crafting.items.CraftingItem;
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
+/* Maybe rename this class? and also move it; make it general.*/
 public class Ores {
 
     public static final String DUST_SULFUR = "dustSulfur";
@@ -20,19 +19,14 @@ public class Ores {
     public static final String INGOT_TIN = "ingotTin";
     public static final String INGOT_LEAD = "ingotLead";
 
-    public static Block LeadOre;
     public static Item LeadIngot;
-    
-    public static Block CopperOre;
+
     public static Item CopperIngot;
 
-    public static Block GraphiteOre;
     public static Item GraphiteChunk;
-    
-    public static Block TinOre;
+
     public static Item TinIngot;
-    
-    public static Block SulfurOre;
+
     public static Item SulfurDust;
     
     public static Item GunmetalComposite;
@@ -50,19 +44,14 @@ public class Ores {
     public static Item VestRender;
 
     public static void init() {
-        LeadOre = new BlockLeadOre();
         LeadIngot = new ItemLeadIngot();
 
-        CopperOre = new BlockCopperOre();
         CopperIngot = new ItemCopperIngot();
         
-        GraphiteOre = new BlockGraphiteOre();
         GraphiteChunk = new ItemGraphiteChunk();
 
-        TinOre = new BlockTinOre();
         TinIngot = new ItemTinIngot();
 
-        SulfurOre = new BlockSulfurOre();
         SulfurDust = new ItemSulfurDust();
 
         SteelDust = new ItemSteelDust();
@@ -82,19 +71,14 @@ public class Ores {
         
         VestRender = new ItemVestRender();
         
-        compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, LeadOre, "LeadOre");
         compatibility.registerItem(LeadIngot, "leadingot");
 
-        compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, CopperOre, "CopperOre");
         compatibility.registerItem(CopperIngot, "CopperIngot");
         
-        compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, GraphiteOre, "GraphiteOre");
         compatibility.registerItem(GraphiteChunk, "GraphiteChunk");
 
-        compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, TinOre, "TinOre");
         compatibility.registerItem(TinIngot, "TinIngot");
 
-        compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, SulfurOre, "SulfurOre");
         compatibility.registerItem(SulfurDust, "SulfurDust");
 
         compatibility.registerItem(SteelDust, "SteelDust");

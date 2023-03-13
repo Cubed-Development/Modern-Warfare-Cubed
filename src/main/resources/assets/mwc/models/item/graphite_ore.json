@@ -1,5 +1,5 @@
 {
-    "parent":"mwc:block/tinore",
+    "parent":"mwc:block/graphite_ore",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],
