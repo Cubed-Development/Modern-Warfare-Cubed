@@ -34,11 +34,9 @@ public class BetterAINearestAttackableTarget<T extends EntityLivingBase> extends
 	@Override
 	public boolean shouldExecute() {
 		if (this.targetChance > 0 && this.taskOwner.getRNG().nextInt(this.targetChance) != 0)
-        {
             return false;
-        }
-        else if (this.targetClass != EntityPlayer.class && this.targetClass != EntityPlayerMP.class)
-        {
+
+        else if (this.targetClass != EntityPlayer.class && this.targetClass != EntityPlayerMP.class) {
             List<T> list = this.taskOwner.world.<T>getEntitiesWithinAABB(this.targetClass, this.getTargetableArea(this.getTargetDistance()), this.targetEntitySelector);
             list.removeIf(s -> {
             	if(s instanceof EntityCustomMob) {
@@ -48,35 +46,27 @@ public class BetterAINearestAttackableTarget<T extends EntityLivingBase> extends
             });
             
             if (list.isEmpty())
-            {
                 return false;
-            }
-            else
-            {
-                Collections.sort(list, this.sorter);
-               
+
+            else {
+                list.sort(this.sorter);
                 this.targetEntity = list.get(0);
                 return true;
             }
         }
-        else
-        {
-            this.targetEntity = (T)this.taskOwner.world.getNearestAttackablePlayer(this.taskOwner.posX, this.taskOwner.posY + (double)this.taskOwner.getEyeHeight(), this.taskOwner.posZ, this.getTargetDistance(), this.getTargetDistance(), new Function<EntityPlayer, Double>()
-            {
-                @Nullable
-                public Double apply(@Nullable EntityPlayer p_apply_1_)
-                {
+
+        else {
+            this.targetEntity = (T)this.taskOwner.world.getNearestAttackablePlayer(this.taskOwner.posX, this.taskOwner.posY + (double)this.taskOwner.getEyeHeight(), this.taskOwner.posZ, this.getTargetDistance(), this.getTargetDistance(), new Function<EntityPlayer, Double>() {
+                public Double apply(@Nullable EntityPlayer p_apply_1_) {
                     ItemStack itemstack = p_apply_1_.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 
-                    if (itemstack.getItem() == Items.SKULL)
-                    {
+                    if (itemstack.getItem() == Items.SKULL) {
                         int i = itemstack.getItemDamage();
                         boolean flag = BetterAINearestAttackableTarget.this.taskOwner instanceof EntitySkeleton && i == 0;
                         boolean flag1 = BetterAINearestAttackableTarget.this.taskOwner instanceof EntityZombie && i == 2;
                         boolean flag2 = BetterAINearestAttackableTarget.this.taskOwner instanceof EntityCreeper && i == 4;
 
-                        if (flag || flag1 || flag2)
-                        {
+                        if (flag || flag1 || flag2) {
                             return 0.5D;
                         }
                     }
