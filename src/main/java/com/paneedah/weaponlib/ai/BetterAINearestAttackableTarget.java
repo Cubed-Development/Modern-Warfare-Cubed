@@ -16,7 +16,6 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 
 import javax.annotation.Nullable;
-import java.util.Collections;
 import java.util.List;
 
 public class BetterAINearestAttackableTarget<T extends EntityLivingBase> extends EntityAINearestAttackableTarget<T> {

@@ -423,7 +423,7 @@ public class AnimationGUI {
 
 		NetworkPlayerInfo npi = null;
 		try { npi = (NetworkPlayerInfo) f.invoke((AbstractClientPlayer) mc.player, null); }
-		catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) { e.printStackTrace(); }
+		catch (Exception e) { e.printStackTrace(); }
 
 		if(npi != null) {
 			try {

@@ -28,7 +28,7 @@ minecraft {
 }
 
 runClient {
-    args '--username=Player1'
+    args '--username=ModernDev'
 }
 
 // Replace version in `mcmod.info`
