@@ -1,11 +1,11 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Glock18C;
 import com.paneedah.mwc.models.M9A1frontsight;
 import com.paneedah.mwc.models.M9A1rearsight;
 import com.paneedah.mwc.models.SCCYCPX2Slide;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -84,9 +84,9 @@ public class SCCYCPX2Factory implements GunFactory {
         "65rnd 9x19mm Drum Magazine"))
         
         .withModernRecipe( new
-        		CraftingEntry(Ores.CarbonComposite, 7), new
-        		CraftingEntry(Ores.GunmetalPlate, 3), new
-        		CraftingEntry(Ores.SteelIngot, 3))
+        		CraftingEntry(MWCItems.carbonComposite, 7), new
+        		CraftingEntry(MWCItems.gunmetalPlate, 3), new
+        		CraftingEntry(MWCItems.steelIngot, 3))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 

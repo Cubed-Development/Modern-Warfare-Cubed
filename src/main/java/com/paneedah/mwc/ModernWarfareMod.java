@@ -1,6 +1,7 @@
 package com.paneedah.mwc;
 
 import com.paneedah.mwc.creativetab.*;
+import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ModContext;
@@ -49,11 +50,12 @@ public class ModernWarfareMod {
     @EventHandler
     public void init(FMLPreInitializationEvent event) {
         proxy.preInit(this, new CompatibleFmlPreInitializationEvent(event));
-        initRecipies(event);
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
+        // Recipes
+        MWCRecipes.register();
         proxy.init(this, new CompatibleFmlInitializationEvent(event));
     }
 
@@ -68,11 +70,5 @@ public class ModernWarfareMod {
         event.registerServerCommand(new CraftingFileCommand());
         BalancePackManager.loadDirectory();
         CraftingFileManager.getInstance().loadDirectory();
-    }
-
-    // ItemRecipes
-    //@EventHandler
-    public void initRecipies(FMLPreInitializationEvent event) {
-        RecipeManager.init(MOD_CONTEXT);
     }
 }

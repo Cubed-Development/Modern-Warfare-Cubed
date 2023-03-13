@@ -43,15 +43,15 @@ public class OreBase extends BlockOre {
         return this.smelt ? 1 : this.minDrop + i;
     }
 
-    public void setHarvestLevel(int harvestLevel){
+    public void setHarvestLevel(int harvestLevel) {
         this.harvestLevel = harvestLevel;
     }
 
-    public void setItemDropped(Item item){
+    public void setItemDropped(Item item) {
         this.drop = item;
     }
 
-    public void isSmeltable(boolean smeltable) {
+    public void isSmeltable(boolean smeltable)  {
         this.smelt = smeltable;
     }
 

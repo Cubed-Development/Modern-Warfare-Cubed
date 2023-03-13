@@ -1,1 +1,19 @@
-{"type":"minecraft:crafting_shaped","pattern":["XRX"],"key":{"X":{"item":"minecraft:iron_ingot"},"R":{"item":"mwc:SteelIngot"}},"result":{"item":"mwc:turret_base","count":1}}
+{
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "XRX"
+  ],
+  "key":{
+    "X":{
+      "item":"minecraft:iron_ingot"
+    },
+    "R":{
+      "type":"forge:ore_dict",
+      "ore": "ingotSteel"
+    }
+  },
+  "result":{
+    "item":"mwc:turret_base",
+    "count":1
+  }
+}

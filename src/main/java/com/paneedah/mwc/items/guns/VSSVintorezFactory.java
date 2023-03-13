@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -85,9 +85,9 @@ public class VSSVintorezFactory {
                  3f) // z
          
          .withModernRecipe( new
-	        		CraftingEntry(Ores.CarbonComposite, 10), new
-	        		CraftingEntry(Ores.GunmetalPlate, 15), new
-	        		CraftingEntry(Ores.SteelIngot, 4))
+	        		CraftingEntry(MWCItems.carbonComposite, 10), new
+	        		CraftingEntry(MWCItems.gunmetalPlate, 15), new
+	        		CraftingEntry(MWCItems.steelIngot, 4))
          
          .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
          .withUnremovableAttachmentCategories(AttachmentCategory.STOCK)

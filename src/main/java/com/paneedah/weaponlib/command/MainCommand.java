@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.command;
 
+import com.paneedah.mwc.bases.ManufacturingItemBase;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.compatibility.CompatibleCommand;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
-import com.paneedah.weaponlib.crafting.items.CraftingItem;
 import net.minecraft.block.Block;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.command.ICommandSender;
@@ -157,10 +157,10 @@ public class MainCommand extends CompatibleCommand {
             	String toPrint = "> " + stack.getCount() + "x " + TextFormatting.WHITE + I18n.format(stack.getItem().getTranslationKey() + ".name");
             	
             	// Appends the disassembly to the end of the string
-            	if(stack.getItem() instanceof CraftingItem) {
-            		CraftingItem craftingItem = (CraftingItem) stack.getItem();
-            		System.out.println(craftingItem.getRecoveryScrap());
-            		toPrint += " -> " + (stack.getCount()*craftingItem.getRecoveryPercentage()) + "x " + I18n.format(craftingItem.getRecoveryScrap().getTranslationKey() + ".name");
+            	if(stack.getItem() instanceof ManufacturingItemBase) {
+                    ManufacturingItemBase craftingItem = (ManufacturingItemBase) stack.getItem();
+            		System.out.println(craftingItem.getRecoveryChance());
+            		toPrint += " -> " + (stack.getCount()*craftingItem.getRecoveryChance()) + "x " + I18n.format(craftingItem.getRegistryName() + ".name");
             	}
             	
             	compatibility.addChatMessage(compatibility.clientPlayer(), TextFormatting.GOLD + toPrint);

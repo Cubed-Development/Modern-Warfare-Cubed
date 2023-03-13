@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "FA"
+  ],
+  "key": {
+    "X": {
+      "item": "mwc:synthetic_polymer_composite"
+    },
+    "F": {
+      "item": "mwc:synthetic_plastic"
+    },
+    "A": {
+      "type": "forge:ore_dict",
+      "ore": "ingotSteel"
+    }
+  },
+  "result": {
+    "item": "mwc:carbon_fiber",
+    "count": 6
+  }
+}
