@@ -335,8 +335,6 @@ public class Explosion {
 //                            	double spread = 0.1;
 //                            	new Vec3d(RandomUtil.getRandomWithNegatives(spread), RandomUtil.getRandomDoubleInclusive(0.0, spread), RandomUtil.getRandomWithNegatives(spread)).add(directionVector);
 //
-//                            	//CompatibleDiggingParticle cdp = new CompatibleDiggingParticle(mc.world, posVect.x, posVect.y, posVect.z,
-//                                 //       spreadVector.x, spreadVector.y, spreadVector.z, blockState.getBlockState());
 //                        		//cdp.setBlockPos(blockpos.getBlockPos());
 //                        	//	mc.effectRenderer.addEffect(cdp);
 //                            }

@@ -154,15 +154,15 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 		super.actionPerformed(button);
 		
 		if (button == dismantleButton) {
-			modContext.getChannel().getChannel().sendToServer(
-					new StationPacket(StationPacket.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
+			modContext.getChannel().getChannel().sendToServer(new StationPacket(StationPacket.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
+
 		} else if (button == leftArrow) {
 			setPage(getPage() - 1);
+
 		} else if (button == rightArrow) {
 			setPage(getPage() + 1);
-			if (getPage() == 2) {
+			if (getPage() == 2)
 				tileEntity.pushInventoryRefresh = true;
-			}
 		}
 	}
 	
