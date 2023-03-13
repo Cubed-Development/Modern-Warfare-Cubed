@@ -4943,22 +4943,6 @@
       ]
     },
     {
-      "entryName": "Silencer57x38",
-      "craftingGroup": "ATTACHMENT_NORMAL",
-      "recipe": [
-        {
-          "entryName": "mwc:GunmetalIngot",
-          "isOreDictionary": false,
-          "count": 1
-        },
-        {
-          "entryName": "mwc:SteelIngot",
-          "isOreDictionary": false,
-          "count": 1
-        }
-      ]
-    },
-    {
       "entryName": "mwc:Laser",
       "craftingGroup": "ATTACHMENT_NORMAL",
       "recipe": [
