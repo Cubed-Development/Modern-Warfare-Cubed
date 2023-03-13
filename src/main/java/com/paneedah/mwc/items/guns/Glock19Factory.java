@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.init.MwItems;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -84,9 +84,9 @@ public class Glock19Factory implements GunFactory {
         "20rnd 9x19mm Magazine",
         "50rnd 9x19mm Drum Magazine"))
         .withModernRecipe( new
-        		CraftingEntry(MwItems.carbonComposite, 7), new
-        		CraftingEntry(MwItems.gunmetalPlate, 3), new
-        		CraftingEntry(MwItems.steelIngot, 3))
+        		CraftingEntry(MWCItems.carbonComposite, 7), new
+        		CraftingEntry(MWCItems.gunmetalPlate, 3), new
+        		CraftingEntry(MWCItems.steelIngot, 3))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2.5f, // x 

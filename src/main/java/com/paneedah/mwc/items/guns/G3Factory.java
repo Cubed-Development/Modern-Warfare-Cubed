@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.init.MwItems;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -82,9 +82,9 @@ public class G3Factory {
                  4f) // z
          
          .withModernRecipe( new
-	        		CraftingEntry(MwItems.carbonComposite, 9), new
-	        		CraftingEntry(MwItems.gunmetalPlate, 13), new
-	        		CraftingEntry(MwItems.steelIngot, 5))
+	        		CraftingEntry(MWCItems.carbonComposite, 9), new
+	        		CraftingEntry(MWCItems.gunmetalPlate, 13), new
+	        		CraftingEntry(MWCItems.steelIngot, 5))
          
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.STOCK)

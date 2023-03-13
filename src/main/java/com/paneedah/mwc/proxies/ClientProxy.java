@@ -2,7 +2,7 @@ package com.paneedah.mwc.proxies;
 
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.PlayerAnimations;
-import com.paneedah.mwc.init.MwItems;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.wearables.Armors;
@@ -45,7 +45,7 @@ public class ClientProxy extends CommonProxy {
         final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
 
         inventoryTabs.registerTab(new StandardPlayerInventoryTab());
-        inventoryTabs.registerTab(new CustomPlayerInventoryTab(ModernWarfareMod.MOD_CONTEXT, MwItems.vestRender));
+        inventoryTabs.registerTab(new CustomPlayerInventoryTab(ModernWarfareMod.MOD_CONTEXT, MWCItems.vestRender));
         inventoryTabs.registerTab(new BackpackInventoryTab(ModernWarfareMod.MOD_CONTEXT));
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWorkbench.class, new TESRWorkbench(new Workbench(), new ResourceLocation(ModReference.id + ":textures/blocks/workbench.png")));

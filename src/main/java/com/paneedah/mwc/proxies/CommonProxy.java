@@ -2,7 +2,7 @@ package com.paneedah.mwc.proxies;
 
 import com.paneedah.mwc.*;
 import com.paneedah.mwc.entities.Entities;
-import com.paneedah.mwc.init.MwItems;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.items.melee.BaseballBatFactory;
 import com.paneedah.mwc.items.melee.BaseballBatNailsFactory;
 import com.paneedah.mwc.items.melee.NightStickFactory;
@@ -90,7 +90,7 @@ public class CommonProxy {
         UniversalSoundLookup.initialize(ModernWarfareMod.MOD_CONTEXT);
 
         // Forcing Item Initialization here, at the very least the variables, before they get registered normally on the init() (@SubscribeEvent) phase.
-        MwItems.init();
+        MWCItems.init();
 
         // Idk? Deprecated too.
         DataSerializers.registerSerializer(VehicleDataSerializer.SERIALIZER);

@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.init.MwItems;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.APS;
 import com.paneedah.mwc.models.APSrearsight;
 import com.paneedah.mwc.models.APSslide;
@@ -88,9 +88,9 @@ public class APSFactory implements GunFactory {
                 1f) // z
         
         .withModernRecipe( new
-        		CraftingEntry(MwItems.carbonComposite, 1), new
-        		CraftingEntry(MwItems.gunmetalPlate, 4), new
-        		CraftingEntry(MwItems.steelIngot, 3))
+        		CraftingEntry(MWCItems.carbonComposite, 1), new
+        		CraftingEntry(MWCItems.gunmetalPlate, 4), new
+        		CraftingEntry(MWCItems.steelIngot, 3))
         
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withCompatibleAttachment(AuxiliaryAttachments.APSslide, true, (model) -> {

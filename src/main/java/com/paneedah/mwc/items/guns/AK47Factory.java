@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.init.MwItems;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -91,8 +91,8 @@ public class AK47Factory {
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         
         .withModernRecipe( new
-        		CraftingEntry(MwItems.carbonComposite, 8), new
-        		CraftingEntry(MwItems.gunmetalPlate, 12), new
+        		CraftingEntry(MWCItems.carbonComposite, 8), new
+        		CraftingEntry(MWCItems.gunmetalPlate, 12), new
         		CraftingEntry(Blocks.PLANKS, 4))
         
         .withCompatibleAttachment(Attachments.AK47Stock, true, (model) -> {

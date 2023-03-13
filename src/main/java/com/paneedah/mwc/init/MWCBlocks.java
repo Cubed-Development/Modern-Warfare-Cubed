@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid = ModReference.id)
-public class MwBlocks {
+public class MWCBlocks {
 
     public static OreBase copperOre;
     public static OreBase tinOre;
@@ -33,12 +33,12 @@ public class MwBlocks {
 
         sulfurOre = new OreBase("sulfur_ore");
         sulfurOre.isSmeltable(false);
-        sulfurOre.setItemDropped(MwItems.sulfurDust);
+        sulfurOre.setItemDropped(MWCItems.sulfurDust);
         sulfurOre.setDropAmount(2, 5);
 
         graphiteOre = new OreBase("graphite_ore");
         graphiteOre.isSmeltable(false);
-        graphiteOre.setItemDropped(MwItems.graphiteChunk);
+        graphiteOre.setItemDropped(MWCItems.graphiteChunk);
         graphiteOre.setDropAmount(1, 3);
 
         blocks = new OreBase[]{

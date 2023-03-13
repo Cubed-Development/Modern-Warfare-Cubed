@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.init.MwItems;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -81,8 +81,8 @@ public class G36CFactory implements GunFactory {
                         "30rnd 5.56x45mm NATO HK Magazine",
                         "100rnd 5.56x45mm NATO STANAG Drum Magazine"))
                 .withCrafting(CraftingComplexity.MEDIUM,
-                        MwItems.gunmetalIngot,
-                        MwItems.gunmetalPlate)
+                        MWCItems.gunmetalIngot,
+                        MWCItems.gunmetalPlate)
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         0.5f, // x
@@ -90,9 +90,9 @@ public class G36CFactory implements GunFactory {
                         3.5f) // z
 
                 .withModernRecipe(new
-                        CraftingEntry(MwItems.carbonComposite, 6), new
-                        CraftingEntry(MwItems.gunmetalPlate, 9), new
-                        CraftingEntry(MwItems.steelIngot, 5))
+                        CraftingEntry(MWCItems.carbonComposite, 6), new
+                        CraftingEntry(MWCItems.gunmetalPlate, 9), new
+                        CraftingEntry(MWCItems.steelIngot, 5))
 
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
                 .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)

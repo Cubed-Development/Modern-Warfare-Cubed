@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.init.MwItems;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -68,8 +68,8 @@ public class CZ805BrenFactory implements GunFactory {
 				1.0
 		))
         .withCrafting(CraftingComplexity.MEDIUM,
-                MwItems.gunmetalIngot,
-                MwItems.gunmetalPlate)
+                MWCItems.gunmetalIngot,
+                MWCItems.gunmetalPlate)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Assault Rifle/Carbine", 
         "Damage: 6", 
@@ -89,9 +89,9 @@ public class CZ805BrenFactory implements GunFactory {
                 3f) // z
         
         .withModernRecipe( new
-        		CraftingEntry(MwItems.carbonComposite, 6), new
-        		CraftingEntry(MwItems.gunmetalPlate, 10), new
-        		CraftingEntry(MwItems.steelIngot, 3))
+        		CraftingEntry(MWCItems.carbonComposite, 6), new
+        		CraftingEntry(MWCItems.gunmetalPlate, 10), new
+        		CraftingEntry(MWCItems.steelIngot, 3))
         
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)

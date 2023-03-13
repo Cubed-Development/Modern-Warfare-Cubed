@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
 
 @Mod.EventBusSubscriber(modid = ModReference.id)
-public class MwItems {
+public class MWCItems {
 
     //Ingots
     public static ItemBase copperIngot;

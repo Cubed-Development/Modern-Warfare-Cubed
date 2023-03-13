@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.init.MwItems;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -83,9 +83,9 @@ public class ZbroyarZ10Factory implements GunFactory {
                 5f) // z
         
         .withModernRecipe( new
-        		CraftingEntry(MwItems.carbonComposite, 10), new
-        		CraftingEntry(MwItems.gunmetalPlate, 15), new
-        		CraftingEntry(MwItems.steelIngot, 6))
+        		CraftingEntry(MWCItems.carbonComposite, 10), new
+        		CraftingEntry(MWCItems.gunmetalPlate, 15), new
+        		CraftingEntry(MWCItems.steelIngot, 6))
         
          .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
          .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)

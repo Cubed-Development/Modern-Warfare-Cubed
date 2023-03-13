@@ -1,7 +1,7 @@
 package com.paneedah.mwc;
 
 import com.paneedah.mwc.creativetab.*;
-import com.paneedah.mwc.init.MwRecipes;
+import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ModContext;
@@ -55,7 +55,7 @@ public class ModernWarfareMod {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         // Recipes
-        MwRecipes.register();
+        MWCRecipes.register();
         proxy.init(this, new CompatibleFmlInitializationEvent(event));
     }
 

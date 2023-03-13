@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.init.MwItems;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -93,9 +93,9 @@ public class K2C1Factory implements GunFactory {
 	                3f) // z
 		 
 		 .withModernRecipe( new
-	        		CraftingEntry(MwItems.carbonComposite, 6), new
-	        		CraftingEntry(MwItems.gunmetalPlate, 10), new
-	        		CraftingEntry(MwItems.steelIngot, 3))
+	        		CraftingEntry(MWCItems.carbonComposite, 6), new
+	        		CraftingEntry(MWCItems.gunmetalPlate, 10), new
+	        		CraftingEntry(MWCItems.steelIngot, 3))
 		 
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)

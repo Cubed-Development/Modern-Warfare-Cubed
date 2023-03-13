@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.init.MwItems;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -81,8 +81,8 @@ public class F2000Factory {
         "60rnd 5.56x45mm NATO STANAG Drum Magazine",
         "100rnd 5.56x45mm NATO STANAG Drum Magazine"))
          .withCrafting(CraftingComplexity.MEDIUM,
-                 MwItems.gunmetalIngot,
-                 MwItems.gunmetalPlate)
+                 MWCItems.gunmetalIngot,
+                 MWCItems.gunmetalPlate)
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  1f, // x 
