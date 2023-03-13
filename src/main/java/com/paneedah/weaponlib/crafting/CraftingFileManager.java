@@ -1,9 +1,6 @@
 package com.paneedah.weaponlib.crafting;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSyntaxException;
+import com.google.gson.*;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.JSONDatabaseManager;
 import net.minecraft.init.Blocks;
@@ -15,6 +12,7 @@ import org.apache.commons.io.IOUtils;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.Objects;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
@@ -66,7 +64,6 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
 	@Override
 	public JsonObject toJSON() {
-
 		// Main json object
 		JsonObject mainFileJSON = new JsonObject();
 		JsonArray mainArray = new JsonArray();
@@ -87,14 +84,16 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
 			String itemName = entry.getItem().getRegistryName().toString();
 
-			jsonEntry.addProperty(ENTRY_ITEM_NAME_KEY,
-					!entry.isOreDictionary() ? itemName : entry.getOreDictionaryEntry());
+			jsonEntry.addProperty(ENTRY_ITEM_NAME_KEY, !entry.isOreDictionary() ? itemName : entry.getOreDictionaryEntry());
 			jsonEntry.addProperty(ORE_DICTIONARY_BOOLEAN_KEY, false);
 			jsonEntry.addProperty(COUNT_KEY, entry.getCount());
+
 			if (entry.isOreDictionary())
 				jsonEntry.addProperty(ORE_DICTIONARY_DEFAULT_ITEM, itemName);
+
 			recipeArray.add(jsonEntry);
 		}
+
 		return mainFileJSON;
 	}
 
@@ -112,28 +111,24 @@ public class CraftingFileManager extends JSONDatabaseManager {
 				int avaliable = fis.available();
 				//System.out.printf("Avaliable bytes: %s\n", avaliable);
 				
-				for(int i = 0; i < avaliable; ++i) {
+				for(int i = 0; i < avaliable; ++i)
 					baos.write(fis.read());
-				}
+
 				fis.close();
-				
-				//System.out.printf("BAOS: %s\n", baos.size());
+
 			} else if(loadingStatus == 1) {
 				// Default mode
 				InputStream is = getClass().getClassLoader().getResourceAsStream(DEFAULT_CRAFTING_MAPPINGS);
 				for(int i = 0; i < is.available(); ++i) baos.write(is.read());
 				is.close();
-				
 			}
+
 			return baos;
-		} catch(IOException e) {
-			e.printStackTrace();
-		}
+
+		} catch(IOException e) { e.printStackTrace(); }
+
 		return baos;
-	
-		
 	}
-	
 	
 	public byte[] getDefaultFileHash() {
 		// If we already have it, return it.
@@ -146,6 +141,92 @@ public class CraftingFileManager extends JSONDatabaseManager {
 	
 	@Override
 	public void fromJSON(JsonObject object) {
+		InputStreamReader reader = new InputStreamReader(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(DEFAULT_CRAFTING_MAPPINGS)));
+		JsonObject defaultObject = GSON_MANAGER.fromJson(reader, JsonObject.class);
+
+		JsonArray defaultArray = defaultObject.get("recipes").getAsJsonArray();
+		JsonArray customArray = object.get("recipes").getAsJsonArray();
+
+		// Loop through the default array and see if we have a custom entry for it.
+		for (int i = 0; i < defaultArray.size(); ++i) {
+			JsonObject defaultRecipe = (JsonObject) defaultArray.get(i);
+			JsonObject customRecipe = null;
+
+			// Loop through the custom array and see if we have a custom entry for it.
+			for (int j = 0; j < customArray.size(); ++j) {
+				JsonObject customRecipeTemp = (JsonObject) customArray.get(j);
+
+				System.out.println(customRecipeTemp.get(NAME_KEY).getAsString() + " -- " + defaultRecipe.get(NAME_KEY).getAsString());
+
+				if (customRecipeTemp.get(NAME_KEY).getAsString().equalsIgnoreCase(defaultRecipe.get(NAME_KEY).getAsString())) {
+					customRecipe = customRecipeTemp;
+					break;
+				}
+			}
+
+			String recipeName;
+			CraftingGroup recipeCraftingGroup;
+			JsonArray subRecipeArray;
+
+			// If we don't have a custom entry, we should add it.
+			if (customRecipe == null) {
+				recipeName = defaultRecipe.get(NAME_KEY).getAsString();
+				recipeCraftingGroup = CraftingGroup.valueOf(defaultRecipe.get(CRAFTING_GROUP_KEY).getAsString());
+				subRecipeArray = defaultRecipe.get(RECIPE_ARRAY_KEY).getAsJsonArray();
+
+			} else {
+				recipeName = customRecipe.get(NAME_KEY).getAsString();
+				recipeCraftingGroup = CraftingGroup.valueOf(customRecipe.get(CRAFTING_GROUP_KEY).getAsString());
+				subRecipeArray = customRecipe.get(RECIPE_ARRAY_KEY).getAsJsonArray();
+			}
+
+			boolean cancellationFlag = false;
+			CraftingEntry[] entryArray = new CraftingEntry[subRecipeArray.size()];
+			for (int r = 0; r < subRecipeArray.size(); ++r) {
+				JsonObject subRecipe = subRecipeArray.get(r).getAsJsonObject();
+				boolean isOreDictionary = false;
+
+				// Validate subrecipe
+				// First let's check to see if it has the ESSENTIAL keys
+				if (!subRecipe.has(ENTRY_ITEM_NAME_KEY) || !subRecipe.has(COUNT_KEY)) {
+					log.debug("Sub-recipe no. {} for recipe {} missing essential keys.", r, recipeName);
+					cancellationFlag = true;
+					break;
+				}
+
+				// Make sure OreDictionary set up properly
+				if (subRecipe.has(ORE_DICTIONARY_BOOLEAN_KEY)) {
+					isOreDictionary = subRecipe.get(ORE_DICTIONARY_BOOLEAN_KEY).getAsBoolean();
+					if (isOreDictionary && !subRecipe.has(ORE_DICTIONARY_DEFAULT_ITEM)) {
+						log.debug("Sub-recipe no. {} for recipe {} states it is OreDictionary, but does not provide a default item.", r, recipeName);
+						cancellationFlag = true;
+						break;
+					}
+				}
+
+				if (isOreDictionary) {
+					Item defaultItem = Item.getByNameOrId(subRecipe.get(ORE_DICTIONARY_DEFAULT_ITEM).getAsString());
+					entryArray[r] = new CraftingEntry(defaultItem, subRecipe.get(ENTRY_ITEM_NAME_KEY).getAsString(), subRecipe.get(COUNT_KEY).getAsInt());
+				} else {
+					entryArray[r] = new CraftingEntry(Item.getByNameOrId(subRecipe.get(ENTRY_ITEM_NAME_KEY).getAsString()), subRecipe.get(COUNT_KEY).getAsInt());
+				}
+			}
+
+			// Allows us to skip the recipe if there are problems
+			if (cancellationFlag)
+				continue;
+
+			Item item = Item.getByNameOrId(recipeName);
+			if (item == null) {
+				ModReference.log.error("Could not find item with name: " + recipeName);
+				continue;
+			}
+
+			// Register the recipe
+			CraftingRegistry.registerRecipe(item, recipeCraftingGroup, entryArray);
+		}
+
+		/* PANDA: This is the old code, which is now deprecated. Keeping in case I need to revert.
 		// JsonArray main
 		JsonArray mainArray = object.get("recipes").getAsJsonArray();
 
@@ -158,13 +239,8 @@ public class CraftingFileManager extends JSONDatabaseManager {
 				log.debug("Invalid recipe for recipe {}!", i);
 				continue;
 			}
-			
-			
 
 			String recipeName = recipe.get(NAME_KEY).getAsString();
-			
-			//System.out.println("PICKED UP RECIPE NAME: " + recipeName);
-			
 			CraftingGroup recipeCraftingGroup = CraftingGroup.valueOf(recipe.get(CRAFTING_GROUP_KEY).getAsString());
 
 			// Make sure we actually have a hook for this recipe.
@@ -173,9 +249,8 @@ public class CraftingFileManager extends JSONDatabaseManager {
 				continue;
 			}
 
-			boolean cancelationFlag = false;
+			boolean cancellationFlag = false;
 			JsonArray subRecipeArray = recipe.get(RECIPE_ARRAY_KEY).getAsJsonArray();
-
 			CraftingEntry[] entryArray = new CraftingEntry[subRecipeArray.size()];
 			for (int r = 0; r < subRecipeArray.size(); ++r) {
 				JsonObject subRecipe = subRecipeArray.get(r).getAsJsonObject();
@@ -185,7 +260,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 				// First let's check to see if it has the ESSENTIAL keys
 				if (!subRecipe.has(ENTRY_ITEM_NAME_KEY) || !subRecipe.has(COUNT_KEY)) {
 					log.debug("Sub-recipe no. {} for recipe {} missing essential keys.", r, recipeName);
-					cancelationFlag = true;
+					cancellationFlag = true;
 					break;
 				}
 
@@ -193,71 +268,52 @@ public class CraftingFileManager extends JSONDatabaseManager {
 				if (subRecipe.has(ORE_DICTIONARY_BOOLEAN_KEY)) {
 					isOreDictionary = subRecipe.get(ORE_DICTIONARY_BOOLEAN_KEY).getAsBoolean();
 					if (isOreDictionary && !subRecipe.has(ORE_DICTIONARY_DEFAULT_ITEM)) {
-						log.debug(
-								"Sub-recipe no. {} for recipe {} states it is OreDictionary, but does not provide a default item.",
-								r, recipeName);
-						cancelationFlag = true;
+						log.debug("Sub-recipe no. {} for recipe {} states it is OreDictionary, but does not provide a default item.", r, recipeName);
+						cancellationFlag = true;
 						break;
 					}
-
 				}
 
 				if (isOreDictionary) {
 					Item defaultItem = Item.getByNameOrId(subRecipe.get(ORE_DICTIONARY_DEFAULT_ITEM).getAsString());
-					entryArray[r] = new CraftingEntry(defaultItem, subRecipe.get(ENTRY_ITEM_NAME_KEY).getAsString(),
-							subRecipe.get(COUNT_KEY).getAsInt());
+					entryArray[r] = new CraftingEntry(defaultItem, subRecipe.get(ENTRY_ITEM_NAME_KEY).getAsString(), subRecipe.get(COUNT_KEY).getAsInt());
 				} else {
-					entryArray[r] = new CraftingEntry(
-							Item.getByNameOrId(subRecipe.get(ENTRY_ITEM_NAME_KEY).getAsString()),
-							subRecipe.get(COUNT_KEY).getAsInt());
+					entryArray[r] = new CraftingEntry(Item.getByNameOrId(subRecipe.get(ENTRY_ITEM_NAME_KEY).getAsString()), subRecipe.get(COUNT_KEY).getAsInt());
 				}
-
 			}
 
 			// Allows us to skip the recipe if there are problems
-			if (cancelationFlag) {
+			if (cancellationFlag)
 				continue;
-			}
 
 			// Register the recipe
 			CraftingRegistry.registerRecipe(Item.getByNameOrId(recipeName), recipeCraftingGroup, entryArray);
-
 		}
-
+		 */
 	}
 
 	@Override
 	public File getDirectory() {
-		if (!DIRECTORY.exists()) {
-			DIRECTORY.mkdirs();
-		}
+		DIRECTORY.mkdirs();
 		return DIRECTORY;
 	}
 
 	private void initializeJSON(InputStream is) throws JsonIOException, JsonSyntaxException {
+		byte[] array;
+		try { array = IOUtils.toByteArray(is); }
+		catch (IOException e) { throw new JsonIOException("Failed to copy array into bytes!"); }
 		
-		byte[] array = null;
-		try {
-			array = IOUtils.toByteArray(is);
-		} catch (IOException e) {
+		if(array == null)
 			throw new JsonIOException("Failed to copy array into bytes!");
-		}
-		
-		if(array == null) {
-			throw new JsonIOException("Failed to copy array into bytes!");
-		}
 		
 		ByteArrayInputStream hashStream = new ByteArrayInputStream(array);
 		ByteArrayInputStream readStream = new ByteArrayInputStream(array);
-		
-		
 		InputStreamReader reader = new InputStreamReader(readStream);
 		
 		JsonObject extractedObject = GSON_MANAGER.fromJson(reader, JsonObject.class);
+
 		fromJSON(extractedObject);
-		
-	
-	
+
 		try {
 			readStream.close();
 			reader.close();
@@ -267,9 +323,6 @@ public class CraftingFileManager extends JSONDatabaseManager {
 		}
 		
 		currentFileHash = getDigest(hashStream);
-		
-		
-
 	}
 	
 	public InputStream getDefaultFileStream() {
@@ -278,16 +331,12 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
 	@Override
 	public void loadDirectory() {
-
-
-
-
 		// Gets directory-- this will initialize it
 		getDirectory();
 
 		boolean inCustomMode = false;
 
-		InputStream is = null;
+		InputStream is;
 		if (!MAIN_FILE.exists()) {
 			// Use default crafting mappings
 			log.debug("No custom mappings found, switching to default mode.");
@@ -303,6 +352,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 			try {
 				is = new FileInputStream(MAIN_FILE);
 				inCustomMode = true;
+
 			} catch (FileNotFoundException e) {
 				log.catching(e);
 				log.error("Could not find the custom mappings file! Switching to default mappings!");
@@ -312,17 +362,11 @@ public class CraftingFileManager extends JSONDatabaseManager {
 			}
 		}
 
-
-
-
-
 		// Load the input stream to JSON
 		try {
 			initializeJSON(is);
 			loadingStatus = inCustomMode ? 2 : 1;
 
-
-		
 		} catch(JsonIOException | JsonSyntaxException e) {
 			if(inCustomMode) {
 				is = getClass().getClassLoader().getResourceAsStream(DEFAULT_CRAFTING_MAPPINGS);
@@ -338,17 +382,12 @@ public class CraftingFileManager extends JSONDatabaseManager {
 				log.error("Attempted to load default mappings, but it failed!");
 			}
 		}
-
-
-
-
-
 	}
-	
-	
+
 	public int loadJSONStore(InputStream io) {
 		try {
 			initializeJSON(io);
+
 		} catch(JsonIOException e1) {
 			log.error("GSON had troubles reading from the Input Stream ({})", io.toString());
 			log.error("Check your directory permissions and ensure the system can read the file.");
@@ -359,6 +398,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 			log.catching(e2);
 			return -2;
 		}
+
 		return 1;
 	}
 	
@@ -381,7 +421,8 @@ public class CraftingFileManager extends JSONDatabaseManager {
 		
 		// If we don't have a cache directory, obviously
 		// we don't have a custom hash.
-		if(!CACHE_DIR.exists()) return false;
+		if(!CACHE_DIR.exists())
+			return false;
 		
 		for(File f : CACHE_DIR.listFiles()) {
 			
@@ -391,22 +432,17 @@ public class CraftingFileManager extends JSONDatabaseManager {
 			try (FileInputStream fis = new FileInputStream(f)) {
 				if(Arrays.equals(hash, checkHash)) {
 					int status = loadJSONStore(fis);
-					if(status == 1) {
-						// Successfully found a suitable catch and loaded it.
-						return true;
-					} else {
-						// Found a cache but failed to load
-						return false;
-					}
+					// Successfully found a suitable catch and loaded it.
+					// Found a cache but failed to load
+					return status == 1;
 				}
+
 			} catch (FileNotFoundException e) {
 				log.error("Was testing hashes against cache directory, could not find {}!", f.toString());
 				log.error("Does your system have permissions set to read that directory?");
-				continue;
 			} catch (IOException e) {
 				log.error("Was unable to reset InputStream for {}", f.toString());
 				log.catching(e);
-				continue;
 			}
 		}
 
@@ -420,13 +456,14 @@ public class CraftingFileManager extends JSONDatabaseManager {
 	public void saveCacheAndLoad(ByteArrayOutputStream baos) {
 		// If we are in single player, cancel this.
 		// We have alternate loading mechanisms for this.
-		if(mc.isIntegratedServerRunning()) return;
+		if(mc.isIntegratedServerRunning())
+			return;
 		
 		// Get the server IP
 		String serverIP = mc.getCurrentServerData().serverIP;
 		
 		// Create the cache directory if it doesn't exist
-		if(!CACHE_DIR.exists()) CACHE_DIR.mkdirs();
+		CACHE_DIR.mkdirs();
 		
 		File cache = new File(CACHE_DIR, serverIP + CACHE_EXTENSION);
 		
@@ -435,6 +472,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 		if(!cache.exists()) {
 			try {
 				cache.createNewFile();
+
 			} catch (IOException e) {
 				log.error("Failed to create a new cache file {}!", cache.getName());
 				log.error("Check system writing priveleges for {} path.", cache.getPath());
@@ -448,18 +486,15 @@ public class CraftingFileManager extends JSONDatabaseManager {
 		try (FileOutputStream fos = new FileOutputStream(cache)) {
 			fos.write(baos.toByteArray());
 			baos.close();
+
 		} catch (FileNotFoundException e) {
 			log.error("Failed to find file {}, could not create file output stream to write to cache.", cache);
 			log.error("Check permissions for directory path {}", cache.getPath());
 			log.catching(e);
-			return;
+
 		} catch (IOException e) {
 			log.error("Failed to write to the file output stream for file {}", cache);
 			log.catching(e);
-			return;
 		}
 	}
-	
-	
-
 }
