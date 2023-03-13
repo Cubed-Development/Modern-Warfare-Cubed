@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 
 public class Vests {
 
-    public static void preInit(Object mod, CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
 
     	new ItemVest.Builder()
         .withName("m43a_chest_harness")

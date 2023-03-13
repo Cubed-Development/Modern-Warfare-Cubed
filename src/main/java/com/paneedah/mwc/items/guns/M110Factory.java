@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -79,9 +79,9 @@ public class M110Factory implements GunFactory {
         "10rnd 7.62x51mm NATO Magazine"))
         
         .withModernRecipe( new
-        		CraftingEntry(Ores.CarbonComposite, 6), new
-        		CraftingEntry(Ores.GunmetalPlate, 10), new
-        		CraftingEntry(Ores.SteelIngot, 3))
+        		CraftingEntry(MWCItems.carbonComposite, 6), new
+        		CraftingEntry(MWCItems.gunmetalPlate, 10), new
+        		CraftingEntry(MWCItems.steelIngot, 3))
         
          .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
          .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)

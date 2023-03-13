@@ -1,9 +1,9 @@
 package com.paneedah.mwc.weapons;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.UMP45mag;
 import com.paneedah.mwc.models.UMP9Mag;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.wearables.Bullets;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
@@ -156,8 +156,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
 //                .withCrafting(CraftingComplexity.MEDIUM,
-//                          Ores.INGOT_STEEL,
-//                          Ores.GunmetalIngot)
+//                          MwItems.steelIngot,
+//                          MwItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.NinthSinMag = new ItemMagazine.Builder()
@@ -185,8 +185,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
 //                .withCrafting(CraftingComplexity.MEDIUM,
-//                          Ores.INGOT_STEEL,
-//                          Ores.GunmetalIngot)
+//                          MwItems.steelIngot,
+//                          MwItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
 
         Magazines.BrenMag = new ItemMagazine.Builder()
@@ -215,8 +215,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.JohnsonMAG = new ItemMagazine.Builder()
@@ -244,8 +244,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.VectorMag = new ItemMagazine.Builder()
@@ -446,8 +446,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AUG9mmMag = new ItemMagazine.Builder().withAmmo(30).withCompatibleBullet(Bullets.Bullet9x19mm).withName("AUG9mmMag")
@@ -472,8 +472,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.S710TricunMag = new ItemMagazine.Builder()
@@ -501,8 +501,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
 
         Magazines.M134Mag = new ItemMagazine.Builder().withAmmo(1000).withCompatibleBullet(Bullets.Bullet762x51).withName("M134Mag")
@@ -527,8 +527,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M60Mag = new ItemMagazine.Builder().withAmmo(100).withCompatibleBullet(Bullets.Bullet762x51).withName("M60Mag")
@@ -553,8 +553,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M249Mag = new ItemMagazine.Builder()
@@ -584,8 +584,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
 
         Magazines.StonerMag = new ItemMagazine.Builder().withAmmo(100).withCompatibleBullet(Bullets.Bullet556x45).withName("StonerMag")
@@ -610,8 +610,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.HoneyBadgerMag = new ItemMagazine.Builder()
@@ -1287,8 +1287,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.Origin12Mag = new ItemMagazine.Builder()
@@ -1507,8 +1507,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M9Mag30 = new ItemMagazine.Builder().withAmmo(30).withCompatibleBullet(Bullets.Bullet9x19mm).withName("M9Mag30")
@@ -1606,8 +1606,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M1911_44Mag = new ItemMagazine.Builder().withAmmo(7).withCompatibleBullet(Bullets.Bullet44).withName("M1911_44Mag")
@@ -1633,8 +1633,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M45A1Mag14 = new ItemMagazine.Builder().withAmmo(14).withCompatibleBullet(Bullets.Bullet45ACP).withName("M45A1Mag14")
@@ -1659,8 +1659,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         
@@ -1759,8 +1759,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.FrommerStopMag = new ItemMagazine.Builder().withAmmo(8).withCompatibleBullet(Bullets.Bullet380ACP).withName("FrommerStopMag")
@@ -1785,8 +1785,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.APSMag = new ItemMagazine.Builder()
@@ -1907,8 +1907,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M82Mag = new ItemMagazine.Builder()
@@ -1961,8 +1961,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.KBP9A91Mag = new ItemMagazine.Builder()
@@ -2037,8 +2037,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.DSR1Mag = new ItemMagazine.Builder()
@@ -2067,8 +2067,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.DSR1MagExt = new ItemMagazine.Builder()
@@ -2097,8 +2097,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.InterventionMag = new ItemMagazine.Builder()
@@ -2126,8 +2126,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M40A6Mag = new ItemMagazine.Builder()
@@ -2156,8 +2156,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.R700Mag = new ItemMagazine.Builder().withAmmo(5).withCompatibleBullet(Bullets.Bullet762x54).withName("R700Mag")
@@ -2182,8 +2182,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.R700Mag10rnd = new ItemMagazine.Builder().withAmmo(10).withCompatibleBullet(Bullets.Bullet762x54).withName("R700Mag10rnd")
@@ -2208,8 +2208,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.SSG08Mag = new ItemMagazine.Builder()
@@ -2237,8 +2237,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M110Mag = new ItemMagazine.Builder()
@@ -2316,8 +2316,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M1A1Mag = new ItemMagazine.Builder().withAmmo(30).withCompatibleBullet(Bullets.Bullet45ACP)
@@ -2343,8 +2343,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M712Mag = new ItemMagazine.Builder().withAmmo(20).withCompatibleBullet(Bullets.Bullet763x25).withName("M712mag_2")
@@ -2369,8 +2369,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.MG42Mag = new ItemMagazine.Builder().withAmmo(50).withCompatibleBullet(Bullets.Bullet792x57).withName("MG42Mag_2")
@@ -2395,8 +2395,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.DP28Mag = new ItemMagazine.Builder().withAmmo(47).withCompatibleBullet(Bullets.Bullet762x54).withName("DP28Mag")
@@ -2421,8 +2421,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M1CarbineMag = new ItemMagazine.Builder()
@@ -2451,8 +2451,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.FNFALMag = new ItemMagazine.Builder()
@@ -2589,8 +2589,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.MP5A5Mag = new ItemMagazine.Builder()
@@ -2813,8 +2813,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.ScorpionMag = new ItemMagazine.Builder()
@@ -2896,8 +2896,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.MAC10Mag = new ItemMagazine.Builder()
@@ -2951,8 +2951,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.ScarHMag = new ItemMagazine.Builder()
@@ -3117,8 +3117,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.G43GewehrMag = new ItemMagazine.Builder().withAmmo(10).withCompatibleBullet(Bullets.Bullet792x57).withName("g43_gewehr_mag")
@@ -3143,8 +3143,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.SV98Mag = new ItemMagazine.Builder().withAmmo(10).withCompatibleBullet(Bullets.Bullet762x54).withName("SV98Mag_2")
@@ -3169,8 +3169,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.UziMag = new ItemMagazine.Builder()
@@ -3200,8 +3200,8 @@ public class Magazines {
                 })
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
-                          Ores.INGOT_STEEL,
-                          Ores.GunmetalIngot)
+                          MWCItems.steelIngot,
+                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.VP70Mag = new ItemMagazine.Builder()

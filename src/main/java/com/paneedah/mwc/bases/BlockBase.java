@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import java.util.Random;
 
 public class BlockBase extends Block {
+
     public BlockBase(String registryName) {
         super(Material.ROCK);
         setRegistryName(registryName);

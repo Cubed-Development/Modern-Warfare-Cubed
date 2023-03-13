@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "mwc:graphite_chunk"
+    }
+  },
+  "result": {
+    "item": "mwc:carbon_composite",
+    "count": 3
+  }
+}

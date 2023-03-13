@@ -4,7 +4,6 @@ import com.paneedah.mwc.Grenades;
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.models.gasgrenade;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.Part;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.animation.Transition;
@@ -44,7 +43,7 @@ public class GasGrenadeFactory implements GrenadeFactory {
 //                                'X', CommonProxy.SteelPlate,
 //                                'F', CompatibleItems.COAL,
 //                                'E', CompatibleItems.GUNPOWDER,
-//                                'G', Ores.INGOT_STEEL
+//                                'G', MwItems.steelIngot
 //                                )
                 .withRenderer(
                         new GrenadeRenderer.Builder()

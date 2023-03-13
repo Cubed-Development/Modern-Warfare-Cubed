@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "FFF"
+  ],
+  "key": {
+    "X": {
+      "type": "forge:ore_dict",
+      "ore": "ingotCopper"
+    },
+    "F": {
+      "type": "forge:ore_dict",
+      "ore": "ingotTin"
+    }
+  },
+  "result": {
+    "item": "mwc:gunmetal_composite",
+    "count": 6
+  }
+}
