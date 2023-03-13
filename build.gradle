@@ -28,7 +28,7 @@ minecraft {
 }
 
 runClient {
-    args '--username=Azurae'
+    args '--username=Player1'
 }
 
 // Replace version in `mcmod.info`

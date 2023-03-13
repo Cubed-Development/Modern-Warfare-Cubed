@@ -8,7 +8,7 @@ public class ManufacturingItemBase extends ItemBase {
     Item scrap;
     double recoveryChance = 0.5;
 
-    public ManufacturingItemBase(String registryName){
+    public ManufacturingItemBase(String registryName) {
         super(registryName);
     }
 
@@ -20,15 +20,15 @@ public class ManufacturingItemBase extends ItemBase {
         this.scrap = scrap;
     }
 
-    public boolean isScrapped(){
+    public boolean isScrapped() {
         return this.scrap != null;
     }
 
-    public Item getScrap(){
+    public Item getScrap() {
         return this.scrap;
     }
 
-    public double getRecoveryChance(){
+    public double getRecoveryChance() {
         return this.recoveryChance;
     }
 }

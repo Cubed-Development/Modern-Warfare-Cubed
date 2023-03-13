@@ -4927,22 +4927,6 @@
       ]
     },
     {
-      "entryName": "mwc:Silencer65x39",
-      "craftingGroup": "ATTACHMENT_NORMAL",
-      "recipe": [
-        {
-          "entryName": "mwc:gunmetal_ingot",
-          "isOreDictionary": false,
-          "count": 1
-        },
-        {
-          "entryName": "mwc:steel_ingot",
-          "isOreDictionary": false,
-          "count": 1
-        }
-      ]
-    },
-    {
       "entryName": "Silencer57x38",
       "craftingGroup": "ATTACHMENT_NORMAL",
       "recipe": [

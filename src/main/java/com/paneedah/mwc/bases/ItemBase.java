@@ -10,7 +10,7 @@ public class ItemBase extends Item {
     int stackSize = 64;
     String[] oreDictKeys;
 
-    public ItemBase(String registryName){
+    public ItemBase(String registryName) {
         setRegistryName(registryName);
         setTranslationKey(registryName);
 
@@ -19,7 +19,7 @@ public class ItemBase extends Item {
         setCreativeTab(ModernWarfareMod.BlocksTab);
     }
 
-    public void setStackSize(int stackSize){
+    public void setStackSize(int stackSize) {
         this.stackSize = stackSize;
     }
 
@@ -28,15 +28,15 @@ public class ItemBase extends Item {
     *  https://mcreator.net/wiki/ore-dictionary-names-list for commonly used OreDict names
     *  Don't hesitate to use this :D
     */
-    public void setOreDict(String[] oreDictKeys){
+    public void setOreDict(String[] oreDictKeys) {
         this.oreDictKeys = oreDictKeys;
     }
 
-    public void setOreDict(String oreDictKey){
+    public void setOreDict(String oreDictKey) {
         this.oreDictKeys = new String[]{oreDictKey};
     }
 
-    public void addOreDictKey(String oreDictKey){
+    public void addOreDictKey(String oreDictKey) {
         // Creating a new array with a larger size to add the new key.
         String[] newArray = Arrays.copyOf(this.oreDictKeys, this.oreDictKeys.length + 1);
         newArray[newArray.length - 1] = oreDictKey;
