@@ -309,8 +309,4 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
     public UUID getId() {
         return getUniqueID();
     }
-
-    @Override
-    public void setContext(ModContext modContext) {
-    }
 }

@@ -240,7 +240,7 @@ public class CommonModContext implements ModContext {
 		channel.registerMessage(new SpawnParticleMessageHandler(this),
 		        SpawnParticleMessage.class, 18, CompatibleSide.CLIENT);
 
-		channel.registerMessage(new BlockHitMessageHandler(),
+		channel.registerMessage(new BlockHitMessageHandler(this),
 		        BlockHitMessage.class, 19, CompatibleSide.CLIENT);
 
 		channel.registerMessage(new GrenadeMessageHandler(grenadeAttackAspect),
@@ -249,7 +249,7 @@ public class CommonModContext implements ModContext {
 		channel.registerMessage(new ExplosionMessageHandler(this),
                 ExplosionMessage.class, 21, CompatibleSide.CLIENT);
 		
-		channel.registerMessage(new ArmorControlHandler(),
+		channel.registerMessage(new ArmorControlHandler(this),
                 ArmorControlMessage.class, 22, CompatibleSide.SERVER);
 		
 //		channel.registerMessage(new SpreadableExposureMessageHandler(this),
