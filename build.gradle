@@ -58,7 +58,19 @@ configurations {
     compile.extendsFrom(embed)
 }
 
+repositories {
+    ivy {
+        url 'https://github.com/'
+
+        patternLayout { artifact '[organisation]/[module]/releases/download/[revision]/[module]-[revision].[ext]' }
+
+        metadataSources { artifact() }
+    }
+}
+
 dependencies {
+    implementation 'Red-Studio-Ragnarok:Red-Core:0.1@jar'
+
     implementation 'net.jafama:jafama:2.+'
     embed 'net.jafama:jafama:2.+'
 }
