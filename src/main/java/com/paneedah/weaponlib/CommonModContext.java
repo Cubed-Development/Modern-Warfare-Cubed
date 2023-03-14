@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.MagazineReloadAspect.LoadPermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
@@ -385,10 +386,10 @@ public class CommonModContext implements ModContext {
 	@Override
 	public void preInitEnd(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
 		compatibility.registerTileEntity(TileEntityWorkbench.class, ModReference.id + ":tileworkbench");
-		compatibility.registerBlock(this, new WorkbenchBlock(this, "weapon_workbench", Material.WOOD), "weapon_workbench");
+		compatibility.registerBlock(this, new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(ModernWarfareMod.BlocksTab), "weapon_workbench");
 		
 		compatibility.registerTileEntity(TileEntityAmmoPress.class, ModReference.id + ":tileammopress");
-		compatibility.registerBlock(this, new BlockAmmoPress(this, "ammo_press", Material.IRON), "ammo_press");	
+		compatibility.registerBlock(this, new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(ModernWarfareMod.BlocksTab), "ammo_press");	
 	}
 	
 	@Override
