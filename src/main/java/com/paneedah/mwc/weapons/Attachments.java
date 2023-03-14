@@ -12818,7 +12818,7 @@ public class Attachments {
                         Vector556Handguard, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip, G2ContenderBarrelLong,
                         HK417Receiver, HK417ReceiverTan)
         		.withCrosshair("LP")
-                .withModel(new com.paneedah.mwc.models.Leupold(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Leupold(), "leupold.png")
                 .withModel(new com.paneedah.mwc.models.JPUreticle(), "black.png")
                 .withFirstPersonModelPositioning((model, itemStack) -> {
                     if (model instanceof com.paneedah.mwc.models.Leupold) {

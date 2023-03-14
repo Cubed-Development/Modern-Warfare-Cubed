@@ -41,7 +41,6 @@ public class MWCItems {
     //Render...?
     public static ItemBase vestRender;
 
-
     public static ItemBase[] items;
 
     public static void init() {
@@ -122,18 +121,19 @@ public class MWCItems {
 
     @SubscribeEvent
     public static void registerRenders(ModelRegistryEvent modelRegistryEvent) {
-        for (ItemBase item : items){
+        for (ItemBase item : items)
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-        }
     }
 
     static void registerOreDictionaryKeys(ItemBase[] items){
         for (ItemBase item : items) {
             String[] oreDictKeys = item.getOreDictKeys();
-            if(oreDictKeys == null) continue;
-            for (String oreDictKey : oreDictKeys) {
+
+            if(oreDictKeys == null)
+                continue;
+
+            for (String oreDictKey : oreDictKeys)
                 OreDictionary.registerOre(oreDictKey, item);
-            }
         }
     }
 }
