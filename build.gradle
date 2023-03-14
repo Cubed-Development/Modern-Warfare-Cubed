@@ -69,7 +69,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'Red-Studio-Ragnarok:Red-Core:0.1@jar'
+    implementation 'Red-Studio-Ragnarok:Red-Core:0.1.1@jar'
 
     implementation 'net.jafama:jafama:2.+'
     embed 'net.jafama:jafama:2.+'
