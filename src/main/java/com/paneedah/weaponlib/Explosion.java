@@ -231,7 +231,7 @@ public class Explosion {
 
             EntityPlayer entityplayer = (EntityPlayer) (Entity) value;
             if (!compatibility.isSpectator(entityplayer) && (!compatibility.isCreative(entityplayer) || !entityplayer.capabilities.isFlying))
-                this.playerKnockbackMap.put(entityplayer, new CompatibleVec3(d5 * d10, d7 * d10, d9 * d10))
+                this.playerKnockbackMap.put(entityplayer, new CompatibleVec3(d5 * d10, d7 * d10, d9 * d10));
         }
     }
     
