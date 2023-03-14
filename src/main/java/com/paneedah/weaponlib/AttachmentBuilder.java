@@ -19,8 +19,6 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
 
 public class AttachmentBuilder<T> {
 	
-	public static int noRecipe = 0;
-	
 	protected String name;
 	protected ModelBase model;
 	protected String textureName;
@@ -46,8 +44,8 @@ public class AttachmentBuilder<T> {
 	protected ApplyHandler2<T> apply2;
 	protected ApplyHandler2<T> remove2;
 	private String crosshair;
-	private List<CustomRenderer<?>> postRenderer = new ArrayList<>();
-	private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+	private final List<CustomRenderer<?>> postRenderer = new ArrayList<>();
+	private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
 	private boolean isRenderablePart;
     private int maxStackSize = 1;
     private Function<ItemStack, String> informationProvider;
@@ -60,7 +58,7 @@ public class AttachmentBuilder<T> {
     private int craftingCount = 1;
     private Object[] craftingRecipe;
     
-    private List<ItemAttachment<T>> requiredAttachments = new ArrayList<>();
+    private final List<ItemAttachment<T>> requiredAttachments = new ArrayList<>();
     
     private CraftingEntry[] modernRecipe;
     private CraftingGroup craftingGroup;
@@ -98,9 +96,7 @@ public class AttachmentBuilder<T> {
 	
 	@SafeVarargs
     public final AttachmentBuilder<T> withRequiredAttachments(ItemAttachment<T>...requiredAttachments) {
-        for(int i = 0; i < requiredAttachments.length; i++) {
-            this.requiredAttachments.add(requiredAttachments[i]);
-        }
+		Collections.addAll(this.requiredAttachments, requiredAttachments);
         return this;
     }
 
@@ -159,10 +155,7 @@ public class AttachmentBuilder<T> {
 		return this;
 	}
 
-	public AttachmentBuilder<T> withFirstPersonHandPositioning(
-            Consumer<RenderContext<RenderableState>> leftHand,
-            Consumer<RenderContext<RenderableState>> rightHand)
-    {
+	public AttachmentBuilder<T> withFirstPersonHandPositioning(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
         this.firstPersonLeftHandPositioning = leftHand;
         this.firstPersonRightHandPositioning = rightHand;
         return this;
@@ -172,7 +165,6 @@ public class AttachmentBuilder<T> {
 		this.crosshair = crosshair.toLowerCase();
 		return this;
 	}
-
 
 	public AttachmentBuilder<T> withPostRender(CustomRenderer<?> postRenderer) {
 		this.postRenderer.add(postRenderer);
@@ -188,7 +180,6 @@ public class AttachmentBuilder<T> {
 		this.isRenderablePart = true;
 		return this;
 	}
-
 
 	public AttachmentBuilder<T> withApply(ApplyHandler<T> apply) {
 		this.apply = apply;
@@ -252,25 +243,24 @@ public class AttachmentBuilder<T> {
 		attachment.setPostRenderer(postRenderer);
 		attachment.setName(name);
 		attachment.apply2 = apply2;
-		
-		
 		attachment.setCraftingGroup(craftingGroup);
 		attachment.setModernRecipe(modernRecipe);
 		
 		// Do not register things if they do not have recipes.
 		CraftingRegistry.registerHook(attachment);
 
-		if(rotationPoint != null) attachment.rotationPoint = rotationPoint;
+		if(rotationPoint != null)
+			attachment.rotationPoint = rotationPoint;
 
 		attachment.remove2 = remove2;
 		attachment.maxStackSize = maxStackSize;
 		attachment.setRequiredAttachments(requiredAttachments);
-		if(attachment.getInformationProvider() == null) {
+
+		if(attachment.getInformationProvider() == null)
 		    attachment.setInformationProvider(informationProvider);
-		}
-		if(getTextureName() != null) {
-			attachment.setTextureName(ModReference.id + ":" + stripFileExtension(getTextureName(), ".png"));
-		}
+
+		if(getTextureName() != null)
+			attachment.setTextureName(ModReference.id + ":" + stripFileExtension(getTextureName()));
 
 		if(isRenderablePart) {
 			attachment.setRenderablePart(new Part() {
@@ -281,61 +271,42 @@ public class AttachmentBuilder<T> {
 			});
 		}
 
-		if(getModel() != null) {
-			attachment.addModel(getModel(), addFileExtension(getTextureName(), ".png"));
-		}
+		if(getModel() != null)
+			attachment.addModel(getModel(), addFileExtension(getTextureName()));
 
-		texturedModels.forEach(tm -> attachment.addModel(tm.getU(), addFileExtension(tm.getV(), ".png") ));
+		texturedModels.forEach(tm -> attachment.addModel(tm.getU(), addFileExtension(tm.getV()) ));
+		compatibleAttachments.values().forEach(attachment::addCompatibleAttachment);
 
-		compatibleAttachments.values().forEach(a -> attachment.addCompatibleAttachment(a));
-
-		if((getModel() != null || !texturedModels.isEmpty())) {
-			modContext.registerRenderableItem(name, attachment, compatibility.isClientSide() ? registerRenderer(attachment, modContext) : null);
-		}
+		if((getModel() != null || !texturedModels.isEmpty()))
+			modContext.registerRenderableItem(name, attachment, compatibility.isClientSide() ? registerRenderer(/*attachment, */modContext) : null);
 
 		if(craftingRecipe != null && craftingRecipe.length >= 2) {
-//		    ItemStack itemStack = new ItemStack(attachment);
-		    modContext.getRecipeManager().registerShapedRecipe(attachment, craftingRecipe);
-//		    boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
-//		    if(hasOres) {
-//                compatibility.addShapedOreRecipe(itemStack, registeredRecipe.toArray());
-//            } else {
-//                compatibility.addShapedRecipe(itemStack, registeredRecipe.toArray());
-//            }
-		} else if(craftingComplexity != null) {
-			OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
-				.withSlotCount(9)
-            	.build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
+			modContext.getRecipeManager().registerShapedRecipe(attachment, craftingRecipe);
 
-			List<Object> shape = modContext.getRecipeManager().createShapedRecipe(attachment, name, optionsMetadata);
+		    /*ItemStack itemStack = new ItemStack(attachment);
+		    boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
+		    if(hasOres) {
+                compatibility.addShapedOreRecipe(itemStack, registeredRecipe.toArray());
+            } else {
+                compatibility.addShapedRecipe(itemStack, registeredRecipe.toArray());
+            }*/
+
+		} else if (craftingComplexity != null) {
+			OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder().withSlotCount(9).build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
 
 			ItemStack itemStack = new ItemStack(attachment);
 			compatibility.setStackSize(itemStack, craftingCount);
-            if(optionsMetadata.hasOres()) {
-			    compatibility.addShapedOreRecipe(itemStack, shape.toArray());
-			} else {
-			    compatibility.addShapedRecipe(itemStack, shape.toArray());
-			}
-		} else if(attachment.getCategory() == AttachmentCategory.GRIP
-		        || attachment.getCategory() == AttachmentCategory.SCOPE
-		        || attachment.getCategory() == AttachmentCategory.MAGAZINE
-		        || attachment.getCategory() == AttachmentCategory.BULLET
-		        || attachment.getCategory() == AttachmentCategory.SILENCER
-		        || attachment.getCategory() == AttachmentCategory.SKIN
-		        || attachment.getCategory() == AttachmentCategory.LASER
-		        ){
-		    //throw new IllegalStateException("No recipe defined for attachment " + name);
-		    noRecipe += 1;
-			//System.err.println("!!!No recipe defined for attachment " + name);
+
+			List<Object> shape = modContext.getRecipeManager().createShapedRecipe(attachment, name, optionsMetadata);
+            if(optionsMetadata.hasOres()) compatibility.addShapedOreRecipe(itemStack, shape.toArray());
+			else compatibility.addShapedRecipe(itemStack, shape.toArray());
 		}
-		
-		
 
 		return attachment;
 	}
 
 
-	private Object registerRenderer(ItemAttachment<T> attachment, ModContext modContext) {
+	private Object registerRenderer(/*ItemAttachment<T> attachment, */ModContext modContext) {
 		return new StaticModelSourceRenderer.Builder()
 		.withHiddenInventory(tab == null)
 		.withEntityPositioning(entityPositioning)
@@ -352,12 +323,12 @@ public class AttachmentBuilder<T> {
 	}
 
 
-	static String addFileExtension(String s, String ext) {
-		return s != null && !s.endsWith(ext) ? s + ext : s;
+	public static String addFileExtension(String s) {
+		return s != null && !s.endsWith(".png") ? s + ".png" : s;
 	}
 
-	protected static String stripFileExtension(String str, String extension) {
-		return str.endsWith(extension) ? str.substring(0, str.length() - extension.length()) : str;
+	public static String stripFileExtension(String str) {
+		return str.endsWith(".png") ? str.substring(0, str.length() - ".png".length()) : str;
 	}
 
 	public <V extends ItemAttachment<T>> V build(ModContext modContext, Class<V> target) {

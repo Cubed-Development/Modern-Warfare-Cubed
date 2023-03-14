@@ -10,7 +10,7 @@ import java.util.function.Consumer;
 
 public class CompatibleAttachment<T> {
 
-	private ItemAttachment<T> attachment;
+	private final ItemAttachment<T> attachment;
 	private Consumer<ModelBase> modelPositioning;
 //	private BiConsumer<EntityLivingBase, ItemStack> positioning;
 	private Object positioning;
@@ -21,11 +21,7 @@ public class CompatibleAttachment<T> {
 	ItemAttachment.MeleeWeaponApplyHandler<ItemMelee> meleeApplyHandler;
     ItemAttachment.MeleeWeaponApplyHandler<ItemMelee> meleeRemoveHandler;
 
-	public CompatibleAttachment(ItemAttachment<T> attachment,
-	        Object positioning,
-	        Consumer<ModelBase> modelPositioning,
-	        boolean isDefault,
-	        boolean isPermanent) {
+	public CompatibleAttachment(ItemAttachment<T> attachment, Object positioning, Consumer<ModelBase> modelPositioning, boolean isDefault, boolean isPermanent) {
 		this.attachment = attachment;
 		this.positioning = positioning;
 		this.modelPositioning = modelPositioning;
@@ -33,18 +29,11 @@ public class CompatibleAttachment<T> {
 		this.isPermanent = isPermanent;
 	}
 
-	public CompatibleAttachment(ItemAttachment<T> attachment,
-            BiConsumer<EntityLivingBase, ItemStack> positioning,
-            Consumer<ModelBase> modelPositioning,
-            boolean isDefault) {
+	public CompatibleAttachment(ItemAttachment<T> attachment, BiConsumer<EntityLivingBase, ItemStack> positioning, Consumer<ModelBase> modelPositioning, boolean isDefault) {
 	    this(attachment, positioning, modelPositioning, isDefault, false);
     }
 	
-	//
-	
-	public CompatibleAttachment(ItemAttachment<T> attachment,
-	        Consumer<RenderContext<RenderableState>> positioning,
-            boolean isDefault, boolean isPermanent) {
+	public CompatibleAttachment(ItemAttachment<T> attachment, Consumer<RenderContext<RenderableState>> positioning, boolean isDefault, boolean isPermanent) {
         this(attachment, positioning, null, isDefault, false);
     }
 
@@ -54,9 +43,7 @@ public class CompatibleAttachment<T> {
 		this.removeHandler = removeHandler;
 	}
 
-	public CompatibleAttachment(ItemAttachment<T> attachment,
-	        ItemAttachment.MeleeWeaponApplyHandler<ItemMelee> meleeApplyHandler,
-	        ItemAttachment.MeleeWeaponApplyHandler<ItemMelee> meleeRemoveHandler) {
+	public CompatibleAttachment(ItemAttachment<T> attachment, ItemAttachment.MeleeWeaponApplyHandler<ItemMelee> meleeApplyHandler, ItemAttachment.MeleeWeaponApplyHandler<ItemMelee> meleeRemoveHandler) {
         this.attachment = attachment;
         this.meleeApplyHandler = meleeApplyHandler;
         this.meleeRemoveHandler = meleeRemoveHandler;

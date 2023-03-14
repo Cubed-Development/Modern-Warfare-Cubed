@@ -26,10 +26,8 @@ public class ModelBipedWithAttachments extends CompatibleModelBiped {
 		return delegate.hashCode();
 	}
 
-	public void setLivingAnimations(EntityLivingBase p_78086_1_,
-			float p_78086_2_, float p_78086_3_, float p_78086_4_) {
-		delegate.setLivingAnimations(p_78086_1_, p_78086_2_, p_78086_3_,
-				p_78086_4_);
+	public void setLivingAnimations(EntityLivingBase p_78086_1_, float p_78086_2_, float p_78086_3_, float p_78086_4_) {
+		delegate.setLivingAnimations(p_78086_1_, p_78086_2_, p_78086_3_, p_78086_4_);
 	}
 
 	public ModelRenderer getRandomModelBox(Random p_85181_1_) {
@@ -48,11 +46,8 @@ public class ModelBipedWithAttachments extends CompatibleModelBiped {
 		return delegate.equals(obj);
 	}
 
-	public void setRotationAngles(float p_78087_1_, float p_78087_2_,
-			float p_78087_3_, float p_78087_4_, float p_78087_5_,
-			float p_78087_6_, Entity p_78087_7_) {
-		delegate.setRotationAngles(p_78087_1_, p_78087_2_, p_78087_3_,
-				p_78087_4_, p_78087_5_, p_78087_6_, p_78087_7_);
+	public void setRotationAngles(float p_78087_1_, float p_78087_2_, float p_78087_3_, float p_78087_4_, float p_78087_5_, float p_78087_6_, Entity p_78087_7_) {
+		delegate.setRotationAngles(p_78087_1_, p_78087_2_, p_78087_3_, p_78087_4_, p_78087_5_, p_78087_6_, p_78087_7_);
 	}
 
 	public String toString() {
@@ -61,16 +56,18 @@ public class ModelBipedWithAttachments extends CompatibleModelBiped {
 
 	public void renderAttachments(List<CompatibleAttachment<?>> attachments, Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		for(CompatibleAttachment<?> compatibleAttachment: attachments) {
-			if(compatibleAttachment != null) {
-				for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-					mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + texturedModel.getV()));
-					GL11.glPushMatrix();
-					if(compatibleAttachment.getModelPositioning() != null) {
-						compatibleAttachment.getModelPositioning().accept(texturedModel.getU());
-					}
-					texturedModel.getU().render(entity, f, f1, f2, f3, f4, f5);
-					GL11.glPopMatrix();
-				}
+			if (compatibleAttachment == null)
+				continue;
+
+			for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
+				mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + texturedModel.getV()));
+				GL11.glPushMatrix();
+
+				if(compatibleAttachment.getModelPositioning() != null)
+					compatibleAttachment.getModelPositioning().accept(texturedModel.getU());
+
+				texturedModel.getU().render(entity, f, f1, f2, f3, f4, f5);
+				GL11.glPopMatrix();
 			}
 		}
 	}

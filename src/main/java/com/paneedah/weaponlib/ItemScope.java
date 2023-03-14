@@ -28,12 +28,12 @@ public class ItemScope extends ItemAttachment<Weapon> {
         private int width = DEFAULT_WIDTH;
         private int height = DEFAULT_HEIGHT;
         
-        
         public Reticle sniperReticle = new Reticle("holo");
         		
         public CyclicList<Reticle> reticles = new CyclicList<>();
         public ReflexScreen screen;
         private float radialCut = 20f;
+
         /*
         public ResourceLocation reticleTexture;
         public float texScale = 0.05f;
@@ -41,10 +41,8 @@ public class ItemScope extends ItemAttachment<Weapon> {
         private boolean hasReticle = false;
         public Vec3d background;
         */
-        private BiConsumer<EntityLivingBase, ItemStack> reticlePositioning;
 
-        
-        
+        private BiConsumer<EntityLivingBase, ItemStack> reticlePositioning;
         
         public Builder withZoomRange(float minZoom, float maxZoom) {
             this.minZoom = minZoom;
@@ -89,11 +87,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
         	this.reticles.addAll(Arrays.asList(reticles));
         	return this;
         }
-        
-        
-        
-     
-        
+
         public Builder withReticlePositioning(BiConsumer<EntityLivingBase, ItemStack> reticlePositioning) {
         	this.reticlePositioning = reticlePositioning;
         	return this;
@@ -113,6 +107,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
                         GL11.glTranslatef(0.1f, 0.4f, 0.6f);
                     };
                 }
+
                 withPostRender(new ScopePerspective(viewfinderPositioning, sniperReticle));
             }
             
@@ -133,20 +128,19 @@ public class ItemScope extends ItemAttachment<Weapon> {
                 float zoom = minZoom + (maxZoom - minZoom) / 2f;
                 instance.setZoom(zoom);
             };
-            this.remove2 = (a, instance) -> {
-                instance.setZoom(1);
-            };
+
+            this.remove2 = (a, instance) -> instance.setZoom(1);
+
             return super.build(modContext);
         }
     }
 
     @SuppressWarnings("unused")
     private ModContext modContext;
-    private Builder builder;
+    private final Builder builder;
 
     private ItemScope(Builder builder) {
-        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null,
-                null, null);
+        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null, null, null);
         this.builder = builder;
 
         setMaxStackSize(DEFAULT_MAX_STACK_SIZE);
@@ -155,8 +149,6 @@ public class ItemScope extends ItemAttachment<Weapon> {
     public boolean hasReticle() {
     	return !builder.reticles.isEmpty();
     }
-    
-   
     
     public float getMinZoom() {
         return builder.minZoom;

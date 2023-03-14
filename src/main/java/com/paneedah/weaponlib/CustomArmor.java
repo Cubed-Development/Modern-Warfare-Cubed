@@ -49,28 +49,28 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 }
             }
         }
-        
 
         private static class HelmetModelFactory {
             private static ModelBiped create(String modelClassName) {
                 ModelBiped helmetModel = null;
                 try {
                     Class<?> modelClass = Class.forName(modelClassName);
-                    
-                    
-                    if(ModelBiped.class.isAssignableFrom(modelClass)) {
+
+                    if(ModelBiped.class.isAssignableFrom(modelClass))
                         helmetModel = (ModelBiped) modelClass.newInstance();
-                    } else if(ModelBase.class.isAssignableFrom(modelClass)) {
-                        helmetModel = new ModelBiped() {
-                            {
+
+                    else if(ModelBase.class.isAssignableFrom(modelClass)) {
+                        helmetModel = new ModelBiped() {{
                                 this.bipedHead = new ModelBaseRendererWrapper((WrappableModel) modelClass.newInstance());
                                 this.bipedHeadwear.isHidden = true;
                             }
                         };
                     }
-                } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+
+                } catch (Exception e) {
                     throw new IllegalStateException("Missing helmet model", e);
                 }
+
                 return helmetModel;
             }
         }
@@ -81,9 +81,10 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 ModelBiped bootsModel = null;
                 try {
                     Class<?> modelClass = Class.forName(modelClassName);
-                    
+
                     if(ModelBiped.class.isAssignableFrom(modelClass)) {
                         bootsModel = (ModelBiped) modelClass.newInstance();
+
                     } //else if(ModelBase.class.isAssignableFrom(modelClass)) {
 //                            bootsModel = new ModelBiped() {
 //                                {
@@ -92,9 +93,10 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 //                                }
 //                            };
                     //}
-                } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+                } catch (Exception e) {
                     throw new IllegalStateException("Missing boots model", e);
                 }
+
                 return bootsModel;
             }
         }
@@ -110,7 +112,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
         private String modelClassName;
         private String hudTextureName;
         //private Function<Integer, ModelBiped> modelFactory;
-        private Map<ItemAttachment<CustomArmor>, CompatibleAttachment<CustomArmor>> compatibleAttachments = new HashMap<>();
+        private final Map<ItemAttachment<CustomArmor>, CompatibleAttachment<CustomArmor>> compatibleAttachments = new HashMap<>();
         private CreativeTabs creativeTab;
         private boolean nightVision;
         private boolean vignetteEnabled;
@@ -177,14 +179,14 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             this.breathingSound = sound.toLowerCase();
             return this;
         }
+
         /*
         public Builder withModelSupplier(Function<Integer, ModelBiped> modelFactory) {
             this.modelFactory = modelFactory;
             return this;
         }*/
 
-        public Builder withCompatibleAttachment(AttachmentCategory category, ModelBase attachmentModel, String textureName,
-                Consumer<ModelBase> positioner) {
+        public Builder withCompatibleAttachment(AttachmentCategory category, ModelBase attachmentModel, String textureName, Consumer<ModelBase> positioner) {
             ItemAttachment<CustomArmor> item = new ItemAttachment<CustomArmor>(category, attachmentModel, textureName, null);
             compatibleAttachments.put(item, new CompatibleAttachment<CustomArmor>(item, positioner));
             return this;
@@ -220,7 +222,6 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
         }
 
         public void build(boolean isClient) {
-
 //            if(isClient) {
 //              try {
 //                  chestModel = (ModelBiped) Class.forName(modelClassName).newInstance();
@@ -236,8 +237,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 //            }
 
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
-            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
-                    unlocalizedHelmetName, textureName, chestModel, hudTextureName);
+            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD, unlocalizedHelmetName, textureName, chestModel, hudTextureName);
 
             if (creativeTab != null)
                 armorHelmet.setCreativeTab(creativeTab);
@@ -255,8 +255,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             compatibility.registerItem(armorChest, unlocalizedChestName.toLowerCase());
 
             String unlocalizedBootsName = unlocalizedName + "_boots";
-            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET,
-                    unlocalizedBootsName, textureName, bootsModel, hudTextureName);
+            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET, unlocalizedBootsName, textureName, bootsModel, hudTextureName);
 
             if(armorBoots != null)
                 armorBoots.setCreativeTab(creativeTab);
@@ -304,8 +303,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 helmetModel = HelmetModelFactory.create(modelClassName);
 
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
-            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
-                    unlocalizedHelmetName, textureName, helmetModel, hudTextureName);
+            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD, unlocalizedHelmetName, textureName, helmetModel, hudTextureName);
             
             CraftingRegistry.registerHook(armorHelmet);
 
@@ -327,18 +325,14 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
         }
 
         public CustomArmor buildChest(boolean isClient) {
-
-            if(isClient && chestModel == null) {
+            if(isClient && chestModel == null)
                 chestModel = ChestModelFactory.createModel(modelClassName);
-            }
 
             String unlocalizedChestName = unlocalizedName + "_chest";
-            CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.CHEST,
-                    unlocalizedChestName, textureName, chestModel, hudTextureName);
+            CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.CHEST, unlocalizedChestName, textureName, chestModel, hudTextureName);
             
             CraftingRegistry.registerHook(armorChest);
-            
-            
+
             if(creativeTab != null)
                 armorChest.setCreativeTab(creativeTab);
 
@@ -364,8 +358,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 bootsModel = BootsModelFactory.createModel(modelClassName);
 
             String unlocalizedBootsName = unlocalizedName + "_boots";
-            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET,
-                    unlocalizedBootsName, textureName, bootsModel, hudTextureName);
+            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET, unlocalizedBootsName, textureName, bootsModel, hudTextureName);
             
             CraftingRegistry.registerHook(armorBoots);
             
@@ -381,12 +374,9 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
             return armorBoots;
         }
-
-        
-        
     }
 
-    private Map<ItemAttachment<CustomArmor>, CompatibleAttachment<CustomArmor>> compatibleAttachments = new HashMap<>();
+    private final Map<ItemAttachment<CustomArmor>, CompatibleAttachment<CustomArmor>> compatibleAttachments = new HashMap<>();
 
     //private CompatibleEntityEquipmentSlot slot;
     private boolean hasNightVision;
@@ -395,13 +385,13 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     @SuppressWarnings("unused")
     private CompatibleSound breathingSound;
 
-    private CompatibleEntityEquipmentSlot compatibleEquipmentType;
+    private final CompatibleEntityEquipmentSlot compatibleEquipmentType;
     
 //    private boolean shieldEnabled;
     private long shieldRegenerationTimeout = 1000;
     private double shieldRegenerationRate = 1.0; // restored shield capacity per sec
     private double maxShieldCapacity;
-    private String unlocalizedArmorSetName;
+    private final String unlocalizedArmorSetName;
     private double shieldIndicatorPositionX;
     private double shieldIndicatorPositionY;
     private double shieldIndicatorWidth;
@@ -463,24 +453,25 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     }
 
     private ItemAttachment<CustomArmor> nextCompatibleAttachment(AttachmentCategory category, Item currentAttachment, EntityPlayer player) {
-
         ItemAttachment<CustomArmor> nextAttachment = null;
         boolean foundCurrent = false;
+
         for (int i = 0; i < 36; i++) {
             ItemStack itemStack = player.inventory.getStackInSlot(i);
-            if(itemStack != null && itemStack.getItem() instanceof ItemAttachment) {
-                ItemAttachment<CustomArmor> compatibleAttachment = (ItemAttachment<CustomArmor>) itemStack.getItem();
-                //System.out.println("Found compatible attachment " + compatibleAttachment);
-                if(compatibleAttachment.getCategory() == category) {
-                    if(foundCurrent || currentAttachment == null) {
-                        nextAttachment = compatibleAttachment;
-                        break;
-                    } else if(currentAttachment == compatibleAttachment) {
-                        foundCurrent = true;
-                    }
-                    //System.out.println("Compatible attachment category match for " + compatibleAttachment);
-                }
-                //System.out.println("Item in slot " + i + ": " + itemStack);
+
+            if (itemStack == null || !(itemStack.getItem() instanceof ItemAttachment))
+                continue;
+
+            ItemAttachment<CustomArmor> compatibleAttachment = (ItemAttachment<CustomArmor>)itemStack.getItem();
+            if (compatibleAttachment.getCategory() != category)
+                continue;
+
+            if(foundCurrent || currentAttachment == null) {
+                nextAttachment = compatibleAttachment;
+                break;
+
+            } else if(currentAttachment == compatibleAttachment) {
+                foundCurrent = true;
             }
         }
 
@@ -494,18 +485,21 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
         int[] activeAttachmentsIds = ensureActiveAttachments(itemStack);
 
-        for(int activeIndex: activeAttachmentsIds) {
-            if(activeIndex == 0) continue;
-            Item item = Item.getItemById(activeIndex);
-            if(item instanceof ItemAttachment) {
-                CompatibleAttachment<CustomArmor> compatibleAttachment = compatibleAttachments.get(item);
-                if(compatibleAttachment != null && category == compatibleAttachment.getAttachment().getCategory()) {
-                    itemAttachment = compatibleAttachment.getAttachment();
-                    break;
-                }
-            }
+        for(int activeIndex : activeAttachmentsIds) {
+            if(activeIndex == 0)
+                continue;
 
+            Item item = Item.getItemById(activeIndex);
+            if (!(item instanceof ItemAttachment))
+                continue;
+
+            CompatibleAttachment<CustomArmor> compatibleAttachment = compatibleAttachments.get(item);
+            if(compatibleAttachment != null && category == compatibleAttachment.getAttachment().getCategory()) {
+                itemAttachment = compatibleAttachment.getAttachment();
+                break;
+            }
         }
+
         return itemAttachment;
     }
 
@@ -516,33 +510,35 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
         int[] activeAttachmentsIds = ensureActiveAttachments(itemStack);
 
-        for(int activeIndex: activeAttachmentsIds) {
-            if(activeIndex == 0) continue;
+        for(int activeIndex : activeAttachmentsIds) {
+            if(activeIndex == 0)
+                continue;
+
             Item item = Item.getItemById(activeIndex);
-            if(item instanceof ItemAttachment) {
-                CompatibleAttachment<CustomArmor> compatibleAttachment = compatibleAttachments.get(item);
-                if(compatibleAttachment != null) {
-                    activeAttachments.add(compatibleAttachment);
-                }
+            if (!(item instanceof ItemAttachment))
+                continue;
 
-            }
-
+            CompatibleAttachment<CustomArmor> compatibleAttachment = compatibleAttachments.get(item);
+            if(compatibleAttachment != null)
+                activeAttachments.add(compatibleAttachment);
         }
+
         return activeAttachments;
     }
 
     private int[] ensureActiveAttachments(ItemStack itemStack) {
-        int activeAttachmentsIds[] = compatibility.getTagCompound(itemStack).getIntArray(ACTIVE_ATTACHMENT_TAG);
+        int[] activeAttachmentsIds = compatibility.getTagCompound(itemStack).getIntArray(ACTIVE_ATTACHMENT_TAG);
 
         if(activeAttachmentsIds == null || activeAttachmentsIds.length != AttachmentCategory.values.length) {
             activeAttachmentsIds = new int[AttachmentCategory.values.length];
             compatibility.getTagCompound(itemStack).setIntArray(ACTIVE_ATTACHMENT_TAG, activeAttachmentsIds);
+
             for(CompatibleAttachment<CustomArmor> attachment: compatibleAttachments.values()) {
-                if(attachment.isDefault()) {
+                if(attachment.isDefault())
                     activeAttachmentsIds[attachment.getAttachment().getCategory().ordinal()] = Item.getIdFromItem(attachment.getAttachment());
-                }
             }
         }
+
         return activeAttachmentsIds;
     }
 
@@ -568,24 +564,23 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     @Override
     public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
         super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
-        
-        if(!worldIn.isRemote && entityIn != null) {
-            if(maxShieldCapacity > 0.0) {
-                double currentShieldCapacity = getShieldCapacity(stack);
-                if(currentShieldCapacity < maxShieldCapacity) {
-                    long shieldHitTimestamp = getShieldHitTimestamp(stack);
-                    if(System.currentTimeMillis() - shieldHitTimestamp > shieldRegenerationTimeout) {
-                        currentShieldCapacity += shieldRegenerationRate / 20.0;
 
-                        if(currentShieldCapacity > maxShieldCapacity) {
-                            currentShieldCapacity = maxShieldCapacity;
-                        }
-                        //System.out.println("Shield capacity increased to " + currentShieldCapacity);
+        if (worldIn.isRemote || entityIn == null || maxShieldCapacity > 0.0)
+            return;
 
-                        setShieldCapacity(stack, currentShieldCapacity);
-                    }
-                }
-            }
+        double currentShieldCapacity = getShieldCapacity(stack);
+
+        if (currentShieldCapacity > maxShieldCapacity)
+            return;
+
+        long shieldHitTimestamp = getShieldHitTimestamp(stack);
+        if(System.currentTimeMillis() - shieldHitTimestamp > shieldRegenerationTimeout) {
+            currentShieldCapacity += shieldRegenerationRate / 20.0;
+
+            if(currentShieldCapacity > maxShieldCapacity)
+                currentShieldCapacity = maxShieldCapacity;
+
+            setShieldCapacity(stack, currentShieldCapacity);
         }
         
 //        if(!worldIn.isRemote && entityIn != null) {
@@ -626,23 +621,23 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     public ArmorProperties getProperties(EntityLivingBase player, ItemStack armorStack, DamageSource source, double damage, int slot) {
         double damageReduceRatio;
         if(maxShieldCapacity > 0.0) {
-            if(getShieldCapacity(armorStack) > 0.0) {
-                damageReduceRatio = 1.0;
-            } else {
-                damageReduceRatio = 0.001;
-            }
+            if(getShieldCapacity(armorStack) > 0.0) damageReduceRatio = 1.0;
+            else damageReduceRatio = 0.001;
+
         } else {
             damageReduceRatio = this.damageReduceAmount / 25.0;
         }
+
         return new ArmorProperties(0, damageReduceRatio, Integer.MAX_VALUE);
     }
     
     private void ensureTagCompound(ItemStack itemStack) {
-        if (compatibility.getTagCompound(itemStack) == null) {
-            NBTTagCompound tagCompound = new NBTTagCompound();
-            compatibility.setTagCompound(itemStack, tagCompound);
-            tagCompound.setDouble(SHIELD_CAPACITY_TAG, maxShieldCapacity);
-        }
+        if (compatibility.getTagCompound(itemStack) != null)
+            return;
+
+        NBTTagCompound tagCompound = new NBTTagCompound();
+        compatibility.setTagCompound(itemStack, tagCompound);
+        tagCompound.setDouble(SHIELD_CAPACITY_TAG, maxShieldCapacity);
     }
 
     public double getShieldCapacity(ItemStack armorStack) {
@@ -676,19 +671,19 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
     @Override
     public void damageArmor(EntityLivingBase entity, ItemStack stack, DamageSource source, int damage, int slot) {
-        if(maxShieldCapacity > 0.0) {
+        if (maxShieldCapacity > 0.0) {
             double shieldCapacity = getShieldCapacity(stack) - damage;
-            if(shieldCapacity < 0.0) {
+            if(shieldCapacity < 0.0)
                 shieldCapacity = 0.0;
-            }
-//            System.out.println("Shield capacity decreased to " + shieldCapacity + ", health: " + entity.getHealth());
+
             setShieldCapacity(stack, shieldCapacity);
             setShieldHitTimestamp(stack, System.currentTimeMillis());
-        } else {
-            double absorb = damage * (this.damageReduceAmount / 25.0);
-            int itemDamage = (int)(absorb / 25.0 < 1 ? 1 : absorb / 25.0);
-            stack.damageItem(itemDamage, entity);
+            return;
         }
+
+        double absorb = damage * (this.damageReduceAmount / 25.0);
+        int itemDamage = (int)(absorb / 25.0 < 1 ? 1 : absorb / 25.0);
+        stack.damageItem(itemDamage, entity);
     }
     
     public double getMaxShieldCapacity() {

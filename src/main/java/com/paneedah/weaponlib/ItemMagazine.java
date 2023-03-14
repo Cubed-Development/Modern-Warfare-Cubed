@@ -18,8 +18,7 @@ import java.util.Set;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemInstanceFactory<PlayerMagazineInstance, MagazineState>, 
-Reloadable, Updatable, Part {
+public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemInstanceFactory<PlayerMagazineInstance, MagazineState>, Reloadable, Updatable, Part {
 	
 	private static final long DEFAULT_RELOADING_TIMEOUT_TICKS = 25;
 	
@@ -29,14 +28,11 @@ Reloadable, Updatable, Part {
 		private Set<ItemBullet> compatibleBullets = new HashSet<>();
 		private String reloadSound;
 		private String unloadSound;
-		
 
-		
 		public Builder withAmmo(int ammo) {
 			this.ammo = ammo;
 			return this;
 		}
-		 
 
 		public Builder withReloadingTimeout(int reloadingTimeout) {
 			this.reloadingTimeout = reloadingTimeout;
@@ -58,27 +54,24 @@ Reloadable, Updatable, Part {
 			return this;
 		}
 		
-		
-		
 		@Override
 		protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
 			ItemMagazine magazine = new ItemMagazine(getModel(), getTextureName(), ammo);
 			magazine.reloadingTimeout = reloadingTimeout;
-	
 			magazine.compatibleBullets = new ArrayList<>(compatibleBullets);
+
 			if(reloadSound != null) {
 				magazine.reloadSound = modContext.registerSound(reloadSound);
 				magazine.unloadSound = modContext.registerSound(unloadSound);
 			}
+
 			magazine.modContext = modContext;
 			withInformationProvider((stack) -> TextFormatting.RED + "Ammo: " + TextFormatting.GRAY + Tags.getAmmo(stack) + "/" + ammo);
 			return magazine;
 		}
 	}
-	
-	private final int DEFAULT_MAX_STACK_SIZE = 1;
-	
-	private int ammo;
+
+	private final int ammo;
 	private long reloadingTimeout;
 	private List<ItemBullet> compatibleBullets;
 	private CompatibleSound reloadSound;
@@ -89,18 +82,13 @@ Reloadable, Updatable, Part {
 	ItemMagazine(ModelBase model, String textureName, int ammo) {
 		this(model, textureName, ammo, null, null);
 	}
-	
-	
 
-	ItemMagazine(ModelBase model, String textureName, int ammo,
-			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
-			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
+	ItemMagazine(ModelBase model, String textureName, int ammo, ApplyHandler<Weapon> apply, ApplyHandler<Weapon> remove) {
 		super(AttachmentCategory.MAGAZINE, model, textureName, null, apply, remove);
 		this.ammo = ammo;
+		int DEFAULT_MAX_STACK_SIZE = 1;
 		setMaxStackSize(DEFAULT_MAX_STACK_SIZE);
 	}
-	
-
 	
 	ItemStack createItemStack() {
 		ItemStack attachmentItemStack = new ItemStack(this);
@@ -109,10 +97,11 @@ Reloadable, Updatable, Part {
 	}
 	
 	private void ensureItemStack(ItemStack itemStack, int initialAmmo) {
-		if (compatibility.getTagCompound(itemStack) == null) {
-			compatibility.setTagCompound(itemStack, new NBTTagCompound());
-			Tags.setAmmo(itemStack, initialAmmo);
-		}
+		if (compatibility.getTagCompound(itemStack) != null)
+			return;
+
+		compatibility.setTagCompound(itemStack, new NBTTagCompound());
+		Tags.setAmmo(itemStack, initialAmmo);
 	}
 	
 	@Override
@@ -179,5 +168,4 @@ Reloadable, Updatable, Part {
     public void unloadMainHeldItemForPlayer(EntityPlayer player) {
     	modContext.getMagazineReloadAspect().unloadMainHeldItem(player);
     }
-	
 }

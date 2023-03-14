@@ -9,10 +9,7 @@ public interface EffectManager {
 
     void spawnFlashParticle(EntityLivingBase player, float flashIntensity, float flashScale, float xOffset, float yOffset, String flashTexture);
 
-    void spawnExplosionSmoke(double posX, double posY, double posZ, double motionX, double motionY, double motionZ,
-            float scale, int maxAge, Behavior behavior, String particleTexture);
+    void spawnExplosionSmoke(double posX, double posY, double posZ, double motionX, double motionY, double motionZ, float scale, int maxAge, Behavior behavior, String particleTexture);
 
-    void spawnExplosionParticle(double posX, double posY, double posZ, double motionX, double motionY, double motionZ,
-            float scale, int maxAge, String particleTexture);
-
+    void spawnExplosionParticle(double posX, double posY, double posZ, double motionX, double motionY, double motionZ, float scale, int maxAge, String particleTexture);
 }

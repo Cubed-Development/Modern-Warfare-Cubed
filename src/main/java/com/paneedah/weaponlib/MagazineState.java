@@ -14,13 +14,13 @@ public enum MagazineState implements ManagedState<MagazineState> {
 	
 	private static final int DEFAULT_PRIORITY = 0;
 
-	private MagazineState preparingPhase;
+	private final MagazineState preparingPhase;
 	
-	private MagazineState permitRequestedPhase;
+	private final MagazineState permitRequestedPhase;
 	
-	private MagazineState commitPhase;
+	private final MagazineState commitPhase;
 	
-	private boolean isTransient;
+	private final boolean isTransient;
 	
 	private int priority = DEFAULT_PRIORITY;
 	
@@ -92,6 +92,4 @@ public enum MagazineState implements ManagedState<MagazineState> {
 	static {
 		TypeRegistry.getInstance().register(MagazineState.class);
 	}
-
-	
 }

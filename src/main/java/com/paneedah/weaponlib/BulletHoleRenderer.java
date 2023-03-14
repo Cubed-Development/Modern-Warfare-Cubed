@@ -16,15 +16,15 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class BulletHoleRenderer {
 	
-	private LinkedBlockingQueue<BulletHole> holeQueue = new LinkedBlockingQueue<>();
-	private ArrayList<BulletHole> bulletHoles = new ArrayList<>(); 
+	private final LinkedBlockingQueue<BulletHole> holeQueue = new LinkedBlockingQueue<>();
+	private final ArrayList<BulletHole> bulletHoles = new ArrayList<>();
 	
 	public static class BulletHole {
-		private Vec3d pos;
+		private final Vec3d pos;
 		private boolean shouldDie;
-		private EnumFacing direction;
+		private final EnumFacing direction;
 		private double size;
-		private long timeExisted;
+		private final long timeExisted;
 		
 		public BulletHole(Vec3d pos, EnumFacing direction, double size) {
 			this.pos = pos;
@@ -33,11 +33,9 @@ public class BulletHoleRenderer {
 			this.timeExisted = System.currentTimeMillis();
 		}
 	}
-	
-	
+
 	public void addBulletHole(BulletHole hole) {
 		this.holeQueue.add(hole);
-		
 	}
 	
 	public void render() {
@@ -63,9 +61,8 @@ public class BulletHoleRenderer {
 
 		// TODO: Actually add the texture
 		// mc.getTextureManager().bindTexture(rl);
-		
-	
-	//	GL14.glBlendEquation(GL14.GL_FUNC_ADD);
+		// GL14.glBlendEquation(GL14.GL_FUNC_ADD);
+
 		GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);
 		GlStateManager.enableBlend();
 		double size = 0.05;
@@ -73,63 +70,60 @@ public class BulletHoleRenderer {
 		
 		double lift = 0.01;
 		for(BulletHole hole : bulletHoles) {
-			if(System.currentTimeMillis()-hole.timeExisted > 2000) {
+			if(System.currentTimeMillis()-hole.timeExisted > 2000)
 				hole.shouldDie = true;
-			}
-		//	System.out.println("hi: " + hole.direction);
+
 			switch(hole.direction) {
-			case UP:
-				bb.pos(hole.pos.x+size, hole.pos.y+lift, hole.pos.z+size).tex(0, 0).endVertex();
-				bb.pos(hole.pos.x-size, hole.pos.y+lift, hole.pos.z+size).tex(1, 0).endVertex();
-				bb.pos(hole.pos.x-size, hole.pos.y+lift, hole.pos.z-size).tex(1, 1).endVertex();
-				bb.pos(hole.pos.x+size, hole.pos.y+lift, hole.pos.z-size).tex(0, 1).endVertex();
-				break;
-			case DOWN:
-				bb.pos(hole.pos.x+size, hole.pos.y-lift, hole.pos.z+size).tex(0, 0).endVertex();
-				bb.pos(hole.pos.x-size, hole.pos.y-lift, hole.pos.z+size).tex(1, 0).endVertex();
-				bb.pos(hole.pos.x-size, hole.pos.y-lift, hole.pos.z-size).tex(1, 1).endVertex();
-				bb.pos(hole.pos.x+size, hole.pos.y-lift, hole.pos.z-size).tex(0, 1).endVertex();
-				break;
-			case EAST:
-				bb.pos(hole.pos.x+lift, hole.pos.y+size, hole.pos.z+size).tex(0, 0).endVertex();
-				bb.pos(hole.pos.x+lift, hole.pos.y-size, hole.pos.z+size).tex(1, 0).endVertex();
-				bb.pos(hole.pos.x+lift, hole.pos.y-size, hole.pos.z-size).tex(1, 1).endVertex();
-				bb.pos(hole.pos.x+lift, hole.pos.y+size, hole.pos.z-size).tex(0, 1).endVertex();
-				break;
-			case WEST:
-				bb.pos(hole.pos.x-lift, hole.pos.y+size, hole.pos.z+size).tex(0, 0).endVertex();
-				bb.pos(hole.pos.x-lift, hole.pos.y-size, hole.pos.z+size).tex(1, 0).endVertex();
-				bb.pos(hole.pos.x-lift, hole.pos.y-size, hole.pos.z-size).tex(1, 1).endVertex();
-				bb.pos(hole.pos.x-lift, hole.pos.y+size, hole.pos.z-size).tex(0, 1).endVertex();
-				break;
-			case SOUTH:
-				bb.pos(hole.pos.x+size, hole.pos.y+size, hole.pos.z+lift).tex(0, 0).endVertex();
-				bb.pos(hole.pos.x+size, hole.pos.y-size, hole.pos.z+lift).tex(1, 0).endVertex();
-				bb.pos(hole.pos.x-size, hole.pos.y-size, hole.pos.z+lift).tex(1, 1).endVertex();
-				bb.pos(hole.pos.x-size, hole.pos.y+size, hole.pos.z+lift).tex(0, 1).endVertex();
-				break;
-			case NORTH:
-				bb.pos(hole.pos.x+size, hole.pos.y+size, hole.pos.z-lift).tex(0, 0).endVertex();
-				bb.pos(hole.pos.x+size, hole.pos.y-size, hole.pos.z-lift).tex(1, 0).endVertex();
-				bb.pos(hole.pos.x-size, hole.pos.y-size, hole.pos.z-lift).tex(1, 1).endVertex();
-				bb.pos(hole.pos.x-size, hole.pos.y+size, hole.pos.z-lift).tex(0, 1).endVertex();
-				break;
+				case UP:
+					bb.pos(hole.pos.x+size, hole.pos.y+lift, hole.pos.z+size).tex(0, 0).endVertex();
+					bb.pos(hole.pos.x-size, hole.pos.y+lift, hole.pos.z+size).tex(1, 0).endVertex();
+					bb.pos(hole.pos.x-size, hole.pos.y+lift, hole.pos.z-size).tex(1, 1).endVertex();
+					bb.pos(hole.pos.x+size, hole.pos.y+lift, hole.pos.z-size).tex(0, 1).endVertex();
+					break;
+
+				case DOWN:
+					bb.pos(hole.pos.x+size, hole.pos.y-lift, hole.pos.z+size).tex(0, 0).endVertex();
+					bb.pos(hole.pos.x-size, hole.pos.y-lift, hole.pos.z+size).tex(1, 0).endVertex();
+					bb.pos(hole.pos.x-size, hole.pos.y-lift, hole.pos.z-size).tex(1, 1).endVertex();
+					bb.pos(hole.pos.x+size, hole.pos.y-lift, hole.pos.z-size).tex(0, 1).endVertex();
+					break;
+
+				case EAST:
+					bb.pos(hole.pos.x+lift, hole.pos.y+size, hole.pos.z+size).tex(0, 0).endVertex();
+					bb.pos(hole.pos.x+lift, hole.pos.y-size, hole.pos.z+size).tex(1, 0).endVertex();
+					bb.pos(hole.pos.x+lift, hole.pos.y-size, hole.pos.z-size).tex(1, 1).endVertex();
+					bb.pos(hole.pos.x+lift, hole.pos.y+size, hole.pos.z-size).tex(0, 1).endVertex();
+					break;
+
+				case WEST:
+					bb.pos(hole.pos.x-lift, hole.pos.y+size, hole.pos.z+size).tex(0, 0).endVertex();
+					bb.pos(hole.pos.x-lift, hole.pos.y-size, hole.pos.z+size).tex(1, 0).endVertex();
+					bb.pos(hole.pos.x-lift, hole.pos.y-size, hole.pos.z-size).tex(1, 1).endVertex();
+					bb.pos(hole.pos.x-lift, hole.pos.y+size, hole.pos.z-size).tex(0, 1).endVertex();
+					break;
+
+				case SOUTH:
+					bb.pos(hole.pos.x+size, hole.pos.y+size, hole.pos.z+lift).tex(0, 0).endVertex();
+					bb.pos(hole.pos.x+size, hole.pos.y-size, hole.pos.z+lift).tex(1, 0).endVertex();
+					bb.pos(hole.pos.x-size, hole.pos.y-size, hole.pos.z+lift).tex(1, 1).endVertex();
+					bb.pos(hole.pos.x-size, hole.pos.y+size, hole.pos.z+lift).tex(0, 1).endVertex();
+					break;
+
+				case NORTH:
+					bb.pos(hole.pos.x+size, hole.pos.y+size, hole.pos.z-lift).tex(0, 0).endVertex();
+					bb.pos(hole.pos.x+size, hole.pos.y-size, hole.pos.z-lift).tex(1, 0).endVertex();
+					bb.pos(hole.pos.x-size, hole.pos.y-size, hole.pos.z-lift).tex(1, 1).endVertex();
+					bb.pos(hole.pos.x-size, hole.pos.y+size, hole.pos.z-lift).tex(0, 1).endVertex();
+					break;
 			}
-			
-			
-			
 		}
 		
 		//GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 		
 		GlStateManager.disableBlend();
-		
-		tes.draw();
-		
-		GlStateManager.popMatrix();
-		
-	}
-	
-	
 
+		tes.draw();
+
+		GlStateManager.popMatrix();
+	}
 }

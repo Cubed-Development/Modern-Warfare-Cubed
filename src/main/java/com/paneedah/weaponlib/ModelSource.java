@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ModelSource {
 
-	public List<Tuple<ModelBase, String>> getTexturedModels();
+	List<Tuple<ModelBase, String>> getTexturedModels();
 	
-	public CustomRenderer<?> getPostRenderer();
+	CustomRenderer<?> getPostRenderer();
 }

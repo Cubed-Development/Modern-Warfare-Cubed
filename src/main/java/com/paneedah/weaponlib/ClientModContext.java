@@ -42,15 +42,14 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
 
 public class ClientModContext extends CommonModContext {
 
-	private ClientEventHandler clientEventHandler;
-	private Lock mainLoopLock = new ReentrantLock();
-	private Queue<Runnable> runInClientThreadQueue = new LinkedBlockingQueue<>();
+	private final Lock mainLoopLock = new ReentrantLock();
+	private final Queue<Runnable> runInClientThreadQueue = new LinkedBlockingQueue<>();
 	
 	protected static ThreadLocal<ClientModContext> currentContext = new ThreadLocal<>();
 
 	private CompatibleRenderingRegistry rendererRegistry;
 
-	private SafeGlobals safeGlobals = new SafeGlobals();
+	private final SafeGlobals safeGlobals = new SafeGlobals();
 
 	private StatusMessageCenter statusMessageCenter;
 
@@ -79,22 +78,19 @@ public class ClientModContext extends CommonModContext {
 		ClientCommandHandler.instance.registerCommand(new DebugCommand());
 		
 		ClientCommandHandler.instance.registerCommand(new MainCommand(this));
-		
-		
+
 		this.statusMessageCenter = new StatusMessageCenter();
 
 		rendererRegistry = new CompatibleRenderingRegistry();
 		
 		rendererRegistry.preInit();
 
-		List<IResourcePack> defaultResourcePacks = compatibility.getPrivateValue(
-				Minecraft.class, mc, "defaultResourcePacks", "field_110449_ao") ;
+		List<IResourcePack> defaultResourcePacks = compatibility.getPrivateValue(Minecraft.class, mc, "defaultResourcePacks", "field_110449_ao");
         WeaponResourcePack weaponResourcePack = new WeaponResourcePack();
         defaultResourcePacks.add(weaponResourcePack);
         IResourceManager resourceManager = mc.getResourceManager();
-        if(resourceManager instanceof IReloadableResourceManager) {
-            ((SimpleReloadableResourceManager) resourceManager).reloadResourcePack(weaponResourcePack);
-        }
+        if(resourceManager instanceof IReloadableResourceManager)
+			((SimpleReloadableResourceManager) resourceManager).reloadResourcePack(weaponResourcePack);
 
 		compatibility.registerWithEventBus(new CustomGui(mc, this, weaponAttachmentAspect));
 		compatibility.registerWithEventBus(new WeaponEventHandler(this, safeGlobals));
@@ -103,12 +99,10 @@ public class ClientModContext extends CommonModContext {
 
 		ClientWeaponTicker clientWeaponTicker = new ClientWeaponTicker(this);
 
-		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-			clientWeaponTicker.shutdown();
-		}));
+		Runtime.getRuntime().addShutdownHook(new Thread(clientWeaponTicker::shutdown));
 
 		clientWeaponTicker.start();
-		clientEventHandler = new ClientEventHandler(this, mainLoopLock, safeGlobals, runInClientThreadQueue);
+		ClientEventHandler clientEventHandler = new ClientEventHandler(this, mainLoopLock, safeGlobals, runInClientThreadQueue);
 		compatibility.registerWithFmlEventBus(clientEventHandler);
 		
 		compatibility.registerWithEventBus(InventoryTabs.getInstance());
@@ -117,22 +111,13 @@ public class ClientModContext extends CommonModContext {
 
 		this.viewManager = new PerspectiveManager(this);
 		this.inventoryTextureMap = new HashMap<>();
-
 		this.effectManager = new ClientEffectManager();
-
 		this.playerRawPitchAnimationManager = new ScreenShakingAnimationManager();
 		
 		GUIContainerWorkbench.setModContext(this);
 		GUIContainerAmmoPress.setModContext(this);
-		
-		
-		
 	}
-	
 
-
-	
-	
 	@Override
 	public void init(Object mod) {
 	    super.init(mod);
@@ -156,9 +141,6 @@ public class ClientModContext extends CommonModContext {
     public boolean isClient() {
         return true;
     }
-
-	@Override
-	public void registerServerSideOnly() {}
 
 	public PerspectiveManager getViewManager() {
         return viewManager;
@@ -195,11 +177,8 @@ public class ClientModContext extends CommonModContext {
 	@Override
 	public void runSyncTick(Runnable runnable) {
 		mainLoopLock.lock();
-		try {
-			runnable.run();
-		} finally {
-			mainLoopLock.unlock();
-		}
+		try { runnable.run(); }
+		finally { mainLoopLock.unlock(); }
 	}
 
 	@Override
@@ -218,8 +197,7 @@ public class ClientModContext extends CommonModContext {
 
 	@Override
 	public PlayerWeaponInstance getMainHeldWeapon() {
-		return getPlayerItemInstanceRegistry().getMainHandItemInstance(compatibility.clientPlayer(),
-				PlayerWeaponInstance.class);
+		return getPlayerItemInstanceRegistry().getMainHandItemInstance(compatibility.clientPlayer(), PlayerWeaponInstance.class);
 	}
 
 	@Override
@@ -228,8 +206,7 @@ public class ClientModContext extends CommonModContext {
 	}
 
     public PlayerMeleeInstance getMainHeldMeleeWeapon() {
-        return getPlayerItemInstanceRegistry().getMainHandItemInstance(compatibility.clientPlayer(),
-                PlayerMeleeInstance.class);
+        return getPlayerItemInstanceRegistry().getMainHandItemInstance(compatibility.clientPlayer(), PlayerMeleeInstance.class);
     }
 
     @Override
@@ -256,6 +233,7 @@ public class ClientModContext extends CommonModContext {
             inventoryFramebuffer = new Framebuffer(256, 256, true);
             inventoryFramebuffer.setFramebufferColor(0.0F, 0.0F, 0.0F, 0.0F);
         }
+
         return inventoryFramebuffer;
     }
 
@@ -282,11 +260,7 @@ public class ClientModContext extends CommonModContext {
         this.playerTransitionProvider = playerTransitionProvider;
     }
 
-    PlayerTransitionProvider getPlayerTransitionProvider() {
+    public PlayerTransitionProvider getPlayerTransitionProvider() {
         return playerTransitionProvider;
     }
-    
-//    public MissionManager getMissionManager() {
-//        return null;
-//    }
 }

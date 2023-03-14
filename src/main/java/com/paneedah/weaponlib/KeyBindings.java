@@ -66,7 +66,6 @@ public class KeyBindings {
 	public static KeyBinding vehicleTurnOff;
 
 	public static void init() {
-
 		openDoor = new KeyBinding("key.opendoor", Keyboard.KEY_C, "key.categories.weaponlib");
 
 		reloadKey = new KeyBinding("key.reload", Keyboard.KEY_R, "key.categories.weaponlib");
@@ -170,13 +169,11 @@ public class KeyBindings {
 		compatibility.registerKeyBinding(vehicleClutch);
 		compatibility.registerKeyBinding(vehicleTurnOff);
 
-		if (DebugPositioner.isDebugModeEnabled()) {
+		if (DebugPositioner.isDebugModeEnabled())
 			bindDebugKeys();
-		}
 	}
 
 	public static void bindDebugKeys() {
-
 		jDebugKey = new KeyBinding("key.jDebugKey", Keyboard.KEY_J, "key.categories.weaponlib");
 
 		kDebugKey = new KeyBinding("key.klDebugKey", Keyboard.KEY_K, "key.categories.weaponlib");
@@ -191,8 +188,7 @@ public class KeyBindings {
 
 		semicolonDebugKey = new KeyBinding("key.semicolonDebugKey", Keyboard.KEY_SEMICOLON, "key.categories.weaponlib");
 
-		apostropheDebugKey = new KeyBinding("key.apostropheDebugKey", Keyboard.KEY_APOSTROPHE,
-				"key.categories.weaponlib");
+		apostropheDebugKey = new KeyBinding("key.apostropheDebugKey", Keyboard.KEY_APOSTROPHE, "key.categories.weaponlib");
 
 		deleteDebugKey = new KeyBinding("key.deleteDebugKey", Keyboard.KEY_BACK, "key.categories.weaponlib");
 

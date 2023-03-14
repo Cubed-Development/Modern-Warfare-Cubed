@@ -18,7 +18,7 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
 		
 		public Builder withTextureVariant(String... textureVariantNames) {
 			for(String s: textureVariantNames) {
-				this.textureVariants.add(stripFileExtension(s.toLowerCase(), ".png"));
+				this.textureVariants.add(stripFileExtension(s.toLowerCase()));
 			}
 			return this;
 		}

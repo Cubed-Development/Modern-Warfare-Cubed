@@ -19,15 +19,15 @@ import java.util.function.Function;
 
 public class ItemAttachment<T> extends CompatibleItem implements ModelSource, IModernCrafting {
 
-	private AttachmentCategory category;
-	private String crosshair;
-	private ApplyHandler<T> apply;
-	private ApplyHandler<T> remove;
+	private final AttachmentCategory category;
+	private final String crosshair;
+	private final ApplyHandler<T> apply;
+	private final ApplyHandler<T> remove;
 	protected ApplyHandler2<T> apply2;
 	protected ApplyHandler2<T> remove2;
 	protected MeleeWeaponApplyHandler<T> apply3;
 	protected MeleeWeaponApplyHandler<T> remove3;
-	private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+	private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
 	private List<CustomRenderer<?>> postRenderer = new ArrayList<>();
 	private CustomRenderer<?> preRenderer;
 	private Part renderablePart;
@@ -38,9 +38,9 @@ public class ItemAttachment<T> extends CompatibleItem implements ModelSource, IM
 	private CraftingEntry[] modernRecipe;
 	private CraftingGroup craftGroup;
 	
-	private List<CompatibleAttachment<T>> attachments = new ArrayList<>();
+	private final List<CompatibleAttachment<T>> attachments = new ArrayList<>();
 
-	private List<Weapon> compatibleWeapons = new ArrayList<>();
+	private final List<Weapon> compatibleWeapons = new ArrayList<>();
 	
 	private List<ItemAttachment<T>> requiredAttachments = new ArrayList<>();
 
@@ -50,31 +50,31 @@ public class ItemAttachment<T> extends CompatibleItem implements ModelSource, IM
 	
 
 	public static interface ApplyHandler<T> {
-		public void apply(ItemAttachment<T> itemAttachment, T target, EntityLivingBase player);
+		void apply(ItemAttachment<T> itemAttachment, T target, EntityLivingBase player);
 	}
 
 	public static interface ApplyHandler2<T> {
-		public void apply(ItemAttachment<T> itemAttachment, PlayerWeaponInstance instance);
+		void apply(ItemAttachment<T> itemAttachment, PlayerWeaponInstance instance);
 	}
 
 	public static interface MeleeWeaponApplyHandler<T> {
-        public void apply(ItemAttachment<T> itemAttachment, PlayerMeleeInstance instance);
+        void apply(ItemAttachment<T> itemAttachment, PlayerMeleeInstance instance);
     }
 
-	protected ItemAttachment(AttachmentCategory category, ModelBase model, String textureName, String crosshair,
-			ApplyHandler<T> apply, ApplyHandler<T> remove) {
+	protected ItemAttachment(AttachmentCategory category, ModelBase model, String textureName, String crosshair, ApplyHandler<T> apply, ApplyHandler<T> remove) {
 		this.category = category;
+
 //		if(model != null) {
 //			this.texturedModels.add(new Tuple<ModelBase, String>(model, textureName));
 //		}
+
 		this.textureName = textureName.toLowerCase();
 		this.crosshair = crosshair != null ? ModReference.id + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;
 	}
 
-	protected ItemAttachment(AttachmentCategory category, String crosshair,
-			ApplyHandler<T> apply, ApplyHandler<T> remove) {
+	protected ItemAttachment(AttachmentCategory category, String crosshair, ApplyHandler<T> apply, ApplyHandler<T> remove) {
 		this.category = category;
 		this.crosshair = crosshair != null ? ModReference.id + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
 		this.apply = apply;
@@ -102,7 +102,6 @@ public class ItemAttachment<T> extends CompatibleItem implements ModelSource, IM
 	public void setModernRecipe(CraftingEntry...is) {
 		this.modernRecipe = is;
 	}
-
 
 	public Part getRenderablePart() {
 		return renderablePart;
@@ -191,9 +190,8 @@ public class ItemAttachment<T> extends CompatibleItem implements ModelSource, IM
 	}
 
 	public void setPostRenderers(List<CustomRenderer<?>> postRenderer) {
-		postRenderer = postRenderer;
+		this.postRenderer = postRenderer;
 	}
-
 
 	@Override
 	public CustomRenderer<?> getPostRenderer() {
@@ -243,7 +241,6 @@ public class ItemAttachment<T> extends CompatibleItem implements ModelSource, IM
 
 	public void setPostRenderer(List<CustomRenderer<?>> postRenderer2) {
 		this.postRenderer = postRenderer2;
-		
 	}
 	
 	@Override
@@ -260,5 +257,4 @@ public class ItemAttachment<T> extends CompatibleItem implements ModelSource, IM
 	public void setCraftingRecipe(CraftingEntry[] recipe) {
 		this.modernRecipe = recipe;
 	}
-
 }

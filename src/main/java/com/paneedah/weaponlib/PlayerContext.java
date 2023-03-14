@@ -4,7 +4,7 @@ import net.minecraft.entity.EntityLivingBase;
 
 public interface PlayerContext {
 
-	public EntityLivingBase getPlayer();
+	EntityLivingBase getPlayer();
 	
-	public void setPlayer(EntityLivingBase player);
+	void setPlayer(EntityLivingBase player);
 }

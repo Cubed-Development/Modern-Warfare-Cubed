@@ -17,5 +17,4 @@ public class BlankStateMapper implements IStateMapper {
 	public Map<IBlockState, ModelResourceLocation> putStateModelLocations(Block blockIn) {
 		return Collections.EMPTY_MAP;
 	}
-
 }

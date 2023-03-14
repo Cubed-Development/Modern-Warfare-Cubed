@@ -55,7 +55,6 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
         private String modelFileString;
         private String properTextureName;
         
-        
         private Predicate<Item> validItemPredicate = item -> true;
         
         public Builder withName(String name) {
@@ -79,11 +78,8 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
         }
         
         public Builder withProperModel(String elModel, String properTextureName) {
-        	
         	modelFileString = elModel;
         	this.properTextureName = properTextureName;
-        	
-        	
     
         	return this;
         }
@@ -153,10 +149,7 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
             return this;
         }
 
-        public Builder withFirstPersonHandPositioning(
-                Consumer<RenderContext<RenderableState>> leftHand,
-                Consumer<RenderContext<RenderableState>> rightHand)
-        {
+        public Builder withFirstPersonHandPositioning(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
             this.firstPersonLeftHandPositioning = leftHand;
             this.firstPersonRightHandPositioning = rightHand;
             return this;
@@ -165,87 +158,61 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
         private static class RendererRegistrationHelper {
             private static Object registerRenderer(Builder builder, ModContext modContext) {
                 return new StaticModelSourceRenderer.Builder()
-                .withHiddenInventory(builder.tab == null)
-                .withEntityPositioning(builder.entityPositioning)
-                .withFirstPersonPositioning(builder.firstPersonPositioning)
-                .withThirdPersonPositioning(builder.thirdPersonPositioning)
-                .withCustomEquippedPositioning(builder.customEquippedPositioning)
-                .withInventoryPositioning(builder.inventoryPositioning)
-                .withEntityModelPositioning(builder.entityModelPositioning)
-                .withFirstPersonModelPositioning(builder.firstPersonModelPositioning)
-                .withThirdPersonModelPositioning(builder.thirdPersonModelPositioning)
-                .withInventoryModelPositioning(builder.inventoryModelPositioning)
-                .withFirstPersonHandPositioning(builder.firstPersonLeftHandPositioning, builder.firstPersonRightHandPositioning)
-                .withModContext(modContext)
-                .build();
+                    .withHiddenInventory(builder.tab == null)
+                    .withEntityPositioning(builder.entityPositioning)
+                    .withFirstPersonPositioning(builder.firstPersonPositioning)
+                    .withThirdPersonPositioning(builder.thirdPersonPositioning)
+                    .withCustomEquippedPositioning(builder.customEquippedPositioning)
+                    .withInventoryPositioning(builder.inventoryPositioning)
+                    .withEntityModelPositioning(builder.entityModelPositioning)
+                    .withFirstPersonModelPositioning(builder.firstPersonModelPositioning)
+                    .withThirdPersonModelPositioning(builder.thirdPersonModelPositioning)
+                    .withInventoryModelPositioning(builder.inventoryModelPositioning)
+                    .withFirstPersonHandPositioning(builder.firstPersonLeftHandPositioning, builder.firstPersonRightHandPositioning)
+                    .withModContext(modContext)
+                    .build();
             }
         }
        
         public ItemStorage build(ModContext modContext) {
-            if(name == null) {
+            if(name == null)
                 throw new IllegalStateException("ItemStorage name not set");
-            }
             
-            if(size <= 0) {
+            if(size <= 0)
                 throw new IllegalStateException("ItemStorage size must be greater than 0");
-            }
             
-            if(guiTextureName == null) {
+            if(guiTextureName == null)
                 throw new IllegalStateException("ItemStorage gui texture not set");
-            }
             
-            if(!guiTextureName.startsWith("textures/gui/")) {
+            if(!guiTextureName.startsWith("textures/gui/"))
                 guiTextureName = "textures/gui/" + guiTextureName;
-            }
-            ResourceLocation guiTextureLocation = new ResourceLocation(ModReference.id,
-                    addFileExtension(guiTextureName, ".png"));
-            
+
+            ResourceLocation guiTextureLocation = new ResourceLocation(ModReference.id, addFileExtension(guiTextureName, ".png"));
             ItemStorage item = new ItemStorage(modContext, size, validItemPredicate, guiTextureLocation, this.guiTextureWidth);
-            
             ServerGearModelHookRegistry.modelArray.add(this.modelFileString);
             
             item.modelFileString = this.modelFileString;
             item.properTextureName = this.properTextureName;
-            
             item.setTranslationKey(ModReference.id + "_" + name);
 
             if(this.modelFileString != null && !VMWHooksHandler.isOnServer()) {
-            	
             	try {
-            		//System.out.println("FOR ITEM: " + item.getRegistryName() + " | ");
 					ModelBase base = (ModelBase) Class.forName(this.modelFileString).newInstance();
 					item.texturedModels.add(new Tuple<>(base, addFileExtension(this.properTextureName, ".png")));
 					
-					
-				} catch (InstantiationException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-            	
-            	
+				} catch (Exception e) { e.printStackTrace(); }
             }
             
-            if(model != null) {
+            if(model != null)
                 item.texturedModels.add(new Tuple<>(model, addFileExtension(textureName, ".png")));
-            }
             
            
-            if(tab != null) {
+            if(tab != null)
                 item.setCreativeTab(tab);
-                
-                
-            }
             
             // Register hook
             CraftingRegistry.registerHook(item);
-            
-            
+
             item.customEquippedPositioning = customEquippedPositioning;
             
             modContext.registerRenderableItem(name, item, compatibility.isClientSide() ? RendererRegistrationHelper.registerRenderer(this, modContext) : null);
@@ -254,21 +221,17 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
         }
     }
     
-    
-    private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
-    private int size;
-    private ResourceLocation guiTextureLocation;
-    private int guiTextureWidth;
-    private Predicate<Item> validItemPredicate;
+    private final List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+    private final int size;
+    private final ResourceLocation guiTextureLocation;
+    private final int guiTextureWidth;
+    private final Predicate<Item> validItemPredicate;
     
     private BiConsumer<EntityPlayer, ItemStack> customEquippedPositioning;
-    
-    
- // Modern crafting setup
+
+    // Modern crafting setup
     private CraftingEntry[] modernRecipe;
 	private CraftingGroup craftGroup;
-
-    
     
     public BiConsumer<EntityPlayer, ItemStack> getCustomEquippedPositioning() {
     	return customEquippedPositioning;
@@ -285,10 +248,7 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
     	return this.properTextureName;
     }
     
-    public ItemStorage(ModContext context, int size,
-            Predicate<Item> validItemPredicate,
-            ResourceLocation guiTextureLocation, 
-            int guiTextureWidth) {
+    public ItemStorage(ModContext context, int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth) {
         this.validItemPredicate = validItemPredicate;
         this.size = size;
         this.guiTextureLocation = guiTextureLocation;
@@ -376,5 +336,4 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
 	public void setCraftingGroup(CraftingGroup group) {
 		this.craftGroup = group;
 	}
-    
 }

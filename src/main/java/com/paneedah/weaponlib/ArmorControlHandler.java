@@ -12,33 +12,31 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
 public class ArmorControlHandler implements CompatibleMessageHandler<ArmorControlMessage, CompatibleMessage>  {
 
     public static final String TAG_NIGHT_VISION = "nv";
-    
-    @SuppressWarnings("unused")
-    private ModContext modContext;
 
     //private double yOffset = 1;
 
-    public ArmorControlHandler(ModContext modContext) {
-        this.modContext = modContext;
-    }
+    public ArmorControlHandler() {}
 
     @Override
     public <T extends CompatibleMessage> T onCompatibleMessage(ArmorControlMessage message, CompatibleMessageContext ctx) {
-        if(ctx.isServerSide()) {
-            ctx.runInMainThread(() -> {
-                if(message.isToggleNightVision()) {
-                    EntityPlayer player = ctx.getPlayer();
-                    ItemStack helmetStack = compatibility.getHelmet(player);
-                    if(helmetStack != null && helmetStack.getItem() instanceof CustomArmor 
-                            && ((CustomArmor)helmetStack.getItem()).hasNightVision()) {
-                        compatibility.ensureTagCompound(helmetStack);
-                        NBTTagCompound tagCompound = compatibility.getTagCompound(helmetStack);
-                        boolean nightVisionOn = tagCompound.getBoolean(TAG_NIGHT_VISION);
-                        tagCompound.setBoolean(TAG_NIGHT_VISION, !nightVisionOn);
-                    }
-                }
-            });
-        }
+        if (!ctx.isServerSide())
+            return null;
+
+        ctx.runInMainThread(() -> {
+            if (!message.isToggleNightVision())
+                return;
+
+            EntityPlayer player = ctx.getPlayer();
+            ItemStack helmetStack = compatibility.getHelmet(player);
+
+            if(helmetStack != null && helmetStack.getItem() instanceof CustomArmor && ((CustomArmor)helmetStack.getItem()).hasNightVision()) {
+                compatibility.ensureTagCompound(helmetStack);
+                NBTTagCompound tagCompound = compatibility.getTagCompound(helmetStack);
+                boolean nightVisionOn = tagCompound.getBoolean(TAG_NIGHT_VISION);
+                tagCompound.setBoolean(TAG_NIGHT_VISION, !nightVisionOn);
+            }
+        });
+
         return null;
     }
 }

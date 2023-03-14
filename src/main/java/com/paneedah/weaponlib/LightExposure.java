@@ -8,13 +8,10 @@ import net.minecraft.world.World;
 public class LightExposure extends UniversalObject implements Exposure {
     
     private long lastExposureTimestamp;
-    private long maxDuration;
+    private final long maxDuration;
     private float totalDose = 1f;
     private float decayFactor = 0.995f;
-    
-    public LightExposure() {}
-    
-    
+
     public LightExposure(long lastExposureTimestamp, long maxDuration, float dose, float decayFactor) {
         this.lastExposureTimestamp = lastExposureTimestamp;
         this.maxDuration = maxDuration;
@@ -32,10 +29,8 @@ public class LightExposure extends UniversalObject implements Exposure {
 
     @Override
     public boolean isEffective(World world) {
-//        System.out.println("Total dose: " + totalDose);
         return totalDose > 0.0003f && world.getTotalWorldTime() - lastExposureTimestamp <= maxDuration;
     }
-
 
     @Override
     public void update(Entity entity) {
@@ -56,20 +51,18 @@ public class LightExposure extends UniversalObject implements Exposure {
         totalDose = buf.readFloat();
     }
 
-
     @Override
     public void updateFrom(Exposure otherExposure) {
-        if(otherExposure instanceof LightExposure) {
-            LightExposure other = (LightExposure)otherExposure;
-            this.lastExposureTimestamp = other.lastExposureTimestamp;
-            this.totalDose = other.totalDose;
-        }
+        if(!(otherExposure instanceof LightExposure))
+            return;
+
+        LightExposure other = (LightExposure)otherExposure;
+        this.lastExposureTimestamp = other.lastExposureTimestamp;
+        this.totalDose = other.totalDose;
     }
 
     @Override
     public long getLastSyncTimestamp() {
         return 0;
     }
-
-
 }

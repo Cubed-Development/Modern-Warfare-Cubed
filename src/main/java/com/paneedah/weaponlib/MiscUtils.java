@@ -8,12 +8,12 @@ public class MiscUtils {
     }
 
     public static float clamp(float x, float lowerlimit, float upperlimit) {
-        if (x < lowerlimit) {
+        if (x < lowerlimit)
             x = lowerlimit;
-        }
-        if (x > upperlimit) {
+
+        if (x > upperlimit)
             x = upperlimit;
-        }
+
         return x;
     }
 }
