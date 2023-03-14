@@ -45,10 +45,11 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
     private float zRotationChange;
 
     private float rotationSlowdownFactor = 0.99f;
+    private float maxRotationChange = 20f;
 
     protected boolean stopped;
 
-    private final Queue<Double> velocityHistory = new ArrayDeque<>(VELOCITY_HISTORY_SIZE);
+    private Queue<Double> velocityHistory = new ArrayDeque<>(VELOCITY_HISTORY_SIZE);
 
     public EntityBounceable(ModContext modContext, World world, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
         super(world);
@@ -57,7 +58,8 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         this.gravityVelocity = gravityVelocity;
         this.rotationSlowdownFactor = rotationSlowdownFactor;
         this.setSize(0.3F, 0.3F);
-        this.setLocationAndAngles(thrower.posX, thrower.posY + (double)thrower.getEyeHeight(), thrower.posZ, compatibility.getCompatibleAimingRotationYaw(thrower), thrower.rotationPitch);
+        this.setLocationAndAngles(thrower.posX, thrower.posY + (double)thrower.getEyeHeight(), thrower.posZ, 
+                compatibility.getCompatibleAimingRotationYaw(thrower), thrower.rotationPitch);
         this.posX -= (double)(CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
         this.posZ -= (double)(CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
@@ -72,7 +74,10 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         this.initialPitch = this.rotationPitch;
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity /*1.3f*/, 10.0F); // TODO: make inaccuracy configurable parameter
 
-        log.debug("Throwing with position {}{}{}, rotation pitch {}, velocity {}, {}, {}", posX, posY, posZ, this.rotationPitch, this.motionX, this.motionY, this.motionZ);
+        log.debug("Throwing with position {}{}{}, rotation pitch {}, velocity {}, {}, {}",
+                posX, posY, posZ,
+                this.rotationPitch,
+                this.motionX, this.motionY, this.motionZ);
     }
 
     public void setThrowableHeading(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {
@@ -100,7 +105,6 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
     }
 
     private void setRotations() {
-        float maxRotationChange = 20f;
         xRotationChange = maxRotationChange * (float)rand.nextGaussian();
         yRotationChange = maxRotationChange * (float)rand.nextGaussian();
         zRotationChange = maxRotationChange * (float)rand.nextGaussian();
@@ -118,6 +122,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
     @Override
     public void onUpdate() {
+
         if (!compatibility.world(this).isRemote && ticksExisted > MAX_TICKS) {
             this.setDead();
             return;
@@ -138,48 +143,51 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
         ++this.ticksInAir;
 
-        if(stopped)
+        if(stopped) {
             return;
+        }
 
         CompatibleVec3 vec3 = new CompatibleVec3(this.posX, this.posY, this.posZ);
         CompatibleVec3 vec31 = new CompatibleVec3(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
-        CompatibleRayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(block, blockMetadata));
+        CompatibleRayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this),
+                vec3, vec31,
+                (block, blockMetadata) -> canCollideWithBlock(block, blockMetadata));
 
         vec3 = new CompatibleVec3(this.posX, this.posY, this.posZ);
         vec31 = new CompatibleVec3(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
-        if (movingobjectposition != null)
+        if (movingobjectposition != null) {
             vec31 = CompatibleVec3.fromCompatibleVec3(movingobjectposition.getHitVec());
+        }
 
         if (thrower != null) { //if(!this.worldObj.isRemote)
             Entity entity = null;
-            List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this, compatibility.getBoundingBox(this).addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+            List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this,
+                    compatibility.getBoundingBox(this).addCoord(this.motionX, this.motionY, this.motionZ)
+                    .expand(1.0D, 1.0D, 1.0D));
             double d0 = 0.0D;
             EntityLivingBase entitylivingbase = this.getThrower();
 
             CompatibleRayTraceResult entityMovingObjectPosition = null;
-            for (Object o : list) {
-                Entity entity1 = (Entity) o;
+            for (int j = 0; j < list.size(); ++j) {
+                Entity entity1 = (Entity)list.get(j);
 
-                if (!entity1.canBeCollidedWith() || (entity1 == entitylivingbase || this.ticksInAir < 5))
-                    continue;
+                if (entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
+                    float f = 0.3F;
+                    CompatibleAxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, f, f, f);
+                    CompatibleRayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3, vec31);
 
-                float f = 0.3F;
-                CompatibleAxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, f, f, f);
-                CompatibleRayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3, vec31);
+                    if (movingobjectposition1 != null) {
+                        double d1 = vec3.distanceTo(movingobjectposition1.getHitVec()); //hitVec
 
-                if (movingobjectposition1 == null)
-                    continue;
-
-                double d1 = vec3.distanceTo(movingobjectposition1.getHitVec()); //hitVec
-
-                if (d1 > d0 || d0 != 0.0D)
-                    continue;
-
-                entity = entity1;
-                entityMovingObjectPosition = movingobjectposition1;
-                d0 = d1;
+                        if (d1 < d0 || d0 == 0.0D) {
+                            entity = entity1;
+                            entityMovingObjectPosition = movingobjectposition1;
+                            d0 = d1;
+                        }
+                    }
+                }
             }
 
             if (entity != null) {
@@ -189,62 +197,68 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
             }
         }
 
-        log.trace("Ori position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ, motionX, motionY, motionZ);
+        log.trace("Ori position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ,
+                motionX, motionY, motionZ);
 
-        if(movingobjectposition != null && (movingobjectposition.getTypeOfHit() == Type.BLOCK || (movingobjectposition.getTypeOfHit() == Type.ENTITY))) {
+        if(movingobjectposition != null && (movingobjectposition.getTypeOfHit() == Type.BLOCK
+                    || (movingobjectposition.getTypeOfHit() == Type.ENTITY))) {
 
             //TODO: remove logging since it's creating wrapper objects
-            log.trace("Hit {}, vec set to {}, {}, {}", movingobjectposition.getTypeOfHit(), movingobjectposition.getHitVec().getXCoord(), movingobjectposition.getHitVec().getYCoord(), movingobjectposition.getHitVec().getZCoord());
-            log.trace("Before bouncing {}, side {}, motion set to {}, {}, {}", bounceCount, movingobjectposition.getSideHit(), motionX, motionY, motionZ);
+            log.trace("Hit {}, vec set to {}, {}, {}", movingobjectposition.getTypeOfHit(),
+                    movingobjectposition.getHitVec().getXCoord(),
+                    movingobjectposition.getHitVec().getYCoord(),
+                    movingobjectposition.getHitVec().getZCoord());
+
+            log.trace("Before bouncing {}, side {}, motion set to {}, {}, {}", bounceCount,
+                    movingobjectposition.getSideHit(),
+                    motionX, motionY, motionZ);
 
             this.posX = movingobjectposition.getHitVec().getXCoord();
             this.posY = movingobjectposition.getHitVec().getYCoord();
             this.posZ = movingobjectposition.getHitVec().getZCoord();
 
             switch(movingobjectposition.getSideHit()) {
-                case DOWN:
-                    this.motionY = -this.motionY;
-                    this.posY += motionY;
-                    break;
-
-                case UP:
-                    this.motionY = -this.motionY;
-//                    if(this.motionY - gravityVelocity < 0.05) {
-//                        log.debug("Force stopping entity");
-//                        gravityVelocity = (float) this.motionY;
-//                        forcedStop = true;
-//                    }
-                    break;
-
-                case NORTH:
-                    this.motionZ = -this.motionZ;
-                    this.posZ += motionZ;
-                    break;
-
-                case SOUTH:
-                    this.motionZ = -this.motionZ;
-                    break;
-
-                case WEST:
-                    this.motionX = -this.motionX;
-                    this.posX += motionX;
-                    break;
-
-                case EAST:
-                    this.motionX = -this.motionX;
-                    break;
+            case DOWN:
+                this.motionY = -this.motionY;
+                this.posY += motionY;
+                break;
+            case UP:
+                this.motionY = -this.motionY;
+//                if(this.motionY - gravityVelocity < 0.05) {
+//                    log.debug("Force stopping entity");
+//                    gravityVelocity = (float) this.motionY;
+//                    forcedStop = true;
+//                }
+                break;
+            case NORTH:
+                this.motionZ = -this.motionZ;
+                this.posZ += motionZ;
+                break;
+            case SOUTH:
+                this.motionZ = -this.motionZ;
+                break;
+            case WEST:
+                this.motionX = -this.motionX;
+                this.posX += motionX;
+                break;
+            case EAST:
+                this.motionX = -this.motionX;
+                break;
             }
 
             setPosition(posX, posY, posZ);
-            if(movingobjectposition.getTypeOfHit() == Type.ENTITY) avoidEntityCollisionAfterBounce(movingobjectposition);
-            else if(movingobjectposition.getTypeOfHit() == Type.BLOCK) avoidBlockCollisionAfterBounce(movingobjectposition);
+            if(movingobjectposition.getTypeOfHit() == Type.ENTITY) {
+                avoidEntityCollisionAfterBounce(movingobjectposition);
+            } else if(movingobjectposition.getTypeOfHit() == Type.BLOCK) {
+                avoidBlockCollisionAfterBounce(movingobjectposition);
+            }
 
             log.trace("After bouncing {}  motion set to {}, {}, {}", bounceCount, motionX, motionY, motionZ);
             onBounce(movingobjectposition);
             bounceCount++;
-            if(this.isDead)
+            if(this.isDead) {
                 return;
-
+            }
         } else {
             this.posX += this.motionX;
             this.posY += this.motionY;
@@ -257,16 +271,25 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
         this.rotationYaw = (float)(Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
-        for (this.rotationPitch = (float)(Math.atan2(this.motionY, (double)motionSquared) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F);
+        for (this.rotationPitch = (float)(Math.atan2(this.motionY, (double)motionSquared) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F)
+        {
+            ;
+        }
 
         while (this.rotationPitch - this.prevRotationPitch >= 180.0F)
+        {
             this.prevRotationPitch += 360.0F;
+        }
 
         while (this.rotationYaw - this.prevRotationYaw < -180.0F)
+        {
             this.prevRotationYaw -= 360.0F;
+        }
 
         while (this.rotationYaw - this.prevRotationYaw >= 180.0F)
+        {
             this.prevRotationYaw += 360.0F;
+        }
 
         this.rotationPitch = this.prevRotationPitch + (this.rotationPitch - this.prevRotationPitch) * 0.2F;
         this.rotationYaw = this.prevRotationYaw + (this.rotationYaw - this.prevRotationYaw) * 0.2F;
@@ -276,13 +299,15 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         if (this.isInWater()) {
             for (int i = 0; i < 4; ++i) {
                 float f4 = 0.25F;
-                compatibility.spawnParticle(compatibility.world(this), "bubble", this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);
+                compatibility.spawnParticle(compatibility.world(this),
+                        "bubble", this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);
             }
 
             f2 = 0.8F;
         }
 
-        if(movingobjectposition != null && (movingobjectposition.getTypeOfHit() == Type.BLOCK || movingobjectposition.getTypeOfHit() == Type.ENTITY)) {
+        if(movingobjectposition != null &&
+                (movingobjectposition.getTypeOfHit() == Type.BLOCK || movingobjectposition.getTypeOfHit() == Type.ENTITY)) {
             f2 = slowdownFactor;
             rotationSlowdownFactor = rotationSlowdownFactor * (slowdownFactor * 1.5f);
         }
@@ -293,32 +318,36 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
         recordVelocityHistory();
 
-        if(velocityHistory.stream().noneMatch(v -> v > STOP_THRESHOLD)) {
+        if(!velocityHistory.stream().anyMatch(v -> v > STOP_THRESHOLD)) {
             motionX = motionY = motionZ = 0.0;
             stopped = true;
             log.trace("Stopping {}", this);
             onStop();
-
         } else {
             this.motionY -=  (double)currentGravityVelocity;
         }
 
-        log.trace("Set position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ, motionX, motionY, motionZ);
+        log.trace("Set position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ,
+                motionX, motionY, motionZ);
     }
 
-    public void onStop() {}
+    public  void onStop() {}
 
     public void onBounce(CompatibleRayTraceResult movingobjectposition) {}
 
     private void avoidBlockCollisionAfterBounce(CompatibleRayTraceResult movingobjectposition) {
-    	if(movingobjectposition.getTypeOfHit() != Type.BLOCK)
+       
+    	
+    	if(movingobjectposition.getTypeOfHit() != Type.BLOCK) {
             return;
+        }
 
         double dX = Math.signum(motionX) * 0.01;
         double dY = Math.signum(motionY) * 0.01;
         double dZ = Math.signum(motionZ) * 0.01;
 
         for(int i = 0; i < 10; i++) {
+
             double projectedXPos = this.posX + dX * i;
             double projectedYPos = this.posY + dY * i;
             double projectedZPos = this.posZ + dZ * i;
@@ -327,9 +356,11 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
             CompatibleBlockPos blockPos = new CompatibleBlockPos(projectedPos);
 
-            CompatibleAxisAlignedBB projectedEntityBoundingBox = compatibility.getBoundingBox(this).offset(dX * i, dY * i, dZ * i);
+            CompatibleAxisAlignedBB projectedEntityBoundingBox = compatibility.getBoundingBox(this)
+                    .offset(dX * i, dY * i, dZ * i);
 
-            if(compatibility.isAirBlock(compatibility.world(this), blockPos) || !new CompatibleAxisAlignedBB(blockPos).intersectsWith(projectedEntityBoundingBox) ) {
+            if(compatibility.isAirBlock(compatibility.world(this), blockPos) ||
+                    !new CompatibleAxisAlignedBB(blockPos).intersectsWith(projectedEntityBoundingBox) ) {
                 this.posX = projectedXPos;
                 this.posY = projectedYPos;
                 this.posZ = projectedZPos;
@@ -340,8 +371,11 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
     }
 
     private void avoidEntityCollisionAfterBounce(CompatibleRayTraceResult movingobjectposition) {
-        if(movingobjectposition.getEntityHit() == null)
+
+    	
+        if(movingobjectposition.getEntityHit() == null) {
             return;
+        }
 
         slowdownFactor = 0.01f;
         double dX = Math.signum(motionX) * 0.01;
@@ -349,36 +383,43 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         double dZ = Math.signum(motionZ) * 0.01;
 
         float f = 0.3F;
-        CompatibleAxisAlignedBB axisalignedbb = compatibility.getBoundingBox(movingobjectposition.getEntityHit()).expand((double)f, (double)f, (double)f);
+        CompatibleAxisAlignedBB axisalignedbb = compatibility.getBoundingBox(movingobjectposition.getEntityHit())
+                .expand((double)f, (double)f, (double)f);
         CompatibleRayTraceResult intercept = movingobjectposition;
-
         for(int i = 0; i < 10; i++) {
             CompatibleVec3 currentPos = new CompatibleVec3(this.posX + dX * i, this.posY + dY * i, this.posZ + dY * i);
             CompatibleVec3 projectedPos = new CompatibleVec3(this.posX + dX * (i + 1), this.posY + dY * (i + 1), this.posZ + dZ * (i + 1));
             intercept = axisalignedbb.calculateIntercept(currentPos, projectedPos);
-
             if(intercept == null) {
+                //log.debug("Found no-intercept after bounce with offsets {}, {}, {}", dX, dY, dZ);
+
                 CompatibleBlockState blockState;
 
                 CompatibleBlockPos blockPos = new CompatibleBlockPos(projectedPos);
-                if((blockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos)) != null && !compatibility.isAirBlock(blockState)) {
+                if((blockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos)) != null
+                        && !compatibility.isAirBlock(blockState)) {
                     log.debug("Found non-intercept position colliding with block {}", blockState);
                     intercept = movingobjectposition;
-
                 } else {
+                	
                     this.posX = projectedPos.getXCoord();
                     this.posY = projectedPos.getYCoord();
                     this.posZ = projectedPos.getZCoord();
+                    
                 }
 
                 break;
             }
+
+            //log.debug("Still intercepting after bounce, adjusting offsets to {}, {}, {}", dX, dY, dZ);
         }
 
-        if(intercept != null)
+        if(intercept != null) {
             log.debug("Could not find non-intercept position after bounce");
+        }
     }
 
+    //@Override
     protected float getGravityVelocity() {
         return gravityVelocity;
     }
@@ -388,10 +429,13 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
     }
 
     @Override
-    protected void readEntityFromNBT(NBTTagCompound tagCompound) {}
+    protected void readEntityFromNBT(NBTTagCompound tagCompound) {
+
+    }
 
     @Override
-    protected void writeEntityToNBT(NBTTagCompound tagCompound) {}
+    protected void writeEntityToNBT(NBTTagCompound tagCompound) {
+    }
 
     @Override
     public void writeSpawnData(ByteBuf buffer) {
@@ -413,10 +457,10 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         int entityId = buffer.readInt();
         if(thrower == null && entityId >= 0) {
             Entity entity = compatibility.world(this).getEntityByID(entityId);
-            if(entity instanceof EntityLivingBase)
+            if(entity instanceof EntityLivingBase) {
                 this.thrower = (EntityPlayer) entity;
+            }
         }
-
         posX = buffer.readDouble();
         posY = buffer.readDouble();
         posZ = buffer.readDouble();
@@ -430,7 +474,10 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
         setPosition(posX, posY, posZ);
 
-        log.debug("Restoring with position {}{}{}, rotation pitch {}, velocity {}, {}, {}", posX, posY, posZ, this.rotationPitch, this.motionX, this.motionY, this.motionZ);
+        log.debug("Restoring with position {}{}{}, rotation pitch {}, velocity {}, {}, {}",
+                posX, posY, posZ,
+                this.rotationPitch,
+                this.motionX, this.motionY, this.motionZ);
     }
 
     public float getXRotation() {
@@ -452,13 +499,16 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
     private void recordVelocityHistory() {
         double velocity = motionX * motionX + motionY * motionY + motionZ * motionZ;
         velocityHistory.add(velocity);
-        if(velocityHistory.size() > VELOCITY_HISTORY_SIZE)
+        if(velocityHistory.size() > VELOCITY_HISTORY_SIZE) {
             velocityHistory.poll();
+        }
     }
 
     @Override
     public void setContext(ModContext modContext) {
-        if(this.modContext == null)
+        if(this.modContext == null) {
             this.modContext = modContext;
+        }
     }
+
 }

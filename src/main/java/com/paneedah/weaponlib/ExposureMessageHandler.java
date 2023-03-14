@@ -8,18 +8,21 @@ import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ExposureMessageHandler implements CompatibleMessageHandler<ExposureMessage, CompatibleMessage>  {
+    
+    @SuppressWarnings("unused")
+    private ModContext modContext;
 
-    public ExposureMessageHandler() {}
-
-    public ExposureMessageHandler(ModContext modContext) {}
+    public ExposureMessageHandler(ModContext modContext) {
+        this.modContext = modContext;
+    }
 
     @Override
     public <T extends CompatibleMessage> T onCompatibleMessage(ExposureMessage message, CompatibleMessageContext ctx) {
-        if (ctx.isServerSide())
-            return null;
-
-        compatibility.runInMainClientThread(() -> CompatibleExposureCapability.updateExposures(compatibility.clientPlayer(), message.getExposures()));
-
+        if(!ctx.isServerSide()) {
+            compatibility.runInMainClientThread(() -> {
+                CompatibleExposureCapability.updateExposures(compatibility.clientPlayer(), message.getExposures());
+            });
+        }
         return null;
     }
 }

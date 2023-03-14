@@ -84,13 +84,16 @@ public class HighIQSpawnEgg extends CompatibleItem implements IModernCrafting {
 			this.id = i;
 			return this;
 		}
+
 	}
 
 	private String entitySpawnName;
 	private Predicate<Block> blockPredicate;
 	private int spawnID;
 
-	public HighIQSpawnEgg() {}
+	public HighIQSpawnEgg() {
+
+	}
 
 	public int getID() {
 		return this.spawnID;
@@ -117,42 +120,56 @@ public class HighIQSpawnEgg extends CompatibleItem implements IModernCrafting {
 	}
 
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
+			EnumFacing facing, float hitX, float hitY, float hitZ) {
+
+
 		if (hand == EnumHand.OFF_HAND)
 			return EnumActionResult.FAIL;
 
 		try {
+			
+			//System.out.println(worldIn.getBlockState(pos).getBlock());
+			
 			if (!blockPredicate.test(worldIn.getBlockState(pos).getBlock()))
 				return EnumActionResult.FAIL;
 
 			try {
 				if (!worldIn.isRemote) {
-					// Entity entity = SecondaryEntityRegistry.map.get(getEntitySpawnName()).getConstructor(World.class).newInstance(worldIn);
+					// Entity entity =
+					// SecondaryEntityRegistry.map.get(getEntitySpawnName()).getConstructor(World.class).newInstance(worldIn);
 
 					NBTTagCompound btc = new NBTTagCompound();
 					btc.setString("id", ModReference.id + ":" + getEntitySpawnName());
-					Entity entity = AnvilChunkLoader.readWorldEntityPos(btc, worldIn, pos.getX() + 0.5, pos.up().getY(), pos.getZ() + 0.5, true);
+					Entity entity = AnvilChunkLoader.readWorldEntityPos(btc, worldIn, pos.getX() + 0.5, pos.up().getY(),
+							pos.getZ() + 0.5, true);
+
 					entity.setPosition(pos.getX() + 0.5, pos.up().getY(), pos.getZ() + 0.5);
 					
-					if (entity instanceof EntityLiving)
-						((EntityLiving) entity).onInitialSpawn(worldIn.getDifficultyForLocation(new BlockPos(entity)), (IEntityLivingData) null);
+					if (entity instanceof EntityLiving) {
+						((EntityLiving) entity).onInitialSpawn(worldIn.getDifficultyForLocation(new BlockPos(entity)),
+								(IEntityLivingData) null);
+					}
+
 				}
-
 				player.getHeldItemMainhand().shrink(1);
-				return EnumActionResult.SUCCESS;
 
-			} catch (Exception e) { System.err.println("Unable to spawn entity with name: " + getEntitySpawnName()); }
+				return EnumActionResult.SUCCESS;
+			} catch (Exception e) {
+				System.err.println("Unable to spawn entity with name: " + getEntitySpawnName());
+			}
 
 			return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			return EnumActionResult.PASS;
 		}
+
 	}
 
 	@Override
-	protected ItemStack onCompatibleItemRightClick(ItemStack itemStack, World world, EntityPlayer player, boolean mainHand) {
+	protected ItemStack onCompatibleItemRightClick(ItemStack itemStack, World world, EntityPlayer player,
+			boolean mainHand) {
 		return super.onCompatibleItemRightClick(itemStack, world, player, mainHand);
 	}
 
@@ -180,4 +197,5 @@ public class HighIQSpawnEgg extends CompatibleItem implements IModernCrafting {
 	public void setCraftingGroup(CraftingGroup group) {
 		this.craftGroup = group;
 	}
+
 }

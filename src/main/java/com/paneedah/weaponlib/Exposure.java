@@ -6,11 +6,11 @@ import net.minecraft.world.World;
 
 public interface Exposure extends UniversallySerializable {
 
-    boolean isEffective(World world);
+    public boolean isEffective(World world);
     
-    void update(Entity entity);
+    public void update(Entity entity);
     
-    long getLastSyncTimestamp();
+    public long getLastSyncTimestamp();
     
-    void updateFrom(Exposure anotherExposure);
+    public void updateFrom(Exposure anotherExposure);
 }

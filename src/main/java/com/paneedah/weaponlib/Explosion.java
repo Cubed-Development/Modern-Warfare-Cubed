@@ -23,9 +23,11 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
 
 public class Explosion {
     
-    private static final ResourceLocation SMOKE_TEXTURE = new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/large-smoke.png");
+    private static final ResourceLocation SMOKE_TEXTURE = new ResourceLocation(
+            "weaponlib:/com/paneedah/weaponlib/resources/large-smoke.png");
 
-    private final ModContext modContext;
+
+    private ModContext modContext;
     /** whether the explosion sets fire to blocks around it */
     private final boolean isFlaming;
     /** whether this explosion spawns smoke particles */
@@ -45,7 +47,16 @@ public class Explosion {
     private final String smokeParticleTextureName;
     private final CompatibleSound explosionSound;
 
-    public static void createServerSideExplosion(ModContext modContext, World world, Entity entity, double posX, double posY, double posZ, float explosionStrength, boolean isFlaming, boolean isSmoking, boolean isDestroyingBlocks, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, CompatibleSound explosionSound) {
+    public static void createServerSideExplosion(ModContext modContext, World world, Entity entity, double posX, double posY, double posZ,
+            float explosionStrength, boolean isFlaming, boolean isSmoking, boolean isDestroyingBlocks, 
+            float particleAgeCoefficient,
+            float smokeParticleAgeCoefficient,
+            float explosionParticleScaleCoefficient,
+            float smokeParticleScaleCoefficient,
+            String explosionParticleTextureName,
+            String smokeParticleTextureName,
+            CompatibleSound explosionSound) {
+
         world.createExplosion(entity, entity.posX, entity.posY + 1.0f, entity.posZ, 4.0F, true);
         
         /*
@@ -80,18 +91,28 @@ public class Explosion {
     }
 
     // @SideOnly(Side.CLIENT)
-    public Explosion(ModContext modContext, World worldIn, Entity entityIn, double x, double y, double z, float size, List<CompatibleBlockPos> affectedPositions, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, CompatibleSound explosionSound) {
-        this(modContext, worldIn, entityIn, x, y, z, size, false, true, affectedPositions, particleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, explosionParticleTextureName, smokeParticleTextureName, explosionSound);
+    public Explosion(ModContext modContext, World worldIn, Entity entityIn, double x, double y, double z, float size,
+            List<CompatibleBlockPos> affectedPositions, float particleAgeCoefficient, float smokeParticleAgeCoefficient, 
+            float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, 
+            String explosionParticleTextureName, String smokeParticleTextureName, CompatibleSound explosionSound) {
+        this(modContext, worldIn, entityIn, x, y, z, size, false, true, affectedPositions, particleAgeCoefficient, 
+                smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient,
+                explosionParticleTextureName, smokeParticleTextureName, explosionSound);
     }
 
     // @SideOnly(Side.CLIENT)
-    public Explosion(ModContext modContext, World worldIn, Entity entityIn, double x, double y, double z, float size, boolean flaming, boolean smoking, List<CompatibleBlockPos> affectedPositions, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, CompatibleSound explosionSound) {
+    public Explosion(ModContext modContext, World worldIn, Entity entityIn, double x, double y, double z, float size, boolean flaming,
+            boolean smoking, List<CompatibleBlockPos> affectedPositions, float particleAgeCoefficient, float smokeParticleAgeCoefficient,
+            float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient,
+            String explosionParticleTextureName, String smokeParticleTextureName, CompatibleSound explosionSound) {
         this(modContext, worldIn, entityIn, x, y, z, size, flaming, smoking, particleAgeCoefficient, smokeParticleAgeCoefficient,
         explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, explosionParticleTextureName, smokeParticleTextureName, explosionSound);
         this.affectedBlockPositions.addAll(affectedPositions);
     }
 
-    public Explosion(ModContext modContext, World worldIn, Entity entityIn, double x, double y, double z, float size, boolean flaming, boolean smoking, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, CompatibleSound explosionSound) {
+    public Explosion(ModContext modContext, World worldIn, Entity entityIn, double x, double y, double z, float size, boolean flaming,
+            boolean smoking, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient,
+            float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, CompatibleSound explosionSound) {
         this.modContext = modContext;
         this.explosionRNG = new Random();
         this.affectedBlockPositions = Lists.<CompatibleBlockPos>newArrayList();
@@ -138,6 +159,8 @@ public class Explosion {
      * Does the first part of the explosion (destroy blocks)
      */
     public void doExplosionA() {
+    	
+    	
         Set<CompatibleBlockPos> set = Sets.<CompatibleBlockPos>newHashSet();
 
         for (int j = 0; j < 16; ++j) {
@@ -162,13 +185,20 @@ public class Explosion {
                             // this.worldObj.getBlockState(blockpos);
                             CompatibleBlockState blockState = compatibility.getBlockAtPosition(world, blockpos);
 
-                            if (!(compatibility.isAirBlock(blockState) || compatibility.isBlockPenetratableByBullets(blockState))) {
-                                float f2 = this.exploder != null ? compatibility.getExplosionResistance(this.world, this.exploder, this, blockpos, blockState) : compatibility.getExplosionResistance(world, blockState, blockpos, (Entity) null, this);
+                            if (!(compatibility.isAirBlock(blockState) 
+                                    || compatibility.isBlockPenetratableByBullets(blockState))) {
+                                float f2 = this.exploder != null
+                                        ? compatibility.getExplosionResistance(this.world, this.exploder, this,
+                                                blockpos, blockState)
+                                        : compatibility.getExplosionResistance(world, blockState, blockpos, (Entity) null,
+                                                this);
                                 f -= (f2 + 0.3F) * 0.3F;
                             }
 
-                            if (f > 0.0F && (this.exploder == null || compatibility.verifyExplosion(this.world, this.exploder, this, blockpos, blockState, f)))
+                            if (f > 0.0F && (this.exploder == null || compatibility.verifyExplosion(this.world, this.exploder, this,
+                                    blockpos, blockState, f))) {
                                 set.add(blockpos);
+                            }
 
                             d4 += d0 * 0.30000001192092896D;
                             d6 += d1 * 0.30000001192092896D;
@@ -187,72 +217,91 @@ public class Explosion {
         int i1 = CompatibleMathHelper.floor_double(this.explosionY + (double) f3 + 1.0D);
         int j2 = CompatibleMathHelper.floor_double(this.explosionZ - (double) f3 - 1.0D);
         int j1 = CompatibleMathHelper.floor_double(this.explosionZ + (double) f3 + 1.0D);
-        List<Entity> list = compatibility.getEntitiesWithinAABBExcludingEntity(world, this.exploder, new CompatibleAxisAlignedBB((double) k1, (double) i2, (double) j2, (double) l1, (double) i1, (double) j1));
+        List<Entity> list = compatibility.getEntitiesWithinAABBExcludingEntity(world, this.exploder,
+                new CompatibleAxisAlignedBB((double) k1, (double) i2, (double) j2, (double) l1, (double) i1,
+                        (double) j1));
 
-        // net.minecraftforge.event.ForgeEventFactory.onExplosionDetonate(this.worldObj,this, list, f3);
+        // net.minecraftforge.event.ForgeEventFactory.onExplosionDetonate(this.worldObj,
+        // this, list, f3);
         CompatibleVec3 vec3d = new CompatibleVec3(this.explosionX, this.explosionY, this.explosionZ);
 
-        for (Entity value : list) {
-            if (compatibility.isImmuneToExplosions((Entity) value))
-                continue;
+        for (int k2 = 0; k2 < list.size(); ++k2) {
+            Entity entity = (Entity) list.get(k2);
 
-            double d12 = ((Entity) value).getDistance(this.explosionX, this.explosionY, this.explosionZ) / (double) f3;
-            if (d12 > 1.0D)
-                continue;
+            if (!compatibility.isImmuneToExplosions(entity)) {
+                double d12 = entity.getDistance(this.explosionX, this.explosionY, this.explosionZ) / (double) f3;
 
-            double d5 = ((Entity) value).posX - this.explosionX;
-            double d7 = ((Entity) value).posY + (double) ((Entity) value).getEyeHeight() - this.explosionY;
-            double d9 = ((Entity) value).posZ - this.explosionZ;
-            double d13 = (double) CompatibleMathHelper.sqrt_double(d5 * d5 + d7 * d7 + d9 * d9);
+                if (d12 <= 1.0D) {
+                    double d5 = entity.posX - this.explosionX;
+                    double d7 = entity.posY + (double) entity.getEyeHeight() - this.explosionY;
+                    double d9 = entity.posZ - this.explosionZ;
+                    double d13 = (double) CompatibleMathHelper.sqrt_double(d5 * d5 + d7 * d7 + d9 * d9);
 
-            if (d13 == 0.0D)
-                continue;
+                    if (d13 != 0.0D) {
+                        d5 = d5 / d13;
+                        d7 = d7 / d13;
+                        d9 = d9 / d13;
+                        double d14 = (double) compatibility.getBlockDensity(world, vec3d,
+                                compatibility.getBoundingBox(entity), 
+                                (block, blockMetadata) -> canCollideWithBlock(block, blockMetadata));
+                        double d10 = (1.0D - d12) * d14;
+                        
+                        //System.out.println();
+                        
+                        
+                      //  entity.attackEntityFrom(compatibility.getDamageSource(this),
+                       //        (float) ((int) ((d10 * d10 + d10) / 2.0D * 7.0D * (double) f3 + 1.0D)));
+                        double d11 = 1.0D;
 
-            d5 = d5 / d13;
-            d7 = d7 / d13;
-            d9 = d9 / d13;
+                        if (entity instanceof EntityLivingBase) {
+                            d11 = compatibility.getBlastDamageReduction((EntityLivingBase) entity, d10);
+                        }
 
-            double d14 = (double) compatibility.getBlockDensity(world, vec3d, compatibility.getBoundingBox((Entity) value), this::canCollideWithBlock);
-            double d10 = (1.0D - d12) * d14;
+                        entity.motionX += d5 * d11;
+                        entity.motionY += d7 * d11;
+                        entity.motionZ += d9 * d11;
 
-            //  entity.attackEntityFrom(compatibility.getDamageSource(this),
-            //        (float) ((int) ((d10 * d10 + d10) / 2.0D * 7.0D * (double) f3 + 1.0D)));
+                        if (entity instanceof EntityPlayer) {
+                            EntityPlayer entityplayer = (EntityPlayer) entity;
 
-            double d11 = 1.0D;
-            if ((Entity) value instanceof EntityLivingBase)
-                d11 = compatibility.getBlastDamageReduction((EntityLivingBase) (Entity) value, d10);
-
-            ((Entity) value).motionX += d5 * d11;
-            ((Entity) value).motionY += d7 * d11;
-            ((Entity) value).motionZ += d9 * d11;
-
-            if (!((Entity) value instanceof EntityPlayer))
-                continue;
-
-            EntityPlayer entityplayer = (EntityPlayer) (Entity) value;
-            if (!compatibility.isSpectator(entityplayer) && (!compatibility.isCreative(entityplayer) || !entityplayer.capabilities.isFlying))
-                this.playerKnockbackMap.put(entityplayer, new CompatibleVec3(d5 * d10, d7 * d10, d9 * d10))
+                            if (!compatibility.isSpectator(entityplayer) && (!compatibility.isCreative(entityplayer)
+                                    || !entityplayer.capabilities.isFlying)) {
+                                this.playerKnockbackMap.put(entityplayer,
+                                        new CompatibleVec3(d5 * d10, d7 * d10, d9 * d10));
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     
     public boolean canCollideWithBlock(Block block, CompatibleBlockState metadata) {
-        return !compatibility.isBlockPenetratableByBullets(block) && compatibility.canCollideCheck(block, metadata, false);
+        return !compatibility.isBlockPenetratableByBullets(block) 
+                && compatibility.canCollideCheck(block, metadata, false);
     }
 
     /**
      * Does the second part of the explosion (sound, particles, drop spawn)
      */
     public void doExplosionB(boolean spawnParticles, boolean destroyBlocks) {
-        if(!world.isRemote && explosionSound != null)
-            compatibility.playSound(world, explosionX, explosionY, explosionZ, explosionSound, 4f, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
+        if(!world.isRemote && explosionSound != null) {
+            compatibility.playSound(world, explosionX, explosionY, explosionZ, explosionSound, 4f,
+                (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
+        }
+        
+        
 
         if (this.isSmoking) {
             int counter = 0;
             for (CompatibleBlockPos blockpos : this.affectedBlockPositions) {
-                if(counter++ % 2 != 0)
+                
+                if(counter++ % 2 != 0) {
                     continue;
+                }
 
                 CompatibleBlockState blockState = compatibility.getBlockAtPosition(world, blockpos);
+
 
 //                if (spawnParticles) {
 //                    for(int i = 0; i < 1; i++) {
@@ -327,17 +376,24 @@ public class Explosion {
                     double motionY = world.rand.nextGaussian() * 0.0001;
                     double motionZ = world.rand.nextGaussian() * 0.001;
 
-                    modContext.getEffectManager().spawnExplosionSmoke(pX, pY, pZ, motionX, motionY, motionZ, smokeParticleScaleCoefficient, (int)((250 + (int)(world.rand.nextFloat() * 30)) * smokeParticleAgeCoefficient), ExplosionSmokeFX.Behavior.EXPLOSION, smokeParticleTextureName);
+                    modContext.getEffectManager().spawnExplosionSmoke(
+                            pX, pY, pZ, motionX, motionY, motionZ,
+                            smokeParticleScaleCoefficient,
+                            (int)((250 + (int)(world.rand.nextFloat() * 30)) * smokeParticleAgeCoefficient),
+                            ExplosionSmokeFX.Behavior.EXPLOSION,
+                            smokeParticleTextureName);
                 }
             }
         }
 
-        if (!this.isFlaming || !destroyBlocks)
-            return;
-
-        for (CompatibleBlockPos blockpos1 : this.affectedBlockPositions) {
-            if (compatibility.isAirBlock(world, blockpos1) && compatibility.isFullBlock(compatibility.getBlockBelow(world, blockpos1)) && this.explosionRNG.nextInt(3) == 0)
-                compatibility.setBlockToFire(world, blockpos1);
+        if (this.isFlaming && destroyBlocks) {
+            for (CompatibleBlockPos blockpos1 : this.affectedBlockPositions) {
+                if (compatibility.isAirBlock(world, blockpos1)
+                        && compatibility.isFullBlock(compatibility.getBlockBelow(world, blockpos1))
+                        && this.explosionRNG.nextInt(3) == 0) {
+                    compatibility.setBlockToFire(world, blockpos1);
+                }
+            }
         }
     }
 
@@ -350,7 +406,9 @@ public class Explosion {
      * that caused the explosion or null.
      */
     public EntityLivingBase getExplosivePlacedBy() {
-        return this.exploder == null ? null : (this.exploder instanceof EntityTNTPrimed ? ((EntityTNTPrimed) this.exploder).getTntPlacedBy() : (this.exploder instanceof EntityLivingBase ? (EntityLivingBase) this.exploder : null));
+        return this.exploder == null ? null
+                : (this.exploder instanceof EntityTNTPrimed ? ((EntityTNTPrimed) this.exploder).getTntPlacedBy()
+                        : (this.exploder instanceof EntityLivingBase ? (EntityLivingBase) this.exploder : null));
     }
 
     public void clearAffectedBlockPositions() {

@@ -12,25 +12,38 @@ public class ExplosionMessageHandler implements CompatibleMessageHandler<Explosi
 
     private ModContext modContext;
 
-	public ExplosionMessageHandler() {}
-
 	public ExplosionMessageHandler(ModContext modContext) {
 	    this.modContext = modContext;
 	}
 
 	@Override
 	public <T extends CompatibleMessage> T onCompatibleMessage(ExplosionMessage message, CompatibleMessageContext ctx) {
-		if (ctx.isServerSide())
-			return null;
+		if(!ctx.isServerSide()) {
+			EntityPlayer player = compatibility.clientPlayer();
+			compatibility.runInMainClientThread(() -> {
+                Explosion explosion = new Explosion(modContext,
+                        compatibility.world(player),
+                        (Entity)null,
+                        message.getPosX(),
+                        message.getPosY(),
+                        message.getPosZ(),
+                        message.getStrength(),
+                        message.getAffectedBlockPositions(),
+                        message.getExplosionParticleAgeCoefficient(),
+                        message.getSmokeParticleAgeCoefficient(),
+                        message.getExplosionParticleScaleCoefficient(),
+                        message.getSmokeParticleScaleCoefficient(),
+                        modContext.getRegisteredTexture(message.getExplosionParticleTextureId()),
+                        modContext.getRegisteredTexture(message.getSmokeParticleTextureId()), 
+                        null);
 
-		EntityPlayer player = compatibility.clientPlayer();
-		compatibility.runInMainClientThread(() -> {
-			Explosion explosion = new Explosion(modContext, compatibility.world(player), (Entity)null, message.getPosX(), message.getPosY(), message.getPosZ(), message.getStrength(), message.getAffectedBlockPositions(), message.getExplosionParticleAgeCoefficient(), message.getSmokeParticleAgeCoefficient(), message.getExplosionParticleScaleCoefficient(), message.getSmokeParticleScaleCoefficient(), modContext.getRegisteredTexture(message.getExplosionParticleTextureId()), modContext.getRegisteredTexture(message.getSmokeParticleTextureId()), null);
-			explosion.doExplosionB(true, message.isDestroyingBlocks());
-			player.motionX += message.getMotionX();
-			player.motionY += message.getMotionY();
-			player.motionZ += message.getMotionZ();
-		});
+                explosion.doExplosionB(true, message.isDestroyingBlocks());
+                player.motionX += message.getMotionX();
+                player.motionY += message.getMotionY();
+                player.motionZ += message.getMotionZ();
+            });
+
+		}
 
 		return null;
 	}

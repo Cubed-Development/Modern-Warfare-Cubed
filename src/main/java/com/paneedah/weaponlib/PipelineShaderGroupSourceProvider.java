@@ -59,40 +59,40 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
         updateBrightness();
         spreadableExposure = null;
         lightExposure = null;
-        return nightVisionEnabled || blurEnabled || vignetteEnabled || sepiaRatio > 0 || flashEnabled ? source : null;
+        return nightVisionEnabled || blurEnabled || vignetteEnabled || sepiaRatio > 0 || flashEnabled ?
+                source : null;
     }
     
     private void updateBrightness() {
         brightness = 1f;
 
+//        System.out.println("Hello");
         long worldTime = compatibility.world(compatibility.clientPlayer()).getWorldTime();
+//        System.out.println("Day brightness: " + dayBrightness + ", time: " + (worldTime % 24000));
         if(lightExposure != null && lightExposure.getTotalDose() > 0.0003f) { //lightExposure.isEffective(compatibility.world(compatibility.clientPlayer()))) {
             flashEnabled = true;
             float dayBrightness = (MathHelper.sin( (float)Math.PI * 2 * (float)(worldTime % 24000 - 24000f) / 24000f) + 1f) / 2f;
-//          dayBrightness *= dayBrightness;
+//            dayBrightness *= dayBrightness;
             brightness = 1f + (100f + (1 - dayBrightness) * 100f) * lightExposure.getTotalDose() ;
+//            System.out.println("Brightness: " + brightness);
         }
         
         if(spreadableExposure != null && !compatibility.clientPlayer().isDead) {
             Blackout blackout = spreadableExposure.getBlackout();
             blackout.update();
-
             switch(blackout.getPhase()) {
-                case ENTER:
-                    brightness = 1f - blackout.getEnterProgress();
-                    break;
-
-                case EXIT:
-                    brightness = blackout.getExitProgress();
-                    break;
-
-                case DARK:
-                    brightness = 0f;
-                    break;
-
-                case NONE:
-                    brightness = 1f;
-                    break;
+            case ENTER:
+                brightness = 1f - blackout.getEnterProgress();
+                break;
+            case EXIT:
+                brightness = blackout.getExitProgress();
+                break;
+            case DARK:
+                brightness = 0f;
+                break;
+            case NONE:
+                brightness = 1f;
+                break;
             }
         }
     }
@@ -104,35 +104,34 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
     private void updateVignette() {
         vignetteEnabled = nightVisionEnabled;
         ItemStack helmetStack = compatibility.getHelmet();
-
         if(nightVisionEnabled && helmetStack != null && helmetStack.getItem() instanceof CustomArmor) {
             CustomArmor helmet = (CustomArmor)helmetStack.getItem();
             vignetteEnabled = helmet.isVignetteEnabled();
         }
-
         vignetteRadius = 0.55f;            
     }
 
     private void updateNightVision() {
         ItemStack helmetStack = compatibility.getHelmet();
-
         if(helmetStack != null) {
             NBTTagCompound tagCompound = compatibility.getTagCompound(helmetStack);
-            if(tagCompound != null) nightVisionEnabled = tagCompound.getBoolean("nv");
-            else nightVisionEnabled = false;
-            return;
+            if(tagCompound != null) {
+                nightVisionEnabled = tagCompound.getBoolean("nv");
+            } else {
+                nightVisionEnabled = false;
+            }
+        } else {
+            nightVisionEnabled = false;
         }
-
-        nightVisionEnabled = false;
     }
     
     private void updateSepia() {
         sepiaRatio = spreadableExposureProgress;
-        if (spreadableExposure == null)
-            return;
-
-        colorImpairmentR = spreadableExposure.getColorImpairmentR();
-        colorImpairmentG = spreadableExposure.getColorImpairmentG();
-        colorImpairmentB = spreadableExposure.getColorImpairmentB();
+        if(spreadableExposure != null) {
+            colorImpairmentR = spreadableExposure.getColorImpairmentR();
+            colorImpairmentG = spreadableExposure.getColorImpairmentG();
+            colorImpairmentB = spreadableExposure.getColorImpairmentB();
+        }
     }
+
 }

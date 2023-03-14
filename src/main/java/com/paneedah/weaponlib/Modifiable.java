@@ -4,5 +4,5 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public interface Modifiable {
 
-	void toggleClientAttachmentSelectionMode(EntityPlayer player);
+	public void toggleClientAttachmentSelectionMode(EntityPlayer player);
 }

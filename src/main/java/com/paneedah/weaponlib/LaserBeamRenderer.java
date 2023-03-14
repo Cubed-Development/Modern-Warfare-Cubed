@@ -16,10 +16,12 @@ import java.util.function.BiConsumer;
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class LaserBeamRenderer implements CustomRenderer {
-
-	private final float zOffset = -1.7f;
 	
-	private final BiConsumer<EntityLivingBase, ItemStack> positioning;
+	private float xOffset = 0.5f;
+	private float yOffset = -1.3f;
+	private float zOffset = -1.7f;
+	
+	private BiConsumer<EntityLivingBase, ItemStack> positioning;
 	
 	public LaserBeamRenderer(BiConsumer<EntityLivingBase, ItemStack> positioning) {
 	    this.positioning = positioning;
@@ -27,14 +29,29 @@ public class LaserBeamRenderer implements CustomRenderer {
 
 	@Override
 	public void render(RenderContext renderContext) {
+		
+		
+		
 		PlayerItemInstance<?> instance = renderContext.getPlayerItemInstance();
 
 		CompatibleTransformType type = renderContext.getCompatibleTransformType();
-		if(instance instanceof PlayerWeaponInstance && ((PlayerWeaponInstance) instance).isLaserOn() && (type == CompatibleTransformType.THIRD_PERSON_LEFT_HAND || type == CompatibleTransformType.THIRD_PERSON_RIGHT_HAND || type == CompatibleTransformType.FIRST_PERSON_LEFT_HAND || type == CompatibleTransformType.FIRST_PERSON_RIGHT_HAND || type == CompatibleTransformType.GROUND)) {
+		if(instance instanceof PlayerWeaponInstance && ((PlayerWeaponInstance) instance).isLaserOn() && (
+				   type == CompatibleTransformType.THIRD_PERSON_LEFT_HAND 
+				|| type == CompatibleTransformType.THIRD_PERSON_RIGHT_HAND 
+				|| type == CompatibleTransformType.FIRST_PERSON_LEFT_HAND
+				|| type == CompatibleTransformType.FIRST_PERSON_RIGHT_HAND
+				|| type == CompatibleTransformType.GROUND)) {
+			
+			
+			
+		
+			
+			
 			GL11.glPushAttrib(GL11.GL_ALL_ATTRIB_BITS);
 			
 			GlStateManager.disableTexture2D();
-
+			
+			
 			//GL11.glPopAttrib();
 			
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
@@ -45,9 +62,11 @@ public class LaserBeamRenderer implements CustomRenderer {
 			GlStateManager.enableBlend();
 			GlStateManager.enableAlpha();
 			
+			
 			GL11.glLineWidth(1.0f);
 			GL11.glColor4f(1f, 0f, 0f, 1.0f); 
 			//GL11.glDepthMask(false);
+			
 			
 			GlStateManager.shadeModel(GL11.GL_SMOOTH);
 			GlStateManager.disableTexture2D();
@@ -58,33 +77,38 @@ public class LaserBeamRenderer implements CustomRenderer {
 			Shaders.brightnessShader.use();
 			Shaders.brightnessShader.uniform1f("brightness", 4f);
 			Shaders.brightnessShader.uniform3f("color", 0f, 1f, 0f);
-
+			
+			
 			Bloom.bindBloomBuffer();
 			Tessellator tes = Tessellator.getInstance();
 			BufferBuilder bb = tes.getBuffer();
 			bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
-			float xOffset = 0.5f;
-			float yOffset = -1.3f;
 			bb.pos(xOffset, yOffset, -1.5).color(1.0f, 0.0f, 0.0f, 1.0f).endVertex();
 			bb.pos(xOffset, yOffset, -50).color(1.0f, 0.0f, 0.0f, 0.1f).endVertex();
 			tes.draw();
 			
 			mc.getFramebuffer().bindFramebuffer(false);
-			tes = Tessellator.getInstance();
-			bb = tes.getBuffer();
+			 tes = Tessellator.getInstance();
+			 bb = tes.getBuffer();
 			bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
 			bb.pos(xOffset, yOffset, -1.5).color(1.0f, 0.0f, 0.0f, 1.0f).endVertex();
 			bb.pos(xOffset, yOffset, -50).color(1.0f, 0.0f, 0.0f, 0.1f).endVertex();
 			tes.draw();
 			
+			
 			Shaders.brightnessShader.release();
-
+			
+			
 			GlStateManager.enableLighting();
 			GlStateManager.enableTexture2D();
 			GlStateManager.disableBlend();
 			GL11.glPopMatrix();
 			GL11.glPopAttrib();
-
+			
+			
+			
+			
+		
 			/*
 			GL11.glPushMatrix();
 		

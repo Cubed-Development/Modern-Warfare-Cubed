@@ -79,24 +79,33 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
     }
 
     public void setPositionAndDirection() {
-        this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(), thrower.posZ, compatibility.getCompatibleAimingRotationYaw(thrower), thrower.rotationPitch);
 
+        this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(),
+                thrower.posZ, compatibility.getCompatibleAimingRotationYaw(thrower), thrower.rotationPitch);
+
+       
+        
         this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
         this.posZ -= (double) (CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.setPosition(this.posX, this.posY, this.posZ);
 
+        
         this.origin = new Vec3d(this.posX, this.posY, this.posZ);
         
         //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
         float f = velocity; //0.4F;
-        this.motionX = (double) (-CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionZ = (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionY = (double) (-CompatibleMathHelper.sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
+        this.motionX = (double) (-CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
+                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionZ = (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
+                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionY = (double) (-CompatibleMathHelper
+                .sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
     }
     
     public void setPositionAndDirection(double x, double y, double z, float rotationYaw, float rotationPitch) {
+
         this.setLocationAndAngles(x, y + (double) thrower.getEyeHeight(), z, rotationYaw, rotationPitch);
 
         this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
@@ -106,9 +115,12 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
         //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
         float f = velocity; //0.4F;
-        this.motionX = (double) (-CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionZ = (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionY = (double) (-CompatibleMathHelper.sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
+        this.motionX = (double) (-CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
+                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionZ = (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
+                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionY = (double) (-CompatibleMathHelper
+                .sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
     }
 
@@ -129,7 +141,8 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
      * direction.
      */
     public void setThrowableHeading(double x, double y, double z, float velocity, float inaccuracy) {
-        float f2 = CompatibleMathHelper.sqrt_double(x * x + y * y + z * z);
+        float f2 = CompatibleMathHelper
+                .sqrt_double(x * x + y * y + z * z);
         x /= (double) f2;
         y /= (double) f2;
         z /= (double) f2;
@@ -157,12 +170,12 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.motionY = mY;
         this.motionZ = mZ;
 
-        if (this.prevRotationPitch != 0.0F || this.prevRotationYaw != 0.0F)
-            return;
-
-        float f = CompatibleMathHelper.sqrt_double(mX * mX + mZ * mZ);
-        this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(mX, mZ) * 180.0D / Math.PI);
-        this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(mY, (double) f) * 180.0D / Math.PI);
+        if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
+            float f = CompatibleMathHelper.sqrt_double(mX * mX + mZ * mZ);
+            this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(mX, mZ) * 180.0D / Math.PI);
+            this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(mY, (double) f) * 180.0D
+                    / Math.PI);
+        }
     }
 
     /**
@@ -177,8 +190,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.lastTickPosZ = this.posZ;
         super.onUpdate();
 
-        if (this.throwableShake > 0)
+        if (this.throwableShake > 0) {
             --this.throwableShake;
+        }
 
         if (this.inGround) {
 //            CompatibleBlockPos p = new CompatibleBlockPos(this.xTile, this.yTile, this.zTile);
@@ -260,14 +274,17 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
         for (this.rotationPitch = (float) (Math.atan2(this.motionY, (double) f1) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F);
 
-        while (this.rotationPitch - this.prevRotationPitch >= 180.0F)
+        while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
             this.prevRotationPitch += 360.0F;
+        }
 
-        while (this.rotationYaw - this.prevRotationYaw < -180.0F)
+        while (this.rotationYaw - this.prevRotationYaw < -180.0F) {
             this.prevRotationYaw -= 360.0F;
+        }
 
-        while (this.rotationYaw - this.prevRotationYaw >= 180.0F)
+        while (this.rotationYaw - this.prevRotationYaw >= 180.0F) {
             this.prevRotationYaw += 360.0F;
+        }
 
         this.rotationPitch = this.prevRotationPitch + (this.rotationPitch - this.prevRotationPitch) * 0.2F;
         this.rotationYaw = this.prevRotationYaw + (this.rotationYaw - this.prevRotationYaw) * 0.2F;
@@ -277,7 +294,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         if (this.isInWater()) {
             for (int i = 0; i < 4; ++i) {
                 float f4 = 0.25F;
-                compatibility.spawnParticle(compatibility.world(this), "bubble", this.posX - this.motionX * (double) f4, this.posY - this.motionY * (double) f4, this.posZ - this.motionZ * (double) f4, this.motionX, this.motionY, this.motionZ);
+                compatibility.spawnParticle(compatibility.world(this), "bubble", this.posX - this.motionX * (double) f4,
+                        this.posY - this.motionY * (double) f4, this.posZ - this.motionZ * (double) f4, this.motionX,
+                        this.motionY, this.motionZ);
             }
 
             f2 = 0.8F;
@@ -307,23 +326,20 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
                 flag = elb.deathTime == 0;
             }
 
-            if (!flag || !entity1.canBeCollidedWith() || (entity1 == entitylivingbase || this.ticksInAir < 5))
-                return entity;
+            if (flag && entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
+                float f = 0.3F;
+                CompatibleAxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, (double) f, (double) f, (double) f);
+                CompatibleRayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3, vec31);
 
-            float f = 0.3F;
-            CompatibleAxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, (double) f, (double) f, (double) f);
-            CompatibleRayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3, vec31);
+                if (movingobjectposition1 != null) {
+                    double d1 = vec3.distanceTo(movingobjectposition1.getHitVec());
 
-            if (movingobjectposition1 == null)
-                return entity;
-
-            double d1 = vec3.distanceTo(movingobjectposition1.getHitVec());
-
-            if (d1 > d0 || d0 != 0.0D)
-                return entity;
-
-            entity = entity1;
-            d0 = d1;
+                    if (d1 < d0 || d0 == 0.0D) {
+                        entity = entity1;
+                        d0 = d1;
+                    }
+                }
+            }
         }
 
         return entity;
@@ -346,8 +362,10 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         tagCompound.setByte("shake", (byte) this.throwableShake);
         tagCompound.setByte("inGround", (byte) (this.inGround ? 1 : 0));
 
-        if ((this.throwerName == null || this.throwerName.length() == 0) && this.thrower != null && this.thrower instanceof EntityPlayer)
+        if ((this.throwerName == null || this.throwerName.length() == 0) && this.thrower != null
+                && this.thrower instanceof EntityPlayer) {
             this.throwerName = compatibility.getPlayerName((EntityPlayer)this.thrower);
+        }
 
         tagCompound.setString("ownerName", this.throwerName == null ? "" : this.throwerName);
         tagCompound.setFloat(TAG_GRAVITY_VELOCITY, gravityVelocity);
@@ -358,6 +376,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
      * (abstract) Protected helper method to read subclass entity data from NBT.
      */
     public void readEntityFromNBT(NBTTagCompound tagCompound) {
+
         this.xTile = tagCompound.getShort("xTile");
         this.yTile = tagCompound.getShort("yTile");
         this.zTile = tagCompound.getShort("zTile");
@@ -366,15 +385,16 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.inGround = tagCompound.getByte("inGround") == 1;
         this.throwerName = tagCompound.getString("ownerName");
 
-        if (this.throwerName != null && this.throwerName.length() == 0)
+        if (this.throwerName != null && this.throwerName.length() == 0) {
             this.throwerName = null;
-
+        }
         this.gravityVelocity = tagCompound.getFloat(TAG_GRAVITY_VELOCITY);
         this.timestamp = tagCompound.getLong("timestamp");
         this.aimTan = tagCompound.getDouble("aimTan");
 
-        if(System.currentTimeMillis() > timestamp + maxLifetime)
+        if(System.currentTimeMillis() > timestamp + maxLifetime) {
             setDead();
+        }
     }
 
     @Override
@@ -389,6 +409,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         aimTan = buffer.readDouble();
     }
 
+    // @SideOnly(Side.CLIENT)
     public float getShadowSize() {
         return 0.0F;
     }
@@ -398,14 +419,16 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
     }
 
     public EntityLivingBase getThrower() {
-        if (this.thrower == null && this.throwerName != null && this.throwerName.length() > 0)
+        if (this.thrower == null && this.throwerName != null && this.throwerName.length() > 0) {
             this.thrower = compatibility.world(this).getPlayerEntityByName(this.throwerName);
+        }
 
         return this.thrower;
     }
 
 
-    protected void entityInit() {}
+    protected void entityInit() {
+    }
 
     /**
      * Checks if the entity is in range to render by using the past in distance

@@ -5,7 +5,7 @@ import io.netty.buffer.ByteBuf;
 
 public class ArmorControlMessage implements CompatibleMessage {
 
-    //public static enum EntityAction { STOP }
+    public static enum EntityAction { STOP }
 
     public static final int NIGHT_VISION_MASK = 0x01;
     

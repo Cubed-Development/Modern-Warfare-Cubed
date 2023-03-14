@@ -9,7 +9,7 @@ import java.util.Collection;
 
 public class ExposureMessage implements CompatibleMessage {
     
-    private final Collection<? extends Exposure> exposures;
+    private Collection<? extends Exposure> exposures;
 
     public ExposureMessage() {
         this.exposures = new ArrayList<>();
@@ -21,14 +21,16 @@ public class ExposureMessage implements CompatibleMessage {
 
     public void fromBytes(ByteBuf buf) {
         int count = buf.readInt();
-        for(int i = 0; i < count; i++)
+        for(int i = 0; i < count; i++) {
             exposures.add(TypeRegistry.getInstance().fromBytes(buf));
+        }
     }
 
     public void toBytes(ByteBuf buf) {
         buf.writeInt(exposures.size());
-        for(Exposure exposure: exposures)
+        for(Exposure exposure: exposures) {
             TypeRegistry.getInstance().toBytes(exposure, buf);
+        }
     }
 
     public Collection<? extends Exposure> getExposures() {

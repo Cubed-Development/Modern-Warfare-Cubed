@@ -20,31 +20,45 @@ final class ClientEffectManager implements EffectManager {
 
 	@Override
     public void spawnSmokeParticle(EntityLivingBase player, float xOffset, float yOffset) {
-		// Weapon w = (Weapon) player.getHeldItemMainhand().getItem();
-
-	    if(compatibility.isShadersModEnabled())
+	       
+		
+		//Weapon w = (Weapon) player.getHeldItemMainhand().getItem();
+		//System.out.println(w.getMuzzlePosition());
+		
+	    if(compatibility.isShadersModEnabled()) {
 	        return;
+	    }
 
 	    CompatibleVec3 look = compatibility.getLookVec(player);
 		double motionX = compatibility.world(player).rand.nextGaussian() * 0.0003;
 		double motionY = compatibility.world(player).rand.nextGaussian() * 0.0003;
-		double motionZ = compatibility.world(player).rand.nextGaussian() * 0.0003;
+		double motionZ = compatibility.world(player).rand.nextGaussian() * 0.0003; 
+
 		
 		float distance = 1.2f;
 		float scale = 5f * compatibility.getSmokeEffectScaleFactor(); // TODO: check why scale was set to 2.0 in 1.7.10
 		float positionRandomizationFactor = 0.01f;
 
+		//System.out.println("yo");
 		double posX = player.posX + (look.getXCoord() * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (-look.getZCoord() * xOffset);
 		double posY = player.posY + (look.getYCoord() * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor - yOffset;
 		double posZ = player.posZ + (look.getZCoord() * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor  + (look.getXCoord() * xOffset);
+
+		
+
+		
+		
 		
 		//posX += w.getMuzzlePosition().x;
 		//posY += w.getMuzzlePosition().y;
 		//posZ += w.getMuzzlePosition().z;
 		
 	    if(player instanceof EntityPlayer) {
-	        if(player.isSneaking()) posY -= 0.1f;
-            else if(Interceptors.isProning((EntityPlayer) player)) posY -= 1.2f;
+	        if(player.isSneaking()) {
+	            posY -= 0.1f;
+            } else if(Interceptors.isProning((EntityPlayer) player)) {
+                posY -= 1.2f;
+            }
 	    }
 	        
 	    /*
@@ -58,19 +72,30 @@ final class ClientEffectManager implements EffectManager {
 		      (float)motionY,
 		      (float)motionZ);
 		      */
+	    BetterMuzzleSmoke smokeParticle = new BetterMuzzleSmoke(
+				compatibility.world(player),
+				posX,
+		        posY,
+		        posZ,
+		        scale,
+		      (float)motionX,
+		      (float)motionY,
+		      (int)motionZ);
 
-	    BetterMuzzleSmoke smokeParticle = new BetterMuzzleSmoke(compatibility.world(player), posX, posY, posZ, scale, (float)motionX, (float)motionY, (int)motionZ);
 		mc.effectRenderer.addEffect(smokeParticle);
 	}
 
 	@Override
-    public void spawnFlashParticle(EntityLivingBase player, float flashIntensity, float flashScale, float xOffset, float yOffset, String texture) {
+    public void spawnFlashParticle(EntityLivingBase player, float flashIntensity, float flashScale,
+			float xOffset, float yOffset, String texture) {
+
 	    if (compatibility.isShadersModEnabled())
 	        return;
 
 	    Weapon w = (Weapon) player.getHeldItemMainhand().getItem();
 	   
 		//float distance = 0.6f;
+
 	    float distance = 1.0f;
 	    
 		//float scale = 0.8f * compatibility.getEffectScaleFactor() * flashScale;
@@ -99,6 +124,7 @@ final class ClientEffectManager implements EffectManager {
 
 		MuzzleFlash flash = new MuzzleFlash(new Vec3d(posX, posY, posZ), bruh, player.rotationYaw, player.rotationPitch, 1.0);
 		ClientEventHandler.muzzleFlashStack.push(flash);
+		
 		
 		if (Math.random() < 0.6/w.builder.fireRate)
 			ClientEventHandler.uploadFlash(player.getEntityId());
@@ -130,16 +156,41 @@ final class ClientEffectManager implements EffectManager {
      * @see com.paneedah.weaponlib.IEffectManager#spawnExplosionSmoke(double, double, double, double, double, double)
      */
 	@Override
-    public void spawnExplosionSmoke(double posX, double posY, double posZ, double motionX, double motionY, double motionZ, float scale, int maxAge, ExplosionSmokeFX.Behavior behavior, String particleTexture) {
+    public void spawnExplosionSmoke(double posX, double posY, double posZ,
+            double motionX, double motionY, double motionZ, float scale,
+            int maxAge, ExplosionSmokeFX.Behavior behavior, String particleTexture) {
+	    
 	    World world = compatibility.world(compatibility.clientPlayer());
-        ExplosionSmokeFX smokeParticle = new ExplosionSmokeFX(world, posX, posY, posZ, scale, (float)motionX, (float)motionY, (float)motionZ, maxAge, ExplosionSmokeFX.Behavior.SMOKE_GRENADE, particleTexture);
+        ExplosionSmokeFX smokeParticle = new ExplosionSmokeFX(
+                world,
+                posX,
+                posY,
+                posZ,
+                scale,
+                (float)motionX,
+                (float)motionY,
+                (float)motionZ,
+                maxAge,
+                ExplosionSmokeFX.Behavior.SMOKE_GRENADE,
+                particleTexture);
+
         mc.effectRenderer.addEffect(smokeParticle);
 	}
 
 	@Override
-	public void spawnExplosionParticle(double posX, double posY, double posZ, double motionX, double motionY, double motionZ, float scale, int maxAge, String particleTexture) {
+	public void spawnExplosionParticle(double posX, double posY, double posZ,
+	        double motionX, double motionY, double motionZ, float scale, int maxAge, String particleTexture) {
 	    World world = compatibility.world(compatibility.clientPlayer());
-	    ExplosionParticleFX explosionParticle = new ExplosionParticleFX(world, posX, posY, posZ, scale, motionX, motionY, motionZ, maxAge, particleTexture);
+	    ExplosionParticleFX explosionParticle = new ExplosionParticleFX(
+                world,
+                posX,
+                posY,
+                posZ,
+                scale,
+                motionX, motionY, motionZ,
+                maxAge,
+                particleTexture);
+
         mc.effectRenderer.addEffect(explosionParticle);
 	}
 }

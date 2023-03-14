@@ -29,7 +29,8 @@ import java.util.function.Consumer;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSource, IModernCrafting, IHasModel {
-
+        
+    
 	public static class Builder {
                 
         private String name;
@@ -43,6 +44,8 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
         private int durability;
         private int damageReduceAmount;
         private double percentDamageBlocked;
+        
+        
         
         private Consumer<ItemStack> entityPositioning;
         private Consumer<ItemStack> inventoryPositioning;
@@ -80,10 +83,14 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
             this.tab = tab;
             return this;
         }
-
+        
+        
         public Builder withProperModel(String elModel, String properTextureName) {
+        	
         	modelFileString = elModel;
         	this.properTextureName = properTextureName;
+        	
+        	
     
         	return this;
         }
@@ -92,6 +99,7 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
             this.model = model;
             return this;
         }
+        
 //        public Builder withGuiTextureName(String guiTextureName) {
 //            this.guiTextureName = guiTextureName;
 //            return this;
@@ -152,7 +160,10 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
             return this;
         }
 
-        public Builder withFirstPersonHandPositioning(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
+        public Builder withFirstPersonHandPositioning(
+                Consumer<RenderContext<RenderableState>> leftHand,
+                Consumer<RenderContext<RenderableState>> rightHand)
+        {
             this.firstPersonLeftHandPositioning = leftHand;
             this.firstPersonRightHandPositioning = rightHand;
             return this;
@@ -161,26 +172,27 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
         private static class RendererRegistrationHelper {
             private static Object registerRenderer(Builder builder, ModContext modContext) {
                 return new StaticModelSourceRenderer.Builder()
-                    .withHiddenInventory(builder.tab == null)
-                    .withEntityPositioning(builder.entityPositioning)
-                    .withFirstPersonPositioning(builder.firstPersonPositioning)
-                    .withThirdPersonPositioning(builder.thirdPersonPositioning)
-                    .withCustomEquippedPositioning(builder.customEquippedPositioning)
-                    .withInventoryPositioning(builder.inventoryPositioning)
-                    .withEntityModelPositioning(builder.entityModelPositioning)
-                    .withFirstPersonModelPositioning(builder.firstPersonModelPositioning)
-                    .withThirdPersonModelPositioning(builder.thirdPersonModelPositioning)
-                    .withInventoryModelPositioning(builder.inventoryModelPositioning)
-                    .withFirstPersonHandPositioning(builder.firstPersonLeftHandPositioning, builder.firstPersonRightHandPositioning)
-                    .withModContext(modContext)
-                    .build();
+                .withHiddenInventory(builder.tab == null)
+                .withEntityPositioning(builder.entityPositioning)
+                .withFirstPersonPositioning(builder.firstPersonPositioning)
+                .withThirdPersonPositioning(builder.thirdPersonPositioning)
+                .withCustomEquippedPositioning(builder.customEquippedPositioning)
+                .withInventoryPositioning(builder.inventoryPositioning)
+                .withEntityModelPositioning(builder.entityModelPositioning)
+                .withFirstPersonModelPositioning(builder.firstPersonModelPositioning)
+                .withThirdPersonModelPositioning(builder.thirdPersonModelPositioning)
+                .withInventoryModelPositioning(builder.inventoryModelPositioning)
+                .withFirstPersonHandPositioning(builder.firstPersonLeftHandPositioning, builder.firstPersonRightHandPositioning)
+                .withModContext(modContext)
+                .build();
             }
         }
        
         public ItemVest build(ModContext modContext) {
-            if(name == null)
+            if(name == null) {
                 throw new IllegalStateException("ItemStorage name not set");
-
+            }
+            
 //            if(size <= 0) {
 //                throw new IllegalStateException("ItemStorage size must be greater than 0");
 //            }
@@ -193,8 +205,14 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
 //                guiTextureName = "textures/gui/" + guiTextureName;
 //            }
 //            ResourceLocation guiTextureLocation = new ResourceLocation(addFileExtension(guiTextureName, ".png"));
-
+            
+            
+            
+            
             ItemVest item = new ItemVest(modContext, percentDamageBlocked, durability);
+            
+            
+            
             ServerGearModelHookRegistry.modelArray.add(this.modelFileString);
             
             item.modelFileString = this.modelFileString;
@@ -204,31 +222,56 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
             // Register hook
             CraftingRegistry.registerHook(item);
             
+            
+            
             if(this.modelFileString != null && !VMWHooksHandler.isOnServer()) {
+            	
             	try {
+            		//System.out.println("FOR ITEM: " + item.getRegistryName() + " | ");
 					ModelBase base = (ModelBase) Class.forName(this.modelFileString).newInstance();
 					item.texturedModels.add(new Tuple<>(base, addFileExtension(this.properTextureName, ".png")));
 					
-				} catch (Exception e) { e.printStackTrace(); }
+					
+				} catch (InstantiationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            	
+            	
             }
             
-            if(model != null)
+            if(model != null) {
                 item.texturedModels.add(new Tuple<>(model, addFileExtension(textureName, ".png")));
-
-            if(tab != null)
+            }
+            
+           
+            if(tab != null) {
                 item.setCreativeTab(tab);
-
-            // lientEventHandler.ITEM_REG.add(item);
+                
+                
+            }
+            
+          
+           // lientEventHandler.ITEM_REG.add(item);
+           
             
             item.customEquippedPositioning = customEquippedPositioning;
-
-            // compatibility.registerItem(item, item.getTranslationKey());
+            
+           // System.out.println("ITem name: " + item.getTranslationKey());
+          //  compatibility.registerItem(item, item.getTranslationKey());
             modContext.registerRenderableItem(name, item, compatibility.isClientSide() ? RendererRegistrationHelper.registerRenderer(this, modContext) :null);
             
             return item;
         }
     }
-
+    
+    
     private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
     private int size;
     private final int damageReduceAmount;
@@ -237,14 +280,19 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
     private double percentDamageBlocked;
     public BiConsumer<EntityPlayer, ItemStack> customEquippedPositioning;
     
+    
+    
+    
  // Modern crafting setup
     private CraftingEntry[] modernRecipe;
 	private CraftingGroup craftGroup;
 
+    
     public BiConsumer<EntityPlayer, ItemStack> getCustomEquippedPositioning() {
     	return customEquippedPositioning;
     }
 
+    
     private String modelFileString;
     private String properTextureName;
     
@@ -255,6 +303,7 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
     public String getProperTextureName() {
     	return this.properTextureName;
     }
+    
     
     public ItemVest(ModContext context, double percentDamageBlocked, int durability) {
         this.percentDamageBlocked = percentDamageBlocked;
@@ -297,7 +346,8 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
     }
 
     @Override
-    public ArmorProperties getProperties(EntityLivingBase player, ItemStack vestStack, DamageSource source, double damage, int slot) {
+    public ArmorProperties getProperties(EntityLivingBase player, ItemStack vestStack, DamageSource source, double damage,
+            int slot) {
     	//System.out.println("% blocked = " + (this.percentDamageBlocked*100));
     	//this.percentDamageBlocked = 1.0;
     	//System.out.println(new ArmorProperties(0, this.percentDamageBlocked, durability).applyArmor(entity, inventory, source, damage));
@@ -306,35 +356,47 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
 
     @Override
     public int getArmorDisplay(EntityPlayer player, ItemStack armor, int slot) {
+
         return (int) (this.percentDamageBlocked*10);
     }
 
     @Override
     public void damageArmor(EntityLivingBase entity, ItemStack stack, DamageSource source, int damage, int slot) {
+      
     	//double absorb = damage * percentDamageBlocked;
         //int itemDamage = (int)(absorb / 25.0 < 1 ? 1 : absorb / 25.0);
         //stack.damageItem(itemDamage, entity);
     }
+
+
 
 	@Override
 	public CraftingEntry[] getModernRecipe() {
 		return this.modernRecipe;
 	}
 
+
+
 	@Override
 	public Item getItem() {
 		return this;
 	}
+
+
 
 	@Override
 	public CraftingGroup getCraftingGroup() {
 		return this.craftGroup;
 	}
 
+
+
 	@Override
 	public void setCraftingRecipe(CraftingEntry[] recipe) {
 		this.modernRecipe = recipe;
 	}
+
+
 
 	@Override
 	public void setCraftingGroup(CraftingGroup group) {
@@ -342,5 +404,10 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
 	}
 	
 	@Override
-	public void registerModels() {}
+	public void registerModels() {
+		
+		
+	}
+	
+	
 }

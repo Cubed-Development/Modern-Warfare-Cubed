@@ -46,6 +46,8 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
 
 public class CommonModContext implements ModContext {
 
+	
+	
     static {
         TypeRegistry.getInstance().register(LoadPermit.class);
         TypeRegistry.getInstance().register(MagazineState.class);
@@ -86,8 +88,8 @@ public class CommonModContext implements ModContext {
     }
 
     static class BulletImpactSoundKey {
-        private final CompatibleMaterial material;
-        private final Item bulletItem;
+        private CompatibleMaterial material;
+        private Item bulletItem;
         
         public BulletImpactSoundKey(CompatibleMaterial material, Item bulletItem) {
             this.material = material;
@@ -102,7 +104,6 @@ public class CommonModContext implements ModContext {
             result = prime * result + ((material == null) ? 0 : material.hashCode());
             return result;
         }
-
         @Override
         public boolean equals(Object obj) {
             if (this == obj)
@@ -174,6 +175,7 @@ public class CommonModContext implements ModContext {
     
     protected static ThreadLocal<ModContext> currentContext = new ThreadLocal<>();
 
+
 	@Override
     public void preInit(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
 		this.mod = mod;
@@ -219,8 +221,11 @@ public class CommonModContext implements ModContext {
 
 		this.recipeManager = new RecipeManager();
 		
+		
 		// Initiate config
 		ModernConfigManager.init();
+		
+
 		
 		channel.registerMessage(new TryFireMessageHandler(weaponFireAspect),
 				TryFireMessage.class, 11, CompatibleSide.SERVER);
@@ -325,11 +330,14 @@ public class CommonModContext implements ModContext {
         
         channel.registerMessage(new HighIQPickupPacket.SimplePacketHandler(this),
         		HighIQPickupPacket.class, 47, CompatibleSide.SERVER);
-
+        
+        
 		ServerEventHandler serverHandler = new ServerEventHandler(this);
         compatibility.registerWithFmlEventBus(serverHandler);
         compatibility.registerWithEventBus(serverHandler);
-		compatibility.registerWithFmlEventBus(new WeaponKeyInputHandler(this, this::getPlayer, weaponAttachmentAspect, channel));
+
+		compatibility.registerWithFmlEventBus(new WeaponKeyInputHandler(this, (ctx) -> getPlayer(ctx),
+				weaponAttachmentAspect, channel));
 
 		CompatiblePlayerEntityTrackerProvider.register(this);
 		//CompatibleEntityPropertyProvider.register(this);
@@ -399,6 +407,7 @@ public class CommonModContext implements ModContext {
 
     @Override
     public void init(Object mod) {
+    
         compatibility.registerGuiHandler(mod, new GuiHandler());
     }
     
@@ -417,9 +426,9 @@ public class CommonModContext implements ModContext {
 
 	@Override
 	public CompatibleSound registerSound(String sound) {
-	    if(sound == null)
+	    if(sound == null) {
 	        return null;
-
+	    }
 		ResourceLocation soundResourceLocation = new ResourceLocation(ModReference.id, sound);
 		return registerSound(soundResourceLocation);
 	}
@@ -431,7 +440,6 @@ public class CommonModContext implements ModContext {
 			registeredSounds.put(soundResourceLocation, result);
 			compatibility.registerSound(result);
 		}
-
 		return result;
 	}
 
@@ -517,6 +525,7 @@ public class CommonModContext implements ModContext {
 	public StatusMessageCenter getStatusMessageCenter() {
 		throw new IllegalStateException();
 	}
+
 
 	@Override
 	public RecipeManager getRecipeManager() {
@@ -642,16 +651,17 @@ public class CommonModContext implements ModContext {
     @Override
     public CommonModContext setMaterialsImpactSound(String sound, Item bulletItem, float volume, CompatibleMaterial...materials) {
         for(CompatibleMaterial material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, bulletItem), key -> new MaterialImpactSound(volume));
+            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(
+                    new BulletImpactSoundKey(material, bulletItem), key -> new MaterialImpactSound(volume));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
-
         return this;
     }
     
     @Override
     public CommonModContext setMaterialImpactSound(String sound, float volume, CompatibleMaterial material) {
-        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
+        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(
+                new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
         materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         return this;
     }
@@ -659,47 +669,53 @@ public class CommonModContext implements ModContext {
     @Override
     public CommonModContext setMaterialsImpactSound(String sound, float volume, CompatibleMaterial...materials) {
         for(CompatibleMaterial material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
+            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(
+                    new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
-
         return this;
     }
     
     @Override
     public CommonModContext setMaterialsImpactSound(String sound, CompatibleMaterial...materials) {
         for(CompatibleMaterial material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(1f));
+            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(
+                    new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(1f));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
-
         return this;
     }
 
     @Override
     public MaterialImpactSound getMaterialImpactSound(CompatibleBlockState blockState, WeaponSpawnEntity entity) {
-        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.get(new BulletImpactSoundKey(blockState.getMaterial(), entity.getSpawnedItem()));
-        if(materialImpactSound == null)
-            bulletImpactSoundEntries.get(new BulletImpactSoundKey(blockState.getMaterial(), null));
-
+        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.get(
+                new BulletImpactSoundKey(blockState.getMaterial(), entity.getSpawnedItem()));
+        if(materialImpactSound == null) {
+            bulletImpactSoundEntries.get(
+                    new BulletImpactSoundKey(blockState.getMaterial(), null));
+        }
         return materialImpactSound;
     }
 
 
     @Override
     public CommonModContext setMaterialImpactSounds(CompatibleMaterial material, float volume, String... sounds) {
-        for(String sound: sounds)
+        for(String sound: sounds) {
             setMaterialImpactSound(sound, volume, material);
-
+        }
         return this;
     }
 
     @Override
     public int getRegisteredTextureId(String textureName) {
-        if(textureName == null)
+        if(textureName == null) {
             return -1;
-
-        Optional<Entry<Integer, String>> existingEntry = registeredTextureNames.entrySet().stream().filter(e -> textureName.equals(e.getValue())).findFirst();
+        }
+        Optional<Entry<Integer, String>> existingEntry = registeredTextureNames
+                .entrySet()
+                .stream()
+                .filter(e -> textureName.equals(e.getValue()))
+                .findFirst();
         return existingEntry.isPresent() ? existingEntry.get().getKey() : -1;
     }
 
@@ -710,14 +726,15 @@ public class CommonModContext implements ModContext {
 
     @Override
     public int registerTexture(String textureName) {
-        if(textureName == null)
+        if(textureName == null) {
             return -1;
-
-        Optional<Entry<Integer, String>> existingEntry = registeredTextureNames.entrySet().stream().filter(e -> textureName.equals(e.getValue())).findFirst();
-
+        }
+        Optional<Entry<Integer, String>> existingEntry = registeredTextureNames.entrySet().stream().filter(e -> textureName.equals(e.getValue()))
+            .findFirst();
         int id;
-        if (existingEntry.isPresent()) id = existingEntry.get().getKey();
-        else {
+        if(existingEntry.isPresent()) {
+            id = existingEntry.get().getKey();
+        } else {
             id = registeredTextureCounter++;
             registeredTextureNames.put(id, textureName);
         }

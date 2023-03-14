@@ -2,9 +2,9 @@ package com.paneedah.weaponlib;
 
 public class AsyncWeaponState {
 
-	private final WeaponState state;
-	private final long timestamp;
-	private final long duration;
+	private WeaponState state;
+	private long timestamp;
+	private long duration;
 	private boolean isInfinite;
 	
 	public AsyncWeaponState(WeaponState state, long timestamp) {
@@ -35,4 +35,5 @@ public class AsyncWeaponState {
 	public boolean isInfinite() {
 		return isInfinite;
 	}
+
 }

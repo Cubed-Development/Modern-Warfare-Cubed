@@ -25,4 +25,5 @@ public class OptimizedCubeList extends ArrayList<ModelBox> {
     public float getMaxVol() {
         return maxVol;
     }
+    
 }

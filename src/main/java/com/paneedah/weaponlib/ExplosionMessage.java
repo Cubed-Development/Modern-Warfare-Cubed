@@ -27,9 +27,13 @@ public class ExplosionMessage implements CompatibleMessage {
     private int explosionParticleTextureId;
     private int smokeParticleTextureId;
 
-    public ExplosionMessage() {}
+    public ExplosionMessage() {
+    }
 
-    public ExplosionMessage(double xIn, double yIn, double zIn, float strengthIn, boolean isDestroyingBlocks, List<CompatibleBlockPos> affectedBlockPositionsIn, CompatibleVec3 motion, float explosionParticleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, int explosionParticleTextureId, int smokeParticleTextureId) {
+    public ExplosionMessage(double xIn, double yIn, double zIn, float strengthIn, boolean isDestroyingBlocks,
+            List<CompatibleBlockPos> affectedBlockPositionsIn, CompatibleVec3 motion, float explosionParticleAgeCoefficient,
+            float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient,
+            int explosionParticleTextureId, int smokeParticleTextureId) {
         this.posX = xIn;
         this.posY = yIn;
         this.posZ = zIn;
@@ -43,12 +47,11 @@ public class ExplosionMessage implements CompatibleMessage {
         this.explosionParticleTextureId = explosionParticleTextureId;
         this.smokeParticleTextureId = smokeParticleTextureId;
 
-        if (motion == null)
-            return;
-
-        this.motionX = (float) motion.getXCoord();
-        this.motionY = (float) motion.getYCoord();
-        this.motionZ = (float) motion.getZCoord();
+        if (motion != null) {
+            this.motionX = (float) motion.getXCoord();
+            this.motionY = (float) motion.getYCoord();
+            this.motionZ = (float) motion.getZCoord();
+        }
     }
 
     public double getPosX() {

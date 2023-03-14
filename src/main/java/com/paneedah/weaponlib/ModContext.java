@@ -16,115 +16,116 @@ import net.minecraft.util.ResourceLocation;
 
 public interface ModContext {
 
-	boolean isClient();
+	public boolean isClient();
 	
-	void preInitEnd(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
+	public void preInitEnd(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
 
-	void preInit(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
+	public void preInit(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
 
-	void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
+	public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
 
-	CompatibleChannel getChannel();
+	public CompatibleChannel getChannel();
 
-	void runSyncTick(Runnable runnable);
+	public void runSyncTick(Runnable runnable);
 
-	void registerRenderableItem(String name, Item weapon, Object renderer);
+	public void registerRenderableItem(String name, Item weapon, Object renderer);
 
-	void registerRenderableItem(ResourceLocation name, Item weapon, Object renderer);
+	public void registerRenderableItem(ResourceLocation name, Item weapon, Object renderer);
 
 	// TODO: append mod id in 1.7.10
-	CompatibleSound registerSound(String sound);
+	public CompatibleSound registerSound(String sound);
 
-	void runInMainThread(Runnable runnable);
+	public void runInMainThread(Runnable runnable);
 
-	PlayerItemInstanceRegistry getPlayerItemInstanceRegistry();
+	public PlayerItemInstanceRegistry getPlayerItemInstanceRegistry();
 
-	WeaponReloadAspect getWeaponReloadAspect();
+	public WeaponReloadAspect getWeaponReloadAspect();
 
-	WeaponFireAspect getWeaponFireAspect();
+	public WeaponFireAspect getWeaponFireAspect();
 
-	WeaponAttachmentAspect getAttachmentAspect();
+	public WeaponAttachmentAspect getAttachmentAspect();
 
-	MagazineReloadAspect getMagazineReloadAspect();
+	public MagazineReloadAspect getMagazineReloadAspect();
 
-	PlayerWeaponInstance getMainHeldWeapon();
+	public PlayerWeaponInstance getMainHeldWeapon();
 
-	StatusMessageCenter getStatusMessageCenter();
+	public StatusMessageCenter getStatusMessageCenter();
 
-	RecipeManager getRecipeManager();
+	public RecipeManager getRecipeManager();
 
-	CompatibleSound getZoomSound();
+	public CompatibleSound getZoomSound();
 
-	void setChangeZoomSound(String sound);
+	public void setChangeZoomSound(String sound);
 
-	CompatibleSound getChangeFireModeSound();
+	public CompatibleSound getChangeFireModeSound();
 
-	void setChangeFireModeSound(String sound);
+	public void setChangeFireModeSound(String sound);
 
-	CompatibleSound getNoAmmoSound();
+	public CompatibleSound getNoAmmoSound();
 
-	void setNoAmmoSound(String sound);
+	public void setNoAmmoSound(String sound);
 
-	CompatibleSound getExplosionSound();
+	public CompatibleSound getExplosionSound();
 
-	void setExplosionSound(String sound);
+	public void setExplosionSound(String sound);
 
-	CompatibleSound getFlashExplosionSound();
+	public CompatibleSound getFlashExplosionSound();
 
-	void setFlashExplosionSound(String sound);
+	public void setFlashExplosionSound(String sound);
 
-	void setNightVisionOnSound(String sound);
+	public void setNightVisionOnSound(String sound);
 
-	CompatibleSound getNightVisionOnSound();
+	public CompatibleSound getNightVisionOnSound();
 
-	void setNightVisionOffSound(String sound);
+	public void setNightVisionOffSound(String sound);
 
-	CompatibleSound getNightVisionOffSound();
+	public CompatibleSound getNightVisionOffSound();
 
-	void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer);
+	public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer);
 
-	void registerGrenadeWeapon(String name, ItemGrenade itemGrenade, GrenadeRenderer renderer);
+	public void registerGrenadeWeapon(String name, ItemGrenade itemGrenade, GrenadeRenderer renderer);
 
-	MeleeAttackAspect getMeleeAttackAspect();
+	public MeleeAttackAspect getMeleeAttackAspect();
 
-	MeleeAttachmentAspect getMeleeAttachmentAspect();
+	public MeleeAttachmentAspect getMeleeAttachmentAspect();
 
-	AttachmentContainer getGrenadeAttachmentAspect();
+	public AttachmentContainer getGrenadeAttachmentAspect();
 
-	ResourceLocation getNamedResource(String name);
+	public ResourceLocation getNamedResource(String name);
 
-	float getAspectRatio();
+	public float getAspectRatio();
 
-	GrenadeAttackAspect getGrenadeAttackAspect();
+	public GrenadeAttackAspect getGrenadeAttackAspect();
 
-	EffectManager getEffectManager();
+	public EffectManager getEffectManager();
 
-	Object getMod();
+	public Object getMod();
 
-	void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer);
+	public void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer);
 
-	void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider);
+	public void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider);
 
-	void init(Object mod);
+	public void init(Object mod);
 
-	MaterialImpactSound getMaterialImpactSound(CompatibleBlockState blockState, WeaponSpawnEntity entity);
+	public MaterialImpactSound getMaterialImpactSound(CompatibleBlockState blockState, WeaponSpawnEntity entity);
 
-	CommonModContext setMaterialsImpactSound(String sound, Item bulletItem, float volume, CompatibleMaterial... materials);
+	public CommonModContext setMaterialsImpactSound(String sound, Item bulletItem, float volume,
+			CompatibleMaterial... materials);
 
-	CommonModContext setMaterialImpactSound(String sound, float volume, CompatibleMaterial material);
+	public CommonModContext setMaterialImpactSound(String sound, float volume, CompatibleMaterial material);
 
-	CommonModContext setMaterialsImpactSound(String sound, float volume, CompatibleMaterial... materials);
+	public CommonModContext setMaterialsImpactSound(String sound, float volume, CompatibleMaterial... materials);
 
-	CommonModContext setMaterialsImpactSound(String sound, CompatibleMaterial... materials);
+	public CommonModContext setMaterialsImpactSound(String sound, CompatibleMaterial... materials);
 
-	CommonModContext setMaterialImpactSounds(CompatibleMaterial material, float volume, String... sounds);
+	public CommonModContext setMaterialImpactSounds(CompatibleMaterial material, float volume, String... sounds);
 
-	int getRegisteredTextureId(String textureName);
+	public int getRegisteredTextureId(String textureName);
 
-	int registerTexture(String explosionParticleTextureName);
+	public int registerTexture(String explosionParticleTextureName);
 
-	String getRegisteredTexture(int particleTextureId);
+	public String getRegisteredTexture(int particleTextureId);
 
-	MissionManager getMissionManager();
+	public MissionManager getMissionManager();
 
 }

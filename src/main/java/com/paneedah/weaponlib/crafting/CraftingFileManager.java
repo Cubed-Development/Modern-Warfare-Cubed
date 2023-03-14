@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.crafting;
 
 import com.google.gson.*;
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.config.JSONDatabaseManager;
+import com.paneedah.weaponlib.JSONDatabaseManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Loader;

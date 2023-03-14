@@ -6,5 +6,5 @@ import net.minecraft.item.ItemStack;
 
 public interface PlayerItemInstanceFactory<T extends PlayerItemInstance<S>, S extends ManagedState<S>> {
 
-	T createItemInstance(EntityLivingBase player, ItemStack stack, int slot);
+	public T createItemInstance(EntityLivingBase player, ItemStack stack, int slot);
 }

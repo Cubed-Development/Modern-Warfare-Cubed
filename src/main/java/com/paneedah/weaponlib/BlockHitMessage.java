@@ -1,21 +1,19 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 
 public class BlockHitMessage implements CompatibleMessage {
-
 	private BlockPos blockPos;
 	private double posX, posY, posZ;
-
 	/*
     private int posX;
     private int posY;
     private int posZ;
     */
-
     private int enumFacingIndex;
 
     public BlockHitMessage() {}
@@ -33,13 +31,11 @@ public class BlockHitMessage implements CompatibleMessage {
     	posX = buf.readDouble();
     	posY = buf.readDouble();
     	posZ = buf.readDouble();
-
     	/*
         posX = buf.readInt();
         posY = buf.readInt();
         posZ = buf.readInt();
         */
-
         enumFacingIndex = buf.readInt();
     }
 
@@ -48,13 +44,11 @@ public class BlockHitMessage implements CompatibleMessage {
     	buf.writeDouble(posX);
     	buf.writeDouble(posY);
     	buf.writeDouble(posZ);
-
     	/*
         buf.writeInt(posX);
         buf.writeInt(posY);
         buf.writeInt(posZ);
         */
-
         buf.writeInt(enumFacingIndex);
     }
 

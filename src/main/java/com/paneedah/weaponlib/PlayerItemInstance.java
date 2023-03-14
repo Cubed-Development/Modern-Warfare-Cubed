@@ -42,16 +42,18 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 		this.itemInventoryIndex = itemInventoryIndex;
 		this.player = player;
 		ItemStack itemStack = compatibility.getHeldItemMainHand(player);
-		if(itemStack != null)
+		if(itemStack != null) {
 			this.item = itemStack.getItem();
+		}
 	}
 
 	public PlayerItemInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
 		this.itemInventoryIndex = itemInventoryIndex;
 		this.player = player;
 		//this.itemStack = itemStack;
-		if(itemStack != null)
+		if(itemStack != null) {
 			this.item = itemStack.getItem();
+		}
 	}
 
 	@Override
@@ -69,7 +71,8 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 	}
 
 	public ItemStack getItemStack() {
-		return player instanceof EntityPlayer ? compatibility.getInventoryItemStack((EntityPlayer)player, itemInventoryIndex) : null;
+		return player instanceof EntityPlayer ? 
+		        compatibility.getInventoryItemStack((EntityPlayer)player, itemInventoryIndex) : null;
 	}
 
 	public int getItemInventoryIndex() {
@@ -98,6 +101,8 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
 		//state = WeaponState.DRAWING;
 		state = TypeRegistry.getInstance().fromBytes(buf);
+		
+		
 	}
 
 	@Override
@@ -107,42 +112,53 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 		buf.writeInt(itemInventoryIndex);
 		buf.writeLong(updateId);
 		TypeRegistry.getInstance().toBytes(state, buf);
+		
+		
 	}
 
 	@Override
 	public boolean setState(S state) {
+		
+		
 		this.state = state;
 		stateUpdateTimestamp = System.currentTimeMillis();
-
+		
+		
+		
 		markDirty();
 		if(preparedState != null) { // TODO: use comparator or equals?
 			if(preparedState.getState().commitPhase() == state) {
-				log.debug("Committing state {} to {}", preparedState.getState(), preparedState.getState().commitPhase());
+				log.debug("Committing state {} to {}", preparedState.getState(),
+						preparedState.getState().commitPhase());
 				updateWith(preparedState, false);
+			} else {
+				rollback();
 			}
-
-			// Panda: This method does fuck all.
-			//else
-			//	rollback();
 
 			preparedState = null;
 		}
-
 		return false;
 	}
 
-	//protected void rollback() {}
+	protected void rollback() {
+	}
 
 	/**
 	 * Commits pending state
 	 */
 	protected void updateWith(PlayerItemInstance<S> otherState, boolean updateManagedState) {
-		if(updateManagedState)
+		if(updateManagedState) {
+			
 			setState(otherState.getState());
+		}
 	}
 
 	@Override
 	public S getState() {
+		
+		
+		
+		
 		return state;
 	}
 
@@ -178,6 +194,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 
 	@Override
 	public <E extends ExtendedState<S>> void prepareTransaction(E preparedExtendedState) {
+		
 		setState(preparedExtendedState.getState());
 		this.preparedState = (PlayerItemInstance<S>) preparedExtendedState;
 	}
@@ -223,4 +240,5 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 //	protected void notifyListeners() {
 //		listeners.forEach(l -> l.stateChanged(this));
 //	}
+
 }

@@ -7,10 +7,9 @@ import java.util.List;
 import java.util.Random;
 
 public class MaterialImpactSound {
-
-    private final List<CompatibleSound> sounds = new ArrayList<>();
-    private final float volume;
-    private final Random rand = new Random();
+    private List<CompatibleSound> sounds = new ArrayList<>();
+    private float volume;
+    private Random rand = new Random();
     
     public MaterialImpactSound(float volume) {
         this.volume = volume;
@@ -22,6 +21,7 @@ public class MaterialImpactSound {
     
     public CompatibleSound getSound() {
         int soundIndex = rand.nextInt(sounds.size());
+//        System.out.println("Playing sound " + soundIndex + " out of " + sounds.size());
         return sounds.get(soundIndex);
     }
     

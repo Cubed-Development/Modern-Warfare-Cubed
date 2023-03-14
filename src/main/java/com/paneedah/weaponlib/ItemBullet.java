@@ -9,7 +9,7 @@ public class ItemBullet extends ItemAttachment<Weapon> {
 	
 	public static final class Builder extends AttachmentBuilder<Weapon> {
 		
-		private final List<ItemMagazine> compatibleMagazines = new ArrayList<>();
+		private List<ItemMagazine> compatibleMagazines = new ArrayList<>();
 		
 		public Builder() {
 		    withMaxStackSize(64);
@@ -31,7 +31,9 @@ public class ItemBullet extends ItemAttachment<Weapon> {
 	@SuppressWarnings("unused")
 	private List<ItemMagazine> compatibleMagazines = new ArrayList<>();
 	
-	public ItemBullet(AttachmentCategory category, ModelBase model, String textureName, String crosshair, ApplyHandler<Weapon> apply, ApplyHandler<Weapon> remove) {
+	public ItemBullet(AttachmentCategory category, ModelBase model, String textureName, String crosshair,
+			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
+			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
 		super(category, model, textureName, crosshair, apply, remove);
 	}
 }
