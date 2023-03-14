@@ -42,7 +42,7 @@ Our developers are hand-picked by current members of the Development Team. The m
 
 <br>
 
-Massive shoutout to the author of [Vic's Modern Warfare Mod](https://github.com/vic4games/modern-warfare), [Vic4Games](https://github.com/vic4games) and the rest of his team for the original mod, and some of the textures / models / other assets that have been utilized from their mod.
+Massive shoutout to the author of [Vic's Modern Warfare Mod](https://github.com/vic4games/modern-warfare), [Vic4Games](https://github.com/vic4games) and the rest of his team for the original mod, and some of the textures / models / other asset artists that have contributed.
 
 Another massive thank you to all of the contributors, and members of the development team. We wouldn't be where we are now without the support from you all!
 
