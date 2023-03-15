@@ -471,98 +471,73 @@ public class EntityConfiguration {
             String entityName = name != null ? name : baseClass.getSimpleName() + "Ext" + modEntityId;
             AIEntity entityConfig = ModernConfigManager.aiEntities.get(entityName);
 
-            if (!entityConfig.getName().equalsIgnoreCase("terrorist"))
-                return;
-            
-            WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
-            
-            if(entityConfig == null || ModernConfigManager.terroristEquipmentConfiguration == null || ModernConfigManager.terroristEquipmentConfiguration.isEmpty()) {
-                equipmentOptions.forEach((key, value) -> equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
+            if (entityConfig.getName().equalsIgnoreCase("terrorist")) {
+                WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
+                if (ModernConfigManager.terroristEquipmentConfiguration == null || ModernConfigManager.terroristEquipmentConfiguration.isEmpty()) {
+                    equipmentOptions.forEach((key, value) -> equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
 
-            } else {
-                Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
+                } else {
+                    Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
 
-                EnumDifficulty difficultyLevel = EnumDifficulty.EASY;
-                EnumDifficulty[] difficultyValues = EnumDifficulty.values();
+                    EnumDifficulty difficultyLevel = EnumDifficulty.EASY;
+                    EnumDifficulty[] difficultyValues = EnumDifficulty.values();
 
-                String[] attachments = ModernConfigManager.terroristEquipmentConfiguration.split(", ");
-                for (String attachment : attachments) {
-                    String[] parts = attachment.split(":");
-                    if (parts.length < 2) {
-                        ModReference.log.warn("Invalid attachment configuration for entity " + name + ": " + attachment + ". Expected format: <gunId>:<weight>[:<attachment>...]");
-                        continue;
-                    }
+                    String[] attachments = ModernConfigManager.terroristEquipmentConfiguration.split(", ");
+                    for (String attachment : attachments) {
+                        String[] parts = attachment.split(":");
+                        if (parts.length < 2) {
+                            ModReference.log.warn("Invalid attachment configuration for entity " + name + ": " + attachment + ". Expected format: <gunId>:<weight>[:<attachment>...]");
+                            continue;
+                        }
 
-                    String gunId = parts[0];
-                    double weight;
-                    try { weight = Double.parseDouble(parts[1]); } catch (NumberFormatException e) {
-                        ModReference.log.warn("Invalid weight for gun " + name + ": " + parts[1] + ". Expected a valid double.");
-                        continue;
-                    }
+                        String gunId = parts[0];
+                        double weight;
+                        try { weight = Double.parseDouble(parts[1]); }
+                        catch (NumberFormatException e) {
+                            ModReference.log.warn("Invalid weight for gun " + name + ": " + parts[1] + ". Expected a valid double.");
+                            continue;
+                        }
 
-                    Item gun = compatibility.findItemByName(gunId);
-                    if (gun == null) {
-                        ModReference.log.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
-                        continue;
-                    }
+                        Item gun = compatibility.findItemByName(gunId);
+                        if (gun == null) {
+                            ModReference.log.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
+                            continue;
+                        }
 
-                    Equipment equipment = new Equipment();
-                    equipment.item = gun;
-                    equipment.attachments = new ArrayList<>();
+                        Equipment equipment = new Equipment();
+                        equipment.item = gun;
+                        equipment.attachments = new ArrayList<>();
 
-                    if (parts.length >= 3) {
-                        for (String attachmentId : Arrays.asList(parts).subList(2, parts.length)) {
-                            Item att = compatibility.findItemByName(attachmentId);
-                            if (!(att instanceof ItemAttachment)) {
-                                ModReference.log.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
-                                continue;
+                        if (parts.length >= 3) {
+                            for (String attachmentId : Arrays.asList(parts).subList(2, parts.length)) {
+                                Item att = compatibility.findItemByName(attachmentId);
+                                if (!(att instanceof ItemAttachment)) {
+                                    ModReference.log.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
+                                    continue;
+                                }
+
+                                equipment.attachments.add((ItemAttachment<?>) att);
                             }
+                        }
 
-                            equipment.attachments.add((ItemAttachment<?>)att);
+                        for (int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
+                            equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item, equipment.attachments.toArray(new ItemAttachment<?>[0])),
+                                    new EquipmentValue(equipment, (float) weight));
                         }
                     }
 
-                    for (int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
-                        equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item, equipment.attachments.toArray(new ItemAttachment<?>[0])),
-                                new EquipmentValue(equipment, (float)weight));
-                    }
+                    equipmentOptions.forEach((key, value) -> {
+                        equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight);
+                    });
                 }
 
-                // Old code for reference (in case I need to revert)
-                //entityConfig.getEquipment().forEach(ee -> {
-                //    Item equipmentItem = compatibility.findItemByName(ee.getId());
-                //    if(equipmentItem != null) {
-                //        Equipment equipment = new Equipment();
-                //        equipment.item = equipmentItem;
-                //        equipment.attachments = ee.getAttachment().stream()
-                //                .map(a -> compatibility.findItemByName(a.getId()))
-                //                .filter(e -> e instanceof ItemAttachment<?>)
-                //                .map(a -> (ItemAttachment<?>)a)
-                //                .collect(Collectors.toList());
-//
-                //        for(int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
-                //            equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item,
-                //                            equipment.attachments.toArray(new ItemAttachment<?>[0])),
-                //                    new EquipmentValue(equipment, ee.getWeight()));
-                //        }
-                //    } else {
-                //        log.warn("Attempted to configure entity equipment with invalid item {}", ee.getId());
-                //    }
-                //});
-
-                equipmentOptions.forEach((key, value) -> {
-                    equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight);
-                });
+                configuration.equipmentOptions = equipmentOptionsBuilder.build();
             }
             
-            configuration.equipmentOptions = equipmentOptionsBuilder.build();
-            
             WeightedOptions.Builder<EnumDifficulty, Equipment> secondaryEquipmentOptionsBuilder = new WeightedOptions.Builder<>();
-            secondaryEquipmentOptions.forEach((key, value) -> {
-                secondaryEquipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight);
-            });
-            configuration.secondaryEquipmentOptions = secondaryEquipmentOptionsBuilder.build();
+            secondaryEquipmentOptions.forEach((key, value) -> secondaryEquipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
 
+            configuration.secondaryEquipmentOptions = secondaryEquipmentOptionsBuilder.build();
             configuration.ambientSound = context.registerSound(ambientSound);
             configuration.hurtSound = context.registerSound(hurtSound);
             configuration.deathSound = context.registerSound(deathSound);
@@ -586,59 +561,43 @@ public class EntityConfiguration {
             configuration.isCollidable = isCollidable;
             configuration.isDespawnable = isDespawnable;
             configuration.lookHeightMultiplier = lookHeightMultiplier;
-            
             configuration.pickupItemID = pickupItemID;
-            
             configuration.sizeHeight = this.sizeHeight;
             configuration.sizeWidth = this.sizeWidth;
             
             HashMap<UUID, MissionOffering> tmpMap = new LinkedHashMap<>();
-            for(MissionOffering missionOffering: missionOfferings) {
+            for(MissionOffering missionOffering: missionOfferings)
                 tmpMap.put(missionOffering.getId(), missionOffering);
-            }
+
             configuration.missionOfferings = Collections.unmodifiableMap(tmpMap);
             
             configuration.dialogContent = Collections.unmodifiableList(introDialogs);
             
-            if(introImage != null) {
-                configuration.introImage = new ResourceLocation(ModReference.id,
-                        "textures/gui/" + introImage);
-            }
+            if(introImage != null)
+                configuration.introImage = new ResourceLocation(ModReference.id, "textures/gui/" + introImage);
             
-            if(dialogBackground != null) {
-                configuration.dialogBackground = new ResourceLocation(ModReference.id, 
-                        "textures/gui/" + dialogBackground);
-            }
+            if(dialogBackground != null)
+                configuration.dialogBackground = new ResourceLocation(ModReference.id, "textures/gui/" + dialogBackground);
             
-            if(rewardsBackground != null) {
-                configuration.rewardsBackground = new ResourceLocation(ModReference.id, 
-                        "textures/gui/" + rewardsBackground);
-            }
+            if(rewardsBackground != null)
+                configuration.rewardsBackground = new ResourceLocation(ModReference.id, "textures/gui/" + rewardsBackground);
+
+            if(missionSelectionBackground != null)
+                configuration.missionSelectionBackground = new ResourceLocation(ModReference.id, "textures/gui/" + missionSelectionBackground);
             
-            if(missionSelectionBackground != null) {
-                configuration.missionSelectionBackground = new ResourceLocation(ModReference.id, 
-                        "textures/gui/" + missionSelectionBackground);
-            }
-            
-            Class<? extends Entity> entityClass = EntityClassFactory.getInstance()
-                    .generateEntitySubclass(baseClass, modEntityId, configuration);
+            Class<? extends Entity> entityClass = EntityClassFactory.getInstance().generateEntitySubclass(baseClass, modEntityId, configuration);
             
             
             SecondaryEntityRegistry.map.put(name, entityClass);
             
-            compatibility.registerModEntity(entityClass, entityName, 
-                    modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
-            
-            
-            
-            if(spawnEgg) {
+            compatibility.registerModEntity(entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
+
+            if(spawnEgg)
                 compatibility.registerEgg(context, entityClass, entityName, primaryEggColor, secondaryEggColor);
-            }
-            
 
             for(Spawn spawn: spawns) {
             	//int weightedProb = spawn.weightedProb;
-                int weightedProb = entityConfig != null ? (int)(entityConfig.getSpawn() * spawn.weightedProb) : spawn.weightedProb;
+                int weightedProb = (int)(entityConfig.getSpawn() * spawn.weightedProb);
                 if(weightedProb > 0)
                     compatibility.addSpawn(safeCast(entityClass), weightedProb, spawn.min, spawn.max, spawn.biomeTypes);
             }
