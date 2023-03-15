@@ -247,7 +247,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
                  if (context == null)
                      return;
 
-                 context.getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), rtr.hitVec.x, rtr.hitVec.y, rtr.hitVec.z, rtr.sideHit), new CompatibleTargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
+                 context.getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), rtr.hitVec.x, rtr.hitVec.y, rtr.hitVec.z, CompatibleEnumFacing.valueOf(rtr.sideHit)), new CompatibleTargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
              }
         }
 

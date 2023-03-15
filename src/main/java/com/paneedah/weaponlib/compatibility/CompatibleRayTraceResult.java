@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.compatibility;
 
 import com.paneedah.mwc.vectors.Vector3D;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
@@ -93,31 +92,31 @@ public class CompatibleRayTraceResult {
 	    return blockPos;
 	}
 
-	public void setSideHit(EnumFacing sideHit) {
-	    position.sideHit = sideHit;
+	public void setSideHit(CompatibleEnumFacing sideHit) {
+	    position.sideHit = sideHit.getEnumFacing();
 	}
 
-	public EnumFacing getSideHit() {
+	public CompatibleEnumFacing getSideHit() {
 
-		EnumFacing result = null;
+	    CompatibleEnumFacing result = null;
 	    switch(position.sideHit) {
 	    case UP:
-	        result = EnumFacing.UP;
+	        result = CompatibleEnumFacing.UP;
 	        break;
 	    case DOWN:
-            result = EnumFacing.DOWN;
+            result = CompatibleEnumFacing.DOWN;
             break;
 	    case EAST:
-            result = EnumFacing.EAST;
+            result = CompatibleEnumFacing.EAST;
             break;
 	    case WEST:
-            result = EnumFacing.WEST;
+            result = CompatibleEnumFacing.WEST;
             break;
 	    case NORTH:
-	        result = EnumFacing.NORTH;
+	        result = CompatibleEnumFacing.NORTH;
             break;
 	    case SOUTH:
-	        result = EnumFacing.SOUTH;
+	        result = CompatibleEnumFacing.SOUTH;
             break;
 	    }
 	    return result;

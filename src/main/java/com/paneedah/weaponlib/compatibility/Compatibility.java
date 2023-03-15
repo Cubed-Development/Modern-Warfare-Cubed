@@ -37,7 +37,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumDifficulty;
@@ -192,13 +191,13 @@ public interface Compatibility {
 
 	public boolean inventoryHasFreeSlots(EntityPlayer player);
 
-    public void addBlockHitEffect(BlockPos pos, double x, double y, double z, EnumFacing enumFacing);
+    public void addBlockHitEffect(BlockPos pos, double x, double y, double z, CompatibleEnumFacing enumFacing);
 
     public String getDisplayName(EntityPlayer player);
 
     public String getPlayerName(EntityPlayer player);
 
-    public void clickBlock(CompatibleBlockPos blockPos, EnumFacing sideHit);
+    public void clickBlock(CompatibleBlockPos blockPos, CompatibleEnumFacing sideHit);
 
     public boolean isAirBlock(World world, CompatibleBlockPos blockPos);
 
@@ -206,9 +205,13 @@ public interface Compatibility {
 
     public RenderGlobal createCompatibleRenderGlobal();
 
+    public CompatibleParticleManager createCompatibleParticleManager(WorldClient world);
+
     public Entity getRenderViewEntity();
 
     public void setRenderViewEntity(Entity entity);
+
+    public CompatibleParticleManager getCompatibleParticleManager();
 
     public void addBreakingParticle(ModContext modContext, double x, double y, double z);
 

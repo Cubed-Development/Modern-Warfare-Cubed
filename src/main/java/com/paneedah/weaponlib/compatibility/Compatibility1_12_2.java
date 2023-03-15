@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.compatibility;
 
-import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.Explosion;
@@ -10,6 +9,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleParticle.CompatibleParticl
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.particle.CompatibleBloodParticle;
+import com.paneedah.weaponlib.particle.CompatibleDiggingParticle;
 import com.paneedah.weaponlib.tile.CustomTileEntityRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -21,6 +21,7 @@ import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBiped.ArmPose;
 import net.minecraft.client.model.ModelPlayer;
+import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.entity.RenderPlayer;
@@ -602,8 +603,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void clickBlock(CompatibleBlockPos blockPos, EnumFacing sideHit) {
-        mc.playerController.clickBlock(blockPos.getBlockPos(), sideHit);
+    public void clickBlock(CompatibleBlockPos blockPos, CompatibleEnumFacing sideHit) {
+        mc.playerController.clickBlock(blockPos.getBlockPos(), sideHit.getEnumFacing());
     }
 
     @Override
@@ -624,6 +625,12 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     @SideOnly(Side.CLIENT)
+    public CompatibleParticleManager createCompatibleParticleManager(WorldClient world) {
+        return new CompatibleParticleManager(world);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
     public Entity getRenderViewEntity() {
         return mc.getRenderViewEntity();
     }
@@ -636,11 +643,65 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void addBlockHitEffect(BlockPos blockPos, double x, double y, double z, EnumFacing sideHit) {
-        for (int i = 0; i < ModernWarfareMod.bulletHitParticleMult; i++) {
-            mc.effectRenderer.addBlockHitEffects(blockPos, sideHit);
-            mc.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y, z, 0, 0, 0);
-        }
+    public CompatibleParticleManager getCompatibleParticleManager() {
+        return new CompatibleParticleManager(mc.effectRenderer);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addBlockHitEffect(BlockPos pos, double x, double y, double z, CompatibleEnumFacing sideHit) {
+    	
+    	IBlockState hitBlock = mc.world.getBlockState(pos);
+    	
+    	if(hitBlock.getMaterial() == Material.GLASS) {
+    		// Get direction
+        	Vec3d speedVec = CompatibleRayTracing.directionFromEnumFacing(sideHit.getEnumFacing()).scale(0.3);
+        	
+            for(int i = 0; i < 36; i++) {
+        
+            	double sX = pos.getX() + Math.random();
+            	double sY = pos.getY() + Math.random();
+            	double sZ = pos.getZ() + Math.random();
+            	
+            	Vec3d modifiedSpeedVec = speedVec.scale(new Vec3d(sX, sY, sZ).squareDistanceTo(new Vec3d(x, y, z))*2);
+            	
+            	CompatibleDiggingParticle cdp = new CompatibleDiggingParticle(mc.world, sX, sY, sZ, modifiedSpeedVec.x, modifiedSpeedVec.y, modifiedSpeedVec.z, hitBlock);
+        		cdp.setBlockPos(new BlockPos(x, y, z));
+        		mc.effectRenderer.addEffect(cdp);
+                        
+            }
+    	} else {
+    		// Get direction
+        	Vec3d speedVec = CompatibleRayTracing.directionFromEnumFacing(sideHit.getEnumFacing()).scale(0.3);
+            for(int i = 0; i < 12; i++) {
+            	
+            	
+            	
+            	Vec3d spreadVector = new Vec3d(Math.random() - 0.5, Math.random()*0.5, Math.random() - 0.5).scale(0.05);
+            	Vec3d individualVector = speedVec.add(spreadVector);
+            	
+            	
+            	CompatibleDiggingParticle cdp = new CompatibleDiggingParticle(mc.world, x, y, z, individualVector.x, individualVector.y, individualVector.z, hitBlock);
+        		cdp.setBlockPos(new BlockPos(x, y, z));
+        		mc.effectRenderer.addEffect(cdp);
+        	
+        		
+        		 if(Math.random() < 0.5 && i <= 2) {
+        	        	mc.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y, z, 0, 0, 0, new int[0]);
+        	            
+        	        }
+            	
+        		/*
+            	mc.effectRenderer.addBlockHitEffects(
+                        new BlockPos(x, y, z), sideHit.getEnumFacing());
+                        */
+                        
+            }
+    	}
+    	
+    	
+        
+       
     }
 
     @Override

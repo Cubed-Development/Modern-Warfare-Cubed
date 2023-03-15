@@ -81,7 +81,7 @@ public class CustomTileEntityBlock extends CompatibleBlockContainer {
     
     @Override
     public boolean onBlockActivated(World world, CompatibleBlockPos pos, CompatibleBlockState state,
-            EntityPlayer player, CompatibleEnumHand hand, EnumFacing facing, float hitX, float hitY,
+            EntityPlayer player, CompatibleEnumHand hand, CompatibleEnumFacing facing, float hitX, float hitY,
             float hitZ) {
         
     	//System.out.println("Hola que pasa? " + getRenderType(getDefaultState()));

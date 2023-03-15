@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.RenderingPhase;
-import com.paneedah.weaponlib.compatibility.MWCParticleManager;
+import com.paneedah.weaponlib.compatibility.CompatibleParticleManager;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerCreatureWrapper;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
 import net.minecraft.client.multiplayer.WorldClient;
@@ -44,6 +44,7 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
         updateWatchablePlayer();
 
         RenderGlobal origRenderGlobal = mc.renderGlobal;
+        CompatibleParticleManager origEffectRenderer = compatibility.getCompatibleParticleManager();
         Entity origRenderViewEntity = compatibility.getRenderViewEntity();
         EntityRenderer origEntityRenderer = mc.entityRenderer;
         int origDisplayWidth = mc.displayWidth;
@@ -55,7 +56,7 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
         framebuffer.bindFramebuffer(true);
 
         mc.renderGlobal = this.renderGlobal;
-        mc.effectRenderer = MWCParticleManager.getParticleManager();
+        mc.effectRenderer = this.effectRenderer.getParticleManager();
 
         mc.entityRenderer = this.entityRenderer;
         if (watchablePlayer.getEntityLiving() != null && !watchablePlayer.getEntityLiving().isDead) {
@@ -81,7 +82,7 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
         mc.getFramebuffer().bindFramebuffer(true);
 
         mc.renderGlobal = origRenderGlobal;
-        mc.effectRenderer = MWCParticleManager.getParticleManager();
+        mc.effectRenderer = origEffectRenderer.getParticleManager();
 
         mc.displayWidth = origDisplayWidth;
         mc.displayHeight = origDisplayHeight;
