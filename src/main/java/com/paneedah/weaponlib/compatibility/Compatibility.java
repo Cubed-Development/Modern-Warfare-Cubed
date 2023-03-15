@@ -12,6 +12,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.entity.RenderPlayer;
@@ -164,7 +165,7 @@ public interface Compatibility {
 
     public void spawnEntity(EntityLivingBase player, Entity entity);
 
-	public void moveParticle(CompatibleParticle particle, double motionX, double motionY, double motionZ);
+	public void moveParticle(Particle particle, double motionX, double motionY, double motionZ);
 
 	public int getStackSize(ItemStack consumedStack);
 
@@ -285,7 +286,7 @@ public interface Compatibility {
 
     public DamageSource genericDamageSource();
 
-    public boolean isCollided(CompatibleParticle particle);
+    public boolean isCollided(Particle particle);
 
     public ItemStack createItemStack(CompatibleItems compatibleItem, int stackSize, int damage);
 
