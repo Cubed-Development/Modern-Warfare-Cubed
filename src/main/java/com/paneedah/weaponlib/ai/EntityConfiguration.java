@@ -470,6 +470,9 @@ public class EntityConfiguration {
             int modEntityId = entityIdSupplier.get();
             String entityName = name != null ? name : baseClass.getSimpleName() + "Ext" + modEntityId;
             AIEntity entityConfig = ModernConfigManager.aiEntities.get(entityName);
+
+            if (!entityConfig.getName().equalsIgnoreCase("terrorist"))
+                return;
             
             WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
             
