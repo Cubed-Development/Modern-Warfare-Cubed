@@ -50,7 +50,7 @@ public class CompatibleRayTraceResult {
 	}
 
 	private void init() {
-	    this.hitVec = position.hitVec != null ? new Vector3D(position.hitVec.x, position.hitVec.y, position.hitVec.x) : null;
+	    this.hitVec = position.hitVec != null ? new Vector3D(position.hitVec) : null;
 	    this.blockPos = position.getBlockPos() != null ? new CompatibleBlockPos(position.getBlockPos()) : null;
 
 	}
