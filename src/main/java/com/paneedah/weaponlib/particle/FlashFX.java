@@ -1,8 +1,13 @@
 package com.paneedah.weaponlib.particle;
 
-import com.paneedah.weaponlib.compatibility.CompatibleParticle;
+import com.paneedah.mwc.render.ParticleRenderer;
 import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
@@ -10,65 +15,56 @@ import org.lwjgl.opengl.GL11;
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class FlashFX extends CompatibleParticle {
+public class FlashFX extends Particle {
 
-	private static final float FLASH_ALPHA_FACTOR = 0.1f;
+    private static final float FLASH_ALPHA_FACTOR = 0.1f;
 
-	private static final double FLASH_SCALE_FACTOR = 0.1f;
+    private static final double FLASH_SCALE_FACTOR = 0.1f;
 
-	private static final String FLASH_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/flashes.png";
-
-	private int imageIndex;
-
+    private static final String FLASH_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/flashes.png";
     private static final int imagesPerRow = 8;
-    
+    private int imageIndex;
     private String texture;
 
-	public FlashFX(World par1World, double positionX, double positionY, double positionZ,
-			float scale, float alpha,
-			float motionX, float motionY, float motionZ, String texture)
-	{
-		super(par1World, positionX, positionY, positionZ, 0.0D, 0.0D, 0.0D);
-		this.motionX = motionX;
-		this.motionY = motionY;
-		this.motionZ = motionZ;
+    public FlashFX(World par1World, double positionX, double positionY, double positionZ, float scale, float alpha, float motionX, float motionY, float motionZ, String texture) {
+        super(par1World, positionX, positionY, positionZ, 0.0D, 0.0D, 0.0D);
 
-		if (motionX == 0.0F) {
-			motionX = 0.01F;
-		}
+        this.motionX = motionX;
+        this.motionY = motionY;
+        this.motionZ = motionZ;
 
-		if (motionZ == 0.0F) {
-			motionZ = 0.01F;
-		}
+        if (motionX == 0.0F)
+            motionX = 0.01F;
 
-		if (motionY == 0.0F) {
-			motionY = 0.01F;
-		}
+        if (motionZ == 0.0F)
+            motionZ = 0.01F;
 
-		this.particleTextureIndexX = 0;
-		this.particleTextureIndexY = 0;
-		this.particleRed = 1.0F;
-		this.particleGreen = 1.0F;
-		this.particleBlue = 1.0F;
-		this.particleAlpha = alpha;
-		this.particleScale *= 1.4F;
-		this.particleScale *= scale;
-		this.particleMaxAge = 1;
+        if (motionY == 0.0F)
+            motionY = 0.01F;
 
-		this.imageIndex = this.rand.nextInt() % imagesPerRow;
-		
-		this.texture = texture != null ? texture : FLASH_TEXTURE;
-	}
+        this.particleTextureIndexX = 0;
+        this.particleTextureIndexY = 0;
+        this.particleRed = 1.0F;
+        this.particleGreen = 1.0F;
+        this.particleBlue = 1.0F;
+        this.particleAlpha = alpha;
+        this.particleScale *= 1.4F;
+        this.particleScale *= scale;
+        this.particleMaxAge = 1;
 
-	@Override
-	public void onUpdate() {
-		this.prevPosX = this.posX;
+        this.imageIndex = this.rand.nextInt() % imagesPerRow;
+
+        this.texture = texture != null ? texture : FLASH_TEXTURE;
+    }
+
+    @Override
+    public void onUpdate() {
+        this.prevPosX = this.posX;
         this.prevPosY = this.posY;
         this.prevPosZ = this.posZ;
 
-        if (this.particleAge++ >= this.particleMaxAge) {
+        if (this.particleAge++ >= this.particleMaxAge)
             this.setExpired();
-        }
 
         compatibility.moveParticle(this, this.motionX, this.motionY, this.motionZ);
 
@@ -80,20 +76,18 @@ public class FlashFX extends CompatibleParticle {
 
         this.particleScale *= FLASH_SCALE_FACTOR;
 
-        if (isCollided()) {
+        if (this.isExpired) {
             this.motionX *= 0.699999988079071D;
             this.motionZ *= 0.699999988079071D;
         }
-	}
+    }
 
     @Override
-    public void renderParticle(CompatibleTessellator tessellator, float partialTicks, float par3, float par4, float par5, float par6, float par7)
-    {
+    public void renderParticle(BufferBuilder buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
+        mc.getTextureManager().bindTexture(new ResourceLocation(texture));
 
-		mc.getTextureManager().bindTexture(new ResourceLocation(texture));
-
-		GL11.glPushMatrix();
-		GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
+        GL11.glPushMatrix();
+        GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
 
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         GL11.glDepthMask(false);
@@ -101,50 +95,41 @@ public class FlashFX extends CompatibleParticle {
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         GL11.glAlphaFunc(GL11.GL_GREATER, 0.003921569F);
 
-        tessellator.startDrawingParticles();
+        buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
 
-        int i = this.getBrightnessForRender(partialTicks); // or simply set it to 200?
-        int j = i >> 16 & 65535;
-        int k = i & 65535;
-        tessellator.setLightMap(j, k);
+        int brightness = this.getBrightnessForRender(partialTicks); // or simply set it to 200?
+        int skyLight = brightness >> 16 & 65535;
+        int blockLight = brightness & 65535;
 
         RenderHelper.disableStandardItemLighting();
 
-        float f10 = 0.1F * this.particleScale;
+        float scale = 0.1F * this.particleScale;
 
-        float f11 = (float)(this.prevPosX + (this.posX - this.prevPosX) * (double)partialTicks - interpPosX);
-        float f12 = (float)(this.prevPosY + (this.posY - this.prevPosY) * (double)partialTicks - interpPosY);
-        float f13 = (float)(this.prevPosZ + (this.posZ - this.prevPosZ) * (double)partialTicks - interpPosZ);
+        float x = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) partialTicks - interpPosX);
+        float y = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) partialTicks - interpPosY);
+        float z = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) partialTicks - interpPosZ);
 
-        tessellator.setColorRgba(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
-
-        /*
-         *  (cU, cV)   (bU, bV)
-         *
-         *  (dU, dV)   (aU, aV)
-         *
-         */
         float uWidth = 1f / imagesPerRow;
 
-		float aU = (imageIndex + 1) * uWidth; // imageIndex = 0, imagesPerRow = 2, aU = 0.5; imageIndex = 1, aU = 1
-			// imagesPerRow = 4; imageIndex = 1; aU = 2/4 = 0.5
-        float aV = 1f;
+        float u1 = (imageIndex + 1) * uWidth; // imageIndex = 0, imagesPerRow = 2, u1 = 0.5; imageIndex = 1, u1 = 1
+        // imagesPerRow = 4; imageIndex = 1; u1 = 2/4 = 0.5
+        float v1 = 1f;
 
-        float bU = (imageIndex + 1) * uWidth;
-        float bV = 0f;
+        float u2 = (imageIndex + 1) * uWidth;
+        float v2 = 0f;
 
-        float cU = imageIndex * uWidth; // imageIndex = 0, imagesPerRow = 2, cU = 0; imageIndex = 1, cU = 0.5
-        float cV = 0f;
+        float u3 = imageIndex * uWidth; // imageIndex = 0, imagesPerRow = 2, u3 = 0; imageIndex = 1, u3 = 0.5
+        float v3 = 0f;
 
-        float dU = imageIndex * uWidth;
-        float dV = 1f;
+        float u4 = imageIndex * uWidth;
+        float v4 = 1f;
 
-        tessellator.addVertexWithUV((double)(f11 - par3 * f10 - par6 * f10), (double)(f12 - par4 * f10), (double)(f13 - par5 * f10 - par7 * f10), aU, aV); //1, 1); //(double)f7, (double)f9); // a
-        tessellator.addVertexWithUV((double)(f11 - par3 * f10 + par6 * f10), (double)(f12 + par4 * f10), (double)(f13 - par5 * f10 + par7 * f10), bU, bV); //1, 0); //(double)f7, (double)f8); // b
-        tessellator.addVertexWithUV((double)(f11 + par3 * f10 + par6 * f10), (double)(f12 + par4 * f10), (double)(f13 + par5 * f10 + par7 * f10), cU, cV); //0, 0); //(double)f6, (double)f8); // c
-        tessellator.addVertexWithUV((double)(f11 + par3 * f10 - par6 * f10), (double)(f12 - par4 * f10), (double)(f13 + par5 * f10 - par7 * f10), dU, dV); //0, 1); //(double)f6, (double)f9); // d
+        ParticleRenderer.renderParticle(buffer, x - rotationX * scale - rotationXY * scale, y - rotationZ * scale, z - rotationYZ * scale - rotationXZ * scale, skyLight, blockLight, u1, v1, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
+        ParticleRenderer.renderParticle(buffer, x - rotationX * scale + rotationXY * scale, y + rotationZ * scale, z - rotationYZ * scale + rotationXZ * scale, skyLight, blockLight, u2, v2, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
+        ParticleRenderer.renderParticle(buffer, x + rotationX * scale + rotationXY * scale, y + rotationZ * scale, z + rotationYZ * scale + rotationXZ * scale, skyLight, blockLight, u3, v3, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
+        ParticleRenderer.renderParticle(buffer, x + rotationX * scale - rotationXY * scale, y - rotationZ * scale, z + rotationYZ * scale - rotationXZ * scale, skyLight, blockLight, u4, v4, this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
 
-        tessellator.draw();
+        Tessellator.getInstance().draw();
 
         RenderHelper.enableStandardItemLighting();
 
@@ -154,6 +139,6 @@ public class FlashFX extends CompatibleParticle {
 
     @Override
     public int getFXLayer() {
-    	return 3;
+        return 3;
     }
 }

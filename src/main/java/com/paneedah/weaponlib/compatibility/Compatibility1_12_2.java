@@ -21,6 +21,7 @@ import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBiped.ArmPose;
 import net.minecraft.client.model.ModelPlayer;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.entity.RenderPlayer;
@@ -155,7 +156,7 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void moveParticle(CompatibleParticle particle, double motionX, double motionY, double motionZ) {
+    public void moveParticle(Particle particle, double motionX, double motionY, double motionZ) {
         particle.move(motionX, motionY, motionZ);
     }
 
@@ -1009,8 +1010,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public boolean isCollided(CompatibleParticle particle) {
-        return particle.isCollided();
+    public boolean isCollided(Particle particle) {
+        return !particle.isAlive();
     }
 
     @Override
