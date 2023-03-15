@@ -5,11 +5,13 @@ import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
-import com.paneedah.weaponlib.compatibility.Framebuffers;
 import com.paneedah.weaponlib.shader.DynamicShaderContext;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupManager;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.shader.Framebuffer;
+import org.lwjgl.opengl.ARBFramebufferObject;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
@@ -43,11 +45,14 @@ public abstract class Perspective<S> {
 
     public void deactivate(ClientModContext modContext) {
         //framebuffer.framebufferClear();
-        int originalFramebufferId = Framebuffers.getCurrentFramebuffer();
+        int originalFramebufferId = GlStateManager.glGetInteger(ARBFramebufferObject.GL_FRAMEBUFFER_BINDING);
 
         framebuffer.deleteFramebuffer();
         this.shaderGroupManager.removeAllShaders(new DynamicShaderContext(null, entityRenderer, null, 0f));
-        Framebuffers.bindFramebuffer(originalFramebufferId, true, mc.getFramebuffer().framebufferWidth, mc.getFramebuffer().framebufferHeight);
+        if (OpenGlHelper.isFramebufferEnabled()) {
+            OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, originalFramebufferId);
+            GlStateManager.viewport(0, 0, mc.getFramebuffer().framebufferWidth, mc.getFramebuffer().framebufferHeight);
+        }
     }
 
     public float getBrightness(RenderContext<S> context) {

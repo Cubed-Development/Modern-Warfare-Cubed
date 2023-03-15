@@ -110,7 +110,7 @@ public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRen
 				GlStateManager.scale(-3f, -3f, -3f);
 			}
 
-			int currentTextureId = Framebuffers.getCurrentTexture();
+			int currentTextureId = GlStateManager.glGetInteger(GL11.GL_TEXTURE_BINDING_2D);
 			if(transformType == null && owner instanceof EntityPlayer) {
 			    renderCustomEquipped((EntityPlayer)owner, itemStack);
 			} else {
