@@ -25,7 +25,7 @@ public class Shader {
 	}
 	
 	public void use() {
-		if(!ShaderManager.enableShaders) return;
+		if(!ShaderLoader.enableShaders) return;
 		
 		if(!ModernConfigManager.enableAllShaders) {
 			return;

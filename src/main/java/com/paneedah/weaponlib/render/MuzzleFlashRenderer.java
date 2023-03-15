@@ -95,7 +95,7 @@ public class MuzzleFlashRenderer {
 	
 		//ClientValueRepo
 		
-		// Shaders.flash = ShaderManager.loadVMWShader("flash");
+		// Shaders.flash = ShaderLoader.loadVMWShader("flash");
 		if(ModernConfigManager.enableAllShaders && ModernConfigManager.enableFlashShaders) {
 			Shaders.flash.use();
 			Shaders.flash.uniform1i("bloom", bloom ? 1 : 0);

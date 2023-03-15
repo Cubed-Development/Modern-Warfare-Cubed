@@ -595,7 +595,7 @@ public class PostProcessPipeline {
 		if(true) // I don't know why Jim did this, but removing it renders a white screen.
 			 return;
 
-		//Shaders.postWorld = ShaderManager.loadVMWShader("postworld");
+		//Shaders.postWorld = ShaderLoader.loadVMWShader("postworld");
 
 		// Check if buffers need to be remade
 		if (shouldRecreateFramebuffer())
@@ -946,7 +946,7 @@ public class PostProcessPipeline {
 		// Return to default texture unit
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 
-		//Shaders.post = ShaderManager.loadVMWShader("post");
+		//Shaders.post = ShaderLoader.loadVMWShader("post");
 		Shaders.post.use();
 
 		// Send buffers as uniforms

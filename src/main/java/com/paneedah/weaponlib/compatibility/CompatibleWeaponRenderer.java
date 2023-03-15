@@ -729,7 +729,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 
 			// Bloom.initializeMultisample();
 
-			// gunLightingShader = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":"
+			// gunLightingShader = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":"
 			// + "shaders/gunlight"));
 			if (player != null && player.getHeldItemMainhand() != null
 					&& player.getHeldItemMainhand().getItem() instanceof Weapon) {
@@ -802,7 +802,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			
 			
 			
-			// gunLightingShader = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":"
+			// gunLightingShader = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":"
 			// + "shaders/gunlight"));
 
 			/*

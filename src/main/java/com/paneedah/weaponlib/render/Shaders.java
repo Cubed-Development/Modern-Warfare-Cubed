@@ -1,9 +1,7 @@
 package com.paneedah.weaponlib.render;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.shader.jim.Shader;
-import com.paneedah.weaponlib.shader.jim.ShaderManager;
-import net.minecraft.util.ResourceLocation;
+import com.paneedah.weaponlib.shader.jim.ShaderLoader;
 
 /**
  * 
@@ -14,31 +12,31 @@ import net.minecraft.util.ResourceLocation;
  */
 public class Shaders {
 	
-	public static Shader select = ShaderManager.loadVMWShader("select");
-	public static Shader blur = ShaderManager.loadVMWShader("blur");
-	public static Shader blackScreen = ShaderManager.loadVMWShader("black");
-	public static Shader shellLight = ShaderManager.loadVMWShader("shells");
-	public static Shader gunLightingShader = ShaderManager.loadVMWShader("gunlight");
-	public static Shader flash = ShaderManager.loadVMWShader("flash");
-	public static Shader selectedge = ShaderManager.loadVMWShader("selectedge");
-	public static Shader reflexReticle = ShaderManager.loadVMWShader("reflex");
-	public static Shader grid = ShaderManager.loadVMWShader("grid");
+	public static Shader select = ShaderLoader.loadShader("select");
+	public static Shader blur = ShaderLoader.loadShader("blur");
+	public static Shader blackScreen = ShaderLoader.loadShader("black");
+	public static Shader shellLight = ShaderLoader.loadShader("shells");
+	public static Shader gunLightingShader = ShaderLoader.loadShader("gunlight");
+	public static Shader flash = ShaderLoader.loadShader("flash");
+	public static Shader selectedge = ShaderLoader.loadShader("selectedge");
+	public static Shader reflexReticle = ShaderLoader.loadShader("reflex");
+	public static Shader grid = ShaderLoader.loadShader("grid");
 	
-	public static Shader axis = ShaderManager.loadVMWShader("axis");
+	public static Shader axis = ShaderLoader.loadShader("axis");
 	
-	public static Shader downsample = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/downsample"));
-	public static Shader upsample = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/upsample"));
+	public static Shader downsample = ShaderLoader.loadShader("downsample");
+	public static Shader upsample = ShaderLoader.loadShader("upsample");
 	
 	
-	public static  Shader brightnessShader = ShaderManager.loadVMWShader("brightness");
-	public static Shader bloomTest = ShaderManager.loadVMWShader("bTest");
-	public static Shader post = ShaderManager.loadVMWShader("post");
-	public static Shader billboard = ShaderManager.loadVMWShader("billboard");
+	public static  Shader brightnessShader = ShaderLoader.loadShader("brightness");
+	public static Shader bloomTest = ShaderLoader.loadShader("bTest");
+	public static Shader post = ShaderLoader.loadShader("post");
+	public static Shader billboard = ShaderLoader.loadShader("billboard");
 	
 	
 	// Post processing shaders
-	public static Shader postFlat = ShaderManager.loadVMWShader("postflat");
-	public static Shader postWorld = ShaderManager.loadVMWShader("postworld");
+	public static Shader postFlat = ShaderLoader.loadShader("postflat");
+	public static Shader postWorld = ShaderLoader.loadShader("postworld");
 	
 	
 

@@ -11,7 +11,7 @@ import com.paneedah.weaponlib.render.bgl.instancing.InstancedAttribute;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import com.paneedah.weaponlib.shader.jim.Shader;
-import com.paneedah.weaponlib.shader.jim.ShaderManager;
+import com.paneedah.weaponlib.shader.jim.ShaderLoader;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -29,7 +29,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 public class CompatibleShellRenderer {
 
 	private static HashMap<Shell.Type, InstancedShellObject> shellObjMap = new HashMap<>();
-	private static Shader legacyShader = ShaderManager.loadVMWShader("shells");
+	private static Shader legacyShader = ShaderLoader.loadShader("shells");
 
 	private static int shadowDisplayList = -1;
 	
