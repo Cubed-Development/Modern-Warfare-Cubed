@@ -136,9 +136,6 @@ public abstract class CompatibleServerEventHandler {
             ResourceLocation customInventoryLocation = new ResourceLocation(ModReference.id, "PLAYER_CUSTOM_INVENTORY");
 
             event.addCapability(customInventoryLocation, new CompatibleCustomPlayerInventoryCapability());
-            
-            ResourceLocation playerMissionsResourceLocation = new ResourceLocation(ModReference.id, "PLAYER_MISSIONS");
-            event.addCapability(playerMissionsResourceLocation, new CompatibleMissionCapability());
 	    }
 	    
         ResourceLocation exposureResourceLocation = new ResourceLocation(ModReference.id, "EXPOSURE");

@@ -9,7 +9,6 @@ import com.paneedah.weaponlib.melee.ItemMelee;
 import com.paneedah.weaponlib.melee.MeleeAttachmentAspect;
 import com.paneedah.weaponlib.melee.MeleeAttackAspect;
 import com.paneedah.weaponlib.melee.MeleeRenderer;
-import com.paneedah.weaponlib.mission.MissionManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -125,7 +124,5 @@ public interface ModContext {
 	public int registerTexture(String explosionParticleTextureName);
 
 	public String getRegisteredTexture(int particleTextureId);
-
-	public MissionManager getMissionManager();
 
 }

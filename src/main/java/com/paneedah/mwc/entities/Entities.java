@@ -24,8 +24,6 @@ public class Entities {
 
         new BanditEntityFactory().createEntity(ModernWarfareMod.MOD_CONTEXT);
         
-        new SampleMissionGiverEntityFactory().createEntity(ModernWarfareMod.MOD_CONTEXT);
-        
         new EntityConfiguration.Builder()
             .withName("zombieBlistered")
             .withBaseClass(EntityCustomMob.class)

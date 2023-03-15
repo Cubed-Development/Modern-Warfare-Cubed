@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.particle;
 
 import com.paneedah.mwc.render.ParticleRenderer;
-import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.RenderHelper;

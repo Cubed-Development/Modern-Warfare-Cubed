@@ -2,9 +2,9 @@ package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.RenderingPhase;
-import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerCreatureWrapper;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
+import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderGlobal;
