@@ -588,14 +588,6 @@ public class Compatibility1_12_2 implements Compatibility {
         return result;
     }
 
-//    @Override
-//    public void addBlockHitEffect(CompatibleRayTraceResult position) {
-//        for(int i = 0; i < 6; i++) {
-//            mc.effectRenderer.addBlockHitEffects(
-//                    position.getBlockPos().getBlockPos(), position.getSideHit().getEnumFacing());
-//        }
-//    }
-
     @Override
     public String getDisplayName(EntityPlayer player) {
         return player.getDisplayNameString();

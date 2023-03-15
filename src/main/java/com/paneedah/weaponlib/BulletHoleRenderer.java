@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -20,13 +21,13 @@ public class BulletHoleRenderer {
 	private ArrayList<BulletHole> bulletHoles = new ArrayList<>(); 
 	
 	public static class BulletHole {
-		private Vec3d pos;
+		private Vector3D pos;
 		private boolean shouldDie;
 		private EnumFacing direction;
 		private double size;
 		private long timeExisted;
 		
-		public BulletHole(Vec3d pos, EnumFacing direction, double size) {
+		public BulletHole(Vector3D pos, EnumFacing direction, double size) {
 			this.pos = pos;
 			this.direction = direction;
 			this.size = size;
