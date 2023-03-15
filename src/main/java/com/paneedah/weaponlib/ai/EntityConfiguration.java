@@ -189,18 +189,11 @@ public class EntityConfiguration {
         private boolean isInvulnerable = false;
         private boolean isCollidable = true;
         private boolean isDespawnable = true;
-        private List<String> introDialogs = new ArrayList<>();
-        private String introImage;
-        private String dialogBackground;
-        private String rewardsBackground;
-        private String missionSelectionBackground;
         
         private float lookHeightMultiplier;
         
         private int pickupItemID = -1;
-        
-       
-        
+
         public Builder withName(String name) {
             this.name = name;
             return this;
@@ -414,48 +407,6 @@ public class EntityConfiguration {
             return this;
         }
         
-//        public Builder withMissionOffering(MissionOffering missionOffering) {
-//            this.missionOfferings.add(missionOffering);
-//            return this;
-//        }
-        
-        public Builder withIntroDialog(String dialog) {
-            this.introDialogs.add(dialog);
-            return this;
-        }
-        
-        public Builder withIntroImage(String introImage) {
-            this.introImage = introImage.toLowerCase();
-            if(!this.introImage.endsWith(".png")) {
-                this.introImage += ".png";
-            }
-            return this;
-        }
-        
-        public Builder withDialogBackground(String dialogBackground) {
-            this.dialogBackground = dialogBackground.toLowerCase();
-            if(!this.dialogBackground.endsWith(".png")) {
-                this.dialogBackground += ".png";
-            }
-            return this;
-        }
-        
-        public Builder withRewardsBackground(String rewardsBackground) {
-            this.rewardsBackground = rewardsBackground.toLowerCase();
-            if(!this.rewardsBackground.endsWith(".png")) {
-                this.rewardsBackground += ".png";
-            }
-            return this;
-        }
-        
-        public Builder withMissionSelectionBackground(String missionSelectionBackground) {
-            this.missionSelectionBackground = missionSelectionBackground.toLowerCase();
-            if(!this.missionSelectionBackground.endsWith(".png")) {
-                this.missionSelectionBackground += ".png";
-            }
-            return this;
-        }
-        
         public void register(ModContext context) {
             EntityConfiguration configuration = new EntityConfiguration();
             configuration.creatureAttribute = creatureAttribute;
@@ -569,23 +520,8 @@ public class EntityConfiguration {
             configuration.sizeHeight = this.sizeHeight;
             configuration.sizeWidth = this.sizeWidth;
             
-            configuration.dialogContent = Collections.unmodifiableList(introDialogs);
-            
-            if(introImage != null)
-                configuration.introImage = new ResourceLocation(ModReference.id, "textures/gui/" + introImage);
-            
-            if(dialogBackground != null)
-                configuration.dialogBackground = new ResourceLocation(ModReference.id, "textures/gui/" + dialogBackground);
-            
-            if(rewardsBackground != null)
-                configuration.rewardsBackground = new ResourceLocation(ModReference.id, "textures/gui/" + rewardsBackground);
-
-            if(missionSelectionBackground != null)
-                configuration.missionSelectionBackground = new ResourceLocation(ModReference.id, "textures/gui/" + missionSelectionBackground);
-            
             Class<? extends Entity> entityClass = EntityClassFactory.getInstance().generateEntitySubclass(baseClass, modEntityId, configuration);
-            
-            
+
             SecondaryEntityRegistry.map.put(name, entityClass);
             
             compatibility.registerModEntity(entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
@@ -672,13 +608,6 @@ public class EntityConfiguration {
 
     private CustomMobAttack collisionAttack;
     private CustomMobAttack delayedAttack;
-
-    private List<String> dialogContent;
-    
-    private ResourceLocation introImage;
-    private ResourceLocation dialogBackground;
-    private ResourceLocation rewardsBackground;
-    private ResourceLocation missionSelectionBackground;
     
     private String mobName;
     
@@ -817,26 +746,6 @@ public class EntityConfiguration {
 
     public boolean isCollidable() {
         return isCollidable;
-    }
-
-    public List<String> getDialogContent() {
-        return dialogContent;
-    }
-
-    public ResourceLocation getIntroImage() {
-        return introImage;
-    }
-
-    public ResourceLocation getDialogBackground() {
-        return dialogBackground;
-    }
-    
-    public ResourceLocation getRewardsBackground() {
-        return rewardsBackground;
-    }
-
-    public ResourceLocation getMissionSelectionBackground() {
-        return missionSelectionBackground;
     }
 
     public boolean isDespawnable() {
