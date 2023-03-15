@@ -323,7 +323,21 @@ public class ModernConfigManager {
 		config.save();
 	}
 
-	public static final Map<String, AIEntity> aiEntities = new LinkedHashMap<>();
+	public static final Map<String, AIEntity> aiEntities = new LinkedHashMap<String, AIEntity>(){{
+		put("terrorist", new AIEntity("terrorist", ModernConfigManager.terroristHealth, ModernConfigManager.terroristsSpawn));
+		put("soldier", new AIEntity("soldier", ModernConfigManager.soldierHealth, ModernConfigManager.solderSpawn));
+		put("zombie", new AIEntity("zombie", ModernConfigManager.zombieHealth, ModernConfigManager.zombieSpawn));
+		put("zombieBlistered", new AIEntity("zombieBlistered", ModernConfigManager.blisteredZombieHealth, ModernConfigManager.blisteredZombieSpawn));
+		put("zombieRipper", new AIEntity("zombieRipper", ModernConfigManager.zombieRipperHealth, ModernConfigManager.zombieRipperSpawn));
+		put("tornzombie", new AIEntity("tornzombie", ModernConfigManager.tornZombieHealth, ModernConfigManager.tornZombieSpawn));
+		put("necromorph", new AIEntity("necromorph", ModernConfigManager.necromorphHealth, ModernConfigManager.necromorphSpawn));
+		put("licker", new AIEntity("licker", ModernConfigManager.lickerHealth, ModernConfigManager.lickerSpawn));
+		put("hazmat_zombie", new AIEntity("hazmat_zombie", ModernConfigManager.hazmatZombieHealth, ModernConfigManager.hazmatZombieSpawn));
+		put("Defiled Zombie", new AIEntity("Defiled Zombie", ModernConfigManager.defiledZombieHealth, ModernConfigManager.defiledZombieSpawn));
+		put("deathclaw", new AIEntity("terrorist", ModernConfigManager.deathclawHealth, ModernConfigManager.deathclawSpawn));
+		put("tyke", new AIEntity("tyke", ModernConfigManager.tykeHealth, ModernConfigManager.tykeSpawn));
+		put("turretupgraded", new AIEntity("turretupgraded", 1.0, 0.0));
+	}};
 	
 	public static void init() {
 		if(isLoaded)
@@ -347,18 +361,5 @@ public class ModernConfigManager {
 		}
 
 		saveConfig();
-
-		aiEntities.put("terrorist", new AIEntity("terrorist", ModernConfigManager.terroristHealth, ModernConfigManager.terroristsSpawn));
-		aiEntities.put("soldier", new AIEntity("soldier", ModernConfigManager.soldierHealth, ModernConfigManager.solderSpawn));
-		aiEntities.put("zombie", new AIEntity("zombie", ModernConfigManager.zombieHealth, ModernConfigManager.zombieSpawn));
-		aiEntities.put("zombieBlistered", new AIEntity("zombieBlistered", ModernConfigManager.blisteredZombieHealth, ModernConfigManager.blisteredZombieSpawn));
-		aiEntities.put("zombieRipper", new AIEntity("zombieRipper", ModernConfigManager.zombieRipperHealth, ModernConfigManager.zombieRipperSpawn));
-		aiEntities.put("tornzombie", new AIEntity("tornzombie", ModernConfigManager.tornZombieHealth, ModernConfigManager.tornZombieSpawn));
-		aiEntities.put("necromorph", new AIEntity("necromorph", ModernConfigManager.necromorphHealth, ModernConfigManager.necromorphSpawn));
-		aiEntities.put("licker", new AIEntity("licker", ModernConfigManager.lickerHealth, ModernConfigManager.lickerSpawn));
-		aiEntities.put("hazmat_zombie", new AIEntity("hazmat_zombie", ModernConfigManager.hazmatZombieHealth, ModernConfigManager.hazmatZombieSpawn));
-		aiEntities.put("Defiled Zombie", new AIEntity("Defiled Zombie", ModernConfigManager.defiledZombieHealth, ModernConfigManager.defiledZombieSpawn));
-		aiEntities.put("deathclaw", new AIEntity("terrorist", ModernConfigManager.deathclawHealth, ModernConfigManager.deathclawSpawn));
-		aiEntities.put("tyke", new AIEntity("tyke", ModernConfigManager.tykeHealth, ModernConfigManager.tykeSpawn));
 	}
 }

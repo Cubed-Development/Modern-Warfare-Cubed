@@ -281,8 +281,7 @@ public class EntityCustomMob extends CompatibleEntityMob
 
     private void setPrimaryEquipment() {
         EntityConfiguration configuration = getConfiguration();
-        Equipment equipment = configuration.getEquipmentOptions()
-                .pick(compatibility.getDifficulty(compatibility.world(this)));
+        Equipment equipment = configuration.getEquipmentOptions().pick(compatibility.getDifficulty(compatibility.world(this)));
 
         setCompatibleInventoryHandsDropChances(configuration.getPrimaryEquipmentDropChance());
         if (equipment != null) {

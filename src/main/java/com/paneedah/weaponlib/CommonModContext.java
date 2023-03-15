@@ -220,12 +220,9 @@ public class CommonModContext implements ModContext {
         magazineReloadAspect.setStateManager(magazineStateManager);
 
 		this.recipeManager = new RecipeManager();
-		
-		
+
 		// Initiate config
 		ModernConfigManager.init();
-		
-
 		
 		channel.registerMessage(new TryFireMessageHandler(weaponFireAspect),
 				TryFireMessage.class, 11, CompatibleSide.SERVER);
