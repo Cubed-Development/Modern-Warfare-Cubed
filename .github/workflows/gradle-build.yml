@@ -1,12 +1,9 @@
 # Creates a release on GitHub with a new tag of the current version
 name: Java CI with Gradle
-# Build manually if u you like that
-# on:
-#   workflow_dispatch:
-    on:
-      push:
-        tags:
-          - "*.*-*-*"
+on:
+  push:
+    tags:
+      - "*.*-*-*"
 
 jobs:
   release:
