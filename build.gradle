@@ -13,7 +13,7 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-// Add MWC version to the jar name
+// Add version to the jar name
 version project.mod_version
 
 minecraft {
@@ -23,22 +23,26 @@ minecraft {
 
     def args = ['-Dfml.coreMods.load=com.paneedah.weaponlib.core.WeaponlibCorePlugin', '-Dforge.logging.console.level=debug']
 
-    replace('@VERSION@', project.mod_version)
+    replace('@ID@', project.id)
+    replace('@NAME@', project.name)
+    replace('@VERSION@', project.version)
     replaceIn('ModReference.java')
 }
 
 runClient {
-    args '--username=ModernDev'
+    args '--username=Dev'
 }
 
-// Replace version in `mcmod.info`
+// Replace id, name, and version in `mcmod.info`
 processResources {
     duplicatesStrategy 'include'
 
-    inputs.property 'version', version
+    inputs.property 'id', project.id
+    inputs.property 'name', project.name
+    inputs.property 'version', project.version
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-        expand 'version': version
+        expand 'id': project.id, 'name': project.name, 'version': project.version
     }
 
     from ('src/main/java') {
@@ -76,7 +80,7 @@ dependencies {
 }
 
 jar {
-    // Add all embedded dependencies into MWC jar
+    // Add all embedded dependencies into the jar
     from(configurations.embed.collect {it.isDirectory() ? it : zipTree(it)})
 
     manifest.attributes([
