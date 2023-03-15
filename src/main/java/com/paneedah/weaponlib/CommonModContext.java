@@ -19,7 +19,6 @@ import com.paneedah.weaponlib.electronics.*;
 import com.paneedah.weaponlib.grenade.*;
 import com.paneedah.weaponlib.inventory.*;
 import com.paneedah.weaponlib.melee.*;
-import com.paneedah.weaponlib.mission.*;
 import com.paneedah.weaponlib.network.NetworkPermitManager;
 import com.paneedah.weaponlib.network.PermitMessage;
 import com.paneedah.weaponlib.network.TypeRegistry;
@@ -73,18 +72,6 @@ public class CommonModContext implements ModContext {
         TypeRegistry.getInstance().register(HandheldState.class);
         TypeRegistry.getInstance().register(SpreadableExposure.class);
         TypeRegistry.getInstance().register(LightExposure.class);
-        TypeRegistry.getInstance().register(Mission.class);
-        TypeRegistry.getInstance().register(Goal.class);
-        TypeRegistry.getInstance().register(KillEntityAction.class);
-        TypeRegistry.getInstance().register(ObtainItemAction.class);
-        TypeRegistry.getInstance().register(GoToLocationAction.class);
-        TypeRegistry.getInstance().register(MissionReward.ItemReward.class);
-        TypeRegistry.getInstance().register(MissionOffering.class);
-        TypeRegistry.getInstance().register(MissionOffering.NoMissionsInProgressRequirement.class);
-        TypeRegistry.getInstance().register(MissionOffering.CompletedMissionRequirement.class);
-        TypeRegistry.getInstance().register(MissionOffering.CooldownMissionRequirement.class);
-        TypeRegistry.getInstance().register(MissionOffering.CompositeRequirement.class);
-        TypeRegistry.getInstance().register(MissionOffering.NoRequirement.class);
     }
 
     static class BulletImpactSoundKey {
@@ -170,8 +157,6 @@ public class CommonModContext implements ModContext {
     private Map<Integer, String> registeredTextureNames = new HashMap<>();
     
     private int registeredTextureCounter;
-
-    private MissionManager missionManager;
     
     protected static ThreadLocal<ModContext> currentContext = new ThreadLocal<>();
 
@@ -275,21 +260,6 @@ public class CommonModContext implements ModContext {
 		channel.registerMessage(new OpenCustomInventoryGuiHandler(this),
 		        OpenCustomPlayerInventoryGuiMessage.class, 28, CompatibleSide.SERVER);
 		
-		channel.registerMessage(new OpenMissionGuiHandler(this),
-                OpenMissionGuiMessage.class, 29, CompatibleSide.CLIENT);
-		
-		channel.registerMessage(new PlayerMissionSyncHandler(this),
-                PlayerMissionSyncMessage.class, 30, CompatibleSide.CLIENT);
-		
-		channel.registerMessage(new AcceptMissionHandler(this),
-                AcceptMissionMessage.class, 31, CompatibleSide.SERVER);
-		
-        channel.registerMessage(new MissionOfferingSyncHandler(this),
-                MissionOfferingSyncMessage.class, 32, CompatibleSide.CLIENT);
-        
-        channel.registerMessage(new EntityMissionOfferingSyncHandler(this),
-                EntityMissionOfferingSyncMessage.class, 33, CompatibleSide.CLIENT);
-		
         channel.registerMessage(new VehicleControlPacketHandler(this),
         		VehicleControlPacket.class, 34, CompatibleSide.SERVER);
         
@@ -341,7 +311,6 @@ public class CommonModContext implements ModContext {
 		CompatibleExposureCapability.register(this);
 		CompatibleExtraEntityFlags.register(this);
 		CompatibleCustomPlayerInventoryCapability.register(this);
-		CompatibleMissionCapability.register(this);
 
         compatibility.registerModEntity(WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
         compatibility.registerModEntity(EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, 200, 3, true);
@@ -395,11 +364,6 @@ public class CommonModContext implements ModContext {
 		
 		compatibility.registerTileEntity(TileEntityAmmoPress.class, ModReference.id + ":tileammopress");
 		compatibility.registerBlock(this, new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(ModernWarfareMod.BlocksTab), "ammo_press");	
-	}
-	
-	@Override
-	public MissionManager getMissionManager() {
-	    return this.missionManager;
 	}
 
     @Override

@@ -7,7 +7,6 @@ import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import com.paneedah.weaponlib.config.AIEntity;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.mission.MissionOffering;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -190,7 +189,6 @@ public class EntityConfiguration {
         private boolean isInvulnerable = false;
         private boolean isCollidable = true;
         private boolean isDespawnable = true;
-        private List<MissionOffering> missionOfferings = new ArrayList<>();
         private List<String> introDialogs = new ArrayList<>();
         private String introImage;
         private String dialogBackground;
@@ -571,12 +569,6 @@ public class EntityConfiguration {
             configuration.sizeHeight = this.sizeHeight;
             configuration.sizeWidth = this.sizeWidth;
             
-            HashMap<UUID, MissionOffering> tmpMap = new LinkedHashMap<>();
-            for(MissionOffering missionOffering: missionOfferings)
-                tmpMap.put(missionOffering.getId(), missionOffering);
-
-            configuration.missionOfferings = Collections.unmodifiableMap(tmpMap);
-            
             configuration.dialogContent = Collections.unmodifiableList(introDialogs);
             
             if(introImage != null)
@@ -668,11 +660,8 @@ public class EntityConfiguration {
     private boolean isCollidable;
     private boolean isDespawnable;
     
-    private Map<UUID, MissionOffering> missionOfferings;
-    
     public float lookHeightMultiplier;
 
-    
     public float sizeWidth, sizeHeight;
 
     private Map<CompatibleEntityEquipmentSlot, CustomArmor> armor;
@@ -828,10 +817,6 @@ public class EntityConfiguration {
 
     public boolean isCollidable() {
         return isCollidable;
-    }
-    
-    public Map<UUID, MissionOffering> getMissionOfferings() {
-        return missionOfferings;
     }
 
     public List<String> getDialogContent() {

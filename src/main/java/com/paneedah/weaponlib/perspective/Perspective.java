@@ -2,9 +2,9 @@ package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.RenderContext;
-import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
+import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import com.paneedah.weaponlib.shader.DynamicShaderContext;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupManager;
 import net.minecraft.client.renderer.GlStateManager;

@@ -4,7 +4,6 @@ import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.models.RPG7;
 import com.paneedah.mwc.models.RPG7rocketPROJECTILE;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.wearables.Bullets;

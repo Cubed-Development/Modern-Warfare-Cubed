@@ -1,6 +1,9 @@
 package com.paneedah.weaponlib.crafting;
 
-import com.google.gson.*;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.JSONDatabaseManager;
 import net.minecraft.init.Blocks;

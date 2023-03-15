@@ -11,7 +11,6 @@ import com.paneedah.weaponlib.render.DepthTexture;
 import com.paneedah.weaponlib.render.HDRFramebuffer;
 import com.paneedah.weaponlib.render.Shaders;
 import com.paneedah.weaponlib.render.bgl.weather.ModernWeatherRenderer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
