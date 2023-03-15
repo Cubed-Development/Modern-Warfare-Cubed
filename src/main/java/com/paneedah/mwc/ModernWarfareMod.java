@@ -30,6 +30,9 @@ public class ModernWarfareMod {
     @SidedProxy(serverSide = "com.paneedah.weaponlib.CommonModContext", clientSide = "com.paneedah.weaponlib.ClientModContext")
     public static ModContext MOD_CONTEXT;
 
+    // Todo: Make this configurable via the future YAML config system from FBP.
+    public static int bulletHitParticleMult = 6;
+
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ModReference.id);
 
     public static final CreativeTabs ArmorTab = new ArmorTab(CreativeTabs.getNextID(), "ArmorTab");

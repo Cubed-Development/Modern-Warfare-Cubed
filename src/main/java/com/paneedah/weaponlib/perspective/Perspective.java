@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.RenderContext;
-import com.paneedah.weaponlib.compatibility.CompatibleParticleManager;
+import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import com.paneedah.weaponlib.compatibility.Framebuffers;
@@ -23,7 +23,7 @@ public abstract class Perspective<S> {
 
     protected CompatibleWorldRenderer entityRenderer;
     protected RenderGlobal renderGlobal;
-    protected CompatibleParticleManager effectRenderer;
+    protected MWCParticleManager effectRenderer;
     protected DynamicShaderGroupManager shaderGroupManager;
 
     public void activate(ClientModContext modContext, PerspectiveManager manager) {

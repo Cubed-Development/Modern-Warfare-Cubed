@@ -1,8 +1,9 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleEnumFacing;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 
 public class BlockHitMessage implements CompatibleMessage {
@@ -13,16 +14,16 @@ public class BlockHitMessage implements CompatibleMessage {
     private int posY;
     private int posZ;
     */
-    private int enumFacing;
+    private int enumFacingIndex;
 
     public BlockHitMessage() {}
 
-    public BlockHitMessage(BlockPos pos, double x, double y, double z, CompatibleEnumFacing enumFacing) {
+    public BlockHitMessage(BlockPos pos, double x, double y, double z, EnumFacing enumFacing) {
        this.blockPos = pos;
        this.posX = x; 
        this.posY = y;
        this.posZ = z;
-        this.enumFacing = enumFacing.ordinal();
+       this.enumFacingIndex = enumFacing.getIndex();
     }
 
     public void fromBytes(ByteBuf buf) {
@@ -35,7 +36,7 @@ public class BlockHitMessage implements CompatibleMessage {
         posY = buf.readInt();
         posZ = buf.readInt();
         */
-        enumFacing = buf.readInt();
+        enumFacingIndex = buf.readInt();
     }
 
     public void toBytes(ByteBuf buf) {
@@ -48,7 +49,7 @@ public class BlockHitMessage implements CompatibleMessage {
         buf.writeInt(posY);
         buf.writeInt(posZ);
         */
-        buf.writeInt(enumFacing);
+        buf.writeInt(enumFacingIndex);
     }
 
     public BlockPos getBlockPos() {
@@ -67,7 +68,7 @@ public class BlockHitMessage implements CompatibleMessage {
         return posZ;
     }
     
-    public CompatibleEnumFacing getSideHit() {
-        return CompatibleEnumFacing.values()[enumFacing];
+    public EnumFacing getSideHit() {
+        return EnumFacing.byIndex(enumFacingIndex);
     }
 }
