@@ -907,7 +907,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                         CompatibleTargetPoint point = new CompatibleTargetPoint(entity.dimension,
                                 position.getBlockPosX(), position.getBlockPosY(), position.getBlockPosZ(), 100);
                         modContext.getChannel().sendToAllAround(
-                                new BlockHitMessage(position.getBlockPos().getBlockPos(), position.getHitVec().getXCoord(), position.getHitVec().getYCoord(), position.getHitVec().getZCoord(), position.getSideHit()), point);
+                                new BlockHitMessage(position.getBlockPos().getBlockPos(), position.getHitVec().x, position.getHitVec().y, position.getHitVec().z, position.getSideHit()), point);
                         
                         MaterialImpactSound materialImpactSound = modContext.getMaterialImpactSound(blockState, entity);
                         if(materialImpactSound != null) {
@@ -1281,7 +1281,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
    
     	if(world.isRemote) {
     		EnumFacing facing = EnumFacing.valueOf(position.getSideHit().toString());
-        	CompatibleClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vec3d(position.getHitVec().getXCoord(), position.getHitVec().getYCoord(), position.getHitVec().getZCoord()), facing, 0.05));
+        	CompatibleClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vec3d(position.getHitVec().x, position.getHitVec().y, position.getHitVec().z), facing, 0.05));
     	}
     	
     	if(builder.blockImpactHandler != null) {

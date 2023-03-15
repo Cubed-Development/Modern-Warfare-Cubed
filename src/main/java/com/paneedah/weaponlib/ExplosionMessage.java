@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib;
 
 import com.google.common.collect.Lists;
+import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.compatibility.CompatibleBlockPos;
 import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleVec3;
 import io.netty.buffer.ByteBuf;
 
 import java.util.ArrayList;
@@ -30,10 +30,7 @@ public class ExplosionMessage implements CompatibleMessage {
     public ExplosionMessage() {
     }
 
-    public ExplosionMessage(double xIn, double yIn, double zIn, float strengthIn, boolean isDestroyingBlocks,
-            List<CompatibleBlockPos> affectedBlockPositionsIn, CompatibleVec3 motion, float explosionParticleAgeCoefficient,
-            float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient,
-            int explosionParticleTextureId, int smokeParticleTextureId) {
+    public ExplosionMessage(double xIn, double yIn, double zIn, float strengthIn, boolean isDestroyingBlocks, List<CompatibleBlockPos> affectedBlockPositionsIn, Vector3D motion, float explosionParticleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, int explosionParticleTextureId, int smokeParticleTextureId) {
         this.posX = xIn;
         this.posY = yIn;
         this.posZ = zIn;
@@ -48,9 +45,9 @@ public class ExplosionMessage implements CompatibleMessage {
         this.smokeParticleTextureId = smokeParticleTextureId;
 
         if (motion != null) {
-            this.motionX = (float) motion.getXCoord();
-            this.motionY = (float) motion.getYCoord();
-            this.motionZ = (float) motion.getZCoord();
+            this.motionX = (float) motion.x;
+            this.motionY = (float) motion.y;
+            this.motionZ = (float) motion.z;
         }
     }
 

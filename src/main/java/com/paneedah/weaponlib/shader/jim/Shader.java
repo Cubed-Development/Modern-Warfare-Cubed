@@ -32,8 +32,8 @@ public class Shader {
 		}
 		
 		GL20.glUseProgram(shader);
-		for(Uniform u : uniforms) {
-			u.apply(shader);
+		for(Uniform uniform : uniforms) {
+			uniform.apply(shader);
 		}
 	}
 	

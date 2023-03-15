@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.compatibility.*;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
@@ -217,8 +218,8 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
             ++this.ticksInAir;
         }
 
-        CompatibleVec3 vec3 = new CompatibleVec3(this.posX, this.posY, this.posZ);
-        CompatibleVec3 vec31 = new CompatibleVec3(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+        Vector3D vec3 = new Vector3D(this.posX, this.posY, this.posZ);
+        Vector3D vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
         //List<BlockPos> possibleCollisions = new ArrayList<>();
 
@@ -250,11 +251,11 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
              }
         }
 
-        vec3 = new CompatibleVec3(this.posX, this.posY, this.posZ);
-        vec31 = new CompatibleVec3(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+        vec3 = new Vector3D(this.posX, this.posY, this.posZ);
+        vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
         if (movingobjectposition != null)
-            vec31 = CompatibleVec3.fromCompatibleVec3(movingobjectposition.getHitVec());
+            vec31 = movingobjectposition.getHitVec();
 
         if (!compatibility.world(this).isRemote) {
             Entity entity = getRayTraceEntities(vec3, vec31);
@@ -309,7 +310,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.setPosition(this.posX, this.posY, this.posZ);
     }
 
-    private Entity getRayTraceEntities(CompatibleVec3 vec3, CompatibleVec3 vec31) {
+    private Entity getRayTraceEntities(Vector3D vec3, Vector3D vec31) {
         Entity entity = null;
         List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this, compatibility.getBoundingBox(this).addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
         double d0 = 0.0D;

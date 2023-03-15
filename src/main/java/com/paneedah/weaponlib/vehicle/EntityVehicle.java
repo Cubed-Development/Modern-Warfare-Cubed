@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.vehicle;
 
 import com.google.common.collect.Lists;
+import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Randomizer;
-import com.paneedah.weaponlib.compatibility.CompatibleVec3;
 import com.paneedah.weaponlib.compatibility.sound.EngineMovingSound;
 import com.paneedah.weaponlib.particle.DriftSmokeFX;
 import com.paneedah.weaponlib.particle.vehicle.DriftCloudParticle;
@@ -106,7 +106,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 	 * SOUND DECLARATIONS/VARIABLES
 	 */
 
-	private Supplier<CompatibleVec3> soundPositionProvider = () -> new CompatibleVec3(posX, posY, posZ);
+	private Supplier<Vector3D> soundPositionProvider = () -> new Vector3D(posX, posY, posZ);
 	private Supplier<Boolean> donePlayingSoundProvider = () -> isDead;
 	private Supplier<Boolean> isDorifto = () -> !getSolver().isDrifting;
 	private Supplier<Float> doriftoSoundProvider = () -> 1.0f;
@@ -2750,8 +2750,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 		// INITIATE A DRIVING SOUND
 		if (this.drivingSound == null && this.isVehicleRunning()) {
 			
-				this.drivingSound = new EngineMovingSound(getConfiguration().getRunSound(), soundPositionProvider, donePlayingSoundProvider,
-					this, false);
+				this.drivingSound = new EngineMovingSound(getConfiguration().getRunSound(), soundPositionProvider, donePlayingSoundProvider, this, false);
 
 			mc.getSoundHandler().playSound(this.drivingSound);
 		}

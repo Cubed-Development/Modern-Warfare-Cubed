@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import net.minecraft.client.audio.PositionedSound;
 import net.minecraft.util.SoundCategory;
 import net.minecraftforge.fml.relauncher.Side;
@@ -9,13 +10,12 @@ import java.util.function.Supplier;
 
 @SideOnly(Side.CLIENT)
 public class CompatiblePositionedSound extends PositionedSound {
-    private Supplier<CompatibleVec3> positionProvider;
+    private Supplier<Vector3D> positionProvider;
     private Supplier<Float> volumeProvider;
     private Supplier<Boolean> donePlayingProvider;
     private boolean donePlaying;
 
-    public CompatiblePositionedSound(CompatibleSound sound, Supplier<CompatibleVec3> positionProvider,
-            Supplier<Float> volumeProvider, Supplier<Boolean> donePlayingProvider) {
+    public CompatiblePositionedSound(CompatibleSound sound, Supplier<Vector3D> positionProvider, Supplier<Float> volumeProvider, Supplier<Boolean> donePlayingProvider) {
         super(sound.getSound(), SoundCategory.BLOCKS);
         this.repeat = true;
         this.pitch = 0;
@@ -31,10 +31,10 @@ public class CompatiblePositionedSound extends PositionedSound {
         donePlaying = donePlayingProvider.get();
         
         if (!donePlaying) {
-            CompatibleVec3 position = positionProvider.get();
-            this.xPosF = (float) position.getXCoord();
-            this.yPosF = (float) position.getYCoord();
-            this.zPosF = (float) position.getZCoord();
+            Vector3D position = positionProvider.get();
+            this.xPosF = (float) position.x;
+            this.yPosF = (float) position.y;
+            this.zPosF = (float) position.z;
             this.volume = volumeProvider.get();
             this.pitch = 1 + this.volume * this.volume;
         }

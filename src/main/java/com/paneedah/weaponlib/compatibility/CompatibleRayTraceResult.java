@@ -1,9 +1,11 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,7 @@ public class CompatibleRayTraceResult {
 	};
 
 	private RayTraceResult position;
-	private CompatibleVec3 hitVec;
+	private Vector3D hitVec;
 	private CompatibleBlockPos blockPos;
 	private List<BlockPos> passThrus = new ArrayList<>();
 
@@ -48,7 +50,7 @@ public class CompatibleRayTraceResult {
 	}
 
 	private void init() {
-	    this.hitVec = position.hitVec != null ? new CompatibleVec3(position.hitVec) : null;
+	    this.hitVec = position.hitVec != null ? new Vector3D(position.hitVec.x, position.hitVec.y, position.hitVec.x) : null;
 	    this.blockPos = position.getBlockPos() != null ? new CompatibleBlockPos(position.getBlockPos()) : null;
 
 	}
@@ -121,12 +123,12 @@ public class CompatibleRayTraceResult {
 	    return result;
 	}
 
-    public CompatibleVec3 getHitVec() {
+    public Vector3D getHitVec() {
         return hitVec;
     }
 
-    public void setHitVec(CompatibleVec3 hitVec) {
-        position.hitVec = hitVec.getVec();
+    public void setHitVec(Vector3D hitVec) {
+        position.hitVec = new Vec3d(hitVec.x, hitVec.y, hitVec.z);
         this.hitVec = hitVec;
     }
 }

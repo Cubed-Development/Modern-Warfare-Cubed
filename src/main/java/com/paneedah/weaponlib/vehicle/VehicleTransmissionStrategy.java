@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.vehicle;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.compatibility.CompatibleMovingSound;
 import com.paneedah.weaponlib.compatibility.CompatibleSound;
-import com.paneedah.weaponlib.compatibility.CompatibleVec3;
 import net.minecraft.client.audio.MovingSound;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public abstract class VehicleTransmissionStrategy {
         public Builder withGear(double minSpeed, CompatibleSound sound) {
             DefaultTransmissionStrategy.Gear gear = new DefaultTransmissionStrategy.Gear();
             
-            Supplier<CompatibleVec3> soundPositionProvider = () -> new CompatibleVec3(entity.posX, entity.posY, entity.posZ);
+            Supplier<Vector3D> soundPositionProvider = () -> new Vector3D(entity.posX, entity.posY, entity.posZ);
 
             Supplier<Float> drivingSoundVolumeProvider = () -> {                
                 if(gear.strategy.speed >= gear.minSpeed && gear.strategy.speed < gear.maxSpeed) {

@@ -127,7 +127,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
 	    	//PostProcessPipeline.createDistortionPoint((float) position.getHitVec().getXCoord(),(float)  position.getHitVec().getYCoord(), (float) position.getHitVec().getZCoord(), 2f, 3000);
 	        Explosion.createServerSideExplosion(weapon.getModContext(), compatibility.world(this), this,
-	                position.getHitVec().getXCoord(), position.getHitVec().getYCoord(), position.getHitVec().getZCoord(),
+	                position.getHitVec().x, position.getHitVec().y, position.getHitVec().z,
 	                explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient,
 	                smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient,
 	                weapon.getModContext().getRegisteredTexture(explosionParticleTextureId), 

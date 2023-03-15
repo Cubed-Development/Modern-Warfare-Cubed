@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.compatibility.sound;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.compatibility.CompatibleSound;
-import com.paneedah.weaponlib.compatibility.CompatibleVec3;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 
 import java.util.function.Supplier;
@@ -12,7 +12,7 @@ public class DriftMovingSound extends AdvCompatibleMovingSound {
 	public int startingMat = 0;
 	public Supplier<Integer> currentMat;
 
-	public DriftMovingSound(CompatibleSound sound, Supplier<CompatibleVec3> positionProvider,
+	public DriftMovingSound(CompatibleSound sound, Supplier<Vector3D> positionProvider,
 			Supplier<Boolean> donePlayingProvider, EntityVehicle vehicle, boolean shouldFade, int startMat, Supplier<Integer> currentMat) {
 		super(sound, positionProvider, donePlayingProvider, shouldFade);
 		this.startingMat = startMat;

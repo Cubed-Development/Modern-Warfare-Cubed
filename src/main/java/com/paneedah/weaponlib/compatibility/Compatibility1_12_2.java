@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.compatibility;
 
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.ai.EntityCustomMob;
@@ -53,6 +54,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.*;
@@ -259,8 +261,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public CompatibleVec3 getLookVec(EntityPlayer player) {
-        return new CompatibleVec3(player.getLookVec());
+    public Vector3D getLookVec(EntityPlayer player) {
+        return new Vector3D(player.getLookVec());
     }
 
     @Override
@@ -759,8 +761,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public CompatibleRayTraceResult rayTraceBlocks(Entity entity, CompatibleVec3 vec3, CompatibleVec3 vec31) {
-        return CompatibleRayTraceResult.fromRayTraceResult(entity.getEntityWorld().rayTraceBlocks(vec3.getVec(), vec31.getVec()));
+    public CompatibleRayTraceResult rayTraceBlocks(Entity entity, Vector3D vec3, Vector3D vec31) {
+        return CompatibleRayTraceResult.fromRayTraceResult(entity.getEntityWorld().rayTraceBlocks(vec3.convertToVec3d(), vec31.convertToVec3d()));
     }
 
     @Override
@@ -852,13 +854,12 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public double getBlockDensity(World world, CompatibleVec3 vec3, CompatibleAxisAlignedBB boundingBox) {
-        return world.getBlockDensity(vec3.getVec(), boundingBox.getBoundingBox());
+    public double getBlockDensity(World world, Vector3D vec3, CompatibleAxisAlignedBB boundingBox) {
+        return world.getBlockDensity(vec3.convertToVec3d(), boundingBox.getBoundingBox());
     }
     
     @Override
-    public float getBlockDensity(World world, CompatibleVec3 vec, CompatibleAxisAlignedBB boundingBox, 
-            BiPredicate<Block, CompatibleBlockState> isCollidable) {
+    public float getBlockDensity(World world, Vector3D vec, CompatibleAxisAlignedBB boundingBox, BiPredicate<Block, CompatibleBlockState> isCollidable) {
         AxisAlignedBB bb = boundingBox.getBoundingBox();
         double d0 = 1.0D / ((bb.maxX - bb.minX) * 2.0D + 1.0D);
         double d1 = 1.0D / ((bb.maxY - bb.minY) * 2.0D + 1.0D);
@@ -880,17 +881,14 @@ public class Compatibility1_12_2 implements Compatibility {
                         double d5 = bb.minX + (bb.maxX - bb.minX) * (double)f;
                         double d6 = bb.minY + (bb.maxY - bb.minY) * (double)f1;
                         double d7 = bb.minZ + (bb.maxZ - bb.minZ) * (double)f2;
-                        if(CompatibleRayTracing.rayTraceBlocks(world, 
-                                new CompatibleVec3(d5 + d3, d6, d7 + d4), 
-                                vec, 
-                                isCollidable) == null) {
+                        if(CompatibleRayTracing.rayTraceBlocks(world, new Vector3D(d5 + d3, d6, d7 + d4), vec, isCollidable) == null) {
                             ++j2;
                         }
-//                        if (this.rayTraceBlocks(new Vec3d(d5 + d3, d6, d7 + d4), vec) == null)
-//                        {
-//                            ++j2;
-//                        }
-
+                        /*
+                        if (this.rayTraceBlocks(new Vec3d(d5 + d3, d6, d7 + d4), vec) == null) {
+                            ++j2;
+                        }
+                        */
                         ++k2;
                     }
                 }
@@ -1175,8 +1173,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
     
     @Override
-    public CompatibleVec3 getLookVec(EntityLivingBase player) {
-        return new CompatibleVec3(player.getLookVec());
+    public Vector3D getLookVec(EntityLivingBase player) {
+        return new Vector3D(player.getLookVec());
     }
 
     @Override

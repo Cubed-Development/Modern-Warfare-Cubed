@@ -14,8 +14,7 @@ class DynamicShader extends CompatibleShader {
 
     private DynamicShaderGroup shaderGroup;
 
-    public DynamicShader(IResourceManager resourceManager, String programName, Framebuffer framebufferInIn,
-            Framebuffer framebufferOutIn, DynamicShaderGroup shaderGroup) throws JsonException, IOException {
+    public DynamicShader(IResourceManager resourceManager, String programName, Framebuffer framebufferInIn, Framebuffer framebufferOutIn, DynamicShaderGroup shaderGroup) throws JsonException, IOException {
         super(resourceManager, programName, framebufferInIn, framebufferOutIn);
         this.shaderGroup = shaderGroup;
     }
@@ -27,7 +26,6 @@ class DynamicShader extends CompatibleShader {
         
             ShaderUniform uniform = compatibility.getShaderUniform(getShaderManager(), name);
             if(uniform != null) {
-            	// System.out.println(value);
                 if(value instanceof Float) {
                     compatibility.setUniform(uniform, (float)value);
                 } else if(value instanceof float[]) {

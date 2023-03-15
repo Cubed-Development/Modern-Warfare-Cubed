@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.LightExposure;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.*;
@@ -224,7 +225,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
         double posX = this.posX + xOffset;
         double posY = this.posY + yOffset;
         double posZ = this.posZ + zOffset;
-        final CompatibleVec3 grenadePos = new CompatibleVec3(posX, posY, posZ);
+        final Vector3D grenadePos = new Vector3D(posX, posY, posZ);
 //        BiPredicate<Block, CompatibleBlockState> isCollidable = (block, blockMetadata) -> 
 //            block != Blocks.GLASS && block != Blocks.GLASS_PANE && compatibility.canCollideCheck(block, blockMetadata, false);
             
@@ -238,13 +239,12 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
         Vec3d playerGrenadeVector = playerEyePosition.subtractReverse(new Vec3d(posX, posY, posZ));
         
         double dotProduct = playerLookVec.dotProduct(playerGrenadeVector);
-        double cos = dotProduct / 
-                (MathHelper.sqrt(playerLookVec.lengthSquared()) * MathHelper.sqrt(playerGrenadeVector.lengthSquared()));
+        double cos = dotProduct / (MathHelper.sqrt(playerLookVec.lengthSquared()) * MathHelper.sqrt(playerGrenadeVector.lengthSquared()));
                 
         float exposureFactor = (float) ((cos + 1f)/ 2f);
         exposureFactor *= exposureFactor;
                 
-        final CompatibleVec3 compatiblePlayerEyePos = new CompatibleVec3(playerEyePosition.x, playerEyePosition.y, playerEyePosition.z);
+        final Vector3D compatiblePlayerEyePos = new Vector3D(playerEyePosition.x, playerEyePosition.y, playerEyePosition.z);
         CompatibleRayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), grenadePos, compatiblePlayerEyePos, isCollidable);
 
         float dose = 0f;

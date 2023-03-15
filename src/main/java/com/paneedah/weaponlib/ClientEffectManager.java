@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler.MuzzleFlash;
-import com.paneedah.weaponlib.compatibility.CompatibleVec3;
 import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.particle.BetterMuzzleSmoke;
 import com.paneedah.weaponlib.particle.ExplosionParticleFX;
@@ -29,7 +29,7 @@ final class ClientEffectManager implements EffectManager {
 	        return;
 	    }
 
-	    CompatibleVec3 look = compatibility.getLookVec(player);
+		Vector3D look = compatibility.getLookVec(player);
 		double motionX = compatibility.world(player).rand.nextGaussian() * 0.0003;
 		double motionY = compatibility.world(player).rand.nextGaussian() * 0.0003;
 		double motionZ = compatibility.world(player).rand.nextGaussian() * 0.0003; 
@@ -40,9 +40,9 @@ final class ClientEffectManager implements EffectManager {
 		float positionRandomizationFactor = 0.01f;
 
 		//System.out.println("yo");
-		double posX = player.posX + (look.getXCoord() * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (-look.getZCoord() * xOffset);
-		double posY = player.posY + (look.getYCoord() * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor - yOffset;
-		double posZ = player.posZ + (look.getZCoord() * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor  + (look.getXCoord() * xOffset);
+		double posX = player.posX + (look.x * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (-look.z * xOffset);
+		double posY = player.posY + (look.y * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor - yOffset;
+		double posZ = player.posZ + (look.z * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor  + (look.x * xOffset);
 
 		
 
@@ -101,7 +101,7 @@ final class ClientEffectManager implements EffectManager {
 		//float scale = 0.8f * compatibility.getEffectScaleFactor() * flashScale;
 		float positionRandomizationFactor = 0.0f;
 
-		CompatibleVec3 look = compatibility.getLookVec(player);
+		Vector3D look = compatibility.getLookVec(player);
 
 		//float motionX = (float)compatibility.world(player).rand.nextGaussian() * 0.003f;
 		//float motionY = (float)compatibility.world(player).rand.nextGaussian() * 0.003f;
@@ -114,9 +114,9 @@ final class ClientEffectManager implements EffectManager {
 		//xOffset = -.05f;
 		//System.out.println(xOffset);
 		
-		double posX = player.posX + (look.getXCoord() * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (-look.getZCoord() * xOffset);
-		double posY = player.posY + (look.getYCoord() * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor - yOffset;
-		double posZ = player.posZ + (look.getZCoord() * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (look.getXCoord() * xOffset);
+		double posX = player.posX + (look.x * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (-look.z * xOffset);
+		double posY = player.posY + (look.y * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor - yOffset;
+		double posZ = player.posZ + (look.z * distance) + (compatibility.world(player).rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (look.x * xOffset);
 
 		Vec3d bruh = new Vec3d(-0.13, 0, 2.0).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw)).add(player.getPositionVector()).add(0, 1.5, 0);
 		

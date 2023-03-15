@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import net.minecraft.client.audio.PositionedSound;
 import net.minecraft.util.SoundCategory;
@@ -10,10 +11,10 @@ import java.util.function.Supplier;
 
 @SideOnly(Side.CLIENT)
 public class RevSound extends PositionedSound {
-    private Supplier<CompatibleVec3> positionProvider;
+    private Supplier<Vector3D> positionProvider;
     private EntityVehicle vehicle;
 
-    public RevSound(CompatibleSound sound, Supplier<CompatibleVec3> positionProvider, EntityVehicle vehicle) {
+    public RevSound(CompatibleSound sound, Supplier<Vector3D> positionProvider, EntityVehicle vehicle) {
         super(sound.getSound(), SoundCategory.BLOCKS);
         this.repeat = true;
         this.volume = 1.5F;
@@ -22,9 +23,9 @@ public class RevSound extends PositionedSound {
     }
 
     public void update() {
-        CompatibleVec3 position = positionProvider.get();
-        this.xPosF = (float) position.getXCoord();
-        this.yPosF = (float) position.getYCoord();
-        this.zPosF = (float) position.getZCoord();
+        Vector3D position = positionProvider.get();
+        this.xPosF = (float) position.x;
+        this.yPosF = (float) position.y;
+        this.zPosF = (float) position.z;
     }
 }
