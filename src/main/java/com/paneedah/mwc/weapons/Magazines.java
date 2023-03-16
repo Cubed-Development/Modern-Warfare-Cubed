@@ -159,7 +159,7 @@ public class Magazines {
 //                          MwItems.steelIngot,
 //                          MwItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
-        
+/*
         Magazines.NinthSinMag = new ItemMagazine.Builder()
         		.withAmmo(100)
                 .withName("NinthSinMag")
@@ -188,7 +188,7 @@ public class Magazines {
 //                          MwItems.steelIngot,
 //                          MwItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
-
+*/
         Magazines.BrenMag = new ItemMagazine.Builder()
         		.withAmmo(30)
         		.withCompatibleBullet(Bullets.Bullet762x51)
