@@ -228,7 +228,7 @@ public class AuxiliaryAttachments {
     
     public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
         
-    	
+/*
     	PanelUpper = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
                 // .withCreativeTab(ModernWarfareMod.gunsTab)
@@ -324,7 +324,7 @@ public class AuxiliaryAttachments {
                 .withName("Cycler")
                 .withRenderablePart().withTextureName("Dummy.png")
                 .build(ModernWarfareMod.MOD_CONTEXT);
-        
+*/
         ChainB = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 // .withCreativeTab(ModernWarfareMod.gunsTab)
