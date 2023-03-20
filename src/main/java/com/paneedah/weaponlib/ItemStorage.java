@@ -79,12 +79,8 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
         }
         
         public Builder withProperModel(String elModel, String properTextureName) {
-        	
         	modelFileString = elModel;
         	this.properTextureName = properTextureName;
-        	
-        	
-    
         	return this;
         }
         
@@ -231,16 +227,10 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
             	
             }
             
-            if(model != null) {
-                item.texturedModels.add(new Tuple<>(model, addFileExtension(textureName, ".png")));
-            }
+            if(model != null) item.texturedModels.add(new Tuple<>(model, addFileExtension(textureName, ".png")));
             
            
-            if(tab != null) {
-                item.setCreativeTab(tab);
-                
-                
-            }
+            if(tab != null) item.setCreativeTab(tab);
             
             // Register hook
             CraftingRegistry.registerHook(item);
