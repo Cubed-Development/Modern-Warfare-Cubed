@@ -44,8 +44,7 @@ public abstract class CompatibleParticle extends Particle {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void renderParticle(BufferBuilder worldRendererIn, Entity entityIn, float partialTicks, float rotationX,
-			float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
+	public void renderParticle(BufferBuilder worldRendererIn, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
 		renderParticle(CompatibleTessellator.getInstance(), partialTicks, rotationX, rotationZ, rotationYZ, rotationXY, rotationXZ);
 	}
 

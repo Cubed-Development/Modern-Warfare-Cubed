@@ -31,7 +31,9 @@ public class CraftingServerPacket extends SimplePacket {
 	public static class SimplePacketHandler implements CompatibleMessageHandler<CraftingServerPacket, CompatibleMessage> {
 
 		private ModContext context;
-		
+
+		public SimplePacketHandler() {}
+
 		public SimplePacketHandler(ModContext context) {
 			this.context = context;
 		}

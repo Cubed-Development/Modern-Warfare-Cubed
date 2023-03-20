@@ -2,14 +2,14 @@ package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
 import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.BulletHoleRenderer.BulletHole;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
 import com.paneedah.weaponlib.compatibility.*;
-import com.paneedah.weaponlib.configold.BalancePackManager;
-import com.paneedah.weaponlib.configold.BalancePackManager.GunConfigurationGroup;
-import com.paneedah.weaponlib.configold.Gun;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.*;
 import com.paneedah.weaponlib.model.Shell;
@@ -799,12 +799,6 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             if (name == null) {
                 throw new IllegalStateException("Weapon name not provided");
             }
-            
-            Gun gunConfig = modContext.getConfigurationManager().getGun(name);
-            
-            if(gunConfig != null) {
-                spawnEntityDamage *= gunConfig.getDamage();
-            }
 
             if (shootSound == null) {
                 shootSound = name;
@@ -914,7 +908,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                         CompatibleTargetPoint point = new CompatibleTargetPoint(entity.dimension,
                                 position.getBlockPosX(), position.getBlockPosY(), position.getBlockPosZ(), 100);
                         modContext.getChannel().sendToAllAround(
-                                new BlockHitMessage(position.getBlockPos().getBlockPos(), position.getHitVec().getXCoord(), position.getHitVec().getYCoord(), position.getHitVec().getZCoord(), position.getSideHit()), point);
+                                new BlockHitMessage(position.getBlockPos().getBlockPos(), position.getHitVec().x, position.getHitVec().y, position.getHitVec().z, position.getSideHit()), point);
                         
                         MaterialImpactSound materialImpactSound = modContext.getMaterialImpactSound(blockState, entity);
                         if(materialImpactSound != null) {
@@ -972,39 +966,36 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             	attachment.addCompatibleWeapon(weapon);
             }
 
-            if(gunConfig == null || gunConfig.isEnabled()) {
-                modContext.registerWeapon(name, weapon, renderer);
+            modContext.registerWeapon(name, weapon, renderer);
 
-                if(craftingRecipe != null && craftingRecipe.length >= 2) {
-                    ItemStack itemStack = new ItemStack(weapon);
-                    List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(weapon, craftingRecipe);
-                    boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
-                    if(hasOres) {
-                        compatibility.addShapedOreRecipe(itemStack, registeredRecipe.toArray());
-                    } else {
-                        compatibility.addShapedRecipe(itemStack, registeredRecipe.toArray());
-                    }
-                } else if(craftingComplexity != null) {
-                    OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
-                            .withSlotCount(9)
-                            .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
-
-                    List<Object> shape = modContext.getRecipeManager().createShapedRecipe(weapon, weapon.getName(), optionsMetadata);
-
-                    if(optionsMetadata.hasOres()) {
-                        compatibility.addShapedOreRecipe(new ItemStack(weapon), shape.toArray());
-                    } else {
-                        compatibility.addShapedRecipe(new ItemStack(weapon), shape.toArray());
-                    }
-
+            if(craftingRecipe != null && craftingRecipe.length >= 2) {
+                ItemStack itemStack = new ItemStack(weapon);
+                List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(weapon, craftingRecipe);
+                boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
+                if(hasOres) {
+                    compatibility.addShapedOreRecipe(itemStack, registeredRecipe.toArray());
                 } else {
-                	noRecipe += 1;
-                    //System.err.println("!!!No recipe defined for weapon " + name);
+                    compatibility.addShapedRecipe(itemStack, registeredRecipe.toArray());
                 }
+            } else if(craftingComplexity != null) {
+                OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
+                        .withSlotCount(9)
+                        .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
+
+                List<Object> shape = modContext.getRecipeManager().createShapedRecipe(weapon, weapon.getName(), optionsMetadata);
+
+                if(optionsMetadata.hasOres()) {
+                    compatibility.addShapedOreRecipe(new ItemStack(weapon), shape.toArray());
+                } else {
+                    compatibility.addShapedRecipe(new ItemStack(weapon), shape.toArray());
+                }
+
+            } else {
+                noRecipe += 1;
+                //System.err.println("!!!No recipe defined for weapon " + name);
             }
             
-            
-         weapon.modernRecipe = modernCraftingRecipe;
+            weapon.modernRecipe = modernCraftingRecipe;
             
             this.informationProvider = (stack) -> {
             	
@@ -1291,7 +1282,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
    
     	if(world.isRemote) {
     		EnumFacing facing = EnumFacing.valueOf(position.getSideHit().toString());
-        	CompatibleClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vec3d(position.getHitVec().getXCoord(), position.getHitVec().getYCoord(), position.getHitVec().getZCoord()), facing, 0.05));
+        	CompatibleClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vector3D(position.getHitVec().x, position.getHitVec().y, position.getHitVec().z), facing, 0.05));
     	}
     	
     	if(builder.blockImpactHandler != null) {

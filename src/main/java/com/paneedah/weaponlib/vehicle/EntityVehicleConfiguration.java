@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.vehicle;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.EntityClassFactory;
 import com.paneedah.weaponlib.EntityConfiguration;
 import com.paneedah.weaponlib.ModContext;

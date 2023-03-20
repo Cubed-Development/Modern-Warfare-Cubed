@@ -2,13 +2,12 @@ package com.paneedah.mwc.proxies;
 
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.PlayerAnimations;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.wearables.Armors;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.model.AmmoPress;
@@ -22,7 +21,6 @@ import com.paneedah.weaponlib.render.CustomArmorLayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -41,13 +39,13 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void preInit(final ModernWarfareMod mod, final ConfigurationManager configurationManager, final CompatibleFmlPreInitializationEvent initializationEvent) {
-        super.preInit(mod, configurationManager, initializationEvent);
+    public void preInit(final ModernWarfareMod mod, final CompatibleFmlPreInitializationEvent initializationEvent) {
+        super.preInit(mod, initializationEvent);
 
         final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
 
         inventoryTabs.registerTab(new StandardPlayerInventoryTab());
-        inventoryTabs.registerTab(new CustomPlayerInventoryTab(ModernWarfareMod.MOD_CONTEXT, Ores.VestRender));
+        inventoryTabs.registerTab(new CustomPlayerInventoryTab(ModernWarfareMod.MOD_CONTEXT, MWCItems.vestRender));
         inventoryTabs.registerTab(new BackpackInventoryTab(ModernWarfareMod.MOD_CONTEXT));
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWorkbench.class, new TESRWorkbench(new Workbench(), new ResourceLocation(ModReference.id + ":textures/blocks/workbench.png")));
@@ -55,35 +53,12 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void init(final ModernWarfareMod mod, final ConfigurationManager configurationManager, final CompatibleFmlInitializationEvent initializationEvent) {
-        super.init(mod, configurationManager, initializationEvent);
+    public void init(final ModernWarfareMod mod, final CompatibleFmlInitializationEvent initializationEvent) {
+        super.init(mod, initializationEvent);
 
-        PlayerAnimations.init(mod, configurationManager, initializationEvent);
+        PlayerAnimations.init(mod, initializationEvent);
 
         final ItemModelMesher modelMesher = mc.getRenderItem().getItemModelMesher();
-
-        modelMesher.register(Item.getItemFromBlock(Ores.CopperOre), 0, new ModelResourceLocation(ModReference.id + ":copperore", "inventory"));
-        modelMesher.register(Item.getItemFromBlock(Ores.SulfurOre), 0, new ModelResourceLocation(ModReference.id + ":sulfurore", "inventory"));
-        modelMesher.register(Item.getItemFromBlock(Ores.TinOre), 0, new ModelResourceLocation(ModReference.id + ":tinore", "inventory"));
-        modelMesher.register(Item.getItemFromBlock(Ores.LeadOre), 0, new ModelResourceLocation(ModReference.id + ":leadore", "inventory"));
-        modelMesher.register(Item.getItemFromBlock(Ores.GraphiteOre), 0, new ModelResourceLocation(ModReference.id + ":graphiteore", "inventory"));
-
-        modelMesher.register(Ores.CopperIngot, 0, new ModelResourceLocation(ModReference.id + ":copperingot", "inventory"));
-        modelMesher.register(Ores.LeadIngot, 0, new ModelResourceLocation(ModReference.id + ":leadingot", "inventory"));
-        modelMesher.register(Ores.SteelDust, 0, new ModelResourceLocation(ModReference.id + ":steeldust", "inventory"));
-        modelMesher.register(Ores.SteelIngot, 0, new ModelResourceLocation(ModReference.id + ":steelingot", "inventory"));
-        modelMesher.register(Ores.SulfurDust, 0, new ModelResourceLocation(ModReference.id + ":sulfurdust", "inventory"));
-        modelMesher.register(Ores.TinIngot, 0, new ModelResourceLocation(ModReference.id + ":tiningot", "inventory"));
-        modelMesher.register(Ores.GraphiteChunk, 0, new ModelResourceLocation(ModReference.id + ":graphitechunk", "inventory"));
-        modelMesher.register(Ores.GunmetalIngot, 0, new ModelResourceLocation(ModReference.id + ":gunmetalingot", "inventory"));
-        modelMesher.register(Ores.GunmetalPlate, 0, new ModelResourceLocation(ModReference.id + ":gunmetalplate", "inventory"));
-        modelMesher.register(Ores.GunmetalComposite, 0, new ModelResourceLocation(ModReference.id + ":gunmetalcomposite", "inventory"));
-        modelMesher.register(Ores.CarbonComposite, 0, new ModelResourceLocation(ModReference.id + ":carboncomposite", "inventory"));
-        modelMesher.register(Ores.CarbonFiber, 0, new ModelResourceLocation(ModReference.id + ":carbonfiber", "inventory"));
-        modelMesher.register(Ores.SyntheticPolymerComposite, 0, new ModelResourceLocation(ModReference.id + ":syntheticpolymercomposite", "inventory"));
-        modelMesher.register(Ores.SyntheticPlastic, 0, new ModelResourceLocation(ModReference.id + ":syntheticplastic", "inventory"));
-
-        modelMesher.register(Ores.VestRender, 0, new ModelResourceLocation(ModReference.id + ":vestrender", "inventory"));
 
         //modelMesher.register(CommonProxy.AKMIron, 0, new ModelResourceLocation(ModReference.id + ":akmiron", "inventory"));
 
@@ -153,7 +128,7 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void postInit(final ModernWarfareMod mod, final ConfigurationManager configurationManager, final FMLPostInitializationEvent initializationEvent) {
+    public void postInit(final ModernWarfareMod mod, final FMLPostInitializationEvent initializationEvent) {
         mc.getRenderManager().getSkinMap().forEach((p, r) -> r.addLayer(new CustomArmorLayer(r)));
     }
 }

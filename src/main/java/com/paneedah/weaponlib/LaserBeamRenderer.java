@@ -73,7 +73,7 @@ public class LaserBeamRenderer implements CustomRenderer {
 			GlStateManager.disableLighting();
 			if(positioning != null) positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
 			
-			//Shader brightShader = ShaderManager.loadVMWShader("brightness");
+			//Shader brightShader = ShaderLoader.loadVMWShader("brightness");
 			Shaders.brightnessShader.use();
 			Shaders.brightnessShader.uniform1f("brightness", 4f);
 			Shaders.brightnessShader.uniform3f("color", 0f, 1f, 0f);

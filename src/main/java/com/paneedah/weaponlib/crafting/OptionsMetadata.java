@@ -62,9 +62,7 @@ public class OptionsMetadata {
         	    option = ((CompatibleItems) option).getItem();
         	} else if(option instanceof String) {
         	    String stringOption = ((String) option).toLowerCase();
-        	    if((stringOption.contains("ore") || stringOption.contains("ingot") || stringOption.contains("dust"))
-        	            && !stringOption.startsWith(":"))
-        	    {
+        	    if((stringOption.contains("ore") || stringOption.contains("ingot") || stringOption.contains("dust")) && !stringOption.startsWith(":")) {
         	        //option = ":" + option;
         	    }
         	}

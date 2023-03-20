@@ -1,10 +1,9 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -15,7 +14,7 @@ import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
-import com.paneedah.weaponlib.configold.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
@@ -86,9 +85,9 @@ public class VSSVintorezFactory {
                  3f) // z
          
          .withModernRecipe( new
-	        		CraftingEntry(Ores.CarbonComposite, 10), new
-	        		CraftingEntry(Ores.GunmetalPlate, 15), new
-	        		CraftingEntry(Ores.SteelIngot, 4))
+	        		CraftingEntry(MWCItems.carbonComposite, 10), new
+	        		CraftingEntry(MWCItems.gunmetalPlate, 15), new
+	        		CraftingEntry(MWCItems.steelIngot, 4))
          
          .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
          .withUnremovableAttachmentCategories(AttachmentCategory.STOCK)

@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.render;
 
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.shader.jim.Shader;
-import com.paneedah.weaponlib.shader.jim.ShaderManager;
+import com.paneedah.weaponlib.shader.jim.ShaderLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -160,13 +160,13 @@ public class ModernSkyRenderer extends IRenderHandler {
 		
 	}
 	
-	public Shader skyShader = ShaderManager.loadVMWShader("sky");
+	public Shader skyShader = ShaderLoader.loadShader("sky");
 
 
 	@Override
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
 		//if(1+1==2) return;
-		//skyShader = ShaderManager.loadVMWShader("sky");
+		//skyShader = ShaderLoader.loadVMWShader("sky");
 		if(1+1==2) return;
 		if(cubeMapTexture == -1)setupCubemap();
 		//

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.ai.EntityCustomMob;
@@ -10,7 +11,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.entity.RenderPlayer;
@@ -36,6 +37,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumDifficulty;
@@ -104,7 +106,7 @@ public interface Compatibility {
 
     public ItemStack getHelmet(EntityLivingBase entity);
 
-	public CompatibleVec3 getLookVec(EntityPlayer player);
+	public Vector3D getLookVec(EntityPlayer player);
 
 	public void registerKeyBinding(KeyBinding key);
 
@@ -162,7 +164,7 @@ public interface Compatibility {
 
     public void spawnEntity(EntityLivingBase player, Entity entity);
 
-	public void moveParticle(CompatibleParticle particle, double motionX, double motionY, double motionZ);
+	public void moveParticle(Particle particle, double motionX, double motionY, double motionZ);
 
 	public int getStackSize(ItemStack consumedStack);
 
@@ -190,13 +192,13 @@ public interface Compatibility {
 
 	public boolean inventoryHasFreeSlots(EntityPlayer player);
 
-    public void addBlockHitEffect(BlockPos pos, double x, double y, double z, CompatibleEnumFacing enumFacing);
+    public void addBlockHitEffect(BlockPos pos, double x, double y, double z, EnumFacing enumFacing);
 
     public String getDisplayName(EntityPlayer player);
 
     public String getPlayerName(EntityPlayer player);
 
-    public void clickBlock(CompatibleBlockPos blockPos, CompatibleEnumFacing sideHit);
+    public void clickBlock(CompatibleBlockPos blockPos, EnumFacing sideHit);
 
     public boolean isAirBlock(World world, CompatibleBlockPos blockPos);
 
@@ -204,13 +206,9 @@ public interface Compatibility {
 
     public RenderGlobal createCompatibleRenderGlobal();
 
-    public CompatibleParticleManager createCompatibleParticleManager(WorldClient world);
-
     public Entity getRenderViewEntity();
 
     public void setRenderViewEntity(Entity entity);
-
-    public CompatibleParticleManager getCompatibleParticleManager();
 
     public void addBreakingParticle(ModContext modContext, double x, double y, double z);
 
@@ -218,12 +216,11 @@ public interface Compatibility {
 
     public void setStackSize(ItemStack itemStack, int size);
 
-    public ItemStack tryConsumingCompatibleItem(List<? extends Item> compatibleParts, int maxSize,
-            EntityPlayer player, @SuppressWarnings("unchecked") Predicate<ItemStack> ...conditions);
+    public ItemStack tryConsumingCompatibleItem(List<? extends Item> compatibleParts, int maxSize, EntityPlayer player, @SuppressWarnings("unchecked") Predicate<ItemStack> ...conditions);
 
     public Item findItemByName(String itemName);
 
-    public CompatibleRayTraceResult rayTraceBlocks(Entity entity, CompatibleVec3 vec3, CompatibleVec3 vec31);
+    public CompatibleRayTraceResult rayTraceBlocks(Entity entity, Vector3D vec3, Vector3D vec31);
 
     public CompatibleAxisAlignedBB expandEntityBoundingBox(Entity entity, double f, double f2, double f3);
 
@@ -231,8 +228,7 @@ public interface Compatibility {
 
     public List<Entity> getEntitiesWithinAABBExcludingEntity(World world, Entity entity, CompatibleAxisAlignedBB boundingBox);
 
-    public void spawnParticle(World world, String particleName, double d, double e, double f, double motionX, double motionY,
-            double motionZ);
+    public void spawnParticle(World world, String particleName, double d, double e, double f, double motionX, double motionY, double motionZ);
 
     public CompatibleBlockState getBlockAtPosition(World world, CompatibleBlockPos blockPos);
 
@@ -248,7 +244,7 @@ public interface Compatibility {
 
     public void playSoundAtEntity(Entity entity, CompatibleSound explosionSound, float volume, float pitch);
 
-    public double getBlockDensity(World world, CompatibleVec3 vec3d, CompatibleAxisAlignedBB boundingBox);
+    public double getBlockDensity(World world, Vector3D vec3d, CompatibleAxisAlignedBB boundingBox);
 
     public boolean isImmuneToExplosions(Entity entity);
 
@@ -289,7 +285,7 @@ public interface Compatibility {
 
     public DamageSource genericDamageSource();
 
-    public boolean isCollided(CompatibleParticle particle);
+    public boolean isCollided(Particle particle);
 
     public ItemStack createItemStack(CompatibleItems compatibleItem, int stackSize, int damage);
 
@@ -311,7 +307,7 @@ public interface Compatibility {
 
     public void setUniform(ShaderUniform uniform, float value1, float value2, float value3, float value4);
 
-    public CompatibleVec3 getLookVec(EntityLivingBase player);
+    public Vector3D getLookVec(EntityLivingBase player);
 
     public void setEntityAttribute(EntityLivingBase entity, CompatibleSharedMonsterAttributes attributes, double value);
 
@@ -437,8 +433,7 @@ public interface Compatibility {
 
     public ItemStack stackForEmptySlot();
 
-    public float getBlockDensity(World world, CompatibleVec3 vec, CompatibleAxisAlignedBB boundingBox,
-            BiPredicate<Block, CompatibleBlockState> isCollidable);
+    public float getBlockDensity(World world, Vector3D vec, CompatibleAxisAlignedBB boundingBox, BiPredicate<Block, CompatibleBlockState> isCollidable);
 
     public int removeMatchingInventoryItemStacks(EntityPlayer player, Item item, int quantity);
 

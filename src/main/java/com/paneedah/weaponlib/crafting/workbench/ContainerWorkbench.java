@@ -26,23 +26,20 @@ public class ContainerWorkbench extends ContainerStation {
 
 		// Dismantle slots
 		for (int i = 0; i < 4; ++i) {
-			addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory, 9 + i,
-					1, 268 + i * 31, 34));
+			addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory, 9 + i, 1, 268 + i * 31, 34));
 		}
 
 		id = 0;
 		for (int y = 0; y < 2; ++y) {
 			for (int x = 0; x < 5; ++x) {
-				addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory,
-						13 + (id++), 1, 271 + x * 22, 99 + y * 22));
+				addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory, 13 + (id++), 1, 271 + x * 22, 99 + y * 22));
 			}
 		}
 
 		// Player inventory slots
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
-				addSlotToContainer(
-						new PagedSlot(currentPageSupplier, inventory, j + i * 9 + 9, 1, 13 + j * 22, 129 + i * 22));
+				addSlotToContainer(new PagedSlot(currentPageSupplier, inventory, j + i * 9 + 9, 1, 13 + j * 22, 129 + i * 22));
 			}
 		}
 
@@ -76,12 +73,12 @@ public class ContainerWorkbench extends ContainerStation {
 			if (!this.mergeItemStack(slot.getStack(), 0, 26, false)) {
 				return ItemStack.EMPTY;
 			}
-		} else if (index >= 27 && index <= 30) {
+		} else if (index <= 30) {
 
 			if (!this.mergeItemStack(slot.getStack(), 41, 76, false)) {
 				return ItemStack.EMPTY;
 			}
-		} else if (index >= 31 && index <= 40) {
+		} else if (index <= 40) {
 			if (!this.mergeItemStack(slot.getStack(), 41, 76, false)) {
 				return ItemStack.EMPTY;
 			}

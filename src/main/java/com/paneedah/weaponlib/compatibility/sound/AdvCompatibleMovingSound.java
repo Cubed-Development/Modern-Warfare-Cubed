@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.compatibility.sound;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.compatibility.CompatibleSound;
-import com.paneedah.weaponlib.compatibility.CompatibleVec3;
 import net.minecraft.client.audio.MovingSound;
 import net.minecraft.util.SoundCategory;
 import net.minecraftforge.fml.relauncher.Side;
@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 
 @SideOnly(Side.CLIENT)
 public class AdvCompatibleMovingSound extends MovingSound {
-    private Supplier<CompatibleVec3> positionProvider;
+    private Supplier<Vector3D> positionProvider;
     private Supplier<Boolean> donePlayingProvider;
    
     
@@ -27,8 +27,7 @@ public class AdvCompatibleMovingSound extends MovingSound {
     private boolean isFadeIn = false;
     private boolean isFade = false;
 
-    public AdvCompatibleMovingSound(CompatibleSound sound, Supplier<CompatibleVec3> positionProvider,
-            Supplier<Boolean> donePlayingProvider, boolean fade) {
+    public AdvCompatibleMovingSound(CompatibleSound sound, Supplier<Vector3D> positionProvider, Supplier<Boolean> donePlayingProvider, boolean fade) {
         super(sound.getSound(), SoundCategory.BLOCKS);
         this.repeat = true;
         this.volume = 1.5F;
@@ -122,10 +121,10 @@ public class AdvCompatibleMovingSound extends MovingSound {
        
         
         if (!donePlaying) {
-            CompatibleVec3 position = positionProvider.get();
-            this.xPosF = (float) position.getXCoord();
-            this.yPosF = (float) position.getYCoord();
-            this.zPosF = (float) position.getZCoord();
+			Vector3D position = positionProvider.get();
+            this.xPosF = (float) position.x;
+            this.yPosF = (float) position.y;
+            this.zPosF = (float) position.z;
            
            
             //this.volume = (float) (vehicle.solver.currentRPM/24000.0F);

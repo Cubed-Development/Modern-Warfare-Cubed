@@ -2,7 +2,9 @@ package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
-import com.paneedah.weaponlib.compatibility.Framebuffers;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.OpenGlHelper;
+import org.lwjgl.opengl.ARBFramebufferObject;
 import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
@@ -17,7 +19,7 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
     @Override
     public void update(CompatibleRenderTickEvent event) {
     	//if(true) return;
-        int originalFramebufferId = Framebuffers.getCurrentFramebuffer();
+        int originalFramebufferId = GlStateManager.glGetInteger(ARBFramebufferObject.GL_FRAMEBUFFER_BINDING);
         
         GL11.glPushMatrix();
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
@@ -35,7 +37,10 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
         GL11.glPopAttrib();
         GL11.glPopMatrix();
 
-        Framebuffers.bindFramebuffer(originalFramebufferId, true, mc.getFramebuffer().framebufferWidth, mc.getFramebuffer().framebufferHeight);
+        if (OpenGlHelper.isFramebufferEnabled()) {
+            OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, originalFramebufferId);
+            GlStateManager.viewport(0, 0, mc.getFramebuffer().framebufferWidth, mc.getFramebuffer().framebufferHeight);
+        }
     }
 
     protected abstract void drawScreen();

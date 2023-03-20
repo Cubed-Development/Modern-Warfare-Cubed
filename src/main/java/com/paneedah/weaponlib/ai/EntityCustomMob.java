@@ -7,8 +7,6 @@ import com.paneedah.weaponlib.compatibility.*;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
-import com.paneedah.weaponlib.mission.MissionManager;
-import com.paneedah.weaponlib.mission.MissionOffering;
 import com.paneedah.weaponlib.network.packets.HighIQPickupPacket;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
@@ -26,7 +24,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.List;
+import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
@@ -281,8 +280,7 @@ public class EntityCustomMob extends CompatibleEntityMob
 
     private void setPrimaryEquipment() {
         EntityConfiguration configuration = getConfiguration();
-        Equipment equipment = configuration.getEquipmentOptions()
-                .pick(compatibility.getDifficulty(compatibility.world(this)));
+        Equipment equipment = configuration.getEquipmentOptions().pick(compatibility.getDifficulty(compatibility.world(this)));
 
         setCompatibleInventoryHandsDropChances(configuration.getPrimaryEquipmentDropChance());
         if (equipment != null) {
@@ -575,14 +573,6 @@ public class EntityCustomMob extends CompatibleEntityMob
 
     public void startDelayedAttack() {
         this.compatibleDataManager.set(DELAYED_ATTACK_STARTED, Boolean.valueOf(true));
-    }
-    
-    public Map<UUID, MissionOffering> getMissionOfferings() {
-        MissionManager missionManager = modContext.getMissionManager();
-        if(missionManager != null) {
-            return missionManager.getEntityMissionOfferings(EntityList.getEntityString(this));
-        }
-        return Collections.emptyMap(); //getConfiguration().getMissionOfferings();
     }
 
     @Override

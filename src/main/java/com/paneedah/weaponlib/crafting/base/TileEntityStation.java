@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.crafting.base;
 
+import com.paneedah.mwc.bases.ManufacturingItemBase;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
-import com.paneedah.weaponlib.crafting.items.CraftingItem;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -181,9 +181,9 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 					if(!world.isRemote) {
 						for (CraftingEntry stack : modernRecipe) {
 							ItemStack itemStack = new ItemStack(stack.getItem());
-							if (stack.getItem() instanceof CraftingItem) {
+							if (stack.getItem() instanceof ManufacturingItemBase) {
 								itemStack.setCount((int) Math.round(
-										stack.getCount() * ((CraftingItem) stack.getItem()).getRecoveryPercentage()));
+										stack.getCount() * ((ManufacturingItemBase) stack.getItem()).getRecoveryChance()));
 							}
 							addStackToInventoryRange(itemStack, 13, 22);
 						}

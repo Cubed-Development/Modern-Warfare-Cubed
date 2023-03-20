@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.*;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.crafting.RecipeManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.GrenadeRenderer;
@@ -10,7 +9,6 @@ import com.paneedah.weaponlib.melee.ItemMelee;
 import com.paneedah.weaponlib.melee.MeleeAttachmentAspect;
 import com.paneedah.weaponlib.melee.MeleeAttackAspect;
 import com.paneedah.weaponlib.melee.MeleeRenderer;
-import com.paneedah.weaponlib.mission.MissionManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -19,11 +17,9 @@ public interface ModContext {
 
 	public boolean isClient();
 	
-	public void preInitEnd(Object mod, ConfigurationManager configurationManager,
-			CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
+	public void preInitEnd(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
 
-	public void preInit(Object mod, ConfigurationManager configurationManager,
-			CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
+	public void preInit(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
 
 	public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
 
@@ -102,8 +98,6 @@ public interface ModContext {
 
 	public EffectManager getEffectManager();
 
-	public ConfigurationManager getConfigurationManager();
-
 	public Object getMod();
 
 	public void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer);
@@ -130,7 +124,5 @@ public interface ModContext {
 	public int registerTexture(String explosionParticleTextureName);
 
 	public String getRegisteredTexture(int particleTextureId);
-
-	public MissionManager getMissionManager();
 
 }

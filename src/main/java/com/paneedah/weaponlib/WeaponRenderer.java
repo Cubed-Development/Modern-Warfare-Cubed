@@ -14,7 +14,7 @@ import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.compatibility.CompatibleWeaponRenderer;
 import com.paneedah.weaponlib.compatibility.Interceptors;
-import com.paneedah.weaponlib.configold.BalancePackManager;
+import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import com.paneedah.weaponlib.render.MuzzleFlashRenderer;
@@ -3153,7 +3153,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		boolean shot = false;
 		if(renderContext.getPlayer() != null && (ClientEventHandler.checkShot(renderContext.getPlayer().getEntityId()) || AnimationGUI.getInstance().forceFlash.isState())) {
 			shot = true;
-			//flash = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/flash"));
+			//flash = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":shaders/flash"));
 			
 		//	Bloom.bindBloomBuffer();
 		//	MuzzleFlashRenderer.renderFlash(renderContext.getPlayer().getEntityId(), weaponItemStack, true);
@@ -3242,13 +3242,13 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		
 		if(DebugCommand.debugFlag == 3) return;
 		
-		//gunLightingShader = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/gunlight"));
+		//gunLightingShader = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":shaders/gunlight"));
 	    
-		//Shaders.gunLightingShader = ShaderManager.loadVMWShader("gunlight");
+		//Shaders.gunLightingShader = ShaderLoader.loadVMWShader("gunlight");
 		
 		if(!OpenGLSelectionHelper.isInSelectionPass && !AnimationGUI.getInstance().magEdit.isState()) {
 			
-			//Shaders.gunLightingShader = ShaderManager.loadVMWShader("gunlight");
+			//Shaders.gunLightingShader = ShaderLoader.loadVMWShader("gunlight");
 			GlStateManager.enableBlend();
 			//OpenGlHelper.glFramebufferTexture2D(OpenGlHelper.GL_FRAMEBUFFER, GL30.GL_COLOR_ATTACHMENT1, GL11.GL_TEXTURE_2D, PostProcessPipeline.maskingBuffer.framebufferTexture, 0);
 			

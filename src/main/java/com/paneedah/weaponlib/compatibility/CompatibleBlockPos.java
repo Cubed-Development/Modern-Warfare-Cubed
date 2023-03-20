@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import net.minecraft.util.math.BlockPos;
 
 public class CompatibleBlockPos {
@@ -14,8 +15,8 @@ public class CompatibleBlockPos {
         this.blockPos = new BlockPos(xCoord, yCoord, zCoord);
     }
 
-    public CompatibleBlockPos(CompatibleVec3 projectedPos) {
-        this.blockPos = new BlockPos(projectedPos.getVec());
+    public CompatibleBlockPos(Vector3D projectedPos) {
+        this.blockPos = new BlockPos(projectedPos.convertToVec3d());
     }
 
     public BlockPos getBlockPos() {

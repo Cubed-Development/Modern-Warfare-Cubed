@@ -49,9 +49,7 @@ public class LightManager {
 	
 	public void update() {
 		lights.clear();
-		
 		for(Entry<Integer, Stack<Long>> registry : ClientEventHandler.muzzleFlashMap.entrySet()) {
-			
 			if(!registry.getValue().empty() /*&& System.currentTimeMillis()-registry.getValue().peek() > 25*/) {
 				Entity entity = mc.world.getEntityByID(registry.getKey());
 				if(!(entity instanceof EntityPlayer)) continue;
@@ -59,11 +57,7 @@ public class LightManager {
 				EntityPlayer player = (EntityPlayer) entity;
 				addLight((float) player.posX, (float) player.posY + 0.6f, (float) player.posZ, 1.0f, 0.623f, 0.262f, 0.05f, 0.009f, 0.032f);
 			}
-			
-			
 		}
-		
-		
 	}
 	
 	public void addLight(float x, float y, float z, float r, float g, float b, float constant, float linear, float quadratic) {

@@ -77,9 +77,6 @@ public class WeaponSpawnEntity extends EntityProjectile {
 		super(world, player, speed, gravityVelocity, inaccuracy);
 		this.weapon = weapon;
 		this.damage = damage;
-		
-	
-		
 		this.explosionRadius = explosionRadius;
 		this.isDestroyingBlocks = isDestroyingBlocks;
 		this.explosionParticleAgeCoefficient = explosionParticleAgeCoefficient;
@@ -130,7 +127,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
 	    	//PostProcessPipeline.createDistortionPoint((float) position.getHitVec().getXCoord(),(float)  position.getHitVec().getYCoord(), (float) position.getHitVec().getZCoord(), 2f, 3000);
 	        Explosion.createServerSideExplosion(weapon.getModContext(), compatibility.world(this), this,
-	                position.getHitVec().getXCoord(), position.getHitVec().getYCoord(), position.getHitVec().getZCoord(),
+	                position.getHitVec().x, position.getHitVec().y, position.getHitVec().z,
 	                explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient,
 	                smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient,
 	                weapon.getModContext().getRegisteredTexture(explosionParticleTextureId), 
@@ -166,7 +163,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
             //double magnitude = Math.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ) + 1;
             
-            float bleedingCoefficient = weapon.getBleedingCoefficient() * ModernConfigManager.enableBleedingOnHit;
+            double bleedingCoefficient = weapon.getBleedingCoefficient() * ModernConfigManager.enableBleedingOnHit;
             
             if(bleedingCoefficient > 0.0f) {
                 int count = (int)(getParticleCount (damage) * bleedingCoefficient);

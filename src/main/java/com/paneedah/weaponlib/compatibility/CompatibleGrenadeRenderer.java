@@ -122,7 +122,7 @@ public abstract class CompatibleGrenadeRenderer extends ModelSourceRenderer impl
                 GlStateManager.scale(-3f, -3f, -3f);
             }
 
-            int currentTextureId = Framebuffers.getCurrentTexture();
+            int currentTextureId = GlStateManager.glGetInteger(GL11.GL_TEXTURE_BINDING_2D);
             renderItem();
             if(currentTextureId != 0) {
                 GlStateManager.bindTexture(currentTextureId);

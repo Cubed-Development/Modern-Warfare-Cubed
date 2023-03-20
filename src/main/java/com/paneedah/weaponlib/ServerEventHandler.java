@@ -1,12 +1,11 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.*;
-import com.paneedah.weaponlib.configold.BalancePackManager;
+import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
 import com.paneedah.weaponlib.inventory.EntityInventorySyncMessage;
 import com.paneedah.weaponlib.jim.util.HitUtil;
-import com.paneedah.weaponlib.mission.*;
 import com.paneedah.weaponlib.network.packets.HeadshotSFXPacket;
 import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
@@ -16,7 +15,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
@@ -82,7 +80,7 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
                     doseNbt.setFloat("dose", ((SpreadableExposure) exposure).getLastDose());
                 }
                 if(!exposure.isEffective(compatibility.world(e.getEntity()))) {
-                    System.out.println("Removing expired exposure " + exposure);
+                    //System.out.println("Removing expired exposure " + exposure);
                     iterator.remove();
                     effectiveUpdate = true;
                 }
@@ -121,12 +119,6 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
 //                    nbt.setFloat("dose", exposure.getLastDose());
 //                }
 //            }
-            if(e.getEntity() instanceof EntityPlayer) {
-                Missions.update((EntityPlayer)e.getEntity(), 
-                        new GoToLocationAction((float)(e.getEntity().posX), (float)(e.getEntity().posY), (float)(e.getEntity().posZ), 0), 
-                        modContext);
-            }
-            
         }
     }
 
@@ -153,10 +145,6 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
             modContext.getChannel().getChannel().sendToAll(
                     new EntityInventorySyncMessage(e.getEntity(), 
                             CompatibleCustomPlayerInventoryCapability.getInventory(player), false));
-            
-            modContext.getChannel().getChannel().sendTo(
-                    new PlayerMissionSyncMessage(CompatibleMissionCapability.getMissions(player)),
-                    (EntityPlayerMP)e.getEntity());
         }
     }
 
@@ -183,10 +171,6 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
             modContext.getChannel().getChannel().sendTo(
                     new EntityControlMessage(player, CompatibleExtraEntityFlags.getFlags(player)),
                     (EntityPlayerMP)e.getEntity());
-            
-            modContext.getChannel().getChannel().sendTo(
-                    new PlayerMissionSyncMessage(CompatibleMissionCapability.getMissions(player)),
-                    (EntityPlayerMP)e.getEntity());
         }
     }
 
@@ -205,23 +189,13 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
             modContext.getChannel().getChannel().sendTo(
                     new EntityControlMessage(player, CompatibleExtraEntityFlags.getFlags(player)),
                     (EntityPlayerMP)e.getEntity());
-            
-            modContext.getChannel().getChannel().sendTo(
-                    new PlayerMissionSyncMessage(CompatibleMissionCapability.getMissions(player)),
-                    (EntityPlayerMP)e.getEntity());
         }
     }
 
     @Override
     protected void onCompatibleLivingDeathEvent(CompatibleLivingDeathEvent event) {
-
         final EntityLivingBase entity = event.getEntity();
-        if(!compatibility.world(entity).isRemote) {
-            DamageSource damageSource = event.getDamageSource();
-            if(damageSource.getTrueSource() instanceof EntityPlayer) {
-                Missions.update((EntityPlayer)damageSource.getTrueSource(), new KillEntityAction(entity), modContext);
-            }
-        }
+
         if(entity instanceof EntityPlayer && !compatibility.world(entity).isRemote) {
             if(!compatibility.getGameRulesBooleanValue(compatibility.world(entity).getGameRules(), "keepInventory")) {
                 CustomPlayerInventory inventory = CompatibleCustomPlayerInventoryCapability.getInventory(entity);
@@ -304,13 +278,5 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
 
     @Override
     protected void onCompatiblePlayerLoggedIn(PlayerLoggedInEvent e) {
-        MissionManager missionManager = modContext.getMissionManager();
-        if(missionManager != null ) {
-        	
-            modContext.getChannel().getChannel().sendTo(
-                    new MissionOfferingSyncMessage(missionManager.getOfferings()), (EntityPlayerMP)e.player);
-            modContext.getChannel().getChannel().sendTo(
-                    new EntityMissionOfferingSyncMessage(missionManager.getEntityMissionOfferings()), (EntityPlayerMP)e.player);
-        }
     }
 }

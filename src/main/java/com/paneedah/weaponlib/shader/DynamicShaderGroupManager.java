@@ -4,13 +4,15 @@ import com.google.gson.JsonSyntaxException;
 import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.weaponlib.TransformingResourceManager;
 import com.paneedah.weaponlib.TransformingTextureManager;
-import com.paneedah.weaponlib.compatibility.Framebuffers;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.ARBFramebufferObject;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -84,7 +86,7 @@ public class DynamicShaderGroupManager {
     }
 
     public DynamicShaderGroup loadFromSource(DynamicShaderContext context, DynamicShaderGroupSource source) {
-        int originalFramebufferId = Framebuffers.getCurrentFramebuffer();
+        int originalFramebufferId = GlStateManager.glGetInteger(ARBFramebufferObject.GL_FRAMEBUFFER_BINDING);
 
         // Remove all other shaders of the same phase but different source or different framebuffer
         for(Iterator<Entry<UUID, LoadedShaderGroup>> it = loaded.entrySet().iterator(); it.hasNext();) {
@@ -116,7 +118,10 @@ public class DynamicShaderGroupManager {
             context.getPhase().apply(context, l.group);
         }
 
-        Framebuffers.bindFramebuffer(originalFramebufferId, true, mc.getFramebuffer().framebufferWidth, mc.getFramebuffer().framebufferHeight);
+        if (OpenGlHelper.isFramebufferEnabled()) {
+            OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, originalFramebufferId);
+            GlStateManager.viewport(0, 0, mc.getFramebuffer().framebufferWidth, mc.getFramebuffer().framebufferHeight);
+        }
 
         return l != null ? l.group : null;
     }

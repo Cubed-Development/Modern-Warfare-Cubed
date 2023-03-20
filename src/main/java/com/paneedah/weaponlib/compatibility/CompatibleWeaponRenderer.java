@@ -9,7 +9,7 @@
  import com.paneedah.weaponlib.animation.gui.AnimationGUI;
  import com.paneedah.weaponlib.animation.movement.WeaponRotationHandler;
  import com.paneedah.weaponlib.command.DebugCommand;
- import com.paneedah.weaponlib.configold.BalancePackManager;
+ import com.paneedah.weaponlib.config.BalancePackManager;
  import com.paneedah.weaponlib.render.*;
  import com.paneedah.weaponlib.render.SpriteSheetTools.Sprite;
  import com.paneedah.weaponlib.shader.jim.Shader;
@@ -22,6 +22,7 @@
  import net.minecraft.client.model.ModelRenderer;
  import net.minecraft.client.renderer.BufferBuilder;
  import net.minecraft.client.renderer.GlStateManager;
+ import net.minecraft.client.renderer.OpenGlHelper;
  import net.minecraft.client.renderer.Tessellator;
  import net.minecraft.client.renderer.block.model.*;
  import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
@@ -48,6 +49,7 @@
  import org.apache.commons.lang3.tuple.Pair;
  import org.lwjgl.BufferUtils;
  import org.lwjgl.input.Mouse;
+ import org.lwjgl.opengl.ARBFramebufferObject;
  import org.lwjgl.opengl.GL11;
  import org.lwjgl.opengl.GL13;
  import org.lwjgl.opengl.GL20;
@@ -180,7 +182,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 				GlStateManager.scale(-3f, -3f, -3f);
 			}
 
-			int currentTextureId = Framebuffers.getCurrentTexture();
+			int currentTextureId = GlStateManager.glGetInteger(GL11.GL_TEXTURE_BINDING_2D);
 
 			if (!AnimationModeProcessor.getInstance().getFPSMode()) {
 				
@@ -315,9 +317,11 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			
 			if (inventoryTexture == null) {
 				
-				originalFramebufferId = Framebuffers.getCurrentFramebuffer();
+				originalFramebufferId = GlStateManager.glGetInteger(ARBFramebufferObject.GL_FRAMEBUFFER_BINDING);
 
-				Framebuffers.unbindFramebuffer();
+				if (OpenGlHelper.isFramebufferEnabled()) {
+					OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, 0);
+				}
 				
 				inventoryTextureInitializationPhaseOn = true;
 				framebuffer = new Framebuffer(INVENTORY_TEXTURE_WIDTH, INVENTORY_TEXTURE_HEIGHT, true);
@@ -729,7 +733,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 
 			// Bloom.initializeMultisample();
 
-			// gunLightingShader = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":"
+			// gunLightingShader = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":"
 			// + "shaders/gunlight"));
 			if (player != null && player.getHeldItemMainhand() != null
 					&& player.getHeldItemMainhand().getItem() instanceof Weapon) {
@@ -802,7 +806,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			
 			
 			
-			// gunLightingShader = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":"
+			// gunLightingShader = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":"
 			// + "shaders/gunlight"));
 
 			/*
@@ -949,8 +953,10 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 		GL11.glPopMatrix();
 
 		if (originalFramebufferId >= 0) {
-			Framebuffers.bindFramebuffer(originalFramebufferId, true, mc.getFramebuffer().framebufferWidth,
-					mc.getFramebuffer().framebufferHeight);
+			if (OpenGlHelper.isFramebufferEnabled()) {
+				OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, originalFramebufferId);
+				GlStateManager.viewport(0, 0, mc.getFramebuffer().framebufferWidth, mc.getFramebuffer().framebufferHeight);
+			}
 		}
 
 		if (transformType == TransformType.GUI) {

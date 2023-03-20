@@ -3,7 +3,6 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.models.NinthSin;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;

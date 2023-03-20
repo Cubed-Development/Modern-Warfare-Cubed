@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -34,23 +35,22 @@ public class CompatibleRayTracing {
 		}
 	}
 	
-    public static CompatibleRayTraceResult rayTraceBlocks(World world, CompatibleVec3 cvec31, CompatibleVec3 cvec32, BiPredicate<Block, CompatibleBlockState> isCollidable) {
+    public static CompatibleRayTraceResult rayTraceBlocks(World world, Vector3D cvec31, Vector3D cvec32, BiPredicate<Block, CompatibleBlockState> isCollidable) {
     	
-    	CompatibleRayTraceResult crtr = new CompatibleRayTraceResult();
+    	CompatibleRayTraceResult compatibleRayTraceResult = new CompatibleRayTraceResult();
     	
         //boolean stopOnLiquid,
-        Vec3d vec31 = cvec31.getVec();
-        Vec3d vec32 = cvec32.getVec();
+        Vector3D vec31 = cvec31;
         boolean ignoreBlockWithoutBoundingBox = false;
         boolean returnLastUncollidableBlock = false;
 
         if (!Double.isNaN(vec31.x) && !Double.isNaN(vec31.y) && !Double.isNaN(vec31.z))
         {
-            if (!Double.isNaN(vec32.x) && !Double.isNaN(vec32.y) && !Double.isNaN(vec32.z))
+            if (!Double.isNaN(cvec32.x) && !Double.isNaN(cvec32.y) && !Double.isNaN(cvec32.z))
             {
-                int i = MathHelper.floor(vec32.x);
-                int j = MathHelper.floor(vec32.y);
-                int k = MathHelper.floor(vec32.z);
+                int i = MathHelper.floor(cvec32.x);
+                int j = MathHelper.floor(cvec32.y);
+                int k = MathHelper.floor(cvec32.z);
                 int l = MathHelper.floor(vec31.x);
                 int i1 = MathHelper.floor(vec31.y);
                 int j1 = MathHelper.floor(vec31.z);
@@ -64,15 +64,15 @@ public class CompatibleRayTracing {
                 if ((!ignoreBlockWithoutBoundingBox || iblockstate.getCollisionBoundingBox(world, blockpos) != Block.NULL_AABB)
                         && isCollidable.test(block, compatibleBlockState))
                 {
-                    RayTraceResult raytraceresult = iblockstate.collisionRayTrace(world, blockpos, vec31, vec32);
+                    RayTraceResult raytraceresult = iblockstate.collisionRayTrace(world, blockpos, new Vec3d(vec31.x, vec31.y, vec31.z), new Vec3d(cvec32.x, cvec32.y, cvec32.z));
 
                     if (raytraceresult != null)
                     {
-                    	crtr.postInit(raytraceresult);
-                        return crtr;
+                    	compatibleRayTraceResult.postInit(raytraceresult);
+                        return compatibleRayTraceResult;
                     }
                 } else {
-                	crtr.addPassThru(blockpos);
+                	compatibleRayTraceResult.addPassThru(blockpos);
                 }
                 	
                 
@@ -90,8 +90,8 @@ public class CompatibleRayTracing {
                     if (l == i && i1 == j && j1 == k)
                     {
                     	if(returnLastUncollidableBlock) {
-                    		crtr.postInit(raytraceresult2);
-                    		return crtr;
+                    		compatibleRayTraceResult.postInit(raytraceresult2);
+                    		return compatibleRayTraceResult;
                     	} else {
                     		return null;
                     	}
@@ -147,9 +147,9 @@ public class CompatibleRayTracing {
                     double d3 = 999.0D;
                     double d4 = 999.0D;
                     double d5 = 999.0D;
-                    double d6 = vec32.x - vec31.x;
-                    double d7 = vec32.y - vec31.y;
-                    double d8 = vec32.z - vec31.z;
+                    double d6 = cvec32.x - vec31.x;
+                    double d7 = cvec32.y - vec31.y;
+                    double d8 = cvec32.z - vec31.z;
 
                     if (flag2)
                     {
@@ -186,17 +186,17 @@ public class CompatibleRayTracing {
                     if (d3 < d4 && d3 < d5)
                     {
                         enumfacing = i > l ? EnumFacing.WEST : EnumFacing.EAST;
-                        vec31 = new Vec3d(d0, vec31.y + d7 * d3, vec31.z + d8 * d3);
+                        vec31 = new Vector3D(d0, vec31.y + d7 * d3, vec31.z + d8 * d3);
                     }
                     else if (d4 < d5)
                     {
                         enumfacing = j > i1 ? EnumFacing.DOWN : EnumFacing.UP;
-                        vec31 = new Vec3d(vec31.x + d6 * d4, d1, vec31.z + d8 * d4);
+                        vec31 = new Vector3D(vec31.x + d6 * d4, d1, vec31.z + d8 * d4);
                     }
                     else
                     {
                         enumfacing = k > j1 ? EnumFacing.NORTH : EnumFacing.SOUTH;
-                        vec31 = new Vec3d(vec31.x + d6 * d5, vec31.y + d7 * d5, d2);
+                        vec31 = new Vector3D(vec31.x + d6 * d5, vec31.y + d7 * d5, d2);
                     }
 
                     l = MathHelper.floor(vec31.x) - (enumfacing == EnumFacing.EAST ? 1 : 0);
@@ -211,26 +211,26 @@ public class CompatibleRayTracing {
                     {
                         if (isCollidable.test(block1, compatibleBlockState1))
                         {
-                            RayTraceResult raytraceresult1 = iblockstate1.collisionRayTrace(world, blockpos, vec31, vec32);
+                            RayTraceResult raytraceresult1 = iblockstate1.collisionRayTrace(world, blockpos, new Vec3d(vec31.x, vec31.y, vec31.z), new Vec3d(cvec32.x, cvec32.y, cvec32.z));
 
                             if (raytraceresult1 != null)
                             {
-                            	crtr.postInit(raytraceresult1);
-                            	return crtr;
+                            	compatibleRayTraceResult.postInit(raytraceresult1);
+                            	return compatibleRayTraceResult;
                                 //return CompatibleRayTraceResult.fromRayTraceResult(raytraceresult1);
                             }
                         }
                         else
                         {
-                        	crtr.addPassThru(blockpos);
-                            raytraceresult2 = new RayTraceResult(RayTraceResult.Type.MISS, vec31, enumfacing, blockpos);
+                        	compatibleRayTraceResult.addPassThru(blockpos);
+                            raytraceresult2 = new RayTraceResult(RayTraceResult.Type.MISS, new Vec3d(vec31.x, vec31.y, vec31.z), enumfacing, blockpos);
                         }
                     }
                 }
 
                 if(returnLastUncollidableBlock) {
-                	crtr.postInit(raytraceresult2);
-                	return crtr;
+                	compatibleRayTraceResult.postInit(raytraceresult2);
+                	return compatibleRayTraceResult;
                 } else return null;
                 //return returnLastUncollidableBlock ? CompatibleRayTraceResult.fromRayTraceResult(raytraceresult2) : null;
             }

@@ -1,13 +1,11 @@
 package com.paneedah.weaponlib.perspective;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
 import com.paneedah.weaponlib.shader.jim.Shader;
-import com.paneedah.weaponlib.shader.jim.ShaderManager;
+import com.paneedah.weaponlib.shader.jim.ShaderLoader;
 import com.paneedah.weaponlib.shader.jim.Uniform;
 import net.minecraft.client.renderer.GLAllocation;
-import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 
@@ -77,7 +75,7 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
            
             if(scope.isOptical()) {
             	//setSize(1920, DEFAULT_HEIGHT);
-            	
+
                setSize(scope.getWidth(), scope.getHeight());
               
             }
@@ -97,8 +95,7 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
 		
 	};
 	
-	public static Shader scope = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/vignette"))
-    		.withUniforms(PROJECTION_MATRIX);
+	public static Shader scope = ShaderLoader.loadShader("vignette").withUniforms(PROJECTION_MATRIX);
    
     
     
@@ -109,7 +106,7 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
     	if(reload) {
     		//System.out.println("yo");
     		//System.out.println("yo");
-    		scope = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/vignette"));
+    		scope = ShaderLoader.loadShader("vignette");
     	}
     	
     	//GlStateManager.enableAlpha();

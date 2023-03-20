@@ -1,9 +1,8 @@
 package com.paneedah.weaponlib.render;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import com.paneedah.weaponlib.shader.jim.Shader;
-import com.paneedah.weaponlib.shader.jim.ShaderManager;
+import com.paneedah.weaponlib.shader.jim.ShaderLoader;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
@@ -12,7 +11,6 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.shader.Framebuffer;
-import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.*;
 
 import java.nio.FloatBuffer;
@@ -22,9 +20,9 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class Dloom {
 	
-	public static Shader downsample2 = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/downsample2"));
-	public static Shader bloom_h = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/bloom_h"));
-	public static Shader bloom_v = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/bloom_v"));
+	public static Shader downsample2 = ShaderLoader.loadShader("downsample2");
+	public static Shader bloom_h = ShaderLoader.loadShader("bloom_h");
+	public static Shader bloom_v = ShaderLoader.loadShader("bloom_v");
 	
 	public static final int bloomLayers = 4;
     public static Framebuffer[] bloomBuffers;
@@ -216,7 +214,7 @@ public class Dloom {
 		
 		Bloom.downsample.release();*/
 		
-		//Bloom.downsample = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/downsample"));
+		//Bloom.downsample = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":shaders/downsample"));
 		
 		
 		bloomBuffers[0].bindFramebuffer(true);

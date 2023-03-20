@@ -181,9 +181,9 @@ public class Bloom {
 		data.bindFramebuffer(false);
 		GlStateManager.enableBlend();
 
-		// Shaders.bloomTest = ShaderManager.loadVMWShader("btest");
+		// Shaders.bloomTest = ShaderLoader.loadVMWShader("btest");
 
-		// Shaders.bloomTest = ShaderManager.loadVMWShader("btest");
+		// Shaders.bloomTest = ShaderLoader.loadVMWShader("btest");
 
 		Shaders.bloomTest.use();
 		Shaders.bloomTest.uniform1i("real", 4);
@@ -226,7 +226,7 @@ public class Bloom {
 	public static void runDownsampler() {
 		buffers[0].bindFramebuffer(true);
 
-		// Shaders.downsample = ShaderManager.loadVMWShader("downsample");
+		// Shaders.downsample = ShaderLoader.loadVMWShader("downsample");
 
 		Shaders.downsample.use();
 		GL20.glUniform2f(GL20.glGetUniformLocation(Shaders.downsample.getShaderId(), "texel"),
@@ -284,7 +284,7 @@ public class Bloom {
 			GlStateManager.blendFunc(SourceFactor.ONE, DestFactor.ZERO);
 			buffers[i].bindFramebuffer(true);
 
-			// Shaders.upsample = ShaderManager.loadVMWShader("upsample");
+			// Shaders.upsample = ShaderLoader.loadVMWShader("upsample");
 			Shaders.upsample.use();
 			/*
 			 * GL20.glUniform2f(GL20.glGetUniformLocation(upsample.getShaderId(),

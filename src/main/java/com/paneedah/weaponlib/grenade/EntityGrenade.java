@@ -1,8 +1,13 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.CompatibleAxisAlignedBB;
+import com.paneedah.weaponlib.compatibility.CompatibleBlockState;
+import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
+import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -143,25 +148,16 @@ public class EntityGrenade extends AbstractEntityGrenade {
     }
 
     private void explode() {
-
-    		
         log.debug("Exploding {}", this);
-        
-       
-       
+
         Explosion.createServerSideExplosion(modContext, compatibility.world(this), this,
                 this.posX, this.posY, this.posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null, 
                 modContext.getExplosionSound());
         
- 
-        
-        
-        
         List<?> nearbyEntities = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this,
                 compatibility.getBoundingBox(this).expand(5, 5, 5));
 
-        Float damageCoefficient = modContext.getConfigurationManager().getExplosions().getDamage();
-
+        float damageCoefficient = (float)ModernConfigManager.explosionDamage;
         float effectiveRadius = itemGrenade.getEffectiveRadius() * damageCoefficient; // 5 block sphere with this entity as a center
         float fragmentDamage = itemGrenade.getFragmentDamage();
 
@@ -179,18 +175,18 @@ public class EntityGrenade extends AbstractEntityGrenade {
             double k = Math.sqrt(effectiveRadius * effectiveRadius  / d2);
 
             double k2 = 0.1;
-            final CompatibleVec3 cvec1 = new CompatibleVec3(this.posX + x * k2, this.posY + y * k2, this.posZ + z * k2);
+            final Vector3D cvec1 = new Vector3D(this.posX + x * k2, this.posY + y * k2, this.posZ + z * k2);
 
             // Vectors are mutable, need to create a copy to preserve the original
-            final CompatibleVec3 cvec10 = new CompatibleVec3(this.posX + x * k2, this.posY + y * k2, this.posZ + z * k2);
+            final Vector3D cvec10 = new Vector3D(this.posX + x * k2, this.posY + y * k2, this.posZ + z * k2);
 
-            CompatibleVec3 cvec2 = new CompatibleVec3(this.posX + x * k, this.posY + y * k, this.posZ + z * k);
+            Vector3D cvec2 = new Vector3D(this.posX + x * k, this.posY + y * k, this.posZ + z * k);
 
             BiPredicate<Block, CompatibleBlockState> isCollidable = (block, blockMetadata) -> compatibility.canCollideCheck(block, blockMetadata, false);
             CompatibleRayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), cvec1, cvec2, isCollidable);
 
             if(rayTraceResult != null) {
-                cvec2 = CompatibleVec3.fromCompatibleVec3(rayTraceResult.getHitVec());
+                cvec2 = rayTraceResult.getHitVec();
             }
 
             for(Object nearbyEntityObject: nearbyEntities) {

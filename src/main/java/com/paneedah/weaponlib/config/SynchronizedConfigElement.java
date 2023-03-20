@@ -8,8 +8,8 @@ import java.lang.reflect.Field;
 
 public class SynchronizedConfigElement extends DummyConfigElement {
 	
-	private Field relatedField;
-	private String registryName;
+	private final Field relatedField;
+	private final String registryName;
 
 	public SynchronizedConfigElement(Field relatedField, String name, String registryName, Object defaultValue, ConfigGuiType typeOfParameter, String langKey) {
 		super(name, defaultValue, typeOfParameter, langKey);
@@ -22,7 +22,6 @@ public class SynchronizedConfigElement extends DummyConfigElement {
 		this.relatedField = relatedField;
 		this.registryName = registryName;
 	}
-	
 
 	@Override
 	public boolean requiresMcRestart() {
@@ -31,34 +30,26 @@ public class SynchronizedConfigElement extends DummyConfigElement {
 	
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return I18n.format(registryName);
 	}
 	
 	@Override
 	public String getQualifiedName() {
-		// TODO Auto-generated method stub
 		return super.getQualifiedName();
 	}
 	
 	@Override
 	public void set(Object value) {
-		
 		// Sync value with config
 		ModernConfigManager.updateField(this.relatedField, value);
 		
 		this.value = value;
-		
 		super.set(value);
 	}
 	
 	@Override
 	public void set(Object[] aVal) {
 		System.out.println("CEO 2");
-		// TODO Auto-generated method stub
 		super.set(aVal);
 	}
-	
-	
-
 }

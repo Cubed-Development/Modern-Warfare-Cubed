@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.config;
 
-import com.paneedah.weaponlib.config.VMWModConfigGUI;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.fml.client.IModGuiFactory;
@@ -11,8 +10,6 @@ public class ConfigGUIFactory implements IModGuiFactory {
 
 	@Override
 	public void initialize(Minecraft minecraftInstance) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -27,10 +24,6 @@ public class ConfigGUIFactory implements IModGuiFactory {
 
 	@Override
 	public Set<RuntimeOptionCategoryElement> runtimeGuiCategories() {
-		// TODO Auto-generated method stub
 		return null;
 	}
-	
-
-
 }

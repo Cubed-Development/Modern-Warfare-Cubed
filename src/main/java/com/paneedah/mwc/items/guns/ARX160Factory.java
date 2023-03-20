@@ -1,17 +1,16 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
-import com.paneedah.weaponlib.configold.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
@@ -82,8 +81,8 @@ public class ARX160Factory implements GunFactory {
 		"60rnd 5.56x45mm NATO STANAG Drum Magazine",
 		"100rnd 5.56x45mm NATO STANAG Drum Magazine"))
          .withCrafting(CraftingComplexity.MEDIUM,
-                Ores.GunmetalIngot,
-                Ores.GunmetalPlate)
+                 MWCItems.gunmetalIngot,
+                 MWCItems.gunmetalPlate)
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  0.5f, // x 
@@ -91,9 +90,9 @@ public class ARX160Factory implements GunFactory {
                  3.5f) // z
          
          .withModernRecipe( new
-	        		CraftingEntry(Ores.CarbonComposite, 6), new
-	        		CraftingEntry(Ores.GunmetalPlate, 10), new
-	        		CraftingEntry(Ores.SteelIngot, 3))
+	        		CraftingEntry(MWCItems.carbonComposite, 6), new
+	        		CraftingEntry(MWCItems.gunmetalPlate, 10), new
+	        		CraftingEntry(MWCItems.steelIngot, 3))
          
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
         .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)

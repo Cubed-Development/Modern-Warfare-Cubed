@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DynamicShaderContext {
+
     private float partialTicks;
     private DynamicShaderPhase phase;
     private Map<String, Object> properties;

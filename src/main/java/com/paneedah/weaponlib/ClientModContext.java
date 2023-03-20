@@ -7,7 +7,6 @@ import com.paneedah.weaponlib.compatibility.CompatibleChannel;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderingRegistry;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.workbench.GUIContainerWorkbench;
 import com.paneedah.weaponlib.electronics.EntityWirelessCamera;
@@ -43,21 +42,19 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
 
 public class ClientModContext extends CommonModContext {
 
-	private ClientEventHandler clientEventHandler;
-	private Lock mainLoopLock = new ReentrantLock();
-	private Queue<Runnable> runInClientThreadQueue = new LinkedBlockingQueue<>();
-	
-	protected static ThreadLocal<ClientModContext> currentContext = new ThreadLocal<>();
+    protected static ThreadLocal<ClientModContext> currentContext = new ThreadLocal<>();
+    private ClientEventHandler clientEventHandler;
+    private Lock mainLoopLock = new ReentrantLock();
+    private Queue<Runnable> runInClientThreadQueue = new LinkedBlockingQueue<>();
+    private CompatibleRenderingRegistry rendererRegistry;
 
-	private CompatibleRenderingRegistry rendererRegistry;
+    private SafeGlobals safeGlobals = new SafeGlobals();
 
-	private SafeGlobals safeGlobals = new SafeGlobals();
+    private StatusMessageCenter statusMessageCenter;
 
-	private StatusMessageCenter statusMessageCenter;
+    private PerspectiveManager viewManager;
 
-	private PerspectiveManager viewManager;
-
-	private float aspectRatio;
+    private float aspectRatio;
     private Framebuffer inventoryFramebuffer;
 
     private Map<Object, Integer> inventoryTextureMap;
@@ -66,168 +63,161 @@ public class ClientModContext extends CommonModContext {
 
     private ScreenShakingAnimationManager playerRawPitchAnimationManager;
     private PlayerTransitionProvider playerTransitionProvider;
-    
+
     public static ClientModContext getContext() {
         return currentContext.get();
     }
 
-	@Override
-    public void preInit(Object mod, ConfigurationManager configurationManager,
-            CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
-		super.preInit(mod, configurationManager, event, channel);
+    @Override
+    public void preInit(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
+        super.preInit(mod, event, channel);
 
-		aspectRatio = (float)mc.displayWidth / mc.displayHeight;
+        aspectRatio = (float) mc.displayWidth / mc.displayHeight;
 
-		ClientCommandHandler.instance.registerCommand(new DebugCommand());
-		
-		ClientCommandHandler.instance.registerCommand(new MainCommand(this));
-		
-		
-		this.statusMessageCenter = new StatusMessageCenter();
+        ClientCommandHandler.instance.registerCommand(new DebugCommand());
 
-		rendererRegistry = new CompatibleRenderingRegistry();
-		
-		rendererRegistry.preInit();
+        ClientCommandHandler.instance.registerCommand(new MainCommand(this));
 
-		List<IResourcePack> defaultResourcePacks = compatibility.getPrivateValue(
-				Minecraft.class, mc, "defaultResourcePacks", "field_110449_ao") ;
+
+        this.statusMessageCenter = new StatusMessageCenter();
+
+        rendererRegistry = new CompatibleRenderingRegistry();
+
+        rendererRegistry.preInit();
+
+        List<IResourcePack> defaultResourcePacks = compatibility.getPrivateValue(
+                Minecraft.class, mc, "defaultResourcePacks", "field_110449_ao");
         WeaponResourcePack weaponResourcePack = new WeaponResourcePack();
         defaultResourcePacks.add(weaponResourcePack);
         IResourceManager resourceManager = mc.getResourceManager();
-        if(resourceManager instanceof IReloadableResourceManager) {
+        if (resourceManager instanceof IReloadableResourceManager) {
             ((SimpleReloadableResourceManager) resourceManager).reloadResourcePack(weaponResourcePack);
         }
 
-		compatibility.registerWithEventBus(new CustomGui(mc, this, weaponAttachmentAspect));
-		compatibility.registerWithEventBus(new WeaponEventHandler(this, safeGlobals));
+        compatibility.registerWithEventBus(new CustomGui(mc, this, weaponAttachmentAspect));
+        compatibility.registerWithEventBus(new WeaponEventHandler(this, safeGlobals));
 
-		KeyBindings.init();
+        KeyBindings.init();
 
-		ClientWeaponTicker clientWeaponTicker = new ClientWeaponTicker(this);
+        ClientWeaponTicker clientWeaponTicker = new ClientWeaponTicker(this);
 
-		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-			clientWeaponTicker.shutdown();
-		}));
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            clientWeaponTicker.shutdown();
+        }));
 
-		clientWeaponTicker.start();
-		clientEventHandler = new ClientEventHandler(this, mainLoopLock, safeGlobals, runInClientThreadQueue);
-		compatibility.registerWithFmlEventBus(clientEventHandler);
-		
-		compatibility.registerWithEventBus(InventoryTabs.getInstance());
-		
-		compatibility.registerWithEventBus(clientEventHandler); // TODO: what are the implications of registering the same class with 2 buses
+        clientWeaponTicker.start();
+        clientEventHandler = new ClientEventHandler(this, mainLoopLock, safeGlobals, runInClientThreadQueue);
+        compatibility.registerWithFmlEventBus(clientEventHandler);
 
-		this.viewManager = new PerspectiveManager(this);
-		this.inventoryTextureMap = new HashMap<>();
+        compatibility.registerWithEventBus(InventoryTabs.getInstance());
 
-		this.effectManager = new ClientEffectManager();
+        compatibility.registerWithEventBus(clientEventHandler); // TODO: what are the implications of registering the same class with 2 buses
 
-		this.playerRawPitchAnimationManager = new ScreenShakingAnimationManager();
-		
-		GUIContainerWorkbench.setModContext(this);
-		GUIContainerAmmoPress.setModContext(this);
-		
-		
-		
-	}
-	
+        this.viewManager = new PerspectiveManager(this);
+        this.inventoryTextureMap = new HashMap<>();
 
+        this.effectManager = new ClientEffectManager();
 
-	
-	
-	@Override
-	public void init(Object mod) {
-	    super.init(mod);
-	    
-	    //compatibility.registerRenderingRegistry(rendererRegistry);
-	 
-	    rendererRegistry.registerEntityRenderingHandler(WeaponSpawnEntity.class, new SpawnEntityRenderer());
-	    rendererRegistry.registerEntityRenderingHandler(EntityWirelessCamera.class, new WirelessCameraRenderer());
-	    rendererRegistry.registerEntityRenderingHandler(EntityShellCasing.class, new ShellCasingRenderer());
-	    rendererRegistry.registerEntityRenderingHandler(EntityGrenade.class, new EntityGrenadeRenderer());
-	    rendererRegistry.registerEntityRenderingHandler(EntitySmokeGrenade.class, new EntityGrenadeRenderer());
-	    rendererRegistry.registerEntityRenderingHandler(EntityGasGrenade.class, new EntityGrenadeRenderer());
-	    rendererRegistry.registerEntityRenderingHandler(EntityFlashGrenade.class, new EntityGrenadeRenderer());
-	    rendererRegistry.registerEntityRenderingHandler(EntitySpreadable.class, new InvisibleEntityRenderer());
-	    //rendererRegistry.registerEntityRenderingHandler(EntityVehicle.class, new RenderVehicle());
+        this.playerRawPitchAnimationManager = new ScreenShakingAnimationManager();
 
-	    rendererRegistry.processDelayedRegistrations();
-	}
-	
-	@Override
+        GUIContainerWorkbench.setModContext(this);
+        GUIContainerAmmoPress.setModContext(this);
+    }
+
+    @Override
+    public void init(Object mod) {
+        super.init(mod);
+
+        //compatibility.registerRenderingRegistry(rendererRegistry);
+
+        rendererRegistry.registerEntityRenderingHandler(WeaponSpawnEntity.class, new SpawnEntityRenderer());
+        rendererRegistry.registerEntityRenderingHandler(EntityWirelessCamera.class, new WirelessCameraRenderer());
+        rendererRegistry.registerEntityRenderingHandler(EntityShellCasing.class, new ShellCasingRenderer());
+        rendererRegistry.registerEntityRenderingHandler(EntityGrenade.class, new EntityGrenadeRenderer());
+        rendererRegistry.registerEntityRenderingHandler(EntitySmokeGrenade.class, new EntityGrenadeRenderer());
+        rendererRegistry.registerEntityRenderingHandler(EntityGasGrenade.class, new EntityGrenadeRenderer());
+        rendererRegistry.registerEntityRenderingHandler(EntityFlashGrenade.class, new EntityGrenadeRenderer());
+        rendererRegistry.registerEntityRenderingHandler(EntitySpreadable.class, new InvisibleEntityRenderer());
+        //rendererRegistry.registerEntityRenderingHandler(EntityVehicle.class, new RenderVehicle());
+
+        rendererRegistry.processDelayedRegistrations();
+    }
+
+    @Override
     public boolean isClient() {
         return true;
     }
 
-	@Override
-	public void registerServerSideOnly() {}
+    @Override
+    public void registerServerSideOnly() {
+    }
 
-	public PerspectiveManager getViewManager() {
+    public PerspectiveManager getViewManager() {
         return viewManager;
     }
 
-	public SafeGlobals getSafeGlobals() {
-		return safeGlobals;
-	}
+    public SafeGlobals getSafeGlobals() {
+        return safeGlobals;
+    }
 
-	@Override
-	public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
-		super.registerWeapon(name, weapon, renderer);
-		rendererRegistry.register(weapon, weapon.getName(), weapon.getRenderer());
-		renderer.setClientModContext(this);
-	}
+    @Override
+    public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
+        super.registerWeapon(name, weapon, renderer);
+        rendererRegistry.register(weapon, weapon.getName(), weapon.getRenderer());
+        renderer.setClientModContext(this);
+    }
 
-	@Override
-	public void registerRenderableItem(String name, Item item, Object renderer) {
-		super.registerRenderableItem(name, item, renderer);
-		rendererRegistry.register(item, name, renderer);
-	}
-	
-	@Override
+    @Override
+    public void registerRenderableItem(String name, Item item, Object renderer) {
+        super.registerRenderableItem(name, item, renderer);
+        rendererRegistry.register(item, name, renderer);
+    }
+
+    @Override
     public void registerRenderableItem(ResourceLocation name, Item item, Object renderer) {
         super.registerRenderableItem(name, item, renderer);
         rendererRegistry.register(item, name, renderer);
     }
 
-	@Override
-	protected EntityPlayer getPlayer(CompatibleMessageContext ctx) {
-		return compatibility.clientPlayer();
-	}
+    @Override
+    protected EntityPlayer getPlayer(CompatibleMessageContext ctx) {
+        return compatibility.clientPlayer();
+    }
 
-	@Override
-	public void runSyncTick(Runnable runnable) {
-		mainLoopLock.lock();
-		try {
-			runnable.run();
-		} finally {
-			mainLoopLock.unlock();
-		}
-	}
+    @Override
+    public void runSyncTick(Runnable runnable) {
+        mainLoopLock.lock();
+        try {
+            runnable.run();
+        } finally {
+            mainLoopLock.unlock();
+        }
+    }
 
-	@Override
-	public void runInMainThread(Runnable runnable) {
-		runInClientThreadQueue.add(runnable);
-	}
+    @Override
+    public void runInMainThread(Runnable runnable) {
+        runInClientThreadQueue.add(runnable);
+    }
 
-	@Override
-	public PlayerItemInstanceRegistry getPlayerItemInstanceRegistry() {
-		return playerItemInstanceRegistry;
-	}
+    @Override
+    public PlayerItemInstanceRegistry getPlayerItemInstanceRegistry() {
+        return playerItemInstanceRegistry;
+    }
 
-	protected SyncManager<?> getSyncManager() {
-		return syncManager;
-	}
+    protected SyncManager<?> getSyncManager() {
+        return syncManager;
+    }
 
-	@Override
-	public PlayerWeaponInstance getMainHeldWeapon() {
-		return getPlayerItemInstanceRegistry().getMainHandItemInstance(compatibility.clientPlayer(),
-				PlayerWeaponInstance.class);
-	}
+    @Override
+    public PlayerWeaponInstance getMainHeldWeapon() {
+        return getPlayerItemInstanceRegistry().getMainHandItemInstance(compatibility.clientPlayer(),
+                PlayerWeaponInstance.class);
+    }
 
-	@Override
-	public StatusMessageCenter getStatusMessageCenter() {
-		return statusMessageCenter;
-	}
+    @Override
+    public StatusMessageCenter getStatusMessageCenter() {
+        return statusMessageCenter;
+    }
 
     public PlayerMeleeInstance getMainHeldMeleeWeapon() {
         return getPlayerItemInstanceRegistry().getMainHandItemInstance(compatibility.clientPlayer(),
@@ -254,7 +244,7 @@ public class ClientModContext extends CommonModContext {
     }
 
     public Framebuffer getInventoryFramebuffer() {
-        if(inventoryFramebuffer == null) {
+        if (inventoryFramebuffer == null) {
             inventoryFramebuffer = new Framebuffer(256, 256, true);
             inventoryFramebuffer.setFramebufferColor(0.0F, 0.0F, 0.0F, 0.0F);
         }
@@ -273,21 +263,21 @@ public class ClientModContext extends CommonModContext {
     public ScreenShakingAnimationManager getPlayerRawPitchAnimationManager() {
         return playerRawPitchAnimationManager;
     }
-    
+
     @Override
     public void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer) {
         rendererRegistry.registerEntityRenderingHandler(entityClass, renderer);
-    }
-    
-    @Override
-    public void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider) {
-        this.playerTransitionProvider = playerTransitionProvider;
     }
 
     PlayerTransitionProvider getPlayerTransitionProvider() {
         return playerTransitionProvider;
     }
-    
+
+    @Override
+    public void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider) {
+        this.playerTransitionProvider = playerTransitionProvider;
+    }
+
 //    public MissionManager getMissionManager() {
 //        return null;
 //    }

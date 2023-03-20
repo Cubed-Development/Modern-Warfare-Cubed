@@ -1,8 +1,11 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +18,7 @@ public class CompatibleRayTraceResult {
 	};
 
 	private RayTraceResult position;
-	private CompatibleVec3 hitVec;
+	private Vector3D hitVec;
 	private CompatibleBlockPos blockPos;
 	private List<BlockPos> passThrus = new ArrayList<>();
 
@@ -47,7 +50,7 @@ public class CompatibleRayTraceResult {
 	}
 
 	private void init() {
-	    this.hitVec = position.hitVec != null ? new CompatibleVec3(position.hitVec) : null;
+	    this.hitVec = position.hitVec != null ? new Vector3D(position.hitVec) : null;
 	    this.blockPos = position.getBlockPos() != null ? new CompatibleBlockPos(position.getBlockPos()) : null;
 
 	}
@@ -90,42 +93,42 @@ public class CompatibleRayTraceResult {
 	    return blockPos;
 	}
 
-	public void setSideHit(CompatibleEnumFacing sideHit) {
-	    position.sideHit = sideHit.getEnumFacing();
+	public void setSideHit(EnumFacing sideHit) {
+	    position.sideHit = sideHit;
 	}
 
-	public CompatibleEnumFacing getSideHit() {
+	public EnumFacing getSideHit() {
 
-	    CompatibleEnumFacing result = null;
+		EnumFacing result = null;
 	    switch(position.sideHit) {
 	    case UP:
-	        result = CompatibleEnumFacing.UP;
+	        result = EnumFacing.UP;
 	        break;
 	    case DOWN:
-            result = CompatibleEnumFacing.DOWN;
+            result = EnumFacing.DOWN;
             break;
 	    case EAST:
-            result = CompatibleEnumFacing.EAST;
+            result = EnumFacing.EAST;
             break;
 	    case WEST:
-            result = CompatibleEnumFacing.WEST;
+            result = EnumFacing.WEST;
             break;
 	    case NORTH:
-	        result = CompatibleEnumFacing.NORTH;
+	        result = EnumFacing.NORTH;
             break;
 	    case SOUTH:
-	        result = CompatibleEnumFacing.SOUTH;
+	        result = EnumFacing.SOUTH;
             break;
 	    }
 	    return result;
 	}
 
-    public CompatibleVec3 getHitVec() {
+    public Vector3D getHitVec() {
         return hitVec;
     }
 
-    public void setHitVec(CompatibleVec3 hitVec) {
-        position.hitVec = hitVec.getVec();
+    public void setHitVec(Vector3D hitVec) {
+        position.hitVec = new Vec3d(hitVec.x, hitVec.y, hitVec.z);
         this.hitVec = hitVec;
     }
 }

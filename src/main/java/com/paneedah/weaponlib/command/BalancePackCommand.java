@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.command;
 
 import com.paneedah.weaponlib.CommonModContext;
-import com.paneedah.weaponlib.configold.BalancePackManager;
-import com.paneedah.weaponlib.configold.BalancePackManager.BalancePack;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.config.BalancePackManager.BalancePack;
 import com.paneedah.weaponlib.network.packets.BalancePackClient;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.text.TextComponentString;
@@ -13,10 +13,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 public class BalancePackCommand extends TidyCompatibleCommand {
 
-	
 	private static final String PASTEBIN_LINK_START = "https://pastebin.com/raw/";
 	
 	private static final String INFO_KEY = "info";
@@ -44,16 +44,9 @@ public class BalancePackCommand extends TidyCompatibleCommand {
 	
 		initCommand();
 	}
-	
-	
 
-	
-	
-	
 	@Override
-	protected void executeTidyCommand(ICommandSender sender, String mainArgument, String secondArgument,
-			String[] args) {
-		
+	protected void executeTidyCommand(ICommandSender sender, String mainArgument, String secondArgument, String[] args) {
 		File directory = BalancePackManager.getDirectory();
 		switch(mainArgument) {
 		case LIST_KEY:
@@ -133,12 +126,10 @@ public class BalancePackCommand extends TidyCompatibleCommand {
 				link = args[0];
 			}
 
-			
-			
 			sendFormattedMessage(sender, "Fetching balance pack from link... this could take a minute.");
 			
 			 try {
-			   String result = IOUtils.toString(new URL(link), "UTF-8");
+			   String result = IOUtils.toString(new URL(link), StandardCharsets.UTF_8);
 			   BalancePackManager.loadBalancePackFromString(sender, result);
 			   CommonModContext.getContext().getChannel().getChannel().sendToAll(new BalancePackClient(BalancePackManager.getActiveBalancePack()));
 				
@@ -147,16 +138,6 @@ public class BalancePackCommand extends TidyCompatibleCommand {
 			} catch (IOException e) {
 				sendFormattedMessage(sender, "Failed to process URL. IOException.");
 			}
-			
-			return;
 		}
-		
 	}
-
-
-	
-	
-
-
-
 }

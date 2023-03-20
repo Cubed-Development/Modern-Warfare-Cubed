@@ -1,10 +1,9 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -15,7 +14,7 @@ import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
-import com.paneedah.weaponlib.configold.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
@@ -87,9 +86,9 @@ public class KBP9A91Factory {
                 3f) // z
         
         .withModernRecipe( new
-        		CraftingEntry(Ores.CarbonComposite, 6), new
-        		CraftingEntry(Ores.GunmetalPlate, 7), new
-        		CraftingEntry(Ores.SteelIngot, 3))
+        		CraftingEntry(MWCItems.carbonComposite, 6), new
+        		CraftingEntry(MWCItems.gunmetalPlate, 7), new
+        		CraftingEntry(MWCItems.steelIngot, 3))
         
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         

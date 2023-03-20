@@ -108,8 +108,6 @@ public class StationPacket implements CompatibleMessage {
 		
 		
 	}
-	
-	
 
 	public void toBytes(ByteBuf buf) {
 		buf.writeInt(this.opcode);
@@ -135,12 +133,12 @@ public class StationPacket implements CompatibleMessage {
 	public static class WorkbenchPacketHandler implements CompatibleMessageHandler<StationPacket, CompatibleMessage> {
 		
 		private ModContext modContext;
-		
-		
+
+		public WorkbenchPacketHandler() {}
+
 		public WorkbenchPacketHandler(ModContext context) {
 			this.modContext = context;
 		}
-		
 
 		@Override
 		public <T extends CompatibleMessage> T onCompatibleMessage(StationPacket m, CompatibleMessageContext ctx) {
@@ -256,19 +254,14 @@ public class StationPacket implements CompatibleMessage {
 		            			
 		            		}*/
 		            		
-		            		for(Pair<Item, Integer> i : toConsume) {
+		            		for(Pair<Item, Integer> i : toConsume)
 		            			itemList.get(i.first()).shrink(i.second());
-		            		}
-		            		
-		            		
-		            		
+
 		            		if(station instanceof TileEntityWorkbench) {
 		            			TileEntityWorkbench workbench = (TileEntityWorkbench) station;
 		            			workbench.craftingTimer = m.craftingTimer;
 		            			workbench.craftingDuration = m.craftingDuration;
 			            		workbench.craftingTarget = CraftingRegistry.getModernCrafting(m.craftingGroup, m.craftingName);
-
-			            		
 		            		}
 		            		
 		            		station.sendUpdate();
@@ -277,29 +270,19 @@ public class StationPacket implements CompatibleMessage {
 		            		modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), m.teLocation), new TargetPoint(0, m.teLocation.getX(), m.teLocation.getY(), m.teLocation.getZ(), 20));
 		            		
 	            		} else if(m.opcode == DISMANTLE) {
-	            			
 	            			for(int i = 9; i < 13; ++i) {
-	            				if(!station.mainInventory.getStackInSlot(i).isEmpty()) {
-	            					
-	            					ItemStack stack = station.mainInventory.getStackInSlot(i);
-	            					if(stack.getItem() instanceof IModernCrafting && ((IModernCrafting) stack.getItem()).getModernRecipe() != null && (station.dismantleStatus[i - 9] == -1 || station.dismantleStatus[i - 9] > station.dismantleDuration[i - 9])) {
-	            						
+	            				if(station.mainInventory.getStackInSlot(i).isEmpty())
+									continue;
 
-	            						station.dismantleStatus[i - 9] = 0;
-	            						station.dismantleDuration[i - 9] = ((TileEntityStation) tileEntity).getDismantlingTime(((IModernCrafting) stack.getItem()));
-	            						
-	            						
-	            					}
-	            					
-	            					
-	            				}
+								ItemStack stack = station.mainInventory.getStackInSlot(i);
+								if(stack.getItem() instanceof IModernCrafting && ((IModernCrafting) stack.getItem()).getModernRecipe() != null && (station.dismantleStatus[i - 9] == -1 || station.dismantleStatus[i - 9] > station.dismantleDuration[i - 9])) {
+									station.dismantleStatus[i - 9] = 0;
+									station.dismantleDuration[i - 9] = ((TileEntityStation) tileEntity).getDismantlingTime(((IModernCrafting) stack.getItem()));
+								}
 	            			}
 	            			
 	            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), m.teLocation), new TargetPoint(0, m.teLocation.getX(), m.teLocation.getY(), m.teLocation.getZ(), 25));
-		            		
-	            			
-	            			
-	            			
+
 	            		} else if(m.opcode == MOVE_OUTPUT) {
 	            			((EntityPlayer) world.getEntityByID(m.playerID)).addItemStackToInventory(station.mainInventory.getStackInSlot(m.slotToMove));
 	            		} else if(m.opcode == POP_FROM_QUEUE) {
@@ -314,23 +297,11 @@ public class StationPacket implements CompatibleMessage {
 	            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), m.teLocation), new TargetPoint(0, m.teLocation.getX(), m.teLocation.getY(), m.teLocation.getZ(), 25));
 		            		
 	            		}
-	            		
-	            		
-	            		
-	            		
-	            		
 	            	}
-	       
-	            	
-		            
-		            	
 				});
 			}
 			
 			return null;
 		}
-
 	}
-
-	
 }

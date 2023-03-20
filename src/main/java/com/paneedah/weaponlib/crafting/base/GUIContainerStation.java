@@ -1,12 +1,12 @@
 package com.paneedah.weaponlib.crafting.base;
 
+import com.paneedah.mwc.bases.ManufacturingItemBase;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.gui.GuiRenderUtil;
 import com.paneedah.weaponlib.compatibility.CompatibleGuiContainer;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
-import com.paneedah.weaponlib.crafting.items.CraftingItem;
 import com.paneedah.weaponlib.crafting.workbench.CustomSearchTextField;
 import com.paneedah.weaponlib.crafting.workbench.GUIButtonCustom;
 import com.paneedah.weaponlib.network.packets.StationPacket;
@@ -154,15 +154,15 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 		super.actionPerformed(button);
 		
 		if (button == dismantleButton) {
-			modContext.getChannel().getChannel().sendToServer(
-					new StationPacket(StationPacket.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
+			modContext.getChannel().getChannel().sendToServer(new StationPacket(StationPacket.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
+
 		} else if (button == leftArrow) {
 			setPage(getPage() - 1);
+
 		} else if (button == rightArrow) {
 			setPage(getPage() + 1);
-			if (getPage() == 2) {
+			if (getPage() == 2)
 				tileEntity.pushInventoryRefresh = true;
-			}
 		}
 	}
 	
@@ -333,8 +333,8 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 						 
 					
 						
-						int count = (int) Math.round(s.getCount() * (s.getItem() instanceof CraftingItem
-								? ((CraftingItem) s.getItem()).getRecoveryPercentage()
+						int count = (int) Math.round(s.getCount() * (s.getItem() instanceof ManufacturingItemBase
+								? ((ManufacturingItemBase) s.getItem()).getRecoveryChance()
 								: 1.0));
 						strings.add(TextFormatting.GOLD + "" + count + "x " + TextFormatting.WHITE
 								+ format(s.getItem().getTranslationKey()));
@@ -683,11 +683,11 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 						if (GUIRenderHelper.checkInBox(mouseX, mouseY, x, y, 15, 15)) {
 
 							Item item = stack.getItem();
-							if (item instanceof CraftingItem) {
+							if (item instanceof ManufacturingItemBase) {
 
 								TextFormatting formatColor;
 								int percentage = ((int) Math
-										.round(((CraftingItem) item).getRecoveryPercentage() * 100));
+										.round(((ManufacturingItemBase) item).getRecoveryChance() * 100));
 								if (percentage <= 25) {
 									formatColor = TextFormatting.RED;
 								} else if (percentage <= 50) {

@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.config;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.config.*;
 import com.paneedah.weaponlib.config.HierarchialTree.Branch;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -20,15 +19,14 @@ import java.util.Map.Entry;
 
 public class VMWModConfigGUI extends GuiConfig {
 	
-	private static HierarchialTree<IConfigElement> configTree = new HierarchialTree<IConfigElement>();
-	private static List<IConfigElement> cachedList = new ArrayList<>();
+	private static final HierarchialTree<IConfigElement> configTree = new HierarchialTree<>();
+	private static final List<IConfigElement> cachedList = new ArrayList<>();
 	private static boolean shouldUpdateCache = true;
 	
 	public VMWModConfigGUI(GuiScreen parentScreen) {
 		super(parentScreen, getElements(), ModReference.id, false, false, "Finally... a config!");
 	}
-	
-	
+
 	public static ConfigGuiType getGUITypeFromFieldType(Field f) {
 		if(f.getType() == int.class) {
 			return ConfigGuiType.INTEGER;
@@ -43,25 +41,19 @@ public class VMWModConfigGUI extends GuiConfig {
 	}
 	
 	protected static void submitField(ConfigSync annotation, Field f) {
-		
-		
 		String propertyTag = "config." + annotation.category() + "." + f.getName() + ".property";
 		
 		try {
-			
 			SynchronizedConfigElement element = null;
-			
+
 			if(f.getType() == int.class) {
-			
 				if(f.isAnnotationPresent(RangeInt.class)) {
 					// Is ranged
 					RangeInt range = f.getAnnotation(RangeInt.class);
 					element = new SynchronizedConfigElement(f, f.getName(), propertyTag + ".name", f.get(null), getGUITypeFromFieldType(f), propertyTag, range.min(), range.max());
-					
 				}
-				
+
 			} else if(f.getType() == double.class) {
-				
 				if(f.isAnnotationPresent(RangeDouble.class)) {
 					// Is ranged
 					RangeDouble range = f.getAnnotation(RangeDouble.class);
@@ -70,33 +62,23 @@ public class VMWModConfigGUI extends GuiConfig {
 			}
 			
 			// If no element yet, make an element w/ the standard method
-			if(element == null) {
+			if(element == null)
 				element = new SynchronizedConfigElement(f, f.getName(), propertyTag + ".name", f.get(null), getGUITypeFromFieldType(f), propertyTag);
-			}
 			
-			if(f.isAnnotationPresent(RequiresMcRestart.class)) {
+			if(f.isAnnotationPresent(RequiresMcRestart.class))
 				element.setRequiresMcRestart(true);
-			}
 			
 			// Insert element into tree
 			configTree.addNode(annotation.category(), element);
 		
 			
-		} catch(IllegalArgumentException e) {
-			
-		} catch(IllegalAccessException e) {
-			
-		}
-		
-		
+		} catch(IllegalArgumentException | IllegalAccessException ignored) {}
 	}
 	
 
 
 	
 	private static void recursiveWalk(Branch<IConfigElement> branch, ModernConfigCategory element) {
-		//System.out.println(branch.getKey());
-		
 		String[] splitted = branch.getPathway().split("\\.");
 		String name = splitted[splitted.length-1];
 		
@@ -106,25 +88,19 @@ public class VMWModConfigGUI extends GuiConfig {
 			element = newElement;
 		}
 		
-		
 		Iterator<IConfigElement> nodeIterator = branch.getNodeIterator();
 		while(nodeIterator.hasNext()) {
 			element.getChildElements().add(nodeIterator.next());
 		}
 		
-		for(Entry<String, Branch<IConfigElement>> entry : branch.getSubBranches().entrySet()) {
-			// Process all sub-branches
+		for(Entry<String, Branch<IConfigElement>> entry : branch.getSubBranches().entrySet())
 			recursiveWalk(entry.getValue(), element);
-		}
 	}
 	
 	
 	public static List<IConfigElement> getElements() {
-
-		// FOR DEBUG
 		ModernConfigManager.init();
-		
-		//shouldUpdateCache = true;
+
 		if(shouldUpdateCache) {
 			// Set up caching
 			cachedList.clear();
@@ -135,21 +111,15 @@ public class VMWModConfigGUI extends GuiConfig {
 				
 				// Get current root
 				Branch<IConfigElement> root = itr.next();
-				
-			
+
 				// Add the root category
 				ModernConfigCategory category = new ModernConfigCategory(root.getKey(), "config.category." + root.getKey(), new ArrayList<>());
 				cachedList.add(category);
 				
-				
 				// Begin recursive walk
 				recursiveWalk(root, category);
 			}
-			
 		}
-		
-		
-		
 
 		return cachedList;
 	}
@@ -162,22 +132,16 @@ public class VMWModConfigGUI extends GuiConfig {
 	
 	@Override
 	public void initGui() {
-		// TODO Auto-generated method stub
 		super.initGui();
 	}
 	
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		// TODO Auto-generated method stub
-	
 		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
-	
-	
+
 	@Override
 	protected void actionPerformed(GuiButton button) {
-		// TODO Auto-generated method stub
 		super.actionPerformed(button);
 	}
-
 }

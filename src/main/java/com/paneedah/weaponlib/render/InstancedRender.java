@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.render;
 
 import com.paneedah.weaponlib.shader.jim.Shader;
-import com.paneedah.weaponlib.shader.jim.ShaderManager;
+import com.paneedah.weaponlib.shader.jim.ShaderLoader;
 import net.minecraft.client.renderer.GlStateManager;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
@@ -21,7 +21,7 @@ public class InstancedRender {
 	
 	private static final FloatBuffer buffer = BufferUtils.createFloatBuffer(MAX_INSTANCES*INSTANCE_DATA_LENGTH);
 	
-	private static Shader shad = ShaderManager.loadVMWShader("instanced");
+	private static Shader shad = ShaderLoader.loadShader("instanced");
 	
 	private int vbo;
 	private VAOData vao;

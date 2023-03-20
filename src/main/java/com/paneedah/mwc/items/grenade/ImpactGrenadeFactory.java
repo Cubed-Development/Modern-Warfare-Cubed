@@ -3,7 +3,6 @@ package com.paneedah.mwc.items.grenade;
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.models.ImpactGrenade;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.grenade.GrenadeRenderer;

@@ -2,12 +2,10 @@ package com.paneedah.mwc;
 
 import com.paneedah.mwc.items.grenade.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.AttachmentBuilder;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 
 public class Grenades {
@@ -21,7 +19,7 @@ public class Grenades {
     public static ItemAttachment<ItemGrenade> GrenadeSafetyPin;
 
 
-    public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event, CommonProxy commonProxy) {
+    public static void init(Object mod, CompatibleFmlPreInitializationEvent event, CommonProxy commonProxy) {
         GrenadeSafetyPin = new AttachmentBuilder<ItemGrenade>().withCategory(AttachmentCategory.EXTRA)
                 .withModel(new com.paneedah.mwc.models.Pin(), "gun.png").withName("GrenadeSafetyPin")
                 .withRenderablePart().withTextureName("Dummy.png")

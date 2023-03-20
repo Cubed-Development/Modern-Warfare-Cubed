@@ -29,7 +29,6 @@ import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -420,29 +419,20 @@ public class AnimationGUI {
 	
 	public static void forceSkin(String type) {
 		Method f = ReflectionHelper.findMethod(AbstractClientPlayer.class, "getPlayerInfo", "getPlayerInfo", null);
+
 		NetworkPlayerInfo npi = null;
-		try {
-			npi = (NetworkPlayerInfo) f.invoke((AbstractClientPlayer) mc.player, null);
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		try { npi = (NetworkPlayerInfo) f.invoke((AbstractClientPlayer) mc.player, null); }
+		catch (Exception e) { e.printStackTrace(); }
+
 		if(npi != null) {
 			try {
 				Field f2 = ReflectionHelper.findField(NetworkPlayerInfo.class, "skinType");
 				f2.setAccessible(true);
 				f2.set(npi, type);
 				
-			} catch(Exception e) {
-				
-			}
+			} catch(Exception ignored) {}
 		}
+
 		CompatibleWeaponRenderer.acp = null;
 	}
 	

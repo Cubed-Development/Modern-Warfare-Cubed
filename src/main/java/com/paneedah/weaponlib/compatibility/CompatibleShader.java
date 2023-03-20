@@ -9,8 +9,7 @@ import java.io.IOException;
 
 public class CompatibleShader extends Shader {
 
-    public CompatibleShader(IResourceManager resourceManager, String programName, Framebuffer framebufferInIn,
-            Framebuffer framebufferOutIn) throws JsonException, IOException {
+    public CompatibleShader(IResourceManager resourceManager, String programName, Framebuffer framebufferInIn, Framebuffer framebufferOutIn) throws JsonException, IOException {
         super(resourceManager, programName, framebufferInIn, framebufferOutIn);
     }
     

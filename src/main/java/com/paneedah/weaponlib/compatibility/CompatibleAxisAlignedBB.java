@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.vectors.Vector3D;
 import net.minecraft.util.math.AxisAlignedBB;
 
 public class CompatibleAxisAlignedBB {
@@ -30,8 +31,8 @@ public class CompatibleAxisAlignedBB {
         return boundingBox.intersects(other.boundingBox);
     }
 
-    public CompatibleRayTraceResult calculateIntercept(CompatibleVec3 vec3, CompatibleVec3 vec31) {
-        return CompatibleRayTraceResult.fromRayTraceResult(boundingBox.calculateIntercept(vec3.getVec(), vec31.getVec()));
+    public CompatibleRayTraceResult calculateIntercept(Vector3D vec3, Vector3D vec31) {
+        return CompatibleRayTraceResult.fromRayTraceResult(boundingBox.calculateIntercept(vec3.convertToVec3d(), vec31.convertToVec3d()));
     }
 
     public CompatibleAxisAlignedBB addCoord(double x, double y, double z) {

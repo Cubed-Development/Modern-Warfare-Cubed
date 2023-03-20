@@ -1,6 +1,6 @@
 package com.paneedah.mwc.creativetab;
 
-import com.paneedah.mwc.ores.Ores;
+import com.paneedah.mwc.init.MWCBlocks;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
@@ -15,6 +15,6 @@ public class BlocksTab extends CreativeTabs {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ItemStack createIcon() {
-		return new ItemStack(Ores.CopperOre);
+		return new ItemStack(MWCBlocks.copperOre);
 	}
 }

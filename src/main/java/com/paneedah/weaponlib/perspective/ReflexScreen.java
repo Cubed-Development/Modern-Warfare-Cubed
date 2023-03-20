@@ -143,7 +143,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		
 		if(currentReticle == null) currentReticle = DEFAULT_RETICLE;
 		
-		//Shaders.reflexReticle = ShaderManager.loadVMWShader("reflex");
+		//Shaders.reflexReticle = ShaderLoader.loadVMWShader("reflex");
 		
 		
 		
@@ -289,7 +289,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		
 		
 
-		//reflexReticle = ShaderManager.loadShader(new ResourceLocation(ModReference.id + ":shaders/reflex"));
+		//reflexReticle = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":shaders/reflex"));
 		//first
 	//	Dloom.bloomData.bindFramebuffer(true);\
 		

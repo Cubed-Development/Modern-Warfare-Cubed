@@ -1,10 +1,9 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.ores.Ores;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -12,7 +11,7 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
-import com.paneedah.weaponlib.configold.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -86,9 +85,9 @@ public class SVDDragunovFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.STOCK)
         .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
         
-        .withModernRecipe(new CraftingEntry(Ores.SteelIngot, 12), new
-        		CraftingEntry(Ores.CarbonComposite, 14), new
-        		CraftingEntry(Ores.GunmetalPlate, 18), new
+        .withModernRecipe(new CraftingEntry(MWCItems.steelIngot, 12), new
+        		CraftingEntry(MWCItems.carbonComposite, 14), new
+        		CraftingEntry(MWCItems.gunmetalPlate, 18), new
         		CraftingEntry(Blocks.PLANKS, 10))
         
         .withCompatibleAttachment(Attachments.DragunovGripStock, true, (model) -> {

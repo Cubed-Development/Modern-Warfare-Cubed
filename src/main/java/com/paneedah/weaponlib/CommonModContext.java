@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.MagazineReloadAspect.LoadPermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
@@ -8,7 +9,6 @@ import com.paneedah.weaponlib.WeaponAttachmentAspect.ExitAttachmentModePermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.CompoundPermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.UnloadPermit;
 import com.paneedah.weaponlib.compatibility.*;
-import com.paneedah.weaponlib.configold.ConfigurationManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.RecipeManager;
 import com.paneedah.weaponlib.crafting.ammopress.BlockAmmoPress;
@@ -19,7 +19,6 @@ import com.paneedah.weaponlib.electronics.*;
 import com.paneedah.weaponlib.grenade.*;
 import com.paneedah.weaponlib.inventory.*;
 import com.paneedah.weaponlib.melee.*;
-import com.paneedah.weaponlib.mission.*;
 import com.paneedah.weaponlib.network.NetworkPermitManager;
 import com.paneedah.weaponlib.network.PermitMessage;
 import com.paneedah.weaponlib.network.TypeRegistry;
@@ -73,18 +72,6 @@ public class CommonModContext implements ModContext {
         TypeRegistry.getInstance().register(HandheldState.class);
         TypeRegistry.getInstance().register(SpreadableExposure.class);
         TypeRegistry.getInstance().register(LightExposure.class);
-        TypeRegistry.getInstance().register(Mission.class);
-        TypeRegistry.getInstance().register(Goal.class);
-        TypeRegistry.getInstance().register(KillEntityAction.class);
-        TypeRegistry.getInstance().register(ObtainItemAction.class);
-        TypeRegistry.getInstance().register(GoToLocationAction.class);
-        TypeRegistry.getInstance().register(MissionReward.ItemReward.class);
-        TypeRegistry.getInstance().register(MissionOffering.class);
-        TypeRegistry.getInstance().register(MissionOffering.NoMissionsInProgressRequirement.class);
-        TypeRegistry.getInstance().register(MissionOffering.CompletedMissionRequirement.class);
-        TypeRegistry.getInstance().register(MissionOffering.CooldownMissionRequirement.class);
-        TypeRegistry.getInstance().register(MissionOffering.CompositeRequirement.class);
-        TypeRegistry.getInstance().register(MissionOffering.NoRequirement.class);
     }
 
     static class BulletImpactSoundKey {
@@ -166,27 +153,18 @@ public class CommonModContext implements ModContext {
 	private int modEntityID = 256;
 
     private GrenadeAttackAspect grenadeAttackAspect;
-
-    protected ConfigurationManager configurationManager;
     
     private Map<Integer, String> registeredTextureNames = new HashMap<>();
     
     private int registeredTextureCounter;
-
-    private MissionManager missionManager;
     
     protected static ThreadLocal<ModContext> currentContext = new ThreadLocal<>();
 
-    
-    
-    
+
 	@Override
-    public void preInit(Object mod, ConfigurationManager configurationManager,
-            CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
+    public void preInit(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
 		this.mod = mod;
 	    this.channel = channel;
-
-		this.configurationManager = configurationManager;
 
 		this.weaponReloadAspect = new WeaponReloadAspect(this);
 		this.magazineReloadAspect = new MagazineReloadAspect(this);
@@ -227,12 +205,9 @@ public class CommonModContext implements ModContext {
         magazineReloadAspect.setStateManager(magazineStateManager);
 
 		this.recipeManager = new RecipeManager();
-		
-		
+
 		// Initiate config
 		ModernConfigManager.init();
-		
-
 		
 		channel.registerMessage(new TryFireMessageHandler(weaponFireAspect),
 				TryFireMessage.class, 11, CompatibleSide.SERVER);
@@ -285,21 +260,6 @@ public class CommonModContext implements ModContext {
 		channel.registerMessage(new OpenCustomInventoryGuiHandler(this),
 		        OpenCustomPlayerInventoryGuiMessage.class, 28, CompatibleSide.SERVER);
 		
-		channel.registerMessage(new OpenMissionGuiHandler(this),
-                OpenMissionGuiMessage.class, 29, CompatibleSide.CLIENT);
-		
-		channel.registerMessage(new PlayerMissionSyncHandler(this),
-                PlayerMissionSyncMessage.class, 30, CompatibleSide.CLIENT);
-		
-		channel.registerMessage(new AcceptMissionHandler(this),
-                AcceptMissionMessage.class, 31, CompatibleSide.SERVER);
-		
-        channel.registerMessage(new MissionOfferingSyncHandler(this),
-                MissionOfferingSyncMessage.class, 32, CompatibleSide.CLIENT);
-        
-        channel.registerMessage(new EntityMissionOfferingSyncHandler(this),
-                EntityMissionOfferingSyncMessage.class, 33, CompatibleSide.CLIENT);
-		
         channel.registerMessage(new VehicleControlPacketHandler(this),
         		VehicleControlPacket.class, 34, CompatibleSide.SERVER);
         
@@ -351,7 +311,6 @@ public class CommonModContext implements ModContext {
 		CompatibleExposureCapability.register(this);
 		CompatibleExtraEntityFlags.register(this);
 		CompatibleCustomPlayerInventoryCapability.register(this);
-		CompatibleMissionCapability.register(this);
 
         compatibility.registerModEntity(WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
         compatibility.registerModEntity(EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, 200, 3, true);
@@ -399,18 +358,12 @@ public class CommonModContext implements ModContext {
 	}
 	
 	@Override
-	public void preInitEnd(Object mod, ConfigurationManager configurationManager,
-			CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
+	public void preInitEnd(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
 		compatibility.registerTileEntity(TileEntityWorkbench.class, ModReference.id + ":tileworkbench");
-		compatibility.registerBlock(this, new WorkbenchBlock(this, "weapon_workbench", Material.WOOD), "weapon_workbench");
+		compatibility.registerBlock(this, new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(ModernWarfareMod.BlocksTab), "weapon_workbench");
 		
 		compatibility.registerTileEntity(TileEntityAmmoPress.class, ModReference.id + ":tileammopress");
-		compatibility.registerBlock(this, new BlockAmmoPress(this, "ammo_press", Material.IRON), "ammo_press");	
-	}
-	
-	@Override
-	public MissionManager getMissionManager() {
-	    return this.missionManager;
+		compatibility.registerBlock(this, new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(ModernWarfareMod.BlocksTab), "ammo_press");	
 	}
 
     @Override
@@ -648,11 +601,6 @@ public class CommonModContext implements ModContext {
     @Override
     public EffectManager getEffectManager() {
         throw new IllegalStateException();
-    }
-
-    @Override
-    public ConfigurationManager getConfigurationManager() {
-        return configurationManager;
     }
 
     @Override

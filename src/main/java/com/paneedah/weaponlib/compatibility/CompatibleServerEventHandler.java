@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.compatibility;
 
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.configold.BalancePackManager;
+import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.jim.util.ByteArrayUtils;
 import com.paneedah.weaponlib.network.packets.BalancePackClient;
@@ -136,9 +136,6 @@ public abstract class CompatibleServerEventHandler {
             ResourceLocation customInventoryLocation = new ResourceLocation(ModReference.id, "PLAYER_CUSTOM_INVENTORY");
 
             event.addCapability(customInventoryLocation, new CompatibleCustomPlayerInventoryCapability());
-            
-            ResourceLocation playerMissionsResourceLocation = new ResourceLocation(ModReference.id, "PLAYER_MISSIONS");
-            event.addCapability(playerMissionsResourceLocation, new CompatibleMissionCapability());
 	    }
 	    
         ResourceLocation exposureResourceLocation = new ResourceLocation(ModReference.id, "EXPOSURE");

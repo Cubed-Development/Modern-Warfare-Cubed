@@ -5,7 +5,7 @@ import com.paneedah.weaponlib.render.WavefrontModel;
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import com.paneedah.weaponlib.shader.jim.Attribute;
 import com.paneedah.weaponlib.shader.jim.Shader;
-import com.paneedah.weaponlib.shader.jim.ShaderManager;
+import com.paneedah.weaponlib.shader.jim.ShaderLoader;
 import org.lwjgl.opengl.GL11;
 
 public class ModelInstancedObject<K> extends BasicInstancedObject<K> {
@@ -62,7 +62,7 @@ public class ModelInstancedObject<K> extends BasicInstancedObject<K> {
 		
 		
 		
-		Shader shad = ShaderManager.loadVMWShader(this.shaderName, array);
+		Shader shad = ShaderLoader.loadShader(this.shaderName, array);
 		setRenderShader(shad);
 		
 	}

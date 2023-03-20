@@ -106,14 +106,8 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
 		super.actionPerformed(button);
-
 		if (button == craftButton) {
-
 			if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1) {
-
-				
-			
-				
 				modContext.getChannel().getChannel()
 						.sendToServer(new StationPacket(StationPacket.CRAFT, tileEntity.getPos(), 0, getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME,
 								CraftingGroup.getValue(getCraftingMode()),
@@ -187,10 +181,8 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	@Override
 	public void addCraftingInformationToTooltip(ArrayList<String> tooltip) {
 		int seconds = (tileEntity.craftingDuration - tileEntity.craftingTimer) / 20;
-		tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE
-				+ I18n.format(tileEntity.craftingTargetName + ".name"));
-		tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE
-				+ GUIRenderHelper.formatTimeString(seconds, TimeUnit.SECONDS));
+		tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + I18n.format(tileEntity.craftingTargetName + ".name"));
+		tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + GUIRenderHelper.formatTimeString(seconds, TimeUnit.SECONDS));
 	}
 
 	/**
@@ -210,10 +202,8 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 		if(!(getSelectedCraftingPiece().getItem() instanceof Weapon)) return;
 	
 		Weapon weapon = (Weapon) getSelectedCraftingPiece().getItem();
-        GuiRenderUtil.drawScaledString(fontRenderer, format(weapon.getTranslationKey()),
-                        this.guiLeft + 214, this.guiTop + 31, 1.2, 0xFDF17C);
-        GuiRenderUtil.drawScaledString(fontRenderer, weapon.builder.getWeaponType(), this.guiLeft + 214, this.guiTop + 43, 0.75,
-                        0xC8C49C);
+        GuiRenderUtil.drawScaledString(fontRenderer, format(weapon.getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 1.2, 0xFDF17C);
+        GuiRenderUtil.drawScaledString(fontRenderer, weapon.builder.getWeaponType(), this.guiLeft + 214, this.guiTop + 43, 0.75, 0xC8C49C);
         
         render3DItemInGUI(weapon, this.guiLeft + 300, this.guiTop + 55, mouseX, mouseY);
         
