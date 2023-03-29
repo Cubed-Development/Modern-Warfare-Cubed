@@ -67,13 +67,11 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
             	doEquipmentRender(model, player, backpackStack, storage.getCustomEquippedPositioning(), resource, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
             	*/
         		ItemStack backpackStack = capability.getStackInSlot(0); 
-            	
-            	
-                
+
         		ItemStorage storage = (ItemStorage) backpackStack.getItem();
             	
             	ModelBiped biped = GearModelRepository.pull(storage.getModelFileString());
-            	ResourceLocation resource = new ResourceLocation(ModReference.id + "textures/models/" + storage.getProperTextureName());
+            	ResourceLocation resource = new ResourceLocation(ModReference.id + ":textures/models/" + storage.getProperTextureName());
         		mc.getTextureManager().bindTexture(resource);
         		doEquipmentRender(biped, player, null, (a, b) -> {}, resource, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
             	//System.out.println("yo1");
