@@ -29,16 +29,25 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed bullets being able to shoot through:
     - Glass
     - Glowstone
-    - Double wooden slabs (2 wooden slabs stacked on top of each other)
+    - Double wooden slabs (2 wooden slabs stacked on top of each other).
+- Fixed Backpacks/Vests from having glitched textures.
+- Fixed Workbench/Ammo Press to the Creative Tab (Blocks).
+- Fixed blur2.fsh.
+- Fixed mobs other than terrorist spawning with guns.
+- Fixed mobs not naturally spawning when enabled.
+- Fixed some fault in en-US.lang
 
 ### Removed
 
 - Removed all arcade guns (Will move to a sister mod at a later time)
+- Removed CompatibleVec3
+- Remove Framebuffers
 
 ### Optimization
 
 - As the result of a BIG code cleanup MWC as a whole should now be faster, load faster and use slightly less resources
-- Losslessly compressed assets as a result the jar size decreased (35.3MB -> 30.2MB) ([#53], [#55], [#59])
+- Losslessly compressed assets as a result the jar size decreased (35.3MB -> 27.57MB) ([#53], [#55], [#59])
+- Improved ShaderLoader
 
 ### Internal
 
