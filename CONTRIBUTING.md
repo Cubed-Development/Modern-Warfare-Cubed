@@ -1,8 +1,15 @@
 # Contributing guide for Modern Warfare Cubed
 
-This projects follow [Keep a Changelog] and [Ragnarök Versioning Convention]
+This project follows [Keep a Changelog] and [Ragnarök Versioning Convention]
 
-## Cloning & Setup
+## Writing Good Issues
+
+Submiting a Issues about a bug or feature request is the easiest way to contribute, however, to get the most use out of them, you should follow certain guidelines. 
+
+Be respectful and kind, especially if you're requesting a feature. If you beleve you have found a bug, screenshots/recording are extremely helpful. Check if somone has created a issues for your bug, duplicit reports split up information! If you see a report about a bug you are experiencing, feel free to add more screenshots and steps you have done to find the bug.      
+
+## Editing Code
+This is the hardest, but most helpful, way to contribute, provided you do it correctly    
 
 ### Cloning the repository
 
@@ -11,7 +18,7 @@ This projects follow [Keep a Changelog] and [Ragnarök Versioning Convention]
 Go on the [main GitHub page of MWC] then click the green code button, it will open a litle popup in that popup click `Open with GitHub Desktop`
 ![image](https://user-images.githubusercontent.com/82710983/221866888-fe7a72ce-52bd-4955-b10e-0de36e6676b9.png)
 
-It should open [GitHub Desktop] just follow the instructions wait for it to download.
+This should open [GitHub Desktop] just follow the instructions wait for it to download.
 
 ### Opening in IntelliJ IDEA
 
@@ -57,6 +64,6 @@ Remember to always communicate clearly with other contributors and follow the pr
 [Keep a Changelog]: https://keepachangelog.com/en/1.0.0/
 [Ragnarök Versioning Convention]: https://gist.github.com/JustDesoroxxx/5d4a45785ce19a6653ba99f72325c703
 
-[main GitHub page of MWC]: https://github.com/Paneedah/Modern-Warfare-Cubed
+[Main GitHub page of MWC]: https://github.com/Paneedah/Modern-Warfare-Cubed
 [GitHub Desktop]: https://desktop.github.com/
 [IntelliJ Idea]: https://www.jetbrains.com/idea/
