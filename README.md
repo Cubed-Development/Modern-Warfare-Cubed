@@ -28,13 +28,12 @@
 
 Anyone and everyone is welcome to contribute and help out with the project!
 
-To contribute, please follow the [contributing guide](https://github.com/Paneedah/Modern-Warfare-Cubed/blob/master/CONTRIBUTING.md).
+To contribute, please read the [contributing guide](https://github.com/Paneedah/Modern-Warfare-Cubed/blob/master/CONTRIBUTING.md).
 
-<br>
 
 <h4>Want to join the Development Team?</h4>
 
-Our developers are hand-picked by current members of the Development Team. The main way to get noticed is by either contacting a member of the team (only if you've previously worked on any projects or are very familiar with the Forge API), or by submitting Pull Requests which get Merged quite actively.
+Our developers are hand-picked by current members of the Development Team. The main way to get noticed is by either contacting a member of the team (only if you've previously worked on any other projects or are *very* familiar with the Forge API), or by submitting Pull Requests which we try to Merge quite actively.
 
 <br>
 
@@ -42,7 +41,7 @@ Our developers are hand-picked by current members of the Development Team. The m
 
 <br>
 
-Massive shoutout to the author of [Vic's Modern Warfare Mod](https://github.com/vic4games/modern-warfare), [Vic4Games](https://github.com/vic4games) and the rest of his team for the original mod, and some of the textures / models / other assets that have been utilized from their mod.
+Massive shoutout to the author of [Vic's Modern Warfare Mod](https://github.com/vic4games/modern-warfare): [Vic4Games](https://github.com/vic4games) and the rest of his team for the original mod, and some of the textures / models / other assets that have been utilized from their mod.
 
 Another massive thank you to all of the contributors, and members of the development team. We wouldn't be where we are now without the support from you all!
 
