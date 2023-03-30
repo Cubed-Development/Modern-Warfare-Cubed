@@ -29,12 +29,12 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed bullets being able to shoot through:
     - Glass
     - Glowstone
-    - Double wooden slabs (2 wooden slabs stacked on top of each other).
-- Fixed Backpacks/Vests from having glitched textures.
-- Fixed Workbench/Ammo Press to the Creative Tab (Blocks).
-- Fixed blur2.fsh.
-- Fixed mobs other than terrorist spawning with guns.
-- Fixed mobs not naturally spawning when enabled.
+    - Double wooden slabs (2 wooden slabs stacked on top of each other)
+- Fixed Backpacks/Vests from having glitched textures
+- Fixed Workbench/Ammo Press to the Creative Tab (Blocks)
+- Fixed blur2.fsh
+- Fixed mobs other than terrorist spawning with guns
+- Fixed mobs not naturally spawning when enabled
 - Fixed some fault in en-US.lang
 
 ### Removed
