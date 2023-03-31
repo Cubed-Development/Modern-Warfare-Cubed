@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.crafting;
 
-import com.paneedah.weaponlib.compatibility.CompatibleBlocks;
 import com.paneedah.weaponlib.compatibility.CompatibleItems;
 
 import java.util.LinkedHashMap;
@@ -56,9 +55,7 @@ public class OptionsMetadata {
         	if(minOccurs > maxOccurs) {
         		throw new IllegalArgumentException("Min occurs must be less or equals maxOccurs");
         	}
-        	if(option instanceof CompatibleBlocks) {
-        	    option = ((CompatibleBlocks) option).getBlock();
-        	} else if(option instanceof CompatibleItems) {
+            if(option instanceof CompatibleItems) {
         	    option = ((CompatibleItems) option).getItem();
         	} else if(option instanceof String) {
         	    String stringOption = ((String) option).toLowerCase();
