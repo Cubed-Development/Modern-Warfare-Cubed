@@ -30,48 +30,42 @@ public abstract class CompatibleBlockContainer extends BlockContainer {
 
     @Override
     public final boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
-        return isNormalCube(new CompatibleBlockState(state), new CompatibleBlockPos(pos));
+        return isNormalCube(state, new CompatibleBlockPos(pos));
     }
     
-    public boolean isNormalCube(CompatibleBlockState state, CompatibleBlockPos pos) {
+    public boolean isNormalCube(IBlockState state, CompatibleBlockPos pos) {
         return false;
     }
     
     @Override
     public final EnumBlockRenderType getRenderType(IBlockState state) {
-        return getRenderType(new CompatibleBlockState(state)).getRenderType();
+        return getCompatibleRenderType(state).getRenderType();
     }
-    
-    public CompatibleBlockRenderType getRenderType(CompatibleBlockState state) {
+
+    public CompatibleBlockRenderType getCompatibleRenderType(IBlockState state) {
         return CompatibleBlockRenderType.INVISIBLE;
     }
     
     @Override
-    public boolean isOpaqueCube(IBlockState state) {
-        return isOpaqueCube(new CompatibleBlockState(state));
-    }
-    
-    public boolean isOpaqueCube(CompatibleBlockState state) {
+    public boolean isOpaqueCube(IBlockState iBlockState) {
         return true;
     }
     
     @Override
     public final boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        return onBlockActivated(worldIn, new CompatibleBlockPos(pos), new CompatibleBlockState(state), playerIn, CompatibleEnumHand.valueOf(hand), facing, hitX, hitY, hitZ);
+        return onBlockActivated(worldIn, new CompatibleBlockPos(pos), state, playerIn, CompatibleEnumHand.valueOf(hand), facing, hitX, hitY, hitZ);
     }
-    
-    public boolean onBlockActivated(World worldIn, CompatibleBlockPos pos, CompatibleBlockState state, EntityPlayer playerIn,
-            CompatibleEnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+
+    public boolean onBlockActivated(World worldIn, CompatibleBlockPos pos, IBlockState state, EntityPlayer playerIn, CompatibleEnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         return false;
     }
     
     @Override
-    public final void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
-            ItemStack stack) {
-        onBlockPlacedBy(worldIn, new CompatibleBlockPos(pos), new CompatibleBlockState(state), placer, stack);
+    public final void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+        onBlockPlacedBy(worldIn, new CompatibleBlockPos(pos), state, placer, stack);
     }
-    
-    public void onBlockPlacedBy(World worldIn, CompatibleBlockPos pos, CompatibleBlockState state, EntityLivingBase placer,
+
+    public void onBlockPlacedBy(World worldIn, CompatibleBlockPos pos, IBlockState state, EntityLivingBase placer,
             ItemStack stack) {
     }
 }

@@ -4,12 +4,12 @@ import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleAxisAlignedBB;
-import com.paneedah.weaponlib.compatibility.CompatibleBlockState;
 import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
 import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
@@ -182,7 +182,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
 
             Vector3D cvec2 = new Vector3D(this.posX + x * k, this.posY + y * k, this.posZ + z * k);
 
-            BiPredicate<Block, CompatibleBlockState> isCollidable = (block, blockMetadata) -> compatibility.canCollideCheck(block, blockMetadata, false);
+            BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> compatibility.canCollideCheck(block, blockMetadata, false);
             CompatibleRayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), cvec1, cvec2, isCollidable);
 
             if(rayTraceResult != null) {

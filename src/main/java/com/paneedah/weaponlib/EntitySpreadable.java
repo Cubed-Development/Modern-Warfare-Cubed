@@ -2,10 +2,10 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.CompatibleAxisAlignedBB;
 import com.paneedah.weaponlib.compatibility.CompatibleBlockPos;
-import com.paneedah.weaponlib.compatibility.CompatibleBlockState;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -325,8 +325,8 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
             return false;
         }
         boolean result = false;
-        CompatibleBlockState compatibleBlockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos);
-        if(compatibility.isAirBlock(compatibleBlockState)) {
+        IBlockState iBlockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos);
+        if(compatibility.isAirBlock(iBlockState)) {
             Float currentConcentration = spreadMap.get(blockPos);
             if(currentConcentration == null || currentConcentration < concentration) {
                 spreadMap.put(blockPos, concentration);

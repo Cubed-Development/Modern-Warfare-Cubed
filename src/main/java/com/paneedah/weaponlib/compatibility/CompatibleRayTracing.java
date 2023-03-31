@@ -35,7 +35,7 @@ public class CompatibleRayTracing {
 		}
 	}
 	
-    public static CompatibleRayTraceResult rayTraceBlocks(World world, Vector3D cvec31, Vector3D cvec32, BiPredicate<Block, CompatibleBlockState> isCollidable) {
+    public static CompatibleRayTraceResult rayTraceBlocks(World world, Vector3D cvec31, Vector3D cvec32, BiPredicate<Block, IBlockState> isCollidable) {
     	
     	CompatibleRayTraceResult compatibleRayTraceResult = new CompatibleRayTraceResult();
     	
@@ -55,16 +55,13 @@ public class CompatibleRayTracing {
                 int i1 = MathHelper.floor(vec31.y);
                 int j1 = MathHelper.floor(vec31.z);
                 BlockPos blockpos = new BlockPos(l, i1, j1);
-                IBlockState iblockstate = world.getBlockState(blockpos);
-                Block block = iblockstate.getBlock();
-                CompatibleBlockState compatibleBlockState = new CompatibleBlockState(iblockstate);
-
+                IBlockState iBlockState = world.getBlockState(blockpos);
+                Block block = iBlockState.getBlock();
                 
-                
-                if ((!ignoreBlockWithoutBoundingBox || iblockstate.getCollisionBoundingBox(world, blockpos) != Block.NULL_AABB)
-                        && isCollidable.test(block, compatibleBlockState))
+                if ((!ignoreBlockWithoutBoundingBox || iBlockState.getCollisionBoundingBox(world, blockpos) != Block.NULL_AABB)
+                        && isCollidable.test(block, iBlockState))
                 {
-                    RayTraceResult raytraceresult = iblockstate.collisionRayTrace(world, blockpos, new Vec3d(vec31.x, vec31.y, vec31.z), new Vec3d(cvec32.x, cvec32.y, cvec32.z));
+                    RayTraceResult raytraceresult = iBlockState.collisionRayTrace(world, blockpos, new Vec3d(vec31.x, vec31.y, vec31.z), new Vec3d(cvec32.x, cvec32.y, cvec32.z));
 
                     if (raytraceresult != null)
                     {
@@ -203,15 +200,14 @@ public class CompatibleRayTracing {
                     i1 = MathHelper.floor(vec31.y) - (enumfacing == EnumFacing.UP ? 1 : 0);
                     j1 = MathHelper.floor(vec31.z) - (enumfacing == EnumFacing.SOUTH ? 1 : 0);
                     blockpos = new BlockPos(l, i1, j1);
-                    IBlockState iblockstate1 = world.getBlockState(blockpos);
-                    Block block1 = iblockstate1.getBlock();
-                    CompatibleBlockState compatibleBlockState1 = new CompatibleBlockState(iblockstate1);
+                    IBlockState iBlockState1 = world.getBlockState(blockpos);
+                    Block block1 = iBlockState1.getBlock();
 
-                    if (!ignoreBlockWithoutBoundingBox || iblockstate1.getMaterial() == Material.PORTAL || iblockstate1.getCollisionBoundingBox(world, blockpos) != Block.NULL_AABB)
+                    if (!ignoreBlockWithoutBoundingBox || iBlockState1.getMaterial() == Material.PORTAL || iBlockState1.getCollisionBoundingBox(world, blockpos) != Block.NULL_AABB)
                     {
-                        if (isCollidable.test(block1, compatibleBlockState1))
+                        if (isCollidable.test(block1, iBlockState1))
                         {
-                            RayTraceResult raytraceresult1 = iblockstate1.collisionRayTrace(world, blockpos, new Vec3d(vec31.x, vec31.y, vec31.z), new Vec3d(cvec32.x, cvec32.y, cvec32.z));
+                            RayTraceResult raytraceresult1 = iBlockState1.collisionRayTrace(world, blockpos, new Vec3d(vec31.x, vec31.y, vec31.z), new Vec3d(cvec32.x, cvec32.y, cvec32.z));
 
                             if (raytraceresult1 != null)
                             {

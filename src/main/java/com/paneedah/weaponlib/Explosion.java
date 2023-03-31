@@ -8,6 +8,7 @@ import com.paneedah.weaponlib.compatibility.*;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityTNTPrimed;
@@ -165,22 +166,22 @@ public class Explosion {
 
                         for (/* f1* = 0.3F */; f > 0.0F; f -= 0.22500001F) {
                             CompatibleBlockPos blockpos = new CompatibleBlockPos((int) d4, (int) d6, (int) d8);
-                            // CompatibleBlockState iblockstate =
+                            // IBlockState iblockstate =
                             // this.worldObj.getBlockState(blockpos);
-                            CompatibleBlockState blockState = compatibility.getBlockAtPosition(world, blockpos);
+                            IBlockState iBlockState = compatibility.getBlockAtPosition(world, blockpos);
 
-                            if (!(compatibility.isAirBlock(blockState)
-                                    || compatibility.isBlockPenetratableByBullets(blockState))) {
+                            if (!(compatibility.isAirBlock(iBlockState)
+                                    || compatibility.isBlockPenetratableByBullets(iBlockState))) {
                                 float f2 = this.exploder != null
                                         ? compatibility.getExplosionResistance(this.world, this.exploder, this,
-                                        blockpos, blockState)
-                                        : compatibility.getExplosionResistance(world, blockState, blockpos, (Entity) null,
+                                        blockpos, iBlockState)
+                                        : compatibility.getExplosionResistance(world, iBlockState, blockpos, (Entity) null,
                                         this);
                                 f -= (f2 + 0.3F) * 0.3F;
                             }
 
                             if (f > 0.0F && (this.exploder == null || compatibility.verifyExplosion(this.world, this.exploder, this,
-                                    blockpos, blockState, f))) {
+                                    blockpos, iBlockState, f))) {
                                 set.add(blockpos);
                             }
 
@@ -224,7 +225,7 @@ public class Explosion {
                         d5 = d5 / d13;
                         d7 = d7 / d13;
                         d9 = d9 / d13;
-                        double d14 = (double) compatibility.getBlockDensity(world, vec3d, compatibility.getBoundingBox(entity), (block, blockMetadata) -> canCollideWithBlock(block, blockMetadata));
+                        double d14 = (double) compatibility.getBlockDensity(world, vec3d, compatibility.getBoundingBox(entity), (block, iBlockState) -> canCollideWithBlock(block, iBlockState));
                         double d10 = (1.0D - d12) * d14;
 
                         //System.out.println();
@@ -255,9 +256,8 @@ public class Explosion {
         }
     }
 
-    public boolean canCollideWithBlock(Block block, CompatibleBlockState metadata) {
-        return !compatibility.isBlockPenetratableByBullets(block)
-                && compatibility.canCollideCheck(block, metadata, false);
+    public boolean canCollideWithBlock(Block block, IBlockState iBlockState) {
+        return !compatibility.isBlockPenetratableByBullets(block) && compatibility.canCollideCheck(block, iBlockState, false);
     }
 
     /**
@@ -278,7 +278,7 @@ public class Explosion {
                     continue;
                 }
 
-                CompatibleBlockState blockState = compatibility.getBlockAtPosition(world, blockpos);
+                IBlockState blockState = compatibility.getBlockAtPosition(world, blockpos);
 
 
 //                if (spawnParticles) {

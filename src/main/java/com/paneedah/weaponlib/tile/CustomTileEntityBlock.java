@@ -46,30 +46,23 @@ public class CustomTileEntityBlock extends CompatibleBlockContainer {
     @SuppressWarnings("deprecation")
 	@Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-    	return customBoundingBox != null ? customBoundingBox.apply(state) : 
-    		super.getBoundingBox(state, source, pos);
+    	return customBoundingBox != null ? customBoundingBox.apply(state) : super.getBoundingBox(state, source, pos);
     }
     
     @Override
-    public boolean isNormalCube(CompatibleBlockState state, CompatibleBlockPos pos) {
+    public boolean isNormalCube(IBlockState state, CompatibleBlockPos pos) {
         return false;
     }
-    
-    @Override
-    public CompatibleBlockRenderType getRenderType(CompatibleBlockState state) {
-        return CompatibleBlockRenderType.ENTITYBLOCK_ANIMATED;
-    }
-    
-    
-    
-    
 
     @Override
-    public boolean isOpaqueCube(CompatibleBlockState state) {
+    public CompatibleBlockRenderType getCompatibleRenderType(IBlockState iBlockState) {
+        return CompatibleBlockRenderType.ENTITYBLOCK_ANIMATED;
+    }
+
+    @Override
+    public boolean isOpaqueCube(IBlockState iBlockState) {
         return false;
     }
-    
-    
     
     @Override
     public TileEntity createNewTileEntity(World world, int p_149915_2_) {
@@ -81,12 +74,7 @@ public class CustomTileEntityBlock extends CompatibleBlockContainer {
     }
     
     @Override
-    public boolean onBlockActivated(World world, CompatibleBlockPos pos, CompatibleBlockState state,
-            EntityPlayer player, CompatibleEnumHand hand, EnumFacing facing, float hitX, float hitY,
-            float hitZ) {
-        
-    	//System.out.println("Hola que pasa? " + getRenderType(getDefaultState()));
-    	
+    public boolean onBlockActivated(World world, CompatibleBlockPos pos, IBlockState state, EntityPlayer player, CompatibleEnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         CustomTileEntity<?> entity = (CustomTileEntity<?>)compatibility.getTileEntity(world, pos);
         
         if(entity != null) {
@@ -99,8 +87,7 @@ public class CustomTileEntityBlock extends CompatibleBlockContainer {
     }
     
     @Override
-    public void onBlockPlacedBy(World world, CompatibleBlockPos pos, CompatibleBlockState state,
-            EntityLivingBase player, ItemStack stack) {
+    public void onBlockPlacedBy(World world, CompatibleBlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
         CustomTileEntity<?> entity = (CustomTileEntity<?>)compatibility.getTileEntity(world, pos);
         if(entity != null) {
             int side = CompatibleMathHelper.floor_double(player.rotationYaw/90f + 0.5) & 3;

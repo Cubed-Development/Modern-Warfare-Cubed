@@ -5,6 +5,7 @@ import com.paneedah.weaponlib.compatibility.*;
 import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult.Type;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -392,12 +393,12 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
             if(intercept == null) {
                 //log.debug("Found no-intercept after bounce with offsets {}, {}, {}", dX, dY, dZ);
 
-                CompatibleBlockState blockState;
+                IBlockState iBlockState;
 
                 CompatibleBlockPos blockPos = new CompatibleBlockPos(projectedPos);
-                if((blockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos)) != null
-                        && !compatibility.isAirBlock(blockState)) {
-                    log.debug("Found non-intercept position colliding with block {}", blockState);
+                if((iBlockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos)) != null
+                        && !compatibility.isAirBlock(iBlockState)) {
+                    log.debug("Found non-intercept position colliding with block {}", iBlockState);
                     intercept = movingobjectposition;
                 } else {
                 	
@@ -491,8 +492,8 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         return zRotation;
     }
 
-    public boolean canCollideWithBlock(Block block, CompatibleBlockState metadata) {
-        return compatibility.canCollideCheck(block, metadata, false);
+    public boolean canCollideWithBlock(Block block, IBlockState iBlockState) {
+        return compatibility.canCollideCheck(block, iBlockState, false);
     }
 
     private void recordVelocityHistory() {

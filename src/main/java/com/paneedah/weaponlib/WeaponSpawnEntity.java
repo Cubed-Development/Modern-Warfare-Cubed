@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleBlockState;
 import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
 import com.paneedah.weaponlib.compatibility.CompatibleTargetPoint;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -9,6 +8,7 @@ import com.paneedah.weaponlib.network.packets.BloodPacketClient;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
@@ -273,10 +273,9 @@ public class WeaponSpawnEntity extends EntityProjectile {
     }
 	
 	@Override
-	public boolean canCollideWithBlock(List<BlockPos> violators, Block block, BlockPos pos, CompatibleBlockState metadata) {
+	public boolean canCollideWithBlock(List<BlockPos> violators, Block block, BlockPos pos, IBlockState iBlockState) {
 		// TODO Auto-generated method stub
-		//System.out.println(block);
-		return !compatibility.isBlockPenetratableByBullets(block) && super.canCollideWithBlock(violators, block, pos, metadata);
+		return !compatibility.isBlockPenetratableByBullets(block) && super.canCollideWithBlock(violators, block, pos, iBlockState);
 	}
 
 	

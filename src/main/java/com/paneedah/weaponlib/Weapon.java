@@ -15,6 +15,7 @@ import com.paneedah.weaponlib.crafting.*;
 import com.paneedah.weaponlib.model.Shell;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
@@ -898,8 +899,8 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
 
             if (blockImpactHandler == null) {
                 blockImpactHandler = (world, player, entity, position) -> {
-                    CompatibleBlockState blockState = compatibility.getBlockAtPosition(world, position);
-                    if (ModernConfigManager.bulletBreakGlass && compatibility.isGlassBlock(blockState)) {
+                    IBlockState iBlockState = compatibility.getBlockAtPosition(world, position);
+                    if (ModernConfigManager.bulletBreakGlass && compatibility.isGlassBlock(iBlockState)) {
                         compatibility.destroyBlock(world, position);
 
                     } else {
@@ -910,7 +911,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                         modContext.getChannel().sendToAllAround(
                                 new BlockHitMessage(position.getBlockPos().getBlockPos(), position.getHitVec().x, position.getHitVec().y, position.getHitVec().z, position.getSideHit()), point);
                         
-                        MaterialImpactSound materialImpactSound = modContext.getMaterialImpactSound(blockState, entity);
+                        MaterialImpactSound materialImpactSound = modContext.getMaterialImpactSound(iBlockState, entity);
                         if(materialImpactSound != null) {
                             compatibility.playSound(world, position.getBlockPosX(), position.getBlockPosY(), position.getBlockPosZ(), 
                                     materialImpactSound.getSound(), materialImpactSound.getVolume(), 1f);

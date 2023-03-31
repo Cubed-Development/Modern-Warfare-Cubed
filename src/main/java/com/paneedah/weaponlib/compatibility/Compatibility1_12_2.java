@@ -380,10 +380,9 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public CompatibleBlockState getBlockAtPosition(World world, CompatibleRayTraceResult position) {
-        IBlockState blockState = world.getBlockState(
-                new BlockPos(position.getBlockPosX(), position.getBlockPosY(), position.getBlockPosZ()));
-        return CompatibleBlockState.fromBlockState(blockState);
+    public IBlockState getBlockAtPosition(World world, CompatibleRayTraceResult position) {
+        IBlockState iBlockState = world.getBlockState(new BlockPos(position.getBlockPosX(), position.getBlockPosY(), position.getBlockPosZ()));
+        return iBlockState;
     }
 
     @Override
@@ -426,10 +425,9 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public boolean isGlassBlock(CompatibleBlockState blockState) {
-        Block block = blockState.getBlockState().getBlock();
-        return block == Blocks.GLASS || block == Blocks.GLASS_PANE || block == Blocks.STAINED_GLASS
-                || block == Blocks.STAINED_GLASS_PANE;
+    public boolean isGlassBlock(IBlockState iBlockState) {
+        Block block = iBlockState.getBlock();
+        return block == Blocks.GLASS || block == Blocks.GLASS_PANE || block == Blocks.STAINED_GLASS || block == Blocks.STAINED_GLASS_PANE;
     }
 
     @Override
@@ -784,8 +782,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public CompatibleBlockState getBlockAtPosition(World world, CompatibleBlockPos blockPos) {
-        return CompatibleBlockState.fromBlockState(world.getBlockState(blockPos.getBlockPos()));
+    public IBlockState getBlockAtPosition(World world, CompatibleBlockPos blockPos) {
+        return world.getBlockState(blockPos.getBlockPos());
     }
 
     @Override
@@ -810,16 +808,16 @@ public class Compatibility1_12_2 implements Compatibility {
     }
     
     @Override
-    public boolean isBlockPenetratableByBullets(CompatibleBlockState blockState) {
-        return isBlockPenetratableByBullets(blockState.getBlockState().getBlock());
+    public boolean isBlockPenetratableByBullets(IBlockState blockState) {
+        return isBlockPenetratableByBullets(blockState.getBlock());
     }
 
     @Override
-    public boolean canCollideCheck(Block block, CompatibleBlockState metadata, boolean hitIfLiquid) {
+    public boolean canCollideCheck(Block block, IBlockState iBlockState, boolean hitIfLiquid) {
     	//return false;
     	
     //	return block == Blocks.STAINED_GLASS;
-        return block.canCollideCheck(metadata.getBlockState(), hitIfLiquid);
+        return block.canCollideCheck(iBlockState, hitIfLiquid);
     }
 
     @Override
@@ -829,13 +827,10 @@ public class Compatibility1_12_2 implements Compatibility {
 
 
     @Override
-    public boolean madeFromHardMaterial(CompatibleBlockState blockState) {
-        Material material = blockState.getBlockState().getMaterial();
+    public boolean madeFromHardMaterial(IBlockState iBlockState) {
+        Material material = iBlockState.getMaterial();
 
-        return material == Material.ROCK
-                || material == Material.IRON
-                || material == Material.ICE
-                || material == Material.WOOD;
+        return material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD;
     }
 
     @Override
@@ -851,7 +846,7 @@ public class Compatibility1_12_2 implements Compatibility {
     }
     
     @Override
-    public float getBlockDensity(World world, Vector3D vec, CompatibleAxisAlignedBB boundingBox, BiPredicate<Block, CompatibleBlockState> isCollidable) {
+    public float getBlockDensity(World world, Vector3D vec, CompatibleAxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable) {
         AxisAlignedBB bb = boundingBox.getBoundingBox();
         double d0 = 1.0D / ((bb.maxX - bb.minX) * 2.0D + 1.0D);
         double d1 = 1.0D / ((bb.maxY - bb.minY) * 2.0D + 1.0D);
@@ -900,37 +895,32 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public boolean isAirBlock(CompatibleBlockState blockState) {
-        return blockState.getBlockState().getBlock() == Blocks.AIR;
+    public boolean isAirBlock(IBlockState iBlockState) {
+        return iBlockState.getBlock() == Blocks.AIR;
     }
 
     private net.minecraft.world.Explosion getCompatibleExplosion(Explosion e) {
-        return new net.minecraft.world.Explosion(
-                e.getWorld(), e.getExploder(),
-                e.getExplosionX(), e.getExplosionY(), e.getExplosionZ(),
-                e.getExplosionSize(), false, true);
+        return new net.minecraft.world.Explosion(e.getWorld(), e.getExploder(), e.getExplosionX(), e.getExplosionY(), e.getExplosionZ(), e.getExplosionSize(), false, true);
     }
 
     @Override
-    public boolean canDropBlockFromExplosion(CompatibleBlockState blockState, Explosion e) {
-        return blockState.getBlockState().getBlock().canDropFromExplosion(getCompatibleExplosion(e));
+    public boolean canDropBlockFromExplosion(IBlockState iBlockState, Explosion e) {
+        return iBlockState.getBlock().canDropFromExplosion(getCompatibleExplosion(e));
     }
 
     @Override
-    public void onBlockExploded(World world, CompatibleBlockState blockState, CompatibleBlockPos blockpos, Explosion explosion) {
-        blockState.getBlockState().getBlock().onBlockExploded(world, blockpos.getBlockPos(), getCompatibleExplosion(explosion));
+    public void onBlockExploded(World world, IBlockState blockState, CompatibleBlockPos blockpos, Explosion explosion) {
+        blockState.getBlock().onBlockExploded(world, blockpos.getBlockPos(), getCompatibleExplosion(explosion));
     }
 
     @Override
-    public float getExplosionResistance(World worldObj, CompatibleBlockState blockState, CompatibleBlockPos blockpos, Entity entity,
-            Explosion explosion) {
-        return blockState.getBlockState().getBlock().getExplosionResistance(entity);
+    public float getExplosionResistance(World worldObj, IBlockState blockState, CompatibleBlockPos blockpos, Entity entity, Explosion explosion) {
+        return blockState.getBlock().getExplosionResistance(entity);
     }
 
     @Override
-    public float getExplosionResistance(World worldObj, Entity exploder, Explosion explosion,
-            CompatibleBlockPos blockpos, CompatibleBlockState blockState) {
-        return exploder.getExplosionResistance(getCompatibleExplosion(explosion), worldObj, blockpos.getBlockPos(), blockState.getBlockState());
+    public float getExplosionResistance(World worldObj, Entity exploder, Explosion explosion, CompatibleBlockPos blockpos, IBlockState blockState) {
+        return exploder.getExplosionResistance(getCompatibleExplosion(explosion), worldObj, blockpos.getBlockPos(), blockState);
     }
 
     @Override
@@ -959,26 +949,25 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public boolean verifyExplosion(World worldObj, Entity exploder, Explosion explosion, CompatibleBlockPos blockpos,
-            CompatibleBlockState blockState, float f) {
-        return exploder.canExplosionDestroyBlock(getCompatibleExplosion(explosion), worldObj, blockpos.getBlockPos(), blockState.getBlockState(), f);
+    public boolean verifyExplosion(World worldObj, Entity exploder, Explosion explosion, CompatibleBlockPos blockpos, IBlockState blockState, float f) {
+        return exploder.canExplosionDestroyBlock(getCompatibleExplosion(explosion), worldObj, blockpos.getBlockPos(), blockState, f);
 //        return exploder.verifyExplosion(getCompatibleExplosion(explosion), worldObj, blockpos.getBlockPos(),
 //                blockState.getBlockState(), f);
     }
 
     @Override
-    public boolean isFullBlock(CompatibleBlockState blockState) {
-        return blockState.getBlockState().isFullBlock();
+    public boolean isFullBlock(IBlockState blockState) {
+        return blockState.isFullBlock();
     }
 
     @Override
-    public void dropBlockAsItemWithChance(World world, CompatibleBlockState blockState, CompatibleBlockPos blockpos, float f, int i) {
-        blockState.getBlockState().getBlock().dropBlockAsItemWithChance(world, blockpos.getBlockPos(), blockState.getBlockState(), f, i);
+    public void dropBlockAsItemWithChance(World world, IBlockState blockState, CompatibleBlockPos blockpos, float f, int i) {
+        blockState.getBlock().dropBlockAsItemWithChance(world, blockpos.getBlockPos(), blockState, f, i);
     }
 
     @Override
-    public CompatibleBlockState getBlockBelow(World world, CompatibleBlockPos blockPos) {
-        return CompatibleBlockState.fromBlockState(world.getBlockState(blockPos.getBlockPos().down()));
+    public IBlockState getBlockBelow(World world, CompatibleBlockPos blockPos) {
+        return world.getBlockState(blockPos.getBlockPos().down());
     }
 
     @Override

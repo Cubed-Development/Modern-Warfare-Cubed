@@ -32,7 +32,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
     private int xTile = -1;
     private int yTile = -1;
     private int zTile = -1;
-    //private CompatibleBlockState field_145785_f;
+    //private IBlockState field_145785_f;
     protected boolean inGround;
     public int throwableShake;
 
@@ -443,7 +443,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         return p_70112_1_ < d1 * d1;
     }
 
-    public boolean canCollideWithBlock(List<BlockPos> violators, Block block, BlockPos pos, CompatibleBlockState metadata) {
-        return compatibility.canCollideCheck(block, metadata, false);
+    public boolean canCollideWithBlock(List<BlockPos> violators, Block block, BlockPos pos, IBlockState iBlockState) {
+        return compatibility.canCollideCheck(block, iBlockState, false);
     }
 }

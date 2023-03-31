@@ -7,6 +7,7 @@ import com.paneedah.weaponlib.ai.EntityCustomMob;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.tile.CustomTileEntityRenderer;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
@@ -144,7 +145,7 @@ public interface Compatibility {
 
 	public CompatibleRayTraceResult getObjectMouseOver();
 
-	public CompatibleBlockState getBlockAtPosition(World world, CompatibleRayTraceResult position);
+	public IBlockState getBlockAtPosition(World world, CompatibleRayTraceResult position);
 
 	public void destroyBlock(World world, CompatibleRayTraceResult position);
 
@@ -154,7 +155,7 @@ public interface Compatibility {
 
 	public ItemStack itemStackForItem(Item item, Predicate<ItemStack> condition, EntityPlayer player);
 
-	public boolean isGlassBlock(CompatibleBlockState block);
+	public boolean isGlassBlock(IBlockState block);
 
 	public float getEffectOffsetX();
 
@@ -230,17 +231,17 @@ public interface Compatibility {
 
     public void spawnParticle(World world, String particleName, double d, double e, double f, double motionX, double motionY, double motionZ);
 
-    public CompatibleBlockState getBlockAtPosition(World world, CompatibleBlockPos blockPos);
+    public IBlockState getBlockAtPosition(World world, CompatibleBlockPos blockPos);
 
     public boolean isBlockPenetratableByBullets(Block block);
     
-    public boolean isBlockPenetratableByBullets(CompatibleBlockState blockState);
+    public boolean isBlockPenetratableByBullets(IBlockState blockState);
 
-    public boolean canCollideCheck(Block block, CompatibleBlockState metadata, boolean hitIfLiquid);
+    public boolean canCollideCheck(Block block, IBlockState metadata, boolean hitIfLiquid);
 
     public float getCompatibleShellCasingForwardOffset();
 
-    public boolean madeFromHardMaterial(CompatibleBlockState compatibleBlockState);
+    public boolean madeFromHardMaterial(IBlockState iBlockState);
 
     public void playSoundAtEntity(Entity entity, CompatibleSound explosionSound, float volume, float pitch);
 
@@ -248,17 +249,16 @@ public interface Compatibility {
 
     public boolean isImmuneToExplosions(Entity entity);
 
-    public boolean isAirBlock(CompatibleBlockState blockState);
+    public boolean isAirBlock(IBlockState blockState);
 
-    public boolean canDropBlockFromExplosion(CompatibleBlockState block, Explosion explosion);
+    public boolean canDropBlockFromExplosion(IBlockState block, Explosion explosion);
 
-    public void onBlockExploded(World worldObj, CompatibleBlockState blockState, CompatibleBlockPos blockpos, Explosion explosion);
+    public void onBlockExploded(World worldObj, IBlockState blockState, CompatibleBlockPos blockpos, Explosion explosion);
 
-    public float getExplosionResistance(World world, CompatibleBlockState block, CompatibleBlockPos blockpos, Entity entity,
+    public float getExplosionResistance(World world, IBlockState block, CompatibleBlockPos blockpos, Entity entity,
             Explosion explosion);
 
-    public float getExplosionResistance(World worldObj, Entity exploder, Explosion explosion,
-            CompatibleBlockPos blockpos, CompatibleBlockState blockState);
+    public float getExplosionResistance(World worldObj, Entity exploder, Explosion explosion, CompatibleBlockPos blockpos, IBlockState blockState);
 
     public boolean isSpectator(EntityPlayer entityplayer);
 
@@ -270,14 +270,13 @@ public interface Compatibility {
 
     public double getBlastDamageReduction(EntityLivingBase entity, double d10);
 
-    public boolean verifyExplosion(World world, Entity exploder, Explosion explosion, CompatibleBlockPos blockpos,
-            CompatibleBlockState blockState, float f);
+    public boolean verifyExplosion(World world, Entity exploder, Explosion explosion, CompatibleBlockPos blockpos, IBlockState blockState, float f);
 
-    public boolean isFullBlock(CompatibleBlockState blockState);
+    public boolean isFullBlock(IBlockState blockState);
 
-    public void dropBlockAsItemWithChance(World world, CompatibleBlockState blockState, CompatibleBlockPos blockpos, float f, int i);
+    public void dropBlockAsItemWithChance(World world, IBlockState blockState, CompatibleBlockPos blockpos, float f, int i);
 
-    public CompatibleBlockState getBlockBelow(World world, CompatibleBlockPos blockpos1);
+    public IBlockState getBlockBelow(World world, CompatibleBlockPos blockpos1);
 
     public void playSound(World world, double posX, double posY, double posZ, CompatibleSound explosionSound, float volume, float pitch);
 
@@ -433,7 +432,7 @@ public interface Compatibility {
 
     public ItemStack stackForEmptySlot();
 
-    public float getBlockDensity(World world, Vector3D vec, CompatibleAxisAlignedBB boundingBox, BiPredicate<Block, CompatibleBlockState> isCollidable);
+    public float getBlockDensity(World world, Vector3D vec, CompatibleAxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable);
 
     public int removeMatchingInventoryItemStacks(EntityPlayer player, Item item, int quantity);
 

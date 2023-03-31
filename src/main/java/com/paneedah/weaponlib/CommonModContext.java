@@ -31,6 +31,7 @@ import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessageMessageHandler;
 import com.paneedah.weaponlib.vehicle.network.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -642,11 +643,11 @@ public class CommonModContext implements ModContext {
     }
 
     @Override
-    public MaterialImpactSound getMaterialImpactSound(CompatibleBlockState blockState, WeaponSpawnEntity entity) {
-        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.get(new BulletImpactSoundKey(blockState.getMaterial(), entity.getSpawnedItem()));
+    public MaterialImpactSound getMaterialImpactSound(IBlockState iBlockState, WeaponSpawnEntity entity) {
+        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.get(new BulletImpactSoundKey(iBlockState.getMaterial(), entity.getSpawnedItem()));
 
         if(materialImpactSound == null)
-            bulletImpactSoundEntries.get(new BulletImpactSoundKey(blockState.getMaterial(), null));
+            bulletImpactSoundEntries.get(new BulletImpactSoundKey(iBlockState.getMaterial(), null));
 
         return materialImpactSound;
     }

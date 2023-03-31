@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleBlockState;
 import com.paneedah.weaponlib.compatibility.CompatibleChannel;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleSound;
@@ -13,6 +12,7 @@ import com.paneedah.weaponlib.melee.MeleeAttachmentAspect;
 import com.paneedah.weaponlib.melee.MeleeAttackAspect;
 import com.paneedah.weaponlib.melee.MeleeRenderer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -110,7 +110,7 @@ public interface ModContext {
 
 	public void init(Object mod);
 
-	public MaterialImpactSound getMaterialImpactSound(CompatibleBlockState blockState, WeaponSpawnEntity entity);
+	public MaterialImpactSound getMaterialImpactSound(IBlockState iBlockState, WeaponSpawnEntity entity);
 
 	public CommonModContext setMaterialsImpactSound(String sound, Item bulletItem, float volume,
 			Material... materials);
