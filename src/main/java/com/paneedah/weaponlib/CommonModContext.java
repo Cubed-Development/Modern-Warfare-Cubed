@@ -36,6 +36,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -208,94 +209,67 @@ public class CommonModContext implements ModContext {
 		// Initiate config
 		ModernConfigManager.init();
 		
-		channel.registerMessage(new TryFireMessageHandler(weaponFireAspect),
-				TryFireMessage.class, 11, CompatibleSide.SERVER);
+		channel.registerMessage(new TryFireMessageHandler(weaponFireAspect), TryFireMessage.class, 11, Side.SERVER);
 
-		channel.registerMessage(permitManager,
-				PermitMessage.class, 14, CompatibleSide.SERVER);
+		channel.registerMessage(permitManager, PermitMessage.class, 14, Side.SERVER);
 
-		channel.registerMessage(permitManager,
-				PermitMessage.class, 15, CompatibleSide.CLIENT);
+		channel.registerMessage(permitManager, PermitMessage.class, 15, Side.CLIENT);
 
-		channel.registerMessage(new TryAttackMessageHandler(meleeAttackAspect),
-                TryAttackMessage.class, 16, CompatibleSide.SERVER);
+		channel.registerMessage(new TryAttackMessageHandler(meleeAttackAspect), TryAttackMessage.class, 16, Side.SERVER);
 
-		channel.registerMessage(new SyncPlayerEntityTrackerMessageMessageHandler(this),
-		        SyncPlayerEntityTrackerMessage.class, 17, CompatibleSide.CLIENT);
+		channel.registerMessage(new SyncPlayerEntityTrackerMessageMessageHandler(this), SyncPlayerEntityTrackerMessage.class, 17, Side.CLIENT);
 
-		channel.registerMessage(new SpawnParticleMessageHandler(this),
-		        SpawnParticleMessage.class, 18, CompatibleSide.CLIENT);
+		channel.registerMessage(new SpawnParticleMessageHandler(this), SpawnParticleMessage.class, 18, Side.CLIENT);
 
-		channel.registerMessage(new BlockHitMessageHandler(this),
-		        BlockHitMessage.class, 19, CompatibleSide.CLIENT);
+		channel.registerMessage(new BlockHitMessageHandler(this), BlockHitMessage.class, 19, Side.CLIENT);
 
-		channel.registerMessage(new GrenadeMessageHandler(grenadeAttackAspect),
-                GrenadeMessage.class, 20, CompatibleSide.SERVER);
+		channel.registerMessage(new GrenadeMessageHandler(grenadeAttackAspect), GrenadeMessage.class, 20, Side.SERVER);
 
-		channel.registerMessage(new ExplosionMessageHandler(this),
-                ExplosionMessage.class, 21, CompatibleSide.CLIENT);
+		channel.registerMessage(new ExplosionMessageHandler(this), ExplosionMessage.class, 21, Side.CLIENT);
 		
-		channel.registerMessage(new ArmorControlHandler(this),
-                ArmorControlMessage.class, 22, CompatibleSide.SERVER);
+		channel.registerMessage(new ArmorControlHandler(this), ArmorControlMessage.class, 22, Side.SERVER);
 		
-//		channel.registerMessage(new SpreadableExposureMessageHandler(this),
-//		        SpreadableExposureMessage.class, 23, CompatibleSide.CLIENT);
+//		channel.registerMessage(new SpreadableExposureMessageHandler(this),	SpreadableExposureMessage.class, 23, Side.CLIENT);
 		
-	    channel.registerMessage(new ExposureMessageHandler(this),
-	            ExposureMessage.class, 23, CompatibleSide.CLIENT);
+	    channel.registerMessage(new ExposureMessageHandler(this), ExposureMessage.class, 23, Side.CLIENT);
 		
-		channel.registerMessage(new EntityControlHandler(this),
-                EntityControlMessage.class, 24, CompatibleSide.CLIENT);
+		channel.registerMessage(new EntityControlHandler(this), EntityControlMessage.class, 24, Side.CLIENT);
 		
-		channel.registerMessage(new EntityControlHandler(this),
-                EntityControlMessage.class, 25, CompatibleSide.SERVER);
+		channel.registerMessage(new EntityControlHandler(this), EntityControlMessage.class, 25, Side.SERVER);
 		
-		channel.registerMessage(new EntityInventorySyncHandler(this),
-		        EntityInventorySyncMessage.class, 26, CompatibleSide.CLIENT);
+		channel.registerMessage(new EntityInventorySyncHandler(this), EntityInventorySyncMessage.class, 26, Side.CLIENT);
 		
-		channel.registerMessage(new EntityInventorySyncHandler(this),
-                EntityInventorySyncMessage.class, 27, CompatibleSide.SERVER);
+		channel.registerMessage(new EntityInventorySyncHandler(this), EntityInventorySyncMessage.class, 27, Side.SERVER);
 
-		channel.registerMessage(new OpenCustomInventoryGuiHandler(this),
-		        OpenCustomPlayerInventoryGuiMessage.class, 28, CompatibleSide.SERVER);
+		channel.registerMessage(new OpenCustomInventoryGuiHandler(this), OpenCustomPlayerInventoryGuiMessage.class, 28, Side.SERVER);
 		
-        channel.registerMessage(new VehicleControlPacketHandler(this),
-        		VehicleControlPacket.class, 34, CompatibleSide.SERVER);
-        
-        channel.registerMessage(new VehicleClientPacketHandler(this),
-        		VehicleClientPacket.class, 35, CompatibleSide.CLIENT);
-        
-        channel.registerMessage(new VehicleInteractPHandler(this),
-        		VehicleInteractPacket.class, 36, CompatibleSide.SERVER);
-        
-        channel.registerMessage(new GunFXPacket.GunFXPacketHandler(),
-        		GunFXPacket.class, 37, CompatibleSide.CLIENT);
-        
-        channel.registerMessage(new BulletShellClient.GunFXPacketHandler(),
-        		BulletShellClient.class, 38, CompatibleSide.CLIENT);
-        
-        channel.registerMessage(new BalancePackClient.BalancePacketHandler(), BalancePackClient.class, 39, CompatibleSide.CLIENT);
-        channel.registerMessage(new HeadshotSFXPacket.GunFXPacketHandler(), HeadshotSFXPacket.class, 40, CompatibleSide.CLIENT);
-        channel.registerMessage(new BloodPacketClient.BalancePacketHandler(this),
-        		BloodPacketClient.class, 41, CompatibleSide.CLIENT);
-        
-        channel.registerMessage(new OpenDoorPacket.OpenDoorPacketHandler(this),
-        		OpenDoorPacket.class, 42, CompatibleSide.SERVER);
+        channel.registerMessage(new VehicleControlPacketHandler(this), VehicleControlPacket.class, 34, Side.SERVER);
 
-        channel.registerMessage(new StationPacket.WorkbenchPacketHandler(this),
-        		StationPacket.class, 43, CompatibleSide.SERVER);
+        channel.registerMessage(new VehicleClientPacketHandler(this), VehicleClientPacket.class, 35, Side.CLIENT);
         
-        channel.registerMessage(new StationClientPacket.WorkshopClientPacketHandler(this),
-        		StationClientPacket.class, 44, CompatibleSide.CLIENT);
+        channel.registerMessage(new VehicleInteractPHandler(this), VehicleInteractPacket.class, 36, Side.SERVER);
         
-        channel.registerMessage(new CraftingClientPacket.SimplePacketHandler(this),
-        		CraftingClientPacket.class, 45, CompatibleSide.CLIENT);
+        channel.registerMessage(new GunFXPacket.GunFXPacketHandler(), GunFXPacket.class, 37, Side.CLIENT);
         
-        channel.registerMessage(new CraftingServerPacket.SimplePacketHandler(this),
-        		CraftingServerPacket.class, 46, CompatibleSide.SERVER);
+        channel.registerMessage(new BulletShellClient.GunFXPacketHandler(), BulletShellClient.class, 38, Side.CLIENT);
         
-        channel.registerMessage(new HighIQPickupPacket.SimplePacketHandler(this),
-        		HighIQPickupPacket.class, 47, CompatibleSide.SERVER);
+        channel.registerMessage(new BalancePackClient.BalancePacketHandler(), BalancePackClient.class, 39, Side.CLIENT);
+
+        channel.registerMessage(new HeadshotSFXPacket.GunFXPacketHandler(), HeadshotSFXPacket.class, 40, Side.CLIENT);
+
+        channel.registerMessage(new BloodPacketClient.BalancePacketHandler(this), BloodPacketClient.class, 41, Side.CLIENT);
+        
+        channel.registerMessage(new OpenDoorPacket.OpenDoorPacketHandler(this), OpenDoorPacket.class, 42, Side.SERVER);
+
+        channel.registerMessage(new StationPacket.WorkbenchPacketHandler(this), StationPacket.class, 43, Side.SERVER);
+        
+        channel.registerMessage(new StationClientPacket.WorkshopClientPacketHandler(this), StationClientPacket.class, 44, Side.CLIENT);
+        
+        channel.registerMessage(new CraftingClientPacket.SimplePacketHandler(this), CraftingClientPacket.class, 45, Side.CLIENT);
+        
+        channel.registerMessage(new CraftingServerPacket.SimplePacketHandler(this), CraftingServerPacket.class, 46, Side.SERVER);
+        
+        channel.registerMessage(new HighIQPickupPacket.SimplePacketHandler(this), HighIQPickupPacket.class, 47, Side.SERVER);
         
         
 		ServerEventHandler serverHandler = new ServerEventHandler(this);
