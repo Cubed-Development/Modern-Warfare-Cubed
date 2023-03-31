@@ -109,25 +109,17 @@ public abstract class CompatibleEntityMob extends EntityMob {
     @Override
     protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
         super.setEquipmentBasedOnDifficulty(difficulty);
-        setEquipmentBasedOnDifficulty(new CompatibleDifficulty(difficulty));
-    }
-
-    protected void setEquipmentBasedOnDifficulty(CompatibleDifficulty difficulty) {
     }
     
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
         livingdata = super.onInitialSpawn(difficulty, livingdata);
-        return onCompatibleSpawn(new CompatibleDifficulty(difficulty), livingdata);
-    }
 
-    public IEntityLivingData onCompatibleSpawn(CompatibleDifficulty difficulty, IEntityLivingData livingdata) {
         return livingdata;
     }
-    
 
-    protected void setEnchantmentBasedOnDifficulty(CompatibleDifficulty difficulty) {
-        setEnchantmentBasedOnDifficulty(difficulty.getDifficulty());
+    protected void setEnchantmentBasedOnDifficulty(DifficultyInstance difficulty) {
+        setEnchantmentBasedOnDifficulty(difficulty);
     }
     
     public void setActiveMainHand() {
