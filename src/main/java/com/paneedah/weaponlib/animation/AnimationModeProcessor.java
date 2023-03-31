@@ -23,7 +23,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Quaternion;
 
-import java.awt.*;
+import java.awt.Color;
 import java.nio.FloatBuffer;
 import java.util.HashMap;
 import java.util.Map.Entry;

@@ -3,8 +3,8 @@ package com.paneedah.weaponlib.tile;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMaterial;
 import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
@@ -21,7 +21,7 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
 
 public class CustomTileEntityConfiguration<T extends CustomTileEntityConfiguration<T>> {
     
-    private CompatibleMaterial material;
+    private Material material;
     private String name;
     private String textureName;
     private CreativeTabs creativeTab;
@@ -38,7 +38,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         return (T) input;
     }
 
-    public T withMaterial(CompatibleMaterial material) {
+    public T withMaterial(Material material) {
         this.material = material;
         return safeCast(this);
     }

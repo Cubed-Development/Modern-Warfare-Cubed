@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 
 public class CompatibleBlockState {
@@ -18,7 +19,7 @@ public class CompatibleBlockState {
         return blockState;
     }
 
-    public CompatibleMaterial getMaterial() {
-        return new CompatibleMaterial(blockState.getMaterial());
+    public Material getMaterial() {
+        return blockState.getMaterial();
     }
 }

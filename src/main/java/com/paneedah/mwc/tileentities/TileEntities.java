@@ -3,9 +3,9 @@ package com.paneedah.mwc.tileentities;
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Guns;
-import com.paneedah.weaponlib.compatibility.CompatibleMaterial;
 import com.paneedah.weaponlib.tile.CustomTileEntityBlock;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.EnumDifficulty;
@@ -17,7 +17,7 @@ public class TileEntities {
     	new TurretBaseFactory().createTileEntity(ModernWarfareMod.MOD_CONTEXT);
     	
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("weapons_case")
         .withModelClassName("com.paneedah.mwc.models.GunCase")
         .withTextureName("textures/models/gun_case.png")
@@ -55,7 +55,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("weapons_case_small")
         .withModelClassName("com.paneedah.mwc.models.GunCaseSmall")
         .withTextureName("textures/models/gun_case_small.png")
@@ -95,7 +95,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("russian_weapons_case")
         .withModelClassName("com.paneedah.mwc.models.MilitaryCrate")
         .withTextureName("textures/models/militarycrate.png")
@@ -135,7 +135,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("ammo_box")
         .withModelClassName("com.paneedah.mwc.models.Ammobox1")
         .withTextureName("textures/models/ammobox.png")
@@ -173,7 +173,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("weapons_locker")
         .withModelClassName("com.paneedah.mwc.models.GunRack")
         .withTextureName("textures/models/gunrack.png")
@@ -192,7 +192,7 @@ public class TileEntities {
         
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("fridge_open")
         .withModelClassName("com.paneedah.mwc.models.FridgeOpen")
         .withTextureName("textures/models/fridge.png")
@@ -209,7 +209,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("fridge_closed")
         .withModelClassName("com.paneedah.mwc.models.FridgeClosed")
         .withTextureName("textures/models/fridge.png")
@@ -226,7 +226,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("artillery_PROP")
         .withModelClassName("com.paneedah.mwc.models.ArtilleryProp20")
         .withTextureName("textures/models/artilleryprop.png")
@@ -244,7 +244,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("supply_drop")
         .withModelClassName("com.paneedah.mwc.models.SupplyDrop")
         .withTextureName("textures/models/supplydrop.png")
@@ -262,7 +262,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("medical_crate")
         .withModelClassName("com.paneedah.mwc.models.MedicalCrate")
         .withTextureName("textures/models/medicalcrate.png")
@@ -280,7 +280,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("locker")
         .withModelClassName("com.paneedah.mwc.models.Locker")
         .withTextureName("textures/models/locker.png")
@@ -298,7 +298,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("scp_locker")
         .withModelClassName("com.paneedah.mwc.models.SCPLocker")
         .withTextureName("textures/models/scplocker.png")
@@ -317,7 +317,7 @@ public class TileEntities {
         
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("barrel")
         .withModelClassName("com.paneedah.mwc.models.Barrel")
         .withTextureName("textures/models/barrel.png")
@@ -335,7 +335,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("explosive_barrel")
         .withModelClassName("com.paneedah.mwc.models.Barrel")
         .withTextureName("textures/models/barrel_explosive.png")
@@ -353,7 +353,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("pc")
         .withModelClassName("com.paneedah.mwc.models.PC")
         .withTextureName("textures/models/pc.png")
@@ -371,7 +371,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("laptop")
         .withModelClassName("com.paneedah.mwc.models.Laptop")
         .withTextureName("textures/models/pc.png")
@@ -389,7 +389,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("monitor")
         .withModelClassName("com.paneedah.mwc.models.Monitor")
         .withTextureName("textures/models/pc.png")
@@ -407,7 +407,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("filingcabinet")
         .withModelClassName("com.paneedah.mwc.models.FilingCabinet")
         .withTextureName("textures/models/filingcabinetopened.png")
@@ -425,7 +425,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("filingcabinet_opened")
         .withModelClassName("com.paneedah.mwc.models.FilingCabinetOpened")
         .withTextureName("textures/models/filingcabinetopened.png")
@@ -443,7 +443,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("shelf_right")
         .withModelClassName("com.paneedah.mwc.models.ShelfRight")
         .withTextureName("textures/models/shelf.png")
@@ -461,7 +461,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("shelf_left")
         .withModelClassName("com.paneedah.mwc.models.ShelfLeft")
         .withTextureName("textures/models/shelf.png")
@@ -479,7 +479,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("shelf_top")
         .withModelClassName("com.paneedah.mwc.models.ShelfTop")
         .withTextureName("textures/models/shelf.png")
@@ -497,7 +497,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("tv")
         .withModelClassName("com.paneedah.mwc.models.TV")
         .withTextureName("textures/models/tv.png")
@@ -515,7 +515,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("ceiling_tv")
         .withModelClassName("com.paneedah.mwc.models.CeilingTV")
         .withTextureName("textures/models/ceilingtv.png")
@@ -533,7 +533,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("ceiling_tv_rotated")
         .withModelClassName("com.paneedah.mwc.models.CeilingTV")
         .withTextureName("textures/models/ceilingtv.png")
@@ -551,7 +551,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("office_chair")
         .withModelClassName("com.paneedah.mwc.models.OfficeChair")
         .withTextureName("textures/models/officechair.png")
@@ -569,7 +569,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("office_chair_2")
         .withModelClassName("com.paneedah.mwc.models.OfficeChair2")
         .withTextureName("textures/models/officechair.png")
@@ -587,7 +587,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("desk_corner")
         .withModelClassName("com.paneedah.mwc.models.DeskCorner")
         .withTextureName("textures/models/desk.png")
@@ -605,7 +605,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("desk_corner_alt1")
         .withModelClassName("com.paneedah.mwc.models.DeskCornerAlt1")
         .withTextureName("textures/models/desk.png")
@@ -623,7 +623,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("desk_left")
         .withModelClassName("com.paneedah.mwc.models.DeskLeft")
         .withTextureName("textures/models/desk.png")
@@ -641,7 +641,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("desk_left_alt1")
         .withModelClassName("com.paneedah.mwc.models.DeskLeftAlt1")
         .withTextureName("textures/models/desk.png")
@@ -659,7 +659,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("desk_middle")
         .withModelClassName("com.paneedah.mwc.models.DeskMiddle")
         .withTextureName("textures/models/desk.png")
@@ -677,7 +677,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("desk_middle_alt1")
         .withModelClassName("com.paneedah.mwc.models.DeskMiddleAlt1")
         .withTextureName("textures/models/deskmiddlealt1.png")
@@ -695,7 +695,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("desk_right")
         .withModelClassName("com.paneedah.mwc.models.DeskRight")
         .withTextureName("textures/models/desk.png")
@@ -713,7 +713,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("desk_right_alt1")
         .withModelClassName("com.paneedah.mwc.models.DeskRightAlt1")
         .withTextureName("textures/models/desk.png")
@@ -731,7 +731,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("desk_shelf")
         .withModelClassName("com.paneedah.mwc.models.DeskShelf")
         .withTextureName("textures/models/deskshelf.png")
@@ -749,7 +749,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("desk_shelf_alt1")
         .withModelClassName("com.paneedah.mwc.models.DeskShelfAlt1")
         .withTextureName("textures/models/deskshelfalt1.png")
@@ -767,7 +767,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("desk_shelf_alt2")
         .withModelClassName("com.paneedah.mwc.models.DeskShelfAlt2")
         .withTextureName("textures/models/deskshelf.png")
@@ -785,7 +785,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("desk_shelf_alt3")
         .withModelClassName("com.paneedah.mwc.models.DeskShelfAlt4")
         .withTextureName("textures/models/deskshelfalt4.png")
@@ -803,7 +803,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("barrier")
         .withModelClassName("com.paneedah.mwc.models.Barrier")
         .withTextureName("textures/models/barrier.png")
@@ -821,7 +821,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("barrier_rotated")
         .withModelClassName("com.paneedah.mwc.models.Barrier")
         .withTextureName("textures/models/barrier.png")
@@ -839,7 +839,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("body_bag")
         .withModelClassName("com.paneedah.mwc.models.BodyBag")
         .withTextureName("textures/models/bodybag.png")
@@ -857,7 +857,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("hanging_body")
         .withModelClassName("com.paneedah.mwc.models.HangingBody")
         .withTextureName("textures/models/hangingbody.png")
@@ -875,7 +875,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("impaled_body")
         .withModelClassName("com.paneedah.mwc.models.ImpaledBody")
         .withTextureName("textures/models/impaledbody.png")
@@ -893,7 +893,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
 //        new LootBoxConfiguration()
-//        .withMaterial(CompatibleMaterial.WOOD)
+//        .withMaterial(Material.WOOD)
 //        .withName("blank")
 //        .withModelClassName("com.paneedah.mwc.models.Black")
 //        .withTextureName("textures/models/bodybag.png")
@@ -911,7 +911,7 @@ public class TileEntities {
 //        .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("dumpster")
         .withModelClassName("com.paneedah.mwc.models.Dumpster")
         .withTextureName("textures/models/dumpster.png")
@@ -929,7 +929,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("wooden_crate")
         .withModelClassName("com.paneedah.mwc.models.WoodenCrate")
         .withTextureName("textures/models/woodencrate.png")
@@ -947,7 +947,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("wooden_crate_opened")
         .withModelClassName("com.paneedah.mwc.models.WoodenCrateOpened")
         .withTextureName("textures/models/woodencrateopened.png")
@@ -965,7 +965,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("operating_table")
         .withModelClassName("com.paneedah.mwc.models.OperatingTable")
         .withTextureName("textures/models/operatingtable.png")
@@ -983,7 +983,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("operating_table_alt")
         .withModelClassName("com.paneedah.mwc.models.OperatingTableAlt")
         .withTextureName("textures/models/operatingtable.png")
@@ -1001,7 +1001,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("forklift")
         .withModelClassName("com.paneedah.mwc.models.Forklift")
         .withTextureName("textures/models/forklift.png")
@@ -1019,7 +1019,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("forklift_alt")
         .withModelClassName("com.paneedah.mwc.models.ForkLiftAlt")
         .withTextureName("textures/models/forkliftalt.png")
@@ -1037,7 +1037,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("trusses")
         .withModelClassName("com.paneedah.mwc.models.Trusses")
         .withTextureName("textures/models/trusses.png")
@@ -1055,7 +1055,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("ceiling_lamp")
         .withModelClassName("com.paneedah.mwc.models.CeilingLamp")
         .withTextureName("textures/models/ceilinglamp.png")
@@ -1073,7 +1073,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("ceiling_lamp_alt")
         .withModelClassName("com.paneedah.mwc.models.CeilingLampAlt")
         .withTextureName("textures/models/ceilinglampalt.png")
@@ -1091,7 +1091,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("vent")
         .withModelClassName("com.paneedah.mwc.models.Vent")
         .withTextureName("textures/models/vent.png")
@@ -1109,7 +1109,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("vent_rotated")
         .withModelClassName("com.paneedah.mwc.models.Vent")
         .withTextureName("textures/models/vent.png")
@@ -1127,7 +1127,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("vent_corner")
         .withModelClassName("com.paneedah.mwc.models.VentCorner")
         .withTextureName("textures/models/vent.png")
@@ -1145,7 +1145,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("vent_corner_rotated")
         .withModelClassName("com.paneedah.mwc.models.VentCorner")
         .withTextureName("textures/models/vent.png")
@@ -1163,7 +1163,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
 
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("vent_corner_rotated_alt")
         .withModelClassName("com.paneedah.mwc.models.VentCorner")
         .withTextureName("textures/models/vent.png")
@@ -1181,7 +1181,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("vent_intersection")
         .withModelClassName("com.paneedah.mwc.models.VentIntersection")
         .withTextureName("textures/models/vent.png")
@@ -1199,7 +1199,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("vent_end")
         .withModelClassName("com.paneedah.mwc.models.VentEnd")
         .withTextureName("textures/models/vent.png")
@@ -1217,7 +1217,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("white_desk_left")
         .withModelClassName("com.paneedah.mwc.models.WhiteDeskLeft")
         .withTextureName("textures/models/shelf.png")
@@ -1235,7 +1235,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("white_desk_middle")
         .withModelClassName("com.paneedah.mwc.models.WhiteDeskMiddle")
         .withTextureName("textures/models/shelf.png")
@@ -1253,7 +1253,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("white_desk_right")
         .withModelClassName("com.paneedah.mwc.models.WhiteDeskRight")
         .withTextureName("textures/models/shelf.png")
@@ -1271,7 +1271,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("trash_bin")
         .withModelClassName("com.paneedah.mwc.models.TrashBin")
         .withTextureName("textures/models/trashbin.png")
@@ -1289,7 +1289,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("caution_sign")
         .withModelClassName("com.paneedah.mwc.models.CautionSign")
         .withTextureName("textures/models/cautionsign.png")
@@ -1307,7 +1307,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("electric_box")
         .withModelClassName("com.paneedah.mwc.models.ElectricBox")
         .withTextureName("textures/models/electricbox.png")
@@ -1325,7 +1325,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("electric_box_opened")
         .withModelClassName("com.paneedah.mwc.models.ElectricBoxOpened")
         .withTextureName("textures/models/electricboxopened.png")
@@ -1343,7 +1343,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("home_chair")
         .withModelClassName("com.paneedah.mwc.models.HomeChair")
         .withTextureName("textures/models/homechair.png")
@@ -1361,7 +1361,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("outdoor_chair")
         .withModelClassName("com.paneedah.mwc.models.OutdoorChair")
         .withTextureName("textures/models/outdoorchair.png")
@@ -1379,7 +1379,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("home_chair_rotated")
         .withModelClassName("com.paneedah.mwc.models.HomeChair")
         .withTextureName("textures/models/homechair.png")
@@ -1397,7 +1397,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("outdoor_chair_rotated")
         .withModelClassName("com.paneedah.mwc.models.OutdoorChair")
         .withTextureName("textures/models/outdoorchair.png")
@@ -1415,7 +1415,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("vending_machine")
         .withModelClassName("com.paneedah.mwc.models.VendingMachine")
         .withTextureName("textures/models/vendingmachine.png")
@@ -1433,7 +1433,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("ServerRackLeft")
         .withModelClassName("com.paneedah.mwc.models.ServerRackLeft")
         .withTextureName("textures/models/serverrackleft.png")
@@ -1451,7 +1451,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("ServerRackEmptyLeft")
         .withModelClassName("com.paneedah.mwc.models.ServerRackEmptyLeft")
         .withTextureName("textures/models/serverrackemptyright.png")
@@ -1469,7 +1469,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("ServerRackLeftAlt")
         .withModelClassName("com.paneedah.mwc.models.ServerRackLeftAlt")
         .withTextureName("textures/models/serverrackleftalt.png")
@@ -1487,7 +1487,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("ServerRackLeftAlt2")
         .withModelClassName("com.paneedah.mwc.models.ServerRackLeftAlt2")
         .withTextureName("textures/models/serverrackleftalt2.png")
@@ -1505,7 +1505,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("ServerRackLeftAlt3")
         .withModelClassName("com.paneedah.mwc.models.ServerRackLeftAlt3")
         .withTextureName("textures/models/serverrackleftalt3.png")
@@ -1523,7 +1523,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("ServerRackEmptyRight")
         .withModelClassName("com.paneedah.mwc.models.ServerRackEmptyRight")
         .withTextureName("textures/models/serverrackemptyright.png")
@@ -1541,7 +1541,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("ServerRackRight")
         .withModelClassName("com.paneedah.mwc.models.ServerRackRight")
         .withTextureName("textures/models/serverrackright.png")
@@ -1559,7 +1559,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("ServerRackRightAlt")
         .withModelClassName("com.paneedah.mwc.models.ServerRackRightAlt")
         .withTextureName("textures/models/serverrackrightalt.png")
@@ -1577,7 +1577,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("ServerRackTopLeft")
         .withModelClassName("com.paneedah.mwc.models.ServerRackTop")
         .withTextureName("textures/models/serverrackleft.png")
@@ -1595,7 +1595,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("ServerRackTopRight")
         .withModelClassName("com.paneedah.mwc.models.ServerRackTopRight")
         .withTextureName("textures/models/serverrackleft.png")
@@ -1613,7 +1613,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("DuelFloodLight")
         .withModelClassName("com.paneedah.mwc.models.DuelFloodLight")
         .withTextureName("textures/models/duelfloodlight.png")
@@ -1631,7 +1631,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("FloodLight")
         .withModelClassName("com.paneedah.mwc.models.Floodlight")
         .withTextureName("textures/models/floodlight.png")
@@ -1649,7 +1649,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("Radio_rotated")
         .withModelClassName("com.paneedah.mwc.models.Radio")
         .withTextureName("textures/models/radio.png")
@@ -1667,7 +1667,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("Radio")
         .withModelClassName("com.paneedah.mwc.models.Radio")
         .withTextureName("textures/models/radio.png")
@@ -1685,7 +1685,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("camera_rotated")
         .withModelClassName("com.paneedah.mwc.models.Camera")
         .withTextureName("textures/models/camera.png")
@@ -1703,7 +1703,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("propanetank")
         .withModelClassName("com.paneedah.mwc.models.PropaneTank")
         .withTextureName("textures/models/propanetank.png")
@@ -1721,7 +1721,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("towablefloodlight")
         .withModelClassName("com.paneedah.mwc.models.TowableFloodLight")
         .withTextureName("textures/models/towablefloodlight.png")
@@ -1739,7 +1739,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.SAND)
+        .withMaterial(Material.SAND)
         .withName("hescobastion")
         .withModelClassName("com.paneedah.mwc.models.HescoBastion")
         .withTextureName("textures/models/hescobastion.png")
@@ -1757,7 +1757,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.SAND)
+        .withMaterial(Material.SAND)
         .withName("sandbag")
         .withModelClassName("com.paneedah.mwc.models.Sandbag")
         .withTextureName("textures/models/sandbag.png")
@@ -1775,7 +1775,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.SAND)
+        .withMaterial(Material.SAND)
         .withName("sandbagwall")
         .withModelClassName("com.paneedah.mwc.models.SandbagWall")
         .withTextureName("textures/models/sandbag.png")
@@ -1793,7 +1793,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("crossgravestone")
         .withModelClassName("com.paneedah.mwc.models.CrossGravestone")
         .withTextureName("textures/models/crossgravestone.png")
@@ -1811,7 +1811,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
 
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("crossgravestone2")
         .withModelClassName("com.paneedah.mwc.models.CrossGravestone2")
         .withTextureName("textures/models/crossgravestone2.png")
@@ -1829,7 +1829,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("crossgravestone3")
         .withModelClassName("com.paneedah.mwc.models.CrossGravestone3")
         .withTextureName("textures/models/crossgravestone3.png")
@@ -1847,7 +1847,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("gravestoneskull")
         .withModelClassName("com.paneedah.mwc.models.GravestoneSkull")
         .withTextureName("textures/models/gravestoneskull.png")
@@ -1865,7 +1865,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("gravestone")
         .withModelClassName("com.paneedah.mwc.models.Gravestone")
         .withTextureName("textures/models/gravestone.png")
@@ -1883,7 +1883,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.WOOD)
+        .withMaterial(Material.WOOD)
         .withName("scarecrow")
         .withModelClassName("com.paneedah.mwc.models.Scarecrow")
         .withTextureName("textures/models/scarecrow.png")
@@ -1902,7 +1902,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.CLOTH)
+        .withMaterial(Material.CLOTH)
         .withName("spookyghost")
         .withModelClassName("com.paneedah.mwc.models.SpookyGhost")
         .withTextureName("textures/models/spookyghost.png")
@@ -1920,7 +1920,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.CLOTH)
+        .withMaterial(Material.CLOTH)
         .withName("spookyghost2")
         .withModelClassName("com.paneedah.mwc.models.SpookyGhost")
         .withTextureName("textures/models/spookyghost2.png")
@@ -1938,7 +1938,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.CLOTH)
+        .withMaterial(Material.CLOTH)
         .withName("spookyghost3")
         .withModelClassName("com.paneedah.mwc.models.SpookyGhost")
         .withTextureName("textures/models/spookyghost3.png")
@@ -1956,7 +1956,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.IRON)
+        .withMaterial(Material.IRON)
         .withName("swat_truck")
         .withModelClassName("com.paneedah.mwc.models.SwatTruck")
         .withTextureName("textures/models/swattruck.png")
@@ -1974,7 +1974,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
         new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("ump45_gfl")
         .withModelClassName("com.paneedah.mwc.models.UMP45GFL")
         .withTextureName("textures/models/ump45gfl.png")
@@ -1993,7 +1993,7 @@ public class TileEntities {
         .build(ModernWarfareMod.MOD_CONTEXT);
         
 //        new LootBoxConfiguration()
-//        .withMaterial(CompatibleMaterial.ROCK)
+//        .withMaterial(Material.ROCK)
 //        .withName("turret_base")
 //        .withModelClassName("com.paneedah.mwc.models.TurretBase")
 //        .withTextureName("textures/models/turretbase.png")

@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.compatibility;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,8 +16,8 @@ import net.minecraft.world.World;
 
 public abstract class CompatibleBlockContainer extends BlockContainer {
 
-    protected CompatibleBlockContainer(CompatibleMaterial materialIn) {
-        super(materialIn.getMaterial());
+    protected CompatibleBlockContainer(Material materialIn) {
+        super(materialIn);
     }
 
     public void setBlockTextureName(String string) {

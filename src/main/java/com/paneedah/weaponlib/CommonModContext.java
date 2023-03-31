@@ -45,8 +45,6 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
 
 public class CommonModContext implements ModContext {
 
-	
-	
     static {
         TypeRegistry.getInstance().register(LoadPermit.class);
         TypeRegistry.getInstance().register(MagazineState.class);
@@ -75,10 +73,10 @@ public class CommonModContext implements ModContext {
     }
 
     static class BulletImpactSoundKey {
-        private CompatibleMaterial material;
+        private Material material;
         private Item bulletItem;
         
-        public BulletImpactSoundKey(CompatibleMaterial material, Item bulletItem) {
+        public BulletImpactSoundKey(Material material, Item bulletItem) {
             this.material = material;
             this.bulletItem = bulletItem;
         }
@@ -610,38 +608,34 @@ public class CommonModContext implements ModContext {
     public void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider) {}
 
     @Override
-    public CommonModContext setMaterialsImpactSound(String sound, Item bulletItem, float volume, CompatibleMaterial...materials) {
-        for(CompatibleMaterial material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(
-                    new BulletImpactSoundKey(material, bulletItem), key -> new MaterialImpactSound(volume));
+    public CommonModContext setMaterialsImpactSound(String sound, Item bulletItem, float volume, Material...materials) {
+        for(Material material: materials) {
+            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, bulletItem), key -> new MaterialImpactSound(volume));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
         return this;
     }
     
     @Override
-    public CommonModContext setMaterialImpactSound(String sound, float volume, CompatibleMaterial material) {
-        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(
-                new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
+    public CommonModContext setMaterialImpactSound(String sound, float volume, Material material) {
+        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
         materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         return this;
     }
     
     @Override
-    public CommonModContext setMaterialsImpactSound(String sound, float volume, CompatibleMaterial...materials) {
-        for(CompatibleMaterial material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(
-                    new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
+    public CommonModContext setMaterialsImpactSound(String sound, float volume, Material...materials) {
+        for(Material material: materials) {
+            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
         return this;
     }
     
     @Override
-    public CommonModContext setMaterialsImpactSound(String sound, CompatibleMaterial...materials) {
-        for(CompatibleMaterial material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(
-                    new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(1f));
+    public CommonModContext setMaterialsImpactSound(String sound, Material...materials) {
+        for(Material material: materials) {
+            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(1f));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
         return this;
@@ -649,18 +643,17 @@ public class CommonModContext implements ModContext {
 
     @Override
     public MaterialImpactSound getMaterialImpactSound(CompatibleBlockState blockState, WeaponSpawnEntity entity) {
-        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.get(
-                new BulletImpactSoundKey(blockState.getMaterial(), entity.getSpawnedItem()));
-        if(materialImpactSound == null) {
-            bulletImpactSoundEntries.get(
-                    new BulletImpactSoundKey(blockState.getMaterial(), null));
-        }
+        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.get(new BulletImpactSoundKey(blockState.getMaterial(), entity.getSpawnedItem()));
+
+        if(materialImpactSound == null)
+            bulletImpactSoundEntries.get(new BulletImpactSoundKey(blockState.getMaterial(), null));
+
         return materialImpactSound;
     }
 
 
     @Override
-    public CommonModContext setMaterialImpactSounds(CompatibleMaterial material, float volume, String... sounds) {
+    public CommonModContext setMaterialImpactSounds(Material material, float volume, String... sounds) {
         for(String sound: sounds) {
             setMaterialImpactSound(sound, volume, material);
         }

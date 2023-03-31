@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.tile;
 
 import com.paneedah.weaponlib.compatibility.*;
 import net.minecraft.block.BlockHorizontal;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
@@ -28,7 +29,7 @@ public class CustomTileEntityBlock extends CompatibleBlockContainer {
     private Class<? extends TileEntity> tileEntityClass;
     private Function<IBlockState, AxisAlignedBB> customBoundingBox;
     
-    protected CustomTileEntityBlock(CompatibleMaterial material, Class<? extends TileEntity> tileEntityClass) {
+    protected CustomTileEntityBlock(Material material, Class<? extends TileEntity> tileEntityClass) {
         super(material);
         this.tileEntityClass = tileEntityClass;
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
