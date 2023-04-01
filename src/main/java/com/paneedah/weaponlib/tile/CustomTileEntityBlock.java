@@ -15,6 +15,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -91,7 +92,7 @@ public class CustomTileEntityBlock extends CompatibleBlockContainer {
     public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
         CustomTileEntity<?> entity = (CustomTileEntity<?>)compatibility.getTileEntity(world, pos);
         if(entity != null) {
-            int side = MathHelper.floor_double(player.rotationYaw/90f + 0.5) & 3;
+            int side = MathHelper.floor(player.rotationYaw/90f + 0.5) & 3;
             entity.setSide(side);
         }
     }

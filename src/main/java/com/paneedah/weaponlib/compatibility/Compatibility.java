@@ -40,6 +40,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.GameRules;
@@ -221,11 +222,11 @@ public interface Compatibility {
 
     public CompatibleRayTraceResult rayTraceBlocks(Entity entity, Vector3D vec3, Vector3D vec31);
 
-    public CompatibleAxisAlignedBB expandEntityBoundingBox(Entity entity, double f, double f2, double f3);
+    public AxisAlignedBB expandEntityBoundingBox(Entity entity, double f, double f2, double f3);
 
-    public CompatibleAxisAlignedBB getBoundingBox(Entity entity);
+    public AxisAlignedBB getBoundingBox(Entity entity);
 
-    public List<Entity> getEntitiesWithinAABBExcludingEntity(World world, Entity entity, CompatibleAxisAlignedBB boundingBox);
+    public List<Entity> getEntitiesWithinAABBExcludingEntity(World world, Entity entity, AxisAlignedBB boundingBox);
 
     public void spawnParticle(World world, String particleName, double d, double e, double f, double motionX, double motionY, double motionZ);
 
@@ -243,7 +244,7 @@ public interface Compatibility {
 
     public void playSoundAtEntity(Entity entity, CompatibleSound explosionSound, float volume, float pitch);
 
-    public double getBlockDensity(World world, Vector3D vec3d, CompatibleAxisAlignedBB boundingBox);
+    public double getBlockDensity(World world, Vector3D vec3d, AxisAlignedBB boundingBox);
 
     public boolean isImmuneToExplosions(Entity entity);
 
@@ -429,7 +430,7 @@ public interface Compatibility {
 
     public ItemStack stackForEmptySlot();
 
-    public float getBlockDensity(World world, Vector3D vec, CompatibleAxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable);
+    public float getBlockDensity(World world, Vector3D vec, AxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable);
 
     public int removeMatchingInventoryItemStacks(EntityPlayer player, Item item, int quantity);
 

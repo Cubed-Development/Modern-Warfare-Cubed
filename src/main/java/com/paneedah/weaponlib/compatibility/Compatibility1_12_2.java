@@ -743,22 +743,22 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public CompatibleRayTraceResult rayTraceBlocks(Entity entity, Vector3D vec3, Vector3D vec31) {
-        return CompatibleRayTraceResult.fromRayTraceResult(entity.getEntityWorld().rayTraceBlocks(vec3.convertToVec3d(), vec31.convertToVec3d()));
+        return CompatibleRayTraceResult.fromRayTraceResult(entity.getEntityWorld().rayTraceBlocks(vec3.toVec3d(), vec31.toVec3d()));
     }
 
     @Override
-    public CompatibleAxisAlignedBB expandEntityBoundingBox(Entity entity1, double f1, double f2, double f3) {
-        return new CompatibleAxisAlignedBB(entity1.getEntityBoundingBox().expand(f1, f2, f3));
+    public AxisAlignedBB expandEntityBoundingBox(Entity entity1, double f1, double f2, double f3) {
+        return entity1.getEntityBoundingBox().expand(f1, f2, f3);
     }
 
     @Override
-    public CompatibleAxisAlignedBB getBoundingBox(Entity entity) {
-        return new CompatibleAxisAlignedBB(entity.getEntityBoundingBox());
+    public AxisAlignedBB getBoundingBox(Entity entity) {
+        return entity.getEntityBoundingBox();
     }
 
     @Override
-    public List<Entity> getEntitiesWithinAABBExcludingEntity(World world, Entity entity, CompatibleAxisAlignedBB boundingBox) {
-        return world.getEntitiesWithinAABBExcludingEntity(entity, boundingBox.getBoundingBox());
+    public List<Entity> getEntitiesWithinAABBExcludingEntity(World world, Entity entity, AxisAlignedBB boundingBox) {
+        return world.getEntitiesWithinAABBExcludingEntity(entity, boundingBox);
     }
 
     @Override
@@ -832,13 +832,13 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public double getBlockDensity(World world, Vector3D vec3, CompatibleAxisAlignedBB boundingBox) {
-        return world.getBlockDensity(vec3.convertToVec3d(), boundingBox.getBoundingBox());
+    public double getBlockDensity(World world, Vector3D vec3, AxisAlignedBB boundingBox) {
+        return world.getBlockDensity(vec3.toVec3d(), boundingBox);
     }
     
     @Override
-    public float getBlockDensity(World world, Vector3D vec, CompatibleAxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable) {
-        AxisAlignedBB bb = boundingBox.getBoundingBox();
+    public float getBlockDensity(World world, Vector3D vec, AxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable) {
+        AxisAlignedBB bb = boundingBox;
         double d0 = 1.0D / ((bb.maxX - bb.minX) * 2.0D + 1.0D);
         double d1 = 1.0D / ((bb.maxY - bb.minY) * 2.0D + 1.0D);
         double d2 = 1.0D / ((bb.maxZ - bb.minZ) * 2.0D + 1.0D);

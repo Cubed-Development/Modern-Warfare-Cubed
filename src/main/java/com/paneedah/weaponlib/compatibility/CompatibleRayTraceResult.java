@@ -35,7 +35,7 @@ public class CompatibleRayTraceResult {
 		init();
 	}
 
-	private CompatibleRayTraceResult(RayTraceResult position) {
+	public CompatibleRayTraceResult(RayTraceResult position) {
 	    this.position = position;
 	    init();
 	}

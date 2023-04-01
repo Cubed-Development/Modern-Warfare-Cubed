@@ -3,7 +3,6 @@ package com.paneedah.weaponlib.grenade;
 import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleAxisAlignedBB;
 import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
 import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -13,6 +12,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -193,9 +193,8 @@ public class EntityGrenade extends AbstractEntityGrenade {
                 Entity nearbyEntity = (Entity)nearbyEntityObject;
                 if (nearbyEntity.canBeCollidedWith()) {
                     float f = 0.5f;
-                    CompatibleAxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(nearbyEntity, (double) f,
-                            (double) f, (double) f);
-                    CompatibleRayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(cvec10, cvec2);
+                    AxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(nearbyEntity, (double) f, (double) f, (double) f);
+                    CompatibleRayTraceResult movingobjectposition1 = new CompatibleRayTraceResult(axisalignedbb.calculateIntercept(cvec10.toVec3d(), cvec2.toVec3d()));
 
                     if (movingobjectposition1 != null) {
 

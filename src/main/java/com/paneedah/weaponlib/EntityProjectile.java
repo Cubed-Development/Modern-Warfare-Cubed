@@ -12,10 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -308,7 +305,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
     private Entity getRayTraceEntities(Vector3D vec3, Vector3D vec31) {
         Entity entity = null;
-        List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this, compatibility.getBoundingBox(this).addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+        List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this, compatibility.getBoundingBox(this).expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
         double d0 = 0.0D;
         EntityLivingBase entitylivingbase = this.getThrower();
 
@@ -325,8 +322,8 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
             if (flag && entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                 float f = 0.3F;
-                CompatibleAxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, (double) f, (double) f, (double) f);
-                CompatibleRayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3, vec31);
+                AxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, (double) f, (double) f, (double) f);
+                CompatibleRayTraceResult movingobjectposition1 = new CompatibleRayTraceResult(axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d()));
 
                 if (movingobjectposition1 != null) {
                     double d1 = vec3.distanceTo(movingobjectposition1.getHitVec());

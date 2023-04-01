@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleAxisAlignedBB;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -8,6 +7,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -44,7 +44,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
     private float concentrationSpreadSideFactor = DEFAULT_CONCENTRATION_SPREAD_FACTOR;
     private float minConcentrationThreshold = DEFAULT_MIN_CONCENTRATION_THRESHOLD;
     
-    private CompatibleAxisAlignedBB spreadBox;
+    private AxisAlignedBB spreadBox;
     
     private float spreadRate = DEFAULT_SPREAD_RATE;
     
@@ -105,13 +105,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
         double spreadUpDistance = Math.log10(minConcentrationThreshold / initialConcentration) / Math.log10(concentrationSpreadUpFactor) + 1;
         double spreadDownDistance = Math.log10(minConcentrationThreshold / initialConcentration) / Math.log10(concentrationSpreadDownFactor) + 1;
         double spreadSideDistance = Math.log10(minConcentrationThreshold / initialConcentration) / Math.log10(concentrationSpreadSideFactor) + 1;
-        spreadBox = new CompatibleAxisAlignedBB(
-                posX - spreadSideDistance, 
-                posY - spreadDownDistance, 
-                posZ - spreadSideDistance,
-                posX + spreadSideDistance,
-                posY + spreadUpDistance, 
-                posZ + spreadSideDistance);
+        spreadBox = new AxisAlignedBB(posX - spreadSideDistance, posY - spreadDownDistance, posZ - spreadSideDistance, posX + spreadSideDistance, posY + spreadUpDistance, posZ + spreadSideDistance);
     }
 
     @Override

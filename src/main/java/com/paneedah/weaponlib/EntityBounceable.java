@@ -11,7 +11,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 import java.util.ArrayDeque;
@@ -85,7 +87,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
     }
 
     public void setThrowableHeading(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {
-        float f2 = MathHelper.sqrt_double(motionX * motionX + motionY * motionY + motionZ * motionZ);
+        float f2 = MathHelper.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ);
         motionX /= (double)f2;
         motionY /= (double)f2;
         motionZ /= (double)f2;
@@ -98,7 +100,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         this.motionX = motionX;
         this.motionY = motionY;
         this.motionZ = motionZ;
-        float f3 = MathHelper.sqrt_double(motionX * motionX + motionZ * motionZ);
+        float f3 = MathHelper.sqrt(motionX * motionX + motionZ * motionZ);
         this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(motionX, motionZ) * 180.0D / Math.PI);
         this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(motionY, (double)f3) * 180.0D / Math.PI);
     }
@@ -165,9 +167,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
         if (thrower != null) { //if(!this.worldObj.isRemote)
             Entity entity = null;
-            List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this,
-                    compatibility.getBoundingBox(this).addCoord(this.motionX, this.motionY, this.motionZ)
-                    .expand(1.0D, 1.0D, 1.0D));
+            List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this, compatibility.getBoundingBox(this).expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
             double d0 = 0.0D;
             EntityLivingBase entitylivingbase = this.getThrower();
 
@@ -177,8 +177,8 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
                 if (entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                     float f = 0.3F;
-                    CompatibleAxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, f, f, f);
-                    CompatibleRayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3, vec31);
+                    AxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, f, f, f);
+                    CompatibleRayTraceResult movingobjectposition1 = new CompatibleRayTraceResult(axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d()));
 
                     if (movingobjectposition1 != null) {
                         double d1 = vec3.distanceTo(movingobjectposition1.getHitVec()); //hitVec
@@ -269,7 +269,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
         setPosition(this.posX, this.posY, this.posZ);
 
-        float motionSquared = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+        float motionSquared = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
 
         this.rotationYaw = (float)(Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
@@ -358,10 +358,9 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
             BlockPos blockPos = new BlockPos(projectedPos.x, projectedPos.y, projectedPos.z);
 
-            CompatibleAxisAlignedBB projectedEntityBoundingBox = compatibility.getBoundingBox(this).offset(dX * i, dY * i, dZ * i);
+            AxisAlignedBB projectedEntityBoundingBox = compatibility.getBoundingBox(this).offset(dX * i, dY * i, dZ * i);
 
-            if(compatibility.isAirBlock(compatibility.world(this), blockPos) ||
-                    !new CompatibleAxisAlignedBB(blockPos).intersectsWith(projectedEntityBoundingBox) ) {
+            if(compatibility.isAirBlock(compatibility.world(this), blockPos) || !new AxisAlignedBB(blockPos).intersects(projectedEntityBoundingBox) ) {
                 this.posX = projectedXPos;
                 this.posY = projectedYPos;
                 this.posZ = projectedZPos;
@@ -384,13 +383,12 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         double dZ = Math.signum(motionZ) * 0.01;
 
         float f = 0.3F;
-        CompatibleAxisAlignedBB axisalignedbb = compatibility.getBoundingBox(movingobjectposition.getEntityHit())
-                .expand((double)f, (double)f, (double)f);
+        AxisAlignedBB axisalignedbb = compatibility.getBoundingBox(movingobjectposition.getEntityHit()).expand((double)f, (double)f, (double)f);
         CompatibleRayTraceResult intercept = movingobjectposition;
         for(int i = 0; i < 10; i++) {
             Vector3D currentPos = new Vector3D(this.posX + dX * i, this.posY + dY * i, this.posZ + dY * i);
             Vector3D projectedPos = new Vector3D(this.posX + dX * (i + 1), this.posY + dY * (i + 1), this.posZ + dZ * (i + 1));
-            intercept = axisalignedbb.calculateIntercept(currentPos, projectedPos);
+            intercept = new CompatibleRayTraceResult(axisalignedbb.calculateIntercept(currentPos.toVec3d(), projectedPos.toVec3d()));
             if(intercept == null) {
                 //log.debug("Found no-intercept after bounce with offsets {}, {}, {}", dX, dY, dZ);
 

@@ -2,6 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.proxies.ClientProxy;
 import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.utils.MathUtil;
 import com.paneedah.weaponlib.StatusMessageCenter.Message;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
@@ -31,6 +32,7 @@ import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -187,8 +189,7 @@ public class CustomGui extends CompatibleGui {
 	                    double maxShieldCapacity = armor.getMaxShieldCapacity();
 	                    if(maxShieldCapacity > 0) {
 	                        double currentShieldCapacity = armor.getShieldCapacity(chestStack);
-	                        drawShieldIndicator(armor, MathHelper.clamp_double(currentShieldCapacity / maxShieldCapacity, 0.0, 1.0), 
-	                                screenWidth, screenHeight);
+	                        drawShieldIndicator(armor, MathHelper.clamp(currentShieldCapacity / maxShieldCapacity, 0.0, 1.0), screenWidth, screenHeight);
 	                    }
 	                }
 
