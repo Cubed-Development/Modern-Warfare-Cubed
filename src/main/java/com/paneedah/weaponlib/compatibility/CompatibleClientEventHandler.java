@@ -382,7 +382,7 @@ public abstract class CompatibleClientEventHandler {
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public final void onClientTick(TickEvent.ClientTickEvent event) {
-		onCompatibleClientTick(new CompatibleClientTickEvent(event));
+		onCompatibleClientTick(event);
 
 		// ModernConfigManager.init();
 		
@@ -598,7 +598,7 @@ public abstract class CompatibleClientEventHandler {
 
 	protected abstract void onCompatibleRenderTickEvent(TickEvent.RenderTickEvent compatibleRenderTickEvent);
 
-	protected abstract void onCompatibleClientTick(CompatibleClientTickEvent compatibleClientTickEvent);
+	protected abstract void onCompatibleClientTick(TickEvent.ClientTickEvent compatibleClientTickEvent);
 
 	protected abstract void onCompatibleRenderHand(CompatibleRenderHandEvent event);
 

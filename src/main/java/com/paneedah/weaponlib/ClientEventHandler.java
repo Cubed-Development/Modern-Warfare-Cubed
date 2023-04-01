@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.*;
-import com.paneedah.weaponlib.compatibility.CompatibleClientTickEvent.Phase;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.render.IHasModel;
 import com.paneedah.weaponlib.shader.DynamicShaderContext;
@@ -88,13 +87,13 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 		
 	}
 
-	public void onCompatibleClientTick(CompatibleClientTickEvent event) {
+	public void onCompatibleClientTick(TickEvent.ClientTickEvent event) {
 		
 		
-		if(event.getPhase() == Phase.START) {
+		if(event.phase == TickEvent.ClientTickEvent.Phase.START) {
 			mainLoopLock.lock();
 			updateOnStartTick();
-		} else if(event.getPhase() == Phase.END) {
+		} else if(event.phase == TickEvent.ClientTickEvent.Phase.END) {
 			update();
 			modContext.getSyncManager().run();
 
