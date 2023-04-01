@@ -19,7 +19,7 @@ public class CompatibleRayTraceResult {
 
 	private RayTraceResult position;
 	private Vector3D hitVec;
-	private CompatibleBlockPos blockPos;
+	private BlockPos blockPos;
 	private List<BlockPos> passThrus = new ArrayList<>();
 
 	static CompatibleRayTraceResult fromRayTraceResult (RayTraceResult position) {
@@ -51,7 +51,7 @@ public class CompatibleRayTraceResult {
 
 	private void init() {
 	    this.hitVec = position.hitVec != null ? new Vector3D(position.hitVec) : null;
-	    this.blockPos = position.getBlockPos() != null ? new CompatibleBlockPos(position.getBlockPos()) : null;
+	    this.blockPos = position.getBlockPos() != null ? new BlockPos(position.getBlockPos()) : null;
 
 	}
 
@@ -74,22 +74,22 @@ public class CompatibleRayTraceResult {
 	}
 
 	public int getBlockPosX() {
-		return blockPos.getBlockPos().getX();
+		return blockPos.getX();
 	}
 
 	public int getBlockPosY() {
-		return blockPos.getBlockPos().getY();
+		return blockPos.getY();
 	}
 
 	public int getBlockPosZ() {
-		return blockPos.getBlockPos().getZ();
+		return blockPos.getZ();
 	}
 	
 	public List<BlockPos> getPassThrus() {
 		return passThrus;
 	}
 
-	public CompatibleBlockPos getBlockPos() {
+	public BlockPos getBlockPos() {
 	    return blockPos;
 	}
 

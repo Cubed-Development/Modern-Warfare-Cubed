@@ -592,13 +592,13 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void clickBlock(CompatibleBlockPos blockPos, EnumFacing sideHit) {
-        mc.playerController.clickBlock(blockPos.getBlockPos(), sideHit);
+    public void clickBlock(BlockPos blockPos, EnumFacing sideHit) {
+        mc.playerController.clickBlock(blockPos, sideHit);
     }
 
     @Override
-    public boolean isAirBlock(World world, CompatibleBlockPos blockPos) {
-        return world.isAirBlock(blockPos.getBlockPos());
+    public boolean isAirBlock(World world, BlockPos blockPos) {
+        return world.isAirBlock(blockPos);
     }
 
     @Override
@@ -782,8 +782,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public IBlockState getBlockAtPosition(World world, CompatibleBlockPos blockPos) {
-        return world.getBlockState(blockPos.getBlockPos());
+    public IBlockState getBlockAtPosition(World world, BlockPos blockPos) {
+        return world.getBlockState(blockPos);
     }
 
     @Override
@@ -909,18 +909,18 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void onBlockExploded(World world, IBlockState blockState, CompatibleBlockPos blockpos, Explosion explosion) {
-        blockState.getBlock().onBlockExploded(world, blockpos.getBlockPos(), getCompatibleExplosion(explosion));
+    public void onBlockExploded(World world, IBlockState blockState, BlockPos blockpos, Explosion explosion) {
+        blockState.getBlock().onBlockExploded(world, blockpos, getCompatibleExplosion(explosion));
     }
 
     @Override
-    public float getExplosionResistance(World worldObj, IBlockState blockState, CompatibleBlockPos blockpos, Entity entity, Explosion explosion) {
+    public float getExplosionResistance(World worldObj, IBlockState blockState, BlockPos blockpos, Entity entity, Explosion explosion) {
         return blockState.getBlock().getExplosionResistance(entity);
     }
 
     @Override
-    public float getExplosionResistance(World worldObj, Entity exploder, Explosion explosion, CompatibleBlockPos blockpos, IBlockState blockState) {
-        return exploder.getExplosionResistance(getCompatibleExplosion(explosion), worldObj, blockpos.getBlockPos(), blockState);
+    public float getExplosionResistance(World worldObj, Entity exploder, Explosion explosion, BlockPos blockpos, IBlockState blockState) {
+        return exploder.getExplosionResistance(getCompatibleExplosion(explosion), worldObj, blockpos, blockState);
     }
 
     @Override
@@ -934,8 +934,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void setBlockToFire(World world, CompatibleBlockPos blockpos1) {
-        world.setBlockState(blockpos1.getBlockPos(), Blocks.FIRE.getDefaultState());
+    public void setBlockToFire(World world, BlockPos blockpos1) {
+        world.setBlockState(blockpos1, Blocks.FIRE.getDefaultState());
     }
 
     @Override
@@ -949,10 +949,9 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public boolean verifyExplosion(World worldObj, Entity exploder, Explosion explosion, CompatibleBlockPos blockpos, IBlockState blockState, float f) {
-        return exploder.canExplosionDestroyBlock(getCompatibleExplosion(explosion), worldObj, blockpos.getBlockPos(), blockState, f);
-//        return exploder.verifyExplosion(getCompatibleExplosion(explosion), worldObj, blockpos.getBlockPos(),
-//                blockState.getBlockState(), f);
+    public boolean verifyExplosion(World worldObj, Entity exploder, Explosion explosion, BlockPos blockpos, IBlockState blockState, float f) {
+        return exploder.canExplosionDestroyBlock(getCompatibleExplosion(explosion), worldObj, blockpos, blockState, f);
+        //return exploder.verifyExplosion(getCompatibleExplosion(explosion), worldObj, blockpos, blockState.getBlockState(), f);
     }
 
     @Override
@@ -961,13 +960,13 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void dropBlockAsItemWithChance(World world, IBlockState blockState, CompatibleBlockPos blockpos, float f, int i) {
-        blockState.getBlock().dropBlockAsItemWithChance(world, blockpos.getBlockPos(), blockState, f, i);
+    public void dropBlockAsItemWithChance(World world, IBlockState blockState, BlockPos blockpos, float f, int i) {
+        blockState.getBlock().dropBlockAsItemWithChance(world, blockpos, blockState, f, i);
     }
 
     @Override
-    public IBlockState getBlockBelow(World world, CompatibleBlockPos blockPos) {
-        return world.getBlockState(blockPos.getBlockPos().down());
+    public IBlockState getBlockBelow(World world, BlockPos blockPos) {
+        return world.getBlockState(blockPos.down());
     }
 
     @Override
@@ -1113,8 +1112,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public float getLightBrightness(World world, CompatibleBlockPos pos) {
-        return world.getLightBrightness(pos.getBlockPos());
+    public float getLightBrightness(World world, BlockPos pos) {
+        return world.getLightBrightness(pos);
     }
 
     @Override
@@ -1311,8 +1310,8 @@ private Optional<Field> shadersEnabledFieldOptional;
     }
 
     @Override
-    public TileEntity getTileEntity(World world, CompatibleBlockPos pos) {
-        return world.getTileEntity(pos.getBlockPos());
+    public TileEntity getTileEntity(World world, BlockPos pos) {
+        return world.getTileEntity(pos);
     }
 
     @Override
@@ -1409,9 +1408,8 @@ private Optional<Field> shadersEnabledFieldOptional;
     }
 
     @Override
-    public void markBlockForUpdate(World world, CompatibleBlockPos pos) {
-        world.markBlockRangeForRenderUpdate(pos.getBlockPosX(), pos.getBlockPosY(), pos.getBlockPosZ(), 
-                pos.getBlockPosX(), pos.getBlockPosY(), pos.getBlockPosZ());
+    public void markBlockForUpdate(World world, BlockPos pos) {
+        world.markBlockRangeForRenderUpdate(pos.getX(), pos.getY(), pos.getZ(), pos.getX(), pos.getY(), pos.getZ());
     }
 
     @Override

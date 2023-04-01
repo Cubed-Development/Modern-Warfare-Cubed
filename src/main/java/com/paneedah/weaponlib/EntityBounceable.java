@@ -10,6 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.ArrayDeque;
@@ -354,10 +355,9 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
             Vector3D projectedPos = new Vector3D(projectedXPos, projectedYPos, projectedZPos);
 
-            CompatibleBlockPos blockPos = new CompatibleBlockPos(projectedPos);
+            BlockPos blockPos = new BlockPos(projectedPos.x, projectedPos.y, projectedPos.z);
 
-            CompatibleAxisAlignedBB projectedEntityBoundingBox = compatibility.getBoundingBox(this)
-                    .offset(dX * i, dY * i, dZ * i);
+            CompatibleAxisAlignedBB projectedEntityBoundingBox = compatibility.getBoundingBox(this).offset(dX * i, dY * i, dZ * i);
 
             if(compatibility.isAirBlock(compatibility.world(this), blockPos) ||
                     !new CompatibleAxisAlignedBB(blockPos).intersectsWith(projectedEntityBoundingBox) ) {
@@ -395,7 +395,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
                 IBlockState iBlockState;
 
-                CompatibleBlockPos blockPos = new CompatibleBlockPos(projectedPos);
+                BlockPos blockPos = new BlockPos(projectedPos.x, projectedPos.y, projectedPos.z);
                 if((iBlockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos)) != null
                         && !compatibility.isAirBlock(iBlockState)) {
                     log.debug("Found non-intercept position colliding with block {}", iBlockState);

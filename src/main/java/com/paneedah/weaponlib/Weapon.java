@@ -909,7 +909,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                         CompatibleTargetPoint point = new CompatibleTargetPoint(entity.dimension,
                                 position.getBlockPosX(), position.getBlockPosY(), position.getBlockPosZ(), 100);
                         modContext.getChannel().sendToAllAround(
-                                new BlockHitMessage(position.getBlockPos().getBlockPos(), position.getHitVec().x, position.getHitVec().y, position.getHitVec().z, position.getSideHit()), point);
+                                new BlockHitMessage(position.getBlockPos(), position.getHitVec().x, position.getHitVec().y, position.getHitVec().z, position.getSideHit()), point);
                         
                         MaterialImpactSound materialImpactSound = modContext.getMaterialImpactSound(iBlockState, entity);
                         if(materialImpactSound != null) {

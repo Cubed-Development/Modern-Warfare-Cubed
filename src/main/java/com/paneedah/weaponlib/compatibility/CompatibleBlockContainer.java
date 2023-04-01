@@ -30,10 +30,10 @@ public abstract class CompatibleBlockContainer extends BlockContainer {
 
     @Override
     public final boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
-        return isNormalCube(state, new CompatibleBlockPos(pos));
+        return isNormalCube(state, pos);
     }
     
-    public boolean isNormalCube(IBlockState state, CompatibleBlockPos pos) {
+    public boolean isNormalCube(IBlockState state, BlockPos pos) {
         return false;
     }
     
@@ -52,20 +52,11 @@ public abstract class CompatibleBlockContainer extends BlockContainer {
     }
     
     @Override
-    public final boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        return onBlockActivated(worldIn, new CompatibleBlockPos(pos), state, playerIn, hand, facing, hitX, hitY, hitZ);
-    }
-
-    public boolean onBlockActivated(World worldIn, CompatibleBlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         return false;
     }
     
     @Override
-    public final void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-        onBlockPlacedBy(worldIn, new CompatibleBlockPos(pos), state, placer, stack);
-    }
-
-    public void onBlockPlacedBy(World worldIn, CompatibleBlockPos pos, IBlockState state, EntityLivingBase placer,
-            ItemStack stack) {
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
     }
 }

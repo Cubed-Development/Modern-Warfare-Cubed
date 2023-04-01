@@ -196,16 +196,18 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         }
 
         if (this.inGround) {
-//            CompatibleBlockPos p = new CompatibleBlockPos(this.xTile, this.yTile, this.zTile);
-//            if (compatibility.getBlockAtPosition(compatibility.world(this), p) == this.field_145785_f) {
-//                ++this.ticksInGround;
-//
-//                if (this.ticksInGround == 1200) {
-//                    this.setDead();
-//                }
-//
-//                return;
-//            }
+            /*
+            BlockPos p = new BlockPos(this.xTile, this.yTile, this.zTile);
+            if (compatibility.getBlockAtPosition(compatibility.world(this), p) == this.field_145785_f) {
+                ++this.ticksInGround;
+
+                if (this.ticksInGround == 1200) {
+                    this.setDead();
+                }
+
+                return;
+            }
+            */
 
             this.inGround = false;
             this.motionX *= (double) (this.rand.nextFloat() * 0.2F);

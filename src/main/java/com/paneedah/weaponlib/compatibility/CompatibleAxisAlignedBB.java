@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.compatibility;
 
 import com.paneedah.mwc.vectors.Vector3D;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 
 public class CompatibleAxisAlignedBB {
 
@@ -15,8 +16,8 @@ public class CompatibleAxisAlignedBB {
         this.boundingBox = boundingBox;
     }
 
-    public CompatibleAxisAlignedBB(CompatibleBlockPos blockPos) {
-        this.boundingBox = new AxisAlignedBB(blockPos.getBlockPos());
+    public CompatibleAxisAlignedBB(BlockPos blockPos) {
+        this.boundingBox = new AxisAlignedBB(blockPos);
     }
 
     AxisAlignedBB getBoundingBox() {

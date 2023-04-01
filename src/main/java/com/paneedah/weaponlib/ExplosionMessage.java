@@ -2,9 +2,9 @@ package com.paneedah.weaponlib;
 
 import com.google.common.collect.Lists;
 import com.paneedah.mwc.vectors.Vector3D;
-import com.paneedah.weaponlib.compatibility.CompatibleBlockPos;
 import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.util.math.BlockPos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class ExplosionMessage implements CompatibleMessage {
     private double posY;
     private double posZ;
     private float strength;
-    private List<CompatibleBlockPos> affectedBlockPositions;
+    private List<BlockPos> affectedBlockPositions;
     private float motionX;
     private float motionY;
     private float motionZ;
@@ -30,7 +30,7 @@ public class ExplosionMessage implements CompatibleMessage {
     public ExplosionMessage() {
     }
 
-    public ExplosionMessage(double xIn, double yIn, double zIn, float strengthIn, boolean isDestroyingBlocks, List<CompatibleBlockPos> affectedBlockPositionsIn, Vector3D motion, float explosionParticleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, int explosionParticleTextureId, int smokeParticleTextureId) {
+    public ExplosionMessage(double xIn, double yIn, double zIn, float strengthIn, boolean isDestroyingBlocks, List<BlockPos> affectedBlockPositionsIn, Vector3D motion, float explosionParticleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, int explosionParticleTextureId, int smokeParticleTextureId) {
         this.posX = xIn;
         this.posY = yIn;
         this.posZ = zIn;
@@ -83,7 +83,7 @@ public class ExplosionMessage implements CompatibleMessage {
         return isDestroyingBlocks;
     }
 
-    public List<CompatibleBlockPos> getAffectedBlockPositions() {
+    public List<BlockPos> getAffectedBlockPositions() {
         return affectedBlockPositions;
     }
     
@@ -134,7 +134,7 @@ public class ExplosionMessage implements CompatibleMessage {
             int j1 = buf.readByte() + j;
             int k1 = buf.readByte() + k;
             int l1 = buf.readByte() + l;
-            this.affectedBlockPositions.add(new CompatibleBlockPos(j1, k1, l1));
+            this.affectedBlockPositions.add(new BlockPos(j1, k1, l1));
         }
 
         this.motionX = buf.readFloat();
@@ -160,10 +160,10 @@ public class ExplosionMessage implements CompatibleMessage {
         int j = (int) this.posY;
         int k = (int) this.posZ;
 
-        for (CompatibleBlockPos blockpos : this.affectedBlockPositions) {
-            int l = blockpos.getBlockPosX() - i;
-            int i1 = blockpos.getBlockPosY() - j;
-            int j1 = blockpos.getBlockPosZ() - k;
+        for (BlockPos blockpos : this.affectedBlockPositions) {
+            int l = blockpos.getX() - i;
+            int i1 = blockpos.getY() - j;
+            int j1 = blockpos.getZ() - k;
             buf.writeByte(l);
             buf.writeByte(i1);
             buf.writeByte(j1);

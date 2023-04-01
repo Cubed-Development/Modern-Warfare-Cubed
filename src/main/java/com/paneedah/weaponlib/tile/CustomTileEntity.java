@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.tile;
 
 import com.paneedah.weaponlib.Configurable;
-import com.paneedah.weaponlib.compatibility.CompatibleBlockPos;
 import com.paneedah.weaponlib.compatibility.CompatibleTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extends CompatibleTileEntity implements Configurable<T> {
@@ -37,7 +37,7 @@ public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extend
         return side;
     }
 
-    public void onEntityBlockActivated(World world, CompatibleBlockPos pos, EntityPlayer player) {
+    public void onEntityBlockActivated(World world, BlockPos pos, EntityPlayer player) {
     }
     
     @Override

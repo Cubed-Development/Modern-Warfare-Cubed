@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.tile;
 
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.compatibility.CompatibleBlockPos;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityItem;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
@@ -9,6 +8,7 @@ import com.paneedah.weaponlib.tile.LootBoxConfiguration.Equipment;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
@@ -22,11 +22,11 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
     private long lastEquipmentDispenseTimestamp;
     
     @Override
-    public void onEntityBlockActivated(World world, CompatibleBlockPos pos, EntityPlayer player) {
+    public void onEntityBlockActivated(World world, BlockPos pos, EntityPlayer player) {
         dropContents(world, pos, player);
     }
     
-    public void dropContents(World world, CompatibleBlockPos pos, EntityPlayer player) {
+    public void dropContents(World world, BlockPos pos, EntityPlayer player) {
         
         LootBoxConfiguration configuration = getConfiguration();
         if(lastEquipmentDispenseTimestamp > world.getWorldTime()) {
@@ -56,7 +56,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                     //compatibility.setItemStackToSlot(player, CompatibleEntityEquipmentSlot.MAIN_HAND, equipmentItemStack);
                     
                     if(equipmentItemStack != null) {
-                        CompatibleEntityItem item = new CompatibleEntityItem(getWorld(), getCompatiblePos().getBlockPosX() + 1, getCompatiblePos().getBlockPosY() + 1, getCompatiblePos().getBlockPosZ() + 1, equipmentItemStack);
+                        CompatibleEntityItem item = new CompatibleEntityItem(getWorld(), getCompatiblePos().getX() + 1, getCompatiblePos().getY() + 1, getCompatiblePos().getZ() + 1, equipmentItemStack);
                         item.setNoPickupDelay();
                         compatibility.spawnEntity(player, item);
                     }

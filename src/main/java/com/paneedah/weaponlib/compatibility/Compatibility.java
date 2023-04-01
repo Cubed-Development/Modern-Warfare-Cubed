@@ -199,9 +199,9 @@ public interface Compatibility {
 
     public String getPlayerName(EntityPlayer player);
 
-    public void clickBlock(CompatibleBlockPos blockPos, EnumFacing sideHit);
+    public void clickBlock(BlockPos blockPos, EnumFacing sideHit);
 
-    public boolean isAirBlock(World world, CompatibleBlockPos blockPos);
+    public boolean isAirBlock(World world, BlockPos blockPos);
 
     public void addChatMessage(Entity entity, String message);
 
@@ -231,7 +231,7 @@ public interface Compatibility {
 
     public void spawnParticle(World world, String particleName, double d, double e, double f, double motionX, double motionY, double motionZ);
 
-    public IBlockState getBlockAtPosition(World world, CompatibleBlockPos blockPos);
+    public IBlockState getBlockAtPosition(World world, BlockPos blockPos);
 
     public boolean isBlockPenetratableByBullets(Block block);
     
@@ -253,30 +253,30 @@ public interface Compatibility {
 
     public boolean canDropBlockFromExplosion(IBlockState block, Explosion explosion);
 
-    public void onBlockExploded(World worldObj, IBlockState blockState, CompatibleBlockPos blockpos, Explosion explosion);
+    public void onBlockExploded(World worldObj, IBlockState blockState, BlockPos blockpos, Explosion explosion);
 
-    public float getExplosionResistance(World world, IBlockState block, CompatibleBlockPos blockpos, Entity entity,
+    public float getExplosionResistance(World world, IBlockState block, BlockPos blockpos, Entity entity,
             Explosion explosion);
 
-    public float getExplosionResistance(World worldObj, Entity exploder, Explosion explosion, CompatibleBlockPos blockpos, IBlockState blockState);
+    public float getExplosionResistance(World worldObj, Entity exploder, Explosion explosion, BlockPos blockpos, IBlockState blockState);
 
     public boolean isSpectator(EntityPlayer entityplayer);
 
     public boolean isCreative(EntityPlayer entityplayer);
 
-    public void setBlockToFire(World world, CompatibleBlockPos blockpos1);
+    public void setBlockToFire(World world, BlockPos blockpos1);
 
     public DamageSource getDamageSource(Explosion explosion);
 
     public double getBlastDamageReduction(EntityLivingBase entity, double d10);
 
-    public boolean verifyExplosion(World world, Entity exploder, Explosion explosion, CompatibleBlockPos blockpos, IBlockState blockState, float f);
+    public boolean verifyExplosion(World world, Entity exploder, Explosion explosion, BlockPos blockpos, IBlockState blockState, float f);
 
     public boolean isFullBlock(IBlockState blockState);
 
-    public void dropBlockAsItemWithChance(World world, IBlockState blockState, CompatibleBlockPos blockpos, float f, int i);
+    public void dropBlockAsItemWithChance(World world, IBlockState blockState, BlockPos blockpos, float f, int i);
 
-    public IBlockState getBlockBelow(World world, CompatibleBlockPos blockpos1);
+    public IBlockState getBlockBelow(World world, BlockPos blockpos1);
 
     public void playSound(World world, double posX, double posY, double posZ, CompatibleSound explosionSound, float volume, float pitch);
 
@@ -314,7 +314,7 @@ public interface Compatibility {
 
     public void addStat(EntityPlayer entityplayer, CompatibleAchievement achievementList);
 
-    public float getLightBrightness(World world, CompatibleBlockPos pos);
+    public float getLightBrightness(World world, BlockPos pos);
 
     public void setItemStackToSlot(Entity entity, CompatibleEntityEquipmentSlot compatibleEquipmentSlot, ItemStack itemStack);
 
@@ -386,12 +386,11 @@ public interface Compatibility {
 
     public Entity getEntityByUuid(UUID uuid, World world);
 
-    public TileEntity getTileEntity(World world, CompatibleBlockPos pos);
+    public TileEntity getTileEntity(World world, BlockPos pos);
 
     public void registerTileEntity(Class<? extends TileEntity> tileEntityClass, String name);
 
-//    public void bindTileEntitySpecialRenderer(Class<? extends TileEntity> tileEntityClass,
-//            CustomTileEntityRenderer customTileEntityRenderer);
+    //public void bindTileEntitySpecialRenderer(Class<? extends TileEntity> tileEntityClass, CustomTileEntityRenderer customTileEntityRenderer);
     
     public <T extends TileEntity> void bindTileEntitySpecialRenderer(Class<? extends TileEntity> tileEntityClass,
             CustomTileEntityRenderer customTileEntityRenderer);
@@ -422,7 +421,7 @@ public interface Compatibility {
 
     public void adjustCustomEquippedPosition();
 
-    public void markBlockForUpdate(World world, CompatibleBlockPos pos);
+    public void markBlockForUpdate(World world, BlockPos pos);
     
     public boolean getGameRulesBooleanValue(GameRules rules, String ruleName);
 

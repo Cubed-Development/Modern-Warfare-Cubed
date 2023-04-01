@@ -19,6 +19,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
@@ -152,7 +153,7 @@ public class EntityCustomMob extends CompatibleEntityMob
     }
 
     @Override
-    protected void playStepSound(CompatibleBlockPos pos, Block blockIn) {
+    protected void playStepSound(BlockPos pos, Block blockIn) {
         compatibility.playSound(this, getConfiguration().getStepSound(), 0.15F, 1.0F);
     }
 
@@ -491,9 +492,8 @@ public class EntityCustomMob extends CompatibleEntityMob
     }
 
     @Override
-    public float getCompatibleBlockPathWeight(CompatibleBlockPos pos) {
-        return getConfiguration().getMaxTolerableLightBrightness()
-                - compatibility.getLightBrightness(compatibility.world(this), pos);
+    public float getCompatibleBlockPathWeight(BlockPos pos) {
+        return getConfiguration().getMaxTolerableLightBrightness() - compatibility.getLightBrightness(compatibility.world(this), pos);
     }
     
     @Override

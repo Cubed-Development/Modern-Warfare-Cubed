@@ -51,7 +51,7 @@ public class CustomTileEntityBlock extends CompatibleBlockContainer {
     }
     
     @Override
-    public boolean isNormalCube(IBlockState state, CompatibleBlockPos pos) {
+    public boolean isNormalCube(IBlockState state, BlockPos pos) {
         return false;
     }
 
@@ -75,7 +75,7 @@ public class CustomTileEntityBlock extends CompatibleBlockContainer {
     }
     
     @Override
-    public boolean onBlockActivated(World world, CompatibleBlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         CustomTileEntity<?> entity = (CustomTileEntity<?>)compatibility.getTileEntity(world, pos);
         
         if(entity != null) {
@@ -88,7 +88,7 @@ public class CustomTileEntityBlock extends CompatibleBlockContainer {
     }
     
     @Override
-    public void onBlockPlacedBy(World world, CompatibleBlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
+    public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
         CustomTileEntity<?> entity = (CustomTileEntity<?>)compatibility.getTileEntity(world, pos);
         if(entity != null) {
             int side = CompatibleMathHelper.floor_double(player.rotationYaw/90f + 0.5) & 3;
