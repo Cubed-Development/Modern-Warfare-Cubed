@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.shader;
 
-import com.paneedah.weaponlib.compatibility.CompatibleShader;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.shader.Framebuffer;
+import net.minecraft.client.shader.Shader;
 import net.minecraft.client.shader.ShaderUniform;
 import net.minecraft.client.util.JsonException;
 
@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-class DynamicShader extends CompatibleShader {
+class DynamicShader extends Shader {
 
     private DynamicShaderGroup shaderGroup;
 
