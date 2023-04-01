@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.compatibility.CompatibleGuiButton;
 import com.paneedah.weaponlib.compatibility.CompatibleInventoryTabs;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiInventory;
@@ -60,7 +59,8 @@ public class InventoryTabs extends CompatibleInventoryTabs {
 
             if (t.shouldAddToList()) {
                 t.id = count;
-                CompatibleGuiButton.setPosition(t, cornerX + (count - 2) * 28, cornerY - 28);
+                t.x = cornerX + (count - 2) * 28;
+                t.y = cornerY - 28;
                 t.enabled = !t.getClass().equals(selectedButton);
                 count++;
             }
