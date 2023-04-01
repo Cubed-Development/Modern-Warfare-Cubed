@@ -36,6 +36,7 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
+import net.minecraft.stats.StatBase;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
@@ -309,7 +310,7 @@ public interface Compatibility {
 
     public EnumDifficulty getDifficulty(World world);
 
-    public void addStat(EntityPlayer entityplayer, CompatibleAchievement achievementList);
+    public void addStat(EntityPlayer entityplayer, StatBase achievementList);
 
     public float getLightBrightness(World world, BlockPos pos);
 

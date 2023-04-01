@@ -15,6 +15,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.stats.StatList;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
@@ -214,7 +215,7 @@ public class EntityCustomMob extends CompatibleEntityMob
         Entity trueDamageSource = compatibility.getTrueDamageSource(cause);
         if (trueDamageSource instanceof EntityPlayer) {
             EntityPlayer entityplayer = (EntityPlayer) trueDamageSource;
-            compatibility.addStat(entityplayer, CompatibleAchievement.KILL_ENEMY);
+            compatibility.addStat(entityplayer, StatList.MOB_KILLS);
         }
 
         if (secondaryEquipment != null) {

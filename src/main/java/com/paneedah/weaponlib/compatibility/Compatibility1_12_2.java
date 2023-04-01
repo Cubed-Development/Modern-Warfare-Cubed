@@ -23,7 +23,6 @@ import net.minecraft.client.model.ModelBiped.ArmPose;
 import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.settings.KeyBinding;
@@ -51,6 +50,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
+import net.minecraft.stats.StatBase;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -1092,7 +1092,7 @@ public class Compatibility1_12_2 implements Compatibility {
     }
     
     @Override
-    public void addStat(EntityPlayer entityplayer, CompatibleAchievement compatibleAchievement) {
+    public void addStat(EntityPlayer entityplayer, StatBase compatibleAchievement) {
         entityplayer.addStat(compatibleAchievement.getAchievement());
     }
 
