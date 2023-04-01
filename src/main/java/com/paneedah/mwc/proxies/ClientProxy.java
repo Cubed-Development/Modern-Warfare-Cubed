@@ -6,7 +6,6 @@ import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.wearables.Armors;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
@@ -53,10 +52,10 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void init(final ModernWarfareMod mod, final CompatibleFmlInitializationEvent initializationEvent) {
-        super.init(mod, initializationEvent);
+    public void init(final ModernWarfareMod mod) {
+        super.init(mod);
 
-        PlayerAnimations.init(mod, initializationEvent);
+        PlayerAnimations.init(mod);
 
         final ItemModelMesher modelMesher = mc.getRenderItem().getItemModelMesher();
 

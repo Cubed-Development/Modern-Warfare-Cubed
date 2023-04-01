@@ -21,7 +21,6 @@ import com.paneedah.mwc.wearables.Vests;
 import com.paneedah.weaponlib.UniversalSoundLookup;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
 import com.paneedah.weaponlib.compatibility.CompatibleChannel;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
 import com.paneedah.weaponlib.vehicle.network.VehiclePhysSerializer;
@@ -120,7 +119,7 @@ public class CommonProxy {
         ModernWarfareMod.MOD_CONTEXT.preInitEnd(mod, initializationEvent, ModernWarfareMod.MOD_CONTEXT.getChannel());
     }
 
-    public void init(final ModernWarfareMod mod, final CompatibleFmlInitializationEvent initializationEvent) {
+    public void init(final ModernWarfareMod mod) {
         ModernWarfareMod.MOD_CONTEXT.init(mod);
 
         Entities.init(this);
