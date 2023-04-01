@@ -149,10 +149,10 @@ public abstract class CompatibleServerEventHandler {
 
     @SubscribeEvent
     public void onEntityJoinWorld(EntityJoinWorldEvent e) {
-        onCompatibleEntityJoinWorld(new CompatibleEntityJoinWorldEvent(e));
+        onCompatibleEntityJoinWorld(e);
     }
 
-    protected abstract void onCompatibleEntityJoinWorld(CompatibleEntityJoinWorldEvent e);
+    protected abstract void onCompatibleEntityJoinWorld(EntityJoinWorldEvent e);
     
     @SubscribeEvent
     public void playerDroppedItem(PlayerDropsEvent e) {

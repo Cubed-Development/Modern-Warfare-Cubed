@@ -17,6 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
@@ -127,7 +128,7 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
     protected void onCompatibleItemToss(ItemTossEvent itemTossEvent) {}
 
     @Override
-    protected void onCompatibleEntityJoinWorld(CompatibleEntityJoinWorldEvent e) {
+    protected void onCompatibleEntityJoinWorld(EntityJoinWorldEvent e) {
         if(e.getEntity() instanceof Contextual) {
             ((Contextual)e.getEntity()).setContext(modContext);
         }
