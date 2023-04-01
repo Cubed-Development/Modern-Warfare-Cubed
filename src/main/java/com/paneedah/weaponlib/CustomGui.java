@@ -7,7 +7,6 @@ import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import com.paneedah.weaponlib.compatibility.CompatibleGui;
-import com.paneedah.weaponlib.compatibility.CompatibleMathHelper;
 import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -188,7 +187,7 @@ public class CustomGui extends CompatibleGui {
 	                    double maxShieldCapacity = armor.getMaxShieldCapacity();
 	                    if(maxShieldCapacity > 0) {
 	                        double currentShieldCapacity = armor.getShieldCapacity(chestStack);
-	                        drawShieldIndicator(armor, CompatibleMathHelper.clamp_double(currentShieldCapacity / maxShieldCapacity, 0.0, 1.0), 
+	                        drawShieldIndicator(armor, MathHelper.clamp_double(currentShieldCapacity / maxShieldCapacity, 0.0, 1.0), 
 	                                screenWidth, screenHeight);
 	                    }
 	                }

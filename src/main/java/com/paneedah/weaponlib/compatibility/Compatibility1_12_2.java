@@ -100,8 +100,6 @@ public class Compatibility1_12_2 implements Compatibility {
 
     private static final DamageSource GENERIC_DAMAGE_SOURCE = new DamageSource("thrown");
 
-    private static final CompatibleMathHelper mathHelper = new CompatibleMathHelper();
-
     private static final List<Block> blocksToCheck = Arrays.asList(
             Blocks.AIR,
             Blocks.TALLGRASS,
@@ -219,15 +217,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public CompatibleMathHelper getMathHelper() {
-        return mathHelper;
-    }
-
-    @Override
     public void playSoundToNearExcept(EntityLivingBase player, CompatibleSound sound, float volume, float pitch) {
-        player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, sound.getSound(),
-                player.getSoundCategory(), volume, pitch);
-
+        player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, sound.getSound(), player.getSoundCategory(), volume, pitch);
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.compatibility.*;
 import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult.Type;
 import io.netty.buffer.ByteBuf;
+import net.jafama.FastMath;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -63,15 +64,15 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         this.setSize(0.3F, 0.3F);
         this.setLocationAndAngles(thrower.posX, thrower.posY + (double)thrower.getEyeHeight(), thrower.posZ, 
                 compatibility.getCompatibleAimingRotationYaw(thrower), thrower.rotationPitch);
-        this.posX -= (double)(CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
+        this.posX -= (double)(FastMath.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
-        this.posZ -= (double)(CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
+        this.posZ -= (double)(FastMath.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.setPosition(this.posX, this.posY, this.posZ);
         //this.yOffset = 0.0F;
         float f = 0.4F;
-        this.motionX = (double)(-CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
-        this.motionZ = (double)(CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
-        this.motionY = (double)(-CompatibleMathHelper.sin((this.rotationPitch + 0 /*this.func_70183_g()*/) / 180.0F * (float)Math.PI) * f);
+        this.motionX = (double)(-MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
+        this.motionZ = (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
+        this.motionY = (double)(-MathHelper.sin((this.rotationPitch + 0 /*this.func_70183_g()*/) / 180.0F * (float)Math.PI) * f);
 
         this.initialYaw = this.rotationYaw;
         this.initialPitch = this.rotationPitch;
@@ -84,7 +85,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
     }
 
     public void setThrowableHeading(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {
-        float f2 = CompatibleMathHelper.sqrt_double(motionX * motionX + motionY * motionY + motionZ * motionZ);
+        float f2 = MathHelper.sqrt_double(motionX * motionX + motionY * motionY + motionZ * motionZ);
         motionX /= (double)f2;
         motionY /= (double)f2;
         motionZ /= (double)f2;
@@ -97,7 +98,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         this.motionX = motionX;
         this.motionY = motionY;
         this.motionZ = motionZ;
-        float f3 = CompatibleMathHelper.sqrt_double(motionX * motionX + motionZ * motionZ);
+        float f3 = MathHelper.sqrt_double(motionX * motionX + motionZ * motionZ);
         this.prevRotationYaw = this.rotationYaw = (float)(Math.atan2(motionX, motionZ) * 180.0D / Math.PI);
         this.prevRotationPitch = this.rotationPitch = (float)(Math.atan2(motionY, (double)f3) * 180.0D / Math.PI);
     }
@@ -268,7 +269,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
         setPosition(this.posX, this.posY, this.posZ);
 
-        float motionSquared = CompatibleMathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+        float motionSquared = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
 
         this.rotationYaw = (float)(Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 

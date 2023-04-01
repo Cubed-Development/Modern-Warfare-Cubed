@@ -93,8 +93,6 @@ public interface Compatibility {
 
 	public boolean isClientSide();
 
-	public CompatibleMathHelper getMathHelper();
-
 	public EntityPlayer getClientPlayer();
 
 	public FontRenderer getFontRenderer();

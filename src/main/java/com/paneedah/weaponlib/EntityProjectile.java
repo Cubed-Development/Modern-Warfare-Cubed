@@ -13,6 +13,7 @@ import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -86,9 +87,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
        
         
-        this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
-        this.posZ -= (double) (CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.setPosition(this.posX, this.posY, this.posZ);
 
         
@@ -96,12 +97,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         
         //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
         float f = velocity; //0.4F;
-        this.motionX = (double) (-CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
-                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionZ = (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
-                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionY = (double) (-CompatibleMathHelper
-                .sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
+        this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionY = (double) (-MathHelper.sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
     }
     
@@ -109,19 +107,16 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
         this.setLocationAndAngles(x, y + (double) thrower.getEyeHeight(), z, rotationYaw, rotationPitch);
 
-        this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
-        this.posZ -= (double) (CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.setPosition(this.posX, this.posY, this.posZ);
 
         //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
         float f = velocity; //0.4F;
-        this.motionX = (double) (-CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
-                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionZ = (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
-                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionY = (double) (-CompatibleMathHelper
-                .sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
+        this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionY = (double) (-MathHelper.sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
     }
 
@@ -142,8 +137,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
      * direction.
      */
     public void setThrowableHeading(double x, double y, double z, float velocity, float inaccuracy) {
-        float f2 = CompatibleMathHelper
-                .sqrt_double(x * x + y * y + z * z);
+        float f2 = MathHelper.sqrt(x * x + y * y + z * z);
         x /= (double) f2;
         y /= (double) f2;
         z /= (double) f2;
@@ -156,7 +150,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.motionX = x;
         this.motionY = y;
         this.motionZ = z;
-        float f3 = CompatibleMathHelper.sqrt_double(x * x + z * z);
+        float f3 = MathHelper.sqrt(x * x + z * z);
         this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(x, z) * 180.0D / Math.PI);
         this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(y, (double) f3) * 180.0D / Math.PI);
         //this.ticksInGround = 0;
@@ -172,7 +166,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.motionZ = mZ;
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
-            float f = CompatibleMathHelper.sqrt_double(mX * mX + mZ * mZ);
+            float f = MathHelper.sqrt(mX * mX + mZ * mZ);
             this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(mX, mZ) * 180.0D / Math.PI);
             this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(mY, (double) f) * 180.0D
                     / Math.PI);
@@ -272,7 +266,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.posX += this.motionX;
         this.posY += this.motionY;
         this.posZ += this.motionZ;
-        float f1 = CompatibleMathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+        float f1 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
         this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
         for (this.rotationPitch = (float) (Math.atan2(this.motionY, (double) f1) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F);

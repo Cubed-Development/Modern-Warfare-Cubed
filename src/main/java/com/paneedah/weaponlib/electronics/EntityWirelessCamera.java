@@ -14,6 +14,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 import static com.paneedah.mwc.utils.ModReference.log;
@@ -36,15 +37,15 @@ public class EntityWirelessCamera extends CompatibleThrowableEntity {
 
         this.setSize(0.25F, 0.25F);
         this.setLocationAndAngles(player.posX, player.posY + (double)player.getEyeHeight(), player.posZ, player.rotationYaw, player.rotationPitch);
-        this.posX -= (double)(compatibility.getMathHelper().cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
+        this.posX -= (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
-        this.posZ -= (double)(compatibility.getMathHelper().sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
+        this.posZ -= (double)(MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.setPosition(this.posX, this.posY, this.posZ);
         float f = 0.4F;
-        this.motionX = (double)(-compatibility.getMathHelper().sin(this.rotationYaw / 180.0F * (float)Math.PI) * compatibility.getMathHelper().cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
-        this.motionZ = (double)(compatibility.getMathHelper().cos(this.rotationYaw / 180.0F * (float)Math.PI) * compatibility.getMathHelper().cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
+        this.motionX = (double)(-MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
+        this.motionZ = (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
         float pitchOffset = 0f;
-        this.motionY = (double)(-compatibility.getMathHelper().sin((this.rotationPitch + pitchOffset) / 180.0F * (float)Math.PI) * f);
+        this.motionY = (double)(-MathHelper.sin((this.rotationPitch + pitchOffset) / 180.0F * (float)Math.PI) * f);
         this.shoot(this.motionX, this.motionY, this.motionZ, 1.5f, 0);
 
     }
@@ -121,7 +122,7 @@ public class EntityWirelessCamera extends CompatibleThrowableEntity {
     @Override
     protected void setCompatibleThrowableHeading(double motionX, double motionY, double motionZ, float velocity,
             float inaccuracy) {
-        float f2 = compatibility.getMathHelper().sqrt_double(motionX * motionX + motionY * motionY + motionZ * motionZ);
+        float f2 = MathHelper.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ);
         motionX /= (double) f2;
         motionY /= (double) f2;
         motionZ /= (double) f2;
@@ -134,7 +135,7 @@ public class EntityWirelessCamera extends CompatibleThrowableEntity {
         this.motionX = motionX;
         this.motionY = motionY;
         this.motionZ = motionZ;
-        float f3 = compatibility.getMathHelper().sqrt_double(motionX * motionX + motionZ * motionZ);
+        float f3 = MathHelper.sqrt(motionX * motionX + motionZ * motionZ);
         this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(motionX, motionZ) * 180.0D / Math.PI);
         this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(motionY, (double) f3) * 180.0D / Math.PI);
 

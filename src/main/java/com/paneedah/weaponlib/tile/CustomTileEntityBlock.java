@@ -91,7 +91,7 @@ public class CustomTileEntityBlock extends CompatibleBlockContainer {
     public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
         CustomTileEntity<?> entity = (CustomTileEntity<?>)compatibility.getTileEntity(world, pos);
         if(entity != null) {
-            int side = CompatibleMathHelper.floor_double(player.rotationYaw/90f + 0.5) & 3;
+            int side = MathHelper.floor_double(player.rotationYaw/90f + 0.5) & 3;
             entity.setSide(side);
         }
     }
