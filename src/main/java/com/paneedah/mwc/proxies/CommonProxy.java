@@ -95,19 +95,19 @@ public class CommonProxy {
         DataSerializers.registerSerializer(VehiclePhysSerializer.SERIALIZER);
 
         // Special object initialization
-        SpecialAttachments.init(mod, initializationEvent, ModernWarfareMod.MOD_CONTEXT);
-        Backpacks.init(mod, initializationEvent);
-        Vests.init(mod, initializationEvent);
-        Armors.init(mod, initializationEvent, ModernWarfareMod.MOD_CONTEXT);
-        Attachments.init(mod, initializationEvent);
-        AuxiliaryAttachments.init(mod, initializationEvent);
-        GunSkins.init(mod, initializationEvent);
-        Bullets.init(mod, initializationEvent);
-        Magazines.init(mod, initializationEvent);
-        Guns.init(mod, initializationEvent, this);
-        Electronics.init(mod, initializationEvent);
-        Grenades.init(mod, initializationEvent, this);
-        CustomSpawnEggs.init(mod, initializationEvent, this);
+        SpecialAttachments.init(mod, ModernWarfareMod.MOD_CONTEXT);
+        Backpacks.init(mod);
+        Vests.init(mod);
+        Armors.init(mod, ModernWarfareMod.MOD_CONTEXT);
+        Attachments.init(mod);
+        AuxiliaryAttachments.init(mod);
+        GunSkins.init(mod);
+        Bullets.init(mod);
+        Magazines.init(mod);
+        Guns.init(mod, this);
+        Electronics.init(mod);
+        Grenades.init(mod, this);
+        CustomSpawnEggs.init(mod, this);
         TileEntities.init(this);
 
         new TacticalTomahawkFactory().createMelee(this);
@@ -115,7 +115,7 @@ public class CommonProxy {
         new BaseballBatNailsFactory().createMelee(this);
         new NightStickFactory().createMelee(this);
 
-        ModernWarfareMod.MOD_CONTEXT.preInitEnd(mod, initializationEvent, ModernWarfareMod.MOD_CONTEXT.getChannel());
+        ModernWarfareMod.MOD_CONTEXT.preInitEnd(mod, ModernWarfareMod.MOD_CONTEXT.getChannel());
     }
 
     public void init(final ModernWarfareMod mod) {

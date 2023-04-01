@@ -52,7 +52,6 @@ public class CompatibleRayTraceResult {
 	private void init() {
 	    this.hitVec = position.hitVec != null ? new Vector3D(position.hitVec) : null;
 	    this.blockPos = position.getBlockPos() != null ? new BlockPos(position.getBlockPos()) : null;
-
 	}
 
     protected RayTraceResult getPosition() {

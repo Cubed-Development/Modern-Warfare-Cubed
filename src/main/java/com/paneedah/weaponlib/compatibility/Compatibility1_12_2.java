@@ -1092,8 +1092,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
     
     @Override
-    public void addStat(EntityPlayer entityplayer, StatBase compatibleAchievement) {
-        entityplayer.addStat(compatibleAchievement.getAchievement());
+    public void addStat(EntityPlayer entityplayer, StatBase statBase) {
+        entityplayer.addStat(statBase);
     }
 
     @Override
