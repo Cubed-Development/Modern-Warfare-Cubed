@@ -197,7 +197,7 @@ public abstract class CompatibleMeleeRenderer extends ModelSourceRenderer implem
 		//0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
 		renderContext.setAgeInTicks(-0.4f);
 		renderContext.setScale(0.08f);
-		renderContext.setCompatibleTransformType(CompatibleTransformType.fromItemRenderType(transformType));
+		renderContext.setCompatibleTransformType(transformType);
 		
 		Positioner<Part, RenderContext<RenderableState>> positioner = null;
 		switch (transformType)

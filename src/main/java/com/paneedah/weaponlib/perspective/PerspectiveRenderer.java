@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
-import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.ITextureObject;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -57,11 +57,9 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 	@Override
 	public void render(RenderContext<RenderableState> renderContext) {
 
-		if(renderContext.getCompatibleTransformType() != CompatibleTransformType.FIRST_PERSON_RIGHT_HAND
-				&& renderContext.getCompatibleTransformType() != CompatibleTransformType.FIRST_PERSON_LEFT_HAND) {
+		if(renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND && renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_LEFT_HAND) {
 			return;
 		}
-		
 
 		if(renderContext.getModContext() == null) {
 		    return;

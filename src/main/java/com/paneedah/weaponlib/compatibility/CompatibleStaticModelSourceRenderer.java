@@ -213,7 +213,7 @@ public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRen
 	}
 
 
-	protected void renderModelSource(RenderContext<RenderableState> renderContext, ItemStack itemStack, TransformType type, Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	protected void renderModelSource(RenderContext<RenderableState> renderContext, ItemStack itemStack, TransformType transformType, Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 
 		
 		if(!(itemStack.getItem() instanceof ModelSource)) {
@@ -231,8 +231,8 @@ public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRen
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
 			ModelBase model = texturedModel.getU();
 
-			if(type != null) {
-			    switch (type) {
+			if(transformType != null) {
+			    switch (transformType) {
 	            	case GROUND:
 	                	builder.getEntityModelPositioning().accept(model, itemStack);
 	                	break;
@@ -260,7 +260,7 @@ public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRen
 		if(postRenderer != null) {
 	        renderContext.setAgeInTicks(-0.4f);
 	        renderContext.setScale(0.08f);
-	        renderContext.setCompatibleTransformType(CompatibleTransformType.fromItemRenderType(type));
+	        renderContext.setCompatibleTransformType(transformType);
 
 	        renderContext.setPlayerItemInstance(getModContext().getPlayerItemInstanceRegistry().getItemInstance(renderContext.getPlayer(), itemStack));
 

@@ -371,7 +371,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 
 		renderContext.setAgeInTicks(-0.4f);
 		renderContext.setScale(0.08f);
-		renderContext.setCompatibleTransformType(CompatibleTransformType.fromItemRenderType(transformType));
+		renderContext.setCompatibleTransformType(transformType);
 
 		Positioner<Part, RenderContext<RenderableState>> positioner = null;
 		

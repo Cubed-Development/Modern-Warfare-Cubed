@@ -791,7 +791,7 @@ public class Interceptors {
         if(entity instanceof EntityPlayer /* && isProning((EntityPlayer) entity)*/) { 
             PlayerRenderer playerRenderer = renderers.get(entity);
             EntityPlayer player = (EntityPlayer) entity;
-            if(playerRenderer == null || !playerRenderer.positionItemSide(player, itemStack, CompatibleTransformType.fromItemRenderType(transformType), handSide)) {
+            if(playerRenderer == null || !playerRenderer.positionItemSide(player, itemStack, transformType, handSide)) {
                 ((ModelBiped)livingEntityRenderer.getMainModel()).postRenderArm(0.0625F, handSide);
             }
         } else {

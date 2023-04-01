@@ -3,8 +3,8 @@ package com.paneedah.weaponlib;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
-import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -228,7 +228,7 @@ public class PlayerRenderer {
         
         renderContext.setNetHeadYaw(netHeadYaw);
         renderContext.setHeadPitch(headPitch);
-        renderContext.setCompatibleTransformType(CompatibleTransformType.NONE);
+        renderContext.setCompatibleTransformType(ItemCameraTransforms.TransformType.NONE);
                
         positioner.position(Part.MAIN, renderContext);
         
@@ -481,7 +481,7 @@ public class PlayerRenderer {
             renderContext.setFlimbSwingAmount(limbSwingAmount);
             renderContext.setNetHeadYaw(netHeadYaw);
             renderContext.setHeadPitch(headPitch);
-            renderContext.setCompatibleTransformType(CompatibleTransformType.NONE);
+            renderContext.setCompatibleTransformType(ItemCameraTransforms.TransformType.NONE);
             
             modelPlayer.setRotationAngles(renderContext.getLimbSwing(), renderContext.getFlimbSwingAmount(), 
                     renderContext.getAgeInTicks(), renderContext.getNetHeadYaw(), 
@@ -501,7 +501,7 @@ public class PlayerRenderer {
         return descriptor != null;
     }
 
-    public boolean positionItemSide(EntityPlayer player, ItemStack itemStack, CompatibleTransformType transformType, EnumHandSide handSide) {
+    public boolean positionItemSide(EntityPlayer player, ItemStack itemStack, ItemCameraTransforms.TransformType transformType, EnumHandSide handSide) {
         PositionerDescriptor descriptor = currentPositioner.get();
         if(descriptor != null) {
             

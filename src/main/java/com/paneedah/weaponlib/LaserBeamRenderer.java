@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
 import com.paneedah.weaponlib.render.Bloom;
 import com.paneedah.weaponlib.render.Shaders;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -34,13 +34,8 @@ public class LaserBeamRenderer implements CustomRenderer {
 		
 		PlayerItemInstance<?> instance = renderContext.getPlayerItemInstance();
 
-		CompatibleTransformType type = renderContext.getCompatibleTransformType();
-		if(instance instanceof PlayerWeaponInstance && ((PlayerWeaponInstance) instance).isLaserOn() && (
-				   type == CompatibleTransformType.THIRD_PERSON_LEFT_HAND 
-				|| type == CompatibleTransformType.THIRD_PERSON_RIGHT_HAND 
-				|| type == CompatibleTransformType.FIRST_PERSON_LEFT_HAND
-				|| type == CompatibleTransformType.FIRST_PERSON_RIGHT_HAND
-				|| type == CompatibleTransformType.GROUND)) {
+		ItemCameraTransforms.TransformType type = renderContext.getTransformType();
+		if(instance instanceof PlayerWeaponInstance && ((PlayerWeaponInstance) instance).isLaserOn() && (type == ItemCameraTransforms.TransformType.THIRD_PERSON_LEFT_HAND || type == ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND || type == ItemCameraTransforms.TransformType.FIRST_PERSON_LEFT_HAND || type == ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND || type == ItemCameraTransforms.TransformType.GROUND)) {
 			
 			
 			
