@@ -2,13 +2,13 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
-import com.paneedah.weaponlib.compatibility.CompatibleEnumHandSide;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHandSide;
 import org.lwjgl.opengl.GL11;
 
 import java.nio.FloatBuffer;
@@ -501,16 +501,16 @@ public class PlayerRenderer {
         return descriptor != null;
     }
 
-    public boolean positionItemSide(EntityPlayer player, ItemStack itemStack, CompatibleTransformType transformType, CompatibleEnumHandSide handSide) {
+    public boolean positionItemSide(EntityPlayer player, ItemStack itemStack, CompatibleTransformType transformType, EnumHandSide handSide) {
         PositionerDescriptor descriptor = currentPositioner.get();
         if(descriptor != null) {
             
-            if((handSide == null || handSide == CompatibleEnumHandSide.RIGHT) 
+            if((handSide == null || handSide == EnumHandSide.RIGHT)
                     && !descriptor.rightHandPositioned) {
                 return false;
             }
             
-            if(handSide == CompatibleEnumHandSide.LEFT && !descriptor.leftHandPositioned) {
+            if(handSide == EnumHandSide.LEFT && !descriptor.leftHandPositioned) {
                 return false;
             }
 
@@ -523,9 +523,9 @@ public class PlayerRenderer {
             // Gun position
 //            GL11.glTranslatef(0f, 0.1f, -0f);
 //            GL11.glRotatef(5f, 1f, 0f, 0f);
-            if(handSide == CompatibleEnumHandSide.LEFT) {
+            if(handSide == EnumHandSide.LEFT) {
                 positioner.position(Part.LEFT_HAND, renderContext);
-            } else if(handSide == null || handSide == CompatibleEnumHandSide.RIGHT) {
+            } else if(handSide == null || handSide == EnumHandSide.RIGHT) {
                 // Right hand position
                 positioner.position(Part.RIGHT_HAND, renderContext);
 //                GL11.glRotatef(-5f, 1f, 0f, 0f);
