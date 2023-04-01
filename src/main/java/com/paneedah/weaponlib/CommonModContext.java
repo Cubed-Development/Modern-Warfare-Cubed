@@ -162,7 +162,7 @@ public class CommonModContext implements ModContext {
 
 
 	@Override
-    public void preInit(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
+    public void preInit(Object mod, CompatibleChannel channel) {
 		this.mod = mod;
 	    this.channel = channel;
 
@@ -331,7 +331,7 @@ public class CommonModContext implements ModContext {
 	}
 	
 	@Override
-	public void preInitEnd(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
+	public void preInitEnd(Object mod, CompatibleChannel channel) {
 		compatibility.registerTileEntity(TileEntityWorkbench.class, ModReference.id + ":tileworkbench");
 		compatibility.registerBlock(this, new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(ModernWarfareMod.BlocksTab), "weapon_workbench");
 		

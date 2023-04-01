@@ -4,7 +4,6 @@ import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.weaponlib.ItemStorage;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.Transform;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
@@ -41,7 +40,7 @@ public class Backpacks {
     
     public static Item G2Gunslinger2Backpack;
 
-    public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod) {
         
         TacticalPushPack = new ItemStorage.Builder()
         .withName("tactical_push_backpack")

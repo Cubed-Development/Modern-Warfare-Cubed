@@ -3,7 +3,6 @@ package com.paneedah.mwc.wearables;
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.weaponlib.ItemBullet;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleItems;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import org.lwjgl.opengl.GL11;
@@ -54,7 +53,7 @@ public class Bullets {
     
 //    public static ItemBullet Bullet9x18mm;
 
-    public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod) {
         Grenade40mm = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("Grenade40mm").withMaxStackSize(64)
                 .withModel(new com.paneedah.mwc.models.GL06Grenade(), "GL06.png")

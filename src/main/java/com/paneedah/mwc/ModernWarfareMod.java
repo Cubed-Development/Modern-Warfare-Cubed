@@ -7,7 +7,6 @@ import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.command.BalancePackCommand;
 import com.paneedah.weaponlib.command.CraftingFileCommand;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import net.minecraft.creativetab.CreativeTabs;
@@ -48,7 +47,7 @@ public class ModernWarfareMod {
 
     @EventHandler
     public void init(FMLPreInitializationEvent event) {
-        proxy.preInit(this, new CompatibleFmlPreInitializationEvent(event));
+        proxy.preInit(this);
     }
 
     @EventHandler

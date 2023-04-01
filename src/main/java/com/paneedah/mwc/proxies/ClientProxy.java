@@ -6,7 +6,6 @@ import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.wearables.Armors;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.model.AmmoPress;
@@ -38,8 +37,8 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void preInit(final ModernWarfareMod mod, final CompatibleFmlPreInitializationEvent initializationEvent) {
-        super.preInit(mod, initializationEvent);
+    public void preInit(final ModernWarfareMod mod) {
+        super.preInit(mod);
 
         final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
 

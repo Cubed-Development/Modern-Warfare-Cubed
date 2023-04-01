@@ -21,7 +21,6 @@ import com.paneedah.mwc.wearables.Vests;
 import com.paneedah.weaponlib.UniversalSoundLookup;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
 import com.paneedah.weaponlib.compatibility.CompatibleChannel;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
 import com.paneedah.weaponlib.vehicle.network.VehiclePhysSerializer;
 import net.minecraft.block.material.Material;
@@ -66,8 +65,8 @@ public class CommonProxy {
 
 
     // I cannot figure out for the life of me why moving the init classes to the init() instead of the preInit() makes the game die, but I have no choice but to leave it here for now.
-    public void preInit(final ModernWarfareMod mod, final CompatibleFmlPreInitializationEvent initializationEvent) {
-        ModernWarfareMod.MOD_CONTEXT.preInit(mod, initializationEvent, new CompatibleChannel(ModernWarfareMod.CHANNEL));
+    public void preInit(final ModernWarfareMod mod) {
+        ModernWarfareMod.MOD_CONTEXT.preInit(mod, new CompatibleChannel(ModernWarfareMod.CHANNEL));
 
         // Sounds
         ModernWarfareMod.MOD_CONTEXT.setChangeZoomSound("OpticZoom");
