@@ -483,7 +483,7 @@ public abstract class CompatibleClientEventHandler {
 			event.getRenderer().getRenderManager().renderViewEntity = event.getEntityPlayer();
 		}
 
-		onCompatibleRenderPlayerPreEvent(new CompatibleRenderPlayerPreEvent(event));
+		onCompatibleRenderPlayerPreEvent(event);
 	}
 
 	protected abstract ModContext getModContext();
@@ -602,6 +602,6 @@ public abstract class CompatibleClientEventHandler {
 
 	protected abstract void onCompatibleRenderHand(CompatibleRenderHandEvent event);
 
-	protected abstract void onCompatibleRenderPlayerPreEvent(CompatibleRenderPlayerPreEvent event);
+	protected abstract void onCompatibleRenderPlayerPreEvent(RenderPlayerEvent.Pre event);
 
 }

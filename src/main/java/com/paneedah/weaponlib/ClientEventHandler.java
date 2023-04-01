@@ -18,6 +18,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -289,7 +290,7 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
     }
 
     @Override
-    protected void onCompatibleRenderPlayerPreEvent(CompatibleRenderPlayerPreEvent event) {
+    protected void onCompatibleRenderPlayerPreEvent(RenderPlayerEvent.Pre event) {
         
 //        CustomPlayerInventory capability = CompatibleCustomPlayerInventoryCapability.getInventory(event.getPlayer());
 //        
