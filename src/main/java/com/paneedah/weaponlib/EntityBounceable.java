@@ -178,7 +178,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
                 if (entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                     float f = 0.3F;
                     AxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, f, f, f);
-                    CompatibleRayTraceResult movingobjectposition1 = new CompatibleRayTraceResult(axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d()));
+                    CompatibleRayTraceResult movingobjectposition1 = CompatibleRayTraceResult.fromRayTraceResult(axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d()));
 
                     if (movingobjectposition1 != null) {
                         double d1 = vec3.distanceTo(movingobjectposition1.getHitVec()); //hitVec
@@ -388,7 +388,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         for(int i = 0; i < 10; i++) {
             Vector3D currentPos = new Vector3D(this.posX + dX * i, this.posY + dY * i, this.posZ + dY * i);
             Vector3D projectedPos = new Vector3D(this.posX + dX * (i + 1), this.posY + dY * (i + 1), this.posZ + dZ * (i + 1));
-            intercept = new CompatibleRayTraceResult(axisalignedbb.calculateIntercept(currentPos.toVec3d(), projectedPos.toVec3d()));
+            intercept = CompatibleRayTraceResult.fromRayTraceResult(axisalignedbb.calculateIntercept(currentPos.toVec3d(), projectedPos.toVec3d()));
             if(intercept == null) {
                 //log.debug("Found no-intercept after bounce with offsets {}, {}, {}", dX, dY, dZ);
 

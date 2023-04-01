@@ -22,7 +22,7 @@ public class CompatibleRayTraceResult {
 	private BlockPos blockPos;
 	private List<BlockPos> passThrus = new ArrayList<>();
 
-	static CompatibleRayTraceResult fromRayTraceResult (RayTraceResult position) {
+	public static CompatibleRayTraceResult fromRayTraceResult(RayTraceResult position) {
 		return position != null ? new CompatibleRayTraceResult(position) : null;
 	}
 	

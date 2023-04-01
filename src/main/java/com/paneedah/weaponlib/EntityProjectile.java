@@ -323,7 +323,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
             if (flag && entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                 float f = 0.3F;
                 AxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, (double) f, (double) f, (double) f);
-                CompatibleRayTraceResult movingobjectposition1 = new CompatibleRayTraceResult(axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d()));
+                CompatibleRayTraceResult movingobjectposition1 = CompatibleRayTraceResult.fromRayTraceResult(axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d()));
 
                 if (movingobjectposition1 != null) {
                     double d1 = vec3.distanceTo(movingobjectposition1.getHitVec());
