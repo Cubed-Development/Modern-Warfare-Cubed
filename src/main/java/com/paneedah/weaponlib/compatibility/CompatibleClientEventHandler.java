@@ -458,7 +458,7 @@ public abstract class CompatibleClientEventHandler {
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public final void onRenderTickEvent(TickEvent.RenderTickEvent event) {
-		onCompatibleRenderTickEvent(new CompatibleRenderTickEvent(event));
+		onCompatibleRenderTickEvent(event);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -596,7 +596,7 @@ public abstract class CompatibleClientEventHandler {
 		//smoke1 = event.getMap().registerSprite(new ResourceLocation(ModReference.id + ":smokes/smokesheet"));
 	}
 
-	protected abstract void onCompatibleRenderTickEvent(CompatibleRenderTickEvent compatibleRenderTickEvent);
+	protected abstract void onCompatibleRenderTickEvent(TickEvent.RenderTickEvent compatibleRenderTickEvent);
 
 	protected abstract void onCompatibleClientTick(CompatibleClientTickEvent compatibleClientTickEvent);
 

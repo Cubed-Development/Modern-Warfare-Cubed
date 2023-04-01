@@ -20,6 +20,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.ArrayList;
 import java.util.Queue;
@@ -240,16 +241,16 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 	}
 
 	@Override
-    protected void onCompatibleRenderTickEvent(CompatibleRenderTickEvent event) {
+    protected void onCompatibleRenderTickEvent(TickEvent.RenderTickEvent event) {
 		
         Minecraft minecraft = mc;
         DynamicShaderContext shaderContext = new DynamicShaderContext(DynamicShaderPhase.POST_WORLD_RENDER,
                 minecraft.entityRenderer,
-                minecraft.getFramebuffer(), event.getRenderTickTime());
+                minecraft.getFramebuffer(), event.renderTickTime);
 
         EntityPlayer clientPlayer = compatibility.clientPlayer();
         
-        if(event.getPhase() == CompatibleRenderTickEvent.Phase.START ) {
+        if(event.phase == TickEvent.RenderTickEvent.Phase.START ) {
             ClientModContext.currentContext.set(modContext);
             mainLoopLock.lock();
             if(clientPlayer != null) {
@@ -272,7 +273,7 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
                 }
             }
 
-        } else if(event.getPhase() == CompatibleRenderTickEvent.Phase.END) {
+        } else if(event.phase == TickEvent.RenderTickEvent.Phase.END) {
             safeGlobals.renderingPhase.set(null);
             shaderGroupManager.removeStaleShaders(shaderContext);
             mainLoopLock.unlock();
