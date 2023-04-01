@@ -204,8 +204,6 @@ public interface Compatibility {
 
     public void addChatMessage(Entity entity, String message);
 
-    public RenderGlobal createCompatibleRenderGlobal();
-
     public Entity getRenderViewEntity();
 
     public void setRenderViewEntity(Entity entity);

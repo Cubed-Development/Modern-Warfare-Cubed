@@ -24,7 +24,6 @@ public abstract class Perspective<S> {
     protected int height;
 
     protected CompatibleWorldRenderer entityRenderer;
-    protected RenderGlobal renderGlobal;
     protected MWCParticleManager effectRenderer;
     protected DynamicShaderGroupManager shaderGroupManager;
 
@@ -36,7 +35,6 @@ public abstract class Perspective<S> {
         }
         this.entityRenderer = manager.getEntityRenderer();
         this.effectRenderer = manager.getEffectRenderer();
-        this.renderGlobal = manager.getRenderGlobal();
         this.shaderGroupManager = new DynamicShaderGroupManager(); //manager.getShaderGroupManager();
         if(this.shaderGroupManager.hasActiveGroups()) {
             System.err.println("!!! Active shader groups found !!!");

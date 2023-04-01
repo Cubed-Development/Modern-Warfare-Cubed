@@ -54,7 +54,6 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
         framebuffer.bindFramebuffer(true);
 
-        mc.renderGlobal = this.renderGlobal;
         mc.effectRenderer = MWCParticleManager.getParticleManager();
 
         mc.entityRenderer = this.entityRenderer;

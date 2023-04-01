@@ -5,7 +5,6 @@ import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import net.minecraft.client.multiplayer.WorldClient;
-import net.minecraft.client.renderer.RenderGlobal;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
@@ -16,7 +15,6 @@ public class PerspectiveManager {
     private Perspective<?> currentPerspective;
     private ClientModContext clientModContext;
     private CompatibleWorldRenderer entityRenderer;
-    private RenderGlobal renderGlobal;
     private MWCParticleManager effectRenderer;
     //private DynamicShaderGroupManager shaderGroupManager;
 
@@ -69,15 +67,6 @@ public class PerspectiveManager {
                     mc.getResourceManager());
         }
         return entityRenderer;
-    }
-
-    RenderGlobal getRenderGlobal() {
-        if(renderGlobal == null) {
-            renderGlobal = compatibility.createCompatibleRenderGlobal();
-            WorldClient world = (WorldClient) compatibility.world(compatibility.clientPlayer());
-            renderGlobal.setWorldAndLoadRenderers(world);
-        }
-        return renderGlobal;
     }
 
     MWCParticleManager getEffectRenderer() {

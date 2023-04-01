@@ -599,12 +599,6 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public RenderGlobal createCompatibleRenderGlobal() {
-        return /*mc.renderGlobal; //*/ new CompatibleRenderGlobal(mc);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
     public Entity getRenderViewEntity() {
         return mc.getRenderViewEntity();
     }
