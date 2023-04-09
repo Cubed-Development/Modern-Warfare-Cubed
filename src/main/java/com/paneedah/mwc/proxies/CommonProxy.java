@@ -91,7 +91,7 @@ public class CommonProxy {
         // Forcing Item Initialization here, at the very least the variables, before they get registered normally on the init() (@SubscribeEvent) phase.
         MWCItems.init();
 
-        // Idk? Deprecated too.
+        // IDK? Deprecated too.
         DataSerializers.registerSerializer(VehicleDataSerializer.SERIALIZER);
         DataSerializers.registerSerializer(VehiclePhysSerializer.SERIALIZER);
 
