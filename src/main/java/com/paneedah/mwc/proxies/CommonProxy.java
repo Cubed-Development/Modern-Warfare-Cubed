@@ -9,7 +9,6 @@ import com.paneedah.mwc.items.melee.NightStickFactory;
 import com.paneedah.mwc.items.melee.TacticalTomahawkFactory;
 import com.paneedah.mwc.skins.GunSkins;
 import com.paneedah.mwc.tileentities.TileEntities;
-import com.paneedah.mwc.vehicle.Vehicles;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Guns;
@@ -124,7 +123,6 @@ public class CommonProxy {
         ModernWarfareMod.MOD_CONTEXT.init(mod);
 
         Entities.init(this);
-        Vehicles.init(this);
 
         compatibility.registerWorldGenerator(new WorldGeneratorEventHandler(), 0);
     }
