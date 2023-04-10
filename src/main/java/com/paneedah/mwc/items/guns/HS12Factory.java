@@ -2,8 +2,6 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.models.AcogReticle;
-import com.paneedah.mwc.models.AcogScope2;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
