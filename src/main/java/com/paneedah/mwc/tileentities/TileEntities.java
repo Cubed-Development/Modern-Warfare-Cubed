@@ -820,23 +820,23 @@ public class TileEntities {
         .withEquipmentDispenseTimeout(10)
         .build(ModernWarfareMod.MOD_CONTEXT);
 
-        new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
-        .withName("barrier_rotated")
-        .withModelClassName("com.paneedah.mwc.models.Barrier")
-        .withTextureName("textures/models/barrier.png")
-//        .withEquipementDispenseSound(sound)
-        .withCreativeTab(ModernWarfareMod.BlocksTab)
-        .withPositioning(tileEntity -> {
-        	GL11.glScalef(1.1f, 1.2f, 1.1f);
-            GL11.glTranslatef(0.42f, -0.25f, 0.5f);
-            GL11.glRotatef(-45F, 0f, 1f, 0f);
-        })
-//        .withEquipmentOption(Guns.M9A1, EnumDifficulty.EASY, 4f)
-//        .withEquipmentOption(Guns.M45A1, EnumDifficulty.EASY, 3f)
-//        .withEquipmentOption(Items.air, EnumDifficulty.EASY, 150f, 1)
-        .withEquipmentDispenseTimeout(10)
-        .build(ModernWarfareMod.MOD_CONTEXT);
+//        new LootBoxConfiguration()
+//        .withMaterial(CompatibleMaterial.ROCK)
+//        .withName("barrier_rotated")
+//        .withModelClassName("com.paneedah.mwc.models.Barrier")
+//        .withTextureName("textures/models/barrier.png")
+////        .withEquipementDispenseSound(sound)
+//        .withCreativeTab(ModernWarfareMod.BlocksTab)
+//        .withPositioning(tileEntity -> {
+//        	GL11.glScalef(1.1f, 1.2f, 1.1f);
+//            GL11.glTranslatef(0.42f, -0.25f, 0.5f);
+//            GL11.glRotatef(-45F, 0f, 1f, 0f);
+//        })
+////        .withEquipmentOption(Guns.M9A1, EnumDifficulty.EASY, 4f)
+////        .withEquipmentOption(Guns.M45A1, EnumDifficulty.EASY, 3f)
+////        .withEquipmentOption(Items.air, EnumDifficulty.EASY, 150f, 1)
+//        .withEquipmentDispenseTimeout(10)
+//        .build(ModernWarfareMod.MOD_CONTEXT);
 //
 //        new LootBoxConfiguration()
 //        .withMaterial(CompatibleMaterial.WOOD)
@@ -1288,23 +1288,23 @@ public class TileEntities {
 //        .withEquipmentDispenseTimeout(10)
 //        .build(ModernWarfareMod.MOD_CONTEXT);
 //
-        new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
-        .withName("caution_sign")
-        .withModelClassName("com.paneedah.mwc.models.CautionSign")
-        .withTextureName("textures/models/cautionsign.png")
-//        .withEquipementDispenseSound(sound)
-        .withCreativeTab(ModernWarfareMod.BlocksTab)
-        .withPositioning(tileEntity -> {
-            GL11.glScalef(0.8f, 0.8f, 0.8f);
-            GL11.glTranslatef(0.6f, 0.45f, 0.6f);
-            GL11.glRotatef(-45F, 0f, 1f, 0f);
-        })
-//        .withEquipmentOption(Guns.M9A1, EnumDifficulty.EASY, 4f)
-//        .withEquipmentOption(Guns.M45A1, EnumDifficulty.EASY, 3f)
-//        .withEquipmentOption(Items.air, EnumDifficulty.EASY, 150f, 1)
-        .withEquipmentDispenseTimeout(10)
-        .build(ModernWarfareMod.MOD_CONTEXT);
+//        new LootBoxConfiguration()
+//        .withMaterial(CompatibleMaterial.ROCK)
+//        .withName("caution_sign")
+//        .withModelClassName("com.paneedah.mwc.models.CautionSign")
+//        .withTextureName("textures/models/cautionsign.png")
+////        .withEquipementDispenseSound(sound)
+//        .withCreativeTab(ModernWarfareMod.BlocksTab)
+//        .withPositioning(tileEntity -> {
+//            GL11.glScalef(0.8f, 0.8f, 0.8f);
+//            GL11.glTranslatef(0.6f, 0.45f, 0.6f);
+//            GL11.glRotatef(-45F, 0f, 1f, 0f);
+//        })
+////        .withEquipmentOption(Guns.M9A1, EnumDifficulty.EASY, 4f)
+////        .withEquipmentOption(Guns.M45A1, EnumDifficulty.EASY, 3f)
+////        .withEquipmentOption(Items.air, EnumDifficulty.EASY, 150f, 1)
+//        .withEquipmentDispenseTimeout(10)
+//        .build(ModernWarfareMod.MOD_CONTEXT);
 //
 //        new LootBoxConfiguration()
 //        .withMaterial(CompatibleMaterial.IRON)
@@ -1636,7 +1636,7 @@ public class TileEntities {
 //        .withModelClassName("com.paneedah.mwc.models.Floodlight")
 //        .withTextureName("textures/models/floodlight.png")
 ////        .withEquipementDispenseSound(sound)
-//        .withCreativeTab(ModernWarfareMod.PropsTab)
+//        .withCreativeTab(ModernWarfareMod.BlocksTab)
 //        .withPositioning(tileEntity -> {
 //            GL11.glScalef(0.9f, 0.9f, 0.9f);
 //            GL11.glTranslatef(0.6f, 0.175f, 0.6f);

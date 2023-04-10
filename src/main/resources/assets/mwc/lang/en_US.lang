@@ -7,16 +7,7 @@ item.ae86trueno.name=Toyota AE86 Trueno
 item.atv_polaris_sportsman_850_2019.name=2019 Polaris Sportsman 850
 
 entity.terrorist.name=Terrorist
-entity.zombieBlistered.name=Blistered Zombie
-entity.zombieRipper.name=Ripper Zombie
-entity.tornzombie.name=Torn Zombie
-entity.necromorph.name=Necromorph
-entity.licker.name=Licker
-entity.zombie.name=Zombie
-entity.hazmat_zombie.name=HazMat Zombie
-entity.Defiled Zombie.name=Defiled Zombie
-entity.deathclaw.name=Deathclaw
-entity.molded.name=Molded
+entity.soldier.name=Soldier
 
 item.mwc_gas-detector.name=Gas Detector
 item.mwc_GasGrenade.name=Gas Grenade
