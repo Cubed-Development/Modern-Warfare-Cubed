@@ -109,6 +109,7 @@ public class CommonProxy {
         Guns.init(mod, initializationEvent, this);
         Electronics.init(mod, initializationEvent);
         Grenades.init(mod, initializationEvent, this);
+        CustomSpawnEggs.init(mod, initializationEvent, this);
         TileEntities.init(this);
 
         new TacticalTomahawkFactory().createMelee(this);
