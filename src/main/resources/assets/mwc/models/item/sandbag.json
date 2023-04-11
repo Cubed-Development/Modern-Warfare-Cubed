@@ -2,7 +2,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/sandbag"
+        "layer0": "mwc:items/barrel"
     },
     "display": {
 		"thirdperson_righthand": {

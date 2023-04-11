@@ -70,6 +70,10 @@ public class Armors {
     //public static Item Umbrellaboots;
     //public static Item Umbrellahelmet;
     
+    public static Item Astronautchest;
+    public static Item Astronautboots;
+    public static Item Astronauthelmet;
+    
     public static Item NaziSantachest;
     public static Item NaziSantaboots;
     public static Item NaziSantahelmet;
@@ -266,5 +270,38 @@ public class Armors {
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.GasMaskM40 = gasSuitArmorBuilder.buildHelmet(modContext);
+
+        Builder astronautArmorBuilder = new CustomArmor.Builder().withMaterial(Armors.Astronaut)
+                .withUnlocalizedName("Astronaut")
+                .withTextureName("Astronaut")
+                .withExposureReductionFactor(1f)
+                .withModelClass("com.paneedah.mwc.models.Astronaut")
+                .withHudTextureName("Marine")
+                .withCreativeTab(ModernWarfareMod.ArmorTab);
+
+        Armors.Astronauthelmet = astronautArmorBuilder.buildHelmet(modContext);
+        Armors.Astronautchest = astronautArmorBuilder.buildChest(modContext.isClient());
+        Armors.Astronautboots = astronautArmorBuilder.buildBoots(modContext.isClient());
+        
+        Builder dclassArmorBuilder = new CustomArmor.Builder().withMaterial(Armors.Clothing)
+                .withUnlocalizedName("Dclass")
+                .withTextureName("dclass")
+                .withModelClass("com.paneedah.mwc.models.Dclass")
+                .withHudTextureName("Marine")
+                .withCreativeTab(ModernWarfareMod.ArmorTab);
+
+        Armors.Dclasschest = dclassArmorBuilder.buildChest(modContext.isClient());
+        Armors.Dclassboots = dclassArmorBuilder.buildBoots(modContext.isClient()); 
+        
+        Builder SCPGuardArmorBuilder = new CustomArmor.Builder().withMaterial(Armors.Marine)
+                .withUnlocalizedName("SCPGuard")
+                .withTextureName("scpguard")
+                .withModelClass("com.paneedah.mwc.models.SCPGuard")
+                .withHudTextureName("Marine")
+                .withCreativeTab(ModernWarfareMod.ArmorTab);
+
+        Armors.SCPGuardhelmet = SCPGuardArmorBuilder.buildHelmet(modContext); 
+        Armors.SCPGuardchest = SCPGuardArmorBuilder.buildChest(modContext.isClient());
+        Armors.SCPGuardboots = SCPGuardArmorBuilder.buildBoots(modContext.isClient());
     }
 }

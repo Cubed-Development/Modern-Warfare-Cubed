@@ -9,6 +9,7 @@ import com.paneedah.mwc.items.melee.NightStickFactory;
 import com.paneedah.mwc.items.melee.TacticalTomahawkFactory;
 import com.paneedah.mwc.skins.GunSkins;
 import com.paneedah.mwc.tileentities.TileEntities;
+import com.paneedah.mwc.vehicle.Vehicles;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Guns;
@@ -91,7 +92,7 @@ public class CommonProxy {
         // Forcing Item Initialization here, at the very least the variables, before they get registered normally on the init() (@SubscribeEvent) phase.
         MWCItems.init();
 
-        // IDK? Deprecated too.
+        // Idk? Deprecated too.
         DataSerializers.registerSerializer(VehicleDataSerializer.SERIALIZER);
         DataSerializers.registerSerializer(VehiclePhysSerializer.SERIALIZER);
 
@@ -123,6 +124,7 @@ public class CommonProxy {
         ModernWarfareMod.MOD_CONTEXT.init(mod);
 
         Entities.init(this);
+        Vehicles.init(this);
 
         compatibility.registerWorldGenerator(new WorldGeneratorEventHandler(), 0);
     }

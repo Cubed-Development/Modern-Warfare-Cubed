@@ -2,9 +2,6 @@ package com.paneedah.mwc.weapons;
 
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.models.*;
-import com.paneedah.mwc.models.ACRAction;
-import com.paneedah.mwc.models.ACRAction2;
-import com.paneedah.mwc.models.AK12action;
 import com.paneedah.weaponlib.AttachmentBuilder;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.ItemAttachment;
@@ -551,8 +548,8 @@ public class AuxiliaryAttachments {
                 .build(ModernWarfareMod.MOD_CONTEXT);
         
         ACRAction = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
-                .withModel(new ACRAction(), "ACR.png")
-                .withModel(new ACRAction2(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.ACRAction(), "ACR.png")
+                .withModel(new com.paneedah.mwc.models.ACRAction2(), "gun.png")
                 .withName("ACRAction").withRenderablePart()
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT);
         
@@ -1300,7 +1297,7 @@ public class AuxiliaryAttachments {
         AK12action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
                 // .withCreativeTab(ModernWarfareMod.gunsTab)
-                .withModel(new AK12action(), "ak12kal.png")
+                .withModel(new com.paneedah.mwc.models.AK12action(), "ak12kal.png")
                 .withName("AK12action")
                 .withRenderablePart().withTextureName("Dummy.png")
                 .build(ModernWarfareMod.MOD_CONTEXT);

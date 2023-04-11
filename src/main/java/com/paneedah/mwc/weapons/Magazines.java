@@ -4,7 +4,6 @@ import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.UMP45mag;
 import com.paneedah.mwc.models.UMP9Mag;
-import com.paneedah.mwc.models.AK12Magazine;
 import com.paneedah.mwc.wearables.Bullets;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
@@ -1077,7 +1076,7 @@ public class Magazines {
         		.withName("AK12Mag")
         		.withRotationPoint(-0.12000000357627871, 0.36000001072883614, -1.9200000572204599)
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
-                .withModel(new AK12Magazine(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.AK12Magazine(), "gun.png")
 
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
