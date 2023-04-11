@@ -1265,59 +1265,6 @@
       ]
     },
     {
-      "entryName": "mwc:turret",
-      "craftingGroup": "GUN",
-      "recipe": [
-        {
-          "entryName": "mwc:synthetic_polymer_composite",
-          "isOreDictionary": false,
-          "count": 5
-        },
-        {
-          "entryName": "mwc:gunmetal_plate",
-          "isOreDictionary": false,
-          "count": 6
-        },
-        {
-          "entryName": "mwc:M4A1",
-          "isOreDictionary": false,
-          "count": 1
-        }
-      ]
-    },
-    {
-      "entryName": "mwc:turretupgraded",
-      "craftingGroup": "GUN",
-      "recipe": [
-        {
-          "entryName": "mwc:synthetic_polymer_composite",
-          "isOreDictionary": false,
-          "count": 4
-        },
-        {
-          "entryName": "mwc:turret",
-          "isOreDictionary": false,
-          "count": 1
-        }
-      ]
-    },
-    {
-      "entryName": "mwc:turretsilenced",
-      "craftingGroup": "GUN",
-      "recipe": [
-        {
-          "entryName": "mwc:gunmetal_ingot",
-          "isOreDictionary": false,
-          "count": 2
-        },
-        {
-          "entryName": "mwc:turretupgraded",
-          "isOreDictionary": false,
-          "count": 1
-        }
-      ]
-    },
-    {
       "entryName": "mwc:FABDefenseMount",
       "craftingGroup": "ATTACHMENT_MODIFICATION",
       "recipe": [
