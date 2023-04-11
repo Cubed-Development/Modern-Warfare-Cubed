@@ -13,17 +13,7 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
 public class Armors {
 	
 	// realistic armors
-	
 	public static Item JPNVG18helmet;
-    
-    // scp armors
-    
-    public static Item Dclasschest;
-    public static Item Dclassboots;
-    
-    public static Item SCPGuardchest;
-    public static Item SCPGuardboots;
-    public static Item SCPGuardhelmet;
 	
 	// armors
 
@@ -66,14 +56,6 @@ public class Armors {
     public static Item Juggernautboots;
     public static Item Juggernauthelmet;
     
-    //public static Item Umbrellachest;
-    //public static Item Umbrellaboots;
-    //public static Item Umbrellahelmet;
-    
-    public static Item Astronautchest;
-    public static Item Astronautboots;
-    public static Item Astronauthelmet;
-    
     public static Item NaziSantachest;
     public static Item NaziSantaboots;
     public static Item NaziSantahelmet;
@@ -85,11 +67,6 @@ public class Armors {
     static ArmorMaterial Juggernaut = compatibility.addArmorMaterial("Juggernaut", "Juggernaut", 20, new int[] { 5, 6, 2, 5 }, 20, null, 0); // TODO: last
     
     static ArmorMaterial Marine = compatibility.addArmorMaterial("Marine", "Marine", 60, new int[] { 2, 3, 3, 3 }, 15, null, 0); // TODO: last
-    
-    static ArmorMaterial Clothing = compatibility.addArmorMaterial("Clothing", "Clothing", 33, new int[] { 0, 0, 0, 0 }, 15, null, 0); // TODO: last
-    
-    static ArmorMaterial Astronaut = compatibility.addArmorMaterial("Astronaut", "Astronaut", 33, new int[] { 1, 2, 2, 1 }, 15, null, 0); // TODO:
-
     public static void init(Object mod, CompatibleFmlPreInitializationEvent event, ModContext modContext) {
         Builder marineArmorBuilder = new CustomArmor.Builder()
     			.withMaterial(Armors.Marine)
@@ -270,38 +247,5 @@ public class Armors {
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.GasMaskM40 = gasSuitArmorBuilder.buildHelmet(modContext);
-
-//        Builder astronautArmorBuilder = new CustomArmor.Builder().withMaterial(Armors.Astronaut)
-//                .withUnlocalizedName("Astronaut")
-//                .withTextureName("Astronaut")
-//                .withExposureReductionFactor(1f)
-//                .withModelClass("com.paneedah.mwc.models.Astronaut")
-//                .withHudTextureName("Marine")
-//                .withCreativeTab(ModernWarfareMod.ArmorTab);
-//
-//        Armors.Astronauthelmet = astronautArmorBuilder.buildHelmet(modContext);
-//        Armors.Astronautchest = astronautArmorBuilder.buildChest(modContext.isClient());
-//        Armors.Astronautboots = astronautArmorBuilder.buildBoots(modContext.isClient());
-        
-//        Builder dclassArmorBuilder = new CustomArmor.Builder().withMaterial(Armors.Clothing)
-//                .withUnlocalizedName("Dclass")
-//                .withTextureName("dclass")
-//                .withModelClass("com.paneedah.mwc.models.Dclass")
-//                .withHudTextureName("Marine")
-//                .withCreativeTab(ModernWarfareMod.ArmorTab);
-//
-//        Armors.Dclasschest = dclassArmorBuilder.buildChest(modContext.isClient());
-//        Armors.Dclassboots = dclassArmorBuilder.buildBoots(modContext.isClient());
-        
-//        Builder SCPGuardArmorBuilder = new CustomArmor.Builder().withMaterial(Armors.Marine)
-//                .withUnlocalizedName("SCPGuard")
-//                .withTextureName("scpguard")
-//                .withModelClass("com.paneedah.mwc.models.SCPGuard")
-//                .withHudTextureName("Marine")
-//                .withCreativeTab(ModernWarfareMod.ArmorTab);
-//
-//        Armors.SCPGuardhelmet = SCPGuardArmorBuilder.buildHelmet(modContext);
-//        Armors.SCPGuardchest = SCPGuardArmorBuilder.buildChest(modContext.isClient());
-//        Armors.SCPGuardboots = SCPGuardArmorBuilder.buildBoots(modContext.isClient());
     }
 }
