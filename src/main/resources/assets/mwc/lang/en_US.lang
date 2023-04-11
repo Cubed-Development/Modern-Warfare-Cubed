@@ -7,16 +7,7 @@ item.ae86trueno.name=Toyota AE86 Trueno
 item.atv_polaris_sportsman_850_2019.name=2019 Polaris Sportsman 850
 
 entity.terrorist.name=Terrorist
-entity.zombieBlistered.name=Blistered Zombie
-entity.zombieRipper.name=Ripper Zombie
-entity.tornzombie.name=Torn Zombie
-entity.necromorph.name=Necromorph
-entity.licker.name=Licker
-entity.zombie.name=Zombie
-entity.hazmat_zombie.name=HazMat Zombie
-entity.Defiled Zombie.name=Defiled Zombie
-entity.deathclaw.name=Deathclaw
-entity.molded.name=Molded
+entity.soldier.name=Soldier
 
 item.mwc_gas-detector.name=Gas Detector
 item.mwc_GasGrenade.name=Gas Grenade
@@ -1039,7 +1030,7 @@ tile.mwc_spookyghost2.name=Spooky Ghost 2
 tile.mwc_spookyghost3.name=Spooky Ghost 3
 tile.mwc_swat_truck.name=SWAT Truck
 
-itemGroup.guns_tab=Modern Warfare Resources
+itemGroup.guns_tab=MWC Resources
 itemGroup.AssaultRifles_tab=MWC Guns
 itemGroup.props_tab=MWC Props (Creative Use Only)
 itemGroup.AmmoTab=MWC Ammunition

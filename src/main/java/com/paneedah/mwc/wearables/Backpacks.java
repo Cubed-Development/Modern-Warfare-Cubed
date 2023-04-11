@@ -43,27 +43,27 @@ public class Backpacks {
 
     public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
         
-        TacticalPushPack = new ItemStorage.Builder()
-        .withName("tactical_push_backpack")
-        .withSize(8)
-        .withGuiTextureWidth(256)
-        .withValidItemPredicate(item -> !(item instanceof Weapon))
-        .withTab(CreativeTabs.MISC)
-        .withModel(new com.paneedah.mwc.models.TacticalPushPack())
-        .withModelTextureName("black_tru_spec_cordura_backpack.png")
-        .withGuiTextureName("tactical_push_pack.png")
-        .withCustomEquippedPositioning((player, stack) -> {
-            GL11.glScalef(0.8f, 0.8f, 0.8f);
-            GL11.glTranslatef(0f, 0f, 0f);
-            GL11.glRotatef(0F, 0f, 0f, 1f);
-        })
-        .withInventoryPositioning(stack -> {
-            GL11.glScalef(1.3f, 1.3f, 1.3f);
-            GL11.glTranslatef(0.2f, -0.55f, 0f);
-            GL11.glRotatef(23F, 0f, 1f, 0f);
-            GL11.glRotatef(20F, 0f, 0f, 1f);
-        })
-        .build(ModernWarfareMod.MOD_CONTEXT);
+//        TacticalPushPack = new ItemStorage.Builder()
+//        .withName("tactical_push_backpack")
+//        .withSize(8)
+//        .withGuiTextureWidth(256)
+//        .withValidItemPredicate(item -> !(item instanceof Weapon))
+//        .withTab(CreativeTabs.MISC)
+//        .withModel(new com.paneedah.mwc.models.TacticalPushPack())
+//        .withModelTextureName("black_tru_spec_cordura_backpack.png")
+//        .withGuiTextureName("tactical_push_pack.png")
+//        .withCustomEquippedPositioning((player, stack) -> {
+//            GL11.glScalef(0.8f, 0.8f, 0.8f);
+//            GL11.glTranslatef(0f, 0f, 0f);
+//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//        })
+//        .withInventoryPositioning(stack -> {
+//            GL11.glScalef(1.3f, 1.3f, 1.3f);
+//            GL11.glTranslatef(0.2f, -0.55f, 0f);
+//            GL11.glRotatef(23F, 0f, 1f, 0f);
+//            GL11.glRotatef(20F, 0f, 0f, 1f);
+//        })
+//        .build(ModernWarfareMod.MOD_CONTEXT);
         
         CombatSustainmentBackpack = new ItemStorage.Builder()
         .withName("combat_sustainment_backpack")
@@ -315,93 +315,93 @@ public class Backpacks {
         })
         .build(ModernWarfareMod.MOD_CONTEXT);
         
-        PilgrimBackpack = new ItemStorage.Builder()
-        .withName("pilgrim_backpack")
-        .withSize(34)
-        .withGuiTextureWidth(256)
-        .withValidItemPredicate(item -> !(item instanceof Weapon))
-        .withTab(CreativeTabs.MISC)
-        .withModel(new com.paneedah.mwc.models.PilgrimBackpack())
-        .withModelTextureName("pilgrim_backpack.png")
-        .withGuiTextureName("pilgrim_backpack.png")
-        .withCustomEquippedPositioning((player, stack) -> {
-            GL11.glScalef(0.8f, 0.8f, 0.8f);
-            GL11.glTranslatef(0f, 0f, 0f);
-            GL11.glRotatef(0F, 0f, 0f, 1f);
-        })
-        .withInventoryPositioning(stack -> {
-            GL11.glScalef(1.1f, 1.1f, 1.1f);
-            GL11.glTranslatef(-0.15f, -0.7f, 0f);
-            GL11.glRotatef(-33F, 0f, 1f, 0f);
-            GL11.glRotatef(20F, 1f, 0f, 0f);
-        })
-        .build(ModernWarfareMod.MOD_CONTEXT);
+//        PilgrimBackpack = new ItemStorage.Builder()
+//        .withName("pilgrim_backpack")
+//        .withSize(34)
+//        .withGuiTextureWidth(256)
+//        .withValidItemPredicate(item -> !(item instanceof Weapon))
+//        .withTab(CreativeTabs.MISC)
+//        .withModel(new com.paneedah.mwc.models.PilgrimBackpack())
+//        .withModelTextureName("pilgrim_backpack.png")
+//        .withGuiTextureName("pilgrim_backpack.png")
+//        .withCustomEquippedPositioning((player, stack) -> {
+//            GL11.glScalef(0.8f, 0.8f, 0.8f);
+//            GL11.glTranslatef(0f, 0f, 0f);
+//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//        })
+//        .withInventoryPositioning(stack -> {
+//            GL11.glScalef(1.1f, 1.1f, 1.1f);
+//            GL11.glTranslatef(-0.15f, -0.7f, 0f);
+//            GL11.glRotatef(-33F, 0f, 1f, 0f);
+//            GL11.glRotatef(20F, 1f, 0f, 0f);
+//        })
+//        .build(ModernWarfareMod.MOD_CONTEXT);
         
-        F4MTerminatorBackpack = new ItemStorage.Builder()
-        .withName("f4m_terminator_backpack")
-        .withSize(35)
-        .withGuiTextureWidth(256)
-        .withValidItemPredicate(item -> !(item instanceof Weapon))
-        .withTab(CreativeTabs.MISC)
-        .withModel(new com.paneedah.mwc.models.F4MTerminatorBackpack())
-        .withModelTextureName("f4m_terminator_backpack.png")
-        .withGuiTextureName("f4m_terminator_backpack.png")
-        .withCustomEquippedPositioning((player, stack) -> {
-            GL11.glScalef(0.8f, 0.8f, 0.8f);
-            GL11.glTranslatef(0f, 0f, 0f);
-            GL11.glRotatef(0F, 0f, 0f, 1f);
-        })
-        .withInventoryPositioning(stack -> {
-            GL11.glScalef(1.1f, 1.1f, 1.1f);
-            GL11.glTranslatef(-0.15f, -0.7f, 0f);
-            GL11.glRotatef(-33F, 0f, 1f, 0f);
-            GL11.glRotatef(20F, 1f, 0f, 0f);
-        })
-        .build(ModernWarfareMod.MOD_CONTEXT);
+//        F4MTerminatorBackpack = new ItemStorage.Builder()
+//        .withName("f4m_terminator_backpack")
+//        .withSize(35)
+//        .withGuiTextureWidth(256)
+//        .withValidItemPredicate(item -> !(item instanceof Weapon))
+//        .withTab(CreativeTabs.MISC)
+//        .withModel(new com.paneedah.mwc.models.F4MTerminatorBackpack())
+//        .withModelTextureName("f4m_terminator_backpack.png")
+//        .withGuiTextureName("f4m_terminator_backpack.png")
+//        .withCustomEquippedPositioning((player, stack) -> {
+//            GL11.glScalef(0.8f, 0.8f, 0.8f);
+//            GL11.glTranslatef(0f, 0f, 0f);
+//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//        })
+//        .withInventoryPositioning(stack -> {
+//            GL11.glScalef(1.1f, 1.1f, 1.1f);
+//            GL11.glTranslatef(-0.15f, -0.7f, 0f);
+//            GL11.glRotatef(-33F, 0f, 1f, 0f);
+//            GL11.glRotatef(20F, 1f, 0f, 0f);
+//        })
+//        .build(ModernWarfareMod.MOD_CONTEXT);
+//
+//        BergenBackpack = new ItemStorage.Builder()
+//        .withName("bergen_backpack")
+//        .withSize(36)
+//        .withGuiTextureWidth(256)
+//        .withValidItemPredicate(item -> !(item instanceof Weapon))
+//        .withTab(CreativeTabs.MISC)
+//        .withModel(new com.paneedah.mwc.models.BergenBackpack())
+//        .withModelTextureName("bergen_backpack.png")
+//        .withGuiTextureName("big_backpack.png")
+//        .withCustomEquippedPositioning((player, stack) -> {
+//            GL11.glScalef(0.8f, 0.8f, 0.8f);
+//            GL11.glTranslatef(0f, 0f, 0f);
+//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//        })
+//        .withInventoryPositioning(stack -> {
+//            GL11.glScalef(1.1f, 1.1f, 1.1f);
+//            GL11.glTranslatef(-0.2f, -0.5f, 0f);
+//            GL11.glRotatef(-33F, 0f, 1f, 0f);
+//            GL11.glRotatef(20F, 1f, 0f, 0f);
+//        })
+//        .build(ModernWarfareMod.MOD_CONTEXT);
         
-        BergenBackpack = new ItemStorage.Builder()
-        .withName("bergen_backpack")
-        .withSize(36)
-        .withGuiTextureWidth(256)
-        .withValidItemPredicate(item -> !(item instanceof Weapon))
-        .withTab(CreativeTabs.MISC)
-        .withModel(new com.paneedah.mwc.models.BergenBackpack())
-        .withModelTextureName("bergen_backpack.png")
-        .withGuiTextureName("big_backpack.png")
-        .withCustomEquippedPositioning((player, stack) -> {
-            GL11.glScalef(0.8f, 0.8f, 0.8f);
-            GL11.glTranslatef(0f, 0f, 0f);
-            GL11.glRotatef(0F, 0f, 0f, 1f);
-        })
-        .withInventoryPositioning(stack -> {
-            GL11.glScalef(1.1f, 1.1f, 1.1f);
-            GL11.glTranslatef(-0.2f, -0.5f, 0f);
-            GL11.glRotatef(-33F, 0f, 1f, 0f);
-            GL11.glRotatef(20F, 1f, 0f, 0f);
-        })
-        .build(ModernWarfareMod.MOD_CONTEXT);
-        
-        G2Gunslinger2Backpack = new ItemStorage.Builder()
-        .withName("g2_gunslinger2_backpack")
-        .withSize(10)
-        .withGuiTextureWidth(256)
-        .withValidItemPredicate(item -> (item instanceof Weapon))
-        .withTab(CreativeTabs.MISC)
-        .withModel(new com.paneedah.mwc.models.G2Gunslinger2Backpack())
-        .withModelTextureName("f4m_terminator_backpack.png")
-        .withGuiTextureName("combat_sustainment_backpack.png")
-        .withCustomEquippedPositioning((player, stack) -> {
-            GL11.glScalef(0.8f, 0.8f, 0.8f);
-            GL11.glTranslatef(0f, 0f, 0f);
-            GL11.glRotatef(0F, 0f, 0f, 1f);
-        })
-        .withInventoryPositioning(stack -> {
-            GL11.glScalef(1.1f, 1.1f, 1.1f);
-            GL11.glTranslatef(-0.2f, -0.5f, 0f);
-            GL11.glRotatef(-33F, 0f, 1f, 0f);
-            GL11.glRotatef(20F, 1f, 0f, 0f);
-        })
-        .build(ModernWarfareMod.MOD_CONTEXT);
+//        G2Gunslinger2Backpack = new ItemStorage.Builder()
+//        .withName("g2_gunslinger2_backpack")
+//        .withSize(10)
+//        .withGuiTextureWidth(256)
+//        .withValidItemPredicate(item -> (item instanceof Weapon))
+//        .withTab(CreativeTabs.MISC)
+//        .withModel(new com.paneedah.mwc.models.G2Gunslinger2Backpack())
+//        .withModelTextureName("f4m_terminator_backpack.png")
+//        .withGuiTextureName("combat_sustainment_backpack.png")
+//        .withCustomEquippedPositioning((player, stack) -> {
+//            GL11.glScalef(0.8f, 0.8f, 0.8f);
+//            GL11.glTranslatef(0f, 0f, 0f);
+//            GL11.glRotatef(0F, 0f, 0f, 1f);
+//        })
+//        .withInventoryPositioning(stack -> {
+//            GL11.glScalef(1.1f, 1.1f, 1.1f);
+//            GL11.glTranslatef(-0.2f, -0.5f, 0f);
+//            GL11.glRotatef(-33F, 0f, 1f, 0f);
+//            GL11.glRotatef(20F, 1f, 0f, 0f);
+//        })
+//        .build(ModernWarfareMod.MOD_CONTEXT);
         
         /*
          * item ->

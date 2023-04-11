@@ -62,12 +62,12 @@ public class ClientProxy extends CommonProxy {
 
         //modelMesher.register(CommonProxy.AKMIron, 0, new ModelResourceLocation(ModReference.id + ":akmiron", "inventory"));
 
-        modelMesher.register(Armors.Dclassboots, 0, new ModelResourceLocation(ModReference.id + ":dclass_boots", "inventory"));
-        modelMesher.register(Armors.Dclasschest, 0, new ModelResourceLocation(ModReference.id + ":dclass_chest", "inventory"));
-
-        modelMesher.register(Armors.SCPGuardboots, 0, new ModelResourceLocation(ModReference.id + ":swat_boots", "inventory"));
-        modelMesher.register(Armors.SCPGuardchest, 0, new ModelResourceLocation(ModReference.id + ":scpguard_chest", "inventory"));
-        modelMesher.register(Armors.SCPGuardhelmet, 0, new ModelResourceLocation(ModReference.id + ":scpguard_helmet", "inventory"));
+//        modelMesher.register(Armors.Dclassboots, 0, new ModelResourceLocation(ModReference.id + ":dclass_boots", "inventory"));
+//        modelMesher.register(Armors.Dclasschest, 0, new ModelResourceLocation(ModReference.id + ":dclass_chest", "inventory"));
+//
+//        modelMesher.register(Armors.SCPGuardboots, 0, new ModelResourceLocation(ModReference.id + ":swat_boots", "inventory"));
+//        modelMesher.register(Armors.SCPGuardchest, 0, new ModelResourceLocation(ModReference.id + ":scpguard_chest", "inventory"));
+//        modelMesher.register(Armors.SCPGuardhelmet, 0, new ModelResourceLocation(ModReference.id + ":scpguard_helmet", "inventory"));
 
         modelMesher.register(Armors.Marineboots, 0, new ModelResourceLocation(ModReference.id + ":marine_boots", "inventory"));
         modelMesher.register(Armors.Marinechest, 0, new ModelResourceLocation(ModReference.id + ":marine_chest", "inventory"));
@@ -111,9 +111,9 @@ public class ClientProxy extends CommonProxy {
         modelMesher.register(Armors.Juggernautchest, 0, new ModelResourceLocation(ModReference.id + ":juggernaut_chest", "inventory"));
         modelMesher.register(Armors.Juggernauthelmet, 0, new ModelResourceLocation(ModReference.id + ":juggernaut_helmet", "inventory"));
 
-        modelMesher.register(Armors.Astronautboots, 0, new ModelResourceLocation(ModReference.id + ":Astronaut_boots", "inventory"));
-        modelMesher.register(Armors.Astronautchest, 0, new ModelResourceLocation(ModReference.id + ":Astronaut_chest", "inventory"));
-        modelMesher.register(Armors.Astronauthelmet, 0, new ModelResourceLocation(ModReference.id + ":Astronaut_helmet", "inventory"));
+//        modelMesher.register(Armors.Astronautboots, 0, new ModelResourceLocation(ModReference.id + ":Astronaut_boots", "inventory"));
+//        modelMesher.register(Armors.Astronautchest, 0, new ModelResourceLocation(ModReference.id + ":Astronaut_chest", "inventory"));
+//        modelMesher.register(Armors.Astronauthelmet, 0, new ModelResourceLocation(ModReference.id + ":Astronaut_helmet", "inventory"));
 
         modelMesher.register(Armors.Tacticalhelmet, 0, new ModelResourceLocation(ModReference.id + ":tactical_helmet", "inventory"));
 
