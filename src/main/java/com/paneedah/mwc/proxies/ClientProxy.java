@@ -58,7 +58,7 @@ public class ClientProxy extends CommonProxy {
 
         PlayerAnimations.init(mod, initializationEvent);
 
-        final ItemModelMesher modelMesher = mc.getRenderItem().getItemModelMesher();s
+        final ItemModelMesher modelMesher = mc.getRenderItem().getItemModelMesher();
 
         modelMesher.register(Armors.Marineboots, 0, new ModelResourceLocation(ModReference.id + ":marine_boots", "inventory"));
         modelMesher.register(Armors.Marinechest, 0, new ModelResourceLocation(ModReference.id + ":marine_chest", "inventory"));
