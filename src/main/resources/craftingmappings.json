@@ -5822,6 +5822,17 @@
       ]
     },
     {
+      "entryName": "mwc:DesertEagleMag",
+      "craftingGroup": "MAGAZINE",
+      "recipe": [
+        {
+          "entryName": "mwc:gunmetal_ingot",
+          "isOreDictionary": false,
+          "count": 1
+        }
+      ]
+    },
+    {
       "entryName": "mwc:VectorMag",
       "craftingGroup": "MAGAZINE",
       "recipe": [
