@@ -12,8 +12,6 @@ import org.lwjgl.opengl.GL11;
 public class Backpacks {
 
     //public static ItemAttachment<Object> Tablet;
-
-    public static Item TacticalPushPack;
     
     public static Item CombatSustainmentBackpack;
     public static Item CombatSustainmentBackpackBlack;
@@ -29,17 +27,7 @@ public class Backpacks {
     public static Item TruSpecCorduraBackpackBlack;
     public static Item TruSpecCorduraBackpackForest;
     
-    public static Item MilSpecAliceBackpack;
-    
     public static Item Dufflebag;
-    
-    public static Item PilgrimBackpack;
-    
-    public static Item F4MTerminatorBackpack;
-    
-    public static Item BergenBackpack;
-    
-    public static Item G2Gunslinger2Backpack;
 
     public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
         
