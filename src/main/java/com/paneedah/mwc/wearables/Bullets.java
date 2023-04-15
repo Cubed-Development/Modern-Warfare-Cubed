@@ -78,7 +78,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         M202Rocket = new ItemBullet.Builder()
-                .withCreativeTab(ModernWarfareMod.AmmoTab).withName("m202rocket").withMaxStackSize(64)
+                .withCreativeTab(ModernWarfareMod.AmmoTab).withName("m202rocket").withMaxStackSize(4)
                 .withModel(new com.paneedah.mwc.models.M202Rocket(), "gun.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", MWCItems.gunmetalPlate, MWCItems.gunmetalIngot)
                 .withFirstPersonPositioning((player, itemStack) -> {
@@ -100,7 +100,7 @@ public class Bullets {
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemBullet.class);
         
         RPGRocket = new ItemBullet.Builder()
-                .withCreativeTab(ModernWarfareMod.AmmoTab).withName("rpg7_rocket").withMaxStackSize(64)
+                .withCreativeTab(ModernWarfareMod.AmmoTab).withName("rpg7_rocket").withMaxStackSize(2)
                 .withModel(new com.paneedah.mwc.models.RPG7rocketPROJECTILE(), "rpg7.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", MWCItems.gunmetalPlate, MWCItems.gunmetalIngot)
                 .withFirstPersonPositioning((player, itemStack) -> {
