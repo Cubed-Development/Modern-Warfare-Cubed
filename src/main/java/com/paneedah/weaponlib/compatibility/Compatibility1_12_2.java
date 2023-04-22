@@ -55,6 +55,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.*;
@@ -366,20 +367,19 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public CompatibleRayTraceResult getObjectMouseOver() {
-        return CompatibleRayTraceResult.fromRayTraceResult(mc.objectMouseOver);
+    public RayTraceResult getObjectMouseOver() {
+        return mc.objectMouseOver;
     }
 
     @Override
-    public IBlockState getBlockAtPosition(World world, CompatibleRayTraceResult position) {
-        IBlockState iBlockState = world.getBlockState(new BlockPos(position.getBlockPosX(), position.getBlockPosY(), position.getBlockPosZ()));
+    public IBlockState getBlockAtPosition(World world, RayTraceResult position) {
+        IBlockState iBlockState = world.getBlockState(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ()));
         return iBlockState;
     }
 
     @Override
-    public void destroyBlock(World world, CompatibleRayTraceResult position) {
-        world.destroyBlock(new BlockPos(position.getBlockPosX(), position.getBlockPosY(), position.getBlockPosZ()),
-                true);
+    public void destroyBlock(World world, RayTraceResult position) {
+        world.destroyBlock(new BlockPos(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ())), true);
     }
 
     @Override
@@ -736,8 +736,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public CompatibleRayTraceResult rayTraceBlocks(Entity entity, Vector3D vec3, Vector3D vec31) {
-        return CompatibleRayTraceResult.fromRayTraceResult(entity.getEntityWorld().rayTraceBlocks(vec3.toVec3d(), vec31.toVec3d()));
+    public RayTraceResult rayTraceBlocks(Entity entity, Vector3D vec3, Vector3D vec31) {
+        return entity.getEntityWorld().rayTraceBlocks(vec3.toVec3d(), vec31.toVec3d());
     }
 
     @Override

@@ -4,7 +4,6 @@ import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.LightExposure;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
 import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
@@ -14,6 +13,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -148,7 +148,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
     }
 
     @Override
-    public void onBounce(CompatibleRayTraceResult movingobjectposition) {
+    public void onBounce(RayTraceResult movingobjectposition) {
 //        System.out.println("Bounce");
         if(explosionTimeout == ItemGrenade.EXPLODE_ON_IMPACT && !compatibility.world(this).isRemote) {
             explode();
@@ -245,7 +245,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
         exposureFactor *= exposureFactor;
                 
         final Vector3D compatiblePlayerEyePos = new Vector3D(playerEyePosition.x, playerEyePosition.y, playerEyePosition.z);
-        CompatibleRayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), grenadePos, compatiblePlayerEyePos, isCollidable);
+        RayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), grenadePos, compatiblePlayerEyePos, isCollidable);
 
         float dose = 0f;
         if(rayTraceResult == null) {

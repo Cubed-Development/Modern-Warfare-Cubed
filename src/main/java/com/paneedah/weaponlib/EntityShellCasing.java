@@ -2,7 +2,6 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.Weapon.ShellCasingEjectDirection;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -10,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -157,7 +157,7 @@ public class EntityShellCasing extends EntityProjectile {
      * @see net.minecraft.entity.projectile.EntityThrowable#onImpact(net.minecraft.util.MovingObjectPosition)
      */
     @Override
-    protected void onImpact(CompatibleRayTraceResult position) {
+    protected void onImpact(RayTraceResult position) {
         if (!compatibility.world(this).isRemote) {
             setDead();
         }

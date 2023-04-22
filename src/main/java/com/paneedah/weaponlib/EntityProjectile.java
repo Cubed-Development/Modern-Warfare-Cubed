@@ -217,7 +217,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         //List<BlockPos> possibleCollisions = new ArrayList<>();
 
         // Check what is at the projectile current position, null if air
-        CompatibleRayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(null, block, null, blockMetadata));
+        RayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(null, block, null, blockMetadata));
 
         /*
          *  GLASS BREAK CHECK
@@ -248,13 +248,13 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
         if (movingobjectposition != null)
-            vec31 = movingobjectposition.getHitVec();
+            vec31 = new Vector3D(movingobjectposition.hitVec);
 
         if (!compatibility.world(this).isRemote) {
             Entity entity = getRayTraceEntities(vec3, vec31);
 
             if (entity != null)
-               movingobjectposition = new CompatibleRayTraceResult(entity);
+               movingobjectposition = new RayTraceResult(entity);
         }
 
         if (movingobjectposition != null)
@@ -323,10 +323,10 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
             if (flag && entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                 float f = 0.3F;
                 AxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, (double) f, (double) f, (double) f);
-                CompatibleRayTraceResult movingobjectposition1 = CompatibleRayTraceResult.fromRayTraceResult(axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d()));
+                RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
 
                 if (movingobjectposition1 != null) {
-                    double d1 = vec3.distanceTo(movingobjectposition1.getHitVec());
+                    double d1 = vec3.distanceTo(new Vector3D(movingobjectposition1.hitVec));
 
                     if (d1 < d0 || d0 == 0.0D) {
                         entity = entity1;
@@ -342,7 +342,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
     /**
      * Called when this EntityThrowable hits a block or entity.
      */
-    protected abstract void onImpact(CompatibleRayTraceResult p_70184_1_);
+    protected abstract void onImpact(RayTraceResult p_70184_1_);
 
     /**
      * (abstract) Protected helper method to write subclass entity data to NBT.

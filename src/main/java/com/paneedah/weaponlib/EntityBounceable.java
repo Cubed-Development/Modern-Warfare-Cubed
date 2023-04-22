@@ -2,7 +2,6 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.compatibility.*;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult.Type;
 import io.netty.buffer.ByteBuf;
 import net.jafama.FastMath;
 import net.minecraft.block.Block;
@@ -14,6 +13,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import java.util.ArrayDeque;
@@ -156,13 +156,13 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         Vector3D vec3 = new Vector3D(this.posX, this.posY, this.posZ);
         Vector3D vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
-        CompatibleRayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(block, blockMetadata));
+        RayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(block, blockMetadata));
 
         vec3 = new Vector3D(this.posX, this.posY, this.posZ);
         vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
         if (movingobjectposition != null) {
-            vec31.copy(movingobjectposition.getHitVec());
+            vec31.copy(new Vector3D(movingobjectposition.hitVec));
         }
 
         if (thrower != null) { //if(!this.worldObj.isRemote)
@@ -171,17 +171,17 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
             double d0 = 0.0D;
             EntityLivingBase entitylivingbase = this.getThrower();
 
-            CompatibleRayTraceResult entityMovingObjectPosition = null;
+            RayTraceResult entityMovingObjectPosition = null;
             for (int j = 0; j < list.size(); ++j) {
                 Entity entity1 = (Entity)list.get(j);
 
                 if (entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                     float f = 0.3F;
                     AxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, f, f, f);
-                    CompatibleRayTraceResult movingobjectposition1 = CompatibleRayTraceResult.fromRayTraceResult(axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d()));
+                    RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
 
                     if (movingobjectposition1 != null) {
-                        double d1 = vec3.distanceTo(movingobjectposition1.getHitVec()); //hitVec
+                        double d1 = vec3.distanceTo(new Vector3D(movingobjectposition1.hitVec)); //hitVec
 
                         if (d1 < d0 || d0 == 0.0D) {
                             entity = entity1;
@@ -193,33 +193,32 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
             }
 
             if (entity != null) {
-                movingobjectposition = new CompatibleRayTraceResult(entity);
-                movingobjectposition.setSideHit(entityMovingObjectPosition.getSideHit());
-                movingobjectposition.setHitVec(entityMovingObjectPosition.getHitVec());
+                movingobjectposition = new RayTraceResult(entity);
+                movingobjectposition.sideHit = entityMovingObjectPosition.sideHit;
+                movingobjectposition.hitVec = entityMovingObjectPosition.hitVec;
             }
         }
 
         log.trace("Ori position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ,
                 motionX, motionY, motionZ);
 
-        if(movingobjectposition != null && (movingobjectposition.getTypeOfHit() == Type.BLOCK
-                    || (movingobjectposition.getTypeOfHit() == Type.ENTITY))) {
+        if(movingobjectposition != null && (movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK || (movingobjectposition.typeOfHit == RayTraceResult.Type.ENTITY))) {
 
             //TODO: remove logging since it's creating wrapper objects
-            log.trace("Hit {}, vec set to {}, {}, {}", movingobjectposition.getTypeOfHit(),
-                    movingobjectposition.getHitVec().x,
-                    movingobjectposition.getHitVec().y,
-                    movingobjectposition.getHitVec().z);
+            log.trace("Hit {}, vec set to {}, {}, {}", movingobjectposition.typeOfHit,
+                    movingobjectposition.hitVec.x,
+                    movingobjectposition.hitVec.y,
+                    movingobjectposition.hitVec.z);
 
             log.trace("Before bouncing {}, side {}, motion set to {}, {}, {}", bounceCount,
-                    movingobjectposition.getSideHit(),
+                    movingobjectposition.sideHit,
                     motionX, motionY, motionZ);
 
-            this.posX = movingobjectposition.getHitVec().x;
-            this.posY = movingobjectposition.getHitVec().y;
-            this.posZ = movingobjectposition.getHitVec().z;
+            this.posX = movingobjectposition.hitVec.x;
+            this.posY = movingobjectposition.hitVec.y;
+            this.posZ = movingobjectposition.hitVec.z;
 
-            switch(movingobjectposition.getSideHit()) {
+            switch(movingobjectposition.sideHit) {
             case DOWN:
                 this.motionY = -this.motionY;
                 this.posY += motionY;
@@ -249,9 +248,9 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
             }
 
             setPosition(posX, posY, posZ);
-            if(movingobjectposition.getTypeOfHit() == Type.ENTITY) {
+            if(movingobjectposition.typeOfHit == RayTraceResult.Type.ENTITY) {
                 avoidEntityCollisionAfterBounce(movingobjectposition);
-            } else if(movingobjectposition.getTypeOfHit() == Type.BLOCK) {
+            } else if(movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK) {
                 avoidBlockCollisionAfterBounce(movingobjectposition);
             }
 
@@ -309,7 +308,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         }
 
         if(movingobjectposition != null &&
-                (movingobjectposition.getTypeOfHit() == Type.BLOCK || movingobjectposition.getTypeOfHit() == Type.ENTITY)) {
+                (movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK || movingobjectposition.typeOfHit == RayTraceResult.Type.ENTITY)) {
             f2 = slowdownFactor;
             rotationSlowdownFactor = rotationSlowdownFactor * (slowdownFactor * 1.5f);
         }
@@ -335,12 +334,12 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
     public  void onStop() {}
 
-    public void onBounce(CompatibleRayTraceResult movingobjectposition) {}
+    public void onBounce(RayTraceResult movingobjectposition) {}
 
-    private void avoidBlockCollisionAfterBounce(CompatibleRayTraceResult movingobjectposition) {
+    private void avoidBlockCollisionAfterBounce(RayTraceResult movingobjectposition) {
        
     	
-    	if(movingobjectposition.getTypeOfHit() != Type.BLOCK) {
+    	if(movingobjectposition.typeOfHit != RayTraceResult.Type.BLOCK) {
             return;
         }
 
@@ -370,10 +369,10 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         }
     }
 
-    private void avoidEntityCollisionAfterBounce(CompatibleRayTraceResult movingobjectposition) {
+    private void avoidEntityCollisionAfterBounce(RayTraceResult movingobjectposition) {
 
     	
-        if(movingobjectposition.getEntityHit() == null) {
+        if(movingobjectposition.entityHit == null) {
             return;
         }
 
@@ -383,12 +382,12 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         double dZ = Math.signum(motionZ) * 0.01;
 
         float f = 0.3F;
-        AxisAlignedBB axisalignedbb = compatibility.getBoundingBox(movingobjectposition.getEntityHit()).expand((double)f, (double)f, (double)f);
-        CompatibleRayTraceResult intercept = movingobjectposition;
+        AxisAlignedBB axisalignedbb = compatibility.getBoundingBox(movingobjectposition.entityHit).expand((double)f, (double)f, (double)f);
+        RayTraceResult intercept = movingobjectposition;
         for(int i = 0; i < 10; i++) {
             Vector3D currentPos = new Vector3D(this.posX + dX * i, this.posY + dY * i, this.posZ + dY * i);
             Vector3D projectedPos = new Vector3D(this.posX + dX * (i + 1), this.posY + dY * (i + 1), this.posZ + dZ * (i + 1));
-            intercept = CompatibleRayTraceResult.fromRayTraceResult(axisalignedbb.calculateIntercept(currentPos.toVec3d(), projectedPos.toVec3d()));
+            intercept = axisalignedbb.calculateIntercept(currentPos.toVec3d(), projectedPos.toVec3d());
             if(intercept == null) {
                 //log.debug("Found no-intercept after bounce with offsets {}, {}, {}", dX, dY, dZ);
 

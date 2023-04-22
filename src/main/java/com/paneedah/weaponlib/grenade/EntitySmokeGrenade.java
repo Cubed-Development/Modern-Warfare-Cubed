@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
 import com.paneedah.weaponlib.particle.SpawnParticleMessage;
 import com.paneedah.weaponlib.particle.SpawnParticleMessage.ParticleType;
 import io.netty.buffer.ByteBuf;
@@ -9,6 +8,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
@@ -168,7 +168,7 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
     }
 
     @Override
-    public void onBounce(CompatibleRayTraceResult movingobjectposition) {
+    public void onBounce(RayTraceResult movingobjectposition) {
         if(activationDelay == ItemGrenade.EXPLODE_ON_IMPACT) {
             activationDelay = 0;
             activationTimestamp = System.currentTimeMillis();

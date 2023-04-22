@@ -43,6 +43,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
@@ -143,11 +144,11 @@ public interface Compatibility {
 
 	public void setAimed(RenderPlayer rp, boolean aimed);
 
-	public CompatibleRayTraceResult getObjectMouseOver();
+	public RayTraceResult getObjectMouseOver();
 
-	public IBlockState getBlockAtPosition(World world, CompatibleRayTraceResult position);
+	public IBlockState getBlockAtPosition(World world, RayTraceResult position);
 
-	public void destroyBlock(World world, CompatibleRayTraceResult position);
+	public void destroyBlock(World world, RayTraceResult position);
 
 	public boolean addItemToPlayerInventory(EntityPlayer player, final Item item, int slot);
 
@@ -219,7 +220,7 @@ public interface Compatibility {
 
     public Item findItemByName(String itemName);
 
-    public CompatibleRayTraceResult rayTraceBlocks(Entity entity, Vector3D vec3, Vector3D vec31);
+    public RayTraceResult rayTraceBlocks(Entity entity, Vector3D vec3, Vector3D vec31);
 
     public AxisAlignedBB expandEntityBoundingBox(Entity entity, double f, double f2, double f3);
 

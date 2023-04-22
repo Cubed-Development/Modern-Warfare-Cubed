@@ -2,8 +2,6 @@ package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.weaponlib.EntityBounceable;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult.Type;
 import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
@@ -11,6 +9,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
@@ -69,9 +68,9 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
     protected abstract void onGrenadeUpdate();
 
     @Override
-    public void onBounce(CompatibleRayTraceResult movingobjectposition) {
+    public void onBounce(RayTraceResult movingobjectposition) {
     	
-        if(movingobjectposition.getTypeOfHit() == Type.BLOCK && itemGrenade != null) {
+        if(movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK && itemGrenade != null) {
             CompatibleSound bounceHardSound = itemGrenade.getBounceHardSound();
             if(bounceHardSound != null) {
                 IBlockState iBlockState = compatibility.getBlockAtPosition(compatibility.world(this), movingobjectposition);

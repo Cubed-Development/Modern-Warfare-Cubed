@@ -25,6 +25,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
@@ -906,15 +907,13 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                     } else {
                         //compatibility.addBlockHitEffect(position);
                         //compatibility.playSound(world, posX, posY, posZ, explosionSound, volume, pitch);
-                        CompatibleTargetPoint point = new CompatibleTargetPoint(entity.dimension,
-                                position.getBlockPosX(), position.getBlockPosY(), position.getBlockPosZ(), 100);
+                        CompatibleTargetPoint point = new CompatibleTargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100);
                         modContext.getChannel().sendToAllAround(
-                                new BlockHitMessage(position.getBlockPos(), position.getHitVec().x, position.getHitVec().y, position.getHitVec().z, position.getSideHit()), point);
+                                new BlockHitMessage(position.getBlockPos(), position.hitVec.x, position.hitVec.y, position.hitVec.z, position.sideHit), point);
                         
                         MaterialImpactSound materialImpactSound = modContext.getMaterialImpactSound(iBlockState, entity);
                         if(materialImpactSound != null) {
-                            compatibility.playSound(world, position.getBlockPosX(), position.getBlockPosY(), position.getBlockPosZ(), 
-                                    materialImpactSound.getSound(), materialImpactSound.getVolume(), 1f);
+                            compatibility.playSound(world, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), materialImpactSound.getSound(), materialImpactSound.getVolume(), 1f);
                         }
                     }
                 };
@@ -1279,11 +1278,11 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         return builder.shellCasingModelTextureName;
     }
 
-    void onSpawnEntityBlockImpact(World world, EntityPlayer player, WeaponSpawnEntity entity, CompatibleRayTraceResult position) {
+    void onSpawnEntityBlockImpact(World world, EntityPlayer player, WeaponSpawnEntity entity, RayTraceResult position) {
    
     	if(world.isRemote) {
-    		EnumFacing facing = EnumFacing.valueOf(position.getSideHit().toString());
-        	CompatibleClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vector3D(position.getHitVec().x, position.getHitVec().y, position.getHitVec().z), facing, 0.05));
+    		EnumFacing facing = EnumFacing.valueOf(position.sideHit.toString());
+        	CompatibleClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vector3D(position.hitVec.x, position.hitVec.y, position.hitVec.z), facing, 0.05));
     	}
     	
     	if(builder.blockImpactHandler != null) {

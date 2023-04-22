@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
 import com.paneedah.weaponlib.compatibility.CompatibleThrowableEntity;
 import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
@@ -15,6 +14,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import static com.paneedah.mwc.utils.ModReference.log;
@@ -58,9 +58,10 @@ public class EntityWirelessCamera extends CompatibleThrowableEntity {
         super(world);
     }
 
-    protected void onImpact(CompatibleRayTraceResult rayTraceResult) {
-        Entity entityHit = rayTraceResult.getEntityHit();
-        log.debug("Player {} hit entity {}", getThrower(), rayTraceResult.getEntityHit());
+    @Override
+    protected void onImpact(RayTraceResult rayTraceResult) {
+        Entity entityHit = rayTraceResult.entityHit;
+        log.debug("Player {} hit entity {}", getThrower(), rayTraceResult.entityHit);
 
         boolean hit = false;
         if (entityHit != null && getThrower() instanceof EntityPlayer) {
@@ -72,7 +73,7 @@ public class EntityWirelessCamera extends CompatibleThrowableEntity {
             }
 
             if (!compatibility.world(this).isRemote) {
-                log.debug("Server hit entity uuid {}", rayTraceResult.getEntityHit().getPersistentID());
+                log.debug("Server hit entity uuid {}", rayTraceResult.entityHit.getPersistentID());
                 PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) getThrower());
                 if(tracker != null) {
                     hit = true;
