@@ -234,11 +234,6 @@ public abstract class CompatibleClientEventHandler {
 
 	public VMWFrameTimer frametimer = new VMWFrameTimer();
 
-	/*
-	 * FRAMEBUFFER HOT-SWAP
-	 */
-	private static Field framebufferMcLink = null;
-
 	@SubscribeEvent
 	public void connectedToServerEvent(FMLNetworkEvent.ClientConnectedToServerEvent evt) {
 		mc.addScheduledTask(() -> {
@@ -291,19 +286,9 @@ public abstract class CompatibleClientEventHandler {
 
 		}
 
-		// Hot swaps the Minecraft framebuffer
-
-		// for an HDR one.
+		// Hot swaps the Minecraft framebuffer for an HDR one.
 
 		if (ModernConfigManager.enableHDRFramebuffer) {
-			// Swap for a HDR buffer.
-			if (framebufferMcLink == null) {
-
-				framebufferMcLink = CompatibleReflection.findField(Minecraft.class, "framebuffer", "field_147124_at");
-				framebufferMcLink.setAccessible(true);
-
-			}
-
 			// Check if our
 			Framebuffer current = mc.getFramebuffer();
 
@@ -311,18 +296,9 @@ public abstract class CompatibleClientEventHandler {
 				// Create an EXACT match, but in the HDR format. This will break w/ other mods
 				// that try to do
 				// anything similar.
-				Framebuffer newFBO = new HDRFramebuffer(current.framebufferWidth, current.framebufferHeight,
-						current.useDepth);
+				Framebuffer newFBO = new HDRFramebuffer(current.framebufferWidth, current.framebufferHeight, current.useDepth);
 
-				try {
-					framebufferMcLink.set(mc, newFBO);
-				} catch (IllegalArgumentException e) {
-					System.err.println("Could not hotswap framebuffer. Error: ");
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					System.err.println("Could not hotswap framebuffer. Error: ");
-					e.printStackTrace();
-				}
+				mc.framebuffer = newFBO;
 			}
 		}
 

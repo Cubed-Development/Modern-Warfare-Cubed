@@ -35,6 +35,7 @@ import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
@@ -755,8 +756,8 @@ public class Interceptors {
     public static void checkLayerRenderersHooks() {
     	layerRendererHookSetup = true;
     	
-    	layerRendererField = CompatibleReflection.findField(RenderLivingBase.class, "layerRenderers", "field_177097_h");
-    	translateItemField = CompatibleReflection.findMethod(LayerHeldItem.class, "translateToHand", "func_191361_a", EnumHandSide.class);
+    	layerRendererField = ReflectionHelper.findField(RenderLivingBase.class, "layerRenderers", "field_177097_h");
+    	translateItemField = ReflectionHelper.findMethod(LayerHeldItem.class, "translateToHand", "func_191361_a", EnumHandSide.class);
 		 }
     
     @SuppressWarnings("unchecked")

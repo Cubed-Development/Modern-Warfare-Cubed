@@ -4,7 +4,6 @@ import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.paneedah.weaponlib.compatibility.CompatibleReflection;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.Bloom;
 import com.paneedah.weaponlib.render.DepthTexture;
@@ -28,7 +27,6 @@ import org.lwjgl.util.glu.Project;
 import org.lwjgl.util.vector.Matrix4f;
 
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
@@ -865,22 +863,14 @@ public class PostProcessPipeline {
 		GlStateManager.matrixMode(5889);
 		GlStateManager.loadIdentity();
 
-		try {
-			float fpt = CompatibleReflection.findField(EntityRenderer.class, "farPlaneDistance", "field_78530_s")
-					.getFloat(mc.entityRenderer);
-			Method fovMod = CompatibleReflection.findMethod(EntityRenderer.class, "getFOVModifier", "func_78481_a",
-					float.class, boolean.class);
+		float fpt = mc.entityRenderer.farPlaneDistance;
 
-			float fovModValue = (float) fovMod.invoke(mc.entityRenderer, mc.getRenderPartialTicks(), false);
+		float fovModValue = mc.entityRenderer.getFOVModifier(mc.getRenderPartialTicks(), false);;
 
-			Project.gluPerspective(fovModValue, (float) mc.displayWidth / (float) mc.displayHeight, 0.05F, fpt * 2.0F);
+		Project.gluPerspective(fovModValue, (float) mc.displayWidth / (float) mc.displayHeight, 0.05F, fpt * 2.0F);
 
-			// Project.gluPerspective(fovModValue, (float) mc.displayWidth / (float)
-			// mc.displayHeight, 0.05F, fpt * MathHelper.SQRT_2);
-
-		} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
-			e.printStackTrace();
-		}
+		// Project.gluPerspective(fovModValue, (float) mc.displayWidth / (float)
+		// mc.displayHeight, 0.05F, fpt * MathHelper.SQRT_2);
 
 		// Project.gluPerspective(mc.gameSettings.fovSetting, (float) mc.displayWidth /
 		// (float) mc.displayHeight, 0.05F,
