@@ -1152,33 +1152,26 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
                 }
                 
             }
-            
-           
-			
+
 			int id = WeaponSpritesheetBuilder.getSpriteID(pwi.getWeapon().getName());
 			Sprite sprite = SpriteSheetTools.getSquareSprite(id, 128, gunIconSheetWidth, gunIconSheetHeight);
 
-			
-			CompatibleTessellator tessellator = CompatibleTessellator.getInstance();
-			tessellator.startDrawingQuads();
+			final Tessellator tessellator = Tessellator.getInstance();
+			final BufferBuilder buffer = tessellator.getBuffer();
 
-			tessellator.addVertexWithUV(0, 256, 0, sprite.getMinU(), sprite.getMaxV());
-			tessellator.addVertexWithUV(256, 256, 0, sprite.getMaxU(), sprite.getMaxV());
-			tessellator.addVertexWithUV(256, 0, 0, sprite.getMaxU(), sprite.getMinV());
-			tessellator.addVertexWithUV(0, 0, 0, sprite.getMinU(), sprite.getMinV());
+			buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+
+			buffer.pos(0, 256, 0).tex(sprite.getMinU(), sprite.getMaxV()).endVertex();
+			buffer.pos(256, 256, 0).tex(sprite.getMaxU(), sprite.getMaxV()).endVertex();
+			buffer.pos(256, 0, 0).tex(sprite.getMaxU(), sprite.getMinV()).endVertex();
+			buffer.pos(0, 0, 0).tex(sprite.getMinU(), sprite.getMinV()).endVertex();
+
 			tessellator.draw();
-			
 
-			
-			
-			
 			GL11.glPopAttrib();
 			GlStateManager.enableLighting();
 			GlStateManager.popMatrix();
 			GlStateManager.enableTexture2D();
-			
-			
-			
 		} else {
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
@@ -1187,13 +1180,13 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			GlStateManager.enableBlend();
 			GlStateManager.enableAlpha();
 			//GlStateManager.disableTexture2D();
-			
-			
+
+
 			GL11.glTranslatef(0.0F, 1.0F, 0.5F);
 			GL11.glScalef(0.004F, 0.004F, 0.004F);
 			GL11.glScalef(1.0F, -1.0F, 1F);
 			GlStateManager.translate(-8.0F, -8.0F, 0.0F);
-			
+
 
 			GlStateManager.bindTexture(inventoryTexture);
 
@@ -1201,10 +1194,10 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 
 
 			GL11.glPopAttrib();
-			
-			
+
+
 			GL11.glPopMatrix();
-			
+
 		}
 		
 		
@@ -1236,12 +1229,16 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 	}
 
 	private static void drawTexturedQuadFit(double x, double y, double width, double height, double zLevel) {
-		CompatibleTessellator tessellator = CompatibleTessellator.getInstance();
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(x + 0, y + height, zLevel, 0, 1);
-		tessellator.addVertexWithUV(x + width, y + height, zLevel, 1, 1);
-		tessellator.addVertexWithUV(x + width, y + 0, zLevel, 1, 0);
-		tessellator.addVertexWithUV(x + 0, y + 0, zLevel, 0, 0);
+		final Tessellator tessellator = Tessellator.getInstance();
+		final BufferBuilder buffer = tessellator.getBuffer();
+
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+
+		buffer.pos(x + 0, y + height, zLevel).tex(0, 1).endVertex();
+		buffer.pos(x + width, y + height, zLevel).tex(1, 1).endVertex();
+		buffer.pos(x + width, y + 0, zLevel).tex(1, 0).endVertex();
+		buffer.pos(x + 0, y + 0, zLevel).tex(0, 0).endVertex();
+
 		tessellator.draw();
 	}
 

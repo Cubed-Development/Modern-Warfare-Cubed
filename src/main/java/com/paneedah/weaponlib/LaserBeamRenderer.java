@@ -122,7 +122,7 @@ public class LaserBeamRenderer implements CustomRenderer {
 			    positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
 			}
 
-			CompatibleTessellator tessellator = CompatibleTessellator.getInstance();
+			Tessellator tessellator = Tessellator.getInstance();
 			tessellator.startDrawingLines();
 
 			long time = System.currentTimeMillis();

@@ -2,13 +2,11 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.proxies.ClientProxy;
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.mwc.utils.MathUtil;
 import com.paneedah.weaponlib.StatusMessageCenter.Message;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import com.paneedah.weaponlib.compatibility.CompatibleGui;
-import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.debug.DebugRenderer;
@@ -26,9 +24,12 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
 import net.minecraft.client.renderer.GlStateManager.SourceFactor;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -711,14 +712,16 @@ public class CustomGui extends CompatibleGui {
     }
 
 	private static void drawTexturedQuadFit(double x, double y, double width, double height, double zLevel){
-		CompatibleTessellator tessellator = CompatibleTessellator.getInstance();
-        tessellator.startDrawingQuads();
-        //tessellator.startDrawingParticles();
-        //tessellator.setColorRgba(1f, 1f, 1f, 1f);
-        tessellator.addVertexWithUV(x + 0, y + height, zLevel, 0,1);
-        tessellator.addVertexWithUV(x + width, y + height, zLevel, 1, 1);
-        tessellator.addVertexWithUV(x + width, y + 0, zLevel, 1,0);
-        tessellator.addVertexWithUV(x + 0, y + 0, zLevel, 0, 0);
+		final Tessellator tessellator = Tessellator.getInstance();
+		final BufferBuilder buffer = tessellator.getBuffer();
+
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+
+		buffer.pos(x + 0, y + height, zLevel).tex(0, 1).endVertex();
+		buffer.pos(x + width, y + height, zLevel).tex(1, 1).endVertex();
+		buffer.pos(x + width, y + 0, zLevel).tex(1, 0).endVertex();
+		buffer.pos(x + 0, y + 0, zLevel).tex(0, 0).endVertex();
+
 		tessellator.draw();
 	}
 }
