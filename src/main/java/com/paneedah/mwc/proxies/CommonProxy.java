@@ -8,6 +8,7 @@ import com.paneedah.mwc.items.melee.BaseballBatNailsFactory;
 import com.paneedah.mwc.items.melee.NightStickFactory;
 import com.paneedah.mwc.items.melee.TacticalTomahawkFactory;
 import com.paneedah.mwc.skins.GunSkins;
+import com.paneedah.mwc.tileentities.TileEntities;
 import com.paneedah.mwc.vehicle.Vehicles;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -108,6 +109,8 @@ public class CommonProxy {
         Guns.init(mod, initializationEvent, this);
         Electronics.init(mod, initializationEvent);
         Grenades.init(mod, initializationEvent, this);
+        CustomSpawnEggs.init(mod, initializationEvent, this);
+        TileEntities.init(this);
 
         new TacticalTomahawkFactory().createMelee(this);
         new BaseballBatFactory().createMelee(this);
