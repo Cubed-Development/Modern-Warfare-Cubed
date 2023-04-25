@@ -56,7 +56,8 @@ public class WeaponSpawnEntity extends EntityProjectile {
 		super(world);
 	}
 
-	public WeaponSpawnEntity(Weapon weapon,
+	public WeaponSpawnEntity(
+			Weapon weapon,
 			World world,
 			EntityLivingBase player,
 			float speed,
