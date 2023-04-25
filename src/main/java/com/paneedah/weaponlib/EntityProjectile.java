@@ -12,11 +12,15 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
@@ -46,9 +50,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
     protected float inaccuracy;
 
     private long timestamp;
-    
+
     private double aimTan;
-    
+
     public Vec3d origin;
 
     protected long maxLifetime = DEFAULT_MAX_LIFETIME;
@@ -61,12 +65,12 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
     public EntityProjectile(World world, EntityLivingBase thrower, float velocity, float gravityVelocity, float inaccuracy) {
         this(world);
-   
+
         this.thrower = thrower;
         this.velocity = velocity;
         this.gravityVelocity = gravityVelocity;
         this.inaccuracy = inaccuracy;
-        
+
 //        if(thrower != null) {
 //            RayTraceResult rayTraceResult = thrower.rayTrace(50, 0);
 //            if(rayTraceResult != null && rayTraceResult.hitVec != null) {
@@ -84,16 +88,16 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(),
                 thrower.posZ, compatibility.getCompatibleAimingRotationYaw(thrower), thrower.rotationPitch);
 
-       
-        
+
+
         this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
         this.posZ -= (double) (CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.setPosition(this.posX, this.posY, this.posZ);
 
-        
+
         this.origin = new Vec3d(this.posX, this.posY, this.posZ);
-        
+
         //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
         float f = velocity; //0.4F;
         this.motionX = (double) (-CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
@@ -104,7 +108,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
                 .sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
     }
-    
+
     public void setPositionAndDirection(double x, double y, double z, float rotationYaw, float rotationPitch) {
 
         this.setLocationAndAngles(x, y + (double) thrower.getEyeHeight(), z, rotationYaw, rotationPitch);
@@ -236,19 +240,16 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
              Vec3d end = new Vec3d(this.posX, this.posY, this.posZ).add(motion);
 
              RayTraceResult rtr = compatibility.world(this).rayTraceBlocks(start, end, false, true, false);
-             if (rtr == null)
-                 return;
+            if(rtr != null) {
+                IBlockState state = compatibility.world(this).getBlockState(rtr.getBlockPos());
+                if(state.getMaterial() == Material.GLASS) {
+                    this.world.destroyBlock(rtr.getBlockPos(), true);
 
-             IBlockState state = compatibility.world(this).getBlockState(rtr.getBlockPos());
-             if(state.getMaterial() == Material.GLASS) {
-                 this.world.destroyBlock(rtr.getBlockPos(), true);
-
-                 ModContext context = CommonModContext.getContext();
-                 if (context == null)
-                     return;
-
-                 context.getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), rtr.hitVec.x, rtr.hitVec.y, rtr.hitVec.z, rtr.sideHit), new CompatibleTargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
-             }
+                    if(CommonModContext.getContext() != null) {
+                        CommonModContext.getContext().getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), rtr.hitVec.x, rtr.hitVec.y, rtr.hitVec.z, EnumFacing.valueOf(rtr.sideHit.getName())), new CompatibleTargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
+                    }
+                }
+            }
         }
 
         vec3 = new Vector3D(this.posX, this.posY, this.posZ);
@@ -266,14 +267,15 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
         if (movingobjectposition != null)
             this.onImpact(movingobjectposition);
-		
+
         this.posX += this.motionX;
         this.posY += this.motionY;
         this.posZ += this.motionZ;
         float f1 = CompatibleMathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
         this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
-        for (this.rotationPitch = (float) (Math.atan2(this.motionY, (double) f1) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F);
+        for (this.rotationPitch = (float) (Math.atan2(this.motionY, (double) f1) * 180.0D / Math.PI);
+             this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F);
 
         while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
             this.prevRotationPitch += 360.0F;
@@ -342,7 +344,6 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
                 }
             }
         }
-
         return entity;
     }
 
@@ -414,7 +415,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
     public float getShadowSize() {
         return 0.0F;
     }
-    
+
     public double getAimTan() {
         return aimTan;
     }
