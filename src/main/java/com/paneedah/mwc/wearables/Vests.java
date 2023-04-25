@@ -210,50 +210,5 @@ public class Vests {
 	        .doGLDirect();
         })
         .build(ModernWarfareMod.MOD_CONTEXT);
-        
-        new ItemVest.Builder()
-        .withName("juggernaut_body_armor")
-        .withDamageReduceAmount(25) // use numbers from 1 to 8
-        .withDurability(100) // works the same way as shield's max capacity
-        .withTab(CreativeTabs.MISC)
-        .withModel(new com.paneedah.mwc.models.Juggernautbodyarmor())
-        .withModelTextureName("juggernautbodyarmor.png")
-        .withCustomEquippedPositioning((player, stack) -> {
-            GL11.glScalef(0.8f, 0.8f, 0.8f);
-            GL11.glTranslatef(0f, 0f, 0f);
-            GL11.glRotatef(0F, 0f, 0f, 1f);
-        })
-        .withInventoryPositioning(stack -> {
-	        new Transform()
-	        .withPosition(-0.1, -4, -0.25)
-	        .withRotation(-15, 160, 5)
-	        .withScale(3, 3, 3)
-	        .doGLDirect();
-        })
-        .build(ModernWarfareMod.MOD_CONTEXT);
-        
-        new ItemVest.Builder()
-        .withName("fort_armor")
-        .withDamageReduceAmount(25) // use numbers from 1 to 8
-        .withDurability(100) // works the same way as shield's max capacity
-        .withTab(CreativeTabs.MISC)
-        .withModel(new com.paneedah.mwc.models.FortArmor())
-        .withModelTextureName("fortarmor.png")
-        .withCustomEquippedPositioning((player, stack) -> {
-            GL11.glScalef(0.8f, 0.8f, 0.8f);
-            GL11.glTranslatef(0f, 0f, 0f);
-            GL11.glRotatef(0F, 0f, 0f, 1f);
-        })
-        .withInventoryPositioning(stack -> {
-	        new Transform()
-	        .withPosition(-0.1, -4, -0.25)
-	        .withRotation(-15, 160, 5)
-	        .withScale(3, 3, 3)
-	        .doGLDirect();
-        })
-        .build(ModernWarfareMod.MOD_CONTEXT);
     }
-    
-    
-
 }
