@@ -240,15 +240,17 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
              Vec3d end = new Vec3d(this.posX, this.posY, this.posZ).add(motion);
 
              RayTraceResult rtr = compatibility.world(this).rayTraceBlocks(start, end, false, true, false);
-            if(rtr != null) {
-                IBlockState state = compatibility.world(this).getBlockState(rtr.getBlockPos());
-                if(state.getMaterial() == Material.GLASS) {
-                    this.world.destroyBlock(rtr.getBlockPos(), true);
+             if(rtr != null) {
+                 IBlockState state = compatibility.world(this).getBlockState(rtr.getBlockPos());
+                 if(state.getMaterial() == Material.GLASS) {
+                     this.world.destroyBlock(rtr.getBlockPos(), true);
 
-                    if(CommonModContext.getContext() != null) {
-                        CommonModContext.getContext().getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), rtr.hitVec.x, rtr.hitVec.y, rtr.hitVec.z, EnumFacing.valueOf(rtr.sideHit.getName())), new CompatibleTargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
-                    }
-                }
+                     ModContext context = CommonModContext.getContext();
+                     if (context == null)
+                         return;
+
+                     context.getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), rtr.hitVec.x, rtr.hitVec.y, rtr.hitVec.z, rtr.sideHit), new CompatibleTargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
+                 }
             }
         }
 
