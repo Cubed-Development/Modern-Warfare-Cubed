@@ -13,6 +13,7 @@ public class MWCRecipes {
         GameRegistry.addSmelting(MWCBlocks.tinOre, new ItemStack(MWCItems.tinIngot), 5f);
         GameRegistry.addSmelting(MWCItems.gunmetalComposite, new ItemStack(MWCItems.gunmetalIngot), 5f);
         GameRegistry.addSmelting(MWCItems.steelDust, new ItemStack(MWCItems.steelIngot), 1f);
+        GameRegistry.addSmelting(MWCItems.sulfurDust, new ItemStack(Items.GUNPOWDER), 1f);
         GameRegistry.addSmelting(Items.COAL, new ItemStack(MWCItems.graphiteChunk), 3f);
     }
 }
