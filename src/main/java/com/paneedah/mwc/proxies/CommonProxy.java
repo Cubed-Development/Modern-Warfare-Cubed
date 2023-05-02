@@ -3,6 +3,7 @@ package com.paneedah.mwc.proxies;
 import com.paneedah.mwc.*;
 import com.paneedah.mwc.entities.Entities;
 import com.paneedah.mwc.init.MWCItems;
+import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.items.melee.BaseballBatFactory;
 import com.paneedah.mwc.items.melee.BaseballBatNailsFactory;
 import com.paneedah.mwc.items.melee.NightStickFactory;
