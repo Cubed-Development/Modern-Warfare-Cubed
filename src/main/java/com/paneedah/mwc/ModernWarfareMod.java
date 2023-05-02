@@ -54,13 +54,13 @@ public class ModernWarfareMod {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         // Recipes
+        MWCRecipes.register();
         proxy.init(this, new CompatibleFmlInitializationEvent(event));
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(this, event);
-        MWCRecipes.register();
     }
     
     @EventHandler
