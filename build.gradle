@@ -30,7 +30,7 @@ tasks.withType(JavaCompile).configureEach {
 minecraft {
     mcVersion = '1.12.2'
 
-    username = "Desoroxxx"
+    username = "Dev"
 
     def args = ['-Dfml.coreMods.load=com.paneedah.weaponlib.core.WeaponlibCorePlugin']
 
