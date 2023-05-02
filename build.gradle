@@ -17,9 +17,8 @@ java {
         languageVersion.set(JavaLanguageVersion.of(8))
         vendor.set(JvmVendorSpec.ADOPTIUM)
     }
-    // Generate sources and javadocs jars when building and publishing
+    // Generate sources jar when building
     withSourcesJar()
-    withJavadocJar()
 }
 
 tasks.withType(JavaCompile).configureEach {
