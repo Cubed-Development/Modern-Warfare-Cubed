@@ -114,9 +114,7 @@ public class RadarChart {
 		} else {
 			mu = 1.0;
 		}
-		
-	
-		Bloom.initializeMultisample();
+
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(x, y, 0);
 		GlStateManager.rotate((float) -Math.toDegrees(2*Math.PI / (5*4)), 0, 0, 1);
@@ -173,7 +171,6 @@ public class RadarChart {
 				
 		
 		GlStateManager.popMatrix();
-		Bloom.unapplyMultisample();
 		
 		GlStateManager.enableTexture2D();
 		double textRadius = radius * 1.1;

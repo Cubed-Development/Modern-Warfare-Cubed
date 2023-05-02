@@ -185,11 +185,8 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			int currentTextureId = GlStateManager.glGetInteger(GL11.GL_TEXTURE_BINDING_2D);
 
 			if (!AnimationModeProcessor.getInstance().getFPSMode()) {
-				
-				//Bloom.initializeMultisample();
 				renderItem();
 				//RenderHelper.enableStandardItemLighting();
-				//Bloom.unapplyMultisample();
 			} else {
 				GlStateManager.pushMatrix();
 				renderItem();
@@ -197,9 +194,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 
 				OpenGLSelectionHelper.startSelectionPass();
 				OpenGLSelectionHelper.bindSelectBuffer();
-				// Bloom.initializeMultisample();
 				renderItem();
-				// Bloom.unapplyMultisample();
 				OpenGLSelectionHelper.stopSelectionPass();
 				OpenGLSelectionHelper.fbo.bindFramebuffer(true);
 
@@ -731,8 +726,6 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 				DebugPositioner.position(Part.MAIN_ITEM, renderContext);
 			}
 
-			// Bloom.initializeMultisample();
-
 			// gunLightingShader = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":"
 			// + "shaders/gunlight"));
 			if (player != null && player.getHeldItemMainhand() != null
@@ -821,11 +814,8 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			// 240F);
 			// GlStateManager.color(20.0f, 20.0f, 20.0f);
 
-			// Bloom.data.bindFramebuffer(true);
 			// GlStateManager.enableBlend();
 			// GL14.glBlendEquation(GL14.GL_FUNC_ADD);
-			// Bloom.data.bindFramebuffer(false);
-			// Dloom.bloomData.bindFramebuffer(true);
 			// renderItem(itemStack, renderContext, positioner);
 			// GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE);
 			// mc.getFramebuffer().bindFramebuffer(false);
@@ -859,18 +849,12 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 				
 				if(forceMSAA) {
 					//System.out.println(framebuffer.framebufferObject);
-					//Bloom.initializeMultisample();
 					//GlStateManager.scale(20, 20, 20);
 					//System.out.println(GL11.glGetError());
 				//	msaaBuffer.bindMSAABuffer(mc.getFramebuffer().framebufferObject);
 					GlStateManager.enableBlend();
 					GlStateManager.enableAlpha();
-					//Bloom.initializeMultisample(framebuffer);
-					
 				}
-				//Bloom.initializeMultisample();
-				
-			
 				
 				if(AnimationModeProcessor.getInstance().getFPSMode()) {
 					
@@ -1001,7 +985,6 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			
 			
 			mc.getFramebuffer().bindFramebuffer(true);
-			Bloom.renderFboTriangle(mc.getFramebuffer());
 			Shaders.selectedge.release();
 
 			OpenGLSelectionHelper.bindBallBuf();
