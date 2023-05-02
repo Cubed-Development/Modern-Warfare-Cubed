@@ -1,51 +1,62 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        maven {
-            name 'Forge'
-            url 'https://maven.minecraftforge.net'
-        }
-    }
-    dependencies {
-        classpath 'com.anatawa12.forge:ForgeGradle:2.3-1.0.7'
-    }
-}
+import org.jetbrains.gradle.ext.Gradle
 
-apply plugin: 'net.minecraftforge.gradle.forge'
+plugins {
+    id("java")
+    id("java-library")
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
+    id("com.gtnewhorizons.retrofuturagradle") version "1.+"
+    id("com.matthewprenger.cursegradle") version "1.4.0"
+}
 
 // Add version to the jar name
 version project.version
 
+// Set the toolchain version to decouple the Java we run Gradle with from the Java used to compile and run the mod
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+        vendor.set(JvmVendorSpec.ADOPTIUM)
+    }
+    // Generate sources and javadocs jars when building and publishing
+    withSourcesJar()
+    withJavadocJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.fork = true
+    options.forkOptions.jvmArgs += ["-Xmx4G"]
+}
+
 minecraft {
-    version = '1.12.2-14.23.5.2847'
-    mappings = 'stable_39'
-    runDir = 'run'
+    mcVersion = '1.12.2'
 
-    def args = ['-Dfml.coreMods.load=com.paneedah.weaponlib.core.WeaponlibCorePlugin', '-Dforge.logging.console.level=debug']
+    username = "Desoroxxx"
 
-    replace('@ID@', project.id)
-    replace('@NAME@', project.name)
-    replace('@VERSION@', project.version)
-    replaceIn('ModReference.java')
+    def args = ['-Dfml.coreMods.load=com.paneedah.weaponlib.core.WeaponlibCorePlugin']
+
+    injectedTags.put('ID', project.id)
+    injectedTags.put('VERSION', project.version)
 }
 
-runClient {
-    args '--username=Dev'
+// Generate a Tags class with the version and id as a field
+tasks.injectTags.configure {
+    outputClassName.set("com.paneedah.${project.id}.Tags")
 }
 
-// Replace id, name, and version in `mcmod.info`
+// Replace version and id in `mcmod.info`
 processResources {
-    duplicatesStrategy 'include'
-
     inputs.property 'id', project.id
-    inputs.property 'name', project.name
     inputs.property 'version', project.version
-    from(sourceSets.main.resources.srcDirs) {
+    filesMatching(['mcmod.info', 'pack.mcmeta']) { fcd ->
         include 'mcmod.info'
-        expand 'id': project.id, 'name': project.name, 'version': project.version
+        fcd.expand(
+                'id': project.id,
+                'version': project.version
+        )
     }
 
-    from ('src/main/java') {
+    from('src/main/java') {
         include '**/*.png'
 
         include '**/*.json'
@@ -56,7 +67,7 @@ processResources {
     }
 }
 
-// Create configuration to include embedded dependencies into the jar
+// Create configuration to include embedded dependencies into FBP jar
 configurations {
     implementation
     compile.extendsFrom(embed)
@@ -80,19 +91,51 @@ dependencies {
 }
 
 jar {
-    // Add all embedded dependencies into the jar
-    from(configurations.embed.collect {it.isDirectory() ? it : zipTree(it)})
-
     manifest.attributes([
             'ModSide': 'BOTH',
             'FMLCorePlugin': 'com.paneedah.weaponlib.core.WeaponlibCorePlugin',
             'FMLCorePluginContainsFMLMod': 'true',
             'ForceLoadAsMod': 'true'
     ])
+
+    // Add all embedded dependencies into the jar
+    from(provider{ configurations.embed.collect {it.isDirectory() ? it : zipTree(it)} })
 }
 
 idea {
+    module { inheritOutputDirs = true }
+
     module {
         excludeDirs = [file(".github"), file(".gradle"), file(".idea"), file("build"), file("gradle"), file("run")]
     }
+
+    project { settings {
+        runConfigurations {
+            "1. Client"(Gradle) {
+                taskNames = ["runClient"]
+            }
+            "2. Server"(Gradle) {
+                taskNames = ["runServer"]
+            }
+            "3. Obfuscated Client"(Gradle) {
+                taskNames = ["runObfClient"]
+            }
+            "4. Obfuscated Server"(Gradle) {
+                taskNames = ["runObfServer"]
+            }
+        }
+
+        compiler.javac {
+            afterEvaluate {
+                javacAdditionalOptions = "-encoding utf8"
+                moduleJavacAdditionalOptions = [
+                        (project.id + ".main"): tasks.compileJava.options.compilerArgs.collect { '"' + it + '"' }.join(' ')
+                ]
+            }
+        }
+    }}
+}
+
+tasks.named("processIdeaSettings").configure {
+    dependsOn("injectTags")
 }

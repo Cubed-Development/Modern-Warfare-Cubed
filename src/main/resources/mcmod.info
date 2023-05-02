@@ -1,7 +1,7 @@
 [
   {
     "modid": "${id}",
-    "name": "${name}",
+    "name": "Modern Warfare Cubed",
     "description": "Modern Warfare Cubed, a fork of Vic's Modern Warfare",
     "version": "${version}",
     "mcversion": "1.12.2",
