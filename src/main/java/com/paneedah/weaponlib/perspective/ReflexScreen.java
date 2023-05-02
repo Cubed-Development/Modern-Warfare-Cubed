@@ -176,10 +176,6 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		
 		GL20.glUniform3f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "background"), (float) currentReticle.getBackgroundColor().x, (float) currentReticle.getBackgroundColor().y, (float) currentReticle.getBackgroundColor().z);
 		GlStateManager.enableCull();
-	
-
-		//OpenGlHelper.glFramebufferTexture2D(OpenGlHelper.GL_FRAMEBUFFER, GL30.GL_COLOR_ATTACHMENT1, GL11.GL_TEXTURE_2D, Bloom.data.framebufferTexture, 0);
-		//GL20.glDrawBuffers(intBuf);
 		
 		//glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D, gAlbedoSpec, 0);
 		
@@ -201,8 +197,6 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 
 	@Override
 	public void render(RenderContext<RenderableState> renderContext) {
-		//System.out.println("hi");
-		//Bloom.bindBloomBuffer();
 		//renderReticle(renderContext, true);
 		
 		if(ModernConfigManager.enableAllShaders && ModernConfigManager.enableReticleShaders) {
@@ -290,18 +284,5 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		
 
 		//reflexReticle = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":shaders/reflex"));
-		//first
-	//	Dloom.bloomData.bindFramebuffer(true);\
-		
-		
-		
-		
-		
-		
-		
-		
-	
-		
-		
 	}
 }

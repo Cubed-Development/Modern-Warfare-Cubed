@@ -48,5 +48,5 @@ void main(){
 	}
 
 	//gl_FragColor = depth;
-	gl_FragColor = mix(texture2D(tex, tex_coord), blurColor, 1-depth.z);
+	gl_FragColor = mix(texture2D(tex, tex_coord), blurColor, 1.0-depth.z);
 }

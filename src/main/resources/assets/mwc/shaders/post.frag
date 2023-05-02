@@ -89,7 +89,7 @@ vec2 rand(vec2 c){
 * Applies a blur effect by sampling around the current
 * fragment. This uses the 'fast box blur' technique.
 */
-vec4 slightBlur(vec4 color, int size, float separation, vec2 distortion) {
+vec4 slightBlur(vec4 color, float size, float separation, vec2 distortion) {
 
 
 		if(separation == 0 || size <= 0) return color;
@@ -103,14 +103,14 @@ vec4 slightBlur(vec4 color, int size, float separation, vec2 distortion) {
 		separation = max(1.0 + separation, 1.0);
 
 
-		for (int i = -size; i <= size; ++i) {
-	    for (int j = -size; j <= size; ++j) {
+		for (float i = -size; i <= size; ++i) {
+	    for (float j = -size; j <= size; ++j) {
 	      baseColor += vec4(texture2D(tex, tex_coord + vec2(uv.x*i, uv.y*j)*separation + distortion).rgb, 1.0);
 	    }
   	}
 
 		// Takes the average
-		baseColor /= pow(size * 2 + 1, 2);
+		baseColor /= pow(size * 2.0 + 1.0, 2.0);
 
 		return baseColor;
 }

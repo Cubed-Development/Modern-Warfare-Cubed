@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
-import com.paneedah.weaponlib.render.Bloom;
 import com.paneedah.weaponlib.render.Shaders;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -77,9 +76,7 @@ public class LaserBeamRenderer implements CustomRenderer {
 			Shaders.brightnessShader.use();
 			Shaders.brightnessShader.uniform1f("brightness", 4f);
 			Shaders.brightnessShader.uniform3f("color", 0f, 1f, 0f);
-			
-			
-			Bloom.bindBloomBuffer();
+
 			Tessellator tes = Tessellator.getInstance();
 			BufferBuilder bb = tes.getBuffer();
 			bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);
