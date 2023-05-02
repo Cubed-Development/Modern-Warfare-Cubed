@@ -2,7 +2,7 @@ package com.paneedah.mwc.weapons;
 
 import com.paneedah.mwc.items.guns.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import net.minecraft.item.Item;
 
 public class Guns {

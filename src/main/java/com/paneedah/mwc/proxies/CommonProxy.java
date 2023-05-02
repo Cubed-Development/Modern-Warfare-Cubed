@@ -18,19 +18,19 @@ import com.paneedah.mwc.wearables.Armors;
 import com.paneedah.mwc.wearables.Backpacks;
 import com.paneedah.mwc.wearables.Bullets;
 import com.paneedah.mwc.wearables.Vests;
-import com.paneedah.mwc.weaponlib.UniversalSoundLookup;
-import com.paneedah.mwc.weaponlib.animation.SpecialAttachments;
-import com.paneedah.mwc.weaponlib.compatibility.CompatibleChannel;
-import com.paneedah.mwc.weaponlib.compatibility.CompatibleFmlInitializationEvent;
-import com.paneedah.mwc.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.mwc.weaponlib.compatibility.CompatibleMaterial;
-import com.paneedah.mwc.weaponlib.vehicle.network.VehicleDataSerializer;
-import com.paneedah.mwc.weaponlib.vehicle.network.VehiclePhysSerializer;
+import com.paneedah.weaponlib.UniversalSoundLookup;
+import com.paneedah.weaponlib.animation.SpecialAttachments;
+import com.paneedah.weaponlib.compatibility.CompatibleChannel;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleMaterial;
+import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
+import com.paneedah.weaponlib.vehicle.network.VehiclePhysSerializer;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 
-import static com.paneedah.mwc.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class CommonProxy {
 

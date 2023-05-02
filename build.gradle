@@ -21,7 +21,7 @@ minecraft {
     mappings = 'stable_39'
     runDir = 'run'
 
-    def args = ['-Dfml.coreMods.load=com.paneedah.mwc.weaponlib.core.WeaponlibCorePlugin', '-Dforge.logging.console.level=debug']
+    def args = ['-Dfml.coreMods.load=com.paneedah.weaponlib.core.WeaponlibCorePlugin', '-Dforge.logging.console.level=debug']
 
     replace('@ID@', project.id)
     replace('@NAME@', project.name)
@@ -82,6 +82,13 @@ dependencies {
 jar {
     // Add all embedded dependencies into the jar
     from(configurations.embed.collect {it.isDirectory() ? it : zipTree(it)})
+
+    manifest.attributes([
+            'ModSide': 'BOTH',
+            'FMLCorePlugin': 'com.paneedah.weaponlib.core.WeaponlibCorePlugin',
+            'FMLCorePluginContainsFMLMod': 'true',
+            'ForceLoadAsMod': 'true'
+    ])
 }
 
 idea {

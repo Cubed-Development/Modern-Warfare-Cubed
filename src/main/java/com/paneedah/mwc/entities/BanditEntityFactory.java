@@ -2,12 +2,12 @@ package com.paneedah.mwc.entities;
 
 import com.paneedah.mwc.weapons.Guns;
 import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.mwc.weaponlib.ModContext;
-import com.paneedah.mwc.weaponlib.ai.BetterAINearestAttackableTarget;
-import com.paneedah.mwc.weaponlib.ai.EntityAIAttackRangedWeapon;
-import com.paneedah.mwc.weaponlib.ai.EntityConfiguration;
-import com.paneedah.mwc.weaponlib.ai.EntityCustomMob;
-import com.paneedah.mwc.weaponlib.compatibility.CompatibleBiomeType;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.ai.BetterAINearestAttackableTarget;
+import com.paneedah.weaponlib.ai.EntityAIAttackRangedWeapon;
+import com.paneedah.weaponlib.ai.EntityConfiguration;
+import com.paneedah.weaponlib.ai.EntityCustomMob;
+import com.paneedah.weaponlib.compatibility.CompatibleBiomeType;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.boss.EntityDragon;
@@ -17,7 +17,7 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.EnumDifficulty;
 
-import static com.paneedah.mwc.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class BanditEntityFactory implements EntityFactory {
 

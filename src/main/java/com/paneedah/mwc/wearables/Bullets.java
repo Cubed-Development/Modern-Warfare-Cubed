@@ -2,10 +2,10 @@ package com.paneedah.mwc.wearables;
 
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.weaponlib.ItemBullet;
-import com.paneedah.mwc.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.mwc.weaponlib.compatibility.CompatibleItems;
-import com.paneedah.mwc.weaponlib.crafting.CraftingComplexity;
+import com.paneedah.weaponlib.ItemBullet;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleItems;
+import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import org.lwjgl.opengl.GL11;
 
 public class Bullets {

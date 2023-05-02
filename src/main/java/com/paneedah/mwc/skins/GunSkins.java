@@ -1,9 +1,9 @@
 package com.paneedah.mwc.skins;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.weaponlib.CommonRegistry;
-import com.paneedah.mwc.weaponlib.ItemSkin;
-import com.paneedah.mwc.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.CommonRegistry;
+import com.paneedah.weaponlib.ItemSkin;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 
 public class GunSkins {
 

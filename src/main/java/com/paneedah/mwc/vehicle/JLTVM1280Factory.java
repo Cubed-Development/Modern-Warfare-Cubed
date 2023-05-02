@@ -4,8 +4,8 @@ import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.models.JLTVM1280;
 import com.paneedah.mwc.models.JLTVM1280wheel;
 import com.paneedah.mwc.models.SampleVehicleControlArm;
-import com.paneedah.mwc.weaponlib.ModContext;
-import com.paneedah.mwc.weaponlib.vehicle.*;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.vehicle.*;
 
 public class JLTVM1280Factory implements VehicleFactory {
 

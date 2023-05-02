@@ -4,13 +4,13 @@ import com.paneedah.mwc.creativetab.*;
 import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.mwc.weaponlib.ModContext;
-import com.paneedah.mwc.weaponlib.command.BalancePackCommand;
-import com.paneedah.mwc.weaponlib.command.CraftingFileCommand;
-import com.paneedah.mwc.weaponlib.compatibility.CompatibleFmlInitializationEvent;
-import com.paneedah.mwc.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.mwc.weaponlib.config.BalancePackManager;
-import com.paneedah.mwc.weaponlib.crafting.CraftingFileManager;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.command.BalancePackCommand;
+import com.paneedah.weaponlib.command.CraftingFileCommand;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -22,12 +22,12 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
-@Mod(modid = ModReference.id, name = ModReference.name, version = ModReference.version, guiFactory = "com.paneedah.mwc.weaponlib.config.ConfigGUIFactory")
+@Mod(modid = ModReference.id, name = ModReference.name, version = ModReference.version, guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory")
 public class ModernWarfareMod {
 
     private static final String DEFAULT_CONFIG_RESOURCE = "/mwc.cfg";
 
-    @SidedProxy(serverSide = "com.paneedah.mwc.weaponlib.CommonModContext", clientSide = "com.paneedah.mwc.weaponlib.ClientModContext")
+    @SidedProxy(serverSide = "com.paneedah.weaponlib.CommonModContext", clientSide = "com.paneedah.weaponlib.ClientModContext")
     public static ModContext MOD_CONTEXT;
 
     // Todo: Make this configurable via the future YAML config system from FBP.
@@ -41,6 +41,7 @@ public class ModernWarfareMod {
 	public static final CreativeTabs AttachmentsTab = new AttachmentsTab(CreativeTabs.getNextID(), "AttachmentsTab");
 	public static final CreativeTabs GrenadesTab = new GrenadesTab(CreativeTabs.getNextID(), "GrenadesTab");
 	public static final CreativeTabs GadgetsTab = new GadgetsTab(CreativeTabs.getNextID(), "GadgetsTab");
+	public static final CreativeTabs PropsTab = new PropsTab(CreativeTabs.getNextID(), "props_tab");
 	public static final CreativeTabs BlocksTab = new BlocksTab(CreativeTabs.getNextID(), "BlocksTab");
 	        
     @SidedProxy(serverSide = "com.paneedah.mwc.proxies.CommonProxy", clientSide = "com.paneedah.mwc.proxies.ClientProxy")
@@ -53,12 +54,13 @@ public class ModernWarfareMod {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
+        // Recipes
+        MWCRecipes.register();
         proxy.init(this, new CompatibleFmlInitializationEvent(event));
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        MWCRecipes.register();
         proxy.postInit(this, event);
     }
     

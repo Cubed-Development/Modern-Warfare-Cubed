@@ -3,11 +3,11 @@ package com.paneedah.mwc.items.grenade;
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.models.ImpactGrenade;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.weaponlib.RenderContext;
-import com.paneedah.mwc.weaponlib.animation.Transition;
-import com.paneedah.mwc.weaponlib.grenade.GrenadeRenderer;
-import com.paneedah.mwc.weaponlib.grenade.ItemGrenade;
-import com.paneedah.mwc.weaponlib.grenade.RenderableState;
+import com.paneedah.weaponlib.RenderContext;
+import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.grenade.GrenadeRenderer;
+import com.paneedah.weaponlib.grenade.ItemGrenade;
+import com.paneedah.weaponlib.grenade.RenderableState;
 import org.lwjgl.opengl.GL11;
 
 public class ImpactGrenadeFactory implements GrenadeFactory {

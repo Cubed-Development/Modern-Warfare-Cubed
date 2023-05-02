@@ -4,9 +4,9 @@ import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.models.VehicleKey;
 import com.paneedah.mwc.models.VehicleLock;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.weaponlib.render.QRL;
-import com.paneedah.mwc.weaponlib.vehicle.AccessibleVehicleGUI;
-import com.paneedah.mwc.weaponlib.vehicle.GeneralVehicleSounds;
+import com.paneedah.weaponlib.render.QRL;
+import com.paneedah.weaponlib.vehicle.AccessibleVehicleGUI;
+import com.paneedah.weaponlib.vehicle.GeneralVehicleSounds;
 
 public class Vehicles {
 	

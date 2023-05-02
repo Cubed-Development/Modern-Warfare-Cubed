@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.mwc.weaponlib.model.WrappableModel;
+import com.paneedah.weaponlib.model.WrappableModel;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;

@@ -1,17 +1,17 @@
 package com.paneedah.mwc;
 
 import com.paneedah.mwc.models.GasDetector;
-import com.paneedah.mwc.weaponlib.ItemAttachment;
-import com.paneedah.mwc.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.mwc.weaponlib.electronics.ItemHandheld;
-import com.paneedah.mwc.weaponlib.electronics.ItemTablet;
-import com.paneedah.mwc.weaponlib.electronics.ItemWirelessCamera;
-import com.paneedah.mwc.weaponlib.model.CameraModel;
-import com.paneedah.mwc.weaponlib.model.TabletModel;
-import com.paneedah.mwc.weaponlib.perspective.GasDetectorScreenPerspective;
+import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.electronics.ItemHandheld;
+import com.paneedah.weaponlib.electronics.ItemTablet;
+import com.paneedah.weaponlib.electronics.ItemWirelessCamera;
+import com.paneedah.weaponlib.model.CameraModel;
+import com.paneedah.weaponlib.model.TabletModel;
+import com.paneedah.weaponlib.perspective.GasDetectorScreenPerspective;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Electronics {
 
