@@ -41,14 +41,13 @@ public class ModernWarfareMod {
 	public static final CreativeTabs AttachmentsTab = new AttachmentsTab(CreativeTabs.getNextID(), "AttachmentsTab");
 	public static final CreativeTabs GrenadesTab = new GrenadesTab(CreativeTabs.getNextID(), "GrenadesTab");
 	public static final CreativeTabs GadgetsTab = new GadgetsTab(CreativeTabs.getNextID(), "GadgetsTab");
-	public static final CreativeTabs PropsTab = new PropsTab(CreativeTabs.getNextID(), "props_tab");
 	public static final CreativeTabs BlocksTab = new BlocksTab(CreativeTabs.getNextID(), "BlocksTab");
 	        
     @SidedProxy(serverSide = "com.paneedah.mwc.proxies.CommonProxy", clientSide = "com.paneedah.mwc.proxies.ClientProxy")
     public static CommonProxy proxy;
 
     @EventHandler
-    public void init(FMLPreInitializationEvent event) {
+    public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(this, new CompatibleFmlPreInitializationEvent(event));
     }
 

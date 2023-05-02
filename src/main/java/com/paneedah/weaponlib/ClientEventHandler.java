@@ -278,8 +278,6 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
             mainLoopLock.unlock();
             ClientModContext.currentContext.remove();
         }
-        
-        
     }
 
     @Override
