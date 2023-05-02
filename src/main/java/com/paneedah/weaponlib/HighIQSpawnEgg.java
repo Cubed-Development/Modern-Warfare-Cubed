@@ -126,7 +126,6 @@ public class HighIQSpawnEgg extends CompatibleItem implements IModernCrafting {
 
 		if (hand == EnumHand.OFF_HAND)
 			return EnumActionResult.FAIL;
-
 		try {
 			
 			//System.out.println(worldIn.getBlockState(pos).getBlock());
