@@ -3137,9 +3137,6 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 	
 		
 		if(CompatibleClientEventHandler.muzzlePositioner && !OpenGLSelectionHelper.isInSelectionPass) {
-			//Bloom.bindBloomBuffer();
-			//System.out.println("yo");
-			
 			GlStateManager.pushMatrix();
 			Vec3d deb = CompatibleClientEventHandler.debugmuzzlePosition;
 			GlStateManager.translate(deb.x, deb.y, deb.z);
@@ -3154,9 +3151,8 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		if(renderContext.getPlayer() != null && (ClientEventHandler.checkShot(renderContext.getPlayer().getEntityId()) || AnimationGUI.getInstance().forceFlash.isState())) {
 			shot = true;
 			//flash = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":shaders/flash"));
-			
-		//	Bloom.bindBloomBuffer();
-		//	MuzzleFlashRenderer.renderFlash(renderContext.getPlayer().getEntityId(), weaponItemStack, true);
+
+		    //MuzzleFlashRenderer.renderFlash(renderContext.getPlayer().getEntityId(), weaponItemStack, true);
 			//mc.getFramebuffer().bindFramebuffer(false);
 			
 			
@@ -3173,10 +3169,6 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 			//PostProcessPipeline.createDistortionPoint((float) distortPos.x, (float) distortPos.y, (float) distortPos.z, 1f, 300);
 			
 			/*
-			Bloom.bindBloomBuffer();
-			
-			
-			//Dloom.bloomData.bindFramebuffer(false);
 			renderFlash(weaponItemStack, true);
 			mc.getFramebuffer().bindFramebuffer(false);
 			renderFlash(weaponItemStack, false);
@@ -3185,8 +3177,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
  		//System.out.println("hi " + CompatibleClientEventHandler.muzzleFlashMap.size());
 		//CompatibleClientEventHandler.muzzleFlashMap.clear();
 		//CompatibleClientEventHandler.uploadFlash(mc.player.getEntityId());
-		
-		//Bloom.doBloom();
+
 		/*
 		 GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, MODELVIEW);
 	        GL11.glGetFloat(GL11.GL_PROJECTION_MATRIX, PROJECTION);

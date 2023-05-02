@@ -1,18 +1,19 @@
 package com.paneedah.mwc.utils;
 
+import com.paneedah.mwc.Tags;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
  * This class defines constants for MWC.
  * <p>
- * They are automatically updated by Gradle on compile time.
+ * id and version are automatically updated by RFG.
  */
 public class ModReference {
 
-    public static final String id = "@ID@";
-    public static final String name = "@NAME@";
-    public static final String version = "@VERSION@";
+    public static final String id = Tags.ID;
+    public static final String name = "Modern Warfare Cubed";
+    public static final String version = Tags.VERSION;
     public static final Logger log = LogManager.getLogger(id);
 }
 
