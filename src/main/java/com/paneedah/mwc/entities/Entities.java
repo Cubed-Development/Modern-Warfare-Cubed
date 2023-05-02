@@ -4,9 +4,8 @@ import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Guns;
 import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.weaponlib.ai.*;
-import com.paneedah.weaponlib.compatibility.CompatibleBiomeType;
-import com.paneedah.weaponlib.compatibility.CompatibleEntityAIAttackOnCollide;
+import com.paneedah.mwc.weaponlib.ai.*;
+import com.paneedah.mwc.weaponlib.compatibility.CompatibleBiomeType;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.boss.EntityDragon;
@@ -16,7 +15,7 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.EnumDifficulty;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mwc.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Entities {
 

@@ -1,6 +1,6 @@
 package com.paneedah.mwc.weapons;
 
-import com.paneedah.weaponlib.render.scopes.Reticle;
+import com.paneedah.mwc.weaponlib.render.scopes.Reticle;
 
 public class Reticles {
 	

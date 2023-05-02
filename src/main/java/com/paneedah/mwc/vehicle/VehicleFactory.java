@@ -1,6 +1,6 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.weaponlib.ModContext;
+import com.paneedah.mwc.weaponlib.ModContext;
 
 public interface VehicleFactory {
 

@@ -1,14 +1,14 @@
 package com.paneedah.mwc.wearables;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.weaponlib.CustomArmor;
-import com.paneedah.weaponlib.CustomArmor.Builder;
-import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.mwc.weaponlib.CustomArmor;
+import com.paneedah.mwc.weaponlib.CustomArmor.Builder;
+import com.paneedah.mwc.weaponlib.ModContext;
+import com.paneedah.mwc.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mwc.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Armors {
 	

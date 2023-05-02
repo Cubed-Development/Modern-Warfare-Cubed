@@ -7,10 +7,10 @@ import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.wearables.Bullets;
-import com.paneedah.weaponlib.RenderableState;
-import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.mwc.weaponlib.RenderableState;
+import com.paneedah.mwc.weaponlib.Weapon;
+import com.paneedah.mwc.weaponlib.WeaponRenderer;
+import com.paneedah.mwc.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 

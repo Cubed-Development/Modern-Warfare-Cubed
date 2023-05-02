@@ -1,6 +1,6 @@
 package com.paneedah.mwc;
 
-import com.paneedah.weaponlib.UniversalSoundLookup;
+import com.paneedah.mwc.weaponlib.UniversalSoundLookup;
 
 /**
  * 

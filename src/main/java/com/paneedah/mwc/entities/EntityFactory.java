@@ -1,6 +1,6 @@
 package com.paneedah.mwc.entities;
 
-import com.paneedah.weaponlib.ModContext;
+import com.paneedah.mwc.weaponlib.ModContext;
 
 public interface EntityFactory {
 

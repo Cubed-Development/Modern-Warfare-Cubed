@@ -1,9 +1,9 @@
 package com.paneedah.mwc;
 
 import com.paneedah.mwc.init.MWCBlocks;
-import com.paneedah.weaponlib.compatibility.CompatibleBlocks;
-import com.paneedah.weaponlib.compatibility.CompatibleWorldGenerator;
-import com.paneedah.weaponlib.config.ModernConfigManager;
+import com.paneedah.mwc.weaponlib.compatibility.CompatibleBlocks;
+import com.paneedah.mwc.weaponlib.compatibility.CompatibleWorldGenerator;
+import com.paneedah.mwc.weaponlib.config.ModernConfigManager;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;

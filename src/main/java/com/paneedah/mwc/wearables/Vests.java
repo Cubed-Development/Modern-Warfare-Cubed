@@ -1,10 +1,9 @@
 package com.paneedah.mwc.wearables;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.weaponlib.ItemVest;
-import com.paneedah.weaponlib.animation.Transform;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import net.minecraft.creativetab.CreativeTabs;
+import com.paneedah.mwc.weaponlib.ItemVest;
+import com.paneedah.mwc.weaponlib.animation.Transform;
+import com.paneedah.mwc.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import org.lwjgl.opengl.GL11;
 
 public class Vests {

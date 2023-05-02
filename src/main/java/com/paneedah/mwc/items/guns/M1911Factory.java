@@ -8,12 +8,12 @@ import com.paneedah.mwc.models.makarovrearsight;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.RenderableState;
-import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transition;
-import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.mwc.weaponlib.AttachmentCategory;
+import com.paneedah.mwc.weaponlib.RenderableState;
+import com.paneedah.mwc.weaponlib.Weapon;
+import com.paneedah.mwc.weaponlib.WeaponRenderer;
+import com.paneedah.mwc.weaponlib.animation.Transition;
+import com.paneedah.mwc.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 

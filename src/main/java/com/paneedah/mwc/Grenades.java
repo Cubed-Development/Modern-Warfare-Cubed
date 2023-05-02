@@ -2,11 +2,11 @@ package com.paneedah.mwc;
 
 import com.paneedah.mwc.items.grenade.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.weaponlib.AttachmentBuilder;
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.ItemAttachment;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.grenade.ItemGrenade;
+import com.paneedah.mwc.weaponlib.AttachmentBuilder;
+import com.paneedah.mwc.weaponlib.AttachmentCategory;
+import com.paneedah.mwc.weaponlib.ItemAttachment;
+import com.paneedah.mwc.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.mwc.weaponlib.grenade.ItemGrenade;
 
 public class Grenades {
 

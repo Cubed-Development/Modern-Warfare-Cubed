@@ -1,7 +1,7 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.weaponlib.vehicle.GearShiftPattern;
-import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
+import com.paneedah.mwc.weaponlib.vehicle.GearShiftPattern;
+import com.paneedah.mwc.weaponlib.vehicle.jimphysics.Transmission;
 
 public class PartInit {
 

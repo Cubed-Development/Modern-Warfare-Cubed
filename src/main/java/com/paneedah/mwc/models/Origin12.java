@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+import com.paneedah.mwc.weaponlib.ModelWithAttachments;
+import com.paneedah.mwc.weaponlib.render.qrender.QRenderer;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

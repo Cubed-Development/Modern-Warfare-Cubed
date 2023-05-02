@@ -4,13 +4,13 @@ import com.paneedah.mwc.Grenades;
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.models.M18;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.weaponlib.Part;
-import com.paneedah.weaponlib.RenderContext;
-import com.paneedah.weaponlib.animation.Transition;
-import com.paneedah.weaponlib.grenade.GrenadeRenderer;
-import com.paneedah.weaponlib.grenade.ItemGrenade;
-import com.paneedah.weaponlib.grenade.ItemGrenade.Type;
-import com.paneedah.weaponlib.grenade.RenderableState;
+import com.paneedah.mwc.weaponlib.Part;
+import com.paneedah.mwc.weaponlib.RenderContext;
+import com.paneedah.mwc.weaponlib.animation.Transition;
+import com.paneedah.mwc.weaponlib.grenade.GrenadeRenderer;
+import com.paneedah.mwc.weaponlib.grenade.ItemGrenade;
+import com.paneedah.mwc.weaponlib.grenade.ItemGrenade.Type;
+import com.paneedah.mwc.weaponlib.grenade.RenderableState;
 import org.lwjgl.opengl.GL11;
 
 public class SmokeGrenadeFactory implements GrenadeFactory {

@@ -1,11 +1,10 @@
 package com.paneedah.mwc.wearables;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.weaponlib.ItemStorage;
-import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.animation.Transform;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import net.minecraft.creativetab.CreativeTabs;
+import com.paneedah.mwc.weaponlib.ItemStorage;
+import com.paneedah.mwc.weaponlib.Weapon;
+import com.paneedah.mwc.weaponlib.animation.Transform;
+import com.paneedah.mwc.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 

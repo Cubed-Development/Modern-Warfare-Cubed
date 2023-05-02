@@ -2,8 +2,8 @@ package com.paneedah.mwc;
 
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.HighIQSpawnEgg;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.mwc.weaponlib.HighIQSpawnEgg;
+import com.paneedah.mwc.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 
 public class CustomSpawnEggs {
 	
