@@ -17,13 +17,13 @@ Ex: I'm always frustrated when [...]
 
 ***A clear and concise description of what you want to happen.***
 
-> Remember that a great explanation leads to a greater understanding
+<i>Remember that a great explanation leads to a greater understanding</i>
 
 ## Describe alternatives you've considered
 
 ***A clear and concise description of any alternative solutions or features you've considered.***
 
-> Remember that a great explanation leads to a greater understanding
+<i>Remember that a great explanation leads to a greater understanding</i>
 
 ## Additional context
 
