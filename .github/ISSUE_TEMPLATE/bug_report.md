@@ -11,7 +11,7 @@ assignees: ''
 
 ***A clear and concise description of what the bug is.***
 
->Remember that a great explanation leads to a greater understanding
+> Remember that a great explanation leads to a greater understanding
 
 ## Reproducibility
 Please try to reproduce the issue with as few other mods as possible. Then check one of the following checkboxes according to your results. To check a checkbox, replace the space between the square brackets with an x (like this [x]) or create the issue and check the checkbox by clicking on it.
@@ -64,7 +64,7 @@ Please try to reproduce the issue with as few other mods as possible. Then check
 - Storage Type: [HDD or SSD]
 - GPU VRAM: [e.g. 2GB]
 
->Most of these information can be found in the task manager
+> Most of these information can be found in the task manager
 
 ## Additional context
 
