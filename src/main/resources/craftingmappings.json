@@ -43,6 +43,27 @@
       ]
     },
     {
+      "entryName": "mwc:supernova",
+      "craftingGroup": "GUN",
+      "recipe": [
+        {
+          "entryName": "mwc:synthetic_polymer_composite",
+          "isOreDictionary": false,
+          "count": 8
+        },
+        {
+          "entryName": "mwc:gunmetal_plate",
+          "isOreDictionary": false,
+          "count": 12
+        },
+        {
+          "entryName": "mwc:steel_ingot",
+          "isOreDictionary": false,
+          "count": 3
+        }
+      ]
+    },
+    {
       "entryName": "mwc:aac_honey_badger",
       "craftingGroup": "GUN",
       "recipe": [
