@@ -1,5 +1,4 @@
 <h1 align="center">Modern Warfare Cubed</h1>
-<h1 align="center">JUST A STUPID FORK PLEASE IGNORE THIS</h1>
 
 <h5 align="center">A well optimized, open source Modern Warfare fork, made in light of Vic's Modern Warfare!</h5>
 <p align="center">
