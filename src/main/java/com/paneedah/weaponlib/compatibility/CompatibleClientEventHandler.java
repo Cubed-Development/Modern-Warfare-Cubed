@@ -7,9 +7,7 @@ import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.render.Bloom;
 import com.paneedah.weaponlib.render.HDRFramebuffer;
-import com.paneedah.weaponlib.render.Shaders;
 import com.paneedah.weaponlib.render.VMWFrameTimer;
 import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
 import com.paneedah.weaponlib.render.shells.ShellManager;
@@ -333,10 +331,6 @@ public abstract class CompatibleClientEventHandler {
 			AnimationModeProcessor.getInstance().onTick();
 
 			mc.player.inventory.currentItem = 0;
-
-			Shaders.blackScreen.use();
-			Bloom.renderFboTriangle(mc.getFramebuffer());
-			Shaders.blackScreen.release();
 
 			return;
 		}

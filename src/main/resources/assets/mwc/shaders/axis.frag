@@ -15,7 +15,7 @@ void main(){
 
 	
 	float dist = length(pos+vec4(0, 0, 0, 0))/(zoom);
-	mod.a = 1-pow(dist, 12);
+	mod.a = 1-pow(dist, 12.0);
 
 	gl_FragColor = mod;
 

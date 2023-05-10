@@ -8,7 +8,6 @@ import com.paneedah.weaponlib.WeaponRenderer.Builder;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.debug.DebugRenderer;
-import com.paneedah.weaponlib.render.Bloom;
 import com.paneedah.weaponlib.render.Shaders;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -659,7 +658,6 @@ public class AnimationModeProcessor {
 	
 	public void renderRotAxis(float scalar) {
 		GlStateManager.color(1, 1, 1);
-		//Bloom.initializeMultisample();
 		GL11.glLineWidth(5f);
 		GlStateManager.disableTexture2D();
 		GlStateManager.disableLighting();
@@ -694,7 +692,6 @@ public class AnimationModeProcessor {
 		
 		GL11.glLineWidth(2.0f);
 		GlStateManager.multMatrix(modifiedView);
-		Bloom.initializeMultisample();
 		GlStateManager.disableDepth();
 		renderLightAxisRing(Vec3d.ZERO, Color.GRAY.brighter(), 0f, size*5.5f, false, false);
 		
@@ -717,9 +714,7 @@ public class AnimationModeProcessor {
 		
 		t.draw();
 		*/
-		
-		
-		Bloom.unapplyMultisample();
+
 		GlStateManager.popMatrix();
 	
 		
@@ -736,8 +731,6 @@ public class AnimationModeProcessor {
 		renderAxisRing(new Vec3d(0, 1, 0), Color.GREEN, size, innerSize, (colorSelected == -1 || colorSelected == 2), false);
 		
 		mc.getFramebuffer().bindFramebuffer(false);
-		
-		Bloom.initializeMultisample();
 		
 		//GlStateManager.disableDepth();
 		GL11.glLineWidth(1.5f);
@@ -761,7 +754,6 @@ public class AnimationModeProcessor {
 		
 		
 		Shaders.axis.release();
-		Bloom.unapplyMultisample();
 		/*
 		if (colorSelected == -1 || colorSelected == 3) {
 			renderCircleOutline(Color.blue, 1, 0, 0, size, innerSize);
@@ -794,12 +786,6 @@ public class AnimationModeProcessor {
 			GlStateManager.popMatrix();
 		}
 		*/
-		
-
-		
-		
-
-		//Bloom.unapplyMultisample();
 	}
 	
 	public void renderLightAxisRing(Vec3d axis, Color c, float outer, float inner, boolean held, boolean hovered) {
@@ -894,8 +880,6 @@ public class AnimationModeProcessor {
 		//if(1+1==2) return;
 	//	GlStateManager.disableDepth();
 		//GlStateManager.disableDepth();
-		//System.out.println(GL11.glIsEnabled(GL11.GL_DEPTH));
-		Bloom.initializeMultisample();
 		GlStateManager.disableDepth();
 		drawArrow(new Vec3d(1, 0, 0), new Color(0xff3838), 1, 1, (colorSelected == -1 || colorSelected == 1),
 				(colorHover == 1 || colorSelected == 1));
@@ -903,7 +887,6 @@ public class AnimationModeProcessor {
 				(colorHover == 2 || colorSelected == 2));
 		drawArrow(new Vec3d(0, 0, 1), new Color(0x18dcff), 1, 1, (colorSelected == -1 || colorSelected == 3),
 				(colorHover == 3 || colorSelected == 3));
-		Bloom.unapplyMultisample();
 	//	GlStateManager.enableDepth();
 		GlStateManager.enableTexture2D();
 		GlStateManager.enableLighting();
@@ -943,8 +926,6 @@ public class AnimationModeProcessor {
 
 		// Tessellator t = Tessellator.getInstance();
 		// BufferBuilder b = t.getBuffer();
-
-		// Bloom.unapplyMultisample();
 	}
 	
 	

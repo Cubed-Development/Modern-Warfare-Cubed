@@ -234,20 +234,20 @@ vec4 slightBlur(vec4 color, float amount) {
 
 		vec2 uv = 1/windowSize;
 		vec4 baseColor = vec4(0);
-		int size = 2;
+		float size = 2;
 		float separation = max(1.5, 1.0);
 
 		if(size <= 0) {
 			return color;
 		}
 
-		for (int i = -size; i <= size; ++i) {
-	    for (int j = -size; j <= size; ++j) {
+		for (float i = -size; i <= size; ++i) {
+	    for (float j = -size; j <= size; ++j) {
 	      baseColor += texture2D(tex, tex_coord + vec2(uv.x*i, uv.y*j)*separation);
 	    }
   	}
 
-		baseColor /= pow(size * 2 + 1, 2);
+		baseColor /= pow(size * 2.0 + 1.0, 2.0);
 
 
 

@@ -418,10 +418,10 @@ public class AnimationGUI {
 	
 	
 	public static void forceSkin(String type) {
-		Method f = ReflectionHelper.findMethod(AbstractClientPlayer.class, "getPlayerInfo", "getPlayerInfo", null);
+		Method f = ReflectionHelper.findMethod(AbstractClientPlayer.class, "getPlayerInfo", "getPlayerInfo", (Class<?>) null);
 
 		NetworkPlayerInfo npi = null;
-		try { npi = (NetworkPlayerInfo) f.invoke((AbstractClientPlayer) mc.player, null); }
+		try { npi = (NetworkPlayerInfo) f.invoke((AbstractClientPlayer) mc.player, (Object) null); }
 		catch (Exception e) { e.printStackTrace(); }
 
 		if(npi != null) {

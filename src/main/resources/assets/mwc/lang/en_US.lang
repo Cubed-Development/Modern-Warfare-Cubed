@@ -7,16 +7,7 @@ item.ae86trueno.name=Toyota AE86 Trueno
 item.atv_polaris_sportsman_850_2019.name=2019 Polaris Sportsman 850
 
 entity.terrorist.name=Terrorist
-entity.zombieBlistered.name=Blistered Zombie
-entity.zombieRipper.name=Ripper Zombie
-entity.tornzombie.name=Torn Zombie
-entity.necromorph.name=Necromorph
-entity.licker.name=Licker
-entity.zombie.name=Zombie
-entity.hazmat_zombie.name=HazMat Zombie
-entity.Defiled Zombie.name=Defiled Zombie
-entity.deathclaw.name=Deathclaw
-entity.molded.name=Molded
+entity.soldier.name=Soldier
 
 item.mwc_gas-detector.name=Gas Detector
 item.mwc_GasGrenade.name=Gas Grenade
@@ -453,8 +444,8 @@ item.baseball_bat_nails.name=Baseball Bat w/ Nails
 item.night_stick.name=Night Stick
 
 item.gas_can.name=Gas Can (PROP)
-item.mwc_wcam.name=mwc Camera
-item.mwc_tablet.name=mwc Tablet
+item.mwc_wcam.name=MWC Camera
+item.mwc_tablet.name=MWC Tablet
 
 
 item.mwc_M67Frag.name=M67 Frag Grenade
@@ -1039,16 +1030,16 @@ tile.mwc_spookyghost2.name=Spooky Ghost 2
 tile.mwc_spookyghost3.name=Spooky Ghost 3
 tile.mwc_swat_truck.name=SWAT Truck
 
-itemGroup.guns_tab=Modern Warfare Resources
-itemGroup.AssaultRifles_tab=mwc Guns
-itemGroup.props_tab=mwc Props (Contagion) (Creative Use Only)
-itemGroup.AmmoTab=mwc Ammunition
-itemGroup.AttachmentsTab=mwc Attachments
-itemGroup.ArmorTab=mwc Armor
-itemGroup.GrenadesTab=mwc Grenades
-itemGroup.SpartanTab=mwc Spartan Armors Tab
-itemGroup.GadgetsTab=mwc Gadgets
-itemGroup.BlocksTab=mwc Blocks & Ingots
+itemGroup.guns_tab=MWC Resources
+itemGroup.AssaultRifles_tab=MWC Guns
+itemGroup.props_tab=MWC Props (Creative Use Only)
+itemGroup.AmmoTab=MWC Ammunition
+itemGroup.AttachmentsTab=MWC Attachments
+itemGroup.ArmorTab=MWC Armor
+itemGroup.GrenadesTab=MWC Grenades
+itemGroup.SpartanTab=MWC Spartan Armors Tab
+itemGroup.GadgetsTab=MWC Gadgets
+itemGroup.BlocksTab=MWC Blocks & Ingots
 
 key.categories.weaponlib=Modern Warfare
 key.texture_change=Change Gun Skin

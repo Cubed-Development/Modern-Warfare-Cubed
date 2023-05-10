@@ -1,8 +1,11 @@
 <h1 align="center">Modern Warfare Cubed</h1>
 
 <h5 align="center">A well optimized, open source Modern Warfare fork, made in light of Vic's Modern Warfare!</h5>
-
 <p align="center">
+  <a href="https://www.curseforge.com/minecraft/mc-mods/modern-warfare-cubed">
+    <img src="https://cf.way2muchnoise.eu/title/836353_Get_%20.svg?badge_style=for_the_badge">
+  </a>
+
   <a href="https://github.com/Paneedah/Modern-Warfare-Cubed/releases">
     <img src="https://img.shields.io/github/v/release/Paneedah/Modern-Warfare-Cubed?label=Release&logo=GitHub&sort=semver&style=for-the-badge">
   </a>
