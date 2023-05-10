@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.utils.MathUtil;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
@@ -31,8 +32,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHandSide;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
@@ -440,9 +443,9 @@ public class Interceptors {
             
             float xWiggle = (float) LissajousCurve.getXOffsetOnCurve(3, 1, 2, Math.PI, f1);
             
-            GL11.glTranslatef(CompatibleMathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 0.5F, -Math.abs(CompatibleMathHelper.cos(f1 * (float)Math.PI) * f2)*0.5f, 0.0F);
-            GL11.glRotatef(CompatibleMathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 3.0F*sMult, 0.0F, 0.0F, 1.0F);
-            GL11.glRotatef(Math.abs(CompatibleMathHelper.cos((f1 * (float)Math.PI - 0.2F)*speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
+            GL11.glTranslatef(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 0.5F, -Math.abs(MathHelper.cos(f1 * (float)Math.PI) * f2)*0.5f, 0.0F);
+            GL11.glRotatef(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 3.0F*sMult, 0.0F, 0.0F, 1.0F);
+            GL11.glRotatef(Math.abs(MathHelper.cos((f1 * (float)Math.PI - 0.2F)*speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
             GL11.glRotatef(f3*sMult, 1.0F, 0.0F, 0.0F);
         	
         	/*
@@ -453,9 +456,9 @@ public class Interceptors {
             
             float xWiggle = (float) LissajousCurve.getXOffsetOnCurve(3, 1, 2, Math.PI, f1);
             
-            GL11.glTranslatef(CompatibleMathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 0.5F, -Math.abs(CompatibleMathHelper.cos(f1 * (float)Math.PI) * f2)*0.5f, 0.0F);
-            GL11.glRotatef(CompatibleMathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 3.0F*sMult, 0.0F, 0.0F, 1.0F);
-            GL11.glRotatef(Math.abs(CompatibleMathHelper.cos((f1 * (float)Math.PI - 0.2F)*speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
+            GL11.glTranslatef(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 0.5F, -Math.abs(MathHelper.cos(f1 * (float)Math.PI) * f2)*0.5f, 0.0F);
+            GL11.glRotatef(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 3.0F*sMult, 0.0F, 0.0F, 1.0F);
+            GL11.glRotatef(Math.abs(MathHelper.cos((f1 * (float)Math.PI - 0.2F)*speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
             GL11.glRotatef(f3*sMult, 1.0F, 0.0F, 0.0F);
             */
         } else {
@@ -467,9 +470,9 @@ public class Interceptors {
                      float f1 = -(entityplayer.distanceWalkedModified + f * partialTicks);
                      float f2 = entityplayer.prevCameraYaw + (entityplayer.cameraYaw - entityplayer.prevCameraYaw) * partialTicks;
                      float f3 = entityplayer.prevCameraPitch + (entityplayer.cameraPitch - entityplayer.prevCameraPitch) * partialTicks;
-                     GL11.glTranslatef(CompatibleMathHelper.sin(f1 * (float)Math.PI) * f2 * 0.2F, -Math.abs(CompatibleMathHelper.cos(f1 * (float)Math.PI) * f2)*0.2f, 0.0F);
-                     GL11.glRotatef(CompatibleMathHelper.sin(f1 * (float)Math.PI) * f2 * 3.0F, 0.0F, 0.0F, 1.0F);
-                     GL11.glRotatef(Math.abs(CompatibleMathHelper.cos(f1 * (float)Math.PI - 0.2F) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
+                     GL11.glTranslatef(MathHelper.sin(f1 * (float)Math.PI) * f2 * 0.2F, -Math.abs(MathHelper.cos(f1 * (float)Math.PI) * f2)*0.2f, 0.0F);
+                     GL11.glRotatef(MathHelper.sin(f1 * (float)Math.PI) * f2 * 3.0F, 0.0F, 0.0F, 1.0F);
+                     GL11.glRotatef(Math.abs(MathHelper.cos(f1 * (float)Math.PI - 0.2F) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
                     
                      GL11.glRotatef(f3, 1.0F, 0.0F, 0.0F);
         		
@@ -621,7 +624,7 @@ public class Interceptors {
         }
 
         f = f / (float) entitylivingbase.maxHurtTime;
-        f = CompatibleMathHelper.sin(f * f * f * f * (float) Math.PI);
+        f = MathHelper.sin(f * f * f * f * (float) Math.PI);
         float f2 = entitylivingbase.attackedAtYaw;
         GL11.glRotatef(-f2, 0.0F, 1.0F, 0.0F);
         SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(entitylivingbase, SpreadableExposure.class);
@@ -753,8 +756,8 @@ public class Interceptors {
     public static void checkLayerRenderersHooks() {
     	layerRendererHookSetup = true;
     	
-    	layerRendererField = CompatibleReflection.findField(RenderLivingBase.class, "layerRenderers", "field_177097_h");
-    	translateItemField = CompatibleReflection.findMethod(LayerHeldItem.class, "translateToHand", "func_191361_a", EnumHandSide.class);
+    	layerRendererField = ReflectionHelper.findField(RenderLivingBase.class, "layerRenderers", "field_177097_h");
+    	translateItemField = ReflectionHelper.findMethod(LayerHeldItem.class, "translateToHand", "func_191361_a", EnumHandSide.class);
 		 }
     
     @SuppressWarnings("unchecked")
@@ -791,8 +794,7 @@ public class Interceptors {
         if(entity instanceof EntityPlayer /* && isProning((EntityPlayer) entity)*/) { 
             PlayerRenderer playerRenderer = renderers.get(entity);
             EntityPlayer player = (EntityPlayer) entity;
-            if(playerRenderer == null || !playerRenderer.positionItemSide(player, itemStack, CompatibleTransformType.fromItemRenderType(transformType), 
-                    CompatibleEnumHandSide.fromEnumHandSide(handSide))) {
+            if(playerRenderer == null || !playerRenderer.positionItemSide(player, itemStack, transformType, handSide)) {
                 ((ModelBiped)livingEntityRenderer.getMainModel()).postRenderArm(0.0625F, handSide);
             }
         } else {
@@ -985,14 +987,14 @@ public class Interceptors {
 ////            }
 ////            System.out.println("Speed: " + entityVehicle.getSpeed() + ", maxYawD: " + maxYawDelta);
 //            //canChangeRotationYaw = entityVehicle.getState() != VehicleState.STOPPING;
-//            float vehicleRiderYawDelta = CompatibleMathHelper.wrapAngleTo180Float(player.ridingEntity.rotationYaw - player.rotationYaw);
+//            float vehicleRiderYawDelta = MathHelper.wrapAngleTo180Float(player.ridingEntity.rotationYaw - player.rotationYaw);
 //            if(vehicleRiderYawDelta > maxYawDelta) {
 //                vehicleRiderYawDelta = maxYawDelta;
 //                yawDelta = 1f;
 //            }
             
             player.rotationYaw = (float) ((double) player.rotationYaw + (double) yawDelta);
-            float vehicleRiderYawDelta = CompatibleMathHelper.wrapAngleTo180Float(player.getRidingEntity().rotationYaw - player.rotationYaw);
+            float vehicleRiderYawDelta = MathUtil.wrapAngleTo180Float(player.getRidingEntity().rotationYaw - player.rotationYaw);
             //System.out.println("Proposed delta: " + yawDelta + ", allowed: " + vehicleRiderYawDelta);
 
             if(vehicleRiderYawDelta > maxYawDelta) {

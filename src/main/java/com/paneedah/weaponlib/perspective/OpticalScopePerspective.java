@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
 import com.paneedah.weaponlib.shader.jim.Shader;
 import com.paneedah.weaponlib.shader.jim.ShaderLoader;
 import com.paneedah.weaponlib.shader.jim.Uniform;
 import net.minecraft.client.renderer.GLAllocation;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 
@@ -64,7 +64,7 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
     }
 
     @Override
-    public void update(CompatibleRenderTickEvent event) {
+    public void update(TickEvent.RenderTickEvent event) {
     	
          PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
         if(instance != null && instance.isAimed()) {
@@ -100,7 +100,7 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
     
     
     @Override
-    protected void prepareRenderWorld(CompatibleRenderTickEvent event) {
+    protected void prepareRenderWorld(TickEvent.RenderTickEvent event) {
     	
     	boolean reload = false;
     	if(reload) {
@@ -126,7 +126,7 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
     }
 
     @Override
-    protected void postRenderWorld(CompatibleRenderTickEvent event) {
+    protected void postRenderWorld(TickEvent.RenderTickEvent event) {
     	//scope.release();
     	/*
         DynamicShaderContext shaderContext = new DynamicShaderContext(

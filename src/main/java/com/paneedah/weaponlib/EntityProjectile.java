@@ -12,10 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,7 +33,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
     private int xTile = -1;
     private int yTile = -1;
     private int zTile = -1;
-    //private CompatibleBlockState field_145785_f;
+    //private IBlockState field_145785_f;
     protected boolean inGround;
     public int throwableShake;
 
@@ -87,12 +84,10 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
         this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(),
                 thrower.posZ, compatibility.getCompatibleAimingRotationYaw(thrower), thrower.rotationPitch);
-
-
-
-        this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        
+        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
-        this.posZ -= (double) (CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.setPosition(this.posX, this.posY, this.posZ);
 
 
@@ -100,12 +95,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
         //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
         float f = velocity; //0.4F;
-        this.motionX = (double) (-CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
-                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionZ = (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
-                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionY = (double) (-CompatibleMathHelper
-                .sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
+        this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionY = (double) (-MathHelper.sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
     }
 
@@ -113,19 +105,16 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
         this.setLocationAndAngles(x, y + (double) thrower.getEyeHeight(), z, rotationYaw, rotationPitch);
 
-        this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
-        this.posZ -= (double) (CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.setPosition(this.posX, this.posY, this.posZ);
 
         //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
         float f = velocity; //0.4F;
-        this.motionX = (double) (-CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
-                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionZ = (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
-                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionY = (double) (-CompatibleMathHelper
-                .sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
+        this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionY = (double) (-MathHelper.sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
     }
 
@@ -146,8 +135,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
      * direction.
      */
     public void setThrowableHeading(double x, double y, double z, float velocity, float inaccuracy) {
-        float f2 = CompatibleMathHelper
-                .sqrt_double(x * x + y * y + z * z);
+        float f2 = MathHelper.sqrt(x * x + y * y + z * z);
         x /= (double) f2;
         y /= (double) f2;
         z /= (double) f2;
@@ -160,7 +148,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.motionX = x;
         this.motionY = y;
         this.motionZ = z;
-        float f3 = CompatibleMathHelper.sqrt_double(x * x + z * z);
+        float f3 = MathHelper.sqrt(x * x + z * z);
         this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(x, z) * 180.0D / Math.PI);
         this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(y, (double) f3) * 180.0D / Math.PI);
         //this.ticksInGround = 0;
@@ -176,7 +164,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.motionZ = mZ;
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
-            float f = CompatibleMathHelper.sqrt_double(mX * mX + mZ * mZ);
+            float f = MathHelper.sqrt(mX * mX + mZ * mZ);
             this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(mX, mZ) * 180.0D / Math.PI);
             this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(mY, (double) f) * 180.0D
                     / Math.PI);
@@ -200,16 +188,18 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         }
 
         if (this.inGround) {
-//            CompatibleBlockPos p = new CompatibleBlockPos(this.xTile, this.yTile, this.zTile);
-//            if (compatibility.getBlockAtPosition(compatibility.world(this), p) == this.field_145785_f) {
-//                ++this.ticksInGround;
-//
-//                if (this.ticksInGround == 1200) {
-//                    this.setDead();
-//                }
-//
-//                return;
-//            }
+            /*
+            BlockPos p = new BlockPos(this.xTile, this.yTile, this.zTile);
+            if (compatibility.getBlockAtPosition(compatibility.world(this), p) == this.field_145785_f) {
+                ++this.ticksInGround;
+
+                if (this.ticksInGround == 1200) {
+                    this.setDead();
+                }
+
+                return;
+            }
+            */
 
             this.inGround = false;
             this.motionX *= (double) (this.rand.nextFloat() * 0.2F);
@@ -228,7 +218,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         //List<BlockPos> possibleCollisions = new ArrayList<>();
 
         // Check what is at the projectile current position, null if air
-        CompatibleRayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(null, block, null, blockMetadata));
+        RayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(null, block, null, blockMetadata));
 
         /*
          *  GLASS BREAK CHECK
@@ -258,13 +248,13 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
         if (movingobjectposition != null)
-            vec31 = movingobjectposition.getHitVec();
+            vec31 = new Vector3D(movingobjectposition.hitVec);
 
         if (!compatibility.world(this).isRemote) {
             Entity entity = getRayTraceEntities(vec3, vec31);
 
             if (entity != null)
-               movingobjectposition = new CompatibleRayTraceResult(entity);
+               movingobjectposition = new RayTraceResult(entity);
         }
 
         if (movingobjectposition != null)
@@ -273,7 +263,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.posX += this.motionX;
         this.posY += this.motionY;
         this.posZ += this.motionZ;
-        float f1 = CompatibleMathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+        float f1 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
         this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
         for (this.rotationPitch = (float) (Math.atan2(this.motionY, (double) f1) * 180.0D / Math.PI);
@@ -316,7 +306,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
     private Entity getRayTraceEntities(Vector3D vec3, Vector3D vec31) {
         Entity entity = null;
-        List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this, compatibility.getBoundingBox(this).addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+        List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this, compatibility.getBoundingBox(this).expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
         double d0 = 0.0D;
         EntityLivingBase entitylivingbase = this.getThrower();
 
@@ -333,11 +323,11 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
             if (flag && entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                 float f = 0.3F;
-                CompatibleAxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, (double) f, (double) f, (double) f);
-                CompatibleRayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3, vec31);
+                AxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, (double) f, (double) f, (double) f);
+                RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
 
                 if (movingobjectposition1 != null) {
-                    double d1 = vec3.distanceTo(movingobjectposition1.getHitVec());
+                    double d1 = vec3.distanceTo(new Vector3D(movingobjectposition1.hitVec));
 
                     if (d1 < d0 || d0 == 0.0D) {
                         entity = entity1;
@@ -352,7 +342,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
     /**
      * Called when this EntityThrowable hits a block or entity.
      */
-    protected abstract void onImpact(CompatibleRayTraceResult p_70184_1_);
+    protected abstract void onImpact(RayTraceResult p_70184_1_);
 
     /**
      * (abstract) Protected helper method to write subclass entity data to NBT.
@@ -446,7 +436,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         return p_70112_1_ < d1 * d1;
     }
 
-    public boolean canCollideWithBlock(List<BlockPos> violators, Block block, BlockPos pos, CompatibleBlockState metadata) {
-        return compatibility.canCollideCheck(block, metadata, false);
+    public boolean canCollideWithBlock(List<BlockPos> violators, Block block, BlockPos pos, IBlockState iBlockState) {
+        return compatibility.canCollideCheck(block, iBlockState, false);
     }
 }

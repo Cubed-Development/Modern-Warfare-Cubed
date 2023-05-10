@@ -1,12 +1,12 @@
 package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
-import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.ITextureObject;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.opengl.GL11;
 
 import java.util.function.BiConsumer;
@@ -21,7 +21,7 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
         private Integer textureId;
 
         @Override
-        public void update(CompatibleRenderTickEvent event) {}
+        public void update(TickEvent.RenderTickEvent event) {}
 
         @Override
         public int getTexture(RenderContext<RenderableState> context) {
@@ -57,11 +57,9 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 	@Override
 	public void render(RenderContext<RenderableState> renderContext) {
 
-		if(renderContext.getCompatibleTransformType() != CompatibleTransformType.FIRST_PERSON_RIGHT_HAND
-				&& renderContext.getCompatibleTransformType() != CompatibleTransformType.FIRST_PERSON_LEFT_HAND) {
+		if(renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND && renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_LEFT_HAND) {
 			return;
 		}
-		
 
 		if(renderContext.getModContext() == null) {
 		    return;

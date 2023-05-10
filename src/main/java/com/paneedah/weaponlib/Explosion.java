@@ -8,11 +8,15 @@ import com.paneedah.weaponlib.compatibility.*;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -40,7 +44,7 @@ public class Explosion {
     private final double explosionZ;
     private final Entity exploder;
     private final float explosionSize;
-    private final List<CompatibleBlockPos> affectedBlockPositions;
+    private final List<BlockPos> affectedBlockPositions;
     private final Map<EntityPlayer, Vector3D> playerKnockbackMap;
     private final Vector3D position;
     private final float smokeParticleAgeCoefficient;
@@ -50,12 +54,12 @@ public class Explosion {
     private ModContext modContext;
 
     // @SideOnly(Side.CLIENT)
-    public Explosion(ModContext modContext, World worldIn, Entity entityIn, double x, double y, double z, float size, List<CompatibleBlockPos> affectedPositions, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, CompatibleSound explosionSound) {
+    public Explosion(ModContext modContext, World worldIn, Entity entityIn, double x, double y, double z, float size, List<BlockPos> affectedPositions, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, CompatibleSound explosionSound) {
         this(modContext, worldIn, entityIn, x, y, z, size, false, true, affectedPositions, particleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, explosionParticleTextureName, smokeParticleTextureName, explosionSound);
     }
 
     // @SideOnly(Side.CLIENT)
-    public Explosion(ModContext modContext, World worldIn, Entity entityIn, double x, double y, double z, float size, boolean flaming, boolean smoking, List<CompatibleBlockPos> affectedPositions, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, CompatibleSound explosionSound) {
+    public Explosion(ModContext modContext, World worldIn, Entity entityIn, double x, double y, double z, float size, boolean flaming, boolean smoking, List<BlockPos> affectedPositions, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, CompatibleSound explosionSound) {
         this(modContext, worldIn, entityIn, x, y, z, size, flaming, smoking, particleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, explosionParticleTextureName, smokeParticleTextureName, explosionSound);
         this.affectedBlockPositions.addAll(affectedPositions);
     }
@@ -63,7 +67,7 @@ public class Explosion {
     public Explosion(ModContext modContext, World worldIn, Entity entityIn, double x, double y, double z, float size, boolean flaming, boolean smoking, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, CompatibleSound explosionSound) {
         this.modContext = modContext;
         this.explosionRNG = new Random();
-        this.affectedBlockPositions = Lists.<CompatibleBlockPos>newArrayList();
+        this.affectedBlockPositions = Lists.<BlockPos>newArrayList();
         this.playerKnockbackMap = Maps.<EntityPlayer, Vector3D>newHashMap();
         this.world = worldIn;
         this.exploder = entityIn;
@@ -145,7 +149,7 @@ public class Explosion {
     public void doExplosionA() {
 
 
-        Set<CompatibleBlockPos> set = Sets.<CompatibleBlockPos>newHashSet();
+        Set<BlockPos> set = Sets.<BlockPos>newHashSet();
 
         for (int j = 0; j < 16; ++j) {
             for (int k = 0; k < 16; ++k) {
@@ -164,23 +168,19 @@ public class Explosion {
                         double d8 = this.explosionZ;
 
                         for (/* f1* = 0.3F */; f > 0.0F; f -= 0.22500001F) {
-                            CompatibleBlockPos blockpos = new CompatibleBlockPos((int) d4, (int) d6, (int) d8);
-                            // CompatibleBlockState iblockstate =
+                            BlockPos blockpos = new BlockPos((int) d4, (int) d6, (int) d8);
+                            // IBlockState iblockstate =
                             // this.worldObj.getBlockState(blockpos);
-                            CompatibleBlockState blockState = compatibility.getBlockAtPosition(world, blockpos);
+                            IBlockState iBlockState = compatibility.getBlockAtPosition(world, blockpos);
 
-                            if (!(compatibility.isAirBlock(blockState)
-                                    || compatibility.isBlockPenetratableByBullets(blockState))) {
-                                float f2 = this.exploder != null
-                                        ? compatibility.getExplosionResistance(this.world, this.exploder, this,
-                                        blockpos, blockState)
-                                        : compatibility.getExplosionResistance(world, blockState, blockpos, (Entity) null,
-                                        this);
+                            if (!(compatibility.isAirBlock(iBlockState)
+                                    || compatibility.isBlockPenetratableByBullets(iBlockState))) {
+                                float f2 = this.exploder != null ? compatibility.getExplosionResistance(this.world, this.exploder, this, blockpos, iBlockState) : compatibility.getExplosionResistance(world, iBlockState, blockpos, (Entity) null, this);
                                 f -= (f2 + 0.3F) * 0.3F;
                             }
 
                             if (f > 0.0F && (this.exploder == null || compatibility.verifyExplosion(this.world, this.exploder, this,
-                                    blockpos, blockState, f))) {
+                                    blockpos, iBlockState, f))) {
                                 set.add(blockpos);
                             }
 
@@ -195,15 +195,13 @@ public class Explosion {
 
         this.affectedBlockPositions.addAll(set);
         float f3 = this.explosionSize * 4.0F;
-        int k1 = CompatibleMathHelper.floor_double(this.explosionX - (double) f3 - 1.0D);
-        int l1 = CompatibleMathHelper.floor_double(this.explosionX + (double) f3 + 1.0D);
-        int i2 = CompatibleMathHelper.floor_double(this.explosionY - (double) f3 - 1.0D);
-        int i1 = CompatibleMathHelper.floor_double(this.explosionY + (double) f3 + 1.0D);
-        int j2 = CompatibleMathHelper.floor_double(this.explosionZ - (double) f3 - 1.0D);
-        int j1 = CompatibleMathHelper.floor_double(this.explosionZ + (double) f3 + 1.0D);
-        List<Entity> list = compatibility.getEntitiesWithinAABBExcludingEntity(world, this.exploder,
-                new CompatibleAxisAlignedBB((double) k1, (double) i2, (double) j2, (double) l1, (double) i1,
-                        (double) j1));
+        int k1 = MathHelper.floor(this.explosionX - (double) f3 - 1.0D);
+        int l1 = MathHelper.floor(this.explosionX + (double) f3 + 1.0D);
+        int i2 = MathHelper.floor(this.explosionY - (double) f3 - 1.0D);
+        int i1 = MathHelper.floor(this.explosionY + (double) f3 + 1.0D);
+        int j2 = MathHelper.floor(this.explosionZ - (double) f3 - 1.0D);
+        int j1 = MathHelper.floor(this.explosionZ + (double) f3 + 1.0D);
+        List<Entity> list = compatibility.getEntitiesWithinAABBExcludingEntity(world, this.exploder, new AxisAlignedBB((double) k1, (double) i2, (double) j2, (double) l1, (double) i1, (double) j1));
 
         // net.minecraftforge.event.ForgeEventFactory.onExplosionDetonate(this.worldObj, this, list, f3);
         Vector3D vec3d = new Vector3D(this.explosionX, this.explosionY, this.explosionZ);
@@ -218,13 +216,13 @@ public class Explosion {
                     double d5 = entity.posX - this.explosionX;
                     double d7 = entity.posY + (double) entity.getEyeHeight() - this.explosionY;
                     double d9 = entity.posZ - this.explosionZ;
-                    double d13 = (double) CompatibleMathHelper.sqrt_double(d5 * d5 + d7 * d7 + d9 * d9);
+                    double d13 = (double) MathHelper.sqrt(d5 * d5 + d7 * d7 + d9 * d9);
 
                     if (d13 != 0.0D) {
                         d5 = d5 / d13;
                         d7 = d7 / d13;
                         d9 = d9 / d13;
-                        double d14 = (double) compatibility.getBlockDensity(world, vec3d, compatibility.getBoundingBox(entity), (block, blockMetadata) -> canCollideWithBlock(block, blockMetadata));
+                        double d14 = (double) compatibility.getBlockDensity(world, vec3d, compatibility.getBoundingBox(entity), (block, iBlockState) -> canCollideWithBlock(block, iBlockState));
                         double d10 = (1.0D - d12) * d14;
 
                         //System.out.println();
@@ -255,9 +253,8 @@ public class Explosion {
         }
     }
 
-    public boolean canCollideWithBlock(Block block, CompatibleBlockState metadata) {
-        return !compatibility.isBlockPenetratableByBullets(block)
-                && compatibility.canCollideCheck(block, metadata, false);
+    public boolean canCollideWithBlock(Block block, IBlockState iBlockState) {
+        return !compatibility.isBlockPenetratableByBullets(block) && compatibility.canCollideCheck(block, iBlockState, false);
     }
 
     /**
@@ -272,13 +269,13 @@ public class Explosion {
 
         if (this.isSmoking) {
             int counter = 0;
-            for (CompatibleBlockPos blockpos : this.affectedBlockPositions) {
+            for (BlockPos blockpos : this.affectedBlockPositions) {
 
                 if (counter++ % 2 != 0) {
                     continue;
                 }
 
-                CompatibleBlockState blockState = compatibility.getBlockAtPosition(world, blockpos);
+                IBlockState blockState = compatibility.getBlockAtPosition(world, blockpos);
 
 
 //                if (spawnParticles) {
@@ -289,7 +286,7 @@ public class Explosion {
 //                        double d3 = d0 - this.explosionX;
 //                        double d4 = d1 - this.explosionY;
 //                        double d5 = d2 - this.explosionZ;
-//                        double d6 = (double) CompatibleMathHelper.sqrt_double(d3 * d3 + d4 * d4 + d5 * d5);
+//                        double d6 = (double) MathHelper.sqrt_double(d3 * d3 + d4 * d4 + d5 * d5);
 //                        d3 = d3 / d6;
 //                        d4 = d4 / d6;
 //                        d5 = d5 / d6;
@@ -365,10 +362,8 @@ public class Explosion {
         }
 
         if (this.isFlaming && destroyBlocks) {
-            for (CompatibleBlockPos blockpos1 : this.affectedBlockPositions) {
-                if (compatibility.isAirBlock(world, blockpos1)
-                        && compatibility.isFullBlock(compatibility.getBlockBelow(world, blockpos1))
-                        && this.explosionRNG.nextInt(3) == 0) {
+            for (BlockPos blockpos1 : this.affectedBlockPositions) {
+                if (compatibility.isAirBlock(world, blockpos1) && compatibility.isFullBlock(compatibility.getBlockBelow(world, blockpos1)) && this.explosionRNG.nextInt(3) == 0) {
                     compatibility.setBlockToFire(world, blockpos1);
                 }
             }
@@ -391,7 +386,7 @@ public class Explosion {
         this.affectedBlockPositions.clear();
     }
 
-    public List<CompatibleBlockPos> getAffectedBlockPositions() {
+    public List<BlockPos> getAffectedBlockPositions() {
         return this.affectedBlockPositions;
     }
 

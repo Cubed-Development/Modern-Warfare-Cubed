@@ -4,6 +4,7 @@ import com.paneedah.weaponlib.ModContext;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleBreaking;
 import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Items;
@@ -45,10 +46,8 @@ public abstract class CompatibleParticle extends Particle {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void renderParticle(BufferBuilder worldRendererIn, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
-		renderParticle(CompatibleTessellator.getInstance(), partialTicks, rotationX, rotationZ, rotationYZ, rotationXY, rotationXZ);
+		renderParticle(Tessellator.getInstance(), partialTicks, rotationX, rotationZ, rotationYZ, rotationXY, rotationXZ);
 	}
 
-	public abstract void renderParticle(CompatibleTessellator tessellator, float partialTicks, float rotationX,
-			float rotationZ, float rotationYZ, float rotationXY, float rotationXZ);
-
+	public abstract void renderParticle(Tessellator tessellator, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ);
 }

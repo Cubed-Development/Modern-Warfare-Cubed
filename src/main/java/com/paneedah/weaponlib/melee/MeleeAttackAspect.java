@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.melee;
 
 import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
 import com.paneedah.weaponlib.compatibility.CompatibleTargetPoint;
 import com.paneedah.weaponlib.particle.SpawnParticleMessage;
 import com.paneedah.weaponlib.state.Aspect;
@@ -11,6 +10,7 @@ import com.paneedah.weaponlib.state.StateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import java.util.Arrays;
@@ -153,20 +153,20 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
 
     private void attack(PlayerMeleeInstance meleeInstance, boolean isHeavyAttack) {
 
-        CompatibleRayTraceResult objectMouseOver = compatibility.getObjectMouseOver();
+        RayTraceResult objectMouseOver = compatibility.getObjectMouseOver();
         if (objectMouseOver != null) {
             EntityPlayer player = compatibility.clientPlayer();
             World world = compatibility.world(player);
             compatibility.playSound(player, isHeavyAttack ? meleeInstance.getWeapon().getHeavyAtackSound() : meleeInstance.getWeapon().getLightAtackSound(), 1F, 1F);
 
-            switch (objectMouseOver.getTypeOfHit())
+            switch (objectMouseOver.typeOfHit)
             {
                 case ENTITY:
-                    attackEntity(objectMouseOver.getEntityHit(), player, meleeInstance, isHeavyAttack);
+                    attackEntity(objectMouseOver.entityHit, player, meleeInstance, isHeavyAttack);
                     break;
                 case BLOCK:
                     if (!compatibility.isAirBlock(world, objectMouseOver.getBlockPos())) {
-                        compatibility.clickBlock(objectMouseOver.getBlockPos(), objectMouseOver.getSideHit());
+                        compatibility.clickBlock(objectMouseOver.getBlockPos(), objectMouseOver.sideHit);
                     }
                 default:
                     break;

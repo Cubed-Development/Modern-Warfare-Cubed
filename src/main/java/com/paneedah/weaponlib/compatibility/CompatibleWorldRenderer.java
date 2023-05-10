@@ -505,7 +505,7 @@ public class CompatibleWorldRenderer extends EntityRenderer
     /**
      * Changes the field of view of the player depending on if they are underwater or not
      */
-    private float getFOVModifier(float partialTicks, boolean useFOVSetting)
+    public float getFOVModifier(float partialTicks, boolean useFOVSetting)
     {
         if (this.debugView)
         {

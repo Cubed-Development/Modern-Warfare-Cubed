@@ -63,10 +63,7 @@ public abstract class CompatibleEntityMob extends EntityMob {
     }
 
     protected void playStepSound(BlockPos pos, Block block) {
-        playStepSound(new CompatibleBlockPos(pos), block);
     }
-    
-    protected void playStepSound(CompatibleBlockPos pos, Block blockIn) {}
     
     @Override
     public void setActiveHand(EnumHand hand) {
@@ -91,11 +88,11 @@ public abstract class CompatibleEntityMob extends EntityMob {
     }
 
     public float getBlockPathWeight(BlockPos pos) {
-        return getCompatibleBlockPathWeight(new CompatibleBlockPos(pos));
+        return getCompatibleBlockPathWeight(pos);
     }
     
-    public float getCompatibleBlockPathWeight(CompatibleBlockPos pos) {
-        return super.getBlockPathWeight(pos.getBlockPos());
+    public float getCompatibleBlockPathWeight(BlockPos pos) {
+        return super.getBlockPathWeight(pos);
     }
     
     protected void setCompatibleInventoryHandsDropChances(float chance) {
@@ -109,25 +106,17 @@ public abstract class CompatibleEntityMob extends EntityMob {
     @Override
     protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
         super.setEquipmentBasedOnDifficulty(difficulty);
-        setEquipmentBasedOnDifficulty(new CompatibleDifficulty(difficulty));
-    }
-
-    protected void setEquipmentBasedOnDifficulty(CompatibleDifficulty difficulty) {
     }
     
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
         livingdata = super.onInitialSpawn(difficulty, livingdata);
-        return onCompatibleSpawn(new CompatibleDifficulty(difficulty), livingdata);
-    }
 
-    public IEntityLivingData onCompatibleSpawn(CompatibleDifficulty difficulty, IEntityLivingData livingdata) {
         return livingdata;
     }
-    
 
-    protected void setEnchantmentBasedOnDifficulty(CompatibleDifficulty difficulty) {
-        setEnchantmentBasedOnDifficulty(difficulty.getDifficulty());
+    protected void setEnchantmentBasedOnDifficulty(DifficultyInstance difficulty) {
+        setEnchantmentBasedOnDifficulty(difficulty);
     }
     
     public void setActiveMainHand() {

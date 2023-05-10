@@ -1,12 +1,14 @@
 package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.PlayerItemInstance;
-import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
 import com.paneedah.weaponlib.electronics.PlayerTabletInstance;
 import com.paneedah.weaponlib.electronics.SignalQuality;
 import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
 import com.paneedah.weaponlib.tracking.TrackableEntity;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -203,22 +205,30 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         double height = this.height;
         double zLevel = 0;
 
-        CompatibleTessellator tessellator = CompatibleTessellator.getInstance();
-        tessellator.startDrawingQuads();
-        tessellator.addVertexWithUV(x + 0, y + height, zLevel, aU, aV);
-        tessellator.addVertexWithUV(x + width, y + height, zLevel, bU, bV);
-        tessellator.addVertexWithUV(x + width, y + 0, zLevel, cU, cV);
-        tessellator.addVertexWithUV(x + 0, y + 0, zLevel, dU, dV);
+        final Tessellator tessellator = Tessellator.getInstance();
+        final BufferBuilder buffer = tessellator.getBuffer();
+
+        buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+
+        buffer.pos(x + 0, y + height, zLevel).tex(aU, aV).endVertex();
+        buffer.pos(x + width, y + height, zLevel).tex(bU, bV).endVertex();
+        buffer.pos(x + width, y + 0, zLevel).tex(cU, cV).endVertex();
+        buffer.pos(x + 0, y + 0, zLevel).tex(dU, dV).endVertex();
+
         tessellator.draw();
     }
 
     private static void drawTexturedQuadFit(double x, double y, double width, double height, double zLevel){
-        CompatibleTessellator tessellator = CompatibleTessellator.getInstance();
-        tessellator.startDrawingQuads();
-        tessellator.addVertexWithUV(x + 0, y + height, zLevel, 0,1);
-        tessellator.addVertexWithUV(x + width, y + height, zLevel, 1, 1);
-        tessellator.addVertexWithUV(x + width, y + 0, zLevel, 1,0);
-        tessellator.addVertexWithUV(x + 0, y + 0, zLevel, 0, 0);
+        final Tessellator tessellator = Tessellator.getInstance();
+        final BufferBuilder buffer = tessellator.getBuffer();
+
+        buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+
+        buffer.pos(x + 0, y + height, zLevel).tex(0, 1).endVertex();
+        buffer.pos(x + width, y + height, zLevel).tex(1, 1).endVertex();
+        buffer.pos(x + width, y + 0, zLevel).tex(1, 0).endVertex();
+        buffer.pos(x + 0, y + 0, zLevel).tex(0, 0).endVertex();
+
         tessellator.draw();
     }
 }

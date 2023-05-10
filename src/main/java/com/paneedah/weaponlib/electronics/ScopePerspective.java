@@ -3,11 +3,11 @@ package com.paneedah.weaponlib.electronics;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
-import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.perspective.PerspectiveRenderer;
 import com.paneedah.weaponlib.render.scopes.Reticle;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
@@ -29,8 +29,7 @@ public class ScopePerspective extends PerspectiveRenderer {
 	@Override
 	public void render(RenderContext<RenderableState> renderContext) {
 
-		if(renderContext.getCompatibleTransformType() != CompatibleTransformType.FIRST_PERSON_RIGHT_HAND
-				&& renderContext.getCompatibleTransformType() != CompatibleTransformType.FIRST_PERSON_LEFT_HAND) {
+		if(renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND && renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_LEFT_HAND) {
 			return;
 		}
 

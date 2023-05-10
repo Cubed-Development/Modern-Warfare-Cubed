@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.*;
-import com.paneedah.weaponlib.compatibility.CompatibleClientTickEvent.Phase;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.render.IHasModel;
 import com.paneedah.weaponlib.shader.DynamicShaderContext;
@@ -18,8 +17,10 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.ArrayList;
 import java.util.Queue;
@@ -86,13 +87,13 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 		
 	}
 
-	public void onCompatibleClientTick(CompatibleClientTickEvent event) {
+	public void onCompatibleClientTick(TickEvent.ClientTickEvent event) {
 		
 		
-		if(event.getPhase() == Phase.START) {
+		if(event.phase == TickEvent.ClientTickEvent.Phase.START) {
 			mainLoopLock.lock();
 			updateOnStartTick();
-		} else if(event.getPhase() == Phase.END) {
+		} else if(event.phase == TickEvent.ClientTickEvent.Phase.END) {
 			update();
 			modContext.getSyncManager().run();
 
@@ -240,16 +241,16 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 	}
 
 	@Override
-    protected void onCompatibleRenderTickEvent(CompatibleRenderTickEvent event) {
+    protected void onCompatibleRenderTickEvent(TickEvent.RenderTickEvent event) {
 		
         Minecraft minecraft = mc;
         DynamicShaderContext shaderContext = new DynamicShaderContext(DynamicShaderPhase.POST_WORLD_RENDER,
                 minecraft.entityRenderer,
-                minecraft.getFramebuffer(), event.getRenderTickTime());
+                minecraft.getFramebuffer(), event.renderTickTime);
 
         EntityPlayer clientPlayer = compatibility.clientPlayer();
         
-        if(event.getPhase() == CompatibleRenderTickEvent.Phase.START ) {
+        if(event.phase == TickEvent.RenderTickEvent.Phase.START ) {
             ClientModContext.currentContext.set(modContext);
             mainLoopLock.lock();
             if(clientPlayer != null) {
@@ -272,7 +273,7 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
                 }
             }
 
-        } else if(event.getPhase() == CompatibleRenderTickEvent.Phase.END) {
+        } else if(event.phase == TickEvent.RenderTickEvent.Phase.END) {
             safeGlobals.renderingPhase.set(null);
             shaderGroupManager.removeStaleShaders(shaderContext);
             mainLoopLock.unlock();
@@ -288,7 +289,7 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
     }
 
     @Override
-    protected void onCompatibleRenderPlayerPreEvent(CompatibleRenderPlayerPreEvent event) {
+    protected void onCompatibleRenderPlayerPreEvent(RenderPlayerEvent.Pre event) {
         
 //        CustomPlayerInventory capability = CompatibleCustomPlayerInventoryCapability.getInventory(event.getPlayer());
 //        

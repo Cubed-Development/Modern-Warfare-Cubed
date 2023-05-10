@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleEntityJoinWorldEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleWeaponEventHandler;
 import com.paneedah.weaponlib.compatibility.Interceptors;
@@ -11,6 +10,7 @@ import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.*;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -143,9 +143,9 @@ public class WeaponEventHandler extends CompatibleWeaponEventHandler {
 	}
 
 	@Override
-	protected void onCompatibleEntityJoinedWorldEvent(CompatibleEntityJoinWorldEvent compatibleEntityJoinWorldEvent) {
-	    if(compatibleEntityJoinWorldEvent.getEntity() instanceof Contextual) {
-	        ((Contextual)compatibleEntityJoinWorldEvent.getEntity()).setContext(modContext);
+	protected void onCompatibleEntityJoinedWorldEvent(EntityJoinWorldEvent entityJoinWorldEvent) {
+	    if(entityJoinWorldEvent.getEntity() instanceof Contextual) {
+	        ((Contextual) entityJoinWorldEvent.getEntity()).setContext(modContext);
 	    }
 	}
 

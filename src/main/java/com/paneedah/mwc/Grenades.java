@@ -5,7 +5,6 @@ import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.weaponlib.AttachmentBuilder;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.ItemAttachment;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 
 public class Grenades {
@@ -19,11 +18,8 @@ public class Grenades {
     public static ItemAttachment<ItemGrenade> GrenadeSafetyPin;
 
 
-    public static void init(Object mod, CompatibleFmlPreInitializationEvent event, CommonProxy commonProxy) {
-        GrenadeSafetyPin = new AttachmentBuilder<ItemGrenade>().withCategory(AttachmentCategory.EXTRA)
-                .withModel(new com.paneedah.mwc.models.Pin(), "gun.png").withName("GrenadeSafetyPin")
-                .withRenderablePart().withTextureName("Dummy.png")
-                .build(ModernWarfareMod.MOD_CONTEXT);
+    public static void init(Object mod, CommonProxy commonProxy) {
+        GrenadeSafetyPin = new AttachmentBuilder<ItemGrenade>().withCategory(AttachmentCategory.EXTRA).withModel(new com.paneedah.mwc.models.Pin(), "gun.png").withName("GrenadeSafetyPin").withRenderablePart().withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT);
 
         FuseGrenade = new FuseGrenadeFactory().createGrenade(commonProxy);
         ImpactGrenade = new ImpactGrenadeFactory().createGrenade(commonProxy);

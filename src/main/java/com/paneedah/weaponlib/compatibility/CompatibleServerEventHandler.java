@@ -104,7 +104,7 @@ public abstract class CompatibleServerEventHandler {
 	@SubscribeEvent
     public void onTick(TickEvent.ServerTickEvent event) {
         if(event.phase == Phase.START) {
-            onCompatibleServerTickEvent(new CompatibleServerTickEvent(event));
+            onCompatibleServerTickEvent(event);
         }
     }
 	
@@ -118,7 +118,7 @@ public abstract class CompatibleServerEventHandler {
 	    
 	}
 	
-    protected abstract void onCompatibleServerTickEvent(CompatibleServerTickEvent e);
+    protected abstract void onCompatibleServerTickEvent(TickEvent.ServerTickEvent e);
     
     protected abstract void onCompatiblePlayerLoggedIn(PlayerLoggedInEvent e);
 
@@ -149,10 +149,10 @@ public abstract class CompatibleServerEventHandler {
 
     @SubscribeEvent
     public void onEntityJoinWorld(EntityJoinWorldEvent e) {
-        onCompatibleEntityJoinWorld(new CompatibleEntityJoinWorldEvent(e));
+        onCompatibleEntityJoinWorld(e);
     }
 
-    protected abstract void onCompatibleEntityJoinWorld(CompatibleEntityJoinWorldEvent e);
+    protected abstract void onCompatibleEntityJoinWorld(EntityJoinWorldEvent e);
     
     @SubscribeEvent
     public void playerDroppedItem(PlayerDropsEvent e) {

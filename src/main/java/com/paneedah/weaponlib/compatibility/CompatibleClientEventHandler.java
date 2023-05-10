@@ -232,11 +232,6 @@ public abstract class CompatibleClientEventHandler {
 
 	public VMWFrameTimer frametimer = new VMWFrameTimer();
 
-	/*
-	 * FRAMEBUFFER HOT-SWAP
-	 */
-	private static Field framebufferMcLink = null;
-
 	@SubscribeEvent
 	public void connectedToServerEvent(FMLNetworkEvent.ClientConnectedToServerEvent evt) {
 		mc.addScheduledTask(() -> {
@@ -289,19 +284,9 @@ public abstract class CompatibleClientEventHandler {
 
 		}
 
-		// Hot swaps the Minecraft framebuffer
-
-		// for an HDR one.
+		// Hot swaps the Minecraft framebuffer for an HDR one.
 
 		if (ModernConfigManager.enableHDRFramebuffer) {
-			// Swap for a HDR buffer.
-			if (framebufferMcLink == null) {
-
-				framebufferMcLink = CompatibleReflection.findField(Minecraft.class, "framebuffer", "field_147124_at");
-				framebufferMcLink.setAccessible(true);
-
-			}
-
 			// Check if our
 			Framebuffer current = mc.getFramebuffer();
 
@@ -309,18 +294,9 @@ public abstract class CompatibleClientEventHandler {
 				// Create an EXACT match, but in the HDR format. This will break w/ other mods
 				// that try to do
 				// anything similar.
-				Framebuffer newFBO = new HDRFramebuffer(current.framebufferWidth, current.framebufferHeight,
-						current.useDepth);
+				Framebuffer newFBO = new HDRFramebuffer(current.framebufferWidth, current.framebufferHeight, current.useDepth);
 
-				try {
-					framebufferMcLink.set(mc, newFBO);
-				} catch (IllegalArgumentException e) {
-					System.err.println("Could not hotswap framebuffer. Error: ");
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					System.err.println("Could not hotswap framebuffer. Error: ");
-					e.printStackTrace();
-				}
+				mc.framebuffer = newFBO;
 			}
 		}
 
@@ -376,7 +352,7 @@ public abstract class CompatibleClientEventHandler {
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public final void onClientTick(TickEvent.ClientTickEvent event) {
-		onCompatibleClientTick(new CompatibleClientTickEvent(event));
+		onCompatibleClientTick(event);
 
 		// ModernConfigManager.init();
 		
@@ -452,7 +428,7 @@ public abstract class CompatibleClientEventHandler {
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public final void onRenderTickEvent(TickEvent.RenderTickEvent event) {
-		onCompatibleRenderTickEvent(new CompatibleRenderTickEvent(event));
+		onCompatibleRenderTickEvent(event);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -477,7 +453,7 @@ public abstract class CompatibleClientEventHandler {
 			event.getRenderer().getRenderManager().renderViewEntity = event.getEntityPlayer();
 		}
 
-		onCompatibleRenderPlayerPreEvent(new CompatibleRenderPlayerPreEvent(event));
+		onCompatibleRenderPlayerPreEvent(event);
 	}
 
 	protected abstract ModContext getModContext();
@@ -590,12 +566,12 @@ public abstract class CompatibleClientEventHandler {
 		//smoke1 = event.getMap().registerSprite(new ResourceLocation(ModReference.id + ":smokes/smokesheet"));
 	}
 
-	protected abstract void onCompatibleRenderTickEvent(CompatibleRenderTickEvent compatibleRenderTickEvent);
+	protected abstract void onCompatibleRenderTickEvent(TickEvent.RenderTickEvent compatibleRenderTickEvent);
 
-	protected abstract void onCompatibleClientTick(CompatibleClientTickEvent compatibleClientTickEvent);
+	protected abstract void onCompatibleClientTick(TickEvent.ClientTickEvent compatibleClientTickEvent);
 
 	protected abstract void onCompatibleRenderHand(CompatibleRenderHandEvent event);
 
-	protected abstract void onCompatibleRenderPlayerPreEvent(CompatibleRenderPlayerPreEvent event);
+	protected abstract void onCompatibleRenderPlayerPreEvent(RenderPlayerEvent.Pre event);
 
 }

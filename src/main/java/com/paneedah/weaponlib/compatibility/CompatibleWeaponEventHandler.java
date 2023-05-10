@@ -41,10 +41,10 @@ public abstract class CompatibleWeaponEventHandler {
 
 	@SubscribeEvent
     public final void onEntityJoinedWorldEvent(EntityJoinWorldEvent event) {
-        onCompatibleEntityJoinedWorldEvent(new CompatibleEntityJoinWorldEvent(event));
+        onCompatibleEntityJoinedWorldEvent(event);
     }
 
-    protected abstract void onCompatibleEntityJoinedWorldEvent(CompatibleEntityJoinWorldEvent compatibleEntityJoinWorldEvent);
+    protected abstract void onCompatibleEntityJoinedWorldEvent(EntityJoinWorldEvent entityJoinWorldEvent);
 
 
     protected abstract ModContext getModContext();

@@ -6,7 +6,6 @@ import com.paneedah.weaponlib.AttachmentBuilder;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import org.lwjgl.opengl.GL11;
 
 public class AuxiliaryAttachments {
@@ -226,7 +225,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> ChainA;
     public static ItemAttachment<Weapon> ChainB;
     
-    public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod) {
         
 /*
     	PanelUpper = new AttachmentBuilder<Weapon>()

@@ -32,10 +32,8 @@ public abstract class CompatibleThrowableEntity extends EntityThrowable implemen
 	 */
 	@Override
 	protected void onImpact(RayTraceResult position) {
-		onImpact(CompatibleRayTraceResult.fromRayTraceResult(position));
+		onImpact(position);
 	}
-
-	protected abstract void onImpact(CompatibleRayTraceResult rayTraceResult);
 
 	@Override
 	public final void shoot(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {

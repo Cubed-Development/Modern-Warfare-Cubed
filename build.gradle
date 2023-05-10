@@ -92,6 +92,7 @@ dependencies {
 jar {
     manifest.attributes([
             'ModSide': 'BOTH',
+            'FMLAT': 'mwc_at.cfg',
             'FMLCorePlugin': 'com.paneedah.weaponlib.core.WeaponlibCorePlugin',
             'FMLCorePluginContainsFMLMod': 'true',
             'ForceLoadAsMod': 'true'

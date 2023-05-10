@@ -109,8 +109,7 @@ public class EntityAIAttackRangedWeapon extends CompatibleEntityAIBase
         	this.entity.getLookHelper().setLookPosition(attackTarget.posX, attackTarget.posY + attackTarget.getEyeHeight() * this.entity.getConfiguration().getLookHeightMultiplier(), attackTarget.posZ, 30f, 30f);
         	//this.entity.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0F, 30.0F);
         	
-            double d0 = this.entity.getDistanceSq(attackTarget.posX, 
-                    compatibility.getBoundingBox(attackTarget).getMinY(), attackTarget.posZ);
+            double d0 = this.entity.getDistanceSq(attackTarget.posX, compatibility.getBoundingBox(attackTarget).minY, attackTarget.posZ);
             boolean canSeeTarget = this.entity.getEntitySenses().canSee(attackTarget);
             boolean flag1 = this.seeTime > 0;
 

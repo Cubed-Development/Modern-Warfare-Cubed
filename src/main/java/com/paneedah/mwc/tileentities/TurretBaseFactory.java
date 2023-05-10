@@ -2,8 +2,8 @@ package com.paneedah.mwc.tileentities;
 
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMaterial;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
+import net.minecraft.block.material.Material;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.opengl.GL11;
@@ -13,7 +13,7 @@ public class TurretBaseFactory implements TileEntityFactory {
     @Override
     public void createTileEntity(ModContext modContext) {
     	new LootBoxConfiguration()
-        .withMaterial(CompatibleMaterial.ROCK)
+        .withMaterial(Material.ROCK)
         .withName("turret_base")
         .withModelClassName("com.paneedah.mwc.models.TurretBase")
         .withTextureName("textures/models/turretbase.png")

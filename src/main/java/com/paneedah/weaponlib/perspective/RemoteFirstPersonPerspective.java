@@ -3,13 +3,13 @@ package com.paneedah.weaponlib.perspective;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.RenderingPhase;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerCreatureWrapper;
-import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
 import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
@@ -29,7 +29,7 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
     }
 
     @Override
-    public void update(CompatibleRenderTickEvent event) {
+    public void update(TickEvent.RenderTickEvent event) {
         
         if(mc.isGamePaused()) {
             return;
@@ -54,7 +54,6 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
         framebuffer.bindFramebuffer(true);
 
-        mc.renderGlobal = this.renderGlobal;
         mc.effectRenderer = MWCParticleManager.getParticleManager();
 
         mc.entityRenderer = this.entityRenderer;
@@ -68,7 +67,7 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
             this.entityRenderer.setPrepareTerrain(true);
             this.entityRenderer.updateRenderer();
             long p_78471_2_ = this.renderEndNanoTime + (long) (1000000000 / 60);
-            this.entityRenderer.renderWorld(event.getRenderTickTime(), p_78471_2_);
+            this.entityRenderer.renderWorld(event.renderTickTime, p_78471_2_);
 
             modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.NORMAL);
 
