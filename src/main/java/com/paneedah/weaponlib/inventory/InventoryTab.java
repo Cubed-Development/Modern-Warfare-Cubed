@@ -1,19 +1,21 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.compatibility.CompatibleRenderItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
+
 public class InventoryTab extends GuiButton {
     private ResourceLocation texture = new ResourceLocation("textures/gui/container/creative_inventory/tabs.png");
     //private ItemStack renderStack;
     private ItemStack itemStack;
-    private CompatibleRenderItem itemRenderer = new CompatibleRenderItem();
+    private RenderItem itemRenderer;
 
     public InventoryTab(int id, int posX, int posY, ItemStack itemStack) {
         super(id, posX, posY, 28, 32, "");
@@ -41,17 +43,19 @@ public class InventoryTab extends GuiButton {
             mc.renderEngine.bindTexture(this.texture);
             this.drawTexturedModalRect(this.x, yPos, xOffset * 28, yTexPos, 28, ySize);
 
+            itemRenderer = mc.getRenderItem();
+
             RenderHelper.enableGUIStandardItemLighting();
             this.zLevel = 100.0F;
-            this.itemRenderer.setZLevel(100.0F);
+            this.itemRenderer.zLevel = 100.0F;
             GL11.glEnable(GL11.GL_LIGHTING);
             GL11.glEnable(GL12.GL_RESCALE_NORMAL);
             final ItemStack itemStack = getItemStack();
-            this.itemRenderer.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.renderEngine, itemStack, x + 6, y + 8);
-            this.itemRenderer.renderItemOverlayIntoGUI(mc.fontRenderer, mc.renderEngine, itemStack, x + 6, y + 8);
+            this.itemRenderer.renderItemAndEffectIntoGUI(itemStack, x + 6, y + 8);
+            this.itemRenderer.renderItemOverlays(mc.fontRenderer, itemStack, x + 6, y + 8);
             GL11.glDisable(GL11.GL_LIGHTING);
             GL11.glEnable(GL11.GL_BLEND);
-            this.itemRenderer.setZLevel(0.0F);
+            this.itemRenderer.zLevel = 0.0F;
             this.zLevel = 0.0F;
             RenderHelper.disableStandardItemLighting();
         }
