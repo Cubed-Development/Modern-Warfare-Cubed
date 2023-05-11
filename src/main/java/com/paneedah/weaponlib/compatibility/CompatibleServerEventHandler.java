@@ -178,16 +178,8 @@ public abstract class CompatibleServerEventHandler {
     public void onPlayerRespawn(PlayerRespawnEvent e) {
         onCompatiblePlayerRespawnEvent(new CompatiblePlayerRespawnEvent(e));
     }
-    
-    @SubscribeEvent
-    public void onPlayerInteract(PlayerInteractEvent.EntityInteract e) {
-        onCompatiblePlayerInteractInteractEvent(new CompatiblePlayerEntityInteractEvent(e));
-    }
 
 //    protected abstract void onCompatibleLivingDeathEvent(LivingDeathEvent e);
-
-    protected abstract void onCompatiblePlayerInteractInteractEvent(
-            CompatiblePlayerEntityInteractEvent compatiblePlayerInteractEvent);
 
     protected abstract void onCompatiblePlayerStartedTracking(CompatibleStartTrackingEvent e);
 

@@ -23,6 +23,7 @@ import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -274,9 +275,8 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
                         CompatibleCustomPlayerInventoryCapability.getInventory(compatiblePlayerRespawnEvent.getPlayer()), false));
     }
 
-    @Override
-    protected void onCompatiblePlayerInteractInteractEvent(CompatiblePlayerEntityInteractEvent compatiblePlayerInteractEvent) {
-        //
+    @SubscribeEvent
+    protected void onCompatiblePlayerInteractInteractEvent(PlayerInteractEvent.EntityInteract playerInteractEvent) {
     }
 
     @Override
