@@ -1,5 +1,6 @@
 package com.paneedah.mwc;
 
+import com.google.common.eventbus.Subscribe;
 import com.paneedah.mwc.creativetab.*;
 import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -19,8 +20,12 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod(modid = ModReference.id, name = ModReference.name, version = ModReference.version, guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory")
 public class ModernWarfareMod {
@@ -46,6 +51,12 @@ public class ModernWarfareMod {
 	        
     @SidedProxy(serverSide = "com.paneedah.mwc.proxies.CommonProxy", clientSide = "com.paneedah.mwc.proxies.ClientProxy")
     public static CommonProxy proxy;
+
+    @SideOnly(Side.CLIENT)
+    @Subscribe
+    public void playerTicking(TickEvent.PlayerTickEvent event) {
+
+    }
 
     @EventHandler
     public void init(FMLPreInitializationEvent event) {
