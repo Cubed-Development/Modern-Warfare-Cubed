@@ -94,11 +94,6 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
             return this;
         }
         
-        public Builder withGuiTextureWidth(int guiTextureWidth) {
-            this.guiTextureWidth = guiTextureWidth;
-            return this;
-        }
-        
         public Builder withModelTextureName(String textureName) {
             this.textureName = textureName;
             return this;
@@ -193,8 +188,7 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
             if(!guiTextureName.startsWith("textures/gui/")) {
                 guiTextureName = "textures/gui/" + guiTextureName;
             }
-            ResourceLocation guiTextureLocation = new ResourceLocation(ModReference.id,
-                    addFileExtension(guiTextureName, ".png"));
+            ResourceLocation guiTextureLocation = new ResourceLocation(ModReference.id, addFileExtension(guiTextureName, ".png"));
             
             ItemStorage item = new ItemStorage(modContext, size, validItemPredicate, guiTextureLocation, this.guiTextureWidth);
             

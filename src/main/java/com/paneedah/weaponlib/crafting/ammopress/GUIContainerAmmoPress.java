@@ -276,8 +276,8 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 	}
 	
 	@Override
-	protected void compatibleMouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
-		super.compatibleMouseClicked(mouseX, mouseY, mouseButton);
+	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
+		super.mouseClicked(mouseX, mouseY, mouseButton);
 		this.quantityBox.mouseClicked(mouseX, mouseY, mouseButton);
 		
 		
