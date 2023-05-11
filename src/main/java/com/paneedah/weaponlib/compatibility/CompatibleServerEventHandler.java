@@ -163,11 +163,6 @@ public abstract class CompatibleServerEventHandler {
     public void playerStoppedTracking(PlayerEvent.StopTracking e) {
         //onCompatiblePlayerStoppedTracking(new CompatibleStopTrackingEvent(e));
     }
-
-    @SubscribeEvent
-    public void onEntityDeath(LivingDeathEvent e) {
-        onCompatibleLivingDeathEvent(new CompatibleLivingDeathEvent(e));
-    }
     
     @SubscribeEvent
     public void onEntityUpdate(LivingUpdateEvent e) {
@@ -179,8 +174,6 @@ public abstract class CompatibleServerEventHandler {
         onCompatiblePlayerRespawnEvent(new CompatiblePlayerRespawnEvent(e));
     }
 
-//    protected abstract void onCompatibleLivingDeathEvent(LivingDeathEvent e);
-
     protected abstract void onCompatiblePlayerStartedTracking(CompatibleStartTrackingEvent e);
 
     protected abstract void onCompatiblePlayerStoppedTracking(CompatibleStopTrackingEvent e);
@@ -188,8 +181,6 @@ public abstract class CompatibleServerEventHandler {
     protected abstract void onCompatibleLivingUpdateEvent(CompatibleLivingUpdateEvent e);
 
     protected abstract void onCompatiblePlayerRespawnEvent(CompatiblePlayerRespawnEvent compatiblePlayerRespawnEvent);
-
-    protected abstract void onCompatibleLivingDeathEvent(CompatibleLivingDeathEvent event);
 
     public abstract ModContext getModContext();
 }

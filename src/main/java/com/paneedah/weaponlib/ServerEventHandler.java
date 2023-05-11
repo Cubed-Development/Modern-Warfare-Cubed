@@ -19,6 +19,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerDropsEvent;
@@ -199,9 +200,9 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         }
     }
 
-    @Override
-    protected void onCompatibleLivingDeathEvent(CompatibleLivingDeathEvent event) {
-        final EntityLivingBase entity = event.getEntity();
+    @SubscribeEvent
+    protected void onCompatibleLivingDeathEvent(LivingDeathEvent livingDeathEvent) {
+        final EntityLivingBase entity = livingDeathEvent.getEntityLiving();
 
         if(entity instanceof EntityPlayer && !compatibility.world(entity).isRemote) {
             if(!compatibility.getGameRulesBooleanValue(compatibility.world(entity).getGameRules(), "keepInventory")) {
