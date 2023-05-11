@@ -89,6 +89,11 @@ dependencies {
     embed 'net.jafama:jafama:2.+'
 }
 
+def at = project.files("src/main/resources/META-INF/mwc_at.cfg")
+
+tasks.deobfuscateMergedJarToSrg.accessTransformerFiles.from(at)
+tasks.srgifyBinpatchedJar.accessTransformerFiles.from(at)
+
 jar {
     manifest.attributes([
             'ModSide': 'BOTH',
