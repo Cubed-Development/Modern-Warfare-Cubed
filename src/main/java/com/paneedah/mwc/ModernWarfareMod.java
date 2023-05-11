@@ -1,6 +1,5 @@
 package com.paneedah.mwc;
 
-import com.google.common.eventbus.Subscribe;
 import com.paneedah.mwc.creativetab.*;
 import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -15,20 +14,13 @@ import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod(modid = ModReference.id, name = ModReference.name, version = ModReference.version, guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory")
 public class ModernWarfareMod {
@@ -54,15 +46,6 @@ public class ModernWarfareMod {
 	        
     @SidedProxy(serverSide = "com.paneedah.mwc.proxies.CommonProxy", clientSide = "com.paneedah.mwc.proxies.ClientProxy")
     public static CommonProxy proxy;
-
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public static void onPlayerTick(PlayerTickEvent event) {
-        EntityPlayer player = event.player;
-        if (player.isHandActive() && player.getActiveHand() == player.getOffHand() && !player.getHeldItemOffhand().isEmpty()) {
-            // Cancel the action if the player is holding an item in their offhand
-            player.resetActiveHand();
-        }
-    }
 
     @EventHandler
     public void init(FMLPreInitializationEvent event) {
