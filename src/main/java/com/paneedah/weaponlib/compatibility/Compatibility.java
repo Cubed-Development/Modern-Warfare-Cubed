@@ -54,6 +54,7 @@ import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 
 import java.io.IOException;
@@ -321,8 +322,7 @@ public interface Compatibility {
 
     public void strafe(EntityCustomMob entity, float forward, float strafe);
     
-    public void addSpawn(Class<? extends EntityLiving> entity, int weightedProb, int min, int max,
-            CompatibleBiomeType...biomeTypes);
+    public void addSpawn(Class<? extends EntityLiving> entity, int weightedProb, int min, int max, BiomeDictionary.Type... biomeTypes);
 
     public void registerEgg(ModContext context, Class<? extends Entity> entityClass, String entityName, int primaryEggColor, int secondaryEggColor);
 

@@ -7,7 +7,6 @@ import com.paneedah.weaponlib.ai.BetterAINearestAttackableTarget;
 import com.paneedah.weaponlib.ai.EntityAIAttackRangedWeapon;
 import com.paneedah.weaponlib.ai.EntityConfiguration;
 import com.paneedah.weaponlib.ai.EntityCustomMob;
-import com.paneedah.weaponlib.compatibility.CompatibleBiomeType;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.boss.EntityDragon;
@@ -16,6 +15,7 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.EnumDifficulty;
+import net.minecraftforge.common.BiomeDictionary;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
@@ -32,7 +32,7 @@ public class BanditEntityFactory implements EntityFactory {
         .withEquipmentOption(Guns.MakarovPM, EnumDifficulty.EASY, 0.1f, Magazines.MakarovMag)
         .withEquipmentOption(Guns.Remington870, EnumDifficulty.EASY, 0.07f)
         .withPrimaryEquipmentDropChance(0.4f)
-        .withSpawn(2, 20, 31, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
+        .withSpawn(2, 20, 31, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS)
         .withMaxTolerableLightBrightness(1f)
         .withSpawnEgg(0xFF808000, 0xFF556B2F)
         .withTexturedModelVariant("com.paneedah.mwc.models.BanditNew", "banditnew.png")

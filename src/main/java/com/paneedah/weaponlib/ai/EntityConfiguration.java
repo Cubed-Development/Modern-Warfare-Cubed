@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.ai;
 
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.compatibility.CompatibleBiomeType;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import com.paneedah.weaponlib.config.AIEntity;
@@ -16,6 +15,7 @@ import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
+import net.minecraftforge.common.BiomeDictionary;
 
 import java.util.*;
 import java.util.function.Function;
@@ -64,9 +64,9 @@ public class EntityConfiguration {
             int weightedProb;
             int min;
             int max;
-            CompatibleBiomeType biomeTypes[];
+            BiomeDictionary.Type biomeTypes[];
             
-            public Spawn(int weightedProb, int min, int max, CompatibleBiomeType biomeTypes[]) {
+            public Spawn(int weightedProb, int min, int max, BiomeDictionary.Type biomeTypes[]) {
                 this.weightedProb = weightedProb;
                 this.min = min;
                 this.max = max;
@@ -281,7 +281,7 @@ public class EntityConfiguration {
             return this;
         }
         
-        public Builder withSpawn(int weightedProb, int min, int max, CompatibleBiomeType... biomeTypes) {
+        public Builder withSpawn(int weightedProb, int min, int max, BiomeDictionary.Type... biomeTypes) {
             spawns.add(new Spawn(weightedProb, min, max, biomeTypes));
             return this;
         }

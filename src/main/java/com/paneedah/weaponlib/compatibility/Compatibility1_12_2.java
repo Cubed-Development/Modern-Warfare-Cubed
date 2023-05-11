@@ -1018,32 +1018,15 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void addSpawn(Class<? extends EntityLiving> entity, int weightedProb, int min, int max,
-            CompatibleBiomeType... biomeTypes) {
-        
-        
+    public void addSpawn(Class<? extends EntityLiving> entity, int weightedProb, int min, int max, BiomeDictionary.Type... biomeTypes) {
         Set<Biome> biomes = new HashSet<>();
-        for(CompatibleBiomeType compatibleType: biomeTypes) {
-            for(Type incompatibleType: compatibleType.getTypes()) {
-                Set<Biome> biomesForType = BiomeDictionary.getBiomes(incompatibleType);
-                for(Biome b: biomesForType) {
-                    biomes.add(b);
-                }
-            }
+
+        for(BiomeDictionary.Type biomeType: biomeTypes) {
+            Set<Biome> biomesForType = BiomeDictionary.getBiomes(biomeType);
+            biomes.addAll(biomesForType);
         }
-        
-        for(CompatibleBiomeType compatibleType: biomeTypes) {
-            for(Type incompatibleType: compatibleType.getTypes()) {
-                for(Biome biome: ForgeRegistries.BIOMES) {
-                    Set<Type> types = BiomeDictionary.getTypes(biome);
-                    if(types.contains(incompatibleType)) {
-                        biomes.add(biome);
-                    }
-                }
-            }
-        }
-        
-       EntityRegistry.addSpawn(entity, weightedProb, min, max, EnumCreatureType.MONSTER, biomes.toArray(new Biome[0]));
+
+        EntityRegistry.addSpawn(entity, weightedProb, min, max, EnumCreatureType.MONSTER, biomes.toArray(new Biome[0]));
     }
 
     @Override

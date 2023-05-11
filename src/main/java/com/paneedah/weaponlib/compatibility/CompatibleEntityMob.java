@@ -116,7 +116,7 @@ public abstract class CompatibleEntityMob extends EntityMob {
     }
 
     protected void setEnchantmentBasedOnDifficulty(DifficultyInstance difficulty) {
-        setEnchantmentBasedOnDifficulty(difficulty);
+        super.setEnchantmentBasedOnDifficulty(difficulty);
     }
     
     public void setActiveMainHand() {

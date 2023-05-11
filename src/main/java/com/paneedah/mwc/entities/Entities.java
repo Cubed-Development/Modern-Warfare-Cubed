@@ -5,8 +5,6 @@ import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Guns;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.ai.*;
-import com.paneedah.weaponlib.compatibility.CompatibleBiomeType;
-import com.paneedah.weaponlib.compatibility.CompatibleEntityAIAttackOnCollide;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.boss.EntityDragon;
@@ -15,6 +13,7 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.EnumDifficulty;
+import net.minecraftforge.common.BiomeDictionary;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
@@ -32,7 +31,7 @@ public class Entities {
         .withEquipmentOption(Guns.M4A1, EnumDifficulty.EASY, 0.1f, Magazines.M4A1Mag)
         .withEquipmentOption(Guns.M110, EnumDifficulty.EASY, 0.1f, Magazines.M110Mag)
         .withPrimaryEquipmentDropChance(0.4f)
-        .withSpawn(1, 5, 6, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
+        .withSpawn(1, 5, 6, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS)
         .withMaxTolerableLightBrightness(1f)
         .withSpawnEgg(0x5A674F, 0x464039)
         .withTexturedModelVariant("com.paneedah.mwc.models.Soldier", "soldier.png")
@@ -82,7 +81,7 @@ public class Entities {
                 .withEntityIdSupplier(() -> 10012)
                 .withEquipmentOption(Guns.turretgun, EnumDifficulty.EASY, 0.1f)
                 .withPrimaryEquipmentDropChance(0.0f)
-//        .withSpawn(1, 5, 6, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
+//        .withSpawn(1, 5, 6, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS)
 //        .withMaxTolerableLightBrightness(1f)
                 .withSpawnEgg(0x5A674F, 0x464039)
                 .withTexturedModelVariant("com.paneedah.mwc.models.Turret", "turret.png")
@@ -131,7 +130,7 @@ public class Entities {
                 .withEntityIdSupplier(() -> 10013)
                 .withEquipmentOption(Guns.turretgunupgraded, EnumDifficulty.EASY, 0.1f)
                 .withPrimaryEquipmentDropChance(0.0f)
-//        .withSpawn(1, 5, 6, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
+//        .withSpawn(1, 5, 6, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS)
 //        .withMaxTolerableLightBrightness(1f)
                 .withSpawnEgg(0x5A674F, 0x464039)
                 .withTexturedModelVariant("com.paneedah.mwc.models.TurretBuff", "turretbuff.png")
@@ -181,7 +180,7 @@ public class Entities {
                 .withEntityIdSupplier(() -> 10014)
                 .withEquipmentOption(Guns.turretgunsilenced, EnumDifficulty.EASY, 0.1f)
                 .withPrimaryEquipmentDropChance(0.0f)
-//        .withSpawn(1, 5, 6, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
+//        .withSpawn(1, 5, 6, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS)
 //        .withMaxTolerableLightBrightness(1f)
                 .withSpawnEgg(0x5A674F, 0x464039)
                 .withTexturedModelVariant("com.paneedah.mwc.models.turretsilenced", "turretsilenced.png")
