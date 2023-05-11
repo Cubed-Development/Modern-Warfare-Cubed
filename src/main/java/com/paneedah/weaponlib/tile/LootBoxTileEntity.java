@@ -56,7 +56,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                     //compatibility.setItemStackToSlot(player, CompatibleEntityEquipmentSlot.MAIN_HAND, equipmentItemStack);
                     
                     if(equipmentItemStack != null) {
-                        CompatibleEntityItem item = new CompatibleEntityItem(getWorld(), getCompatiblePos().getX() + 1, getCompatiblePos().getY() + 1, getCompatiblePos().getZ() + 1, equipmentItemStack);
+                        CompatibleEntityItem item = new CompatibleEntityItem(getWorld(), getPos().getX() + 1, getPos().getY() + 1, getPos().getZ() + 1, equipmentItemStack);
                         item.setNoPickupDelay();
                         compatibility.spawnEntity(player, item);
                     }
@@ -114,8 +114,8 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
     }
     
     @Override
-    public NBTTagCompound compatibleWriteToNBT(NBTTagCompound tagCompound) {
-        super.compatibleWriteToNBT(tagCompound);
+    public NBTTagCompound writeToNBT(NBTTagCompound tagCompound) {
+        super.writeToNBT(tagCompound);
         tagCompound.setLong(TAG_TIME, lastEquipmentDispenseTimestamp);
         return tagCompound;
     }
