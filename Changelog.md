@@ -47,6 +47,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed some fault in en-US.lang
 - Fixed some shaders causing crashes ([#48])
 - Fixed copper, gunpowder and ammo dupe
+- Fixed the carryable inventory tab moving the whole inventory to the left for no reasons
 
 ### Removed
 
