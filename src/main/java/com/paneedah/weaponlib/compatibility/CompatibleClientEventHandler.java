@@ -551,11 +551,6 @@ public abstract class CompatibleClientEventHandler {
 		}
 	}
 
-	@SubscribeEvent
-	public void onRenderHand(RenderHandEvent event) {
-		onCompatibleRenderHand(new CompatibleRenderHandEvent(event));
-	}
-
 	public static TextureAtlasSprite carParticles;
 	public static TextureAtlasSprite smoke1;
 
@@ -569,8 +564,6 @@ public abstract class CompatibleClientEventHandler {
 	protected abstract void onCompatibleRenderTickEvent(TickEvent.RenderTickEvent compatibleRenderTickEvent);
 
 	protected abstract void onCompatibleClientTick(TickEvent.ClientTickEvent compatibleClientTickEvent);
-
-	protected abstract void onCompatibleRenderHand(CompatibleRenderHandEvent event);
 
 	protected abstract void onCompatibleRenderPlayerPreEvent(RenderPlayerEvent.Pre event);
 
