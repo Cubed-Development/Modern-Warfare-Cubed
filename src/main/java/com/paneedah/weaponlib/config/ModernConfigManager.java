@@ -48,10 +48,10 @@ public class ModernConfigManager {
 	public static boolean enableAllShaders = true;
 
 	@ConfigSync(category = CATEGORY_RENDERING, comment = "Setting this to false disables all world shaders, enabling allows to select which world shaders are used.")
-	public static boolean enableWorldShaders = false;
+	public static boolean enableWorldShaders = true;
 	
 	@ConfigSync(category = CATEGORY_RENDERING, comment = "Setting this to false disables all screen shaders, enabling allows to select which screen shaders are used.")
-	public static boolean enableScreenShaders = false;
+	public static boolean enableScreenShaders = true;
 	
 	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables gun shaders, so skinning & lighting")
 	public static boolean enableGunShaders = true;
