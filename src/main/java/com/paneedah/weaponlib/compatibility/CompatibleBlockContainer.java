@@ -14,6 +14,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
+
 public abstract class CompatibleBlockContainer extends BlockContainer {
 
     protected CompatibleBlockContainer(Material materialIn) {
@@ -36,14 +38,10 @@ public abstract class CompatibleBlockContainer extends BlockContainer {
     public boolean isNormalCube(IBlockState state, BlockPos pos) {
         return false;
     }
-    
-    @Override
-    public final EnumBlockRenderType getRenderType(IBlockState state) {
-        return getCompatibleRenderType(state).getRenderType();
-    }
 
-    public CompatibleBlockRenderType getCompatibleRenderType(IBlockState state) {
-        return CompatibleBlockRenderType.INVISIBLE;
+    @Override
+    public EnumBlockRenderType getRenderType(@Nullable IBlockState state) {
+        return EnumBlockRenderType.INVISIBLE;
     }
     
     @Override

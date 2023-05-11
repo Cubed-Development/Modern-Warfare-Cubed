@@ -11,6 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -57,8 +58,8 @@ public class CustomTileEntityBlock extends CompatibleBlockContainer {
     }
 
     @Override
-    public CompatibleBlockRenderType getCompatibleRenderType(IBlockState iBlockState) {
-        return CompatibleBlockRenderType.ENTITYBLOCK_ANIMATED;
+    public EnumBlockRenderType getRenderType(IBlockState iBlockState) {
+        return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
     }
 
     @Override
