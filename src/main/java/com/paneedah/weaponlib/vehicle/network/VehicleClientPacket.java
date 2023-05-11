@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.vehicle.network;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import io.netty.buffer.ByteBuf;
 
 import java.io.IOException;
 
-public class VehicleClientPacket implements CompatibleMessage {
+public class VehicleClientPacket implements IMessage {
 
 	public VehicleDataContainer serializer;
 

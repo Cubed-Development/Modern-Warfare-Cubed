@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import io.netty.buffer.ByteBuf;
 
-public class ArmorControlMessage implements CompatibleMessage {
+public class ArmorControlMessage implements IMessage {
 
     public static enum EntityAction { STOP }
 

@@ -1,14 +1,15 @@
 package com.paneedah.weaponlib.tracking;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class SyncPlayerEntityTrackerMessageMessageHandler implements CompatibleMessageHandler<SyncPlayerEntityTrackerMessage, CompatibleMessage> {
+public class SyncPlayerEntityTrackerMessageMessageHandler implements CompatibleMessageHandler<SyncPlayerEntityTrackerMessage, IMessage> {
 
     private ModContext modContext;
 
@@ -17,8 +18,8 @@ public class SyncPlayerEntityTrackerMessageMessageHandler implements CompatibleM
     }
 
     @Override
-	public <T extends CompatibleMessage> T onCompatibleMessage(SyncPlayerEntityTrackerMessage message, CompatibleMessageContext ctx) {
-		if(!ctx.isServerSide()) {
+	public <T extends IMessage> T onCompatibleMessage(SyncPlayerEntityTrackerMessage message, MessageContext messageContext) {
+		if(messageContext.side == Side.CLIENT) {
 		    compatibility.runInMainClientThread(() -> {
 		        CompatiblePlayerEntityTrackerProvider.setTracker(compatibility.clientPlayer(), message.getTracker());
 		        if(message.getStatusMessage() != null) {

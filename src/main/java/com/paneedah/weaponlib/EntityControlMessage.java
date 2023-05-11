@@ -1,12 +1,12 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
-public class EntityControlMessage implements CompatibleMessage {
+public class EntityControlMessage implements IMessage {
 
     private int flags;
     private int values;

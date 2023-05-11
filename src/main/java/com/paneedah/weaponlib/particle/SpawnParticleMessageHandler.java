@@ -1,13 +1,14 @@
 package com.paneedah.weaponlib.particle;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class SpawnParticleMessageHandler implements CompatibleMessageHandler<SpawnParticleMessage, CompatibleMessage>  {
+public class SpawnParticleMessageHandler implements CompatibleMessageHandler<SpawnParticleMessage, IMessage>  {
 
     private static final String REGULAR_SMOKE_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/large-smoke.png";
     
@@ -23,8 +24,8 @@ public class SpawnParticleMessageHandler implements CompatibleMessageHandler<Spa
     }
 
     @Override
-    public <T extends CompatibleMessage> T onCompatibleMessage(SpawnParticleMessage message, CompatibleMessageContext ctx) {
-        if(!ctx.isServerSide()) {
+    public <T extends IMessage> T onCompatibleMessage(SpawnParticleMessage message, MessageContext messageContext) {
+        if(messageContext.side == Side.CLIENT) {
             compatibility.runInMainClientThread(() -> {
                 for (int i = 0; i < message.getCount(); ++i) {
                     switch(message.getParticleType()) {

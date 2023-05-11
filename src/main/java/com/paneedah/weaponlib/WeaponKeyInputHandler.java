@@ -4,7 +4,6 @@ import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
 import com.paneedah.weaponlib.compatibility.CompatibleChannel;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
 import com.paneedah.weaponlib.compatibility.CompatibleWeaponKeyInputHandler;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.inventory.OpenCustomPlayerInventoryGuiMessage;
@@ -18,6 +17,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import org.lwjgl.input.Keyboard;
 
 import java.util.function.Function;
@@ -29,12 +29,12 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
 
     @SuppressWarnings("unused")
     private CompatibleChannel channel;
-    private Function<CompatibleMessageContext, EntityPlayer> entityPlayerSupplier;
+    private Function<MessageContext, EntityPlayer> entityPlayerSupplier;
     private ModContext modContext;
 
     public WeaponKeyInputHandler(
             ModContext modContext,
-            Function<CompatibleMessageContext, EntityPlayer> entityPlayerSupplier,
+            Function<MessageContext, EntityPlayer> entityPlayerSupplier,
             WeaponAttachmentAspect attachmentAspect,
             CompatibleChannel channel) {
         this.modContext = modContext;

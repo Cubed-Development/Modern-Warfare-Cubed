@@ -1,13 +1,13 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class ExposureMessage implements CompatibleMessage {
+public class ExposureMessage implements IMessage {
     
     private Collection<? extends Exposure> exposures;
 

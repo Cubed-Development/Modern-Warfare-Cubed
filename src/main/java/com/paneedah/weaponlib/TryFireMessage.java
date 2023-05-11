@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import io.netty.buffer.ByteBuf;
 
-public class TryFireMessage implements CompatibleMessage {
+public class TryFireMessage implements IMessage {
 
 	private boolean on;
 	private boolean isBurst;

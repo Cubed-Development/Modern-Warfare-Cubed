@@ -1,12 +1,13 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class BlockHitMessageHandler implements CompatibleMessageHandler<BlockHitMessage, CompatibleMessage>  {
+public class BlockHitMessageHandler implements CompatibleMessageHandler<BlockHitMessage, IMessage>  {
     
     @SuppressWarnings("unused")
     private ModContext modContext;
@@ -18,8 +19,8 @@ public class BlockHitMessageHandler implements CompatibleMessageHandler<BlockHit
     }
 
     @Override
-    public <T extends CompatibleMessage> T onCompatibleMessage(BlockHitMessage message, CompatibleMessageContext ctx) {
-        if(!ctx.isServerSide()) {
+    public <T extends IMessage> T onCompatibleMessage(BlockHitMessage message, MessageContext messageContext) {
+        if(messageContext.side == Side.CLIENT) {
             compatibility.runInMainClientThread(() -> {
             	//BulletHoleRenderer
             

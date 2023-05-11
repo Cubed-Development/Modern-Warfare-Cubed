@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.particle;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import io.netty.buffer.ByteBuf;
 
-public class SpawnParticleMessage implements CompatibleMessage {
+public class SpawnParticleMessage implements IMessage {
 
     public enum ParticleType { BLOOD(false), SHELL(false), SMOKE_GRENADE_SMOKE(true), SMOKE_GRENADE_YELLOW_SMOKE(true);
         

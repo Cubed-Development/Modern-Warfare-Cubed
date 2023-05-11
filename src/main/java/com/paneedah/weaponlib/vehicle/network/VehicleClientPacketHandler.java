@@ -1,15 +1,16 @@
 package com.paneedah.weaponlib.vehicle.network;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class VehicleClientPacketHandler implements CompatibleMessageHandler<VehicleClientPacket, CompatibleMessage> {
+public class VehicleClientPacketHandler implements CompatibleMessageHandler<VehicleClientPacket, IMessage> {
 	
 	public static ModContext context;
 
@@ -18,14 +19,14 @@ public class VehicleClientPacketHandler implements CompatibleMessageHandler<Vehi
 	}
 
 	@Override
-	public <T extends CompatibleMessage> T onCompatibleMessage(VehicleClientPacket m, CompatibleMessageContext ctx) {
-		 if(!ctx.isServerSide()) {
+	public <T extends IMessage> T onCompatibleMessage(VehicleClientPacket message, MessageContext messageContext) {
+		 if(messageContext.side == Side.CLIENT) {
 	            compatibility.runInMainClientThread(() -> {
 				
 	            	
 	            	
 				EntityPlayer player = compatibility.clientPlayer();
-				VehicleDataContainer cont = m.serializer;
+				VehicleDataContainer cont = message.serializer;
 				
 				EntityVehicle vehicle = (EntityVehicle) player.world.getEntityByID(cont.entityID);
 				

@@ -1,13 +1,14 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class SpreadableExposureMessageHandler implements CompatibleMessageHandler<SpreadableExposureMessage, CompatibleMessage>  {
+public class SpreadableExposureMessageHandler implements CompatibleMessageHandler<SpreadableExposureMessage, IMessage>  {
     
     @SuppressWarnings("unused")
     private ModContext modContext;
@@ -17,8 +18,8 @@ public class SpreadableExposureMessageHandler implements CompatibleMessageHandle
     }
 
     @Override
-    public <T extends CompatibleMessage> T onCompatibleMessage(SpreadableExposureMessage message, CompatibleMessageContext ctx) {
-        if(!ctx.isServerSide())
+    public <T extends IMessage> T onCompatibleMessage(SpreadableExposureMessage message, MessageContext messageContext) {
+        if(messageContext.side == Side.CLIENT)
             return null;
 
         compatibility.runInMainClientThread(() -> {

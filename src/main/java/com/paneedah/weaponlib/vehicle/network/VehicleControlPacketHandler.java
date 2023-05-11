@@ -1,14 +1,17 @@
 package com.paneedah.weaponlib.vehicle.network;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
-public class VehicleControlPacketHandler implements CompatibleMessageHandler<VehicleControlPacket, CompatibleMessage> {
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+
+public class VehicleControlPacketHandler implements CompatibleMessageHandler<VehicleControlPacket, IMessage> {
 	
 	public static ModContext context;
 
@@ -17,11 +20,11 @@ public class VehicleControlPacketHandler implements CompatibleMessageHandler<Veh
 	}
 
 	@Override
-	public <T extends CompatibleMessage> T onCompatibleMessage(VehicleControlPacket message, CompatibleMessageContext ctx) {
-		if(ctx.isServerSide()) {
-			ctx.runInMainThread(() -> {
+	public <T extends IMessage> T onCompatibleMessage(VehicleControlPacket message, MessageContext messageContext) {
+		if(messageContext.side == Side.SERVER) {
+			compatibility.runInMainClientThread(() -> {
 				
-				EntityPlayer player = ctx.getPlayer();
+				EntityPlayer player = messageContext.getServerHandler().player;
 				VehicleDataContainer cont = message.serializer;
 				
 				
@@ -34,7 +37,7 @@ public class VehicleControlPacketHandler implements CompatibleMessageHandler<Veh
 						System.out.println("fuckin' vehicle bruh: " + e.getEntityId());
 					}
 				}*/
-				EntityVehicle vehicle = (EntityVehicle) ctx.getPlayer().world.getEntityByID(cont.entityID);
+				EntityVehicle vehicle = (EntityVehicle) messageContext.getServerHandler().player.world.getEntityByID(cont.entityID);
 				/*
 				System.out.println(cont.synthAccelFor);
 				System.out.println("what the fuck " + ctx.getPlayer().world.getEntityByID(cont.entityID));
@@ -44,7 +47,7 @@ public class VehicleControlPacketHandler implements CompatibleMessageHandler<Veh
 				if(vehicle == null) return;
 				//System.out.println("fucking success");
 				
-				for(EntityPlayer p: ctx.getPlayer().world.playerEntities) {
+				for(EntityPlayer p: messageContext.getServerHandler().player.world.playerEntities) {
 					
 					
 					

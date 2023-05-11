@@ -2,8 +2,7 @@ package com.paneedah.weaponlib.network.packets;
 
 import akka.japi.Pair;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -22,12 +21,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class StationPacket implements CompatibleMessage {
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+
+public class StationPacket implements IMessage {
 
 	
 	
@@ -130,7 +133,7 @@ public class StationPacket implements CompatibleMessage {
 		
 	}
 
-	public static class WorkbenchPacketHandler implements CompatibleMessageHandler<StationPacket, CompatibleMessage> {
+	public static class WorkbenchPacketHandler implements CompatibleMessageHandler<StationPacket, IMessage> {
 		
 		private ModContext modContext;
 
@@ -141,18 +144,18 @@ public class StationPacket implements CompatibleMessage {
 		}
 
 		@Override
-		public <T extends CompatibleMessage> T onCompatibleMessage(StationPacket m, CompatibleMessageContext ctx) {
-			if(ctx.isServerSide()) {
-	            ctx.runInMainThread(() -> {
+		public <T extends IMessage> T onCompatibleMessage(StationPacket message, MessageContext messageContext) {
+			if(messageContext.side == Side.SERVER) {
+	            compatibility.runInMainClientThread(() -> {
 					
 
-	            	World world = ctx.getPlayer().world;
+	            	World world = messageContext.getServerHandler().player.world;
 	            	
-	            	TileEntity tileEntity = world.getTileEntity(m.teLocation);
+	            	TileEntity tileEntity = world.getTileEntity(message.teLocation);
 	            	if(tileEntity instanceof TileEntityStation) {
 	            		TileEntityStation station = (TileEntityStation) tileEntity;
 	            		
-	            		if(m.opcode == CRAFT) {
+	            		if(message.opcode == CRAFT) {
 	            			
 	            			
 	            			
@@ -163,8 +166,8 @@ public class StationPacket implements CompatibleMessage {
 	            				
 	            				
 	            				TileEntityAmmoPress press = (TileEntityAmmoPress) station;
-		            			Item item = CraftingRegistry.getModernCrafting(m.craftingGroup, m.craftingName).getItem();
-		            			ItemStack newStack = new ItemStack(item, m.quantity);
+		            			Item item = CraftingRegistry.getModernCrafting(message.craftingGroup, message.craftingName).getItem();
+		            			ItemStack newStack = new ItemStack(item, message.quantity);
 		            			
 		            			
 		            		
@@ -172,7 +175,7 @@ public class StationPacket implements CompatibleMessage {
 		            				ItemStack topQueue = press.getCraftingQueue().getLast();
 		            				if(ItemStack.areItemsEqualIgnoreDurability(topQueue, newStack)) {
 		            					
-		            					topQueue.grow(m.quantity);
+		            					topQueue.grow(message.quantity);
 		            					
 		            					
 		            				} else {
@@ -183,7 +186,7 @@ public class StationPacket implements CompatibleMessage {
 		            			}
 		            			
 		            			
-		            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), m.teLocation), new TargetPoint(0, m.teLocation.getX(), m.teLocation.getY(), m.teLocation.getZ(), 20));
+		            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 20));
 			            		
 		            			
 		            			return;
@@ -194,7 +197,7 @@ public class StationPacket implements CompatibleMessage {
 	            			
 	            			
 	            			//System.out.println(m.craftingGroup + " | " + m.craftingName);
-	            			CraftingEntry[] modernRecipe = CraftingRegistry.getModernCrafting(m.craftingGroup, m.craftingName).getModernRecipe();
+	            			CraftingEntry[] modernRecipe = CraftingRegistry.getModernCrafting(message.craftingGroup, message.craftingName).getModernRecipe();
 		            		if(modernRecipe == null) return;
 		            		
 		            	
@@ -259,17 +262,17 @@ public class StationPacket implements CompatibleMessage {
 
 		            		if(station instanceof TileEntityWorkbench) {
 		            			TileEntityWorkbench workbench = (TileEntityWorkbench) station;
-		            			workbench.craftingTimer = m.craftingTimer;
-		            			workbench.craftingDuration = m.craftingDuration;
-			            		workbench.craftingTarget = CraftingRegistry.getModernCrafting(m.craftingGroup, m.craftingName);
+		            			workbench.craftingTimer = message.craftingTimer;
+		            			workbench.craftingDuration = message.craftingDuration;
+			            		workbench.craftingTarget = CraftingRegistry.getModernCrafting(message.craftingGroup, message.craftingName);
 		            		}
 		            		
 		            		station.sendUpdate();
 		            		//station.markDirty();
 		            	
-		            		modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), m.teLocation), new TargetPoint(0, m.teLocation.getX(), m.teLocation.getY(), m.teLocation.getZ(), 20));
+		            		modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 20));
 		            		
-	            		} else if(m.opcode == DISMANTLE) {
+	            		} else if(message.opcode == DISMANTLE) {
 	            			for(int i = 9; i < 13; ++i) {
 	            				if(station.mainInventory.getStackInSlot(i).isEmpty())
 									continue;
@@ -281,20 +284,20 @@ public class StationPacket implements CompatibleMessage {
 								}
 	            			}
 	            			
-	            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), m.teLocation), new TargetPoint(0, m.teLocation.getX(), m.teLocation.getY(), m.teLocation.getZ(), 25));
+	            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 25));
 
-	            		} else if(m.opcode == MOVE_OUTPUT) {
-	            			((EntityPlayer) world.getEntityByID(m.playerID)).addItemStackToInventory(station.mainInventory.getStackInSlot(m.slotToMove));
-	            		} else if(m.opcode == POP_FROM_QUEUE) {
+	            		} else if(message.opcode == MOVE_OUTPUT) {
+	            			((EntityPlayer) world.getEntityByID(message.playerID)).addItemStackToInventory(station.mainInventory.getStackInSlot(message.slotToMove));
+	            		} else if(message.opcode == POP_FROM_QUEUE) {
 	            			if(!(tileEntity instanceof TileEntityAmmoPress)) return;
 	            			
 	            			TileEntityAmmoPress teAmmoPress = (TileEntityAmmoPress) tileEntity;
 	            			
-	            			if(teAmmoPress.hasStack() && teAmmoPress.getCraftingQueue().size() > m.slotToMove) {
-	            				teAmmoPress.getCraftingQueue().remove(m.slotToMove);
+	            			if(teAmmoPress.hasStack() && teAmmoPress.getCraftingQueue().size() > message.slotToMove) {
+	            				teAmmoPress.getCraftingQueue().remove(message.slotToMove);
 	            			}
 	            			
-	            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), m.teLocation), new TargetPoint(0, m.teLocation.getX(), m.teLocation.getY(), m.teLocation.getZ(), 25));
+	            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 25));
 		            		
 	            		}
 	            	}

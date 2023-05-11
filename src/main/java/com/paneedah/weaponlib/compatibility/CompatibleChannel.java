@@ -15,11 +15,11 @@ public class CompatibleChannel {
 		return channel;
 	}
 
-    public <Request extends CompatibleMessage, Response extends CompatibleMessage> void registerMessage(CompatibleMessageHandler<? super Request, ? extends Response> messageHandler, Class<Request> requestMessageType, int discriminator, Side side) {
+    public <Request extends IMessage, Response extends IMessage> void registerMessage(CompatibleMessageHandler<? super Request, ? extends Response> messageHandler, Class<Request> requestMessageType, int discriminator, Side side) {
     	channel.registerMessage(messageHandler, requestMessageType, discriminator, side);
     }
 
-    public void sendToAllAround(CompatibleMessage spawnParticleMessage, CompatibleTargetPoint point) {
+    public void sendToAllAround(IMessage spawnParticleMessage, CompatibleTargetPoint point) {
         channel.sendToAllAround(spawnParticleMessage, point.getTargetPoint());
     }
 }

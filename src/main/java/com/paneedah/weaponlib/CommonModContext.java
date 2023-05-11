@@ -36,6 +36,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.HashMap;
@@ -382,11 +383,11 @@ public class CommonModContext implements ModContext {
 		compatibility.registerItem(weapon, name);
 	}
 
-	private EntityPlayer getServerPlayer(CompatibleMessageContext ctx) {
-		return ctx != null ? ctx.getPlayer() : null;
+	private EntityPlayer getServerPlayer(MessageContext ctx) {
+		return ctx != null ? ctx.getServerHandler().player : null;
 	}
 
-	protected EntityPlayer getPlayer(CompatibleMessageContext ctx) {
+	protected EntityPlayer getPlayer(MessageContext ctx) {
 		return getServerPlayer(ctx);
 	}
 

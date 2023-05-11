@@ -1,14 +1,15 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class ExplosionMessageHandler implements CompatibleMessageHandler<ExplosionMessage, CompatibleMessage> {
+public class ExplosionMessageHandler implements CompatibleMessageHandler<ExplosionMessage, IMessage> {
 
     private ModContext modContext;
 
@@ -17,8 +18,8 @@ public class ExplosionMessageHandler implements CompatibleMessageHandler<Explosi
 	}
 
 	@Override
-	public <T extends CompatibleMessage> T onCompatibleMessage(ExplosionMessage message, CompatibleMessageContext ctx) {
-		if(!ctx.isServerSide()) {
+	public <T extends IMessage> T onCompatibleMessage(ExplosionMessage message, MessageContext messageContext) {
+		if(messageContext.side == Side.CLIENT) {
 			EntityPlayer player = compatibility.clientPlayer();
 			compatibility.runInMainClientThread(() -> {
                 Explosion explosion = new Explosion(modContext,

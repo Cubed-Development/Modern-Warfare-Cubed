@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import io.netty.buffer.ByteBuf;
 
-public class OpenCustomPlayerInventoryGuiMessage implements CompatibleMessage {
+public class OpenCustomPlayerInventoryGuiMessage implements IMessage {
 
     private int guiInventoryId;
 

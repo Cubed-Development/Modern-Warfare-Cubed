@@ -1,19 +1,20 @@
 package com.paneedah.weaponlib.network.packets;
 
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.network.NetworkUtil;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class BulletShellClient implements CompatibleMessage {
+public class BulletShellClient implements IMessage {
 
 	public Vec3d position;
 	public int shooter;
@@ -46,17 +47,17 @@ public class BulletShellClient implements CompatibleMessage {
 		ByteBufUtils.writeUTF8String(buf, type.toString());
 	}
 
-	public static class GunFXPacketHandler implements CompatibleMessageHandler<BulletShellClient, CompatibleMessage> {
+	public static class GunFXPacketHandler implements CompatibleMessageHandler<BulletShellClient, IMessage> {
 		
 		
 
 		@Override
-		public <T extends CompatibleMessage> T onCompatibleMessage(BulletShellClient m, CompatibleMessageContext ctx) {
-			 if(!ctx.isServerSide()) {
+		public <T extends IMessage> T onCompatibleMessage(BulletShellClient message, MessageContext messageContext) {
+			 if(messageContext.side == Side.CLIENT) {
 		            compatibility.runInMainClientThread(() -> {
 					
-		            	if(mc.player.getEntityId() != m.shooter) {
-		            		Shell shell = new Shell(m.type, m.position, new Vec3d(-90, 0, 90), m.velocity);
+		            	if(mc.player.getEntityId() != message.shooter) {
+		            		Shell shell = new Shell(message.type, message.position, new Vec3d(-90, 0, 90), message.velocity);
 			            	CompatibleClientEventHandler.SHELL_MANAGER.enqueueShell(shell);
 		            	}
 		            	

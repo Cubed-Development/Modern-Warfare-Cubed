@@ -4,8 +4,7 @@ import com.paneedah.weaponlib.HighIQSpawnEgg;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.SecondaryEntityRegistry;
 import com.paneedah.weaponlib.ai.EntityCustomMob;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.network.advanced.SimplePacket;
 import com.paneedah.weaponlib.network.advanced.data.DataTypes;
@@ -13,6 +12,7 @@ import com.paneedah.weaponlib.network.advanced.data.PacketSerializer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class HighIQPickupPacket extends SimplePacket {
 	
@@ -35,7 +35,7 @@ public class HighIQPickupPacket extends SimplePacket {
 
 	
 	
-	public static class SimplePacketHandler implements CompatibleMessageHandler<HighIQPickupPacket, CompatibleMessage> {
+	public static class SimplePacketHandler implements CompatibleMessageHandler<HighIQPickupPacket, IMessage> {
 
 		private ModContext context;
 		
@@ -44,13 +44,13 @@ public class HighIQPickupPacket extends SimplePacket {
 		}
 		
 		@Override
-		public <T extends CompatibleMessage> T onCompatibleMessage(HighIQPickupPacket compatibleMessage,
-				CompatibleMessageContext ctx) {
-			ctx.getPlayer().getServer().addScheduledTask(() -> {
+		public <T extends IMessage> T onCompatibleMessage(HighIQPickupPacket message,
+														  MessageContext messageContext) {
+			messageContext.getServerHandler().player.getServer().addScheduledTask(() -> {
 				// Find the player we should send to
-				EntityPlayerMP target = (EntityPlayerMP) ctx.getPlayer().getEntityWorld().getEntityByID(compatibleMessage.playerID.getValue());
+				EntityPlayerMP target = (EntityPlayerMP) messageContext.getServerHandler().player.getEntityWorld().getEntityByID(message.playerID.getValue());
 				
-				Entity e = target.world.getEntityByID(compatibleMessage.entityID.getValue());
+				Entity e = target.world.getEntityByID(message.entityID.getValue());
 				
 				
 		

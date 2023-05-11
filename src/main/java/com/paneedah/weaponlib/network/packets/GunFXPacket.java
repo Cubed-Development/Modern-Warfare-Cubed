@@ -1,15 +1,16 @@
 package com.paneedah.weaponlib.network.packets;
 
 import com.paneedah.weaponlib.ClientEventHandler;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class GunFXPacket implements CompatibleMessage {
+public class GunFXPacket implements IMessage {
 
 	public int entID;
 
@@ -28,20 +29,20 @@ public class GunFXPacket implements CompatibleMessage {
 		buf.writeInt(this.entID);
 	}
 
-	public static class GunFXPacketHandler implements CompatibleMessageHandler<GunFXPacket, CompatibleMessage> {
+	public static class GunFXPacketHandler implements CompatibleMessageHandler<GunFXPacket, IMessage> {
 		
 		
 
 		@Override
-		public <T extends CompatibleMessage> T onCompatibleMessage(GunFXPacket m, CompatibleMessageContext ctx) {
-			 if(!ctx.isServerSide()) {
+		public <T extends IMessage> T onCompatibleMessage(GunFXPacket message, MessageContext messageContext) {
+			 if(messageContext.side == Side.CLIENT) {
 		            compatibility.runInMainClientThread(() -> {
 					
 		            	
-		            if(mc.player.getEntityId() == m.entID) {
+		            if(mc.player.getEntityId() == message.entID) {
 		            	return;
 		            }
-					ClientEventHandler.uploadFlash(m.entID);
+					ClientEventHandler.uploadFlash(message.entID);
 					
 				});
 			}

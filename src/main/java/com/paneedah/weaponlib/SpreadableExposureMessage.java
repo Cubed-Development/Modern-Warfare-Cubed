@@ -1,10 +1,10 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 
-public class SpreadableExposureMessage implements CompatibleMessage {
+public class SpreadableExposureMessage implements IMessage {
     
     private SpreadableExposure spreadableExposure;
     private boolean removed;

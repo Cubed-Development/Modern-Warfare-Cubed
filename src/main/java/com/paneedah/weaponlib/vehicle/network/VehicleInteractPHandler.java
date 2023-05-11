@@ -1,13 +1,16 @@
 package com.paneedah.weaponlib.vehicle.network;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
-public class VehicleInteractPHandler implements CompatibleMessageHandler<VehicleInteractPacket, CompatibleMessage> {
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+
+public class VehicleInteractPHandler implements CompatibleMessageHandler<VehicleInteractPacket, IMessage> {
 	
 	public static ModContext context;
 
@@ -16,13 +19,13 @@ public class VehicleInteractPHandler implements CompatibleMessageHandler<Vehicle
 	}
 
 	@Override
-	public <T extends CompatibleMessage> T onCompatibleMessage(VehicleInteractPacket m, CompatibleMessageContext ctx) {
-		if(ctx.isServerSide()) {
-			ctx.runInMainThread(() -> {
-				EntityVehicle vehicle = (EntityVehicle) ctx.getPlayer().world.getEntityByID(m.vehicleID);
-				EntityPlayer player = (EntityPlayer) ctx.getPlayer().world.getEntityByID(m.playerID);
+	public <T extends IMessage> T onCompatibleMessage(VehicleInteractPacket message, MessageContext messageContext) {
+		if(messageContext.side == Side.SERVER) {
+			compatibility.runInMainClientThread(() -> {
+				EntityVehicle vehicle = (EntityVehicle) messageContext.getServerHandler().player.world.getEntityByID(message.vehicleID);
+				EntityPlayer player = (EntityPlayer) messageContext.getServerHandler().player.world.getEntityByID(message.playerID);
 				
-				if(m.right) {
+				if(message.right) {
 					if(vehicle.canFitPassenger(player)) {
 						
 						player.startRiding(vehicle);

@@ -1,8 +1,7 @@
 package com.paneedah.weaponlib.network.packets;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.BlockDoor;
@@ -11,8 +10,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
-public class OpenDoorPacket implements CompatibleMessage {
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+
+public class OpenDoorPacket implements IMessage {
 
 	BlockPos pos;
 
@@ -33,7 +36,7 @@ public class OpenDoorPacket implements CompatibleMessage {
 		buf.writeLong(this.pos.toLong());
 	}
 
-	public static class OpenDoorPacketHandler implements CompatibleMessageHandler<OpenDoorPacket, CompatibleMessage> {
+	public static class OpenDoorPacketHandler implements CompatibleMessageHandler<OpenDoorPacket, IMessage> {
 		
 		private ModContext modContext;
 		
@@ -44,17 +47,17 @@ public class OpenDoorPacket implements CompatibleMessage {
 		
 
 		@Override
-		public <T extends CompatibleMessage> T onCompatibleMessage(OpenDoorPacket m, CompatibleMessageContext ctx) {
-			if(ctx.isServerSide()) {
-	            ctx.runInMainThread(() -> {
+		public <T extends IMessage> T onCompatibleMessage(OpenDoorPacket message, MessageContext messageContext) {
+			if(messageContext.side == Side.SERVER) {
+	            compatibility.runInMainClientThread(() -> {
 					
 	            	
 	            	
-	            	EntityPlayer player = ctx.getPlayer();
+	            	EntityPlayer player = messageContext.getServerHandler().player;
 	            	
-	            	IBlockState state = player.world.getBlockState(m.pos);
+	            	IBlockState state = player.world.getBlockState(message.pos);
 	            	BlockDoor door = (BlockDoor) state.getBlock();
-	 				door.onBlockActivated(player.world, m.pos, state, player, EnumHand.MAIN_HAND, EnumFacing.NORTH, (float) m.pos.getX(), (float) m.pos.getY(), (float) m.pos.getZ());
+	 				door.onBlockActivated(player.world, message.pos, state, player, EnumHand.MAIN_HAND, EnumFacing.NORTH, (float) message.pos.getX(), (float) message.pos.getY(), (float) message.pos.getZ());
 	 				
 		            
 		            	

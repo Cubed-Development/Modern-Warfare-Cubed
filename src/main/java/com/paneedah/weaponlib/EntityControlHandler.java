@@ -3,10 +3,12 @@ package com.paneedah.weaponlib;
 import com.paneedah.weaponlib.compatibility.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class EntityControlHandler implements CompatibleMessageHandler<EntityControlMessage, CompatibleMessage>  {
+public class EntityControlHandler implements CompatibleMessageHandler<EntityControlMessage, IMessage>  {
 
     private ModContext modContext;
 
@@ -15,10 +17,10 @@ public class EntityControlHandler implements CompatibleMessageHandler<EntityCont
     }
 
     @Override
-    public <T extends CompatibleMessage> T onCompatibleMessage(EntityControlMessage message, CompatibleMessageContext ctx) {
-        if(ctx.isServerSide()) {
-            ctx.runInMainThread(() -> {
-                EntityPlayer player = ctx.getPlayer();
+    public <T extends IMessage> T onCompatibleMessage(EntityControlMessage message, MessageContext messageContext) {
+        if(messageContext.side == Side.SERVER) {
+            compatibility.runInMainClientThread(() -> {
+                EntityPlayer player = messageContext.getServerHandler().player;
                 CompatibleExtraEntityFlags.setFlags(player, message.getFlags(), message.getValues());
                 CompatibleTargetPoint point = new CompatibleTargetPoint(player.dimension, 
                         player.posX, player.posY, player.posZ, 200);

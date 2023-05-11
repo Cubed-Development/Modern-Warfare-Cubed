@@ -2,14 +2,15 @@ package com.paneedah.weaponlib.network;
 
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.PlayerContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.state.ExtendedState;
 import com.paneedah.weaponlib.state.ManagedState;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.PermitManager;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +21,7 @@ import static com.paneedah.mwc.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class NetworkPermitManager
-implements PermitManager, CompatibleMessageHandler<PermitMessage, CompatibleMessage>  {
+implements PermitManager, CompatibleMessageHandler<PermitMessage, IMessage>  {
 
 	private ModContext modContext;
 	private Map<UUID, Object /*BiConsumer<Permit<?>, ?>*/> permitCallbacks = new HashMap<>();
@@ -50,17 +51,17 @@ implements PermitManager, CompatibleMessageHandler<PermitMessage, CompatibleMess
 	}
 	
 	@Override
-	public <T extends CompatibleMessage> T onCompatibleMessage(PermitMessage permitMessage,
-			CompatibleMessageContext ctx) {
+	public <T extends IMessage> T onCompatibleMessage(PermitMessage permitMessage,
+													  MessageContext messageContext) {
 		
 		Permit<?> permit = permitMessage.getPermit();
 		Object extendedState = permitMessage.getContext();
 		
-		if(ctx.isServerSide()) {
+		if(messageContext.side == Side.SERVER) {
 			if(extendedState instanceof PlayerContext) { // TODO: think of something better than upcasting
-				((PlayerContext) extendedState).setPlayer(ctx.getPlayer());
+				((PlayerContext) extendedState).setPlayer(messageContext.getServerHandler().player);
 			}
-			ctx.runInMainThread(() -> {
+			compatibility.runInMainClientThread(() -> {
 				//serverAction.accept(permit, context);
 				@SuppressWarnings("unchecked")
 				BiConsumer<Permit<?>, Object> evaluator = (BiConsumer<Permit<?>, Object>) evaluators.get(permit.getClass());
@@ -69,7 +70,7 @@ implements PermitManager, CompatibleMessageHandler<PermitMessage, CompatibleMess
 				}
 				PermitMessage message = new PermitMessage(permit, extendedState);
 				//System.out.println("Sending out permit");
-				modContext.getChannel().getChannel().sendTo(message, (EntityPlayerMP) ctx.getPlayer());
+				modContext.getChannel().getChannel().sendTo(message, (EntityPlayerMP) messageContext.getServerHandler().player);
 			});
 		} else {
 			compatibility.runInMainClientThread(() -> {

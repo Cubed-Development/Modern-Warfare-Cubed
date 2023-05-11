@@ -1,14 +1,15 @@
 package com.paneedah.weaponlib.melee;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class TryAttackMessageHandler implements CompatibleMessageHandler<TryAttackMessage, CompatibleMessage> {
+public class TryAttackMessageHandler implements CompatibleMessageHandler<TryAttackMessage, IMessage> {
 	
 	private MeleeAttackAspect attackAspect;
 
@@ -17,12 +18,12 @@ public class TryAttackMessageHandler implements CompatibleMessageHandler<TryAtta
 	}
 
 	@Override
-	public <T extends CompatibleMessage> T onCompatibleMessage(TryAttackMessage message, CompatibleMessageContext ctx) {
-		if(ctx.isServerSide()) {
-			EntityPlayer player = ctx.getPlayer();
+	public <T extends IMessage> T onCompatibleMessage(TryAttackMessage message, MessageContext messageContext) {
+		if(messageContext.side == Side.SERVER) {
+			EntityPlayer player = messageContext.getServerHandler().player;
 			ItemStack itemStack = compatibility.getHeldItemMainHand(player);
 			if(itemStack != null && itemStack.getItem() instanceof ItemMelee) {
-			    ctx.runInMainThread(() -> {
+			    compatibility.runInMainClientThread(() -> {
                     attackAspect.serverAttack(player, message.getInstance(), 
                             message.getEntity(compatibility.world(player)), message.isHeavyAttack());
                 });

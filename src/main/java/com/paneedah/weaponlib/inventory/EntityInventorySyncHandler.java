@@ -5,10 +5,12 @@ import com.paneedah.weaponlib.compatibility.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class EntityInventorySyncHandler implements CompatibleMessageHandler<EntityInventorySyncMessage, CompatibleMessage>  {
+public class EntityInventorySyncHandler implements CompatibleMessageHandler<EntityInventorySyncMessage, IMessage>  {
 
     private ModContext modContext;
 
@@ -17,10 +19,10 @@ public class EntityInventorySyncHandler implements CompatibleMessageHandler<Enti
     }
 
     @Override
-    public <T extends CompatibleMessage> T onCompatibleMessage(EntityInventorySyncMessage message, CompatibleMessageContext ctx) {
-        if(ctx.isServerSide()) {
-            ctx.runInMainThread(() -> {
-                EntityPlayer player = ctx.getPlayer();
+    public <T extends IMessage> T onCompatibleMessage(EntityInventorySyncMessage message, MessageContext messageContext) {
+        if(messageContext.side == Side.SERVER) {
+            compatibility.runInMainClientThread(() -> {
+                EntityPlayer player = messageContext.getServerHandler().player;
                 CustomPlayerInventory inventory = message.getInventory();
                 inventory.setContext(modContext);
                 inventory.setOwner((EntityPlayer) player);

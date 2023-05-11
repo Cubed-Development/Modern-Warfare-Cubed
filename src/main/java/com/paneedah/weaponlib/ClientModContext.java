@@ -4,7 +4,6 @@ import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.command.MainCommand;
 import com.paneedah.weaponlib.compatibility.CompatibleChannel;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderingRegistry;
 import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.workbench.GUIContainerWorkbench;
@@ -27,6 +26,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.ClientCommandHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 import java.util.HashMap;
 import java.util.List;
@@ -179,7 +179,7 @@ public class ClientModContext extends CommonModContext {
     }
 
     @Override
-    protected EntityPlayer getPlayer(CompatibleMessageContext ctx) {
+    protected EntityPlayer getPlayer(MessageContext ctx) {
         return compatibility.clientPlayer();
     }
 

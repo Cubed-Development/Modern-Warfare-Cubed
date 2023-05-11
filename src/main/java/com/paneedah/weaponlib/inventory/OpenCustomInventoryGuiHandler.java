@@ -1,14 +1,15 @@
 package com.paneedah.weaponlib.inventory;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class OpenCustomInventoryGuiHandler implements CompatibleMessageHandler<OpenCustomPlayerInventoryGuiMessage, CompatibleMessage>  {
+public class OpenCustomInventoryGuiHandler implements CompatibleMessageHandler<OpenCustomPlayerInventoryGuiMessage, IMessage>  {
 
     private ModContext modContext;
 
@@ -17,10 +18,10 @@ public class OpenCustomInventoryGuiHandler implements CompatibleMessageHandler<O
     }
 
     @Override
-    public <T extends CompatibleMessage> T onCompatibleMessage(OpenCustomPlayerInventoryGuiMessage message, CompatibleMessageContext ctx) {
-        if(ctx.isServerSide()) {
-            ctx.runInMainThread(() -> {
-                EntityPlayer player = ctx.getPlayer();
+    public <T extends IMessage> T onCompatibleMessage(OpenCustomPlayerInventoryGuiMessage message, MessageContext messageContext) {
+        if(messageContext.side == Side.SERVER) {
+            compatibility.runInMainClientThread(() -> {
+                EntityPlayer player = messageContext.getServerHandler().player;
                 player.openGui(modContext.getMod(), message.getGuiInventoryId(), 
                         compatibility.world(player), (int)player.posX, (int)player.posY, (int)player.posZ);
             });

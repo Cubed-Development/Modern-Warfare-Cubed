@@ -2,16 +2,17 @@ package com.paneedah.weaponlib.network;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.BalancePackManager.BalancePack;
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class BalancePackClient implements CompatibleMessage {
+public class BalancePackClient implements IMessage {
 
 	BalancePack pack;
 	String test;
@@ -53,16 +54,16 @@ public class BalancePackClient implements CompatibleMessage {
 		buf.writeBytes(bytes);
 	}
 
-	public static class BalancePacketHandler implements CompatibleMessageHandler<BalancePackClient, CompatibleMessage> {
+	public static class BalancePacketHandler implements CompatibleMessageHandler<BalancePackClient, IMessage> {
 		
 		
 
 		@Override
-		public <T extends CompatibleMessage> T onCompatibleMessage(BalancePackClient m, CompatibleMessageContext ctx) {
-			 if(!ctx.isServerSide()) {
+		public <T extends IMessage> T onCompatibleMessage(BalancePackClient message, MessageContext messageContext) {
+			 if(messageContext.side == Side.CLIENT) {
 		            compatibility.runInMainClientThread(() -> {
 					
-		            	BalancePackManager.setCurrentBalancePack(m.pack);
+		            	BalancePackManager.setCurrentBalancePack(message.pack);
 		            	
 					
 				});

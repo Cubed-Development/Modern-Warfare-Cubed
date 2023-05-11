@@ -1,13 +1,13 @@
 package com.paneedah.weaponlib.network.advanced;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.network.advanced.data.PacketSerializer;
 import io.netty.buffer.ByteBuf;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-public class SimplePacket implements CompatibleMessage {
+public class SimplePacket implements IMessage {
 	
 	private ArrayList<PacketSerializer<?>> serializers = new ArrayList<>();
 	

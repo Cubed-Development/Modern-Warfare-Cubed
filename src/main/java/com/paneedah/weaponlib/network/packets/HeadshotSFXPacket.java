@@ -1,17 +1,17 @@
 package com.paneedah.weaponlib.network.packets;
 
 import com.paneedah.weaponlib.UniversalSoundLookup;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class HeadshotSFXPacket implements CompatibleMessage {
+public class HeadshotSFXPacket implements IMessage {
 
 	
 
@@ -28,7 +28,7 @@ public class HeadshotSFXPacket implements CompatibleMessage {
 
 	}
 
-	public static class GunFXPacketHandler implements CompatibleMessageHandler<HeadshotSFXPacket, CompatibleMessage> {
+	public static class GunFXPacketHandler implements CompatibleMessageHandler<HeadshotSFXPacket, IMessage> {
 		
 		
 		
@@ -39,8 +39,8 @@ public class HeadshotSFXPacket implements CompatibleMessage {
 		}
 
 		@Override
-		public <T extends CompatibleMessage> T onCompatibleMessage(HeadshotSFXPacket m, CompatibleMessageContext ctx) {
-			 if(!ctx.isServerSide()) {
+		public <T extends IMessage> T onCompatibleMessage(HeadshotSFXPacket message, MessageContext messageContext) {
+			 if(messageContext.side == Side.CLIENT) {
 		            compatibility.runInMainClientThread(() -> {
 					
 		            	
