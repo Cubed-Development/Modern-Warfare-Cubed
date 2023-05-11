@@ -70,6 +70,7 @@ import net.minecraftforge.common.ISpecialArmor.ArmorProperties;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -1307,8 +1308,7 @@ private Optional<Field> shadersEnabledFieldOptional;
     }
 
     @Override
-    public void applyArmor(CompatibleLivingHurtEvent event, EntityLivingBase entityLiving, 
-            ItemStack[] itemStacks, DamageSource damageSource, float amount) {
+    public void applyArmor(LivingHurtEvent event, EntityLivingBase entityLiving, ItemStack[] itemStacks, DamageSource damageSource, float amount) {
         NonNullList<ItemStack> stackList = NonNullList.create();
         for(int i = 0; i < itemStacks.length; i++) {
             stackList.add(itemStacks[i]);

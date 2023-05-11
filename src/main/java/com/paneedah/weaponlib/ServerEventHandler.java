@@ -20,6 +20,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
@@ -215,27 +216,26 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         }
     }
 
-    @Override
-    protected void onCompatibleLivingHurtEvent(CompatibleLivingHurtEvent e) {
+    @SubscribeEvent
+    protected void onLivingHurtEvent(LivingHurtEvent livingHurtEvent) {
         CustomPlayerInventory inventory = CompatibleCustomPlayerInventoryCapability
-                .getInventory(e.getEntityLiving());
+                .getInventory(livingHurtEvent.getEntityLiving());
         if (inventory != null && inventory.getStackInSlot(1) != null) {
-            compatibility.applyArmor(e, e.getEntityLiving(),
-                    new ItemStack[] { inventory.getStackInSlot(1) }, e.getDamageSource(), e.getAmount());
+            compatibility.applyArmor(livingHurtEvent, livingHurtEvent.getEntityLiving(), new ItemStack[] { inventory.getStackInSlot(1) }, livingHurtEvent.getSource(), livingHurtEvent.getAmount());
         }
         
-        if(e.getDamageSource().getImmediateSource() instanceof EntityProjectile) {
-        	RayTraceResult hit = HitUtil.traceProjectilehit(e.getDamageSource().getImmediateSource(), e.getEntityLiving());
+        if(livingHurtEvent.getSource().getImmediateSource() instanceof EntityProjectile) {
+        	RayTraceResult hit = HitUtil.traceProjectilehit(livingHurtEvent.getSource().getImmediateSource(), livingHurtEvent.getEntityLiving());
         	if(hit != null) {
-        		Vec3d eyes = e.getEntityLiving().getPositionEyes(1.0f);
+        		Vec3d eyes = livingHurtEvent.getEntityLiving().getPositionEyes(1.0f);
             	if(hit.hitVec.distanceTo(eyes) < 0.6f) {
             		
             		//tSystem.out.println("Current headshot multiplier is " + BalancePackManager.getHeadshotMultiplier());
-            		e.setAmount((float) (e.getAmount()*BalancePackManager.getHeadshotMultiplier()));
+            		livingHurtEvent.setAmount((float) (livingHurtEvent.getAmount()*BalancePackManager.getHeadshotMultiplier()));
             		
-            		if(e.getDamageSource().getTrueSource() instanceof EntityPlayer) {
-            			//System.out.println(e.getDamageSource().getTrueSource());
-            			modContext.getChannel().getChannel().sendTo(new HeadshotSFXPacket(), (EntityPlayerMP) e.getDamageSource().getTrueSource());
+            		if(livingHurtEvent.getSource().getTrueSource() instanceof EntityPlayer) {
+            			//System.out.println(livingHurtEvent.getSource().getTrueSource());
+            			modContext.getChannel().getChannel().sendTo(new HeadshotSFXPacket(), (EntityPlayerMP) livingHurtEvent.getSource().getTrueSource());
             		}
                 	
             		

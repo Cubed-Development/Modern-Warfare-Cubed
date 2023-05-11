@@ -56,6 +56,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -405,8 +406,7 @@ public interface Compatibility {
 
     public void closeScreen();
 
-    public void applyArmor(CompatibleLivingHurtEvent event, EntityLivingBase entityLiving, ItemStack[] itemStacks, DamageSource damageSource,
-            float amount);
+    public void applyArmor(LivingHurtEvent event, EntityLivingBase entityLiving, ItemStack[] itemStacks, DamageSource damageSource, float amount);
 
     public void dropItem(EntityPlayer player, ItemStack stack, boolean dropAround, boolean traceItem);
 

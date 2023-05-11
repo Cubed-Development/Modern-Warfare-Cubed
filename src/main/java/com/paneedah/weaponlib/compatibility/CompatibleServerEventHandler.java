@@ -175,11 +175,6 @@ public abstract class CompatibleServerEventHandler {
     }
     
     @SubscribeEvent
-    public void onLivingHurt(LivingHurtEvent event) {
-        onCompatibleLivingHurtEvent(new CompatibleLivingHurtEvent(event));
-    }
-    
-    @SubscribeEvent
     public void onPlayerClone(PlayerEvent.Clone e) {
         onCompatiblePlayerCloneEvent(new CompatiblePlayerCloneEvent(e));
     }
@@ -204,8 +199,6 @@ public abstract class CompatibleServerEventHandler {
     protected abstract void onCompatiblePlayerStoppedTracking(CompatibleStopTrackingEvent e);
     
     protected abstract void onCompatibleLivingUpdateEvent(CompatibleLivingUpdateEvent e);
-
-    protected abstract void onCompatibleLivingHurtEvent(CompatibleLivingHurtEvent e);
     
     protected abstract void onCompatiblePlayerCloneEvent(CompatiblePlayerCloneEvent compatiblePlayerCloneEvent);
 
