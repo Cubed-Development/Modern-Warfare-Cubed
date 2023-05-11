@@ -224,11 +224,11 @@ public class CustomGui extends CompatibleGui {
 			//GUIRenderHelper.drawColoredRectangle(20, 200, 128, 125, 0.05, ColorPalette.BLACK);
 
 		} else {
-			
-			
-			if(ModernConfigManager.enableAmmoCounter) {
-				handleAmmoCounter(event, weaponInstance, scaledWidth, scaledHeight);
-			}
+
+			handleAmmoCounter(event, weaponInstance, scaledWidth, scaledHeight);
+//			if(ModernConfigManager.enableAmmoCounter) {
+//				Method seems to be broken at the current time
+//			}
             
            
 
