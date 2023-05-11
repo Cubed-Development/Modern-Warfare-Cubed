@@ -20,6 +20,8 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
@@ -390,12 +392,12 @@ public abstract class CompatibleClientEventHandler {
 			player.rotationPitch += yAmount;
 			ClientValueRepo.recoilWoundY -= yAmount;
 			
-			/*
-			ItemStack itemstack = player.getHeldItem(EnumHand.OFF_HAND);
-			if(itemstack.getItem() instanceof Weapon) {
+
+			ItemStack itemstack = player.getHeldItemOffhand();
+			if(itemstack.getItem().getRegistryName().getNamespace().equals(ModReference.id) && !itemstack.isEmpty()) {
 				player.setHeldItem(EnumHand.OFF_HAND, player.getHeldItem(EnumHand.MAIN_HAND));
 	            player.setHeldItem(EnumHand.MAIN_HAND, itemstack);
-			}*/
+			}
             
 
 		}
