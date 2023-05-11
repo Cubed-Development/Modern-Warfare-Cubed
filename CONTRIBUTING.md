@@ -62,7 +62,7 @@ Remember to always communicate clearly with other contributors and follow the pr
 
 
 [Keep a Changelog]: https://keepachangelog.com/en/1.0.0/
-[Ragnarök Versioning Convention]: https://gist.github.com/JustDesoroxxx/5d4a45785ce19a6653ba99f72325c703
+[Ragnarök Versioning Convention]: https://gist.github.com/Desoroxxx/5d4a45785ce19a6653ba99f72325c703
 
 [Main GitHub page of MWC]: https://github.com/Paneedah/Modern-Warfare-Cubed
 [GitHub Desktop]: https://desktop.github.com/
