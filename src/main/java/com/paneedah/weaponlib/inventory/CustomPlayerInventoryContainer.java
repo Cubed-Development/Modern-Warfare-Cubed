@@ -2,10 +2,10 @@ package com.paneedah.weaponlib.inventory;
 
 import com.paneedah.weaponlib.ItemStorage;
 import com.paneedah.weaponlib.ItemVest;
-import com.paneedah.weaponlib.compatibility.CompatibleContainer;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemArmor;
@@ -20,7 +20,7 @@ import java.util.List;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class CustomPlayerInventoryContainer extends CompatibleContainer {
+public class CustomPlayerInventoryContainer extends Container {
     
     @SuppressWarnings("unused")
     private CustomPlayerInventory customPlayerInventory;
@@ -241,7 +241,7 @@ public class CustomPlayerInventoryContainer extends CompatibleContainer {
                     return null;
                 }
 
-                onTakeFromSlot(slot, player, itemstack1);
+                slot.onTake(player, itemstack1);
             }
 
     	} catch(Exception e) {

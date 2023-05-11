@@ -1,10 +1,10 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.compatibility.CompatibleContainer;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemArmor;
@@ -18,7 +18,7 @@ import java.util.List;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class StorageItemContainer extends CompatibleContainer {
+public class StorageItemContainer extends Container {
     /**
      * The Item Inventory for this Container, only needed if you want to
      * reference isUseableByPlayer
@@ -242,7 +242,7 @@ public class StorageItemContainer extends CompatibleContainer {
                 return null;
             }
 
-            onTakeFromSlot(slot, par1EntityPlayer, itemstack1);
+            slot.onTake(par1EntityPlayer, itemstack1);
         }
 
         return itemstack != null ? itemstack : compatibility.stackForEmptySlot();
