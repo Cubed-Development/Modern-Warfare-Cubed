@@ -7,6 +7,7 @@ import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.config.ModernConfigManager;
+import com.paneedah.weaponlib.particle.ParticleBlood;
 import com.paneedah.weaponlib.render.HDRFramebuffer;
 import com.paneedah.weaponlib.render.VMWFrameTimer;
 import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
@@ -560,8 +561,7 @@ public abstract class CompatibleClientEventHandler {
 
 	@SubscribeEvent
 	public void onTextureStitchEvent(TextureStitchEvent.Pre event) {
-		event.getMap().registerSprite(getModContext()
-				.getNamedResource(CompatibleParticle.CompatibleParticleBreaking.TEXTURE_BLOOD_PARTICLES));
+		event.getMap().registerSprite(getModContext().getNamedResource(ParticleBlood.texture));
 		carParticles = event.getMap().registerSprite(new ResourceLocation(ModReference.id + ":particle/carparticle"));
 		//smoke1 = event.getMap().registerSprite(new ResourceLocation(ModReference.id + ":smokes/smokesheet"));
 	}

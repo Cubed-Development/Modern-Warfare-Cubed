@@ -6,10 +6,9 @@ import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.ai.EntityCustomMob;
-import com.paneedah.weaponlib.compatibility.CompatibleParticle.CompatibleParticleBreaking;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.inventory.GuiHandler;
-import com.paneedah.weaponlib.particle.CompatibleBloodParticle;
+import com.paneedah.weaponlib.particle.ParticleBlood;
 import com.paneedah.weaponlib.tile.CustomTileEntityRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -67,7 +66,6 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.ISpecialArmor.ArmorProperties;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
@@ -621,21 +619,16 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     @SideOnly(Side.CLIENT)
     public void addBreakingParticle(ModContext modContext, double x, double y, double z) {
-        double yOffset = 1;
-        CompatibleParticleBreaking particle = CompatibleParticle.createParticleBreaking(
-                modContext, world(clientPlayer()), x, y + yOffset, z);
+        ParticleBlood particle = new ParticleBlood(world(clientPlayer()), x, y + 1, z);
         mc.effectRenderer.addEffect(particle);
     }
     
     @Override
     @SideOnly(Side.CLIENT)
     public void addBloodParticle(ModContext modContext, double x, double y, double z, double velX, double velY, double velZ) {
-    
-    	
-    	CompatibleBloodParticle cdp = new CompatibleBloodParticle(modContext, mc.world, x, y, z, velX, velY, velZ);
+    	ParticleBlood cdp = new ParticleBlood(mc.world, x, y, z, velX, velY, velZ);
     
 		mc.effectRenderer.addEffect(cdp);
-
     }
 
     @Override
