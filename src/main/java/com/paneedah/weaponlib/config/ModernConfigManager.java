@@ -92,9 +92,9 @@ public class ModernConfigManager {
 	public static boolean enableFancyRainAndSnow = false;
 	
 
-	// Current Method is broken and will be fixed in the future
-//	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the ammo counter")
-//	public static boolean enableAmmoCounter = true;
+//	 Fixing Method
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the ammo counter")
+	public static boolean enableAmmoCounter = true;
 	
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enable open door key display when hovering doors")
 	public static boolean enableOpenDoorDisplay = true;
