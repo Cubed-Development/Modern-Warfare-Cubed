@@ -153,18 +153,11 @@ public abstract class CompatibleServerEventHandler {
     }
 
     protected abstract void onCompatibleEntityJoinWorld(EntityJoinWorldEvent e);
-
-    @SubscribeEvent
-    public void playerStoppedTracking(PlayerEvent.StopTracking e) {
-        //onCompatiblePlayerStoppedTracking(new CompatibleStopTrackingEvent(e));
-    }
     
     @SubscribeEvent
     public void onEntityUpdate(LivingUpdateEvent e) {
         onCompatibleLivingUpdateEvent(new CompatibleLivingUpdateEvent(e));
     }
-
-    protected abstract void onCompatiblePlayerStoppedTracking(CompatibleStopTrackingEvent e);
 
     protected abstract void onCompatibleLivingUpdateEvent(CompatibleLivingUpdateEvent e);
 

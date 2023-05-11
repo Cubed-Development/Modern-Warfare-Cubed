@@ -182,22 +182,22 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         }
     }
 
-    @Override
-    protected void onCompatiblePlayerStoppedTracking(CompatibleStopTrackingEvent e) {
-        if(e.getTarget() instanceof EntityProjectile || e.getTarget() instanceof EntityBounceable) {
+    @SubscribeEvent
+    protected void onPlayerStoppedTracking(PlayerEvent.StopTracking playerStopTrackingEvent) {
+        /*if(playerStopTrackingEvent.getTarget() instanceof EntityProjectile || playerStopTrackingEvent.getTarget() instanceof EntityBounceable) {
             return;
         }
-        PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) e.getEntity());
-        if (tracker != null && tracker.updateTrackableEntity(e.getTarget())) {
-            log.debug("Player {} stopped tracking {}", e.getPlayer(), e.getTarget());
+        PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) playerStopTrackingEvent.getEntity());
+        if (tracker != null && tracker.updateTrackableEntity(playerStopTrackingEvent.getTarget())) {
+            log.debug("Player {} stopped tracking {}", playerStopTrackingEvent.getEntityPlayer(), playerStopTrackingEvent.getTarget());
             modContext.getChannel().getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker),
-                    (EntityPlayerMP)e.getPlayer());
-            
-            EntityPlayer player = (EntityPlayer) e.getEntity();
+                    (EntityPlayerMP)playerStopTrackingEvent.getEntityPlayer());
+
+            EntityPlayer player = (EntityPlayer) playerStopTrackingEvent.getEntity();
             modContext.getChannel().getChannel().sendTo(
                     new EntityControlMessage(player, CompatibleExtraEntityFlags.getFlags(player)),
-                    (EntityPlayerMP)e.getEntity());
-        }
+                    (EntityPlayerMP)playerStopTrackingEvent.getEntity());
+        }*/
     }
 
     @SubscribeEvent
