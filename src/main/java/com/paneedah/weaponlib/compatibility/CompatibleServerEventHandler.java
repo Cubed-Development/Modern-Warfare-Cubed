@@ -153,11 +153,6 @@ public abstract class CompatibleServerEventHandler {
     }
 
     protected abstract void onCompatibleEntityJoinWorld(EntityJoinWorldEvent e);
-    
-    @SubscribeEvent
-    public void playerDroppedItem(PlayerDropsEvent e) {
-        onCompatiblePlayerDropsEvent(new CompatiblePlayerDropsEvent(e));
-    }
 
     @SubscribeEvent
     public void playerStartedTracking(PlayerEvent.StartTracking e) {
@@ -211,8 +206,6 @@ public abstract class CompatibleServerEventHandler {
     protected abstract void onCompatibleLivingUpdateEvent(CompatibleLivingUpdateEvent e);
 
     protected abstract void onCompatibleLivingHurtEvent(CompatibleLivingHurtEvent e);
-
-    protected abstract void onCompatiblePlayerDropsEvent(CompatiblePlayerDropsEvent e);
     
     protected abstract void onCompatiblePlayerCloneEvent(CompatiblePlayerCloneEvent compatiblePlayerCloneEvent);
 

@@ -20,6 +20,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
+import net.minecraftforge.event.entity.player.PlayerDropsEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
@@ -242,9 +244,9 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         }
     }
 
-    @Override
-    protected void onCompatiblePlayerDropsEvent(CompatiblePlayerDropsEvent e) {
-        for(Iterator<EntityItem> it = e.getDrops().iterator(); it.hasNext();) {
+    @SubscribeEvent
+    public void playerDroppedItem(PlayerDropsEvent playerDropsEvent) {
+        for(Iterator<EntityItem> it = playerDropsEvent.getDrops().iterator(); it.hasNext();) {
             EntityItem entityItem = it.next();
             // TODO: check if this item is item storage and prevent dropping if necessary, add it back to player inventory
             if(compatibility.getEntityItem(entityItem).getItem() instanceof ItemStorage) {
