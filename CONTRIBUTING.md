@@ -4,7 +4,7 @@ This project follows [Keep a Changelog] and [Ragnarök Versioning Convention]
 
 ## Writing Good Issues
 
-Submitting a Issues about a bug or feature request is the easiest way to contribute, however, to get the most use out of them, you should follow certain guidelines. 
+Submitting an Issue about a bug or feature request is the easiest way to contribute, however, to get the most use out of them, you should follow certain guidelines. 
 
 Be respectful and kind, especially if you're requesting a feature. If you believe you have found a bug, screenshots/recording are extremely helpful. Check if someone has created an issue for your bug, duplicit reports split up information! If you see a report about a bug you are experiencing, feel free to add more screenshots and steps you have done to find the bug.      
 
