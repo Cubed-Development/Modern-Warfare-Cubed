@@ -398,7 +398,8 @@ public abstract class CompatibleClientEventHandler {
 				player.setHeldItem(EnumHand.OFF_HAND, player.getHeldItem(EnumHand.MAIN_HAND));
 	            player.setHeldItem(EnumHand.MAIN_HAND, itemstack);
 			}
-            
+
+			//TODO: Make a check to see If the ammo in the gun is greater than the max ammo in the magazine.
 
 		}
 		
