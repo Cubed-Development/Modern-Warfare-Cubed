@@ -153,13 +153,6 @@ public abstract class CompatibleServerEventHandler {
     }
 
     protected abstract void onCompatibleEntityJoinWorld(EntityJoinWorldEvent e);
-    
-    @SubscribeEvent
-    public void onEntityUpdate(LivingUpdateEvent e) {
-        onCompatibleLivingUpdateEvent(new CompatibleLivingUpdateEvent(e));
-    }
-
-    protected abstract void onCompatibleLivingUpdateEvent(CompatibleLivingUpdateEvent e);
 
     public abstract ModContext getModContext();
 }

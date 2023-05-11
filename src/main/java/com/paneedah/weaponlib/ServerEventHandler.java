@@ -21,6 +21,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -45,7 +46,7 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
     public ServerEventHandler(ModContext modContext) {
         this.modContext = modContext;
     }
-    
+
     @Override
     public ModContext getModContext() {
         return modContext;
@@ -60,67 +61,67 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
 	public void onEquipmentChange(LivingEquipmentChangeEvent e) {
 
 	}
-    
-    @Override
-    protected void onCompatibleLivingUpdateEvent(CompatibleLivingUpdateEvent e) {
-    	//if(!compatibility.world(e.getEntity()).isRemote && e.getEntityLiving() instanceof EntityPlayer) {
-    	//	//modContext.getChannel().getChannel().sendTo(new HeadshotSFXPacket(), (EntityPlayerMP) e.getEntityLiving());
+
+    @SubscribeEvent
+    protected void onCompatibleLivingUpdateEvent(LivingEvent.LivingUpdateEvent livingUpdateEvent) {
+    	//if(!compatibility.world(livingUpdateEvent.getEntity()).isRemote && livingUpdateEvent.getEntityLiving() instanceof EntityPlayer) {
+    	//	//modContext.getChannel().getChannel().sendTo(new HeadshotSFXPacket(), (EntityPlayerMP) livingUpdateEvent.getEntityLiving());
     	//}
     	
-        if(!compatibility.world(e.getEntity()).isRemote) {
-//            if(e.getEntity() instanceof EntityPlayer) {
-//                System.out.println(System.currentTimeMillis() + ": " + compatibility.world(e.getEntity()).getTotalWorldTime());
+        if(!compatibility.world(livingUpdateEvent.getEntity()).isRemote) {
+//            if(livingUpdateEvent.getEntity() instanceof EntityPlayer) {
+//                System.out.println(System.currentTimeMillis() + ": " + compatibility.world(livingUpdateEvent.getEntity()).getTotalWorldTime());
 //            }
             
             NBTTagCompound doseNbt = null;
-            ItemStack itemStack = compatibility.getHeldItemMainHand(e.getEntityLiving());
+            ItemStack itemStack = compatibility.getHeldItemMainHand(livingUpdateEvent.getEntityLiving());
             if(itemStack != null && itemStack.getItem() instanceof ItemHandheld) {
                 compatibility.ensureTagCompound(itemStack);
                 doseNbt = compatibility.getTagCompound(itemStack);
             }
             
             boolean effectiveUpdate = false;
-            Collection<? extends Exposure> exposures = CompatibleExposureCapability.getExposures(e.getEntity());
+            Collection<? extends Exposure> exposures = CompatibleExposureCapability.getExposures(livingUpdateEvent.getEntity());
             for(Iterator<? extends Exposure> iterator = exposures.iterator(); iterator.hasNext();) {
                 Exposure exposure = iterator.next();
-                exposure.update(e.getEntity());
+                exposure.update(livingUpdateEvent.getEntity());
                 if(doseNbt != null && exposure instanceof SpreadableExposure) {
                     doseNbt.setFloat("dose", ((SpreadableExposure) exposure).getLastDose());
                 }
-                if(!exposure.isEffective(compatibility.world(e.getEntity()))) {
+                if(!exposure.isEffective(compatibility.world(livingUpdateEvent.getEntity()))) {
                     //System.out.println("Removing expired exposure " + exposure);
                     iterator.remove();
                     effectiveUpdate = true;
                 }
             }
             if(effectiveUpdate) {
-                CompatibleExposureCapability.updateExposures(e.getEntity(), exposures);
+                CompatibleExposureCapability.updateExposures(livingUpdateEvent.getEntity(), exposures);
             }
             
-            long lastExposuresUpdateTimestamp = CompatibleExposureCapability.getLastUpdateTimestamp(e.getEntity());
-            long lastSyncTimestamp = CompatibleExposureCapability.getLastSyncTimestamp(e.getEntity());
-            if(lastSyncTimestamp + 5 < compatibility.world(e.getEntity()).getTotalWorldTime() 
-                    /*&& lastExposuresUpdateTimestamp > lastSyncTimestamp */ && e.getEntity() instanceof EntityPlayerMP) {
-                modContext.getChannel().getChannel().sendTo(new ExposureMessage(exposures), (EntityPlayerMP) e.getEntity());
-                CompatibleExposureCapability.setLastSyncTimestamp(e.getEntity(), compatibility.world(e.getEntity()).getTotalWorldTime());
+            long lastExposuresUpdateTimestamp = CompatibleExposureCapability.getLastUpdateTimestamp(livingUpdateEvent.getEntity());
+            long lastSyncTimestamp = CompatibleExposureCapability.getLastSyncTimestamp(livingUpdateEvent.getEntity());
+            if(lastSyncTimestamp + 5 < compatibility.world(livingUpdateEvent.getEntity()).getTotalWorldTime()
+                    /*&& lastExposuresUpdateTimestamp > lastSyncTimestamp */ && livingUpdateEvent.getEntity() instanceof EntityPlayerMP) {
+                modContext.getChannel().getChannel().sendTo(new ExposureMessage(exposures), (EntityPlayerMP) livingUpdateEvent.getEntity());
+                CompatibleExposureCapability.setLastSyncTimestamp(livingUpdateEvent.getEntity(), compatibility.world(livingUpdateEvent.getEntity()).getTotalWorldTime());
             }
             
-//            SpreadableExposure exposure = CompatibleExposureCapability.getExposure(e.getEntity(), SpreadableExposure.class);
+//            SpreadableExposure exposure = CompatibleExposureCapability.getExposure(livingUpdateEvent.getEntity(), SpreadableExposure.class);
 //            if(exposure != null) {
-//                boolean stillEffective = exposure.isEffective(compatibility.world(e.getEntity()));
-//                exposure.update(e.getEntity());
-//                if(e.getEntity() instanceof EntityPlayerMP && 
+//                boolean stillEffective = exposure.isEffective(compatibility.world(livingUpdateEvent.getEntity()));
+//                exposure.update(livingUpdateEvent.getEntity());
+//                if(livingUpdateEvent.getEntity() instanceof EntityPlayerMP &&
 //                        System.currentTimeMillis() - exposure.getLastSyncTimestamp() > 500) {
 //                    modContext.getChannel().getChannel().sendTo(
 //                            new SpreadableExposureMessage(stillEffective ? exposure : null),
-//                            (EntityPlayerMP) e.getEntity());
+//                            (EntityPlayerMP) livingUpdateEvent.getEntity());
 //                    exposure.setLastSyncTimestamp(System.currentTimeMillis()); 
 //                }
 //                if(!stillEffective) {
-//                    CompatibleExposureCapability.removeExposure(e.getEntity(), SpreadableExposure.class);
+//                    CompatibleExposureCapability.removeExposure(livingUpdateEvent.getEntity(), SpreadableExposure.class);
 //                }
 //                
-//                ItemStack itemStack = compatibility.getHeldItemMainHand(e.getEntityLiving());
+//                ItemStack itemStack = compatibility.getHeldItemMainHand(livingUpdateEvent.getEntityLiving());
 //                if(itemStack != null && itemStack.getItem() instanceof ItemHandheld) {
 //                    compatibility.ensureTagCompound(itemStack);
 //                    NBTTagCompound nbt = compatibility.getTagCompound(itemStack);
