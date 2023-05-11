@@ -225,6 +225,12 @@ public class CustomGui extends CompatibleGui {
 
 		} else {
 			if(ModernConfigManager.enableAmmoCounter) {
+				ModernConfigManager.enableOpenDoorDisplay = true;
+			} else {
+				ModernConfigManager.enableOpenDoorDisplay = false;
+			}
+			
+			if(ModernConfigManager.enableAmmoCounter) {
 				handleAmmoCounter(event, weaponInstance, scaledWidth, scaledHeight);
 			}
 			event.setCanceled(true);
