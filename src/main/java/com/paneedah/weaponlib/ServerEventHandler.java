@@ -269,11 +269,9 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         }
     }
 
-    @Override
-    protected void onCompatiblePlayerRespawnEvent(CompatiblePlayerRespawnEvent compatiblePlayerRespawnEvent) {
-        modContext.getChannel().getChannel().sendToAll(
-                new EntityInventorySyncMessage(compatiblePlayerRespawnEvent.getPlayer(), 
-                        CompatibleCustomPlayerInventoryCapability.getInventory(compatiblePlayerRespawnEvent.getPlayer()), false));
+    @SubscribeEvent
+    protected void onPlayerRespawnEvent(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent playerRespawnEvent) {
+        modContext.getChannel().getChannel().sendToAll(new EntityInventorySyncMessage(playerRespawnEvent.player, CompatibleCustomPlayerInventoryCapability.getInventory(playerRespawnEvent.player), false));
     }
 
     @SubscribeEvent

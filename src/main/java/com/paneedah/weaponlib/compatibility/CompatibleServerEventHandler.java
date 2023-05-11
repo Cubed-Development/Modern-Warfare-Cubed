@@ -168,19 +168,12 @@ public abstract class CompatibleServerEventHandler {
     public void onEntityUpdate(LivingUpdateEvent e) {
         onCompatibleLivingUpdateEvent(new CompatibleLivingUpdateEvent(e));
     }
-    
-    @SubscribeEvent
-    public void onPlayerRespawn(PlayerRespawnEvent e) {
-        onCompatiblePlayerRespawnEvent(new CompatiblePlayerRespawnEvent(e));
-    }
 
     protected abstract void onCompatiblePlayerStartedTracking(CompatibleStartTrackingEvent e);
 
     protected abstract void onCompatiblePlayerStoppedTracking(CompatibleStopTrackingEvent e);
     
     protected abstract void onCompatibleLivingUpdateEvent(CompatibleLivingUpdateEvent e);
-
-    protected abstract void onCompatiblePlayerRespawnEvent(CompatiblePlayerRespawnEvent compatiblePlayerRespawnEvent);
 
     public abstract ModContext getModContext();
 }
