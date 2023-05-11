@@ -1,5 +1,6 @@
 package com.paneedah.mwc.utils;
 
+import com.paneedah.mwc.Tags;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -9,10 +10,10 @@ import org.apache.logging.log4j.Logger;
  * id and version are automatically updated by RFG.
  */
 public class ModReference {
-    // What in the fuck is Tags.ID / Tags.Version this is already a reference file :cry:
-    public static final String id = "mwc"; //Tags.ID
+
+    public static final String id = Tags.ID;
     public static final String name = "Modern Warfare Cubed";
-    public static final String version = "0.1-Dev-10"; //Tags.VERSION
+    public static final String version = Tags.VERSION;
     public static final Logger log = LogManager.getLogger(id);
 }
 
