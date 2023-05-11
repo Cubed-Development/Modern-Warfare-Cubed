@@ -156,14 +156,14 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         }
     }
 
-    @Override
-    protected void onCompatiblePlayerStartedTracking(CompatibleStartTrackingEvent e) {
+    @SubscribeEvent
+    protected void onPlayerStartedTracking(PlayerEvent.StartTracking e) {
         if(e.getTarget() instanceof EntityPlayer && !compatibility.world(e.getTarget()).isRemote) {
             modContext.getChannel().getChannel().sendTo(
                     new EntityInventorySyncMessage(e.getTarget(), 
                             CompatibleCustomPlayerInventoryCapability.getInventory((EntityLivingBase) e.getTarget()), false), 
-                            (EntityPlayerMP) e.getPlayer());
-            System.out.println("Player " + e.getPlayer() + " started tracking "  + e.getTarget());
+                            (EntityPlayerMP) e.getEntityPlayer());
+            System.out.println("Player " + e.getEntityPlayer() + " started tracking "  + e.getTarget());
             return;
         }
         if(e.getTarget() instanceof EntityProjectile || e.getTarget() instanceof EntityBounceable) {
@@ -171,9 +171,9 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         }
         PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) e.getEntity());
         if (tracker != null && tracker.updateTrackableEntity(e.getTarget())) {
-            log.debug("Player {} started tracking {} with uuid {}", e.getPlayer(), e.getTarget(), e.getTarget().getUniqueID());
+            log.debug("Player {} started tracking {} with uuid {}", e.getEntityPlayer(), e.getTarget(), e.getTarget().getUniqueID());
             modContext.getChannel().getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker),
-                    (EntityPlayerMP)e.getPlayer());
+                    (EntityPlayerMP)e.getEntityPlayer());
             
             EntityPlayer player = (EntityPlayer) e.getEntity();
             modContext.getChannel().getChannel().sendTo(
