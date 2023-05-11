@@ -13,7 +13,7 @@ public class Vests {
 
     	new ItemVest.Builder()
         .withName("m43a_chest_harness")
-        .withPercentDamageBlocked(0.4)
+        .withPercentDamageBlocked(0.1)
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.M43AChestHarness", "m43achestharness.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
@@ -32,7 +32,7 @@ public class Vests {
     	
         new ItemVest.Builder()
         .withName("flyye_field_compact_plate_carrier")
-        .withPercentDamageBlocked(0.5)
+        .withPercentDamageBlocked(0.2)
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
@@ -51,7 +51,7 @@ public class Vests {
         
         new ItemVest.Builder()
         .withName("molle_black")
-        .withPercentDamageBlocked(0.5)
+        .withPercentDamageBlocked(0.2)
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_black.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
@@ -70,7 +70,7 @@ public class Vests {
         
         new ItemVest.Builder()
         .withName("molle_green")
-        .withPercentDamageBlocked(0.5)
+        .withPercentDamageBlocked(0.2)
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_green.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
@@ -89,7 +89,7 @@ public class Vests {
         
         new ItemVest.Builder()
         .withName("molle_urban")
-        .withPercentDamageBlocked(0.5)
+        .withPercentDamageBlocked(0.2)
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_urban.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
@@ -108,7 +108,7 @@ public class Vests {
         
         new ItemVest.Builder()
         .withName("swat_vest")
-        .withPercentDamageBlocked(0.6)
+        .withPercentDamageBlocked(0.3)
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.UTG547Vest", "utg547vest.png")
         .withCustomEquippedPositioning((player, stack) -> {
@@ -127,7 +127,7 @@ public class Vests {
         
         new ItemVest.Builder()
         .withName("usmc_vest")
-        .withPercentDamageBlocked(0.7)
+        .withPercentDamageBlocked(0.4)
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.USMCVest", "usmc.png")
 //        .withModelTextureName("usmc.png")
@@ -148,7 +148,7 @@ public class Vests {
         new ItemVest.Builder()
         .withName("usmc_vest_black")
 //        .withDamageReduceAmount(8) // use numbers from 1 to 8
-        .withPercentDamageBlocked(0.7)
+        .withPercentDamageBlocked(0.4)
 //        .withDurability(100) // works the same way as shield's max capacity
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.USMCVest", "usmcvestblack.png")
@@ -170,7 +170,7 @@ public class Vests {
         new ItemVest.Builder()
         .withName("usmc_vest_green")
 //        .withDamageReduceAmount(8) // use numbers from 1 to 8
-        .withPercentDamageBlocked(0.7)
+        .withPercentDamageBlocked(0.4)
 //        .withDurability(100) // works the same way as shield's max capacity
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.USMCVest", "militaryuniformforest.png")
@@ -192,7 +192,7 @@ public class Vests {
         new ItemVest.Builder()
         .withName("usmc_vest_urban")
 //        .withDamageReduceAmount(8) // use numbers from 1 to 8
-        .withPercentDamageBlocked(0.7)
+        .withPercentDamageBlocked(0.4)
 //        .withDurability(100) // works the same way as shield's max capacity
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.USMCVest", "militaryuniformurban.png")
