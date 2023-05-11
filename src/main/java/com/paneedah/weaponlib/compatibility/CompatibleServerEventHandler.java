@@ -175,11 +175,6 @@ public abstract class CompatibleServerEventHandler {
     }
     
     @SubscribeEvent
-    public void onPlayerClone(PlayerEvent.Clone e) {
-        onCompatiblePlayerCloneEvent(new CompatiblePlayerCloneEvent(e));
-    }
-    
-    @SubscribeEvent
     public void onPlayerRespawn(PlayerRespawnEvent e) {
         onCompatiblePlayerRespawnEvent(new CompatiblePlayerRespawnEvent(e));
     }
@@ -199,8 +194,6 @@ public abstract class CompatibleServerEventHandler {
     protected abstract void onCompatiblePlayerStoppedTracking(CompatibleStopTrackingEvent e);
     
     protected abstract void onCompatibleLivingUpdateEvent(CompatibleLivingUpdateEvent e);
-    
-    protected abstract void onCompatiblePlayerCloneEvent(CompatiblePlayerCloneEvent compatiblePlayerCloneEvent);
 
     protected abstract void onCompatiblePlayerRespawnEvent(CompatiblePlayerRespawnEvent compatiblePlayerRespawnEvent);
 

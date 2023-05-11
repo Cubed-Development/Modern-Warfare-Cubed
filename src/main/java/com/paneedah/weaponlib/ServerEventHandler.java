@@ -22,6 +22,7 @@ import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerDropsEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -255,17 +256,15 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         }
     }
 
-    @Override
-    protected void onCompatiblePlayerCloneEvent(CompatiblePlayerCloneEvent compatiblePlayerCloneEvent) {
-        CustomPlayerInventory originalInventory = CompatibleCustomPlayerInventoryCapability.getInventory(compatiblePlayerCloneEvent.getOriginalPlayer());
+    @SubscribeEvent
+    protected void onPlayerCloneEvent(PlayerEvent.Clone playerCloneEvent) {
+        CustomPlayerInventory originalInventory = CompatibleCustomPlayerInventoryCapability.getInventory(playerCloneEvent.getOriginal());
         if(originalInventory != null) {
-            CompatibleCustomPlayerInventoryCapability.setInventory(compatiblePlayerCloneEvent.getPlayer(), originalInventory);
+            CompatibleCustomPlayerInventoryCapability.setInventory(playerCloneEvent.getEntityPlayer(), originalInventory);
             originalInventory.setContext(modContext);
-            originalInventory.setOwner(compatiblePlayerCloneEvent.getPlayer());
-//            modContext.getChannel().getChannel().sendToAll(
-//                    new EntityInventorySyncMessage(compatiblePlayerCloneEvent.getPlayer(), originalInventory, false));
-        }       
-        
+            originalInventory.setOwner(playerCloneEvent.getEntityPlayer());
+            //modContext.getChannel().getChannel().sendToAll(new EntityInventorySyncMessage(playerCloneEvent.getPlayer(), originalInventory, false));
+        }
     }
 
     @Override
