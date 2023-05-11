@@ -1225,7 +1225,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 		tessellator.draw();
 	}
 
-	public static <T> void renderRightArm(EntityLivingBase player, RenderContext<T> renderContext,
+	static <T> void renderRightArm(EntityLivingBase player, RenderContext<T> renderContext,
 			Positioner<Part, RenderContext<T>> positioner) {
 		
 		
@@ -1387,7 +1387,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 	public static ModelRenderer bipedRightArm = null;
 	
 
-	public static <T> void renderLeftArm(EntityLivingBase player, RenderContext<T> renderContext,
+	static <T> void renderLeftArm(EntityLivingBase player, RenderContext<T> renderContext,
 			Positioner<Part, RenderContext<T>> positioner) {
 
 		//if(true) return;
