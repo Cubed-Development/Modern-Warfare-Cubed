@@ -229,7 +229,7 @@ public class CustomGui extends CompatibleGui {
 			} else {
 				ModernConfigManager.enableOpenDoorDisplay = false;
 			}
-			
+
 			if(ModernConfigManager.enableAmmoCounter) {
 				handleAmmoCounter(event, weaponInstance, scaledWidth, scaledHeight);
 			}
