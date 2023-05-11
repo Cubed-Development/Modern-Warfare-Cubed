@@ -4,20 +4,22 @@ import com.paneedah.mwc.bases.ManufacturingItemBase;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.paneedah.weaponlib.compatibility.CompatibleCommand;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.block.Block;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.TextFormatting;
 
 import java.util.*;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class MainCommand extends CompatibleCommand {
+public class MainCommand extends CommandBase {
 
     private static final String SHOW_OPTION_RECIPE = "recipe";
 
@@ -34,12 +36,12 @@ public class MainCommand extends CompatibleCommand {
     }
 
     @Override
-    public String getCompatibleName() {
+    public String getName() {
         return ModReference.id;
     }
 
     @Override
-    public String getCompatibleUsage(ICommandSender sender) {
+    public String getUsage(ICommandSender sender) {
         return "/" + mainCommandName + "<options>";
     }
 
@@ -48,7 +50,7 @@ public class MainCommand extends CompatibleCommand {
     }
 
     @Override
-    public void execCommand(ICommandSender sender, String[] args) {
+    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
     	
     	
     	if(args[0].equals("nosway")) {
@@ -60,10 +62,10 @@ public class MainCommand extends CompatibleCommand {
             if(ARG_SHOW.indexOf(args[0].toLowerCase()) == 0) {
                 processShowSubCommand(args);
             } else {
-                compatibility.addChatMessage(compatibility.clientPlayer(), getCompatibleUsage(sender));
+                compatibility.addChatMessage(compatibility.clientPlayer(), getUsage(sender));
             }
         } else {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getCompatibleUsage(sender));
+            compatibility.addChatMessage(compatibility.clientPlayer(), getUsage(sender));
         }
     }
 

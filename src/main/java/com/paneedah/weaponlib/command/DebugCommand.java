@@ -9,13 +9,15 @@ import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.paneedah.weaponlib.compatibility.CompatibleCommand;
 import com.paneedah.weaponlib.compatibility.graph.CompatibilityClassGenerator;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.vehicle.VehiclePart;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.TextFormatting;
 
 import java.io.*;
@@ -24,7 +26,7 @@ import java.util.ArrayList;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class DebugCommand extends CompatibleCommand {
+public class DebugCommand extends CommandBase {
 
     private static final String SHOW_OPTION_CODE = "code";
     private static final String COMMAND_DEBUG = "wdb";
@@ -52,7 +54,7 @@ public class DebugCommand extends CompatibleCommand {
     }
 
     @Override
-    public String getCompatibleName() {
+    public String getName() {
         return COMMAND_DEBUG;
     }
     
@@ -65,7 +67,7 @@ public class DebugCommand extends CompatibleCommand {
     }
 
     @Override
-    public String getCompatibleUsage(ICommandSender sender) {
+    public String getUsage(ICommandSender sender) {
         return getDebugPrefix() + "/" + COMMAND_DEBUG + " (options) or type /wdb help";
     }
 
@@ -110,7 +112,7 @@ public class DebugCommand extends CompatibleCommand {
     }
 
     @Override
-    public void execCommand(ICommandSender sender, String[] args) {
+    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
     	
         if (args.length > 0) {
             switch(args[0].toLowerCase()) {
@@ -160,10 +162,10 @@ public class DebugCommand extends CompatibleCommand {
             	processWeapon(args);
             	break;
             default:
-                compatibility.addChatMessage(compatibility.clientPlayer(), getCompatibleUsage(sender));
+                compatibility.addChatMessage(compatibility.clientPlayer(), getUsage(sender));
             }
         } else {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getCompatibleUsage(sender));
+            compatibility.addChatMessage(compatibility.clientPlayer(), getUsage(sender));
         }
     }
     
