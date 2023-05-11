@@ -15,6 +15,9 @@ import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -52,10 +55,13 @@ public class ModernWarfareMod {
     @SidedProxy(serverSide = "com.paneedah.mwc.proxies.CommonProxy", clientSide = "com.paneedah.mwc.proxies.ClientProxy")
     public static CommonProxy proxy;
 
-    @SideOnly(Side.CLIENT)
-    @Subscribe
-    public void playerTicking(TickEvent.PlayerTickEvent event) {
-
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void onPlayerTick(PlayerTickEvent event) {
+        EntityPlayer player = event.player;
+        if (player.isHandActive() && player.getActiveHand() == player.getOffHand() && !player.getHeldItemOffhand().isEmpty()) {
+            // Cancel the action if the player is holding an item in their offhand
+            player.resetActiveHand();
+        }
     }
 
     @EventHandler
