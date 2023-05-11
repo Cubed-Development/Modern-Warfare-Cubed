@@ -6,7 +6,6 @@ import com.paneedah.weaponlib.StatusMessageCenter.Message;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
-import com.paneedah.weaponlib.compatibility.CompatibleGui;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.debug.DebugRenderer;
@@ -23,6 +22,7 @@ import net.minecraft.block.BlockDoor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -40,13 +40,14 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 import static net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType.*;
 
-public class CustomGui extends CompatibleGui {
+public class CustomGui extends Gui {
 
     //    private static final int BUFF_ICON_SIZE = 256;
 
@@ -77,10 +78,10 @@ public class CustomGui extends CompatibleGui {
 		if(FONT_RENDERER == null) FONT_RENDERER = ClientProxy.mc.fontRenderer;
 		return FONT_RENDERER;
 	}
-	
-	
-	@Override
-	public void onCompatibleRenderHud(RenderGameOverlayEvent.Pre event) {
+
+
+	@SubscribeEvent
+	public final void onRenderHud(RenderGameOverlayEvent.Pre event) {
 		handleAnimationModeHUD(event);
 		
 		handleVehicleHUD(event);
@@ -439,10 +440,10 @@ public class CustomGui extends CompatibleGui {
 			}
          }
 	}
-	
 
-	@Override
-	public void onCompatibleRenderCrosshair(RenderGameOverlayEvent.Pre event) {
+
+	@SubscribeEvent
+	public final void onRenderCrosshair(RenderGameOverlayEvent.Pre event) {
 		
 		if (compatibility.getEventType(event) != RenderGameOverlayEvent.ElementType.CROSSHAIRS ) {
 			return;
