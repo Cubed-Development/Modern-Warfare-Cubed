@@ -1,15 +1,14 @@
 package com.paneedah.weaponlib.tile;
 
 import com.paneedah.weaponlib.Configurable;
+import com.paneedah.weaponlib.compatibility.CompatibleTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
-import net.minecraft.network.play.server.SPacketUpdateTileEntity;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extends TileEntity implements Configurable<T> {
+public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extends CompatibleTileEntity implements Configurable<T> {
     
     private static final String TAG_SIDE = "side";
 
@@ -48,15 +47,15 @@ public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extend
     }
     
     @Override
-    public NBTTagCompound writeToNBT(NBTTagCompound tagCompound) {
-        super.writeToNBT(tagCompound);
+    public NBTTagCompound compatibleWriteToNBT(NBTTagCompound tagCompound) {
+        super.compatibleWriteToNBT(tagCompound);
         tagCompound.setInteger(TAG_SIDE, side);
         return tagCompound;
     }
     
     @Override
-    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
-        this.readFromNBT(pkt.getNbtCompound());
+    public void onDataPacket(NetworkManager net, NBTTagCompound tagCompound) {
+        this.readFromNBT(tagCompound);
     }
     
     
