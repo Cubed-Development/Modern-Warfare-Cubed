@@ -1,10 +1,10 @@
 package com.paneedah.weaponlib.tile;
 
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.compatibility.CompatibleEntityItem;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration.Equipment;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -56,7 +56,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                     //compatibility.setItemStackToSlot(player, CompatibleEntityEquipmentSlot.MAIN_HAND, equipmentItemStack);
                     
                     if(equipmentItemStack != null) {
-                        CompatibleEntityItem item = new CompatibleEntityItem(getWorld(), getPos().getX() + 1, getPos().getY() + 1, getPos().getZ() + 1, equipmentItemStack);
+                        EntityItem item = new EntityItem(getWorld(), getPos().getX() + 1, getPos().getY() + 1, getPos().getZ() + 1, equipmentItemStack);
                         item.setNoPickupDelay();
                         compatibility.spawnEntity(player, item);
                     }
