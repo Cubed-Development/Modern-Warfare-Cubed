@@ -129,7 +129,7 @@ public class MWCItems {
         for (ItemBase item : items) {
             String[] oreDictKeys = item.getOreDictKeys();
 
-            if(oreDictKeys == null)
+            if(oreDictKeys == null) // Pretty sure the loop simply will not run but okay sure
                 continue;
 
             for (String oreDictKey : oreDictKeys)
