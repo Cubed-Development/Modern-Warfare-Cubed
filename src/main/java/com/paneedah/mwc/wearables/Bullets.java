@@ -3,8 +3,8 @@ package com.paneedah.mwc.wearables;
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.weaponlib.ItemBullet;
-import com.paneedah.weaponlib.compatibility.CompatibleItems;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
+import net.minecraft.init.Items;
 import org.lwjgl.opengl.GL11;
 
 public class Bullets {
@@ -57,7 +57,7 @@ public class Bullets {
         Grenade40mm = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("Grenade40mm").withMaxStackSize(64)
                 .withModel(new com.paneedah.mwc.models.GL06Grenade(), "GL06.png")
-                .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", CompatibleItems.GUNPOWDER)
+                .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", Items.GUNPOWDER)
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -1.2F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -124,7 +124,7 @@ public class Bullets {
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("EnergyCase")
                 .withModel(new com.paneedah.mwc.models.EnergyCase(), "gun.png")
                 //.withMaxStackSize(500)
-                .withCrafting(8, CraftingComplexity.LOW, "ingotCopper", CompatibleItems.GUNPOWDER)
+                .withCrafting(8, CraftingComplexity.LOW, "ingotCopper", Items.GUNPOWDER)
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -1F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -146,7 +146,7 @@ public class Bullets {
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("PlasmaCapsule")
                 .withModel(new com.paneedah.mwc.models.ChainsawFuel(), "PlasmaCapsule.png")
                 //.withMaxStackSize(500)
-                //.withCrafting(8, CraftingComplexity.LOW, "ingotCopper", CompatibleItems.GUNPOWDER)
+                //.withCrafting(8, CraftingComplexity.LOW, "ingotCopper", Items.GUNPOWDER)
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);

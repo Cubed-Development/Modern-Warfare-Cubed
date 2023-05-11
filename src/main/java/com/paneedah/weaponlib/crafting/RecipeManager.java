@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.crafting;
 
-import com.paneedah.weaponlib.compatibility.CompatibleItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -34,9 +33,7 @@ public class RecipeManager {
         List<Object> recipeAslist = new ArrayList<>(recipe.length);
         boolean hasOres = false;
         for(Object option: recipe) {
-            if(option instanceof CompatibleItems) {
-                option = ((CompatibleItems) option).getItem();
-            } else if(option instanceof String) {
+            if(option instanceof String) {
                 hasOres = true;
             }
             recipeAslist.add(option);

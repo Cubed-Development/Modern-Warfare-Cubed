@@ -980,11 +980,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public ItemStack createItemStack(CompatibleItems compatibleItem, int stackSize, int damage) {
-        return new ItemStack(compatibleItem.getItem(), stackSize, damage);
-    }
-
-    @Override
     public void addSmelting(Block block, ItemStack output, float f) {
         GameRegistry.addSmelting(block, output, f);
     }

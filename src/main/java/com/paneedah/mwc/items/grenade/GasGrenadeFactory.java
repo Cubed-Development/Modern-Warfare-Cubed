@@ -41,8 +41,8 @@ public class GasGrenadeFactory implements GrenadeFactory {
 //                                "XFX",
 //                                "EF ",
 //                                'X', CommonProxy.SteelPlate,
-//                                'F', CompatibleItems.COAL,
-//                                'E', CompatibleItems.GUNPOWDER,
+//                                'F', Items.COAL,
+//                                'E', Items.GUNPOWDER,
 //                                'G', MwItems.steelIngot
 //                                )
                 .withRenderer(

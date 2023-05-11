@@ -286,8 +286,6 @@ public interface Compatibility {
 
     public boolean isCollided(Particle particle);
 
-    public ItemStack createItemStack(CompatibleItems compatibleItem, int stackSize, int damage);
-
     public void addSmelting(Block block, ItemStack output, float f);
 
     public void addSmelting(Item item, ItemStack output, float f);
