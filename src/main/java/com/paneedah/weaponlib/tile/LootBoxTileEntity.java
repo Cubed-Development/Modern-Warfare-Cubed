@@ -114,8 +114,8 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
     }
     
     @Override
-    public NBTTagCompound compatibleWriteToNBT(NBTTagCompound tagCompound) {
-        super.compatibleWriteToNBT(tagCompound);
+    public NBTTagCompound writeToNBT(NBTTagCompound tagCompound) {
+        super.writeToNBT(tagCompound);
         tagCompound.setLong(TAG_TIME, lastEquipmentDispenseTimestamp);
         return tagCompound;
     }
