@@ -4,6 +4,7 @@ import com.paneedah.mwc.bases.ItemBase;
 import com.paneedah.mwc.bases.ManufacturingItemBase;
 import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -91,7 +92,7 @@ public class MWCItems {
         carbonComposite.setOreDict("compositeCarbon");
         carbonComposite.setRecoveryChance(.3);
 
-        vestRender = new ItemBase("vest_render");
+        vestRender = (ItemBase) new ItemBase("vest_render").setCreativeTab(null);
 
         items = new ItemBase[] {
                 copperIngot,
