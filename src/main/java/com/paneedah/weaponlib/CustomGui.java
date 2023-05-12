@@ -224,16 +224,15 @@ public class CustomGui extends CompatibleGui {
 			//GUIRenderHelper.drawColoredRectangle(20, 200, 128, 125, 0.05, ColorPalette.BLACK);
 
 		} else {
-			
-			
+			if(ModernConfigManager.enableAmmoCounter) {
+				ModernConfigManager.enableOpenDoorDisplay = true;
+			} else {
+				ModernConfigManager.enableOpenDoorDisplay = false;
+			}
+
 			if(ModernConfigManager.enableAmmoCounter) {
 				handleAmmoCounter(event, weaponInstance, scaledWidth, scaledHeight);
 			}
-            
-           
-
-            
-          
 			event.setCanceled(true);
 		}
 	}

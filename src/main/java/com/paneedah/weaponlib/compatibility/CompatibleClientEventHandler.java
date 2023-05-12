@@ -20,6 +20,8 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
@@ -389,14 +391,8 @@ public abstract class CompatibleClientEventHandler {
 			double yAmount = ClientValueRepo.recoilWoundY * 0.2;
 			player.rotationPitch += yAmount;
 			ClientValueRepo.recoilWoundY -= yAmount;
-			
-			/*
-			ItemStack itemstack = player.getHeldItem(EnumHand.OFF_HAND);
-			if(itemstack.getItem() instanceof Weapon) {
-				player.setHeldItem(EnumHand.OFF_HAND, player.getHeldItem(EnumHand.MAIN_HAND));
-	            player.setHeldItem(EnumHand.MAIN_HAND, itemstack);
-			}*/
-            
+
+			//TODO: Make a check to see If the ammo in the gun is greater than the max ammo in the magazine.
 
 		}
 		
