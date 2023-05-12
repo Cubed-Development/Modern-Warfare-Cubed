@@ -3,15 +3,16 @@ package com.paneedah.weaponlib.inventory;
 import com.paneedah.weaponlib.Contextual;
 import com.paneedah.weaponlib.ItemStorage;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleInventory;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.text.ITextComponent;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class CustomPlayerInventory extends CompatibleInventory implements Contextual {
+public class CustomPlayerInventory implements IInventory, Contextual {
     /**
      * The name your custom inventory will display in the GUI, possibly just
      * "Inventory"
@@ -179,5 +180,57 @@ public class CustomPlayerInventory extends CompatibleInventory implements Contex
     @Override
     public void setContext(ModContext modContext) {
         this.modContext = modContext;
+    }
+
+    @Override
+    public ITextComponent getDisplayName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public ItemStack removeStackFromSlot(int index) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void openInventory(EntityPlayer player) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void closeInventory(EntityPlayer player) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public int getField(int id) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public int getFieldCount() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void clear() {
     }
 }

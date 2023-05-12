@@ -1,12 +1,13 @@
 package com.paneedah.weaponlib.inventory;
 
 import com.paneedah.weaponlib.ItemStorage;
-import com.paneedah.weaponlib.compatibility.CompatibleInventory;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.common.util.Constants;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.List;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class StorageInventory extends CompatibleInventory {
+public class StorageInventory implements IInventory {
     
     private static final String TAG_SLOT_INDEX = "Slot";
     private static final String TAG_SIZE = "size";
@@ -183,5 +184,57 @@ public class StorageInventory extends CompatibleInventory {
         // Add the TagList to the ItemStack's Tag Compound with the name
         // "ItemInventory"
         tagcompound.setTag("ItemInventory", items);
+    }
+
+    @Override
+    public ITextComponent getDisplayName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public ItemStack removeStackFromSlot(int index) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void openInventory(EntityPlayer player) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void closeInventory(EntityPlayer player) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public int getField(int id) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public int getFieldCount() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void clear() {
     }
 }
