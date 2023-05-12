@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.ai;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.util.EnumHand;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -166,7 +167,7 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase
                 if (!canSeeTarget && this.seeTime < -60) {
                     this.entity.resetActiveHand();
                 } else if (canSeeTarget) {
-                    if(entity.isFacingEntity(attackTarget)) {
+                    if(Math.abs((-(this.entity.posX - attackTarget.posX) / (this.entity.posZ - attackTarget.posZ)) - Math.tan(this.entity.renderYawOffset / 180f * Math.PI)) < 5.0) {
                         this.entity.resetActiveHand();
                         if(entity.getSecondaryEquipment() != null && entity.getRNG().nextFloat() < secondaryEquipmentUseChance) {
                             this.entity.attackWithSecondaryEquipment(attackTarget, 0); // TODO: set some distance factor
@@ -178,7 +179,7 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase
                     }
                 }
             } else if (--this.attackTime <= 0 && this.seeTime >= -60) {
-                this.entity.setActiveMainHand();
+                this.entity.setActiveHand(EnumHand.MAIN_HAND);
             }
         }
     }

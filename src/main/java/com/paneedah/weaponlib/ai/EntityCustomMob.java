@@ -11,6 +11,7 @@ import com.paneedah.weaponlib.network.packets.HighIQPickupPacket;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.*;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -28,6 +29,7 @@ import net.minecraft.world.WorldType;
 import net.minecraft.util.SoundEvent;
 
 import javax.annotation.Nullable;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.function.BiFunction;
@@ -35,18 +37,15 @@ import java.util.function.Predicate;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class EntityCustomMob extends CompatibleEntityMob
-        implements IRangedAttackMob, Contextual, Configurable<EntityConfiguration> {
+public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Contextual, Configurable<EntityConfiguration> {
 
     private static final float FLAT_WORLD_SPAWN_CHANCE = 0.01f;
-    private static final CompatibleDataManager.Key VARIANT = CompatibleDataManager.createKey(EntityCustomMob.class,
-            int.class);
-    private static final CompatibleDataManager.Key SWINGING_ARMS = CompatibleDataManager
-            .createKey(EntityCustomMob.class, boolean.class);
-    private static final CompatibleDataManager.Key DELAYED_ATTACK_TIMER_INCREMENT = CompatibleDataManager
-            .createKey(EntityCustomMob.class, int.class);
-    private static final CompatibleDataManager.Key DELAYED_ATTACK_STARTED = CompatibleDataManager
-            .createKey(EntityCustomMob.class, boolean.class);
+    private static final CompatibleDataManager.Key VARIANT = CompatibleDataManager.createKey(EntityCustomMob.class, int.class);
+    private static final CompatibleDataManager.Key SWINGING_ARMS = CompatibleDataManager.createKey(EntityCustomMob.class, boolean.class);
+    private static final CompatibleDataManager.Key DELAYED_ATTACK_TIMER_INCREMENT = CompatibleDataManager.createKey(EntityCustomMob.class, int.class);
+    private static final CompatibleDataManager.Key DELAYED_ATTACK_STARTED = CompatibleDataManager.createKey(EntityCustomMob.class, boolean.class);
+
+    protected CompatibleDataManager compatibleDataManager;
 
     private ModContext modContext;
 
@@ -57,13 +56,9 @@ public class EntityCustomMob extends CompatibleEntityMob
     private int delayedAttackTimer;
 
     private EntityPlayer customer;
-    
-  
-   
 
     public EntityCustomMob(World worldIn) {
         super(worldIn);
-        //System.out.println(getConfiguration());
         setSize(getConfiguration().getSizeWidth(), getConfiguration().getSizeHeight());
         
         //this.setSize(0.6F, 1.99F);
@@ -133,6 +128,7 @@ public class EntityCustomMob extends CompatibleEntityMob
 
     protected void entityInit() {
         super.entityInit();
+        compatibleDataManager = new CompatibleDataManager(dataManager);
         compatibleDataManager.register(VARIANT, Integer.valueOf(0));
         compatibleDataManager.register(SWINGING_ARMS, Boolean.valueOf(false));
         compatibleDataManager.register(DELAYED_ATTACK_TIMER_INCREMENT, Integer.valueOf(0));
@@ -140,17 +136,17 @@ public class EntityCustomMob extends CompatibleEntityMob
     }
 
     @Override
-    protected SoundEvent getCompatibleAmbientSound() {
+    protected SoundEvent getAmbientSound() {
         return getConfiguration().getAmbientSound();
     }
 
     @Override
-    protected SoundEvent getCompatibleHurtSound() {
+    protected SoundEvent getHurtSound(DamageSource damageSource) {
         return getConfiguration().getHurtSound();
     }
 
     @Override
-    protected SoundEvent getCompatibleDeathSound() {
+    protected SoundEvent getDeathSound() {
         return getConfiguration().getDeathSound();
     }
 
@@ -265,7 +261,7 @@ public class EntityCustomMob extends CompatibleEntityMob
 
     private void setArmorEquipment() {
         EntityConfiguration configuration = getConfiguration();
-        setCompatibleInventoryArmorDropChances(configuration.getArmorDropChance());
+        Arrays.fill(this.inventoryArmorDropChances, configuration.getArmorDropChance());
         for (CustomArmor armor : configuration.getArmorSet()) {
             compatibility.setItemStackToSlot(this, armor.getCompatibleEquipmentSlot(), new ItemStack(armor));
         }
@@ -284,11 +280,37 @@ public class EntityCustomMob extends CompatibleEntityMob
         }
     }
 
+    @Override
+    public void setActiveHand(EnumHand hand)
+    {
+        ItemStack itemstack = this.getHeldItem(hand);
+
+        if (itemstack != null && !this.isHandActive())
+        {
+            // int duration = net.minecraftforge.event.ForgeEventFactory.onItemUseStart(this, itemstack, itemstack.getMaxItemUseDuration());
+            // if (duration <= 0) return;
+            this.activeItemStack = itemstack;
+            this.activeItemStackUseCount = 100;
+
+            if (!this.world.isRemote)
+            {
+                int i = 1;
+
+                if (hand == EnumHand.OFF_HAND)
+                {
+                    i |= 2;
+                }
+
+                this.dataManager.set(HAND_STATES, Byte.valueOf((byte) i));
+            }
+        }
+    }
+
     private void setPrimaryEquipment() {
         EntityConfiguration configuration = getConfiguration();
         Equipment equipment = configuration.getEquipmentOptions().pick(compatibility.getDifficulty(compatibility.world(this)));
 
-        setCompatibleInventoryHandsDropChances(configuration.getPrimaryEquipmentDropChance());
+        Arrays.fill(this.inventoryHandsDropChances, configuration.getPrimaryEquipmentDropChance());
         if (equipment != null) {
             ItemStack equipmentItemStack = new ItemStack(equipment.item);
             if (equipment.item instanceof Weapon) {
@@ -494,7 +516,7 @@ public class EntityCustomMob extends CompatibleEntityMob
     }
 
     @Override
-    public float getCompatibleBlockPathWeight(BlockPos pos) {
+    public float getBlockPathWeight(BlockPos pos) {
         return getConfiguration().getMaxTolerableLightBrightness() - compatibility.getLightBrightness(compatibility.world(this), pos);
     }
     
