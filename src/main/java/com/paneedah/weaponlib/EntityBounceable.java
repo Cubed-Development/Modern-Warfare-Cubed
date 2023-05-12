@@ -15,6 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.fml.common.registry.IThrowableEntity;
 
 import java.util.ArrayDeque;
@@ -24,7 +25,7 @@ import java.util.Queue;
 import static com.paneedah.mwc.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class EntityBounceable extends Entity implements Contextual, CompatibleIEntityAdditionalSpawnData, IThrowableEntity {
+public class EntityBounceable extends Entity implements Contextual, IThrowableEntity, IEntityAdditionalSpawnData {
 
     private static final int VELOCITY_HISTORY_SIZE = 10;
 

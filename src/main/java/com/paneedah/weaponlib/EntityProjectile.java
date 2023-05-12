@@ -15,15 +15,13 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public abstract class EntityProjectile extends Entity implements IProjectile, CompatibleIEntityAdditionalSpawnData {
+public abstract class EntityProjectile extends Entity implements IProjectile, IEntityAdditionalSpawnData {
 
     private static final String TAG_GRAVITY_VELOCITY = "gravityVelocity";
 
