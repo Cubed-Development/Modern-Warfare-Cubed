@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.tile;
 
-import com.paneedah.weaponlib.compatibility.*;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -25,7 +25,7 @@ import java.util.function.Function;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class CustomTileEntityBlock extends CompatibleBlockContainer {
+public class CustomTileEntityBlock extends BlockContainer {
 	
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
@@ -53,7 +53,7 @@ public class CustomTileEntityBlock extends CompatibleBlockContainer {
     }
     
     @Override
-    public boolean isNormalCube(IBlockState state, BlockPos pos) {
+    public boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
         return false;
     }
 

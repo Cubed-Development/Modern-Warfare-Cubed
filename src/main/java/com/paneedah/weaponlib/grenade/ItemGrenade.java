@@ -537,4 +537,10 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
         List<AttachmentCategory> inputCategoryList = Arrays.asList(categories);
         return c.stream().filter(e -> inputCategoryList.contains(e)).collect(Collectors.toList());
     }
+
+    // Todo: Remove this method once models are fixed to be at correct height
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+        return true;
+    }
 }

@@ -108,13 +108,12 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         if(!VMWHooksHandler.isOnServer()) {
         	ClientEventHandler.BLANKMAPPED_LIST.add(tileEntityBlock);
         }
-        tileEntityBlock.setBlockName(ModReference.id + "_" + name);
+        tileEntityBlock.setTranslationKey(ModReference.id + "_" + name);
         tileEntityBlock.setHardness(hardness);
         tileEntityBlock.setResistance(resistance);
         tileEntityBlock.setCreativeTab(creativeTab);
         tileEntityBlock.setBoundingBox(boundingBox);
         ResourceLocation textureResource = new ResourceLocation(ModReference.id, textureName);
-        tileEntityBlock.setBlockTextureName(textureResource.toString());
         compatibility.registerTileEntity(tileEntityClass, "tile" + name);
         
         //System.out.println("RUNNING!");
