@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.compatibility.CompatibleWeaponEventHandler;
 import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
@@ -18,7 +17,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class WeaponEventHandler extends CompatibleWeaponEventHandler {
+public class WeaponEventHandler {
 
 	private SafeGlobals safeGlobals;
 	private ModContext modContext;
@@ -28,13 +27,13 @@ public class WeaponEventHandler extends CompatibleWeaponEventHandler {
 		this.safeGlobals = safeGlobals;
 	}
 
-	@Override
-	public void onCompatibleGuiOpenEvent(GuiOpenEvent event) {
+	@SubscribeEvent
+	public void onGuiOpenEvent(GuiOpenEvent event) {
 		safeGlobals.guiOpen.set(compatibility.getGui(event) != null);
 	}
 
-	@Override
-	public void compatibleZoom(FOVUpdateEvent event) {
+	@SubscribeEvent
+	public void zoom(FOVUpdateEvent event) {
 		
 		
 		
@@ -95,8 +94,8 @@ public class WeaponEventHandler extends CompatibleWeaponEventHandler {
 		
 	}
 
-	@Override
-	public void onCompatibleMouse(MouseEvent event) {
+	@SubscribeEvent
+	public void onMouse(MouseEvent event) {
 		
 		if(compatibility.getButton(event) == 0 || compatibility.getButton(event) == 1) {
 			// If the current player holds the weapon in their main hand, cancel default minecraft mouse processing
@@ -109,8 +108,8 @@ public class WeaponEventHandler extends CompatibleWeaponEventHandler {
 		}
 	}
 
-	@Override
-	public void onCompatibleHandleRenderLivingEvent(@SuppressWarnings("rawtypes") RenderLivingEvent.Pre event) {
+	@SubscribeEvent
+	public void onRenderLivingEvent(RenderLivingEvent.Pre event) {
 		if ((event.isCanceled()) || (!(compatibility.getEntity(event) instanceof EntityPlayer)))
 			return;
 
@@ -142,14 +141,13 @@ public class WeaponEventHandler extends CompatibleWeaponEventHandler {
 	    	event.setCanceled(true);
 	}
 
-	@Override
-	protected void onCompatibleEntityJoinedWorldEvent(EntityJoinWorldEvent entityJoinWorldEvent) {
+	@SubscribeEvent
+	public void onEntityJoinedWorldEvent(EntityJoinWorldEvent entityJoinWorldEvent) {
 	    if(entityJoinWorldEvent.getEntity() instanceof Contextual) {
 	        ((Contextual) entityJoinWorldEvent.getEntity()).setContext(modContext);
 	    }
 	}
 
-    @Override
     protected ModContext getModContext() {
         return modContext;
     }
