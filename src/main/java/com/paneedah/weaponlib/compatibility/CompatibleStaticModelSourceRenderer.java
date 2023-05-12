@@ -197,10 +197,10 @@ public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRen
 			GL11.glRotatef(-45F, 0f, 1f, 0f);
 			GL11.glTranslatef(-0.3f, -0.855f, 0.5f);
 			builder.getFirstPersonPositioning().accept(player, itemStack);
-			CompatibleWeaponRenderer.renderLeftArm(player, renderContext, (p, c) -> {
+            WeaponRenderer.renderLeftArm(player, renderContext, (p, c) -> {
 			    builder.getFirstPersonLeftHandPositioning().accept(c);
 			});
-			CompatibleWeaponRenderer.renderRightArm(player, renderContext, (p, c) -> {
+            WeaponRenderer.renderRightArm(player, renderContext, (p, c) -> {
 			    builder.getFirstPersonRightHandPositioning().accept(c);
 			});
 			break;

@@ -5,13 +5,13 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.PlayerWeaponInstance;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
+import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.WeaponRenderer.Builder;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.DebugPositioner.Position;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.paneedah.weaponlib.compatibility.CompatibleWeaponRenderer;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -433,7 +433,7 @@ public class AnimationGUI {
 			} catch(Exception ignored) {}
 		}
 
-		CompatibleWeaponRenderer.acp = null;
+        WeaponRenderer.acp = null;
 	}
 	
 	public static void renderScaledString(String str, double x, double y, double scale) {

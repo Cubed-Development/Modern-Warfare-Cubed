@@ -391,9 +391,9 @@ public abstract class CompatibleClientEventHandler {
 			ClientValueRepo.update(getModContext());
 
 			if (getModContext().getMainHeldWeapon() != null) {
-				CompatibleWeaponRenderer.wrh.STRAFING_ANIMATION.update(0.08f);
-				CompatibleWeaponRenderer.wrh.RUNNING_ANIMATION.update(0.08f);
-				CompatibleWeaponRenderer.wrh.WALKING_ANIMATION.update(0.08f);
+				WeaponRenderer.wrh.STRAFING_ANIMATION.update(0.08f);
+				WeaponRenderer.wrh.RUNNING_ANIMATION.update(0.08f);
+				WeaponRenderer.wrh.WALKING_ANIMATION.update(0.08f);
 			}
 
 		}

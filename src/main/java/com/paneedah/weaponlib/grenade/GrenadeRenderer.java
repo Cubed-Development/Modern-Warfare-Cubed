@@ -5,7 +5,6 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
-import com.paneedah.weaponlib.compatibility.CompatibleWeaponRenderer;
 import com.paneedah.weaponlib.compatibility.ModelSourceRenderer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
@@ -1090,7 +1089,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 			case FIRST_PERSON_RIGHT_HAND: case FIRST_PERSON_LEFT_HAND:
 
 
-			CompatibleWeaponRenderer.fixVersionSpecificFirstPersonPositioning(transformType);
+			WeaponRenderer.fixVersionSpecificFirstPersonPositioning(transformType);
 
 			GL11.glScaled(-1F, -1F, 1F);
 
@@ -1110,12 +1109,12 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 
 			renderContext.capturePartPosition(Part.NONE);
 
-			CompatibleWeaponRenderer.renderLeftArm(player, renderContext, positioner);
+			WeaponRenderer.renderLeftArm(player, renderContext, positioner);
 
 			// Randomization is supported for the right hand only only
 			positioner.randomize(stateDescriptor.rate, stateDescriptor.amplitude);
 
-			CompatibleWeaponRenderer.renderRightArm(player, renderContext, positioner);
+			WeaponRenderer.renderRightArm(player, renderContext, positioner);
 
 			positioner.position(Part.MAIN_ITEM, renderContext);
 

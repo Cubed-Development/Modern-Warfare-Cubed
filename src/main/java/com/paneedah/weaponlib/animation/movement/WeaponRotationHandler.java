@@ -7,7 +7,7 @@ import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.animation.jim.KeyedAnimation;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.paneedah.weaponlib.compatibility.CompatibleWeaponRenderer.StateDescriptor;
+import com.paneedah.weaponlib.WeaponRenderer.StateDescriptor;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.numerical.LissajousCurve;
 import com.paneedah.weaponlib.numerical.SpringValue;
