@@ -40,23 +40,7 @@ public class WorkbenchBlock extends BlockStation {
 			1.0D,
 			1.0D
 	);
-	public static AxisAlignedBB BOUNDING_BOX_BACK = new AxisAlignedBB(
-			-0.5D,
-			0.0D,
-			0.0D,
-			1.5D,
-			1.0D,
-			1.0D
-	);
 	public static AxisAlignedBB BOUNDING_BOX_WE = new AxisAlignedBB(
-			0.0D,
-			0.0D,
-			-0.5D,
-			1.0D,
-			1.0D,
-			1.5D
-	);
-	public static AxisAlignedBB BOUNDING_BOX_WE_BACK = new AxisAlignedBB(
 			0.0D,
 			0.0D,
 			-0.5D,
@@ -96,6 +80,7 @@ public class WorkbenchBlock extends BlockStation {
 			case EAST:
 			case WEST:
 				return BOUNDING_BOX_WE;
+
 			default: return BOUNDING_BOX;
 		}
 	}
