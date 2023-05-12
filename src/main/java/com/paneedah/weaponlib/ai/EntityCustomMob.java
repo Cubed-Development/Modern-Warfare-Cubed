@@ -612,7 +612,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
         
         	
     
-        	modContext.getChannel().getChannel().sendToServer(new HighIQPickupPacket(player.getEntityId(), getEntityId()));
+        	modContext.getChannel().sendToServer(new HighIQPickupPacket(player.getEntityId(), getEntityId()));
         	
         	return true;
         }
@@ -709,7 +709,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
                 mission.setRedeemed(compatibility.world(player).getTotalWorldTime());
                 missionOffering.getRewards().forEach(reward -> reward.redeem(player));
                 CompatibleMissionCapability.updateMission(player, mission);
-                modContext.getChannel().getChannel().sendTo(
+                modContext.getChannel().sendTo(
                         new PlayerMissionSyncMessage(CompatibleMissionCapability.getMissions(player)),
                         (EntityPlayerMP)player);
             }
@@ -723,7 +723,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
                     new Mission(offering.getId(), this, compatibility.world(player).getTotalWorldTime(),
                             offering.getMaxDuration(),
                             offering.createGoals()));
-            modContext.getChannel().getChannel().sendTo(
+            modContext.getChannel().sendTo(
                     new PlayerMissionSyncMessage(CompatibleMissionCapability.getMissions(player)),
                     (EntityPlayerMP)player);
             customer = null;

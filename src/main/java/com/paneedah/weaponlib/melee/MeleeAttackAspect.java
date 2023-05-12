@@ -176,7 +176,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
     }
 
     private void attackEntity(Entity entity, EntityPlayer player, PlayerMeleeInstance instance, boolean isHeavyAttack) {
-        modContext.getChannel().getChannel().sendToServer(new TryAttackMessage(instance, entity, isHeavyAttack));
+        modContext.getChannel().sendToServer(new TryAttackMessage(instance, entity, isHeavyAttack));
         entity.attackEntityFrom(DamageSource.causePlayerDamage(player),
                 instance.getWeapon().getDamage(isHeavyAttack));
     }

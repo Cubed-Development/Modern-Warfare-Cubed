@@ -497,7 +497,7 @@ public abstract class CompatibleClientEventHandler {
 				RayTraceResult rtr = bb.doRayTrace(start, endVec);
 				if (rtr != null) {
 					// System.out.println("sending");
-					context.getChannel().getChannel()
+					context.getChannel()
 							.sendToServer(new VehicleInteractPacket(true, v.getEntityId(), player.getEntityId()));
 					return;
 				}
@@ -534,7 +534,7 @@ public abstract class CompatibleClientEventHandler {
 
 				if (rtr != null) {
 
-					context.getChannel().getChannel()
+					context.getChannel()
 							.sendToServer(new VehicleInteractPacket(false, v.getEntityId(), player.getEntityId()));
 
 					// v.onKillCommand();

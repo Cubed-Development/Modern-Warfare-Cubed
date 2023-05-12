@@ -3,7 +3,6 @@ package com.paneedah.weaponlib;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.command.MainCommand;
-import com.paneedah.weaponlib.compatibility.CompatibleChannel;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderingRegistry;
 import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.workbench.GUIContainerWorkbench;
@@ -27,6 +26,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -68,7 +68,7 @@ public class ClientModContext extends CommonModContext {
     }
 
     @Override
-    public void preInit(Object mod, CompatibleChannel channel) {
+    public void preInit(Object mod, SimpleNetworkWrapper channel) {
         super.preInit(mod, channel);
 
         aspectRatio = (float) mc.displayWidth / mc.displayHeight;

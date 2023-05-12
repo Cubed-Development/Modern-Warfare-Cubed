@@ -3,7 +3,6 @@ package com.paneedah.weaponlib;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
-import com.paneedah.weaponlib.compatibility.CompatibleChannel;
 import com.paneedah.weaponlib.compatibility.CompatibleWeaponKeyInputHandler;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.inventory.OpenCustomPlayerInventoryGuiMessage;
@@ -18,6 +17,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import org.lwjgl.input.Keyboard;
 
 import java.util.function.Function;
@@ -28,15 +28,11 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
 public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
 
     @SuppressWarnings("unused")
-    private CompatibleChannel channel;
+    private SimpleNetworkWrapper channel;
     private Function<MessageContext, EntityPlayer> entityPlayerSupplier;
     private ModContext modContext;
 
-    public WeaponKeyInputHandler(
-            ModContext modContext,
-            Function<MessageContext, EntityPlayer> entityPlayerSupplier,
-            WeaponAttachmentAspect attachmentAspect,
-            CompatibleChannel channel) {
+    public WeaponKeyInputHandler(ModContext modContext, Function<MessageContext, EntityPlayer> entityPlayerSupplier, WeaponAttachmentAspect attachmentAspect, SimpleNetworkWrapper channel) {
         this.modContext = modContext;
         this.entityPlayerSupplier = entityPlayerSupplier;
         this.channel = channel;
@@ -116,7 +112,7 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
 	 			if(state.getBlock() instanceof BlockDoor) {
 	 				
 	 				mc.playerController.processRightClickBlock(mc.player, mc.world, rtr.getBlockPos(), rtr.sideHit, rtr.hitVec, EnumHand.MAIN_HAND);
-	 				//modContext.getChannel().getChannel().sendToServer(new OpenDoorPacket(rtr.getBlockPos()));
+	 				//modContext.getChannel().sendToServer(new OpenDoorPacket(rtr.getBlockPos()));
 	 				
 	 				
 	 				/*
@@ -232,7 +228,7 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
             ItemStack helmetStack = compatibility.getHelmet();
             if(helmetStack != null && helmetStack.getItem() instanceof CustomArmor 
                     && ((CustomArmor)helmetStack.getItem()).hasNightVision()){
-                modContext.getChannel().getChannel().sendToServer(new ArmorControlMessage(true));
+                modContext.getChannel().sendToServer(new ArmorControlMessage(true));
                 NBTTagCompound tagCompound = compatibility.getTagCompound(helmetStack);
                 boolean nightVisionOn = tagCompound != null && tagCompound.getBoolean(ArmorControlHandler.TAG_NIGHT_VISION);
                 compatibility.playSound(compatibility.clientPlayer(), 
@@ -267,7 +263,7 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
         }
         
         else if(KeyBindings.customInventoryKey.isPressed()) {
-            modContext.getChannel().getChannel().sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.CUSTOM_PLAYER_INVENTORY_GUI_ID));
+            modContext.getChannel().sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.CUSTOM_PLAYER_INVENTORY_GUI_ID));
         }
 
         /*
@@ -360,7 +356,7 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
         	//EntityPlayer player = mc.player;
         	
         	
-            modContext.getChannel().getChannel().sendToServer(new EntityControlMessage(player, 
+            modContext.getChannel().sendToServer(new EntityControlMessage(player, 
                     CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
         }*/
     }

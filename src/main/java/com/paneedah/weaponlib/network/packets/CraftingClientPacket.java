@@ -58,7 +58,7 @@ public class CraftingClientPacket extends SimplePacket {
 					boolean check = CraftingFileManager.getInstance().checkFileHashAndLoad(message.fileStream.getValue().toByteArray());
 					if(!check) {
 						// Tell the server that we need the file data.
-						context.getChannel().getChannel().sendToServer(new CraftingServerPacket(mc.player.getEntityId()));
+						context.getChannel().sendToServer(new CraftingServerPacket(mc.player.getEntityId()));
 					}
 				} else if(opcode == RECEIVE_FILESTREAM) {
 					// We have gotten the file, save it to disk and load it.

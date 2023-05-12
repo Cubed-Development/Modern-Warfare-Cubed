@@ -186,7 +186,7 @@ public class StationPacket implements net.minecraftforge.fml.common.network.simp
 		            			}
 		            			
 		            			
-		            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 20));
+		            			modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 20));
 			            		
 		            			
 		            			return;
@@ -270,7 +270,7 @@ public class StationPacket implements net.minecraftforge.fml.common.network.simp
 		            		station.sendUpdate();
 		            		//station.markDirty();
 		            	
-		            		modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 20));
+		            		modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 20));
 		            		
 	            		} else if(message.opcode == DISMANTLE) {
 	            			for(int i = 9; i < 13; ++i) {
@@ -284,7 +284,7 @@ public class StationPacket implements net.minecraftforge.fml.common.network.simp
 								}
 	            			}
 	            			
-	            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 25));
+	            			modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 25));
 
 	            		} else if(message.opcode == MOVE_OUTPUT) {
 	            			((EntityPlayer) world.getEntityByID(message.playerID)).addItemStackToInventory(station.mainInventory.getStackInSlot(message.slotToMove));
@@ -297,7 +297,7 @@ public class StationPacket implements net.minecraftforge.fml.common.network.simp
 	            				teAmmoPress.getCraftingQueue().remove(message.slotToMove);
 	            			}
 	            			
-	            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 25));
+	            			modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 25));
 		            		
 	            		}
 	            	}

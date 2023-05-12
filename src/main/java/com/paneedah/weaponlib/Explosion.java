@@ -108,7 +108,7 @@ public class Explosion {
         {
             EntityPlayer player = (EntityPlayer) o;
             if (player.getDistanceSq(posX, posY, posZ) < 4096.0D) {
-                modContext.getChannel().getChannel().sendTo(new ExplosionMessage(posX, posY, posZ, explosionStrength,
+                modContext.getChannel().sendTo(new ExplosionMessage(posX, posY, posZ, explosionStrength,
                         isDestroyingBlocks,
                         explosion.getAffectedBlockPositions(), explosion.getPlayerKnockbackMap().get(player),
                         particleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient,

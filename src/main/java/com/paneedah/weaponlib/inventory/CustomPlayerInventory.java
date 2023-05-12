@@ -114,9 +114,9 @@ public class CustomPlayerInventory implements IInventory, Contextual {
         }
         
         if(modContext != null && owner != null && compatibility.world(owner).isRemote) {
-            modContext.getChannel().getChannel().sendToServer(new EntityInventorySyncMessage(owner, 
+            modContext.getChannel().sendToServer(new EntityInventorySyncMessage(owner, 
                     this, true));
-//            modContext.getChannel().getChannel().sendToAll(
+//            modContext.getChannel().sendToAll(
 //                    new EntityInventorySyncMessage(owner, this, true));
         }
     }

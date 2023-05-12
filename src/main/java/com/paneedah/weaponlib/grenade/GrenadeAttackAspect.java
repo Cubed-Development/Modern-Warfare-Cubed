@@ -120,7 +120,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
 
     private void explode(PlayerGrenadeInstance instance) {
         log.debug("Exploding!");
-        modContext.getChannel().getChannel().sendToServer(new GrenadeMessage(instance, 0));
+        modContext.getChannel().sendToServer(new GrenadeMessage(instance, 0));
     }
 
     private void throwIt(PlayerGrenadeInstance instance) {
@@ -134,7 +134,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
             activationTimestamp = ItemGrenade.EXPLODE_ON_IMPACT;
         }
         compatibility.playSound(instance.getPlayer(), instance.getWeapon().getThrowSound(), 1.0F, 1.0F);
-        modContext.getChannel().getChannel().sendToServer(new GrenadeMessage(instance, activationTimestamp));
+        modContext.getChannel().sendToServer(new GrenadeMessage(instance, activationTimestamp));
     }
 
     private void reequip(PlayerGrenadeInstance instance) {

@@ -47,7 +47,7 @@ public class CraftingServerPacket extends SimplePacket {
 				
 				// If the player doesn't exist or the Crafting Manager hasn't loaded properly, cancel.
 				if(target == null || CraftingFileManager.getInstance().getLoadingStatus() == -1) return;
-				this.context.getChannel().getChannel().sendTo(new CraftingClientPacket(CraftingFileManager.getInstance().getCurrentFileBAOS(), false), target);
+				this.context.getChannel().sendTo(new CraftingClientPacket(CraftingFileManager.getInstance().getCurrentFileBAOS(), false), target);
 			});
 			return null;
 		}

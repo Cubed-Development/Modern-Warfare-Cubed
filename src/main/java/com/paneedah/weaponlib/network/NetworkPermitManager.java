@@ -38,7 +38,7 @@ public class NetworkPermitManager implements PermitManager, CompatibleMessageHan
 			P permit, E extendedState, BiConsumer<P, E> callback) {
 		
 		permitCallbacks.put(permit.getUuid(), callback);
-		modContext.getChannel().getChannel().sendToServer(new PermitMessage(permit, extendedState));
+		modContext.getChannel().sendToServer(new PermitMessage(permit, extendedState));
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class NetworkPermitManager implements PermitManager, CompatibleMessageHan
 				}
 				PermitMessage message = new PermitMessage(permit, extendedState);
 				//System.out.println("Sending out permit");
-				modContext.getChannel().getChannel().sendTo(message, (EntityPlayerMP) messageContext.getServerHandler().player);
+				modContext.getChannel().sendTo(message, (EntityPlayerMP) messageContext.getServerHandler().player);
 			});
 		} else {
 			compatibility.runInMainClientThread(() -> {

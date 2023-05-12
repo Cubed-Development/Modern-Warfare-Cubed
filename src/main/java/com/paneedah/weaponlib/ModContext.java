@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleChannel;
 import com.paneedah.weaponlib.crafting.RecipeManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.GrenadeRenderer;
@@ -15,18 +14,19 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 public interface ModContext {
 
 	public boolean isClient();
 	
-	public void preInitEnd(Object mod, CompatibleChannel channel);
+	public void preInitEnd(Object mod, SimpleNetworkWrapper channel);
 
-	public void preInit(Object mod, CompatibleChannel channel);
+	public void preInit(Object mod, SimpleNetworkWrapper channel);
 
 	public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
 
-	public CompatibleChannel getChannel();
+	public SimpleNetworkWrapper getChannel();
 
 	public void runSyncTick(Runnable runnable);
 

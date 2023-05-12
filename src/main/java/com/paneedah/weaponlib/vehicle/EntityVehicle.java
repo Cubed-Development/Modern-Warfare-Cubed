@@ -2672,7 +2672,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 					// oldHC();
 
 					// System.out.println("ID: " + getEntityId());
-					context.getChannel().getChannel()
+					context.getChannel()
 							.sendToServer(new VehicleControlPacket(new VehicleDataContainer(this)));
 					
 					// doNetworking(false);

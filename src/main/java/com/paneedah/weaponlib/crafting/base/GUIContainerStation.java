@@ -154,7 +154,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		super.actionPerformed(button);
 		
 		if (button == dismantleButton) {
-			modContext.getChannel().getChannel().sendToServer(new StationPacket(StationPacket.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
+			modContext.getChannel().sendToServer(new StationPacket(StationPacket.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
 
 		} else if (button == leftArrow) {
 			setPage(getPage() - 1);
@@ -378,7 +378,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		
 		if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 40, this.guiTop + 219, 176, 20)) {
 			int boxID = (mouseX - (this.guiLeft + 40))/20;
-			modContext.getChannel().getChannel().sendToServer(new StationPacket(StationPacket.MOVE_OUTPUT,
+			modContext.getChannel().sendToServer(new StationPacket(StationPacket.MOVE_OUTPUT,
 					tileEntity.getPos(), mc.player.getEntityId(), boxID));
 		}
 		

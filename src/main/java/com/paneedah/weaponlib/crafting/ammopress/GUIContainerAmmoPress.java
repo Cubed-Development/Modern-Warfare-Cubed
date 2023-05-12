@@ -133,7 +133,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 				
 				
 			
-				modContext.getChannel().getChannel()
+				modContext.getChannel()
 						.sendToServer(new StationPacket(StationPacket.CRAFT, tileEntity.getPos(), getSelectedCraftingPiece().getItem().getTranslationKey(), getSelectedCraftingPiece().getCraftingGroup(), quantity));
 
 				
@@ -287,7 +287,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 				int id = (mouseX - (this.guiLeft + 200))/20;
 				if(id >= 0 && tileEntity.getCraftingQueue().size() - 1 >= id) {
 					
-					modContext.getChannel().getChannel().sendToServer(new StationPacket(StationPacket.POP_FROM_QUEUE, tileEntity.getPos(), mc.player.getEntityId(), id));
+					modContext.getChannel().sendToServer(new StationPacket(StationPacket.POP_FROM_QUEUE, tileEntity.getPos(), mc.player.getEntityId(), id));
 				}
 			}
 		}

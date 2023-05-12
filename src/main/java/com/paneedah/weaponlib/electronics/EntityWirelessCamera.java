@@ -79,7 +79,7 @@ public class EntityWirelessCamera extends CompatibleThrowableEntity {
                     hit = true;
                     tracker.addTrackableEntity(new TrackableEntity(entityHit, timestamp,
                             duration));
-                    modContext.getChannel().getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker,
+                    modContext.getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker,
                             "Tracking " + displayName),
                             (EntityPlayerMP)getThrower());
                 }

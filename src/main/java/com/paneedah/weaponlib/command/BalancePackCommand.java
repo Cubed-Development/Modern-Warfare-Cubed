@@ -72,7 +72,7 @@ public class BalancePackCommand extends TidyCompatibleCommand {
 			}
 			BalancePackManager.unloadBalancePack();
 			sendFormattedMessage(sender, "Succesfully unloaded balance pack.");
-			CommonModContext.getContext().getChannel().getChannel().sendToAll(new BalancePackClient(BalancePackManager.getActiveBalancePack()));
+			CommonModContext.getContext().getChannel().sendToAll(new BalancePackClient(BalancePackManager.getActiveBalancePack()));
 			return;
 		case LOAD_KEY:
 			if(secondArgument.length() == 0) {
@@ -84,7 +84,7 @@ public class BalancePackCommand extends TidyCompatibleCommand {
 				if(f.getName().equals(secondArgument)) {
 					sender.sendMessage(new TextComponentString(getHeader() + " Loading balance pack " + TextFormatting.RED + f.getName()));
 					BalancePackManager.loadBalancePack(sender, f.getName());
-					CommonModContext.getContext().getChannel().getChannel().sendToAll(new BalancePackClient(BalancePackManager.getActiveBalancePack()));
+					CommonModContext.getContext().getChannel().sendToAll(new BalancePackClient(BalancePackManager.getActiveBalancePack()));
 					
 					return;
 				}
@@ -131,7 +131,7 @@ public class BalancePackCommand extends TidyCompatibleCommand {
 			 try {
 			   String result = IOUtils.toString(new URL(link), StandardCharsets.UTF_8);
 			   BalancePackManager.loadBalancePackFromString(sender, result);
-			   CommonModContext.getContext().getChannel().getChannel().sendToAll(new BalancePackClient(BalancePackManager.getActiveBalancePack()));
+			   CommonModContext.getContext().getChannel().sendToAll(new BalancePackClient(BalancePackManager.getActiveBalancePack()));
 				
 			 } catch (MalformedURLException e) {
 				sendFormattedMessage(sender, "Failed to open URL. Malformed URL exception.");

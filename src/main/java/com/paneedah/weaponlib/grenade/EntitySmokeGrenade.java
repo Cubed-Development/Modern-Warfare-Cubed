@@ -152,7 +152,7 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
                     if (player.getDistanceSq(posX, posY, posZ) < 4096.0D) {
                         ParticleType particleType = ParticleType.SMOKE_GRENADE_SMOKE;
                         double movement = bounceCount > 0 ? 0.1 : 0.005;
-                        modContext.getChannel().getChannel().sendTo(
+                        modContext.getChannel().sendTo(
                                 new SpawnParticleMessage(particleType, 1,
                                         posX + rand.nextGaussian() / 7,
                                         posY + rand.nextGaussian() / 10,

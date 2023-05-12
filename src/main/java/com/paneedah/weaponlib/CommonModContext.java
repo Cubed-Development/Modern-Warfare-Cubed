@@ -38,6 +38,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.HashMap;
@@ -115,7 +116,7 @@ public class CommonModContext implements ModContext {
 
 	protected Object mod;
 	
-	protected CompatibleChannel channel;
+	protected SimpleNetworkWrapper channel;
 
 	protected WeaponReloadAspect weaponReloadAspect;
 	protected WeaponAttachmentAspect weaponAttachmentAspect;
@@ -164,7 +165,7 @@ public class CommonModContext implements ModContext {
 
 
 	@Override
-    public void preInit(Object mod, CompatibleChannel channel) {
+    public void preInit(Object mod, SimpleNetworkWrapper channel) {
 		this.mod = mod;
 	    this.channel = channel;
 
@@ -333,7 +334,7 @@ public class CommonModContext implements ModContext {
 	}
 	
 	@Override
-	public void preInitEnd(Object mod, CompatibleChannel channel) {
+	public void preInitEnd(Object mod, SimpleNetworkWrapper channel) {
 		compatibility.registerTileEntity(TileEntityWorkbench.class, ModReference.id + ":tileworkbench");
 		compatibility.registerBlock(this, new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(ModernWarfareMod.BlocksTab), "weapon_workbench");
 		
@@ -393,7 +394,7 @@ public class CommonModContext implements ModContext {
 	}
 
 	@Override
-	public CompatibleChannel getChannel() {
+	public SimpleNetworkWrapper getChannel() {
 		return channel;
 	}
 

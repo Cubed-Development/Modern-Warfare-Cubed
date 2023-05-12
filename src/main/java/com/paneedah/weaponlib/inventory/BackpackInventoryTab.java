@@ -18,7 +18,7 @@ public class BackpackInventoryTab extends InventoryTab {
 
     @Override
     public void onTabClicked() {
-        clientModContext.getChannel().getChannel()
+        clientModContext.getChannel()
                 .sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.STORAGE_ITEM_INVENTORY_GUI_ID));
     }
 

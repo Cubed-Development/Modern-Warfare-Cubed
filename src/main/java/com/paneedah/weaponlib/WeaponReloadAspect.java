@@ -809,13 +809,13 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		            status = Status.DENIED;
 		        }
 		    }
-		    // Update permit instead: modContext.getChannel().getChannel().sendTo(new ReloadMessage(weapon, ReloadMessage.Type.LOAD, newMagazine, ammo), (EntityPlayerMP) player);
+		    // Update permit instead: modContext.getChannel().sendTo(new ReloadMessage(weapon, ReloadMessage.Type.LOAD, newMagazine, ammo), (EntityPlayerMP) player);
 		    weaponInstance.setAmmo(ammo);
 		} else if(!compatibleBullets.isEmpty() && (consumedStack = compatibility.tryConsumingCompatibleItem(compatibleBullets,
 		        Math.min(weapon.getMaxBulletsPerReload(), weapon.getAmmoCapacity() - weaponInstance.getAmmo()), player, i -> true)) != null) {
 		    int ammo = weaponInstance.getAmmo() + compatibility.getStackSize(consumedStack);
 		    Tags.setAmmo(weaponItemStack, ammo);
-		    // Update permit instead modContext.getChannel().getChannel().sendTo(new ReloadMessage(weapon, ammo), (EntityPlayerMP) player);
+		    // Update permit instead modContext.getChannel().sendTo(new ReloadMessage(weapon, ammo), (EntityPlayerMP) player);
 		    weaponInstance.setAmmo(ammo);
 		    if(weapon.hasIteratedLoad()) {
 		        weaponInstance.setLoadIterationCount(compatibility.getStackSize(consumedStack));
@@ -823,7 +823,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		    compatibility.playSoundToNearExcept(player, weapon.getReloadSound(), 1.0F, 1.0F);
 		} else if (compatibility.consumeInventoryItem(player.inventory, weapon.builder.ammo)) {
 		    Tags.setAmmo(weaponItemStack, weapon.builder.ammoCapacity);
-		    // Update permit instead: modContext.getChannel().getChannel().sendTo(new ReloadMessage(weapon, weapon.builder.ammoCapacity), (EntityPlayerMP) player);
+		    // Update permit instead: modContext.getChannel().sendTo(new ReloadMessage(weapon, weapon.builder.ammoCapacity), (EntityPlayerMP) player);
 		    weaponInstance.setAmmo(weapon.builder.ammoCapacity);
 		    compatibility.playSoundToNearExcept(player, weapon.getReloadSound(), 1.0F, 1.0F);
 		} else {
@@ -831,7 +831,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		    //				Tags.setAmmo(weaponItemStack, 0);
 		    //				weaponInstance.setAmmo(0);
 		    status = Status.DENIED;
-		    // Update permit instead: modContext.getChannel().getChannel().sendTo(new ReloadMessage(weapon, 0), (EntityPlayerMP) player);
+		    // Update permit instead: modContext.getChannel().sendTo(new ReloadMessage(weapon, 0), (EntityPlayerMP) player);
 		}
 		/*} else {
 		    status = Status.DENIED;

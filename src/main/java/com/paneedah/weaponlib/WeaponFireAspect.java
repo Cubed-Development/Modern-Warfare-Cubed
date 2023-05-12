@@ -241,7 +241,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         
         
         //if(true) return;
-        modContext.getChannel().getChannel().sendToServer(new TryFireMessage(true, 
+        modContext.getChannel().sendToServer(new TryFireMessage(true, 
                 oneClickBurstEnabled.test(weaponInstance) && weaponInstance.getSeriesShotCount() ==  0, weaponInstance.isAimed()));
 
         
@@ -417,7 +417,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         }
         
         TargetPoint tp = new TargetPoint(player.dimension, player.posX, player.posY, player.posZ, 100);
-        modContext.getChannel().getChannel().sendToAllAround(new GunFXPacket(player.getEntityId()), tp);
+        modContext.getChannel().sendToAllAround(new GunFXPacket(player.getEntityId()), tp);
         
 
         Weapon weapon = (Weapon) itemStack.getItem();
@@ -490,7 +490,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	
         	Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
     		velocity = velocity.rotateYaw((float) Math.toRadians(-player.rotationYaw));
-        	modContext.getChannel().getChannel().sendToAllAround(new BulletShellClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), pos.add(weaponDir), velocity), tp);
+        	modContext.getChannel().sendToAllAround(new BulletShellClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), pos.add(weaponDir), velocity), tp);
         }
 
 

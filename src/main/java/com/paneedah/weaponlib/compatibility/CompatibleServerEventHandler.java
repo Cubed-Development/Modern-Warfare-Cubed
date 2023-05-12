@@ -66,7 +66,7 @@ public abstract class CompatibleServerEventHandler {
 		if(baos == null) return;
 		
 		// Send the player the hash
-		getModContext().getChannel().getChannel().sendTo(new CraftingClientPacket(baos, true), (EntityPlayerMP) player);	
+		getModContext().getChannel().sendTo(new CraftingClientPacket(baos, true), (EntityPlayerMP) player);	
 	}
 	
 	@SubscribeEvent
@@ -114,7 +114,7 @@ public abstract class CompatibleServerEventHandler {
 	    // TO-DO: Can we cache balance packs similar to crafting files? Maybe
 	    // they could use the same system? This could crash a server if a large
 	    // amount of players join.
-	    getModContext().getChannel().getChannel().sendTo(new BalancePackClient(BalancePackManager.getActiveBalancePack()), (EntityPlayerMP) event.player);
+	    getModContext().getChannel().sendTo(new BalancePackClient(BalancePackManager.getActiveBalancePack()), (EntityPlayerMP) event.player);
 	    
 	}
 	

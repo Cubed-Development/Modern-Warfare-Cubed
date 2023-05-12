@@ -57,7 +57,7 @@ public class VehicleControlPacketHandler implements CompatibleMessageHandler<Veh
 					boolean b = vehicle.getPassengers().isEmpty() || vehicle.getPassengers().get(0) == p;
 					if(!b) {
 						
-						context.getChannel().getChannel().sendTo(new VehicleClientPacket(cont), (EntityPlayerMP) p);
+						context.getChannel().sendTo(new VehicleClientPacket(cont), (EntityPlayerMP) p);
 					}
 				}
 				
