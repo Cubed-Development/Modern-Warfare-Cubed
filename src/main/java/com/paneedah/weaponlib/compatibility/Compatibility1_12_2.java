@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.compatibility;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.WorldGeneratorEventHandler;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.Explosion;
@@ -553,7 +554,7 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void registerWorldGenerator(CompatibleWorldGenerator generator, int modGenerationWeight) {
+    public void registerWorldGenerator(WorldGeneratorEventHandler generator, int modGenerationWeight) {
         GameRegistry.registerWorldGenerator(generator, modGenerationWeight);
     }
 

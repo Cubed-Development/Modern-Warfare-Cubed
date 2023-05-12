@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.WorldGeneratorEventHandler;
 import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
@@ -191,7 +192,7 @@ public interface Compatibility {
 
 	public void registerBlock(ModContext context, Block block, String name);
 
-	public void registerWorldGenerator(CompatibleWorldGenerator worldGeneratorEventHandler, int i);
+	public void registerWorldGenerator(WorldGeneratorEventHandler worldGeneratorEventHandler, int i);
 
 	public ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness);
 
