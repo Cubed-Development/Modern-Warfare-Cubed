@@ -129,11 +129,6 @@ public class Compatibility1_12_2 implements Compatibility {
     );
 
     @Override
-    public World world(Entity entity) {
-        return entity.world;
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public EntityPlayer clientPlayer() {
         return mc.player;
@@ -562,14 +557,6 @@ public class Compatibility1_12_2 implements Compatibility {
     public void addBreakingParticle(ModContext modContext, double x, double y, double z) {
         ParticleBlood particle = new ParticleBlood(world(clientPlayer()), x, y + 1, z);
         mc.effectRenderer.addEffect(particle);
-    }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void addBloodParticle(ModContext modContext, double x, double y, double z, double velX, double velY, double velZ) {
-    	ParticleBlood cdp = new ParticleBlood(mc.world, x, y, z, velX, velY, velZ);
-    
-		mc.effectRenderer.addEffect(cdp);
     }
 
     @Override

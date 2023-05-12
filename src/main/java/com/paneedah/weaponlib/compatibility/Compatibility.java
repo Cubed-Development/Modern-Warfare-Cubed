@@ -396,6 +396,4 @@ public interface Compatibility {
     ItemStack stackForEmptySlot();
 
     float getBlockDensity(World world, Vector3D vec, AxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable);
-
-    void addBloodParticle(ModContext modContext, double x, double y, double z, double velX, double velY, double velZ);
 }
