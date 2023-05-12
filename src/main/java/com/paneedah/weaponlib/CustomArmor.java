@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.compatibility.CompatibleCustomArmor;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -9,33 +8,45 @@ import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
 import com.paneedah.weaponlib.model.ModelBaseRendererWrapper;
 import com.paneedah.weaponlib.model.WrappableModel;
+import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class CustomArmor extends CompatibleCustomArmor implements ExposureProtection , ISpecialArmor, IModernCrafting {
+public class CustomArmor extends ItemArmor implements ExposureProtection , ISpecialArmor, IModernCrafting {
 
     private static final String ACTIVE_ATTACHMENT_TAG = "ActiveAttachments";
 
     private static final String SHIELD_CAPACITY_TAG = "ShieldCapacity";
     
     private static final String SHIELD_HIT_TIMESTAMP_TAG = "ShieldHitTimestamp";
+
+    protected String textureName;
+    protected ModelBiped model;
+    protected String hudTextureName;
 
     public static class Builder {
         
@@ -414,16 +425,61 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 	private CraftingGroup craftGroup;
 
 
-    private CustomArmor(String unlocalizedArmorSetName, ArmorMaterial material, int renderIndex,
-            CompatibleEntityEquipmentSlot armorType, String iconName, String textureName,
-            ModelBiped model, String hudTextureName) {
-        super(material, renderIndex, armorType, iconName.toLowerCase(), textureName, model, hudTextureName);
+    private CustomArmor(String unlocalizedArmorSetName, ArmorMaterial material, int renderIndex, CompatibleEntityEquipmentSlot armorType, String iconName, String textureName, ModelBiped model, String hudTextureName) {
+        super(material, renderIndex, armorType.getSlot());
+        this.textureName = textureName;
+        this.model = model;
+        this.hudTextureName = hudTextureName;
         this.compatibleEquipmentType = armorType;
         this.unlocalizedArmorSetName = unlocalizedArmorSetName;
     }
 
+    @Override
+    @SideOnly(Side.CLIENT)
+    public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
+        ModelBiped armorModel = null;
+
+        if (itemStack != null) {
+
+            if (itemStack.getItem() instanceof CustomArmor) {
+                armorModel = model;
+            }
+
+            if (armorModel != null) {
+
+                armorModel.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                armorModel.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                armorModel.bipedBody.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                armorModel.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.MAINHAND || armorSlot == EntityEquipmentSlot.OFFHAND;
+                armorModel.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.MAINHAND || armorSlot == EntityEquipmentSlot.OFFHAND;
+
+                armorModel.bipedRightLeg.showModel = armorSlot == EntityEquipmentSlot.FEET;
+                armorModel.bipedLeftLeg.showModel = armorSlot == EntityEquipmentSlot.FEET;
+
+                armorModel.isSneak = entityLiving.isSneaking();
+                armorModel.isRiding = entityLiving.isRiding();
+                armorModel.isChild = entityLiving.isChild();
+
+                if (entityLiving instanceof EntityPlayer) {
+
+                    Render<AbstractClientPlayer> entityRenderObject = mc.getRenderManager().getEntityRenderObject((AbstractClientPlayer) entityLiving);
+                    RenderPlayer renderPlayer = (RenderPlayer) entityRenderObject;
+                    armorModel.leftArmPose = renderPlayer.getMainModel().leftArmPose;
+                    armorModel.rightArmPose = renderPlayer.getMainModel().rightArmPose;
+                }
+                return armorModel;
+            }
+        }
+        return null;
+    }
+
     public String getHudTexture() {
         return ModReference.id + ":textures/hud/" + hudTextureName + ".png";
+    }
+
+    @Override
+    public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
+        return ModReference.id + ":textures/models/" + textureName + ".png";
     }
     
     public String getShieldIndicatorMaskTextureName() {

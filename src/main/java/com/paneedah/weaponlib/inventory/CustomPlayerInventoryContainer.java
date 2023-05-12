@@ -200,7 +200,7 @@ public class CustomPlayerInventoryContainer extends Container {
                 	
                 		
                     	/*
-                    	if((itemstack.getItem() instanceof CompatibleCustomArmor)) {
+                    	if((itemstack.getItem() instanceof CustomArmor)) {
                     		 CompatibleEntityEquipmentSlot type = compatibility.getArmorType((ItemArmor) itemstack1.getItem());//((ItemArmor) itemstack1.getItem()).armorType;
                              
                            
