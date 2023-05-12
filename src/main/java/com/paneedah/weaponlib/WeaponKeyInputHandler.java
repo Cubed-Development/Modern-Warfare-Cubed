@@ -3,7 +3,6 @@ package com.paneedah.weaponlib;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
-import com.paneedah.weaponlib.compatibility.CompatibleWeaponKeyInputHandler;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.inventory.OpenCustomPlayerInventoryGuiMessage;
 import com.paneedah.weaponlib.render.ModificationGUI;
@@ -16,6 +15,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import org.lwjgl.input.Keyboard;
@@ -25,7 +26,7 @@ import java.util.function.Function;
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
+public class WeaponKeyInputHandler {
 
     @SuppressWarnings("unused")
     private SimpleNetworkWrapper channel;
@@ -38,8 +39,8 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
         this.channel = channel;
     }
 
-    @Override
-    public void onCompatibleKeyInput() {
+    @SubscribeEvent
+    public final void onKeyInput(InputEvent.KeyInputEvent event) {
 
         EntityPlayer player = entityPlayerSupplier.apply(null);
         ItemStack itemStack = compatibility.getHeldItemMainHand(player);
