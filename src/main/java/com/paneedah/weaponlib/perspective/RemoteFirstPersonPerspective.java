@@ -2,13 +2,14 @@ package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.RenderingPhase;
-import com.paneedah.weaponlib.compatibility.CompatiblePlayerCreatureWrapper;
 import com.paneedah.weaponlib.compatibility.MWCParticleManager;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.stats.StatisticsManager;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
@@ -18,14 +19,14 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
     private long renderEndNanoTime;
 
-    protected CompatiblePlayerCreatureWrapper watchablePlayer;
+    protected EntityPlayerSP watchablePlayer;
 
     public RemoteFirstPersonPerspective() {
         this.renderEndNanoTime = System.nanoTime();
         this.width = 427; //mc.displayWidth >> 1;
         this.height = 240; //mc.displayHeight >> 1;
         WorldClient world = (WorldClient) compatibility.world(compatibility.clientPlayer());
-        this.watchablePlayer = new CompatiblePlayerCreatureWrapper(mc, world);
+        this.watchablePlayer = new EntityPlayerSP(mc, world, mc.getConnection(), new StatisticsManager(), null);
     }
 
     @Override
@@ -57,9 +58,9 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
         mc.effectRenderer = MWCParticleManager.getParticleManager();
 
         mc.entityRenderer = this.entityRenderer;
-        if (watchablePlayer.getEntityLiving() != null && !watchablePlayer.getEntityLiving().isDead) {
+        if (watchablePlayer != null && !watchablePlayer.isDead) {
 
-            compatibility.setRenderViewEntity(watchablePlayer.getEntityLiving());
+            compatibility.setRenderViewEntity(watchablePlayer);
             compatibility.setClientPlayer(watchablePlayer);
 
             modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.RENDER_PERSPECTIVE);

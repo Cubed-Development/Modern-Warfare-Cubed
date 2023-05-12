@@ -5,6 +5,7 @@ import com.paneedah.weaponlib.electronics.PlayerTabletInstance;
 import com.paneedah.weaponlib.electronics.SignalQuality;
 import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
 import com.paneedah.weaponlib.tracking.TrackableEntity;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
@@ -110,7 +111,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
 
         if(watchableEntity == null || watchableEntity instanceof EntityLivingBase) {
-            this.watchablePlayer.setEntityLiving((EntityLivingBase)watchableEntity);
+            this.watchablePlayer = ((EntityPlayerSP) watchableEntity);
         }
     }
 
@@ -123,7 +124,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         int maxDistance = 120;
         int displayCameraIndex = activeWatchIndex + 1;
         String message = "Cam " + displayCameraIndex + "/" + totalTrackableEntities + ": " + displayName;
-        EntityLivingBase watchableEntity = watchablePlayer.getEntityLiving();
+        EntityLivingBase watchableEntity = watchablePlayer;
         int color =  0xFFFF00;
         if(watchableEntity != null) {
             EntityPlayer origPlayer = compatibility.clientPlayer();
