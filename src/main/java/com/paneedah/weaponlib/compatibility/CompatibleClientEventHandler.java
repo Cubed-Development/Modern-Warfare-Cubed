@@ -391,13 +391,6 @@ public abstract class CompatibleClientEventHandler {
 			double yAmount = ClientValueRepo.recoilWoundY * 0.2;
 			player.rotationPitch += yAmount;
 			ClientValueRepo.recoilWoundY -= yAmount;
-			
-
-			ItemStack itemstack = player.getHeldItemOffhand();
-			if(itemstack.getItem().getRegistryName().getNamespace().equals(ModReference.id) && !itemstack.isEmpty()) {
-				player.setHeldItem(EnumHand.OFF_HAND, player.getHeldItem(EnumHand.MAIN_HAND));
-	            player.setHeldItem(EnumHand.MAIN_HAND, itemstack);
-			}
 
 			//TODO: Make a check to see If the ammo in the gun is greater than the max ammo in the magazine.
 
