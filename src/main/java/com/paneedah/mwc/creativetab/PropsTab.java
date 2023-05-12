@@ -14,6 +14,6 @@ public class PropsTab extends CreativeTabs {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ItemStack createIcon() {
-		return new ItemStack(Guns.AK12);
+		return new ItemStack(Props.ammo_box);
 	}
 }
