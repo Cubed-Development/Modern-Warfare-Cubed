@@ -1,8 +1,11 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.compatibility.CompatibleInventoryTabs;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiInventory;
+import net.minecraftforge.client.event.GuiScreenEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +13,7 @@ import java.util.List;
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class InventoryTabs extends CompatibleInventoryTabs {
+public class InventoryTabs {
 
     private ArrayList<InventoryTab> tabList = new ArrayList<InventoryTab>();
 
@@ -30,14 +33,17 @@ public class InventoryTabs extends CompatibleInventoryTabs {
         return tabList;
     }
 
-    @Override
-    public void guiPostInit(GuiScreen gui) {
+
+    @SubscribeEvent
+    @SideOnly(Side.CLIENT)
+    public void guiPostInit(GuiScreenEvent.InitGuiEvent.Post event) {
+        final GuiScreen gui = event.getGui();
+
         if ((gui instanceof GuiInventory)) {
             int xSize = 176;
             int ySize = 166;
             int guiLeft = (gui.width - xSize) / 2;
             int guiTop = (gui.height - ySize) / 2;
-            guiLeft += getPotionOffset();
 
             updateTabValues(guiLeft, guiTop, StandardPlayerInventoryTab.class);
 
