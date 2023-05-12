@@ -9,6 +9,7 @@ import net.minecraftforge.client.event.RenderLivingEvent.Pre;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+@Deprecated
 public abstract class CompatibleWeaponEventHandler {
 
 	@SubscribeEvent

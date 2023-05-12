@@ -12,6 +12,7 @@ import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
+@Deprecated
 public class CompatibleExtraEntityFlags implements ICapabilitySerializable<NBTBase> {
     
     public static int PRONING = 0x01;

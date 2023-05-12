@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.compatibility;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
+@Deprecated
 public class CompatibleTileEntitySpecialRenderer<T extends TileEntity> extends TileEntitySpecialRenderer<T> {
 
     @Override

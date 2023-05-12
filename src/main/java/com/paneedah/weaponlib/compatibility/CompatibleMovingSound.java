@@ -9,6 +9,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.function.Supplier;
 
+@Deprecated
 @SideOnly(Side.CLIENT)
 public class CompatibleMovingSound extends MovingSound {
     private Supplier<Vector3D> positionProvider;

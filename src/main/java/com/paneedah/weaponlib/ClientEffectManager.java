@@ -67,8 +67,8 @@ final class ClientEffectManager implements EffectManager {
 	    Weapon weapon = (Weapon) player.getHeldItemMainhand().getItem();
 
 	    float distance = 1.0f;
-	    
-		//float scale = 0.8f * compatibility.getEffectScaleFactor() * flashScale;
+
+		//float scale = 0.8f * flashScale;
 		float positionRandomizationFactor = 0.0f;
 
 		Vector3D look = compatibility.getLookVec(player);
@@ -99,17 +99,6 @@ final class ClientEffectManager implements EffectManager {
 		
 		if (Math.random() < 0.6/weapon.builder.fireRate)
 			ClientEventHandler.uploadFlash(player.getEntityId());
-
-		/*
-		if (player instanceof EntityPlayer) {
-            if(player.isSneaking())
-                posY -= 0.1f;
-            else if(Interceptors.isProning((EntityPlayer) player))
-                posY -= 1.2f;
-        }
-
-		mc.effectRenderer.addEffect(new FlashFX(mc.world, posX, posY, posZ, scale, flashIntensity * compatibility.getFlashIntencityFactor(), motionX, motionY, motionZ, texture));
-		*/
 	}
 
 	@Override

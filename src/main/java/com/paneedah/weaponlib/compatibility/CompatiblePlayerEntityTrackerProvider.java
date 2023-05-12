@@ -15,6 +15,7 @@ import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
 import java.util.function.Function;
 
+@Deprecated
 public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySerializable<NBTBase> {
 
     public static void register(ModContext modContext) {

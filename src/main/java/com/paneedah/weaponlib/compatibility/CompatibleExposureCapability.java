@@ -21,6 +21,7 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+@Deprecated
 public class CompatibleExposureCapability implements ICapabilitySerializable<NBTBase> {
 
     public static void register(ModContext modContext) {

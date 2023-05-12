@@ -26,6 +26,7 @@ import java.util.Map.Entry;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
+@Deprecated
 public class CompatibleShellRenderer {
 
 	private static HashMap<Shell.Type, InstancedShellObject> shellObjMap = new HashMap<>();

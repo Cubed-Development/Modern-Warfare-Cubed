@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.compatibility;
 
 import net.minecraftforge.common.ForgeVersion;
 
+@Deprecated
 public final class CompatibilityProvider {
 	
 	public static Compatibility compatibility = initCompatibility();

@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 
 import java.util.function.BiPredicate;
 
+@Deprecated
 public class CompatibleRayTracing {
 
 	

@@ -225,12 +225,6 @@ public class Explosion {
                         d9 = d9 / d13;
                         double d14 = (double) compatibility.getBlockDensity(world, vec3d, compatibility.getBoundingBox(entity), (block, iBlockState) -> canCollideWithBlock(block, iBlockState));
                         double d10 = (1.0D - d12) * d14;
-
-                        //System.out.println();
-
-
-                        //  entity.attackEntityFrom(compatibility.getDamageSource(this),
-                        //        (float) ((int) ((d10 * d10 + d10) / 2.0D * 7.0D * (double) f3 + 1.0D)));
                         double d11 = 1.0D;
 
                         if (entity instanceof EntityLivingBase) {

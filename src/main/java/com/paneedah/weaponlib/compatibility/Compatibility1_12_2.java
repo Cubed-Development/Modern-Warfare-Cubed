@@ -44,7 +44,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -94,7 +93,7 @@ import java.util.function.Predicate;
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-@SuppressWarnings("deprecation")
+@Deprecated
 public class Compatibility1_12_2 implements Compatibility {
 
     private static final float DEFAULT_SHELL_CASING_FORWARD_OFFSET = 0.1f;
@@ -184,11 +183,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public boolean consumeInventoryItem(EntityPlayer player, Item item) {
-        return consumeInventoryItem(player.inventory, item);
-    }
-
-    @Override
     public void ensureTagCompound(ItemStack itemStack) {
         if (itemStack.getTagCompound() == null) {
             itemStack.setTagCompound(new NBTTagCompound());
@@ -253,11 +247,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public Vector3D getLookVec(EntityPlayer player) {
-        return new Vector3D(player.getLookVec());
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public void registerKeyBinding(KeyBinding key) {
         ClientRegistry.registerKeyBinding(key);
@@ -305,14 +294,6 @@ public class Compatibility1_12_2 implements Compatibility {
         net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity
             (new ResourceLocation(ModReference.id, entityName), entityClass, entityName, id, mod, trackingRange, updateFrequency, sendsVelocityUpdates);
 
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerRenderingRegistry(CompatibleRenderingRegistry rendererRegistry) {
-        //MinecraftForge.EVENT_BUS.register(rendererRegistry);
-    	
-        //ModelLoaderRegistry.registerLoader(rendererRegistry);
     }
 
     @Override
@@ -401,21 +382,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public ItemStack itemStackForItem(Item item, Predicate<ItemStack> condition, EntityPlayer player) {
-        ItemStack result = null;
-
-        for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
-            ItemStack stack = player.inventory.getStackInSlot(i);
-            if (stack != null && stack.getItem() == item && condition.test(stack)) {
-                result = stack;
-                break;
-            }
-        }
-
-        return result;
-    }
-
-    @Override
     public boolean isGlassBlock(IBlockState iBlockState) {
         Block block = iBlockState.getBlock();
         return block == Blocks.GLASS || block == Blocks.GLASS_PANE || block == Blocks.STAINED_GLASS || block == Blocks.STAINED_GLASS_PANE;
@@ -432,24 +398,18 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public float getEffectScaleFactor() {
-        return 2.0f;
-    }
-
-    @Override
     public int getCurrentInventoryItemIndex(EntityPlayer player) {
         return player.inventory.currentItem;
     }
 
     @Override
-    public boolean addItemToPlayerInventory(EntityPlayer player, Item item, int slot) {
+    public void addItemToPlayerInventory(EntityPlayer player, Item item, int slot) {
         boolean result = false;
         if(slot == -1) {
             player.inventory.addItemStackToInventory(new ItemStack(item));
         } else if(player.inventory.mainInventory.get(slot) == null || player.inventory.mainInventory.get(slot).getItem() == Items.AIR) {
             player.inventory.mainInventory.set(slot, new ItemStack(item));
         }
-        return result;
     }
 
     @Override
@@ -469,34 +429,15 @@ public class Compatibility1_12_2 implements Compatibility {
         return slot;    }
 
     @Override
-    public boolean consumeInventoryItemFromSlot(EntityPlayer player, int slot) {
+    public void consumeInventoryItemFromSlot(EntityPlayer player, int slot) {
         if(player.inventory.getStackInSlot(slot) == null) {
-            return false;
+            return;
         }
 
         player.inventory.getStackInSlot(slot).shrink(1);
         if (player.inventory.mainInventory.get(slot).getCount() <= 0) {
             player.inventory.removeStackFromSlot(slot);
         }
-        return true;
-    }
-    
-    @Override
-    public int removeMatchingInventoryItemStacks(EntityPlayer player, Item item, int quantity) {
-        return player.inventory.clearMatchingItems(item, -1, quantity, null);
-    }
-    
-    @Override
-    public int getMatchingInventoryItemStack(EntityPlayer player, Item item) {
-        int count = 0;
-        int inventorySize = player.inventory.getSizeInventory();
-        for(int i = 0; i < inventorySize; i++) {
-            ItemStack itemStack = player.inventory.getStackInSlot(i);
-            if(itemStack.getItem() == item) {
-                count++;
-            }
-        }
-        return count;
     }
 
     @Override
@@ -819,11 +760,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public double getBlockDensity(World world, Vector3D vec3, AxisAlignedBB boundingBox) {
-        return world.getBlockDensity(vec3.toVec3d(), boundingBox);
-    }
-    
-    @Override
     public float getBlockDensity(World world, Vector3D vec, AxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable) {
         AxisAlignedBB bb = boundingBox;
         double d0 = 1.0D / ((bb.maxX - bb.minX) * 2.0D + 1.0D);
@@ -917,11 +853,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public DamageSource getDamageSource(Explosion explosion) {
-        return DamageSource.causeExplosionDamage(getCompatibleExplosion(explosion));
-    }
-
-    @Override
     public double getBlastDamageReduction(EntityLivingBase entity, double d10) {
         return EnchantmentProtection.getBlastDamageReduction((EntityLivingBase)entity, d10);
     }
@@ -971,21 +902,6 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     public DamageSource genericDamageSource() {
         return GENERIC_DAMAGE_SOURCE;
-    }
-
-    @Override
-    public boolean isCollided(Particle particle) {
-        return !particle.isAlive();
-    }
-
-    @Override
-    public void addSmelting(Block block, ItemStack output, float f) {
-        GameRegistry.addSmelting(block, output, f);
-    }
-
-    @Override
-    public void addSmelting(Item item, ItemStack output, float f) {
-        GameRegistry.addSmelting(item, output, f);
     }
 
     @Override
@@ -1241,11 +1157,6 @@ private Optional<Field> shadersEnabledFieldOptional;
     }
 
     @Override
-    public float getFlashIntencityFactor() {
-        return 1f;
-    }
-    
-    @Override
     public void setUniqueId(NBTTagCompound tagCompound, String tag, UUID uuid) {
         tagCompound.setLong(tag + "Most", uuid.getMostSignificantBits());
         tagCompound.setLong(tag + "Least", uuid.getLeastSignificantBits());
@@ -1277,11 +1188,6 @@ private Optional<Field> shadersEnabledFieldOptional;
     @Override
     public boolean isValidArmor(ItemStack itemstack, EntityEquipmentSlot entityEquipmentSlot, Entity entity) {
         return itemstack.getItem().isValidArmor(itemstack, entityEquipmentSlot, entity);
-    }
-
-    @Override
-    public double getEntityYOffset(Entity entity) {
-        return entity.getYOffset() + 0.5;
     }
 
     @Override
@@ -1351,8 +1257,8 @@ private Optional<Field> shadersEnabledFieldOptional;
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
     @SideOnly(Side.CLIENT)
-    public <T extends TileEntity> void bindTileEntitySpecialRenderer(Class<? extends TileEntity> tileEntityClass,
-            CustomTileEntityRenderer customTileEntityRenderer) {
+    public void bindTileEntitySpecialRenderer(Class<? extends TileEntity> tileEntityClass,
+                                              CustomTileEntityRenderer customTileEntityRenderer) {
         ClientRegistry.bindTileEntitySpecialRenderer(tileEntityClass, (TileEntitySpecialRenderer)customTileEntityRenderer);
     }
 
@@ -1369,11 +1275,6 @@ private Optional<Field> shadersEnabledFieldOptional;
     @Override
     public ItemStack getEntityItem(EntityItem entityItem) {
         return entityItem.getItem();
-    }
-
-    @Override
-    public DamageSource mobDamageSource(EntityLivingBase thrower) {
-        return DamageSource.causeMobDamage(thrower);
     }
 
     @Override

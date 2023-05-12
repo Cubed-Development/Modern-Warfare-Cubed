@@ -5,6 +5,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 
+@Deprecated
 public class CompatibleDataManager {
     
 //    private static final DataParameter<Integer> VARIANT = EntityDataManager.<Integer>createKey(EntityCustomMob.class, DataSerializers.VARINT);

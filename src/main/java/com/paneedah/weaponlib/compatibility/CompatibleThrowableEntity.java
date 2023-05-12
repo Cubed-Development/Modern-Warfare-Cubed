@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
 import java.util.List;
 
+@Deprecated
 public abstract class CompatibleThrowableEntity extends EntityThrowable implements IEntityAdditionalSpawnData {
 
 	static final float DEFAULT_INACCURACY = 1f;

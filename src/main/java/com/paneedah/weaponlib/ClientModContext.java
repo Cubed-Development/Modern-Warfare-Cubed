@@ -127,8 +127,6 @@ public class ClientModContext extends CommonModContext {
     public void init(Object mod) {
         super.init(mod);
 
-        //compatibility.registerRenderingRegistry(rendererRegistry);
-
         rendererRegistry.registerEntityRenderingHandler(WeaponSpawnEntity.class, new SpawnEntityRenderer());
         rendererRegistry.registerEntityRenderingHandler(EntityWirelessCamera.class, new WirelessCameraRenderer());
         rendererRegistry.registerEntityRenderingHandler(EntityShellCasing.class, new ShellCasingRenderer());

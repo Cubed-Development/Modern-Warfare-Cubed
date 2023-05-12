@@ -32,7 +32,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -42,6 +41,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -55,7 +55,6 @@ import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -68,370 +67,335 @@ import java.util.UUID;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
+@Deprecated
 public interface Compatibility {
 
-	public World world(Entity entity);
+	World world(Entity entity);
 
-	public EntityPlayer clientPlayer();
+	EntityPlayer clientPlayer();
 
-    public void setClientPlayer(EntityPlayer player);
+    void setClientPlayer(EntityPlayer player);
 
-	public IAttribute getMovementSpeedAttribute();
+	IAttribute getMovementSpeedAttribute();
 
-	public NBTTagCompound getTagCompound(ItemStack itemStack);
+	NBTTagCompound getTagCompound(ItemStack itemStack);
 
-	public void setTagCompound(ItemStack itemStack, NBTTagCompound tagCompound);
+	void setTagCompound(ItemStack itemStack, NBTTagCompound tagCompound);
 
-	public ItemStack getItemStack(ItemTossEvent event);
+	ItemStack getItemStack(ItemTossEvent event);
 
-	public EntityPlayer getPlayer(ItemTossEvent event);
+	EntityPlayer getPlayer(ItemTossEvent event);
 
-	public ItemStack getHeldItemMainHand(EntityLivingBase player);
+	ItemStack getHeldItemMainHand(EntityLivingBase player);
 
-	public boolean consumeInventoryItem(EntityPlayer player, Item item);
+    int getCurrentInventoryItemIndex(EntityPlayer player);
 
-	public int getCurrentInventoryItemIndex(EntityPlayer player);
+	void ensureTagCompound(ItemStack itemStack);
 
-	public void ensureTagCompound(ItemStack itemStack);
+    void playSound(EntityLivingBase player, SoundEvent sound, float volume, float pitch);
 
-    public void playSound(EntityLivingBase player, SoundEvent sound, float volume, float pitch);
+    void playSoundToNearExcept(EntityLivingBase player, SoundEvent object, float volume, float pitch);
 
-    public void playSoundToNearExcept(EntityLivingBase player, SoundEvent object, float volume, float pitch);
+	boolean isClientSide();
 
-	public boolean isClientSide();
+	EntityPlayer getClientPlayer();
 
-	public EntityPlayer getClientPlayer();
+	FontRenderer getFontRenderer();
 
-	public FontRenderer getFontRenderer();
+	ScaledResolution getResolution(Pre event);
 
-	public ScaledResolution getResolution(Pre event);
+	ElementType getEventType(Pre event);
 
-	public ElementType getEventType(Pre event);
+	ItemStack getHelmet();
 
-	public ItemStack getHelmet();
+    ItemStack getHelmet(EntityLivingBase entity);
 
-    public ItemStack getHelmet(EntityLivingBase entity);
+    void registerKeyBinding(KeyBinding key);
 
-	public Vector3D getLookVec(EntityPlayer player);
+	void registerWithEventBus(Object object);
 
-	public void registerKeyBinding(KeyBinding key);
+	void registerWithFmlEventBus(Object object);
 
-	public void registerWithEventBus(Object object);
+	void registerSound(SoundEvent sound);
 
-	public void registerWithFmlEventBus(Object object);
-
-	public void registerSound(SoundEvent sound);
-
-	public void registerItem(Item item, String name);
+	void registerItem(Item item, String name);
 	
-	public void registerItem(Item item, ResourceLocation name);
+	void registerItem(Item item, ResourceLocation name);
 
-	public void runInMainClientThread(Runnable runnable);
+	void runInMainClientThread(Runnable runnable);
 
-	public void registerModEntity(Class<? extends Entity> class1, String string, int i, Object mod, int j, int k, boolean b);
+	void registerModEntity(Class<? extends Entity> class1, String string, int i, Object mod, int j, int k, boolean b);
 
-	public void registerRenderingRegistry(CompatibleRenderingRegistry rendererRegistry);
+    <T, E> T getPrivateValue(Class<? super E> classToAccess, E instance, String... fieldNames);
 
-	public <T, E> T getPrivateValue(Class<? super E> classToAccess, E instance, String... fieldNames);
+	int getButton(MouseEvent event);
 
-	public int getButton(MouseEvent event);
+	EntityPlayer getEntity(FOVUpdateEvent event);
 
-	public EntityPlayer getEntity(FOVUpdateEvent event);
+    EntityLivingBase getEntity(@SuppressWarnings("rawtypes") RenderLivingEvent.Pre event);
 
-    public EntityLivingBase getEntity(@SuppressWarnings("rawtypes") RenderLivingEvent.Pre event);
+	void setNewFov(FOVUpdateEvent event, float fov);
 
-	public void setNewFov(FOVUpdateEvent event, float fov);
+    RenderPlayer getRenderer(@SuppressWarnings("rawtypes") RenderLivingEvent.Pre event);
 
-    public RenderPlayer getRenderer(@SuppressWarnings("rawtypes") RenderLivingEvent.Pre event);
+	GuiScreen getGui(GuiOpenEvent event);
 
-	public GuiScreen getGui(GuiOpenEvent event);
+	void setAimed(RenderPlayer rp, boolean aimed);
 
-	public void setAimed(RenderPlayer rp, boolean aimed);
+	RayTraceResult getObjectMouseOver();
 
-	public RayTraceResult getObjectMouseOver();
+	IBlockState getBlockAtPosition(World world, RayTraceResult position);
 
-	public IBlockState getBlockAtPosition(World world, RayTraceResult position);
+	void destroyBlock(World world, RayTraceResult position);
 
-	public void destroyBlock(World world, RayTraceResult position);
+	void addItemToPlayerInventory(EntityPlayer player, final Item item, int slot);
 
-	public boolean addItemToPlayerInventory(EntityPlayer player, final Item item, int slot);
+	boolean consumeInventoryItem(InventoryPlayer inventoryPlayer, Item item);
 
-	public boolean consumeInventoryItem(InventoryPlayer inventoryPlayer, Item item);
+    boolean isGlassBlock(IBlockState block);
 
-	public ItemStack itemStackForItem(Item item, Predicate<ItemStack> condition, EntityPlayer player);
+	float getEffectOffsetX();
 
-	public boolean isGlassBlock(IBlockState block);
+	float getEffectOffsetY();
 
-	public float getEffectOffsetX();
+    void spawnEntity(EntityLivingBase player, Entity entity);
 
-	public float getEffectOffsetY();
+	void moveParticle(Particle particle, double motionX, double motionY, double motionZ);
 
-	public float getEffectScaleFactor();
+	int getStackSize(ItemStack consumedStack);
 
-    public void spawnEntity(EntityLivingBase player, Entity entity);
+	ItemStack consumeInventoryItem(Item item, Predicate<ItemStack> condition, EntityPlayer player, int maxSize);
 
-	public void moveParticle(Particle particle, double motionX, double motionY, double motionZ);
+	ItemStack getInventoryItemStack(EntityPlayer player, int inventoryItemIndex);
 
-	public int getStackSize(ItemStack consumedStack);
+	int getInventorySlot(EntityPlayer player, ItemStack itemStack);
 
-	public ItemStack consumeInventoryItem(Item item, Predicate<ItemStack> condition, EntityPlayer player, int maxSize);
+	void consumeInventoryItemFromSlot(EntityPlayer player, int nextAttachmentSlot);
 
-	public ItemStack getInventoryItemStack(EntityPlayer player, int inventoryItemIndex);
+	void addShapedRecipe(ItemStack itemStack, Object... materials);
 
-	public int getInventorySlot(EntityPlayer player, ItemStack itemStack);
+    void addShapedOreRecipe(ItemStack itemStack, Object... materials);
 
-	public boolean consumeInventoryItemFromSlot(EntityPlayer player, int nextAttachmentSlot);
+	void disableLightMap();
 
-	public void addShapedRecipe(ItemStack itemStack, Object... materials);
+	void enableLightMap();
 
-    public void addShapedOreRecipe(ItemStack itemStack, Object... materials);
+	void registerBlock(ModContext context, Block block, String name);
 
-	public void disableLightMap();
+	void registerWorldGenerator(WorldGeneratorEventHandler worldGeneratorEventHandler, int i);
 
-	public void enableLightMap();
+	ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness);
 
-	public void registerBlock(ModContext context, Block block, String name);
+	boolean inventoryHasFreeSlots(EntityPlayer player);
 
-	public void registerWorldGenerator(WorldGeneratorEventHandler worldGeneratorEventHandler, int i);
+    void addBlockHitEffect(BlockPos pos, double x, double y, double z, EnumFacing enumFacing);
 
-	public ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness);
+    String getDisplayName(EntityPlayer player);
 
-	public boolean inventoryHasFreeSlots(EntityPlayer player);
+    String getPlayerName(EntityPlayer player);
 
-    public void addBlockHitEffect(BlockPos pos, double x, double y, double z, EnumFacing enumFacing);
+    void clickBlock(BlockPos blockPos, EnumFacing sideHit);
 
-    public String getDisplayName(EntityPlayer player);
+    boolean isAirBlock(World world, BlockPos blockPos);
 
-    public String getPlayerName(EntityPlayer player);
+    void addChatMessage(Entity entity, String message);
 
-    public void clickBlock(BlockPos blockPos, EnumFacing sideHit);
+    Entity getRenderViewEntity();
 
-    public boolean isAirBlock(World world, BlockPos blockPos);
+    void setRenderViewEntity(Entity entity);
 
-    public void addChatMessage(Entity entity, String message);
+    void addBreakingParticle(ModContext modContext, double x, double y, double z);
 
-    public Entity getRenderViewEntity();
+    float getAspectRatio(ModContext modContext);
 
-    public void setRenderViewEntity(Entity entity);
+    void setStackSize(ItemStack itemStack, int size);
 
-    public void addBreakingParticle(ModContext modContext, double x, double y, double z);
+    ItemStack tryConsumingCompatibleItem(List<? extends Item> compatibleParts, int maxSize, EntityPlayer player, Predicate<ItemStack> ...conditions);
 
-    public float getAspectRatio(ModContext modContext);
+    Item findItemByName(String itemName);
 
-    public void setStackSize(ItemStack itemStack, int size);
+    RayTraceResult rayTraceBlocks(Entity entity, Vector3D vec3, Vector3D vec31);
 
-    public ItemStack tryConsumingCompatibleItem(List<? extends Item> compatibleParts, int maxSize, EntityPlayer player, @SuppressWarnings("unchecked") Predicate<ItemStack> ...conditions);
+    AxisAlignedBB expandEntityBoundingBox(Entity entity, double f, double f2, double f3);
 
-    public Item findItemByName(String itemName);
+    AxisAlignedBB getBoundingBox(Entity entity);
 
-    public RayTraceResult rayTraceBlocks(Entity entity, Vector3D vec3, Vector3D vec31);
+    List<Entity> getEntitiesWithinAABBExcludingEntity(World world, Entity entity, AxisAlignedBB boundingBox);
 
-    public AxisAlignedBB expandEntityBoundingBox(Entity entity, double f, double f2, double f3);
+    void spawnParticle(World world, String particleName, double d, double e, double f, double motionX, double motionY, double motionZ);
 
-    public AxisAlignedBB getBoundingBox(Entity entity);
+    IBlockState getBlockAtPosition(World world, BlockPos blockPos);
 
-    public List<Entity> getEntitiesWithinAABBExcludingEntity(World world, Entity entity, AxisAlignedBB boundingBox);
-
-    public void spawnParticle(World world, String particleName, double d, double e, double f, double motionX, double motionY, double motionZ);
-
-    public IBlockState getBlockAtPosition(World world, BlockPos blockPos);
-
-    public boolean isBlockPenetratableByBullets(Block block);
+    boolean isBlockPenetratableByBullets(Block block);
     
-    public boolean isBlockPenetratableByBullets(IBlockState blockState);
+    boolean isBlockPenetratableByBullets(IBlockState blockState);
 
-    public boolean canCollideCheck(Block block, IBlockState metadata, boolean hitIfLiquid);
+    boolean canCollideCheck(Block block, IBlockState metadata, boolean hitIfLiquid);
 
-    public float getCompatibleShellCasingForwardOffset();
+    float getCompatibleShellCasingForwardOffset();
 
-    public boolean madeFromHardMaterial(IBlockState iBlockState);
+    boolean madeFromHardMaterial(IBlockState iBlockState);
 
-    public void playSoundAtEntity(Entity entity, SoundEvent explosionSound, float volume, float pitch);
+    void playSoundAtEntity(Entity entity, SoundEvent explosionSound, float volume, float pitch);
 
-    public double getBlockDensity(World world, Vector3D vec3d, AxisAlignedBB boundingBox);
+    boolean isImmuneToExplosions(Entity entity);
 
-    public boolean isImmuneToExplosions(Entity entity);
+    boolean isAirBlock(IBlockState blockState);
 
-    public boolean isAirBlock(IBlockState blockState);
+    boolean canDropBlockFromExplosion(IBlockState block, Explosion explosion);
 
-    public boolean canDropBlockFromExplosion(IBlockState block, Explosion explosion);
+    void onBlockExploded(World worldObj, IBlockState blockState, BlockPos blockpos, Explosion explosion);
 
-    public void onBlockExploded(World worldObj, IBlockState blockState, BlockPos blockpos, Explosion explosion);
-
-    public float getExplosionResistance(World world, IBlockState block, BlockPos blockpos, Entity entity,
+    float getExplosionResistance(World world, IBlockState block, BlockPos blockpos, Entity entity,
             Explosion explosion);
 
-    public float getExplosionResistance(World worldObj, Entity exploder, Explosion explosion, BlockPos blockpos, IBlockState blockState);
+    float getExplosionResistance(World worldObj, Entity exploder, Explosion explosion, BlockPos blockpos, IBlockState blockState);
 
-    public boolean isSpectator(EntityPlayer entityplayer);
+    boolean isSpectator(EntityPlayer entityplayer);
 
-    public boolean isCreative(EntityPlayer entityplayer);
+    boolean isCreative(EntityPlayer entityplayer);
 
-    public void setBlockToFire(World world, BlockPos blockpos1);
+    void setBlockToFire(World world, BlockPos blockpos1);
 
-    public DamageSource getDamageSource(Explosion explosion);
+    double getBlastDamageReduction(EntityLivingBase entity, double d10);
 
-    public double getBlastDamageReduction(EntityLivingBase entity, double d10);
+    boolean verifyExplosion(World world, Entity exploder, Explosion explosion, BlockPos blockpos, IBlockState blockState, float f);
 
-    public boolean verifyExplosion(World world, Entity exploder, Explosion explosion, BlockPos blockpos, IBlockState blockState, float f);
+    boolean isFullBlock(IBlockState blockState);
 
-    public boolean isFullBlock(IBlockState blockState);
+    void dropBlockAsItemWithChance(World world, IBlockState blockState, BlockPos blockpos, float f, int i);
 
-    public void dropBlockAsItemWithChance(World world, IBlockState blockState, BlockPos blockpos, float f, int i);
+    IBlockState getBlockBelow(World world, BlockPos blockpos1);
 
-    public IBlockState getBlockBelow(World world, BlockPos blockpos1);
+    void playSound(World world, double posX, double posY, double posZ, SoundEvent explosionSound, float volume, float pitch);
 
-    public void playSound(World world, double posX, double posY, double posZ, SoundEvent explosionSound, float volume, float pitch);
+    boolean isBlockPenetratableByGrenades(Block block);
 
-    public boolean isBlockPenetratableByGrenades(Block block);
+    DamageSource genericDamageSource();
 
-    public DamageSource genericDamageSource();
+    boolean isFlying(EntityPlayer player);
 
-    public boolean isCollided(Particle particle);
+    String getLocalizedString(String format, Object...args);
 
-    public void addSmelting(Block block, ItemStack output, float f);
+    ShaderUniform getShaderUniform(ShaderManager shaderManager, String uniformName);
 
-    public void addSmelting(Item item, ItemStack output, float f);
+    void setUniform(ShaderUniform uniform, float value);
 
-    public boolean isFlying(EntityPlayer player);
+    void setUniform(ShaderUniform uniform, float value1, float value2);
 
-    public String getLocalizedString(String format, Object...args);
+    void setUniform(ShaderUniform uniform, float value1, float value2, float value3);
 
-    public ShaderUniform getShaderUniform(ShaderManager shaderManager, String uniformName);
+    void setUniform(ShaderUniform uniform, float value1, float value2, float value3, float value4);
 
-    public void setUniform(ShaderUniform uniform, float value);
+    Vector3D getLookVec(EntityLivingBase player);
 
-    public void setUniform(ShaderUniform uniform, float value1, float value2);
+    void setEntityAttribute(EntityLivingBase entity, IAttribute attributes, double value);
 
-    public void setUniform(ShaderUniform uniform, float value1, float value2, float value3);
+    EnumDifficulty getDifficulty(World world);
 
-    public void setUniform(ShaderUniform uniform, float value1, float value2, float value3, float value4);
+    void addStat(EntityPlayer entityplayer, StatBase achievementList);
 
-    public Vector3D getLookVec(EntityLivingBase player);
+    float getLightBrightness(World world, BlockPos pos);
 
-    public void setEntityAttribute(EntityLivingBase entity, IAttribute attributes, double value);
+    void setItemStackToSlot(Entity entity, EntityEquipmentSlot entityEquipmentSlot, ItemStack itemStack);
 
-    public EnumDifficulty getDifficulty(World world);
+    boolean isStrafingSupported();
 
-    public void addStat(EntityPlayer entityplayer, StatBase achievementList);
-
-    public float getLightBrightness(World world, BlockPos pos);
-
-    public void setItemStackToSlot(Entity entity, EntityEquipmentSlot entityEquipmentSlot, ItemStack itemStack);
-
-    public boolean isStrafingSupported();
-
-    public void strafe(EntityCustomMob entity, float forward, float strafe);
+    void strafe(EntityCustomMob entity, float forward, float strafe);
     
-    public void addSpawn(Class<? extends EntityLiving> entity, int weightedProb, int min, int max, BiomeDictionary.Type... biomeTypes);
+    void addSpawn(Class<? extends EntityLiving> entity, int weightedProb, int min, int max, BiomeDictionary.Type... biomeTypes);
 
-    public void registerEgg(ModContext context, Class<? extends Entity> entityClass, String entityName, int primaryEggColor, int secondaryEggColor);
+    void registerEgg(ModContext context, Class<? extends Entity> entityClass, String entityName, int primaryEggColor, int secondaryEggColor);
 
-    public void useShader(EntityRenderer entityRenderer, boolean value);
+    void useShader(EntityRenderer entityRenderer, boolean value);
 
-    public boolean is3dRenderable(Item item);
+    boolean is3dRenderable(Item item);
 
-    public float getCompatibleAimingRotationYaw(EntityLivingBase thrower);
+    float getCompatibleAimingRotationYaw(EntityLivingBase thrower);
     
-    public <T> void setPrivateValue(Class<T> class1, T instance, Object value, String...fieldNames);
+    <T> void setPrivateValue(Class<T> class1, T instance, Object value, String...fieldNames);
 
-    public ItemStack createItemStack(NBTTagCompound tagCompound);
+    ItemStack createItemStack(NBTTagCompound tagCompound);
 
-    public EntityAITarget createAINearestAttackableTarget(EntityLivingBase e, Class<? extends EntityLivingBase> targetClass, boolean checkSight);
+    EntityAITarget createAINearestAttackableTarget(EntityLivingBase e, Class<? extends EntityLivingBase> targetClass, boolean checkSight);
     
-    public EntityAIBase createAiAvoidEntity(EntityLivingBase e, Class<? extends EntityLivingBase> entityClassToAvoid,
-            float avoidDistanceIn, double farSpeedIn, double nearSpeedIn);
+    EntityAIBase createAiAvoidEntity(EntityLivingBase e, Class<? extends EntityLivingBase> entityClassToAvoid, float avoidDistanceIn, double farSpeedIn, double nearSpeedIn);
 
-    public Entity getTrueDamageSource(DamageSource cause);
+    Entity getTrueDamageSource(DamageSource cause);
 
-    public ShaderGroup getShaderGroup(EntityRenderer entityRenderer);
+    ShaderGroup getShaderGroup(EntityRenderer entityRenderer);
 
-    public void setShaderGroup(EntityRenderer entityRenderer, ShaderGroup shaderGroup);
+    void setShaderGroup(EntityRenderer entityRenderer, ShaderGroup shaderGroup);
 
-    public WorldType getWorldType(World world);
+    WorldType getWorldType(World world);
 
-    ItemStack findNextBestItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator,
-            EntityPlayer player);
+    ItemStack findNextBestItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player);
     
-    ItemStack tryConsumingCompatibleItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator,
-            EntityPlayer player);
+    ItemStack tryConsumingCompatibleItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player);
 
-    public ItemStack getItemStackFromSlot(EntityEquipmentSlot compatibleSlot);
+    ItemStack getItemStackFromSlot(EntityEquipmentSlot compatibleSlot);
 
-    public boolean isStencilEnabled(Framebuffer framebuffer);
+    boolean isStencilEnabled(Framebuffer framebuffer);
 
-    public void enableStencil(Framebuffer framebuffer);
+    void enableStencil(Framebuffer framebuffer);
 
-    public void resizeEntityBoundingBox(Entity entity, double x, double y, double z);
+    void resizeEntityBoundingBox(Entity entity, double x, double y, double z);
 
-    public void renderRightLegwear(ModelBiped modelPlayer, float scale);
+    void renderRightLegwear(ModelBiped modelPlayer, float scale);
     
-    public void renderLeftLegwear(ModelBiped modelPlayer, float scale);
+    void renderLeftLegwear(ModelBiped modelPlayer, float scale);
     
-    public void renderRightArmwear(ModelBiped modelPlayer, float scale);
+    void renderRightArmwear(ModelBiped modelPlayer, float scale);
     
-    public void renderLeftArmwear(ModelBiped modelPlayer, float scale);
+    void renderLeftArmwear(ModelBiped modelPlayer, float scale);
     
-    public void renderBodywear(ModelBiped model, float scale);
+    void renderBodywear(ModelBiped model, float scale);
     
-    public void renderHeadwear(ModelBiped model, float scale);
+    void renderHeadwear(ModelBiped model, float scale);
 
-    public boolean isShadersModEnabled();
+    boolean isShadersModEnabled();
 
-    public float getFlashIntencityFactor();
+    void setUniqueId(NBTTagCompound tagCompound, String tag, UUID uuid);
     
-    public void setUniqueId(NBTTagCompound tagCompound, String tag, UUID uuid);
+    UUID getUniqueId(NBTTagCompound tagCompound, String tag);
+
+    Entity getEntityByUuid(UUID uuid, World world);
+
+    TileEntity getTileEntity(World world, BlockPos pos);
+
+    void registerTileEntity(Class<? extends TileEntity> tileEntityClass, String name);
     
-    public UUID getUniqueId(NBTTagCompound tagCompound, String tag);
+    void bindTileEntitySpecialRenderer(Class<? extends TileEntity> tileEntityClass, CustomTileEntityRenderer customTileEntityRenderer);
 
-    public Entity getEntityByUuid(UUID uuid, World world);
+    boolean isValidArmor(ItemStack itemstack, EntityEquipmentSlot entityEquipmentSlot, Entity entity);
 
-    public TileEntity getTileEntity(World world, BlockPos pos);
+    NBTTagCompound readTagCompound(PacketBuffer packetBuf) throws IOException;
 
-    public void registerTileEntity(Class<? extends TileEntity> tileEntityClass, String name);
+    void writeTagCompound(PacketBuffer packetBuf, NBTTagCompound tagCompound) throws IOException;
 
-    //public void bindTileEntitySpecialRenderer(Class<? extends TileEntity> tileEntityClass, CustomTileEntityRenderer customTileEntityRenderer);
+    void closeScreen();
+
+    void applyArmor(LivingHurtEvent event, EntityLivingBase entityLiving, ItemStack[] itemStacks, DamageSource damageSource, float amount);
+
+    void dropItem(EntityPlayer player, ItemStack stack, boolean dropAround, boolean traceItem);
+
+    void registerGuiHandler(Object mod, GuiHandler guiHandler);
+
+    void renderItem(EntityPlayer player, ItemStack stack);
+
+    float getSmokeEffectScaleFactor();
+
+    void adjustCustomEquippedPosition();
+
+    void markBlockForUpdate(World world, BlockPos pos);
     
-    public <T extends TileEntity> void bindTileEntitySpecialRenderer(Class<? extends TileEntity> tileEntityClass,
-            CustomTileEntityRenderer customTileEntityRenderer);
+    boolean getGameRulesBooleanValue(GameRules rules, String ruleName);
 
-    public boolean isValidArmor(ItemStack itemstack, EntityEquipmentSlot entityEquipmentSlot, Entity entity);
+    ItemStack getEntityItem(EntityItem entityItem);
 
-    public double getEntityYOffset(Entity entity);
+    ItemStack stackForEmptySlot();
 
-    public NBTTagCompound readTagCompound(PacketBuffer packetBuf) throws IOException;
+    float getBlockDensity(World world, Vector3D vec, AxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable);
 
-    public void writeTagCompound(PacketBuffer packetBuf, NBTTagCompound tagCompound) throws IOException;
-
-    public void closeScreen();
-
-    public void applyArmor(LivingHurtEvent event, EntityLivingBase entityLiving, ItemStack[] itemStacks, DamageSource damageSource, float amount);
-
-    public void dropItem(EntityPlayer player, ItemStack stack, boolean dropAround, boolean traceItem);
-
-    public void registerGuiHandler(Object mod, GuiHandler guiHandler);
-
-    public void renderItem(EntityPlayer player, ItemStack stack);
-
-    public float getSmokeEffectScaleFactor();
-
-    public void adjustCustomEquippedPosition();
-
-    public void markBlockForUpdate(World world, BlockPos pos);
-    
-    public boolean getGameRulesBooleanValue(GameRules rules, String ruleName);
-
-    public ItemStack getEntityItem(EntityItem entityItem);
-
-    public DamageSource mobDamageSource(EntityLivingBase thrower);
-
-    public ItemStack stackForEmptySlot();
-
-    public float getBlockDensity(World world, Vector3D vec, AxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable);
-
-    public int removeMatchingInventoryItemStacks(EntityPlayer player, Item item, int quantity);
-
-    public int getMatchingInventoryItemStack(EntityPlayer player, Item item);
-
-	public void addBloodParticle(ModContext modContext, double x, double y, double z, double velX, double velY, double velZ);
+    void addBloodParticle(ModContext modContext, double x, double y, double z, double velX, double velY, double velZ);
 }

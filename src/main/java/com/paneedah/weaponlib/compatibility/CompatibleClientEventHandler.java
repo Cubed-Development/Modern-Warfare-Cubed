@@ -15,14 +15,11 @@ import com.paneedah.weaponlib.render.shells.ShellManager;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.collisions.OreintedBB;
 import com.paneedah.weaponlib.vehicle.network.VehicleInteractPacket;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
@@ -57,6 +54,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
  * - Cleaned up my absolute mess
  * - Stopped an entire rope simulation from being run every tick
  */
+@Deprecated
 public abstract class CompatibleClientEventHandler {
 
 	private Entity origRenderVeiwEntity;

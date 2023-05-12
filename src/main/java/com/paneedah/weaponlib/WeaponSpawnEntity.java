@@ -142,16 +142,6 @@ public class WeaponSpawnEntity extends EntityProjectile {
             } else {
                 position.entityHit.attackEntityFrom(compatibility.genericDamageSource(), damage);
             }
-            
-            /*
-	        if(this.getThrower() != null &&
-	                (projectilesConfig.isKnockbackOnHit() == null || projectilesConfig.isKnockbackOnHit())) {
-	            position.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
-	        } else if(this.getThrower() instanceof EntityLivingBase && !(this.getThrower() instanceof EntityPlayer)) {
-                position.entityHit.attackEntityFrom(compatibility.mobDamageSource(this.getThrower()), damage);
-            } else {
-	            position.entityHit.attackEntityFrom(compatibility.genericDamageSource(), damage);
-	        }*/
 
             position.entityHit.hurtResistantTime = 0;
             position.entityHit.prevRotationYaw -= 0.3D;

@@ -2629,7 +2629,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 						System.out.println("REPORT!");
 					}
 
-					// System.out.println(isCollided + " | " + isCollidedHorizontally + " | " +
 					// isCollidedVertically);
 
 					//doBlockCollisions();
