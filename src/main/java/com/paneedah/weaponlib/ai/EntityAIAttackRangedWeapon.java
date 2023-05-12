@@ -1,14 +1,14 @@
 package com.paneedah.weaponlib.ai;
 
+import com.paneedah.weaponlib.compatibility.CompatibleEntityAIBase;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.ai.EntityAIBase;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class EntityAIAttackRangedWeapon extends EntityAIBase
+public class EntityAIAttackRangedWeapon extends CompatibleEntityAIBase
 {
     private static final float DEFAULT_SECONDARY_EQUIPMENT_USE_CHANCE = 0.25f;
     

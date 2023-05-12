@@ -20,7 +20,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 
@@ -252,7 +251,7 @@ public class EntityCustomMob extends CompatibleEntityMob
      * Gives armor or weapon for entity based on given DifficultyInstance
      */
     @Override
-    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
+    protected void setEquipmentBasedOnDifficulty(CompatibleDifficulty difficulty) {
         setArmorEquipment();
         setPrimaryEquipment();
         setSecondaryEquipment();
@@ -329,8 +328,9 @@ public class EntityCustomMob extends CompatibleEntityMob
      */
     @Nullable
     @Override
-    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
-        livingdata = super.onInitialSpawn(difficulty, livingdata);
+    public IEntityLivingData onCompatibleSpawn(CompatibleDifficulty difficulty,
+            @Nullable IEntityLivingData livingdata) {
+        livingdata = super.onCompatibleSpawn(difficulty, livingdata);
 
         List<TexturedModel> variants = this.getConfiguration().getTexturedModelVariants();
         int variant = 0;
