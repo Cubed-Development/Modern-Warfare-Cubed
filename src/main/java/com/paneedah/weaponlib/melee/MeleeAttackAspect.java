@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.melee;
 
 import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleTargetPoint;
 import com.paneedah.weaponlib.particle.SpawnParticleMessage;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.PermitManager;
@@ -12,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -187,8 +187,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
         float damage = instance.getWeapon().getDamage(isHeavyAttack);
         entity.attackEntityFrom(DamageSource.causePlayerDamage(player), damage);
 
-        CompatibleTargetPoint point = new CompatibleTargetPoint(entity.dimension,
-                entity.posX, entity.posY, entity.posZ, 100);
+        NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(entity.dimension, entity.posX, entity.posY, entity.posZ, 100);
 
         double motionX = entity.posX - player.posX;
         double motionY = entity.posY - player.posY;

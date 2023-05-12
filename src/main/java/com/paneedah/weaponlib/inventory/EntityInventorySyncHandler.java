@@ -5,6 +5,7 @@ import com.paneedah.weaponlib.compatibility.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
@@ -27,8 +28,7 @@ public class EntityInventorySyncHandler implements CompatibleMessageHandler<Enti
                 inventory.setContext(modContext);
                 inventory.setOwner((EntityPlayer) player);
                 CompatibleCustomPlayerInventoryCapability.setInventory((EntityLivingBase) player, inventory);
-                CompatibleTargetPoint point = new CompatibleTargetPoint(player.dimension, 
-                        player.posX, player.posY, player.posZ, 1000);
+                NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(player.dimension, player.posX, player.posY, player.posZ, 1000);
                 modContext.getChannel().sendToAllAround(new EntityInventorySyncMessage(player, inventory, true), point);
                 
             });

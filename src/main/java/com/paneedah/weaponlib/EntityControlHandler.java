@@ -3,6 +3,7 @@ package com.paneedah.weaponlib;
 import com.paneedah.weaponlib.compatibility.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
@@ -22,8 +23,7 @@ public class EntityControlHandler implements CompatibleMessageHandler<EntityCont
             compatibility.runInMainClientThread(() -> {
                 EntityPlayer player = messageContext.getServerHandler().player;
                 CompatibleExtraEntityFlags.setFlags(player, message.getFlags(), message.getValues());
-                CompatibleTargetPoint point = new CompatibleTargetPoint(player.dimension, 
-                        player.posX, player.posY, player.posZ, 200);
+                NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(player.dimension, player.posX, player.posY, player.posZ, 200);
                 int updatedFlags = CompatibleExtraEntityFlags.getFlags(player);
                 if((updatedFlags & CompatibleExtraEntityFlags.PRONING) != 0) {
                     setSize(player, 0.6f, 0.6f); //player.width, player.width);

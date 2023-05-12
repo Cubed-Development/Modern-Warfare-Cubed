@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
@@ -19,7 +20,7 @@ public class CompatibleChannel {
     	channel.registerMessage(messageHandler, requestMessageType, discriminator, side);
     }
 
-    public void sendToAllAround(IMessage spawnParticleMessage, CompatibleTargetPoint point) {
-        channel.sendToAllAround(spawnParticleMessage, point.getTargetPoint());
+    public void sendToAllAround(IMessage spawnParticleMessage, NetworkRegistry.TargetPoint point) {
+        channel.sendToAllAround(spawnParticleMessage, point);
     }
 }

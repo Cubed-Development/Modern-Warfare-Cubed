@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleTargetPoint;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.jim.util.HitUtil;
 import com.paneedah.weaponlib.network.packets.BloodPacketClient;
@@ -17,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.RayTraceResult.Type;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 import java.util.List;
 
@@ -158,8 +158,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
             log.debug("Hit entity {}", position.entityHit);
 
-            CompatibleTargetPoint point = new CompatibleTargetPoint(position.entityHit.dimension,
-                    this.posX, this.posY, this.posZ, 100);
+            NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(position.entityHit.dimension, this.posX, this.posY, this.posZ, 100);
 
             //double magnitude = Math.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ) + 1;
             
