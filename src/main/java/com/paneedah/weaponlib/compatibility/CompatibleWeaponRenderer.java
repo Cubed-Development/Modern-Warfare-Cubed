@@ -1030,7 +1030,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 	public static final ModelRenderer bipedLeftArm = null;
 	
 	
-	static void fixVersionSpecificFirstPersonPositioning(TransformType transformType) {
+	public static void fixVersionSpecificFirstPersonPositioning(TransformType transformType) {
 		int i = transformType == TransformType.FIRST_PERSON_RIGHT_HAND ? 1 : -1;
 
 		GL11.glTranslatef(0.5f, 0.5f, 0.5f); // untranslate 1.9.4
@@ -1225,7 +1225,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 		tessellator.draw();
 	}
 
-	static <T> void renderRightArm(EntityLivingBase player, RenderContext<T> renderContext,
+	public static <T> void renderRightArm(EntityLivingBase player, RenderContext<T> renderContext,
 			Positioner<Part, RenderContext<T>> positioner) {
 		
 		
@@ -1387,7 +1387,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 	public static ModelRenderer bipedRightArm = null;
 	
 
-	static <T> void renderLeftArm(EntityLivingBase player, RenderContext<T> renderContext,
+	public static <T> void renderLeftArm(EntityLivingBase player, RenderContext<T> renderContext,
 			Positioner<Part, RenderContext<T>> positioner) {
 
 		//if(true) return;
