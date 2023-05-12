@@ -1084,6 +1084,28 @@ config.ores.graphiteSpawnsPerChunk.property.name=Graphite Ore Per Chunk
 config.ores.graphiteSpawnsPerChunk.property.tooltip=The amount of Graphite Ore spawned per chunk.
 
 config.category.gameplay.name=Gameplay Config
+config.gameplay.enableAmmoCounter.property.name=Ammo Counter
+config.gameplay.enableAmmoCounter.property.tooltip=Enable/Disable the Ammo Counter
+config.gameplay.enableOpenDoorDisplay.property.name=Open Door Display
+config.gameplay.enableOpenDoorDisplay.property.tooltip=Enable/Disable the Open Door Display
+config.gameplay.holdToAim.property.name=Hold To Aim
+config.gameplay.holdToAim.property.tooltip=Enable/Disable hold to aim
+config.gameplay.enableAmmoCounterBackground.property.name=Ammo Counter Background
+config.gameplay.enableAmmoCounterBackground.property.tooltip=Enable/Disable the background for Ammo Counter
+config.gameplay.enableBleedingOnHit.property.name=Bleeding On Hit
+config.gameplay.enableBleedingOnHit.property.tooltip=Enable/Disable bleeding on hit
+config.gameplay.bulletBreakGlass.property.name=Bullet Break Glass
+config.gameplay.bulletBreakGlass.property.tooltip=Enable/Disable bullets breaking glass
+config.gameplay.enableMuzzleEffects.property.name=Muzzle Effects
+config.gameplay.enableMuzzleEffects.property.tooltip=Enable/Disable the muzzle effects
+config.gameplay.enableBlurOnAim.property.name=Blur On Aim
+config.gameplay.enableBlurOnAim.property.tooltip=Enable/Disable blur on aim
+config.gameplay.explosionDamage.property.name=Explosion Damage
+config.gameplay.explosionDamage.property.tooltip=Customize the explosion damage
+config.gameplay.explodedBlockDropChance.property.name=Exploded Block Drop Chance
+config.gameplay.explodedBlockDropChance.property.tooltip=The chance for blocks to drop when exploded
+config.gameplay.statusBarPosition.property.name=Status Bar Position
+config.gameplay.statusBarPosition.property.tooltip=The screen position for the Status Bar
 
 config.category.entities.name=Entities Config
 
