@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -28,7 +27,7 @@ import java.util.function.Consumer;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSource, IModernCrafting, IHasModel {
+public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModernCrafting, IHasModel {
         
     
 	public static class Builder {
@@ -408,6 +407,4 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
 		
 		
 	}
-	
-	
 }

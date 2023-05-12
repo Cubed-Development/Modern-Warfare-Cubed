@@ -68,5 +68,4 @@ implements PlayerItemInstanceFactory<PlayerTabletInstance, TabletState>, Updatab
         instance.setState(TabletState.READY);
         return instance;
     }
-  
 }

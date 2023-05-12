@@ -18,6 +18,7 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -43,7 +44,7 @@ import java.util.stream.Collectors;
 import static com.paneedah.mwc.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class Weapon extends CompatibleItem implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>, 
+public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>,
 AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCrafting {
 
     public enum ShellCasingEjectDirection { LEFT, RIGHT };
@@ -1321,9 +1322,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
     }
     
     @Override
-    public void addInformation(ItemStack itemStack, List<String> info, boolean flag) {
-        if(info != null && builder.informationProvider != null) {
-            info.addAll(builder.informationProvider.apply(itemStack));
+    public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        if(tooltip != null && builder.informationProvider != null) {
+            tooltip.addAll(builder.informationProvider.apply(itemStack));
         }
     }
 
@@ -1677,5 +1678,11 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
     @Override
     public void setCraftingGroup(CraftingGroup group) {
         this.craftingGroup = group;
+    }
+
+    // Todo: Remove this method once models are fixed to be at correct height
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+        return true;
     }
 }

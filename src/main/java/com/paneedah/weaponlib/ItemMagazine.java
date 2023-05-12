@@ -116,15 +116,10 @@ Reloadable, Updatable, Part {
 	}
 	
 	@Override
-	public void onCreated(ItemStack stack, World p_77622_2_, EntityPlayer p_77622_3_) {
+	public void onCreated(ItemStack stack, World world, EntityPlayer player) {
 		ensureItemStack(stack, 0);
-		super.onCreated(stack, p_77622_2_, p_77622_3_);
-	}
-
-	@Override
-	public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world) {
-//		ensureItemStack(stack);
-		return super.onItemUseFirst(stack, player, world);
+		stack.setTagCompound(new NBTTagCompound());
+		super.onCreated(stack, world, player);
 	}
 	
 	@Override
@@ -179,5 +174,4 @@ Reloadable, Updatable, Part {
     public void unloadMainHeldItemForPlayer(EntityPlayer player) {
     	modContext.getMagazineReloadAspect().unloadMainHeldItem(player);
     }
-	
 }

@@ -2,15 +2,16 @@ package com.paneedah.weaponlib.melee;
 
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
-import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
@@ -25,7 +26,7 @@ import java.util.stream.Collectors;
 import static com.paneedah.mwc.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class ItemMelee extends CompatibleItem implements
+public class ItemMelee extends Item implements
 PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer, Modifiable, Updatable {
 
     public static class Builder {
@@ -319,9 +320,9 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
     }
 
     @Override
-    public void addInformation(ItemStack itemStack, List<String> info, boolean flag) {
-        if(info != null && builder.informationProvider != null) {
-            info.addAll(builder.informationProvider.apply(itemStack));
+    public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        if(tooltip != null && builder.informationProvider != null) {
+            tooltip.addAll(builder.informationProvider.apply(itemStack));
         }
     }
 
@@ -436,5 +437,11 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         Collection<CompatibleAttachment<ItemMelee>> c = builder.compatibleAttachments.values();
         List<AttachmentCategory> inputCategoryList = Arrays.asList(categories);
         return c.stream().filter(e -> inputCategoryList.contains(e)).collect(Collectors.toList());
+    }
+
+    // Todo: Remove this method once models are fixed to be at correct height
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+        return true;
     }
 }

@@ -1,23 +1,24 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
-public class ItemAttachment<T> extends CompatibleItem implements ModelSource, IModernCrafting {
+public class ItemAttachment<T> extends Item implements ModelSource, IModernCrafting {
 
 	private AttachmentCategory category;
 	private String crosshair;
@@ -176,13 +177,13 @@ public class ItemAttachment<T> extends CompatibleItem implements ModelSource, IM
 	}
 
 	@Override
-    public void addInformation(ItemStack itemStack, List<String> info, boolean flag) {
-		if(info != null && informationProvider != null) {
-		    info.add(informationProvider.apply(itemStack));
+    public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		if(tooltip != null && informationProvider != null) {
+			tooltip.add(informationProvider.apply(itemStack));
 		}
 		
 //		if(getCategory() == AttachmentCategory.GRIP) {
-			//info.add("Here: " + this.getApply().apply(itemAttachment, target, player);)
+			//tooltip.add("Here: " + this.getApply().apply(itemAttachment, target, player);)
 		//}
 	}
 
@@ -261,4 +262,8 @@ public class ItemAttachment<T> extends CompatibleItem implements ModelSource, IM
 		this.modernRecipe = recipe;
 	}
 
+	@Override
+	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+		return true;
+	}
 }

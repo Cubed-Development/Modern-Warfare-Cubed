@@ -3,13 +3,13 @@ package com.paneedah.weaponlib.grenade;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class ItemGrenade extends CompatibleItem implements
+public class ItemGrenade extends Item implements
 PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContainer, Updatable {
 
     public static final int DEFAULT_FUSE_TIMEOUT = 3000;

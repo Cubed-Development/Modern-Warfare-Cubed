@@ -2,13 +2,16 @@ package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -19,7 +22,7 @@ import java.util.function.Consumer;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class ItemWirelessCamera extends CompatibleItem implements ModelSource {
+public class ItemWirelessCamera extends Item implements ModelSource {
 
     public static final long DEFAULT_DURATION = 300 * 1000;
 
@@ -235,8 +238,8 @@ public class ItemWirelessCamera extends CompatibleItem implements ModelSource {
     }
 
     @Override
-    protected ItemStack onCompatibleItemRightClick(ItemStack itemStack, World world, EntityPlayer player,
-            boolean mainHand) {
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+        ItemStack itemStack = player.getHeldItem(hand);
 
         compatibility.setStackSize(itemStack, compatibility.getStackSize(itemStack) - 1);
 
@@ -244,7 +247,7 @@ public class ItemWirelessCamera extends CompatibleItem implements ModelSource {
             compatibility.spawnEntity(player, new EntityWirelessCamera(modContext, world, player, this, builder.duration));
         }
 
-        return itemStack;
+        return new ActionResult<>(EnumActionResult.SUCCESS, itemStack);
     }
 
     @Override

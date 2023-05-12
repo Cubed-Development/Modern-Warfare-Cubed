@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -26,7 +25,7 @@ import java.util.function.Predicate;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class ItemStorage extends CompatibleItem implements ModelSource, IModernCrafting {
+public class ItemStorage extends Item implements ModelSource, IModernCrafting {
     
     public static class Builder {
         
@@ -360,5 +359,4 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
 	public void setCraftingGroup(CraftingGroup group) {
 		this.craftGroup = group;
 	}
-    
 }
