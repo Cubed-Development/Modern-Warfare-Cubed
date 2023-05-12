@@ -32,7 +32,7 @@ public class BanditEntityFactory implements EntityFactory {
         .withEquipmentOption(Guns.VSSVintorez, EnumDifficulty.HARD, 0.1f, Magazines.ASValMag)
         .withEquipmentOption(Guns.MakarovPM, EnumDifficulty.EASY, 0.1f, Magazines.MakarovMag)
         .withEquipmentOption(Guns.Remington870, EnumDifficulty.EASY, 0.07f)
-        .withPrimaryEquipmentDropChance(1.0f)
+        .withPrimaryEquipmentDropChance(0.4f)
         .withSpawn(0, 20, 31, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
         .withMaxTolerableLightBrightness(1f)
         .withSpawnEgg(0xFF808000, 0xFF556B2F)
@@ -43,8 +43,7 @@ public class BanditEntityFactory implements EntityFactory {
         .withTexturedModelVariant("com.paneedah.mwc.models.BanditNew5", "banditnew5.png")
         .withHurtSound("hurt")
         .withAmbientSound("drawweapon")
-        .withStepSound("step")
-           // not sure when step sound was excluded, i re added so they can't sneak up 
+        // .withStepSound("step")
         .withAiTask(1, e -> new EntityAISwimming(e))
         .withAiTask(3, e -> compatibility.createAiAvoidEntity((EntityCreature)e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
         .withAiTask(4, e -> new EntityAIAttackRangedWeapon((EntityCustomMob)e, 1.0D, 10, 30.0F))
