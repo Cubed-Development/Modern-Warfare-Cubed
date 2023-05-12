@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.compatibility.IMessage;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
@@ -11,7 +10,7 @@ import java.io.IOException;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class EntityInventorySyncMessage implements IMessage {
+public class EntityInventorySyncMessage implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 
     private NBTTagCompound inventoryCompound;
     private int entityId;

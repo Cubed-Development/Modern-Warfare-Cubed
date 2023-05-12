@@ -1051,8 +1051,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
     
     @Override
-    public void setEntityAttribute(EntityLivingBase entity, CompatibleSharedMonsterAttributes attributes, double value) {
-        entity.getEntityAttribute(attributes.getAttributes()).setBaseValue(value);
+    public void setEntityAttribute(EntityLivingBase entity, IAttribute attributes, double value) {
+        entity.getEntityAttribute(attributes).setBaseValue(value);
     }
 
     @Override

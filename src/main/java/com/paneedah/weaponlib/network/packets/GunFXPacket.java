@@ -1,16 +1,16 @@
 package com.paneedah.weaponlib.network.packets;
 
 import com.paneedah.weaponlib.ClientEventHandler;
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class GunFXPacket implements IMessage {
+public class GunFXPacket implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 
 	public int entID;
 
@@ -34,7 +34,7 @@ public class GunFXPacket implements IMessage {
 		
 
 		@Override
-		public <T extends IMessage> T onCompatibleMessage(GunFXPacket message, MessageContext messageContext) {
+		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(GunFXPacket message, MessageContext messageContext) {
 			 if(messageContext.side == Side.CLIENT) {
 		            compatibility.runInMainClientThread(() -> {
 					

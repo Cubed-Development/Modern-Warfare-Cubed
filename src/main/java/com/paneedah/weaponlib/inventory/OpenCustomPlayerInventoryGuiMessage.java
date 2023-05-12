@@ -1,9 +1,8 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.compatibility.IMessage;
 import io.netty.buffer.ByteBuf;
 
-public class OpenCustomPlayerInventoryGuiMessage implements IMessage {
+public class OpenCustomPlayerInventoryGuiMessage implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 
     private int guiInventoryId;
 

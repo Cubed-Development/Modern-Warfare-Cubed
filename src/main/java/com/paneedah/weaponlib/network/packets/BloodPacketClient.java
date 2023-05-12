@@ -1,16 +1,16 @@
 package com.paneedah.weaponlib.network.packets;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.jim.util.RandomUtil;
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class BloodPacketClient implements IMessage {
+public class BloodPacketClient implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 
 	double x, y, z, velx, vely, velz;
 
@@ -52,15 +52,18 @@ public class BloodPacketClient implements IMessage {
 	public static class BalancePacketHandler implements CompatibleMessageHandler<BloodPacketClient, IMessage> {
 		
 		private ModContext modContext;
-		
-		
+
+
+		public BalancePacketHandler() {
+		}
+
 		public BalancePacketHandler(ModContext context) {
 			this.modContext = context;
 		}
 		
 
 		@Override
-		public <T extends IMessage> T onCompatibleMessage(BloodPacketClient message, MessageContext messageContext) {
+		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(BloodPacketClient message, MessageContext messageContext) {
 			 if(messageContext.side == Side.CLIENT) {
 		            compatibility.runInMainClientThread(() -> {
 					

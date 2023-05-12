@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
@@ -15,12 +16,15 @@ public class EntityInventorySyncHandler implements CompatibleMessageHandler<Enti
 
     private ModContext modContext;
 
+    public EntityInventorySyncHandler() {
+    }
+
     public EntityInventorySyncHandler(ModContext modContext) {
         this.modContext = modContext;
     }
 
     @Override
-    public <T extends IMessage> T onCompatibleMessage(EntityInventorySyncMessage message, MessageContext messageContext) {
+    public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(EntityInventorySyncMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.SERVER) {
             compatibility.runInMainClientThread(() -> {
                 EntityPlayer player = messageContext.getServerHandler().player;

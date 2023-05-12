@@ -2,13 +2,13 @@ package com.paneedah.weaponlib.network;
 
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.PlayerContext;
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.state.ExtendedState;
 import com.paneedah.weaponlib.state.ManagedState;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.PermitManager;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
@@ -20,13 +20,15 @@ import java.util.function.BiConsumer;
 import static com.paneedah.mwc.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class NetworkPermitManager
-implements PermitManager, CompatibleMessageHandler<PermitMessage, IMessage>  {
+public class NetworkPermitManager implements PermitManager, CompatibleMessageHandler<PermitMessage, IMessage>  {
 
 	private ModContext modContext;
 	private Map<UUID, Object /*BiConsumer<Permit<?>, ?>*/> permitCallbacks = new HashMap<>();
 	private Map<Class<?>, BiConsumer<Permit<?>, ?>> evaluators = new HashMap<>();
-	
+
+	public NetworkPermitManager() {
+	}
+
 	public NetworkPermitManager(ModContext modContext) {
 		this.modContext = modContext;
 	}
@@ -51,8 +53,8 @@ implements PermitManager, CompatibleMessageHandler<PermitMessage, IMessage>  {
 	}
 	
 	@Override
-	public <T extends IMessage> T onCompatibleMessage(PermitMessage permitMessage,
-													  MessageContext messageContext) {
+	public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(PermitMessage permitMessage,
+                                                                                                       MessageContext messageContext) {
 		
 		Permit<?> permit = permitMessage.getPermit();
 		Object extendedState = permitMessage.getContext();

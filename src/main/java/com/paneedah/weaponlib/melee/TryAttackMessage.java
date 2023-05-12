@@ -1,12 +1,11 @@
 package com.paneedah.weaponlib.melee;
 
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
-public class TryAttackMessage implements IMessage {
+public class TryAttackMessage implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 
 	private int entityId;
 	private boolean isHeavyAttack;

@@ -1,11 +1,10 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.IThreadListener;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
@@ -20,12 +19,15 @@ public class ArmorControlHandler implements CompatibleMessageHandler<ArmorContro
 
     //private double yOffset = 1;
 
+    public ArmorControlHandler() {
+    }
+
     public ArmorControlHandler(ModContext modContext) {
         this.modContext = modContext;
     }
 
     @Override
-    public <T extends IMessage> T onCompatibleMessage(ArmorControlMessage message, MessageContext messageContext) {
+    public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(ArmorControlMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.SERVER) {
             compatibility.runInMainClientThread(() -> {
                 if(message.isToggleNightVision()) {

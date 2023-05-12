@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.network.packets;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.BlockDoor;
@@ -10,12 +9,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class OpenDoorPacket implements IMessage {
+public class OpenDoorPacket implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 
 	BlockPos pos;
 
@@ -39,15 +39,18 @@ public class OpenDoorPacket implements IMessage {
 	public static class OpenDoorPacketHandler implements CompatibleMessageHandler<OpenDoorPacket, IMessage> {
 		
 		private ModContext modContext;
-		
-		
+
+
+		public OpenDoorPacketHandler() {
+		}
+
 		public OpenDoorPacketHandler(ModContext context) {
 			this.modContext = context;
 		}
 		
 
 		@Override
-		public <T extends IMessage> T onCompatibleMessage(OpenDoorPacket message, MessageContext messageContext) {
+		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(OpenDoorPacket message, MessageContext messageContext) {
 			if(messageContext.side == Side.SERVER) {
 	            compatibility.runInMainClientThread(() -> {
 					

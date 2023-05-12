@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.inventory;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
@@ -13,12 +13,15 @@ public class OpenCustomInventoryGuiHandler implements CompatibleMessageHandler<O
 
     private ModContext modContext;
 
+    public OpenCustomInventoryGuiHandler() {
+    }
+
     public OpenCustomInventoryGuiHandler(ModContext modContext) {
         this.modContext = modContext;
     }
 
     @Override
-    public <T extends IMessage> T onCompatibleMessage(OpenCustomPlayerInventoryGuiMessage message, MessageContext messageContext) {
+    public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(OpenCustomPlayerInventoryGuiMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.SERVER) {
             compatibility.runInMainClientThread(() -> {
                 EntityPlayer player = messageContext.getServerHandler().player;

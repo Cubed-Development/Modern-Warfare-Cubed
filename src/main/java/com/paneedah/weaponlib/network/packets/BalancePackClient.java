@@ -2,18 +2,18 @@ package com.paneedah.weaponlib.network.packets;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.BalancePackManager.BalancePack;
 import com.paneedah.weaponlib.network.CompressionUtil;
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class BalancePackClient implements IMessage {
+public class BalancePackClient implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 
 	BalancePack pack;
 	String test;
@@ -60,7 +60,7 @@ public class BalancePackClient implements IMessage {
 		
 
 		@Override
-		public <T extends IMessage> T onCompatibleMessage(BalancePackClient message, MessageContext messageContext) {
+		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(BalancePackClient message, MessageContext messageContext) {
 			 if(messageContext.side == Side.CLIENT) {
 		            compatibility.runInMainClientThread(() -> {
 					

@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.network.packets;
 
 import akka.japi.Pair;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -21,6 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
@@ -30,7 +30,7 @@ import java.util.HashMap;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class StationPacket implements IMessage {
+public class StationPacket implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 
 	
 	
@@ -144,7 +144,7 @@ public class StationPacket implements IMessage {
 		}
 
 		@Override
-		public <T extends IMessage> T onCompatibleMessage(StationPacket message, MessageContext messageContext) {
+		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(StationPacket message, MessageContext messageContext) {
 			if(messageContext.side == Side.SERVER) {
 	            compatibility.runInMainClientThread(() -> {
 					

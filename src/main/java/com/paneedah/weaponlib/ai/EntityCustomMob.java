@@ -114,13 +114,13 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        compatibility.setEntityAttribute(this, CompatibleSharedMonsterAttributes.FOLLOW_RANGE,
+        compatibility.setEntityAttribute(this, SharedMonsterAttributes.FOLLOW_RANGE,
                 getConfiguration().getFollowRange());
-        compatibility.setEntityAttribute(this, CompatibleSharedMonsterAttributes.MOVEMENT_SPEED,
+        compatibility.setEntityAttribute(this, SharedMonsterAttributes.MOVEMENT_SPEED,
                 getConfiguration().getMaxSpeed());
-        compatibility.setEntityAttribute(this, CompatibleSharedMonsterAttributes.MAX_HEALTH,
+        compatibility.setEntityAttribute(this, SharedMonsterAttributes.MAX_HEALTH,
                 getConfiguration().getMaxHealth());
-        compatibility.setEntityAttribute(this, CompatibleSharedMonsterAttributes.ATTACK_DAMAGE,
+        compatibility.setEntityAttribute(this, SharedMonsterAttributes.ATTACK_DAMAGE,
                 getConfiguration().getCollisionAttackDamage());
     }
     

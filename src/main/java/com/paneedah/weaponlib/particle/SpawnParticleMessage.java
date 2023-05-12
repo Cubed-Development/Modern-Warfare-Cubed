@@ -1,9 +1,8 @@
 package com.paneedah.weaponlib.particle;
 
-import com.paneedah.weaponlib.compatibility.IMessage;
 import io.netty.buffer.ByteBuf;
 
-public class SpawnParticleMessage implements IMessage {
+public class SpawnParticleMessage implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 
     public enum ParticleType { BLOOD(false), SHELL(false), SMOKE_GRENADE_SMOKE(true), SMOKE_GRENADE_YELLOW_SMOKE(true);
         

@@ -1,12 +1,12 @@
 package com.paneedah.weaponlib.network.packets;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.network.advanced.SimplePacket;
 import com.paneedah.weaponlib.network.advanced.data.DataTypes;
 import com.paneedah.weaponlib.network.advanced.data.PacketSerializer;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 import java.io.ByteArrayOutputStream;
@@ -39,14 +39,17 @@ public class CraftingClientPacket extends SimplePacket {
 	public static class SimplePacketHandler implements CompatibleMessageHandler<CraftingClientPacket, IMessage> {
 
 		private ModContext context;
-		
+
+		public SimplePacketHandler() {
+		}
+
 		public SimplePacketHandler(ModContext context) {
 			this.context = context;
 		}
 		
 		@Override
-		public <T extends IMessage> T onCompatibleMessage(CraftingClientPacket message,
-														  MessageContext messageContext) {
+		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(CraftingClientPacket message,
+                                                                                                           MessageContext messageContext) {
 			mc.addScheduledTask(() -> {
 				
 				int opcode = message.opcode.getValue();

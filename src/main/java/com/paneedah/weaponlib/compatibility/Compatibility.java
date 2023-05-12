@@ -307,7 +307,7 @@ public interface Compatibility {
 
     public Vector3D getLookVec(EntityLivingBase player);
 
-    public void setEntityAttribute(EntityLivingBase entity, CompatibleSharedMonsterAttributes attributes, double value);
+    public void setEntityAttribute(EntityLivingBase entity, IAttribute attributes, double value);
 
     public EnumDifficulty getDifficulty(World world);
 

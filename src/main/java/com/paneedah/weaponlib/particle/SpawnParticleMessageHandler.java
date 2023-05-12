@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.particle;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
@@ -19,12 +19,15 @@ public class SpawnParticleMessageHandler implements CompatibleMessageHandler<Spa
     @SuppressWarnings("unused")
     private double yOffset = 1;
 
+    public SpawnParticleMessageHandler() {
+    }
+
     public SpawnParticleMessageHandler(ModContext modContext) {
         this.modContext = modContext;
     }
 
     @Override
-    public <T extends IMessage> T onCompatibleMessage(SpawnParticleMessage message, MessageContext messageContext) {
+    public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(SpawnParticleMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.CLIENT) {
             compatibility.runInMainClientThread(() -> {
                 for (int i = 0; i < message.getCount(); ++i) {

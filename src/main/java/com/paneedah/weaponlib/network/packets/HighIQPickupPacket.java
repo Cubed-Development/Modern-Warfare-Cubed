@@ -4,7 +4,6 @@ import com.paneedah.weaponlib.HighIQSpawnEgg;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.SecondaryEntityRegistry;
 import com.paneedah.weaponlib.ai.EntityCustomMob;
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.network.advanced.SimplePacket;
 import com.paneedah.weaponlib.network.advanced.data.DataTypes;
@@ -12,6 +11,7 @@ import com.paneedah.weaponlib.network.advanced.data.PacketSerializer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class HighIQPickupPacket extends SimplePacket {
@@ -38,14 +38,17 @@ public class HighIQPickupPacket extends SimplePacket {
 	public static class SimplePacketHandler implements CompatibleMessageHandler<HighIQPickupPacket, IMessage> {
 
 		private ModContext context;
-		
+
+		public SimplePacketHandler() {
+		}
+
 		public SimplePacketHandler(ModContext context) {
 			this.context = context;
 		}
 		
 		@Override
-		public <T extends IMessage> T onCompatibleMessage(HighIQPickupPacket message,
-														  MessageContext messageContext) {
+		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(HighIQPickupPacket message,
+                                                                                                           MessageContext messageContext) {
 			messageContext.getServerHandler().player.getServer().addScheduledTask(() -> {
 				// Find the player we should send to
 				EntityPlayerMP target = (EntityPlayerMP) messageContext.getServerHandler().player.getEntityWorld().getEntityByID(message.playerID.getValue());

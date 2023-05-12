@@ -1,20 +1,20 @@
 package com.paneedah.weaponlib.network.packets;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class StationClientPacket implements IMessage {
+public class StationClientPacket implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 
 	// THIS ONLY EXISTS ON THE SERVER END, THIS
 	// VARIABLE WILL BE NULL ON THE CLIENT END.
@@ -62,15 +62,18 @@ public class StationClientPacket implements IMessage {
 	public static class WorkshopClientPacketHandler implements CompatibleMessageHandler<StationClientPacket, IMessage> {
 		
 		private ModContext modContext;
-		
-		
+
+
+		public WorkshopClientPacketHandler() {
+		}
+
 		public WorkshopClientPacketHandler(ModContext context) {
 			this.modContext = context;
 		}
 		
 
 		@Override
-		public <T extends IMessage> T onCompatibleMessage(StationClientPacket message, MessageContext messageContext) {
+		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(StationClientPacket message, MessageContext messageContext) {
 			 if(messageContext.side == Side.CLIENT) {
 		            compatibility.runInMainClientThread(() -> {
 					

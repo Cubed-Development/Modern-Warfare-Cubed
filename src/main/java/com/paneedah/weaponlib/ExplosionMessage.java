@@ -2,14 +2,13 @@ package com.paneedah.weaponlib;
 
 import com.google.common.collect.Lists;
 import com.paneedah.mwc.vectors.Vector3D;
-import com.paneedah.weaponlib.compatibility.IMessage;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.BlockPos;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExplosionMessage implements IMessage {
+public class ExplosionMessage implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 
     private double posX;
     private double posY;

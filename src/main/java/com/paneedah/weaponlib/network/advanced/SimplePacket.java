@@ -1,13 +1,12 @@
 package com.paneedah.weaponlib.network.advanced;
 
-import com.paneedah.weaponlib.compatibility.IMessage;
 import com.paneedah.weaponlib.network.advanced.data.PacketSerializer;
 import io.netty.buffer.ByteBuf;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-public class SimplePacket implements IMessage {
+public class SimplePacket implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 	
 	private ArrayList<PacketSerializer<?>> serializers = new ArrayList<>();
 	
