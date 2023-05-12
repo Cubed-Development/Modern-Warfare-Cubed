@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -247,8 +246,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 //            }
 
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
-            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
-                    unlocalizedHelmetName, textureName, chestModel, hudTextureName);
+            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.HEAD, unlocalizedHelmetName, textureName, chestModel, hudTextureName);
 
             if (creativeTab != null)
                 armorHelmet.setCreativeTab(creativeTab);
@@ -257,7 +255,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
             compatibility.registerItem(armorHelmet, unlocalizedHelmetName.toLowerCase());
 
             String unlocalizedChestName = unlocalizedName + "_chest";
-            CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.CHEST,
+            CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.CHEST,
                     unlocalizedChestName, textureName, chestModel, hudTextureName);
             if(creativeTab != null) {
                 armorChest.setCreativeTab(creativeTab);
@@ -266,7 +264,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
             compatibility.registerItem(armorChest, unlocalizedChestName.toLowerCase());
 
             String unlocalizedBootsName = unlocalizedName + "_boots";
-            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET,
+            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.FEET,
                     unlocalizedBootsName, textureName, bootsModel, hudTextureName);
 
             if(armorBoots != null)
@@ -315,7 +313,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 helmetModel = HelmetModelFactory.create(modelClassName);
 
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
-            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
+            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.HEAD,
                     unlocalizedHelmetName, textureName, helmetModel, hudTextureName);
             
             CraftingRegistry.registerHook(armorHelmet);
@@ -344,7 +342,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
             }
 
             String unlocalizedChestName = unlocalizedName + "_chest";
-            CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.CHEST,
+            CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.CHEST,
                     unlocalizedChestName, textureName, chestModel, hudTextureName);
             
             CraftingRegistry.registerHook(armorChest);
@@ -375,7 +373,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 bootsModel = BootsModelFactory.createModel(modelClassName);
 
             String unlocalizedBootsName = unlocalizedName + "_boots";
-            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET,
+            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.FEET,
                     unlocalizedBootsName, textureName, bootsModel, hudTextureName);
             
             CraftingRegistry.registerHook(armorBoots);
@@ -399,14 +397,14 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 
     private Map<ItemAttachment<CustomArmor>, CompatibleAttachment<CustomArmor>> compatibleAttachments = new HashMap<>();
 
-    //private CompatibleEntityEquipmentSlot slot;
+    //private EntityEquipmentSlot slot;
     private boolean hasNightVision;
     private boolean vignetteEnabled;
     private float exposureReductionFactor;
     @SuppressWarnings("unused")
     private SoundEvent breathingSound;
 
-    private CompatibleEntityEquipmentSlot compatibleEquipmentType;
+    private EntityEquipmentSlot compatibleEquipmentType;
     
 //    private boolean shieldEnabled;
     private long shieldRegenerationTimeout = 1000;
@@ -425,8 +423,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 	private CraftingGroup craftGroup;
 
 
-    private CustomArmor(String unlocalizedArmorSetName, ArmorMaterial material, int renderIndex, CompatibleEntityEquipmentSlot armorType, String iconName, String textureName, ModelBiped model, String hudTextureName) {
-        super(material, renderIndex, armorType.getSlot());
+    private CustomArmor(String unlocalizedArmorSetName, ArmorMaterial material, int renderIndex, EntityEquipmentSlot armorType, String iconName, String textureName, ModelBiped model, String hudTextureName) {
+        super(material, renderIndex, armorType);
         this.textureName = textureName;
         this.model = model;
         this.hudTextureName = hudTextureName;
@@ -674,7 +672,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 //        }
     }
 
-    public CompatibleEntityEquipmentSlot getCompatibleEquipmentSlot() {
+    public EntityEquipmentSlot getCompatibleEquipmentSlot() {
         return compatibleEquipmentType;
     }
 

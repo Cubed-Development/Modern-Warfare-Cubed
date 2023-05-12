@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -98,7 +97,7 @@ public class StorageItemContainer extends Container {
         int i;
         for (i = 0; i < 4; ++i) {
             slots.add(new ArmorSlot(player, inventoryPlayer, inventoryPlayer.getSizeInventory() - 1 - i,
-                    8, 8 + i * 18, CompatibleEntityEquipmentSlot.valueOf(i)));
+                    8, 8 + i * 18, EntityEquipmentSlot.valueOf(i)));
         }*/
     	List<Slot> slots = new ArrayList<>();
         int i;
@@ -139,7 +138,7 @@ public class StorageItemContainer extends Container {
                 }
             });
             //slots.add(new ArmorSlot(player, inventoryPlayer, inventoryPlayer.getSizeInventory() - 1 - i - 1,
-            //        8, 8 + i * 18, CompatibleEntityEquipmentSlot.valueOf(i)));
+            //        8, 8 + i * 18, EntityEquipmentSlot.valueOf(i)));
         }
         return slots;
     }
@@ -204,7 +203,7 @@ public class StorageItemContainer extends Container {
 
                 // if item is armor
                 else if (index >= armorSlotStartIndex && index <= armorSlotEndIndex) {
-                    CompatibleEntityEquipmentSlot type = compatibility.getArmorType((ItemArmor) itemstack1.getItem());//((ItemArmor) itemstack1.getItem()).armorType;
+                    EntityEquipmentSlot type = ((ItemArmor) itemstack1.getItem()).armorType;//((ItemArmor) itemstack1.getItem()).armorType;
                     if (!this.mergeItemStack(itemstack1, armorSlotStartIndex + type.ordinal(), armorSlotStartIndex + type.ordinal() + 1, false)) {
                         return compatibility.stackForEmptySlot();
                     }

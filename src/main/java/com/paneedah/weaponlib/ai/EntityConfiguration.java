@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.ai;
 
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import com.paneedah.weaponlib.config.AIEntity;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import net.minecraft.client.model.ModelBiped;
@@ -11,6 +10,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAITasks;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -174,7 +174,7 @@ public class EntityConfiguration {
         private boolean spawnEgg;
         private int primaryEggColor;
         private int secondaryEggColor;
-        private Map<CompatibleEntityEquipmentSlot, CustomArmor> armor = new HashMap<>();
+        private Map<EntityEquipmentSlot, CustomArmor> armor = new HashMap<>();
         
         private float primaryEquipmentDropChance = DEFAULT_PRIMARY_EQUIPMENT_DROP_CHANCE;
         private float secondaryEquipmentDropChance = DEFAULT_SECONDARY_EQUIPMENT_DROP_CHANCE;
@@ -600,7 +600,7 @@ public class EntityConfiguration {
 
     public float sizeWidth, sizeHeight;
 
-    private Map<CompatibleEntityEquipmentSlot, CustomArmor> armor;
+    private Map<EntityEquipmentSlot, CustomArmor> armor;
     private float primaryEquipmentDropChance;
     private float secondaryEquipmentDropChance;
     private float armorDropChance;

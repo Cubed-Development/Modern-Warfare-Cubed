@@ -14,6 +14,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.stats.StatList;
@@ -319,7 +320,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
                 initGrenade(equipment, equipmentItemStack);
             }
 
-            compatibility.setItemStackToSlot(this, CompatibleEntityEquipmentSlot.MAIN_HAND, equipmentItemStack);
+            compatibility.setItemStackToSlot(this, EntityEquipmentSlot.MAINHAND, equipmentItemStack);
         }
     }
 

@@ -53,7 +53,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                         
                         initBullet(equipment, equipmentItemStack, player);
                     }
-                    //compatibility.setItemStackToSlot(player, CompatibleEntityEquipmentSlot.MAIN_HAND, equipmentItemStack);
+                    //compatibility.setItemStackToSlot(player, EntityEquipmentSlot.MAIN_HAND, equipmentItemStack);
                     
                     if(equipmentItemStack != null) {
                         EntityItem item = new EntityItem(getWorld(), getPos().getX() + 1, getPos().getY() + 1, getPos().getZ() + 1, equipmentItemStack);

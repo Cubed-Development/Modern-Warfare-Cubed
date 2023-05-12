@@ -29,6 +29,7 @@ import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -315,7 +316,7 @@ public interface Compatibility {
 
     public float getLightBrightness(World world, BlockPos pos);
 
-    public void setItemStackToSlot(Entity entity, CompatibleEntityEquipmentSlot compatibleEquipmentSlot, ItemStack itemStack);
+    public void setItemStackToSlot(Entity entity, EntityEquipmentSlot entityEquipmentSlot, ItemStack itemStack);
 
     public boolean isStrafingSupported();
 
@@ -354,7 +355,7 @@ public interface Compatibility {
     ItemStack tryConsumingCompatibleItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator,
             EntityPlayer player);
 
-    public ItemStack getItemStackFromSlot(CompatibleEntityEquipmentSlot compatibleSlot);
+    public ItemStack getItemStackFromSlot(EntityEquipmentSlot compatibleSlot);
 
     public boolean isStencilEnabled(Framebuffer framebuffer);
 
@@ -393,10 +394,7 @@ public interface Compatibility {
     public <T extends TileEntity> void bindTileEntitySpecialRenderer(Class<? extends TileEntity> tileEntityClass,
             CustomTileEntityRenderer customTileEntityRenderer);
 
-    public boolean isValidArmor(ItemStack itemstack, CompatibleEntityEquipmentSlot compatibleEntityEquipementSlot,
-            Entity entity);
-
-    public CompatibleEntityEquipmentSlot getArmorType(ItemArmor item);
+    public boolean isValidArmor(ItemStack itemstack, EntityEquipmentSlot entityEquipmentSlot, Entity entity);
 
     public double getEntityYOffset(Entity entity);
 

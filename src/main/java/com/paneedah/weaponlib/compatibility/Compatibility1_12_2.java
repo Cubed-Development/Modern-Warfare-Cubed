@@ -1016,8 +1016,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void setItemStackToSlot(Entity entity, CompatibleEntityEquipmentSlot compatibleEquipmentSlot, ItemStack itemStack) {
-        entity.setItemStackToSlot(compatibleEquipmentSlot.getSlot(), itemStack);
+    public void setItemStackToSlot(Entity entity, EntityEquipmentSlot compatibleEquipmentSlot, ItemStack itemStack) {
+        entity.setItemStackToSlot(compatibleEquipmentSlot, itemStack);
     }
 
     @Override
@@ -1149,8 +1149,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
     
     @Override
-    public ItemStack getItemStackFromSlot(CompatibleEntityEquipmentSlot compatibleSlot) {
-        return clientPlayer().getItemStackFromSlot(compatibleSlot.getSlot());
+    public ItemStack getItemStackFromSlot(EntityEquipmentSlot compatibleSlot) {
+        return clientPlayer().getItemStackFromSlot(compatibleSlot);
     }
 
     @Override
@@ -1274,13 +1274,8 @@ private Optional<Field> shadersEnabledFieldOptional;
     }
 
     @Override
-    public boolean isValidArmor(ItemStack itemstack, CompatibleEntityEquipmentSlot compatibleEntityEquipementSlot, Entity entity) {
-        return itemstack.getItem().isValidArmor(itemstack, compatibleEntityEquipementSlot.getSlot(), entity);
-    }
-
-    @Override
-    public CompatibleEntityEquipmentSlot getArmorType(ItemArmor item) {
-        return CompatibleEntityEquipmentSlot.valueOf(item.armorType);
+    public boolean isValidArmor(ItemStack itemstack, EntityEquipmentSlot entityEquipmentSlot, Entity entity) {
+        return itemstack.getItem().isValidArmor(itemstack, entityEquipmentSlot, entity);
     }
 
     @Override

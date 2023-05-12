@@ -130,7 +130,7 @@ public class CustomPlayerInventoryContainer extends Container {
                 }
             });
             //slots.add(new ArmorSlot(player, inventoryPlayer, inventoryPlayer.getSizeInventory() - 1 - i - 1,
-            //        8, 8 + i * 18, CompatibleEntityEquipmentSlot.valueOf(i)));
+            //        8, 8 + i * 18, EntityEquipmentSlot.valueOf(i)));
         }
         return slots;
     }
@@ -201,7 +201,7 @@ public class CustomPlayerInventoryContainer extends Container {
                 		
                     	/*
                     	if((itemstack.getItem() instanceof CustomArmor)) {
-                    		 CompatibleEntityEquipmentSlot type = compatibility.getArmorType((ItemArmor) itemstack1.getItem());//((ItemArmor) itemstack1.getItem()).armorType;
+                    		 EntityEquipmentSlot type = ((ItemArmor) itemstack1.getItem()).armorType;//((ItemArmor) itemstack1.getItem()).armorType;
                              
                            
                              
