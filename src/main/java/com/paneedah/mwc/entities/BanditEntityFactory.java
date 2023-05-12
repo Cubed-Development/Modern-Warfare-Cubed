@@ -32,7 +32,7 @@ public class BanditEntityFactory implements EntityFactory {
         .withEquipmentOption(Guns.MakarovPM, EnumDifficulty.EASY, 0.1f, Magazines.MakarovMag)
         .withEquipmentOption(Guns.Remington870, EnumDifficulty.EASY, 0.07f)
         .withPrimaryEquipmentDropChance(0.4f)
-        .withSpawn(2, 20, 31, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS)
+        .withSpawn(0, 20, 31, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
         .withMaxTolerableLightBrightness(1f)
         .withSpawnEgg(0xFF808000, 0xFF556B2F)
         .withTexturedModelVariant("com.paneedah.mwc.models.BanditNew", "banditnew.png")

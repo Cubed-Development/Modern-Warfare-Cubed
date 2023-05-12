@@ -24,7 +24,7 @@ public abstract class CompatibleItem extends Item {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-        return new ActionResult<>(EnumActionResult.SUCCESS, onCompatibleItemRightClick(player.getHeldItemMainhand(), world, player, hand == EnumHand.MAIN_HAND));
+        return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
     }
 
     protected ItemStack onCompatibleItemRightClick(ItemStack itemStack, World world, EntityPlayer player, boolean mainHand) {

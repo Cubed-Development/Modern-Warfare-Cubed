@@ -531,7 +531,7 @@ public class EntityConfiguration {
 
             for(Spawn spawn: spawns) {
             	//int weightedProb = spawn.weightedProb;
-                int weightedProb = (int)(entityConfig.getSpawn() * spawn.weightedProb);
+                int weightedProb = (int)(entityConfig.getSpawn());
                 if(weightedProb > 0)
                     compatibility.addSpawn(safeCast(entityClass), weightedProb, spawn.min, spawn.max, spawn.biomeTypes);
             }
