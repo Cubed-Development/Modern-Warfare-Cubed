@@ -1,12 +1,12 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -81,8 +81,8 @@ Reloadable, Updatable, Part {
 	private int ammo;
 	private long reloadingTimeout;
 	private List<ItemBullet> compatibleBullets;
-	private CompatibleSound reloadSound;
-	private CompatibleSound unloadSound;
+	private SoundEvent reloadSound;
+	private SoundEvent unloadSound;
 	private ModContext modContext;
 	private Vec3d rotPoint;
 	
@@ -141,11 +141,11 @@ Reloadable, Updatable, Part {
 		return ammo;
 	}
 
-	public CompatibleSound getReloadSound() {
+	public SoundEvent getReloadSound() {
 		return reloadSound;
 	}
 	
-	public CompatibleSound getUnloadSound() {
+	public SoundEvent getUnloadSound() {
 		return unloadSound;
 	}
 

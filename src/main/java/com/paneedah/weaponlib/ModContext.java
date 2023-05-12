@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.CompatibleChannel;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import com.paneedah.weaponlib.crafting.RecipeManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.GrenadeRenderer;
@@ -15,6 +14,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 
 public interface ModContext {
 
@@ -34,8 +34,7 @@ public interface ModContext {
 
 	public void registerRenderableItem(ResourceLocation name, Item weapon, Object renderer);
 
-	// TODO: append mod id in 1.7.10
-	public CompatibleSound registerSound(String sound);
+	public SoundEvent registerSound(String sound);
 
 	public void runInMainThread(Runnable runnable);
 
@@ -55,33 +54,33 @@ public interface ModContext {
 
 	public RecipeManager getRecipeManager();
 
-	public CompatibleSound getZoomSound();
+	public SoundEvent getZoomSound();
 
 	public void setChangeZoomSound(String sound);
 
-	public CompatibleSound getChangeFireModeSound();
+	public SoundEvent getChangeFireModeSound();
 
 	public void setChangeFireModeSound(String sound);
 
-	public CompatibleSound getNoAmmoSound();
+	public SoundEvent getNoAmmoSound();
 
 	public void setNoAmmoSound(String sound);
 
-	public CompatibleSound getExplosionSound();
+	public SoundEvent getExplosionSound();
 
 	public void setExplosionSound(String sound);
 
-	public CompatibleSound getFlashExplosionSound();
+	public SoundEvent getFlashExplosionSound();
 
 	public void setFlashExplosionSound(String sound);
 
 	public void setNightVisionOnSound(String sound);
 
-	public CompatibleSound getNightVisionOnSound();
+	public SoundEvent getNightVisionOnSound();
 
 	public void setNightVisionOffSound(String sound);
 
-	public CompatibleSound getNightVisionOffSound();
+	public SoundEvent getNightVisionOffSound();
 
 	public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer);
 

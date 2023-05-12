@@ -36,6 +36,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
@@ -131,23 +132,23 @@ public class CommonModContext implements ModContext {
 
 	protected PlayerItemInstanceRegistry playerItemInstanceRegistry;
 
-	private Map<ResourceLocation, CompatibleSound> registeredSounds = new HashMap<>();
+	private Map<ResourceLocation, SoundEvent> registeredSounds = new HashMap<>();
 
 	private RecipeManager recipeManager;
 
-	private CompatibleSound changeZoomSound;
+	private SoundEvent changeZoomSound;
 
-	private CompatibleSound changeFireModeSound;
+	private SoundEvent changeFireModeSound;
 
-	private CompatibleSound noAmmoSound;
+	private SoundEvent noAmmoSound;
 	
-    private CompatibleSound explosionSound;
+    private SoundEvent explosionSound;
     
-    private CompatibleSound flashExplosionSound;
+    private SoundEvent flashExplosionSound;
     
-    private CompatibleSound nightVisionOnSound;
+    private SoundEvent nightVisionOnSound;
     
-    private CompatibleSound nightVisionOffSound;
+    private SoundEvent nightVisionOffSound;
     
     private Map<BulletImpactSoundKey, MaterialImpactSound> bulletImpactSoundEntries = new HashMap<>();
 
@@ -360,7 +361,7 @@ public class CommonModContext implements ModContext {
 	}
 
 	@Override
-	public CompatibleSound registerSound(String sound) {
+	public SoundEvent registerSound(String sound) {
 	    if(sound == null) {
 	        return null;
 	    }
@@ -368,10 +369,10 @@ public class CommonModContext implements ModContext {
 		return registerSound(soundResourceLocation);
 	}
 
-	protected CompatibleSound registerSound(ResourceLocation soundResourceLocation) {
-		CompatibleSound result = registeredSounds.get(soundResourceLocation);
+	protected SoundEvent registerSound(ResourceLocation soundResourceLocation) {
+        SoundEvent result = registeredSounds.get(soundResourceLocation);
 		if(result == null) {
-			result = new CompatibleSound(soundResourceLocation);
+			result = new SoundEvent(soundResourceLocation);
 			registeredSounds.put(soundResourceLocation, result);
 			compatibility.registerSound(result);
 		}
@@ -473,12 +474,12 @@ public class CommonModContext implements ModContext {
 	}
 
 	@Override
-	public CompatibleSound getZoomSound() {
+	public SoundEvent getZoomSound() {
 		return changeZoomSound;
 	}
 
 	@Override
-	public CompatibleSound getChangeFireModeSound() {
+	public SoundEvent getChangeFireModeSound() {
 		return changeFireModeSound;
 	}
 
@@ -493,7 +494,7 @@ public class CommonModContext implements ModContext {
 	}
 
 	@Override
-	public CompatibleSound getNoAmmoSound() {
+	public SoundEvent getNoAmmoSound() {
 		return noAmmoSound;
 	}
 
@@ -503,12 +504,12 @@ public class CommonModContext implements ModContext {
 	}
 
 	@Override
-	public CompatibleSound getExplosionSound() {
+	public SoundEvent getExplosionSound() {
 	    return explosionSound;
 	}
 	
 	@Override
-	public CompatibleSound getFlashExplosionSound() {
+	public SoundEvent getFlashExplosionSound() {
 	    return flashExplosionSound;
 	}
 	
@@ -523,7 +524,7 @@ public class CommonModContext implements ModContext {
     }
 
     @Override
-    public CompatibleSound getNightVisionOnSound() {
+    public SoundEvent getNightVisionOnSound() {
         return nightVisionOnSound;
     }
     
@@ -533,7 +534,7 @@ public class CommonModContext implements ModContext {
     }
 
     @Override
-    public CompatibleSound getNightVisionOffSound() {
+    public SoundEvent getNightVisionOffSound() {
         return nightVisionOffSound;
     }
 

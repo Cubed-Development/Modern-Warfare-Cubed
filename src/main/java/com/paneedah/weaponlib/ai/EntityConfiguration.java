@@ -3,7 +3,6 @@ package com.paneedah.weaponlib.ai;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import com.paneedah.weaponlib.config.AIEntity;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import net.minecraft.client.model.ModelBiped;
@@ -14,6 +13,7 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraftforge.common.BiomeDictionary;
 
@@ -576,10 +576,10 @@ public class EntityConfiguration {
 
     private List<AiTask> aiTasks;
     private List<AiTask> aiTargetTasks;
-    private CompatibleSound ambientSound;
-    private CompatibleSound hurtSound;
-    private CompatibleSound deathSound;
-    private CompatibleSound stepSound;
+    private SoundEvent ambientSound;
+    private SoundEvent hurtSound;
+    private SoundEvent deathSound;
+    private SoundEvent stepSound;
     private ResourceLocation lootTable;
     private double maxHealth;
     private Predicate<Entity> canSpawnHere;
@@ -652,19 +652,19 @@ public class EntityConfiguration {
     	return this.lookHeightMultiplier;
     }
 
-    public CompatibleSound getAmbientSound() {
+    public SoundEvent getAmbientSound() {
         return ambientSound;
     }
 
-    public CompatibleSound getHurtSound() {
+    public SoundEvent getHurtSound() {
         return hurtSound;
     }
 
-    public CompatibleSound getDeathSound() {
+    public SoundEvent getDeathSound() {
         return deathSound;
     }
 
-    public CompatibleSound getStepSound() {
+    public SoundEvent getStepSound() {
         return stepSound;
     }
 

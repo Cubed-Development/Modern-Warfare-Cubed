@@ -191,7 +191,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 				if(targetState.sound != null) {
 					//System.out.println(targetState.sound.getResourceLocation());
 					
-					PositionedSoundRecord psr = new PositionedSoundRecord(targetState.sound.getSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, mc.player.getPosition().up(5));
+					PositionedSoundRecord psr = new PositionedSoundRecord(targetState.sound, SoundCategory.PLAYERS, 1.0F, 1.0F, mc.player.getPosition().up(5));
 		        	mc.getSoundHandler().playSound(psr);
 				}
 			}

@@ -3,9 +3,9 @@ package com.paneedah.weaponlib.tile;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.WeightedOptions;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.EnumDifficulty;
 
 import java.util.*;
@@ -93,8 +93,8 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
     private String dispenseSound;
     private String equipmentNotAvailableSound;
     
-    private CompatibleSound dispenseCompatibleSound;
-    private CompatibleSound equipmentNotAvailableCompatibleSound;
+    private SoundEvent dispenseCompatibleSound;
+    private SoundEvent equipmentNotAvailableCompatibleSound;
 
     public LootBoxConfiguration withEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>...attachments) {
         withEquipmentOption(equipmentOptions, item, difficultyLevel, weight, attachments);
@@ -184,11 +184,11 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
         return equipmentDispenseTimeoutTicks;
     }
     
-    public CompatibleSound getDispenseSound() {
+    public SoundEvent getDispenseSound() {
         return dispenseCompatibleSound;
     }
     
-    public CompatibleSound getEquipmentNotAvailableSound() {
+    public SoundEvent getEquipmentNotAvailableSound() {
         return equipmentNotAvailableCompatibleSound;
     }
 

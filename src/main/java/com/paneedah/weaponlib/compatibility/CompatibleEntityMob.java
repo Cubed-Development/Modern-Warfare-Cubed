@@ -7,10 +7,10 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
+import net.minecraft.util.SoundEvent;
 
 import java.util.Arrays;
 
@@ -30,11 +30,11 @@ public abstract class CompatibleEntityMob extends EntityMob {
 
     @Override
     protected final SoundEvent getAmbientSound() {
-        CompatibleSound sound = getCompatibleAmbientSound();
-        return sound != null ? sound.getSound() : null;
+        SoundEvent sound = getCompatibleAmbientSound();
+        return sound != null ? sound : null;
     }
 
-    protected CompatibleSound getCompatibleAmbientSound() {
+    protected SoundEvent getCompatibleAmbientSound() {
         return null;
     }
 
@@ -44,21 +44,21 @@ public abstract class CompatibleEntityMob extends EntityMob {
     }
     
     protected final SoundEvent getHurtSound() {
-        CompatibleSound sound = getCompatibleHurtSound();
-        return sound != null ? sound.getSound() : null;
+        SoundEvent sound = getCompatibleHurtSound();
+        return sound != null ? sound : null;
     }
 
-    protected  CompatibleSound getCompatibleHurtSound() {
+    protected  SoundEvent getCompatibleHurtSound() {
         return null;
     }
 
     @Override
     protected final SoundEvent getDeathSound() {
-        CompatibleSound sound = getCompatibleDeathSound();
-        return sound != null ? sound.getSound() : null;
+        SoundEvent sound = getCompatibleDeathSound();
+        return sound != null ? sound : null;
     }
     
-    protected CompatibleSound getCompatibleDeathSound() {
+    protected SoundEvent getCompatibleDeathSound() {
         return null;
     }
 

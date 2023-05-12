@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.compatibility;
 import com.paneedah.mwc.vectors.Vector3D;
 import net.minecraft.client.audio.MovingSound;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -14,8 +15,8 @@ public class CompatibleMovingSound extends MovingSound {
     private Supplier<Float> volumeProvider;
     private Supplier<Boolean> donePlayingProvider;
 
-    public CompatibleMovingSound(CompatibleSound sound, Supplier<Vector3D> positionProvider, Supplier<Float> volumeProvider, Supplier<Boolean> donePlayingProvider) {
-        super(sound.getSound(), SoundCategory.BLOCKS);
+    public CompatibleMovingSound(SoundEvent sound, Supplier<Vector3D> positionProvider, Supplier<Float> volumeProvider, Supplier<Boolean> donePlayingProvider) {
+        super(sound, SoundCategory.BLOCKS);
         this.repeat = true;
         this.pitch = 0;
         this.volume = 0.1F;

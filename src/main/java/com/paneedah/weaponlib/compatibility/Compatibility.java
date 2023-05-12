@@ -14,7 +14,6 @@ import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.shader.Framebuffer;
@@ -54,6 +53,7 @@ import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -92,9 +92,9 @@ public interface Compatibility {
 
 	public void ensureTagCompound(ItemStack itemStack);
 
-    public void playSound(EntityLivingBase player, CompatibleSound sound, float volume, float pitch);
+    public void playSound(EntityLivingBase player, SoundEvent sound, float volume, float pitch);
 
-    public void playSoundToNearExcept(EntityLivingBase player, CompatibleSound object, float volume, float pitch);
+    public void playSoundToNearExcept(EntityLivingBase player, SoundEvent object, float volume, float pitch);
 
 	public boolean isClientSide();
 
@@ -118,7 +118,7 @@ public interface Compatibility {
 
 	public void registerWithFmlEventBus(Object object);
 
-	public void registerSound(CompatibleSound sound);
+	public void registerSound(SoundEvent sound);
 
 	public void registerItem(Item item, String name);
 	
@@ -192,7 +192,7 @@ public interface Compatibility {
 
 	public void registerWorldGenerator(CompatibleWorldGenerator worldGeneratorEventHandler, int i);
 
-	public ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, CompatibleSound soundOnEquip, float toughness);
+	public ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness);
 
 	public boolean inventoryHasFreeSlots(EntityPlayer player);
 
@@ -244,7 +244,7 @@ public interface Compatibility {
 
     public boolean madeFromHardMaterial(IBlockState iBlockState);
 
-    public void playSoundAtEntity(Entity entity, CompatibleSound explosionSound, float volume, float pitch);
+    public void playSoundAtEntity(Entity entity, SoundEvent explosionSound, float volume, float pitch);
 
     public double getBlockDensity(World world, Vector3D vec3d, AxisAlignedBB boundingBox);
 
@@ -279,7 +279,7 @@ public interface Compatibility {
 
     public IBlockState getBlockBelow(World world, BlockPos blockpos1);
 
-    public void playSound(World world, double posX, double posY, double posZ, CompatibleSound explosionSound, float volume, float pitch);
+    public void playSound(World world, double posX, double posY, double posZ, SoundEvent explosionSound, float volume, float pitch);
 
     public boolean isBlockPenetratableByGrenades(Block block);
 

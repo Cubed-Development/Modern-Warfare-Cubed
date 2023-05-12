@@ -3,7 +3,6 @@ package com.paneedah.weaponlib.melee;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
 import com.paneedah.weaponlib.compatibility.CompatibleItem;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
@@ -11,7 +10,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 import java.util.*;
@@ -197,10 +198,8 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
 
             ItemMelee itemMelee = new ItemMelee(this, modContext);
 
-            itemMelee.attackSound = this.attackSound != null ?
-                    modContext.registerSound(this.attackSound) : CompatibleSound.SNOWBALL_THROW;
-            itemMelee.heavyAttackSound = this.heavyAttackSound != null ?
-                    modContext.registerSound(this.heavyAttackSound) : CompatibleSound.SNOWBALL_THROW;
+            itemMelee.attackSound = this.attackSound != null ? modContext.registerSound(this.attackSound) : SoundEvents.AMBIENT_CAVE;
+            itemMelee.heavyAttackSound = this.heavyAttackSound != null ? modContext.registerSound(this.heavyAttackSound) : SoundEvents.AMBIENT_CAVE;
 
             itemMelee.setCreativeTab(creativeTab);
             itemMelee.setTranslationKey(name);
@@ -240,11 +239,11 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
 
     private ModContext modContext;
 
-    private CompatibleSound attackSound;
-    private CompatibleSound silencedShootSound;
-    private CompatibleSound heavyAttackSound;
-    private CompatibleSound unloadSound;
-    private CompatibleSound ejectSpentRoundSound;
+    private SoundEvent attackSound;
+    private SoundEvent silencedShootSound;
+    private SoundEvent heavyAttackSound;
+    private SoundEvent unloadSound;
+    private SoundEvent ejectSpentRoundSound;
 
     public static enum State { READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND};
 
@@ -258,23 +257,23 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         return builder.name;
     }
 
-    public CompatibleSound getShootSound() {
+    public SoundEvent getShootSound() {
         return attackSound;
     }
 
-    public CompatibleSound getSilencedShootSound() {
+    public SoundEvent getSilencedShootSound() {
         return silencedShootSound;
     }
 
-    public CompatibleSound getReloadSound() {
+    public SoundEvent getReloadSound() {
         return heavyAttackSound;
     }
 
-    public CompatibleSound getUnloadSound() {
+    public SoundEvent getUnloadSound() {
         return unloadSound;
     }
 
-    public CompatibleSound getEjectSpentRoundSound() {
+    public SoundEvent getEjectSpentRoundSound() {
         return ejectSpentRoundSound;
     }
 
@@ -423,11 +422,11 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         return builder.heavyAttackCooldownTimeout.get();
     }
 
-    public CompatibleSound getHeavyAtackSound() {
+    public SoundEvent getHeavyAtackSound() {
         return heavyAttackSound;
     }
 
-    public CompatibleSound getLightAtackSound() {
+    public SoundEvent getLightAtackSound() {
         return attackSound;
     }
 

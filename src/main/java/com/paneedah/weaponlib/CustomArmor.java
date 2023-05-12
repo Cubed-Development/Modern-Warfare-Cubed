@@ -3,7 +3,6 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleCustomArmor;
 import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -20,6 +19,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
 
@@ -393,7 +393,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     private boolean vignetteEnabled;
     private float exposureReductionFactor;
     @SuppressWarnings("unused")
-    private CompatibleSound breathingSound;
+    private SoundEvent breathingSound;
 
     private CompatibleEntityEquipmentSlot compatibleEquipmentType;
     

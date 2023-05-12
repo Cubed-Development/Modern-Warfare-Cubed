@@ -195,9 +195,9 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void playSound(EntityLivingBase player, CompatibleSound sound, float volume, float pitch) {
+    public void playSound(EntityLivingBase player, SoundEvent sound, float volume, float pitch) {
         if(sound != null) {
-            player.playSound(sound.getSound(), volume, pitch);
+            player.playSound(sound, volume, pitch);
         }
     }
 
@@ -217,8 +217,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void playSoundToNearExcept(EntityLivingBase player, CompatibleSound sound, float volume, float pitch) {
-        player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, sound.getSound(), player.getSoundCategory(), volume, pitch);
+    public void playSoundToNearExcept(EntityLivingBase player, SoundEvent sound, float volume, float pitch) {
+        player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, sound, player.getSoundCategory(), volume, pitch);
     }
 
     @Override
@@ -273,9 +273,9 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void registerSound(CompatibleSound sound) {
-        sound.getSound().setRegistryName(sound.getResourceLocation());
-        ForgeRegistries.SOUND_EVENTS.register(sound.getSound());
+    public void registerSound(SoundEvent sound) {
+        sound.setRegistryName(sound.getSoundName());
+        ForgeRegistries.SOUND_EVENTS.register(sound);
         //GameRegistry.register(sound.getSound(), sound.getResourceLocation());
     }
 
@@ -558,10 +558,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts,
-            int enchantability, CompatibleSound soundOnEquip, float toughness) {
-        return EnumHelper.addArmorMaterial(name, textureName, durability, reductionAmounts, enchantability,
-                soundOnEquip != null ? soundOnEquip.getSound() : null, toughness);
+    public ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness) {
+        return EnumHelper.addArmorMaterial(name, textureName, durability, reductionAmounts, enchantability, soundOnEquip != null ? soundOnEquip : null, toughness);
     }
 
     @Override
@@ -813,9 +811,9 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void playSoundAtEntity(Entity entity, CompatibleSound sound, float volume, float pitch) {
+    public void playSoundAtEntity(Entity entity, SoundEvent sound, float volume, float pitch) {
         if(sound != null) {
-            entity.playSound(sound.getSound(), volume, pitch);
+            entity.playSound(sound, volume, pitch);
         }
     }
 
@@ -949,10 +947,9 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void playSound(World world, double posX, double posY, double posZ, CompatibleSound sound,
-            float volume, float pitch) {
+    public void playSound(World world, double posX, double posY, double posZ, SoundEvent sound, float volume, float pitch) {
         if(sound != null) {
-            world.playSound(null, posX, posY, posZ, sound.getSound(), SoundCategory.BLOCKS, volume, pitch);
+            world.playSound(null, posX, posY, posZ, sound, SoundCategory.BLOCKS, volume, pitch);
         }
     }
 

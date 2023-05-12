@@ -2,7 +2,6 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
@@ -17,6 +16,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraftforge.fml.relauncher.Side;
@@ -247,16 +247,16 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         
     	
         boolean silencerOn = modContext.getAttachmentAspect().isSilencerOn(weaponInstance);
-        
-        
-        
-        CompatibleSound shootSound = null;
+
+
+
+        SoundEvent shootSound = null;
         /*
          * If oneClickBurstEnabled and it's a first shot and burst sound is defined, then play a burst sound
          */
         if(oneClickBurstEnabled.test(weaponInstance)) {
-            
-            CompatibleSound burstShootSound = null;
+
+            SoundEvent burstShootSound = null;
             if(silencerOn) {
                 burstShootSound = weapon.getSilencedBurstShootSound();
             }
@@ -288,7 +288,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	if(!VMWHooksHandler.isOnServer()) {
         		
         		//
-        		PositionedSoundRecord psr = new PositionedSoundRecord(shootSound.getSound(), SoundCategory.PLAYERS, silencerOn ? weapon.getSilencedShootSoundVolume() * 0.4f : weapon.getShootSoundVolume() * 0.4f, 1.0F, mc.player.getPosition().up(5));
+        		PositionedSoundRecord psr = new PositionedSoundRecord(shootSound, SoundCategory.PLAYERS, silencerOn ? weapon.getSilencedShootSoundVolume() * 0.4f : weapon.getShootSoundVolume() * 0.4f, 1.0F, mc.player.getPosition().up(5));
             	playShootSound(psr);
         		//mc.getSoundHandler().playSound(psr);
         	}
@@ -305,7 +305,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         
         int currentAmmo = weaponInstance.getAmmo();
         if(currentAmmo == 1 && weapon.getEndOfShootSound() != null && !VMWHooksHandler.isOnServer()) {
-        	PositionedSoundRecord psr = new PositionedSoundRecord(weapon.getEndOfShootSound().getSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, mc.player.getPosition().up(5));
+        	PositionedSoundRecord psr = new PositionedSoundRecord(weapon.getEndOfShootSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, mc.player.getPosition().up(5));
         	playShootSound(psr);
         	//mc.getSoundHandler().playSound(psr);
         }
@@ -492,18 +492,18 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
     		velocity = velocity.rotateYaw((float) Math.toRadians(-player.rotationYaw));
         	modContext.getChannel().getChannel().sendToAllAround(new BulletShellClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), pos.add(weaponDir), velocity), tp);
         }
-        
-       
-        
-        
-        
-        
-        CompatibleSound shootSound = null;
+
+
+
+
+
+
+        SoundEvent shootSound = null;
         
         boolean silencerOn = playerWeaponInstance != null && modContext.getAttachmentAspect().isSilencerOn(playerWeaponInstance);
         if(isBurst && weapon.builder.isOneClickBurstAllowed) {
-            
-            CompatibleSound burstShootSound = null;
+
+            SoundEvent burstShootSound = null;
             if(silencerOn) {
                 burstShootSound = weapon.getSilencedBurstShootSound();
             }

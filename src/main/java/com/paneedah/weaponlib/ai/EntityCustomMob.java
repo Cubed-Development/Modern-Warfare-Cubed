@@ -25,6 +25,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
+import net.minecraft.util.SoundEvent;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -139,17 +140,17 @@ public class EntityCustomMob extends CompatibleEntityMob
     }
 
     @Override
-    protected CompatibleSound getCompatibleAmbientSound() {
+    protected SoundEvent getCompatibleAmbientSound() {
         return getConfiguration().getAmbientSound();
     }
 
     @Override
-    protected CompatibleSound getCompatibleHurtSound() {
+    protected SoundEvent getCompatibleHurtSound() {
         return getConfiguration().getHurtSound();
     }
 
     @Override
-    protected CompatibleSound getCompatibleDeathSound() {
+    protected SoundEvent getCompatibleDeathSound() {
         return getConfiguration().getDeathSound();
     }
 

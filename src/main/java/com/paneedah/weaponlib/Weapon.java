@@ -25,6 +25,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -1082,18 +1083,18 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
     
     private CraftingEntry[] modernRecipe;
     
-    private CompatibleSound shootSound;
-    private CompatibleSound endOfShootSound;
-    private CompatibleSound silencedShootSound;
-    private CompatibleSound reloadSound;
-    private CompatibleSound reloadIterationSound;
-    private CompatibleSound inspectSound;
-    private CompatibleSound drawSound;
-    private CompatibleSound allReloadIterationsCompletedSound;
-    private CompatibleSound unloadSound;
-    private CompatibleSound ejectSpentRoundSound;
-    private CompatibleSound burstShootSound;
-    private CompatibleSound silencedBurstShootSound;
+    private SoundEvent shootSound;
+    private SoundEvent endOfShootSound;
+    private SoundEvent silencedShootSound;
+    private SoundEvent reloadSound;
+    private SoundEvent reloadIterationSound;
+    private SoundEvent inspectSound;
+    private SoundEvent drawSound;
+    private SoundEvent allReloadIterationsCompletedSound;
+    private SoundEvent unloadSound;
+    private SoundEvent ejectSpentRoundSound;
+    private SoundEvent burstShootSound;
+    private SoundEvent silencedBurstShootSound;
 
     public static enum State { READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND};
 
@@ -1125,52 +1126,52 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
     }
     
     
-    public CompatibleSound getShootSound() {
+    public SoundEvent getShootSound() {
         return shootSound;
     }
     
-    public CompatibleSound getBurstShootSound() {
+    public SoundEvent getBurstShootSound() {
         return burstShootSound;
     }
     
-    public CompatibleSound getSilencedBurstShootSound() {
+    public SoundEvent getSilencedBurstShootSound() {
         return silencedBurstShootSound;
     }
     
-    public CompatibleSound getEndOfShootSound() {
+    public SoundEvent getEndOfShootSound() {
         return endOfShootSound;
     }
 
-    public CompatibleSound getSilencedShootSound() {
+    public SoundEvent getSilencedShootSound() {
         return silencedShootSound;
     }
 
-    public CompatibleSound getReloadSound() {
+    public SoundEvent getReloadSound() {
         return reloadSound;
     }
     
 
-    public CompatibleSound getReloadIterationSound() {
+    public SoundEvent getReloadIterationSound() {
         return reloadIterationSound;
     }
     
-    public CompatibleSound getInspectSound() {
+    public SoundEvent getInspectSound() {
         return inspectSound;
     }
     
-    public CompatibleSound getDrawSound() {
+    public SoundEvent getDrawSound() {
         return drawSound;
     }
     
-    public CompatibleSound getAllReloadIterationsCompletedSound() {
+    public SoundEvent getAllReloadIterationsCompletedSound() {
         return allReloadIterationsCompletedSound;
     }
 
-    public CompatibleSound getUnloadSound() {
+    public SoundEvent getUnloadSound() {
         return unloadSound;
     }
 
-    public CompatibleSound getEjectSpentRoundSound() {
+    public SoundEvent getEjectSpentRoundSound() {
         return ejectSpentRoundSound;
     }
     
