@@ -1,17 +1,19 @@
 package com.paneedah.weaponlib.compatibility;
 
+import net.minecraftforge.common.ForgeVersion;
+
 @Deprecated
 public final class CompatibilityProvider {
-
-	@Deprecated
+	
 	public static Compatibility compatibility = initCompatibility();
 
-	@Deprecated
 	private static Compatibility initCompatibility() {
+		String compatibilityClassName = Compatibility.class.getName() + ForgeVersion.mcVersion.replace('.', '_');
+		
 		try {
-			return (Compatibility) Class.forName("Compatibility1_12_2").newInstance();
-		} catch (Exception exception) {
-			throw new IllegalStateException("How did you break the compatibility layer? Let's find out: " + exception.getMessage());
+			return (Compatibility) Class.forName(compatibilityClassName).newInstance();
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+			throw new IllegalStateException("Cannot find compatible implementation class " + compatibilityClassName);
 		}
 	}
 }
