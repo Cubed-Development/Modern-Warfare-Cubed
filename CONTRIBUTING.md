@@ -4,9 +4,9 @@ This project follows [Keep a Changelog] and [Ragnarök Versioning Convention]
 
 ## Writing Good Issues
 
-Submiting a Issues about a bug or feature request is the easiest way to contribute, however, to get the most use out of them, you should follow certain guidelines. 
+Submitting an Issue about a bug or feature request is the easiest way to contribute, however, to get the most use out of them, you should follow certain guidelines. 
 
-Be respectful and kind, especially if you're requesting a feature. If you beleve you have found a bug, screenshots/recording are extremely helpful. Check if somone has created a issues for your bug, duplicit reports split up information! If you see a report about a bug you are experiencing, feel free to add more screenshots and steps you have done to find the bug.      
+Be respectful and kind, especially if you're requesting a feature. If you believe you have found a bug, screenshots/recording are extremely helpful. Check if someone has created an issue for your bug, duplicit reports split up information! If you see a report about a bug you are experiencing, feel free to add more screenshots and steps you have done to find the bug.      
 
 ## Editing Code
 This is the hardest, but most helpful, way to contribute, provided you do it correctly    
@@ -15,10 +15,10 @@ This is the hardest, but most helpful, way to contribute, provided you do it cor
 
 *This assumes that you have [GitHub Desktop] installed*
 
-Go on the [main GitHub page of MWC] then click the green code button, it will open a litle popup in that popup click `Open with GitHub Desktop`
+Go on the [main GitHub page of MWC] then click the green code button, it will open a little popup in that popup click `Open with GitHub Desktop`
 ![image](https://user-images.githubusercontent.com/82710983/221866888-fe7a72ce-52bd-4955-b10e-0de36e6676b9.png)
 
-This should open [GitHub Desktop] just follow the instructions wait for it to download.
+This should open [GitHub Desktop] just follow the instructions and wait for it to download.
 
 ### Opening in IntelliJ IDEA
 

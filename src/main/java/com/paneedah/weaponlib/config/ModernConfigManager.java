@@ -91,7 +91,8 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the fancy MWC snow/rain")
 	public static boolean enableFancyRainAndSnow = false;
 	
-	
+
+//	 Fixing Method
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the ammo counter")
 	public static boolean enableAmmoCounter = true;
 	
@@ -148,90 +149,9 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should soldiers have?")
 	public static double soldierHealth = 1.0;
 
-	@RangeDouble(min=0, max=1.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should zombies spawn?")
-	public static double zombieSpawn = 0.0;
-
-	@RangeDouble(min=0.1, max=2.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should zombies have?")
-	public static double zombieHealth = 1.0;
-
-	@RangeDouble(min=0, max=1.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should blistered zombies spawn?")
-	public static double blisteredZombieSpawn = 0.0;
-
-	@RangeDouble(min=0.1, max=2.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should blistered zombies have?")
-	public static double blisteredZombieHealth = 1.0;
-
-	@RangeDouble(min=0, max=1.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should zombie rippers spawn?")
-	public static double zombieRipperSpawn = 0.0;
-
-	@RangeDouble(min=0.1, max=2.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should zombie rippers have?")
-	public static double zombieRipperHealth = 1.0;
-
-	@RangeDouble(min=0, max=1.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should torn zombies spawn?")
-	public static double tornZombieSpawn = 0.0;
-
-	@RangeDouble(min=0.1, max=2.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should torn zombies have?")
-	public static double tornZombieHealth = 1.0;
-
-	@RangeDouble(min=0, max=1.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should necromorphs spawn?")
-	public static double necromorphSpawn = 0.0;
-
-	@RangeDouble(min=0.1, max=2.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should necromorphs have?")
-	public static double necromorphHealth = 1.0;
-
-	@RangeDouble(min=0, max=1.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should lickers spawn?")
-	public static double lickerSpawn = 0.0;
-
-	@RangeDouble(min=0.1, max=2.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should zombies have?")
-	public static double lickerHealth = 1.0;
-
-	@RangeDouble(min=0, max=1.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should hazmat zombies spawn?")
-	public static double hazmatZombieSpawn = 0.0;
-
-	@RangeDouble(min=0.1, max=2.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should hazmat zombies have?")
-	public static double hazmatZombieHealth = 1.0;
-
-	@RangeDouble(min=0, max=1.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should defiled zombies spawn?")
-	public static double defiledZombieSpawn = 0.0;
-
-	@RangeDouble(min=0.1, max=2.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should defiled zombies have?")
-	public static double defiledZombieHealth = 1.0;
-
-	@RangeDouble(min=0, max=1.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should the deathclaw spawn?")
-	public static double deathclawSpawn = 0.0;
-
-	@RangeDouble(min=0.1, max=2.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should the deathclaw have?")
-	public static double deathclawHealth = 1.0;
-
-	@RangeDouble(min=0, max=1.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should the tyke spawn?")
-	public static double tykeSpawn = 0.0;
-
-	@RangeDouble(min=0.1, max=2.0)
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should the tyke have?")
-	public static double tykeHealth = 1.0;
-
-
-	
-	//@ConfigSync(category = CATEGORY_RENDERING, comment = "Turns on the custom render for third person, may improve compat.")
-	//public static boolean enableThirdPersonAnimations = true;
+	// Later use
+//	@ConfigSync(category = CATEGORY_RENDERING, comment = "Turns on the custom render for third person, may improve compat.")
+//	public static boolean enableThirdPersonAnimations = true;
 
 	private static Configuration config = null;
 
@@ -326,17 +246,6 @@ public class ModernConfigManager {
 	public static final Map<String, AIEntity> aiEntities = new LinkedHashMap<String, AIEntity>(){{
 		put("terrorist", new AIEntity("terrorist", ModernConfigManager.terroristHealth, ModernConfigManager.terroristsSpawn));
 		put("soldier", new AIEntity("soldier", ModernConfigManager.soldierHealth, ModernConfigManager.solderSpawn));
-		put("zombie", new AIEntity("zombie", ModernConfigManager.zombieHealth, ModernConfigManager.zombieSpawn));
-		put("zombieBlistered", new AIEntity("zombieBlistered", ModernConfigManager.blisteredZombieHealth, ModernConfigManager.blisteredZombieSpawn));
-		put("zombieRipper", new AIEntity("zombieRipper", ModernConfigManager.zombieRipperHealth, ModernConfigManager.zombieRipperSpawn));
-		put("tornzombie", new AIEntity("tornzombie", ModernConfigManager.tornZombieHealth, ModernConfigManager.tornZombieSpawn));
-		put("necromorph", new AIEntity("necromorph", ModernConfigManager.necromorphHealth, ModernConfigManager.necromorphSpawn));
-		put("licker", new AIEntity("licker", ModernConfigManager.lickerHealth, ModernConfigManager.lickerSpawn));
-		put("hazmat_zombie", new AIEntity("hazmat_zombie", ModernConfigManager.hazmatZombieHealth, ModernConfigManager.hazmatZombieSpawn));
-		put("Defiled Zombie", new AIEntity("Defiled Zombie", ModernConfigManager.defiledZombieHealth, ModernConfigManager.defiledZombieSpawn));
-		put("deathclaw", new AIEntity("terrorist", ModernConfigManager.deathclawHealth, ModernConfigManager.deathclawSpawn));
-		put("tyke", new AIEntity("tyke", ModernConfigManager.tykeHealth, ModernConfigManager.tykeSpawn));
-		put("turretupgraded", new AIEntity("turretupgraded", 1.0, 0.0));
 	}};
 	
 	public static void init() {

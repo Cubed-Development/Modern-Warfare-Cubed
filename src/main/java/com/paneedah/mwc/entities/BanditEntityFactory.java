@@ -29,10 +29,11 @@ public class BanditEntityFactory implements EntityFactory {
         .withMaxHealth(40)
         .withEntityIdSupplier(() -> 10000)
         .withEquipmentOption(Guns.VSSVintorez, EnumDifficulty.EASY, 0.1f, Magazines.VSSVintorezMag)
+        .withEquipmentOption(Guns.VSSVintorez, EnumDifficulty.HARD, 0.1f, Magazines.ASValMag)
         .withEquipmentOption(Guns.MakarovPM, EnumDifficulty.EASY, 0.1f, Magazines.MakarovMag)
         .withEquipmentOption(Guns.Remington870, EnumDifficulty.EASY, 0.07f)
         .withPrimaryEquipmentDropChance(0.4f)
-        .withSpawn(2, 20, 31, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
+        .withSpawn(0, 20, 31, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
         .withMaxTolerableLightBrightness(1f)
         .withSpawnEgg(0xFF808000, 0xFF556B2F)
         .withTexturedModelVariant("com.paneedah.mwc.models.BanditNew", "banditnew.png")
@@ -42,7 +43,7 @@ public class BanditEntityFactory implements EntityFactory {
         .withTexturedModelVariant("com.paneedah.mwc.models.BanditNew5", "banditnew5.png")
         .withHurtSound("hurt")
         .withAmbientSound("drawweapon")
-//        .withStepSound("step")
+        // .withStepSound("step")
         .withAiTask(1, e -> new EntityAISwimming(e))
         .withAiTask(3, e -> compatibility.createAiAvoidEntity((EntityCreature)e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
         .withAiTask(4, e -> new EntityAIAttackRangedWeapon((EntityCustomMob)e, 1.0D, 10, 30.0F))
@@ -53,6 +54,7 @@ public class BanditEntityFactory implements EntityFactory {
         
         .withAiTargetTask(1, e -> new EntityAIHurtByTarget((EntityCreature)e, false))
         .withAiTargetTask(2, e -> compatibility.createAINearestAttackableTarget(e, EntityPlayer.class, true))
+        .withAiTargetTask(2, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
         .withAiTargetTask(3, e -> compatibility.createAINearestAttackableTarget(e, EntityVillager.class, true))
         .withAiTargetTask(3, e -> compatibility.createAINearestAttackableTarget(e, EntityZombie.class, true))
         .withAiTargetTask(3, e -> compatibility.createAINearestAttackableTarget(e, EntityHusk.class, true))
@@ -73,7 +75,6 @@ public class BanditEntityFactory implements EntityFactory {
         .withAiTargetTask(3, e -> compatibility.createAINearestAttackableTarget(e, EntityVindicator.class, true))
         .withAiTargetTask(3, e -> compatibility.createAINearestAttackableTarget(e, EntityWitch.class, true))
         .withAiTargetTask(3, e -> compatibility.createAINearestAttackableTarget(e, EntityZombieVillager.class, true))
-        .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
         .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "tyke", true))
         .register(modContext);
     }

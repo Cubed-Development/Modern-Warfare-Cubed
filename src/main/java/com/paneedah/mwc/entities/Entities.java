@@ -32,7 +32,7 @@ public class Entities {
         .withEquipmentOption(Guns.M4A1, EnumDifficulty.EASY, 0.1f, Magazines.M4A1Mag)
         .withEquipmentOption(Guns.M110, EnumDifficulty.EASY, 0.1f, Magazines.M110Mag)
         .withPrimaryEquipmentDropChance(0.4f)
-        .withSpawn(1, 5, 6, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
+        .withSpawn(0, 5, 6, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
         .withMaxTolerableLightBrightness(1f)
         .withSpawnEgg(0x5A674F, 0x464039)
         .withTexturedModelVariant("com.paneedah.mwc.models.Soldier", "soldier.png")
