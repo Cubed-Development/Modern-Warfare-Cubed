@@ -56,7 +56,7 @@ public class Bullets {
 
     public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
         Grenade40mm = new ItemBullet.Builder()
-                .withCreativeTab(ModernWarfareMod.AmmoTab).withName("Grenade40mm").withMaxStackSize(16)
+                .withCreativeTab(ModernWarfareMod.AmmoTab).withName("Grenade40mm").withMaxStackSize(64)
                 .withModel(new com.paneedah.mwc.models.GL06Grenade(), "GL06.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", CompatibleItems.GUNPOWDER)
                 .withFirstPersonPositioning((player, itemStack) -> {
