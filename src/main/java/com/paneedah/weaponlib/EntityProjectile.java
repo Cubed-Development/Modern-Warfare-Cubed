@@ -33,6 +33,8 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
     private static final int DEFAULT_MAX_LIFETIME = 5000;
 
+    public static boolean isAim;
+
     private int xTile = -1;
     private int yTile = -1;
     private int zTile = -1;
@@ -89,10 +91,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
                 thrower.posZ, compatibility.getCompatibleAimingRotationYaw(thrower), thrower.rotationPitch);
 
 
-
-        this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * (isAim ? 0f : 0.16F));
         this.posY -= 0.10000000149011612D;
-        this.posZ -= (double) (CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posZ -= (double) (CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * (isAim ? 0f : 0.16F));
         this.setPosition(this.posX, this.posY, this.posZ);
 
 
