@@ -7242,6 +7242,37 @@
       ]
     },
     {
+      "entryName": "mwc:tactical_helmet",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mwc:synthetic_plastic",
+          "isOreDictionary": false,
+          "count": 6
+        },
+        {
+          "entryName": "mwc:carbon_fiber",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 3
+        }
+        {
+          "entryName": "mwc:copper_ingot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:gold_ingot",
+          "isOreDictionary": true,
+          "count": 2
+        },
+      ]
+    },
+    {
       "entryName": "mwc:duffle_bag",
       "craftingGroup": "GEAR",
       "recipe": [
