@@ -1,5 +1,6 @@
 package com.paneedah.mwc.skins;
 
+import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.util.ResourceLocation;
@@ -16,7 +17,7 @@ public class CustomSkin {
     public CustomSkin(String name, File file) {
         try {
             DynamicTexture dynamicTexture = new DynamicTexture(ImageIO.read(file));
-            resourceLocation = new ResourceLocation("mwc", "customskin_" + name.toLowerCase());
+            resourceLocation = new ResourceLocation(ModReference.id, "customskin_" + name.toLowerCase());
             Minecraft.getMinecraft().getTextureManager().loadTexture(resourceLocation, dynamicTexture);
             mc.getTextureManager().bindTexture(resourceLocation);
         } catch (Exception e) { e.printStackTrace();}
