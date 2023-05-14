@@ -10,7 +10,7 @@ import java.util.List;
 public class ItemSkin extends ItemAttachment<Weapon> {
 
 	public static final class Builder extends AttachmentBuilder<Weapon> {
-		private List<String> textureVariants = new ArrayList<>();
+		private final List<String> textureVariants = new ArrayList<>();
 
 		public Builder withTextureVariant(String... textureVariantNames) {
 			for(String s: textureVariantNames) {
@@ -59,9 +59,7 @@ public class ItemSkin extends ItemAttachment<Weapon> {
 
 	private List<String> textureVariants;
 
-	public ItemSkin(AttachmentCategory category, ModelBase model, String textureName, String crosshair,
-			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
-			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
+	public ItemSkin(AttachmentCategory category, ModelBase model, String textureName, String crosshair, ItemAttachment.ApplyHandler<Weapon> apply, ItemAttachment.ApplyHandler<Weapon> remove) {
 		super(category, model, textureName, crosshair, apply, remove);
 	}
 
