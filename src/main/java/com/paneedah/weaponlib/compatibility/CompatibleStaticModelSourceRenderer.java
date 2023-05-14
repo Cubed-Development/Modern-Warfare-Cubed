@@ -1,9 +1,11 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.skins.CustomSkin;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.StaticModelSourceRenderer.Builder;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -11,6 +13,8 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.block.model.*;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+import net.minecraft.client.renderer.texture.DynamicTexture;
+import net.minecraft.client.renderer.texture.ITextureObject;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -26,9 +30,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.lang3.tuple.Pair;
 import org.lwjgl.opengl.GL11;
 
+import javax.imageio.ImageIO;
 import javax.vecmath.Matrix4f;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
@@ -226,7 +234,12 @@ public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRen
 		ModelSource modelSource = (ModelSource)itemStack.getItem();
 
         for(Tuple<ModelBase, String> texturedModel: modelSource.getTexturedModels()) {
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + texturedModel.getV()));
+			if (texturedModel.getV().startsWith("customskin_")) {
+				mc.renderEngine.bindTexture(Objects.requireNonNull(CustomSkin.getCustomSkinResource(texturedModel.getV().toLowerCase().replace("customskin_", "").replace(".png", ""))));
+			} else {
+				mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + texturedModel.getV()));
+			}
+
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
 			ModelBase model = texturedModel.getU();
