@@ -803,7 +803,7 @@ public class Compatibility1_12_2 implements Compatibility {
         if (blocksToCheck.contains(block))
             return true;
 
-        if (ModernConfigManager.bulletBreakGlass)
+        if (ModernConfigManager.bulletBreakGlass || ModernConfigManager.penetratesGlass)
             return block.getBlockState().getBaseState().getMaterial() == Material.GLASS;
 
         return false;

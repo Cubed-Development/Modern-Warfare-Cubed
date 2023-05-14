@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-import static com.paneedah.weaponlib.config.ModernConfigManager.penetratesGlass;
 
 public abstract class EntityProjectile extends Entity implements IProjectile, CompatibleIEntityAdditionalSpawnData {
 
@@ -235,7 +234,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
          *  GLASS BREAK CHECK
          */
 
-        if(ModernConfigManager.bulletBreakGlass && !world.isRemote) {
+        if((ModernConfigManager.bulletBreakGlass && !world.isRemote) || ModernConfigManager.penetratesGlass) {
         	 Vec3d motion = new Vec3d(this.motionX, this.motionY, this.motionZ);
              Vec3d start = new Vec3d(this.prevPosX, this.prevPosY, this.prevPosZ);
              Vec3d end = new Vec3d(this.posX, this.posY, this.posZ).add(motion);
@@ -244,7 +243,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
              if(rtr != null) {
                  IBlockState state = compatibility.world(this).getBlockState(rtr.getBlockPos());
                  if(state.getMaterial() == Material.GLASS) {
-                     if(!penetratesGlass)
+                     if(!ModernConfigManager.penetratesGlass)
                          this.world.destroyBlock(rtr.getBlockPos(), true);
 
 
