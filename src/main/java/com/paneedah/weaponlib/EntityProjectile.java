@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.config.ModernConfigManager.penetratesGlass;
 
 public abstract class EntityProjectile extends Entity implements IProjectile, CompatibleIEntityAdditionalSpawnData {
 
@@ -243,7 +244,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
              if(rtr != null) {
                  IBlockState state = compatibility.world(this).getBlockState(rtr.getBlockPos());
                  if(state.getMaterial() == Material.GLASS) {
-                     this.world.destroyBlock(rtr.getBlockPos(), true);
+                     if(!penetratesGlass)
+                         this.world.destroyBlock(rtr.getBlockPos(), true);
+
 
                      ModContext context = CommonModContext.getContext();
                      if (context == null)

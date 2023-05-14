@@ -109,6 +109,9 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should players bleed when hit?")
 	public static double enableBleedingOnHit = 1.0F;
 
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should bullets penetrate glass without damaging it?")
+	public static boolean penetratesGlass = false;
+
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should glass blocks be breakable by bullets?")
 	public static boolean bulletBreakGlass = true;
 
@@ -118,7 +121,9 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should blur be applied when aiming?")
 	public static boolean enableBlurOnAim = true;
 
-	@RangeDouble(min=0.0, max=5.0)
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should the explosion break blocks?")
+	public static boolean explosionBreak = true;
+	@RangeDouble(min=0.0, max=20.0)
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "How much damage explosions should deal.")
 	public static double explosionDamage = 1.0;
 
