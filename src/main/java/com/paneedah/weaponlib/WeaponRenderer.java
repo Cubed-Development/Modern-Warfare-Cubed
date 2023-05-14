@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
+import com.paneedah.mwc.skins.CustomSkin;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
@@ -20,8 +21,10 @@ import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import com.paneedah.weaponlib.render.MuzzleFlashRenderer;
 import com.paneedah.weaponlib.render.Shaders;
 import com.paneedah.weaponlib.render.WavefrontModel;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,6 +37,8 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
 
+import javax.imageio.ImageIO;
+import java.io.File;
 import java.nio.FloatBuffer;
 import java.util.*;
 import java.util.Map.Entry;
@@ -3251,7 +3256,12 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		
 				ItemSkin itemSkin = (ItemSkin) skin;
 				GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 3);
-				mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + itemSkin.getTextureName() + ".png"));
+
+				if (itemSkin.getTextureName().startsWith("customskin_")) {
+					mc.getTextureManager().bindTexture(CustomSkin.getCustomSkinResource(itemSkin.getTextureName().toLowerCase().replace("customskin_", "")));
+				} else {
+					mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + itemSkin.getTextureName() + ".png"));
+				}
 				
 				GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 			}
