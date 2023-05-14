@@ -24,7 +24,7 @@ public class CustomSkin {
     public static ResourceLocation getCustomSkinResource(String skinName) {
         File image = new File("./config/mwc/skins/"+skinName+".png");
         if (!image.exists())
-            return null;
+            return new ResourceLocation(ModReference.id + ":textures/models/" + GunSkins.WoodlandCamo.getTextureName() + ".png");
 
         if (!GunSkins.customSkins.containsKey(skinName))
             GunSkins.customSkins.put(skinName, new CustomSkin(skinName, image));

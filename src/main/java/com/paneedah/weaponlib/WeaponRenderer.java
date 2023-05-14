@@ -3258,7 +3258,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 				GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 3);
 
 				if (itemSkin.getTextureName().startsWith("customskin_")) {
-					mc.getTextureManager().bindTexture(Objects.requireNonNull(CustomSkin.getCustomSkinResource(itemSkin.getTextureName().toLowerCase().replace("customskin_", ""))));
+					mc.getTextureManager().bindTexture(CustomSkin.getCustomSkinResource(itemSkin.getTextureName().toLowerCase().replace("customskin_", "")));
 				} else {
 					mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + itemSkin.getTextureName() + ".png"));
 				}
