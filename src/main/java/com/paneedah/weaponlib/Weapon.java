@@ -172,7 +172,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
 
         private Object[] craftingMaterials;
         
-        private String gunType = "Gun";
+        private String gunType = "LAUNCHER";
 
         private float shellCasingForwardOffset = Weapon.DEFAULT_SHELL_CASING_FORWARD_OFFSET;
 
@@ -225,6 +225,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
         
         public Builder withConfigGroup(GunConfigurationGroup group) {
+            this.gunType = String.valueOf(group);
         	this.configGroup = group;
 			return this;
         }
