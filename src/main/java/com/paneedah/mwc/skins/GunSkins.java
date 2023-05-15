@@ -105,7 +105,7 @@ public class GunSkins {
                 if (!skinsConfiguration.exists()) {
                     URL inputUrl = classLoader.getResource("skins.json");
                     if (inputUrl == null)
-                        throw new RuntimeException("Failed to find skins.json");
+                        throw new FileNotFoundException("Failed to find skins.json");
 
                     FileUtils.copyURLToFile(inputUrl, skinsConfiguration);
                 }
