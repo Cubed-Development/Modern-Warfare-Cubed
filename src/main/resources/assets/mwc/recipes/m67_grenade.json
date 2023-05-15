@@ -1,0 +1,25 @@
+{
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "x  ",
+    " T ",
+    " R "
+  ],
+  "key":{
+    "X":{
+      "item":"minecraft:iron_ingot"
+    },
+    "R":{
+      "type":"forge:ore_dict",
+      "ore": "ingotSteel"
+    },
+     "T":{
+      "type":"forge:ore_dict",
+      "ore": "ingotCopper"
+    }
+  },
+  "result":{
+    "item":"mwc:m67frag",
+    "count":1
+  }
+}
