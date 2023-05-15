@@ -1012,7 +1012,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             	
             	
             	descriptionBuilder.add(plate + "Type: " + plain + this.gunType);
-            	descriptionBuilder.add(plate + "Damage: " + plain + (BalancePackManager.getNetGunDamage(weapon)));
+            	descriptionBuilder.add(plate + "Damage: " + plain + String.format("%.2f" , (BalancePackManager.getNetGunDamage(weapon))));
             	descriptionBuilder.add(plate + "Firerate: " + plain + Math.round(BalancePackManager.getFirerate(weapon)*100) + "/100");
             	
                 
