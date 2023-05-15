@@ -17,7 +17,7 @@ public class BaseballBatFactory implements MeleeFactory {
         return new ItemMelee.Builder()
         
                 .withName("baseball_bat")
-                .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+                .withCreativeTab(ModernWarfareMod.MeleeTab)
                 .withTextureNames("bat")
                 .withAttackDamage(3f)
                 .withHeavyAttackDamage(7f)
