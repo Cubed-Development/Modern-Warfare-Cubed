@@ -237,7 +237,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
          *  GLASS BREAK CHECK
          */
 
-        if((ModernConfigManager.bulletBreakGlass && !world.isRemote) || ModernConfigManager.penetratesGlass) {
+        if(ModernConfigManager.bulletBreakGlass && !world.isRemote) {
         	 Vec3d motion = new Vec3d(this.motionX, this.motionY, this.motionZ);
              Vec3d start = new Vec3d(this.prevPosX, this.prevPosY, this.prevPosZ);
              Vec3d end = new Vec3d(this.posX, this.posY, this.posZ).add(motion);
@@ -246,7 +246,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
              if(rtr != null) {
                  IBlockState state = compatibility.world(this).getBlockState(rtr.getBlockPos());
                  if(state.getMaterial() == Material.GLASS) {
-                     if(!ModernConfigManager.penetratesGlass)
+                     if(!ModernConfigManager.penetratesGlass || ModernConfigManager.bulletBreakGlass)
                          this.world.destroyBlock(rtr.getBlockPos(), true);
 
 
@@ -351,8 +351,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
                         d0 = d1;
                     }
                 }
-
-                if (movingobjectposition2 != null) {
+                else if (movingobjectposition2 != null) {
                     double d1 = vec3.distanceTo(movingobjectposition2.getHitVec());
 
                     if (d1 < d0 || d0 == 0.0D) {
