@@ -3260,15 +3260,14 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 				if (itemSkin.getTextureName().startsWith("customskin_")) {
 					mc.getTextureManager().bindTexture(CustomSkin.getCustomSkinResource(itemSkin.getTextureName().toLowerCase().replace("customskin_", "")));
 				} else {
-					mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + itemSkin.getTextureName() + ".png"));
+					mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id+":textures/models/"+itemSkin.getTextureName()+".png"));
 				}
 				
 				GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 			}
 			
-			if(DebugCommand.debugFlag == 4) return;
-			
-			
+			if (DebugCommand.debugFlag == 4)
+				return;
 			
 			if(ModernConfigManager.enableAllShaders && ModernConfigManager.enableGunShaders) {
 				Shaders.gunLightingShader.use();

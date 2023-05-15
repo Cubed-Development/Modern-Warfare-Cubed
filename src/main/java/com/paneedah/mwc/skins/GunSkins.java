@@ -1,13 +1,27 @@
 package com.paneedah.mwc.skins;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.stream.JsonReader;
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.CommonRegistry;
 import com.paneedah.weaponlib.ItemSkin;
 import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import org.apache.commons.io.FileUtils;
 
-import java.io.File;
+import java.io.*;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class GunSkins {
 
@@ -82,6 +96,46 @@ public class GunSkins {
         File customSkinsDir = new File("./config/mwc/skins");
         if (!customSkinsDir.exists())
             customSkinsDir.mkdirs();
+
+        ClassLoader classLoader = GunSkins.class.getClassLoader();
+
+        if (event.getEvent().getSide() == Side.SERVER) {
+            try {
+                File skinsConfiguration = new File(customSkinsDir, "skins.json");
+                if (!skinsConfiguration.exists()) {
+                    URL inputUrl = classLoader.getResource("skins.json");
+                    if (inputUrl == null)
+                        throw new FileNotFoundException("Failed to find skins.json");
+
+                    FileUtils.copyURLToFile(inputUrl, skinsConfiguration);
+                }
+
+                JsonObject jsonObject = new JsonParser().parse(new JsonReader(new FileReader(skinsConfiguration))).getAsJsonObject();
+                for (JsonElement element : jsonObject.getAsJsonArray("skins")) {
+                    String skinName = element.getAsString();
+                    ItemSkin skin = new ItemSkin.Builder()
+                            .withTextureVariant("customskin_" + skinName.toLowerCase())
+                            .withCreativeTab(ModernWarfareMod.AttachmentsTab)
+                            .withName(skinName)
+                            .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
+                    CommonRegistry.gunSkins.add(skin);
+                    ModReference.log.info("Registered custom gun skin: " + skinName);
+                }
+
+            } catch (Exception e) {
+                ModReference.log.error("Failed to set up custom skins directory!");
+                e.printStackTrace();
+                return;
+            }
+            return;
+        }
+
+        URL imageUrl = classLoader.getResource("assets/mwc/textures/models/oldiepinkcamo.png");
+        if (imageUrl == null)
+            throw new RuntimeException("Failed to find default custom skin (oldiepinkcamo.png).");
+
+        try { FileUtils.copyURLToFile(imageUrl, new File(customSkinsDir, "oldiepinkcamo.png")); }
+        catch (IOException e) { e.printStackTrace(); }
 
         File[] files = customSkinsDir.listFiles();
         if (files == null)
