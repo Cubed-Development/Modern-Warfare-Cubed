@@ -350,8 +350,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
                         entity = entity1;
                         d0 = d1;
                     }
-                }
-                else if (movingobjectposition2 != null) {
+                } else if (movingobjectposition2 != null) {
                     double d1 = vec3.distanceTo(movingobjectposition2.getHitVec());
 
                     if (d1 < d0 || d0 == 0.0D) {
