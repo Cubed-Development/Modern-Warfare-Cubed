@@ -123,8 +123,7 @@ public class Bullets {
         
         EnergyCase = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("EnergyCase")
-                .withModel(new com.paneedah.mwc.models.EnergyCase(), "gun.png")
-                //.withMaxStackSize(500)
+                .withModel(new com.paneedah.mwc.models.EnergyCase(), "gun.png").withMaxStackSize(64)
                 .withCrafting(8, CraftingComplexity.LOW, "ingotCopper", CompatibleItems.GUNPOWDER)
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -1F, 0.4F);
@@ -145,8 +144,7 @@ public class Bullets {
         
         PlasmaCapsule = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("PlasmaCapsule")
-                .withModel(new com.paneedah.mwc.models.ChainsawFuel(), "PlasmaCapsule.png")
-                //.withMaxStackSize(500)
+                .withModel(new com.paneedah.mwc.models.ChainsawFuel(), "PlasmaCapsule.png").withMaxStackSize(64)
                 //.withCrafting(8, CraftingComplexity.LOW, "ingotCopper", CompatibleItems.GUNPOWDER)
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
