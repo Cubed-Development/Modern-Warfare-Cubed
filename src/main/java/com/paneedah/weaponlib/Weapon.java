@@ -862,7 +862,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                             spawnEntityExplosionParticleScaleCoefficient, spawnEntitySmokeParticleScaleCoefficient,
                             explosionParticleTextureId, 
                             smokeParticleTextureId);
-                    bullet.setPositionAndDirection();
+                    bullet.setPositionAndDirection(true);
                     return bullet;
                 };
             }
@@ -888,7 +888,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                 spawnShellWith = (weaponInstance, player) -> {
                     EntityShellCasing shell = new EntityShellCasing(weaponInstance, compatibility.world(player), player,
                             DEFAULT_SHELL_CASING_VELOCITY, DEFAULT_SHELL_CASING_GRAVITY_VELOCITY, DEFAULT_SHELL_CASING_INACCURACY);
-                    shell.setPositionAndDirection();
+                    shell.setPositionAndDirection(true);
                     return shell;
                 };
             }

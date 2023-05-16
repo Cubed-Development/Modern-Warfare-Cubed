@@ -472,7 +472,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
                    weapon.getExplosionScaleCoefficient(), weapon.getSmokeParticleScaleCoefficient(),
                    0, 
                    0);
-           bullet.setPositionAndDirection();
+           bullet.setPositionAndDirection(isAimed);
            compatibility.spawnEntity(player, bullet);
           // return bullet;
            /*

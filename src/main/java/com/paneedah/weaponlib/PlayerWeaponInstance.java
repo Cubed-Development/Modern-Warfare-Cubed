@@ -449,7 +449,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 		if(aimed != this.aimed) {
 			this.aimed = aimed;
 			markDirty();
-			EntityProjectile.isAim = aimed;
 			aimChangeTimestamp = System.currentTimeMillis();
 		}
 	}

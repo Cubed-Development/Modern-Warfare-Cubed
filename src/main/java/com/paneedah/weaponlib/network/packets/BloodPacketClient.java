@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.network.packets;
 
-import com.paneedah.weaponlib.EntityProjectile;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleMathHelper;
 import com.paneedah.weaponlib.compatibility.CompatibleMessage;
@@ -20,9 +19,9 @@ public class BloodPacketClient implements CompatibleMessage {
 	public BloodPacketClient() {}
 	
 	public BloodPacketClient(double x, double y, double z, double velX, double velY, double velZ) {
-		this.x = x - CompatibleMathHelper.cos(rotationYaw / 180.0F * (float) Math.PI) * (EntityProjectile.isAim ? 0f : 0.16F);
+		this.x = x;
 		this.y = y;
-		this.z = z - CompatibleMathHelper.sin(rotationYaw / 180.0F * (float) Math.PI) * (EntityProjectile.isAim ? 0f : 0.16F);
+		this.z = z;
 		this.velx = velX;
 		this.vely = velY;
 		this.velz = velZ;

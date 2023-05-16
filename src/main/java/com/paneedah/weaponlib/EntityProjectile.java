@@ -34,8 +34,6 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
     private static final int DEFAULT_MAX_LIFETIME = 5000;
 
-    public static boolean isAim;
-
     private int xTile = -1;
     private int yTile = -1;
     private int zTile = -1;
@@ -86,7 +84,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 //        }
     }
 
-    public void setPositionAndDirection() {
+    public void setPositionAndDirection(boolean isAim) {
         BloodPacketClient.rotationYaw = this.rotationYaw;
 
         this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(),
@@ -116,9 +114,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
         this.setLocationAndAngles(x, y + (double) thrower.getEyeHeight(), z, rotationYaw, rotationPitch);
 
-        this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * (isAim ? 0f : 0.16F));
+        this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
-        this.posZ -= (double) (CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * (isAim ? 0f : 0.16F));
+        this.posZ -= (double) (CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.setPosition(this.posX, this.posY, this.posZ);
 
         //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
@@ -185,6 +183,8 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
                     / Math.PI);
         }
     }
+
+    public abstract void setPositionAndDirection();
 
     /**
      * Called to update the entity's position/logic.
