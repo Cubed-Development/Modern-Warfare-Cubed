@@ -56,11 +56,6 @@ public class WeaponSpawnEntity extends EntityProjectile {
 		super(world);
 	}
 
-	@Override
-	public void setPositionAndDirection() {
-
-	}
-
 	public WeaponSpawnEntity(
 			Weapon weapon,
 			World world,
