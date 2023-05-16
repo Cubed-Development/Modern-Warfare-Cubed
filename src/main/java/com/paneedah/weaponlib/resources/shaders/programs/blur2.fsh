@@ -55,6 +55,5 @@ void main() {
     vec4 mixColor = mix(blurredColor, texColor, blurVignette);
     mixColor = mix(texColor, mixColor, Progress);
 
-    //gl_FragColor = mixColor;
     gl_FragColor = vec4(mixColor.rgb, 1.0);
 }

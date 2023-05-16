@@ -143,7 +143,6 @@ public class MainCommand extends CompatibleCommand {
 
     private void showRecipe(Item item) {
         if(item != null && (item instanceof Weapon)) {
-           // compatibility.addChatMessage(compatibility.clientPlayer(), "");
             compatibility.addChatMessage(compatibility.clientPlayer(), TextFormatting.GOLD +
                     "-- Recipe for " + TextFormatting.GRAY +  item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--");
            
