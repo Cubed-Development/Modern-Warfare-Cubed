@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.network.packets;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMathHelper;
 import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
@@ -11,8 +10,6 @@ import io.netty.buffer.ByteBuf;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class BloodPacketClient implements CompatibleMessage {
-
-	public static float rotationYaw;
 
 	double x, y, z, velx, vely, velz;
 
