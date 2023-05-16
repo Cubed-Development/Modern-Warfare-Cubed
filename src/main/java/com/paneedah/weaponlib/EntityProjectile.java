@@ -182,8 +182,6 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         }
     }
 
-    //public abstract void setPositionAndDirection();
-
     /**
      * Called to update the entity's position/logic.
      */
