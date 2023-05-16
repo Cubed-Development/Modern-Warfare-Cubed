@@ -85,7 +85,6 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
     }
 
     public void setPositionAndDirection(boolean isAim) {
-        BloodPacketClient.rotationYaw = this.rotationYaw;
 
         this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(),
                 thrower.posZ, compatibility.getCompatibleAimingRotationYaw(thrower), thrower.rotationPitch);
