@@ -318,10 +318,6 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
             if (creativeTab != null)
                 armorHelmet.setCreativeTab(creativeTab);
-            
-//            armorHelmet.maxShieldCapacity = maxShieldCapacity;
-//            armorHelmet.shieldRegenerationRate = shieldRegenerationRate;
-//            armorHelmet.shieldRegenerationTimeout = shieldRegenerationTimeout;
 
             return armorHelmet;
         }
@@ -397,7 +393,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
     private CompatibleEntityEquipmentSlot compatibleEquipmentType;
     
-//    private boolean shieldEnabled;
+//  private boolean shieldEnabled;
     private long shieldRegenerationTimeout = 1000;
     private double shieldRegenerationRate = 1.0; // restored shield capacity per sec
     private double maxShieldCapacity;
@@ -586,8 +582,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                     }
                 }
             }
-        }
-        
+        }        
 //        if(!worldIn.isRemote && entityIn != null) {
 //            compatibility.ensureTagCompound(stack);
 //            NBTTagCompound nbt = stack.getTagCompound();
@@ -616,7 +611,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 //                nbt.setLong("LastBreathTimestamp", System.currentTimeMillis());
 //            }
 //        }
-    }
+//    }
 
     public CompatibleEntityEquipmentSlot getCompatibleEquipmentSlot() {
         return compatibleEquipmentType;
