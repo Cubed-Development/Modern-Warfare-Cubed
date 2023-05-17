@@ -51,8 +51,6 @@ public class Bullets {
     public static ItemBullet M202Rocket;
     public static ItemBullet EnergyCase;
     public static ItemBullet PlasmaCapsule;
-    
-//    public static ItemBullet Bullet9x18mm;
 
     public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
         Grenade40mm = new ItemBullet.Builder()
