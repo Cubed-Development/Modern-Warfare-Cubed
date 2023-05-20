@@ -6623,6 +6623,100 @@
       ]
     },
     {
+      "entryName": "mwc:m67frag",
+      "craftingGroup": "GRENADE",
+      "recipe": [
+        {
+          "entryName": "minecraft:iron_ingot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "ingotSteel",
+          "isOreDictionary": true,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 6
+        },
+        {
+          "entryName": "mwc:synthetic_polymer_composite",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:impactgrenade",
+      "craftingGroup": "GRENADE",
+      "recipe": [
+        {
+          "entryName": "ingotSteel",
+          "isOreDictionary": true,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:tnt",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mwc:synthetic_polymer_composite",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:m18white",
+      "craftingGroup": "GRENADE",
+      "recipe": [
+        {
+          "entryName": "minecraft:iron_ingot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "ingotSteel",
+          "isOreDictionary": true,
+          "count": 3
+        },
+        {
+          "entryName": "minecraft:wool",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mwc:synthetic_polymer_composite",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:flash",
+      "craftingGroup": "GRENADE",
+      "recipe": [
+        {
+          "entryName": "minecraft:iron_ingot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "ingotSteel",
+          "isOreDictionary": true,
+          "count": 2
+        },
+        {
+          "entryName": "mwc:synthetic_polymer_composite",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
       "entryName": "mwc:Marine_helmet",
       "craftingGroup": "GEAR",
       "recipe": [
@@ -7259,7 +7353,7 @@
           "entryName": "minecraft:glass",
           "isOreDictionary": false,
           "count": 3
-        }
+        },
         {
           "entryName": "mwc:copper_ingot",
           "isOreDictionary": false,
@@ -7269,7 +7363,7 @@
           "entryName": "minecraft:gold_ingot",
           "isOreDictionary": true,
           "count": 2
-        },
+        }
       ]
     },
     {
