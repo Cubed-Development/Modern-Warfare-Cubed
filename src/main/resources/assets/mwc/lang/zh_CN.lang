@@ -1314,7 +1314,7 @@ config.gameplay.statusBarPosition.property.name=状态栏位置
 config.category.entities.name=实体设定
 config.entities.terroristHealth.property.name=土匪生命倍率
 config.entities.terroristsSpawn.property.name=土匪生成倍率
-config.entities.terroristEquipmentConfiguration.property.name=土匪装备设定
+config.entities.terroristEquipmentConfiguration.property.name=土匪/士兵装备设定
 config.entities.solderSpawn.property.name=士兵生成倍率
 config.entities.soldierHealth.property.name=士兵生命倍率
 
