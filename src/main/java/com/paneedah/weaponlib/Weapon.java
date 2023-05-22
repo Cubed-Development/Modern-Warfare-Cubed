@@ -172,7 +172,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
 
         private Object[] craftingMaterials;
         
-        private String gunType = "Gun";
+        private String gunType = "LAUNCHER";
 
         private float shellCasingForwardOffset = Weapon.DEFAULT_SHELL_CASING_FORWARD_OFFSET;
 
@@ -225,6 +225,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
         
         public Builder withConfigGroup(GunConfigurationGroup group) {
+            this.gunType = String.valueOf(group);
         	this.configGroup = group;
 			return this;
         }
@@ -254,6 +255,10 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         
         public float getFirerate() {
         	return this.fireRate;
+        }
+
+        public float getInaccuracy() {
+            return this.inaccuracy;
         }
         
         public Builder hasFlashPedals() {
@@ -857,7 +862,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                             spawnEntityExplosionParticleScaleCoefficient, spawnEntitySmokeParticleScaleCoefficient,
                             explosionParticleTextureId, 
                             smokeParticleTextureId);
-                    bullet.setPositionAndDirection();
+                    bullet.setPositionAndDirection(true);
                     return bullet;
                 };
             }
@@ -883,7 +888,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                 spawnShellWith = (weaponInstance, player) -> {
                     EntityShellCasing shell = new EntityShellCasing(weaponInstance, compatibility.world(player), player,
                             DEFAULT_SHELL_CASING_VELOCITY, DEFAULT_SHELL_CASING_GRAVITY_VELOCITY, DEFAULT_SHELL_CASING_INACCURACY);
-                    shell.setPositionAndDirection();
+                    shell.setPositionAndDirection(true);
                     return shell;
                 };
             }
@@ -1007,7 +1012,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             	
             	
             	descriptionBuilder.add(plate + "Type: " + plain + this.gunType);
-            	descriptionBuilder.add(plate + "Damage: " + plain + (BalancePackManager.getNetGunDamage(weapon)));
+            	descriptionBuilder.add(plate + "Damage: " + plain + String.format("%.1f" , (BalancePackManager.getNetGunDamage(weapon))));
             	descriptionBuilder.add(plate + "Firerate: " + plain + Math.round(BalancePackManager.getFirerate(weapon)*100) + "/100");
             	
                 

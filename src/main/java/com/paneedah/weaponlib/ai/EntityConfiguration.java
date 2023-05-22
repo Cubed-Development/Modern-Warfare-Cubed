@@ -426,7 +426,7 @@ public class EntityConfiguration {
 
             AIEntity entityConfig = ModernConfigManager.aiEntities.get(entityName);
 
-            if (entityConfig.getName().equalsIgnoreCase("terrorist")) {
+            if (entityConfig.getName().equalsIgnoreCase("terrorist") || entityConfig.getName().equalsIgnoreCase("soldier")) {
                 WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
                 if (ModernConfigManager.terroristEquipmentConfiguration == null || ModernConfigManager.terroristEquipmentConfiguration.isEmpty()) {
                     equipmentOptions.forEach((key, value) -> equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));

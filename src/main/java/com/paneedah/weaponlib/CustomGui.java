@@ -188,7 +188,7 @@ public class CustomGui extends CompatibleGui {
 	                    double maxShieldCapacity = armor.getMaxShieldCapacity();
 	                    if(maxShieldCapacity > 0) {
 	                        double currentShieldCapacity = armor.getShieldCapacity(chestStack);
-	                        drawShieldIndicator(armor, CompatibleMathHelper.clamp_double(currentShieldCapacity / maxShieldCapacity, 0.0, 1.0), 
+	                        drawShieldIndicator(armor, CompatibleMathHelper.clamp_double(currentShieldCapacity / maxShieldCapacity, 0.0, 1.0),
 	                                screenWidth, screenHeight);
 	                    }
 	                }
@@ -205,8 +205,6 @@ public class CustomGui extends CompatibleGui {
 					drawTexturedQuadFit(0, 0, screenWidth, screenHeight, -100);
 
 					GL11.glPopAttrib();
-
-					event.setCanceled(true);
 				}
 			}
 		}

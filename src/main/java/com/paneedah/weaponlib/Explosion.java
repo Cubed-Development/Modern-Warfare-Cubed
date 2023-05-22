@@ -21,6 +21,8 @@ import java.util.Random;
 import java.util.Set;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.config.ModernConfigManager.explosionBreak;
+import static com.paneedah.weaponlib.config.ModernConfigManager.explosionDamage;
 
 public class Explosion {
 
@@ -82,7 +84,7 @@ public class Explosion {
 
     public static void createServerSideExplosion(ModContext modContext, World world, Entity entity, double posX, double posY, double posZ, float explosionStrength, boolean isFlaming, boolean isSmoking, boolean isDestroyingBlocks, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, CompatibleSound explosionSound) {
 
-        world.createExplosion(entity, entity.posX, entity.posY + 1.0f, entity.posZ, 4.0F, true);
+        world.createExplosion(entity, entity.posX, entity.posY + 1.0f, entity.posZ, (float) explosionDamage, explosionBreak);
 
         /*
         explosionStrength *= ModernConfigManager.explosionDamage;
