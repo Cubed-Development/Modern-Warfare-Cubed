@@ -206,7 +206,7 @@ public class CustomGui extends CompatibleGui {
 
 					GL11.glPopAttrib();
 
-					event.setCanceled(true);
+					event.setCanceled(false);
 				}
 			}
 		}

@@ -104,7 +104,6 @@ public class Compatibility1_12_2 implements Compatibility {
 
     private static final List<Block> blocksToCheck = Arrays.asList(
             Blocks.AIR,
-            Blocks.BARRIER,
             Blocks.TALLGRASS,
             Blocks.LEAVES,
             Blocks.LEAVES2,
