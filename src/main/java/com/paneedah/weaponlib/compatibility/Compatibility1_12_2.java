@@ -37,7 +37,6 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAITarget;
 import net.minecraft.entity.ai.attributes.IAttribute;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
@@ -57,7 +56,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.translation.I18n;
-import net.minecraft.world.*;
+import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.GuiOpenEvent;
@@ -1263,48 +1265,12 @@ private Optional<Field> shadersEnabledFieldOptional;
     }
 
     @Override
-    public void markBlockForUpdate(World world, BlockPos pos) {
-        world.markBlockRangeForRenderUpdate(pos.getX(), pos.getY(), pos.getZ(), pos.getX(), pos.getY(), pos.getZ());
-    }
+	public ItemStack findNextBestItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player) {
+        int i = findGreatesItemIndex(compatibleItems, comparator, player);
 
-    @Override
-    public boolean getGameRulesBooleanValue(GameRules rules, String ruleName) {
-        return rules.getBoolean(ruleName);
-    }
+        if (i < 0)
+            return null;
 
-    @Override
-    public ItemStack getEntityItem(EntityItem entityItem) {
-        return entityItem.getItem();
-    }
-
-    @Override
-    public ItemStack stackForEmptySlot() {
-        return new ItemStack(Items.AIR);
-    }
-
-	@Override
-	public ItemStack findNextBestItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator,
-			EntityPlayer player) {
-		
-		        int maxSize = 1;
-//		        if(maxSize <= 0) {
-//		            return null;
-//		        }
-
-		        int i = findGreatesItemIndex(compatibleItems, comparator, player);
-
-		        if (i < 0) {
-		            return null;
-		        } else {
-		            ItemStack stackInSlot = player.inventory.getStackInSlot(i).copy();
-		            int consumedStackSize = maxSize >= getStackSize(stackInSlot) ? getStackSize(stackInSlot) : maxSize;
-		            ItemStack result = stackInSlot.splitStack(consumedStackSize);
-		            //if (getStackSize(stackInSlot) <= 0) {
-		               // player.inventory.removeStackFromSlot(i);
-		            //}
-		            return result;
-		        }
-		    
-		
+        return player.inventory.getStackInSlot(i).copy().splitStack(Math.min(getStackSize(player.inventory.getStackInSlot(i).copy()), 1));
 	}
 }

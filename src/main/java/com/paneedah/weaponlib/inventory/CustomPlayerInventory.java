@@ -4,6 +4,7 @@ import com.paneedah.weaponlib.Contextual;
 import com.paneedah.weaponlib.ItemStorage;
 import com.paneedah.weaponlib.ModContext;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -33,7 +34,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
     public CustomPlayerInventory(/*ModContext modContext*/) {
         inventory = new ItemStack[INV_SIZE];
         for(int i = 0; i < inventory.length; i++) {
-            inventory[i] = compatibility.stackForEmptySlot();
+            inventory[i] = new ItemStack(Items.AIR);
         }
     }
     
@@ -59,7 +60,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
                 stack = stack.splitStack(amount);
                 markDirty();
             } else {
-                setInventorySlotContents(slot, compatibility.stackForEmptySlot());
+                setInventorySlotContents(slot, new ItemStack(Items.AIR));
             }
         }
         return stack;
@@ -79,7 +80,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
 
     @Override
     public void setInventorySlotContents(int slot, ItemStack itemstack) {
-        this.inventory[slot] = itemstack != null ? itemstack : compatibility.stackForEmptySlot();
+        this.inventory[slot] = itemstack != null ? itemstack : new ItemStack(Items.AIR);
 
         if (itemstack != null && compatibility.getStackSize(itemstack) > this.getInventoryStackLimit()) {
             if(itemstack.getItem() instanceof ItemStorage) {
@@ -109,7 +110,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
     public void markDirty() {
         for (int i = 0; i < getSizeInventory(); ++i) {
             if (getStackInSlot(i) != null && compatibility.getStackSize(getStackInSlot(i)) == 0) {
-                inventory[i] = compatibility.stackForEmptySlot();
+                inventory[i] = new ItemStack(Items.AIR);
             }
         }
         

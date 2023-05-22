@@ -387,14 +387,6 @@ public interface Compatibility {
 
     void adjustCustomEquippedPosition();
 
-    void markBlockForUpdate(World world, BlockPos pos);
-    
-    boolean getGameRulesBooleanValue(GameRules rules, String ruleName);
-
-    ItemStack getEntityItem(EntityItem entityItem);
-
-    ItemStack stackForEmptySlot();
-
     float getBlockDensity(World world, Vector3D vec, AxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable);
 
     void addBloodParticle(ModContext modContext, double x, double y, double z, double velX, double velY, double velZ);

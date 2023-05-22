@@ -206,7 +206,8 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         final EntityLivingBase entity = livingDeathEvent.getEntityLiving();
 
         if(entity instanceof EntityPlayer && !compatibility.world(entity).isRemote) {
-            if(!compatibility.getGameRulesBooleanValue(compatibility.world(entity).getGameRules(), "keepInventory")) {
+
+            if(!compatibility.world(entity).getGameRules().getBoolean("keepInventory")) {
                 CustomPlayerInventory inventory = CompatibleCustomPlayerInventoryCapability.getInventory(entity);
                 
                 for(int slotIndex = 0; slotIndex < inventory.getSizeInventory(); slotIndex++) {
@@ -253,7 +254,7 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         for(Iterator<EntityItem> it = playerDropsEvent.getDrops().iterator(); it.hasNext();) {
             EntityItem entityItem = it.next();
             // TODO: check if this item is item storage and prevent dropping if necessary, add it back to player inventory
-            if(compatibility.getEntityItem(entityItem).getItem() instanceof ItemStorage) {
+            if(entityItem.getItem().getItem() instanceof ItemStorage) {
                 it.remove();
             }
         }

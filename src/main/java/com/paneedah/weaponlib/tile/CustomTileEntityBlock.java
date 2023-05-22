@@ -83,8 +83,8 @@ public class CustomTileEntityBlock extends BlockContainer {
         if(entity != null) {
             entity.onEntityBlockActivated(world, pos, player);
         }
-        
-        compatibility.markBlockForUpdate(world, pos);
+
+        world.markBlockRangeForRenderUpdate(pos.getX(), pos.getY(), pos.getZ(), pos.getX(), pos.getY(), pos.getZ());
         
         return true;
     }

@@ -5,6 +5,7 @@ import com.paneedah.weaponlib.ItemVest;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.inventory.Slot;
@@ -167,7 +168,7 @@ public class CustomPlayerInventoryContainer extends Container {
                 	
                     // try to place in player inventory / action bar
                     if (!this.mergeItemStack(itemstack1, standardInventorySlotStartIndex, hotbarSlotEndIndex + 1, true)) {
-                        return compatibility.stackForEmptySlot();
+                        return new ItemStack(Items.AIR);
                     }
 
                     slot.onSlotChange(itemstack1, itemstack);
@@ -180,7 +181,7 @@ public class CustomPlayerInventoryContainer extends Container {
                     if (customSlots.stream().anyMatch(s -> s.isItemValid(itemstack1))) {
                     	
                     	if (!this.mergeItemStack(itemstack1, customSlotStartIndex, customSlotEndIndex + 1, false)) {
-                            return compatibility.stackForEmptySlot();
+                            return new ItemStack(Items.AIR);
                         }
                     }
                     // if item is armor
@@ -206,12 +207,12 @@ public class CustomPlayerInventoryContainer extends Container {
                            
                              
                              if (!this.mergeItemStack(itemstack1, armorSlotStartIndex + type.ordinal(), armorSlotStartIndex + type.ordinal() + 1, false)) {
-                                 return compatibility.stackForEmptySlot();
+                                 return new ItemStack(Items.AIR);
                              }
                     	} else {
                     		int ordinal = 4 - ((ItemArmor) itemstack1.getItem()).getEquipmentSlot().getSlotIndex();
                     		if (!this.mergeItemStack(itemstack1, armorSlotStartIndex + ordinal, armorSlotStartIndex + ordinal + 1, false)) {
-                                return compatibility.stackForEmptySlot();
+                                return new ItemStack(Items.AIR);
                             }
                     	}
                        */
@@ -220,19 +221,19 @@ public class CustomPlayerInventoryContainer extends Container {
                     else if (slotIndex >= standardInventorySlotStartIndex && slotIndex < hotbarSlotStartIndex) {
                         // place in action bar
                         if (!this.mergeItemStack(itemstack1, hotbarSlotStartIndex, hotbarSlotEndIndex + 1, false)) {
-                            return compatibility.stackForEmptySlot();
+                            return new ItemStack(Items.AIR);
                         }
                     }
                     // item in action bar - place in player inventory
                     else if (slotIndex >= hotbarSlotStartIndex && slotIndex < hotbarSlotEndIndex + 1) {
                         if (!this.mergeItemStack(itemstack1, standardInventorySlotStartIndex, standardInventorySlotEndIndex + 1, false)) {
-                            return compatibility.stackForEmptySlot();
+                            return new ItemStack(Items.AIR);
                         }
                     }
                 }
 
                 if (compatibility.getStackSize(itemstack1) == 0) {
-                    slot.putStack(compatibility.stackForEmptySlot());
+                    slot.putStack(new ItemStack(Items.AIR));
                 } else {
                     slot.onSlotChanged();
                 }
@@ -248,6 +249,6 @@ public class CustomPlayerInventoryContainer extends Container {
     		e.printStackTrace();
     	}
     	
-        return itemstack != null ? itemstack : compatibility.stackForEmptySlot();
+        return itemstack != null ? itemstack : new ItemStack(Items.AIR);
     }
 }

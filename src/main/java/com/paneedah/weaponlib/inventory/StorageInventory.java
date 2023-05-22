@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.inventory;
 
 import com.paneedah.weaponlib.ItemStorage;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -40,7 +41,7 @@ public class StorageInventory implements IInventory {
         }
         this.inventory = new ItemStack[size];
         for(int i = 0; i < this.inventory.length; i++) {
-            this.inventory[i] = compatibility.stackForEmptySlot();
+            this.inventory[i] = new ItemStack(Items.AIR);
         }
         
         if (!storageItemStack.hasTagCompound()) {
@@ -77,7 +78,7 @@ public class StorageInventory implements IInventory {
             } else {
                 // this method also calls onInventoryChanged, so we don't need
                 // to call it again
-                setInventorySlotContents(slot, compatibility.stackForEmptySlot());
+                setInventorySlotContents(slot, new ItemStack(Items.AIR));
             }
         }
         return stack;
@@ -85,7 +86,7 @@ public class StorageInventory implements IInventory {
 
     @Override
     public void setInventorySlotContents(int slot, ItemStack stack) {
-        this.inventory[slot] = stack != null ? stack : compatibility.stackForEmptySlot();
+        this.inventory[slot] = stack != null ? stack : new ItemStack(Items.AIR);
 
         if (stack != null && compatibility.getStackSize(stack) > getInventoryStackLimit()) {
             compatibility.setStackSize(stack, getInventoryStackLimit());
@@ -120,7 +121,7 @@ public class StorageInventory implements IInventory {
     public void markDirty() {
         for (int i = 0; i < getSizeInventory(); ++i) {
             if (getStackInSlot(i) != null && compatibility.getStackSize(getStackInSlot(i)) == 0) {
-                inventory[i] = compatibility.stackForEmptySlot();
+                inventory[i] = new ItemStack(Items.AIR);
             }
         }
 
@@ -144,7 +145,7 @@ public class StorageInventory implements IInventory {
         if(size >= 0 && items.tagCount() >= 0) {
             inventory = new ItemStack[size];
             for(int i = 0; i < size; i++) {
-                inventory[i] = compatibility.stackForEmptySlot();
+                inventory[i] = new ItemStack(Items.AIR);
             }
             for (int i = 0; i < size && i < items.tagCount(); ++i) {
                 NBTTagCompound item = (NBTTagCompound) items.getCompoundTagAt(i);
