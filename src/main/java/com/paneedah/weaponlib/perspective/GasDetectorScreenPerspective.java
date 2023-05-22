@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import org.lwjgl.opengl.GL11;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class GasDetectorScreenPerspective extends ScreenPerspective {
@@ -23,7 +24,7 @@ public class GasDetectorScreenPerspective extends ScreenPerspective {
 
     private String getMessage() {
         float dose = 0f;
-        ItemStack itemStack = compatibility.getHeldItemMainHand(compatibility.clientPlayer());
+        ItemStack itemStack = compatibility.getHeldItemMainHand(mc.player);
         if (itemStack != null) {
             NBTTagCompound nbt = compatibility.getTagCompound(itemStack);
             if (nbt != null) {

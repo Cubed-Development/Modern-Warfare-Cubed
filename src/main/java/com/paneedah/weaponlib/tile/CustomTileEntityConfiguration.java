@@ -7,10 +7,12 @@ import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
@@ -143,8 +145,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
 //                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(tileEntityBlock), 0, itemModelResourceLocation);
                 
                 ModelBase model = (ModelBase) Class.forName(modelClassName).newInstance();
-                compatibility.bindTileEntitySpecialRenderer(tileEntityClass, 
-                        new CustomTileEntityRenderer(model, textureResource, positioning));
+                ClientRegistry.bindTileEntitySpecialRenderer(tileEntityClass, (TileEntitySpecialRenderer)new CustomTileEntityRenderer(model, textureResource, positioning));
                 
             } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
                 e.printStackTrace();

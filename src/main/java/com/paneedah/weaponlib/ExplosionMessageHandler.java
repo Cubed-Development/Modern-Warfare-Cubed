@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ExplosionMessageHandler implements CompatibleMessageHandler<ExplosionMessage, IMessage> {
@@ -23,7 +24,7 @@ public class ExplosionMessageHandler implements CompatibleMessageHandler<Explosi
 	@Override
 	public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(ExplosionMessage message, MessageContext messageContext) {
 		if(messageContext.side == Side.CLIENT) {
-			EntityPlayer player = compatibility.clientPlayer();
+			EntityPlayer player = mc.player;
 			compatibility.runInMainClientThread(() -> {
                 Explosion explosion = new Explosion(modContext,
                         compatibility.world(player),

@@ -5,8 +5,6 @@ import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.ai.EntityCustomMob;
-import com.paneedah.weaponlib.inventory.GuiHandler;
-import com.paneedah.weaponlib.tile.CustomTileEntityRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.gui.FontRenderer;
@@ -27,7 +25,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAITarget;
 import net.minecraft.entity.ai.attributes.IAttribute;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -46,7 +43,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.EnumDifficulty;
-import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraftforge.client.event.FOVUpdateEvent;
@@ -57,7 +53,6 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -71,8 +66,6 @@ import java.util.function.Predicate;
 public interface Compatibility {
 
 	World world(Entity entity);
-
-	EntityPlayer clientPlayer();
 
     void setClientPlayer(EntityPlayer player);
 
@@ -364,28 +357,12 @@ public interface Compatibility {
     TileEntity getTileEntity(World world, BlockPos pos);
 
     void registerTileEntity(Class<? extends TileEntity> tileEntityClass, String name);
-    
-    void bindTileEntitySpecialRenderer(Class<? extends TileEntity> tileEntityClass, CustomTileEntityRenderer customTileEntityRenderer);
 
     boolean isValidArmor(ItemStack itemstack, EntityEquipmentSlot entityEquipmentSlot, Entity entity);
 
     NBTTagCompound readTagCompound(PacketBuffer packetBuf) throws IOException;
 
     void writeTagCompound(PacketBuffer packetBuf, NBTTagCompound tagCompound) throws IOException;
-
-    void closeScreen();
-
-    void applyArmor(LivingHurtEvent event, EntityLivingBase entityLiving, ItemStack[] itemStacks, DamageSource damageSource, float amount);
-
-    void dropItem(EntityPlayer player, ItemStack stack, boolean dropAround, boolean traceItem);
-
-    void registerGuiHandler(Object mod, GuiHandler guiHandler);
-
-    void renderItem(EntityPlayer player, ItemStack stack);
-
-    float getSmokeEffectScaleFactor();
-
-    void adjustCustomEquippedPosition();
 
     float getBlockDensity(World world, Vector3D vec, AxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable);
 

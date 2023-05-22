@@ -259,8 +259,6 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
         
         GL11.glPushMatrix();
         
-        compatibility.adjustCustomEquippedPosition();
-        
         GL11.glScalef(0.33f, 0.33f, 0.33f);
         
 //        float pivotOffsetX = 0f;
@@ -376,7 +374,7 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 
 		GL11.glScaled(-1F, -1F, 1F);
 
-		EntityPlayer player = compatibility.clientPlayer();
+		EntityPlayer player = mc.player;
 		RenderContext<RenderableState> renderContext = new RenderContext<>(getModContext(), player, itemStack);
 
 		switch (transformType) {

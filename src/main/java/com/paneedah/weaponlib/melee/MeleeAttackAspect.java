@@ -18,6 +18,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
@@ -155,7 +156,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
 
         RayTraceResult objectMouseOver = compatibility.getObjectMouseOver();
         if (objectMouseOver != null) {
-            EntityPlayer player = compatibility.clientPlayer();
+            EntityPlayer player = mc.player;
             World world = compatibility.world(player);
             compatibility.playSound(player, isHeavyAttack ? meleeInstance.getWeapon().getHeavyAtackSound() : meleeInstance.getWeapon().getLightAtackSound(), 1F, 1F);
 

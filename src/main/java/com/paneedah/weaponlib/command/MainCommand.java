@@ -17,6 +17,7 @@ import net.minecraft.util.text.TextFormatting;
 
 import java.util.*;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class MainCommand extends CommandBase {
@@ -62,16 +63,16 @@ public class MainCommand extends CommandBase {
             if(ARG_SHOW.indexOf(args[0].toLowerCase()) == 0) {
                 processShowSubCommand(args);
             } else {
-                compatibility.addChatMessage(compatibility.clientPlayer(), getUsage(sender));
+                compatibility.addChatMessage(mc.player, getUsage(sender));
             }
         } else {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getUsage(sender));
+            compatibility.addChatMessage(mc.player, getUsage(sender));
         }
     }
 
     private void processShowSubCommand(String[] args) {
         if(args.length < 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandShowUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandShowUsage());
             return;
         }
 
@@ -84,12 +85,12 @@ public class MainCommand extends CommandBase {
             }
             showAttachments(page);
         } else {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandShowUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandShowUsage());
         }
     }
 
     private void showAttachments(int page) {
-        ItemStack itemStack = compatibility.getHeldItemMainHand(compatibility.clientPlayer());
+        ItemStack itemStack = compatibility.getHeldItemMainHand(mc.player);
         if(itemStack != null) {
             Item item = itemStack.getItem();
             if(item instanceof AttachmentContainer) {
@@ -107,12 +108,12 @@ public class MainCommand extends CommandBase {
                 int pageSize = 8;
                 int offset = pageSize * (page - 1);
                 if(page < 1) {
-                    compatibility.addChatMessage(compatibility.clientPlayer(), "Invalid page");
+                    compatibility.addChatMessage(mc.player, "Invalid page");
                 } else if(sorted.size() == 0) {
-                    compatibility.addChatMessage(compatibility.clientPlayer(), "No attachments found for "
+                    compatibility.addChatMessage(mc.player, "No attachments found for "
                             + item.getItemStackDisplayName(itemStack));
                 } else if(offset < sorted.size()) {
-                    compatibility.addChatMessage(compatibility.clientPlayer(), "Attachments for "
+                    compatibility.addChatMessage(mc.player, "Attachments for "
                             + item.getItemStackDisplayName(itemStack) + ", page " + page + " of "
                             + (int)Math.ceil((double)sorted.size() / pageSize));
 
@@ -120,11 +121,11 @@ public class MainCommand extends CommandBase {
                         if(i < 0 || i >= sorted.size()) {
                             break;
                         }
-                        compatibility.addChatMessage(compatibility.clientPlayer(), " - "
+                        compatibility.addChatMessage(mc.player, " - "
                                 + sorted.get(i).getAttachment().getItemStackDisplayName(null));
                     }
                 } else {
-                    compatibility.addChatMessage(compatibility.clientPlayer(), "Invalid page");
+                    compatibility.addChatMessage(mc.player, "Invalid page");
                 }
             }
         }
@@ -136,7 +137,7 @@ public class MainCommand extends CommandBase {
     }
 
     private void showRecipe() {
-        ItemStack itemStack = compatibility.getHeldItemMainHand(compatibility.clientPlayer());
+        ItemStack itemStack = compatibility.getHeldItemMainHand(mc.player);
         if(itemStack != null) {
             Item item = itemStack.getItem();
             showRecipe(item);
@@ -145,8 +146,8 @@ public class MainCommand extends CommandBase {
 
     private void showRecipe(Item item) {
         if(item != null && (item instanceof Weapon)) {
-           // compatibility.addChatMessage(compatibility.clientPlayer(), "");
-            compatibility.addChatMessage(compatibility.clientPlayer(), TextFormatting.GOLD +
+           // compatibility.addChatMessage(mc.player, "");
+            compatibility.addChatMessage(mc.player, TextFormatting.GOLD +
                     "-- Recipe for " + TextFormatting.GRAY +  item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--");
            
             CraftingEntry[] modernRecipe = ((Weapon) item).getModernRecipe();
@@ -165,7 +166,7 @@ public class MainCommand extends CommandBase {
             		toPrint += " -> " + (stack.getCount()*craftingItem.getRecoveryChance()) + "x " + I18n.format(craftingItem.getRegistryName() + ".name");
             	}
             	
-            	compatibility.addChatMessage(compatibility.clientPlayer(), TextFormatting.GOLD + toPrint);
+            	compatibility.addChatMessage(mc.player, TextFormatting.GOLD + toPrint);
                  
             }
              
@@ -174,7 +175,7 @@ public class MainCommand extends CommandBase {
             if(recipe != null) {
                 formatRecipe(recipe);
             } else {
-                compatibility.addChatMessage(compatibility.clientPlayer(),
+                compatibility.addChatMessage(mc.player,
                         "Recipe for " + item.getItemStackDisplayName(null) + " not found");
             }*/
         }
@@ -204,7 +205,7 @@ public class MainCommand extends CommandBase {
             }
         }
 
-        compatibility.addChatMessage(compatibility.clientPlayer(), "");
+        compatibility.addChatMessage(mc.player, "");
 
         for(int i = 0; i < recipe.size(); i++) {
             Object element = recipe.get(i);
@@ -214,7 +215,7 @@ public class MainCommand extends CommandBase {
                     Object decoded = decoder.get(c);
                     builder.append(String.format("[%.20s] ", decoded != null ? decoded : "*"));
                 }
-                compatibility.addChatMessage(compatibility.clientPlayer(),
+                compatibility.addChatMessage(mc.player,
                         "" + builder.toString());
             } else {
                 break;

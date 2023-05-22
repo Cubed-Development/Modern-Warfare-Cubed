@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class VehicleClientPacketHandler implements CompatibleMessageHandler<VehicleClientPacket, IMessage> {
@@ -28,7 +29,7 @@ public class VehicleClientPacketHandler implements CompatibleMessageHandler<Vehi
 				
 	            	
 	            	
-				EntityPlayer player = compatibility.clientPlayer();
+				EntityPlayer player = mc.player;
 				VehicleDataContainer cont = message.serializer;
 				
 				EntityVehicle vehicle = (EntityVehicle) player.world.getEntityByID(cont.entityID);

@@ -53,7 +53,7 @@ public class WeaponEventHandler {
 		//ItemStack stack = compatibility.getHeldItemMainHand(compatibility.getEntity(event));
 		//ClientModContext modContext = ClientModContext.getContext();
 		PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
-		EntityPlayer clientPlayer = compatibility.clientPlayer();
+		EntityPlayer clientPlayer = mc.player;
 		if (instance != null) {
 		   
 		    float fov;
@@ -67,9 +67,9 @@ public class WeaponEventHandler {
 		            fov = compatibility.isFlying(clientPlayer) ? 1.1f : 1.0f;
 		        }
 		    } else {
-		    	 fov = compatibility.isFlying(compatibility.clientPlayer()) ? 1.1f : 1.0f;
+		    	 fov = compatibility.isFlying(mc.player) ? 1.1f : 1.0f;
 		    	//fov = instance.isAimed() ? instance.getZoom() : 1f;
-		       // fov = compatibility.isFlying(compatibility.clientPlayer()) ? 1.1f : 1.0f; //instance.isAimed() ? instance.getZoom() : 1f;
+		       // fov = compatibility.isFlying(mc.player) ? 1.1f : 1.0f; //instance.isAimed() ? instance.getZoom() : 1f;
 		    }
 
 		   RenderingPhase phase = (((ClientModContext) modContext).getSafeGlobals().renderingPhase).get();
@@ -85,9 +85,9 @@ public class WeaponEventHandler {
 		    //fov = 0.3f;
 		    compatibility.setNewFov(event, fov); //Tags.getZoom(stack));
 		} else {
-		    SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(compatibility.clientPlayer(), SpreadableExposure.class);
+		    SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(mc.player, SpreadableExposure.class);
             if(spreadableExposure != null && spreadableExposure.getTotalDose() > 0f) {
-                float fov = compatibility.isFlying(compatibility.clientPlayer()) ? 1.1f : 1.0f; 
+                float fov = compatibility.isFlying(mc.player) ? 1.1f : 1.0f; 
                 compatibility.setNewFov(event, fov);
             }
 		}
@@ -99,7 +99,7 @@ public class WeaponEventHandler {
 		
 		if(compatibility.getButton(event) == 0 || compatibility.getButton(event) == 1) {
 			// If the current player holds the weapon in their main hand, cancel default minecraft mouse processing
-		    PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(compatibility.clientPlayer());
+		    PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player);
 		    //PlayerWeaponInstance mainHandHeldWeaponInstance = modContext.getMainHeldWeapon();
 			if(instance instanceof PlayerWeaponInstance || instance instanceof PlayerMeleeInstance
 			        || instance instanceof PlayerGrenadeInstance) { // TODO: introduce common action handler interface and check instanceof ActionHandler instead
@@ -137,7 +137,7 @@ public class WeaponEventHandler {
     @SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public final void onRenderItemEvent(RenderHandEvent event) {
-	    if (compatibility.clientPlayer().getRidingEntity() instanceof EntityVehicle)
+	    if (mc.player.getRidingEntity() instanceof EntityVehicle)
 	    	event.setCanceled(true);
 	}
 

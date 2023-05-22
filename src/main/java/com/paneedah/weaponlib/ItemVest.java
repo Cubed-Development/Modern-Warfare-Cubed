@@ -345,11 +345,8 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
     }
 
     @Override
-    public ArmorProperties getProperties(EntityLivingBase player, ItemStack vestStack, DamageSource source, double damage,
-            int slot) {
-    	//System.out.println("% blocked = " + (this.percentDamageBlocked*100));
+    public ArmorProperties getProperties(EntityLivingBase player, ItemStack vestStack, DamageSource source, double damage, int slot) {
     	//this.percentDamageBlocked = 1.0;
-    	//System.out.println(new ArmorProperties(0, this.percentDamageBlocked, durability).applyArmor(entity, inventory, source, damage));
         return new ArmorProperties(0, this.percentDamageBlocked, 2000);
     }
 

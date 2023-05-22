@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class SpawnParticleMessageHandler implements CompatibleMessageHandler<SpawnParticleMessage, IMessage>  {
@@ -39,14 +40,14 @@ public class SpawnParticleMessageHandler implements CompatibleMessageHandler<Spa
                         modContext.getEffectManager().spawnExplosionSmoke(
                                 message.getPosX(), message.getPosY(), message.getPosZ(),
                                 message.getMotionX(), message.getMotionY(), message.getMotionZ(),
-                                1.5f * compatibility.world(compatibility.clientPlayer()).rand.nextFloat(),
+                                1.5f * compatibility.world(mc.player).rand.nextFloat(),
                                 300, ExplosionSmokeFX.Behavior.SMOKE_GRENADE, REGULAR_SMOKE_TEXTURE);
                         break;
                     case SMOKE_GRENADE_YELLOW_SMOKE:
                         modContext.getEffectManager().spawnExplosionSmoke(
                                 message.getPosX(), message.getPosY(), message.getPosZ(),
                                 message.getMotionX(), message.getMotionY(), message.getMotionZ(),
-                                0.2f * compatibility.world(compatibility.clientPlayer()).rand.nextFloat(),
+                                0.2f * compatibility.world(mc.player).rand.nextFloat(),
                                 300, ExplosionSmokeFX.Behavior.SMOKE_GRENADE, YELLOW_SMOKE_TEXTURE);
                         break;
                     default:

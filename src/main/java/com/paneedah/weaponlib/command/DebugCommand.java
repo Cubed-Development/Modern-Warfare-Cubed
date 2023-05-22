@@ -24,6 +24,7 @@ import java.io.*;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class DebugCommand extends CommandBase {
@@ -72,7 +73,7 @@ public class DebugCommand extends CommandBase {
     }
 
     public void sendDebugMessage(String message) {
-    	compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + message);
+    	compatibility.addChatMessage(mc.player, getDebugPrefix() + message);
     }
     
     private String getSubCommandDebugUsage() {
@@ -162,10 +163,10 @@ public class DebugCommand extends CommandBase {
             	processWeapon(args);
             	break;
             default:
-                compatibility.addChatMessage(compatibility.clientPlayer(), getUsage(sender));
+                compatibility.addChatMessage(mc.player, getUsage(sender));
             }
         } else {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getUsage(sender));
+            compatibility.addChatMessage(mc.player, getUsage(sender));
         }
     }
     
@@ -203,12 +204,12 @@ public class DebugCommand extends CommandBase {
     private void processWeapon(String[] args) {
     	if(args[1].equals("infinite")) {
     		isInfiniteAmmo = !isInfiniteAmmo;
-    		compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + " Infinite ammo mode is " + (isInfiniteAmmo ? "on" : "off"));
+    		compatibility.addChatMessage(mc.player, getDebugPrefix() + " Infinite ammo mode is " + (isInfiniteAmmo ? "on" : "off"));
         	
     	} else if(args[1].equals("slide")) {
     		if(args[2].equals("edit")) {
     			isDebuggingActionPosition = !isDebuggingActionPosition;
-    			compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + " Slide editor mode is " + (isDebuggingActionPosition ? "on" : "off"));
+    			compatibility.addChatMessage(mc.player, getDebugPrefix() + " Slide editor mode is " + (isDebuggingActionPosition ? "on" : "off"));
             	
     		}else if(args[2].equals("setpos")) {
     			double x = Double.parseDouble(args[3]);
@@ -219,7 +220,7 @@ public class DebugCommand extends CommandBase {
     	} else if(args[1].equals("shake")) {
     		if(args[2].equals("edit")) {
     			isWorkingOnScreenShake = !isWorkingOnScreenShake;
-    			compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + " Shake editor mode is " + (isWorkingOnScreenShake ? "on" : "off"));
+    			compatibility.addChatMessage(mc.player, getDebugPrefix() + " Shake editor mode is " + (isWorkingOnScreenShake ? "on" : "off"));
     		} else if(args[2].equals("set")) {
     			double intensity = Double.parseDouble(args[3]);
     			double lengthModifier = Double.parseDouble(args[4]);
@@ -263,7 +264,7 @@ public class DebugCommand extends CommandBase {
     	if(args[1].equals("new")) {
     		compatList.clear();
     		ccg.setup();
-    		compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + " Started writing new compat method set");
+    		compatibility.addChatMessage(mc.player, getDebugPrefix() + " Started writing new compat method set");
     	} else if(args[1].equals("add")) {
     		ArrayList<Pair<Class<?>, Method>> list = ccg.findStandardOpenGLMethod(args[2]);
     		for(Pair<Class<?>, Method> pair : list) {
@@ -310,7 +311,7 @@ public class DebugCommand extends CommandBase {
     			AnimationModeProcessor.getInstance().setFPSMode(true);
     		
     		} else {
-    			compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + " You cannot enter animation mode with a legacy gun!");
+    			compatibility.addChatMessage(mc.player, getDebugPrefix() + " You cannot enter animation mode with a legacy gun!");
     	    	
     			
     		}
@@ -319,10 +320,10 @@ public class DebugCommand extends CommandBase {
     		AnimationModeProcessor.getInstance().setFPSMode(false);
     	} else if(args[1].equals("dh")) {
     		BBLoader.HANDDIVISOR = Double.parseDouble(args[2]);
-    		compatibility.addChatMessage(compatibility.clientPlayer(), "Hand divisor set to " + BBLoader.HANDDIVISOR);
+    		compatibility.addChatMessage(mc.player, "Hand divisor set to " + BBLoader.HANDDIVISOR);
     	}else if(args[1].equals("dg")) {
     		BBLoader.GENDIVISOR = Double.parseDouble(args[2]);
-    		compatibility.addChatMessage(compatibility.clientPlayer(), "General divisor set to " + BBLoader.GENDIVISOR);
+    		compatibility.addChatMessage(mc.player, "General divisor set to " + BBLoader.GENDIVISOR);
     	} else if(args[1].equals("as")) {
     		double x = Double.parseDouble(args[2]);
     		double y = Double.parseDouble(args[3]);
@@ -353,11 +354,11 @@ public class DebugCommand extends CommandBase {
     	case DEBUG_MUZZLE_POS:
     		 
     		if(CompatibleClientEventHandler.muzzlePositioner) {
-    			compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + "Exiting muzzle debug...");
+    			compatibility.addChatMessage(mc.player, getDebugPrefix() + "Exiting muzzle debug...");
     			CompatibleClientEventHandler.muzzlePositioner = false;
       	      
     		} else {
-    			compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + "Entering muzzle debug... a point will display.");
+    			compatibility.addChatMessage(mc.player, getDebugPrefix() + "Entering muzzle debug... a point will display.");
       	      	CompatibleClientEventHandler.muzzlePositioner = true;
     		}
     		
@@ -377,15 +378,15 @@ public class DebugCommand extends CommandBase {
         }
         if(debugMode != null) {
             DebugPositioner.setDebugMode(debugMode);
-            compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + "Debug mode " + args[0].toLowerCase());
+            compatibility.addChatMessage(mc.player, getDebugPrefix() + "Debug mode " + args[0].toLowerCase());
         } else {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandDebugUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandDebugUsage());
         }
     }
 
     private void processPauseSubCommand(String[] args) {
         if(args.length != 3) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandPauseUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandPauseUsage());
             return;
         }
 
@@ -393,16 +394,16 @@ public class DebugCommand extends CommandBase {
             int transitionNumber = Integer.parseInt(args[1]);
             long pauseDuration = Long.parseLong(args[2]);
             DebugPositioner.configureTransitionPause(transitionNumber, pauseDuration);
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Set transition "
+            compatibility.addChatMessage(mc.player, "Set transition "
                     + transitionNumber + " pause to " + pauseDuration + "ms");
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandPauseUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandPauseUsage());
         }
     }
 
     private void processWatchSubCommand(String[] args) {
         if(args.length < 1) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandWatchUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandWatchUsage());
             return;
         }
 
@@ -411,39 +412,39 @@ public class DebugCommand extends CommandBase {
 
     private void processScaleSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandScaleUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandScaleUsage());
             return;
         }
 
         if(DebugPositioner.getDebugPart() == null) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Debug part not selected");
+            compatibility.addChatMessage(mc.player, "Debug part not selected");
             return;
         }
 
         try {
             float scale = Float.parseFloat(args[1]);
             DebugPositioner.setScale(scale);
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Set scale to " + scale);
+            compatibility.addChatMessage(mc.player, "Set scale to " + scale);
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandScaleUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandScaleUsage());
         }
     }
     
     private void processAutorotateSubCommand(String[] args) {
         if(args.length < 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandAutorotateUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandAutorotateUsage());
             return;
         }
 
         if(DebugPositioner.getDebugPart() == null) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Debug part not selected");
+            compatibility.addChatMessage(mc.player, "Debug part not selected");
             return;
         }
 
         try {
             float rpm = Float.parseFloat(args[1]);
             if(rpm < 0) {
-                compatibility.addChatMessage(compatibility.clientPlayer(), "RPM must be greater than 0");
+                compatibility.addChatMessage(mc.player, "RPM must be greater than 0");
                 return;
             }
             float xrpm = 0f;
@@ -465,62 +466,62 @@ public class DebugCommand extends CommandBase {
                 xrpm = rpm;
             }
             DebugPositioner.setAutorotate(xrpm, yrpm, zrpm);
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Set autorotate to " 
+            compatibility.addChatMessage(mc.player, "Set autorotate to " 
                     + xrpm +", " + yrpm + ", " + zrpm);
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandAutorotateUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandAutorotateUsage());
         }
     }
 
     private void processStepSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandStepUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandStepUsage());
             return;
         }
 
         if(DebugPositioner.getDebugPart() == null) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Debug part not selected");
+            compatibility.addChatMessage(mc.player, "Debug part not selected");
             return;
         }
 
         try {
             float step = Float.parseFloat(args[1]);
             DebugPositioner.setStep(step);
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Set step to " + step);
+            compatibility.addChatMessage(mc.player, "Set step to " + step);
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandStepUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandStepUsage());
         }
     }
 
     private void processShowSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandShowUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandShowUsage());
             return;
         }
         
         
         if(CompatibleClientEventHandler.muzzlePositioner) {
-        	compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + "Muzzle Position: " + CompatibleClientEventHandler.debugmuzzlePosition);
+        	compatibility.addChatMessage(mc.player, getDebugPrefix() + "Muzzle Position: " + CompatibleClientEventHandler.debugmuzzlePosition);
             return;
         }
         if(DebugPositioner.getDebugPart() == null) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Debug part not selected");
+            compatibility.addChatMessage(mc.player, "Debug part not selected");
             return;
         }
 
         switch(args[1].toLowerCase()) {
         case SHOW_OPTION_CODE:
             DebugPositioner.showCode();
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Code is copied to the console");
+            compatibility.addChatMessage(mc.player, "Code is copied to the console");
             break;
         default:
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandShowUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandShowUsage());
         }
     }
 
     private void processWeaponPartSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandPartUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandPartUsage());
             return;
         }
 
@@ -554,15 +555,15 @@ public class DebugCommand extends CommandBase {
                 break;
             }
 
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Debugging part " + args[1]);
+            compatibility.addChatMessage(mc.player, "Debugging part " + args[1]);
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandPartUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandPartUsage());
         }
     }
     
     private void processVehiclePartSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandVPartUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandVPartUsage());
             return;
         }
 
@@ -599,13 +600,13 @@ public class DebugCommand extends CommandBase {
                 DebugPositioner.setDebugPart(VehiclePart.REAR_RIGHT_WHEEL);
                 break;
             default:
-                compatibility.addChatMessage(compatibility.clientPlayer(), "Don't know anything about part " + args[1]);
+                compatibility.addChatMessage(mc.player, "Don't know anything about part " + args[1]);
                 return;
             }
 
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Debugging part " + args[1]);
+            compatibility.addChatMessage(mc.player, "Debugging part " + args[1]);
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandVPartUsage());
+            compatibility.addChatMessage(mc.player, getSubCommandVPartUsage());
         }
     }
 

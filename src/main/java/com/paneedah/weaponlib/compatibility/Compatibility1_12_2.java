@@ -10,7 +10,6 @@ import com.paneedah.weaponlib.ai.EntityCustomMob;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.particle.ParticleBlood;
-import com.paneedah.weaponlib.tile.CustomTileEntityRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -24,7 +23,6 @@ import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.entity.RenderPlayer;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.client.shader.ShaderGroup;
@@ -133,12 +131,6 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     public World world(Entity entity) {
         return entity.world;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public EntityPlayer clientPlayer() {
-        return mc.player;
     }
 
     @Override
@@ -562,7 +554,7 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     @SideOnly(Side.CLIENT)
     public void addBreakingParticle(ModContext modContext, double x, double y, double z) {
-        ParticleBlood particle = new ParticleBlood(world(clientPlayer()), x, y + 1, z);
+        ParticleBlood particle = new ParticleBlood(world(mc.player), x, y + 1, z);
         mc.effectRenderer.addEffect(particle);
     }
     
@@ -1069,7 +1061,7 @@ public class Compatibility1_12_2 implements Compatibility {
     
     @Override
     public ItemStack getItemStackFromSlot(EntityEquipmentSlot compatibleSlot) {
-        return clientPlayer().getItemStackFromSlot(compatibleSlot);
+        return mc.player.getItemStackFromSlot(compatibleSlot);
     }
 
     @Override
@@ -1200,68 +1192,6 @@ private Optional<Field> shadersEnabledFieldOptional;
     @Override
     public void writeTagCompound(PacketBuffer packetBuf, NBTTagCompound tagCompound) {
         packetBuf.writeCompoundTag(tagCompound);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void closeScreen() {
-        clientPlayer().closeScreen();
-    }
-
-    @Override
-    public void applyArmor(LivingHurtEvent event, EntityLivingBase entityLiving, ItemStack[] itemStacks, DamageSource damageSource, float amount) {
-        NonNullList<ItemStack> stackList = NonNullList.create();
-        for(int i = 0; i < itemStacks.length; i++) {
-            stackList.add(itemStacks[i]);
-        }
-
-    
-        float amt = ArmorProperties.applyArmor(entityLiving, stackList, damageSource, amount);
-        event.setAmount(amt);
-        
-       
-        //event.setAmount(amount);
-        //ArmorProperties.applyArmor(entityLiving, stackList, damageSource, amount);
-    }
-
-    @Override
-    public void dropItem(EntityPlayer player, ItemStack stack, boolean dropAround, boolean traceItem) {
-        player.dropItem(stack, dropAround, traceItem);
-    }
-
-    @Override
-    public void registerGuiHandler(Object mod, GuiHandler guiHandler) {
-        NetworkRegistry.INSTANCE.registerGuiHandler(mod, guiHandler);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void renderItem(EntityPlayer player, ItemStack stack) {
-        mc.getItemRenderer().renderItem(player, stack, null);
-    }
-
-    @Override
-    public float getSmokeEffectScaleFactor() {
-        return 1f;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void adjustCustomEquippedPosition() {
-//        GL11.glScalef(0.4f, 0.4f, 0.4f);
-//        GL11.glTranslatef(-0.4f, -1f, -1f);
-//        GL11.glRotatef(180f, 0, 0, 1);
-//        GL11.glScaled(0.4F, 0.4F, 0.4F);
-//        GL11.glTranslatef(-0.4f, -1f, -0.7f);
-//        GL11.glRotatef(180F, 0f, 1f, 0f);
-    }
-
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void bindTileEntitySpecialRenderer(Class<? extends TileEntity> tileEntityClass,
-                                              CustomTileEntityRenderer customTileEntityRenderer) {
-        ClientRegistry.bindTileEntitySpecialRenderer(tileEntityClass, (TileEntitySpecialRenderer)customTileEntityRenderer);
     }
 
     @Override

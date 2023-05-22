@@ -51,7 +51,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 //        this.watchablePlayer.setEntityLiving(null);
 //        if(true) return;
 
-        EntityPlayer entityPlayer = compatibility.clientPlayer();
+        EntityPlayer entityPlayer = mc.player;
         PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
                 .getMainHandItemInstance(entityPlayer);
 
@@ -127,7 +127,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         EntityLivingBase watchableEntity = watchablePlayer;
         int color =  0xFFFF00;
         if(watchableEntity != null) {
-            EntityPlayer origPlayer = compatibility.clientPlayer();
+            EntityPlayer origPlayer = mc.player;
             //origPlayer.getDistanceToEntity(watchableEntity);
             double distance = Math.pow(watchableEntity.posX - origPlayer.posX, 2)
                     + Math.pow(watchableEntity.posY - origPlayer.posY, 2)

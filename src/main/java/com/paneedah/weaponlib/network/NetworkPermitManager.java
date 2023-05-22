@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
@@ -77,7 +78,7 @@ public class NetworkPermitManager implements PermitManager, CompatibleMessageHan
 		} else {
 			compatibility.runInMainClientThread(() -> {
 				if(extendedState instanceof PlayerContext) {
-					((PlayerContext) extendedState).setPlayer(compatibility.clientPlayer());
+					((PlayerContext) extendedState).setPlayer(mc.player);
 				}
 				@SuppressWarnings("unchecked")
 				BiConsumer<Permit<?>, Object> callback = (BiConsumer<Permit<?>, Object>) permitCallbacks.remove(permit.getUuid());

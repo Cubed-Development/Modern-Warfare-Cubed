@@ -98,12 +98,12 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 			update();
 			modContext.getSyncManager().run();
 
-			PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(compatibility.clientPlayer());
+			PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(mc.player);
 			if(tracker != null) {
 			    tracker.update();
 			}
 			
-			EntityPlayer player = compatibility.clientPlayer();
+			EntityPlayer player = mc.player;
 	        if (player instanceof EntityPlayerSP && player.getRidingEntity() instanceof EntityVehicle)
 	        {
 	        	
@@ -119,15 +119,15 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 			mainLoopLock.unlock();
 			processRunInClientThreadQueue();
 			safeGlobals.objectMouseOver.set(compatibility.getObjectMouseOver());
-			if(compatibility.clientPlayer() != null) {
-				safeGlobals.currentItemIndex.set(compatibility.clientPlayer().inventory.currentItem);
-				//reloadAspect.updateMainHeldItem(compatibility.clientPlayer());
+			if(mc.player != null) {
+				safeGlobals.currentItemIndex.set(mc.player.inventory.currentItem);
+				//reloadAspect.updateMainHeldItem(mc.player);
 			}
 		}
 	}
 	
 	private void updateOnStartTick() {
-	    EntityPlayer player = compatibility.clientPlayer();
+	    EntityPlayer player = mc.player;
 	    if(player != null) {
 	        int newSlotIndex = compatibility.getCurrentInventoryItemIndex((EntityPlayer) player);
 	        if(currentSlotIndex != newSlotIndex) {
@@ -140,7 +140,7 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 	}
 
     private void update() {
-		EntityPlayer player = compatibility.clientPlayer();
+		EntityPlayer player = mc.player;
 		modContext.getPlayerItemInstanceRegistry().update(player);
 		PlayerWeaponInstance mainHandHeldWeaponInstance = modContext.getMainHeldWeapon();
 		if(player != null) {
@@ -177,16 +177,16 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 		if(player != null) {
 		    //ItemStack helmet = compatibility.getHelmet();
 		    
-		    SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(compatibility.clientPlayer(), SpreadableExposure.class);
+		    SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(mc.player, SpreadableExposure.class);
 	        if(spreadableExposure != null && spreadableExposure.getTotalDose() > SLOW_DOWN_WHEN_POISONED_DOSE_THRESHOLD) {
 	            slowPlayerDown(player, SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER);
 	        } else {
 	            restorePlayerSpeed(player, SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER);
 	        }
 	        
-	        LightExposure lightExposure = CompatibleExposureCapability.getExposure(compatibility.clientPlayer(), LightExposure.class);
+	        LightExposure lightExposure = CompatibleExposureCapability.getExposure(mc.player, LightExposure.class);
 	        if(lightExposure != null) {
-	            lightExposure.update(compatibility.clientPlayer());
+	            lightExposure.update(mc.player);
 	        }
 		}
 	}
@@ -249,7 +249,7 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
                 minecraft.entityRenderer,
                 minecraft.getFramebuffer(), event.renderTickTime);
 
-        EntityPlayer clientPlayer = compatibility.clientPlayer();
+        EntityPlayer clientPlayer = mc.player;
         
         if(event.phase == TickEvent.RenderTickEvent.Phase.START ) {
             ClientModContext.currentContext.set(modContext);

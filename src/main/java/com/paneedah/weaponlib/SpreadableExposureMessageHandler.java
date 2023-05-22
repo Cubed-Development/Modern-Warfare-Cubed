@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class SpreadableExposureMessageHandler implements CompatibleMessageHandler<SpreadableExposureMessage, IMessage>  {
@@ -28,14 +29,14 @@ public class SpreadableExposureMessageHandler implements CompatibleMessageHandle
         compatibility.runInMainClientThread(() -> {
             SpreadableExposure spreadableExposure = message.getSpreadableExposure();
             if(spreadableExposure != null) {
-                SpreadableExposure currentExposure = CompatibleExposureCapability.getExposure(compatibility.clientPlayer(), SpreadableExposure.class);
+                SpreadableExposure currentExposure = CompatibleExposureCapability.getExposure(mc.player, SpreadableExposure.class);
                 if(currentExposure != null) {
                     currentExposure.updateFrom(spreadableExposure);
                 } else {
-                    CompatibleExposureCapability.updateExposure(compatibility.clientPlayer(), spreadableExposure);
+                    CompatibleExposureCapability.updateExposure(mc.player, spreadableExposure);
                 }
             } else {
-                CompatibleExposureCapability.removeExposure(compatibility.clientPlayer(), SpreadableExposure.class); // TODO: remove hardcoded class
+                CompatibleExposureCapability.removeExposure(mc.player, SpreadableExposure.class); // TODO: remove hardcoded class
             }
         });
 

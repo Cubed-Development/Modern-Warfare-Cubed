@@ -32,7 +32,7 @@ final class ClientEffectManager implements EffectManager {
 		double motionZ = mc.world.rand.nextGaussian() * 0.0003;
 
 		float distance = 1.2f;
-		float scale = 5f * compatibility.getSmokeEffectScaleFactor(); // TODO: check why scale was set to 2.0 in 1.7.10
+		float scale = 5f * 1; // TODO: check why scale multiplier was set to 2.0 in 1.7.10
 		float positionRandomizationFactor = 0.01f;
 
 		double posX = player.posX + (look.x * distance) + (mc.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (-look.z * xOffset);

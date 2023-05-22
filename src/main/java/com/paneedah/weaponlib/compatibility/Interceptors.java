@@ -701,14 +701,14 @@ public class Interceptors {
                 if(backpackStack != null) {
                     GL11.glPushMatrix();
                     adjustBodyWearablePosition(player);
-                    compatibility.renderItem(player, backpackStack);
+                    mc.getItemRenderer().renderItem(player, backpackStack, null);
                     GL11.glPopMatrix();
                 }
                 ItemStack vestStack = capability.getStackInSlot(1); // TODO: replace 0 with constant for backpack slot 
                 if(vestStack != null) {
                     GL11.glPushMatrix();
                     adjustBodyWearablePosition(player);
-                    compatibility.renderItem(player, vestStack);
+                    mc.getItemRenderer().renderItem(player, vestStack, null);
                     GL11.glPopMatrix();
                 }
             }

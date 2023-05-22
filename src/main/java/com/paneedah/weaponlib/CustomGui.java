@@ -450,7 +450,7 @@ public class CustomGui extends Gui {
 		
 		
 
-		ItemStack itemStack = compatibility.getHeldItemMainHand(compatibility.clientPlayer());
+		ItemStack itemStack = compatibility.getHeldItemMainHand(mc.player);
 
 		if(itemStack == null) {
 			return;
@@ -690,7 +690,7 @@ public class CustomGui extends Gui {
 			text = compatibility.getLocalizedString("gui.noMagazine");
 		} else {
 			text = compatibility.getLocalizedString(
-	                "gui.ammoCounter", weaponInstance.getWeapon().getCurrentAmmo(compatibility.clientPlayer()) + "/" + totalCapacity);
+	                "gui.ammoCounter", weaponInstance.getWeapon().getCurrentAmmo(mc.player) + "/" + totalCapacity);
 		}
 		return text;
 	}

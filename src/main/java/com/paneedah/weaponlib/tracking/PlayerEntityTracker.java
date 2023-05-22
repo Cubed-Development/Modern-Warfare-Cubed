@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import java.util.*;
 import java.util.function.Supplier;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
@@ -113,7 +114,7 @@ public class PlayerEntityTracker {
     }
 
     public static PlayerEntityTracker fromBuf(ByteBuf buf /*, World world*/) {
-        PlayerEntityTracker tracker = new PlayerEntityTracker(() -> compatibility.world(compatibility.clientPlayer()));
+        PlayerEntityTracker tracker = new PlayerEntityTracker(() -> compatibility.world(mc.player));
         tracker.init(buf);
         return tracker;
     }

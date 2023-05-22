@@ -232,7 +232,7 @@ public class WeaponKeyInputHandler {
                 modContext.getChannel().sendToServer(new ArmorControlMessage(true));
                 NBTTagCompound tagCompound = compatibility.getTagCompound(helmetStack);
                 boolean nightVisionOn = tagCompound != null && tagCompound.getBoolean(ArmorControlHandler.TAG_NIGHT_VISION);
-                compatibility.playSound(compatibility.clientPlayer(), 
+                compatibility.playSound(mc.player, 
                         nightVisionOn ? modContext.getNightVisionOffSound() : modContext.getNightVisionOnSound(), 1.0f, 1.0f);
             } else {
                 PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);

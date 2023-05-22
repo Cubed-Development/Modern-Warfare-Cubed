@@ -15,8 +15,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -213,7 +215,8 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
                 for(int slotIndex = 0; slotIndex < inventory.getSizeInventory(); slotIndex++) {
                     ItemStack stackInSlot = inventory.getStackInSlot(slotIndex);
                     if(stackInSlot != null) {
-                        compatibility.dropItem((EntityPlayer)entity, stackInSlot, true, false);
+                        EntityPlayer player = (EntityPlayer) entity;
+                        player.dropItem(stackInSlot, true, false);
                         inventory.setInventorySlotContents(slotIndex, null);
                     }
                 }
@@ -226,7 +229,16 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         CustomPlayerInventory inventory = CompatibleCustomPlayerInventoryCapability
                 .getInventory(livingHurtEvent.getEntityLiving());
         if (inventory != null && inventory.getStackInSlot(1) != null) {
-            compatibility.applyArmor(livingHurtEvent, livingHurtEvent.getEntityLiving(), new ItemStack[] { inventory.getStackInSlot(1) }, livingHurtEvent.getSource(), livingHurtEvent.getAmount());
+            NonNullList<ItemStack> stackList = NonNullList.create();
+
+            ItemStack[] itemStacks = new ItemStack[] { inventory.getStackInSlot(1) };
+
+            for (int i = 0; i < itemStacks.length; i++) {
+                stackList.add(itemStacks[i]);
+            }
+
+            float amt = ISpecialArmor.ArmorProperties.applyArmor(livingHurtEvent.getEntityLiving(), stackList, livingHurtEvent.getSource(), livingHurtEvent.getAmount());
+            livingHurtEvent.setAmount(amt);
         }
         
         if(livingHurtEvent.getSource().getImmediateSource() instanceof EntityProjectile) {

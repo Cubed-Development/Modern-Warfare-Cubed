@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityControlHandler implements CompatibleMessageHandler<EntityControlMessage, IMessage>  {
@@ -38,7 +39,7 @@ public class EntityControlHandler implements CompatibleMessageHandler<EntityCont
             });
         } else {
             compatibility.runInMainClientThread(() -> {
-                EntityPlayer player = compatibility.clientPlayer();
+                EntityPlayer player = mc.player;
                 Entity targetEntity = message.getEntity(compatibility.world(player));
                 CompatibleExtraEntityFlags.setFlags(targetEntity, message.getFlags(), message.getValues());
                 

@@ -37,6 +37,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
@@ -344,8 +345,8 @@ public class CommonModContext implements ModContext {
 
     @Override
     public void init(Object mod) {
-    
-        compatibility.registerGuiHandler(mod, new GuiHandler());
+
+        NetworkRegistry.INSTANCE.registerGuiHandler(mod, new GuiHandler());
     }
     
     public static ModContext getContext() {

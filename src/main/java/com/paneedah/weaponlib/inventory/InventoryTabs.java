@@ -53,8 +53,8 @@ public class InventoryTabs {
     }
 
     public void openInventoryGui() {
-        compatibility.closeScreen(); //.sendQueue.addToSendQueue(new CPacketCloseWindow(mc.thePlayer.openContainer.windowId));
-        GuiInventory inventory = new GuiInventory(compatibility.clientPlayer());
+        mc.player.closeScreen();
+        GuiInventory inventory = new GuiInventory(mc.player);
         mc.displayGuiScreen(inventory);
     }
 

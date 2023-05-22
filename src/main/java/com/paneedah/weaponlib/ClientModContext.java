@@ -178,7 +178,7 @@ public class ClientModContext extends CommonModContext {
 
     @Override
     protected EntityPlayer getPlayer(MessageContext ctx) {
-        return compatibility.clientPlayer();
+        return mc.player;
     }
 
     @Override
@@ -207,7 +207,7 @@ public class ClientModContext extends CommonModContext {
 
     @Override
     public PlayerWeaponInstance getMainHeldWeapon() {
-        return getPlayerItemInstanceRegistry().getMainHandItemInstance(compatibility.clientPlayer(),
+        return getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player,
                 PlayerWeaponInstance.class);
     }
 
@@ -217,7 +217,7 @@ public class ClientModContext extends CommonModContext {
     }
 
     public PlayerMeleeInstance getMainHeldMeleeWeapon() {
-        return getPlayerItemInstanceRegistry().getMainHandItemInstance(compatibility.clientPlayer(),
+        return getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player,
                 PlayerMeleeInstance.class);
     }
 
