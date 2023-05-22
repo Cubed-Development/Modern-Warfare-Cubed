@@ -4,6 +4,7 @@ import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
 import com.paneedah.weaponlib.compatibility.CompatibleChannel;
+import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
 import com.paneedah.weaponlib.compatibility.CompatibleWeaponKeyInputHandler;
 import com.paneedah.weaponlib.inventory.GuiHandler;
@@ -15,6 +16,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
@@ -32,11 +34,7 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
     private Function<CompatibleMessageContext, EntityPlayer> entityPlayerSupplier;
     private ModContext modContext;
 
-    public WeaponKeyInputHandler(
-            ModContext modContext,
-            Function<CompatibleMessageContext, EntityPlayer> entityPlayerSupplier,
-            WeaponAttachmentAspect attachmentAspect,
-            CompatibleChannel channel) {
+    public WeaponKeyInputHandler(ModContext modContext, Function<CompatibleMessageContext, EntityPlayer> entityPlayerSupplier, WeaponAttachmentAspect attachmentAspect, CompatibleChannel channel) {
         this.modContext = modContext;
         this.entityPlayerSupplier = entityPlayerSupplier;
         this.channel = channel;
@@ -350,18 +348,12 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
 
         else if(KeyBindings.subtractKey.isPressed()) {
             PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
-            if(instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.EJECT_REQUIRED)) {
+            if (instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.EJECT_REQUIRED))
                 instance.getWeapon().decrementZoom(instance);
-            }
         }
-        
-       
-        /*else if(KeyBindings.proningSwitchKey.isPressed()) {
-        	//EntityPlayer player = mc.player;
-        	
-        	
-            modContext.getChannel().getChannel().sendToServer(new EntityControlMessage(player, 
-                    CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
-        }*/
+
+        else if (mc.isSingleplayer() && KeyBindings.proningSwitchKey.isPressed()) {
+            modContext.getChannel().getChannel().sendToServer(new EntityControlMessage(player, CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
+        }
     }
 }
