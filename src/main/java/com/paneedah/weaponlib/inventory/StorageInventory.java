@@ -89,7 +89,7 @@ public class StorageInventory implements IInventory {
         this.inventory[slot] = stack != null ? stack : new ItemStack(Items.AIR);
 
         if (stack != null && stack.getCount() > getInventoryStackLimit()) {
-            compatibility.setStackSize(stack, getInventoryStackLimit());
+            stack.setCount(getInventoryStackLimit());
         }
 
         // Don't forget this line or your inventory will not be saved!

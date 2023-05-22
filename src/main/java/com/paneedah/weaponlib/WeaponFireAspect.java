@@ -329,21 +329,16 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
         if(ModernConfigManager.enableMuzzleEffects && weapon.builder.flashIntensity > 0) {
             modContext.getEffectManager().spawnFlashParticle(player, weapon.builder.flashIntensity, weapon.builder.flashScale.get(),
-                    weaponInstance.isAimed() ? FLASH_X_OFFSET_ZOOMED : compatibility.getEffectOffsetX() + weapon.builder.flashOffsetX.get(),
-                    weaponInstance.isAimed() ? -1.55f : compatibility.getEffectOffsetY() + weapon.builder.flashOffsetY.get(), weapon.builder.flashTexture);
+                    weaponInstance.isAimed() ? FLASH_X_OFFSET_ZOOMED : -0.1f + weapon.builder.flashOffsetX.get(),
+                    weaponInstance.isAimed() ? -1.55f : -1.7f + weapon.builder.flashOffsetY.get(), weapon.builder.flashTexture);
         }
         
        
         //ClientValueRepo.gunPow.prevPosition = ClientValueRepo.gunPow.position;
         ClientValueRepo.fireWeapon(weaponInstance);
-       // System.out.println("Gun tick added @ " + mc.player.ticksExisted);
-        //System.out.println("WFA: " + System.currentTimeMillis());
 
         if(weapon.isSmokeEnabled()) {
-        	
-            modContext.getEffectManager().spawnSmokeParticle(player, compatibility.getEffectOffsetX()
-                    + weapon.builder.smokeOffsetX.get(),
-                    compatibility.getEffectOffsetY() + weapon.builder.smokeOffsetY.get()+0.3f);
+            modContext.getEffectManager().spawnSmokeParticle(player, -0.1f + weapon.builder.smokeOffsetX.get(), -1.7f + weapon.builder.smokeOffsetY.get()+0.3f);
         }
 
         if(weapon.isShellCasingEjectEnabled())  {
@@ -353,8 +348,6 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             // Panda: Replaced this with the above line, undo if it breaks anything for whatever reason.
         	//if (mc.gameSettings.fovSetting < 70f) fovMult = (mc.gameSettings.fovSetting/50);
         	//else fovMult = -(mc.gameSettings.fovSetting/200f);
-        	//System.out.println(fovMult);
-        	
         	
         	Vec3d pos = player.getPositionEyes(1.0f);
         	Vec3d weaponDir = new Vec3d(0, -0.1, 1.0 + fovMult).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw));
@@ -367,7 +360,6 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	//Shell
         	
         	/*
-        	
         	// Change the raw position
         	Vec3d rawPosition = new Vec3d(CompatibleClientEventHandler.NEW_POS.get(0), CompatibleClientEventHandler.NEW_POS.get(1), CompatibleClientEventHandler.NEW_POS.get(2));
         	

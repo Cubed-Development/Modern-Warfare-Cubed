@@ -147,7 +147,7 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase
                 this.strafingTime = 0;
             }
 
-            if (compatibility.isStrafingSupported() && this.strafingTime > -1) {
+            if (this.strafingTime > -1) {
                 if (d0 > (double)(this.maxAttackDistanceSquared * 0.75F))
                 {
                     this.strafingBackwards = false;
