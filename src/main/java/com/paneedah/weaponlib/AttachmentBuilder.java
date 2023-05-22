@@ -310,7 +310,7 @@ public class AttachmentBuilder<T> {
 			List<Object> shape = modContext.getRecipeManager().createShapedRecipe(attachment, name, optionsMetadata);
 
 			ItemStack itemStack = new ItemStack(attachment);
-			compatibility.setStackSize(itemStack, craftingCount);
+			itemStack.setCount(craftingCount);
             if(optionsMetadata.hasOres()) {
 			    compatibility.addShapedOreRecipe(itemStack, shape.toArray());
 			} else {

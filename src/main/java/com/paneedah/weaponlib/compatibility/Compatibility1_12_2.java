@@ -497,12 +497,6 @@ public class Compatibility1_12_2 implements Compatibility {
         }
     }
 
-
-    @Override
-    public void setStackSize(ItemStack itemStack, int size) {
-        itemStack.setCount(size);
-    }
-
     private static int itemSlotIndex(Item item, Predicate<ItemStack> condition, EntityPlayer player) {
         for (int i = 0; i < player.inventory.mainInventory.size(); ++i) {
             if (player.inventory.getStackInSlot(i) != null

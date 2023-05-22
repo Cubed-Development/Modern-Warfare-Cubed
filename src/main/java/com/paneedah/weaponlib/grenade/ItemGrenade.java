@@ -356,7 +356,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
                 List<Object> shape = modContext.getRecipeManager().createShapedRecipe(grenade, name, optionsMetadata);
 
                 ItemStack itemStack = new ItemStack(grenade);
-                compatibility.setStackSize(itemStack, craftingCount);
+                itemStack.setCount(craftingCount);
                 if(optionsMetadata.hasOres()) {
                     compatibility.addShapedOreRecipe(itemStack, shape.toArray());
                 } else {

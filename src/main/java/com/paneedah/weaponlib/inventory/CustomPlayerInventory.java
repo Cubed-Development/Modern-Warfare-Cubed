@@ -87,7 +87,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
 //                System.out.println("Setting inventory slot " + slot + " with tag compound "
 //                        + itemstack.getTagCompound());
             }
-            compatibility.setStackSize(itemstack, getInventoryStackLimit());
+            itemstack.setCount(getInventoryStackLimit());
         }
 
         this.markDirty();
