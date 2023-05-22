@@ -38,6 +38,8 @@ public class BalancePackManager {
 
 	private static final String FIRE_RATE_MODIFIER = "firerate";
 
+	private static final String INACCURACY_MODIFIER = "inaccuracy";
+
 	// firemodeAuto
 
 	private static final String FIRE_MODE_AUTO = "firemodeAuto";
@@ -119,6 +121,8 @@ public class BalancePackManager {
 		private double recoil = -1;
 
 		private float fireRate = -1;
+
+		private float inaccuracy = -1;
 
 		private boolean fireModePropertiesChanged = false;
 
@@ -225,6 +229,14 @@ public class BalancePackManager {
 			return this.fireRate;
 		}
 
+		public void setInaccuracy(float inaccuracy) {
+			this.inaccuracy = inaccuracy;
+		}
+
+		public double getInaccuracy() {
+			return this.inaccuracy;
+		}
+
 		public JsonObject toJSONObject() {
 			JsonObject weapon = new JsonObject();
 			weapon.addProperty("name", getWeaponName());
@@ -234,6 +246,9 @@ public class BalancePackManager {
 
 			if (getFirerate() != -1)
 				weapon.addProperty(FIRE_RATE_MODIFIER, getFirerate());
+
+			if (getInaccuracy() != -1)
+				weapon.addProperty(INACCURACY_MODIFIER, getInaccuracy());
 
 			if (wereFiremodePropertiesAltered()) {
 				weapon.addProperty(FIRE_MODE_AUTO, getFiremodeAuto());
@@ -257,6 +272,10 @@ public class BalancePackManager {
 				// System.out.println("For " + name + " firerate will be " +
 				// obj.get(FIRE_RATE_MODIFIER).getAsFloat());
 				gbc.setFirerate(obj.get(FIRE_RATE_MODIFIER).getAsFloat());
+			}
+
+			if (obj.has(INACCURACY_MODIFIER)) {
+				gbc.setInaccuracy(obj.get(INACCURACY_MODIFIER).getAsFloat());
 			}
 
 			if (obj.has(FIRE_MODE_AUTO) && obj.has(FIRE_MODE_BURST) && obj.has(FIRE_MODE_SINGLE)) {
@@ -762,6 +781,16 @@ public class BalancePackManager {
 		}
 
 		return (float) getActiveBalancePack().getWeaponBalancing(weapon.getName()).getFirerate();
+	}
+
+	public static float getInaccuracy(Weapon weapon) {
+
+		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon)
+				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getInaccuracy() == -1) {
+			return weapon.builder.getInaccuracy();
+		}
+
+		return (float) getActiveBalancePack().getWeaponBalancing(weapon.getName()).getInaccuracy();
 	}
 
 	public static boolean balancePackAddressesGroup(GunConfigurationGroup group) {

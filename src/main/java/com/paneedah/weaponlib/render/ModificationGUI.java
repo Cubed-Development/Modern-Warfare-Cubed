@@ -640,7 +640,7 @@ public class ModificationGUI {
 		GUIRenderHelper.drawScaledString("Firerate :: " + TextFormatting.GOLD + weaponInstance.getFireRate(), 30, 90, 1,
 				ColorPalette.WHITE);
 		GUIRenderHelper.drawScaledString(
-				"Inaccuracy :: " + TextFormatting.GOLD + weapon.getInaccuracy(), 30,
+				"Inaccuracy :: " + TextFormatting.GOLD + weaponInstance.getInaccuracy(), 30,
 				105, 1, ColorPalette.WHITE);
 
 		GlStateManager.popMatrix();
