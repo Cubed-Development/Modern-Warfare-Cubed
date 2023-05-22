@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class FlashFX extends Particle {
 
@@ -65,7 +64,7 @@ public class FlashFX extends Particle {
         if (this.particleAge++ >= this.particleMaxAge)
             this.setExpired();
 
-        compatibility.moveParticle(this, this.motionX, this.motionY, this.motionZ);
+        this.move(this.motionX, this.motionY, this.motionZ);
 
         this.motionX *= 0.9999999785423279D;
         this.motionY *= 0.9999999785423279D;

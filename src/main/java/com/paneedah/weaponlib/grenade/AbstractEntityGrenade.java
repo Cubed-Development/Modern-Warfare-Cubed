@@ -3,7 +3,6 @@ package com.paneedah.weaponlib.grenade;
 import com.paneedah.weaponlib.EntityBounceable;
 import com.paneedah.weaponlib.ModContext;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
@@ -91,10 +90,5 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
 
     public ItemGrenade getItemGrenade() {
         return itemGrenade;
-    }
-
-    @Override
-    public boolean canCollideWithBlock(Block block, IBlockState iBlockState) {
-        return !compatibility.isBlockPenetratableByGrenades(block) && super.canCollideWithBlock(block, iBlockState);
     }
 }

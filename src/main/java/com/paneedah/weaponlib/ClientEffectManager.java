@@ -22,7 +22,7 @@ final class ClientEffectManager implements EffectManager {
 
 	@Override
     public void spawnSmokeParticle(EntityLivingBase player, float xOffset, float yOffset) {
-	    if(compatibility.isShadersModEnabled())
+	    if(compatibility.areOptifineShadersOn())
 	        return;
 
 		Vector3D look = compatibility.getLookVec(player);
@@ -61,7 +61,7 @@ final class ClientEffectManager implements EffectManager {
 
 	@Override
     public void spawnFlashParticle(EntityLivingBase player, float flashIntensity, float flashScale, float xOffset, float yOffset, String texture) {
-	    if (compatibility.isShadersModEnabled())
+	    if (compatibility.areOptifineShadersOn())
 	        return;
 
 	    Weapon weapon = (Weapon) player.getHeldItemMainhand().getItem();

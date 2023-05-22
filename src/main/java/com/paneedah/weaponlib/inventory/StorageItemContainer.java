@@ -16,8 +16,6 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class StorageItemContainer extends Container {
     /**
      * The Item Inventory for this Container, only needed if you want to
@@ -232,13 +230,13 @@ public class StorageItemContainer extends Container {
                 }
             }
 
-            if (compatibility.getStackSize(itemstack1) == 0) {
+            if (itemstack1.getCount() == 0) {
                 slot.putStack(ItemStack.EMPTY);
             } else {
                 slot.onSlotChanged();
             }
 
-            if (compatibility.getStackSize(itemstack1) == compatibility.getStackSize(itemstack)) {
+            if (itemstack1.getCount() == itemstack.getCount()) {
                 return null;
             }
 

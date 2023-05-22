@@ -13,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -174,8 +175,7 @@ public class Explosion {
                             // this.worldObj.getBlockState(blockpos);
                             IBlockState iBlockState = compatibility.getBlockAtPosition(world, blockpos);
 
-                            if (!(compatibility.isAirBlock(iBlockState)
-                                    || compatibility.isBlockPenetratableByBullets(iBlockState))) {
+                            if (!(iBlockState.getBlock() == Blocks.AIR || compatibility.isBlockPenetratableByBullets(iBlockState))) {
                                 float f2 = this.exploder != null ? compatibility.getExplosionResistance(this.world, this.exploder, this, blockpos, iBlockState) : compatibility.getExplosionResistance(world, iBlockState, blockpos, (Entity) null, this);
                                 f -= (f2 + 0.3F) * 0.3F;
                             }
@@ -210,7 +210,7 @@ public class Explosion {
         for (int k2 = 0; k2 < list.size(); ++k2) {
             Entity entity = (Entity) list.get(k2);
 
-            if (!compatibility.isImmuneToExplosions(entity)) {
+            if (!entity.isImmuneToExplosions()) {
                 double d12 = entity.getDistance(this.explosionX, this.explosionY, this.explosionZ) / (double) f3;
 
                 if (d12 <= 1.0D) {
@@ -223,7 +223,41 @@ public class Explosion {
                         d5 = d5 / d13;
                         d7 = d7 / d13;
                         d9 = d9 / d13;
-                        double d14 = (double) compatibility.getBlockDensity(world, vec3d, compatibility.getBoundingBox(entity), (block, iBlockState) -> canCollideWithBlock(block, iBlockState));
+                        double d14;
+
+                        final AxisAlignedBB boundingBox = entity.getEntityBoundingBox();
+
+                        double deltaX = 1 / ((boundingBox.maxX - boundingBox.minX) * 2 + 1);
+                        double deltaY = 1 / ((boundingBox.maxY - boundingBox.minY) * 2 + 1);
+                        double deltaZ = 1 / ((boundingBox.maxZ - boundingBox.minZ) * 2 + 1);
+
+                        if (deltaX < 0 || deltaY < 0 || deltaZ < 0)
+                            d14 = 0;
+
+                        double offsetX = (1 - Math.floor(1 / deltaX) * deltaX) / 2;
+                        double offsetZ = (1 - Math.floor(1 / deltaZ) * deltaZ) / 2;
+                        int collidableCount = 0;
+                        int totalSampleCount = 0;
+
+                        for (double x = 0; x <= 1; x += deltaX) {
+                            for (double y = 0; y <= 1; y += deltaY) {
+                                for (double z = 0; z <= 1; z += deltaZ) {
+                                    double posX = boundingBox.minX + (boundingBox.maxX - boundingBox.minX) * x;
+                                    double posY = boundingBox.minY + (boundingBox.maxY - boundingBox.minY) * y;
+                                    double posZ = boundingBox.minZ + (boundingBox.maxZ - boundingBox.minZ) * z;
+
+                                    Vector3D sampledVec = new Vector3D(posX + offsetX, posY, posZ + offsetZ);
+
+                                    if (CompatibleRayTracing.rayTraceBlocks(world, sampledVec, vec3d, this::canCollideWithBlock) == null)
+                                        collidableCount++;
+
+                                    totalSampleCount++;
+                                }
+                            }
+                        }
+
+                        d14 = (float) collidableCount / totalSampleCount;
+
                         double d10 = (1.0D - d12) * d14;
                         double d11 = 1.0D;
 
@@ -328,7 +362,7 @@ public class Explosion {
 //
 //                }
 
-                if (destroyBlocks && !compatibility.isAirBlock(blockState)) {
+                if (destroyBlocks && !(blockState.getBlock() == Blocks.AIR)) {
                     if (compatibility.canDropBlockFromExplosion(blockState, this))
                         compatibility.dropBlockAsItemWithChance(this.world, blockState, blockpos, (float) ModernConfigManager.explodedBlockDropChance * (1.0F / this.explosionSize), 0);
 

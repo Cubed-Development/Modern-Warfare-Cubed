@@ -8,7 +8,6 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.stats.StatisticsManager;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
@@ -36,7 +35,7 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
             return;
         }
 
-        EntityPlayer origPlayer = mc.player;
+        EntityPlayerSP origPlayer = mc.player;
 
         if(origPlayer == null) {
             return;
@@ -61,7 +60,7 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
         if (watchablePlayer != null && !watchablePlayer.isDead) {
 
             compatibility.setRenderViewEntity(watchablePlayer);
-            compatibility.setClientPlayer(watchablePlayer);
+            mc.player = watchablePlayer;
 
             modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.RENDER_PERSPECTIVE);
 
@@ -73,7 +72,7 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
             modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.NORMAL);
 
             compatibility.setRenderViewEntity(origRenderViewEntity);
-            compatibility.setClientPlayer(origPlayer);
+            mc.player = origPlayer;
         }
 
         renderOverlay();

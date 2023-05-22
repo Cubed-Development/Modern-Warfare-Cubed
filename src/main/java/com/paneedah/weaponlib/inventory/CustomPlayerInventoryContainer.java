@@ -19,8 +19,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class CustomPlayerInventoryContainer extends Container {
     
     @SuppressWarnings("unused")
@@ -232,13 +230,13 @@ public class CustomPlayerInventoryContainer extends Container {
                     }
                 }
 
-                if (compatibility.getStackSize(itemstack1) == 0) {
+                if (itemstack1.getCount() == 0) {
                     slot.putStack(new ItemStack(Items.AIR));
                 } else {
                     slot.onSlotChanged();
                 }
 
-                if (compatibility.getStackSize(itemstack1) == compatibility.getStackSize(itemstack)) {
+                if (itemstack1.getCount() == itemstack.getCount()) {
                     return null;
                 }
 

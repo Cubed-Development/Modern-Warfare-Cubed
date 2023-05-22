@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ExplosionSmokeFX extends Particle {
 
@@ -101,7 +100,7 @@ public class ExplosionSmokeFX extends Particle {
             this.setExpired();
 
         this.motionY += 0.00001D; //this.motionY += 0.0005D;
-        compatibility.moveParticle(this, this.motionX, this.motionY, this.motionZ);
+        this.move(this.motionX, this.motionY, this.motionZ);
 
         this.motionX *= 0.799999785423279D;
         this.motionY *= 0.9999999785423279D;

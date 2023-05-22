@@ -5,6 +5,7 @@ import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -123,12 +124,13 @@ public class WeaponEventHandler {
 			            .getItemInstance(player, itemStack);
 			    if(instance instanceof PlayerWeaponInstance) {
 			        PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) instance;
-			        compatibility.setAimed(rp, !Interceptors.isProning(player) &&
-			                (weaponInstance.isAimed()
-			                || weaponInstance.getState() == WeaponState.FIRING
-			                || weaponInstance.getState() == WeaponState.RECOILED
-			                || weaponInstance.getState() == WeaponState.PAUSED
-							));
+					if (!Interceptors.isProning(player) && (weaponInstance.isAimed() || weaponInstance.getState() == WeaponState.FIRING || weaponInstance.getState() == WeaponState.RECOILED || weaponInstance.getState() == WeaponState.PAUSED)) {
+						rp.getMainModel().leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
+						rp.getMainModel().rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
+					} else {
+						rp.getMainModel().leftArmPose = ModelBiped.ArmPose.EMPTY;
+						rp.getMainModel().rightArmPose = ModelBiped.ArmPose.ITEM;
+					}
 			    }
 			}
 		}

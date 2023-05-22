@@ -10,17 +10,12 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.client.shader.ShaderGroup;
-import net.minecraft.client.shader.ShaderManager;
-import net.minecraft.client.shader.ShaderUniform;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAITarget;
@@ -42,7 +37,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraftforge.client.event.FOVUpdateEvent;
@@ -51,7 +45,6 @@ import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 
 import java.io.IOException;
@@ -59,7 +52,6 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
-import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 @Deprecated
@@ -67,9 +59,7 @@ public interface Compatibility {
 
 	World world(Entity entity);
 
-    void setClientPlayer(EntityPlayer player);
-
-	IAttribute getMovementSpeedAttribute();
+    IAttribute getMovementSpeedAttribute();
 
 	NBTTagCompound getTagCompound(ItemStack itemStack);
 
@@ -133,9 +123,7 @@ public interface Compatibility {
 
 	GuiScreen getGui(GuiOpenEvent event);
 
-	void setAimed(RenderPlayer rp, boolean aimed);
-
-	RayTraceResult getObjectMouseOver();
+    RayTraceResult getObjectMouseOver();
 
 	IBlockState getBlockAtPosition(World world, RayTraceResult position);
 
@@ -151,39 +139,23 @@ public interface Compatibility {
 
 	float getEffectOffsetY();
 
-    void spawnEntity(EntityLivingBase player, Entity entity);
-
-	void moveParticle(Particle particle, double motionX, double motionY, double motionZ);
-
-	int getStackSize(ItemStack consumedStack);
-
-	ItemStack consumeInventoryItem(Item item, Predicate<ItemStack> condition, EntityPlayer player, int maxSize);
+    ItemStack consumeInventoryItem(Item item, Predicate<ItemStack> condition, EntityPlayer player, int maxSize);
 
 	ItemStack getInventoryItemStack(EntityPlayer player, int inventoryItemIndex);
 
-	int getInventorySlot(EntityPlayer player, ItemStack itemStack);
-
-	void consumeInventoryItemFromSlot(EntityPlayer player, int nextAttachmentSlot);
+    void consumeInventoryItemFromSlot(EntityPlayer player, int nextAttachmentSlot);
 
 	void addShapedRecipe(ItemStack itemStack, Object... materials);
 
     void addShapedOreRecipe(ItemStack itemStack, Object... materials);
 
-	void disableLightMap();
-
-	void enableLightMap();
-
-	void registerBlock(ModContext context, Block block, String name);
+    void registerBlock(ModContext context, Block block, String name);
 
 	void registerWorldGenerator(WorldGeneratorEventHandler worldGeneratorEventHandler, int i);
 
 	ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness);
 
-	boolean inventoryHasFreeSlots(EntityPlayer player);
-
     void addBlockHitEffect(BlockPos pos, double x, double y, double z, EnumFacing enumFacing);
-
-    String getDisplayName(EntityPlayer player);
 
     String getPlayerName(EntityPlayer player);
 
@@ -231,10 +203,6 @@ public interface Compatibility {
 
     void playSoundAtEntity(Entity entity, SoundEvent explosionSound, float volume, float pitch);
 
-    boolean isImmuneToExplosions(Entity entity);
-
-    boolean isAirBlock(IBlockState blockState);
-
     boolean canDropBlockFromExplosion(IBlockState block, Explosion explosion);
 
     void onBlockExploded(World worldObj, IBlockState blockState, BlockPos blockpos, Explosion explosion);
@@ -262,29 +230,15 @@ public interface Compatibility {
 
     void playSound(World world, double posX, double posY, double posZ, SoundEvent explosionSound, float volume, float pitch);
 
-    boolean isBlockPenetratableByGrenades(Block block);
-
     DamageSource genericDamageSource();
 
     boolean isFlying(EntityPlayer player);
 
     String getLocalizedString(String format, Object...args);
 
-    ShaderUniform getShaderUniform(ShaderManager shaderManager, String uniformName);
-
-    void setUniform(ShaderUniform uniform, float value);
-
-    void setUniform(ShaderUniform uniform, float value1, float value2);
-
-    void setUniform(ShaderUniform uniform, float value1, float value2, float value3);
-
-    void setUniform(ShaderUniform uniform, float value1, float value2, float value3, float value4);
-
     Vector3D getLookVec(EntityLivingBase player);
 
     void setEntityAttribute(EntityLivingBase entity, IAttribute attributes, double value);
-
-    EnumDifficulty getDifficulty(World world);
 
     void addStat(EntityPlayer entityplayer, StatBase achievementList);
 
@@ -295,8 +249,6 @@ public interface Compatibility {
     boolean isStrafingSupported();
 
     void strafe(EntityCustomMob entity, float forward, float strafe);
-    
-    void addSpawn(Class<? extends EntityLiving> entity, int weightedProb, int min, int max, BiomeDictionary.Type... biomeTypes);
 
     void registerEgg(ModContext context, Class<? extends Entity> entityClass, String entityName, int primaryEggColor, int secondaryEggColor);
 
@@ -334,23 +286,7 @@ public interface Compatibility {
 
     void resizeEntityBoundingBox(Entity entity, double x, double y, double z);
 
-    void renderRightLegwear(ModelBiped modelPlayer, float scale);
-    
-    void renderLeftLegwear(ModelBiped modelPlayer, float scale);
-    
-    void renderRightArmwear(ModelBiped modelPlayer, float scale);
-    
-    void renderLeftArmwear(ModelBiped modelPlayer, float scale);
-    
-    void renderBodywear(ModelBiped model, float scale);
-    
-    void renderHeadwear(ModelBiped model, float scale);
-
-    boolean isShadersModEnabled();
-
-    void setUniqueId(NBTTagCompound tagCompound, String tag, UUID uuid);
-    
-    UUID getUniqueId(NBTTagCompound tagCompound, String tag);
+    boolean areOptifineShadersOn();
 
     Entity getEntityByUuid(UUID uuid, World world);
 
@@ -363,8 +299,6 @@ public interface Compatibility {
     NBTTagCompound readTagCompound(PacketBuffer packetBuf) throws IOException;
 
     void writeTagCompound(PacketBuffer packetBuf, NBTTagCompound tagCompound) throws IOException;
-
-    float getBlockDensity(World world, Vector3D vec, AxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable);
 
     void addBloodParticle(ModContext modContext, double x, double y, double z, double velX, double velY, double velZ);
 }

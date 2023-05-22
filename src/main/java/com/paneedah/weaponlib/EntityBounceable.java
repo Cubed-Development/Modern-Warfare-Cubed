@@ -9,6 +9,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -396,8 +397,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
                 IBlockState iBlockState;
 
                 BlockPos blockPos = new BlockPos(projectedPos.x, projectedPos.y, projectedPos.z);
-                if((iBlockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos)) != null
-                        && !compatibility.isAirBlock(iBlockState)) {
+                if((iBlockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos)) != null && !(iBlockState.getBlock() == Blocks.AIR)) {
                     log.debug("Found non-intercept position colliding with block {}", iBlockState);
                     intercept = movingobjectposition;
                 } else {
@@ -493,7 +493,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
     }
 
     public boolean canCollideWithBlock(Block block, IBlockState iBlockState) {
-        return compatibility.canCollideCheck(block, iBlockState, false);
+        return iBlockState.getMaterial().blocksMovement();
     }
 
     private void recordVelocityHistory() {

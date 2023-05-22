@@ -226,7 +226,7 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 		
 		
 	    Minecraft minecraft = mc;
-	    if(minecraft.gameSettings.thirdPersonView == 0 && !compatibility.isShadersModEnabled()) {
+	    if (minecraft.gameSettings.thirdPersonView == 0 && !compatibility.areOptifineShadersOn()) {
 	        PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
 	        
 	        

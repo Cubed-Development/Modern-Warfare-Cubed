@@ -226,7 +226,8 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .build(modContext);
             log.debug("Throwing velocity {} ", velocity);
-            compatibility.spawnEntity(player, entityGrenade);
+            if(player != null)
+                player.world.spawnEntity(entityGrenade);
         } else if(instance.getWeapon().getType() == Type.GAS) {
             float velocity = instance.isThrowingFar() ? instance.getWeapon().getFarVelocity() : instance.getWeapon().getVelocity();
             EntityGasGrenade entityGrenade = new EntityGasGrenade.Builder()
@@ -241,7 +242,8 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .build(modContext);
             log.debug("Throwing velocity {} ", velocity);
-            compatibility.spawnEntity(player, entityGrenade);
+            if(player != null)
+                player.world.spawnEntity(entityGrenade);
         } else if (instance.getWeapon().getType() == Type.FLASH) {
             float velocity = instance.isThrowingFar() ? instance.getWeapon().getFarVelocity() : instance.getWeapon().getVelocity();
             EntityFlashGrenade entityGrenade = new EntityFlashGrenade.Builder()
@@ -256,7 +258,8 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withDestroyingBlocks(false)
                     .build(modContext);
             log.debug("Throwing velocity {} ", velocity);
-            compatibility.spawnEntity(player, entityGrenade);
+            if(player != null)
+                player.world.spawnEntity(entityGrenade);
         } else {
             float velocity = instance.isThrowingFar() ? instance.getWeapon().getFarVelocity() : instance.getWeapon().getVelocity();
             EntityGrenade entityGrenade = new EntityGrenade.Builder()
@@ -271,7 +274,8 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withDestroyingBlocks(instance.getWeapon().isDestroyingBlocks())
                     .build(modContext);
             log.debug("Throwing velocity {} ", velocity);
-            compatibility.spawnEntity(player, entityGrenade);
+            if(player != null)
+                player.world.spawnEntity(entityGrenade);
         }
     }
 

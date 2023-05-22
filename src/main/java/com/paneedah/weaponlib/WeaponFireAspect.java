@@ -473,12 +473,14 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
                    0, 
                    0);
            bullet.setPositionAndDirection();
-           compatibility.spawnEntity(player, bullet);
+
+           player.world.spawnEntity(bullet);
+
           // return bullet;
-           /*
-            WeaponSpawnEntity spawnEntity = spawnEntityWith.apply(weapon, player);
-            compatibility.spawnEntity(player, spawnEntity);
-            */
+/*            WeaponSpawnEntity spawnEntity = spawnEntityWith.apply(weapon, player);
+            if(player != null)
+                player.world.spawnEntity(spawnEntity);*/
+
         }
 
         PlayerWeaponInstance playerWeaponInstance = Tags.getInstance(itemStack, PlayerWeaponInstance.class);

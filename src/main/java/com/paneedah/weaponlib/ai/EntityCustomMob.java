@@ -270,8 +270,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     private void setSecondaryEquipment() {
         EntityConfiguration configuration = getConfiguration();
-        Equipment secondaryEquipment = configuration.getSecondaryEquipmentOptions()
-                .pick(compatibility.getDifficulty(compatibility.world(this)));
+        Equipment secondaryEquipment = configuration.getSecondaryEquipmentOptions().pick(compatibility.world(this).getDifficulty());
         if (secondaryEquipment != null) {
             ItemStack equipmentItemStack = new ItemStack(secondaryEquipment.item);
             if (secondaryEquipment.item instanceof ItemGrenade) {
@@ -309,7 +308,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     private void setPrimaryEquipment() {
         EntityConfiguration configuration = getConfiguration();
-        Equipment equipment = configuration.getEquipmentOptions().pick(compatibility.getDifficulty(compatibility.world(this)));
+        Equipment equipment = configuration.getEquipmentOptions().pick(compatibility.world(this).getDifficulty());
 
         Arrays.fill(this.inventoryHandsDropChances, configuration.getPrimaryEquipmentDropChance());
         if (equipment != null) {
@@ -408,7 +407,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             WeaponFireAspect fireAspect = modContext.getWeaponFireAspect();
 
             BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith = (weapon, player) -> {
-                int difficultyId = compatibility.getDifficulty(compatibility.world(this)).getId();
+                int difficultyId = compatibility.world(this).getDifficulty().getId();
                 float inaccuracy = weapon.getInaccuracy() + (3f - difficultyId) * 0.5f; // *
                                                                                         // 2
                                                                                         // +

@@ -58,7 +58,8 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                     if(equipmentItemStack != null) {
                         EntityItem item = new EntityItem(getWorld(), getPos().getX() + 1, getPos().getY() + 1, getPos().getZ() + 1, equipmentItemStack);
                         item.setNoPickupDelay();
-                        compatibility.spawnEntity(player, item);
+                        if(player != null)
+                            player.world.spawnEntity(item);
                     }
                 }
             } else {

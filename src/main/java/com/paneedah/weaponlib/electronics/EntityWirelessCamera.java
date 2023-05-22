@@ -75,7 +75,7 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
         if (entityHit != null && getThrower() instanceof EntityPlayer) {
             String displayName = "";
             if(entityHit instanceof EntityPlayer) {
-                displayName = compatibility.getDisplayName((EntityPlayer)entityHit);
+                displayName = ((EntityPlayer) entityHit).getDisplayNameString();
             } else if(entityHit instanceof EntityLivingBase) {
                 displayName = EntityList.getEntityString(entityHit);
             }

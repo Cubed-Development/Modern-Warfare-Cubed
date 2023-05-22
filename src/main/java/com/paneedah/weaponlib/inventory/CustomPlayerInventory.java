@@ -56,7 +56,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
     public ItemStack decrStackSize(int slot, int amount) {
         ItemStack stack = getStackInSlot(slot);
         if (stack != null) {
-            if (compatibility.getStackSize(stack) > amount) {
+            if (stack.getCount() > amount) {
                 stack = stack.splitStack(amount);
                 markDirty();
             } else {
@@ -82,7 +82,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
     public void setInventorySlotContents(int slot, ItemStack itemstack) {
         this.inventory[slot] = itemstack != null ? itemstack : new ItemStack(Items.AIR);
 
-        if (itemstack != null && compatibility.getStackSize(itemstack) > this.getInventoryStackLimit()) {
+        if (itemstack != null && itemstack.getCount() > this.getInventoryStackLimit()) {
             if(itemstack.getItem() instanceof ItemStorage) {
 //                System.out.println("Setting inventory slot " + slot + " with tag compound "
 //                        + itemstack.getTagCompound());
@@ -109,7 +109,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
     @Override
     public void markDirty() {
         for (int i = 0; i < getSizeInventory(); ++i) {
-            if (getStackInSlot(i) != null && compatibility.getStackSize(getStackInSlot(i)) == 0) {
+            if (getStackInSlot(i) != null && getStackInSlot(i).getCount() == 0) {
                 inventory[i] = new ItemStack(Items.AIR);
             }
         }

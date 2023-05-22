@@ -8,26 +8,18 @@ import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.ai.EntityCustomMob;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.particle.ParticleBlood;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.model.ModelBiped.ArmPose;
-import net.minecraft.client.model.ModelPlayer;
-import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.client.shader.ShaderGroup;
-import net.minecraft.client.shader.ShaderManager;
-import net.minecraft.client.shader.ShaderUniform;
 import net.minecraft.enchantment.EnchantmentProtection;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
@@ -54,29 +46,22 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.translation.I18n;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.ISpecialArmor.ArmorProperties;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -87,7 +72,6 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.*;
-import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
@@ -95,10 +79,6 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
 
 @Deprecated
 public class Compatibility1_12_2 implements Compatibility {
-
-    private static final float DEFAULT_SHELL_CASING_FORWARD_OFFSET = 0.1f;
-
-    private static final DamageSource GENERIC_DAMAGE_SOURCE = new DamageSource("thrown");
 
     private static final List<Block> blocksToCheck = Arrays.asList(
             Blocks.AIR,
@@ -134,29 +114,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void setClientPlayer(EntityPlayer player) {
-        mc.player = (EntityPlayerSP) player;
-    }
-
-    @Override
-    public void spawnEntity(EntityLivingBase player, Entity entity) {
-        if(player != null) {
-            player.world.spawnEntity(entity);
-        }
-    }
-
-    @Override
-    public void moveParticle(Particle particle, double motionX, double motionY, double motionZ) {
-        particle.move(motionX, motionY, motionZ);
-    }
-
-    @Override
-    public int getStackSize(ItemStack consumedStack) {
-        return consumedStack.getCount();
-    }
-
-    @Override
     public NBTTagCompound getTagCompound(ItemStack itemStack) {
         return itemStack.getTagCompound();
     }
@@ -185,7 +142,7 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public void playSound(EntityLivingBase player, SoundEvent sound, float volume, float pitch) {
-        if(sound != null) {
+        if (sound != null) {
             player.playSound(sound, volume, pitch);
         }
     }
@@ -269,7 +226,7 @@ public class Compatibility1_12_2 implements Compatibility {
         ForgeRegistries.ITEMS.register(item);
         //GameRegistry.register(item, new ResourceLocation(ModReference.id, name)); // temporary hack
     }
-    
+
     @Override
     public void registerItem(Item item, ResourceLocation name) {
         item.setRegistryName(name); // temporary hack
@@ -286,7 +243,7 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     public void registerModEntity(Class<? extends Entity> entityClass, String entityName, int id, Object mod, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {
         net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity
-            (new ResourceLocation(ModReference.id, entityName), entityClass, entityName, id, mod, trackingRange, updateFrequency, sendsVelocityUpdates);
+                (new ResourceLocation(ModReference.id, entityName), entityClass, entityName, id, mod, trackingRange, updateFrequency, sendsVelocityUpdates);
 
     }
 
@@ -330,18 +287,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void setAimed(RenderPlayer rp, boolean aimed) {
-        if (aimed) {
-            rp.getMainModel().leftArmPose = ArmPose.BOW_AND_ARROW;
-            rp.getMainModel().rightArmPose = ArmPose.BOW_AND_ARROW;
-        } else {
-            rp.getMainModel().leftArmPose = ArmPose.EMPTY;
-            rp.getMainModel().rightArmPose = ArmPose.ITEM;
-        }
-    }
-
-    @Override
     public RayTraceResult getObjectMouseOver() {
         return mc.objectMouseOver;
     }
@@ -359,20 +304,16 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public boolean consumeInventoryItem(InventoryPlayer inventoryPlayer, Item item) {
-        boolean result = false;
         for (int i = 0; i < inventoryPlayer.getSizeInventory(); i++) {
-            ItemStack stack = inventoryPlayer.getStackInSlot(i);
-            if (stack != null && stack.getItem() == item) {
-                stack.shrink(1);
-                if (stack.getCount() <= 0) {
-                    inventoryPlayer.setInventorySlotContents(i, null);
-                }
-                result = true;
-                break;
+            ItemStack itemstack = inventoryPlayer.getStackInSlot(i);
+
+            if (itemstack.getItem() == item) {
+                itemstack.shrink(1);
+                return true;
             }
         }
 
-        return result;
+        return false;
     }
 
     @Override
@@ -383,12 +324,12 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public float getEffectOffsetX() {
-		return -0.1f;
+        return -0.1f;
     }
 
     @Override
     public float getEffectOffsetY() {
-		return -1.7f;
+        return -1.7f;
     }
 
     @Override
@@ -399,9 +340,9 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     public void addItemToPlayerInventory(EntityPlayer player, Item item, int slot) {
         boolean result = false;
-        if(slot == -1) {
+        if (slot == -1) {
             player.inventory.addItemStackToInventory(new ItemStack(item));
-        } else if(player.inventory.mainInventory.get(slot) == null || player.inventory.mainInventory.get(slot).getItem() == Items.AIR) {
+        } else if (player.inventory.mainInventory.get(slot) == null || player.inventory.mainInventory.get(slot).getItem() == Items.AIR) {
             player.inventory.mainInventory.set(slot, new ItemStack(item));
         }
     }
@@ -412,19 +353,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public int getInventorySlot(EntityPlayer player, ItemStack itemStack) {
-        int slot = -1;
-        for(int i = 0; i < player.inventory.mainInventory.size(); i++) {
-            if(player.inventory.mainInventory.get(i) == itemStack) {
-                slot = i;
-                break;
-            }
-        }
-        return slot;    }
-
-    @Override
     public void consumeInventoryItemFromSlot(EntityPlayer player, int slot) {
-        if(player.inventory.getStackInSlot(slot) == null) {
+        if (player.inventory.getStackInSlot(slot) == null) {
             return;
         }
 
@@ -437,38 +367,19 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     public void addShapedRecipe(ItemStack itemStack, Object... materials) {
         //GameRegistry.addShapedRecipe(itemStack, materials);
-        ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, materials)
-                .setMirrored(false)
-                .setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
-
+        ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, materials).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
     }
 
     @Override
     public void addShapedOreRecipe(ItemStack itemStack, Object... materials) {
         //GameRegistry.addRecipe(new ShapedOreRecipe(itemStack, materials).setMirrored(false));
-        ForgeRegistries.RECIPES.register(
-                new ShapedOreRecipe(null, itemStack, materials)
-                .setMirrored(false)
-                .setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") // TODO: temporary hack
-                );
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void disableLightMap() {
-        mc.entityRenderer.disableLightmap();
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void enableLightMap() {
-        mc.entityRenderer.enableLightmap();
+        ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, materials).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
     }
 
     @Override
     public void registerBlock(ModContext context, Block block, String name) {
-        if(block.getRegistryName() == null) {
-            if(block.getTranslationKey().length() < ModReference.id.length() + 2 + 5) {
+        if (block.getRegistryName() == null) {
+            if (block.getTranslationKey().length() < ModReference.id.length() + 2 + 5) {
                 throw new IllegalArgumentException("Unlocalize block name too short " + block.getTranslationKey());
             }
             String unlocalizedName = block.getTranslationKey().toLowerCase();
@@ -476,16 +387,11 @@ public class Compatibility1_12_2 implements Compatibility {
             block.setRegistryName(ModReference.id, registryName);
         }
 
-        //GameRegistry.register(block);
         ForgeRegistries.BLOCKS.register(block);
         ItemBlock itemBlock = new ItemBlock(block);
         // TODO: introduce registerItem()
-        
-      // System.out.println("Debug Out: " + block.getRegistryName() + " | Item Block: " + itemBlock + " | Provided name: " + name);
+
         context.registerRenderableItem(block.getRegistryName(), itemBlock, null);
-        //GameRegistry.register(itemBlock.setRegistryName(block.getRegistryName()));
-//        itemBlock.setRegistryName(block.getRegistryName());
-//        ForgeRegistries.ITEMS.register(itemBlock);
     }
 
     @Override
@@ -496,23 +402,6 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     public ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness) {
         return EnumHelper.addArmorMaterial(name, textureName, durability, reductionAmounts, enchantability, soundOnEquip != null ? soundOnEquip : null, toughness);
-    }
-
-    @Override
-    public boolean inventoryHasFreeSlots(EntityPlayer player) {
-        boolean result = false;
-        for(int i = 0; i < player.inventory.mainInventory.size(); i++) {
-            if(player.inventory.getStackInSlot(i).isEmpty()) {
-                result = true;
-                break;
-            }
-        }
-        return result;
-    }
-
-    @Override
-    public String getDisplayName(EntityPlayer player) {
-        return player.getDisplayNameString();
     }
 
     @Override
@@ -557,20 +446,20 @@ public class Compatibility1_12_2 implements Compatibility {
         ParticleBlood particle = new ParticleBlood(world(mc.player), x, y + 1, z);
         mc.effectRenderer.addEffect(particle);
     }
-    
+
     @Override
     @SideOnly(Side.CLIENT)
     public void addBloodParticle(ModContext modContext, double x, double y, double z, double velX, double velY, double velZ) {
-    	ParticleBlood cdp = new ParticleBlood(mc.world, x, y, z, velX, velY, velZ);
-    
-		mc.effectRenderer.addEffect(cdp);
+        ParticleBlood cdp = new ParticleBlood(mc.world, x, y, z, velX, velY, velZ);
+
+        mc.effectRenderer.addEffect(cdp);
     }
 
     @Override
     public float getAspectRatio(ModContext modContext) {
         return modContext.getAspectRatio();
     }
-    
+
     private static int findGreatesItemIndex(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player) {
         ItemStack maxStack = null;
         int maxItemIndex = -1;
@@ -584,7 +473,7 @@ public class Compatibility1_12_2 implements Compatibility {
         }
         return maxItemIndex;
     }
-    
+
     @Override
     public ItemStack tryConsumingCompatibleItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player) {
 
@@ -599,9 +488,9 @@ public class Compatibility1_12_2 implements Compatibility {
             return null;
         } else {
             ItemStack stackInSlot = player.inventory.getStackInSlot(i);
-            int consumedStackSize = maxSize >= getStackSize(stackInSlot) ? getStackSize(stackInSlot) : maxSize;
+            int consumedStackSize = maxSize >= stackInSlot.getCount() ? stackInSlot.getCount() : maxSize;
             ItemStack result = stackInSlot.splitStack(consumedStackSize);
-            if (getStackSize(stackInSlot) <= 0) {
+            if (stackInSlot.getCount() <= 0) {
                 player.inventory.removeStackFromSlot(i);
             }
             return result;
@@ -629,7 +518,7 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     public ItemStack consumeInventoryItem(Item item, Predicate<ItemStack> condition, EntityPlayer player, int maxSize) {
 
-        if(maxSize <= 0) {
+        if (maxSize <= 0) {
             return null;
         }
 
@@ -639,9 +528,9 @@ public class Compatibility1_12_2 implements Compatibility {
             return null;
         } else {
             ItemStack stackInSlot = player.inventory.getStackInSlot(i);
-            int consumedStackSize = maxSize >= getStackSize(stackInSlot) ? getStackSize(stackInSlot) : maxSize;
+            int consumedStackSize = maxSize >= stackInSlot.getCount() ? stackInSlot.getCount() : maxSize;
             ItemStack result = stackInSlot.splitStack(consumedStackSize);
-            if (getStackSize(stackInSlot) <= 0) {
+            if (stackInSlot.getCount() <= 0) {
                 player.inventory.removeStackFromSlot(i);
             }
             return result;
@@ -649,15 +538,15 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     public ItemStack tryConsumingCompatibleItem(List<? extends Item> compatibleParts, int maxSize,
-            EntityPlayer player, @SuppressWarnings("unchecked") Predicate<ItemStack> ...conditions) {
+                                                EntityPlayer player, @SuppressWarnings("unchecked") Predicate<ItemStack>... conditions) {
         ItemStack resultStack = null;
-        for(Predicate<ItemStack> condition: conditions) {
-            for(Item item: compatibleParts) {
-                if((resultStack = consumeInventoryItem(item, condition, player, maxSize)) != null) {
+        for (Predicate<ItemStack> condition : conditions) {
+            for (Item item : compatibleParts) {
+                if ((resultStack = consumeInventoryItem(item, condition, player, maxSize)) != null) {
                     break;
                 }
             }
-            if(resultStack != null) break;
+            if (resultStack != null) break;
         }
 
         return resultStack;
@@ -685,11 +574,11 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public void spawnParticle(World world, String particleName, double xCoord, double yCoord, double zCoord,
-            double xSpeed, double ySpeed, double zSpeed) {
-    	
-    	
+                              double xSpeed, double ySpeed, double zSpeed) {
+
+
         EnumParticleTypes particleType = EnumParticleTypes.getByName(particleName);
-        if(particleType != null) {
+        if (particleType != null) {
             world.spawnParticle(particleType, xCoord, yCoord, zCoord, xSpeed, ySpeed, zSpeed);
         }
     }
@@ -719,7 +608,7 @@ public class Compatibility1_12_2 implements Compatibility {
 
         return false;
     }
-    
+
     @Override
     public boolean isBlockPenetratableByBullets(IBlockState blockState) {
         return isBlockPenetratableByBullets(blockState.getBlock());
@@ -727,15 +616,15 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public boolean canCollideCheck(Block block, IBlockState iBlockState, boolean hitIfLiquid) {
-    	//return false;
-    	
-    //	return block == Blocks.STAINED_GLASS;
+        //return false;
+
+        //	return block == Blocks.STAINED_GLASS;
         return block.canCollideCheck(iBlockState, hitIfLiquid);
     }
 
     @Override
     public float getCompatibleShellCasingForwardOffset() {
-        return DEFAULT_SHELL_CASING_FORWARD_OFFSET ;
+        return 0.1F;
     }
 
 
@@ -748,63 +637,9 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public void playSoundAtEntity(Entity entity, SoundEvent sound, float volume, float pitch) {
-        if(sound != null) {
+        if (sound != null) {
             entity.playSound(sound, volume, pitch);
         }
-    }
-
-    @Override
-    public float getBlockDensity(World world, Vector3D vec, AxisAlignedBB boundingBox, BiPredicate<Block, IBlockState> isCollidable) {
-        AxisAlignedBB bb = boundingBox;
-        double d0 = 1.0D / ((bb.maxX - bb.minX) * 2.0D + 1.0D);
-        double d1 = 1.0D / ((bb.maxY - bb.minY) * 2.0D + 1.0D);
-        double d2 = 1.0D / ((bb.maxZ - bb.minZ) * 2.0D + 1.0D);
-        double d3 = (1.0D - Math.floor(1.0D / d0) * d0) / 2.0D;
-        double d4 = (1.0D - Math.floor(1.0D / d2) * d2) / 2.0D;
-
-        if (d0 >= 0.0D && d1 >= 0.0D && d2 >= 0.0D)
-        {
-            int j2 = 0;
-            int k2 = 0;
-
-            for (float f = 0.0F; f <= 1.0F; f = (float)((double)f + d0))
-            {
-                for (float f1 = 0.0F; f1 <= 1.0F; f1 = (float)((double)f1 + d1))
-                {
-                    for (float f2 = 0.0F; f2 <= 1.0F; f2 = (float)((double)f2 + d2))
-                    {
-                        double d5 = bb.minX + (bb.maxX - bb.minX) * (double)f;
-                        double d6 = bb.minY + (bb.maxY - bb.minY) * (double)f1;
-                        double d7 = bb.minZ + (bb.maxZ - bb.minZ) * (double)f2;
-                        if(CompatibleRayTracing.rayTraceBlocks(world, new Vector3D(d5 + d3, d6, d7 + d4), vec, isCollidable) == null) {
-                            ++j2;
-                        }
-                        /*
-                        if (this.rayTraceBlocks(new Vec3d(d5 + d3, d6, d7 + d4), vec) == null) {
-                            ++j2;
-                        }
-                        */
-                        ++k2;
-                    }
-                }
-            }
-
-            return (float)j2 / (float)k2;
-        }
-        else
-        {
-            return 0.0F;
-        }
-    }
-
-    @Override
-    public boolean isImmuneToExplosions(Entity entity) {
-        return entity.isImmuneToExplosions();
-    }
-
-    @Override
-    public boolean isAirBlock(IBlockState iBlockState) {
-        return iBlockState.getBlock() == Blocks.AIR;
     }
 
     private net.minecraft.world.Explosion getCompatibleExplosion(Explosion e) {
@@ -848,7 +683,7 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public double getBlastDamageReduction(EntityLivingBase entity, double d10) {
-        return EnchantmentProtection.getBlastDamageReduction((EntityLivingBase)entity, d10);
+        return EnchantmentProtection.getBlastDamageReduction((EntityLivingBase) entity, d10);
     }
 
     @Override
@@ -874,28 +709,14 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public void playSound(World world, double posX, double posY, double posZ, SoundEvent sound, float volume, float pitch) {
-        if(sound != null) {
+        if (sound != null) {
             world.playSound(null, posX, posY, posZ, sound, SoundCategory.BLOCKS, volume, pitch);
         }
     }
 
     @Override
-    public boolean isBlockPenetratableByGrenades(Block block) {
-        return block == Blocks.AIR
-                || block == Blocks.TALLGRASS
-                || block == Blocks.LEAVES
-                || block == Blocks.LEAVES2
-                || block == Blocks.FIRE
-                || block == Blocks.HAY_BLOCK
-                || block == Blocks.DOUBLE_PLANT
-                || block == Blocks.WEB
-                || block == Blocks.WHEAT;
-
-    }
-    
-    @Override
     public DamageSource genericDamageSource() {
-        return GENERIC_DAMAGE_SOURCE;
+        return new DamageSource("thrown");
     }
 
     @Override
@@ -910,20 +731,8 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public void registerEgg(ModContext context, Class<? extends Entity> entityClass, String entityName,
-            int primaryEggColor, int secondaryEggColor) {
+                            int primaryEggColor, int secondaryEggColor) {
         EntityRegistry.registerEgg(EntityList.getKey(entityClass), primaryEggColor, secondaryEggColor);
-    }
-
-    @Override
-    public void addSpawn(Class<? extends EntityLiving> entity, int weightedProb, int min, int max, BiomeDictionary.Type... biomeTypes) {
-        Set<Biome> biomes = new HashSet<>();
-
-        for(BiomeDictionary.Type biomeType: biomeTypes) {
-            Set<Biome> biomesForType = BiomeDictionary.getBiomes(biomeType);
-            biomes.addAll(biomesForType);
-        }
-
-        EntityRegistry.addSpawn(entity, weightedProb, min, max, EnumCreatureType.MONSTER, biomes.toArray(new Biome[0]));
     }
 
     @Override
@@ -932,45 +741,10 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public ShaderUniform getShaderUniform(ShaderManager shaderManager, String uniformName) {
-        return shaderManager.getShaderUniform(uniformName);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void setUniform(ShaderUniform uniform, float value) {
-        uniform.set(value);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void setUniform(ShaderUniform uniform, float value1, float value2) {
-        uniform.set(value1, value2);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void setUniform(ShaderUniform uniform, float value1, float value2, float value3) {
-        uniform.set(value1, value2, value3);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void setUniform(ShaderUniform uniform, float value1, float value2, float value3, float value4) {
-        uniform.set(value1, value2, value3, value4);
-    }
-    
-    @Override
     public void setEntityAttribute(EntityLivingBase entity, IAttribute attributes, double value) {
         entity.getEntityAttribute(attributes).setBaseValue(value);
     }
 
-    @Override
-    public EnumDifficulty getDifficulty(World world) {
-        return world.getDifficulty();
-    }
-    
     @Override
     public void addStat(EntityPlayer entityplayer, StatBase statBase) {
         entityplayer.addStat(statBase);
@@ -1001,14 +775,14 @@ public class Compatibility1_12_2 implements Compatibility {
     public boolean is3dRenderable(Item item) {
         return item instanceof ItemBlock;
     }
-    
+
     @Override
     public float getCompatibleAimingRotationYaw(EntityLivingBase thrower) {
         return thrower.rotationYaw;
     }
 
     @Override
-    public <T> void setPrivateValue(Class<T> class1, T instance, Object value, String...fieldNames) {
+    public <T> void setPrivateValue(Class<T> class1, T instance, Object value, String... fieldNames) {
         ObfuscationReflectionHelper.setPrivateValue(class1, instance, value, fieldNames);
     }
 
@@ -1016,7 +790,7 @@ public class Compatibility1_12_2 implements Compatibility {
     public ItemStack getHelmet(EntityLivingBase entity) {
         return entity.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
     }
-    
+
     @Override
     public Vector3D getLookVec(EntityLivingBase player) {
         return new Vector3D(player.getLookVec());
@@ -1026,17 +800,17 @@ public class Compatibility1_12_2 implements Compatibility {
     public ItemStack createItemStack(NBTTagCompound tagCompound) {
         return new ItemStack(tagCompound);
     }
-    
+
     @Override
     public EntityAITarget createAINearestAttackableTarget(EntityLivingBase e, Class<? extends EntityLivingBase> targetClass,
-            boolean checkSight) {
-        return new EntityAINearestAttackableTarget<>((EntityCreature)e, targetClass, checkSight);
+                                                          boolean checkSight) {
+        return new EntityAINearestAttackableTarget<>((EntityCreature) e, targetClass, checkSight);
     }
-    
+
     @Override
     public EntityAIBase createAiAvoidEntity(EntityLivingBase e, Class<? extends EntityLivingBase> entityClassToAvoid,
-            float avoidDistanceIn, double farSpeedIn, double nearSpeedIn) {
-        return new EntityAIAvoidEntity<>((EntityCreature)e, entityClassToAvoid, avoidDistanceIn, farSpeedIn, nearSpeedIn);
+                                            float avoidDistanceIn, double farSpeedIn, double nearSpeedIn) {
+        return new EntityAIAvoidEntity<>((EntityCreature) e, entityClassToAvoid, avoidDistanceIn, farSpeedIn, nearSpeedIn);
     }
 
     @Override
@@ -1053,12 +827,12 @@ public class Compatibility1_12_2 implements Compatibility {
     public Entity getTrueDamageSource(DamageSource cause) {
         return cause.getTrueSource();
     }
-    
+
     @Override
     public WorldType getWorldType(World world) {
         return world.getWorldType();
     }
-    
+
     @Override
     public ItemStack getItemStackFromSlot(EntityEquipmentSlot compatibleSlot) {
         return mc.player.getItemStackFromSlot(compatibleSlot);
@@ -1077,95 +851,33 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     public void resizeEntityBoundingBox(Entity entity, double x, double y, double z) {
         AxisAlignedBB axisalignedbb = entity.getEntityBoundingBox();
-        entity.setEntityBoundingBox(new AxisAlignedBB(axisalignedbb.minX, axisalignedbb.minY, axisalignedbb.minZ, 
+        entity.setEntityBoundingBox(new AxisAlignedBB(axisalignedbb.minX, axisalignedbb.minY, axisalignedbb.minZ,
                 axisalignedbb.minX + x, axisalignedbb.minY + y, axisalignedbb.minZ + z));
 
     }
 
     @Override
-    public void renderLeftLegwear(ModelBiped model, float scale) {
-        if(model instanceof ModelPlayer) {
-            ((ModelPlayer)model).bipedLeftLegwear.render(scale);
-        }
-    }
-    
-    @Override
-    public void renderRightLegwear(ModelBiped model, float scale) {
-        if(model instanceof ModelPlayer) {
-            ((ModelPlayer)model).bipedRightLegwear.render(scale);
-        }
-    }
-    
-    @Override
-    public void renderLeftArmwear(ModelBiped model, float scale) {
-        if(model instanceof ModelPlayer) {
-            ((ModelPlayer)model).bipedLeftArmwear.render(scale);
-        }
-    }
-    
-    @Override
-    public void renderRightArmwear(ModelBiped model, float scale) {
-        if(model instanceof ModelPlayer) {
-            ((ModelPlayer)model).bipedRightArmwear.render(scale);
-        }
-    }
-    
-    @Override
-    public void renderBodywear(ModelBiped model, float scale) {
-        if(model instanceof ModelPlayer) {
-            ((ModelPlayer)model).bipedBodyWear.render(scale);
-        }
-    }
+    public boolean areOptifineShadersOn() {
+        try {
+            Class<?> shadersClass = Class.forName("net.optifine.shaders.Shaders");
+            Field shaderPackLoadedField = shadersClass.getDeclaredField("shaderPackLoaded");
+            shaderPackLoadedField.setAccessible(true);
 
-    @Override
-    public void renderHeadwear(ModelBiped model, float scale) {
-        if(model instanceof ModelPlayer) {
-            ((ModelPlayer)model).bipedHeadwear.render(scale);
+            return (boolean) shaderPackLoadedField.get(null);
+        } catch (NoSuchFieldException | ClassNotFoundException e) {
+            return false;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
-    }
-    
-private Optional<Field> shadersEnabledFieldOptional;
-    
-    @Override
-    public boolean isShadersModEnabled() {
-        boolean result = Loader.isModLoaded("shadersmod");
-        if(result) {
-            if(shadersEnabledFieldOptional == null) {
-                try {
-                    Class<?> shadersClass = Loader.instance().getModClassLoader().loadClass("shadersmodcore.client.Shaders");
-                    shadersEnabledFieldOptional = Optional.of(shadersClass.getField("isInitialized"));
-                } catch (Exception e) {
-                    shadersEnabledFieldOptional = Optional.empty();
-                }
-            }
 
-            if(shadersEnabledFieldOptional != null) {
-                try {
-                    Field field = shadersEnabledFieldOptional.orElse(null);
-                    result = field != null && field.getBoolean(null);
-                } catch (Exception e) {}
-            }
-        }
-        
-        return result;
-    }
-
-    @Override
-    public void setUniqueId(NBTTagCompound tagCompound, String tag, UUID uuid) {
-        tagCompound.setLong(tag + "Most", uuid.getMostSignificantBits());
-        tagCompound.setLong(tag + "Least", uuid.getLeastSignificantBits());
-    }
-    
-    @Override
-    public UUID getUniqueId(NBTTagCompound tagCompound, String tag) {
-        return new UUID(tagCompound.getLong(tag + "Most"), tagCompound.getLong(tag + "Least"));
+        return false;
     }
 
     @Override
     public Entity getEntityByUuid(UUID uuid, World world) {
-        if(world instanceof WorldServer) {
-            return ((WorldServer)world).getEntityFromUuid(uuid);
-        }
+        if (world instanceof WorldServer)
+            return ((WorldServer) world).getEntityFromUuid(uuid);
+
         return null;
     }
 
@@ -1195,12 +907,12 @@ private Optional<Field> shadersEnabledFieldOptional;
     }
 
     @Override
-	public ItemStack findNextBestItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player) {
+    public ItemStack findNextBestItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player) {
         int i = findGreatesItemIndex(compatibleItems, comparator, player);
 
         if (i < 0)
             return null;
 
-        return player.inventory.getStackInSlot(i).copy().splitStack(Math.min(getStackSize(player.inventory.getStackInSlot(i).copy()), 1));
-	}
+        return player.inventory.getStackInSlot(i).copy().splitStack(Math.min(player.inventory.getStackInSlot(i).copy().getCount(), 1));
+    }
 }

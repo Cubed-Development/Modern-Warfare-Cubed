@@ -202,9 +202,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
     };
         
 
-	private Predicate<PlayerWeaponInstance> inventoryHasFreeSlots = weaponInstance ->
-	    weaponInstance.getPlayer() instanceof EntityPlayer
-	    && compatibility.inventoryHasFreeSlots((EntityPlayer)weaponInstance.getPlayer());
+	private Predicate<PlayerWeaponInstance> inventoryHasFreeSlots = weaponInstance -> weaponInstance.getPlayer() instanceof EntityPlayer && !(((EntityPlayer) weaponInstance.getPlayer()).inventory.getFirstEmptyStack() == -1);
 
 	private static Predicate<PlayerWeaponInstance> alertTimeoutExpired = instance ->
 		System.currentTimeMillis() >= ALERT_TIMEOUT + instance.getStateUpdateTimestamp();
@@ -813,12 +811,12 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		    weaponInstance.setAmmo(ammo);
 		} else if(!compatibleBullets.isEmpty() && (consumedStack = compatibility.tryConsumingCompatibleItem(compatibleBullets,
 		        Math.min(weapon.getMaxBulletsPerReload(), weapon.getAmmoCapacity() - weaponInstance.getAmmo()), player, i -> true)) != null) {
-		    int ammo = weaponInstance.getAmmo() + compatibility.getStackSize(consumedStack);
+		    int ammo = weaponInstance.getAmmo() + consumedStack.getCount();
 		    Tags.setAmmo(weaponItemStack, ammo);
 		    // Update permit instead modContext.getChannel().sendTo(new ReloadMessage(weapon, ammo), (EntityPlayerMP) player);
 		    weaponInstance.setAmmo(ammo);
 		    if(weapon.hasIteratedLoad()) {
-		        weaponInstance.setLoadIterationCount(compatibility.getStackSize(consumedStack));
+		        weaponInstance.setLoadIterationCount(consumedStack.getCount());
 		    }
 		    compatibility.playSoundToNearExcept(player, weapon.getReloadSound(), 1.0F, 1.0F);
 		} else if (compatibility.consumeInventoryItem(player.inventory, weapon.builder.ammo)) {

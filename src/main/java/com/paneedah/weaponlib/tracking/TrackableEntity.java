@@ -55,7 +55,7 @@ public class TrackableEntity {
             Entity entity = entitySupplier.get();
             if(entity != null) {
                 if(entity instanceof EntityPlayer) {
-                    displayName = compatibility.getDisplayName((EntityPlayer)entity);
+                    displayName = ((EntityPlayer) entity).getDisplayNameString();
                 } else if(entity instanceof EntityLivingBase) {
                     displayName = EntityList.getEntityString(entity);
                 }

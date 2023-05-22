@@ -87,7 +87,7 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 		
 		//GL11.glBindTexture(GL11.GL_TEXTURE_2D, framebuffer.framebufferTexture);
 		GL11.glBindTexture(GL11.GL_TEXTURE_2D, perspective.getTexture(renderContext));
-		compatibility.disableLightMap();
+		mc.entityRenderer.disableLightmap();
 		GL11.glEnable(GL11.GL_DEPTH_TEST);
 		//GL11.glDepthMask(true);
 		GL11.glDisable(GL11.GL_LIGHTING);
@@ -109,9 +109,9 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 				renderContext.getNetHeadYaw(),
 				renderContext.getHeadPitch(),
 				renderContext.getScale());
-		
 
-		compatibility.enableLightMap();
+
+        mc.entityRenderer.enableLightmap();
 		GL11.glPopAttrib();
 		GL11.glPopMatrix();
 	}

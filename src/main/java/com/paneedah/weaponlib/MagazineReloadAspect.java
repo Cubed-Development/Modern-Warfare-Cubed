@@ -157,8 +157,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             
             EntityPlayer player = (EntityPlayer) magazineInstance.getPlayer();
             boolean originalFlag = true;
-            if(compatibility.getStackSize(magazineItemStack) > 1) {
-            	
+            if(magazineItemStack.getCount() > 1) {
                 magazineItemStack.shrink(1);
 
                 ItemStack copyOfStack = magazineItemStack.copy();
@@ -200,10 +199,10 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
                 
                 ItemStack remainingStack = null;
                 if(shouldSplitStack) {
-                    remainingStack = magazineStack.splitStack(compatibility.getStackSize(magazineStack) - 1);
+                    remainingStack = magazineStack.splitStack(magazineStack.getCount() - 1);
                 }
                 
-                Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + compatibility.getStackSize(consumedStack));
+                Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + consumedStack.getCount());
                 
                 if(remainingStack != null) {
                     player.inventory.addItemStackToInventory(remainingStack);
@@ -236,7 +235,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             EntityPlayer player = (EntityPlayer) magazineInstance.getPlayer();
             
             boolean shouldSplitStack = false;
-            if(compatibility.getStackSize(magazineItemStack) > 1) {
+            if(magazineItemStack.getCount() > 1) {
                 shouldSplitStack = true;
                 if(player.inventory.getFirstEmptyStack() < 0) {
                     p.setStatus(status);
@@ -253,10 +252,10 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
                 
                 ItemStack remainingStack = null;
                 if(shouldSplitStack) {
-                    remainingStack = magazineStack.splitStack(compatibility.getStackSize(magazineStack) - 1);
+                    remainingStack = magazineStack.splitStack(magazineStack.getCount() - 1);
                 }
                 
-                Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + compatibility.getStackSize(consumedStack));
+                Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + consumedStack.getCount());
                 
                 if(remainingStack != null) {
                     player.inventory.addItemStackToInventory(remainingStack);

@@ -4,6 +4,7 @@ import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -359,12 +360,14 @@ public class PlayerRenderer {
             ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
         GL11.glPushMatrix();
         modelPlayer.bipedBody.render(renderContext.getScale());
-        compatibility.renderBodywear(modelPlayer, renderContext.getScale());
+        
+        if(modelPlayer instanceof ModelPlayer)
+            ((ModelPlayer)modelPlayer).bipedBodyWear.render(renderContext.getScale());
+        
         GL11.glPopMatrix();
     }
     
-    private void renderHead(Positioner<Part, RenderContext<RenderableState>> positioner,
-            ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
+    private void renderHead(Positioner<Part, RenderContext<RenderableState>> positioner, ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
         GL11.glPushMatrix();
         FloatBuffer preBuf = MatrixHelper.getModelViewMatrixBuffer();
         positioner.position(Part.HEAD, renderContext);
@@ -374,7 +377,10 @@ public class PlayerRenderer {
 //                    modelPlayer.bipedHead.rotateAngleZ = 0f;
         }
         modelPlayer.bipedHead.render(renderContext.getScale());
-        compatibility.renderHeadwear(modelPlayer, renderContext.getScale());
+        
+        if(modelPlayer instanceof ModelPlayer)
+            modelPlayer.bipedHeadwear.render(renderContext.getScale());
+        
         GL11.glPopMatrix();
     }
 
@@ -396,7 +402,10 @@ public class PlayerRenderer {
             currentPositioner.get().rightHandPositioned = true;
         }
         modelPlayer.bipedRightArm.render(renderContext.getScale());
-        compatibility.renderRightArmwear(modelPlayer, renderContext.getScale());
+
+        if(modelPlayer instanceof ModelPlayer)
+            ((ModelPlayer)modelPlayer).bipedRightArmwear.render(renderContext.getScale());
+        
         GL11.glPopMatrix();
     }
 
@@ -418,7 +427,10 @@ public class PlayerRenderer {
             currentPositioner.get().leftHandPositioned = true;
         }
         modelPlayer.bipedLeftArm.render(renderContext.getScale());
-        compatibility.renderLeftArmwear(modelPlayer, renderContext.getScale());
+
+        if(modelPlayer instanceof ModelPlayer)
+            ((ModelPlayer)modelPlayer).bipedLeftArmwear.render(renderContext.getScale());
+
         GL11.glPopMatrix();
     }
     
@@ -433,7 +445,10 @@ public class PlayerRenderer {
                     modelPlayer.bipedRightLeg.rotateAngleZ = 0f;
         }
         modelPlayer.bipedRightLeg.render(renderContext.getScale());
-        compatibility.renderRightLegwear(modelPlayer, renderContext.getScale());
+
+        if(modelPlayer instanceof ModelPlayer)
+            ((ModelPlayer)modelPlayer).bipedRightLegwear.render(renderContext.getScale());
+
         GL11.glPopMatrix();
     }
 
@@ -449,7 +464,10 @@ public class PlayerRenderer {
                     modelPlayer.bipedLeftLeg.rotateAngleZ = 0f;
         }
         modelPlayer.bipedLeftLeg.render(renderContext.getScale());
-        compatibility.renderLeftLegwear(modelPlayer, renderContext.getScale());
+
+        if(modelPlayer instanceof ModelPlayer)
+            ((ModelPlayer)modelPlayer).bipedLeftLegwear.render(renderContext.getScale());
+
         GL11.glPopMatrix();
     }
 

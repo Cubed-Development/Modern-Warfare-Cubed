@@ -188,7 +188,10 @@ public class PlayerItemInstanceRegistry {
 				int slot = -1;
 				if(mc.player == player) {
 				    // For current player, the latest instance is available locally
-				    slot = compatibility.getInventorySlot((EntityPlayer)player, itemStack);
+					for(slot = 0; slot < ((EntityPlayer) player).inventory.getSizeInventory(); slot++) {
+						if(((EntityPlayer) player).inventory.getStackInSlot(slot) == itemStack)
+							break;
+					}
 				}
 				
 				if(slot >= 0) {

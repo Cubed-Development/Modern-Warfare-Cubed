@@ -6,6 +6,7 @@ import io.netty.buffer.Unpooled;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -314,7 +315,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
         }
         boolean result = false;
         IBlockState iBlockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos);
-        if(compatibility.isAirBlock(iBlockState)) {
+        if (iBlockState.getBlock() == Blocks.AIR) {
             Float currentConcentration = spreadMap.get(blockPos);
             if(currentConcentration == null || currentConcentration < concentration) {
                 spreadMap.put(blockPos, concentration);

@@ -89,7 +89,11 @@ public final class Tags {
 			TypeRegistry.getInstance().toBytes(instance, buf);
 			NBTTagCompound tagCompound = compatibility.getTagCompound(itemStack);
             tagCompound.setByteArray(INSTANCE_TAG, buf.array());
-            compatibility.setUniqueId(tagCompound, INSTANCE_UUID_TAG, instance.getUuid());
+
+			UUID uuid = instance.getUuid();
+
+			tagCompound.setLong(INSTANCE_UUID_TAG + "Most", uuid.getMostSignificantBits());
+			tagCompound.setLong(INSTANCE_UUID_TAG + "Least", uuid.getLeastSignificantBits());
 		} else {
 			NBTTagCompound tagCompound = compatibility.getTagCompound(itemStack);
             tagCompound.removeTag(INSTANCE_TAG);
@@ -101,7 +105,7 @@ public final class Tags {
 	    if(itemStack == null) return null;
 	    NBTTagCompound tagCompound = compatibility.getTagCompound(itemStack);
 	    if(tagCompound == null) return null;
-	    UUID uuid = compatibility.getUniqueId(tagCompound, INSTANCE_UUID_TAG);
+	    UUID uuid = new UUID(tagCompound.getLong(INSTANCE_UUID_TAG + "Most"), tagCompound.getLong(INSTANCE_UUID_TAG + "Least"));
 	    if(uuid.getMostSignificantBits() == 0L && uuid.getLeastSignificantBits() == 0L) {
 	        return null;
 	    }
@@ -109,12 +113,14 @@ public final class Tags {
 	}
 	
 	public static void setInstanceUuid(ItemStack itemStack, UUID uuid) {
-	
-			
-	    if(itemStack == null) return;
+	    if(itemStack == null)
+			return;
+
         compatibility.ensureTagCompound(itemStack);
         NBTTagCompound tagCompound = compatibility.getTagCompound(itemStack);
-        compatibility.setUniqueId(tagCompound, INSTANCE_UUID_TAG, uuid);
+
+		tagCompound.setLong(INSTANCE_UUID_TAG + "Most", uuid.getMostSignificantBits());
+		tagCompound.setLong(INSTANCE_UUID_TAG + "Least", uuid.getLeastSignificantBits());
     }
 
 	public static byte[] getInstanceBytes(ItemStack itemStack) {

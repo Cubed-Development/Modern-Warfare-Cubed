@@ -8,6 +8,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -15,7 +16,9 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 import java.util.*;
 import java.util.function.Function;
@@ -532,8 +535,16 @@ public class EntityConfiguration {
             for(Spawn spawn: spawns) {
             	//int weightedProb = spawn.weightedProb;
                 int weightedProb = (int)(entityConfig.getSpawn());
-                if(weightedProb > 0)
-                    compatibility.addSpawn(safeCast(entityClass), weightedProb, spawn.min, spawn.max, spawn.biomeTypes);
+                if(weightedProb > 0) {
+                    Set<Biome> biomes = new HashSet<>();
+
+                    for (BiomeDictionary.Type biomeType : spawn.biomeTypes) {
+                        Set<Biome> biomesForType = BiomeDictionary.getBiomes(biomeType);
+                        biomes.addAll(biomesForType);
+                    }
+
+                    EntityRegistry.addSpawn(safeCast(entityClass), weightedProb, spawn.min, spawn.max, EnumCreatureType.MONSTER, biomes.toArray(new Biome[0]));
+                }
             }
             
             if(compatibility.isClientSide()) {

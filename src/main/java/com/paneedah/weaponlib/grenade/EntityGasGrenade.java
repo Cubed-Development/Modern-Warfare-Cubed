@@ -190,7 +190,10 @@ public class EntityGasGrenade extends AbstractEntityGrenade {
             gasEntity.posY = posY;
             gasEntity.posZ = posZ;
             if(this.getThrower() != null) {
-                compatibility.spawnEntity((EntityLivingBase)this.getThrower(), gasEntity);
+                EntityLivingBase player = this.getThrower();
+
+                if(player != null)
+                    player.world.spawnEntity(gasEntity);
             }
         }
 

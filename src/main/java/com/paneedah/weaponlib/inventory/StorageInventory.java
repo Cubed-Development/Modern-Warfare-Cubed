@@ -71,7 +71,7 @@ public class StorageInventory implements IInventory {
     public ItemStack decrStackSize(int slot, int amount) {
         ItemStack stack = getStackInSlot(slot);
         if (stack != null) {
-            if (compatibility.getStackSize(stack) > amount) {
+            if (stack.getCount() > amount) {
                 stack = stack.splitStack(amount);
                 // Don't forget this line or your inventory will not be saved!
                 markDirty();
@@ -88,7 +88,7 @@ public class StorageInventory implements IInventory {
     public void setInventorySlotContents(int slot, ItemStack stack) {
         this.inventory[slot] = stack != null ? stack : new ItemStack(Items.AIR);
 
-        if (stack != null && compatibility.getStackSize(stack) > getInventoryStackLimit()) {
+        if (stack != null && stack.getCount() > getInventoryStackLimit()) {
             compatibility.setStackSize(stack, getInventoryStackLimit());
         }
 
@@ -120,7 +120,7 @@ public class StorageInventory implements IInventory {
     @Override
     public void markDirty() {
         for (int i = 0; i < getSizeInventory(); ++i) {
-            if (getStackInSlot(i) != null && compatibility.getStackSize(getStackInSlot(i)) == 0) {
+            if (getStackInSlot(i) != null && getStackInSlot(i).getCount() == 0) {
                 inventory[i] = new ItemStack(Items.AIR);
             }
         }
