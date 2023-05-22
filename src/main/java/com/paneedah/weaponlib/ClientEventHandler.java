@@ -129,7 +129,7 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 	private void updateOnStartTick() {
 	    EntityPlayer player = mc.player;
 	    if(player != null) {
-	        int newSlotIndex = compatibility.getCurrentInventoryItemIndex((EntityPlayer) player);
+	        int newSlotIndex = player.inventory.currentItem;
 	        if(currentSlotIndex != newSlotIndex) {
 	            //modContext.getWeaponReloadAspect().updateMainHeldItem(player);
 	            currentSlotIndex = newSlotIndex;

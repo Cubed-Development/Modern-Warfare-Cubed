@@ -7,7 +7,8 @@ import com.paneedah.weaponlib.BulletHoleRenderer.BulletHole;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
-import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -15,6 +16,7 @@ import com.paneedah.weaponlib.crafting.*;
 import com.paneedah.weaponlib.model.Shell;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.resources.I18n;
@@ -902,9 +904,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             if (blockImpactHandler == null) {
                 blockImpactHandler = (world, player, entity, position) -> {
                     IBlockState iBlockState = compatibility.getBlockAtPosition(world, position);
-                    if (ModernConfigManager.bulletBreakGlass && compatibility.isGlassBlock(iBlockState)) {
-                        compatibility.destroyBlock(world, position);
 
+                    if (ModernConfigManager.bulletBreakGlass && iBlockState.getMaterial() == Material.GLASS) {
+                        compatibility.destroyBlock(world, position);
                     } else {
                         //compatibility.addBlockHitEffect(position);
                         //compatibility.playSound(world, posX, posY, posZ, explosionSound, volume, pitch);

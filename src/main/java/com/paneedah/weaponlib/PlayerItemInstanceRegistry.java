@@ -49,7 +49,7 @@ public class PlayerItemInstanceRegistry {
 		if(player == null && !(player instanceof EntityPlayer)) {
 			return null;
 		}
-		PlayerItemInstance<?> instance = getItemInstance((EntityPlayer) player, compatibility.getCurrentInventoryItemIndex((EntityPlayer) player));
+		PlayerItemInstance<?> instance = getItemInstance((EntityPlayer) player, ((EntityPlayer) player).inventory.currentItem);
 		return targetClass.isInstance(instance) ? targetClass.cast(instance) : null;
 	}
 	
@@ -57,7 +57,7 @@ public class PlayerItemInstanceRegistry {
 	    if(player == null && !(player instanceof EntityPlayer)) {
             return null;
         }
-	    return getItemInstance((EntityPlayer) player, compatibility.getCurrentInventoryItemIndex((EntityPlayer) player));
+	    return getItemInstance((EntityPlayer) player, ((EntityPlayer) player).inventory.currentItem);
 	}
 	
 	public PlayerItemInstance<?> getItemInstance(EntityPlayer player, int slot) {

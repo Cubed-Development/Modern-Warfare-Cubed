@@ -30,6 +30,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.math.MathHelper;
@@ -64,7 +65,7 @@ public class Interceptors {
 	public static VehicleRFCam firstPersonCamera = new VehicleRFCam();
     
     public static boolean is3dRenderableItem(Item item) {
-        return compatibility.is3dRenderable(item);
+        return item instanceof ItemBlock;
     }
     
     public static NaturalCamera nc = new NaturalCamera();

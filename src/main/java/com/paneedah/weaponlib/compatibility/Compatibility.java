@@ -71,9 +71,7 @@ public interface Compatibility {
 
 	ItemStack getHeldItemMainHand(EntityLivingBase player);
 
-    int getCurrentInventoryItemIndex(EntityPlayer player);
-
-	void ensureTagCompound(ItemStack itemStack);
+    void ensureTagCompound(ItemStack itemStack);
 
     void playSound(EntityLivingBase player, SoundEvent sound, float volume, float pitch);
 
@@ -132,12 +130,6 @@ public interface Compatibility {
 	void addItemToPlayerInventory(EntityPlayer player, final Item item, int slot);
 
 	boolean consumeInventoryItem(InventoryPlayer inventoryPlayer, Item item);
-
-    boolean isGlassBlock(IBlockState block);
-
-	float getEffectOffsetX();
-
-	float getEffectOffsetY();
 
     ItemStack consumeInventoryItem(Item item, Predicate<ItemStack> condition, EntityPlayer player, int maxSize);
 
@@ -246,15 +238,11 @@ public interface Compatibility {
 
     void setItemStackToSlot(Entity entity, EntityEquipmentSlot entityEquipmentSlot, ItemStack itemStack);
 
-    boolean isStrafingSupported();
-
     void strafe(EntityCustomMob entity, float forward, float strafe);
 
     void registerEgg(ModContext context, Class<? extends Entity> entityClass, String entityName, int primaryEggColor, int secondaryEggColor);
 
     void useShader(EntityRenderer entityRenderer, boolean value);
-
-    boolean is3dRenderable(Item item);
 
     float getCompatibleAimingRotationYaw(EntityLivingBase thrower);
     

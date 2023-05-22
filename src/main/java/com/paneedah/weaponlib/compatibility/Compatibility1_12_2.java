@@ -317,29 +317,7 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public boolean isGlassBlock(IBlockState iBlockState) {
-        Block block = iBlockState.getBlock();
-        return block == Blocks.GLASS || block == Blocks.GLASS_PANE || block == Blocks.STAINED_GLASS || block == Blocks.STAINED_GLASS_PANE;
-    }
-
-    @Override
-    public float getEffectOffsetX() {
-        return -0.1f;
-    }
-
-    @Override
-    public float getEffectOffsetY() {
-        return -1.7f;
-    }
-
-    @Override
-    public int getCurrentInventoryItemIndex(EntityPlayer player) {
-        return player.inventory.currentItem;
-    }
-
-    @Override
     public void addItemToPlayerInventory(EntityPlayer player, Item item, int slot) {
-        boolean result = false;
         if (slot == -1) {
             player.inventory.addItemStackToInventory(new ItemStack(item));
         } else if (player.inventory.mainInventory.get(slot) == null || player.inventory.mainInventory.get(slot).getItem() == Items.AIR) {
@@ -476,11 +454,7 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public ItemStack tryConsumingCompatibleItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player) {
-
         int maxSize = 1;
-//        if(maxSize <= 0) {
-//            return null;
-//        }
 
         int i = findGreatesItemIndex(compatibleItems, comparator, player);
 
@@ -499,9 +473,7 @@ public class Compatibility1_12_2 implements Compatibility {
 
     private static int itemSlotIndex(Item item, Predicate<ItemStack> condition, EntityPlayer player) {
         for (int i = 0; i < player.inventory.mainInventory.size(); ++i) {
-            if (player.inventory.getStackInSlot(i) != null
-                    && player.inventory.getStackInSlot(i).getItem() == item
-                    && condition.test(player.inventory.getStackInSlot(i))) {
+            if (player.inventory.getStackInSlot(i) != null && player.inventory.getStackInSlot(i).getItem() == item && condition.test(player.inventory.getStackInSlot(i))) {
                 return i;
             }
         }
@@ -724,8 +696,7 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void registerEgg(ModContext context, Class<? extends Entity> entityClass, String entityName,
-                            int primaryEggColor, int secondaryEggColor) {
+    public void registerEgg(ModContext context, Class<? extends Entity> entityClass, String entityName, int primaryEggColor, int secondaryEggColor) {
         EntityRegistry.registerEgg(EntityList.getKey(entityClass), primaryEggColor, secondaryEggColor);
     }
 
@@ -750,11 +721,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public boolean isStrafingSupported() {
-        return true;
-    }
-
-    @Override
     public void strafe(EntityCustomMob entity, float forward, float strafe) {
         entity.getMoveHelper().strafe(forward, strafe);
     }
@@ -763,11 +729,6 @@ public class Compatibility1_12_2 implements Compatibility {
     @SideOnly(Side.CLIENT)
     public void useShader(EntityRenderer entityRenderer, boolean value) {
         ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, value, "useShader", "field_175083_ad");
-    }
-
-    @Override
-    public boolean is3dRenderable(Item item) {
-        return item instanceof ItemBlock;
     }
 
     @Override
