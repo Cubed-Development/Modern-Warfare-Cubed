@@ -39,8 +39,7 @@ public class CraftingServerPacket extends SimplePacket {
 		}
 		
 		@Override
-		public <T extends CompatibleMessage> T onCompatibleMessage(CraftingServerPacket compatibleMessage,
-				CompatibleMessageContext ctx) {
+		public <T extends CompatibleMessage> T onCompatibleMessage(CraftingServerPacket compatibleMessage, CompatibleMessageContext ctx) {
 			ctx.getPlayer().getServer().addScheduledTask(() -> {
 				// Find the player we should send to
 				EntityPlayerMP target = (EntityPlayerMP) ctx.getPlayer().getEntityWorld().getEntityByID(compatibleMessage.playerID.getValue());

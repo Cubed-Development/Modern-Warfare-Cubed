@@ -149,10 +149,6 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should soldiers have?")
 	public static double soldierHealth = 1.0;
 
-	// Later use
-//	@ConfigSync(category = CATEGORY_RENDERING, comment = "Turns on the custom render for third person, may improve compat.")
-//	public static boolean enableThirdPersonAnimations = true;
-
 	private static Configuration config = null;
 
 	private static boolean isLoaded = false;

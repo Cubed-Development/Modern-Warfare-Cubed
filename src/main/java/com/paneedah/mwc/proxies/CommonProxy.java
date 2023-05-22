@@ -103,7 +103,7 @@ public class CommonProxy {
         Armors.init(mod, initializationEvent, ModernWarfareMod.MOD_CONTEXT);
         Attachments.init(mod, initializationEvent);
         AuxiliaryAttachments.init(mod, initializationEvent);
-        GunSkins.init(mod, initializationEvent);
+        GunSkins.init(initializationEvent);
         Bullets.init(mod, initializationEvent);
         Magazines.init(mod, initializationEvent);
         Guns.init(mod, initializationEvent, this);
