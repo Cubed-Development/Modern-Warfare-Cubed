@@ -40,7 +40,7 @@ void main(){
 
 
 	//gl_FragColor = vec4(0.0, 0.0, 0.2, 0.1) + texture2D(ret, uv + vec2(0.5, 0.5));
-	vec4 retColor = texture2D(ret, uv + vec2(0.5, 0.5));
+	vec4 retColor = texture2D(ret, uv + vec2(0.55, 0.5));
 	if(!isBloom) {
 		if(retColor.a > 0.2) {
 		
