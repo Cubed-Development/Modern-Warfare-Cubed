@@ -39,14 +39,16 @@ public class CraftingClientPacket extends SimplePacket {
 	public static class SimplePacketHandler implements CompatibleMessageHandler<CraftingClientPacket, CompatibleMessage> {
 
 		private ModContext context;
-		
+
+		public SimplePacketHandler() {
+		}
+
 		public SimplePacketHandler(ModContext context) {
 			this.context = context;
 		}
 		
 		@Override
-		public <T extends CompatibleMessage> T onCompatibleMessage(CraftingClientPacket compatibleMessage,
-				CompatibleMessageContext ctx) {
+		public <T extends CompatibleMessage> T onCompatibleMessage(CraftingClientPacket compatibleMessage, CompatibleMessageContext ctx) {
 			mc.addScheduledTask(() -> {
 				
 				int opcode = compatibleMessage.opcode.getValue();

@@ -10,8 +10,6 @@ import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
 public class Backpacks {
-
-    //public static ItemAttachment<Object> Tablet;
     
     public static Item CombatSustainmentBackpack;
     public static Item CombatSustainmentBackpackBlack;
@@ -104,8 +102,6 @@ public class Backpacks {
         .withValidItemPredicate(item -> !(item instanceof Weapon))
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpack.png")
-//        .withModel(new com.paneedah.mwc.models.AssaultBackpack())
-//        .withModelTextureName("assaultbackpack.png")
         .withGuiTextureName("assault_backpack.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 ////            GL11.glScalef(0.6f, 0.6f, 0.6f);
@@ -128,8 +124,6 @@ public class Backpacks {
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
                 .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpackblack.png")
-//                .withModel(new com.paneedah.mwc.models.AssaultBackpack())
-//                .withModelTextureName("assaultbackpack.png")
                 .withGuiTextureName("assault_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
 ////                    GL11.glScalef(0.6f, 0.6f, 0.6f);
@@ -152,8 +146,6 @@ public class Backpacks {
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
                 .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpackforest.png")
-//                .withModel(new com.paneedah.mwc.models.AssaultBackpack())
-//                .withModelTextureName("assaultbackpack.png")
                 .withGuiTextureName("assault_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
 ////                    GL11.glScalef(0.6f, 0.6f, 0.6f);
@@ -176,8 +168,6 @@ public class Backpacks {
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
                 .withProperModel("com.paneedah.mwc.models.F5SwitchbladeBackpack", "f5switchbladebackpack.png")
-//                .withModel(new com.paneedah.mwc.models.AssaultBackpack())
-//                .withModelTextureName("assaultbackpack.png")
                 .withGuiTextureName("assault_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
 ////                    GL11.glScalef(0.6f, 0.6f, 0.6f);
@@ -285,6 +275,7 @@ public class Backpacks {
          * item ->
          * 
          *    (item instanceof ItemAmmo) only Ammo allowed
+	 *
          *    !(item instanceof ItemAmmo) only Ammo NOT allowed
          *    
          *    (item instanceof Weapon) only Guns allowed

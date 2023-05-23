@@ -10,6 +10,9 @@ public class EntityControlHandler implements CompatibleMessageHandler<EntityCont
 
     private ModContext modContext;
 
+    public EntityControlHandler() {
+    }
+
     public EntityControlHandler(ModContext modContext) {
         this.modContext = modContext;
     }

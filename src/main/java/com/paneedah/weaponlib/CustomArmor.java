@@ -34,13 +34,13 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     private static final String ACTIVE_ATTACHMENT_TAG = "ActiveAttachments";
 
     private static final String SHIELD_CAPACITY_TAG = "ShieldCapacity";
-    
+
     private static final String SHIELD_HIT_TIMESTAMP_TAG = "ShieldHitTimestamp";
 
     public static class Builder {
-        
+
         private static class ChestModelFactory {
-            
+
             private static ModelBiped createModel(String modelClassName) {
                 try {
                     return (ModelBiped) Class.forName(modelClassName).newInstance();
@@ -49,15 +49,15 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 }
             }
         }
-        
+
 
         private static class HelmetModelFactory {
             private static ModelBiped create(String modelClassName) {
                 ModelBiped helmetModel = null;
                 try {
                     Class<?> modelClass = Class.forName(modelClassName);
-                    
-                    
+
+
                     if(ModelBiped.class.isAssignableFrom(modelClass)) {
                         helmetModel = (ModelBiped) modelClass.newInstance();
                     } else if(ModelBase.class.isAssignableFrom(modelClass)) {
@@ -74,14 +74,14 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 return helmetModel;
             }
         }
-        
+
         private static final class BootsModelFactory {
-            
+
             private static ModelBiped createModel(String modelClassName) {
                 ModelBiped bootsModel = null;
                 try {
                     Class<?> modelClass = Class.forName(modelClassName);
-                    
+
                     if(ModelBiped.class.isAssignableFrom(modelClass)) {
                         bootsModel = (ModelBiped) modelClass.newInstance();
                     } //else if(ModelBase.class.isAssignableFrom(modelClass)) {
@@ -98,7 +98,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 return bootsModel;
             }
         }
-        
+
         private String textureName;
         @SuppressWarnings("unused")
         private String iconName;
@@ -161,13 +161,13 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             this.vignetteEnabled = nightVision;
             return this;
         }
-        
+
         public Builder withNightVision(boolean nightVision, boolean vignetteEnabled) {
             this.nightVision = nightVision;
             this.vignetteEnabled = vignetteEnabled;
             return this;
         }
-        
+
         public Builder withExposureReductionFactor(float exposureReductionFactor) {
             this.exposureReductionFactor = exposureReductionFactor;
             return this;
@@ -189,22 +189,22 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             compatibleAttachments.put(item, new CompatibleAttachment<CustomArmor>(item, positioner));
             return this;
         }
-        
+
         public Builder withShieldCapacity(double capacity) {
             this.maxShieldCapacity = capacity;
             return this;
         }
-        
+
         public Builder withShieldRegenerationTimeout(long shieldRegenerationTimeout) {
             this.shieldRegenerationTimeout  = shieldRegenerationTimeout;
             return this;
         }
-        
+
         public Builder withShieldRegenerationRate(double shieldRegenerationRate) {
             this.shieldRegenerationRate = shieldRegenerationRate;
             return this;
         }
-        
+
         public Builder withShieldIndicatorPosition(double x, double y, double width, double height) {
             this.shieldIndicatorPositionX = x;
             this.shieldIndicatorPositionY = y;
@@ -212,7 +212,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             this.shieldIndicatorHeight = height;
             return this;
         }
-        
+
         public Builder withShieldIndicatorTexture(String shieldIndicatorMaskTextureName, String shieldIndicatorProgressBarTextureName) {
             this.shieldIndicatorMaskTextureName = shieldIndicatorMaskTextureName.toLowerCase();
             this.shieldIndicatorProgressBarTextureName = shieldIndicatorProgressBarTextureName.toLowerCase();
@@ -263,22 +263,22 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
             armorBoots.setTranslationKey(unlocalizedBootsName);
             compatibility.registerItem(armorBoots, unlocalizedBootsName.toLowerCase());
-            
+
             armorHelmet.maxShieldCapacity = maxShieldCapacity;
             armorHelmet.shieldRegenerationRate = shieldRegenerationRate;
             armorHelmet.shieldRegenerationTimeout = shieldRegenerationTimeout;
-            
+
             armorHelmet.shieldIndicatorPositionX = shieldIndicatorPositionX;
             armorHelmet.shieldIndicatorPositionY = shieldIndicatorPositionY;
             armorHelmet.shieldIndicatorWidth = shieldIndicatorWidth;
             armorHelmet.shieldIndicatorHeight = shieldIndicatorHeight;
             armorHelmet.shieldIndicatorMaskTextureName = shieldIndicatorMaskTextureName;
             armorHelmet.shieldIndicatorProgressBarTextureName = shieldIndicatorProgressBarTextureName;
-            
+
             armorBoots.maxShieldCapacity = maxShieldCapacity;
             armorBoots.shieldRegenerationRate = shieldRegenerationRate;
             armorBoots.shieldRegenerationTimeout = shieldRegenerationTimeout;
-            
+
             armorBoots.shieldIndicatorPositionX = shieldIndicatorPositionX;
             armorBoots.shieldIndicatorPositionY = shieldIndicatorPositionY;
             armorBoots.shieldIndicatorWidth = shieldIndicatorWidth;
@@ -289,7 +289,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             armorChest.maxShieldCapacity = maxShieldCapacity;
             armorChest.shieldRegenerationRate = shieldRegenerationRate;
             armorChest.shieldRegenerationTimeout = shieldRegenerationTimeout;
-            
+
             armorChest.shieldIndicatorPositionX = shieldIndicatorPositionX;
             armorChest.shieldIndicatorPositionY = shieldIndicatorPositionY;
             armorChest.shieldIndicatorWidth = shieldIndicatorWidth;
@@ -307,7 +307,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
             CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
                     unlocalizedHelmetName, textureName, helmetModel, hudTextureName);
-            
+
             CraftingRegistry.registerHook(armorHelmet);
 
             armorHelmet.hasNightVision = nightVision;
@@ -319,10 +319,6 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
             if (creativeTab != null)
                 armorHelmet.setCreativeTab(creativeTab);
-            
-//            armorHelmet.maxShieldCapacity = maxShieldCapacity;
-//            armorHelmet.shieldRegenerationRate = shieldRegenerationRate;
-//            armorHelmet.shieldRegenerationTimeout = shieldRegenerationTimeout;
 
             return armorHelmet;
         }
@@ -336,20 +332,20 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             String unlocalizedChestName = unlocalizedName + "_chest";
             CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.CHEST,
                     unlocalizedChestName, textureName, chestModel, hudTextureName);
-            
+
             CraftingRegistry.registerHook(armorChest);
-            
-            
+
+
             if(creativeTab != null)
                 armorChest.setCreativeTab(creativeTab);
 
             armorChest.setTranslationKey(unlocalizedChestName);
             compatibility.registerItem(armorChest, unlocalizedChestName.toLowerCase());
-            
+
             armorChest.maxShieldCapacity = maxShieldCapacity;
             armorChest.shieldRegenerationRate = shieldRegenerationRate;
             armorChest.shieldRegenerationTimeout = shieldRegenerationTimeout;
-            
+
             armorChest.shieldIndicatorPositionX = shieldIndicatorPositionX;
             armorChest.shieldIndicatorPositionY = shieldIndicatorPositionY;
             armorChest.shieldIndicatorWidth = shieldIndicatorWidth;
@@ -367,15 +363,15 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             String unlocalizedBootsName = unlocalizedName + "_boots";
             CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET,
                     unlocalizedBootsName, textureName, bootsModel, hudTextureName);
-            
+
             CraftingRegistry.registerHook(armorBoots);
-            
+
             if (creativeTab != null)
                 armorBoots.setCreativeTab(creativeTab);
 
             armorBoots.setTranslationKey(unlocalizedBootsName);
             compatibility.registerItem(armorBoots, unlocalizedBootsName.toLowerCase());
-            
+
 //            armorBoots.maxShieldCapacity = maxShieldCapacity;
 //            armorBoots.shieldRegenerationRate = shieldRegenerationRate;
 //            armorBoots.shieldRegenerationTimeout = shieldRegenerationTimeout;
@@ -383,8 +379,8 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             return armorBoots;
         }
 
-        
-        
+
+
     }
 
     private Map<ItemAttachment<CustomArmor>, CompatibleAttachment<CustomArmor>> compatibleAttachments = new HashMap<>();
@@ -397,8 +393,8 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     private CompatibleSound breathingSound;
 
     private CompatibleEntityEquipmentSlot compatibleEquipmentType;
-    
-//    private boolean shieldEnabled;
+
+//  private boolean shieldEnabled;
     private long shieldRegenerationTimeout = 1000;
     private double shieldRegenerationRate = 1.0; // restored shield capacity per sec
     private double maxShieldCapacity;
@@ -409,7 +405,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     private double shieldIndicatorHeight;
     private String shieldIndicatorMaskTextureName;
     private String shieldIndicatorProgressBarTextureName;
-    
+
  // Modern crafting setup
     private CraftingEntry[] modernRecipe;
 	private CraftingGroup craftGroup;
@@ -428,15 +424,15 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             return null;
         return ModReference.id + ":textures/hud/" + hudTextureName + ".png";
     }
-    
+
     public String getShieldIndicatorMaskTextureName() {
         return ModReference.id + ":textures/hud/" + shieldIndicatorMaskTextureName + ".png";
     }
-    
+
     public String getShieldIndicatorProgressBarTextureName() {
         return ModReference.id + ":textures/hud/" + shieldIndicatorProgressBarTextureName + ".png";
     }
-    
+
     public String getUnlocalizedArmorSetName() {
         return unlocalizedArmorSetName;
     }
@@ -554,11 +550,11 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
         int[] activeAttachmentsIds = armor.ensureActiveAttachments(itemStack);
         return Arrays.stream(activeAttachmentsIds).anyMatch((attachmentId) -> attachment == Item.getItemById(attachmentId));
     }
-    
+
     public boolean hasNightVision() {
         return hasNightVision;
     }
-    
+
     public boolean isVignetteEnabled() {
         return vignetteEnabled;
     }
@@ -567,20 +563,20 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     public Function<Float, Float> getAbsorbFunction(Spreadable spreadable) {
         return dose -> dose * (1f - exposureReductionFactor);
     }
-    
+
     @Override
     public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
         super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
-        
-        if(!worldIn.isRemote && entityIn != null) {
-            if(maxShieldCapacity > 0.0) {
+
+        if (!worldIn.isRemote && entityIn != null) {
+            if (maxShieldCapacity > 0.0) {
                 double currentShieldCapacity = getShieldCapacity(stack);
-                if(currentShieldCapacity < maxShieldCapacity) {
+                if (currentShieldCapacity < maxShieldCapacity) {
                     long shieldHitTimestamp = getShieldHitTimestamp(stack);
-                    if(System.currentTimeMillis() - shieldHitTimestamp > shieldRegenerationTimeout) {
+                    if (System.currentTimeMillis() - shieldHitTimestamp > shieldRegenerationTimeout) {
                         currentShieldCapacity += shieldRegenerationRate / 20.0;
 
-                        if(currentShieldCapacity > maxShieldCapacity) {
+                        if (currentShieldCapacity > maxShieldCapacity) {
                             currentShieldCapacity = maxShieldCapacity;
                         }
                         //System.out.println("Shield capacity increased to " + currentShieldCapacity);
@@ -590,7 +586,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 }
             }
         }
-        
+    }
 //        if(!worldIn.isRemote && entityIn != null) {
 //            compatibility.ensureTagCompound(stack);
 //            NBTTagCompound nbt = stack.getTagCompound();
@@ -619,7 +615,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 //                nbt.setLong("LastBreathTimestamp", System.currentTimeMillis());
 //            }
 //        }
-    }
+//    }
 
     public CompatibleEntityEquipmentSlot getCompatibleEquipmentSlot() {
         return compatibleEquipmentType;
@@ -639,7 +635,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
         }
         return new ArmorProperties(0, damageReduceRatio, Integer.MAX_VALUE);
     }
-    
+
     private void ensureTagCompound(ItemStack itemStack) {
         if (compatibility.getTagCompound(itemStack) == null) {
             NBTTagCompound tagCompound = new NBTTagCompound();
@@ -653,19 +649,19 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
         NBTTagCompound tagCompound = compatibility.getTagCompound(armorStack);
         return tagCompound.getDouble(SHIELD_CAPACITY_TAG);
     }
-    
+
     private void setShieldCapacity(ItemStack armorStack, double capacity) {
         ensureTagCompound(armorStack);
         NBTTagCompound tagCompound = compatibility.getTagCompound(armorStack);
         tagCompound.setDouble(SHIELD_CAPACITY_TAG, capacity);
     }
-    
+
     private long getShieldHitTimestamp(ItemStack armorStack) {
         ensureTagCompound(armorStack);
         NBTTagCompound tagCompound = compatibility.getTagCompound(armorStack);
         return tagCompound.getLong(SHIELD_HIT_TIMESTAMP_TAG);
     }
-    
+
     private void setShieldHitTimestamp(ItemStack armorStack, long timestamp) {
         compatibility.ensureTagCompound(armorStack);
         NBTTagCompound tagCompound = compatibility.getTagCompound(armorStack);
@@ -693,23 +689,23 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             stack.damageItem(itemDamage, entity);
         }
     }
-    
+
     public double getMaxShieldCapacity() {
         return maxShieldCapacity;
     }
-    
+
     public double getShieldIndicatorPositionX() {
         return shieldIndicatorPositionX;
     }
-    
+
     public double getShieldIndicatorPositionY() {
         return shieldIndicatorPositionY;
     }
-    
+
     public double getShieldIndicatorWidth() {
         return shieldIndicatorWidth;
     }
-    
+
     public double getShieldIndicatorHeight() {
         return shieldIndicatorHeight;
     }
