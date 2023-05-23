@@ -19,7 +19,7 @@ public class ExplosionAttack implements CustomMobAttack, Timeable {
 
     @Override
     public boolean attackEntity(EntityCustomMob entityMob, Entity target) {
-        compatibility.world(entityMob).createExplosion(entityMob, entityMob.posX, entityMob.posY, entityMob.posZ, 
+        entityMob.world.createExplosion(entityMob, entityMob.posX, entityMob.posY, entityMob.posZ,
                 explosionRadius, isSmokeEnabled);
         entityMob.setDead();
         return false;

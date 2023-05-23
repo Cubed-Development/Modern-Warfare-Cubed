@@ -140,7 +140,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onGrenadeUpdate() {
-        if (!compatibility.world(this).isRemote && explosionTimeout > 0
+        if (!world.isRemote && explosionTimeout > 0
                 && System.currentTimeMillis() > activationTimestamp + explosionTimeout) {
             explode();
             return;
@@ -150,7 +150,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
     @Override
     public void onBounce(RayTraceResult movingobjectposition) {
 //        System.out.println("Bounce");
-        if(explosionTimeout == ItemGrenade.EXPLODE_ON_IMPACT && !compatibility.world(this).isRemote) {
+        if(explosionTimeout == ItemGrenade.EXPLODE_ON_IMPACT && !world.isRemote) {
             explode();
         } else {
             super.onBounce(movingobjectposition);
@@ -166,8 +166,8 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
         //        modContext.getFlashExplosionSound());
 
 
-        List<?> nearbyEntities = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this,
-                compatibility.getBoundingBox(this).expand(effectiveDistance, effectiveDistance, effectiveDistance));
+        List<?> nearbyEntities = compatibility.getEntitiesWithinAABBExcludingEntity(world, this,
+                this.getEntityBoundingBox().expand(effectiveDistance, effectiveDistance, effectiveDistance));
 
         for(Object nearbyEntityObject: nearbyEntities) {
             Entity nearbyEntity = (Entity)nearbyEntityObject;
@@ -180,7 +180,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
                 LightExposure exposure = CompatibleExposureCapability.getExposure(nearbyEntity, LightExposure.class);
                 if(exposure == null) {
 //                    System.out.println("Entity " + nearbyEntity + " exposed to light dose " + dose);
-                    exposure = new LightExposure(compatibility.world(nearbyEntity).getTotalWorldTime(), 4000, dose, 0.99f);
+                    exposure = new LightExposure(nearbyEntity.world.getTotalWorldTime(), 4000, dose, 0.99f);
                     CompatibleExposureCapability.updateExposure(nearbyEntity, exposure);
                 } else {
                     float totalDose = exposure.getTotalDose() + dose;
@@ -245,7 +245,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
         exposureFactor *= exposureFactor;
                 
         final Vector3D compatiblePlayerEyePos = new Vector3D(playerEyePosition.x, playerEyePosition.y, playerEyePosition.z);
-        RayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), grenadePos, compatiblePlayerEyePos, isCollidable);
+        RayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(world, grenadePos, compatiblePlayerEyePos, isCollidable);
 
         float dose = 0f;
         if(rayTraceResult == null) {

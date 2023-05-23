@@ -115,7 +115,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 	 */
 	@Override
 	protected void onImpact(RayTraceResult position) {
-	    if (compatibility.world(this).isRemote) {
+	    if (world.isRemote) {
 	    //	compatibility.playSound(mc.player, UniversalSoundLookup.lookupSound("headshotsfx"), 10.0f, 1.0f);
 	    	  return;
 	    }
@@ -126,7 +126,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 	    if(explosionRadius > 0) {
 
 	    	//PostProcessPipeline.createDistortionPoint((float) position.hitVec.getXCoord(),(float)  position.hitVec.getYCoord(), (float) position.hitVec.getZCoord(), 2f, 3000);
-	        Explosion.createServerSideExplosion(weapon.getModContext(), compatibility.world(this), this,
+	        Explosion.createServerSideExplosion(weapon.getModContext(), world, this,
 	                position.hitVec.x, position.hitVec.y, position.hitVec.z,
 	                explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient,
 	                smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient,
@@ -180,7 +180,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
             }
 
 	    } else if(position.typeOfHit == RayTraceResult.Type.BLOCK) {
-	        weapon.onSpawnEntityBlockImpact(compatibility.world(this), null, this, position);
+	        weapon.onSpawnEntityBlockImpact(world, null, this, position);
         }
 
 	    this.setDead();

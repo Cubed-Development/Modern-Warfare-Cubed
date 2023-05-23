@@ -65,9 +65,9 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase
     }
 
     protected boolean isItemTypeInMainHand() {
-        return compatibility.getHeldItemMainHand(entity) != null
+        return entity.getHeldItemMainhand() != null
                 && (attackWithItemType.isEmpty() 
-                        || attackWithItemType.stream().anyMatch(a -> a.isInstance(compatibility.getHeldItemMainHand(entity).getItem())));
+                        || attackWithItemType.stream().anyMatch(a -> a.isInstance(entity.getHeldItemMainhand().getItem())));
     }
 
     /**
@@ -110,7 +110,7 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase
         	this.entity.getLookHelper().setLookPosition(attackTarget.posX, attackTarget.posY + attackTarget.getEyeHeight() * this.entity.getConfiguration().getLookHeightMultiplier(), attackTarget.posZ, 30f, 30f);
         	//this.entity.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0F, 30.0F);
         	
-            double d0 = this.entity.getDistanceSq(attackTarget.posX, compatibility.getBoundingBox(attackTarget).minY, attackTarget.posZ);
+            double d0 = this.entity.getDistanceSq(attackTarget.posX, attackTarget.getEntityBoundingBox().minY, attackTarget.posZ);
             boolean canSeeTarget = this.entity.getEntitySenses().canSee(attackTarget);
             boolean flag1 = this.seeTime > 0;
 

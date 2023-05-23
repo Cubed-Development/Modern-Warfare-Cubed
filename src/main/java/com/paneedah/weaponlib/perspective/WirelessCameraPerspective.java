@@ -78,7 +78,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         } else {
             displayName = te.getDisplayName();
             watchableEntity = te.getEntity();
-            batteryLevel = 1f - ((float)(compatibility.world(entityPlayer).getWorldTime() 
+            batteryLevel = 1f - ((float)(entityPlayer.world.getWorldTime()
                     - te.getStartTimestamp()) / te.getTrackingDuration());
             if(batteryLevel > 1f) {
                 batteryLevel = 1f;
@@ -87,7 +87,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
             }
         }
 
-        Entity realEntity = watchableEntity == null ? null : compatibility.world(watchableEntity)
+        Entity realEntity = watchableEntity == null ? null : watchableEntity.world
                 .getEntityByID(watchableEntity.getEntityId());
         if (realEntity != null && realEntity != watchableEntity) {
             watchableEntity = (EntityLivingBase) realEntity;

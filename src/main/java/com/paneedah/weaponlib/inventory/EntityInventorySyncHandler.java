@@ -40,7 +40,7 @@ public class EntityInventorySyncHandler implements CompatibleMessageHandler<Enti
         } else {
             compatibility.runInMainClientThread(() -> {
                 EntityPlayer player = mc.player;
-                Entity targetEntity = message.getEntity(compatibility.world(player));
+                Entity targetEntity = message.getEntity(player.world);
 
                 if(targetEntity != player || (targetEntity == player && !message.isExcludeEntity())) {
                     CustomPlayerInventory inventory = message.getInventory();

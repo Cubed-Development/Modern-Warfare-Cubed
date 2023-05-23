@@ -20,7 +20,7 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
     protected ItemGrenade itemGrenade;
 
     protected AbstractEntityGrenade(ModContext modContext, ItemGrenade itemGrenade, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
-        super(modContext, compatibility.world(thrower), thrower, velocity, gravityVelocity, rotationSlowdownFactor);
+        super(modContext, thrower.world, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
         this.itemGrenade = itemGrenade;
     }
 
@@ -72,7 +72,7 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
         if(movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK && itemGrenade != null) {
             SoundEvent bounceHardSound = itemGrenade.getBounceHardSound();
             if(bounceHardSound != null) {
-                IBlockState iBlockState = compatibility.getBlockAtPosition(compatibility.world(this), movingobjectposition);
+                IBlockState iBlockState = compatibility.getBlockAtPosition(world, movingobjectposition);
                 if(compatibility.madeFromHardMaterial(iBlockState)) {
                     compatibility.playSoundAtEntity(this, bounceHardSound, 2.0f / (bounceCount + 1f), 1.0f);
                 }
@@ -80,7 +80,7 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
 
             SoundEvent bounceSoftSound = itemGrenade.getBounceSoftSound();
             if(bounceSoftSound != null) {
-                IBlockState iBlockState = compatibility.getBlockAtPosition(compatibility.world(this), movingobjectposition);
+                IBlockState iBlockState = compatibility.getBlockAtPosition(world, movingobjectposition);
                 if(!compatibility.madeFromHardMaterial(iBlockState)) {
                     compatibility.playSoundAtEntity(this, bounceSoftSound, 1.0f / (bounceCount + 1f), 1.0f);
                 }

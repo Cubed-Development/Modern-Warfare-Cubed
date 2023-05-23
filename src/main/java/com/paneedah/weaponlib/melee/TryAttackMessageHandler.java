@@ -24,11 +24,11 @@ public class TryAttackMessageHandler implements CompatibleMessageHandler<TryAtta
 	public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(TryAttackMessage message, MessageContext messageContext) {
 		if(messageContext.side == Side.SERVER) {
 			EntityPlayer player = messageContext.getServerHandler().player;
-			ItemStack itemStack = compatibility.getHeldItemMainHand(player);
+			ItemStack itemStack = player.getHeldItemMainhand();
 			if(itemStack != null && itemStack.getItem() instanceof ItemMelee) {
 			    compatibility.runInMainClientThread(() -> {
                     attackAspect.serverAttack(player, message.getInstance(), 
-                            message.getEntity(compatibility.world(player)), message.isHeavyAttack());
+                            message.getEntity(player.world), message.isHeavyAttack());
                 });
 			}
 		}

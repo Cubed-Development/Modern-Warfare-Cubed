@@ -189,7 +189,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         if (this.inGround) {
             /*
             BlockPos p = new BlockPos(this.xTile, this.yTile, this.zTile);
-            if (compatibility.getBlockAtPosition(compatibility.world(this), p) == this.field_145785_f) {
+            if (compatibility.getBlockAtPosition(world, p) == this.field_145785_f) {
                 ++this.ticksInGround;
 
                 if (this.ticksInGround == 1200) {
@@ -217,7 +217,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         //List<BlockPos> possibleCollisions = new ArrayList<>();
 
         // Check what is at the projectile current position, null if air
-        RayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(null, block, null, blockMetadata));
+        RayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(world, vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(null, block, null, blockMetadata));
 
         /*
          *  GLASS BREAK CHECK
@@ -228,9 +228,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
              Vec3d start = new Vec3d(this.prevPosX, this.prevPosY, this.prevPosZ);
              Vec3d end = new Vec3d(this.posX, this.posY, this.posZ).add(motion);
 
-             RayTraceResult rtr = compatibility.world(this).rayTraceBlocks(start, end, false, true, false);
+             RayTraceResult rtr = world.rayTraceBlocks(start, end, false, true, false);
              if(rtr != null) {
-                 IBlockState state = compatibility.world(this).getBlockState(rtr.getBlockPos());
+                 IBlockState state = world.getBlockState(rtr.getBlockPos());
                  if(state.getMaterial() == Material.GLASS) {
                      this.world.destroyBlock(rtr.getBlockPos(), true);
 
@@ -249,7 +249,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         if (movingobjectposition != null)
             vec31 = new Vector3D(movingobjectposition.hitVec);
 
-        if (!compatibility.world(this).isRemote) {
+        if (!world.isRemote) {
             Entity entity = getRayTraceEntities(vec3, vec31);
 
             if (entity != null)
@@ -288,7 +288,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         if (this.isInWater()) {
             for (int i = 0; i < 4; ++i) {
                 float f4 = 0.25F;
-                compatibility.spawnParticle(compatibility.world(this), "bubble", this.posX - this.motionX * (double) f4,
+                compatibility.spawnParticle(world, "bubble", this.posX - this.motionX * (double) f4,
                         this.posY - this.motionY * (double) f4, this.posZ - this.motionZ * (double) f4, this.motionX,
                         this.motionY, this.motionZ);
             }
@@ -305,7 +305,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 
     private Entity getRayTraceEntities(Vector3D vec3, Vector3D vec31) {
         Entity entity = null;
-        List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this, compatibility.getBoundingBox(this).expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+        List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(world, this, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
         double d0 = 0.0D;
         EntityLivingBase entitylivingbase = this.getThrower();
 
@@ -413,7 +413,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 
     public EntityLivingBase getThrower() {
         if (this.thrower == null && this.throwerName != null && this.throwerName.length() > 0) {
-            this.thrower = compatibility.world(this).getPlayerEntityByName(this.throwerName);
+            this.thrower = world.getPlayerEntityByName(this.throwerName);
         }
 
         return this.thrower;
@@ -430,7 +430,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
      */
     // @SideOnly(Side.CLIENT)
     public boolean isInRangeToRenderDist(double p_70112_1_) {
-        double d1 = compatibility.getBoundingBox(this).getAverageEdgeLength() * 4.0D;
+        double d1 = this.getEntityBoundingBox().getAverageEdgeLength() * 4.0D;
         d1 *= 64.0D;
         return p_70112_1_ < d1 * d1;
     }

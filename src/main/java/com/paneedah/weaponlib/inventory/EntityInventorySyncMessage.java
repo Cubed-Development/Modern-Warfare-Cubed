@@ -30,7 +30,7 @@ public class EntityInventorySyncMessage implements net.minecraftforge.fml.common
         entityId = packetBuf.readInt();
         excludeEntity = packetBuf.readBoolean();
         try {
-            inventoryCompound  = compatibility.readTagCompound(packetBuf);
+            inventoryCompound  = packetBuf.readCompoundTag();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,11 +40,7 @@ public class EntityInventorySyncMessage implements net.minecraftforge.fml.common
         PacketBuffer packetBuf = new PacketBuffer(buf);
         packetBuf.writeInt(entityId);
         packetBuf.writeBoolean(excludeEntity);
-        try {
-            compatibility.writeTagCompound(packetBuf, inventoryCompound);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        packetBuf.writeCompoundTag(inventoryCompound);
     }
     
     protected CustomPlayerInventory getInventory() {

@@ -80,7 +80,7 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
                 displayName = EntityList.getEntityString(entityHit);
             }
 
-            if (!compatibility.world(this).isRemote) {
+            if (!world.isRemote) {
                 log.debug("Server hit entity uuid {}", rayTraceResult.entityHit.getPersistentID());
                 PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) getThrower());
                 if(tracker != null) {
@@ -95,7 +95,7 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
             }
         }
 
-        if (!compatibility.world(this).isRemote) {
+        if (!world.isRemote) {
             if(!hit) {
                 dropItem(itemWirelessCamera, 1);
             }

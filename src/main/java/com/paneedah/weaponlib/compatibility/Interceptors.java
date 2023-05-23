@@ -362,7 +362,7 @@ public class Interceptors {
     
     private static PlayerWeaponInstance getPlayerWeaponInstance() {
         EntityPlayer player = compatibility.getClientPlayer();
-        ItemStack itemStack = compatibility.getHeldItemMainHand(player);
+        ItemStack itemStack = player.getHeldItemMainhand();
         PlayerWeaponInstance weaponInstance = null;
         if(itemStack != null) {
             Item item = itemStack.getItem();

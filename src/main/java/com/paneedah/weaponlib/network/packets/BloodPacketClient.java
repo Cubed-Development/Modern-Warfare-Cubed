@@ -4,10 +4,12 @@ import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.jim.util.RandomUtil;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class BloodPacketClient implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
@@ -85,10 +87,9 @@ public class BloodPacketClient implements net.minecraftforge.fml.common.network.
 		            	
 		            	for(int i = 0; i < 15; ++i) {
 		            	///	System.out.println(m.x + " | " + m.y  + " | " + m.z);
-		            		compatibility.addBloodParticle(modContext, message.x, message.y, message.z, velX*scale + util.getRandomWithNegatives(spreader), velY*scale + util.getRandomWithNegatives(spreader), velZ*scale + util.getRandomWithNegatives(spreader));
-			            	
-							
-		            	}
+							//todo: this is a bit complicated but we need to readd the blood particle here
+//		            		        compatibility.addBloodParticle(modContext, message.x, message.y, message.z, velX*scale + util.getRandomWithNegatives(spreader), velY*scale + util.getRandomWithNegatives(spreader), velZ*scale + util.getRandomWithNegatives(spreader));
+						}
 		            	
 				});
 			}

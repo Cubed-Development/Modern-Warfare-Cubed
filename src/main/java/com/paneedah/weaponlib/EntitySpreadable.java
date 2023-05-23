@@ -25,7 +25,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
     private static final float DEFAULT_MIN_CONCENTRATION_THRESHOLD = 0.01f;
     private static final float DEFAULT_SPREAD_RATE = 0.5f; // 0.2 blocks per second, or one block in 4 seconds
     
-//    private static final float DEFAULT_ENTITY_UPDATE_RATE = 2f; // 2 times per secondw
+//    private static final float DEFAULT_ENTITY_UPDATE_RATE = 2f; // 2 times per second
 
     private static final float DEFAULT_CONCENTRATION_DECAY_FACTOR = 0.99f; // 
     
@@ -184,7 +184,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
     @Override
     public void onUpdate() {
         super.onUpdate();
-        if(!compatibility.world(this).isRemote) {
+        if(!world.isRemote) {
             //setDead();
             spread();
             updateNearbyEntities();
@@ -200,7 +200,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
             return;
         }
         
-        List<Entity> entities = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this, spreadBox);
+        List<Entity> entities = compatibility.getEntitiesWithinAABBExcludingEntity(world, this, spreadBox);
         for(Entity entity: entities) {
             BlockPos entityPos = new BlockPos((int)entity.posX, (int)entity.posY, (int)entity.posZ);
             float adjustedConcentration = spreadMap.getOrDefault(entityPos, 0f) * concentrationDecayAdjustment;
@@ -232,7 +232,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
      * Override this method in subclasses to support non-default exposures
      */
     protected SpreadableExposure createSpreadableExposure() {
-        return new SpreadableExposure(SpreadableExposure.DEFAULT_IMPACT_DELAY, compatibility.world(this).getTotalWorldTime());
+        return new SpreadableExposure(SpreadableExposure.DEFAULT_IMPACT_DELAY, world.getTotalWorldTime());
     }
 
     private void spread() {
@@ -241,7 +241,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
 //            return;
 //        }
         
-        long currentWorldTime = compatibility.world(this).getTotalWorldTime();
+        long currentWorldTime = world.getTotalWorldTime();
         if(currentWorldTime - lastSpreadTimestamp <= 20f / spreadRate) {
             return;
         }
@@ -314,7 +314,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
             return false;
         }
         boolean result = false;
-        IBlockState iBlockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos);
+        IBlockState iBlockState = compatibility.getBlockAtPosition(world, blockPos);
         if (iBlockState.getBlock() == Blocks.AIR) {
             Float currentConcentration = spreadMap.get(blockPos);
             if(currentConcentration == null || currentConcentration < concentration) {

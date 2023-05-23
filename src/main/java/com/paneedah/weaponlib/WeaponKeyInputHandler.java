@@ -9,6 +9,7 @@ import com.paneedah.weaponlib.render.ModificationGUI;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -43,7 +44,7 @@ public class WeaponKeyInputHandler {
     public final void onKeyInput(InputEvent.KeyInputEvent event) {
 
         EntityPlayer player = entityPlayerSupplier.apply(null);
-        ItemStack itemStack = compatibility.getHeldItemMainHand(player);
+        ItemStack itemStack = player.getHeldItemMainhand();
 
 	    boolean altMode = false;
 	    if(DebugPositioner.isDebugModeEnabled()) {
@@ -226,7 +227,7 @@ public class WeaponKeyInputHandler {
         }
 
         else if(KeyBindings.nightVisionSwitchKey.isPressed()) {
-            ItemStack helmetStack = compatibility.getHelmet();
+            ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
             if(helmetStack != null && helmetStack.getItem() instanceof CustomArmor 
                     && ((CustomArmor)helmetStack.getItem()).hasNightVision()){
                 modContext.getChannel().sendToServer(new ArmorControlMessage(true));

@@ -458,7 +458,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             
            // System.out.println(weapon.getName() + " | " + spawnEntityRocketParticles);
             
-           WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, compatibility.world(player), player, weapon.getSpawnEntityVelocity(),
+           WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, player.world, player, weapon.getSpawnEntityVelocity(),
                    weapon.getSpawnEntityGravityVelocity(), weapon.getInaccuracy() + (isAimed ? 0.0f : 2.6f), (float) damage, weapon.getSpawnEntityExplosionRadius(), 
                    weapon.isDestroyingBlocks(), weapon.hasRocketParticles(), weapon.getParticleAgeCoefficient(), weapon.getSmokeParticleAgeCoefficient(),
                    weapon.getExplosionScaleCoefficient(), weapon.getSmokeParticleScaleCoefficient(),
@@ -513,8 +513,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             shootSound = silencerOn ? weapon.getSilencedShootSound() : weapon.getShootSound();
         }
 
-        compatibility.playSoundToNearExcept(player, shootSound, 
-                silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1.0F);
+        player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, shootSound, player.getSoundCategory(), silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1.0f);
 
     }
 

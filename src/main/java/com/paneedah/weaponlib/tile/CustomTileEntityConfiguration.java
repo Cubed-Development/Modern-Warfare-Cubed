@@ -13,6 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
@@ -116,7 +117,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         tileEntityBlock.setCreativeTab(creativeTab);
         tileEntityBlock.setBoundingBox(boundingBox);
         ResourceLocation textureResource = new ResourceLocation(ModReference.id, textureName);
-        compatibility.registerTileEntity(tileEntityClass, "tile" + name);
+        GameRegistry.registerTileEntity(tileEntityClass, "tile" + name);
         
         //System.out.println("RUNNING!");
                

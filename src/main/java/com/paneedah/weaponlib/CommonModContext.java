@@ -30,6 +30,7 @@ import com.paneedah.weaponlib.state.StateManager;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessageMessageHandler;
 import com.paneedah.weaponlib.vehicle.network.*;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -40,6 +41,8 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.HashMap;
@@ -336,12 +339,14 @@ public class CommonModContext implements ModContext {
 	
 	@Override
 	public void preInitEnd(Object mod, SimpleNetworkWrapper channel) {
-		compatibility.registerTileEntity(TileEntityWorkbench.class, ModReference.id + ":tileworkbench");
-		compatibility.registerBlock(this, new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(ModernWarfareMod.BlocksTab), "weapon_workbench");
-		
-		compatibility.registerTileEntity(TileEntityAmmoPress.class, ModReference.id + ":tileammopress");
-		compatibility.registerBlock(this, new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(ModernWarfareMod.BlocksTab), "ammo_press");	
-	}
+        // Workbench
+		GameRegistry.registerTileEntity(TileEntityWorkbench.class, ModReference.id + ":tileworkbench");
+        Block workbench = new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(ModernWarfareMod.BlocksTab);
+
+        // Ammo press
+		GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ModReference.id + ":tileammopress");
+        Block ammoPress = new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(ModernWarfareMod.BlocksTab);
+    }
 
     @Override
     public void init(Object mod) {
@@ -376,7 +381,8 @@ public class CommonModContext implements ModContext {
 		if(result == null) {
 			result = new SoundEvent(soundResourceLocation);
 			registeredSounds.put(soundResourceLocation, result);
-			compatibility.registerSound(result);
+            result.setRegistryName(result.getSoundName());
+            ForgeRegistries.SOUND_EVENTS.register(result);
 		}
 		return result;
 	}

@@ -27,7 +27,7 @@ public class ExplosionMessageHandler implements CompatibleMessageHandler<Explosi
 			EntityPlayer player = mc.player;
 			compatibility.runInMainClientThread(() -> {
                 Explosion explosion = new Explosion(modContext,
-                        compatibility.world(player),
+						player.world,
                         (Entity)null,
                         message.getPosX(),
                         message.getPosY(),

@@ -158,7 +158,7 @@ public class EntityShellCasing extends EntityProjectile {
      */
     @Override
     protected void onImpact(RayTraceResult position) {
-        if (!compatibility.world(this).isRemote) {
+        if (!world.isRemote) {
             setDead();
         }
     }

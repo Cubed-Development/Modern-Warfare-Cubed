@@ -3,6 +3,7 @@ package com.paneedah.weaponlib;
 import com.paneedah.weaponlib.compatibility.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -40,7 +41,7 @@ public class EntityControlHandler implements CompatibleMessageHandler<EntityCont
         } else {
             compatibility.runInMainClientThread(() -> {
                 EntityPlayer player = mc.player;
-                Entity targetEntity = message.getEntity(compatibility.world(player));
+                Entity targetEntity = message.getEntity(player.world);
                 CompatibleExtraEntityFlags.setFlags(targetEntity, message.getFlags(), message.getValues());
                 
                 int updatedFlags = CompatibleExtraEntityFlags.getFlags(player);
@@ -60,8 +61,12 @@ public class EntityControlHandler implements CompatibleMessageHandler<EntityCont
 
             entityPlayer.width = width;
             entityPlayer.height = height;
-            
-            compatibility.resizeEntityBoundingBox(entityPlayer, entityPlayer.width, entityPlayer.height, entityPlayer.width);
+
+            AxisAlignedBB axisalignedbb = entityPlayer.getEntityBoundingBox();
+
+            entityPlayer.setEntityBoundingBox(new AxisAlignedBB(axisalignedbb.minX, axisalignedbb.minY, axisalignedbb.minZ,
+                    axisalignedbb.minX + entityPlayer.width, axisalignedbb.minY + entityPlayer.height, axisalignedbb.minZ + entityPlayer.width));
+
 
             if(height < 1.5) {
                 entityPlayer.eyeHeight = 0.6f;

@@ -40,14 +40,14 @@ public class SpawnParticleMessageHandler implements CompatibleMessageHandler<Spa
                         modContext.getEffectManager().spawnExplosionSmoke(
                                 message.getPosX(), message.getPosY(), message.getPosZ(),
                                 message.getMotionX(), message.getMotionY(), message.getMotionZ(),
-                                1.5f * compatibility.world(mc.player).rand.nextFloat(),
+                                1.5f * mc.player.world.rand.nextFloat(),
                                 300, ExplosionSmokeFX.Behavior.SMOKE_GRENADE, REGULAR_SMOKE_TEXTURE);
                         break;
                     case SMOKE_GRENADE_YELLOW_SMOKE:
                         modContext.getEffectManager().spawnExplosionSmoke(
                                 message.getPosX(), message.getPosY(), message.getPosZ(),
                                 message.getMotionX(), message.getMotionY(), message.getMotionZ(),
-                                0.2f * compatibility.world(mc.player).rand.nextFloat(),
+                                0.2f * mc.player.world.rand.nextFloat(),
                                 300, ExplosionSmokeFX.Behavior.SMOKE_GRENADE, YELLOW_SMOKE_TEXTURE);
                         break;
                     default:

@@ -132,7 +132,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
     @Override
     public void onUpdate() {
 
-        if (!compatibility.world(this).isRemote && ticksExisted > MAX_TICKS) {
+        if (!world.isRemote && ticksExisted > MAX_TICKS) {
             this.setDead();
             return;
         }
@@ -159,7 +159,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         Vector3D vec3 = new Vector3D(this.posX, this.posY, this.posZ);
         Vector3D vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
-        RayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(block, blockMetadata));
+        RayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(world, vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(block, blockMetadata));
 
         vec3 = new Vector3D(this.posX, this.posY, this.posZ);
         vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
@@ -170,7 +170,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
         if (thrower != null) { //if(!this.worldObj.isRemote)
             Entity entity = null;
-            List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this, compatibility.getBoundingBox(this).expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+            List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(world, this, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
             double d0 = 0.0D;
             EntityLivingBase entitylivingbase = this.getThrower();
 
@@ -303,7 +303,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         if (this.isInWater()) {
             for (int i = 0; i < 4; ++i) {
                 float f4 = 0.25F;
-                compatibility.spawnParticle(compatibility.world(this),
+                compatibility.spawnParticle(world,
                         "bubble", this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);
             }
 
@@ -360,9 +360,9 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
             BlockPos blockPos = new BlockPos(projectedPos.x, projectedPos.y, projectedPos.z);
 
-            AxisAlignedBB projectedEntityBoundingBox = compatibility.getBoundingBox(this).offset(dX * i, dY * i, dZ * i);
+            AxisAlignedBB projectedEntityBoundingBox = this.getEntityBoundingBox().offset(dX * i, dY * i, dZ * i);
 
-            if(compatibility.isAirBlock(compatibility.world(this), blockPos) || !new AxisAlignedBB(blockPos).intersects(projectedEntityBoundingBox) ) {
+            if(compatibility.isAirBlock(world, blockPos) || !new AxisAlignedBB(blockPos).intersects(projectedEntityBoundingBox) ) {
                 this.posX = projectedXPos;
                 this.posY = projectedYPos;
                 this.posZ = projectedZPos;
@@ -385,7 +385,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         double dZ = Math.signum(motionZ) * 0.01;
 
         float f = 0.3F;
-        AxisAlignedBB axisalignedbb = compatibility.getBoundingBox(movingobjectposition.entityHit).expand((double)f, (double)f, (double)f);
+        AxisAlignedBB axisalignedbb = movingobjectposition.entityHit.getEntityBoundingBox().expand((double)f, (double)f, (double)f);
         RayTraceResult intercept = movingobjectposition;
         for(int i = 0; i < 10; i++) {
             Vector3D currentPos = new Vector3D(this.posX + dX * i, this.posY + dY * i, this.posZ + dY * i);
@@ -397,7 +397,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
                 IBlockState iBlockState;
 
                 BlockPos blockPos = new BlockPos(projectedPos.x, projectedPos.y, projectedPos.z);
-                if((iBlockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos)) != null && !(iBlockState.getBlock() == Blocks.AIR)) {
+                if((iBlockState = compatibility.getBlockAtPosition(world, blockPos)) != null && !(iBlockState.getBlock() == Blocks.AIR)) {
                     log.debug("Found non-intercept position colliding with block {}", iBlockState);
                     intercept = movingobjectposition;
                 } else {
@@ -456,7 +456,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
     public void readSpawnData(ByteBuf buffer) {
         int entityId = buffer.readInt();
         if(thrower == null && entityId >= 0) {
-            Entity entity = compatibility.world(this).getEntityByID(entityId);
+            Entity entity = world.getEntityByID(entityId);
             if(entity instanceof EntityLivingBase) {
                 this.thrower = (EntityPlayer) entity;
             }

@@ -156,7 +156,7 @@ public class EntityConfiguration {
         private ResourceLocation lootTable;
         
         private Predicate<Entity> canSpawnHere;
-        private Predicate<Entity> isValidLightLevel = e -> compatibility.world(e).rand.nextFloat() > 0.5f;
+        private Predicate<Entity> isValidLightLevel = e -> e.world.rand.nextFloat() > 0.5f;
         
         private float maxTolerableLightBrightness = DEFAULT_MAX_TOLERABLE_LIGHT_BRIGHTNESS;
         

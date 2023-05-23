@@ -15,6 +15,7 @@ import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -291,8 +292,7 @@ public class Explosion {
      */
     public void doExplosionB(boolean spawnParticles, boolean destroyBlocks) {
         if (!world.isRemote && explosionSound != null) {
-            compatibility.playSound(world, explosionX, explosionY, explosionZ, explosionSound, 4f,
-                    (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
+            world.playSound(null, explosionX, explosionY, explosionZ, explosionSound, SoundCategory.BLOCKS,4f, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
         }
 
 

@@ -202,9 +202,9 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     @Override
     public void onDeath(DamageSource cause) {
-        ItemStack itemStack = compatibility.getHeldItemMainHand(this); // getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
+        ItemStack itemStack = this.getHeldItemMainhand(); // getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
 
-        if (!compatibility.world(this).isRemote && itemStack != null) {
+        if (!world.isRemote && itemStack != null) {
             initAmmo(itemStack);
         }
 
@@ -270,7 +270,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     private void setSecondaryEquipment() {
         EntityConfiguration configuration = getConfiguration();
-        Equipment secondaryEquipment = configuration.getSecondaryEquipmentOptions().pick(compatibility.world(this).getDifficulty());
+        Equipment secondaryEquipment = configuration.getSecondaryEquipmentOptions().pick(world.getDifficulty());
         if (secondaryEquipment != null) {
             ItemStack equipmentItemStack = new ItemStack(secondaryEquipment.item);
             if (secondaryEquipment.item instanceof ItemGrenade) {
@@ -308,7 +308,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     private void setPrimaryEquipment() {
         EntityConfiguration configuration = getConfiguration();
-        Equipment equipment = configuration.getEquipmentOptions().pick(compatibility.world(this).getDifficulty());
+        Equipment equipment = configuration.getEquipmentOptions().pick(world.getDifficulty());
 
         Arrays.fill(this.inventoryHandsDropChances, configuration.getPrimaryEquipmentDropChance());
         if (equipment != null) {
@@ -397,7 +397,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             return;
         }
 
-        ItemStack itemStack = compatibility.getHeldItemMainHand(this);
+        ItemStack itemStack = this.getHeldItemMainhand();
 
         if (itemStack == null) {
             return;
@@ -407,14 +407,14 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
             WeaponFireAspect fireAspect = modContext.getWeaponFireAspect();
 
             BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith = (weapon, player) -> {
-                int difficultyId = compatibility.world(this).getDifficulty().getId();
+                int difficultyId = world.getDifficulty().getId();
                 float inaccuracy = weapon.getInaccuracy() + (3f - difficultyId) * 0.5f; // *
                                                                                         // 2
                                                                                         // +
                                                                                         // distanceFactor
                                                                                         // *
                                                                                         // 3f;
-                WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, compatibility.world(player), player,
+                WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, world, player,
                         weapon.getSpawnEntityVelocity(), weapon.getSpawnEntityGravityVelocity(), inaccuracy,
                         weapon.getSpawnEntityDamage() * 0.01f * 0.2f, weapon.getSpawnEntityExplosionRadius(), false, false, 1f, 1f, 1.5f, 1f,
                         -1, -1);
@@ -517,7 +517,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     @Override
     public float getBlockPathWeight(BlockPos pos) {
-        return getConfiguration().getMaxTolerableLightBrightness() - compatibility.getLightBrightness(compatibility.world(this), pos);
+        return getConfiguration().getMaxTolerableLightBrightness() - compatibility.getLightBrightness(world, pos);
     }
     
     @Override
@@ -570,7 +570,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     @Override
     public boolean getCanSpawnHere() {
-        boolean canSpawn = compatibility.getWorldType(compatibility.world(this)) != WorldType.FLAT
+        boolean canSpawn = compatibility.getWorldType(world) != WorldType.FLAT
                 || rand.nextFloat() > (1f - FLAT_WORLD_SPAWN_CHANCE);
         Predicate<Entity> predicate = getConfiguration().getCanSpawnHere();
         return canSpawn && (predicate != null ? predicate.test(this) : super.getCanSpawnHere());

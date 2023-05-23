@@ -114,7 +114,7 @@ public class PlayerEntityTracker {
     }
 
     public static PlayerEntityTracker fromBuf(ByteBuf buf /*, World world*/) {
-        PlayerEntityTracker tracker = new PlayerEntityTracker(() -> compatibility.world(mc.player));
+        PlayerEntityTracker tracker = new PlayerEntityTracker(() -> mc.player.world);
         tracker.init(buf);
         return tracker;
     }

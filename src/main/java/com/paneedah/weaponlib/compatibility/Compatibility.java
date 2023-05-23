@@ -57,25 +57,12 @@ import java.util.function.Predicate;
 @Deprecated
 public interface Compatibility {
 
-	World world(Entity entity);
-
-    IAttribute getMovementSpeedAttribute();
 
 	NBTTagCompound getTagCompound(ItemStack itemStack);
-
-	void setTagCompound(ItemStack itemStack, NBTTagCompound tagCompound);
-
-	ItemStack getItemStack(ItemTossEvent event);
-
-	EntityPlayer getPlayer(ItemTossEvent event);
-
-	ItemStack getHeldItemMainHand(EntityLivingBase player);
 
     void ensureTagCompound(ItemStack itemStack);
 
     void playSound(EntityLivingBase player, SoundEvent sound, float volume, float pitch);
-
-    void playSoundToNearExcept(EntityLivingBase player, SoundEvent object, float volume, float pitch);
 
 	boolean isClientSide();
 
@@ -86,8 +73,6 @@ public interface Compatibility {
 	ScaledResolution getResolution(Pre event);
 
 	ElementType getEventType(Pre event);
-
-	ItemStack getHelmet();
 
     ItemStack getHelmet(EntityLivingBase entity);
 
@@ -111,15 +96,9 @@ public interface Compatibility {
 
 	int getButton(MouseEvent event);
 
-	EntityPlayer getEntity(FOVUpdateEvent event);
+    void setNewFov(FOVUpdateEvent event, float fov);
 
-    EntityLivingBase getEntity(@SuppressWarnings("rawtypes") RenderLivingEvent.Pre event);
-
-	void setNewFov(FOVUpdateEvent event, float fov);
-
-    RenderPlayer getRenderer(@SuppressWarnings("rawtypes") RenderLivingEvent.Pre event);
-
-	GuiScreen getGui(GuiOpenEvent event);
+    GuiScreen getGui(GuiOpenEvent event);
 
     RayTraceResult getObjectMouseOver();
 
@@ -131,9 +110,7 @@ public interface Compatibility {
 
 	boolean consumeInventoryItem(InventoryPlayer inventoryPlayer, Item item);
 
-    ItemStack consumeInventoryItem(Item item, Predicate<ItemStack> condition, EntityPlayer player, int maxSize);
-
-	ItemStack getInventoryItemStack(EntityPlayer player, int inventoryItemIndex);
+    ItemStack getInventoryItemStack(EntityPlayer player, int inventoryItemIndex);
 
     void consumeInventoryItemFromSlot(EntityPlayer player, int nextAttachmentSlot);
 
@@ -165,17 +142,13 @@ public interface Compatibility {
 
     float getAspectRatio(ModContext modContext);
 
-    void setStackSize(ItemStack itemStack, int size);
+    ItemStack consumeInventoryItem(Item item, Predicate<ItemStack> condition, EntityPlayer player, int maxSize);
 
     ItemStack tryConsumingCompatibleItem(List<? extends Item> compatibleParts, int maxSize, EntityPlayer player, Predicate<ItemStack> ...conditions);
 
     Item findItemByName(String itemName);
 
-    RayTraceResult rayTraceBlocks(Entity entity, Vector3D vec3, Vector3D vec31);
-
     AxisAlignedBB expandEntityBoundingBox(Entity entity, double f, double f2, double f3);
-
-    AxisAlignedBB getBoundingBox(Entity entity);
 
     List<Entity> getEntitiesWithinAABBExcludingEntity(World world, Entity entity, AxisAlignedBB boundingBox);
 
@@ -184,7 +157,7 @@ public interface Compatibility {
     IBlockState getBlockAtPosition(World world, BlockPos blockPos);
 
     boolean isBlockPenetratableByBullets(Block block);
-    
+
     boolean isBlockPenetratableByBullets(IBlockState blockState);
 
     boolean canCollideCheck(Block block, IBlockState metadata, boolean hitIfLiquid);
@@ -220,8 +193,6 @@ public interface Compatibility {
 
     IBlockState getBlockBelow(World world, BlockPos blockpos1);
 
-    void playSound(World world, double posX, double posY, double posZ, SoundEvent explosionSound, float volume, float pitch);
-
     DamageSource genericDamageSource();
 
     boolean isFlying(EntityPlayer player);
@@ -245,48 +216,22 @@ public interface Compatibility {
     void useShader(EntityRenderer entityRenderer, boolean value);
 
     float getCompatibleAimingRotationYaw(EntityLivingBase thrower);
-    
-    <T> void setPrivateValue(Class<T> class1, T instance, Object value, String...fieldNames);
 
     ItemStack createItemStack(NBTTagCompound tagCompound);
 
     EntityAITarget createAINearestAttackableTarget(EntityLivingBase e, Class<? extends EntityLivingBase> targetClass, boolean checkSight);
-    
+
     EntityAIBase createAiAvoidEntity(EntityLivingBase e, Class<? extends EntityLivingBase> entityClassToAvoid, float avoidDistanceIn, double farSpeedIn, double nearSpeedIn);
 
     Entity getTrueDamageSource(DamageSource cause);
 
     ShaderGroup getShaderGroup(EntityRenderer entityRenderer);
 
-    void setShaderGroup(EntityRenderer entityRenderer, ShaderGroup shaderGroup);
-
     WorldType getWorldType(World world);
 
     ItemStack findNextBestItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player);
-    
+
     ItemStack tryConsumingCompatibleItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player);
 
-    ItemStack getItemStackFromSlot(EntityEquipmentSlot compatibleSlot);
-
-    boolean isStencilEnabled(Framebuffer framebuffer);
-
-    void enableStencil(Framebuffer framebuffer);
-
-    void resizeEntityBoundingBox(Entity entity, double x, double y, double z);
-
     boolean areOptifineShadersOn();
-
-    Entity getEntityByUuid(UUID uuid, World world);
-
-    TileEntity getTileEntity(World world, BlockPos pos);
-
-    void registerTileEntity(Class<? extends TileEntity> tileEntityClass, String name);
-
-    boolean isValidArmor(ItemStack itemstack, EntityEquipmentSlot entityEquipmentSlot, Entity entity);
-
-    NBTTagCompound readTagCompound(PacketBuffer packetBuf) throws IOException;
-
-    void writeTagCompound(PacketBuffer packetBuf, NBTTagCompound tagCompound) throws IOException;
-
-    void addBloodParticle(ModContext modContext, double x, double y, double z, double velX, double velY, double velZ);
 }

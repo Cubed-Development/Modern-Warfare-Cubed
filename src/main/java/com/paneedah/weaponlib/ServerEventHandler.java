@@ -69,14 +69,14 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
     	//if(!compatibility.world(livingUpdateEvent.getEntity()).isRemote && livingUpdateEvent.getEntityLiving() instanceof EntityPlayer) {
     	//	//modContext.getChannel().sendTo(new HeadshotSFXPacket(), (EntityPlayerMP) livingUpdateEvent.getEntityLiving());
     	//}
-    	
-        if(!compatibility.world(livingUpdateEvent.getEntity()).isRemote) {
+
+        if(!livingUpdateEvent.getEntity().world.isRemote) {
 //            if(livingUpdateEvent.getEntity() instanceof EntityPlayer) {
 //                System.out.println(System.currentTimeMillis() + ": " + compatibility.world(livingUpdateEvent.getEntity()).getTotalWorldTime());
 //            }
             
             NBTTagCompound doseNbt = null;
-            ItemStack itemStack = compatibility.getHeldItemMainHand(livingUpdateEvent.getEntityLiving());
+            ItemStack itemStack = livingUpdateEvent.getEntityLiving().getHeldItemMainhand();
             if(itemStack != null && itemStack.getItem() instanceof ItemHandheld) {
                 compatibility.ensureTagCompound(itemStack);
                 doseNbt = compatibility.getTagCompound(itemStack);
@@ -90,7 +90,7 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
                 if(doseNbt != null && exposure instanceof SpreadableExposure) {
                     doseNbt.setFloat("dose", ((SpreadableExposure) exposure).getLastDose());
                 }
-                if(!exposure.isEffective(compatibility.world(livingUpdateEvent.getEntity()))) {
+                if(!exposure.isEffective(livingUpdateEvent.getEntity().world)) {
                     //System.out.println("Removing expired exposure " + exposure);
                     iterator.remove();
                     effectiveUpdate = true;
@@ -102,10 +102,10 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
             
             long lastExposuresUpdateTimestamp = CompatibleExposureCapability.getLastUpdateTimestamp(livingUpdateEvent.getEntity());
             long lastSyncTimestamp = CompatibleExposureCapability.getLastSyncTimestamp(livingUpdateEvent.getEntity());
-            if(lastSyncTimestamp + 5 < compatibility.world(livingUpdateEvent.getEntity()).getTotalWorldTime()
+            if(lastSyncTimestamp + 5 < livingUpdateEvent.getEntity().world.getTotalWorldTime()
                     /*&& lastExposuresUpdateTimestamp > lastSyncTimestamp */ && livingUpdateEvent.getEntity() instanceof EntityPlayerMP) {
                 modContext.getChannel().sendTo(new ExposureMessage(exposures), (EntityPlayerMP) livingUpdateEvent.getEntity());
-                CompatibleExposureCapability.setLastSyncTimestamp(livingUpdateEvent.getEntity(), compatibility.world(livingUpdateEvent.getEntity()).getTotalWorldTime());
+                CompatibleExposureCapability.setLastSyncTimestamp(livingUpdateEvent.getEntity(), livingUpdateEvent.getEntity().world.getTotalWorldTime());
             }
             
 //            SpreadableExposure exposure = CompatibleExposureCapability.getExposure(livingUpdateEvent.getEntity(), SpreadableExposure.class);
@@ -161,7 +161,7 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
 
     @SubscribeEvent
     protected void onPlayerStartedTracking(PlayerEvent.StartTracking e) {
-        if(e.getTarget() instanceof EntityPlayer && !compatibility.world(e.getTarget()).isRemote) {
+        if(e.getTarget() instanceof EntityPlayer && !e.getTarget().world.isRemote) {
             modContext.getChannel().sendTo(
                     new EntityInventorySyncMessage(e.getTarget(), 
                             CompatibleCustomPlayerInventoryCapability.getInventory((EntityLivingBase) e.getTarget()), false), 
@@ -207,9 +207,9 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
     protected void onCompatibleLivingDeathEvent(LivingDeathEvent livingDeathEvent) {
         final EntityLivingBase entity = livingDeathEvent.getEntityLiving();
 
-        if(entity instanceof EntityPlayer && !compatibility.world(entity).isRemote) {
+        if(entity instanceof EntityPlayer && !entity.world.isRemote) {
 
-            if(!compatibility.world(entity).getGameRules().getBoolean("keepInventory")) {
+            if(!entity.world.getGameRules().getBoolean("keepInventory")) {
                 CustomPlayerInventory inventory = CompatibleCustomPlayerInventoryCapability.getInventory(entity);
                 
                 for(int slotIndex = 0; slotIndex < inventory.getSizeInventory(); slotIndex++) {

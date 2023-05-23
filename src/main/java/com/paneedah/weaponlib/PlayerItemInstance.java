@@ -41,7 +41,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 	public PlayerItemInstance(int itemInventoryIndex, EntityLivingBase player) {
 		this.itemInventoryIndex = itemInventoryIndex;
 		this.player = player;
-		ItemStack itemStack = compatibility.getHeldItemMainHand(player);
+		ItemStack itemStack = player.getHeldItemMainhand();
 		if(itemStack != null) {
 			this.item = itemStack.getItem();
 		}

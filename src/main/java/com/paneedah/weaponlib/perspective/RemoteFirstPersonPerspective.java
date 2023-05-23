@@ -24,7 +24,7 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
         this.renderEndNanoTime = System.nanoTime();
         this.width = 427; //mc.displayWidth >> 1;
         this.height = 240; //mc.displayHeight >> 1;
-        WorldClient world = (WorldClient) compatibility.world(mc.player);
+        WorldClient world = (WorldClient) mc.player.world;
         this.watchablePlayer = new EntityPlayerSP(mc, world, mc.getConnection(), new StatisticsManager(), null);
     }
 

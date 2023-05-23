@@ -194,7 +194,7 @@ class ClientWeaponTicker extends Thread {
 		if(player == null)
 			return null;
 
-		ItemStack itemStack = compatibility.getHeldItemMainHand(player);
+		ItemStack itemStack = player.getHeldItemMainhand();
 		return itemStack != null ? itemStack.getItem() : null;
 	}
 }

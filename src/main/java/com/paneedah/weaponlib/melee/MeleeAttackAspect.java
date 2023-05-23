@@ -157,7 +157,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
         RayTraceResult objectMouseOver = compatibility.getObjectMouseOver();
         if (objectMouseOver != null) {
             EntityPlayer player = mc.player;
-            World world = compatibility.world(player);
+            World world = player.world;
             compatibility.playSound(player, isHeavyAttack ? meleeInstance.getWeapon().getHeavyAtackSound() : meleeInstance.getWeapon().getLightAtackSound(), 1F, 1F);
 
             switch (objectMouseOver.typeOfHit)

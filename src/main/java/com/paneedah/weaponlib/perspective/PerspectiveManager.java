@@ -71,7 +71,7 @@ public class PerspectiveManager {
 
     MWCParticleManager getEffectRenderer() {
         if(effectRenderer == null) {
-            WorldClient world = (WorldClient) compatibility.world(mc.player);
+            WorldClient world = (WorldClient) mc.player.world;
             effectRenderer = MWCParticleManager.getParticleManager();
         }
         return effectRenderer;

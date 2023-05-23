@@ -35,6 +35,6 @@ public class ArmorSlot extends Slot {
      */
     public boolean isItemValid(ItemStack itemstack) {
         Item item = (itemstack == null ? null : itemstack.getItem());
-        return item != null && compatibility.isValidArmor(itemstack, armorType, player);
+        return item != null && itemstack.getItem().isValidArmor(itemstack, armorType, player);
     }
 }

@@ -13,6 +13,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -197,18 +198,18 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 
 	// TODO: create player utils, move this method
 	private void restorePlayerSpeed(EntityPlayer entityPlayer, AttributeModifier modifier) {
-		if(entityPlayer.getEntityAttribute(compatibility.getMovementSpeedAttribute())
+		if(entityPlayer.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED)
 				.getModifier(modifier.getID()) != null) {
-			entityPlayer.getEntityAttribute(compatibility.getMovementSpeedAttribute())
+			entityPlayer.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED)
 				.removeModifier(modifier);
 		}
 	}
 
 	// TODO: create player utils, move this method
 	private void slowPlayerDown(EntityPlayer entityPlayer, AttributeModifier modifier) {
-		if(entityPlayer.getEntityAttribute(compatibility.getMovementSpeedAttribute())
+		if(entityPlayer.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED)
 				.getModifier(modifier.getID()) == null) {
-			entityPlayer.getEntityAttribute(compatibility.getMovementSpeedAttribute())
+			entityPlayer.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED)
 				.applyModifier(modifier);
 		}
 	}

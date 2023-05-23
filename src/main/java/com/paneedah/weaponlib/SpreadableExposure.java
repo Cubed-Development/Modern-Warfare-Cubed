@@ -217,7 +217,7 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
 //            cycleDoseMap.clear();
 //        }
         
-        long worldTime = compatibility.world(entity).getTotalWorldTime();
+        long worldTime = entity.world.getTotalWorldTime();
 
         if(firstExposureTimestamp > worldTime)
             firstExposureTimestamp = worldTime;
@@ -226,7 +226,7 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
             firstExposureImpactDelay = 20;
 
         if(worldTime - startCycleTimestamp > cycleLengthMillis) {
-            startCycleTimestamp = compatibility.world(entity).getTotalWorldTime();
+            startCycleTimestamp = entity.world.getTotalWorldTime();
             cycleDoseMap.clear();
         }
         
@@ -249,7 +249,7 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
     
     public void applyToEntity(EntityLivingBase entityLiving) {
         
-        long worldTime = compatibility.world(entityLiving).getTotalWorldTime();
+        long worldTime = entityLiving.world.getTotalWorldTime();
         
         if(totalDose > MIN_EFFECTIVE_TOTAL_DOSE && worldTime - lastApplyTimestamp >= /*TODO: convert to world time? */20f / entityImpactRate) { 
             // TODO: configure min total dose, possibly per entity?

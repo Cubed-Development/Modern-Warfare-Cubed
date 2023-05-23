@@ -78,7 +78,7 @@ public class CustomTileEntityBlock extends BlockContainer {
     
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        CustomTileEntity<?> entity = (CustomTileEntity<?>)compatibility.getTileEntity(world, pos);
+        CustomTileEntity<?> entity = (CustomTileEntity<?>)world.getTileEntity(pos);
         
         if(entity != null) {
             entity.onEntityBlockActivated(world, pos, player);
@@ -91,7 +91,7 @@ public class CustomTileEntityBlock extends BlockContainer {
     
     @Override
     public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
-        CustomTileEntity<?> entity = (CustomTileEntity<?>)compatibility.getTileEntity(world, pos);
+        CustomTileEntity<?> entity = (CustomTileEntity<?>)world.getTileEntity(pos);
         if(entity != null) {
             int side = MathHelper.floor(player.rotationYaw/90f + 0.5) & 3;
             entity.setSide(side);

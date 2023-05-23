@@ -2,12 +2,14 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ArmorControlHandler implements CompatibleMessageHandler<ArmorControlMessage, IMessage>  {
@@ -32,10 +34,10 @@ public class ArmorControlHandler implements CompatibleMessageHandler<ArmorContro
             compatibility.runInMainClientThread(() -> {
                 if(message.isToggleNightVision()) {
                     EntityPlayer player = messageContext.getServerHandler().player;
-                    ItemStack helmetStack = compatibility.getHelmet(player);
+                    ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
                     if(helmetStack != null && helmetStack.getItem() instanceof CustomArmor && ((CustomArmor)helmetStack.getItem()).hasNightVision()) {
                         compatibility.ensureTagCompound(helmetStack);
-                        NBTTagCompound tagCompound = compatibility.getTagCompound(helmetStack);
+                        NBTTagCompound tagCompound = helmetStack.getTagCompound();
                         boolean nightVisionOn = tagCompound.getBoolean(TAG_NIGHT_VISION);
                         tagCompound.setBoolean(TAG_NIGHT_VISION, !nightVisionOn);
                     }

@@ -692,9 +692,9 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
     }
     
     private void ensureTagCompound(ItemStack itemStack) {
-        if (compatibility.getTagCompound(itemStack) == null) {
+        if (itemStack.getTagCompound() == null) {
             NBTTagCompound tagCompound = new NBTTagCompound();
-            compatibility.setTagCompound(itemStack, tagCompound);
+            itemStack.setTagCompound(tagCompound);
             tagCompound.setDouble(SHIELD_CAPACITY_TAG, maxShieldCapacity);
         }
     }

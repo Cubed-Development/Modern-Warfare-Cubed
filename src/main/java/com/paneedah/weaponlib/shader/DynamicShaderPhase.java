@@ -4,6 +4,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.shader.ShaderGroup;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
@@ -63,7 +64,7 @@ public interface DynamicShaderPhase {
                 ShaderGroup currentShaderGroup = compatibility.getShaderGroup(entityRenderer);
                 if(currentShaderGroup != shaderGroup) {
                     remove(context, null);
-                    compatibility.setShaderGroup(entityRenderer, shaderGroup);
+                    ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, shaderGroup, "shaderGroup", "field_147707_d");
                     setUseShader(entityRenderer, true);
                 }
             }
@@ -77,7 +78,7 @@ public interface DynamicShaderPhase {
                 ShaderGroup currentShaderGroup = compatibility.getShaderGroup(entityRenderer);
                 if(currentShaderGroup instanceof DynamicShaderGroup) {
                     currentShaderGroup.deleteShaderGroup();
-                    compatibility.setShaderGroup(entityRenderer, null);
+                    ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, null, "shaderGroup", "field_147707_d");
                 }
             }
 

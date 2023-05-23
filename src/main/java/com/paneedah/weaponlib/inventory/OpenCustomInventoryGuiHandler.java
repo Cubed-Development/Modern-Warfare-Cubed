@@ -26,7 +26,7 @@ public class OpenCustomInventoryGuiHandler implements CompatibleMessageHandler<O
             compatibility.runInMainClientThread(() -> {
                 EntityPlayer player = messageContext.getServerHandler().player;
                 player.openGui(modContext.getMod(), message.getGuiInventoryId(), 
-                        compatibility.world(player), (int)player.posX, (int)player.posY, (int)player.posZ);
+                        player.world, (int)player.posX, (int)player.posY, (int)player.posZ);
             });
         }
         return null;

@@ -24,7 +24,7 @@ public class GrenadeMessageHandler implements CompatibleMessageHandler<GrenadeMe
 	public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(GrenadeMessage message, MessageContext messageContext) {
 		if(messageContext.side == Side.SERVER) {
 			EntityPlayer player = messageContext.getServerHandler().player;
-			ItemStack itemStack = compatibility.getHeldItemMainHand(player);
+			ItemStack itemStack = player.getHeldItemMainhand();
 			if(itemStack != null && itemStack.getItem() instanceof ItemGrenade) {
 			    compatibility.runInMainClientThread(() -> {
 			        message.getInstance().setPlayer(player);

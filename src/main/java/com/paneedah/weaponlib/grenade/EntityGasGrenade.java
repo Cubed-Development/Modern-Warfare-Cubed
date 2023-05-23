@@ -10,6 +10,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
@@ -145,11 +146,11 @@ public class EntityGasGrenade extends AbstractEntityGrenade {
             // Do nothing
         } else if (timeRemaining < 0) {
             setDead();
-        } else if(!compatibility.world(this).isRemote && timeRemaining <= activeDuration && stopped) {
+        } else if(!world.isRemote && timeRemaining <= activeDuration && stopped) {
 
             double f = 0.1 + Math.sin(Math.PI * (1 - (double)timeRemaining / activeDuration)) * 0.1;
             if(rand.nextDouble() <= f) {
-                for (Object o : compatibility.world(this).playerEntities) {
+                for (Object o : world.playerEntities) {
                     EntityPlayer player = (EntityPlayer) o;
                     if (player.getDistanceSq(posX, posY, posZ) < 4096.0D) {
                         ParticleType particleType = ParticleType.SMOKE_GRENADE_YELLOW_SMOKE;
@@ -181,9 +182,8 @@ public class EntityGasGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onStop() {
-        World world = compatibility.world(this);
         if(!world.isRemote && itemGrenade != null) {
-            compatibility.playSound(compatibility.world(this), posX, posY, posZ, itemGrenade.getStopAfterThrowingSound(), 2f,
+            world.playSound(null, posX, posY, posZ, itemGrenade.getStopAfterThrowingSound(), SoundCategory.BLOCKS, 2f,
                     (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
             Entity gasEntity = new EntitySpreadable(world);
             gasEntity.posX = posX;

@@ -16,9 +16,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.client.shader.ShaderGroup;
 import net.minecraft.enchantment.EnchantmentProtection;
 import net.minecraft.entity.*;
@@ -37,9 +35,7 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.PacketBuffer;
 import net.minecraft.stats.StatBase;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -47,17 +43,14 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldType;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
-import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -69,13 +62,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.*;
 import java.util.function.Predicate;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 @Deprecated
 public class Compatibility1_12_2 implements Compatibility {
@@ -109,28 +100,8 @@ public class Compatibility1_12_2 implements Compatibility {
     );
 
     @Override
-    public World world(Entity entity) {
-        return entity.world;
-    }
-
-    @Override
     public NBTTagCompound getTagCompound(ItemStack itemStack) {
         return itemStack.getTagCompound();
-    }
-
-    @Override
-    public ItemStack getItemStack(ItemTossEvent event) {
-        return event.getEntityItem().getItem();
-    }
-
-    @Override
-    public EntityPlayer getPlayer(ItemTossEvent event) {
-        return event.getPlayer();
-    }
-
-    @Override
-    public ItemStack getHeldItemMainHand(EntityLivingBase player) {
-        return player.getHeldItemMainhand();
     }
 
     @Override
@@ -148,23 +119,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public IAttribute getMovementSpeedAttribute() {
-        return SharedMonsterAttributes.MOVEMENT_SPEED;
-    }
-
-    @Override
-    public void setTagCompound(ItemStack itemStack, NBTTagCompound tagCompound) {
-        itemStack.setTagCompound(tagCompound);
-    }
-
-    @Override
     public boolean isClientSide() {
         return FMLCommonHandler.instance().getSide() == Side.CLIENT;
-    }
-
-    @Override
-    public void playSoundToNearExcept(EntityLivingBase player, SoundEvent sound, float volume, float pitch) {
-        player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, sound, player.getSoundCategory(), volume, pitch);
     }
 
     @Override
@@ -189,12 +145,6 @@ public class Compatibility1_12_2 implements Compatibility {
     @SideOnly(Side.CLIENT)
     public ElementType getEventType(Pre event) {
         return event.getType();
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public ItemStack getHelmet() {
-        return mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
     }
 
     @Override
@@ -259,25 +209,9 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public EntityPlayer getEntity(FOVUpdateEvent event) {
-        return event.getEntity();
-    }
-
-    @Override
-    public EntityLivingBase getEntity(@SuppressWarnings("rawtypes") RenderLivingEvent.Pre event) {
-        return event.getEntity();
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public void setNewFov(FOVUpdateEvent event, float fov) {
         event.setNewfov(fov);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public RenderPlayer getRenderer(@SuppressWarnings("rawtypes") RenderLivingEvent.Pre event) {
-        return (RenderPlayer) event.getRenderer();
     }
 
     @Override
@@ -421,16 +355,8 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     @SideOnly(Side.CLIENT)
     public void addBreakingParticle(ModContext modContext, double x, double y, double z) {
-        ParticleBlood particle = new ParticleBlood(world(mc.player), x, y + 1, z);
+        ParticleBlood particle = new ParticleBlood(mc.player.world, x, y + 1, z);
         mc.effectRenderer.addEffect(particle);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void addBloodParticle(ModContext modContext, double x, double y, double z, double velX, double velY, double velZ) {
-        ParticleBlood cdp = new ParticleBlood(mc.world, x, y, z, velX, velY, velZ);
-
-        mc.effectRenderer.addEffect(cdp);
     }
 
     @Override
@@ -519,18 +445,8 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public RayTraceResult rayTraceBlocks(Entity entity, Vector3D vec3, Vector3D vec31) {
-        return entity.getEntityWorld().rayTraceBlocks(vec3.toVec3d(), vec31.toVec3d());
-    }
-
-    @Override
     public AxisAlignedBB expandEntityBoundingBox(Entity entity1, double f1, double f2, double f3) {
         return entity1.getEntityBoundingBox().expand(f1, f2, f3);
-    }
-
-    @Override
-    public AxisAlignedBB getBoundingBox(Entity entity) {
-        return entity.getEntityBoundingBox();
     }
 
     @Override
@@ -674,13 +590,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void playSound(World world, double posX, double posY, double posZ, SoundEvent sound, float volume, float pitch) {
-        if (sound != null) {
-            world.playSound(null, posX, posY, posZ, sound, SoundCategory.BLOCKS, volume, pitch);
-        }
-    }
-
-    @Override
     public DamageSource genericDamageSource() {
         return new DamageSource("thrown");
     }
@@ -737,11 +646,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public <T> void setPrivateValue(Class<T> class1, T instance, Object value, String... fieldNames) {
-        ObfuscationReflectionHelper.setPrivateValue(class1, instance, value, fieldNames);
-    }
-
-    @Override
     public ItemStack getHelmet(EntityLivingBase entity) {
         return entity.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
     }
@@ -774,11 +678,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void setShaderGroup(EntityRenderer entityRenderer, ShaderGroup shaderGroup) {
-        compatibility.setPrivateValue(EntityRenderer.class, entityRenderer, shaderGroup, "shaderGroup", "field_147707_d");
-    }
-
-    @Override
     public Entity getTrueDamageSource(DamageSource cause) {
         return cause.getTrueSource();
     }
@@ -786,29 +685,6 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     public WorldType getWorldType(World world) {
         return world.getWorldType();
-    }
-
-    @Override
-    public ItemStack getItemStackFromSlot(EntityEquipmentSlot compatibleSlot) {
-        return mc.player.getItemStackFromSlot(compatibleSlot);
-    }
-
-    @Override
-    public boolean isStencilEnabled(Framebuffer framebuffer) {
-        return framebuffer.isStencilEnabled();
-    }
-
-    @Override
-    public void enableStencil(Framebuffer framebuffer) {
-        framebuffer.enableStencil();
-    }
-
-    @Override
-    public void resizeEntityBoundingBox(Entity entity, double x, double y, double z) {
-        AxisAlignedBB axisalignedbb = entity.getEntityBoundingBox();
-        entity.setEntityBoundingBox(new AxisAlignedBB(axisalignedbb.minX, axisalignedbb.minY, axisalignedbb.minZ,
-                axisalignedbb.minX + x, axisalignedbb.minY + y, axisalignedbb.minZ + z));
-
     }
 
     @Override
@@ -826,39 +702,6 @@ public class Compatibility1_12_2 implements Compatibility {
         }
 
         return false;
-    }
-
-    @Override
-    public Entity getEntityByUuid(UUID uuid, World world) {
-        if (world instanceof WorldServer)
-            return ((WorldServer) world).getEntityFromUuid(uuid);
-
-        return null;
-    }
-
-    @Override
-    public TileEntity getTileEntity(World world, BlockPos pos) {
-        return world.getTileEntity(pos);
-    }
-
-    @Override
-    public void registerTileEntity(Class<? extends TileEntity> tileEntityClass, String name) {
-        GameRegistry.registerTileEntity(tileEntityClass, name);
-    }
-
-    @Override
-    public boolean isValidArmor(ItemStack itemstack, EntityEquipmentSlot entityEquipmentSlot, Entity entity) {
-        return itemstack.getItem().isValidArmor(itemstack, entityEquipmentSlot, entity);
-    }
-
-    @Override
-    public NBTTagCompound readTagCompound(PacketBuffer packetBuf) throws IOException {
-        return packetBuf.readCompoundTag();
-    }
-
-    @Override
-    public void writeTagCompound(PacketBuffer packetBuf, NBTTagCompound tagCompound) {
-        packetBuf.writeCompoundTag(tagCompound);
     }
 
     @Override

@@ -29,6 +29,7 @@ import net.minecraft.client.renderer.GlStateManager.DestFactor;
 import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -165,7 +166,7 @@ public class CustomGui extends Gui {
 	public void handleHelmetHUD(RenderGameOverlayEvent.Pre event) {
 		if(compatibility.getEventType(event) == RenderGameOverlayEvent.ElementType.HELMET) {
 	        
-			ItemStack helmetStack = compatibility.getHelmet();
+			ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 			if(helmetStack != null && mc.gameSettings.thirdPersonView == 0 && helmetStack.getItem() instanceof CustomArmor) {
 			    	            
 				// Texture must be Width: 427, height: 240
@@ -175,8 +176,8 @@ public class CustomGui extends Gui {
 	                int screenWidth = scaledResolution.getScaledWidth();
 	                int screenHeight = scaledResolution.getScaledHeight();
 
-	                ItemStack chestStack = compatibility.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-	                ItemStack feetStack = compatibility.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+	                ItemStack chestStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+	                ItemStack feetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 
 				    if (chestStack != null && helmetStack != null && feetStack != null
 	                        && chestStack.getItem() instanceof CustomArmor
@@ -450,7 +451,7 @@ public class CustomGui extends Gui {
 		
 		
 
-		ItemStack itemStack = compatibility.getHeldItemMainHand(mc.player);
+		ItemStack itemStack = mc.player.getHeldItemMainhand();
 
 		if(itemStack == null) {
 			return;
@@ -581,9 +582,9 @@ public class CustomGui extends Gui {
 	}
 
     private void drawShieldIndicator(CustomArmor armor, double capacity, double screenWidth, double screenHeight) {
-        
-        if(!compatibility.isStencilEnabled(mc.getFramebuffer())) {
-            compatibility.enableStencil(mc.getFramebuffer());
+		Framebuffer framebuffer = mc.getFramebuffer();
+        if(!framebuffer.isStencilEnabled()) {
+			framebuffer.enableStencil();
         }
         
         GL11.glEnable(GL11.GL_ALPHA_TEST);

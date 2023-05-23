@@ -111,15 +111,15 @@ public class WeaponEventHandler {
 
 	@SubscribeEvent
 	public void onRenderLivingEvent(RenderLivingEvent.Pre event) {
-		if ((event.isCanceled()) || (!(compatibility.getEntity(event) instanceof EntityPlayer)))
+		if ((event.isCanceled()) || (!(event.getEntity() instanceof EntityPlayer)))
 			return;
 
-		ItemStack itemStack = compatibility.getHeldItemMainHand(compatibility.getEntity(event));
+		ItemStack itemStack = event.getEntity().getHeldItemMainhand();
 		if (itemStack != null && itemStack.getItem() instanceof Weapon) {
-			RenderPlayer rp = compatibility.getRenderer(event);
+			RenderPlayer rp = (RenderPlayer) event.getRenderer();
 
 			if (itemStack != null) {
-			    EntityPlayer player = (EntityPlayer)compatibility.getEntity(event);
+			    EntityPlayer player = (EntityPlayer)event.getEntity();
 			    PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
 			            .getItemInstance(player, itemStack);
 			    if(instance instanceof PlayerWeaponInstance) {

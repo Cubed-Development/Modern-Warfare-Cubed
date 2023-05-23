@@ -5,6 +5,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSourceProvider;
 import com.paneedah.weaponlib.shader.DynamicShaderPhase;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
@@ -67,7 +68,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
         brightness = 1f;
 
 //        System.out.println("Hello");
-        long worldTime = compatibility.world(mc.player).getWorldTime();
+        long worldTime = mc.player.world.getWorldTime();
 //        System.out.println("Day brightness: " + dayBrightness + ", time: " + (worldTime % 24000));
         if(lightExposure != null && lightExposure.getTotalDose() > 0.0003f) { //lightExposure.isEffective(compatibility.world(mc.player))) {
             flashEnabled = true;
@@ -103,7 +104,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
 
     private void updateVignette() {
         vignetteEnabled = nightVisionEnabled;
-        ItemStack helmetStack = compatibility.getHelmet();
+        ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
         if(nightVisionEnabled && helmetStack != null && helmetStack.getItem() instanceof CustomArmor) {
             CustomArmor helmet = (CustomArmor)helmetStack.getItem();
             vignetteEnabled = helmet.isVignetteEnabled();
@@ -112,7 +113,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
     }
 
     private void updateNightVision() {
-        ItemStack helmetStack = compatibility.getHelmet();
+        ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
         if(helmetStack != null) {
             NBTTagCompound tagCompound = compatibility.getTagCompound(helmetStack);
             if(tagCompound != null) {

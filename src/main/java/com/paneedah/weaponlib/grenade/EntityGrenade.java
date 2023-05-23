@@ -130,7 +130,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
     @Override
     public void onGrenadeUpdate() {
     	  
-        if (!compatibility.world(this).isRemote && explosionTimeout > 0
+        if (!world.isRemote && explosionTimeout > 0
                 && System.currentTimeMillis() > activationTimestamp + explosionTimeout) {
         
           explode();
@@ -140,7 +140,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onBounce(RayTraceResult movingobjectposition) {
-        if(explosionTimeout == ItemGrenade.EXPLODE_ON_IMPACT && !compatibility.world(this).isRemote) {
+        if(explosionTimeout == ItemGrenade.EXPLODE_ON_IMPACT && !world.isRemote) {
             explode();
         } else {
             super.onBounce(movingobjectposition);
@@ -150,12 +150,12 @@ public class EntityGrenade extends AbstractEntityGrenade {
     private void explode() {
         log.debug("Exploding {}", this);
 
-        Explosion.createServerSideExplosion(modContext, compatibility.world(this), this,
+        Explosion.createServerSideExplosion(modContext, world, this,
                 this.posX, this.posY, this.posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null, 
                 modContext.getExplosionSound());
         
-        List<?> nearbyEntities = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this,
-                compatibility.getBoundingBox(this).expand(5, 5, 5));
+        List<?> nearbyEntities = compatibility.getEntitiesWithinAABBExcludingEntity(world, this,
+                this.getEntityBoundingBox().expand(5, 5, 5));
 
         float damageCoefficient = (float)ModernConfigManager.explosionDamage;
         float effectiveRadius = itemGrenade.getEffectiveRadius() * damageCoefficient; // 5 block sphere with this entity as a center
@@ -183,7 +183,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
             Vector3D cvec2 = new Vector3D(this.posX + x * k, this.posY + y * k, this.posZ + z * k);
 
             BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> compatibility.canCollideCheck(block, blockMetadata, false);
-            RayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), cvec1, cvec2, isCollidable);
+            RayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(world, cvec1, cvec2, isCollidable);
 
             if(rayTraceResult != null) {
                 cvec2 = new Vector3D(rayTraceResult.hitVec);

@@ -90,7 +90,7 @@ public class MainCommand extends CommandBase {
     }
 
     private void showAttachments(int page) {
-        ItemStack itemStack = compatibility.getHeldItemMainHand(mc.player);
+        ItemStack itemStack = mc.player.getHeldItemMainhand();
         if(itemStack != null) {
             Item item = itemStack.getItem();
             if(item instanceof AttachmentContainer) {
@@ -137,7 +137,7 @@ public class MainCommand extends CommandBase {
     }
 
     private void showRecipe() {
-        ItemStack itemStack = compatibility.getHeldItemMainHand(mc.player);
+        ItemStack itemStack = mc.player.getHeldItemMainhand();
         if(itemStack != null) {
             Item item = itemStack.getItem();
             showRecipe(item);

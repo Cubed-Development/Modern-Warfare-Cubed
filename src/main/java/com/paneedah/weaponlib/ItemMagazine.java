@@ -110,7 +110,7 @@ Reloadable, Updatable, Part {
 	
 	private void ensureItemStack(ItemStack itemStack, int initialAmmo) {
 		if (compatibility.getTagCompound(itemStack) == null) {
-			compatibility.setTagCompound(itemStack, new NBTTagCompound());
+			itemStack.setTagCompound(new NBTTagCompound());
 			Tags.setAmmo(itemStack, initialAmmo);
 		}
 	}

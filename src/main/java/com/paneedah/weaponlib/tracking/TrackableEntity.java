@@ -33,7 +33,7 @@ public class TrackableEntity {
         this.entitySupplier = () -> entity;
         this.startTimestamp = startTimestamp;
         this.trackingDuration = trackingDuration;
-        this.worldSupplier = () -> compatibility.world(entity);
+        this.worldSupplier = () -> entity.world;
     }
 
     public UUID getUuid() {
@@ -96,7 +96,7 @@ public class TrackableEntity {
             if(w.isRemote) {
                 return w.getEntityByID(entityId);
             }
-            return compatibility.getEntityByUuid(uuid, w);
+            return w.getPlayerEntityByUUID(uuid);
         };
     }
 

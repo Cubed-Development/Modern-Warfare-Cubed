@@ -47,7 +47,7 @@ public class PlayerRenderer {
         }
 
         public List<MultipartTransition<Part, RenderContext<RenderableState>>> getTransitions(RenderableState state) {
-            ItemStack heldStack = compatibility.getHeldItemMainHand(player);
+            ItemStack heldStack = player.getHeldItemMainhand();
             if(heldStack != null && heldStack.getItem() instanceof Weapon) {
                 //((Weapon)heldStack.getItem()).getRenderer().
             }
@@ -113,7 +113,7 @@ public class PlayerRenderer {
             //log.trace("Setting proning state");
             generalPlayerStateManager.setCycleState(RenderableState.PRONING, false);
         } else {
-            ItemStack heldStack = compatibility.getHeldItemMainHand(player);
+            ItemStack heldStack = player.getHeldItemMainhand();
             
             if(heldStack != null && heldStack.getItem() instanceof Weapon) {
                 /*
