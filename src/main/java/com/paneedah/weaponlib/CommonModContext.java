@@ -8,7 +8,10 @@ import com.paneedah.weaponlib.WeaponAttachmentAspect.EnterAttachmentModePermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ExitAttachmentModePermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.CompoundPermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.UnloadPermit;
-import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
+import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
+import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
+import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.RecipeManager;
 import com.paneedah.weaponlib.crafting.ammopress.BlockAmmoPress;
@@ -30,7 +33,6 @@ import com.paneedah.weaponlib.state.StateManager;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessageMessageHandler;
 import com.paneedah.weaponlib.vehicle.network.*;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -341,11 +343,11 @@ public class CommonModContext implements ModContext {
 	public void preInitEnd(Object mod, SimpleNetworkWrapper channel) {
         // Workbench
 		GameRegistry.registerTileEntity(TileEntityWorkbench.class, ModReference.id + ":tileworkbench");
-        Block workbench = new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(ModernWarfareMod.BlocksTab);
+        compatibility.registerBlock(this, new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(ModernWarfareMod.BlocksTab), "weapon_workbench");
 
         // Ammo press
 		GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ModReference.id + ":tileammopress");
-        Block ammoPress = new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(ModernWarfareMod.BlocksTab);
+        compatibility.registerBlock(this, new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(ModernWarfareMod.BlocksTab), "ammo_press");
     }
 
     @Override
