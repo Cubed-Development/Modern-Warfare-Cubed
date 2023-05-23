@@ -80,7 +80,7 @@ public class Interceptors {
     	
     	
     	PlayerWeaponInstance weaponInstance = getPlayerWeaponInstance();
-        EntityPlayer player = compatibility.getClientPlayer();
+        EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
     	
         
         
@@ -361,7 +361,7 @@ public class Interceptors {
     }
     
     private static PlayerWeaponInstance getPlayerWeaponInstance() {
-        EntityPlayer player = compatibility.getClientPlayer();
+        EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
         ItemStack itemStack = player.getHeldItemMainhand();
         PlayerWeaponInstance weaponInstance = null;
         if(itemStack != null) {

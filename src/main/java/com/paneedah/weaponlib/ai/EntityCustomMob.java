@@ -153,7 +153,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     @Override
     protected void playStepSound(BlockPos pos, Block blockIn) {
-        compatibility.playSound(this, getConfiguration().getStepSound(), 0.15F, 1.0F);
+        this.playSound(getConfiguration().getStepSound(), 0.15F, 1);
     }
 
     @Override

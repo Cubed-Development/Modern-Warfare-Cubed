@@ -103,8 +103,8 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
                 log.debug("Watching {} with uuid {}, distance: {}  ",
                         watchableEntity,
                         watchableEntity.getUniqueID(),
-                        Math.sqrt(Math.pow(watchableEntity.posX - compatibility.getClientPlayer().posX, 2)
-                                + Math.pow(watchableEntity.posZ - compatibility.getClientPlayer().posZ, 2))
+                        Math.sqrt(Math.pow(watchableEntity.posX - FMLClientHandler.instance().getClientPlayerEntity().posX, 2)
+                                + Math.pow(watchableEntity.posZ - FMLClientHandler.instance().getClientPlayerEntity().posZ, 2))
                         );
             }
         }
@@ -161,7 +161,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
             drawStatic();
         }
 
-        FontRenderer fontRender = compatibility.getFontRenderer();
+        FontRenderer fontRender = mc.fontRenderer;
 
         float scale = 2f;
         GL11.glScalef(scale, scale, scale);

@@ -9,6 +9,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -360,7 +362,7 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
 //                compatibility.registerEgg(context, entityClass, entityName, primaryEggColor, secondaryEggColor);
 //            }
 
-            if(compatibility.isClientSide()) {                
+            if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
                 RendererRegistration.registerRenderableEntity(context, entityClass, renderer);
             }
             return new EntityVehicleConfiguration(this);

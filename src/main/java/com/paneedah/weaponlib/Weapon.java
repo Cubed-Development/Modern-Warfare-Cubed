@@ -1422,10 +1422,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
         log.debug("Changed fire mode of {} to {}", instance, result);
 
-        modContext.getStatusMessageCenter().addMessage(compatibility.getLocalizedString(
-                "gui.firearmMode", message), 1000);
+        modContext.getStatusMessageCenter().addMessage(compatibility.getLocalizedString("gui.firearmMode", message), 1000);
 
-        compatibility.playSound(instance.getPlayer(),  modContext.getChangeFireModeSound(), 1F, 1F);
+        instance.getPlayer().playSound(modContext.getChangeFireModeSound(), 1, 1);
     }
     
    
@@ -1490,9 +1489,8 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
 
-            modContext.getStatusMessageCenter().addMessage(
-                    compatibility.getLocalizedString("gui.currentZoom", Math.round(ratio * 100)), 800);
-            compatibility.playSound(instance.getPlayer(),  modContext.getZoomSound(), 1F, 1F);
+            modContext.getStatusMessageCenter().addMessage(compatibility.getLocalizedString("gui.currentZoom", Math.round(ratio * 100)), 800);
+            instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
             log.debug("Changed optical zoom to {}", instance.getZoom());
         } else {
             log.debug("Cannot change non-optical zoom");
@@ -1513,9 +1511,8 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             instance.setZoom(zoom);
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
-            modContext.getStatusMessageCenter().addMessage(
-                    compatibility.getLocalizedString("gui.currentZoom", Math.round(ratio * 100)), 800);
-            compatibility.playSound(instance.getPlayer(),  modContext.getZoomSound(), 1F, 1F);
+            modContext.getStatusMessageCenter().addMessage(compatibility.getLocalizedString("gui.currentZoom", Math.round(ratio * 100)), 800);
+            instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
             log.debug("Changed optical zoom to {}", zoom);
         } else {
             log.debug("Cannot change non-optical zoom");

@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 
 import java.util.ArrayList;
@@ -193,10 +194,9 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 		permit.setStatus(Status.GRANTED);
 	}
 
-	List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player,
-			ItemStack itemStack) {
-
-		compatibility.ensureTagCompound(itemStack);
+	List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player, ItemStack itemStack) {
+		if (itemStack.getTagCompound() == null)
+			itemStack.setTagCompound(new NBTTagCompound());
 
 		List<CompatibleAttachment<? extends AttachmentContainer>> activeAttachments = new ArrayList<>();
 

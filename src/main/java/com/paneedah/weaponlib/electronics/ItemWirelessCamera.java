@@ -13,6 +13,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -180,7 +182,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
             }
 
             if(model != null || !texturedModels.isEmpty()) {
-                modContext.registerRenderableItem(name, camera, compatibility.isClientSide() ? registerRenderer(camera, modContext) : null);
+                modContext.registerRenderableItem(name, camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? registerRenderer(camera, modContext) : null);
             }
 
             if(craftingComplexity != null) {

@@ -778,7 +778,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		Status status = Status.GRANTED;
 		weaponInstance.setLoadIterationCount(0); // TODO: review if this is really necessary
 		Weapon weapon = (Weapon) weaponInstance.getItem();
-		if(compatibility.getTagCompound(weaponItemStack) == null) {
+		if(weaponItemStack.getTagCompound() == null) {
 		    weaponItemStack.setTagCompound(new NBTTagCompound());
 		}
 		//if (!player.isSprinting()) {
@@ -859,7 +859,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		EntityPlayer player = (EntityPlayer) weaponInstance.getPlayer();
 
 		Weapon weapon = (Weapon) weaponItemStack.getItem();
-		if (compatibility.getTagCompound(weaponItemStack) != null /* && !player.isSprinting()*/) {
+		if (weaponItemStack.getTagCompound() != null /* && !player.isSprinting()*/) {
 			ItemAttachment<Weapon> attachment = modContext.getAttachmentAspect().removeAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
 			//System.out.println("Unloading " + attachment);
 			if(attachment == null) {
@@ -907,9 +907,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		
 		
 		if(permit.getStatus() == Status.GRANTED) {
-		
-			
-			compatibility.playSound(weaponInstance.getPlayer(), weaponInstance.getWeapon().getReloadSound(), 1.0F, 1.0F);
+			weaponInstance.getPlayer().playSound(weaponInstance.getWeapon().getReloadSound(), 1, 1);
 		}
 	}
 
@@ -925,15 +923,15 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 	}
 	
 	public void inspect(PlayerWeaponInstance weaponInstance) {
-        compatibility.playSound(weaponInstance.getPlayer(), weaponInstance.getWeapon().getInspectSound(), 1.0F, 1.0F);
+		weaponInstance.getPlayer().playSound(weaponInstance.getWeapon().getInspectSound(), 1, 1);
     }
 	
 	public void draw(PlayerWeaponInstance weaponInstance) {
-	    compatibility.playSound(weaponInstance.getPlayer(), weaponInstance.getWeapon().getDrawSound(), 1.0F, 1.0F);
+		weaponInstance.getPlayer().playSound(weaponInstance.getWeapon().getDrawSound(), 1, 1);
 	}
 	
 	public void startLoadIteration(PlayerWeaponInstance weaponInstance) {
-        compatibility.playSound(weaponInstance.getPlayer(), weaponInstance.getWeapon().getReloadIterationSound(), 1.0F, 1.0F);
+		weaponInstance.getPlayer().playSound(weaponInstance.getWeapon().getReloadIterationSound(), 1, 1);
     }
 	
 	public void completeLoadIteration(PlayerWeaponInstance weaponInstance) {
@@ -941,7 +939,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
     }
 	
 	public void completeAllLoadIterations(PlayerWeaponInstance weaponInstance) {
-        compatibility.playSound(weaponInstance.getPlayer(), weaponInstance.getWeapon().getAllReloadIterationsCompletedSound(), 1.0F, 1.0F);
+		weaponInstance.getPlayer().playSound(weaponInstance.getWeapon().getAllReloadIterationsCompletedSound(), 1, 1);
     }
 	
 	public void noCompoundInstructionsReceived(PlayerWeaponInstance weaponInstance) {

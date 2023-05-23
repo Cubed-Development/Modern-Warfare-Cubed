@@ -215,7 +215,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             }
             modContext.getStatusMessageCenter().addAlertMessage(message, 3, 250, 200);
             if(weaponInstance.getPlayer() instanceof EntityPlayer) {
-                compatibility.playSound((EntityPlayer)weaponInstance.getPlayer(), modContext.getNoAmmoSound(), 1F, 1F);
+                weaponInstance.getPlayer().playSound(modContext.getNoAmmoSound(), 1, 1);
             }
         }
     }
@@ -298,8 +298,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	
         	//mc.getSoundHandler().playSound(new PositionedSoundRecord(shootSound.getSound(), SoundCategory.PLAYERS,silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1f, mc.player.getPosition()));
             /*
-        	compatibility.playSound(player, shootSound,
-                    silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1F);
+        	player.playSound(shootSound, silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1);
                     */
         }
         
@@ -395,7 +394,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
     private void ejectSpentRound(PlayerWeaponInstance weaponInstance) {
         EntityLivingBase player = weaponInstance.getPlayer();
-        compatibility.playSound(player, weaponInstance.getWeapon().getEjectSpentRoundSound(), 1F, 1F);
+        player.playSound(weaponInstance.getWeapon().getEjectSpentRoundSound(), 1, 1);
     }
 
     //(weapon, player) 

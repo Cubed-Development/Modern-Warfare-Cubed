@@ -20,6 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.lang3.tuple.Pair;
@@ -34,7 +35,6 @@ import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel {
 
@@ -346,7 +346,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 		}
 
 		public GrenadeRenderer build() {
-			if(!compatibility.isClientSide()) {
+			if(FMLCommonHandler.instance().getSide() == Side.SERVER) {
 				return null;
 			}
 

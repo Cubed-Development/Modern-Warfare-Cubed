@@ -25,6 +25,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -252,7 +253,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorHelmet.setCreativeTab(creativeTab);
 
             armorHelmet.setTranslationKey(unlocalizedHelmetName);
-            compatibility.registerItem(armorHelmet, unlocalizedHelmetName.toLowerCase());
+            armorHelmet.setRegistryName(ModReference.id, unlocalizedHelmetName.toLowerCase()); // temporary hack
+            ForgeRegistries.ITEMS.register(armorHelmet);
 
             String unlocalizedChestName = unlocalizedName + "_chest";
             CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.CHEST,
@@ -494,7 +496,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 
     @SuppressWarnings("unchecked")
     public void changeAttachment(AttachmentCategory attachmentCategory, ItemStack itemStack, EntityPlayer player) {
-        compatibility.ensureTagCompound(itemStack);
+        if (itemStack.getTagCompound() == null)
+            itemStack.setTagCompound(new NBTTagCompound());
 
         int[] activeAttachmentsIds = ensureActiveAttachments(itemStack);
         int activeAttachmentIdForThisCategory = activeAttachmentsIds[attachmentCategory.ordinal()];
@@ -513,7 +516,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 
         activeAttachmentsIds[attachmentCategory.ordinal()] = Item.getIdFromItem(nextAttachment);;
 
-        compatibility.getTagCompound(itemStack).setIntArray(ACTIVE_ATTACHMENT_TAG, activeAttachmentsIds);
+        itemStack.getTagCompound().setIntArray(ACTIVE_ATTACHMENT_TAG, activeAttachmentsIds);
     }
 
     private ItemAttachment<CustomArmor> nextCompatibleAttachment(AttachmentCategory category, Item currentAttachment, EntityPlayer player) {
@@ -542,7 +545,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
     }
 
     public ItemAttachment<CustomArmor> getActiveAttachment (ItemStack itemStack, AttachmentCategory category) {
-        compatibility.ensureTagCompound(itemStack);
+        if (itemStack.getTagCompound() == null)
+            itemStack.setTagCompound(new NBTTagCompound());
 
         ItemAttachment<CustomArmor> itemAttachment = null;
 
@@ -564,7 +568,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
     }
 
     public List<CompatibleAttachment<CustomArmor>> getActiveAttachments (ItemStack itemStack) {
-        compatibility.ensureTagCompound(itemStack);
+        if (itemStack.getTagCompound() == null)
+            itemStack.setTagCompound(new NBTTagCompound());
 
         List<CompatibleAttachment<CustomArmor>> activeAttachments = new ArrayList<>();
 
@@ -586,11 +591,11 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
     }
 
     private int[] ensureActiveAttachments(ItemStack itemStack) {
-        int activeAttachmentsIds[] = compatibility.getTagCompound(itemStack).getIntArray(ACTIVE_ATTACHMENT_TAG);
+        int activeAttachmentsIds[] = itemStack.getTagCompound().getIntArray(ACTIVE_ATTACHMENT_TAG);
 
         if(activeAttachmentsIds == null || activeAttachmentsIds.length != AttachmentCategory.values.length) {
             activeAttachmentsIds = new int[AttachmentCategory.values.length];
-            compatibility.getTagCompound(itemStack).setIntArray(ACTIVE_ATTACHMENT_TAG, activeAttachmentsIds);
+            itemStack.getTagCompound().setIntArray(ACTIVE_ATTACHMENT_TAG, activeAttachmentsIds);
             for(CompatibleAttachment<CustomArmor> attachment: compatibleAttachments.values()) {
                 if(attachment.isDefault()) {
                     activeAttachmentsIds[attachment.getAttachment().getCategory().ordinal()] = Item.getIdFromItem(attachment.getAttachment());
@@ -642,34 +647,36 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
             }
         }
         
-//        if(!worldIn.isRemote && entityIn != null) {
-//            compatibility.ensureTagCompound(stack);
-//            NBTTagCompound nbt = stack.getTagCompound();
-//            long lastBreathTimestamp = nbt.getLong("LastBreathTimestamp");
-//            
-//            long breathingPeriodMillis;
-//            if(entityIn.isSprinting()) {
-//                long startRunningTimestamp = nbt.getLong("StartRunningTimestamp");
-//                if(startRunningTimestamp == 0) {
-//                    nbt.setLong("StartRunningTimestamp", System.currentTimeMillis());
-//                }
-//                long runningDuration = System.currentTimeMillis() - startRunningTimestamp;
-//                float runningProgress = MiscUtils.clamp(((float)runningDuration) / 5000, 0.0f, 1.0f);
-//                breathingPeriodMillis = 2000L - (long)(runningProgress * 1500);
-//                System.out.println("Breathing period: " + breathingPeriodMillis);
-//            } else {
-//                nbt.setLong("StartRunningTimestamp", 0L);
-//                breathingPeriodMillis = 2000;
-//            }
-//            
-//            if(lastBreathTimestamp + breathingPeriodMillis < System.currentTimeMillis() 
-//                    && entityIn instanceof EntityLivingBase) {
-//                //compatibility.playSound((EntityLivingBase) entityIn, breathingSound, 1.0f, 1.0f);
-//                compatibility.playSoundAtEntity((EntityLivingBase) entityIn, breathingSound, 1.0f, 1.0f);
-//                System.out.println("Breathe!");
-//                nbt.setLong("LastBreathTimestamp", System.currentTimeMillis());
-//            }
-//        }
+/*        if(!worldIn.isRemote && entityIn != null) {
+            if (stack.getTagCompound() == null)
+                stack.setTagCompound(new NBTTagCompound());
+
+            NBTTagCompound nbt = stack.getTagCompound();
+            long lastBreathTimestamp = nbt.getLong("LastBreathTimestamp");
+
+            long breathingPeriodMillis;
+            if(entityIn.isSprinting()) {
+                long startRunningTimestamp = nbt.getLong("StartRunningTimestamp");
+                if(startRunningTimestamp == 0) {
+                    nbt.setLong("StartRunningTimestamp", System.currentTimeMillis());
+                }
+                long runningDuration = System.currentTimeMillis() - startRunningTimestamp;
+                float runningProgress = MiscUtils.clamp(((float)runningDuration) / 5000, 0.0f, 1.0f);
+                breathingPeriodMillis = 2000L - (long)(runningProgress * 1500);
+                System.out.println("Breathing period: " + breathingPeriodMillis);
+            } else {
+                nbt.setLong("StartRunningTimestamp", 0L);
+                breathingPeriodMillis = 2000;
+            }
+
+            if(lastBreathTimestamp + breathingPeriodMillis < System.currentTimeMillis()
+                    && entityIn instanceof EntityLivingBase) {
+                //((EntityLivingBase) entityIn).playSound(breathingSound, 1, 1);
+                compatibility.playSoundAtEntity((EntityLivingBase) entityIn, breathingSound, 1.0f, 1.0f);
+                System.out.println("Breathe!");
+                nbt.setLong("LastBreathTimestamp", System.currentTimeMillis());
+            }
+        }*/
     }
 
     public EntityEquipmentSlot getCompatibleEquipmentSlot() {
@@ -701,25 +708,26 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 
     public double getShieldCapacity(ItemStack armorStack) {
         ensureTagCompound(armorStack);
-        NBTTagCompound tagCompound = compatibility.getTagCompound(armorStack);
+        NBTTagCompound tagCompound = armorStack.getTagCompound();
         return tagCompound.getDouble(SHIELD_CAPACITY_TAG);
     }
     
     private void setShieldCapacity(ItemStack armorStack, double capacity) {
         ensureTagCompound(armorStack);
-        NBTTagCompound tagCompound = compatibility.getTagCompound(armorStack);
+        NBTTagCompound tagCompound = armorStack.getTagCompound();
         tagCompound.setDouble(SHIELD_CAPACITY_TAG, capacity);
     }
     
     private long getShieldHitTimestamp(ItemStack armorStack) {
         ensureTagCompound(armorStack);
-        NBTTagCompound tagCompound = compatibility.getTagCompound(armorStack);
+        NBTTagCompound tagCompound = armorStack.getTagCompound();
         return tagCompound.getLong(SHIELD_HIT_TIMESTAMP_TAG);
     }
     
     private void setShieldHitTimestamp(ItemStack armorStack, long timestamp) {
-        compatibility.ensureTagCompound(armorStack);
-        NBTTagCompound tagCompound = compatibility.getTagCompound(armorStack);
+        if (armorStack.getTagCompound() == null)
+            armorStack.setTagCompound(new NBTTagCompound());
+        NBTTagCompound tagCompound = armorStack.getTagCompound();
         tagCompound.setLong(SHIELD_HIT_TIMESTAMP_TAG, timestamp);
     }
 

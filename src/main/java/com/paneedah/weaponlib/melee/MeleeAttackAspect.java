@@ -147,9 +147,8 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
 
     @SuppressWarnings("unused")
     private void cannotAttack(PlayerMeleeInstance meleeInstance) {
-        modContext.getStatusMessageCenter().addAlertMessage(
-                compatibility.getLocalizedString("gui.coolingDown"), 2, 200, 100);
-        compatibility.playSound(meleeInstance.getPlayer(), modContext.getNoAmmoSound(), 1F, 1F);
+        modContext.getStatusMessageCenter().addAlertMessage(compatibility.getLocalizedString("gui.coolingDown"), 2, 200, 100);
+        meleeInstance.getPlayer().playSound(modContext.getNoAmmoSound(), 1, 1);
     }
 
     private void attack(PlayerMeleeInstance meleeInstance, boolean isHeavyAttack) {
@@ -158,7 +157,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
         if (objectMouseOver != null) {
             EntityPlayer player = mc.player;
             World world = player.world;
-            compatibility.playSound(player, isHeavyAttack ? meleeInstance.getWeapon().getHeavyAtackSound() : meleeInstance.getWeapon().getLightAtackSound(), 1F, 1F);
+            player.playSound(isHeavyAttack ? meleeInstance.getWeapon().getHeavyAtackSound() : meleeInstance.getWeapon().getLightAtackSound(), 1, 1);
 
             switch (objectMouseOver.typeOfHit)
             {

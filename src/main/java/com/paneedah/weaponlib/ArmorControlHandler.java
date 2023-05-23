@@ -36,7 +36,8 @@ public class ArmorControlHandler implements CompatibleMessageHandler<ArmorContro
                     EntityPlayer player = messageContext.getServerHandler().player;
                     ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
                     if(helmetStack != null && helmetStack.getItem() instanceof CustomArmor && ((CustomArmor)helmetStack.getItem()).hasNightVision()) {
-                        compatibility.ensureTagCompound(helmetStack);
+                        if (helmetStack.getTagCompound() == null)
+                            helmetStack.setTagCompound(new NBTTagCompound());
                         NBTTagCompound tagCompound = helmetStack.getTagCompound();
                         boolean nightVisionOn = tagCompound.getBoolean(TAG_NIGHT_VISION);
                         tagCompound.setBoolean(TAG_NIGHT_VISION, !nightVisionOn);

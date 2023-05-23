@@ -35,7 +35,7 @@ public class BackpackInventoryTab extends InventoryTab {
     
     protected static ItemStack getBackpackStackInSlot() {
         CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability
-                .getInventory(compatibility.getClientPlayer());
+                .getInventory(FMLClientHandler.instance().getClientPlayerEntity());
         return customInventory != null ? customInventory.getStackInSlot(0) : null;
     }
 }

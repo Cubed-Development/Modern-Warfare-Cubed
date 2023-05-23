@@ -13,7 +13,7 @@ public class GasDetectorScreenPerspective extends ScreenPerspective {
     @Override
     protected void drawScreen() {
         float fontScale = 11f;
-        FontRenderer fontRender = compatibility.getFontRenderer();
+        FontRenderer fontRender = mc.fontRenderer;
         int color = 0xAAAA07;
 
         GL11.glScalef(fontScale, fontScale, fontScale);
@@ -26,7 +26,7 @@ public class GasDetectorScreenPerspective extends ScreenPerspective {
         float dose = 0f;
         ItemStack itemStack = mc.player.getHeldItemMainhand();
         if (itemStack != null) {
-            NBTTagCompound nbt = compatibility.getTagCompound(itemStack);
+            NBTTagCompound nbt = itemStack.getTagCompound();
             if (nbt != null) {
                 dose = nbt.getFloat("dose");
             }

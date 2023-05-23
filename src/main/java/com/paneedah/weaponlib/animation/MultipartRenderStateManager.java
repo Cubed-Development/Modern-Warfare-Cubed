@@ -316,7 +316,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 					/*
 					 * try {
 						if(targetState.sound != null) {
-							mc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(targetState.sound, 1.0f));
+							mc.getSoundHandler().laySound(PositionedSoundRecord.getMasterRecord(targetState.sound, 1.0f));
 							
 						}
 					} catch(Exception e) {

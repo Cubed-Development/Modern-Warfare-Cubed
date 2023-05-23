@@ -14,8 +14,6 @@ import net.minecraft.world.World;
 
 import java.util.Set;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
     
     private static final String TAG_TIME = "T";
@@ -38,7 +36,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                 Equipment equipment = configuration.getEquipmentOptions().pick(EnumDifficulty.EASY);
                 if (equipment != null && equipment.item != null) {
                     System.out.println("Dropping " + equipment.item.getTranslationKey());
-                    compatibility.playSound(player, configuration.getDispenseSound(), 0.15f, 1.0f);
+                    player.playSound(configuration.getDispenseSound(), 0.15f, 1);
                     ItemStack equipmentItemStack = null;
                     if(equipment.item instanceof Weapon) {
                         equipmentItemStack = new ItemStack(equipment.item, equipment.stackSize);
@@ -63,7 +61,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                     }
                 }
             } else {
-                compatibility.playSound(player, configuration.getEquipmentNotAvailableSound(), 0.15f, 1.0f);
+                player.playSound(configuration.getEquipmentNotAvailableSound(), 0.15F, 1);
             }
         }
         

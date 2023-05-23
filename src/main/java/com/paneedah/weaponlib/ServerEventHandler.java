@@ -1,6 +1,9 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
+import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
+import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
+import com.paneedah.weaponlib.compatibility.CompatibleServerEventHandler;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
@@ -36,7 +39,6 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 /**
  * TODO: rename to common event handler, since it's invoked on both sides
@@ -78,8 +80,9 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
             NBTTagCompound doseNbt = null;
             ItemStack itemStack = livingUpdateEvent.getEntityLiving().getHeldItemMainhand();
             if(itemStack != null && itemStack.getItem() instanceof ItemHandheld) {
-                compatibility.ensureTagCompound(itemStack);
-                doseNbt = compatibility.getTagCompound(itemStack);
+                if (itemStack.getTagCompound() == null)
+                    itemStack.setTagCompound(new NBTTagCompound());
+                doseNbt = itemStack.getTagCompound();
             }
             
             boolean effectiveUpdate = false;
@@ -108,28 +111,31 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
                 CompatibleExposureCapability.setLastSyncTimestamp(livingUpdateEvent.getEntity(), livingUpdateEvent.getEntity().world.getTotalWorldTime());
             }
             
-//            SpreadableExposure exposure = CompatibleExposureCapability.getExposure(livingUpdateEvent.getEntity(), SpreadableExposure.class);
-//            if(exposure != null) {
-//                boolean stillEffective = exposure.isEffective(compatibility.world(livingUpdateEvent.getEntity()));
-//                exposure.update(livingUpdateEvent.getEntity());
-//                if(livingUpdateEvent.getEntity() instanceof EntityPlayerMP &&
-//                        System.currentTimeMillis() - exposure.getLastSyncTimestamp() > 500) {
-//                    modContext.getChannel().sendTo(
-//                            new SpreadableExposureMessage(stillEffective ? exposure : null),
-//                            (EntityPlayerMP) livingUpdateEvent.getEntity());
-//                    exposure.setLastSyncTimestamp(System.currentTimeMillis()); 
-//                }
-//                if(!stillEffective) {
-//                    CompatibleExposureCapability.removeExposure(livingUpdateEvent.getEntity(), SpreadableExposure.class);
-//                }
-//                
-//                ItemStack itemStack = compatibility.getHeldItemMainHand(livingUpdateEvent.getEntityLiving());
-//                if(itemStack != null && itemStack.getItem() instanceof ItemHandheld) {
-//                    compatibility.ensureTagCompound(itemStack);
-//                    NBTTagCompound nbt = compatibility.getTagCompound(itemStack);
-//                    nbt.setFloat("dose", exposure.getLastDose());
-//                }
-//            }
+/*
+            SpreadableExposure exposure = CompatibleExposureCapability.getExposure(livingUpdateEvent.getEntity(), SpreadableExposure.class);
+            if(exposure != null) {
+                boolean stillEffective = exposure.isEffective(compatibility.world(livingUpdateEvent.getEntity()));
+                exposure.update(livingUpdateEvent.getEntity());
+                if(livingUpdateEvent.getEntity() instanceof EntityPlayerMP &&
+                        System.currentTimeMillis() - exposure.getLastSyncTimestamp() > 500) {
+                    modContext.getChannel().sendTo(
+                            new SpreadableExposureMessage(stillEffective ? exposure : null),
+                            (EntityPlayerMP) livingUpdateEvent.getEntity());
+                    exposure.setLastSyncTimestamp(System.currentTimeMillis());
+                }
+                if(!stillEffective) {
+                    CompatibleExposureCapability.removeExposure(livingUpdateEvent.getEntity(), SpreadableExposure.class);
+                }
+
+                ItemStack itemStack = compatibility.getHeldItemMainHand(livingUpdateEvent.getEntityLiving());
+                if(itemStack != null && itemStack.getItem() instanceof ItemHandheld) {
+                    if (itemStack.getTagCompound() == null)
+                        itemStack.setTagCompound(new NBTTagCompound());
+                    NBTTagCompound nbt = itemStack.getTagCompound();
+                    nbt.setFloat("dose", exposure.getLastDose());
+                }
+            }
+*/
         }
     }
 

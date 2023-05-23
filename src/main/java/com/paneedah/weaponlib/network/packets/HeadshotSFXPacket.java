@@ -34,8 +34,7 @@ public class HeadshotSFXPacket implements net.minecraftforge.fml.common.network.
 		
 		@SideOnly(Side.CLIENT)
 		public void act() {
-			compatibility.playSound(mc.player, UniversalSoundLookup.lookupSound("headshotsfx"), 10.0f, 1.0f);
-        	
+			mc.player.playSound(UniversalSoundLookup.lookupSound("headshotsfx"), 10, 1);
 		}
 
 		@Override

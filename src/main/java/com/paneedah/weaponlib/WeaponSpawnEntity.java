@@ -116,8 +116,8 @@ public class WeaponSpawnEntity extends EntityProjectile {
 	@Override
 	protected void onImpact(RayTraceResult position) {
 	    if (world.isRemote) {
-	    //	compatibility.playSound(mc.player, UniversalSoundLookup.lookupSound("headshotsfx"), 10.0f, 1.0f);
-	    	  return;
+			//mc.player.playSound(UniversalSoundLookup.lookupSound("headshotsfx"), 10, 1);
+			return;
 	    }
 
 	    if (weapon == null)

@@ -58,7 +58,7 @@ public class GuiHandler implements IGuiHandler {
         switch (guiId) {
         case STORAGE_ITEM_INVENTORY_GUI_ID:
             CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability
-                    .getInventory(compatibility.getClientPlayer());
+                    .getInventory(FMLClientHandler.instance().getClientPlayerEntity());
             if (customInventory != null && customInventory.getStackInSlot(0) != null) {
                 guiContainer = new StorageItemGuiContainer((StorageItemContainer) new StorageItemContainer(player,
                         player.inventory, new StorageInventory(customInventory.getStackInSlot(0))));

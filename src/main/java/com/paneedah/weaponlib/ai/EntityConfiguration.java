@@ -18,7 +18,9 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.*;
 import java.util.function.Function;
@@ -547,7 +549,7 @@ public class EntityConfiguration {
                 }
             }
             
-            if(compatibility.isClientSide()) {
+            if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
                 for(TexturedModel tmv: texturedModelVariants) {
                     tmv.textureResource = new ResourceLocation(ModReference.id, "textures/entity/" + tmv.textureName);
                     try {

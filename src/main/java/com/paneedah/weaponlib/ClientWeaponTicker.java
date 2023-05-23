@@ -10,12 +10,12 @@ import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import org.lwjgl.input.Mouse;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 class ClientWeaponTicker extends Thread {
 
@@ -82,7 +82,7 @@ class ClientWeaponTicker extends Thread {
 	}
 
     private void onLeftButtonUp() {
-        EntityPlayer player = compatibility.getClientPlayer();
+        EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
         Item item = getHeldItemMainHand(player);
         if((item instanceof Weapon) && BalancePackManager.isWeaponDisabled((Weapon) item)) return;
         if(item instanceof Weapon) {
@@ -93,7 +93,7 @@ class ClientWeaponTicker extends Thread {
     }
 
     private void onRightButtonUp() {
-        EntityPlayer player = compatibility.getClientPlayer();
+        EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
         Item item = getHeldItemMainHand(player);
         if((item instanceof Weapon) && BalancePackManager.isWeaponDisabled((Weapon) item)) return;
         if(item instanceof ItemGrenade) { // TODO: introduce generic action handler interface with on*Click() handler
@@ -119,7 +119,7 @@ class ClientWeaponTicker extends Thread {
 
     private void onLeftButtonDown() {
     	if(AnimationModeProcessor.getInstance().getFPSMode()) return;
-        EntityPlayer player = compatibility.getClientPlayer();
+        EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
         Item item = getHeldItemMainHand(player);
         if((item instanceof Weapon) && BalancePackManager.isWeaponDisabled((Weapon) item)) return;
         if(item instanceof Weapon) {
@@ -137,7 +137,7 @@ class ClientWeaponTicker extends Thread {
     	if(AnimationModeProcessor.getInstance().getFPSMode()) return;
     	
         
-        EntityPlayer player = compatibility.getClientPlayer();
+        EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
         Item item = getHeldItemMainHand(player);
         
         if((item instanceof Weapon) && BalancePackManager.isWeaponDisabled((Weapon) item)) return;
@@ -161,7 +161,7 @@ class ClientWeaponTicker extends Thread {
 		
 		
 		
-	    EntityPlayer player = compatibility.getClientPlayer();
+	    EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
 	    
 	    
 	    

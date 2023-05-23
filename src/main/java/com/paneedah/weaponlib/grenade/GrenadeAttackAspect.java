@@ -133,7 +133,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
         } else {
             activationTimestamp = ItemGrenade.EXPLODE_ON_IMPACT;
         }
-        compatibility.playSound(instance.getPlayer(), instance.getWeapon().getThrowSound(), 1.0F, 1.0F);
+        instance.getPlayer().playSound(instance.getWeapon().getThrowSound(), 1, 1);
         modContext.getChannel().sendToServer(new GrenadeMessage(instance, activationTimestamp));
     }
 
@@ -142,7 +142,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
     }
 
     private void takeSafetyPinOff(PlayerGrenadeInstance instance) {
-        compatibility.playSound(instance.getPlayer(), instance.getWeapon().getSafetyPinOffSound(), 1.0F, 1.0F);
+        instance.getPlayer().playSound(instance.getWeapon().getSafetyPinOffSound(), 1, 1);
         log.debug("Taking safety pin off");
     }
 

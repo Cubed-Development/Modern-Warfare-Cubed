@@ -12,7 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObject implements ExtendedState<S>, PlayerContext {
 
@@ -71,8 +70,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 	}
 
 	public ItemStack getItemStack() {
-		return player instanceof EntityPlayer ? 
-		        compatibility.getInventoryItemStack((EntityPlayer)player, itemInventoryIndex) : null;
+		return player instanceof EntityPlayer ? ((EntityPlayer)player).inventory.getStackInSlot(itemInventoryIndex) : null;
 	}
 
 	public int getItemInventoryIndex() {

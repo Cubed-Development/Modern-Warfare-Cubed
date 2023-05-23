@@ -3,8 +3,8 @@ package com.paneedah.weaponlib.inventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 public class CustomSlot extends Slot {
     
@@ -23,7 +23,7 @@ public class CustomSlot extends Slot {
     @Override
     public void onSlotChanged() {
         super.onSlotChanged();
-        if(compatibility.isClientSide()) {
+        if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
             SlotChangeHandler.onGuiSlotChanged();
         }
     }

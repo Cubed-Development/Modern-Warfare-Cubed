@@ -12,14 +12,14 @@ import com.paneedah.weaponlib.particle.ParticleBlood;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.shader.ShaderGroup;
 import net.minecraft.enchantment.EnchantmentProtection;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
@@ -47,13 +47,7 @@ import net.minecraft.world.WorldType;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.MouseEvent;
-import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fml.client.FMLClientHandler;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -63,7 +57,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.List;
 import java.util.function.Predicate;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
@@ -100,86 +97,8 @@ public class Compatibility1_12_2 implements Compatibility {
     );
 
     @Override
-    public NBTTagCompound getTagCompound(ItemStack itemStack) {
-        return itemStack.getTagCompound();
-    }
-
-    @Override
-    public void ensureTagCompound(ItemStack itemStack) {
-        if (itemStack.getTagCompound() == null) {
-            itemStack.setTagCompound(new NBTTagCompound());
-        }
-    }
-
-    @Override
-    public void playSound(EntityLivingBase player, SoundEvent sound, float volume, float pitch) {
-        if (sound != null) {
-            player.playSound(sound, volume, pitch);
-        }
-    }
-
-    @Override
-    public boolean isClientSide() {
-        return FMLCommonHandler.instance().getSide() == Side.CLIENT;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public EntityPlayer getClientPlayer() {
-        return FMLClientHandler.instance().getClientPlayerEntity();
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public FontRenderer getFontRenderer() {
-        return mc.fontRenderer;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public ScaledResolution getResolution(Pre event) {
-        return event.getResolution();
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public ElementType getEventType(Pre event) {
-        return event.getType();
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerKeyBinding(KeyBinding key) {
-        ClientRegistry.registerKeyBinding(key);
-    }
-
-    @Override
-    public void registerWithEventBus(Object object) {
-        MinecraftForge.EVENT_BUS.register(object);
-    }
-
-    @Override
-    public void registerWithFmlEventBus(Object object) {
-        MinecraftForge.EVENT_BUS.register(object);
-    }
-
-    @Override
-    public void registerSound(SoundEvent sound) {
-        sound.setRegistryName(sound.getSoundName());
-        ForgeRegistries.SOUND_EVENTS.register(sound);
-        //GameRegistry.register(sound.getSound(), sound.getResourceLocation());
-    }
-
-    @Override
     public void registerItem(Item item, String name) {
         item.setRegistryName(ModReference.id, name); // temporary hack
-        ForgeRegistries.ITEMS.register(item);
-        //GameRegistry.register(item, new ResourceLocation(ModReference.id, name)); // temporary hack
-    }
-
-    @Override
-    public void registerItem(Item item, ResourceLocation name) {
-        item.setRegistryName(name); // temporary hack
         ForgeRegistries.ITEMS.register(item);
         //GameRegistry.register(item, new ResourceLocation(ModReference.id, name)); // temporary hack
     }
@@ -257,11 +176,6 @@ public class Compatibility1_12_2 implements Compatibility {
         } else if (player.inventory.mainInventory.get(slot) == null || player.inventory.mainInventory.get(slot).getItem() == Items.AIR) {
             player.inventory.mainInventory.set(slot, new ItemStack(item));
         }
-    }
-
-    @Override
-    public ItemStack getInventoryItemStack(EntityPlayer player, int inventoryItemIndex) {
-        return player.inventory.getStackInSlot(inventoryItemIndex);
     }
 
     @Override
@@ -368,9 +282,7 @@ public class Compatibility1_12_2 implements Compatibility {
         ItemStack maxStack = null;
         int maxItemIndex = -1;
         for (int i = 0; i < player.inventory.mainInventory.size(); ++i) {
-            if (player.inventory.getStackInSlot(i) != null
-                    && compatibleItems.contains(player.inventory.getStackInSlot(i).getItem())
-                    && (maxStack == null || comparator.compare(player.inventory.getStackInSlot(i), maxStack) > 0)) {
+            if (player.inventory.getStackInSlot(i) != null && compatibleItems.contains(player.inventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(player.inventory.getStackInSlot(i), maxStack) > 0)) {
                 maxStack = player.inventory.getStackInSlot(i);
                 maxItemIndex = i;
             }
@@ -429,8 +341,7 @@ public class Compatibility1_12_2 implements Compatibility {
         }
     }
 
-    public ItemStack tryConsumingCompatibleItem(List<? extends Item> compatibleParts, int maxSize,
-                                                EntityPlayer player, @SuppressWarnings("unchecked") Predicate<ItemStack>... conditions) {
+    public ItemStack tryConsumingCompatibleItem(List<? extends Item> compatibleParts, int maxSize, EntityPlayer player, @SuppressWarnings("unchecked") Predicate<ItemStack>... conditions) {
         ItemStack resultStack = null;
         for (Predicate<ItemStack> condition : conditions) {
             for (Item item : compatibleParts) {

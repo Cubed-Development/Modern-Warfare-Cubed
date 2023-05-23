@@ -25,7 +25,6 @@ import org.lwjgl.input.Keyboard;
 import java.util.function.Function;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponKeyInputHandler {
 
@@ -231,10 +230,9 @@ public class WeaponKeyInputHandler {
             if(helmetStack != null && helmetStack.getItem() instanceof CustomArmor 
                     && ((CustomArmor)helmetStack.getItem()).hasNightVision()){
                 modContext.getChannel().sendToServer(new ArmorControlMessage(true));
-                NBTTagCompound tagCompound = compatibility.getTagCompound(helmetStack);
+                NBTTagCompound tagCompound = helmetStack.getTagCompound();
                 boolean nightVisionOn = tagCompound != null && tagCompound.getBoolean(ArmorControlHandler.TAG_NIGHT_VISION);
-                compatibility.playSound(mc.player, 
-                        nightVisionOn ? modContext.getNightVisionOffSound() : modContext.getNightVisionOnSound(), 1.0f, 1.0f);
+                mc.player.playSound(nightVisionOn ? modContext.getNightVisionOffSound() : modContext.getNightVisionOnSound(), 1, 1);
             } else {
                 PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
                 if(instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.MODIFYING || instance.getState() == WeaponState.EJECT_REQUIRED)) {

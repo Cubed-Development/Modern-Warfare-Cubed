@@ -58,37 +58,11 @@ import java.util.function.Predicate;
 public interface Compatibility {
 
 
-	NBTTagCompound getTagCompound(ItemStack itemStack);
-
-    void ensureTagCompound(ItemStack itemStack);
-
-    void playSound(EntityLivingBase player, SoundEvent sound, float volume, float pitch);
-
-	boolean isClientSide();
-
-	EntityPlayer getClientPlayer();
-
-	FontRenderer getFontRenderer();
-
-	ScaledResolution getResolution(Pre event);
-
-	ElementType getEventType(Pre event);
-
     ItemStack getHelmet(EntityLivingBase entity);
 
-    void registerKeyBinding(KeyBinding key);
+    void registerItem(Item item, String name);
 
-	void registerWithEventBus(Object object);
-
-	void registerWithFmlEventBus(Object object);
-
-	void registerSound(SoundEvent sound);
-
-	void registerItem(Item item, String name);
-	
-	void registerItem(Item item, ResourceLocation name);
-
-	void runInMainClientThread(Runnable runnable);
+    void runInMainClientThread(Runnable runnable);
 
 	void registerModEntity(Class<? extends Entity> class1, String string, int i, Object mod, int j, int k, boolean b);
 
@@ -109,8 +83,6 @@ public interface Compatibility {
 	void addItemToPlayerInventory(EntityPlayer player, final Item item, int slot);
 
 	boolean consumeInventoryItem(InventoryPlayer inventoryPlayer, Item item);
-
-    ItemStack getInventoryItemStack(EntityPlayer player, int inventoryItemIndex);
 
     void consumeInventoryItemFromSlot(EntityPlayer player, int nextAttachmentSlot);
 

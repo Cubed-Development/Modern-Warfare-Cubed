@@ -16,7 +16,6 @@ import java.util.concurrent.TimeUnit;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PlayerItemInstanceRegistry {
 	
@@ -67,7 +66,7 @@ public class PlayerItemInstanceRegistry {
 		if (result == null) {
 			result = createItemInstance(player, slot);
 			if(result != null) {
-			    ItemStack slotItemStack = compatibility.getInventoryItemStack(player, slot);
+			    ItemStack slotItemStack = player.inventory.getStackInSlot(slot);
 			    if(slotItemStack != null && result.shouldHaveInstanceTags()) {
 			        Tags.setInstanceUuid(slotItemStack, result.getUuid());
 			    }
@@ -78,7 +77,7 @@ public class PlayerItemInstanceRegistry {
 				}
 			}
 		} else {
-			ItemStack slotItemStack = compatibility.getInventoryItemStack(player, slot);
+			ItemStack slotItemStack = player.inventory.getStackInSlot(slot);
 			if(slotItemStack != null && (
 			        slotItemStack.getItem() != result.getItem() 
 			            || !result.getUuid().equals(Tags.getInstanceUuid(slotItemStack))
@@ -148,7 +147,7 @@ public class PlayerItemInstanceRegistry {
 	    }
 	    
 	    EntityPlayer player = (EntityPlayer) entityLivingBase;
-		ItemStack itemStack = compatibility.getInventoryItemStack(player, slot);
+		ItemStack itemStack = player.inventory.getStackInSlot(slot);
 		
 		PlayerItemInstance<?> result = null;
 		if(itemStack != null && itemStack.getItem() instanceof PlayerItemInstanceFactory) {
@@ -232,7 +231,7 @@ public class PlayerItemInstanceRegistry {
 		if(slotContexts != null) {
 			for(Iterator<Entry<Integer, PlayerItemInstance<?>>> it = slotContexts.entrySet().iterator(); it.hasNext();) {
 				Entry<Integer, PlayerItemInstance<?>> e = it.next();
-				ItemStack slotStack = compatibility.getInventoryItemStack(player, e.getKey());
+				ItemStack slotStack = player.inventory.getStackInSlot(e.getKey());
 				//log.debug("Slot {} contains item {} stack {}", e.getKey(), e.getValue(), System.identityHashCode(slotStack));
 				if(slotStack == null || slotStack.getItem() != e.getValue().getItem() 
 				        || !e.getValue().getUuid().equals(Tags.getInstanceUuid(slotStack))) {

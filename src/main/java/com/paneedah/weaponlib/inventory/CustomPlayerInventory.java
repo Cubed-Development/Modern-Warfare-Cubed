@@ -148,7 +148,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
             final ItemStack stackInSlot = getStackInSlot(i);
             if (stackInSlot != null) {
 //                System.out.println("Serializing stack " + stackInSlot
-//                        + " with tag compound: " + compatibility.getTagCompound(stackInSlot));
+//                        + " with tag compound: " + stackInSlot.getTagCompound());
                 NBTTagCompound item = new NBTTagCompound();
                 item.setByte("Slot", (byte) i);
                 stackInSlot.writeToNBT(item);

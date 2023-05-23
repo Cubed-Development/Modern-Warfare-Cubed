@@ -1840,7 +1840,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
         }
         
 		public WeaponRenderer build() {
-			if(!compatibility.isClientSide()) {
+			if(FMLCommonHandler.instance().getSide() == Side.SERVER) {
 				return null;
 			}
 

@@ -870,7 +870,7 @@ public class ModificationGUI {
 			}
 
 			if (isInClick) {
-				compatibility.playSound(mc.player, UniversalSoundLookup.lookupSound("attachmentoff"), 10.0f, 1.0f);
+				mc.player.playSound(UniversalSoundLookup.lookupSound("attachmentoff"), 10, 1);
 	        	
 				modcontext.getAttachmentAspect().forceAttachment(category, modcontext.getMainHeldWeapon(),
 						ItemStack.EMPTY);
@@ -1045,7 +1045,7 @@ public class ModificationGUI {
 										.getFormattedText());
 
 						if (isInClick) {
-							compatibility.playSound(mc.player, UniversalSoundLookup.lookupSound("attachmenton"), 10.0f, 1.0f);
+							mc.player.playSound(UniversalSoundLookup.lookupSound("attachmenton"), 10, 1);
 				        	
 							modcontext.getAttachmentAspect().forceAttachment(category, modcontext.getMainHeldWeapon(),
 									flag.getItemStack());

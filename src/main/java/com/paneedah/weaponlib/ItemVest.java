@@ -19,13 +19,13 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModernCrafting, IHasModel {
         
@@ -261,10 +261,8 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
            
             
             item.customEquippedPositioning = customEquippedPositioning;
-            
-           // System.out.println("ITem name: " + item.getTranslationKey());
-          //  compatibility.registerItem(item, item.getTranslationKey());
-            modContext.registerRenderableItem(name, item, compatibility.isClientSide() ? RendererRegistrationHelper.registerRenderer(this, modContext) :null);
+
+            modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? RendererRegistrationHelper.registerRenderer(this, modContext) :null);
             
             return item;
         }

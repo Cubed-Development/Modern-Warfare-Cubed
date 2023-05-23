@@ -576,7 +576,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     private float getOpticScopeVignetteRadius(float partialTicks) {
         //ItemAttachment<Weapon> scope = getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
-        EntityPlayer player = compatibility.getClientPlayer();
+        EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
 //        float f = player.distanceWalkedModified - player.prevDistanceWalkedModified;
 //        float f1 = -(player.distanceWalkedModified + f * partialTicks);
         float f2 = player.prevCameraYaw + (player.cameraYaw - player.prevCameraYaw) * partialTicks;

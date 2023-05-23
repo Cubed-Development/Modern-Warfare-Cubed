@@ -189,9 +189,9 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             
             
             if(magazine.getUnloadSound() != null) {
-                compatibility.playSound(magazineInstance.getPlayer(), magazine.getUnloadSound(), 1.0F, 1.0F);
+                magazineInstance.getPlayer().playSound(magazine.getUnloadSound(), 1, 1);
             }
-            
+
             /*
             ItemStack consumedStack;
             if((consumedStack = compatibility.tryConsumingCompatibleItem(compatibleBullets, magazine.getAmmo() - currentAmmo, 
@@ -209,7 +209,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
                 }
                 
                 if(magazine.getReloadSound() != null) {
-                    compatibility.playSound(magazineInstance.getPlayer(), magazine.getReloadSound(), 1.0F, 1.0F);
+                    magazineInstance.getPlayer().playSound(magazine.getReloadSound(), 1, 1);
                 }
                 status = Status.GRANTED;
             }*/
@@ -262,7 +262,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
                 }
                 
                 if(magazine.getReloadSound() != null) {
-                    compatibility.playSound(magazineInstance.getPlayer(), magazine.getReloadSound(), 1.0F, 1.0F);
+                    magazineInstance.getPlayer().playSound(magazine.getReloadSound(), 1, 1);
                 }
                 status = Status.GRANTED;
             }
@@ -277,7 +277,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             return;
         }
 //      if(permit.getStatus() == Status.GRANTED) {
-//          compatibility.playSound(weaponInstance.getPlayer(), weaponInstance.getWeapon().getReloadSound(), 1.0F, 1.0F);
+//          weaponInstance.getPlayer().playSound(weaponInstance.getWeapon().getReloadSound(), 1, 1);
 //      }
     }
 
@@ -287,7 +287,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             return;
         }
 //      if(permit.getStatus() == Status.GRANTED) {
-//          compatibility.playSound(weaponInstance.getPlayer(), weaponInstance.getWeapon().getReloadSound(), 1.0F, 1.0F);
+//          weaponInstance.getPlayer().playSound(weaponInstance.getWeapon().getReloadSound(), 1, 1);
 //      }
     }
 }

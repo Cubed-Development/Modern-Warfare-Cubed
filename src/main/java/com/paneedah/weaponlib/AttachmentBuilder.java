@@ -9,6 +9,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -290,7 +292,7 @@ public class AttachmentBuilder<T> {
 		compatibleAttachments.values().forEach(a -> attachment.addCompatibleAttachment(a));
 
 		if((getModel() != null || !texturedModels.isEmpty())) {
-			modContext.registerRenderableItem(name, attachment, compatibility.isClientSide() ? registerRenderer(attachment, modContext) : null);
+			modContext.registerRenderableItem(name, attachment, FMLCommonHandler.instance().getSide() == Side.CLIENT ? registerRenderer(attachment, modContext) : null);
 		}
 
 		if(craftingRecipe != null && craftingRecipe.length >= 2) {

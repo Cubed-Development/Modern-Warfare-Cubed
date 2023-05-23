@@ -25,6 +25,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.ClientCommandHandler;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
@@ -93,8 +94,8 @@ public class ClientModContext extends CommonModContext {
             ((SimpleReloadableResourceManager) resourceManager).reloadResourcePack(weaponResourcePack);
         }
 
-        compatibility.registerWithEventBus(new CustomGui(mc, this, weaponAttachmentAspect));
-        compatibility.registerWithEventBus(new WeaponEventHandler(this, safeGlobals));
+        MinecraftForge.EVENT_BUS.register(new CustomGui(mc, this, weaponAttachmentAspect));
+        MinecraftForge.EVENT_BUS.register(new WeaponEventHandler(this, safeGlobals));
 
         KeyBindings.init();
 
@@ -106,11 +107,11 @@ public class ClientModContext extends CommonModContext {
 
         clientWeaponTicker.start();
         clientEventHandler = new ClientEventHandler(this, mainLoopLock, safeGlobals, runInClientThreadQueue);
-        compatibility.registerWithFmlEventBus(clientEventHandler);
+        MinecraftForge.EVENT_BUS.register(clientEventHandler);
 
-        compatibility.registerWithEventBus(InventoryTabs.getInstance());
+        MinecraftForge.EVENT_BUS.register(InventoryTabs.getInstance());
 
-        compatibility.registerWithEventBus(clientEventHandler); // TODO: what are the implications of registering the same class with 2 buses
+        MinecraftForge.EVENT_BUS.register(clientEventHandler); // TODO: what are the implications of registering the same class with 2 buses
 
         this.viewManager = new PerspectiveManager(this);
         this.inventoryTextureMap = new HashMap<>();

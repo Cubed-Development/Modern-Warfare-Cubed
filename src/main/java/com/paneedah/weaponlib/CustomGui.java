@@ -154,7 +154,7 @@ public class CustomGui extends Gui {
 		}
 	    
 		
-		if(compatibility.getEventType(event) == RenderGameOverlayEvent.ElementType.HELMET && mc.player.isRiding() && mc.player.getRidingEntity() instanceof EntityVehicle) {
+		if(event.getType() == RenderGameOverlayEvent.ElementType.HELMET && mc.player.isRiding() && mc.player.getRidingEntity() instanceof EntityVehicle) {
 			
 			
 			
@@ -164,7 +164,7 @@ public class CustomGui extends Gui {
 	}
 	
 	public void handleHelmetHUD(RenderGameOverlayEvent.Pre event) {
-		if(compatibility.getEventType(event) == RenderGameOverlayEvent.ElementType.HELMET) {
+		if(event.getType() == RenderGameOverlayEvent.ElementType.HELMET) {
 	        
 			ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 			if(helmetStack != null && mc.gameSettings.thirdPersonView == 0 && helmetStack.getItem() instanceof CustomArmor) {
@@ -172,7 +172,7 @@ public class CustomGui extends Gui {
 				// Texture must be Width: 427, height: 240
 				String hudTexture = ((CustomArmor)helmetStack.getItem()).getHudTexture();
 				if(hudTexture != null) {
-				    ScaledResolution scaledResolution = compatibility.getResolution(event);
+				    ScaledResolution scaledResolution = event.getResolution();
 	                int screenWidth = scaledResolution.getScaledWidth();
 	                int screenHeight = scaledResolution.getScaledHeight();
 
@@ -445,7 +445,7 @@ public class CustomGui extends Gui {
 	@SubscribeEvent
 	public final void onRenderCrosshair(RenderGameOverlayEvent.Pre event) {
 		
-		if (compatibility.getEventType(event) != RenderGameOverlayEvent.ElementType.CROSSHAIRS ) {
+		if (event.getType() != RenderGameOverlayEvent.ElementType.CROSSHAIRS ) {
 			return;
 		}
 		
@@ -457,10 +457,10 @@ public class CustomGui extends Gui {
 			return;
 		}
 		
-		ScaledResolution scaledResolution = compatibility.getResolution(event);
+		ScaledResolution scaledResolution = event.getResolution();
         int width = scaledResolution.getScaledWidth();
         int height = scaledResolution.getScaledHeight();
-        FontRenderer fontRender = compatibility.getFontRenderer();
+        FontRenderer fontRender = mc.fontRenderer;
 
 		PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
 

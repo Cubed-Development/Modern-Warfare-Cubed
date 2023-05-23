@@ -40,6 +40,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
@@ -282,10 +283,10 @@ public class CommonModContext implements ModContext {
         
         
 		ServerEventHandler serverHandler = new ServerEventHandler(this);
-        compatibility.registerWithFmlEventBus(serverHandler);
-        compatibility.registerWithEventBus(serverHandler);
+        MinecraftForge.EVENT_BUS.register(serverHandler);
+        MinecraftForge.EVENT_BUS.register(serverHandler);
 
-		compatibility.registerWithFmlEventBus(new WeaponKeyInputHandler(this, (ctx) -> getPlayer(ctx),
+		MinecraftForge.EVENT_BUS.register(new WeaponKeyInputHandler(this, (ctx) -> getPlayer(ctx),
 				weaponAttachmentAspect, channel));
 
 		CompatiblePlayerEntityTrackerProvider.register(this);
@@ -391,7 +392,8 @@ public class CommonModContext implements ModContext {
 
 	@Override
 	public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
-		compatibility.registerItem(weapon, name);
+        weapon.setRegistryName(ModReference.id, name); // temporary hack
+        ForgeRegistries.ITEMS.register(weapon);
 	}
 
 	private EntityPlayer getServerPlayer(MessageContext ctx) {
@@ -419,12 +421,14 @@ public class CommonModContext implements ModContext {
 
 	@Override
 	public void registerRenderableItem(String name, Item item, Object renderer) {
-		compatibility.registerItem(item, name);
+        item.setRegistryName(ModReference.id, name); // temporary hack
+        ForgeRegistries.ITEMS.register(item);
 	}
 	
 	@Override
     public void registerRenderableItem(ResourceLocation name, Item item, Object renderer) {
-        compatibility.registerItem(item, name);
+        item.setRegistryName(name); // temporary hack
+        ForgeRegistries.ITEMS.register(item);
     }
 
 	@Override
@@ -550,12 +554,14 @@ public class CommonModContext implements ModContext {
 
     @Override
     public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer) {
-        compatibility.registerItem(itemMelee, name);
+        itemMelee.setRegistryName(ModReference.id, name); // temporary hack
+        ForgeRegistries.ITEMS.register(itemMelee);
     }
 
     @Override
     public void registerGrenadeWeapon(String name, ItemGrenade itemMelee, GrenadeRenderer renderer) {
-        compatibility.registerItem(itemMelee, name);
+        itemMelee.setRegistryName(ModReference.id, name); // temporary hack
+        ForgeRegistries.ITEMS.register(itemMelee);
     }
 
     @Override

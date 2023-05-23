@@ -13,7 +13,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
@@ -123,7 +125,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
                
         compatibility.registerBlock(modContext, tileEntityBlock, name);
         
-        if(compatibility.isClientSide()) {
+        if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
             RendererRegistration.registerRenderableEntity(modContext, name, tileEntityClass, modelClassName, 
                     textureResource, positioning, tileEntityBlock);
         }

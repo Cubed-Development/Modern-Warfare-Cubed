@@ -14,7 +14,6 @@ import net.minecraft.util.math.MathHelper;
 import java.util.UUID;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvider {
     
@@ -115,7 +114,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
     private void updateNightVision() {
         ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
         if(helmetStack != null) {
-            NBTTagCompound tagCompound = compatibility.getTagCompound(helmetStack);
+            NBTTagCompound tagCompound = helmetStack.getTagCompound();
             if(tagCompound != null) {
                 nightVisionEnabled = tagCompound.getBoolean("nv");
             } else {
