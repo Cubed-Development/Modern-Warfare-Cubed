@@ -97,13 +97,6 @@ public class Compatibility1_12_2 implements Compatibility {
     );
 
     @Override
-    public void registerItem(Item item, String name) {
-        item.setRegistryName(ModReference.id, name); // temporary hack
-        ForgeRegistries.ITEMS.register(item);
-        //GameRegistry.register(item, new ResourceLocation(ModReference.id, name)); // temporary hack
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public void runInMainClientThread(Runnable runnable) {
         mc.addScheduledTask(runnable);

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.vehicle;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.EntityClassFactory;
 import com.paneedah.weaponlib.EntityConfiguration;
 import com.paneedah.weaponlib.ModContext;
@@ -10,6 +11,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
@@ -347,8 +349,9 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
                     modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
 
             ItemVehicle vehicleItem = new ItemVehicle(entityName, entityClass);
-            
-            compatibility.registerItem(vehicleItem, entityName);
+
+            vehicleItem.setRegistryName(ModReference.id, entityName); // temporary hack
+            ForgeRegistries.ITEMS.register(vehicleItem);
             //System.out.println("Renderer Registrar: " + (ModReference.id + ":"  + entityName));
             //ModelLoader.setCustomModelResourceLocation(vehicleItem, 0, new net.minecraft.client.renderer.block.model.ModelResourceLocation(ModReference.id + ":"  + entityName, "inventory"));
             

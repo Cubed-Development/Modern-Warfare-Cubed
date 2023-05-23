@@ -21,7 +21,6 @@ import java.util.Random;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
@@ -101,12 +100,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         if(tickCounter++ %50 == 0) {
             log.trace("Using entity tracker {}", playerEntityTracker);
             if(watchableEntity != null) {
-                log.debug("Watching {} with uuid {}, distance: {}  ",
-                        watchableEntity,
-                        watchableEntity.getUniqueID(),
-                        Math.sqrt(Math.pow(watchableEntity.posX - FMLClientHandler.instance().getClientPlayerEntity().posX, 2)
-                                + Math.pow(watchableEntity.posZ - FMLClientHandler.instance().getClientPlayerEntity().posZ, 2))
-                        );
+                log.debug("Watching {} with uuid {}, distance: {}  ", watchableEntity, watchableEntity.getUniqueID(), Math.sqrt(Math.pow(watchableEntity.posX - FMLClientHandler.instance().getClientPlayerEntity().posX, 2) + Math.pow(watchableEntity.posZ - FMLClientHandler.instance().getClientPlayerEntity().posZ, 2)));
             }
         }
 

@@ -15,8 +15,6 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class GuiHandler implements IGuiHandler {
 
     public static final int STORAGE_ITEM_INVENTORY_GUI_ID = 1;
@@ -58,8 +56,7 @@ public class GuiHandler implements IGuiHandler {
         Object guiContainer = null;
         switch (guiId) {
         case STORAGE_ITEM_INVENTORY_GUI_ID:
-            CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability
-                    .getInventory(FMLClientHandler.instance().getClientPlayerEntity());
+            CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability.getInventory(FMLClientHandler.instance().getClientPlayerEntity());
             if (customInventory != null && customInventory.getStackInSlot(0) != null) {
                 guiContainer = new StorageItemGuiContainer((StorageItemContainer) new StorageItemContainer(player,
                         player.inventory, new StorageInventory(customInventory.getStackInSlot(0))));

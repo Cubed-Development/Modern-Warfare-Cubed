@@ -60,8 +60,6 @@ public interface Compatibility {
 
     ItemStack getHelmet(EntityLivingBase entity);
 
-    void registerItem(Item item, String name);
-
     void runInMainClientThread(Runnable runnable);
 
 	void registerModEntity(Class<? extends Entity> class1, String string, int i, Object mod, int j, int k, boolean b);

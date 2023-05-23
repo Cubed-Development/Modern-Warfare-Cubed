@@ -6,8 +6,6 @@ import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapab
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.client.FMLClientHandler;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class BackpackInventoryTab extends InventoryTab {
 
     private ModContext clientModContext;
@@ -35,8 +33,7 @@ public class BackpackInventoryTab extends InventoryTab {
     }
     
     protected static ItemStack getBackpackStackInSlot() {
-        CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability
-                .getInventory(FMLClientHandler.instance().getClientPlayerEntity());
+        CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability.getInventory(FMLClientHandler.instance().getClientPlayerEntity());
         return customInventory != null ? customInventory.getStackInSlot(0) : null;
     }
 }

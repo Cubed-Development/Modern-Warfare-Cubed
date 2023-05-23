@@ -34,7 +34,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class CustomArmor extends ItemArmor implements ExposureProtection , ISpecialArmor, IModernCrafting {
 
@@ -263,7 +262,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorChest.setCreativeTab(creativeTab);
             }
             armorChest.setTranslationKey(unlocalizedChestName);
-            compatibility.registerItem(armorChest, unlocalizedChestName.toLowerCase());
+            armorChest.setRegistryName(ModReference.id, unlocalizedChestName.toLowerCase()); // temporary hack
+            ForgeRegistries.ITEMS.register(armorChest);
 
             String unlocalizedBootsName = unlocalizedName + "_boots";
             CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.FEET,
@@ -273,7 +273,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorBoots.setCreativeTab(creativeTab);
 
             armorBoots.setTranslationKey(unlocalizedBootsName);
-            compatibility.registerItem(armorBoots, unlocalizedBootsName.toLowerCase());
+            armorBoots.setRegistryName(ModReference.id, unlocalizedBootsName.toLowerCase()); // temporary hack
+            ForgeRegistries.ITEMS.register(armorBoots);
             
             armorHelmet.maxShieldCapacity = maxShieldCapacity;
             armorHelmet.shieldRegenerationRate = shieldRegenerationRate;
@@ -325,7 +326,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
             armorHelmet.exposureReductionFactor = this.exposureReductionFactor;
             armorHelmet.setTranslationKey(unlocalizedHelmetName);
             armorHelmet.breathingSound = context.registerSound(breathingSound);
-            compatibility.registerItem(armorHelmet, unlocalizedHelmetName.toLowerCase());
+            armorHelmet.setRegistryName(ModReference.id, unlocalizedHelmetName.toLowerCase()); // temporary hack
+            ForgeRegistries.ITEMS.register(armorHelmet);
 
             if (creativeTab != null)
                 armorHelmet.setCreativeTab(creativeTab);
@@ -354,7 +356,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorChest.setCreativeTab(creativeTab);
 
             armorChest.setTranslationKey(unlocalizedChestName);
-            compatibility.registerItem(armorChest, unlocalizedChestName.toLowerCase());
+            armorChest.setRegistryName(ModReference.id, unlocalizedChestName.toLowerCase()); // temporary hack
+            ForgeRegistries.ITEMS.register(armorChest);
             
             armorChest.maxShieldCapacity = maxShieldCapacity;
             armorChest.shieldRegenerationRate = shieldRegenerationRate;
@@ -384,7 +387,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorBoots.setCreativeTab(creativeTab);
 
             armorBoots.setTranslationKey(unlocalizedBootsName);
-            compatibility.registerItem(armorBoots, unlocalizedBootsName.toLowerCase());
+            armorBoots.setRegistryName(ModReference.id, unlocalizedBootsName.toLowerCase()); // temporary hack
+            ForgeRegistries.ITEMS.register(armorBoots);
             
 //            armorBoots.maxShieldCapacity = maxShieldCapacity;
 //            armorBoots.shieldRegenerationRate = shieldRegenerationRate;
