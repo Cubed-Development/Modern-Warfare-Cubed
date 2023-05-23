@@ -1,62 +1,37 @@
 package com.paneedah.weaponlib.compatibility;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.WorldGeneratorEventHandler;
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.mwc.vectors.Vector3D;
-import com.paneedah.weaponlib.Explosion;
-import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.ai.EntityCustomMob;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.particle.ParticleBlood;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.shader.ShaderGroup;
-import net.minecraft.enchantment.EnchantmentProtection;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAITarget;
-import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.stats.StatBase;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldType;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.MouseEvent;
-import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
@@ -363,193 +338,10 @@ public class Compatibility1_12_2 implements Compatibility {
         }
     }
 
-    private net.minecraft.world.Explosion getCompatibleExplosion(Explosion e) {
-        return new net.minecraft.world.Explosion(e.getWorld(), e.getExploder(), e.getExplosionX(), e.getExplosionY(), e.getExplosionZ(), e.getExplosionSize(), false, true);
-    }
-
-    @Override
-    public boolean canDropBlockFromExplosion(IBlockState iBlockState, Explosion e) {
-        return iBlockState.getBlock().canDropFromExplosion(getCompatibleExplosion(e));
-    }
-
-    @Override
-    public void onBlockExploded(World world, IBlockState blockState, BlockPos blockpos, Explosion explosion) {
-        blockState.getBlock().onBlockExploded(world, blockpos, getCompatibleExplosion(explosion));
-    }
-
-    @Override
-    public float getExplosionResistance(World worldObj, IBlockState blockState, BlockPos blockpos, Entity entity, Explosion explosion) {
-        return blockState.getBlock().getExplosionResistance(entity);
-    }
-
-    @Override
-    public float getExplosionResistance(World worldObj, Entity exploder, Explosion explosion, BlockPos blockpos, IBlockState blockState) {
-        return exploder.getExplosionResistance(getCompatibleExplosion(explosion), worldObj, blockpos, blockState);
-    }
-
-    @Override
-    public boolean isSpectator(EntityPlayer entityplayer) {
-        return entityplayer.isSpectator();
-    }
-
-    @Override
-    public boolean isCreative(EntityPlayer entityplayer) {
-        return entityplayer.isCreative();
-    }
-
-    @Override
-    public void setBlockToFire(World world, BlockPos blockpos1) {
-        world.setBlockState(blockpos1, Blocks.FIRE.getDefaultState());
-    }
-
-    @Override
-    public double getBlastDamageReduction(EntityLivingBase entity, double d10) {
-        return EnchantmentProtection.getBlastDamageReduction((EntityLivingBase) entity, d10);
-    }
-
-    @Override
-    public boolean verifyExplosion(World worldObj, Entity exploder, Explosion explosion, BlockPos blockpos, IBlockState blockState, float f) {
-        return exploder.canExplosionDestroyBlock(getCompatibleExplosion(explosion), worldObj, blockpos, blockState, f);
-        //return exploder.verifyExplosion(getCompatibleExplosion(explosion), worldObj, blockpos, blockState.getBlockState(), f);
-    }
-
-    @Override
-    public boolean isFullBlock(IBlockState blockState) {
-        return blockState.isFullBlock();
-    }
-
-    @Override
-    public void dropBlockAsItemWithChance(World world, IBlockState blockState, BlockPos blockpos, float f, int i) {
-        blockState.getBlock().dropBlockAsItemWithChance(world, blockpos, blockState, f, i);
-    }
-
-    @Override
-    public IBlockState getBlockBelow(World world, BlockPos blockPos) {
-        return world.getBlockState(blockPos.down());
-    }
-
-    @Override
-    public DamageSource genericDamageSource() {
-        return new DamageSource("thrown");
-    }
-
-    @Override
-    public boolean isFlying(EntityPlayer player) {
-        return player.capabilities.isFlying;
-    }
-
-    @Override
-    public String getLocalizedString(String format, Object... args) {
-        return I18n.translateToLocalFormatted(format, args);
-    }
-
-    @Override
-    public void registerEgg(ModContext context, Class<? extends Entity> entityClass, String entityName, int primaryEggColor, int secondaryEggColor) {
-        EntityRegistry.registerEgg(EntityList.getKey(entityClass), primaryEggColor, secondaryEggColor);
-    }
-
-    @Override
-    public void setItemStackToSlot(Entity entity, EntityEquipmentSlot compatibleEquipmentSlot, ItemStack itemStack) {
-        entity.setItemStackToSlot(compatibleEquipmentSlot, itemStack);
-    }
-
-    @Override
-    public void setEntityAttribute(EntityLivingBase entity, IAttribute attributes, double value) {
-        entity.getEntityAttribute(attributes).setBaseValue(value);
-    }
-
-    @Override
-    public void addStat(EntityPlayer entityplayer, StatBase statBase) {
-        entityplayer.addStat(statBase);
-    }
-
-    @Override
-    public float getLightBrightness(World world, BlockPos pos) {
-        return world.getLightBrightness(pos);
-    }
-
-    @Override
-    public void strafe(EntityCustomMob entity, float forward, float strafe) {
-        entity.getMoveHelper().strafe(forward, strafe);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void useShader(EntityRenderer entityRenderer, boolean value) {
-        ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, value, "useShader", "field_175083_ad");
-    }
-
-    @Override
-    public float getCompatibleAimingRotationYaw(EntityLivingBase thrower) {
-        return thrower.rotationYaw;
-    }
-
-    @Override
-    public ItemStack getHelmet(EntityLivingBase entity) {
-        return entity.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-    }
-
-    @Override
-    public Vector3D getLookVec(EntityLivingBase player) {
-        return new Vector3D(player.getLookVec());
-    }
-
-    @Override
-    public ItemStack createItemStack(NBTTagCompound tagCompound) {
-        return new ItemStack(tagCompound);
-    }
-
     @Override
     public EntityAITarget createAINearestAttackableTarget(EntityLivingBase e, Class<? extends EntityLivingBase> targetClass,
                                                           boolean checkSight) {
         return new EntityAINearestAttackableTarget<>((EntityCreature) e, targetClass, checkSight);
     }
 
-    @Override
-    public EntityAIBase createAiAvoidEntity(EntityLivingBase e, Class<? extends EntityLivingBase> entityClassToAvoid,
-                                            float avoidDistanceIn, double farSpeedIn, double nearSpeedIn) {
-        return new EntityAIAvoidEntity<>((EntityCreature) e, entityClassToAvoid, avoidDistanceIn, farSpeedIn, nearSpeedIn);
-    }
-
-    @Override
-    public ShaderGroup getShaderGroup(EntityRenderer entityRenderer) {
-        return entityRenderer.getShaderGroup();
-    }
-
-    @Override
-    public Entity getTrueDamageSource(DamageSource cause) {
-        return cause.getTrueSource();
-    }
-
-    @Override
-    public WorldType getWorldType(World world) {
-        return world.getWorldType();
-    }
-
-    @Override
-    public boolean areOptifineShadersOn() {
-        try {
-            Class<?> shadersClass = Class.forName("net.optifine.shaders.Shaders");
-            Field shaderPackLoadedField = shadersClass.getDeclaredField("shaderPackLoaded");
-            shaderPackLoadedField.setAccessible(true);
-
-            return (boolean) shaderPackLoadedField.get(null);
-        } catch (NoSuchFieldException | ClassNotFoundException e) {
-            return false;
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-
-        return false;
-    }
-
-    @Override
-    public ItemStack findNextBestItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player) {
-        int i = findGreatesItemIndex(compatibleItems, comparator, player);
-
-        if (i < 0)
-            return null;
-
-        return player.inventory.getStackInSlot(i).copy().splitStack(Math.min(player.inventory.getStackInSlot(i).copy().getCount(), 1));
-    }
 }

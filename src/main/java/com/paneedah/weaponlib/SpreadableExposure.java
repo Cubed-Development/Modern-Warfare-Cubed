@@ -5,7 +5,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 import java.util.*;
@@ -148,7 +150,7 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
 
         Function<Float, Float> absorbFunction = null;
         if (entity instanceof EntityLivingBase) {
-            ItemStack helmet = compatibility.getHelmet((EntityLivingBase) entity);
+            ItemStack helmet = ((EntityLivingBase) entity).getItemStackFromSlot(EntityEquipmentSlot.HEAD);;
             if (helmet != null && helmet.getItem() instanceof ExposureProtection)
                 absorbFunction = ((ExposureProtection)helmet.getItem()).getAbsorbFunction(spreadable);
         }
@@ -266,7 +268,7 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
                     return;
                 }
 
-                entityLiving.attackEntityFrom(compatibility.genericDamageSource(), totalDose);
+                entityLiving.attackEntityFrom(new DamageSource("thrown"), totalDose);
             }
             
             lastApplyTimestamp = worldTime;

@@ -10,6 +10,7 @@ import com.paneedah.weaponlib.state.StateManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.text.translation.I18n;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -182,7 +183,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                 }
                 
                 
-                String message = compatibility.getLocalizedString("gui.grenadeExplodes",
+                String message = I18n.translateToLocalFormatted("gui.grenadeExplodes",
                         Math.round(remainingTimeUntilExplosion / 1000f));
                 modContext.getStatusMessageCenter().addAlertMessage(message, 1, 1000, 0);
                 grenadeInstance.setLastSafetyPinAlertTimestamp(System.currentTimeMillis());

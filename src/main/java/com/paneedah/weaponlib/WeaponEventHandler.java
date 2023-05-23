@@ -65,10 +65,10 @@ public class WeaponEventHandler {
 		        	fov = instance.getZoom();
 		        } else {
 		        	
-		            fov = compatibility.isFlying(clientPlayer) ? 1.1f : 1.0f;
+		            fov = clientPlayer.capabilities.isFlying ? 1.1f : 1.0f;
 		        }
 		    } else {
-		    	 fov = compatibility.isFlying(mc.player) ? 1.1f : 1.0f;
+		    	 fov = mc.player.capabilities.isFlying ? 1.1f : 1.0f;
 		    	//fov = instance.isAimed() ? instance.getZoom() : 1f;
 		       // fov = compatibility.isFlying(mc.player) ? 1.1f : 1.0f; //instance.isAimed() ? instance.getZoom() : 1f;
 		    }
@@ -88,7 +88,7 @@ public class WeaponEventHandler {
 		} else {
 		    SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(mc.player, SpreadableExposure.class);
             if(spreadableExposure != null && spreadableExposure.getTotalDose() > 0f) {
-                float fov = compatibility.isFlying(mc.player) ? 1.1f : 1.0f; 
+                float fov = mc.player.capabilities.isFlying ? 1.1f : 1.0f;
                 compatibility.setNewFov(event, fov);
             }
 		}

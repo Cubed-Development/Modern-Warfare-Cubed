@@ -74,7 +74,7 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
             if(bounceHardSound != null) {
                 IBlockState iBlockState = compatibility.getBlockAtPosition(world, movingobjectposition);
                 if(compatibility.madeFromHardMaterial(iBlockState)) {
-                    compatibility.playSoundAtEntity(this, bounceHardSound, 2.0f / (bounceCount + 1f), 1.0f);
+                    this.playSound(bounceHardSound, 2.0f / (bounceCount + 1f), 1.0f);
                 }
             }
 
@@ -83,6 +83,7 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
                 IBlockState iBlockState = compatibility.getBlockAtPosition(world, movingobjectposition);
                 if(!compatibility.madeFromHardMaterial(iBlockState)) {
                     compatibility.playSoundAtEntity(this, bounceSoftSound, 1.0f / (bounceCount + 1f), 1.0f);
+                    this.playSound(bounceHardSound, 1.0f / (bounceCount + 1f), 1.0f);
                 }
             }
         }

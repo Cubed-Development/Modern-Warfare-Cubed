@@ -5,10 +5,7 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.config.AIEntity;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -532,7 +529,7 @@ public class EntityConfiguration {
             compatibility.registerModEntity(entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
 
             if(spawnEgg)
-                compatibility.registerEgg(context, entityClass, entityName, primaryEggColor, secondaryEggColor);
+               EntityRegistry.registerEgg(EntityList.getKey(entityClass), primaryEggColor, secondaryEggColor);
 
             for(Spawn spawn: spawns) {
             	//int weightedProb = spawn.weightedProb;

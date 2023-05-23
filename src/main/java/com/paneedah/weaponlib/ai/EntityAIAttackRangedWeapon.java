@@ -157,7 +157,7 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase
                     this.strafingBackwards = true;
                 }
 
-                compatibility.strafe(this.entity, this.strafingBackwards ? -0.5F : 0.5F, this.strafingClockwise ? 0.5F : -0.5F);
+                this.entity.getMoveHelper().strafe(this.strafingBackwards ? -0.5F : 0.5F, this.strafingClockwise ? 0.5F : -0.5F);
                 this.entity.faceEntity(attackTarget, 30.0F, 30.0F);
             } else {
                 this.entity.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0F, 30.0F);

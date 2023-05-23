@@ -82,7 +82,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
     public void setPositionAndDirection() {
 
         this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(),
-                thrower.posZ, compatibility.getCompatibleAimingRotationYaw(thrower), thrower.rotationPitch);
+                thrower.posZ, thrower.rotationYaw, thrower.rotationPitch);
         
         this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;

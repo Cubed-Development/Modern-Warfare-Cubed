@@ -9,6 +9,7 @@ import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.enchantment.EnchantmentProtection;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityTNTPrimed;
@@ -177,12 +178,11 @@ public class Explosion {
                             IBlockState iBlockState = compatibility.getBlockAtPosition(world, blockpos);
 
                             if (!(iBlockState.getBlock() == Blocks.AIR || compatibility.isBlockPenetratableByBullets(iBlockState))) {
-                                float f2 = this.exploder != null ? compatibility.getExplosionResistance(this.world, this.exploder, this, blockpos, iBlockState) : compatibility.getExplosionResistance(world, iBlockState, blockpos, (Entity) null, this);
+                                float f2 = this.exploder != null ? exploder.getExplosionResistance(new net.minecraft.world.Explosion(this.getWorld(), this.getExploder(), this.getExplosionX(), this.getExplosionY(), this.getExplosionZ(), this.getExplosionSize(), false, true), this.world, blockpos, iBlockState) : iBlockState.getBlock().getExplosionResistance((Entity) null); // (this.world, this.exploder, this, blockpos, iBlockState) : compatibility.getExplosionResistance(world, iBlockState, blockpos, (Entity) null, this);
                                 f -= (f2 + 0.3F) * 0.3F;
                             }
 
-                            if (f > 0.0F && (this.exploder == null || compatibility.verifyExplosion(this.world, this.exploder, this,
-                                    blockpos, iBlockState, f))) {
+                            if (f > 0.0F && (this.exploder == null || exploder.canExplosionDestroyBlock(new net.minecraft.world.Explosion(this.getWorld(), this.getExploder(), this.getExplosionX(), this.getExplosionY(), this.getExplosionZ(), this.getExplosionSize(), false, true), this.world, blockpos, iBlockState, f))) { // compatibility.verifyExplosion(this.world, this.exploder, this, blockpos, iBlockState, f))) {
                                 set.add(blockpos);
                             }
 
@@ -263,7 +263,7 @@ public class Explosion {
                         double d11 = 1.0D;
 
                         if (entity instanceof EntityLivingBase) {
-                            d11 = compatibility.getBlastDamageReduction((EntityLivingBase) entity, d10);
+                            d11 = EnchantmentProtection.getBlastDamageReduction((EntityLivingBase) entity, d10);
                         }
 
                         entity.motionX += d5 * d11;
@@ -273,7 +273,7 @@ public class Explosion {
                         if (entity instanceof EntityPlayer) {
                             EntityPlayer entityplayer = (EntityPlayer) entity;
 
-                            if (!compatibility.isSpectator(entityplayer) && (!compatibility.isCreative(entityplayer) || !entityplayer.capabilities.isFlying)) {
+                            if (!entityplayer.isSpectator() && (!entityplayer.isCreative() || !entityplayer.capabilities.isFlying)) {
                                 this.playerKnockbackMap.put(entityplayer, new Vector3D(d5 * d10, d7 * d10, d9 * d10));
                             }
                         }
@@ -363,10 +363,10 @@ public class Explosion {
 //                }
 
                 if (destroyBlocks && !(blockState.getBlock() == Blocks.AIR)) {
-                    if (compatibility.canDropBlockFromExplosion(blockState, this))
-                        compatibility.dropBlockAsItemWithChance(this.world, blockState, blockpos, (float) ModernConfigManager.explodedBlockDropChance * (1.0F / this.explosionSize), 0);
+                    if (blockState.getBlock().canDropFromExplosion(new net.minecraft.world.Explosion(this.getWorld(), this.getExploder(), this.getExplosionX(), this.getExplosionY(), this.getExplosionZ(), this.getExplosionSize(), false, true)))
+                        blockState.getBlock().dropBlockAsItemWithChance(this.world, blockpos, blockState, (float) ModernConfigManager.explodedBlockDropChance * (1.0F / this.explosionSize), 0);
 
-                    compatibility.onBlockExploded(world, blockState, blockpos, this);
+                    blockState.getBlock().onBlockExploded(this.world, blockpos, new net.minecraft.world.Explosion(this.getWorld(), this.getExploder(), this.getExplosionX(), this.getExplosionY(), this.getExplosionZ(), this.getExplosionSize(), false, true));
                 }
             }
 
@@ -392,8 +392,8 @@ public class Explosion {
 
         if (this.isFlaming && destroyBlocks) {
             for (BlockPos blockpos1 : this.affectedBlockPositions) {
-                if (world.isAirBlock(blockpos1) && compatibility.isFullBlock(compatibility.getBlockBelow(world, blockpos1)) && this.explosionRNG.nextInt(3) == 0) {
-                    compatibility.setBlockToFire(world, blockpos1);
+                if (world.isAirBlock(blockpos1) && world.getBlockState(blockpos1.down()).isFullBlock() && this.explosionRNG.nextInt(3) == 0) {
+                    world.setBlockState(blockpos1, Blocks.FIRE.getDefaultState());
                 }
             }
         }

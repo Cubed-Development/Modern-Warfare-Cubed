@@ -61,7 +61,7 @@ public interface DynamicShaderPhase {
             
             if(target instanceof EntityRenderer) {
                 EntityRenderer entityRenderer = (EntityRenderer) target;
-                ShaderGroup currentShaderGroup = compatibility.getShaderGroup(entityRenderer);
+                ShaderGroup currentShaderGroup = entityRenderer.getShaderGroup();
                 if(currentShaderGroup != shaderGroup) {
                     remove(context, null);
                     ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, shaderGroup, "shaderGroup", "field_147707_d");
@@ -75,7 +75,7 @@ public interface DynamicShaderPhase {
             Object target = context.getTarget();
             if(target instanceof EntityRenderer) {
                 EntityRenderer entityRenderer = (EntityRenderer) target;
-                ShaderGroup currentShaderGroup = compatibility.getShaderGroup(entityRenderer);
+                ShaderGroup currentShaderGroup = entityRenderer.getShaderGroup();
                 if(currentShaderGroup instanceof DynamicShaderGroup) {
                     currentShaderGroup.deleteShaderGroup();
                     ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, null, "shaderGroup", "field_147707_d");
@@ -84,8 +84,8 @@ public interface DynamicShaderPhase {
 
         }
 
-        private static void setUseShader(EntityRenderer entityRenderer, boolean value) {            
-            compatibility.useShader(entityRenderer, value);
+        private static void setUseShader(EntityRenderer entityRenderer, boolean value) {
+            ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, value, "useShader", "field_175083_ad");
             
         }
 

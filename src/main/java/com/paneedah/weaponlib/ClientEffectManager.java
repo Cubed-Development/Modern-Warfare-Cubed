@@ -12,6 +12,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.lang.reflect.Field;
+
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
@@ -22,10 +24,20 @@ final class ClientEffectManager implements EffectManager {
 
 	@Override
     public void spawnSmokeParticle(EntityLivingBase player, float xOffset, float yOffset) {
-	    if(compatibility.areOptifineShadersOn())
-	        return;
+		try {
+			Class<?> shadersClass = Class.forName("net.optifine.shaders.Shaders");
+			Field shaderPackLoadedField = shadersClass.getDeclaredField("shaderPackLoaded");
+			shaderPackLoadedField.setAccessible(true);
 
-		Vector3D look = compatibility.getLookVec(player);
+			shaderPackLoadedField.get(null);
+			return;
+		} catch (NoSuchFieldException | ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+
+		Vector3D look = new Vector3D(player.getLookVec());
 
 		double motionX = mc.world.rand.nextGaussian() * 0.0003;
 		double motionY = mc.world.rand.nextGaussian() * 0.0003;
@@ -61,8 +73,18 @@ final class ClientEffectManager implements EffectManager {
 
 	@Override
     public void spawnFlashParticle(EntityLivingBase player, float flashIntensity, float flashScale, float xOffset, float yOffset, String texture) {
-	    if (compatibility.areOptifineShadersOn())
-	        return;
+		try {
+			Class<?> shadersClass = Class.forName("net.optifine.shaders.Shaders");
+			Field shaderPackLoadedField = shadersClass.getDeclaredField("shaderPackLoaded");
+			shaderPackLoadedField.setAccessible(true);
+
+			shaderPackLoadedField.get(null);
+			return;
+		} catch (NoSuchFieldException | ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
 
 	    Weapon weapon = (Weapon) player.getHeldItemMainhand().getItem();
 
@@ -71,7 +93,7 @@ final class ClientEffectManager implements EffectManager {
 		//float scale = 0.8f * flashScale;
 		float positionRandomizationFactor = 0.0f;
 
-		Vector3D look = compatibility.getLookVec(player);
+		Vector3D look = new Vector3D(player.getLookVec());
 
 		/*
 		float motionX = (float)mc.world.rand.nextGaussian() * 0.003f;

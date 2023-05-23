@@ -18,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -209,9 +210,9 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             String message;
             if(weaponInstance.getWeapon().getAmmoCapacity() == 0
                     && modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null) {
-                message = compatibility.getLocalizedString("gui.noMagazine");
+                message = I18n.translateToLocalFormatted("gui.noMagazine");
             } else {
-                message = compatibility.getLocalizedString("gui.noAmmo");
+                message = I18n.translateToLocalFormatted("gui.noAmmo");
             }
             modContext.getStatusMessageCenter().addAlertMessage(message, 3, 250, 200);
             if(weaponInstance.getPlayer() instanceof EntityPlayer) {

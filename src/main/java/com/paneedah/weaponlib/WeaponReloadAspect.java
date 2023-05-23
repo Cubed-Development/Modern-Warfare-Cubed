@@ -10,11 +10,9 @@ import com.paneedah.weaponlib.state.StateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.text.translation.I18n;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -668,10 +666,29 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		                compatibleMagazine, weaponInstance)).collect(Collectors.toList());
 		
 		if(compatibleMagazines.isEmpty()) return null;
-		
-		ItemStack magazineItemStack = compatibility.findNextBestItem(compatibleMagazines,
-                (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2)), player);
-		
+
+
+
+//		findGreatesItemIndex(compatibleItems, comparator, player);
+		Comparator<ItemStack> comparator;
+		comparator = (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2));
+		ItemStack maxStack = null;
+		int maxItemIndex = -1;
+		for (int i = 0; i < player.inventory.mainInventory.size(); ++i) {
+			if (player.inventory.getStackInSlot(i) != null && compatibleMagazines.contains(player.inventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(player.inventory.getStackInSlot(i), maxStack) > 0)) {
+				maxStack = player.inventory.getStackInSlot(i);
+				maxItemIndex = i;
+			}
+		}
+
+
+		int i = maxItemIndex;
+
+		if (i < 0)
+			return null;
+
+		ItemStack magazineItemStack = player.inventory.getStackInSlot(i).copy().splitStack(Math.min(player.inventory.getStackInSlot(i).copy().getCount(), 1));
+
 		if(magazineItemStack == null) return null;
 		
 		return (ItemAttachment<Weapon>) magazineItemStack.getItem();
@@ -688,12 +705,28 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		                compatibleMagazine, weaponInstance)).collect(Collectors.toList());
 		
 		if(compatibleMagazines.isEmpty()) return null;
-		
-		ItemStack magazineItemStack = compatibility.findNextBestItem(compatibleMagazines,
-                (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2)), player);
+
+
+		//		findGreatesItemIndex(compatibleItems, comparator, player);
+		Comparator<ItemStack> comparator;
+		comparator = (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2));
+		ItemStack maxStack = null;
+		int maxItemIndex = -1;
+		for (int i = 0; i < player.inventory.mainInventory.size(); ++i) {
+			if (player.inventory.getStackInSlot(i) != null && compatibleMagazines.contains(player.inventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(player.inventory.getStackInSlot(i), maxStack) > 0)) {
+				maxStack = player.inventory.getStackInSlot(i);
+				maxItemIndex = i;
+			}
+		}
+
+		int i = maxItemIndex;
+
+		if (i < 0)
+			return null;
+
+		ItemStack magazineItemStack = player.inventory.getStackInSlot(i).copy().splitStack(Math.min(player.inventory.getStackInSlot(i).copy().getCount(), 1));
 		
 		return magazineItemStack;
-        
 	}
 	
 	
@@ -919,7 +952,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 	}
 
 	public void inventoryFullAlert(PlayerWeaponInstance weaponInstance) {
-		modContext.getStatusMessageCenter().addAlertMessage(compatibility.getLocalizedString("gui.inventoryFull"), 3, 250, 200);
+		modContext.getStatusMessageCenter().addAlertMessage(I18n.translateToLocalFormatted("gui.inventoryFull"), 3, 250, 200);
 	}
 	
 	public void inspect(PlayerWeaponInstance weaponInstance) {

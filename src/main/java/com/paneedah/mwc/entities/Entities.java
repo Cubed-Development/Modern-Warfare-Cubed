@@ -41,7 +41,7 @@ public class Entities {
         .withAmbientSound("drawweapon")
 //        .withStepSound("step")
         .withAiTask(1, e -> new EntityAISwimming(e))
-        .withAiTask(3, e -> compatibility.createAiAvoidEntity((EntityCreature)e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
+        .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature)e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
         .withAiTask(4, e -> new EntityAIAttackRangedWeapon((EntityCustomMob)e, 1.0D, 10, 30.0F))
         .withAiTask(5, e -> new EntityAIWander((EntityCreature)e, 1.0D))
         .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))

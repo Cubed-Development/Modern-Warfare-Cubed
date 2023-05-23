@@ -115,14 +115,10 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        compatibility.setEntityAttribute(this, SharedMonsterAttributes.FOLLOW_RANGE,
-                getConfiguration().getFollowRange());
-        compatibility.setEntityAttribute(this, SharedMonsterAttributes.MOVEMENT_SPEED,
-                getConfiguration().getMaxSpeed());
-        compatibility.setEntityAttribute(this, SharedMonsterAttributes.MAX_HEALTH,
-                getConfiguration().getMaxHealth());
-        compatibility.setEntityAttribute(this, SharedMonsterAttributes.ATTACK_DAMAGE,
-                getConfiguration().getCollisionAttackDamage());
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(getConfiguration().getFollowRange());
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(getConfiguration().getMaxSpeed());
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(getConfiguration().getMaxHealth());
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(getConfiguration().getCollisionAttackDamage());
     }
     
 
@@ -210,10 +206,10 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
         super.onDeath(cause);
 
-        Entity trueDamageSource = compatibility.getTrueDamageSource(cause);
+        Entity trueDamageSource = cause.getTrueSource();
         if (trueDamageSource instanceof EntityPlayer) {
             EntityPlayer entityplayer = (EntityPlayer) trueDamageSource;
-            compatibility.addStat(entityplayer, StatList.MOB_KILLS);
+            entityplayer.addStat(StatList.MOB_KILLS);
         }
 
         if (secondaryEquipment != null) {
@@ -264,7 +260,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
         EntityConfiguration configuration = getConfiguration();
         Arrays.fill(this.inventoryArmorDropChances, configuration.getArmorDropChance());
         for (CustomArmor armor : configuration.getArmorSet()) {
-            compatibility.setItemStackToSlot(this, armor.getCompatibleEquipmentSlot(), new ItemStack(armor));
+            this.setItemStackToSlot(armor.getCompatibleEquipmentSlot(), new ItemStack(armor));
         }
     }
 
@@ -319,7 +315,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
                 initGrenade(equipment, equipmentItemStack);
             }
 
-            compatibility.setItemStackToSlot(this, EntityEquipmentSlot.MAINHAND, equipmentItemStack);
+            this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, equipmentItemStack);
         }
     }
 
@@ -465,7 +461,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
         NBTTagCompound secondaryNbt = compound.getCompoundTag("Secondary");
         if (secondaryNbt != null) {
-            this.secondaryEquipment = compatibility.createItemStack(secondaryNbt);
+            this.secondaryEquipment = new ItemStack(secondaryNbt);;
         }
     }
 
@@ -517,7 +513,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     @Override
     public float getBlockPathWeight(BlockPos pos) {
-        return getConfiguration().getMaxTolerableLightBrightness() - compatibility.getLightBrightness(world, pos);
+        return getConfiguration().getMaxTolerableLightBrightness() - world.getLightBrightness(pos);
     }
     
     @Override
@@ -570,7 +566,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
 
     @Override
     public boolean getCanSpawnHere() {
-        boolean canSpawn = compatibility.getWorldType(world) != WorldType.FLAT
+        boolean canSpawn = world.getWorldType() != WorldType.FLAT
                 || rand.nextFloat() > (1f - FLAT_WORLD_SPAWN_CHANCE);
         Predicate<Entity> predicate = getConfiguration().getCanSpawnHere();
         return canSpawn && (predicate != null ? predicate.test(this) : super.getCanSpawnHere());

@@ -39,6 +39,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -670,8 +671,7 @@ public class CustomGui extends Gui {
 		
 		ItemMagazine magazine = (ItemMagazine) itemStack.getItem();
 
-		String ammoCounterMessage = compatibility.getLocalizedString(
-                "gui.ammoCounter", Tags.getAmmo(itemStack) + "/" + magazine.getAmmo());
+		String ammoCounterMessage = I18n.translateToLocalFormatted("gui.ammoCounter", Tags.getAmmo(itemStack) + "/" + magazine.getAmmo());
 		return ammoCounterMessage;
 	}
 
@@ -688,9 +688,9 @@ public class CustomGui extends Gui {
 
 		String text;
 		if(weaponInstance.getWeapon().getAmmoCapacity() == 0 && totalCapacity == 0) {
-			text = compatibility.getLocalizedString("gui.noMagazine");
+			text = I18n.translateToLocalFormatted("gui.noMagazine");
 		} else {
-			text = compatibility.getLocalizedString(
+			text = I18n.translateToLocalFormatted(
 	                "gui.ammoCounter", weaponInstance.getWeapon().getCurrentAmmo(mc.player) + "/" + totalCapacity);
 		}
 		return text;

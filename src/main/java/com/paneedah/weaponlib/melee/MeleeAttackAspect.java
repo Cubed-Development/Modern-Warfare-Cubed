@@ -10,6 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 
@@ -147,7 +148,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
 
     @SuppressWarnings("unused")
     private void cannotAttack(PlayerMeleeInstance meleeInstance) {
-        modContext.getStatusMessageCenter().addAlertMessage(compatibility.getLocalizedString("gui.coolingDown"), 2, 200, 100);
+        modContext.getStatusMessageCenter().addAlertMessage(I18n.translateToLocalFormatted("gui.coolingDown"), 2, 200, 100);
         meleeInstance.getPlayer().playSound(modContext.getNoAmmoSound(), 1, 1);
     }
 

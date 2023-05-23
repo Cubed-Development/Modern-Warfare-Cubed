@@ -67,8 +67,8 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         this.gravityVelocity = gravityVelocity;
         this.rotationSlowdownFactor = rotationSlowdownFactor;
         this.setSize(0.3F, 0.3F);
-        this.setLocationAndAngles(thrower.posX, thrower.posY + (double)thrower.getEyeHeight(), thrower.posZ, 
-                compatibility.getCompatibleAimingRotationYaw(thrower), thrower.rotationPitch);
+        this.setLocationAndAngles(thrower.posX, thrower.posY + (double)thrower.getEyeHeight(), thrower.posZ,
+                thrower.rotationYaw, thrower.rotationPitch);
         this.posX -= (double)(FastMath.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
         this.posZ -= (double)(FastMath.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);

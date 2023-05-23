@@ -171,7 +171,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
             NBTTagCompound item = tagList.getCompoundTagAt(i);
             byte slot = item.getByte("Slot");
             if (slot >= 0 && slot < getSizeInventory()) {
-                inventory[slot] = compatibility.createItemStack(item);
+                inventory[slot] = new ItemStack(item);;
             } else {
 //                System.out.println("Could not find slot " + slot);
             }

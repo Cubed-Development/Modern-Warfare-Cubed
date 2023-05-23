@@ -140,7 +140,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
             if(this.getThrower() != null) {
                 position.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
             } else {
-                position.entityHit.attackEntityFrom(compatibility.genericDamageSource(), damage);
+                position.entityHit.attackEntityFrom(new DamageSource("thrown"), damage);
             }
 
             position.entityHit.hurtResistantTime = 0;

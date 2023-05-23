@@ -152,7 +152,7 @@ public class StorageInventory implements IInventory {
                 int slot = item.getInteger(TAG_SLOT_INDEX);
 
                 if (slot >= 0 && slot < size) {
-                    inventory[slot] = compatibility.createItemStack(item);
+                    inventory[slot] = new ItemStack(item);;
                 }
             }
         }

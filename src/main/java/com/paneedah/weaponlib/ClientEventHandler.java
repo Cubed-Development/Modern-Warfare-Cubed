@@ -24,6 +24,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.UUID;
@@ -223,11 +224,21 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 
 	@SubscribeEvent
 	public void onRenderHand(RenderHandEvent event) {
-	    
-		
-		
 	    Minecraft minecraft = mc;
-	    if (minecraft.gameSettings.thirdPersonView == 0 && !compatibility.areOptifineShadersOn()) {
+	    if (minecraft.gameSettings.thirdPersonView == 0) {
+			try {
+				Class<?> shadersClass = Class.forName("net.optifine.shaders.Shaders");
+				Field shaderPackLoadedField = shadersClass.getDeclaredField("shaderPackLoaded");
+				shaderPackLoadedField.setAccessible(false);
+
+				shaderPackLoadedField.get(null);
+			} catch (NoSuchFieldException | ClassNotFoundException e) {
+				e.printStackTrace();
+				return;
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			}
+
 	        PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
 	        
 	        

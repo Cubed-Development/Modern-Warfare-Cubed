@@ -1416,15 +1416,15 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         instance.setMaxShots(result);
         String message;
         if(result == 1) {
-            message = compatibility.getLocalizedString("gui.firearmMode.semi");
+            message = net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode.semi");
         } else if(result == Integer.MAX_VALUE) {
-            message = compatibility.getLocalizedString("gui.firearmMode.auto");
+            message = net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode.auto");
         } else {
-            message = compatibility.getLocalizedString("gui.firearmMode.burst");
+            message = net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode.burst");
         }
         log.debug("Changed fire mode of {} to {}", instance, result);
 
-        modContext.getStatusMessageCenter().addMessage(compatibility.getLocalizedString("gui.firearmMode", message), 1000);
+        modContext.getStatusMessageCenter().addMessage(net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode", message), 1000);
 
         instance.getPlayer().playSound(modContext.getChangeFireModeSound(), 1, 1);
     }
@@ -1491,7 +1491,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
 
-            modContext.getStatusMessageCenter().addMessage(compatibility.getLocalizedString("gui.currentZoom", Math.round(ratio * 100)), 800);
+            modContext.getStatusMessageCenter().addMessage(net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.currentZoom", Math.round(ratio * 100)), 800);
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
             log.debug("Changed optical zoom to {}", instance.getZoom());
         } else {
@@ -1513,7 +1513,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             instance.setZoom(zoom);
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
-            modContext.getStatusMessageCenter().addMessage(compatibility.getLocalizedString("gui.currentZoom", Math.round(ratio * 100)), 800);
+            modContext.getStatusMessageCenter().addMessage(net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.currentZoom", Math.round(ratio * 100)), 800);
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
             log.debug("Changed optical zoom to {}", zoom);
         } else {

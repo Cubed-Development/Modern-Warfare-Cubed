@@ -58,8 +58,6 @@ import java.util.function.Predicate;
 public interface Compatibility {
 
 
-    ItemStack getHelmet(EntityLivingBase entity);
-
     void runInMainClientThread(Runnable runnable);
 
 	void registerModEntity(Class<? extends Entity> class1, String string, int i, Object mod, int j, int k, boolean b);
@@ -120,70 +118,8 @@ public interface Compatibility {
 
     void playSoundAtEntity(Entity entity, SoundEvent explosionSound, float volume, float pitch);
 
-    boolean canDropBlockFromExplosion(IBlockState block, Explosion explosion);
-
-    void onBlockExploded(World worldObj, IBlockState blockState, BlockPos blockpos, Explosion explosion);
-
-    float getExplosionResistance(World world, IBlockState block, BlockPos blockpos, Entity entity,
-            Explosion explosion);
-
-    float getExplosionResistance(World worldObj, Entity exploder, Explosion explosion, BlockPos blockpos, IBlockState blockState);
-
-    boolean isSpectator(EntityPlayer entityplayer);
-
-    boolean isCreative(EntityPlayer entityplayer);
-
-    void setBlockToFire(World world, BlockPos blockpos1);
-
-    double getBlastDamageReduction(EntityLivingBase entity, double d10);
-
-    boolean verifyExplosion(World world, Entity exploder, Explosion explosion, BlockPos blockpos, IBlockState blockState, float f);
-
-    boolean isFullBlock(IBlockState blockState);
-
-    void dropBlockAsItemWithChance(World world, IBlockState blockState, BlockPos blockpos, float f, int i);
-
-    IBlockState getBlockBelow(World world, BlockPos blockpos1);
-
-    DamageSource genericDamageSource();
-
-    boolean isFlying(EntityPlayer player);
-
-    String getLocalizedString(String format, Object...args);
-
-    Vector3D getLookVec(EntityLivingBase player);
-
-    void setEntityAttribute(EntityLivingBase entity, IAttribute attributes, double value);
-
-    void addStat(EntityPlayer entityplayer, StatBase achievementList);
-
-    float getLightBrightness(World world, BlockPos pos);
-
-    void setItemStackToSlot(Entity entity, EntityEquipmentSlot entityEquipmentSlot, ItemStack itemStack);
-
-    void strafe(EntityCustomMob entity, float forward, float strafe);
-
-    void registerEgg(ModContext context, Class<? extends Entity> entityClass, String entityName, int primaryEggColor, int secondaryEggColor);
-
-    void useShader(EntityRenderer entityRenderer, boolean value);
-
-    float getCompatibleAimingRotationYaw(EntityLivingBase thrower);
-
-    ItemStack createItemStack(NBTTagCompound tagCompound);
-
     EntityAITarget createAINearestAttackableTarget(EntityLivingBase e, Class<? extends EntityLivingBase> targetClass, boolean checkSight);
-
-    EntityAIBase createAiAvoidEntity(EntityLivingBase e, Class<? extends EntityLivingBase> entityClassToAvoid, float avoidDistanceIn, double farSpeedIn, double nearSpeedIn);
-
-    Entity getTrueDamageSource(DamageSource cause);
-
-    ShaderGroup getShaderGroup(EntityRenderer entityRenderer);
-
-    WorldType getWorldType(World world);
-
-    ItemStack findNextBestItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player);
 
     ItemStack tryConsumingCompatibleItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player);
 
-    boolean areOptifineShadersOn();
 }
