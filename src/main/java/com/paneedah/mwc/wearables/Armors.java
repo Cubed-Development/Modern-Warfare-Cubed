@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.CustomArmor.Builder;
 import com.paneedah.weaponlib.ModContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraftforge.common.util.EnumHelper;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
@@ -63,9 +64,8 @@ public class Armors {
     public static Item Santaboots;
     public static Item Santahelmet;
     
-    static ArmorMaterial Juggernaut = compatibility.addArmorMaterial("Juggernaut", "Juggernaut", 20, new int[] { 5, 6, 2, 5 }, 20, null, 0); // TODO: last
-    
-    static ArmorMaterial Marine = compatibility.addArmorMaterial("Marine", "Marine", 60, new int[] { 2, 3, 3, 3 }, 15, null, 0); // TODO: last
+    static ArmorMaterial Juggernaut = EnumHelper.addArmorMaterial("Juggernaut", "Juggernaut", 20, new int[] { 5, 6, 2, 5}, 20, null, 0);
+    static ArmorMaterial Marine = EnumHelper.addArmorMaterial("Marine", "Marine", 60, new int[] { 2, 3, 3, 3 }, 15, null, 0);
 
     public static void init(Object mod, ModContext modContext) {
         Builder marineArmorBuilder = new CustomArmor.Builder()

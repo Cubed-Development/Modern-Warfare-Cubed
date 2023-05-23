@@ -165,8 +165,8 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
                     attackEntity(objectMouseOver.entityHit, player, meleeInstance, isHeavyAttack);
                     break;
                 case BLOCK:
-                    if (!compatibility.isAirBlock(world, objectMouseOver.getBlockPos())) {
-                        compatibility.clickBlock(objectMouseOver.getBlockPos(), objectMouseOver.sideHit);
+                    if (!world.isAirBlock(objectMouseOver.getBlockPos())) {
+                        mc.playerController.clickBlock(objectMouseOver.getBlockPos(), objectMouseOver.sideHit);
                     }
                 default:
                     break;

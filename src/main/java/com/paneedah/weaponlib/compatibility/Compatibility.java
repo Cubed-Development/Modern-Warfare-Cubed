@@ -80,39 +80,21 @@ public interface Compatibility {
 
 	void destroyBlock(World world, RayTraceResult position);
 
-	void addItemToPlayerInventory(EntityPlayer player, final Item item, int slot);
-
-	boolean consumeInventoryItem(InventoryPlayer inventoryPlayer, Item item);
+    boolean consumeInventoryItem(InventoryPlayer inventoryPlayer, Item item);
 
     void consumeInventoryItemFromSlot(EntityPlayer player, int nextAttachmentSlot);
 
 	void addShapedRecipe(ItemStack itemStack, Object... materials);
 
-    void addShapedOreRecipe(ItemStack itemStack, Object... materials);
-
-    void registerBlock(ModContext context, Block block, String name);
-
-	void registerWorldGenerator(WorldGeneratorEventHandler worldGeneratorEventHandler, int i);
-
-	ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness);
-
     void addBlockHitEffect(BlockPos pos, double x, double y, double z, EnumFacing enumFacing);
 
     String getPlayerName(EntityPlayer player);
-
-    void clickBlock(BlockPos blockPos, EnumFacing sideHit);
-
-    boolean isAirBlock(World world, BlockPos blockPos);
 
     void addChatMessage(Entity entity, String message);
 
     Entity getRenderViewEntity();
 
     void setRenderViewEntity(Entity entity);
-
-    void addBreakingParticle(ModContext modContext, double x, double y, double z);
-
-    float getAspectRatio(ModContext modContext);
 
     ItemStack consumeInventoryItem(Item item, Predicate<ItemStack> condition, EntityPlayer player, int maxSize);
 

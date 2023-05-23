@@ -12,6 +12,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -344,7 +346,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
                 List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(grenade, craftingRecipe);
                 boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
                 if(hasOres) {
-                    compatibility.addShapedOreRecipe(itemStack, registeredRecipe.toArray());
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
                     compatibility.addShapedRecipe(itemStack, registeredRecipe.toArray());
                 }
@@ -358,7 +360,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
                 ItemStack itemStack = new ItemStack(grenade);
                 itemStack.setCount(craftingCount);
                 if(optionsMetadata.hasOres()) {
-                    compatibility.addShapedOreRecipe(itemStack, shape.toArray());
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
                     compatibility.addShapedRecipe(itemStack, shape.toArray());
                 }

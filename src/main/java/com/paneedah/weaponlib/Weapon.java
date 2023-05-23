@@ -37,7 +37,9 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.*;
 import java.util.Map.Entry;
@@ -976,7 +978,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                 List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(weapon, craftingRecipe);
                 boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
                 if(hasOres) {
-                    compatibility.addShapedOreRecipe(itemStack, registeredRecipe.toArray());
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
                     compatibility.addShapedRecipe(itemStack, registeredRecipe.toArray());
                 }
@@ -988,7 +990,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                 List<Object> shape = modContext.getRecipeManager().createShapedRecipe(weapon, weapon.getName(), optionsMetadata);
 
                 if(optionsMetadata.hasOres()) {
-                    compatibility.addShapedOreRecipe(new ItemStack(weapon), shape.toArray());
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
                 } else {
                     compatibility.addShapedRecipe(new ItemStack(weapon), shape.toArray());
                 }

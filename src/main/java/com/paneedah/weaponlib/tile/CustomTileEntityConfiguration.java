@@ -9,11 +9,13 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
@@ -122,8 +124,21 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         GameRegistry.registerTileEntity(tileEntityClass, "tile" + name);
         
         //System.out.println("RUNNING!");
-               
-        compatibility.registerBlock(modContext, tileEntityBlock, name);
+
+        if (tileEntityBlock.getRegistryName() == null) {
+            if (tileEntityBlock.getTranslationKey().length() < ModReference.id.length() + 2 + 5) {
+                throw new IllegalArgumentException("Unlocalize block name too short " + tileEntityBlock.getTranslationKey());
+            }
+            String unlocalizedName = tileEntityBlock.getTranslationKey().toLowerCase();
+            String registryName = unlocalizedName.substring(5 + ModReference.id.length() + 1);
+            tileEntityBlock.setRegistryName(ModReference.id, registryName);
+        }
+
+        ForgeRegistries.BLOCKS.register(tileEntityBlock);
+        ItemBlock itemBlock = new ItemBlock(tileEntityBlock);
+        // TODO: introduce registerItem()
+
+        modContext.registerRenderableItem(tileEntityBlock.getRegistryName(), itemBlock, null);
         
         if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
             RendererRegistration.registerRenderableEntity(modContext, name, tileEntityClass, modelClassName, 

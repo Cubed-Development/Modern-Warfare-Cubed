@@ -170,15 +170,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public void addItemToPlayerInventory(EntityPlayer player, Item item, int slot) {
-        if (slot == -1) {
-            player.inventory.addItemStackToInventory(new ItemStack(item));
-        } else if (player.inventory.mainInventory.get(slot) == null || player.inventory.mainInventory.get(slot).getItem() == Items.AIR) {
-            player.inventory.mainInventory.set(slot, new ItemStack(item));
-        }
-    }
-
-    @Override
     public void consumeInventoryItemFromSlot(EntityPlayer player, int slot) {
         if (player.inventory.getStackInSlot(slot) == null) {
             return;
@@ -194,50 +185,6 @@ public class Compatibility1_12_2 implements Compatibility {
     public void addShapedRecipe(ItemStack itemStack, Object... materials) {
         //GameRegistry.addShapedRecipe(itemStack, materials);
         ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, materials).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
-    }
-
-    @Override
-    public void addShapedOreRecipe(ItemStack itemStack, Object... materials) {
-        //GameRegistry.addRecipe(new ShapedOreRecipe(itemStack, materials).setMirrored(false));
-        ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, materials).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
-    }
-
-    @Override
-    public void registerBlock(ModContext context, Block block, String name) {
-        if (block.getRegistryName() == null) {
-            if (block.getTranslationKey().length() < ModReference.id.length() + 2 + 5) {
-                throw new IllegalArgumentException("Unlocalize block name too short " + block.getTranslationKey());
-            }
-            String unlocalizedName = block.getTranslationKey().toLowerCase();
-            String registryName = unlocalizedName.substring(5 + ModReference.id.length() + 1);
-            block.setRegistryName(ModReference.id, registryName);
-        }
-
-        ForgeRegistries.BLOCKS.register(block);
-        ItemBlock itemBlock = new ItemBlock(block);
-        // TODO: introduce registerItem()
-
-        context.registerRenderableItem(block.getRegistryName(), itemBlock, null);
-    }
-
-    @Override
-    public void registerWorldGenerator(WorldGeneratorEventHandler generator, int modGenerationWeight) {
-        GameRegistry.registerWorldGenerator(generator, modGenerationWeight);
-    }
-
-    @Override
-    public ArmorMaterial addArmorMaterial(String name, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness) {
-        return EnumHelper.addArmorMaterial(name, textureName, durability, reductionAmounts, enchantability, soundOnEquip != null ? soundOnEquip : null, toughness);
-    }
-
-    @Override
-    public void clickBlock(BlockPos blockPos, EnumFacing sideHit) {
-        mc.playerController.clickBlock(blockPos, sideHit);
-    }
-
-    @Override
-    public boolean isAirBlock(World world, BlockPos blockPos) {
-        return world.isAirBlock(blockPos);
     }
 
     @Override
@@ -264,18 +211,6 @@ public class Compatibility1_12_2 implements Compatibility {
             mc.effectRenderer.addBlockHitEffects(blockPos, sideHit);
             mc.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y, z, 0, 0, 0);
         }
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void addBreakingParticle(ModContext modContext, double x, double y, double z) {
-        ParticleBlood particle = new ParticleBlood(mc.player.world, x, y + 1, z);
-        mc.effectRenderer.addEffect(particle);
-    }
-
-    @Override
-    public float getAspectRatio(ModContext modContext) {
-        return modContext.getAspectRatio();
     }
 
     private static int findGreatesItemIndex(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player) {

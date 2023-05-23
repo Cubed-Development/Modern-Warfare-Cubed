@@ -1,7 +1,10 @@
 package com.paneedah.weaponlib.crafting;
 
+import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,7 +43,7 @@ public class RecipeManager {
         }
 
         if(hasOres) {
-            compatibility.addShapedOreRecipe(itemStack, recipeAslist.toArray());
+            ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, recipeAslist.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
         } else {
             compatibility.addShapedRecipe(itemStack, recipeAslist.toArray());
         }

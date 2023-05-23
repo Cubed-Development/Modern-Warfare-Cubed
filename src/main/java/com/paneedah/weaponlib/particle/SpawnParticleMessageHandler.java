@@ -34,7 +34,8 @@ public class SpawnParticleMessageHandler implements CompatibleMessageHandler<Spa
                 for (int i = 0; i < message.getCount(); ++i) {
                     switch(message.getParticleType()) {
                     case BLOOD:
-                       compatibility.addBreakingParticle(modContext, message.getPosX(), message.getPosY(), message.getPosZ());
+                        ParticleBlood particle = new ParticleBlood(mc.player.world, message.getPosX(), message.getPosY() + 1, message.getPosZ());
+                        mc.effectRenderer.addEffect(particle);
                         break;
                     case SMOKE_GRENADE_SMOKE:
                         modContext.getEffectManager().spawnExplosionSmoke(

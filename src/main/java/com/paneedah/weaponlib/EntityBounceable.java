@@ -362,7 +362,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
             AxisAlignedBB projectedEntityBoundingBox = this.getEntityBoundingBox().offset(dX * i, dY * i, dZ * i);
 
-            if(compatibility.isAirBlock(world, blockPos) || !new AxisAlignedBB(blockPos).intersects(projectedEntityBoundingBox) ) {
+            if(world.isAirBlock(blockPos) || !new AxisAlignedBB(blockPos).intersects(projectedEntityBoundingBox) ) {
                 this.posX = projectedXPos;
                 this.posY = projectedYPos;
                 this.posZ = projectedZPos;

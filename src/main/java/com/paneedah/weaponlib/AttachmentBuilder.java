@@ -10,7 +10,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -314,7 +316,7 @@ public class AttachmentBuilder<T> {
 			ItemStack itemStack = new ItemStack(attachment);
 			itemStack.setCount(craftingCount);
             if(optionsMetadata.hasOres()) {
-			    compatibility.addShapedOreRecipe(itemStack, shape.toArray());
+				ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
 			} else {
 			    compatibility.addShapedRecipe(itemStack, shape.toArray());
 			}

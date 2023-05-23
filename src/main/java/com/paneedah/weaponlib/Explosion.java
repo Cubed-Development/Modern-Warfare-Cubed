@@ -392,7 +392,7 @@ public class Explosion {
 
         if (this.isFlaming && destroyBlocks) {
             for (BlockPos blockpos1 : this.affectedBlockPositions) {
-                if (compatibility.isAirBlock(world, blockpos1) && compatibility.isFullBlock(compatibility.getBlockBelow(world, blockpos1)) && this.explosionRNG.nextInt(3) == 0) {
+                if (world.isAirBlock(blockpos1) && compatibility.isFullBlock(compatibility.getBlockBelow(world, blockpos1)) && this.explosionRNG.nextInt(3) == 0) {
                     compatibility.setBlockToFire(world, blockpos1);
                 }
             }

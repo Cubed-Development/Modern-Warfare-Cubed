@@ -14,7 +14,9 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -195,7 +197,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
                 ItemStack itemStack = new ItemStack(camera);
                 itemStack.setCount(craftingCount);
                 if(optionsMetadata.hasOres()) {
-                    compatibility.addShapedOreRecipe(itemStack, shape.toArray());
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
                     compatibility.addShapedRecipe(itemStack, shape.toArray());
                 }

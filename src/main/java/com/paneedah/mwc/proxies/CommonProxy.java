@@ -26,6 +26,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
@@ -123,7 +124,7 @@ public class CommonProxy {
         Entities.init(this);
         Vehicles.init(this);
 
-        compatibility.registerWorldGenerator(new WorldGeneratorEventHandler(), 0);
+        GameRegistry.registerWorldGenerator(new WorldGeneratorEventHandler(), 0);
     }
 
     public void postInit(final ModernWarfareMod mod, final FMLPostInitializationEvent initializationEvent) {

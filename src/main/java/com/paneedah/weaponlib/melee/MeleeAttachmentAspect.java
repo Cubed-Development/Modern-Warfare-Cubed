@@ -10,6 +10,7 @@ import com.paneedah.weaponlib.state.StateManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -279,7 +280,16 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 
 		if(currentAttachment != null) {
 			// Item must be added to the same spot the next attachment comes from or to any spot if there is no next attachment
-			compatibility.addItemToPlayerInventory(player, currentAttachment, lookupResult.index);
+			if (lookupResult.index == -1) {
+				player.inventory.addItemStackToInventory(new ItemStack(currentAttachment));
+			} else if (player.inventory.mainInventory.get(lookupResult.index) == null || player.inventory.mainInventory.get(lookupResult.index).getItem() == Items.AIR) {
+				player.inventory.mainInventory.set(lookupResult.index, new ItemStack(currentAttachment));
+			}
+			if (lookupResult.index == -1) {
+				player.inventory.addItemStackToInventory(new ItemStack(currentAttachment));
+			} else if (player.inventory.mainInventory.get(lookupResult.index) == null || player.inventory.mainInventory.get(lookupResult.index).getItem() == Items.AIR) {
+				player.inventory.mainInventory.set(lookupResult.index, new ItemStack(currentAttachment));
+			}
 		}
 		
 		weaponInstance.setActiveAttachmentIds(activeAttachmentIds);

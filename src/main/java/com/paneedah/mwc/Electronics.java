@@ -20,7 +20,7 @@ public class Electronics {
         Tablet = new ItemTablet.Builder<>()
                 .withViewfinderPositioning((p, s) -> {
                     float scale = 5.9f;
-                    GL11.glScalef(scale, scale / compatibility.getAspectRatio(ModernWarfareMod.MOD_CONTEXT), scale);
+                    GL11.glScalef(scale, scale / ModernWarfareMod.MOD_CONTEXT.getAspectRatio(), scale);
                     GL11.glTranslatef(-0.12f, 0.56f, 0.01f);
                 })
                 .withCreativeTab(ModernWarfareMod.GadgetsTab)
@@ -143,7 +143,7 @@ public class Electronics {
         .withScreenPerspectiveType(GasDetectorScreenPerspective.class)
         .withScreenPositioning((p, s) -> {
             float scale = 1.9f;
-            GL11.glScalef(scale, scale / compatibility.getAspectRatio(ModernWarfareMod.MOD_CONTEXT), scale);
+            GL11.glScalef(scale, scale / ModernWarfareMod.MOD_CONTEXT.getAspectRatio(), scale);
             GL11.glTranslatef(0.017f, 0.16f, 0.17f);
         })
         .withCreativeTab(ModernWarfareMod.GadgetsTab)
