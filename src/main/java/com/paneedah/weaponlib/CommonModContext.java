@@ -33,11 +33,13 @@ import com.paneedah.weaponlib.state.StateManager;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessageMessageHandler;
 import com.paneedah.weaponlib.vehicle.network.*;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -344,11 +346,36 @@ public class CommonModContext implements ModContext {
 	public void preInitEnd(Object mod, SimpleNetworkWrapper channel) {
         // Workbench
 		GameRegistry.registerTileEntity(TileEntityWorkbench.class, ModReference.id + ":tileworkbench");
-        compatibility.registerBlock(this, new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(ModernWarfareMod.BlocksTab), "weapon_workbench");
+        Block workbenchblock = new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(ModernWarfareMod.BlocksTab);
+        if (workbenchblock.getRegistryName() == null) {
+            if (workbenchblock.getTranslationKey().length() < ModReference.id.length() + 2 + 5) {
+                throw new IllegalArgumentException("Unlocalize block name too short " + workbenchblock.getTranslationKey());
+            }
+            String unlocalizedName = workbenchblock.getTranslationKey().toLowerCase();
+            String registryName = unlocalizedName.substring(5 + ModReference.id.length() + 1);
+            workbenchblock.setRegistryName(ModReference.id, registryName);
+        }
+
+        ForgeRegistries.BLOCKS.register(workbenchblock);
+        ItemBlock workbenchItemBlock = new ItemBlock(workbenchblock);
+        this.registerRenderableItem(workbenchblock.getRegistryName(), workbenchItemBlock, null);
 
         // Ammo press
 		GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ModReference.id + ":tileammopress");
-        compatibility.registerBlock(this, new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(ModernWarfareMod.BlocksTab), "ammo_press");
+        Block ammopressblock = new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(ModernWarfareMod.BlocksTab);
+
+        if (ammopressblock.getRegistryName() == null) {
+            if (ammopressblock.getTranslationKey().length() < ModReference.id.length() + 2 + 5) {
+                throw new IllegalArgumentException("Unlocalize block name too short " + ammopressblock.getTranslationKey());
+            }
+            String unlocalizedName = ammopressblock.getTranslationKey().toLowerCase();
+            String registryName = unlocalizedName.substring(5 + ModReference.id.length() + 1);
+            ammopressblock.setRegistryName(ModReference.id, registryName);
+        }
+
+        ForgeRegistries.BLOCKS.register(ammopressblock);
+        ItemBlock ammoItemBlock = new ItemBlock(ammopressblock);
+        this.registerRenderableItem(ammopressblock.getRegistryName(), ammoItemBlock, null);
     }
 
     @Override
