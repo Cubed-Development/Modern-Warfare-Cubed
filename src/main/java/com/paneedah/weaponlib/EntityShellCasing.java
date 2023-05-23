@@ -52,6 +52,7 @@ public class EntityShellCasing extends EntityProjectile {
         this.weaponInstance = weaponInstance;
     }
 
+    @Override
     public void setPositionAndDirection() {
         this.setSize(0.001f, 0.001f);
         float forwardOffset = compatibility.getCompatibleShellCasingForwardOffset()
