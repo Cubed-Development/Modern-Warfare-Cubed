@@ -402,7 +402,7 @@ public class Interceptors {
     	//GlStateManager.translate(0, ClientValueRepo.rise, 0);
     	
     	GlStateManager.rotate((float) ClientValueRepo.jumpingSpring.getLerpedPosition(), 1, 0, 0);
-        if(!(compatibility.getRenderViewEntity() instanceof EntityPlayer)) {
+        if(!(mc.getRenderViewEntity() instanceof EntityPlayer)) {
             return true;
         }
         
@@ -421,7 +421,7 @@ public class Interceptors {
        //GlStateManager.rotate(3f*scalar, 0, 1, 0);
       // GlStateManager.rotate(2f*scalar, 1, 0, 0);
        
-        EntityPlayer entityplayer = (EntityPlayer)compatibility.getRenderViewEntity();
+        EntityPlayer entityplayer = (EntityPlayer)mc.getRenderViewEntity();
 
         //ClientValueRepo.forward += mc.player.moveForward/25f;
         
@@ -605,7 +605,7 @@ public class Interceptors {
     
     public static boolean hurtCameraEffect(float partialTicks) {
 //	    if(1+1==2) return false;  
-        if(!(compatibility.getRenderViewEntity() instanceof EntityPlayer)) {
+        if(!(mc.getRenderViewEntity() instanceof EntityPlayer)) {
             return true;
         }
         
@@ -613,7 +613,7 @@ public class Interceptors {
         
         boolean allowDefaultEffect = false;
 
-        EntityPlayer entitylivingbase = (EntityPlayer)compatibility.getRenderViewEntity();
+        EntityPlayer entitylivingbase = (EntityPlayer)mc.getRenderViewEntity();
         float f = (float) entitylivingbase.hurtTime - partialTicks;
 
         if (entitylivingbase.getHealth() <= 0.0F) {

@@ -82,41 +82,13 @@ public interface Compatibility {
 
 	void addShapedRecipe(ItemStack itemStack, Object... materials);
 
-    void addBlockHitEffect(BlockPos pos, double x, double y, double z, EnumFacing enumFacing);
-
-    String getPlayerName(EntityPlayer player);
-
-    void addChatMessage(Entity entity, String message);
-
-    Entity getRenderViewEntity();
-
-    void setRenderViewEntity(Entity entity);
-
     ItemStack consumeInventoryItem(Item item, Predicate<ItemStack> condition, EntityPlayer player, int maxSize);
 
     ItemStack tryConsumingCompatibleItem(List<? extends Item> compatibleParts, int maxSize, EntityPlayer player, Predicate<ItemStack> ...conditions);
 
-    Item findItemByName(String itemName);
-
-    AxisAlignedBB expandEntityBoundingBox(Entity entity, double f, double f2, double f3);
-
-    List<Entity> getEntitiesWithinAABBExcludingEntity(World world, Entity entity, AxisAlignedBB boundingBox);
-
-    void spawnParticle(World world, String particleName, double d, double e, double f, double motionX, double motionY, double motionZ);
-
-    IBlockState getBlockAtPosition(World world, BlockPos blockPos);
-
     boolean isBlockPenetratableByBullets(Block block);
 
     boolean isBlockPenetratableByBullets(IBlockState blockState);
-
-    boolean canCollideCheck(Block block, IBlockState metadata, boolean hitIfLiquid);
-
-    float getCompatibleShellCasingForwardOffset();
-
-    boolean madeFromHardMaterial(IBlockState iBlockState);
-
-    void playSoundAtEntity(Entity entity, SoundEvent explosionSound, float volume, float pitch);
 
     EntityAITarget createAINearestAttackableTarget(EntityLivingBase e, Class<? extends EntityLivingBase> targetClass, boolean checkSight);
 

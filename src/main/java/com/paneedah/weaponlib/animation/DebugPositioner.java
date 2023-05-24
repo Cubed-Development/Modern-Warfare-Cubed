@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.animation;
 import com.paneedah.weaponlib.KeyBindings;
 import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.text.TextComponentString;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Matrix4f;
 
@@ -95,7 +96,7 @@ public class DebugPositioner {
 	public static void incrementXRotation(float increment) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			compatibility.addChatMessage(mc.player, "Debug part not selected");
+			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 
@@ -107,7 +108,7 @@ public class DebugPositioner {
 	public static void incrementYRotation(float increment) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			compatibility.addChatMessage(mc.player, "Debug part not selected");
+			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		partPosition.yRotation += increment;
@@ -118,7 +119,7 @@ public class DebugPositioner {
 	public static void incrementZRotation(float increment) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			compatibility.addChatMessage(mc.player, "Debug part not selected");
+			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		partPosition.zRotation += increment;
@@ -129,7 +130,7 @@ public class DebugPositioner {
 	public static void incrementXPosition(float increment, boolean altMode) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			compatibility.addChatMessage(mc.player, "Debug part not selected");
+			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		if (altMode) {
@@ -145,7 +146,7 @@ public class DebugPositioner {
 	public static void incrementYPosition(float increment, boolean altMode) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			compatibility.addChatMessage(mc.player, "Debug part not selected");
+			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		if (altMode) {
@@ -161,7 +162,7 @@ public class DebugPositioner {
 	public static void incrementZPosition(float increment, boolean altMode) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			compatibility.addChatMessage(mc.player, "Debug part not selected");
+			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		if (altMode) {
@@ -177,7 +178,7 @@ public class DebugPositioner {
 	public static void setScale(float scale) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			compatibility.addChatMessage(mc.player, "Debug part not selected");
+			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		partPosition.scale = scale;
@@ -187,7 +188,7 @@ public class DebugPositioner {
 	public static void setStep(float step) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			compatibility.addChatMessage(mc.player, "Debug part not selected");
+			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		partPosition.step = step;
@@ -211,7 +212,7 @@ public class DebugPositioner {
 	public static void reset() {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			compatibility.addChatMessage(mc.player, "Debug part not selected");
+			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		transitionConfigurations.clear();
@@ -428,7 +429,7 @@ public class DebugPositioner {
 	public static void setAutorotate(float xrpm, float yrpm, float zrpm) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			compatibility.addChatMessage(mc.player, "Debug part not selected");
+			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 

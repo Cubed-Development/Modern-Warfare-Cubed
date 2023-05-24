@@ -154,7 +154,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
                 this.posX, this.posY, this.posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null, 
                 modContext.getExplosionSound());
         
-        List<?> nearbyEntities = compatibility.getEntitiesWithinAABBExcludingEntity(world, this,
+        List<?> nearbyEntities = world.getEntitiesWithinAABBExcludingEntity(this,
                 this.getEntityBoundingBox().expand(5, 5, 5));
 
         float damageCoefficient = (float)ModernConfigManager.explosionDamage;
@@ -182,7 +182,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
 
             Vector3D cvec2 = new Vector3D(this.posX + x * k, this.posY + y * k, this.posZ + z * k);
 
-            BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> compatibility.canCollideCheck(block, blockMetadata, false);
+            BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> block.canCollideCheck(blockMetadata, false);
             RayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(world, cvec1, cvec2, isCollidable);
 
             if(rayTraceResult != null) {
@@ -193,7 +193,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
                 Entity nearbyEntity = (Entity)nearbyEntityObject;
                 if (nearbyEntity.canBeCollidedWith()) {
                     float f = 0.5f;
-                    AxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(nearbyEntity, (double) f, (double) f, (double) f);
+                    AxisAlignedBB axisalignedbb = nearbyEntity.getEntityBoundingBox().expand((double) f, (double) f, (double) f);
                     RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(cvec10.toVec3d(), cvec2.toVec3d());
 
                     if (movingobjectposition1 != null) {

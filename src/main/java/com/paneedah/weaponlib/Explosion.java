@@ -175,7 +175,7 @@ public class Explosion {
                             BlockPos blockpos = new BlockPos((int) d4, (int) d6, (int) d8);
                             // IBlockState iblockstate =
                             // this.worldObj.getBlockState(blockpos);
-                            IBlockState iBlockState = compatibility.getBlockAtPosition(world, blockpos);
+                            IBlockState iBlockState = world.getBlockState(blockpos);
 
                             if (!(iBlockState.getBlock() == Blocks.AIR || compatibility.isBlockPenetratableByBullets(iBlockState))) {
                                 float f2 = this.exploder != null ? exploder.getExplosionResistance(new net.minecraft.world.Explosion(this.getWorld(), this.getExploder(), this.getExplosionX(), this.getExplosionY(), this.getExplosionZ(), this.getExplosionSize(), false, true), this.world, blockpos, iBlockState) : iBlockState.getBlock().getExplosionResistance((Entity) null); // (this.world, this.exploder, this, blockpos, iBlockState) : compatibility.getExplosionResistance(world, iBlockState, blockpos, (Entity) null, this);
@@ -203,7 +203,7 @@ public class Explosion {
         int i1 = MathHelper.floor(this.explosionY + (double) f3 + 1.0D);
         int j2 = MathHelper.floor(this.explosionZ - (double) f3 - 1.0D);
         int j1 = MathHelper.floor(this.explosionZ + (double) f3 + 1.0D);
-        List<Entity> list = compatibility.getEntitiesWithinAABBExcludingEntity(world, this.exploder, new AxisAlignedBB((double) k1, (double) i2, (double) j2, (double) l1, (double) i1, (double) j1));
+        List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(this.exploder, new AxisAlignedBB((double) k1, (double) i2, (double) j2, (double) l1, (double) i1, (double) j1));
 
         // net.minecraftforge.event.ForgeEventFactory.onExplosionDetonate(this.worldObj, this, list, f3);
         Vector3D vec3d = new Vector3D(this.explosionX, this.explosionY, this.explosionZ);
@@ -284,7 +284,7 @@ public class Explosion {
     }
 
     public boolean canCollideWithBlock(Block block, IBlockState iBlockState) {
-        return !compatibility.isBlockPenetratableByBullets(block) && compatibility.canCollideCheck(block, iBlockState, false);
+        return !compatibility.isBlockPenetratableByBullets(block) && block.canCollideCheck(iBlockState, false);
     }
 
     /**
@@ -304,7 +304,7 @@ public class Explosion {
                     continue;
                 }
 
-                IBlockState blockState = compatibility.getBlockAtPosition(world, blockpos);
+                IBlockState blockState = world.getBlockState(blockpos);
 
 
 //                if (spawnParticles) {

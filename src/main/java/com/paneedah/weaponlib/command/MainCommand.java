@@ -13,6 +13,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
 import java.util.*;
@@ -63,16 +64,16 @@ public class MainCommand extends CommandBase {
             if(ARG_SHOW.indexOf(args[0].toLowerCase()) == 0) {
                 processShowSubCommand(args);
             } else {
-                compatibility.addChatMessage(mc.player, getUsage(sender));
+                mc.player.sendMessage(new TextComponentString(getUsage(sender)));
             }
         } else {
-            compatibility.addChatMessage(mc.player, getUsage(sender));
+            mc.player.sendMessage(new TextComponentString(getUsage(sender)));
         }
     }
 
     private void processShowSubCommand(String[] args) {
         if(args.length < 2) {
-            compatibility.addChatMessage(mc.player, getSubCommandShowUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
             return;
         }
 
@@ -85,7 +86,7 @@ public class MainCommand extends CommandBase {
             }
             showAttachments(page);
         } else {
-            compatibility.addChatMessage(mc.player, getSubCommandShowUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
         }
     }
 
@@ -108,24 +109,24 @@ public class MainCommand extends CommandBase {
                 int pageSize = 8;
                 int offset = pageSize * (page - 1);
                 if(page < 1) {
-                    compatibility.addChatMessage(mc.player, "Invalid page");
+                    mc.player.sendMessage(new TextComponentString("Invalid page"));
                 } else if(sorted.size() == 0) {
-                    compatibility.addChatMessage(mc.player, "No attachments found for "
-                            + item.getItemStackDisplayName(itemStack));
+                    mc.player.sendMessage(new TextComponentString("No attachments found for "
+                            + item.getItemStackDisplayName(itemStack)));
                 } else if(offset < sorted.size()) {
-                    compatibility.addChatMessage(mc.player, "Attachments for "
+                    mc.player.sendMessage(new TextComponentString("Attachments for "
                             + item.getItemStackDisplayName(itemStack) + ", page " + page + " of "
-                            + (int)Math.ceil((double)sorted.size() / pageSize));
+                            + (int)Math.ceil((double)sorted.size() / pageSize)));
 
                     for(int i = offset; i < offset + pageSize; i++) {
                         if(i < 0 || i >= sorted.size()) {
                             break;
                         }
-                        compatibility.addChatMessage(mc.player, " - "
-                                + sorted.get(i).getAttachment().getItemStackDisplayName(null));
+                        mc.player.sendMessage(new TextComponentString(" - "
+                                + sorted.get(i).getAttachment().getItemStackDisplayName(null)));
                     }
                 } else {
-                    compatibility.addChatMessage(mc.player, "Invalid page");
+                    mc.player.sendMessage(new TextComponentString("Invalid page"));
                 }
             }
         }
@@ -147,8 +148,8 @@ public class MainCommand extends CommandBase {
     private void showRecipe(Item item) {
         if(item != null && (item instanceof Weapon)) {
            // compatibility.addChatMessage(mc.player, "");
-            compatibility.addChatMessage(mc.player, TextFormatting.GOLD +
-                    "-- Recipe for " + TextFormatting.GRAY +  item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--");
+            mc.player.sendMessage(new TextComponentString(TextFormatting.GOLD +
+                    "-- Recipe for " + TextFormatting.GRAY +  item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--"));
            
             CraftingEntry[] modernRecipe = ((Weapon) item).getModernRecipe();
             if(modernRecipe == null) {
@@ -165,8 +166,8 @@ public class MainCommand extends CommandBase {
             		System.out.println(craftingItem.getRecoveryChance());
             		toPrint += " -> " + (stack.getCount()*craftingItem.getRecoveryChance()) + "x " + I18n.format(craftingItem.getRegistryName() + ".name");
             	}
-            	
-            	compatibility.addChatMessage(mc.player, TextFormatting.GOLD + toPrint);
+
+                mc.player.sendMessage(new TextComponentString(TextFormatting.GOLD + toPrint));
                  
             }
              
@@ -205,7 +206,7 @@ public class MainCommand extends CommandBase {
             }
         }
 
-        compatibility.addChatMessage(mc.player, "");
+        mc.player.sendMessage(new TextComponentString(""));
 
         for(int i = 0; i < recipe.size(); i++) {
             Object element = recipe.get(i);
@@ -215,8 +216,8 @@ public class MainCommand extends CommandBase {
                     Object decoded = decoder.get(c);
                     builder.append(String.format("[%.20s] ", decoded != null ? decoded : "*"));
                 }
-                compatibility.addChatMessage(mc.player,
-                        "" + builder.toString());
+                mc.player.sendMessage(new TextComponentString(
+                        "" + builder.toString()));
             } else {
                 break;
             }

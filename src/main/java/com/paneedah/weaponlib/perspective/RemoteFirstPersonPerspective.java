@@ -44,7 +44,7 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
         updateWatchablePlayer();
 
         RenderGlobal origRenderGlobal = mc.renderGlobal;
-        Entity origRenderViewEntity = compatibility.getRenderViewEntity();
+        Entity origRenderViewEntity = mc.getRenderViewEntity();
         EntityRenderer origEntityRenderer = mc.entityRenderer;
         int origDisplayWidth = mc.displayWidth;
         int origDisplayHeight = mc.displayHeight;
@@ -59,7 +59,7 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
         mc.entityRenderer = this.entityRenderer;
         if (watchablePlayer != null && !watchablePlayer.isDead) {
 
-            compatibility.setRenderViewEntity(watchablePlayer);
+            mc.setRenderViewEntity(watchablePlayer);
             mc.player = watchablePlayer;
 
             modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.RENDER_PERSPECTIVE);
@@ -71,7 +71,7 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
             modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.NORMAL);
 
-            compatibility.setRenderViewEntity(origRenderViewEntity);
+            mc.setRenderViewEntity(origRenderViewEntity);
             mc.player = origPlayer;
         }
 

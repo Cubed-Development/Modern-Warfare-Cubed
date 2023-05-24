@@ -1,10 +1,13 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class BlockHitMessageHandler implements CompatibleMessageHandler<BlockHitMessage, IMessage>  {
@@ -27,7 +30,10 @@ public class BlockHitMessageHandler implements CompatibleMessageHandler<BlockHit
             compatibility.runInMainClientThread(() -> {
             	//BulletHoleRenderer
             
-                compatibility.addBlockHitEffect(message.getBlockPos(), message.getPosX(), message.getPosY(), message.getPosZ(), message.getSideHit());
+                for (int i = 0; i < ModernWarfareMod.bulletHitParticleMult; i++) {
+                    mc.effectRenderer.addBlockHitEffects(message.getBlockPos(), message.getSideHit());
+                    mc.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, message.getPosX(), message.getPosY(), message.getPosZ(), 0, 0, 0);
+                }
             });
         }
         return null;

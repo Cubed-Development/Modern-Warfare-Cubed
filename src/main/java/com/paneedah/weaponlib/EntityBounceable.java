@@ -11,6 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -170,7 +171,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
         if (thrower != null) { //if(!this.worldObj.isRemote)
             Entity entity = null;
-            List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(world, this, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+            List<?> list = world.getEntitiesWithinAABBExcludingEntity(entity, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D)); // compatibility.getEntitiesWithinAABBExcludingEntity(world, this, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
             double d0 = 0.0D;
             EntityLivingBase entitylivingbase = this.getThrower();
 
@@ -180,7 +181,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
                 if (entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                     float f = 0.3F;
-                    AxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, f, f, f);
+                    AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand(f, f, f);
                     RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
 
                     if (movingobjectposition1 != null) {
@@ -303,8 +304,9 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         if (this.isInWater()) {
             for (int i = 0; i < 4; ++i) {
                 float f4 = 0.25F;
-                compatibility.spawnParticle(world,
-                        "bubble", this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);
+                EnumParticleTypes particleType = EnumParticleTypes.getByName("bubble");
+                if (particleType != null)
+                    world.spawnParticle(particleType, this.posX - this.motionX * (double)f4, this.posY - this.motionY * (double)f4, this.posZ - this.motionZ * (double)f4, this.motionX, this.motionY, this.motionZ);
             }
 
             f2 = 0.8F;
@@ -397,7 +399,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
                 IBlockState iBlockState;
 
                 BlockPos blockPos = new BlockPos(projectedPos.x, projectedPos.y, projectedPos.z);
-                if((iBlockState = compatibility.getBlockAtPosition(world, blockPos)) != null && !(iBlockState.getBlock() == Blocks.AIR)) {
+                if((iBlockState = world.getBlockState(blockPos)) != null && !(iBlockState.getBlock() == Blocks.AIR)) {
                     log.debug("Found non-intercept position colliding with block {}", iBlockState);
                     intercept = movingobjectposition;
                 } else {

@@ -196,11 +196,10 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
      * contaminated area without an impact
      */
     private void updateNearbyEntities() {
-        if(spreadBox == null) {
+        if(spreadBox == null)
             return;
-        }
         
-        List<Entity> entities = compatibility.getEntitiesWithinAABBExcludingEntity(world, this, spreadBox);
+        List<Entity> entities = world.getEntitiesWithinAABBExcludingEntity(this, spreadBox);
         for(Entity entity: entities) {
             BlockPos entityPos = new BlockPos((int)entity.posX, (int)entity.posY, (int)entity.posZ);
             float adjustedConcentration = spreadMap.getOrDefault(entityPos, 0f) * concentrationDecayAdjustment;
@@ -314,7 +313,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
             return false;
         }
         boolean result = false;
-        IBlockState iBlockState = compatibility.getBlockAtPosition(world, blockPos);
+        IBlockState iBlockState = world.getBlockState(blockPos);
         if (iBlockState.getBlock() == Blocks.AIR) {
             Float currentConcentration = spreadMap.get(blockPos);
             if(currentConcentration == null || currentConcentration < concentration) {

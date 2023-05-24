@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -288,9 +289,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         if (this.isInWater()) {
             for (int i = 0; i < 4; ++i) {
                 float f4 = 0.25F;
-                compatibility.spawnParticle(world, "bubble", this.posX - this.motionX * (double) f4,
-                        this.posY - this.motionY * (double) f4, this.posZ - this.motionZ * (double) f4, this.motionX,
-                        this.motionY, this.motionZ);
+                EnumParticleTypes particleType = EnumParticleTypes.getByName("bubble");
+                if (particleType != null)
+                    world.spawnParticle(particleType, this.posX - this.motionX * (double) f4, this.posY - this.motionY * (double) f4, this.posZ - this.motionZ * (double) f4, this.motionX, this.motionY, this.motionZ);
             }
 
             f2 = 0.8F;
@@ -305,7 +306,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 
     private Entity getRayTraceEntities(Vector3D vec3, Vector3D vec31) {
         Entity entity = null;
-        List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(world, this, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+        List<?> list = world.getEntitiesWithinAABBExcludingEntity(entity, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));//compatibility.getEntitiesWithinAABBExcludingEntity(world, this, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
         double d0 = 0.0D;
         EntityLivingBase entitylivingbase = this.getThrower();
 
@@ -322,7 +323,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 
             if (flag && entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                 float f = 0.3F;
-                AxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(entity1, (double) f, (double) f, (double) f);
+                AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand((double) f, (double) f, (double) f);
                 RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
 
                 if (movingobjectposition1 != null) {
@@ -357,7 +358,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 
         if ((this.throwerName == null || this.throwerName.length() == 0) && this.thrower != null
                 && this.thrower instanceof EntityPlayer) {
-            this.throwerName = compatibility.getPlayerName((EntityPlayer)this.thrower);
+            this.throwerName = ((EntityPlayer)this.thrower).getName();
         }
 
         tagCompound.setString("ownerName", this.throwerName == null ? "" : this.throwerName);
@@ -436,6 +437,6 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
     }
 
     public boolean canCollideWithBlock(List<BlockPos> violators, Block block, BlockPos pos, IBlockState iBlockState) {
-        return compatibility.canCollideCheck(block, iBlockState, false);
+        return block.canCollideCheck(iBlockState, false);
     }
 }

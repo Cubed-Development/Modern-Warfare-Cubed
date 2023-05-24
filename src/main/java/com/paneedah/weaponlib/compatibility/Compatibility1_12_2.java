@@ -155,32 +155,6 @@ public class Compatibility1_12_2 implements Compatibility {
         ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, materials).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
     }
 
-    @Override
-    public void addChatMessage(Entity entity, String message) {
-        entity.sendMessage(new TextComponentString(message));
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public Entity getRenderViewEntity() {
-        return mc.getRenderViewEntity();
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void setRenderViewEntity(Entity entity) {
-        mc.setRenderViewEntity(entity);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void addBlockHitEffect(BlockPos blockPos, double x, double y, double z, EnumFacing sideHit) {
-        for (int i = 0; i < ModernWarfareMod.bulletHitParticleMult; i++) {
-            mc.effectRenderer.addBlockHitEffects(blockPos, sideHit);
-            mc.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y, z, 0, 0, 0);
-        }
-    }
-
     private static int findGreatesItemIndex(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player) {
         ItemStack maxStack = null;
         int maxItemIndex = -1;
@@ -259,42 +233,6 @@ public class Compatibility1_12_2 implements Compatibility {
     }
 
     @Override
-    public AxisAlignedBB expandEntityBoundingBox(Entity entity1, double f1, double f2, double f3) {
-        return entity1.getEntityBoundingBox().expand(f1, f2, f3);
-    }
-
-    @Override
-    public List<Entity> getEntitiesWithinAABBExcludingEntity(World world, Entity entity, AxisAlignedBB boundingBox) {
-        return world.getEntitiesWithinAABBExcludingEntity(entity, boundingBox);
-    }
-
-    @Override
-    public void spawnParticle(World world, String particleName, double xCoord, double yCoord, double zCoord,
-                              double xSpeed, double ySpeed, double zSpeed) {
-
-
-        EnumParticleTypes particleType = EnumParticleTypes.getByName(particleName);
-        if (particleType != null) {
-            world.spawnParticle(particleType, xCoord, yCoord, zCoord, xSpeed, ySpeed, zSpeed);
-        }
-    }
-
-    @Override
-    public IBlockState getBlockAtPosition(World world, BlockPos blockPos) {
-        return world.getBlockState(blockPos);
-    }
-
-    @Override
-    public Item findItemByName(String itemName) {
-        return Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, itemName));
-    }
-
-    @Override
-    public String getPlayerName(EntityPlayer player) {
-        return player.getName();
-    }
-
-    @Override
     public boolean isBlockPenetratableByBullets(Block block) {
         if (blocksToCheck.contains(block))
             return true;
@@ -310,33 +248,6 @@ public class Compatibility1_12_2 implements Compatibility {
         return isBlockPenetratableByBullets(blockState.getBlock());
     }
 
-    @Override
-    public boolean canCollideCheck(Block block, IBlockState iBlockState, boolean hitIfLiquid) {
-        //return false;
-
-        //	return block == Blocks.STAINED_GLASS;
-        return block.canCollideCheck(iBlockState, hitIfLiquid);
-    }
-
-    @Override
-    public float getCompatibleShellCasingForwardOffset() {
-        return 0.1F;
-    }
-
-
-    @Override
-    public boolean madeFromHardMaterial(IBlockState iBlockState) {
-        Material material = iBlockState.getMaterial();
-
-        return material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD;
-    }
-
-    @Override
-    public void playSoundAtEntity(Entity entity, SoundEvent sound, float volume, float pitch) {
-        if (sound != null) {
-            entity.playSound(sound, volume, pitch);
-        }
-    }
 
     @Override
     public EntityAITarget createAINearestAttackableTarget(EntityLivingBase e, Class<? extends EntityLivingBase> targetClass,

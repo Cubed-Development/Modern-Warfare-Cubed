@@ -455,7 +455,7 @@ public class EntityConfiguration {
                             continue;
                         }
 
-                        Item gun = compatibility.findItemByName(gunId);
+                        Item gun = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, gunId));
                         if (gun == null) {
                             ModReference.log.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
                             continue;
@@ -467,7 +467,7 @@ public class EntityConfiguration {
 
                         if (parts.length >= 3) {
                             for (String attachmentId : Arrays.asList(parts).subList(2, parts.length)) {
-                                Item att = compatibility.findItemByName(attachmentId);
+                                Item att = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, attachmentId));
                                 if (!(att instanceof ItemAttachment)) {
                                     ModReference.log.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
                                     continue;

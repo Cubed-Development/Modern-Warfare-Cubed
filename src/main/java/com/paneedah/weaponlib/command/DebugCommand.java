@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.command;
 
 import akka.japi.Pair;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.Part;
@@ -18,6 +19,8 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
 import java.io.*;
@@ -73,7 +76,7 @@ public class DebugCommand extends CommandBase {
     }
 
     public void sendDebugMessage(String message) {
-    	compatibility.addChatMessage(mc.player, getDebugPrefix() + message);
+        mc.player.sendMessage(new TextComponentString(getDebugPrefix() + message));
     }
     
     private String getSubCommandDebugUsage() {
@@ -163,10 +166,10 @@ public class DebugCommand extends CommandBase {
             	processWeapon(args);
             	break;
             default:
-                compatibility.addChatMessage(mc.player, getUsage(sender));
+                mc.player.sendMessage(new TextComponentString(getUsage(sender)));
             }
         } else {
-            compatibility.addChatMessage(mc.player, getUsage(sender));
+            mc.player.sendMessage(new TextComponentString(getUsage(sender)));
         }
     }
     
@@ -204,12 +207,12 @@ public class DebugCommand extends CommandBase {
     private void processWeapon(String[] args) {
     	if(args[1].equals("infinite")) {
     		isInfiniteAmmo = !isInfiniteAmmo;
-    		compatibility.addChatMessage(mc.player, getDebugPrefix() + " Infinite ammo mode is " + (isInfiniteAmmo ? "on" : "off"));
+            mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Infinite ammo mode is " + (isInfiniteAmmo ? "on" : "off")));
         	
     	} else if(args[1].equals("slide")) {
     		if(args[2].equals("edit")) {
     			isDebuggingActionPosition = !isDebuggingActionPosition;
-    			compatibility.addChatMessage(mc.player, getDebugPrefix() + " Slide editor mode is " + (isDebuggingActionPosition ? "on" : "off"));
+                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Slide editor mode is " + (isDebuggingActionPosition ? "on" : "off")));
             	
     		}else if(args[2].equals("setpos")) {
     			double x = Double.parseDouble(args[3]);
@@ -220,7 +223,7 @@ public class DebugCommand extends CommandBase {
     	} else if(args[1].equals("shake")) {
     		if(args[2].equals("edit")) {
     			isWorkingOnScreenShake = !isWorkingOnScreenShake;
-    			compatibility.addChatMessage(mc.player, getDebugPrefix() + " Shake editor mode is " + (isWorkingOnScreenShake ? "on" : "off"));
+                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Shake editor mode is " + (isWorkingOnScreenShake ? "on" : "off")));
     		} else if(args[2].equals("set")) {
     			double intensity = Double.parseDouble(args[3]);
     			double lengthModifier = Double.parseDouble(args[4]);
@@ -264,7 +267,7 @@ public class DebugCommand extends CommandBase {
     	if(args[1].equals("new")) {
     		compatList.clear();
     		ccg.setup();
-    		compatibility.addChatMessage(mc.player, getDebugPrefix() + " Started writing new compat method set");
+            mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Started writing new compat method set"));
     	} else if(args[1].equals("add")) {
     		ArrayList<Pair<Class<?>, Method>> list = ccg.findStandardOpenGLMethod(args[2]);
     		for(Pair<Class<?>, Method> pair : list) {
@@ -311,7 +314,7 @@ public class DebugCommand extends CommandBase {
     			AnimationModeProcessor.getInstance().setFPSMode(true);
     		
     		} else {
-    			compatibility.addChatMessage(mc.player, getDebugPrefix() + " You cannot enter animation mode with a legacy gun!");
+                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " You cannot enter animation mode with a legacy gun!"));
     	    	
     			
     		}
@@ -320,10 +323,10 @@ public class DebugCommand extends CommandBase {
     		AnimationModeProcessor.getInstance().setFPSMode(false);
     	} else if(args[1].equals("dh")) {
     		BBLoader.HANDDIVISOR = Double.parseDouble(args[2]);
-    		compatibility.addChatMessage(mc.player, "Hand divisor set to " + BBLoader.HANDDIVISOR);
+            mc.player.sendMessage(new TextComponentString("Hand divisor set to " + BBLoader.HANDDIVISOR));
     	}else if(args[1].equals("dg")) {
     		BBLoader.GENDIVISOR = Double.parseDouble(args[2]);
-    		compatibility.addChatMessage(mc.player, "General divisor set to " + BBLoader.GENDIVISOR);
+            mc.player.sendMessage(new TextComponentString("General divisor set to " + BBLoader.GENDIVISOR));
     	} else if(args[1].equals("as")) {
     		double x = Double.parseDouble(args[2]);
     		double y = Double.parseDouble(args[3]);
@@ -354,11 +357,11 @@ public class DebugCommand extends CommandBase {
     	case DEBUG_MUZZLE_POS:
     		 
     		if(CompatibleClientEventHandler.muzzlePositioner) {
-    			compatibility.addChatMessage(mc.player, getDebugPrefix() + "Exiting muzzle debug...");
+                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + "Exiting muzzle debug..."));
     			CompatibleClientEventHandler.muzzlePositioner = false;
       	      
     		} else {
-    			compatibility.addChatMessage(mc.player, getDebugPrefix() + "Entering muzzle debug... a point will display.");
+                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + "Entering muzzle debug... a point will display."));
       	      	CompatibleClientEventHandler.muzzlePositioner = true;
     		}
     		
@@ -378,15 +381,15 @@ public class DebugCommand extends CommandBase {
         }
         if(debugMode != null) {
             DebugPositioner.setDebugMode(debugMode);
-            compatibility.addChatMessage(mc.player, getDebugPrefix() + "Debug mode " + args[0].toLowerCase());
+            mc.player.sendMessage(new TextComponentString(getDebugPrefix() + "Debug mode " + args[0].toLowerCase()));
         } else {
-            compatibility.addChatMessage(mc.player, getSubCommandDebugUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandDebugUsage()));
         }
     }
 
     private void processPauseSubCommand(String[] args) {
         if(args.length != 3) {
-            compatibility.addChatMessage(mc.player, getSubCommandPauseUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandPauseUsage()));
             return;
         }
 
@@ -394,16 +397,16 @@ public class DebugCommand extends CommandBase {
             int transitionNumber = Integer.parseInt(args[1]);
             long pauseDuration = Long.parseLong(args[2]);
             DebugPositioner.configureTransitionPause(transitionNumber, pauseDuration);
-            compatibility.addChatMessage(mc.player, "Set transition "
-                    + transitionNumber + " pause to " + pauseDuration + "ms");
+            mc.player.sendMessage(new TextComponentString("Set transition "
+                    + transitionNumber + " pause to " + pauseDuration + "ms"));
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(mc.player, getSubCommandPauseUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandPauseUsage()));
         }
     }
 
     private void processWatchSubCommand(String[] args) {
         if(args.length < 1) {
-            compatibility.addChatMessage(mc.player, getSubCommandWatchUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandWatchUsage()));
             return;
         }
 
@@ -412,39 +415,39 @@ public class DebugCommand extends CommandBase {
 
     private void processScaleSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(mc.player, getSubCommandScaleUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandScaleUsage()));
             return;
         }
 
         if(DebugPositioner.getDebugPart() == null) {
-            compatibility.addChatMessage(mc.player, "Debug part not selected");
+            mc.player.sendMessage(new TextComponentString("Debug part not selected"));
             return;
         }
 
         try {
             float scale = Float.parseFloat(args[1]);
             DebugPositioner.setScale(scale);
-            compatibility.addChatMessage(mc.player, "Set scale to " + scale);
+            mc.player.sendMessage(new TextComponentString("Set scale to " + scale));
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(mc.player, getSubCommandScaleUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandScaleUsage()));
         }
     }
     
     private void processAutorotateSubCommand(String[] args) {
         if(args.length < 2) {
-            compatibility.addChatMessage(mc.player, getSubCommandAutorotateUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandAutorotateUsage()));
             return;
         }
 
         if(DebugPositioner.getDebugPart() == null) {
-            compatibility.addChatMessage(mc.player, "Debug part not selected");
+            mc.player.sendMessage(new TextComponentString("Debug part not selected"));
             return;
         }
 
         try {
             float rpm = Float.parseFloat(args[1]);
             if(rpm < 0) {
-                compatibility.addChatMessage(mc.player, "RPM must be greater than 0");
+                mc.player.sendMessage(new TextComponentString("RPM must be greater than 0"));
                 return;
             }
             float xrpm = 0f;
@@ -466,62 +469,62 @@ public class DebugCommand extends CommandBase {
                 xrpm = rpm;
             }
             DebugPositioner.setAutorotate(xrpm, yrpm, zrpm);
-            compatibility.addChatMessage(mc.player, "Set autorotate to " 
-                    + xrpm +", " + yrpm + ", " + zrpm);
+            mc.player.sendMessage(new TextComponentString("Set autorotate to "
+                    + xrpm +", " + yrpm + ", " + zrpm));
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(mc.player, getSubCommandAutorotateUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandAutorotateUsage()));
         }
     }
 
     private void processStepSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(mc.player, getSubCommandStepUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandStepUsage()));
             return;
         }
 
         if(DebugPositioner.getDebugPart() == null) {
-            compatibility.addChatMessage(mc.player, "Debug part not selected");
+            mc.player.sendMessage(new TextComponentString("Debug part not selected"));
             return;
         }
 
         try {
             float step = Float.parseFloat(args[1]);
             DebugPositioner.setStep(step);
-            compatibility.addChatMessage(mc.player, "Set step to " + step);
+            mc.player.sendMessage(new TextComponentString("Set step to " + step));
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(mc.player, getSubCommandStepUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandStepUsage()));
         }
     }
 
     private void processShowSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(mc.player, getSubCommandShowUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
             return;
         }
         
         
         if(CompatibleClientEventHandler.muzzlePositioner) {
-        	compatibility.addChatMessage(mc.player, getDebugPrefix() + "Muzzle Position: " + CompatibleClientEventHandler.debugmuzzlePosition);
+            mc.player.sendMessage(new TextComponentString(getDebugPrefix() + "Muzzle Position: " + CompatibleClientEventHandler.debugmuzzlePosition));
             return;
         }
         if(DebugPositioner.getDebugPart() == null) {
-            compatibility.addChatMessage(mc.player, "Debug part not selected");
+            mc.player.sendMessage(new TextComponentString("Debug part not selected"));
             return;
         }
 
         switch(args[1].toLowerCase()) {
         case SHOW_OPTION_CODE:
             DebugPositioner.showCode();
-            compatibility.addChatMessage(mc.player, "Code is copied to the console");
+            mc.player.sendMessage(new TextComponentString("Code is copied to the console"));
             break;
         default:
-            compatibility.addChatMessage(mc.player, getSubCommandShowUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
         }
     }
 
     private void processWeaponPartSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(mc.player, getSubCommandPartUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandPartUsage()));
             return;
         }
 
@@ -542,7 +545,7 @@ public class DebugCommand extends CommandBase {
             default:
                 String partName = args[1];
 
-                Item item = compatibility.findItemByName(partName);
+                Item item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, partName));
                 Part part = null;
                 if(item instanceof Part) {
                     part = (Part) item;
@@ -555,15 +558,15 @@ public class DebugCommand extends CommandBase {
                 break;
             }
 
-            compatibility.addChatMessage(mc.player, "Debugging part " + args[1]);
+            mc.player.sendMessage(new TextComponentString("Debugging part " + args[1]));
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(mc.player, getSubCommandPartUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandPartUsage()));
         }
     }
     
     private void processVehiclePartSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(mc.player, getSubCommandVPartUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandVPartUsage()));
             return;
         }
 
@@ -600,13 +603,13 @@ public class DebugCommand extends CommandBase {
                 DebugPositioner.setDebugPart(VehiclePart.REAR_RIGHT_WHEEL);
                 break;
             default:
-                compatibility.addChatMessage(mc.player, "Don't know anything about part " + args[1]);
+                mc.player.sendMessage(new TextComponentString("Don't know anything about part " + args[1]));
                 return;
             }
 
-            compatibility.addChatMessage(mc.player, "Debugging part " + args[1]);
+            mc.player.sendMessage(new TextComponentString("Debugging part " + args[1]));
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(mc.player, getSubCommandVPartUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandVPartUsage()));
         }
     }
 
