@@ -25,7 +25,7 @@ public class ExplosionMessageHandler implements CompatibleMessageHandler<Explosi
 	public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(ExplosionMessage message, MessageContext messageContext) {
 		if(messageContext.side == Side.CLIENT) {
 			EntityPlayer player = mc.player;
-			compatibility.runInMainClientThread(() -> {
+			mc.addScheduledTask(() -> {
                 Explosion explosion = new Explosion(modContext,
 						player.world,
                         (Entity)null,

@@ -348,7 +348,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
                 if(hasOres) {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
-                    compatibility.addShapedRecipe(itemStack, registeredRecipe.toArray());
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
             } else if(craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
@@ -362,7 +362,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
                 if(optionsMetadata.hasOres()) {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
-                    compatibility.addShapedRecipe(itemStack, shape.toArray());
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
             } else {
                 //throw new IllegalStateException("No recipe defined for attachment " + name);

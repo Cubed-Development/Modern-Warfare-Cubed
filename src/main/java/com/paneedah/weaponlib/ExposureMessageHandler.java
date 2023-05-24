@@ -24,7 +24,7 @@ public class ExposureMessageHandler implements CompatibleMessageHandler<Exposure
     @Override
     public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(ExposureMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.CLIENT) {
-            compatibility.runInMainClientThread(() -> {
+            mc.addScheduledTask(() -> {
                 CompatibleExposureCapability.updateExposures(mc.player, message.getExposures());
             });
         }

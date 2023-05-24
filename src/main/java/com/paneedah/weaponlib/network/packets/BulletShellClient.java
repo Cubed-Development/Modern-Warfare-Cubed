@@ -54,7 +54,7 @@ public class BulletShellClient implements net.minecraftforge.fml.common.network.
 		@Override
 		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(BulletShellClient message, MessageContext messageContext) {
 			 if(messageContext.side == Side.CLIENT) {
-		            compatibility.runInMainClientThread(() -> {
+				 mc.addScheduledTask(() -> {
 					
 		            	if(mc.player.getEntityId() != message.shooter) {
 		            		Shell shell = new Shell(message.type, message.position, new Vec3d(-90, 0, 90), message.velocity);

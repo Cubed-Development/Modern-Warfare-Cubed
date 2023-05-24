@@ -120,7 +120,7 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 	        
 			mainLoopLock.unlock();
 			processRunInClientThreadQueue();
-			safeGlobals.objectMouseOver.set(compatibility.getObjectMouseOver());
+			safeGlobals.objectMouseOver.set(mc.objectMouseOver);
 			if(mc.player != null) {
 				safeGlobals.currentItemIndex.set(mc.player.inventory.currentItem);
 				//reloadAspect.updateMainHeldItem(mc.player);

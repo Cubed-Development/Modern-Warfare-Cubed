@@ -36,7 +36,7 @@ public class GunFXPacket implements net.minecraftforge.fml.common.network.simple
 		@Override
 		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(GunFXPacket message, MessageContext messageContext) {
 			 if(messageContext.side == Side.CLIENT) {
-		            compatibility.runInMainClientThread(() -> {
+				 mc.addScheduledTask(() -> {
 					
 		            	
 		            if(mc.player.getEntityId() == message.entID) {

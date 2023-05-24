@@ -761,9 +761,25 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		
 		
 		if(compatibleMagazines.isEmpty()) return;
-		
-		ItemStack magazineStack = compatibility.tryConsumingCompatibleItem(compatibleMagazines,
-                (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2)), player);
+
+		Comparator<ItemStack> comparator;
+		comparator = (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2));
+		ItemStack maxStack = null;
+		int maxItemIndex = -1;
+		for (int i = 0; i < player.inventory.mainInventory.size(); ++i) {
+			if (player.inventory.getStackInSlot(i) != null && compatibleMagazines.contains(player.inventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(player.inventory.getStackInSlot(i), maxStack) > 0)) {
+				maxStack = player.inventory.getStackInSlot(i);
+				maxItemIndex = i;
+			}
+		}
+
+
+		int i = maxItemIndex;
+
+		if (i < 0)
+			return;
+
+		ItemStack magazineStack = player.inventory.getStackInSlot(i).copy().splitStack(Math.min(player.inventory.getStackInSlot(i).copy().getCount(), 1));
         
 		if(magazineStack == null) return;
 		
@@ -821,15 +837,46 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		                compatibleMagazine, weaponInstance)).collect(Collectors.toList());
 		List<ItemAttachment<Weapon>> compatibleBullets = weapon.getCompatibleAttachments(ItemBullet.class);
 		ItemStack consumedStack;
+
+		boolean consumed = false;
+
+		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+			ItemStack itemstack = player.inventory.getStackInSlot(i);
+
+			if (itemstack.getItem() == weapon.builder.ammo) {
+				itemstack.shrink(1);
+				consumed = true;
+			}
+		}
+
+
 		if(!compatibleMagazines.isEmpty()) {
 			
 		    ItemAttachment<Weapon> existingMagazine = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
 		    int ammo = Tags.getAmmo(weaponItemStack);
 		    if(existingMagazine == null) {
 		        ammo = 0;
-		        ItemStack magazineItemStack = compatibility.tryConsumingCompatibleItem(compatibleMagazines,
-		                (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2)), player);
-		       
+
+				Comparator<ItemStack> comparator;
+				comparator = (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2));
+				ItemStack maxStack = null;
+				int maxItemIndex = -1;
+				for (int i = 0; i < player.inventory.mainInventory.size(); ++i) {
+					if (player.inventory.getStackInSlot(i) != null && compatibleMagazines.contains(player.inventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(player.inventory.getStackInSlot(i), maxStack) > 0)) {
+						maxStack = player.inventory.getStackInSlot(i);
+						maxItemIndex = i;
+					}
+				}
+
+
+				int i = maxItemIndex;
+
+				if (i < 0)
+					return;
+
+				ItemStack magazineItemStack = player.inventory.getStackInSlot(i).copy().splitStack(Math.min(player.inventory.getStackInSlot(i).copy().getCount(), 1));
+
+
 		        if(magazineItemStack != null) {
 		            ammo = Tags.getAmmo(magazineItemStack);
 		            Tags.setAmmo(weaponItemStack, ammo);
@@ -852,7 +899,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		        weaponInstance.setLoadIterationCount(consumedStack.getCount());
 		    }
 		    player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
-		} else if (compatibility.consumeInventoryItem(player.inventory, weapon.builder.ammo)) {
+		} else if (consumed) {
 		    Tags.setAmmo(weaponItemStack, weapon.builder.ammoCapacity);
 		    // Update permit instead: modContext.getChannel().sendTo(new ReloadMessage(weapon, weapon.builder.ammoCapacity), (EntityPlayerMP) player);
 		    weaponInstance.setAmmo(weapon.builder.ammoCapacity);

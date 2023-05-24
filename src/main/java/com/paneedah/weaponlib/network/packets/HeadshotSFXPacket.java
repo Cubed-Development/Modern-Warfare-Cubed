@@ -40,7 +40,7 @@ public class HeadshotSFXPacket implements net.minecraftforge.fml.common.network.
 		@Override
 		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(HeadshotSFXPacket message, MessageContext messageContext) {
 			 if(messageContext.side == Side.CLIENT) {
-		            compatibility.runInMainClientThread(() -> {
+				 mc.addScheduledTask(() -> {
 					
 		            	
 		            	//System.out.println("hi");

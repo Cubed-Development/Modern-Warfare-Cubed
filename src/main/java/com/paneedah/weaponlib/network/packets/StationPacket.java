@@ -28,6 +28,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class StationPacket implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
@@ -146,7 +147,7 @@ public class StationPacket implements net.minecraftforge.fml.common.network.simp
 		@Override
 		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(StationPacket message, MessageContext messageContext) {
 			if(messageContext.side == Side.SERVER) {
-	            compatibility.runInMainClientThread(() -> {
+				mc.addScheduledTask(() -> {
 					
 
 	            	World world = messageContext.getServerHandler().player.world;

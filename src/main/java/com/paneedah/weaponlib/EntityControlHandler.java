@@ -26,7 +26,7 @@ public class EntityControlHandler implements CompatibleMessageHandler<EntityCont
     @Override
     public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(EntityControlMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.SERVER) {
-            compatibility.runInMainClientThread(() -> {
+            mc.addScheduledTask(() -> {
                 EntityPlayer player = messageContext.getServerHandler().player;
                 CompatibleExtraEntityFlags.setFlags(player, message.getFlags(), message.getValues());
                 NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(player.dimension, player.posX, player.posY, player.posZ, 200);
@@ -39,7 +39,7 @@ public class EntityControlHandler implements CompatibleMessageHandler<EntityCont
                 modContext.getChannel().sendToAllAround(new EntityControlMessage(player, updatedFlags), point);
             });
         } else {
-            compatibility.runInMainClientThread(() -> {
+            mc.addScheduledTask(() -> {
                 EntityPlayer player = mc.player;
                 Entity targetEntity = message.getEntity(player.world);
                 CompatibleExtraEntityFlags.setFlags(targetEntity, message.getFlags(), message.getValues());

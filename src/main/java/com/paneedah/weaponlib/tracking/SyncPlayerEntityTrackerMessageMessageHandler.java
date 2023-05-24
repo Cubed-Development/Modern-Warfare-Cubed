@@ -24,7 +24,7 @@ public class SyncPlayerEntityTrackerMessageMessageHandler implements CompatibleM
     @Override
 	public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(SyncPlayerEntityTrackerMessage message, MessageContext messageContext) {
 		if(messageContext.side == Side.CLIENT) {
-		    compatibility.runInMainClientThread(() -> {
+			mc.addScheduledTask(() -> {
 		        CompatiblePlayerEntityTrackerProvider.setTracker(mc.player, message.getTracker());
 		        if(message.getStatusMessage() != null) {
 		            modContext.getStatusMessageCenter().addMessage(message.getStatusMessage(), 1000);

@@ -9,6 +9,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
@@ -73,7 +74,7 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
         if(movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK && itemGrenade != null) {
             SoundEvent bounceHardSound = itemGrenade.getBounceHardSound();
             if(bounceHardSound != null) {
-                IBlockState iBlockState = compatibility.getBlockAtPosition(world, movingobjectposition);
+                IBlockState iBlockState = world.getBlockState(new BlockPos(movingobjectposition.getBlockPos().getX(), movingobjectposition.getBlockPos().getY(), movingobjectposition.getBlockPos().getZ()));
                 Material material = iBlockState.getMaterial();
 
                 if(material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD) {
@@ -83,7 +84,7 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
 
             SoundEvent bounceSoftSound = itemGrenade.getBounceSoftSound();
             if(bounceSoftSound != null) {
-                IBlockState iBlockState = compatibility.getBlockAtPosition(world, movingobjectposition);
+                IBlockState iBlockState = world.getBlockState(new BlockPos(movingobjectposition.getBlockPos().getX(), movingobjectposition.getBlockPos().getY(), movingobjectposition.getBlockPos().getZ()));
                 Material material = iBlockState.getMaterial();
 
                 if(material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD) {

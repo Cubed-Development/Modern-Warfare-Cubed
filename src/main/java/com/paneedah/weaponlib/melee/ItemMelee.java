@@ -216,9 +216,8 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
                 boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
                 if(hasOres) {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
-
                 } else {
-                    compatibility.addShapedRecipe(itemStack, registeredRecipe.toArray());
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
             } else if(craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
@@ -227,7 +226,7 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
 
                 List<Object> shape = modContext.getRecipeManager().createShapedRecipe(itemMelee, itemMelee.getName(), optionsMetadata);
 
-                compatibility.addShapedRecipe(new ItemStack(itemMelee), shape.toArray());
+                ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(itemMelee), shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, new ItemStack(itemMelee).getItem().getTranslationKey() + "_recipe"));
 
             } else {
                 //throw new IllegalStateException("No recipe defined for attachment " + name);

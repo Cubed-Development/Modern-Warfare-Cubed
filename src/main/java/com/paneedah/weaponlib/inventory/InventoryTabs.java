@@ -3,6 +3,7 @@ package com.paneedah.weaponlib.inventory;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraftforge.client.event.GuiScreenEvent;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -47,7 +48,7 @@ public class InventoryTabs {
 
             updateTabValues(guiLeft, guiTop, StandardPlayerInventoryTab.class);
 
-            List<Object> buttonlist = compatibility.getPrivateValue(GuiScreen.class, gui, "buttonList", "field_146292_n");
+            List<Object> buttonlist = ObfuscationReflectionHelper.getPrivateValue(GuiScreen.class, gui, "buttonList", "field_146292_n");
             addTabsToList(buttonlist);
         }
     }
