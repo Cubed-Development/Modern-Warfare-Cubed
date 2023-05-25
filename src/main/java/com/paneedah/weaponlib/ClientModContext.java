@@ -26,6 +26,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
@@ -85,7 +86,7 @@ public class ClientModContext extends CommonModContext {
 
         rendererRegistry.preInit();
 
-        List<IResourcePack> defaultResourcePacks = compatibility.getPrivateValue(
+        List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(
                 Minecraft.class, mc, "defaultResourcePacks", "field_110449_ao");
         WeaponResourcePack weaponResourcePack = new WeaponResourcePack();
         defaultResourcePacks.add(weaponResourcePack);

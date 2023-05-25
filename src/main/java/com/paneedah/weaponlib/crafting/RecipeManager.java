@@ -45,7 +45,7 @@ public class RecipeManager {
         if(hasOres) {
             ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, recipeAslist.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
         } else {
-            compatibility.addShapedRecipe(itemStack, recipeAslist.toArray());
+            ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, recipeAslist.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
         }
 
         if(recipes.put(itemStack.getItem(), recipeAslist) != null) {

@@ -58,29 +58,9 @@ import java.util.function.Predicate;
 public interface Compatibility {
 
 
-    void runInMainClientThread(Runnable runnable);
-
-	void registerModEntity(Class<? extends Entity> class1, String string, int i, Object mod, int j, int k, boolean b);
-
-    <T, E> T getPrivateValue(Class<? super E> classToAccess, E instance, String... fieldNames);
-
-	int getButton(MouseEvent event);
-
-    void setNewFov(FOVUpdateEvent event, float fov);
-
-    GuiScreen getGui(GuiOpenEvent event);
-
-    RayTraceResult getObjectMouseOver();
-
-	IBlockState getBlockAtPosition(World world, RayTraceResult position);
-
-	void destroyBlock(World world, RayTraceResult position);
-
-    boolean consumeInventoryItem(InventoryPlayer inventoryPlayer, Item item);
+    void registerModEntity(Class<? extends Entity> class1, String string, int i, Object mod, int j, int k, boolean b);
 
     void consumeInventoryItemFromSlot(EntityPlayer player, int nextAttachmentSlot);
-
-	void addShapedRecipe(ItemStack itemStack, Object... materials);
 
     ItemStack consumeInventoryItem(Item item, Predicate<ItemStack> condition, EntityPlayer player, int maxSize);
 
@@ -91,7 +71,5 @@ public interface Compatibility {
     boolean isBlockPenetratableByBullets(IBlockState blockState);
 
     EntityAITarget createAINearestAttackableTarget(EntityLivingBase e, Class<? extends EntityLivingBase> targetClass, boolean checkSight);
-
-    ItemStack tryConsumingCompatibleItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player);
 
 }

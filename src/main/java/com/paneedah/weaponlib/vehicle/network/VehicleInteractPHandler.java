@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class VehicleInteractPHandler implements CompatibleMessageHandler<VehicleInteractPacket, IMessage> {
@@ -24,7 +25,7 @@ public class VehicleInteractPHandler implements CompatibleMessageHandler<Vehicle
 	@Override
 	public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(VehicleInteractPacket message, MessageContext messageContext) {
 		if(messageContext.side == Side.SERVER) {
-			compatibility.runInMainClientThread(() -> {
+			mc.addScheduledTask(() -> {
 				EntityVehicle vehicle = (EntityVehicle) messageContext.getServerHandler().player.world.getEntityByID(message.vehicleID);
 				EntityPlayer player = (EntityPlayer) messageContext.getServerHandler().player.world.getEntityByID(message.playerID);
 				

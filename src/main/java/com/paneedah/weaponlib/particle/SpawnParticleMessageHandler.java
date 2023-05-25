@@ -30,7 +30,7 @@ public class SpawnParticleMessageHandler implements CompatibleMessageHandler<Spa
     @Override
     public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(SpawnParticleMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.CLIENT) {
-            compatibility.runInMainClientThread(() -> {
+            mc.addScheduledTask(() -> {
                 for (int i = 0; i < message.getCount(); ++i) {
                     switch(message.getParticleType()) {
                     case BLOOD:

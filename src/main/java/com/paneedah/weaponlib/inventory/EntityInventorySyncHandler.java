@@ -27,7 +27,7 @@ public class EntityInventorySyncHandler implements CompatibleMessageHandler<Enti
     @Override
     public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(EntityInventorySyncMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.SERVER) {
-            compatibility.runInMainClientThread(() -> {
+            mc.addScheduledTask(() -> {
                 EntityPlayer player = messageContext.getServerHandler().player;
                 CustomPlayerInventory inventory = message.getInventory();
                 inventory.setContext(modContext);
@@ -38,7 +38,7 @@ public class EntityInventorySyncHandler implements CompatibleMessageHandler<Enti
                 
             });
         } else {
-            compatibility.runInMainClientThread(() -> {
+            mc.addScheduledTask(() -> {
                 EntityPlayer player = mc.player;
                 Entity targetEntity = message.getEntity(player.world);
 

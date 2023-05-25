@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class BalancePackClient implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
@@ -61,7 +62,7 @@ public class BalancePackClient implements net.minecraftforge.fml.common.network.
 		@Override
 		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(BalancePackClient message, MessageContext messageContext) {
 			 if(messageContext.side == Side.CLIENT) {
-		            compatibility.runInMainClientThread(() -> {
+				 mc.addScheduledTask(() -> {
 					
 		            	BalancePackManager.setCurrentBalancePack(message.pack);
 		            	

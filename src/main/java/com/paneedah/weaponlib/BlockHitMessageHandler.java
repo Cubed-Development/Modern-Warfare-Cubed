@@ -27,7 +27,7 @@ public class BlockHitMessageHandler implements CompatibleMessageHandler<BlockHit
     @Override
     public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(BlockHitMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.CLIENT) {
-            compatibility.runInMainClientThread(() -> {
+            mc.addScheduledTask(() -> {
             	//BulletHoleRenderer
             
                 for (int i = 0; i < ModernWarfareMod.bulletHitParticleMult; i++) {

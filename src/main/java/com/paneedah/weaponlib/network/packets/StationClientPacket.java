@@ -75,7 +75,7 @@ public class StationClientPacket implements net.minecraftforge.fml.common.networ
 		@Override
 		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(StationClientPacket message, MessageContext messageContext) {
 			 if(messageContext.side == Side.CLIENT) {
-		            compatibility.runInMainClientThread(() -> {
+				 mc.addScheduledTask(() -> {
 					
 		            	TileEntity te = mc.world.getTileEntity(message.pos);
 		        		if(te != null && te instanceof TileEntityStation) {

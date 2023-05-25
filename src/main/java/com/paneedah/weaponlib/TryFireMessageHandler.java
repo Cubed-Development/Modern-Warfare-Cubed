@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class TryFireMessageHandler implements CompatibleMessageHandler<TryFireMessage, IMessage> {
@@ -27,7 +28,7 @@ public class TryFireMessageHandler implements CompatibleMessageHandler<TryFireMe
 			ItemStack itemStack = player.getHeldItemMainhand();
 			if(itemStack != null && itemStack.getItem() instanceof Weapon) {
 				if(message.isOn()) {
-					compatibility.runInMainClientThread(() -> {
+					mc.addScheduledTask(() -> {
 						fireManager.serverFire(player, itemStack, message.isBurst(), message.isAimed());
 					});
 				}

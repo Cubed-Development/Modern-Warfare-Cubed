@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class TryAttackMessageHandler implements CompatibleMessageHandler<TryAttackMessage, IMessage> {
@@ -26,7 +27,7 @@ public class TryAttackMessageHandler implements CompatibleMessageHandler<TryAtta
 			EntityPlayer player = messageContext.getServerHandler().player;
 			ItemStack itemStack = player.getHeldItemMainhand();
 			if(itemStack != null && itemStack.getItem() instanceof ItemMelee) {
-			    compatibility.runInMainClientThread(() -> {
+				mc.addScheduledTask(() -> {
                     attackAspect.serverAttack(player, message.getInstance(), 
                             message.getEntity(player.world), message.isHeavyAttack());
                 });
