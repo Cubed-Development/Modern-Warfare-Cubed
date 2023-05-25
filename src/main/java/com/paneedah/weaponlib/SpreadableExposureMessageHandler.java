@@ -26,7 +26,7 @@ public class SpreadableExposureMessageHandler implements CompatibleMessageHandle
         if(messageContext.side == Side.CLIENT)
             return null;
 
-        mc.addScheduledTask(() -> {
+        compatibility.runInMainClientThread(() -> {
             SpreadableExposure spreadableExposure = message.getSpreadableExposure();
             if(spreadableExposure != null) {
                 SpreadableExposure currentExposure = CompatibleExposureCapability.getExposure(mc.player, SpreadableExposure.class);

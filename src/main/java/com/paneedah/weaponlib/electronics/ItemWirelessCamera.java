@@ -199,7 +199,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
                 if(optionsMetadata.hasOres()) {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
+                    compatibility.addShapedRecipe(itemStack, shape.toArray());
                 }
             }
 

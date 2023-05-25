@@ -8,7 +8,6 @@ import net.minecraft.client.shader.Shader;
 import net.minecraft.client.shader.ShaderGroup;
 import net.minecraft.client.util.JsonException;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -61,10 +60,10 @@ public class DynamicShaderGroup extends ShaderGroup {
     }
 
     private static IResourceManager getResourceManager(ShaderGroup shaderGroup){
-        return ObfuscationReflectionHelper.getPrivateValue(ShaderGroup.class, shaderGroup, "resourceManager", "field_148033_b");
+        return compatibility.getPrivateValue(ShaderGroup.class, shaderGroup, "resourceManager", "field_148033_b");
     }
 
     private static List<Shader> getShaders(ShaderGroup shaderGroup){
-        return ObfuscationReflectionHelper.getPrivateValue(ShaderGroup.class, shaderGroup, "listShaders", "field_148031_d");
+        return compatibility.getPrivateValue(ShaderGroup.class, shaderGroup, "listShaders", "field_148031_d");
     }
 }

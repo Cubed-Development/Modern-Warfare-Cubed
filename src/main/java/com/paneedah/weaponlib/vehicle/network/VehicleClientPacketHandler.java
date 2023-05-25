@@ -25,7 +25,7 @@ public class VehicleClientPacketHandler implements CompatibleMessageHandler<Vehi
 	@Override
 	public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(VehicleClientPacket message, MessageContext messageContext) {
 		 if(messageContext.side == Side.CLIENT) {
-			 mc.addScheduledTask(() -> {
+	            compatibility.runInMainClientThread(() -> {
 				
 	            	
 	            	

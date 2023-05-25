@@ -154,7 +154,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
 
     private void attack(PlayerMeleeInstance meleeInstance, boolean isHeavyAttack) {
 
-        RayTraceResult objectMouseOver = mc.objectMouseOver;
+        RayTraceResult objectMouseOver = compatibility.getObjectMouseOver();
         if (objectMouseOver != null) {
             EntityPlayer player = mc.player;
             World world = player.world;

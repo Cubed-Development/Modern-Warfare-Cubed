@@ -30,7 +30,7 @@ public class WeaponEventHandler {
 
 	@SubscribeEvent
 	public void onGuiOpenEvent(GuiOpenEvent event) {
-		safeGlobals.guiOpen.set(event.getGui() != null);
+		safeGlobals.guiOpen.set(compatibility.getGui(event) != null);
 	}
 
 	@SubscribeEvent
@@ -84,12 +84,12 @@ public class WeaponEventHandler {
 		    }
 		    
 		    //fov = 0.3f;
-			event.setNewfov(fov);
+		    compatibility.setNewFov(event, fov); //Tags.getZoom(stack));
 		} else {
 		    SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(mc.player, SpreadableExposure.class);
             if(spreadableExposure != null && spreadableExposure.getTotalDose() > 0f) {
                 float fov = mc.player.capabilities.isFlying ? 1.1f : 1.0f;
-				event.setNewfov(fov);
+                compatibility.setNewFov(event, fov);
             }
 		}
 		
@@ -98,7 +98,7 @@ public class WeaponEventHandler {
 	@SubscribeEvent
 	public void onMouse(MouseEvent event) {
 		
-		if(event.getButton() == 0 || event.getButton() == 1) {
+		if(compatibility.getButton(event) == 0 || compatibility.getButton(event) == 1) {
 			// If the current player holds the weapon in their main hand, cancel default minecraft mouse processing
 		    PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player);
 		    //PlayerWeaponInstance mainHandHeldWeaponInstance = modContext.getMainHeldWeapon();

@@ -9,7 +9,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class VehicleControlPacketHandler implements CompatibleMessageHandler<VehicleControlPacket, IMessage> {
@@ -26,7 +25,7 @@ public class VehicleControlPacketHandler implements CompatibleMessageHandler<Veh
 	@Override
 	public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(VehicleControlPacket message, MessageContext messageContext) {
 		if(messageContext.side == Side.SERVER) {
-			mc.addScheduledTask(() -> {
+			compatibility.runInMainClientThread(() -> {
 				
 				EntityPlayer player = messageContext.getServerHandler().player;
 				VehicleDataContainer cont = message.serializer;

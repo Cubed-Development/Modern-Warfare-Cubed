@@ -7,7 +7,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class GrenadeMessageHandler implements CompatibleMessageHandler<GrenadeMessage, IMessage> {
@@ -27,7 +26,7 @@ public class GrenadeMessageHandler implements CompatibleMessageHandler<GrenadeMe
 			EntityPlayer player = messageContext.getServerHandler().player;
 			ItemStack itemStack = player.getHeldItemMainhand();
 			if(itemStack != null && itemStack.getItem() instanceof ItemGrenade) {
-				mc.addScheduledTask(() -> {
+			    compatibility.runInMainClientThread(() -> {
 			        message.getInstance().setPlayer(player);
                     attackAspect.serverThrowGrenade(player, message.getInstance(), message.getActivationTimestamp());
                 });

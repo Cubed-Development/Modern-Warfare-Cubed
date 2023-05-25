@@ -67,7 +67,7 @@ public class BloodPacketClient implements net.minecraftforge.fml.common.network.
 		@Override
 		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(BloodPacketClient message, MessageContext messageContext) {
 			 if(messageContext.side == Side.CLIENT) {
-				 mc.addScheduledTask(() -> {
+		            compatibility.runInMainClientThread(() -> {
 					
 		            	
 		            	double velX = message.velx;

@@ -72,10 +72,69 @@ public class Compatibility1_12_2 implements Compatibility {
     );
 
     @Override
+    @SideOnly(Side.CLIENT)
+    public void runInMainClientThread(Runnable runnable) {
+        mc.addScheduledTask(runnable);
+    }
+
+    @Override
     public void registerModEntity(Class<? extends Entity> entityClass, String entityName, int id, Object mod, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {
         net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity
                 (new ResourceLocation(ModReference.id, entityName), entityClass, entityName, id, mod, trackingRange, updateFrequency, sendsVelocityUpdates);
 
+    }
+
+    @Override
+    public <T, E> T getPrivateValue(Class<? super E> classToAccess, E instance, String... fieldNames) {
+        return ObfuscationReflectionHelper.getPrivateValue(classToAccess, instance, fieldNames);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getButton(MouseEvent event) {
+        return event.getButton();
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void setNewFov(FOVUpdateEvent event, float fov) {
+        event.setNewfov(fov);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public GuiScreen getGui(GuiOpenEvent event) {
+        return event.getGui();
+    }
+
+    @Override
+    public RayTraceResult getObjectMouseOver() {
+        return mc.objectMouseOver;
+    }
+
+    @Override
+    public IBlockState getBlockAtPosition(World world, RayTraceResult position) {
+        IBlockState iBlockState = world.getBlockState(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ()));
+        return iBlockState;
+    }
+
+    @Override
+    public void destroyBlock(World world, RayTraceResult position) {
+        world.destroyBlock(new BlockPos(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ())), true);
+    }
+
+    @Override
+    public boolean consumeInventoryItem(InventoryPlayer inventoryPlayer, Item item) {
+        for (int i = 0; i < inventoryPlayer.getSizeInventory(); i++) {
+            ItemStack itemstack = inventoryPlayer.getStackInSlot(i);
+
+            if (itemstack.getItem() == item) {
+                itemstack.shrink(1);
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Override
@@ -87,6 +146,43 @@ public class Compatibility1_12_2 implements Compatibility {
         player.inventory.getStackInSlot(slot).shrink(1);
         if (player.inventory.mainInventory.get(slot).getCount() <= 0) {
             player.inventory.removeStackFromSlot(slot);
+        }
+    }
+
+    @Override
+    public void addShapedRecipe(ItemStack itemStack, Object... materials) {
+        //GameRegistry.addShapedRecipe(itemStack, materials);
+        ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, materials).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
+    }
+
+    private static int findGreatesItemIndex(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player) {
+        ItemStack maxStack = null;
+        int maxItemIndex = -1;
+        for (int i = 0; i < player.inventory.mainInventory.size(); ++i) {
+            if (player.inventory.getStackInSlot(i) != null && compatibleItems.contains(player.inventory.getStackInSlot(i).getItem()) && (maxStack == null || comparator.compare(player.inventory.getStackInSlot(i), maxStack) > 0)) {
+                maxStack = player.inventory.getStackInSlot(i);
+                maxItemIndex = i;
+            }
+        }
+        return maxItemIndex;
+    }
+
+    @Override
+    public ItemStack tryConsumingCompatibleItem(Collection<? extends Item> compatibleItems, Comparator<ItemStack> comparator, EntityPlayer player) {
+        int maxSize = 1;
+
+        int i = findGreatesItemIndex(compatibleItems, comparator, player);
+
+        if (i < 0) {
+            return null;
+        } else {
+            ItemStack stackInSlot = player.inventory.getStackInSlot(i);
+            int consumedStackSize = maxSize >= stackInSlot.getCount() ? stackInSlot.getCount() : maxSize;
+            ItemStack result = stackInSlot.splitStack(consumedStackSize);
+            if (stackInSlot.getCount() <= 0) {
+                player.inventory.removeStackFromSlot(i);
+            }
+            return result;
         }
     }
 

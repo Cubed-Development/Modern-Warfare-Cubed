@@ -318,7 +318,7 @@ public class AttachmentBuilder<T> {
             if(optionsMetadata.hasOres()) {
 				ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
 			} else {
-				ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
+			    compatibility.addShapedRecipe(itemStack, shape.toArray());
 			}
 		} else if(attachment.getCategory() == AttachmentCategory.GRIP
 		        || attachment.getCategory() == AttachmentCategory.SCOPE

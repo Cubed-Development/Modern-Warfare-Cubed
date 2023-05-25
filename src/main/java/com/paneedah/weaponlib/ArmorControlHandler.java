@@ -31,7 +31,7 @@ public class ArmorControlHandler implements CompatibleMessageHandler<ArmorContro
     @Override
     public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(ArmorControlMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.SERVER) {
-            mc.addScheduledTask(() -> {
+            compatibility.runInMainClientThread(() -> {
                 if(message.isToggleNightVision()) {
                     EntityPlayer player = messageContext.getServerHandler().player;
                     ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);

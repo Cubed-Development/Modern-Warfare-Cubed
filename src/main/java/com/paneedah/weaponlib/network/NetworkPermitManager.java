@@ -64,7 +64,7 @@ public class NetworkPermitManager implements PermitManager, CompatibleMessageHan
 			if(extendedState instanceof PlayerContext) { // TODO: think of something better than upcasting
 				((PlayerContext) extendedState).setPlayer(messageContext.getServerHandler().player);
 			}
-			mc.addScheduledTask(() -> {
+			compatibility.runInMainClientThread(() -> {
 				//serverAction.accept(permit, context);
 				@SuppressWarnings("unchecked")
 				BiConsumer<Permit<?>, Object> evaluator = (BiConsumer<Permit<?>, Object>) evaluators.get(permit.getClass());
@@ -76,7 +76,7 @@ public class NetworkPermitManager implements PermitManager, CompatibleMessageHan
 				modContext.getChannel().sendTo(message, (EntityPlayerMP) messageContext.getServerHandler().player);
 			});
 		} else {
-			mc.addScheduledTask(() -> {
+			compatibility.runInMainClientThread(() -> {
 				if(extendedState instanceof PlayerContext) {
 					((PlayerContext) extendedState).setPlayer(mc.player);
 				}
