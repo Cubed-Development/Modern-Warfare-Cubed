@@ -422,6 +422,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     public String getHudTexture() {
         if(hudTextureName == null)
             return null;
+
         return ModReference.id + ":textures/hud/" + hudTextureName + ".png";
     }
 
