@@ -22,6 +22,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL13;
 
 import java.util.Arrays;
@@ -110,10 +112,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 	public PlayerWeaponInstance() {
 		super();
 	}
-
-
-	
-	
 	
     public PlayerWeaponInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
 		super(itemInventoryIndex, player, itemStack);
@@ -572,8 +570,8 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         ItemAttachment<Weapon> scope = getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
         return scope instanceof ItemScope ? (ItemScope) scope : null;
     }
-    
 
+	@SideOnly(Side.CLIENT)
     private float getOpticScopeVignetteRadius(float partialTicks) {
         //ItemAttachment<Weapon> scope = getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
         EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
