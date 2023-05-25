@@ -411,7 +411,7 @@ public class CommonModContext implements ModContext {
 		if(result == null) {
 			result = new SoundEvent(soundResourceLocation);
 			registeredSounds.put(soundResourceLocation, result);
-            result.setRegistryName(result.getSoundName());
+            result.setRegistryName(soundResourceLocation);
             ForgeRegistries.SOUND_EVENTS.register(result);
 		}
 		return result;

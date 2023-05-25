@@ -39,8 +39,7 @@ public class CraftingServerPacket extends SimplePacket {
 		}
 		
 		@Override
-		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(CraftingServerPacket message,
-                                                                                                           MessageContext messageContext) {
+		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(CraftingServerPacket message, MessageContext messageContext) {
 			messageContext.getServerHandler().player.getServer().addScheduledTask(() -> {
 				// Find the player we should send to
 				EntityPlayerMP target = (EntityPlayerMP) messageContext.getServerHandler().player.getEntityWorld().getEntityByID(message.playerID.getValue());

@@ -7,9 +7,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class OpenCustomInventoryGuiHandler implements CompatibleMessageHandler<OpenCustomPlayerInventoryGuiMessage, IMessage>  {
 
     private ModContext modContext;
@@ -24,10 +21,9 @@ public class OpenCustomInventoryGuiHandler implements CompatibleMessageHandler<O
     @Override
     public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(OpenCustomPlayerInventoryGuiMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.SERVER) {
-            mc.addScheduledTask(() -> {
+            messageContext.getServerHandler().player.getServer().addScheduledTask(() -> {
                 EntityPlayer player = messageContext.getServerHandler().player;
-                player.openGui(modContext.getMod(), message.getGuiInventoryId(), 
-                        player.world, (int)player.posX, (int)player.posY, (int)player.posZ);
+                player.openGui(modContext.getMod(), message.getGuiInventoryId(), player.world, (int)player.posX, (int)player.posY, (int)player.posZ);
             });
         }
         return null;

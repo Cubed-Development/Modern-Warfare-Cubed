@@ -8,7 +8,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class BlockHitMessageHandler implements CompatibleMessageHandler<BlockHitMessage, IMessage>  {
     
@@ -28,8 +27,6 @@ public class BlockHitMessageHandler implements CompatibleMessageHandler<BlockHit
     public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(BlockHitMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.CLIENT) {
             mc.addScheduledTask(() -> {
-            	//BulletHoleRenderer
-            
                 for (int i = 0; i < ModernWarfareMod.bulletHitParticleMult; i++) {
                     mc.effectRenderer.addBlockHitEffects(message.getBlockPos(), message.getSideHit());
                     mc.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, message.getPosX(), message.getPosY(), message.getPosZ(), 0, 0, 0);

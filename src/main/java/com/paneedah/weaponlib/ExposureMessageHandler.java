@@ -5,9 +5,9 @@ import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ExposureMessageHandler implements CompatibleMessageHandler<ExposureMessage, IMessage>  {
     
@@ -22,6 +22,7 @@ public class ExposureMessageHandler implements CompatibleMessageHandler<Exposure
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(ExposureMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.CLIENT) {
             mc.addScheduledTask(() -> {

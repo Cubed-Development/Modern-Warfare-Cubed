@@ -6,6 +6,7 @@ import static com.paneedah.mwc.utils.ModReference.log;
 
 /**
  * This class provides fast focused mathematical methods.
+ *
  * @author Desoroxxx
  */
 public class MathUtil {

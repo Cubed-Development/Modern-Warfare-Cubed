@@ -7,9 +7,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class VehicleClientPacketHandler implements CompatibleMessageHandler<VehicleClientPacket, IMessage> {
 	
@@ -23,31 +23,23 @@ public class VehicleClientPacketHandler implements CompatibleMessageHandler<Vehi
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(VehicleClientPacket message, MessageContext messageContext) {
-		 if(messageContext.side == Side.CLIENT) {
-			 mc.addScheduledTask(() -> {
-				
-	            	
-	            	
-				EntityPlayer player = mc.player;
-				VehicleDataContainer cont = message.serializer;
-				
-				EntityVehicle vehicle = (EntityVehicle) player.world.getEntityByID(cont.entityID);
-				
-				VehiclePacketLatencyTracker.push(vehicle);
-				//System.out.println("There we go! " + vehicle);
-				if(vehicle != null) {
-					
-					vehicle.smoothShell.upload(cont);
-					
-					//cont.updateVehicle(vehicle);
-				}
-				
-				
-				
-			});
-		}
-		
+		messageContext.getServerHandler().player.getServer().addScheduledTask(() -> {
+		   EntityPlayer player = mc.player;
+		   VehicleDataContainer cont = message.serializer;
+
+		   EntityVehicle vehicle = (EntityVehicle) player.world.getEntityByID(cont.entityID);
+
+		   VehiclePacketLatencyTracker.push(vehicle);
+		   if(vehicle != null) {
+
+			   vehicle.smoothShell.upload(cont);
+
+			   //cont.updateVehicle(vehicle);
+		   }
+	   });
+
 		return null;
 	}
 

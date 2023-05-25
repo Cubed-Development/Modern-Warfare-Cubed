@@ -1,6 +1,10 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.mwc.utils.OptiNotFine;
+import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
+import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
+import com.paneedah.weaponlib.compatibility.ModelRegistryServerInterchange;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.render.IHasModel;
 import com.paneedah.weaponlib.shader.DynamicShaderContext;
@@ -24,7 +28,6 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.UUID;
@@ -32,7 +35,6 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ClientEventHandler extends CompatibleClientEventHandler {
 
@@ -225,32 +227,12 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 	@SubscribeEvent
 	public void onRenderHand(RenderHandEvent event) {
 	    Minecraft minecraft = mc;
-	    if (minecraft.gameSettings.thirdPersonView == 0) {
-			try {
-				Class<?> shadersClass = Class.forName("net.optifine.shaders.Shaders");
-				Field shaderPackLoadedField = shadersClass.getDeclaredField("shaderPackLoaded");
-				shaderPackLoadedField.setAccessible(false);
-
-				shaderPackLoadedField.get(null);
-			} catch (NoSuchFieldException | ClassNotFoundException e) {
-				e.printStackTrace();
-				return;
-			} catch (IllegalAccessException e) {
-				e.printStackTrace();
-			}
-
+	    if (minecraft.gameSettings.thirdPersonView == 0 & !OptiNotFine.shadersEnabled()) {
 	        PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
-	        
-	        
-	        DynamicShaderContext shaderContext = new DynamicShaderContext(DynamicShaderPhase.PRE_ITEM_RENDER,
-	                null,
-	                minecraft.getFramebuffer(),
-	                event.getPartialTicks())
-	                .withProperty("weaponInstance", weaponInstance);
+
+	        DynamicShaderContext shaderContext = new DynamicShaderContext(DynamicShaderPhase.PRE_ITEM_RENDER, null, minecraft.getFramebuffer(), event.getPartialTicks()).withProperty("weaponInstance", weaponInstance);
 	    //   shaderGroupManager.applyShader(shaderContext, weaponInstance);
-	       
 	    }
-	    
 	}
 
 	@Override

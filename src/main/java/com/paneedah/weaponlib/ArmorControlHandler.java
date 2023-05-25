@@ -10,7 +10,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ArmorControlHandler implements CompatibleMessageHandler<ArmorControlMessage, IMessage>  {
 
@@ -31,7 +30,7 @@ public class ArmorControlHandler implements CompatibleMessageHandler<ArmorContro
     @Override
     public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(ArmorControlMessage message, MessageContext messageContext) {
         if(messageContext.side == Side.SERVER) {
-            mc.addScheduledTask(() -> {
+            messageContext.getServerHandler().player.getServer().addScheduledTask(() -> {
                 if(message.isToggleNightVision()) {
                     EntityPlayer player = messageContext.getServerHandler().player;
                     ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);

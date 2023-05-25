@@ -12,10 +12,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.lang.reflect.Field;
-
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 @SideOnly(Side.CLIENT)
 final class ClientEffectManager implements EffectManager {
@@ -24,19 +21,6 @@ final class ClientEffectManager implements EffectManager {
 
 	@Override
     public void spawnSmokeParticle(EntityLivingBase player, float xOffset, float yOffset) {
-		try {
-			Class<?> shadersClass = Class.forName("net.optifine.shaders.Shaders");
-			Field shaderPackLoadedField = shadersClass.getDeclaredField("shaderPackLoaded");
-			shaderPackLoadedField.setAccessible(true);
-
-			shaderPackLoadedField.get(null);
-			return;
-		} catch (NoSuchFieldException | ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-
 		Vector3D look = new Vector3D(player.getLookVec());
 
 		double motionX = mc.world.rand.nextGaussian() * 0.0003;
@@ -73,19 +57,6 @@ final class ClientEffectManager implements EffectManager {
 
 	@Override
     public void spawnFlashParticle(EntityLivingBase player, float flashIntensity, float flashScale, float xOffset, float yOffset, String texture) {
-		try {
-			Class<?> shadersClass = Class.forName("net.optifine.shaders.Shaders");
-			Field shaderPackLoadedField = shadersClass.getDeclaredField("shaderPackLoaded");
-			shaderPackLoadedField.setAccessible(true);
-
-			shaderPackLoadedField.get(null);
-			return;
-		} catch (NoSuchFieldException | ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-
 	    Weapon weapon = (Weapon) player.getHeldItemMainhand().getItem();
 
 	    float distance = 1.0f;

@@ -12,7 +12,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -21,7 +24,6 @@ import java.util.function.Predicate;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
-
 
 /*
  * On a client side this class is used from within a separate client "ticker" thread
@@ -152,8 +154,14 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
     }
 
     private void attack(PlayerMeleeInstance meleeInstance, boolean isHeavyAttack) {
+        if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+            attackClient(meleeInstance, isHeavyAttack);
+    }
 
+    @SideOnly(Side.CLIENT)
+    private void attackClient(PlayerMeleeInstance meleeInstance, boolean isHeavyAttack) {
         RayTraceResult objectMouseOver = mc.objectMouseOver;
+
         if (objectMouseOver != null) {
             EntityPlayer player = mc.player;
             World world = player.world;
@@ -172,7 +180,6 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
                     break;
             }
         }
-
     }
 
     private void attackEntity(Entity entity, EntityPlayer player, PlayerMeleeInstance instance, boolean isHeavyAttack) {
