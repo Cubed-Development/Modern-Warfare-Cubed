@@ -198,10 +198,10 @@ public class CustomGui extends CompatibleGui {
 					GL11.glDisable(GL11.GL_LIGHTING);
 			        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 					GL11.glEnable(GL11.GL_BLEND);
-//
-//
+
+
 					mc.renderEngine.bindTexture(new ResourceLocation(hudTexture));
-//
+
 					drawTexturedQuadFit(0, 0, screenWidth, screenHeight, -100);
 
 					GL11.glPopAttrib();

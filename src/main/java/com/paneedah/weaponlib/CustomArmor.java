@@ -304,6 +304,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 helmetModel = HelmetModelFactory.create(modelClassName);
 
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
+
             CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
                     unlocalizedHelmetName, textureName, helmetModel, hudTextureName);
 
@@ -419,6 +420,9 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     }
 
     public String getHudTexture() {
+        if(hudTextureName == null)
+            return null;
+
         return ModReference.id + ":textures/hud/" + hudTextureName + ".png";
     }
 
