@@ -7,6 +7,7 @@ import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.jimphysics.PhysicsConfiguration;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
@@ -345,8 +346,7 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
             Class<? extends Entity> entityClass = EntityClassFactory.getInstance()
                     .generateEntitySubclass(baseClass, modEntityId, configuration);
 
-            compatibility.registerModEntity(entityClass, entityName, 
-                    modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
+            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, entityName),entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
 
             ItemVehicle vehicleItem = new ItemVehicle(entityName, entityClass);
 

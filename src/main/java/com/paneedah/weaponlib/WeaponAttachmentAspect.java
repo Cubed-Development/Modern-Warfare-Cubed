@@ -430,7 +430,12 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 					handler.apply(null, weaponInstance);
 				}
 			}
-			compatibility.consumeInventoryItemFromSlot(player, lookupResult.index);
+			if (player.inventory.getStackInSlot(lookupResult.index) == null)
+				return;
+
+			player.inventory.getStackInSlot(lookupResult.index).shrink(1);
+			if (player.inventory.mainInventory.get(lookupResult.index).getCount() <= 0)
+				player.inventory.removeStackFromSlot(lookupResult.index);
 			
 			activeAttachmentIds[attachmentCategory.ordinal()] = Item.getIdFromItem(nextAttachment);
 		} else if(lookupResult.isCreative) {

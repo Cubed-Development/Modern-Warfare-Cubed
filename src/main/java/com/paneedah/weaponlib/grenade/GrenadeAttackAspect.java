@@ -199,7 +199,12 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
         
         serverThrowGrenade(modContext, player, instance, activationTimestamp);
 
-        compatibility.consumeInventoryItemFromSlot(player, instance.getItemInventoryIndex());
+        if (player.inventory.getStackInSlot(instance.getItemInventoryIndex()) == null)
+            return;
+
+        player.inventory.getStackInSlot(instance.getItemInventoryIndex()).shrink(1);
+        if (player.inventory.mainInventory.get(instance.getItemInventoryIndex()).getCount() <= 0)
+            player.inventory.removeStackFromSlot(instance.getItemInventoryIndex());
     }
 
     public static void serverThrowGrenade(ModContext modContext, EntityLivingBase player, PlayerGrenadeInstance instance,

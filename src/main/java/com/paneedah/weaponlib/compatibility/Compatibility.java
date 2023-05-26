@@ -58,18 +58,10 @@ import java.util.function.Predicate;
 public interface Compatibility {
 
 
-    void registerModEntity(Class<? extends Entity> class1, String string, int i, Object mod, int j, int k, boolean b);
-
-    void consumeInventoryItemFromSlot(EntityPlayer player, int nextAttachmentSlot);
-
     ItemStack consumeInventoryItem(Item item, Predicate<ItemStack> condition, EntityPlayer player, int maxSize);
 
     ItemStack tryConsumingCompatibleItem(List<? extends Item> compatibleParts, int maxSize, EntityPlayer player, Predicate<ItemStack> ...conditions);
 
-    boolean isBlockPenetratableByBullets(Block block);
-
     boolean isBlockPenetratableByBullets(IBlockState blockState);
-
-    EntityAITarget createAINearestAttackableTarget(EntityLivingBase e, Class<? extends EntityLivingBase> targetClass, boolean checkSight);
 
 }

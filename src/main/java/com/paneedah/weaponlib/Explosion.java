@@ -284,7 +284,7 @@ public class Explosion {
     }
 
     public boolean canCollideWithBlock(Block block, IBlockState iBlockState) {
-        return !compatibility.isBlockPenetratableByBullets(block) && block.canCollideCheck(iBlockState, false);
+        return !compatibility.isBlockPenetratableByBullets(iBlockState) && block.canCollideCheck(iBlockState, false);
     }
 
     /**
