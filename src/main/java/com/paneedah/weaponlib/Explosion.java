@@ -177,7 +177,7 @@ public class Explosion {
                             // this.worldObj.getBlockState(blockpos);
                             IBlockState iBlockState = world.getBlockState(blockpos);
 
-                            if (!(iBlockState.getBlock() == Blocks.AIR || compatibility.isBlockPenetratableByBullets(iBlockState))) {
+                            if (!(compatibility.isBlockPenetrableByBullets(iBlockState))) {
                                 float f2 = this.exploder != null ? exploder.getExplosionResistance(new net.minecraft.world.Explosion(this.getWorld(), this.getExploder(), this.getExplosionX(), this.getExplosionY(), this.getExplosionZ(), this.getExplosionSize(), false, true), this.world, blockpos, iBlockState) : iBlockState.getBlock().getExplosionResistance((Entity) null); // (this.world, this.exploder, this, blockpos, iBlockState) : compatibility.getExplosionResistance(world, iBlockState, blockpos, (Entity) null, this);
                                 f -= (f2 + 0.3F) * 0.3F;
                             }
@@ -284,7 +284,7 @@ public class Explosion {
     }
 
     public boolean canCollideWithBlock(Block block, IBlockState iBlockState) {
-        return !compatibility.isBlockPenetratableByBullets(iBlockState) && block.canCollideCheck(iBlockState, false);
+        return !compatibility.isBlockPenetrableByBullets(iBlockState) && block.canCollideCheck(iBlockState, false);
     }
 
     /**

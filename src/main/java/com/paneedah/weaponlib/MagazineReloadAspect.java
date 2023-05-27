@@ -194,7 +194,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
 
             /*
             ItemStack consumedStack;
-            if((consumedStack = compatibility.tryConsumingCompatibleItem(compatibleBullets, magazine.getAmmo() - currentAmmo, 
+            if((consumedStack = compatibility.tryConsumingItem(compatibleBullets, magazine.getAmmo() - currentAmmo,
                     (EntityPlayer)magazineInstance.getPlayer(), i -> true)) != null) {
                 
                 ItemStack remainingStack = null;
@@ -244,18 +244,17 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             }
             
             ItemMagazine magazine = (ItemMagazine) magazineItemStack.getItem();
-            List<ItemBullet> compatibleBullets = magazine.getCompatibleBullets();
+            List<ItemBullet> bullets = magazine.getCompatibleBullets();
             int currentAmmo = Tags.getAmmo(magazineStack);
-            ItemStack consumedStack;
-            if((consumedStack = compatibility.tryConsumingCompatibleItem(compatibleBullets, magazine.getAmmo() - currentAmmo, 
-                    (EntityPlayer)magazineInstance.getPlayer(), i -> true)) != null) {
+            int consumedAmount;
+            if (currentAmmo < magazine.getAmmo() && (consumedAmount = compatibility.consumeItemsFromPlayerInventory(bullets, magazine.getAmmo() - currentAmmo, (EntityPlayer) magazineInstance.getPlayer())) != 0) {
                 
                 ItemStack remainingStack = null;
                 if(shouldSplitStack) {
                     remainingStack = magazineStack.splitStack(magazineStack.getCount() - 1);
                 }
                 
-                Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + consumedStack.getCount());
+                Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + consumedAmount);
                 
                 if(remainingStack != null) {
                     player.inventory.addItemStackToInventory(remainingStack);

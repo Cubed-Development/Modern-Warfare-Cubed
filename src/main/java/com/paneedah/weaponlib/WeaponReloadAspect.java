@@ -836,7 +836,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		        .filter(compatibleMagazine -> WeaponAttachmentAspect.hasRequiredAttachments(
 		                compatibleMagazine, weaponInstance)).collect(Collectors.toList());
 		List<ItemAttachment<Weapon>> compatibleBullets = weapon.getCompatibleAttachments(ItemBullet.class);
-		ItemStack consumedStack;
+		int consumedAmount;
 
 		boolean consumed = false;
 
@@ -889,14 +889,13 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		    }
 		    // Update permit instead: modContext.getChannel().sendTo(new ReloadMessage(weapon, ReloadMessage.Type.LOAD, newMagazine, ammo), (EntityPlayerMP) player);
 		    weaponInstance.setAmmo(ammo);
-		} else if(!compatibleBullets.isEmpty() && (consumedStack = compatibility.tryConsumingCompatibleItem(compatibleBullets,
-		        Math.min(weapon.getMaxBulletsPerReload(), weapon.getAmmoCapacity() - weaponInstance.getAmmo()), player, i -> true)) != null) {
-		    int ammo = weaponInstance.getAmmo() + consumedStack.getCount();
+		} else if (weaponInstance.getAmmo() < weapon.getAmmoCapacity()  && !compatibleBullets.isEmpty() && (consumedAmount = compatibility.consumeItemsFromPlayerInventory(compatibleBullets, Math.min(weapon.getMaxBulletsPerReload(), weapon.getAmmoCapacity() - weaponInstance.getAmmo()), player)) != 0) {
+		    int ammo = weaponInstance.getAmmo() + consumedAmount;
 		    Tags.setAmmo(weaponItemStack, ammo);
 		    // Update permit instead modContext.getChannel().sendTo(new ReloadMessage(weapon, ammo), (EntityPlayerMP) player);
 		    weaponInstance.setAmmo(ammo);
 		    if(weapon.hasIteratedLoad()) {
-		        weaponInstance.setLoadIterationCount(consumedStack.getCount());
+		        weaponInstance.setLoadIterationCount(consumedAmount);
 		    }
 		    player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
 		} else if (consumed) {

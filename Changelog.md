@@ -23,6 +23,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Changed
 
+- Reloading will not stop until the gun is fully reloaded or there is no more compatible ammunition in the inventory
 - Nerfed all vests, this is a temporary solution to vests being broken they will be overhauled at a later date ([#76])
 - Reduced the stack size of M202 rockets and RPG7 rockets to 4 and 2 respectively
 - Re-worked config system
@@ -31,6 +32,17 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Re-worked craftingmappings.json to now only override recipies. It'll no longer remove all recipies when you use it.
 - Moved config for bullets breaking glass into the new config file (ModernWarfareCubed.cfg)
 - Updated `mcmod.info` description & credits
+- Bullets collisions now works with mods
+- Bullets can now go through
+  - Standing signs
+  - Standing banners
+  - End rods
+  - Skulls
+  - Flower Pots
+  - Redstone Comparators
+  - Redstone Repeaters
+  - Cactus
+  - Cake
 
 ### Fixed
 
