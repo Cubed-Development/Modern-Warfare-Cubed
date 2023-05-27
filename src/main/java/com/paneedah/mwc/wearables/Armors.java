@@ -8,8 +8,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class Armors {
 	
 	// realistic armors

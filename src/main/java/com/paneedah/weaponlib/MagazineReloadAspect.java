@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.network.TypeRegistry;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
@@ -14,8 +15,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazineInstance> {
 
@@ -247,7 +246,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             List<ItemBullet> bullets = magazine.getCompatibleBullets();
             int currentAmmo = Tags.getAmmo(magazineStack);
             int consumedAmount;
-            if (currentAmmo < magazine.getAmmo() && (consumedAmount = compatibility.consumeItemsFromPlayerInventory(bullets, magazine.getAmmo() - currentAmmo, (EntityPlayer) magazineInstance.getPlayer())) != 0) {
+            if (currentAmmo < magazine.getAmmo() && (consumedAmount = MWCUtil.consumeItemsFromPlayerInventory(bullets, magazine.getAmmo() - currentAmmo, (EntityPlayer) magazineInstance.getPlayer())) != 0) {
                 
                 ItemStack remainingStack = null;
                 if(shouldSplitStack) {

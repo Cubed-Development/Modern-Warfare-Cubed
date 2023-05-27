@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.compatibility;
+package com.paneedah.mwc.utils;
 
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import net.minecraft.block.Block;
@@ -14,8 +14,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Deprecated
-public class Compatibility1_12_2 implements Compatibility {
+/**
+ * This class provides random utility methods.
+ * <p>
+ * Methods should be put here if they don't fit well anywhere else.
+ *
+ * @author Desoroxx
+ */
+public class MWCUtil {
 
     private static final Set<Material> PENETRABLE_MATERIALS = new HashSet<>(Arrays.asList(
             Material.WEB,
@@ -43,8 +49,7 @@ public class Compatibility1_12_2 implements Compatibility {
      *
      * @return True if the block is penetrable by bullets, false otherwise.
      */
-    @Override
-    public boolean isBlockPenetrableByBullets(IBlockState blockState) {
+    public static boolean isPenetrableByBullets(IBlockState blockState) {
         if (PENETRABLE_MATERIALS.contains(blockState.getMaterial()) || PENETRABLE_BLOCKS.contains(blockState.getBlock()))
             return true;
 
@@ -59,7 +64,7 @@ public class Compatibility1_12_2 implements Compatibility {
      * @param player The EntityPlayer whose inventory should be consumed from.
      * @return The actual number of items consumed from the inventory. This might be less than amount if the inventory does not contain enough items.
      */
-    public int consumeItemsFromPlayerInventory(List<? extends Item> items, int amount, EntityPlayer player) {
+    public static int consumeItemsFromPlayerInventory(List<? extends Item> items, int amount, EntityPlayer player) {
         int consumedAmount = 0;
 
         outerloop:

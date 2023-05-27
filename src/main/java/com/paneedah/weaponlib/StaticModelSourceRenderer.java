@@ -31,7 +31,6 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class StaticModelSourceRenderer extends ModelSourceRenderer implements IBakedModel {
 

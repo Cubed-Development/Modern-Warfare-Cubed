@@ -7,8 +7,6 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class ArmorSlot extends Slot {
 
     /** The parent class of this slot, ContainerPlayer, SlotArmor is a Anon inner class. */

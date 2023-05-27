@@ -46,7 +46,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 import static net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType.*;
 
 public class CustomGui extends Gui {

@@ -9,7 +9,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class HeadshotSFXPacket implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 

@@ -19,8 +19,6 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class AttachmentBuilder<T> {
 	
 	public static int noRecipe = 0;

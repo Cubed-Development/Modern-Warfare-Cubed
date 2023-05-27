@@ -8,8 +8,6 @@ import net.minecraft.client.util.JsonException;
 
 import java.io.IOException;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 class DynamicShader extends Shader {
 
     private DynamicShaderGroup shaderGroup;

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.network.TypeRegistry;
 import com.paneedah.weaponlib.state.Aspect;
@@ -17,7 +18,6 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInstance> {
 
@@ -889,7 +889,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		    }
 		    // Update permit instead: modContext.getChannel().sendTo(new ReloadMessage(weapon, ReloadMessage.Type.LOAD, newMagazine, ammo), (EntityPlayerMP) player);
 		    weaponInstance.setAmmo(ammo);
-		} else if (weaponInstance.getAmmo() < weapon.getAmmoCapacity()  && !compatibleBullets.isEmpty() && (consumedAmount = compatibility.consumeItemsFromPlayerInventory(compatibleBullets, Math.min(weapon.getMaxBulletsPerReload(), weapon.getAmmoCapacity() - weaponInstance.getAmmo()), player)) != 0) {
+		} else if (weaponInstance.getAmmo() < weapon.getAmmoCapacity()  && !compatibleBullets.isEmpty() && (consumedAmount = MWCUtil.consumeItemsFromPlayerInventory(compatibleBullets, Math.min(weapon.getMaxBulletsPerReload(), weapon.getAmmoCapacity() - weaponInstance.getAmmo()), player)) != 0) {
 		    int ammo = weaponInstance.getAmmo() + consumedAmount;
 		    Tags.setAmmo(weaponItemStack, ammo);
 		    // Update permit instead modContext.getChannel().sendTo(new ReloadMessage(weapon, ammo), (EntityPlayerMP) player);

@@ -27,7 +27,6 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ItemMelee extends Item implements
 PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer, Modifiable, Updatable {

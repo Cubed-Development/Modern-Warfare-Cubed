@@ -8,8 +8,6 @@ import net.minecraft.world.World;
 
 import java.io.IOException;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class EntityInventorySyncMessage implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 
     private NBTTagCompound inventoryCompound;

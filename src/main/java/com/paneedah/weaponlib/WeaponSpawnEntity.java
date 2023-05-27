@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.jim.util.HitUtil;
 import com.paneedah.weaponlib.network.packets.BloodPacketClient;
@@ -21,7 +22,6 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import java.util.List;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponSpawnEntity extends EntityProjectile {
 
@@ -264,7 +264,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 	@Override
 	public boolean canCollideWithBlock(List<BlockPos> violators, Block block, BlockPos pos, IBlockState iBlockState) {
 		// TODO Auto-generated method stub
-		return !compatibility.isBlockPenetrableByBullets(iBlockState) && super.canCollideWithBlock(violators, block, pos, iBlockState);
+		return !MWCUtil.isPenetrableByBullets(iBlockState) && super.canCollideWithBlock(violators, block, pos, iBlockState);
 	}
 
 	

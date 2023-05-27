@@ -13,8 +13,6 @@ import net.minecraft.world.World;
 import java.util.*;
 import java.util.function.Function;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class SpreadableExposure extends UniversalObject implements Exposure {
     
     public interface Listener {

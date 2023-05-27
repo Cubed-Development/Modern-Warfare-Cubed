@@ -15,8 +15,6 @@ import org.lwjgl.opengl.GL11;
 import java.nio.FloatBuffer;
 import java.util.List;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class PlayerRenderer {
 
     protected static class StateDescriptor implements MultipartRenderStateDescriptor<RenderableState, Part, RenderContext<RenderableState>>{

@@ -14,8 +14,6 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class EntityShellCasing extends EntityProjectile {
 
     private static final String TAG_ENTITY_ITEM = "entity_item";

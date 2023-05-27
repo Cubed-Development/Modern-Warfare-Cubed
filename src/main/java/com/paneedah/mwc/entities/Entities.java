@@ -15,8 +15,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraftforge.common.BiomeDictionary;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class Entities {
 
     public static void init(CommonProxy commonProxy) {

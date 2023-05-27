@@ -7,8 +7,6 @@ import net.minecraft.client.shader.ShaderGroup;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public interface DynamicShaderPhase {
 
     public void apply(DynamicShaderContext context, DynamicShaderGroup shaderGroup);

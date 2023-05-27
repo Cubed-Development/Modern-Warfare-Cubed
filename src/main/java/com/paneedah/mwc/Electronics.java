@@ -10,8 +10,6 @@ import com.paneedah.weaponlib.model.TabletModel;
 import com.paneedah.weaponlib.perspective.GasDetectorScreenPerspective;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class Electronics {
 
     public static ItemAttachment<Object> Tablet;

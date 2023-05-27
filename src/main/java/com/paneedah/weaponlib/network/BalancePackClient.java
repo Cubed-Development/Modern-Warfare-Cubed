@@ -11,7 +11,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class BalancePackClient implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 

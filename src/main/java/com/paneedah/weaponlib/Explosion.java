@@ -3,8 +3,9 @@ package com.paneedah.weaponlib;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.vectors.Vector3D;
-import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
 import net.minecraft.block.Block;
@@ -27,8 +28,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Explosion {
 
@@ -177,7 +176,7 @@ public class Explosion {
                             // this.worldObj.getBlockState(blockpos);
                             IBlockState iBlockState = world.getBlockState(blockpos);
 
-                            if (!(compatibility.isBlockPenetrableByBullets(iBlockState))) {
+                            if (!(MWCUtil.isPenetrableByBullets(iBlockState))) {
                                 float f2 = this.exploder != null ? exploder.getExplosionResistance(new net.minecraft.world.Explosion(this.getWorld(), this.getExploder(), this.getExplosionX(), this.getExplosionY(), this.getExplosionZ(), this.getExplosionSize(), false, true), this.world, blockpos, iBlockState) : iBlockState.getBlock().getExplosionResistance((Entity) null); // (this.world, this.exploder, this, blockpos, iBlockState) : compatibility.getExplosionResistance(world, iBlockState, blockpos, (Entity) null, this);
                                 f -= (f2 + 0.3F) * 0.3F;
                             }
@@ -284,7 +283,7 @@ public class Explosion {
     }
 
     public boolean canCollideWithBlock(Block block, IBlockState iBlockState) {
-        return !compatibility.isBlockPenetrableByBullets(iBlockState) && block.canCollideCheck(iBlockState, false);
+        return !MWCUtil.isPenetrableByBullets(iBlockState) && block.canCollideCheck(iBlockState, false);
     }
 
     /**

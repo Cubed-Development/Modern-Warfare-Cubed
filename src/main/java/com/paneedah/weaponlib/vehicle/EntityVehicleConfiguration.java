@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class EntityVehicleConfiguration implements EntityConfiguration {
 
     public static class Seat {

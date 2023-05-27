@@ -7,8 +7,6 @@ import net.minecraft.util.EnumHand;
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class EntityAIAttackRangedWeapon extends EntityAIBase
 {
     private static final float DEFAULT_SECONDARY_EQUIPMENT_USE_CHANCE = 0.25f;

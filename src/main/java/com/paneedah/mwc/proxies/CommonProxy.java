@@ -28,8 +28,6 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class CommonProxy {
 
     /*

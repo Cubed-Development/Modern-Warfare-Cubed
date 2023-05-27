@@ -15,8 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class DynamicShaderGroup extends ShaderGroup {
 
     private Map<String, Object> uniforms = new HashMap<>();

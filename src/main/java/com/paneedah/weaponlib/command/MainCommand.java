@@ -19,7 +19,6 @@ import net.minecraft.util.text.TextFormatting;
 import java.util.*;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class MainCommand extends CommandBase {
 

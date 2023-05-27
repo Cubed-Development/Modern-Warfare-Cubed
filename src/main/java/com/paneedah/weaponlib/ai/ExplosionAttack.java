@@ -2,8 +2,6 @@ package com.paneedah.weaponlib.ai;
 
 import net.minecraft.entity.Entity;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class ExplosionAttack implements CustomMobAttack, Timeable {
     
     private float explosionRadius;

@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.function.BiPredicate;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityFlashGrenade extends AbstractEntityGrenade {
 

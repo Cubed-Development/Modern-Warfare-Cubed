@@ -9,8 +9,6 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
-
 public class InventoryTab extends GuiButton {
     private ResourceLocation texture = new ResourceLocation("textures/gui/container/creative_inventory/tabs.png");
     //private ItemStack renderStack;

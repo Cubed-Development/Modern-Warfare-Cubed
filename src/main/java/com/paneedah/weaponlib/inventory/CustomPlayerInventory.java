@@ -11,8 +11,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.text.ITextComponent;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class CustomPlayerInventory implements IInventory, Contextual {
     /**
      * The name your custom inventory will display in the GUI, possibly just

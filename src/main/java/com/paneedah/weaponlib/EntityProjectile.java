@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.vectors.Vector3D;
-import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
@@ -19,8 +19,6 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
 import java.util.List;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public abstract class EntityProjectile extends Entity implements IProjectile, IEntityAdditionalSpawnData {
 

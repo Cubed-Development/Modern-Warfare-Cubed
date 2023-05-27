@@ -48,7 +48,6 @@ import java.util.function.*;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>,
 AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCrafting {

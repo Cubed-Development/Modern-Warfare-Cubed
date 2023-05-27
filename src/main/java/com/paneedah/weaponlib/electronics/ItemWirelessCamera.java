@@ -24,8 +24,6 @@ import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class ItemWirelessCamera extends Item implements ModelSource {
 
     public static final long DEFAULT_DURATION = 300 * 1000;

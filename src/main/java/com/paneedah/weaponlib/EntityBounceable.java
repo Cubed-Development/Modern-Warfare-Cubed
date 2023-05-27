@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.vectors.Vector3D;
-import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import io.netty.buffer.ByteBuf;
 import net.jafama.FastMath;
 import net.minecraft.block.Block;
@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Queue;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityBounceable extends Entity implements Contextual, IThrowableEntity, IEntityAdditionalSpawnData {
 

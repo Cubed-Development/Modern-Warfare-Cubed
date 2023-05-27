@@ -13,8 +13,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public abstract class AbstractEntityGrenade extends EntityBounceable {
 
     private static final String TAG_ENTITY_ITEM = "entity_item";

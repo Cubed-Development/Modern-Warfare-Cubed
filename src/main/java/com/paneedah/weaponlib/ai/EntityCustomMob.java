@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.ai;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.ai.EntityConfiguration.Equipment;
 import com.paneedah.weaponlib.ai.EntityConfiguration.TexturedModel;
-import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.CompatibleDataManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
@@ -21,13 +21,13 @@ import net.minecraft.stats.StatList;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
-import net.minecraft.util.SoundEvent;
 
 import javax.annotation.Nullable;
 import java.util.Arrays;
@@ -35,8 +35,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Contextual, Configurable<EntityConfiguration> {
 

@@ -16,8 +16,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemInstanceFactory<PlayerMagazineInstance, MagazineState>, 
 Reloadable, Updatable, Part {
 	

@@ -55,8 +55,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class CommonModContext implements ModContext {
 
     static {

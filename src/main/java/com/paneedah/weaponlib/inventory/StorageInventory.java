@@ -14,8 +14,6 @@ import net.minecraftforge.common.util.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class StorageInventory implements IInventory {
     
     private static final String TAG_SLOT_INDEX = "Slot";

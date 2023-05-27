@@ -15,8 +15,6 @@ import net.minecraft.world.World;
 import java.util.*;
 import java.util.Map.Entry;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class EntitySpreadable extends Entity implements Contextual, Spreadable {
     
     private static final String TAG_SPREAD_MAP = "spreadMap";

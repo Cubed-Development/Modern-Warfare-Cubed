@@ -14,8 +14,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class EntityGasGrenade extends AbstractEntityGrenade {
 
     private long activationDelay;

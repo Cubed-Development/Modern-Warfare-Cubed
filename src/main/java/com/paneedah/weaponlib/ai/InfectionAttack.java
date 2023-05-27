@@ -8,8 +8,6 @@ import net.minecraft.entity.EntityLivingBase;
 
 import java.util.UUID;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class InfectionAttack implements CustomMobAttack, Spreadable {
     
     private static UUID uuid = UUID.randomUUID();

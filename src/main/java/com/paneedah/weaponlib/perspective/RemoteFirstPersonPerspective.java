@@ -12,7 +12,6 @@ import net.minecraft.stats.StatisticsManager;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public abstract class RemoteFirstPersonPerspective extends Perspective<RenderableState> {
 
