@@ -800,7 +800,8 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public boolean isBlockPenetratableByBullets(Block block) {
-        if (blocksToCheck.contains(block))
+        String blockId = Block.REGISTRY.getNameForObject(block).toString();
+        if (blocksToCheck.contains(block) || ModernConfigManager.penetratingBlocks.contains(blockId))
             return true;
 
         if (ModernConfigManager.bulletBreakGlass || ModernConfigManager.penetratesGlass)

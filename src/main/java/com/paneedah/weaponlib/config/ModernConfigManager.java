@@ -115,6 +115,9 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should bullets penetrate glass?")
 	public static boolean penetratesGlass = false;
 
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Which blocks can be penetrating by bullets?")
+	public static String penetratingBlocks = "minecraft:barrier, minecraft:fence";
+
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables muzzle effects.")
 	public static boolean enableMuzzleEffects = true;
 
