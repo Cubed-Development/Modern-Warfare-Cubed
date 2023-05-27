@@ -415,7 +415,7 @@ public class EntityConfiguration {
             configuration.collisionAttack = collisionAttack;
             configuration.delayedAttack = delayedAttack;
             configuration.mobName = name;
-            
+
             int modEntityId = entityIdSupplier.get();
             String entityName = name != null ? name : baseClass.getSimpleName() + "Ext" + modEntityId;
 
@@ -426,69 +426,82 @@ public class EntityConfiguration {
 
             AIEntity entityConfig = ModernConfigManager.aiEntities.get(entityName);
 
-            if (entityConfig.getName().equalsIgnoreCase("terrorist") || entityConfig.getName().equalsIgnoreCase("soldier")) {
-                WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
-                if (ModernConfigManager.terroristEquipmentConfiguration == null || ModernConfigManager.terroristEquipmentConfiguration.isEmpty()) {
-                    equipmentOptions.forEach((key, value) -> equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
 
-                } else {
-                    Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
+            WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
+            if (ModernConfigManager.terroristEquipmentConfiguration == null || ModernConfigManager.terroristEquipmentConfiguration.isEmpty()) {
+                equipmentOptions.forEach((key, value) -> equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
 
-                    EnumDifficulty difficultyLevel = EnumDifficulty.EASY;
-                    EnumDifficulty[] difficultyValues = EnumDifficulty.values();
+            } else {
+                Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
 
-                    String[] attachments = ModernConfigManager.terroristEquipmentConfiguration.split(", ");
-                    for (String attachment : attachments) {
-                        String[] parts = attachment.split(":");
-                        if (parts.length < 2) {
-                            ModReference.log.warn("Invalid attachment configuration for entity " + name + ": " + attachment + ". Expected format: <gunId>:<weight>[:<attachment>...]");
-                            continue;
-                        }
+                EnumDifficulty difficultyLevel = EnumDifficulty.EASY;
+                EnumDifficulty[] difficultyValues = EnumDifficulty.values();
 
-                        String gunId = parts[0];
-                        double weight;
-                        try { weight = Double.parseDouble(parts[1]); }
-                        catch (NumberFormatException e) {
-                            ModReference.log.warn("Invalid weight for gun " + name + ": " + parts[1] + ". Expected a valid double.");
-                            continue;
-                        }
+                String[] attachments = ModernConfigManager.terroristEquipmentConfiguration.split(", ");
+                for (String attachment : attachments) {
+                    String[] parts = attachment.split(":");
+                    if (parts.length < 2) {
+                        ModReference.log.warn("Invalid attachment configuration for entity " + name + ": " + attachment + ". Expected format: <gunId>:<weight>[:<attachment>...]");
+                        continue;
+                    }
 
-                        Item gun = compatibility.findItemByName(gunId);
-                        if (gun == null) {
-                            ModReference.log.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
-                            continue;
-                        }
+                    String gunId = parts[0];
+                    double weight;
+                    try {
+                        weight = Double.parseDouble(parts[1]);
+                    } catch (NumberFormatException e) {
+                        ModReference.log.warn("Invalid weight for gun " + name + ": " + parts[1] + ". Expected a valid double.");
+                        continue;
+                    }
 
-                        Equipment equipment = new Equipment();
-                        equipment.item = gun;
-                        equipment.attachments = new ArrayList<>();
+                    Item gun = compatibility.findItemByName(gunId);
+                    if (gun == null) {
+                        ModReference.log.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
+                        continue;
+                    }
 
-                        if (parts.length >= 3) {
-                            for (String attachmentId : Arrays.asList(parts).subList(2, parts.length)) {
-                                Item att = compatibility.findItemByName(attachmentId);
-                                if (!(att instanceof ItemAttachment)) {
-                                    ModReference.log.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
-                                    continue;
-                                }
+                    Equipment equipment = new Equipment();
+                    switch (entityConfig.getName()) {
+                        case "turret":
+                            equipment.item = compatibility.findItemByName("turretgun");
+                            break;
+                        case "turretupgraded":
+                            equipment.item = compatibility.findItemByName("turretgunupgraded");
+                            break;
+                        case "turretsilenced":
+                            equipment.item = compatibility.findItemByName("turretgunsilenced");
+                            break;
+                        default:
+                            equipment.item = gun;
+                    }
+                    equipment.attachments = new ArrayList<>();
 
-                                equipment.attachments.add((ItemAttachment<?>) att);
+                    if (parts.length >= 3) {
+                        for (String attachmentId : Arrays.asList(parts).subList(2, parts.length)) {
+                            Item att = compatibility.findItemByName(attachmentId);
+                            if (!(att instanceof ItemAttachment)) {
+                                ModReference.log.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
+                                continue;
                             }
-                        }
 
-                        for (int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
-                            equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item, equipment.attachments.toArray(new ItemAttachment<?>[0])),
-                                    new EquipmentValue(equipment, (float) weight));
+                            equipment.attachments.add((ItemAttachment<?>) att);
                         }
                     }
 
-                    equipmentOptions.forEach((key, value) -> {
-                        equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight);
-                    });
+                    for (int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
+                        equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item, equipment.attachments.toArray(new ItemAttachment<?>[0])),
+                                new EquipmentValue(equipment, (float) weight));
+                    }
                 }
 
-                configuration.equipmentOptions = equipmentOptionsBuilder.build();
+                equipmentOptions.forEach((key, value) -> {
+                    equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight);
+                });
             }
-            
+
+            configuration.equipmentOptions = equipmentOptionsBuilder.build();
+
+
             WeightedOptions.Builder<EnumDifficulty, Equipment> secondaryEquipmentOptionsBuilder = new WeightedOptions.Builder<>();
             secondaryEquipmentOptions.forEach((key, value) -> secondaryEquipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
 
@@ -519,25 +532,25 @@ public class EntityConfiguration {
             configuration.pickupItemID = pickupItemID;
             configuration.sizeHeight = this.sizeHeight;
             configuration.sizeWidth = this.sizeWidth;
-            
+
             Class<? extends Entity> entityClass = EntityClassFactory.getInstance().generateEntitySubclass(baseClass, modEntityId, configuration);
 
             SecondaryEntityRegistry.map.put(name, entityClass);
-            
+
             compatibility.registerModEntity(entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
 
-            if(spawnEgg)
+            if (spawnEgg)
                 compatibility.registerEgg(context, entityClass, entityName, primaryEggColor, secondaryEggColor);
 
-            for(Spawn spawn: spawns) {
-            	//int weightedProb = spawn.weightedProb;
-                int weightedProb = (int)(entityConfig.getSpawn());
-                if(weightedProb > 0)
+            for (Spawn spawn : spawns) {
+                //int weightedProb = spawn.weightedProb;
+                int weightedProb = (int) (entityConfig.getSpawn());
+                if (weightedProb > 0)
                     compatibility.addSpawn(safeCast(entityClass), weightedProb, spawn.min, spawn.max, spawn.biomeTypes);
             }
-            
-            if(compatibility.isClientSide()) {
-                for(TexturedModel tmv: texturedModelVariants) {
+
+            if (compatibility.isClientSide()) {
+                for (TexturedModel tmv : texturedModelVariants) {
                     tmv.textureResource = new ResourceLocation(ModReference.id, "textures/entity/" + tmv.textureName);
                     try {
                         tmv.model = (ModelBiped) Class.forName(tmv.modelClassName).newInstance();
@@ -545,7 +558,7 @@ public class EntityConfiguration {
                         e.printStackTrace();
                     }
                 }
-                
+
                 RendererRegistration.registerRenderableEntity(context, entityClass, texturedModelVariants);
             }
         }
