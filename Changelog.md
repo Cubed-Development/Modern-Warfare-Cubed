@@ -36,7 +36,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Reworked the config system:
   - Old XML config has been removed, and all configs have been consolidated into a new JSON config. Issues with some non-functioning configs have been resolved
   - Adjusted craftingmappings.json to now only override recipes, rather than removing all recipes
-- Temporarily nerfed all vests and XP gains from smelting ores as a part of vest problem mitigation
+- Temporarily nerfed all vests as a part of vest problem mitigation
+- Nerfed XP gains from smelting ores
 - Reloading now only stops once the gun is fully reloaded or no compatible ammunition remains in inventory
 - Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines)
 - Expanded crafting to accommodate any type of planks
