@@ -183,7 +183,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
 
         private Object[] craftingMaterials;
         
-        private String gunType = "Gun";
+        private String gunType = "LAUNCHER";
 
         private float shellCasingForwardOffset = Weapon.DEFAULT_SHELL_CASING_FORWARD_OFFSET;
 
@@ -236,8 +236,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
         
         public Builder withConfigGroup(GunConfigurationGroup group) {
-            this.configGroup = group;
-            return this;
+            this.gunType = String.valueOf(group);
+        	this.configGroup = group;
+			return this;
         }
         
         public Builder withWeaponType(String type) {
@@ -265,6 +266,10 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         
         public float getFirerate() {
             return this.fireRate;
+        }
+
+        public float getInaccuracy() {
+            return this.inaccuracy;
         }
         
         public Builder hasFlashPedals() {
@@ -865,7 +870,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                             spawnEntityExplosionParticleScaleCoefficient, spawnEntitySmokeParticleScaleCoefficient,
                             explosionParticleTextureId, 
                             smokeParticleTextureId);
-                    bullet.setPositionAndDirection();
+                    bullet.setPositionAndDirection(true);
                     return bullet;
                 };
             }
@@ -890,7 +895,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                 spawnShellWith = (weaponInstance, player) -> {
                     EntityShellCasing shell = new EntityShellCasing(weaponInstance, player.world, player,
                             DEFAULT_SHELL_CASING_VELOCITY, DEFAULT_SHELL_CASING_GRAVITY_VELOCITY, DEFAULT_SHELL_CASING_INACCURACY);
-                    shell.setPositionAndDirection();
+                    shell.setPositionAndDirection(true);
                     return shell;
                 };
             }
@@ -1002,31 +1007,29 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             weapon.modernRecipe = modernCraftingRecipe;
             
             this.informationProvider = (stack) -> {
-
-
-                TextFormatting plate = TextFormatting.GREEN;
-                TextFormatting plain = TextFormatting.GRAY;
-
-                ArrayList<String> descriptionBuilder = new ArrayList<>();
-
-
-                descriptionBuilder.add(plate + "Type: " + plain + this.gunType);
-                descriptionBuilder.add(plate + "Damage: " + plain + (BalancePackManager.getNetGunDamage(weapon)));
-                descriptionBuilder.add(plate + "Firerate: " + plain + Math.round(BalancePackManager.getFirerate(weapon)*100) + "/100");
-
-
-                boolean cartridgeDriven = false;
-                String catridgeName = "";
-                for(Entry<ItemAttachment<Weapon>, CompatibleAttachment<Weapon>> i : compatibleAttachments.entrySet()) {
-                    if(i.getValue().getAttachment().getCategory() == AttachmentCategory.BULLET) {
-                        cartridgeDriven = true;
-                        catridgeName = new TextComponentTranslation(i.getValue().getAttachment().getTranslationKey() + ".name").getFormattedText();
-                    }
-                }
-
-                if(!cartridgeDriven) {
-                    descriptionBuilder.add(plate + "Magazines:");
-                    ArrayList<ItemMagazine> mags = new ArrayList<>();
+            	TextFormatting plate = TextFormatting.GREEN;
+            	TextFormatting plain = TextFormatting.GRAY;
+            	
+            	ArrayList<String> descriptionBuilder = new ArrayList<>();
+            	
+            	
+            	descriptionBuilder.add(plate + "Type: " + plain + this.gunType);
+            	descriptionBuilder.add(plate + "Damage: " + plain + String.format("%.1f" , (BalancePackManager.getNetGunDamage(weapon))));
+            	descriptionBuilder.add(plate + "Firerate: " + plain + Math.round(BalancePackManager.getFirerate(weapon)*100) + "/100");
+            	
+                
+            	boolean cartridgeDriven = false;
+            	String catridgeName = "";
+            	for(Entry<ItemAttachment<Weapon>, CompatibleAttachment<Weapon>> i : compatibleAttachments.entrySet()) {
+            		if(i.getValue().getAttachment().getCategory() == AttachmentCategory.BULLET) {
+            			cartridgeDriven = true;
+            			catridgeName = new TextComponentTranslation(i.getValue().getAttachment().getTranslationKey() + ".name").getFormattedText();
+            		}
+            	}
+            	
+            	if(!cartridgeDriven) {
+            		descriptionBuilder.add(plate + "Magazines:");
+            		ArrayList<ItemMagazine> mags = new ArrayList<>();
                     weapon.getCompatibleAttachments(AttachmentCategory.MAGAZINE).forEach(c -> mags.add((ItemMagazine) c.getAttachment()));
                     mags.sort((a, b) -> a.getAmmo()-b.getAmmo());
                   

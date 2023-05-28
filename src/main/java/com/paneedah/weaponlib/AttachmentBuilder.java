@@ -267,12 +267,11 @@ public class AttachmentBuilder<T> {
 		attachment.remove2 = remove2;
 		attachment.maxStackSize = maxStackSize;
 		attachment.setRequiredAttachments(requiredAttachments);
-		if(attachment.getInformationProvider() == null) {
+		if (attachment.getInformationProvider() == null)
 		    attachment.setInformationProvider(informationProvider);
-		}
-		if(getTextureName() != null) {
+
+		if (getTextureName() != null)
 			attachment.setTextureName(ModReference.id + ":" + stripFileExtension(getTextureName(), ".png"));
-		}
 
 		if(isRenderablePart) {
 			attachment.setRenderablePart(new Part() {

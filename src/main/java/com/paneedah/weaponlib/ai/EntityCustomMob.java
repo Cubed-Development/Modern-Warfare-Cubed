@@ -412,7 +412,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
                         weapon.getSpawnEntityVelocity(), weapon.getSpawnEntityGravityVelocity(), inaccuracy,
                         weapon.getSpawnEntityDamage() * 0.01f * 0.2f, weapon.getSpawnEntityExplosionRadius(), false, false, 1f, 1f, 1.5f, 1f,
                         -1, -1);
-                bullet.setPositionAndDirection();
+                bullet.setPositionAndDirection(true);
                 return bullet;
             };
 

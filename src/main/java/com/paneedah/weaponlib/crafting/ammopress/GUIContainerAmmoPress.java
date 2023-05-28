@@ -44,7 +44,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 	private static final ResourceLocation AMMO_PRESS_TEX = new ResourceLocation(ModReference.id + ":textures/gui/ammosheet.png");
 
 	// Selectors & Quantity Box
-	private GUIButtonCustom bulletSelector, magazineSelector;
+	private GUIButtonCustom bulletSelector, magazineSelector, grenadeSelector;
 	private CustomSearchTextField quantityBox;
 	
 	
@@ -57,18 +57,12 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 	@Override
 	public void initGui() {
 		super.initGui();
-
-
 		
 		this.quantityBox = new CustomSearchTextField(AMMO_PRESS_TEX, "Amt.", 1, 1, this.fontRenderer, this.guiLeft + 267, this.guiTop + 183, 84, 13);
 		this.quantityBox.setMaxStringLength(50);
 		this.quantityBox.setEnableBackgroundDrawing(true);
 		this.quantityBox.setVisible(true);
 		this.quantityBox.setTextColor(16777215);
-
-
-
-
 
 		bulletSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 3, this.guiLeft + 107, this.guiTop + 29, 19, 20, 256, 256, "")
 				.withStandardState(0xFFFFFF, 0, 0).withHoveredState(0xFFFFFF, 19, 0)
@@ -78,16 +72,17 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 				.withStandardState(0xFFFFFF, 0, 20).withHoveredState(0xFFFFFF, 19, 20)
 				.withToggledState(0xFFFFFF, 38, 20).withPageRestriction(2).makeToggleButton();
 
-
+		grenadeSelector = new GUIButtonCustom(AMMO_PRESS_TEX, 5, this.guiLeft + 153, this.guiTop + 29, 19, 20, 256, 256, "")
+				.withStandardState(0xFFFFFF, 0, 40).withHoveredState(0xFFFFFF, 19, 40)
+				.withToggledState(0xFFFFFF, 38, 40).withPageRestriction(2).makeToggleButton();
 
 		bulletSelector.toggleOn();
 
 		addButton(bulletSelector);
 		addButton(magazineSelector);
+		addButton(grenadeSelector);
 		
 		setPage(1);
-
-
 	}
 	
 	/**
@@ -108,6 +103,8 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.BULLET));
 		} else if(getCraftingMode() == 2) {
 			filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.MAGAZINE));
+		} else if(getCraftingMode() == 3) {
+			filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.GRENADE));
 		}
 	}
 	
@@ -126,53 +123,45 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 		super.actionPerformed(button);
 
 		if (button == craftButton && !craftButton.isDisabled()) {
-
 			if (hasSelectedCraftingPiece() && quantityBox.getText().length() != 0) {
-
 				int quantity = Integer.parseInt(quantityBox.getText());
-				
-				
-			
-				modContext.getChannel()
-						.sendToServer(new StationPacket(StationPacket.CRAFT, tileEntity.getPos(), getSelectedCraftingPiece().getItem().getTranslationKey(), getSelectedCraftingPiece().getCraftingGroup(), quantity));
-
-				
+				modContext.getChannel().sendToServer(new StationPacket(StationPacket.CRAFT, tileEntity.getPos(), getSelectedCraftingPiece().getItem().getTranslationKey(), getSelectedCraftingPiece().getCraftingGroup(), quantity));
 			}
 
 		}  else if (button == bulletSelector) {
 			((GUIButtonCustom) button).toggleOn();
 			magazineSelector.toggleOff();
+			grenadeSelector.toggleOff();
+
 			setCraftingMode(1);
-		
 			setSelectedCraftingPiece(null);
 
 			fillFilteredList();
 		} else if (button == magazineSelector) {
 			((GUIButtonCustom) button).toggleOn();
 			bulletSelector.toggleOff();
-			setCraftingMode(2);
+			grenadeSelector.toggleOff();
 
+			setCraftingMode(2);
+			setSelectedCraftingPiece(null);
+
+			fillFilteredList();
+		} else if (button == grenadeSelector) {
+			((GUIButtonCustom) button).toggleOn();
+			magazineSelector.toggleOff();
+			bulletSelector.toggleOff();
+
+			setCraftingMode(3);
 			setSelectedCraftingPiece(null);
 
 			fillFilteredList();
 		}
 	}
 
-	
-
-	
-
-	
-
-	
-
-
 	@Override
 	public void addCraftingInformationToTooltip(ArrayList<String> tooltip) {
-		
 		ItemStack stack = tileEntity.getLatestStackInQueue();
 		tooltip.add(GOLD + "Crafting: " + WHITE + format(stack.getTranslationKey()));
-		
 
 		if(stack.getItem() instanceof ItemBullet) {
 			tooltip.add(GOLD + "Quantity: " + WHITE
@@ -180,18 +169,12 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 		} else {
 			tooltip.add(GOLD + "Quantity: " + WHITE + stack.getCount());
 		}
-		
-		
 	}
 
 	
 	@Override
 	public void addCustomTooltipInformation(int mouseX, int mouseY, ArrayList<String> tooltip) {
 		super.addCustomTooltipInformation(mouseX, mouseY, tooltip);
-		
-		
-		
-
 		if(tileEntity.hasStack()) {
 			if (mouseY >= this.guiTop && mouseY <= this.guiTop + 20) {
 				int id = (mouseX - (this.guiLeft + 200))/20;
@@ -228,12 +211,9 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		if(getPage() == 2) this.quantityBox.drawTextBox();
 		drawTooltips(mouseX, mouseY, partialTicks);
-		
-		
+
 		if (getPage() == 2) {
-			
-			
-			
+
 			LinkedList<ItemStack> queue = tileEntity.getCraftingQueue();
 			GlStateManager.enableBlend();
 			for(int i = 0; i < queue.size(); ++i) {
@@ -254,20 +234,12 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 				ItemStack stack = queue.get(i);
 				GUIRenderHelper.drawScaledString("x" + stack.getCount(), this.guiLeft + 212 + i*20, this.guiTop + 16, 0.7, GOLD);
 			}
-			
-			
+
 			if(hasSelectedCraftingPiece() && getSelectedCraftingPiece().getItem() instanceof ItemBullet) {
 				GUIRenderHelper.drawScaledString("x" + (getCurrentAmountInQuantityBox() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS),
 						this.guiLeft + 268, this.guiTop + 201, 0.7, GREEN);
-				
 			}
-			
 		}
-		
-		
-		
-
-
 	}
 
 	private int getCurrentAmountInQuantityBox() {
@@ -279,50 +251,28 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
 		super.mouseClicked(mouseX, mouseY, mouseButton);
 		this.quantityBox.mouseClicked(mouseX, mouseY, mouseButton);
-		
-		
 
 		if(tileEntity.hasStack()) {
 			if (mouseY >= this.guiTop && mouseY <= this.guiTop + 20) {
 				int id = (mouseX - (this.guiLeft + 200))/20;
-				if(id >= 0 && tileEntity.getCraftingQueue().size() - 1 >= id) {
-					
+				if(id >= 0 && tileEntity.getCraftingQueue().size() - 1 >= id)
 					modContext.getChannel().sendToServer(new StationPacket(StationPacket.POP_FROM_QUEUE, tileEntity.getPos(), mc.player.getEntityId(), id));
-				}
 			}
 		}
-		
-		
-
-
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void keyTyped(char typedChar, int keyCode) throws IOException {
-		 
-	
 		boolean cancelationForQuantity = this.quantityBox.getText().length() == 0 && keyCode == Keyboard.KEY_BACK;
 		
 		super.keyTyped(typedChar, keyCode);
-		if(Character.isDigit(typedChar) || keyCode == Keyboard.KEY_BACK) {
+		if(Character.isDigit(typedChar) || keyCode == Keyboard.KEY_BACK)
 			this.quantityBox.textboxKeyTyped(typedChar, keyCode);
-		}
-		
+
 		if((cancelationForQuantity && this.quantityBox.isFocused())) return;
-		
-		
-		if(keyCode == Keyboard.KEY_BACK) {
+
+		if(keyCode == Keyboard.KEY_BACK)
 			fillFilteredList();
-		}
-		
-	
-		
 	}
-
-
-
-	
-
-
 }

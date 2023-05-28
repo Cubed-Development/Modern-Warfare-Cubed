@@ -455,17 +455,16 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
             damage *= damageMultiplier;
             
            // System.out.println(weapon.getName() + " | " + spawnEntityRocketParticles);
-            
+
            WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, player.world, player, weapon.getSpawnEntityVelocity(),
-                   weapon.getSpawnEntityGravityVelocity(), weapon.getInaccuracy() + (isAimed ? 0.0f : 2.6f), (float) damage, weapon.getSpawnEntityExplosionRadius(), 
+                   weapon.getSpawnEntityGravityVelocity(), BalancePackManager.getInaccuracy(weapon) + (isAimed ? 0.0f : 2.6f), (float) damage, weapon.getSpawnEntityExplosionRadius(),
                    weapon.isDestroyingBlocks(), weapon.hasRocketParticles(), weapon.getParticleAgeCoefficient(), weapon.getSmokeParticleAgeCoefficient(),
                    weapon.getExplosionScaleCoefficient(), weapon.getSmokeParticleScaleCoefficient(),
                    0, 
                    0);
-           bullet.setPositionAndDirection();
 
+           bullet.setPositionAndDirection(isAimed);
            player.world.spawnEntity(bullet);
-
           // return bullet;
 /*            WeaponSpawnEntity spawnEntity = spawnEntityWith.apply(weapon, player);
             if(player != null)

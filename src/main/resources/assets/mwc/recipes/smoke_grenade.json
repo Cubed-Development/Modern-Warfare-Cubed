@@ -1,0 +1,25 @@
+{
+  "type":"minecraft:crafting_shaped",
+  "pattern":[
+    "X  ",
+    " W ",
+    " R "
+  ],
+  "key":{
+    "X":{
+      "item":"minecraft:iron_ingot"
+    },
+    "R":{
+      "type":"forge:ore_dict",
+      "ore": "ingotSteel"
+    }
+  },
+  "W":{
+      "item":"minecraft:wool"
+    }
+  },
+  "result":{
+    "item":"mwc:m18white",
+    "count":1
+  }
+}

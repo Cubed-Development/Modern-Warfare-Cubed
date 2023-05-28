@@ -2,6 +2,7 @@ package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
 import com.google.common.collect.Maps;
+import com.paneedah.mwc.skins.CustomSkin;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
@@ -3312,14 +3313,18 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		
 				ItemSkin itemSkin = (ItemSkin) skin;
 				GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 3);
-				mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + itemSkin.getTextureName() + ".png"));
+
+				if (itemSkin.getTextureName().startsWith("customskin_")) {
+					mc.getTextureManager().bindTexture(CustomSkin.getCustomSkinResource(itemSkin.getTextureName().toLowerCase().replace("customskin_", "")));
+				} else {
+					mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id+":textures/models/"+itemSkin.getTextureName()+".png"));
+				}
 				
 				GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 			}
 			
-			if(DebugCommand.debugFlag == 4) return;
-			
-			
+			if (DebugCommand.debugFlag == 4)
+				return;
 			
 			if(ModernConfigManager.enableAllShaders && ModernConfigManager.enableGunShaders) {
 				Shaders.gunLightingShader.use();

@@ -145,9 +145,7 @@ public class MainCommand extends CommandBase {
 
     private void showRecipe(Item item) {
         if(item != null && (item instanceof Weapon)) {
-           // compatibility.addChatMessage(mc.player, "");
-            mc.player.sendMessage(new TextComponentString(TextFormatting.GOLD +
-                    "-- Recipe for " + TextFormatting.GRAY +  item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--"));
+            mc.player.sendMessage(new TextComponentString(TextFormatting.GOLD + "-- Recipe for " + TextFormatting.GRAY +  item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--"));
            
             CraftingEntry[] modernRecipe = ((Weapon) item).getModernRecipe();
             if(modernRecipe == null) {

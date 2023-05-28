@@ -1,10 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.models.M191144MagSlide;
-import com.paneedah.mwc.models.M1911Slide;
-import com.paneedah.mwc.models.M1911frontsight;
-import com.paneedah.mwc.models.makarovrearsight;
+import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -118,8 +115,9 @@ public class M1911Factory implements GunFactory {
             GL11.glTranslatef(-0.23F, -1.14F, -4.92F);
             GL11.glScaled(1.5F, 1.5F, 1.5F);
         })
-        .withTextureNames("m1911")
-        .withRenderer(new WeaponRenderer.Builder()
+                .withTextureNames("m1911")
+                .withRenderer(new WeaponRenderer.Builder()
+                        .withModel(new M1911())
     
             //.withBakedModel(WavefrontLoader.loadWeaponModel("m1911test", Arrays.asList("body", "handle"), false))
             //.withTextureName("M9")

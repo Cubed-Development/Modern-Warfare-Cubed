@@ -21,7 +21,6 @@ public class GuiHandler implements IGuiHandler {
     public static final int CUSTOM_PLAYER_INVENTORY_GUI_ID = 2;
     public static final int WORKBENCH_GUI_ID = 3;
     public static final int AMMOPRESS_GUI_ID = 4;
-//    public static final int MISSIONS_MENU_GUI_ID = 3;
 
     @Override
     public Object getServerGuiElement(int guiId, EntityPlayer player, World world, int x, int y, int z) {
@@ -66,9 +65,7 @@ public class GuiHandler implements IGuiHandler {
             guiContainer = new CustomPlayerInventoryGuiContainer(player, player.inventory,
                     CompatibleCustomPlayerInventoryCapability.getInventory(player));
             break;
-//        case MISSIONS_MENU_GUI_ID:
-//            guiContainer = new MissionsMenuGui();
-//            break;
+                
         case WORKBENCH_GUI_ID:
         	guiContainer = new GUIContainerWorkbench(player, player.inventory, (TileEntityWorkbench) world.getTileEntity(new BlockPos(x, y, z)));
         	

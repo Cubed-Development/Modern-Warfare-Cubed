@@ -78,10 +78,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 //        }
     }
 
-    public void setPositionAndDirection() {
+    public void setPositionAndDirection(boolean isAim) {
 
-        this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(),
-                thrower.posZ, thrower.rotationYaw, thrower.rotationPitch);
+        this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(), thrower.posZ, thrower.rotationYaw, thrower.rotationPitch);
         
         this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
@@ -231,7 +230,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
              if(rtr != null) {
                  IBlockState state = world.getBlockState(rtr.getBlockPos());
                  if(state.getMaterial() == Material.GLASS) {
-                     this.world.destroyBlock(rtr.getBlockPos(), true);
+                     if(!ModernConfigManager.penetratesGlass || ModernConfigManager.bulletBreakGlass)
+                         this.world.destroyBlock(rtr.getBlockPos(), true);
+
 
                      ModContext context = CommonModContext.getContext();
                      if (context == null)
@@ -320,11 +321,20 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
             }
 
             if (flag && entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
-                float f = 0.3F;
-                AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand((double) f, (double) f, (double) f);
+                float f1 = 0.15F, f2 = -0.15f;
+                AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand((double) f1, (double) f1, (double) f1);
+                RayTraceResult movingobjectposition = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
+                AxisAlignedBB axisalignedbb1 = entity1.getEntityBoundingBox().expand((double) f2, (double) f2, (double) f2);
                 RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
 
-                if (movingobjectposition1 != null) {
+                if (movingobjectposition != null) {
+                    double d1 = vec3.distanceTo(new Vector3D(movingobjectposition.hitVec));
+
+                    if (d1 < d0 || d0 == 0.0D) {
+                        entity = entity1;
+                        d0 = d1;
+                    }
+                } else if (movingobjectposition1 != null) {
                     double d1 = vec3.distanceTo(new Vector3D(movingobjectposition1.hitVec));
 
                     if (d1 < d0 || d0 == 0.0D) {

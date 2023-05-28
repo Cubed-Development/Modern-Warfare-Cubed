@@ -50,12 +50,10 @@ public class Bullets {
     public static ItemBullet M202Rocket;
     public static ItemBullet EnergyCase;
     public static ItemBullet PlasmaCapsule;
-    
-//    public static ItemBullet Bullet9x18mm;
 
     public static void init(Object mod) {
         Grenade40mm = new ItemBullet.Builder()
-                .withCreativeTab(ModernWarfareMod.AmmoTab).withName("Grenade40mm").withMaxStackSize(64)
+                .withCreativeTab(ModernWarfareMod.AmmoTab).withName("Grenade40mm").withMaxStackSize(16)
                 .withModel(new com.paneedah.mwc.models.GL06Grenade(), "GL06.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", Items.GUNPOWDER)
                 .withFirstPersonPositioning((player, itemStack) -> {
@@ -123,7 +121,7 @@ public class Bullets {
         EnergyCase = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("EnergyCase")
                 .withModel(new com.paneedah.mwc.models.EnergyCase(), "gun.png")
-                //.withMaxStackSize(500)
+                .withMaxStackSize(64)
                 .withCrafting(8, CraftingComplexity.LOW, "ingotCopper", Items.GUNPOWDER)
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -1F, 0.4F);
@@ -145,8 +143,7 @@ public class Bullets {
         PlasmaCapsule = new ItemBullet.Builder()
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("PlasmaCapsule")
                 .withModel(new com.paneedah.mwc.models.ChainsawFuel(), "PlasmaCapsule.png")
-                //.withMaxStackSize(500)
-                //.withCrafting(8, CraftingComplexity.LOW, "ingotCopper", Items.GUNPOWDER)
+                .withMaxStackSize(64)
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);

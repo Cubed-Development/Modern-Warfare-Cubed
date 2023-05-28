@@ -168,7 +168,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 6
         }
       ]
@@ -194,7 +194,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 6
         }
       ]
@@ -220,7 +220,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 1
         }
       ]
@@ -1191,7 +1191,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 8
         }
       ]
@@ -1280,7 +1280,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 3
         }
       ]
@@ -2734,7 +2734,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 1
         }
       ]
@@ -2750,7 +2750,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 2
         }
       ]
@@ -3260,7 +3260,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 1
         }
       ]
@@ -3411,7 +3411,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 2
         }
       ]
@@ -3427,7 +3427,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 3
         }
       ]
@@ -3459,7 +3459,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 2
         }
       ]
@@ -3524,7 +3524,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 2
         }
       ]
@@ -3732,7 +3732,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 3
         }
       ]
@@ -3748,7 +3748,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 5
         }
       ]
@@ -3969,7 +3969,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 3
         }
       ]
@@ -4160,7 +4160,7 @@
         },
         {
           "entryName": "minecraft:planks",
-          "isOreDictionary": false,
+          "isOreDictionary": true,
           "count": 2
         }
       ]
@@ -6623,6 +6623,100 @@
       ]
     },
     {
+      "entryName": "mwc:m67frag",
+      "craftingGroup": "GRENADE",
+      "recipe": [
+        {
+          "entryName": "minecraft:iron_ingot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "ingotSteel",
+          "isOreDictionary": true,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:gunpowder",
+          "isOreDictionary": false,
+          "count": 6
+        },
+        {
+          "entryName": "mwc:synthetic_polymer_composite",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:impactgrenade",
+      "craftingGroup": "GRENADE",
+      "recipe": [
+        {
+          "entryName": "ingotSteel",
+          "isOreDictionary": true,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:tnt",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mwc:synthetic_polymer_composite",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:m18white",
+      "craftingGroup": "GRENADE",
+      "recipe": [
+        {
+          "entryName": "minecraft:iron_ingot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "ingotSteel",
+          "isOreDictionary": true,
+          "count": 3
+        },
+        {
+          "entryName": "minecraft:wool",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mwc:synthetic_polymer_composite",
+          "isOreDictionary": false,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:flash",
+      "craftingGroup": "GRENADE",
+      "recipe": [
+        {
+          "entryName": "minecraft:iron_ingot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "ingotSteel",
+          "isOreDictionary": true,
+          "count": 2
+        },
+        {
+          "entryName": "mwc:synthetic_polymer_composite",
+          "isOreDictionary": false,
+          "count": 5
+        }
+      ]
+    },
+    {
       "entryName": "mwc:Marine_helmet",
       "craftingGroup": "GEAR",
       "recipe": [
@@ -7238,6 +7332,37 @@
           "entryName": "mwc:synthetic_plastic",
           "isOreDictionary": false,
           "count": 7
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:tactical_helmet",
+      "craftingGroup": "GEAR",
+      "recipe": [
+        {
+          "entryName": "mwc:synthetic_plastic",
+          "isOreDictionary": false,
+          "count": 6
+        },
+        {
+          "entryName": "mwc:carbon_fiber",
+          "isOreDictionary": false,
+          "count": 4
+        },
+        {
+          "entryName": "minecraft:glass",
+          "isOreDictionary": false,
+          "count": 3
+        },
+        {
+          "entryName": "mwc:copper_ingot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:gold_ingot",
+          "isOreDictionary": true,
+          "count": 2
         }
       ]
     },

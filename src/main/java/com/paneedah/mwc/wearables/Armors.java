@@ -71,7 +71,6 @@ public class Armors {
                 .withUnlocalizedName("Marine")
                 .withTextureName("USMC")
                 .withModelClass("com.paneedah.mwc.models.USMC")
-                .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.Marinehelmet = marineArmorBuilder.buildHelmet(modContext);
@@ -83,7 +82,6 @@ public class Armors {
                 .withUnlocalizedName("Spec_Ops")
                 .withTextureName("militaryuniformblack")
                 .withModelClass("com.paneedah.mwc.models.SpecOps")
-                .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.SpecOpshelmet = specopsArmorBuilder.buildHelmet(modContext);
@@ -96,7 +94,6 @@ public class Armors {
                 .withUnlocalizedName("Spetznaz")
                 .withTextureName("militaryuniformforest")
                 .withModelClass("com.paneedah.mwc.models.USMC")
-                .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.Spetznazhelmet = spetznazArmorBuilder.buildHelmet(modContext);
@@ -109,7 +106,6 @@ public class Armors {
                 .withUnlocalizedName("Urban")
                 .withTextureName("militaryuniformurban")
                 .withModelClass("com.paneedah.mwc.models.USMC")
-                .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.Urbanhelmet = urbanArmorBuilder.buildHelmet(modContext);
@@ -122,7 +118,6 @@ public class Armors {
                 .withUnlocalizedName("blackcamo")
                 .withTextureName("multicamoblackshirt")
                 .withModelClass("com.paneedah.mwc.models.MultiCamoBlackShirt")
-                .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.Blackcamochest = multicamoblackArmorBuilder.buildChest(modContext.isClient());
@@ -133,7 +128,6 @@ public class Armors {
                 .withUnlocalizedName("forest")
                 .withTextureName("militaryshirtforest")
                 .withModelClass("com.paneedah.mwc.models.MultiCamoBlackShirt")
-                .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.Forestchest = forestArmorBuilder.buildChest(modContext.isClient());
@@ -144,7 +138,6 @@ public class Armors {
                 .withUnlocalizedName("blackjeans")
                 .withTextureName("blackjeans")
                 .withModelClass("com.paneedah.mwc.models.Jeans")
-                .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.BlackJeansboots = blackjeansArmorBuilder.buildBoots(modContext.isClient());
@@ -155,7 +148,6 @@ public class Armors {
                 .withUnlocalizedName("khakijeans")
                 .withTextureName("khakijeans")
                 .withModelClass("com.paneedah.mwc.models.Jeans")
-                .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.KhakiJeansboots = khakijeansArmorBuilder.buildBoots(modContext.isClient());
@@ -165,7 +157,6 @@ public class Armors {
                 .withUnlocalizedName("Santa")
                 .withTextureName("santasuit_normal")
                 .withModelClass("com.paneedah.mwc.models.SantasuitNormal")
-                .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.Santahelmet = santaArmorBuilder.buildHelmet(modContext);
@@ -176,7 +167,6 @@ public class Armors {
                 .withUnlocalizedName("Nazisanta")
                 .withTextureName("santasuit_nazi")
                 .withModelClass("com.paneedah.mwc.models.SantaSuit")
-                .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.NaziSantahelmet = nazisantaArmorBuilder.buildHelmet(modContext);
@@ -184,8 +174,9 @@ public class Armors {
         Armors.NaziSantaboots = nazisantaArmorBuilder.buildBoots(modContext.isClient());
         
         Builder juggernautsuitArmorBuilder = new CustomArmor.Builder().withMaterial(Armors.Juggernaut)
-                .withUnlocalizedName("Juggernaut").withTextureName("JuggernautSuit")
-                .withModelClass("com.paneedah.mwc.models.JuggernautSuit").withHudTextureName("Marine")
+                .withUnlocalizedName("Juggernaut")
+                .withTextureName("JuggernautSuit")
+                .withModelClass("com.paneedah.mwc.models.JuggernautSuit")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.Juggernauthelmet = juggernautsuitArmorBuilder.buildHelmet(modContext);
@@ -197,7 +188,6 @@ public class Armors {
                 .withUnlocalizedName("ghillie")
                 .withTextureName("ghillie")
                 .withModelClass("com.paneedah.mwc.models.Ghillie")
-                .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.Ghilliehelmet = ghillieArmorBuilder.buildHelmet(modContext);
@@ -208,7 +198,6 @@ public class Armors {
                 .withUnlocalizedName("Swat")
                 .withTextureName("Swat")
                 .withModelClass("com.paneedah.mwc.models.Swat")
-                .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.Swathelmet = swatArmorBuilder.buildHelmet(modContext);
@@ -220,7 +209,6 @@ public class Armors {
                 .withUnlocalizedName("Tactical")
                 .withTextureName("Tactical")
                 .withModelClass("com.paneedah.mwc.models.Tactical")
-                .withHudTextureName("Marine")
                 .withNightVision(true)
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
@@ -230,7 +218,6 @@ public class Armors {
                 .withUnlocalizedName("JPNVG18")
                 .withTextureName("jpnvg18")
                 .withModelClass("com.paneedah.mwc.models.JPNVG18")
-                .withHudTextureName("Marine")
                 .withNightVision(true)
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 

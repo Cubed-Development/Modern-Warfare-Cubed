@@ -425,6 +425,10 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 		return BalancePackManager.getFirerate(getWeapon());
 		//return getWeapon().builder.fireRate;
 	}
+
+	public float getInaccuracy() {
+		return BalancePackManager.getInaccuracy(getWeapon());
+	}
 	
     public boolean isOneClickBurstAllowed() {
         //System.out.println("One click burst allowed: " + getWeapon().builder.isOneClickBurstAllowed);

@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.crafting;
 /**
  * CraftingGroup enum class used to differentiate between types of items for crafting purposes
  * (i.e. when filtering out non-guns from a CraftingRegistry query)
- * 
+ *
  * GUN = 1
  * ATTACHMENT_NORMAL = 2
  * ATTACHMENT_MODIFICATION = 3
@@ -19,6 +19,7 @@ public enum CraftingGroup {
 	ATTACHMENT_MODIFICATION,
 	BULLET,
 	MAGAZINE,
+	GRENADE,
 	GEAR;
 	
 	
@@ -37,6 +38,8 @@ public enum CraftingGroup {
 			case 5:
 				return MAGAZINE;
 			case 6:
+				return GRENADE;
+			case 7:
 				return GEAR;
 		}
 	}
@@ -55,8 +58,10 @@ public enum CraftingGroup {
 				return 4;
 			case MAGAZINE:
 				return 5;
-			case GEAR:
+			case GRENADE:
 				return 6;
+			case GEAR:
+				return 7;
 		}
 	}
 

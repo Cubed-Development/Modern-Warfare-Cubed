@@ -3,6 +3,7 @@ package com.paneedah.weaponlib;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
+import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.inventory.OpenCustomPlayerInventoryGuiMessage;
 import com.paneedah.weaponlib.render.ModificationGUI;
@@ -346,18 +347,12 @@ public class WeaponKeyInputHandler {
 
         else if(KeyBindings.subtractKey.isPressed()) {
             PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
-            if(instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.EJECT_REQUIRED)) {
+            if (instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.EJECT_REQUIRED))
                 instance.getWeapon().decrementZoom(instance);
-            }
         }
-        
-       
-        /*else if(KeyBindings.proningSwitchKey.isPressed()) {
-        	//EntityPlayer player = mc.player;
-        	
-        	
-            modContext.getChannel().sendToServer(new EntityControlMessage(player, 
-                    CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
-        }*/
+
+        else if (mc.isSingleplayer() && KeyBindings.proningSwitchKey.isPressed()) {
+            modContext.getChannel().sendToServer(new EntityControlMessage(player, CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
+        }
     }
 }

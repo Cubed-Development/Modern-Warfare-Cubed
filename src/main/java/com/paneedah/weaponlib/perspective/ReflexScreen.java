@@ -136,18 +136,16 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 	
 	public void renderReticle(RenderContext<RenderableState> renderContext, boolean bloom) {
 
-		
-		//if(true) return;
  		//if(true) return;
 		Reticle currentReticle = reticleList.current();
 		
 		if(currentReticle == null) currentReticle = DEFAULT_RETICLE;
 		
 		//Shaders.reflexReticle = ShaderLoader.loadVMWShader("reflex");
-		
-		
-		
-		if(renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND) return;
+
+		if(renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND)
+			return;
+
 		GlStateManager.disableTexture2D();
 		GlStateManager.enableBlend();
 		Shaders.reflexReticle.use();
@@ -165,15 +163,9 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 		GL20.glUniform1i(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "ret"), 4);
-		
 		GL20.glUniform1i(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "isBloom"), bloom ? 1 : 0);
-		
-		//
 		GL20.glUniform1f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "texScale"), currentReticle.getTextureScale());
 		GL20.glUniform1f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "radius"), this.radius);
-		
-		
-		
 		GL20.glUniform3f(GL20.glGetUniformLocation(Shaders.reflexReticle.getShaderId(), "background"), (float) currentReticle.getBackgroundColor().x, (float) currentReticle.getBackgroundColor().y, (float) currentReticle.getBackgroundColor().z);
 		GlStateManager.enableCull();
 		

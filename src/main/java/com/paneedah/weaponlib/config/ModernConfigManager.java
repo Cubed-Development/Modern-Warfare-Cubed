@@ -115,15 +115,20 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "A list of blocks that should be penetrable by bullets ")
 	public static String penetrableBlocks = "";
 
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should bullets penetrate glass?")
+	public static boolean penetratesGlass = false;
+
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables muzzle effects.")
 	public static boolean enableMuzzleEffects = true;
 
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should blur be applied when aiming?")
 	public static boolean enableBlurOnAim = true;
 
-	@RangeDouble(min=0.0, max=5.0)
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should the explosion break blocks?")
+	public static boolean explosionBreak = true;
+	@RangeDouble(min=0.0, max=20.0)
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "How much damage explosions should deal.")
-	public static double explosionDamage = 1.0;
+	public static double explosionDamage = 5.0;
 
 	@RangeDouble(min=0.0, max=1.0)
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "What should the block drop chance be?")
@@ -151,10 +156,6 @@ public class ModernConfigManager {
 	@RangeDouble(min=0.1, max=2.0)
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should soldiers have?")
 	public static double soldierHealth = 1.0;
-
-	// Later use
-//	@ConfigSync(category = CATEGORY_RENDERING, comment = "Turns on the custom render for third person, may improve compat.")
-//	public static boolean enableThirdPersonAnimations = true;
 
 	private static Configuration config = null;
 

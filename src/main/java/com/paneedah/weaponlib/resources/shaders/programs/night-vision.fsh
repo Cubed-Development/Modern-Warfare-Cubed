@@ -32,8 +32,6 @@ uniform float IntensityAdjust;
 
 uniform vec3 SepiaColor;
 
-//const float RADIUS = 0.55;
-
 const float SOFTNESS = 0.25;
 
 const float contrast = 0.8;
@@ -45,7 +43,6 @@ void main() {
     
     if(FlashEnabled > 0) {
         const vec3 white = vec3(1.0, 1.0, 1.0);
-        //texColor.rgb = mix(white, texColor.rgb * Brightness, 0.5);
         float clampedBrightness = clamp(Brightness / 100, 0.0, 1.0);
         float whiteBalance = 1.0 - clampedBrightness;
         texColor.rgb = mix(white * 3, texColor.rgb * Brightness, whiteBalance);
@@ -92,9 +89,6 @@ void main() {
         vec4 sepiaColorMixed = vec4(vec3(gray) * SepiaColor, 1.0);
         texColor = mix(texColor, sepiaColorMixed, SepiaRatio);
     }
-    
-    
-    //gl_FragColor = texColor; Causes horizontal artifacts in 1.7.10
     
     gl_FragColor = vec4(texColor.rgb, 1);
 }
