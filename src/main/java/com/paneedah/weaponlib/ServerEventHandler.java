@@ -1,17 +1,23 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
-import com.paneedah.weaponlib.compatibility.CompatibleServerEventHandler;
+import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
 import com.paneedah.weaponlib.inventory.EntityInventorySyncMessage;
+import com.paneedah.weaponlib.jim.util.ByteArrayUtils;
 import com.paneedah.weaponlib.jim.util.HitUtil;
+import com.paneedah.weaponlib.network.packets.BalancePackClient;
+import com.paneedah.weaponlib.network.packets.CraftingClientPacket;
 import com.paneedah.weaponlib.network.packets.HeadshotSFXPacket;
 import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,31 +25,42 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.common.ISpecialArmor;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Collection;
 import java.util.Iterator;
 
 import static com.paneedah.mwc.utils.ModReference.log;
 
+
 /**
- * TODO: rename to common event handler, since it's invoked on both sides
+ * Handles server events
+ *
+ * @author Victor Matskiv Sr.
+ * @since October 23rd, 2022 by Homer Riva-Cambrin
+ * - Re-factored class
+ * - Added TO-DOs for necessary sections
  */
-public class ServerEventHandler extends CompatibleServerEventHandler {
+// Todo: Rename to common event handler, since it's invoked on both sides
+// Todo: Cleanup this mess
+public class ServerEventHandler {
 
     private ModContext modContext;
 
@@ -51,20 +68,15 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         this.modContext = modContext;
     }
 
-    @Override
     public ModContext getModContext() {
         return modContext;
     }
 
-    @Override
-    protected void onCompatibleServerTickEvent(TickEvent.ServerTickEvent e) {
-        CommonModContext.currentContext.set(modContext);
+    @SubscribeEvent
+    public void onTick(TickEvent.ServerTickEvent serverTickEvent) {
+        if(serverTickEvent.phase == TickEvent.Phase.START)
+            CommonModContext.currentContext.set(modContext);
     }
-
-    @Override
-	public void onEquipmentChange(LivingEquipmentChangeEvent e) {
-
-	}
 
     @SubscribeEvent
     protected void onCompatibleLivingUpdateEvent(LivingEvent.LivingUpdateEvent livingUpdateEvent) {
@@ -73,10 +85,6 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
     	//}
 
         if(!livingUpdateEvent.getEntity().world.isRemote) {
-//            if(livingUpdateEvent.getEntity() instanceof EntityPlayer) {
-//                System.out.println(System.currentTimeMillis() + ": " + compatibility.world(livingUpdateEvent.getEntity()).getTotalWorldTime());
-//            }
-            
             NBTTagCompound doseNbt = null;
             ItemStack itemStack = livingUpdateEvent.getEntityLiving().getHeldItemMainhand();
             if(itemStack != null && itemStack.getItem() instanceof ItemHandheld) {
@@ -139,29 +147,21 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         }
     }
 
-    @Override
-    protected void onCompatibleItemToss(ItemTossEvent itemTossEvent) {}
+    @SubscribeEvent
+    public void onEntityJoinWorld(EntityJoinWorldEvent entityJoinWorldEvent) {
+        if(entityJoinWorldEvent.getEntity() instanceof Contextual)
+            ((Contextual)entityJoinWorldEvent.getEntity()).setContext(modContext);
 
-    @Override
-    protected void onCompatibleEntityJoinWorld(EntityJoinWorldEvent e) {
-        if(e.getEntity() instanceof Contextual) {
-            ((Contextual)e.getEntity()).setContext(modContext);
-        }
-        if(e.getEntity() instanceof EntityPlayerMP && !e.getWorld().isRemote) {
-            log.debug("Player {} joined the world", e.getEntity());
-            PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) e.getEntity());
-            if(tracker != null) {
-                modContext.getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker),
-                        (EntityPlayerMP)e.getEntity());
-            }
-            EntityPlayer player = (EntityPlayer) e.getEntity();
-            modContext.getChannel().sendTo(
-                    new EntityControlMessage(player, CompatibleExtraEntityFlags.getFlags(player)),
-                    (EntityPlayerMP)e.getEntity());
-                        
-            modContext.getChannel().sendToAll(
-                    new EntityInventorySyncMessage(e.getEntity(), 
-                            CompatibleCustomPlayerInventoryCapability.getInventory(player), false));
+        if(entityJoinWorldEvent.getEntity() instanceof EntityPlayerMP && !entityJoinWorldEvent.getWorld().isRemote) {
+            log.debug("Player {} joined the world", entityJoinWorldEvent.getEntity());
+            PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) entityJoinWorldEvent.getEntity());
+
+            if(tracker != null)
+                modContext.getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker), (EntityPlayerMP)entityJoinWorldEvent.getEntity());
+
+            EntityPlayer player = (EntityPlayer) entityJoinWorldEvent.getEntity();
+            modContext.getChannel().sendTo(new EntityControlMessage(player, CompatibleExtraEntityFlags.getFlags(player)), (EntityPlayerMP)entityJoinWorldEvent.getEntity());
+            modContext.getChannel().sendToAll(new EntityInventorySyncMessage(entityJoinWorldEvent.getEntity(), CompatibleCustomPlayerInventoryCapability.getInventory(player), false));
         }
     }
 
@@ -281,6 +281,7 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
     @SubscribeEvent
     protected void onPlayerCloneEvent(PlayerEvent.Clone playerCloneEvent) {
         CustomPlayerInventory originalInventory = CompatibleCustomPlayerInventoryCapability.getInventory(playerCloneEvent.getOriginal());
+
         if(originalInventory != null) {
             CompatibleCustomPlayerInventoryCapability.setInventory(playerCloneEvent.getEntityPlayer(), originalInventory);
             originalInventory.setContext(modContext);
@@ -298,7 +299,73 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
     protected void onCompatiblePlayerInteractInteractEvent(PlayerInteractEvent.EntityInteract playerInteractEvent) {
     }
 
-    @Override
-    protected void onCompatiblePlayerLoggedIn(PlayerLoggedInEvent e) {
+    @SubscribeEvent
+    public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
+        // Todo: Can we cache balance packs similar to crafting files? Maybe they could use the same system? This could crash a server if a large amount of players join.
+        getModContext().getChannel().sendTo(new BalancePackClient(BalancePackManager.getActiveBalancePack()), (EntityPlayerMP) event.player);
+    }
+
+    @SubscribeEvent
+    public void attachCapability(AttachCapabilitiesEvent<Entity> event) {
+        if (event.getObject() instanceof EntityPlayer) {
+            ResourceLocation PLAYER_ENTITY_TRACKER = new ResourceLocation(ModReference.id, "PLAYER_ENTITY_TRACKER");
+            event.addCapability(PLAYER_ENTITY_TRACKER, new CompatiblePlayerEntityTrackerProvider());
+
+            ResourceLocation extraFlagsResourceLocation = new ResourceLocation(ModReference.id, "PLAYER_ENTITY_FLAGS");
+            event.addCapability(extraFlagsResourceLocation, new CompatibleExtraEntityFlags());
+
+            ResourceLocation customInventoryLocation = new ResourceLocation(ModReference.id, "PLAYER_CUSTOM_INVENTORY");
+            event.addCapability(customInventoryLocation, new CompatibleCustomPlayerInventoryCapability());
+        }
+
+        ResourceLocation exposureResourceLocation = new ResourceLocation(ModReference.id, "EXPOSURE");
+        event.addCapability(exposureResourceLocation, new CompatibleExposureCapability());
+    }
+
+    /**
+     * Sets player size by modifying bounding box
+     *
+     * @param entityPlayer - player that we want to change hitbox of
+     * @param width        - new width of hitbox
+     * @param height       - new height of hitbox
+     */
+    protected void setSize(EntityPlayer entityPlayer, float width, float height) {
+        if (width != entityPlayer.width || height != entityPlayer.height) {
+            entityPlayer.width = width;
+            entityPlayer.height = height;
+            AxisAlignedBB axisalignedbb = entityPlayer.getEntityBoundingBox();
+            entityPlayer.setEntityBoundingBox(new AxisAlignedBB(axisalignedbb.minX, axisalignedbb.minY, axisalignedbb.minZ, axisalignedbb.minX + (double) entityPlayer.width, axisalignedbb.minY + (double) entityPlayer.height, axisalignedbb.minZ + (double) entityPlayer.width));
+        }
+    }
+
+    @SubscribeEvent
+    public final void onPlayerTickEvent(TickEvent.PlayerTickEvent event) {
+        // We check the phase to see if it is at "Phase.END" as we
+        // do not want this running twice.
+        if (event.phase == TickEvent.Phase.END) {
+            int updatedFlags = CompatibleExtraEntityFlags.getFlags(event.player);
+            if ((updatedFlags & CompatibleExtraEntityFlags.PRONING) != 0) {
+                // If the player is proning, change their hitbox. TO-DO: Is there a more
+                // efficient way to do this?
+                setSize(event.player, 0.6f, 0.6f); //player.width, player.width);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public final void onEntityJoinedEvent(EntityJoinWorldEvent evt) {
+        // We are only interested in the player. We also only want to deal with this if the server and the client
+        // are operating off of DIFFERENT file systems (hence the dedicated server check!).
+        if (!(evt.getEntity() instanceof EntityPlayer) || FMLCommonHandler.instance().getMinecraftServerInstance() == null || !FMLCommonHandler.instance().getMinecraftServerInstance().isDedicatedServer())
+            return;
+
+        EntityPlayer player = (EntityPlayer) evt.getEntity();
+
+        // Create a hash stream and make sure it's not null (not errored out)
+        ByteArrayOutputStream baos = ByteArrayUtils.createByteArrayOutputStreamFromBytes(CraftingFileManager.getInstance().getCurrentFileHash());
+        if (baos == null) return;
+
+        // Send the player the hash
+        getModContext().getChannel().sendTo(new CraftingClientPacket(baos, true), (EntityPlayerMP) player);
     }
 }
