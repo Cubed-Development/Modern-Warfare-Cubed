@@ -78,7 +78,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 - Removed all arcade guns (These will be moved to a sister mod at a later time)
 - Removed the mission system
-- [WIP] Removed most of the compatibility layer
+- Removed most of the compatibility layer
 - Removed FXAA
 - Removed Bloom
 
