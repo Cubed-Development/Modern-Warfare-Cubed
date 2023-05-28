@@ -271,10 +271,6 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         public float getInaccuracy() {
             return this.inaccuracy;
         }
-
-        public float getInaccuracy() {
-            return this.inaccuracy;
-        }
         
         public Builder hasFlashPedals() {
             this.hasFlashPedals = true;
