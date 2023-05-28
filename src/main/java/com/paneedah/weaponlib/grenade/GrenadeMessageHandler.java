@@ -1,13 +1,13 @@
 package com.paneedah.weaponlib.grenade;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 
-public class GrenadeMessageHandler implements CompatibleMessageHandler<GrenadeMessage, IMessage> {
+public class GrenadeMessageHandler implements IMessageHandler<GrenadeMessage, IMessage> {
 
 	private GrenadeAttackAspect attackAspect;
 
@@ -19,7 +19,7 @@ public class GrenadeMessageHandler implements CompatibleMessageHandler<GrenadeMe
 	}
 
 	@Override
-	public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(GrenadeMessage message, MessageContext messageContext) {
+	public IMessage onMessage(GrenadeMessage message, MessageContext messageContext) {
 		if(messageContext.side == Side.SERVER) {
 			EntityPlayer player = messageContext.getServerHandler().player;
 			ItemStack itemStack = player.getHeldItemMainhand();

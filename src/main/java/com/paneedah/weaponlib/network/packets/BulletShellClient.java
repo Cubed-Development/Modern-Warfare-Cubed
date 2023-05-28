@@ -1,15 +1,16 @@
 package com.paneedah.weaponlib.network.packets;
 
 import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.network.NetworkUtil;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
@@ -28,7 +29,6 @@ public class BulletShellClient implements net.minecraftforge.fml.common.network.
 		this.position = pos;
 		this.velocity = velocity;
 	}
-	
 
 	public void fromBytes(ByteBuf buf) {
 		this.shooter = buf.readInt();
@@ -36,8 +36,6 @@ public class BulletShellClient implements net.minecraftforge.fml.common.network.
 		this.velocity = NetworkUtil.readVec3d(buf);
 		this.type = Shell.Type.valueOf(ByteBufUtils.readUTF8String(buf));
 	}
-	
-	
 
 	public void toBytes(ByteBuf buf) {
 		buf.writeInt(this.shooter);
@@ -46,28 +44,17 @@ public class BulletShellClient implements net.minecraftforge.fml.common.network.
 		ByteBufUtils.writeUTF8String(buf, type.toString());
 	}
 
-	public static class GunFXPacketHandler implements CompatibleMessageHandler<BulletShellClient, IMessage> {
-		
-		
+	public static class GunFXPacketHandler implements IMessageHandler<BulletShellClient, IMessage> {
 
 		@Override
-		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(BulletShellClient message, MessageContext messageContext) {
-			 if(messageContext.side == Side.CLIENT) {
-				 mc.addScheduledTask(() -> {
-					
-		            	if(mc.player.getEntityId() != message.shooter) {
-		            		Shell shell = new Shell(message.type, message.position, new Vec3d(-90, 0, 90), message.velocity);
-			            	CompatibleClientEventHandler.SHELL_MANAGER.enqueueShell(shell);
-		            	}
-		            	
-					
-				});
-			}
-			
+		@SideOnly(Side.CLIENT)
+		public IMessage onMessage(BulletShellClient message, MessageContext messageContext) {
+			mc.addScheduledTask(() -> {
+				if(mc.player.getEntityId() != message.shooter)
+					CompatibleClientEventHandler.SHELL_MANAGER.enqueueShell(new Shell(message.type, message.position, new Vec3d(-90, 0, 90), message.velocity));
+			});
+
 			return null;
 		}
-
 	}
-
-	
 }

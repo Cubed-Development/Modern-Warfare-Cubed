@@ -1,10 +1,10 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.LightExposure;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -244,7 +244,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
         exposureFactor *= exposureFactor;
                 
         final Vector3D compatiblePlayerEyePos = new Vector3D(playerEyePosition.x, playerEyePosition.y, playerEyePosition.z);
-        RayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(world, grenadePos, compatiblePlayerEyePos, isCollidable);
+        RayTraceResult rayTraceResult = MWCUtil.rayTraceBlocks(world, grenadePos, compatiblePlayerEyePos, isCollidable);
 
         float dose = 0f;
         if(rayTraceResult == null) {

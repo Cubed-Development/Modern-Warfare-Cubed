@@ -231,17 +231,17 @@ public class CommonModContext implements ModContext {
 
 		channel.registerMessage(new SpawnParticleMessageHandler(this), SpawnParticleMessage.class, 18, Side.CLIENT);
 
-		channel.registerMessage(new BlockHitMessageHandler(this), BlockHitMessage.class, 19, Side.CLIENT);
+		channel.registerMessage(new BlockHitMessageHandler(), BlockHitMessage.class, 19, Side.CLIENT);
 
 		channel.registerMessage(new GrenadeMessageHandler(grenadeAttackAspect), GrenadeMessage.class, 20, Side.SERVER);
 
 		channel.registerMessage(new ExplosionMessageHandler(this), ExplosionMessage.class, 21, Side.CLIENT);
 		
-		channel.registerMessage(new ArmorControlHandler(this), ArmorControlMessage.class, 22, Side.SERVER);
+		channel.registerMessage(new ArmorControlHandler(), ArmorControlMessage.class, 22, Side.SERVER);
 		
 //		channel.registerMessage(new SpreadableExposureMessageHandler(this),	SpreadableExposureMessage.class, 23, Side.CLIENT);
 		
-	    channel.registerMessage(new ExposureMessageHandler(this), ExposureMessage.class, 23, Side.CLIENT);
+	    channel.registerMessage(new ExposureMessageHandler(), ExposureMessage.class, 23, Side.CLIENT);
 		
 		channel.registerMessage(new EntityControlHandler(this), EntityControlMessage.class, 24, Side.CLIENT);
 		
@@ -255,7 +255,7 @@ public class CommonModContext implements ModContext {
 		
         channel.registerMessage(new VehicleControlPacketHandler(this), VehicleControlPacket.class, 34, Side.SERVER);
 
-        channel.registerMessage(new VehicleClientPacketHandler(this), VehicleClientPacket.class, 35, Side.CLIENT);
+        channel.registerMessage(new VehicleClientPacketHandler(), VehicleClientPacket.class, 35, Side.CLIENT);
         
         channel.registerMessage(new VehicleInteractPHandler(this), VehicleInteractPacket.class, 36, Side.SERVER);
         
@@ -267,19 +267,19 @@ public class CommonModContext implements ModContext {
 
         channel.registerMessage(new HeadshotSFXPacket.GunFXPacketHandler(), HeadshotSFXPacket.class, 40, Side.CLIENT);
 
-        channel.registerMessage(new BloodPacketClient.BalancePacketHandler(this), BloodPacketClient.class, 41, Side.CLIENT);
+        channel.registerMessage(new BloodPacketClient.BalancePacketHandler(), BloodPacketClient.class, 41, Side.CLIENT);
         
-        channel.registerMessage(new OpenDoorPacket.OpenDoorPacketHandler(this), OpenDoorPacket.class, 42, Side.SERVER);
+        channel.registerMessage(new OpenDoorPacket.OpenDoorPacketHandler(), OpenDoorPacket.class, 42, Side.SERVER);
 
         channel.registerMessage(new StationPacket.WorkbenchPacketHandler(this), StationPacket.class, 43, Side.SERVER);
         
-        channel.registerMessage(new StationClientPacket.WorkshopClientPacketHandler(this), StationClientPacket.class, 44, Side.CLIENT);
+        channel.registerMessage(new StationClientPacket.WorkshopClientPacketHandler(), StationClientPacket.class, 44, Side.CLIENT);
         
         channel.registerMessage(new CraftingClientPacket.SimplePacketHandler(this), CraftingClientPacket.class, 45, Side.CLIENT);
         
         channel.registerMessage(new CraftingServerPacket.SimplePacketHandler(this), CraftingServerPacket.class, 46, Side.SERVER);
         
-        channel.registerMessage(new HighIQPickupPacket.SimplePacketHandler(this), HighIQPickupPacket.class, 47, Side.SERVER);
+        channel.registerMessage(new HighIQPickupPacket.SimplePacketHandler(), HighIQPickupPacket.class, 47, Side.SERVER);
         
         
 		ServerEventHandler serverHandler = new ServerEventHandler(this);

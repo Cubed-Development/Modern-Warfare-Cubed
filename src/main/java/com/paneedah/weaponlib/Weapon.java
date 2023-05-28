@@ -294,7 +294,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
 
         @Deprecated
         public Builder withInformationProvider(Function<ItemStack, List<String>> informationProvider) {
-           // this.informationProvider = informationProvider;
+            //this.informationProvider = informationProvider;
             return this;
         }
 
@@ -1328,8 +1328,11 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
     
     @Override
     public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        if(tooltip != null && builder.informationProvider != null) {
-            tooltip.addAll(builder.informationProvider.apply(itemStack));
+        if (tooltip != null) {
+            tooltip.add((builder.newSys ? "§aWeapon System Version: §72" : "§aWeapon System Version: §c1"));
+
+            if(builder.informationProvider != null)
+                tooltip.addAll(builder.informationProvider.apply(itemStack));
         }
     }
 

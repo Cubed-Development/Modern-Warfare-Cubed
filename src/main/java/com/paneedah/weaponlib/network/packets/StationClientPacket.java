@@ -1,15 +1,13 @@
 package com.paneedah.weaponlib.network.packets;
 
-import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
@@ -58,38 +56,20 @@ public class StationClientPacket implements net.minecraftforge.fml.common.networ
 
 	}
 
-	public static class WorkshopClientPacketHandler implements CompatibleMessageHandler<StationClientPacket, IMessage> {
-		
-		private ModContext modContext;
-
+	public static class WorkshopClientPacketHandler implements IMessageHandler<StationClientPacket, IMessage> {
 
 		public WorkshopClientPacketHandler() {
 		}
 
-		public WorkshopClientPacketHandler(ModContext context) {
-			this.modContext = context;
-		}
-		
-
 		@Override
-		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(StationClientPacket message, MessageContext messageContext) {
-			 if(messageContext.side == Side.CLIENT) {
-				 mc.addScheduledTask(() -> {
-					
-		            	TileEntity te = mc.world.getTileEntity(message.pos);
-		        		if(te != null && te instanceof TileEntityStation) {
-		        			TileEntityStation station = (TileEntityStation) te;
-		        			station.readBytesFromClientSync(message.copiedBuf);
-		        		}
-	
-		            	
-				});
-			}
-			
+		public IMessage onMessage(StationClientPacket message, MessageContext messageContext) {
+			mc.addScheduledTask(() -> {
+				TileEntity tileEntity = mc.world.getTileEntity(message.pos);
+				if(tileEntity != null && tileEntity instanceof TileEntityStation)
+					((TileEntityStation) tileEntity).readBytesFromClientSync(message.copiedBuf);
+			});
+
 			return null;
 		}
-
 	}
-
-	
 }

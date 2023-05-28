@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.vectors.Vector3D;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
@@ -216,7 +216,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         //List<BlockPos> possibleCollisions = new ArrayList<>();
 
         // Check what is at the projectile current position, null if air
-        RayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(world, vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(null, block, null, blockMetadata));
+        RayTraceResult movingobjectposition = MWCUtil.rayTraceBlocks(world, vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(null, block, null, blockMetadata));
 
         /*
          *  GLASS BREAK CHECK

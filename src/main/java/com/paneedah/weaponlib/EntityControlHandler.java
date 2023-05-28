@@ -1,19 +1,19 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class EntityControlHandler implements CompatibleMessageHandler<EntityControlMessage, IMessage>  {
+public class EntityControlHandler implements IMessageHandler<EntityControlMessage, IMessage> {
 
     private ModContext modContext;
 
@@ -25,7 +25,7 @@ public class EntityControlHandler implements CompatibleMessageHandler<EntityCont
     }
 
     @Override
-    public <T extends IMessage> T onCompatibleMessage(EntityControlMessage message, MessageContext messageContext) {
+    public IMessage onMessage(EntityControlMessage message, MessageContext messageContext) {
         if (messageContext.side == Side.SERVER)
             onServerMessage(message, messageContext);
         else if (messageContext.side == Side.CLIENT)
@@ -40,11 +40,10 @@ public class EntityControlHandler implements CompatibleMessageHandler<EntityCont
             CompatibleExtraEntityFlags.setFlags(player, message.getFlags(), message.getValues());
             NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(player.dimension, player.posX, player.posY, player.posZ, 200);
             int updatedFlags = CompatibleExtraEntityFlags.getFlags(player);
-            if((updatedFlags & CompatibleExtraEntityFlags.PRONING) != 0) {
+            if((updatedFlags & CompatibleExtraEntityFlags.PRONING) != 0)
                 setSize(player, 0.6f, 0.6f); //player.width, player.width);
-            } else {
+            else
                 setSize(player, 0.6f, 1.8f);
-            }
             modContext.getChannel().sendToAllAround(new EntityControlMessage(player, updatedFlags), point);
         });
     }
@@ -57,11 +56,10 @@ public class EntityControlHandler implements CompatibleMessageHandler<EntityCont
             CompatibleExtraEntityFlags.setFlags(targetEntity, message.getFlags(), message.getValues());
 
             int updatedFlags = CompatibleExtraEntityFlags.getFlags(player);
-            if((updatedFlags & CompatibleExtraEntityFlags.PRONING) != 0) {
+            if((updatedFlags & CompatibleExtraEntityFlags.PRONING) != 0)
                 setSize(player, 0.6f, 0.6f); //player.width, player.width);
-            } else {
+            else
                 setSize(player, 0.6F, 1.8F);
-            }
         });
     }
     

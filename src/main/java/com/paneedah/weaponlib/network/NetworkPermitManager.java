@@ -2,12 +2,12 @@ package com.paneedah.weaponlib.network;
 
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.PlayerContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.state.ExtendedState;
 import com.paneedah.weaponlib.state.ManagedState;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.PermitManager;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -20,7 +20,7 @@ import java.util.function.BiConsumer;
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
 
-public class NetworkPermitManager implements PermitManager, CompatibleMessageHandler<PermitMessage, IMessage>  {
+public class NetworkPermitManager implements PermitManager, IMessageHandler<PermitMessage, IMessage> {
 
 	private ModContext modContext;
 	private Map<UUID, Object /*BiConsumer<Permit<?>, ?>*/> permitCallbacks = new HashMap<>();
@@ -48,7 +48,7 @@ public class NetworkPermitManager implements PermitManager, CompatibleMessageHan
 	}
 	
 	@Override
-	public <T extends IMessage> T onCompatibleMessage(PermitMessage permitMessage, MessageContext messageContext) {
+	public IMessage onMessage(PermitMessage permitMessage, MessageContext messageContext) {
 		if (messageContext.side == Side.SERVER)
 			onServerMessage(permitMessage, messageContext);
 		else if (messageContext.side == Side.CLIENT)
@@ -61,17 +61,14 @@ public class NetworkPermitManager implements PermitManager, CompatibleMessageHan
 		Permit<?> permit = permitMessage.getPermit();
 		Object extendedState = permitMessage.getContext();
 
-		if(extendedState instanceof PlayerContext) { // TODO: think of something better than upcasting
+		if(extendedState instanceof PlayerContext) // TODO: think of something better than upcasting
 			((PlayerContext) extendedState).setPlayer(messageContext.getServerHandler().player);
-		}
 		//serverAction.accept(permit, context);
 		@SuppressWarnings("unchecked")
 		BiConsumer<Permit<?>, Object> evaluator = (BiConsumer<Permit<?>, Object>) evaluators.get(permit.getClass());
-		if(evaluator != null) {
+		if(evaluator != null)
 			evaluator.accept(permit, extendedState);
-		}
 		PermitMessage message = new PermitMessage(permit, extendedState);
-		//System.out.println("Sending out permit");
 		modContext.getChannel().sendTo(message, messageContext.getServerHandler().player);
 	}
 
@@ -81,14 +78,12 @@ public class NetworkPermitManager implements PermitManager, CompatibleMessageHan
 		Object extendedState = permitMessage.getContext();
 
 		mc.addScheduledTask(() -> {
-			if(extendedState instanceof PlayerContext) {
+			if(extendedState instanceof PlayerContext)
 				((PlayerContext) extendedState).setPlayer(mc.player);
-			}
 			@SuppressWarnings("unchecked")
 			BiConsumer<Permit<?>, Object> callback = (BiConsumer<Permit<?>, Object>) permitCallbacks.remove(permit.getUuid());
-			if(callback != null) {
+			if(callback != null)
 				callback.accept(permit, extendedState);
-			}
 		});
 	}
 }

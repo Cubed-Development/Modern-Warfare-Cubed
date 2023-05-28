@@ -2,19 +2,19 @@ package com.paneedah.weaponlib.inventory;
 
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class EntityInventorySyncHandler implements CompatibleMessageHandler<EntityInventorySyncMessage, IMessage>  {
+public class EntityInventorySyncHandler implements IMessageHandler<EntityInventorySyncMessage, IMessage> {
 
     private ModContext modContext;
 
@@ -26,7 +26,7 @@ public class EntityInventorySyncHandler implements CompatibleMessageHandler<Enti
     }
 
     @Override
-    public <T extends IMessage> T onCompatibleMessage(EntityInventorySyncMessage message, MessageContext messageContext) {
+    public IMessage onMessage(EntityInventorySyncMessage message, MessageContext messageContext) {
         if (messageContext.side == Side.SERVER)
             onServerMessage(message, messageContext);
         else if (messageContext.side == Side.CLIENT)

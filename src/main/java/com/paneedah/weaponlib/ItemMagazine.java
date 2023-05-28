@@ -100,7 +100,7 @@ Reloadable, Updatable, Part {
 	
 
 	
-	ItemStack createItemStack() {
+	public ItemStack createItemStack() {
 		ItemStack attachmentItemStack = new ItemStack(this);
 		ensureItemStack(attachmentItemStack, ammo);
 		return attachmentItemStack;

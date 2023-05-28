@@ -2,27 +2,26 @@ package com.paneedah.weaponlib.network;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.BalancePackManager.BalancePack;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class BalancePackClient implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
 
 	BalancePack pack;
-	String test;
 
 	public BalancePackClient() {}
 	
 	public BalancePackClient(BalancePack pack) {
 		this.pack = pack;
 	}
-	
 
 	public void fromBytes(ByteBuf buf) {
 	
@@ -40,8 +39,6 @@ public class BalancePackClient implements net.minecraftforge.fml.common.network.
 
 	
 	}
-	
-	
 
 	public void toBytes(ByteBuf buf) {
 		if(pack == null) {
@@ -54,25 +51,14 @@ public class BalancePackClient implements net.minecraftforge.fml.common.network.
 		buf.writeBytes(bytes);
 	}
 
-	public static class BalancePacketHandler implements CompatibleMessageHandler<BalancePackClient, IMessage> {
-		
-		
+	public static class BalancePacketHandler implements IMessageHandler<BalancePackClient, IMessage> {
 
 		@Override
-		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(BalancePackClient message, MessageContext messageContext) {
-			 if(messageContext.side == Side.CLIENT) {
-				 mc.addScheduledTask(() -> {
-					
-		            	BalancePackManager.setCurrentBalancePack(message.pack);
-		            	
-					
-				});
-			}
+		@SideOnly(Side.CLIENT)
+		public IMessage onMessage(BalancePackClient message, MessageContext messageContext) {
+			mc.addScheduledTask(() -> BalancePackManager.setCurrentBalancePack(message.pack));
 			
 			return null;
 		}
-
 	}
-
-	
 }

@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.network.packets;
 
 import akka.japi.Pair;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -21,6 +20,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
@@ -131,7 +131,7 @@ public class StationPacket implements net.minecraftforge.fml.common.network.simp
 		
 	}
 
-	public static class WorkbenchPacketHandler implements CompatibleMessageHandler<StationPacket, IMessage> {
+	public static class WorkbenchPacketHandler implements IMessageHandler<StationPacket, IMessage> {
 		
 		private ModContext modContext;
 
@@ -142,11 +142,9 @@ public class StationPacket implements net.minecraftforge.fml.common.network.simp
 		}
 
 		@Override
-		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(StationPacket message, MessageContext messageContext) {
+		public IMessage onMessage(StationPacket message, MessageContext messageContext) {
 			if(messageContext.side == Side.SERVER) {
 				messageContext.getServerHandler().player.getServer().addScheduledTask(() -> {
-
-
 	            	World world = messageContext.getServerHandler().player.world;
 
 	            	TileEntity tileEntity = world.getTileEntity(message.teLocation);
@@ -154,68 +152,43 @@ public class StationPacket implements net.minecraftforge.fml.common.network.simp
 	            		TileEntityStation station = (TileEntityStation) tileEntity;
 
 	            		if(message.opcode == CRAFT) {
-
-
-
-
 	            			if(tileEntity instanceof TileEntityAmmoPress) {
 	            				// Since it's based on a queue, you can add whatever you'd like and it
 	            				// will merely refuse to craft it until you have the resources avaliable.
-
-
 	            				TileEntityAmmoPress press = (TileEntityAmmoPress) station;
 		            			Item item = CraftingRegistry.getModernCrafting(message.craftingGroup, message.craftingName).getItem();
 		            			ItemStack newStack = new ItemStack(item, message.quantity);
 
-
-
 		            			if(press.hasStack()) {
 		            				ItemStack topQueue = press.getCraftingQueue().getLast();
-		            				if(ItemStack.areItemsEqualIgnoreDurability(topQueue, newStack)) {
-
+		            				if(ItemStack.areItemsEqualIgnoreDurability(topQueue, newStack))
 		            					topQueue.grow(message.quantity);
-
-
-		            				} else {
+									else
 		            					press.addStack(newStack);
-		            				}
-		            			} else {
+		            			} else
 		            				press.addStack(newStack);
-		            			}
-
 
 		            			modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 20));
 
-
 		            			return;
 	            			}
-
-
-
-
-
-	            			//System.out.println(m.craftingGroup + " | " + m.craftingName);
 	            			CraftingEntry[] modernRecipe = CraftingRegistry.getModernCrafting(message.craftingGroup, message.craftingName).getModernRecipe();
-		            		if(modernRecipe == null) return;
-
+		            		if(modernRecipe == null)
+								return;
 
 		            		// Add all items to an item list to verify that they exist.
 		            		HashMap<Item, ItemStack> itemList = new HashMap<>(27, 0.7f);
-		            		for(int i = 23; i < station.mainInventory.getSlots(); ++i) {
+		            		for(int i = 23; i < station.mainInventory.getSlots(); ++i)
 		            			itemList.put(station.mainInventory.getStackInSlot(i).getItem(), station.mainInventory.getStackInSlot(i));
-		            		}
-
 
 		            		ArrayList<Pair<Item, Integer>> toConsume = new ArrayList<>();
 
 		            		// Verify
 		            		for(CraftingEntry stack : modernRecipe) {
-
 		            			if(!stack.isOreDictionary()) {
 		            				// Does it even have that item? / Does it have enough of that item?
-			            			if(!itemList.containsKey(stack.getItem()) || stack.getCount() > itemList.get(stack.getItem()).getCount()) {
+			            			if(!itemList.containsKey(stack.getItem()) || stack.getCount() > itemList.get(stack.getItem()).getCount())
 			            				return;
-			            			}
 
 			            			toConsume.add(new Pair<Item, Integer>(stack.getItem(), stack.getCount()));
 		            			} else {
@@ -225,10 +198,7 @@ public class StationPacket implements net.minecraftforge.fml.common.network.simp
 		            				for(ItemStack toTest : list) {
 		            					if(itemList.containsKey(toTest.getItem()) && stack.getCount() <= itemList.get(toTest.getItem()).getCount()) {
 		            						hasAny = true;
-
 		            						toConsume.add(new Pair<Item, Integer>(toTest.getItem(), stack.getCount()));
-
-
 		            						break;
 		            					}
 		            				}
@@ -236,8 +206,6 @@ public class StationPacket implements net.minecraftforge.fml.common.network.simp
 		            				if(!hasAny) return;
 		            			}
 		            		}
-
-
 
 		            		/*
 		            		// Consume materials
@@ -283,7 +251,6 @@ public class StationPacket implements net.minecraftforge.fml.common.network.simp
 	            			}
 
 	            			modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 25));
-
 	            		} else if(message.opcode == MOVE_OUTPUT) {
 	            			((EntityPlayer) world.getEntityByID(message.playerID)).addItemStackToInventory(station.mainInventory.getStackInSlot(message.slotToMove));
 	            		} else if(message.opcode == POP_FROM_QUEUE) {
@@ -291,12 +258,10 @@ public class StationPacket implements net.minecraftforge.fml.common.network.simp
 
 	            			TileEntityAmmoPress teAmmoPress = (TileEntityAmmoPress) tileEntity;
 
-	            			if(teAmmoPress.hasStack() && teAmmoPress.getCraftingQueue().size() > message.slotToMove) {
+	            			if(teAmmoPress.hasStack() && teAmmoPress.getCraftingQueue().size() > message.slotToMove)
 	            				teAmmoPress.getCraftingQueue().remove(message.slotToMove);
-	            			}
 
 	            			modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 25));
-
 	            		}
 	            	}
 				});

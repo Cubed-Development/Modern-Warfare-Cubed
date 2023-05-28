@@ -1,12 +1,12 @@
 package com.paneedah.weaponlib.network.packets;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.network.advanced.SimplePacket;
 import com.paneedah.weaponlib.network.advanced.data.DataTypes;
 import com.paneedah.weaponlib.network.advanced.data.PacketSerializer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -38,7 +38,7 @@ public class CraftingClientPacket extends SimplePacket {
 	
 
 	
-	public static class SimplePacketHandler implements CompatibleMessageHandler<CraftingClientPacket, IMessage> {
+	public static class SimplePacketHandler implements IMessageHandler<CraftingClientPacket, IMessage> {
 
 		private ModContext context;
 
@@ -51,9 +51,8 @@ public class CraftingClientPacket extends SimplePacket {
 		
 		@Override
 		@SideOnly(Side.CLIENT)
-		public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(CraftingClientPacket message, MessageContext messageContext) {
+		public IMessage onMessage(CraftingClientPacket message, MessageContext messageContext) {
 			mc.addScheduledTask(() -> {
-				
 				int opcode = message.opcode.getValue();
 				if(opcode == RECEIVE_HASH) {
 					// Check if we already have a file with this hash on our system	

@@ -1,30 +1,19 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import net.minecraftforge.fml.relauncher.Side;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class SpreadableExposureMessageHandler implements CompatibleMessageHandler<SpreadableExposureMessage, IMessage>  {
-    
-    @SuppressWarnings("unused")
-    private ModContext modContext;
+public class SpreadableExposureMessageHandler implements IMessageHandler<SpreadableExposureMessage, IMessage> {
 
     public SpreadableExposureMessageHandler() {
     }
 
-    public SpreadableExposureMessageHandler(ModContext modContext) {
-        this.modContext = modContext;
-    }
-
     @Override
-    public <T extends net.minecraftforge.fml.common.network.simpleimpl.IMessage> T onCompatibleMessage(SpreadableExposureMessage message, MessageContext messageContext) {
-        if(messageContext.side == Side.CLIENT)
-            return null;
-
+    public IMessage onMessage(SpreadableExposureMessage message, MessageContext messageContext) {
         mc.addScheduledTask(() -> {
             SpreadableExposure spreadableExposure = message.getSpreadableExposure();
             if(spreadableExposure != null) {

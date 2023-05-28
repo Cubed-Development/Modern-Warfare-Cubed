@@ -92,6 +92,9 @@ public class ClientValueRepo {
 
 	public static LerpedValue slidePumpValue = new LerpedValue();
 
+	public static float scopeXScreen;
+	public static float scopeYScreen;
+
 	/**
 	 * SPRING VALUES Simulated spring movements. Again, these are updated on tick so
 	 * actually lack in high-precision movements.
@@ -202,10 +205,16 @@ public class ClientValueRepo {
 
 		if (pwi != null) {
 			if (pwi.isAimed()) {
+				scopeXScreen = 0.5F;
+				scopeYScreen = 0.5F;
+
 				// Handle scope values
 				scopeX.currentValue *= SCOPE_INTERIA_DAMPENING;
 				scopeY.currentValue *= SCOPE_INTERIA_DAMPENING;
 			} else {
+				scopeXScreen = 0.15F;
+				scopeYScreen = 0.35F;
+
 				// Makes scope shadow go bye bye if gun is
 				// at resting position.
 				if (scopeX.getValue() > -20)

@@ -5,7 +5,6 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.vectors.Vector3D;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
 import net.minecraft.block.Block;
@@ -248,7 +247,7 @@ public class Explosion {
 
                                     Vector3D sampledVec = new Vector3D(posX + offsetX, posY, posZ + offsetZ);
 
-                                    if (CompatibleRayTracing.rayTraceBlocks(world, sampledVec, vec3d, this::canCollideWithBlock) == null)
+                                    if (MWCUtil.rayTraceBlocks(world, sampledVec, vec3d, this::canCollideWithBlock) == null)
                                         collidableCount++;
 
                                     totalSampleCount++;

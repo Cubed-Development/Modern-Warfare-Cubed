@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
@@ -182,7 +182,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
             Vector3D cvec2 = new Vector3D(this.posX + x * k, this.posY + y * k, this.posZ + z * k);
 
             BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> block.canCollideCheck(blockMetadata, false);
-            RayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(world, cvec1, cvec2, isCollidable);
+            RayTraceResult rayTraceResult = MWCUtil.rayTraceBlocks(world, cvec1, cvec2, isCollidable);
 
             if(rayTraceResult != null) {
                 cvec2 = new Vector3D(rayTraceResult.hitVec);

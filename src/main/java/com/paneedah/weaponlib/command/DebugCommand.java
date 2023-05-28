@@ -178,7 +178,7 @@ public class DebugCommand extends CommandBase {
     private static boolean isInfiniteAmmo;
     private static boolean isDebuggingActionPosition;
     private static boolean isWorkingOnScreenShake;
-    private static boolean isForceLiveRenderGUI;
+    private static boolean isForceLiveRenderGUI = true;
     private static boolean isEditingGUI;
     public static Transform debugSlideTransform = new Transform();
     public static Pair<Double, Double> screenShakeParam = new Pair<Double, Double>(0.0, 0.0);

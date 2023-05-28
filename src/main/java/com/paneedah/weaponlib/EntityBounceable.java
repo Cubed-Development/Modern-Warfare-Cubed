@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.vectors.Vector3D;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import io.netty.buffer.ByteBuf;
 import net.jafama.FastMath;
 import net.minecraft.block.Block;
@@ -159,7 +159,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         Vector3D vec3 = new Vector3D(this.posX, this.posY, this.posZ);
         Vector3D vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
-        RayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(world, vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(block, blockMetadata));
+        RayTraceResult movingobjectposition = MWCUtil.rayTraceBlocks(world, vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(block, blockMetadata));
 
         vec3 = new Vector3D(this.posX, this.posY, this.posZ);
         vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);

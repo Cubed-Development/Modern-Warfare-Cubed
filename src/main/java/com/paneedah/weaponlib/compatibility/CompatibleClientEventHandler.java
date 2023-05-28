@@ -301,14 +301,8 @@ public abstract class CompatibleClientEventHandler {
 			}
 		}
 
-		if (getModContext() != null) {
-			if (getModContext().getMainHeldWeapon() != null
-					&& getModContext().getMainHeldWeapon().getWeapon().builder.isUsingNewSystem()) {
-				AnimationModeProcessor.getInstance().legacyMode = false;
-			} else {
-				AnimationModeProcessor.getInstance().legacyMode = true;
-			}
-		}
+		if (getModContext() != null)
+			AnimationModeProcessor.getInstance().legacyMode = getModContext().getMainHeldWeapon() == null || !getModContext().getMainHeldWeapon().getWeapon().builder.isUsingNewSystem();
 
 		RenderingPhase phase = ClientModContext.getContext().getSafeGlobals().renderingPhase.get();
 

@@ -20,7 +20,7 @@ public final class Tags {
 	
 	private static final String INSTANCE_UUID_TAG = "IUuid";
 
-	static int getAmmo(ItemStack itemStack) {
+	public static int getAmmo(ItemStack itemStack) {
 		if(itemStack == null || itemStack.getTagCompound() == null) return 0;
 		return itemStack.getTagCompound().getInteger(AMMO_TAG);
 	}
@@ -31,13 +31,13 @@ public final class Tags {
 			itemStack.setTagCompound(new NBTTagCompound());
 		itemStack.getTagCompound().setInteger(AMMO_TAG, ammo);
 	}
-	
-	static int[] getAttachmentIds(ItemStack itemStack) {
+
+	public static int[] getAttachmentIds(ItemStack itemStack) {
         if(itemStack == null || itemStack.getTagCompound() == null) return new int[0];
         return itemStack.getTagCompound().getIntArray(ATTACHMENT_ID_TAG);
     }
 
-    static void setAttachmentIds(ItemStack itemStack, int[] attachmentIds) {
+	public static void setAttachmentIds(ItemStack itemStack, int[] attachmentIds) {
         if(itemStack == null) return;
 		if (itemStack.getTagCompound() == null)
 			itemStack.setTagCompound(new NBTTagCompound());
@@ -49,7 +49,7 @@ public final class Tags {
 		return itemStack.getTagCompound().getLong(DEFAULT_TIMER_TAG);
 	}
 
-	static void setDefaultTimer(ItemStack itemStack, long ammo) {
+	public static void setDefaultTimer(ItemStack itemStack, long ammo) {
 		if(itemStack == null || itemStack.getTagCompound() == null) return;
 		itemStack.getTagCompound().setLong(DEFAULT_TIMER_TAG, ammo);
 	}
