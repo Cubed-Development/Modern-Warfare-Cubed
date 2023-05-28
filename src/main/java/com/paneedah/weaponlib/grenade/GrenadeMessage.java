@@ -1,10 +1,10 @@
 package com.paneedah.weaponlib.grenade;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import com.paneedah.weaponlib.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
-public class GrenadeMessage implements CompatibleMessage {
+public class GrenadeMessage implements IMessage {
 
 	private PlayerGrenadeInstance instance;
 	private long activationTimestamp;

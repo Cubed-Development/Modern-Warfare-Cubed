@@ -3,48 +3,48 @@ package com.paneedah.weaponlib;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
-import com.paneedah.weaponlib.compatibility.CompatibleChannel;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
-import com.paneedah.weaponlib.compatibility.CompatibleWeaponKeyInputHandler;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.inventory.OpenCustomPlayerInventoryGuiMessage;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import org.lwjgl.input.Keyboard;
 
 import java.util.function.Function;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
+public class WeaponKeyInputHandler {
 
     @SuppressWarnings("unused")
-    private CompatibleChannel channel;
-    private Function<CompatibleMessageContext, EntityPlayer> entityPlayerSupplier;
+    private SimpleNetworkWrapper channel;
+    private Function<MessageContext, EntityPlayer> entityPlayerSupplier;
     private ModContext modContext;
 
-    public WeaponKeyInputHandler(ModContext modContext, Function<CompatibleMessageContext, EntityPlayer> entityPlayerSupplier, WeaponAttachmentAspect attachmentAspect, CompatibleChannel channel) {
+    public WeaponKeyInputHandler(ModContext modContext, Function<MessageContext, EntityPlayer> entityPlayerSupplier, WeaponAttachmentAspect attachmentAspect, SimpleNetworkWrapper channel) {
         this.modContext = modContext;
         this.entityPlayerSupplier = entityPlayerSupplier;
         this.channel = channel;
     }
 
-    @Override
-    public void onCompatibleKeyInput() {
+    @SubscribeEvent
+    public final void onKeyInput(InputEvent.KeyInputEvent event) {
 
         EntityPlayer player = entityPlayerSupplier.apply(null);
-        ItemStack itemStack = compatibility.getHeldItemMainHand(player);
+        ItemStack itemStack = player.getHeldItemMainhand();
 
 	    boolean altMode = false;
 	    if(DebugPositioner.isDebugModeEnabled()) {
@@ -61,24 +61,24 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
 	    /*
 	    try {
 	    	//System.out.println(KeyBindings.jDebugKey);
-	    	if(CompatibleClientEventHandler.muzzlePositioner) {
+	    	if(ClientEventHandler.muzzlePositioner) {
 		    	double incr = 0.1;
 		    	if(KeyBindings.upArrowKey.isPressed()) {
-		    		CompatibleClientEventHandler.debugmuzzlePosition = CompatibleClientEventHandler.debugmuzzlePosition.add(0, incr, 0);
+		    		ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(0, incr, 0);
 		    	} else if(KeyBindings.downArrowKey.isPressed()) {
-		    		CompatibleClientEventHandler.debugmuzzlePosition = CompatibleClientEventHandler.debugmuzzlePosition.add(0, -incr, 0);
+		    		ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(0, -incr, 0);
 			    	
 		    	} else if(KeyBindings.leftArrowKey.isPressed()) {
-		    		CompatibleClientEventHandler.debugmuzzlePosition = CompatibleClientEventHandler.debugmuzzlePosition.add(incr, 0, 0);
+		    		ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(incr, 0, 0);
 			    	
 		    	} else if(KeyBindings.rightArrowKey.isPressed()) {
-		    		CompatibleClientEventHandler.debugmuzzlePosition = CompatibleClientEventHandler.debugmuzzlePosition.add(-incr, 0, 0);
+		    		ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(-incr, 0, 0);
 			    	
 		    	} else if(KeyBindings.jDebugKey.isPressed()) {
-		    		CompatibleClientEventHandler.debugmuzzlePosition = CompatibleClientEventHandler.debugmuzzlePosition.add(0, 0, incr);
+		    		ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(0, 0, incr);
 			    	
 		    	} else if(KeyBindings.kDebugKey.isPressed()) {
-		    		CompatibleClientEventHandler.debugmuzzlePosition = CompatibleClientEventHandler.debugmuzzlePosition.add(0, 0, -incr);
+		    		ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(0, 0, -incr);
 			    	
 		    	}
 		    }
@@ -114,7 +114,7 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
 	 			if(state.getBlock() instanceof BlockDoor) {
 	 				
 	 				mc.playerController.processRightClickBlock(mc.player, mc.world, rtr.getBlockPos(), rtr.sideHit, rtr.hitVec, EnumHand.MAIN_HAND);
-	 				//modContext.getChannel().getChannel().sendToServer(new OpenDoorPacket(rtr.getBlockPos()));
+	 				//modContext.getChannel().sendToServer(new OpenDoorPacket(rtr.getBlockPos()));
 	 				
 	 				
 	 				/*
@@ -160,17 +160,17 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
 	        }
 	    } else {
 	    	if(KeyBindings.upArrowKey.isKeyDown()) {
-	    		CompatibleClientEventHandler.magRotPositioner = CompatibleClientEventHandler.magRotPositioner.add(0, 0.1, 0);
+	    		ClientEventHandler.magRotPositioner = ClientEventHandler.magRotPositioner.add(0, 0.1, 0);
 	    	} else if(KeyBindings.leftArrowKey.isKeyDown()) {
-	    		CompatibleClientEventHandler.magRotPositioner =CompatibleClientEventHandler.magRotPositioner.add(-0.1, 0, 0);
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(-0.1, 0, 0);
 	    	} else if(KeyBindings.rightArrowKey.isKeyDown()) {
-	    		CompatibleClientEventHandler.magRotPositioner =CompatibleClientEventHandler.magRotPositioner.add(0.1, 0, 0);
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0.1, 0, 0);
 	    	} else if(KeyBindings.downArrowKey.isKeyDown()) {
-	    		CompatibleClientEventHandler.magRotPositioner =CompatibleClientEventHandler.magRotPositioner.add(0, -0.1, 0);
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0, -0.1, 0);
 	    	} else if(KeyBindings.jDebugKey.isKeyDown()) {
-	    		CompatibleClientEventHandler.magRotPositioner =CompatibleClientEventHandler.magRotPositioner.add(0, 0, 0.1);
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0, 0, 0.1);
 	    	} else if(KeyBindings.kDebugKey.isKeyDown()) {
-	    		CompatibleClientEventHandler.magRotPositioner =CompatibleClientEventHandler.magRotPositioner.add(0, 0, -0.1);
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0, 0, -0.1);
 	    	}
 	    }*/
 	    
@@ -227,14 +227,13 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
         }
 
         else if(KeyBindings.nightVisionSwitchKey.isPressed()) {
-            ItemStack helmetStack = compatibility.getHelmet();
+            ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
             if(helmetStack != null && helmetStack.getItem() instanceof CustomArmor 
                     && ((CustomArmor)helmetStack.getItem()).hasNightVision()){
-                modContext.getChannel().getChannel().sendToServer(new ArmorControlMessage(true));
-                NBTTagCompound tagCompound = compatibility.getTagCompound(helmetStack);
+                modContext.getChannel().sendToServer(new ArmorControlMessage(true));
+                NBTTagCompound tagCompound = helmetStack.getTagCompound();
                 boolean nightVisionOn = tagCompound != null && tagCompound.getBoolean(ArmorControlHandler.TAG_NIGHT_VISION);
-                compatibility.playSound(compatibility.clientPlayer(), 
-                        nightVisionOn ? modContext.getNightVisionOffSound() : modContext.getNightVisionOnSound(), 1.0f, 1.0f);
+                mc.player.playSound(nightVisionOn ? modContext.getNightVisionOffSound() : modContext.getNightVisionOnSound(), 1, 1);
             } else {
                 PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
                 if(instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.MODIFYING || instance.getState() == WeaponState.EJECT_REQUIRED)) {
@@ -265,7 +264,7 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
         }
         
         else if(KeyBindings.customInventoryKey.isPressed()) {
-            modContext.getChannel().getChannel().sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.CUSTOM_PLAYER_INVENTORY_GUI_ID));
+            modContext.getChannel().sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.CUSTOM_PLAYER_INVENTORY_GUI_ID));
         }
 
         /*
@@ -353,7 +352,7 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
         }
 
         else if (mc.isSingleplayer() && KeyBindings.proningSwitchKey.isPressed()) {
-            modContext.getChannel().getChannel().sendToServer(new EntityControlMessage(player, CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
+            modContext.getChannel().sendToServer(new EntityControlMessage(player, CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
         }
     }
 }

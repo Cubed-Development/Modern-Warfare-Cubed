@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -20,15 +19,15 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSource, IModernCrafting, IHasModel {
+public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModernCrafting, IHasModel {
         
     
 	public static class Builder {
@@ -262,10 +261,8 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
            
             
             item.customEquippedPositioning = customEquippedPositioning;
-            
-           // System.out.println("ITem name: " + item.getTranslationKey());
-          //  compatibility.registerItem(item, item.getTranslationKey());
-            modContext.registerRenderableItem(name, item, compatibility.isClientSide() ? RendererRegistrationHelper.registerRenderer(this, modContext) :null);
+
+            modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? RendererRegistrationHelper.registerRenderer(this, modContext) :null);
             
             return item;
         }
@@ -346,11 +343,8 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
     }
 
     @Override
-    public ArmorProperties getProperties(EntityLivingBase player, ItemStack vestStack, DamageSource source, double damage,
-            int slot) {
-    	//System.out.println("% blocked = " + (this.percentDamageBlocked*100));
+    public ArmorProperties getProperties(EntityLivingBase player, ItemStack vestStack, DamageSource source, double damage, int slot) {
     	//this.percentDamageBlocked = 1.0;
-    	//System.out.println(new ArmorProperties(0, this.percentDamageBlocked, durability).applyArmor(entity, inventory, source, damage));
         return new ArmorProperties(0, this.percentDamageBlocked, 2000);
     }
 
@@ -408,6 +402,4 @@ public class ItemVest extends CompatibleItem implements ISpecialArmor, ModelSour
 		
 		
 	}
-	
-	
 }

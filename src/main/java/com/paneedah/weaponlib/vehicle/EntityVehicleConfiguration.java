@@ -1,22 +1,25 @@
 package com.paneedah.weaponlib.vehicle;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.EntityClassFactory;
 import com.paneedah.weaponlib.EntityConfiguration;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import com.paneedah.weaponlib.vehicle.jimphysics.PhysicsConfiguration;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Supplier;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityVehicleConfiguration implements EntityConfiguration {
 
@@ -341,12 +344,12 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
             Class<? extends Entity> entityClass = EntityClassFactory.getInstance()
                     .generateEntitySubclass(baseClass, modEntityId, configuration);
 
-            compatibility.registerModEntity(entityClass, entityName, 
-                    modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
+            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, entityName),entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
 
             ItemVehicle vehicleItem = new ItemVehicle(entityName, entityClass);
-            
-            compatibility.registerItem(vehicleItem, entityName);
+
+            vehicleItem.setRegistryName(ModReference.id, entityName); // temporary hack
+            ForgeRegistries.ITEMS.register(vehicleItem);
             //System.out.println("Renderer Registrar: " + (ModReference.id + ":"  + entityName));
             //ModelLoader.setCustomModelResourceLocation(vehicleItem, 0, new net.minecraft.client.renderer.block.model.ModelResourceLocation(ModReference.id + ":"  + entityName, "inventory"));
             
@@ -360,7 +363,7 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
 //                compatibility.registerEgg(context, entityClass, entityName, primaryEggColor, secondaryEggColor);
 //            }
 
-            if(compatibility.isClientSide()) {                
+            if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
                 RendererRegistration.registerRenderableEntity(context, entityClass, renderer);
             }
             return new EntityVehicleConfiguration(this);
@@ -386,14 +389,14 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
     //public Transmission transmission;
     
 
-    private CompatibleSound enterSound;
-    private CompatibleSound exitSound;
-    private CompatibleSound idleSound;
-    private CompatibleSound runSound;
-    private CompatibleSound constantRevSound;
+    private SoundEvent enterSound;
+    private SoundEvent exitSound;
+    private SoundEvent idleSound;
+    private SoundEvent runSound;
+    private SoundEvent constantRevSound;
     
-    private CompatibleSound backfireSound;
-    private CompatibleSound gearshiftSound;
+    private SoundEvent backfireSound;
+    private SoundEvent gearshiftSound;
     
     
     
@@ -401,12 +404,12 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
     public boolean doShiftAnim;
     
     
-    private CompatibleSound rev1;
-    private CompatibleSound rev2;
-    private CompatibleSound rev3;
-    private CompatibleSound rev4;
-    private CompatibleSound rev5;
-    private CompatibleSound rev6;
+    private SoundEvent rev1;
+    private SoundEvent rev2;
+    private SoundEvent rev3;
+    private SoundEvent rev4;
+    private SoundEvent rev5;
+    private SoundEvent rev6;
     
     
     private double obbLength;
@@ -446,7 +449,7 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
     	return this.shiftRight;
     }
     
-    public CompatibleSound getRevSound(int id) {
+    public SoundEvent getRevSound(int id) {
     	switch(id) {
 	    	case 1: return rev1;
 	    	case 2: return rev2;
@@ -467,31 +470,31 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
     	return transmission;
     }*/
     
-    public CompatibleSound getEnterSound() {
+    public SoundEvent getEnterSound() {
         return enterSound;
     }
 
-    public CompatibleSound getExitSound() {
+    public SoundEvent getExitSound() {
         return exitSound;
     }
 
-    public CompatibleSound getIdleSound() {
+    public SoundEvent getIdleSound() {
         return idleSound;
     }
 
-    public CompatibleSound getRunSound() {
+    public SoundEvent getRunSound() {
         return runSound;
     }
     
-    public CompatibleSound getConstantRev() {
+    public SoundEvent getConstantRev() {
     	return constantRevSound;
     }
     
-    public CompatibleSound getBackfireSound() {
+    public SoundEvent getBackfireSound() {
     	return this.backfireSound;
     }
     
-    public CompatibleSound getShiftSound() {
+    public SoundEvent getShiftSound() {
     	return this.gearshiftSound;
     }
 

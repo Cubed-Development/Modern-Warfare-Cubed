@@ -4,9 +4,8 @@ import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.shader.ShaderGroup;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.lwjgl.opengl.GL11;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public interface DynamicShaderPhase {
 
@@ -60,10 +59,10 @@ public interface DynamicShaderPhase {
             
             if(target instanceof EntityRenderer) {
                 EntityRenderer entityRenderer = (EntityRenderer) target;
-                ShaderGroup currentShaderGroup = compatibility.getShaderGroup(entityRenderer);
+                ShaderGroup currentShaderGroup = entityRenderer.getShaderGroup();
                 if(currentShaderGroup != shaderGroup) {
                     remove(context, null);
-                    compatibility.setShaderGroup(entityRenderer, shaderGroup);
+                    ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, shaderGroup, "shaderGroup", "field_147707_d");
                     setUseShader(entityRenderer, true);
                 }
             }
@@ -74,17 +73,17 @@ public interface DynamicShaderPhase {
             Object target = context.getTarget();
             if(target instanceof EntityRenderer) {
                 EntityRenderer entityRenderer = (EntityRenderer) target;
-                ShaderGroup currentShaderGroup = compatibility.getShaderGroup(entityRenderer);
+                ShaderGroup currentShaderGroup = entityRenderer.getShaderGroup();
                 if(currentShaderGroup instanceof DynamicShaderGroup) {
                     currentShaderGroup.deleteShaderGroup();
-                    compatibility.setShaderGroup(entityRenderer, null);
+                    ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, null, "shaderGroup", "field_147707_d");
                 }
             }
 
         }
 
-        private static void setUseShader(EntityRenderer entityRenderer, boolean value) {            
-            compatibility.useShader(entityRenderer, value);
+        private static void setUseShader(EntityRenderer entityRenderer, boolean value) {
+            ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, entityRenderer, value, "useShader", "field_175083_ad");
             
         }
 

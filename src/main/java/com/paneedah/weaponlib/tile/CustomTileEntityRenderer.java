@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.tile;
 
-import com.paneedah.weaponlib.compatibility.CompatibleTileEntitySpecialRenderer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
@@ -9,7 +8,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.function.Consumer;
 
-public class CustomTileEntityRenderer extends CompatibleTileEntitySpecialRenderer<CustomTileEntity<?>> {
+public class CustomTileEntityRenderer extends net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer<CustomTileEntity<?>> {
     
     private ModelBase model;
     private ResourceLocation textureResource;
@@ -23,10 +22,7 @@ public class CustomTileEntityRenderer extends CompatibleTileEntitySpecialRendere
     }
 
     @Override
-    public void render(CustomTileEntity<?> tileEntity, double posX, double posY, double posZ, float partialTicks, int destroyStage,
-            float alpha) {
-    	
-    	
+    public void render(CustomTileEntity<?> tileEntity, double posX, double posY, double posZ, float partialTicks, int destroyStage, float alpha) {
         GL11.glPushMatrix();
         this.bindTexture(textureResource);
         

@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.render.bgl.weather;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -198,7 +198,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 		GlStateManager.disableCull();
 	
 		
-		Vec3d iP = CompatibleClientEventHandler.getInterpolatedPlayerCoords();
+		Vec3d iP = MWCUtil.getInterpolatedPlayerPos();
 		
 		
 		

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.network.TypeRegistry;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
@@ -14,8 +15,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazineInstance> {
 
@@ -157,8 +156,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             
             EntityPlayer player = (EntityPlayer) magazineInstance.getPlayer();
             boolean originalFlag = true;
-            if(compatibility.getStackSize(magazineItemStack) > 1) {
-            	
+            if(magazineItemStack.getCount() > 1) {
                 magazineItemStack.shrink(1);
 
                 ItemStack copyOfStack = magazineItemStack.copy();
@@ -190,27 +188,27 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             
             
             if(magazine.getUnloadSound() != null) {
-                compatibility.playSound(magazineInstance.getPlayer(), magazine.getUnloadSound(), 1.0F, 1.0F);
+                magazineInstance.getPlayer().playSound(magazine.getUnloadSound(), 1, 1);
             }
-            
+
             /*
             ItemStack consumedStack;
-            if((consumedStack = compatibility.tryConsumingCompatibleItem(compatibleBullets, magazine.getAmmo() - currentAmmo, 
+            if((consumedStack = compatibility.tryConsumingItem(compatibleBullets, magazine.getAmmo() - currentAmmo,
                     (EntityPlayer)magazineInstance.getPlayer(), i -> true)) != null) {
                 
                 ItemStack remainingStack = null;
                 if(shouldSplitStack) {
-                    remainingStack = magazineStack.splitStack(compatibility.getStackSize(magazineStack) - 1);
+                    remainingStack = magazineStack.splitStack(magazineStack.getCount() - 1);
                 }
                 
-                Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + compatibility.getStackSize(consumedStack));
+                Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + consumedStack.getCount());
                 
                 if(remainingStack != null) {
                     player.inventory.addItemStackToInventory(remainingStack);
                 }
                 
                 if(magazine.getReloadSound() != null) {
-                    compatibility.playSound(magazineInstance.getPlayer(), magazine.getReloadSound(), 1.0F, 1.0F);
+                    magazineInstance.getPlayer().playSound(magazine.getReloadSound(), 1, 1);
                 }
                 status = Status.GRANTED;
             }*/
@@ -236,7 +234,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             EntityPlayer player = (EntityPlayer) magazineInstance.getPlayer();
             
             boolean shouldSplitStack = false;
-            if(compatibility.getStackSize(magazineItemStack) > 1) {
+            if(magazineItemStack.getCount() > 1) {
                 shouldSplitStack = true;
                 if(player.inventory.getFirstEmptyStack() < 0) {
                     p.setStatus(status);
@@ -245,25 +243,24 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             }
             
             ItemMagazine magazine = (ItemMagazine) magazineItemStack.getItem();
-            List<ItemBullet> compatibleBullets = magazine.getCompatibleBullets();
+            List<ItemBullet> bullets = magazine.getCompatibleBullets();
             int currentAmmo = Tags.getAmmo(magazineStack);
-            ItemStack consumedStack;
-            if((consumedStack = compatibility.tryConsumingCompatibleItem(compatibleBullets, magazine.getAmmo() - currentAmmo, 
-                    (EntityPlayer)magazineInstance.getPlayer(), i -> true)) != null) {
+            int consumedAmount;
+            if (currentAmmo < magazine.getAmmo() && (consumedAmount = MWCUtil.consumeItemsFromPlayerInventory(bullets, magazine.getAmmo() - currentAmmo, (EntityPlayer) magazineInstance.getPlayer())) != 0) {
                 
                 ItemStack remainingStack = null;
                 if(shouldSplitStack) {
-                    remainingStack = magazineStack.splitStack(compatibility.getStackSize(magazineStack) - 1);
+                    remainingStack = magazineStack.splitStack(magazineStack.getCount() - 1);
                 }
                 
-                Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + compatibility.getStackSize(consumedStack));
+                Tags.setAmmo(magazineStack, Tags.getAmmo(magazineStack) + consumedAmount);
                 
                 if(remainingStack != null) {
                     player.inventory.addItemStackToInventory(remainingStack);
                 }
                 
                 if(magazine.getReloadSound() != null) {
-                    compatibility.playSound(magazineInstance.getPlayer(), magazine.getReloadSound(), 1.0F, 1.0F);
+                    magazineInstance.getPlayer().playSound(magazine.getReloadSound(), 1, 1);
                 }
                 status = Status.GRANTED;
             }
@@ -278,7 +275,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             return;
         }
 //      if(permit.getStatus() == Status.GRANTED) {
-//          compatibility.playSound(weaponInstance.getPlayer(), weaponInstance.getWeapon().getReloadSound(), 1.0F, 1.0F);
+//          weaponInstance.getPlayer().playSound(weaponInstance.getWeapon().getReloadSound(), 1, 1);
 //      }
     }
 
@@ -288,7 +285,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             return;
         }
 //      if(permit.getStatus() == Status.GRANTED) {
-//          compatibility.playSound(weaponInstance.getPlayer(), weaponInstance.getWeapon().getReloadSound(), 1.0F, 1.0F);
+//          weaponInstance.getPlayer().playSound(weaponInstance.getWeapon().getReloadSound(), 1, 1);
 //      }
     }
 }

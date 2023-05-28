@@ -2,8 +2,6 @@ package com.paneedah.weaponlib.melee;
 
 import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
-import com.paneedah.weaponlib.compatibility.CompatibleTargetPoint;
 import com.paneedah.weaponlib.particle.SpawnParticleMessage;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.PermitManager;
@@ -11,16 +9,21 @@ import com.paneedah.weaponlib.state.StateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 
 /*
  * On a client side this class is used from within a separate client "ticker" thread
@@ -146,37 +149,41 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
 
     @SuppressWarnings("unused")
     private void cannotAttack(PlayerMeleeInstance meleeInstance) {
-        modContext.getStatusMessageCenter().addAlertMessage(
-                compatibility.getLocalizedString("gui.coolingDown"), 2, 200, 100);
-        compatibility.playSound(meleeInstance.getPlayer(), modContext.getNoAmmoSound(), 1F, 1F);
+        modContext.getStatusMessageCenter().addAlertMessage(I18n.translateToLocalFormatted("gui.coolingDown"), 2, 200, 100);
+        meleeInstance.getPlayer().playSound(modContext.getNoAmmoSound(), 1, 1);
     }
 
     private void attack(PlayerMeleeInstance meleeInstance, boolean isHeavyAttack) {
+        if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+            attackClient(meleeInstance, isHeavyAttack);
+    }
 
-        CompatibleRayTraceResult objectMouseOver = compatibility.getObjectMouseOver();
+    @SideOnly(Side.CLIENT)
+    private void attackClient(PlayerMeleeInstance meleeInstance, boolean isHeavyAttack) {
+        RayTraceResult objectMouseOver = mc.objectMouseOver;
+
         if (objectMouseOver != null) {
-            EntityPlayer player = compatibility.clientPlayer();
-            World world = compatibility.world(player);
-            compatibility.playSound(player, isHeavyAttack ? meleeInstance.getWeapon().getHeavyAtackSound() : meleeInstance.getWeapon().getLightAtackSound(), 1F, 1F);
+            EntityPlayer player = mc.player;
+            World world = player.world;
+            player.playSound(isHeavyAttack ? meleeInstance.getWeapon().getHeavyAtackSound() : meleeInstance.getWeapon().getLightAtackSound(), 1, 1);
 
-            switch (objectMouseOver.getTypeOfHit())
+            switch (objectMouseOver.typeOfHit)
             {
                 case ENTITY:
-                    attackEntity(objectMouseOver.getEntityHit(), player, meleeInstance, isHeavyAttack);
+                    attackEntity(objectMouseOver.entityHit, player, meleeInstance, isHeavyAttack);
                     break;
                 case BLOCK:
-                    if (!compatibility.isAirBlock(world, objectMouseOver.getBlockPos())) {
-                        compatibility.clickBlock(objectMouseOver.getBlockPos(), objectMouseOver.getSideHit());
+                    if (!world.isAirBlock(objectMouseOver.getBlockPos())) {
+                        mc.playerController.clickBlock(objectMouseOver.getBlockPos(), objectMouseOver.sideHit);
                     }
                 default:
                     break;
             }
         }
-
     }
 
     private void attackEntity(Entity entity, EntityPlayer player, PlayerMeleeInstance instance, boolean isHeavyAttack) {
-        modContext.getChannel().getChannel().sendToServer(new TryAttackMessage(instance, entity, isHeavyAttack));
+        modContext.getChannel().sendToServer(new TryAttackMessage(instance, entity, isHeavyAttack));
         entity.attackEntityFrom(DamageSource.causePlayerDamage(player),
                 instance.getWeapon().getDamage(isHeavyAttack));
     }
@@ -187,8 +194,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
         float damage = instance.getWeapon().getDamage(isHeavyAttack);
         entity.attackEntityFrom(DamageSource.causePlayerDamage(player), damage);
 
-        CompatibleTargetPoint point = new CompatibleTargetPoint(entity.dimension,
-                entity.posX, entity.posY, entity.posZ, 100);
+        NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(entity.dimension, entity.posX, entity.posY, entity.posZ, 100);
 
         double motionX = entity.posX - player.posX;
         double motionY = entity.posY - player.posY;

@@ -2,14 +2,21 @@ package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,9 +24,7 @@ import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-public class ItemWirelessCamera extends CompatibleItem implements ModelSource {
+public class ItemWirelessCamera extends Item implements ModelSource {
 
     public static final long DEFAULT_DURATION = 300 * 1000;
 
@@ -177,7 +182,7 @@ public class ItemWirelessCamera extends CompatibleItem implements ModelSource {
             }
 
             if(model != null || !texturedModels.isEmpty()) {
-                modContext.registerRenderableItem(name, camera, compatibility.isClientSide() ? registerRenderer(camera, modContext) : null);
+                modContext.registerRenderableItem(name, camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? registerRenderer(camera, modContext) : null);
             }
 
             if(craftingComplexity != null) {
@@ -188,11 +193,11 @@ public class ItemWirelessCamera extends CompatibleItem implements ModelSource {
                 List<Object> shape = modContext.getRecipeManager().createShapedRecipe(camera, name, optionsMetadata);
 
                 ItemStack itemStack = new ItemStack(camera);
-                compatibility.setStackSize(itemStack, craftingCount);
+                itemStack.setCount(craftingCount);
                 if(optionsMetadata.hasOres()) {
-                    compatibility.addShapedOreRecipe(itemStack, shape.toArray());
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
-                    compatibility.addShapedRecipe(itemStack, shape.toArray());
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
             }
 
@@ -235,16 +240,17 @@ public class ItemWirelessCamera extends CompatibleItem implements ModelSource {
     }
 
     @Override
-    protected ItemStack onCompatibleItemRightClick(ItemStack itemStack, World world, EntityPlayer player,
-            boolean mainHand) {
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+        ItemStack itemStack = player.getHeldItem(hand);
 
-        compatibility.setStackSize(itemStack, compatibility.getStackSize(itemStack) - 1);
+        itemStack.setCount(itemStack.getCount() - 1);
 
         if (!world.isRemote) {
-            compatibility.spawnEntity(player, new EntityWirelessCamera(modContext, world, player, this, builder.duration));
+            if(player != null)
+                player.world.spawnEntity(new EntityWirelessCamera(modContext, world, player, this, builder.duration));
         }
 
-        return itemStack;
+        return new ActionResult<>(EnumActionResult.SUCCESS, itemStack);
     }
 
     @Override

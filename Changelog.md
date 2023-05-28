@@ -15,80 +15,109 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Added
 
-- Added crafting recipes for the M1014 and the Supernova ([#75])
-- Sulfur can now be smelted into gunpowder
-- .50 AE is now in the Ammo Press
-- Added GitHub url to `mcmod.info`
-- The Forge config `Emissive Item Rendering` is now forced off at launch (This does not affect Optifine emissive item rendering)
+- Custom skins ([Create your own skins guide](https://github.com/Cubed-Development/Modern-Warfare-Cubed/wiki/Custom-Skins))
+- Config options:
+  - penetratesGlass
+  - explosionBreak
+  - penetrableBlocks
+- Durability to all vests as a temporary measure to resolve vest-related issues
+- Smelting of sulfur into gunpowder
+- .50 AE in the Ammo Press
+- Crafting recipes for the M1014, Supernova, grenades (excluding gas grenade) and tactical night vision goggles
+- Weapon system version to weapon tooltips
+- Added the Workbench and the Ammo Press to the Creative Tab
+- Translations for Chinese, Spanish, and Turkish languages
+- GitHub URL in `mcmod.info`
+- Proning feature in single player mode (**Note: Currently unanimated; player will appear standing**)
 
 ### Changed
 
-- Nerfed all vests, this is a temporary solution to vests being broken they will be overhauled at a later date ([#76])
-- Reduced the stack size of M202 rockets and RPG7 rockets to 4 and 2 respectively
-- Re-worked config system
-  - Removed the old XML config and merged all configs into the new JSON config.
-  - They have also been fixed as some weren't working.
-- Re-worked craftingmappings.json to now only override recipies. It'll no longer remove all recipies when you use it.
-- Moved config for bullets breaking glass into the new config file (ModernWarfareCubed.cfg)
-- Updated `mcmod.info` description & credits
+- Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1 and the pink camo skin
+- Reworked the config system:
+  - Old XML config has been removed, and all configs have been consolidated into a new JSON config. Issues with some non-functioning configs have been resolved
+  - Adjusted craftingmappings.json to now only override recipes, rather than removing all recipes
+- Temporarily nerfed all vests and XP gains from smelting ores as a part of vest problem mitigation
+- Reloading now only stops once the gun is fully reloaded or no compatible ammunition remains in inventory
+- Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines)
+- Expanded crafting to accommodate any type of planks
+- Weapons are now rendered in 3D in the inventory, this means that there will be a small freeze when first opening the Creative Menu this will be improved over time as we optimize rendering
+- Reduced the stack size of M202 rockets and RPG7 rockets to 4 and 2, respectively
+- Increased magazine capacity of bandits on Hard difficulty
+- Bullets are now able to penetrate:
+  - Standing signs
+  - Standing banners
+  - End rods
+  - Skulls
+  - Flower Pots
+  - Redstone Comparators
+  - Redstone Repeaters
+  - Cactus
+  - Cake
+- Bullets collision has been enhanced to work compatibly with mods
+- Updated `mcmod.info` description and credits
+- Migrated the config setting for bullets breaking glass into the new config file (ModernWarfareCubed.cfg)
+- Forge configuration `Emissive Item Rendering` is now forced to be off (This does not influence Optifine emissive item rendering)
 
 ### Fixed
 
-- Fixed config for bullets breaking glass being ignored
-- Fixed bullets being able to shoot through:
-    - Glass
-    - Glowstone
-    - Double wooden slabs (2 wooden slabs stacked on top of each other)
-- Fixed Backpacks/Vests from having glitched textures
-- Fixed Workbench/Ammo Press to the Creative Tab (Blocks)
-- Fixed blur2.fsh
-- Fixed mobs other than terrorist spawning with guns
-- Fixed mobs not naturally spawning when enabled
-- Fixed some fault in en-US.lang
-- Fixed some shaders causing crashes ([#48])
-- Fixed copper, gunpowder and ammo dupe
-- Fixed the carryable inventory tab moving the whole inventory to the left for no reasons
+- Fixed issue with config for bullets breaking glass being ignored
+- Fixed bullet's being able to penetrate:
+  - Glass
+  - Glowstone
+  - Stacked wooden slabs (2 wooden slabs stacked on top of each other)
+- Fixed glitched textures on Backpacks/Vests
+- Fixed non-terrorist mobs spawning with guns
+- Fixed the issue of mobs not naturally spawning when enabled
+- Fixed several faults in en-US.lang
+- Fixed crashes caused by certain shaders
+- Fixed duplication issues related to copper, gunpowder, and ammo
+- Fixed a problem where the carryable inventory tab was shifting the entire inventory to the left for no reasons
 
 ### Removed
 
-- Removed all arcade guns (Will move to a sister mod at a later time)
+- Removed all arcade guns (These will be moved to a sister mod at a later time)
 - Removed the mission system
-- [WIP] Removed a significant part of the compatibility layer
+- [WIP] Removed most of the compatibility layer
 - Removed FXAA
 - Removed Bloom
 
 ### Optimization
 
-- As the result of a BIG code cleanup MWC as a whole should now be faster, load faster and use slightly less resources
-- Losslessly compressed assets as a result the jar size decreased (35.3MB -> 27.57MB) ([#53], [#55], [#59])
+- As a result of a BIG code cleanup MWC as a whole should now be slightly faster, load slightly faster and use slightly less resources
+- Losslessly compressed assets as a result the jar size decreased (35.3MB -> 27.57MB)
 - Improved ShaderLoader
-- Reduced overhead due to the removal of a part of the compatibility layer leading to increased performance
+- Reduced overhead due to the removal of most of the compatibility layer leading to increased performance
 
 ### Internal
 
-- Changed name and mod id
-- Switched to [Raven] amazing [RetroFuturaGradle]
+- Switched to [Raven](https://github.com/eigenraven) amazing [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle)
 - Updated to Gradle 8.1.1
-- Cleanup build.gradle & gradle.properties
-- Gradle now automatically updates the version in `ModReference.java`
+- Cleaned-up on build.gradle & gradle.properties
+- Gradle now automatically updates version and id in `ModReference.java`
 - Updated Forge version
 - Improved build times
 - Automatically mark some folders as excluded
-- Major Refactors ([#58])
-- [WIP] Cleanup the entire code
-- [WIP] Renamed most of the variables from unreadable names to readable names
-- Reworked how items and blocks are created internally ([#26], [#23])
+- Major Refactors
+- [WIP] Cleaned-up the codebase
+- [WIP] Renamed unintelligible variables to more readable names
+- Overhauled the internal process of item and block creation
+- Changed name and mod id
 
 ##### Credits
 
-[Raven]: https://github.com/eigenraven
-[RetroFuturaGradle]: https://github.com/GTNewHorizons/RetroFuturaGradle
-[#75]: https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/75
-[#76]: https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/76
-[#48]: https://github.com/Cubed-Development/Modern-Warfare-Cubed/issues/48
-[#53]: https://github.com/Paneedah/paneedah-modern-warfare/pull/53
-[#55]: https://github.com/Paneedah/paneedah-modern-warfare/pull/55
-[#59]: https://github.com/Paneedah/paneedah-modern-warfare/pull/59
-[#58]: https://github.com/Paneedah/paneedah-modern-warfare/pull/58
-[#26]: https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/26
-[#23]: https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/23
+*Order based on [contributors](https://github.com/Cubed-Development/Modern-Warfare-Cubed/graphs/contributors?from=2023-02-19&to=2023-05-28&type=a)*
+
+The whole official Modern Warfare Dev Team:
+- [Desoroxxx](https://github.com/Desoroxxx)
+- [Paneedah](https://github.com/Paneedah)
+- [Stick](https://github.com/SticksDeveloper)
+- [Azurae](https://github.com/azuraerae)
+- [Koud_Wind](https://github.com/Koud-Wind)
+
+And the people who contributed to Modern Warfare Cubed:
+- [AhmedKrm](https://github.com/AhmedKrm) for Turkish translation ([#107](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/107))
+- [Braiam23](https://github.com/Braiam23) for revamping textures & Spanish translation ([#100](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/100), [#110](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/110))
+- [strubium](https://github.com/strubium) for adding recipes & nerfs & crafting improvements & revamping textures ([#117](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/117), [#109](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/109), [#116](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/116), [#92](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/92), [#115](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/115), [#97](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/97))
+- [Skyy](https://github.com/BurnhamR) for losslessly compressing assets & major refactors ([#53](https://github.com/Paneedah/paneedah-modern-warfare/pull/53), [#55](https://github.com/Paneedah/paneedah-modern-warfare/pull/55), [#59](https://github.com/Paneedah/paneedah-modern-warfare/pull/59), [#58](https://github.com/Paneedah/paneedah-modern-warfare/pull/58))
+- [notdeadpool456](https://github.com/notdeadpool456) for adding crafting recipes & nerfs ([#75](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/75), [#76](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/76))
+- [333mhz](https://github.com/333mhz) for corrections in the English translation & adding blocks to the creative tab & cleanup

@@ -1,15 +1,18 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleResourcePack;
+import net.minecraft.client.resources.IResourcePack;
+import net.minecraft.client.resources.data.IMetadataSection;
+import net.minecraft.client.resources.data.MetadataSerializer;
 import net.minecraft.util.ResourceLocation;
 
+import javax.annotation.Nullable;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class WeaponResourcePack extends CompatibleResourcePack {
+public class WeaponResourcePack implements IResourcePack {
 	
 	private static final String WEAPONLIB_RESOURCE_DOMAIN = "weaponlib";
 	
@@ -41,9 +44,16 @@ public class WeaponResourcePack extends CompatibleResourcePack {
 		return value;
 	}
 
+
 	@Override
-	public Set<String> getCompatibleResourceDomains() {
+	public final Set<String> getResourceDomains() {
 		return RESOURCE_DOMAINS;
+	}
+
+	@Nullable
+	@Override
+	public <T extends IMetadataSection> T getPackMetadata(@Nullable MetadataSerializer metadataSerializer, @Nullable String metadataSectionName) {
+		return null;
 	}
 
 	@Override

@@ -12,6 +12,7 @@ import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
+@Deprecated
 public class CompatibleCustomPlayerInventoryCapability implements ICapabilitySerializable<NBTBase> {
     
     public static interface InventoryContainer {

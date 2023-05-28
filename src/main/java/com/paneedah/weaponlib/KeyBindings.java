@@ -2,9 +2,8 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import org.lwjgl.input.Keyboard;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class KeyBindings {
 
@@ -137,38 +136,38 @@ public class KeyBindings {
 
 		vehicleTurnOff = new KeyBinding("vehicle.turnoff", Keyboard.KEY_EQUALS, "key.categories.vehicle");
 
-		compatibility.registerKeyBinding(openDoor);
-		compatibility.registerKeyBinding(reloadKey);
-		compatibility.registerKeyBinding(unloadKey);
-		compatibility.registerKeyBinding(inspectKey);
-		compatibility.registerKeyBinding(attachmentKey);
+		ClientRegistry.registerKeyBinding(openDoor);
+		ClientRegistry.registerKeyBinding(reloadKey);
+		ClientRegistry.registerKeyBinding(unloadKey);
+		ClientRegistry.registerKeyBinding(inspectKey);
+		ClientRegistry.registerKeyBinding(attachmentKey);
 		/*
-		 * compatibility.registerKeyBinding(upArrowKey);
-		 * compatibility.registerKeyBinding(downArrowKey);
-		 * compatibility.registerKeyBinding(leftArrowKey);
-		 * compatibility.registerKeyBinding(rightArrowKey);
+		 * ClientRegistry.registerKeyBinding(upArrowKey);
+		 * ClientRegistry.registerKeyBinding(downArrowKey);
+		 * ClientRegistry.registerKeyBinding(leftArrowKey);
+		 * ClientRegistry.registerKeyBinding(rightArrowKey);
 		 */
-		compatibility.registerKeyBinding(laserSwitchKey);
-		compatibility.registerKeyBinding(nightVisionSwitchKey);
-		compatibility.registerKeyBinding(addKey);
-		compatibility.registerKeyBinding(subtractKey);
-		compatibility.registerKeyBinding(fireModeKey);
-		compatibility.registerKeyBinding(proningSwitchKey);
-		compatibility.registerKeyBinding(freecamLock);
-		compatibility.registerKeyBinding(freecamRotate);
+		ClientRegistry.registerKeyBinding(laserSwitchKey);
+		ClientRegistry.registerKeyBinding(nightVisionSwitchKey);
+		ClientRegistry.registerKeyBinding(addKey);
+		ClientRegistry.registerKeyBinding(subtractKey);
+		ClientRegistry.registerKeyBinding(fireModeKey);
+		ClientRegistry.registerKeyBinding(proningSwitchKey);
+		ClientRegistry.registerKeyBinding(freecamLock);
+		ClientRegistry.registerKeyBinding(freecamRotate);
 		/*
-		 * compatibility.registerKeyBinding(laserAttachmentKey);
-		 * compatibility.registerKeyBinding(periodKey);
+		 * ClientRegistry.registerKeyBinding(laserAttachmentKey);
+		 * ClientRegistry.registerKeyBinding(periodKey);
 		 */
-		compatibility.registerKeyBinding(customInventoryKey);
+		ClientRegistry.registerKeyBinding(customInventoryKey);
 
-		compatibility.registerKeyBinding(vehicleThrottle);
-		compatibility.registerKeyBinding(vehicleBrake);
-		compatibility.registerKeyBinding(vehicleHandbrake);
-		compatibility.registerKeyBinding(vehicleTurnLeft);
-		compatibility.registerKeyBinding(vehicleTurnRight);
-		compatibility.registerKeyBinding(vehicleClutch);
-		compatibility.registerKeyBinding(vehicleTurnOff);
+		ClientRegistry.registerKeyBinding(vehicleThrottle);
+		ClientRegistry.registerKeyBinding(vehicleBrake);
+		ClientRegistry.registerKeyBinding(vehicleHandbrake);
+		ClientRegistry.registerKeyBinding(vehicleTurnLeft);
+		ClientRegistry.registerKeyBinding(vehicleTurnRight);
+		ClientRegistry.registerKeyBinding(vehicleClutch);
+		ClientRegistry.registerKeyBinding(vehicleTurnOff);
 
 		if (DebugPositioner.isDebugModeEnabled()) {
 			bindDebugKeys();
@@ -198,20 +197,20 @@ public class KeyBindings {
 
 		altModeDebugKey = new KeyBinding("key.altModeDebugKey", Keyboard.KEY_RSHIFT, "key.categories.weaponlib");
 
-		compatibility.registerKeyBinding(jDebugKey);
-		compatibility.registerKeyBinding(kDebugKey);
+		ClientRegistry.registerKeyBinding(jDebugKey);
+		ClientRegistry.registerKeyBinding(kDebugKey);
 
-		compatibility.registerKeyBinding(lBracketDebugKey);
-		compatibility.registerKeyBinding(rBracketDebugKey);
+		ClientRegistry.registerKeyBinding(lBracketDebugKey);
+		ClientRegistry.registerKeyBinding(rBracketDebugKey);
 
-		compatibility.registerKeyBinding(semicolonDebugKey);
-		compatibility.registerKeyBinding(apostropheDebugKey);
+		ClientRegistry.registerKeyBinding(semicolonDebugKey);
+		ClientRegistry.registerKeyBinding(apostropheDebugKey);
 
-		compatibility.registerKeyBinding(minusDebugKey);
-		compatibility.registerKeyBinding(equalsDebugKey);
+		ClientRegistry.registerKeyBinding(minusDebugKey);
+		ClientRegistry.registerKeyBinding(equalsDebugKey);
 
-		compatibility.registerKeyBinding(deleteDebugKey);
+		ClientRegistry.registerKeyBinding(deleteDebugKey);
 
-		compatibility.registerKeyBinding(altModeDebugKey);
+		ClientRegistry.registerKeyBinding(altModeDebugKey);
 	}
 }

@@ -49,7 +49,7 @@ public class BlockAmmoPress extends BlockStation {
 			playerIn.swingArm(hand);
 			
 			if(!worldIn.isRemote) {
-				modContext.getChannel().getChannel().sendTo(new StationClientPacket(worldIn, pos), (EntityPlayerMP) playerIn);
+				modContext.getChannel().sendTo(new StationClientPacket(worldIn, pos), (EntityPlayerMP) playerIn);
 			}
 		}
 		

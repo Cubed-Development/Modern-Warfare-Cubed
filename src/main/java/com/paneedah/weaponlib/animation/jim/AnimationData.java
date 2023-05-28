@@ -10,10 +10,10 @@ import com.paneedah.weaponlib.UniversalSoundLookup;
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.EulerAngle;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.Format;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
@@ -464,7 +464,7 @@ public class AnimationData {
 		private float timestamp;
 		private Vec3d rotation;
 		private Vec3d translation;
-		private CompatibleSound sound;
+		private SoundEvent sound;
 
 		public BlockbenchTransition(float timestamp, Vec3d rotation, Vec3d translation) {
 			this.timestamp = timestamp;
@@ -472,7 +472,7 @@ public class AnimationData {
 			this.translation = translation;
 		}
 		
-		public void setSound(CompatibleSound sound) {
+		public void setSound(SoundEvent sound) {
 			this.sound = sound;
 		}
 

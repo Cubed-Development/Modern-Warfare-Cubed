@@ -1,10 +1,10 @@
 package com.paneedah.weaponlib.network;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import com.paneedah.weaponlib.state.Permit;
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
-public class PermitMessage implements CompatibleMessage {
+public class PermitMessage implements IMessage {
 
 	private Permit<?> permit;
 	private Object context;

@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.vectors.Vector3D;
-import com.paneedah.weaponlib.compatibility.*;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
@@ -12,20 +12,15 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.*;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-public abstract class EntityProjectile extends Entity implements IProjectile, CompatibleIEntityAdditionalSpawnData {
+public abstract class EntityProjectile extends Entity implements IProjectile, IEntityAdditionalSpawnData {
 
     private static final String TAG_GRAVITY_VELOCITY = "gravityVelocity";
 
@@ -36,7 +31,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
     private int xTile = -1;
     private int yTile = -1;
     private int zTile = -1;
-    //private CompatibleBlockState field_145785_f;
+    //private IBlockState field_145785_f;
     protected boolean inGround;
     public int throwableShake;
 
@@ -74,9 +69,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 //        if(thrower != null) {
 //            RayTraceResult rayTraceResult = thrower.rayTrace(50, 0);
 //            if(rayTraceResult != null && rayTraceResult.hitVec != null) {
-//                double dx = compatibility.clientPlayer().posX - rayTraceResult.hitVec.x;
-//                double dy = compatibility.clientPlayer().posY - rayTraceResult.hitVec.y;
-//                double dz = compatibility.clientPlayer().posZ - rayTraceResult.hitVec.z;
+//                double dx = mc.player.posX - rayTraceResult.hitVec.x;
+//                double dy = mc.player.posY - rayTraceResult.hitVec.y;
+//                double dz = mc.player.posZ - rayTraceResult.hitVec.z;
 //                double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
 //                this.aimTan = 0.4 / distance;
 //            }
@@ -84,14 +79,11 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
     }
 
     public void setPositionAndDirection(boolean isAim) {
-
-        this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(),
-                thrower.posZ, compatibility.getCompatibleAimingRotationYaw(thrower), thrower.rotationPitch);
-
-
-        this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * (isAim ? 0f : 0.16F));
+        this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(), thrower.posZ, thrower.rotationYaw, thrower.rotationPitch);
+        
+        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
-        this.posZ -= (double) (CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * (isAim ? 0f : 0.16F));
+        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.setPosition(this.posX, this.posY, this.posZ);
 
 
@@ -99,12 +91,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
         //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
         float f = velocity; //0.4F;
-        this.motionX = (double) (-CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
-                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionZ = (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
-                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionY = (double) (-CompatibleMathHelper
-                .sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
+        this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionY = (double) (-MathHelper.sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
     }
 
@@ -112,19 +101,16 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
         this.setLocationAndAngles(x, y + (double) thrower.getEyeHeight(), z, rotationYaw, rotationPitch);
 
-        this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
-        this.posZ -= (double) (CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
         this.setPosition(this.posX, this.posY, this.posZ);
 
         //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
         float f = velocity; //0.4F;
-        this.motionX = (double) (-CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
-                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionZ = (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
-                * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionY = (double) (-CompatibleMathHelper
-                .sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
+        this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
+        this.motionY = (double) (-MathHelper.sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
     }
 
@@ -145,8 +131,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
      * direction.
      */
     public void setThrowableHeading(double x, double y, double z, float velocity, float inaccuracy) {
-        float f2 = CompatibleMathHelper
-                .sqrt_double(x * x + y * y + z * z);
+        float f2 = MathHelper.sqrt(x * x + y * y + z * z);
         x /= (double) f2;
         y /= (double) f2;
         z /= (double) f2;
@@ -159,7 +144,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.motionX = x;
         this.motionY = y;
         this.motionZ = z;
-        float f3 = CompatibleMathHelper.sqrt_double(x * x + z * z);
+        float f3 = MathHelper.sqrt(x * x + z * z);
         this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(x, z) * 180.0D / Math.PI);
         this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(y, (double) f3) * 180.0D / Math.PI);
         //this.ticksInGround = 0;
@@ -175,7 +160,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.motionZ = mZ;
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
-            float f = CompatibleMathHelper.sqrt_double(mX * mX + mZ * mZ);
+            float f = MathHelper.sqrt(mX * mX + mZ * mZ);
             this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(mX, mZ) * 180.0D / Math.PI);
             this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(mY, (double) f) * 180.0D
                     / Math.PI);
@@ -199,16 +184,18 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         }
 
         if (this.inGround) {
-//            CompatibleBlockPos p = new CompatibleBlockPos(this.xTile, this.yTile, this.zTile);
-//            if (compatibility.getBlockAtPosition(compatibility.world(this), p) == this.field_145785_f) {
-//                ++this.ticksInGround;
-//
-//                if (this.ticksInGround == 1200) {
-//                    this.setDead();
-//                }
-//
-//                return;
-//            }
+            /*
+            BlockPos p = new BlockPos(this.xTile, this.yTile, this.zTile);
+            if (compatibility.getBlockAtPosition(world, p) == this.field_145785_f) {
+                ++this.ticksInGround;
+
+                if (this.ticksInGround == 1200) {
+                    this.setDead();
+                }
+
+                return;
+            }
+            */
 
             this.inGround = false;
             this.motionX *= (double) (this.rand.nextFloat() * 0.2F);
@@ -227,7 +214,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         //List<BlockPos> possibleCollisions = new ArrayList<>();
 
         // Check what is at the projectile current position, null if air
-        CompatibleRayTraceResult movingobjectposition = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(null, block, null, blockMetadata));
+        RayTraceResult movingobjectposition = MWCUtil.rayTraceBlocks(world, vec3, vec31, (block, blockMetadata) -> canCollideWithBlock(null, block, null, blockMetadata));
 
         /*
          *  GLASS BREAK CHECK
@@ -238,9 +225,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
              Vec3d start = new Vec3d(this.prevPosX, this.prevPosY, this.prevPosZ);
              Vec3d end = new Vec3d(this.posX, this.posY, this.posZ).add(motion);
 
-             RayTraceResult rtr = compatibility.world(this).rayTraceBlocks(start, end, false, true, false);
+             RayTraceResult rtr = world.rayTraceBlocks(start, end, false, true, false);
              if(rtr != null) {
-                 IBlockState state = compatibility.world(this).getBlockState(rtr.getBlockPos());
+                 IBlockState state = world.getBlockState(rtr.getBlockPos());
                  if(state.getMaterial() == Material.GLASS) {
                      if(!ModernConfigManager.penetratesGlass || ModernConfigManager.bulletBreakGlass)
                          this.world.destroyBlock(rtr.getBlockPos(), true);
@@ -250,7 +237,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
                      if (context == null)
                          return;
 
-                     context.getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), rtr.hitVec.x, rtr.hitVec.y, rtr.hitVec.z, rtr.sideHit), new CompatibleTargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
+                     context.getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), rtr.hitVec.x, rtr.hitVec.y, rtr.hitVec.z, rtr.sideHit), new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
                  }
             }
         }
@@ -259,13 +246,13 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         vec31 = new Vector3D(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
         if (movingobjectposition != null)
-            vec31 = movingobjectposition.getHitVec();
+            vec31 = new Vector3D(movingobjectposition.hitVec);
 
-        if (!compatibility.world(this).isRemote) {
+        if (!world.isRemote) {
             Entity entity = getRayTraceEntities(vec3, vec31);
 
             if (entity != null)
-               movingobjectposition = new CompatibleRayTraceResult(entity);
+               movingobjectposition = new RayTraceResult(entity);
         }
 
         if (movingobjectposition != null)
@@ -274,7 +261,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         this.posX += this.motionX;
         this.posY += this.motionY;
         this.posZ += this.motionZ;
-        float f1 = CompatibleMathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+        float f1 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
         this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
         for (this.rotationPitch = (float) (Math.atan2(this.motionY, (double) f1) * 180.0D / Math.PI);
@@ -300,9 +287,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
         if (this.isInWater()) {
             for (int i = 0; i < 4; ++i) {
                 float f4 = 0.25F;
-                compatibility.spawnParticle(compatibility.world(this), "bubble", this.posX - this.motionX * (double) f4,
-                        this.posY - this.motionY * (double) f4, this.posZ - this.motionZ * (double) f4, this.motionX,
-                        this.motionY, this.motionZ);
+                EnumParticleTypes particleType = EnumParticleTypes.getByName("bubble");
+                if (particleType != null)
+                    world.spawnParticle(particleType, this.posX - this.motionX * (double) f4, this.posY - this.motionY * (double) f4, this.posZ - this.motionZ * (double) f4, this.motionX, this.motionY, this.motionZ);
             }
 
             f2 = 0.8F;
@@ -317,7 +304,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
     private Entity getRayTraceEntities(Vector3D vec3, Vector3D vec31) {
         Entity entity = null;
-        List<?> list = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this, compatibility.getBoundingBox(this).addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+        List<?> list = world.getEntitiesWithinAABBExcludingEntity(entity, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));//compatibility.getEntitiesWithinAABBExcludingEntity(world, this, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
         double d0 = 0.0D;
         EntityLivingBase entitylivingbase = this.getThrower();
 
@@ -334,20 +321,20 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
             if (flag && entity1.canBeCollidedWith() && (entity1 != entitylivingbase || this.ticksInAir >= 5)) {
                 float f1 = 0.15F, f2 = -0.15f;
-                CompatibleAxisAlignedBB axisalignedbb1 = compatibility.expandEntityBoundingBox(entity1, (double) f1, (double) f1, (double) f1);
-                CompatibleRayTraceResult movingobjectposition1 = axisalignedbb1.calculateIntercept(vec3, vec31);
-                CompatibleAxisAlignedBB axisalignedbb2 = compatibility.expandEntityBoundingBox(entity1, (double) f2, (double) f2, (double) f2);
-                CompatibleRayTraceResult movingobjectposition2 = axisalignedbb2.calculateIntercept(vec3, vec31);
+                AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand((double) f1, (double) f1, (double) f1);
+                RayTraceResult movingobjectposition = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
+                AxisAlignedBB axisalignedbb1 = entity1.getEntityBoundingBox().expand((double) f2, (double) f2, (double) f2);
+                RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
 
-                if (movingobjectposition1 != null) {
-                    double d1 = vec3.distanceTo(movingobjectposition1.getHitVec());
+                if (movingobjectposition != null) {
+                    double d1 = vec3.distanceTo(new Vector3D(movingobjectposition.hitVec));
 
                     if (d1 < d0 || d0 == 0.0D) {
                         entity = entity1;
                         d0 = d1;
                     }
-                } else if (movingobjectposition2 != null) {
-                    double d1 = vec3.distanceTo(movingobjectposition2.getHitVec());
+                } else if (movingobjectposition1 != null) {
+                    double d1 = vec3.distanceTo(new Vector3D(movingobjectposition1.hitVec));
 
                     if (d1 < d0 || d0 == 0.0D) {
                         entity = entity1;
@@ -362,7 +349,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
     /**
      * Called when this EntityThrowable hits a block or entity.
      */
-    protected abstract void onImpact(CompatibleRayTraceResult p_70184_1_);
+    protected abstract void onImpact(RayTraceResult p_70184_1_);
 
     /**
      * (abstract) Protected helper method to write subclass entity data to NBT.
@@ -378,7 +365,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
         if ((this.throwerName == null || this.throwerName.length() == 0) && this.thrower != null
                 && this.thrower instanceof EntityPlayer) {
-            this.throwerName = compatibility.getPlayerName((EntityPlayer)this.thrower);
+            this.throwerName = ((EntityPlayer)this.thrower).getName();
         }
 
         tagCompound.setString("ownerName", this.throwerName == null ? "" : this.throwerName);
@@ -434,7 +421,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
 
     public EntityLivingBase getThrower() {
         if (this.thrower == null && this.throwerName != null && this.throwerName.length() > 0) {
-            this.thrower = compatibility.world(this).getPlayerEntityByName(this.throwerName);
+            this.thrower = world.getPlayerEntityByName(this.throwerName);
         }
 
         return this.thrower;
@@ -451,12 +438,12 @@ public abstract class EntityProjectile extends Entity implements IProjectile, Co
      */
     // @SideOnly(Side.CLIENT)
     public boolean isInRangeToRenderDist(double p_70112_1_) {
-        double d1 = compatibility.getBoundingBox(this).getAverageEdgeLength() * 4.0D;
+        double d1 = this.getEntityBoundingBox().getAverageEdgeLength() * 4.0D;
         d1 *= 64.0D;
         return p_70112_1_ < d1 * d1;
     }
 
-    public boolean canCollideWithBlock(List<BlockPos> violators, Block block, BlockPos pos, CompatibleBlockState metadata) {
-        return compatibility.canCollideCheck(block, metadata, false);
+    public boolean canCollideWithBlock(List<BlockPos> violators, Block block, BlockPos pos, IBlockState iBlockState) {
+        return block.canCollideCheck(iBlockState, false);
     }
 }

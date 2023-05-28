@@ -1,30 +1,30 @@
 package com.paneedah.weaponlib.inventory;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-public class OpenCustomInventoryGuiHandler implements CompatibleMessageHandler<OpenCustomPlayerInventoryGuiMessage, CompatibleMessage>  {
+public class OpenCustomInventoryGuiHandler implements IMessageHandler<OpenCustomPlayerInventoryGuiMessage, IMessage> {
 
     private ModContext modContext;
+
+    public OpenCustomInventoryGuiHandler() {
+    }
 
     public OpenCustomInventoryGuiHandler(ModContext modContext) {
         this.modContext = modContext;
     }
 
     @Override
-    public <T extends CompatibleMessage> T onCompatibleMessage(OpenCustomPlayerInventoryGuiMessage message, CompatibleMessageContext ctx) {
-        if(ctx.isServerSide()) {
-            ctx.runInMainThread(() -> {
-                EntityPlayer player = ctx.getPlayer();
-                player.openGui(modContext.getMod(), message.getGuiInventoryId(), 
-                        compatibility.world(player), (int)player.posX, (int)player.posY, (int)player.posZ);
-            });
+    public IMessage onMessage(OpenCustomPlayerInventoryGuiMessage message, MessageContext messageContext) {
+        if(messageContext.side == Side.SERVER) {
+            EntityPlayer player = messageContext.getServerHandler().player;
+            player.getServer().addScheduledTask(() -> player.openGui(modContext.getMod(), message.getGuiInventoryId(), player.world, (int)player.posX, (int)player.posY, (int)player.posZ));
         }
+
         return null;
     }
 }

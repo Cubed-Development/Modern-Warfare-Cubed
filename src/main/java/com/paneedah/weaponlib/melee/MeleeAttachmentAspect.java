@@ -10,8 +10,10 @@ import com.paneedah.weaponlib.state.StateManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,7 +22,6 @@ import java.util.List;
 import java.util.function.Predicate;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMeleeInstance> {
 	
@@ -175,8 +176,8 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 	}
 
 	List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(EntityLivingBase player, ItemStack itemStack) {
-
-		compatibility.ensureTagCompound(itemStack);
+		if (itemStack.getTagCompound() == null)
+			itemStack.setTagCompound(new NBTTagCompound());
 		
 		List<CompatibleAttachment<? extends AttachmentContainer>> activeAttachments = new ArrayList<>();
 		
@@ -265,7 +266,12 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 //					handler.apply(null, weaponInstance);
 //				}
 //			}
-			compatibility.consumeInventoryItemFromSlot(player, lookupResult.index);
+			if (player.inventory.getStackInSlot(lookupResult.index) == null)
+				return;
+
+			player.inventory.getStackInSlot(lookupResult.index).shrink(1);
+			if (player.inventory.mainInventory.get(lookupResult.index).getCount() <= 0)
+				player.inventory.removeStackFromSlot(lookupResult.index);
 			
 			activeAttachmentIds[attachmentCategory.ordinal()] = Item.getIdFromItem(nextAttachment);
 		} else {
@@ -278,7 +284,16 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 
 		if(currentAttachment != null) {
 			// Item must be added to the same spot the next attachment comes from or to any spot if there is no next attachment
-			compatibility.addItemToPlayerInventory(player, currentAttachment, lookupResult.index);
+			if (lookupResult.index == -1) {
+				player.inventory.addItemStackToInventory(new ItemStack(currentAttachment));
+			} else if (player.inventory.mainInventory.get(lookupResult.index) == null || player.inventory.mainInventory.get(lookupResult.index).getItem() == Items.AIR) {
+				player.inventory.mainInventory.set(lookupResult.index, new ItemStack(currentAttachment));
+			}
+			if (lookupResult.index == -1) {
+				player.inventory.addItemStackToInventory(new ItemStack(currentAttachment));
+			} else if (player.inventory.mainInventory.get(lookupResult.index) == null || player.inventory.mainInventory.get(lookupResult.index).getItem() == Items.AIR) {
+				player.inventory.mainInventory.set(lookupResult.index, new ItemStack(currentAttachment));
+			}
 		}
 		
 		weaponInstance.setActiveAttachmentIds(activeAttachmentIds);

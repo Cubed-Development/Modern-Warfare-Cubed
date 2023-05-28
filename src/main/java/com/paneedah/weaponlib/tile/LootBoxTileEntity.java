@@ -1,20 +1,18 @@
 package com.paneedah.weaponlib.tile;
 
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.compatibility.CompatibleBlockPos;
-import com.paneedah.weaponlib.compatibility.CompatibleEntityItem;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration.Equipment;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 import java.util.Set;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
     
@@ -22,11 +20,11 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
     private long lastEquipmentDispenseTimestamp;
     
     @Override
-    public void onEntityBlockActivated(World world, CompatibleBlockPos pos, EntityPlayer player) {
+    public void onEntityBlockActivated(World world, BlockPos pos, EntityPlayer player) {
         dropContents(world, pos, player);
     }
     
-    public void dropContents(World world, CompatibleBlockPos pos, EntityPlayer player) {
+    public void dropContents(World world, BlockPos pos, EntityPlayer player) {
         
         LootBoxConfiguration configuration = getConfiguration();
         if(lastEquipmentDispenseTimestamp > world.getWorldTime()) {
@@ -38,7 +36,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                 Equipment equipment = configuration.getEquipmentOptions().pick(EnumDifficulty.EASY);
                 if (equipment != null && equipment.item != null) {
                     System.out.println("Dropping " + equipment.item.getTranslationKey());
-                    compatibility.playSound(player, configuration.getDispenseSound(), 0.15f, 1.0f);
+                    player.playSound(configuration.getDispenseSound(), 0.15f, 1);
                     ItemStack equipmentItemStack = null;
                     if(equipment.item instanceof Weapon) {
                         equipmentItemStack = new ItemStack(equipment.item, equipment.stackSize);
@@ -53,16 +51,17 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
                         
                         initBullet(equipment, equipmentItemStack, player);
                     }
-                    //compatibility.setItemStackToSlot(player, CompatibleEntityEquipmentSlot.MAIN_HAND, equipmentItemStack);
+                    //compatibility.setItemStackToSlot(player, EntityEquipmentSlot.MAIN_HAND, equipmentItemStack);
                     
                     if(equipmentItemStack != null) {
-                        CompatibleEntityItem item = new CompatibleEntityItem(getWorld(), getCompatiblePos().getBlockPosX() + 1, getCompatiblePos().getBlockPosY() + 1, getCompatiblePos().getBlockPosZ() + 1, equipmentItemStack);
+                        EntityItem item = new EntityItem(getWorld(), getPos().getX() + 1, getPos().getY() + 1, getPos().getZ() + 1, equipmentItemStack);
                         item.setNoPickupDelay();
-                        compatibility.spawnEntity(player, item);
+                        if(player != null)
+                            player.world.spawnEntity(item);
                     }
                 }
             } else {
-                compatibility.playSound(player, configuration.getEquipmentNotAvailableSound(), 0.15f, 1.0f);
+                player.playSound(configuration.getEquipmentNotAvailableSound(), 0.15F, 1);
             }
         }
         
@@ -114,8 +113,8 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
     }
     
     @Override
-    public NBTTagCompound compatibleWriteToNBT(NBTTagCompound tagCompound) {
-        super.compatibleWriteToNBT(tagCompound);
+    public NBTTagCompound writeToNBT(NBTTagCompound tagCompound) {
+        super.writeToNBT(tagCompound);
         tagCompound.setLong(TAG_TIME, lastEquipmentDispenseTimestamp);
         return tagCompound;
     }

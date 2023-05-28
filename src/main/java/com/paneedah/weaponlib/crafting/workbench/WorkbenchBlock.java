@@ -60,7 +60,7 @@ public class WorkbenchBlock extends BlockStation {
 		if(hand == EnumHand.MAIN_HAND) {
 			playerIn.swingArm(hand);
 			if(!worldIn.isRemote) {
-				modContext.getChannel().getChannel().sendTo(new StationClientPacket(worldIn, pos), (EntityPlayerMP) playerIn);
+				modContext.getChannel().sendTo(new StationClientPacket(worldIn, pos), (EntityPlayerMP) playerIn);
 			}
 			return true;
 		}

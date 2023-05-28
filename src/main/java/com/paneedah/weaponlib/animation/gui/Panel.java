@@ -5,7 +5,7 @@ import com.paneedah.weaponlib.jim.util.Vec2d;
 import com.paneedah.weaponlib.jim.util.Vec2i;
 import net.minecraft.client.renderer.GlStateManager;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class Panel {

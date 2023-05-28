@@ -1,20 +1,19 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleAxisAlignedBB;
-import com.paneedah.weaponlib.compatibility.CompatibleBlockPos;
-import com.paneedah.weaponlib.compatibility.CompatibleBlockState;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.*;
 import java.util.Map.Entry;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntitySpreadable extends Entity implements Contextual, Spreadable {
     
@@ -24,12 +23,12 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
     private static final float DEFAULT_MIN_CONCENTRATION_THRESHOLD = 0.01f;
     private static final float DEFAULT_SPREAD_RATE = 0.5f; // 0.2 blocks per second, or one block in 4 seconds
     
-//    private static final float DEFAULT_ENTITY_UPDATE_RATE = 2f; // 2 times per secondw
+//    private static final float DEFAULT_ENTITY_UPDATE_RATE = 2f; // 2 times per second
 
     private static final float DEFAULT_CONCENTRATION_DECAY_FACTOR = 0.99f; // 
     
-    private Map<CompatibleBlockPos, Float> spreadMap = new HashMap<>();
-    private List<CompatibleBlockPos> currentSpread;
+    private Map<BlockPos, Float> spreadMap = new HashMap<>();
+    private List<BlockPos> currentSpread;
     
     /*
      * For each entity a separate update timestamp is maintained;
@@ -44,7 +43,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
     private float concentrationSpreadSideFactor = DEFAULT_CONCENTRATION_SPREAD_FACTOR;
     private float minConcentrationThreshold = DEFAULT_MIN_CONCENTRATION_THRESHOLD;
     
-    private CompatibleAxisAlignedBB spreadBox;
+    private AxisAlignedBB spreadBox;
     
     private float spreadRate = DEFAULT_SPREAD_RATE;
     
@@ -105,13 +104,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
         double spreadUpDistance = Math.log10(minConcentrationThreshold / initialConcentration) / Math.log10(concentrationSpreadUpFactor) + 1;
         double spreadDownDistance = Math.log10(minConcentrationThreshold / initialConcentration) / Math.log10(concentrationSpreadDownFactor) + 1;
         double spreadSideDistance = Math.log10(minConcentrationThreshold / initialConcentration) / Math.log10(concentrationSpreadSideFactor) + 1;
-        spreadBox = new CompatibleAxisAlignedBB(
-                posX - spreadSideDistance, 
-                posY - spreadDownDistance, 
-                posZ - spreadSideDistance,
-                posX + spreadSideDistance,
-                posY + spreadUpDistance, 
-                posZ + spreadSideDistance);
+        spreadBox = new AxisAlignedBB(posX - spreadSideDistance, posY - spreadDownDistance, posZ - spreadSideDistance, posX + spreadSideDistance, posY + spreadUpDistance, posZ + spreadSideDistance);
     }
 
     @Override
@@ -130,7 +123,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
         
         int spreadMapSize = buf.readInt();
         for(int i = 0; i < spreadMapSize; i++) {
-            CompatibleBlockPos blockPos = new CompatibleBlockPos(buf.readInt(), buf.readInt(), buf.readInt());
+            BlockPos blockPos = new BlockPos(buf.readInt(), buf.readInt(), buf.readInt());
             spreadMap.put(blockPos, buf.readFloat());
         }
         int currentSpreadSize = buf.readInt();
@@ -138,12 +131,12 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
         if(currentSpread == null) {
             currentSpread = new ArrayList<>();
             initSpreadBox(); // spread box can be initialized only after spread factors are deserialized
-            CompatibleBlockPos blockPos = new CompatibleBlockPos((int)posX, (int)posY, (int)posZ);
+            BlockPos blockPos = new BlockPos((int)posX, (int)posY, (int)posZ);
             spreadMap.put(blockPos, initialConcentration);
         }
         
         for(int i = 0; i < currentSpreadSize; i++) {
-            CompatibleBlockPos blockPos = new CompatibleBlockPos(buf.readInt(), buf.readInt(), buf.readInt());
+            BlockPos blockPos = new BlockPos(buf.readInt(), buf.readInt(), buf.readInt());
             currentSpread.add(blockPos);
         }
         
@@ -164,20 +157,20 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
         buf.writeFloat(concentrationDecayFactor);
         
         buf.writeInt(spreadMap.size());
-        for(Entry<CompatibleBlockPos, Float> e: spreadMap.entrySet()) {
-            CompatibleBlockPos blockPos = e.getKey();
-            buf.writeInt(blockPos.getBlockPosX());
-            buf.writeInt(blockPos.getBlockPosY());
-            buf.writeInt(blockPos.getBlockPosZ());
+        for(Entry<BlockPos, Float> e: spreadMap.entrySet()) {
+            BlockPos blockPos = e.getKey();
+            buf.writeInt(blockPos.getX());
+            buf.writeInt(blockPos.getY());
+            buf.writeInt(blockPos.getZ());
             buf.writeFloat(e.getValue());
         }
         
         if(currentSpread != null) {
             buf.writeInt(currentSpread.size());
-            for(CompatibleBlockPos blockPos: currentSpread) {
-                buf.writeInt(blockPos.getBlockPosX());
-                buf.writeInt(blockPos.getBlockPosY());
-                buf.writeInt(blockPos.getBlockPosZ());
+            for(BlockPos blockPos: currentSpread) {
+                buf.writeInt(blockPos.getX());
+                buf.writeInt(blockPos.getY());
+                buf.writeInt(blockPos.getZ());
             }
         } else {
             buf.writeInt(0);
@@ -189,7 +182,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
     @Override
     public void onUpdate() {
         super.onUpdate();
-        if(!compatibility.world(this).isRemote) {
+        if(!world.isRemote) {
             //setDead();
             spread();
             updateNearbyEntities();
@@ -201,13 +194,12 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
      * contaminated area without an impact
      */
     private void updateNearbyEntities() {
-        if(spreadBox == null) {
+        if(spreadBox == null)
             return;
-        }
         
-        List<Entity> entities = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this, spreadBox);
+        List<Entity> entities = world.getEntitiesWithinAABBExcludingEntity(this, spreadBox);
         for(Entity entity: entities) {
-            CompatibleBlockPos entityPos = new CompatibleBlockPos((int)entity.posX, (int)entity.posY, (int)entity.posZ);
+            BlockPos entityPos = new BlockPos((int)entity.posX, (int)entity.posY, (int)entity.posZ);
             float adjustedConcentration = spreadMap.getOrDefault(entityPos, 0f) * concentrationDecayAdjustment;
             if(entity instanceof EntityLivingBase) {
                 onEntityExposure((EntityLivingBase) entity, adjustedConcentration);
@@ -237,7 +229,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
      * Override this method in subclasses to support non-default exposures
      */
     protected SpreadableExposure createSpreadableExposure() {
-        return new SpreadableExposure(SpreadableExposure.DEFAULT_IMPACT_DELAY, compatibility.world(this).getTotalWorldTime());
+        return new SpreadableExposure(SpreadableExposure.DEFAULT_IMPACT_DELAY, world.getTotalWorldTime());
     }
 
     private void spread() {
@@ -246,7 +238,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
 //            return;
 //        }
         
-        long currentWorldTime = compatibility.world(this).getTotalWorldTime();
+        long currentWorldTime = world.getTotalWorldTime();
         if(currentWorldTime - lastSpreadTimestamp <= 20f / spreadRate) {
             return;
         }
@@ -256,48 +248,42 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
         if(currentSpread == null) {
             currentSpread = new ArrayList<>();
             initSpreadBox();
-            CompatibleBlockPos blockPos = new CompatibleBlockPos((int)posX, (int)posY, (int)posZ);
+            BlockPos blockPos = new BlockPos((int)posX, (int)posY, (int)posZ);
             currentSpread.add(blockPos);
             spreadMap.put(blockPos, initialConcentration);
         }
         
-        List<CompatibleBlockPos> newSpread = new ArrayList<>();
-        for(CompatibleBlockPos blockPos: currentSpread) {
+        List<BlockPos> newSpread = new ArrayList<>();
+        for(BlockPos blockPos: currentSpread) {
 
             float concentration = spreadMap.getOrDefault(blockPos, 0f);
-            
-            CompatibleBlockPos top = new CompatibleBlockPos(blockPos.getBlockPosX(), 
-                    blockPos.getBlockPosY() + 1, blockPos.getBlockPosZ());
+
+            BlockPos top = new BlockPos(blockPos.getX(), blockPos.getY() + 1, blockPos.getZ());
             if(updateSpreadAtPosition(top, concentration * concentrationSpreadUpFactor)) {
                 newSpread.add(top);
             }
-            
-            CompatibleBlockPos bottom = new CompatibleBlockPos(blockPos.getBlockPosX(), 
-                    blockPos.getBlockPosY() - 1, blockPos.getBlockPosZ());
+
+            BlockPos bottom = new BlockPos(blockPos.getX(), blockPos.getY() - 1, blockPos.getZ());
             if(updateSpreadAtPosition(bottom, concentration * concentrationSpreadDownFactor)) {
                 newSpread.add(bottom);
             }
-                
-            CompatibleBlockPos left = new CompatibleBlockPos(blockPos.getBlockPosX() - 1, 
-                    blockPos.getBlockPosY(), blockPos.getBlockPosZ());
+
+            BlockPos left = new BlockPos(blockPos.getX() - 1, blockPos.getY(), blockPos.getZ());
             if(updateSpreadAtPosition(left, concentration * concentrationSpreadSideFactor)) {
                 newSpread.add(left);
             }
-            
-            CompatibleBlockPos right = new CompatibleBlockPos(blockPos.getBlockPosX() + 1, 
-                    blockPos.getBlockPosY(), blockPos.getBlockPosZ());
+
+            BlockPos right = new BlockPos(blockPos.getX() + 1, blockPos.getY(), blockPos.getZ());
             if(updateSpreadAtPosition(right, concentration * concentrationSpreadSideFactor)) {
                 newSpread.add(right);
             }
-            
-            CompatibleBlockPos farther = new CompatibleBlockPos(blockPos.getBlockPosX(), 
-                    blockPos.getBlockPosY(), blockPos.getBlockPosZ() + 1);
+
+            BlockPos farther = new BlockPos(blockPos.getX(), blockPos.getY(), blockPos.getZ() + 1);
             if(updateSpreadAtPosition(farther, concentration * concentrationSpreadSideFactor)) {
                 newSpread.add(farther);
             }
-            
-            CompatibleBlockPos nearer = new CompatibleBlockPos(blockPos.getBlockPosX(), 
-                    blockPos.getBlockPosY(), blockPos.getBlockPosZ() - 1);
+
+            BlockPos nearer = new BlockPos(blockPos.getX(), blockPos.getY(), blockPos.getZ() - 1);
             if(updateSpreadAtPosition(nearer, concentration * concentrationSpreadSideFactor)) {
                 newSpread.add(nearer);
             }
@@ -307,8 +293,8 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
         
         concentrationDecayAdjustment *=  concentrationDecayFactor;
         if(currentSpread.isEmpty()) {
-            for(Iterator<Entry<CompatibleBlockPos, Float>> it = spreadMap.entrySet().iterator(); it.hasNext();) {
-                Entry<CompatibleBlockPos, Float> e = it.next();
+            for(Iterator<Entry<BlockPos, Float>> it = spreadMap.entrySet().iterator(); it.hasNext();) {
+                Entry<BlockPos, Float> e = it.next();
                 if(e.getValue() * concentrationDecayAdjustment < minConcentrationThreshold) {
                     it.remove();
                 }
@@ -319,14 +305,14 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
         }
     }
 
-    private boolean updateSpreadAtPosition(CompatibleBlockPos blockPos, float concentration) {
+    private boolean updateSpreadAtPosition(BlockPos blockPos, float concentration) {
         float adjustedConcentration = concentration * concentrationDecayAdjustment;
         if(adjustedConcentration < minConcentrationThreshold) {
             return false;
         }
         boolean result = false;
-        CompatibleBlockState compatibleBlockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos);
-        if(compatibility.isAirBlock(compatibleBlockState)) {
+        IBlockState iBlockState = world.getBlockState(blockPos);
+        if (iBlockState.getBlock() == Blocks.AIR) {
             Float currentConcentration = spreadMap.get(blockPos);
             if(currentConcentration == null || currentConcentration < concentration) {
                 spreadMap.put(blockPos, concentration);

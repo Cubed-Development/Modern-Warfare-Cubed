@@ -8,7 +8,7 @@ import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.CommonRegistry;
 import com.paneedah.weaponlib.ItemSkin;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import org.apache.commons.io.FileUtils;
 
@@ -32,7 +32,7 @@ public class GunSkins {
 
     public static HashMap<String, CustomSkin> customSkins = new HashMap<>();
 
-    public static void init(CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod) {
         GunSkins.WoodlandCamo = new ItemSkin.Builder()
         		.withTextureVariant("woodlandcamo")
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
@@ -95,7 +95,7 @@ public class GunSkins {
 
         ClassLoader classLoader = GunSkins.class.getClassLoader();
 
-        if (event.getEvent().getSide() == Side.SERVER) {
+        if (FMLCommonHandler.instance().getSide() == Side.SERVER) {
             try {
                 File skinsConfiguration = new File(customSkinsDir, "skins.json");
                 if (!skinsConfiguration.exists()) {

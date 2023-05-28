@@ -3,7 +3,6 @@ package com.paneedah.mwc;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.HighIQSpawnEgg;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 
 public class CustomSpawnEggs {
 	
@@ -11,7 +10,7 @@ public class CustomSpawnEggs {
 	public static HighIQSpawnEgg TURRETUPGRADED_EGG;
 	public static HighIQSpawnEgg TURRETSILENCED_EGG;
 	
-	public static void init(Object mod, CompatibleFmlPreInitializationEvent event, CommonProxy proxy) {
+	public static void init(Object mod, CommonProxy proxy) {
 		TURRET_EGG = new HighIQSpawnEgg.Builder()
 				.withID(1)
 				.withItemName("turret")

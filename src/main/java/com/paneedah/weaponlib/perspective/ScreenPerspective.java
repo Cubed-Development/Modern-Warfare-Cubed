@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.RenderableState;
-import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.opengl.ARBFramebufferObject;
 import org.lwjgl.opengl.GL11;
 
@@ -17,13 +17,13 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
     }
 
     @Override
-    public void update(CompatibleRenderTickEvent event) {
+    public void update(TickEvent.RenderTickEvent event) {
     	//if(true) return;
         int originalFramebufferId = GlStateManager.glGetInteger(ARBFramebufferObject.GL_FRAMEBUFFER_BINDING);
         
         GL11.glPushMatrix();
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
-        //compatibility.disableLightMap();
+        //mc.entityRenderer.disableLightmap();
         enable2DRenderingMode(427, 240);
         
         framebuffer.framebufferClear();
@@ -33,7 +33,7 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
 
         restoreRenderingMode();
   
-        //compatibility.enableLightMap();
+        //mc.entityRenderer.enableLightmap();
         GL11.glPopAttrib();
         GL11.glPopMatrix();
 

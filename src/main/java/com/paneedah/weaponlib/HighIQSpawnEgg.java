@@ -2,7 +2,6 @@ package com.paneedah.weaponlib;
 
 import akka.japi.Predicate;
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.compatibility.ModelRegistryServerInterchange;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -15,7 +14,6 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -25,7 +23,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.storage.AnvilChunkLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-public class HighIQSpawnEgg extends CompatibleItem implements IModernCrafting {
+public class HighIQSpawnEgg extends Item implements IModernCrafting {
 
 	private CraftingEntry[] modernRecipe;
 	private CraftingGroup craftGroup;
@@ -168,12 +166,6 @@ public class HighIQSpawnEgg extends CompatibleItem implements IModernCrafting {
 	}
 
 	@Override
-	protected ItemStack onCompatibleItemRightClick(ItemStack itemStack, World world, EntityPlayer player,
-			boolean mainHand) {
-		return super.onCompatibleItemRightClick(itemStack, world, player, mainHand);
-	}
-
-	@Override
 	public CraftingEntry[] getModernRecipe() {
 		return this.modernRecipe;
 	}
@@ -197,5 +189,4 @@ public class HighIQSpawnEgg extends CompatibleItem implements IModernCrafting {
 	public void setCraftingGroup(CraftingGroup group) {
 		this.craftGroup = group;
 	}
-
 }

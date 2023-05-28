@@ -1,17 +1,15 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 import java.io.IOException;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-public class EntityInventorySyncMessage implements CompatibleMessage {
+public class EntityInventorySyncMessage implements IMessage {
 
     private NBTTagCompound inventoryCompound;
     private int entityId;
@@ -31,7 +29,7 @@ public class EntityInventorySyncMessage implements CompatibleMessage {
         entityId = packetBuf.readInt();
         excludeEntity = packetBuf.readBoolean();
         try {
-            inventoryCompound  = compatibility.readTagCompound(packetBuf);
+            inventoryCompound  = packetBuf.readCompoundTag();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -41,11 +39,7 @@ public class EntityInventorySyncMessage implements CompatibleMessage {
         PacketBuffer packetBuf = new PacketBuffer(buf);
         packetBuf.writeInt(entityId);
         packetBuf.writeBoolean(excludeEntity);
-        try {
-            compatibility.writeTagCompound(packetBuf, inventoryCompound);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        packetBuf.writeCompoundTag(inventoryCompound);
     }
     
     protected CustomPlayerInventory getInventory() {

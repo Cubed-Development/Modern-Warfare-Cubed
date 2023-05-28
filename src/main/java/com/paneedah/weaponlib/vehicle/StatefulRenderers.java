@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.vehicle;
 
-import com.paneedah.weaponlib.compatibility.CompatibleWeaponRenderer;
+import com.paneedah.weaponlib.WeaponRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBiped;
@@ -75,13 +75,13 @@ public class StatefulRenderers {
                     EntityPlayer player = (EntityPlayer) entity;
                     ItemStack itemstack = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
                     if (itemstack != null && itemstack.getItem() instanceof ItemArmor) {
-                        render.bindTexture(CompatibleWeaponRenderer.getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
+                        render.bindTexture(WeaponRenderer.getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
                         
-                        ModelBiped armorModel = CompatibleWeaponRenderer.getArmorModelHook(player, itemstack, EntityEquipmentSlot.CHEST, null);
+                        ModelBiped armorModel = WeaponRenderer.getArmorModelHook(player, itemstack, EntityEquipmentSlot.CHEST, null);
                         if(armorModel != null) {
                         	
                         	armorModel.bipedLeftArm.rotateAngleX = armorModel.bipedLeftArm.rotateAngleY = armorModel.bipedLeftArm.rotateAngleZ = 0f;
-                            CompatibleWeaponRenderer.renderLeftVehicleArm(armorModel,(AbstractClientPlayer) player);
+                            WeaponRenderer.renderLeftVehicleArm(armorModel,(AbstractClientPlayer) player);
                         }
                     }
                     
@@ -136,11 +136,11 @@ public class StatefulRenderers {
                     EntityPlayer player = (EntityPlayer) entity;
                     ItemStack itemstack = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
                     if (itemstack != null && itemstack.getItem() instanceof ItemArmor) {
-                        render.bindTexture(CompatibleWeaponRenderer.getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));                       
-                        ModelBiped armorModel = CompatibleWeaponRenderer.getArmorModelHook(player, itemstack, EntityEquipmentSlot.CHEST, null);
+                        render.bindTexture(WeaponRenderer.getArmorResource(player, itemstack, EntityEquipmentSlot.CHEST, null));
+                        ModelBiped armorModel = WeaponRenderer.getArmorModelHook(player, itemstack, EntityEquipmentSlot.CHEST, null);
                         if(armorModel != null) {
                         	armorModel.bipedRightArm.rotateAngleX = armorModel.bipedRightArm.rotateAngleY = armorModel.bipedRightArm.rotateAngleZ = 0f;
-                            CompatibleWeaponRenderer.renderVehicleRightArm(armorModel,(AbstractClientPlayer) player);
+                            WeaponRenderer.renderVehicleRightArm(armorModel,(AbstractClientPlayer) player);
                         }
                     }
                     // finish armor rendering

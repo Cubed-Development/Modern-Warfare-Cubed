@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
-public class ArmorControlMessage implements CompatibleMessage {
+public class ArmorControlMessage implements IMessage {
 
     public static enum EntityAction { STOP }
 

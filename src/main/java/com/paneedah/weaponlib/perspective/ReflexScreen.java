@@ -8,7 +8,6 @@ import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.CustomRenderer;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
-import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.model.ScreenModel;
 import com.paneedah.weaponlib.render.Shaders;
@@ -21,6 +20,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -142,8 +142,10 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		if(currentReticle == null) currentReticle = DEFAULT_RETICLE;
 		
 		//Shaders.reflexReticle = ShaderLoader.loadVMWShader("reflex");
-		
-		if(renderContext.getCompatibleTransformType() != CompatibleTransformType.FIRST_PERSON_RIGHT_HAND) return;
+
+		if(renderContext.getTransformType() != ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND)
+			return;
+
 		GlStateManager.disableTexture2D();
 		GlStateManager.enableBlend();
 		Shaders.reflexReticle.use();

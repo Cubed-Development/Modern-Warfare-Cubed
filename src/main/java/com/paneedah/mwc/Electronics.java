@@ -2,7 +2,6 @@ package com.paneedah.mwc;
 
 import com.paneedah.mwc.models.GasDetector;
 import com.paneedah.weaponlib.ItemAttachment;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.electronics.ItemTablet;
 import com.paneedah.weaponlib.electronics.ItemWirelessCamera;
@@ -11,17 +10,15 @@ import com.paneedah.weaponlib.model.TabletModel;
 import com.paneedah.weaponlib.perspective.GasDetectorScreenPerspective;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class Electronics {
 
     public static ItemAttachment<Object> Tablet;
 
-    public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod) {
         Tablet = new ItemTablet.Builder<>()
                 .withViewfinderPositioning((p, s) -> {
                     float scale = 5.9f;
-                    GL11.glScalef(scale, scale / compatibility.getAspectRatio(ModernWarfareMod.MOD_CONTEXT), scale);
+                    GL11.glScalef(scale, scale / ModernWarfareMod.MOD_CONTEXT.getAspectRatio(), scale);
                     GL11.glTranslatef(-0.12f, 0.56f, 0.01f);
                 })
                 .withCreativeTab(ModernWarfareMod.GadgetsTab)
@@ -144,7 +141,7 @@ public class Electronics {
         .withScreenPerspectiveType(GasDetectorScreenPerspective.class)
         .withScreenPositioning((p, s) -> {
             float scale = 1.9f;
-            GL11.glScalef(scale, scale / compatibility.getAspectRatio(ModernWarfareMod.MOD_CONTEXT), scale);
+            GL11.glScalef(scale, scale / ModernWarfareMod.MOD_CONTEXT.getAspectRatio(), scale);
             GL11.glTranslatef(0.017f, 0.16f, 0.17f);
         })
         .withCreativeTab(ModernWarfareMod.GadgetsTab)

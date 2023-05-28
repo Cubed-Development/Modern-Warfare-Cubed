@@ -9,13 +9,15 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class AttachmentBuilder<T> {
 	
@@ -289,7 +291,7 @@ public class AttachmentBuilder<T> {
 		compatibleAttachments.values().forEach(a -> attachment.addCompatibleAttachment(a));
 
 		if((getModel() != null || !texturedModels.isEmpty())) {
-			modContext.registerRenderableItem(name, attachment, compatibility.isClientSide() ? registerRenderer(attachment, modContext) : null);
+			modContext.registerRenderableItem(name, attachment, FMLCommonHandler.instance().getSide() == Side.CLIENT ? registerRenderer(attachment, modContext) : null);
 		}
 
 		if(craftingRecipe != null && craftingRecipe.length >= 2) {
@@ -309,11 +311,11 @@ public class AttachmentBuilder<T> {
 			List<Object> shape = modContext.getRecipeManager().createShapedRecipe(attachment, name, optionsMetadata);
 
 			ItemStack itemStack = new ItemStack(attachment);
-			compatibility.setStackSize(itemStack, craftingCount);
+			itemStack.setCount(craftingCount);
             if(optionsMetadata.hasOres()) {
-			    compatibility.addShapedOreRecipe(itemStack, shape.toArray());
+				ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
 			} else {
-			    compatibility.addShapedRecipe(itemStack, shape.toArray());
+				ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
 			}
 		} else if(attachment.getCategory() == AttachmentCategory.GRIP
 		        || attachment.getCategory() == AttachmentCategory.SCOPE

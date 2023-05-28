@@ -17,7 +17,7 @@ public class TestMS extends MovingSound
 
     public TestMS(EntityPlayer playerRiding, EntityVehicle minecart)
     {
-        super(minecart.getConfiguration().getRunSound().getSound(), SoundCategory.NEUTRAL);
+        super(minecart.getConfiguration().getRunSound(), SoundCategory.NEUTRAL);
         this.player = playerRiding;
         this.minecart = minecart;
        

@@ -5,13 +5,13 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 import java.util.*;
 import java.util.function.Function;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class SpreadableExposure extends UniversalObject implements Exposure {
     
@@ -148,7 +148,7 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
 
         Function<Float, Float> absorbFunction = null;
         if (entity instanceof EntityLivingBase) {
-            ItemStack helmet = compatibility.getHelmet((EntityLivingBase) entity);
+            ItemStack helmet = ((EntityLivingBase) entity).getItemStackFromSlot(EntityEquipmentSlot.HEAD);;
             if (helmet != null && helmet.getItem() instanceof ExposureProtection)
                 absorbFunction = ((ExposureProtection)helmet.getItem()).getAbsorbFunction(spreadable);
         }
@@ -217,7 +217,7 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
 //            cycleDoseMap.clear();
 //        }
         
-        long worldTime = compatibility.world(entity).getTotalWorldTime();
+        long worldTime = entity.world.getTotalWorldTime();
 
         if(firstExposureTimestamp > worldTime)
             firstExposureTimestamp = worldTime;
@@ -226,7 +226,7 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
             firstExposureImpactDelay = 20;
 
         if(worldTime - startCycleTimestamp > cycleLengthMillis) {
-            startCycleTimestamp = compatibility.world(entity).getTotalWorldTime();
+            startCycleTimestamp = entity.world.getTotalWorldTime();
             cycleDoseMap.clear();
         }
         
@@ -249,7 +249,7 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
     
     public void applyToEntity(EntityLivingBase entityLiving) {
         
-        long worldTime = compatibility.world(entityLiving).getTotalWorldTime();
+        long worldTime = entityLiving.world.getTotalWorldTime();
         
         if(totalDose > MIN_EFFECTIVE_TOTAL_DOSE && worldTime - lastApplyTimestamp >= /*TODO: convert to world time? */20f / entityImpactRate) { 
             // TODO: configure min total dose, possibly per entity?
@@ -266,7 +266,7 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
                     return;
                 }
 
-                entityLiving.attackEntityFrom(compatibility.genericDamageSource(), totalDose);
+                entityLiving.attackEntityFrom(new DamageSource("thrown"), totalDose);
             }
             
             lastApplyTimestamp = worldTime;

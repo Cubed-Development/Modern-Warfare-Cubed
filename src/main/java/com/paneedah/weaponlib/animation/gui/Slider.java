@@ -6,7 +6,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
 import org.lwjgl.input.Mouse;
 
-import java.awt.*;
+import java.awt.Color;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 

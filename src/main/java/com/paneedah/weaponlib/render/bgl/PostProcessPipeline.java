@@ -1,19 +1,21 @@
 package com.paneedah.weaponlib.render.bgl;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.paneedah.weaponlib.compatibility.CompatibleReflection;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.DepthTexture;
 import com.paneedah.weaponlib.render.HDRFramebuffer;
 import com.paneedah.weaponlib.render.Shaders;
 import com.paneedah.weaponlib.render.bgl.weather.ModernWeatherRenderer;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
 import net.minecraft.client.renderer.GlStateManager.SourceFactor;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.util.ResourceLocation;
@@ -26,8 +28,6 @@ import org.lwjgl.opengl.GL13;
 import org.lwjgl.util.glu.Project;
 import org.lwjgl.util.vector.Matrix4f;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
@@ -486,7 +486,7 @@ public class PostProcessPipeline {
 
 		});
 
-		Vec3d iVec = CompatibleClientEventHandler.getInterpolatedPlayerCoords();
+		Vec3d iVec = MWCUtil.getInterpolatedPlayerPos();
 
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(-iVec.x, -iVec.y, -iVec.z);
@@ -633,7 +633,7 @@ public class PostProcessPipeline {
 		lightManager.updateUniforms(Shaders.postWorld);
 		lightManager.update();
 
-		Vec3d interpolatedPosition = CompatibleClientEventHandler.getInterpolatedPlayerCoords();
+		Vec3d interpolatedPosition = MWCUtil.getInterpolatedPlayerPos();
 		Shaders.postWorld.uniform3f("cameraPosition", (float) interpolatedPosition.x, (float) interpolatedPosition.y,
 				(float) interpolatedPosition.z);
 
@@ -864,22 +864,14 @@ public class PostProcessPipeline {
 		GlStateManager.matrixMode(5889);
 		GlStateManager.loadIdentity();
 
-		try {
-			float fpt = CompatibleReflection.findField(EntityRenderer.class, "farPlaneDistance", "field_78530_s")
-					.getFloat(mc.entityRenderer);
-			Method fovMod = CompatibleReflection.findMethod(EntityRenderer.class, "getFOVModifier", "func_78481_a",
-					float.class, boolean.class);
+		float fpt = mc.entityRenderer.farPlaneDistance;
 
-			float fovModValue = (float) fovMod.invoke(mc.entityRenderer, mc.getRenderPartialTicks(), false);
+		float fovModValue = mc.entityRenderer.getFOVModifier(mc.getRenderPartialTicks(), false);;
 
-			Project.gluPerspective(fovModValue, (float) mc.displayWidth / (float) mc.displayHeight, 0.05F, fpt * 2.0F);
+		Project.gluPerspective(fovModValue, (float) mc.displayWidth / (float) mc.displayHeight, 0.05F, fpt * 2.0F);
 
-			// Project.gluPerspective(fovModValue, (float) mc.displayWidth / (float)
-			// mc.displayHeight, 0.05F, fpt * MathHelper.SQRT_2);
-
-		} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
-			e.printStackTrace();
-		}
+		// Project.gluPerspective(fovModValue, (float) mc.displayWidth / (float)
+		// mc.displayHeight, 0.05F, fpt * MathHelper.SQRT_2);
 
 		// Project.gluPerspective(mc.gameSettings.fovSetting, (float) mc.displayWidth /
 		// (float) mc.displayHeight, 0.05F,

@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.render.SpriteSheetTools.Sprite;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;

@@ -2,19 +2,18 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
-import com.paneedah.weaponlib.compatibility.CompatibleEnumHandSide;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
-import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.model.ModelPlayer;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHandSide;
 import org.lwjgl.opengl.GL11;
 
 import java.nio.FloatBuffer;
 import java.util.List;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PlayerRenderer {
 
@@ -46,7 +45,7 @@ public class PlayerRenderer {
         }
 
         public List<MultipartTransition<Part, RenderContext<RenderableState>>> getTransitions(RenderableState state) {
-            ItemStack heldStack = compatibility.getHeldItemMainHand(player);
+            ItemStack heldStack = player.getHeldItemMainhand();
             if(heldStack != null && heldStack.getItem() instanceof Weapon) {
                 //((Weapon)heldStack.getItem()).getRenderer().
             }
@@ -112,7 +111,7 @@ public class PlayerRenderer {
             //log.trace("Setting proning state");
             generalPlayerStateManager.setCycleState(RenderableState.PRONING, false);
         } else {
-            ItemStack heldStack = compatibility.getHeldItemMainHand(player);
+            ItemStack heldStack = player.getHeldItemMainhand();
             
             if(heldStack != null && heldStack.getItem() instanceof Weapon) {
                 /*
@@ -228,7 +227,7 @@ public class PlayerRenderer {
         
         renderContext.setNetHeadYaw(netHeadYaw);
         renderContext.setHeadPitch(headPitch);
-        renderContext.setCompatibleTransformType(CompatibleTransformType.NONE);
+        renderContext.setCompatibleTransformType(ItemCameraTransforms.TransformType.NONE);
                
         positioner.position(Part.MAIN, renderContext);
         
@@ -359,12 +358,14 @@ public class PlayerRenderer {
             ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
         GL11.glPushMatrix();
         modelPlayer.bipedBody.render(renderContext.getScale());
-        compatibility.renderBodywear(modelPlayer, renderContext.getScale());
+        
+        if(modelPlayer instanceof ModelPlayer)
+            ((ModelPlayer)modelPlayer).bipedBodyWear.render(renderContext.getScale());
+        
         GL11.glPopMatrix();
     }
     
-    private void renderHead(Positioner<Part, RenderContext<RenderableState>> positioner,
-            ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
+    private void renderHead(Positioner<Part, RenderContext<RenderableState>> positioner, ModelBiped modelPlayer, RenderContext<RenderableState> renderContext) {
         GL11.glPushMatrix();
         FloatBuffer preBuf = MatrixHelper.getModelViewMatrixBuffer();
         positioner.position(Part.HEAD, renderContext);
@@ -374,7 +375,10 @@ public class PlayerRenderer {
 //                    modelPlayer.bipedHead.rotateAngleZ = 0f;
         }
         modelPlayer.bipedHead.render(renderContext.getScale());
-        compatibility.renderHeadwear(modelPlayer, renderContext.getScale());
+        
+        if(modelPlayer instanceof ModelPlayer)
+            modelPlayer.bipedHeadwear.render(renderContext.getScale());
+        
         GL11.glPopMatrix();
     }
 
@@ -396,7 +400,10 @@ public class PlayerRenderer {
             currentPositioner.get().rightHandPositioned = true;
         }
         modelPlayer.bipedRightArm.render(renderContext.getScale());
-        compatibility.renderRightArmwear(modelPlayer, renderContext.getScale());
+
+        if(modelPlayer instanceof ModelPlayer)
+            ((ModelPlayer)modelPlayer).bipedRightArmwear.render(renderContext.getScale());
+        
         GL11.glPopMatrix();
     }
 
@@ -418,7 +425,10 @@ public class PlayerRenderer {
             currentPositioner.get().leftHandPositioned = true;
         }
         modelPlayer.bipedLeftArm.render(renderContext.getScale());
-        compatibility.renderLeftArmwear(modelPlayer, renderContext.getScale());
+
+        if(modelPlayer instanceof ModelPlayer)
+            ((ModelPlayer)modelPlayer).bipedLeftArmwear.render(renderContext.getScale());
+
         GL11.glPopMatrix();
     }
     
@@ -433,7 +443,10 @@ public class PlayerRenderer {
                     modelPlayer.bipedRightLeg.rotateAngleZ = 0f;
         }
         modelPlayer.bipedRightLeg.render(renderContext.getScale());
-        compatibility.renderRightLegwear(modelPlayer, renderContext.getScale());
+
+        if(modelPlayer instanceof ModelPlayer)
+            ((ModelPlayer)modelPlayer).bipedRightLegwear.render(renderContext.getScale());
+
         GL11.glPopMatrix();
     }
 
@@ -449,7 +462,10 @@ public class PlayerRenderer {
                     modelPlayer.bipedLeftLeg.rotateAngleZ = 0f;
         }
         modelPlayer.bipedLeftLeg.render(renderContext.getScale());
-        compatibility.renderLeftLegwear(modelPlayer, renderContext.getScale());
+
+        if(modelPlayer instanceof ModelPlayer)
+            ((ModelPlayer)modelPlayer).bipedLeftLegwear.render(renderContext.getScale());
+
         GL11.glPopMatrix();
     }
 
@@ -481,7 +497,7 @@ public class PlayerRenderer {
             renderContext.setFlimbSwingAmount(limbSwingAmount);
             renderContext.setNetHeadYaw(netHeadYaw);
             renderContext.setHeadPitch(headPitch);
-            renderContext.setCompatibleTransformType(CompatibleTransformType.NONE);
+            renderContext.setCompatibleTransformType(ItemCameraTransforms.TransformType.NONE);
             
             modelPlayer.setRotationAngles(renderContext.getLimbSwing(), renderContext.getFlimbSwingAmount(), 
                     renderContext.getAgeInTicks(), renderContext.getNetHeadYaw(), 
@@ -501,16 +517,16 @@ public class PlayerRenderer {
         return descriptor != null;
     }
 
-    public boolean positionItemSide(EntityPlayer player, ItemStack itemStack, CompatibleTransformType transformType, CompatibleEnumHandSide handSide) {
+    public boolean positionItemSide(EntityPlayer player, ItemStack itemStack, ItemCameraTransforms.TransformType transformType, EnumHandSide handSide) {
         PositionerDescriptor descriptor = currentPositioner.get();
         if(descriptor != null) {
             
-            if((handSide == null || handSide == CompatibleEnumHandSide.RIGHT) 
+            if((handSide == null || handSide == EnumHandSide.RIGHT)
                     && !descriptor.rightHandPositioned) {
                 return false;
             }
             
-            if(handSide == CompatibleEnumHandSide.LEFT && !descriptor.leftHandPositioned) {
+            if(handSide == EnumHandSide.LEFT && !descriptor.leftHandPositioned) {
                 return false;
             }
 
@@ -523,9 +539,9 @@ public class PlayerRenderer {
             // Gun position
 //            GL11.glTranslatef(0f, 0.1f, -0f);
 //            GL11.glRotatef(5f, 1f, 0f, 0f);
-            if(handSide == CompatibleEnumHandSide.LEFT) {
+            if(handSide == EnumHandSide.LEFT) {
                 positioner.position(Part.LEFT_HAND, renderContext);
-            } else if(handSide == null || handSide == CompatibleEnumHandSide.RIGHT) {
+            } else if(handSide == null || handSide == EnumHandSide.RIGHT) {
                 // Right hand position
                 positioner.position(Part.RIGHT_HAND, renderContext);
 //                GL11.glRotatef(-5f, 1f, 0f, 0f);

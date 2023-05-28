@@ -1,15 +1,15 @@
 package com.paneedah.weaponlib.vehicle;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
+import net.minecraft.util.SoundEvent;
 
 public class GeneralVehicleSounds {
 	
 	public static ModContext cont;
 	
-	public static CompatibleSound driftConcrete1;
-	public static CompatibleSound driftDirt1;
-	public static CompatibleSound driftGround1;
+	public static SoundEvent driftConcrete1;
+	public static SoundEvent driftDirt1;
+	public static SoundEvent driftGround1;
 	
 	
 	public static void setup(ModContext c) {

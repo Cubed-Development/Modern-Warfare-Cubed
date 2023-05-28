@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
+import net.minecraft.util.math.RayTraceResult;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -12,7 +12,7 @@ public class SafeGlobals {
 	
 	public final AtomicInteger currentItemIndex = new AtomicInteger(-1);
 	
-	public final AtomicReference<CompatibleRayTraceResult> objectMouseOver = new AtomicReference<>();
+	public final AtomicReference<RayTraceResult> objectMouseOver = new AtomicReference<>();
 	
 	public final AtomicReference<RenderingPhase> renderingPhase = new AtomicReference<>();
 }

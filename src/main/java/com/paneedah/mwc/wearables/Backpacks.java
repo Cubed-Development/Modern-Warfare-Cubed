@@ -4,7 +4,6 @@ import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.weaponlib.ItemStorage;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.Transform;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
@@ -27,12 +26,11 @@ public class Backpacks {
     
     public static Item Dufflebag;
 
-    public static void init(Object mod, CompatibleFmlPreInitializationEvent event) {
+    public static void init(Object mod) {
         
         CombatSustainmentBackpack = new ItemStorage.Builder()
         .withName("combat_sustainment_backpack")
         .withSize(10)
-        .withGuiTextureWidth(256)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.CombatSustainmentBackpack", "combatsustainmentbackpack.png")
@@ -54,7 +52,6 @@ public class Backpacks {
         CombatSustainmentBackpackBlack = new ItemStorage.Builder()
                 .withName("combat_sustainment_backpack_black")
                 .withSize(10)
-                .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
                 .withProperModel("com.paneedah.mwc.models.CombatSustainmentBackpack", "combatsustainmentblack.png")
@@ -76,7 +73,6 @@ public class Backpacks {
         CombatSustainmentBackpackForest = new ItemStorage.Builder()
                 .withName("combat_sustainment_backpack_forest")
                 .withSize(10)
-                .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
                 .withProperModel("com.paneedah.mwc.models.CombatSustainmentBackpack", "combatsustainmentforest.png")
@@ -98,7 +94,6 @@ public class Backpacks {
         AssaultBackpack = new ItemStorage.Builder()
         .withName("assault_backpack")
         .withSize(16)
-        .withGuiTextureWidth(256)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpack.png")
@@ -120,7 +115,6 @@ public class Backpacks {
         AssaultBackpackBlack = new ItemStorage.Builder()
                 .withName("assault_backpack_black")
                 .withSize(16)
-                .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
                 .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpackblack.png")
@@ -142,7 +136,6 @@ public class Backpacks {
         AssaultBackpackForest = new ItemStorage.Builder()
                 .withName("assault_backpack_forest")
                 .withSize(16)
-                .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
                 .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpackforest.png")
@@ -164,7 +157,6 @@ public class Backpacks {
         F5SwitchbladeBackpack = new ItemStorage.Builder()
                 .withName("f5switchbladebackpack")
                 .withSize(16)
-                .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
                 .withProperModel("com.paneedah.mwc.models.F5SwitchbladeBackpack", "f5switchbladebackpack.png")
@@ -186,7 +178,6 @@ public class Backpacks {
         TruSpecCorduraBackpack = new ItemStorage.Builder()
         .withName("tru_spec_cordura_backpack")
         .withSize(20)
-        .withGuiTextureWidth(256)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.TruSpecCorduraBackpack", "truspeccordurabackpack.png")
@@ -208,7 +199,6 @@ public class Backpacks {
         TruSpecCorduraBackpackBlack = new ItemStorage.Builder()
                 .withName("tru_spec_cordura_backpack_black")
                 .withSize(20)
-                .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
                 .withProperModel("com.paneedah.mwc.models.TruSpecCorduraBackpack", "truspeccordurablack.png")
@@ -230,7 +220,6 @@ public class Backpacks {
         TruSpecCorduraBackpackForest = new ItemStorage.Builder()
                 .withName("tru_spec_cordura_backpack_forest")
                 .withSize(20)
-                .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
                 .withProperModel("com.paneedah.mwc.models.TruSpecCorduraBackpack", "truspeccorduraforest.png")
@@ -252,7 +241,6 @@ public class Backpacks {
         Dufflebag = new ItemStorage.Builder()
         .withName("duffle_bag")
         .withSize(24)
-        .withGuiTextureWidth(256)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
         .withTab(ModernWarfareMod.ArmorTab)
         .withProperModel("com.paneedah.mwc.models.Dufflebag", "dufflebag.png")

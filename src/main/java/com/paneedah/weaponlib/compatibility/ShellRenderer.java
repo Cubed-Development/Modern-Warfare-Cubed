@@ -26,7 +26,7 @@ import java.util.Map.Entry;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class CompatibleShellRenderer {
+public class ShellRenderer {
 
 	private static HashMap<Shell.Type, InstancedShellObject> shellObjMap = new HashMap<>();
 	private static Shader legacyShader = ShaderLoader.loadShader("shells");

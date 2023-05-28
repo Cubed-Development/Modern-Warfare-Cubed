@@ -1,28 +1,30 @@
 package com.paneedah.weaponlib.grenade;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-public class GrenadeMessageHandler implements CompatibleMessageHandler<GrenadeMessage, CompatibleMessage> {
+public class GrenadeMessageHandler implements IMessageHandler<GrenadeMessage, IMessage> {
 
 	private GrenadeAttackAspect attackAspect;
+
+	public GrenadeMessageHandler() {
+	}
 
 	public GrenadeMessageHandler(GrenadeAttackAspect attackAspect) {
 		this.attackAspect = attackAspect;
 	}
 
 	@Override
-	public <T extends CompatibleMessage> T onCompatibleMessage(GrenadeMessage message, CompatibleMessageContext ctx) {
-		if(ctx.isServerSide()) {
-			EntityPlayer player = ctx.getPlayer();
-			ItemStack itemStack = compatibility.getHeldItemMainHand(player);
+	public IMessage onMessage(GrenadeMessage message, MessageContext messageContext) {
+		if(messageContext.side == Side.SERVER) {
+			EntityPlayer player = messageContext.getServerHandler().player;
+			ItemStack itemStack = player.getHeldItemMainhand();
 			if(itemStack != null && itemStack.getItem() instanceof ItemGrenade) {
-			    ctx.runInMainThread(() -> {
+				messageContext.getServerHandler().player.getServer().addScheduledTask(() -> {
 			        message.getInstance().setPlayer(player);
                     attackAspect.serverThrowGrenade(player, message.getInstance(), message.getActivationTimestamp());
                 });

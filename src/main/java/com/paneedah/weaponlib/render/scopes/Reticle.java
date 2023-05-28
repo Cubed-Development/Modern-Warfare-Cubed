@@ -4,7 +4,7 @@ import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
-import java.awt.*;
+import java.awt.Color;
 
 public class Reticle {
 	

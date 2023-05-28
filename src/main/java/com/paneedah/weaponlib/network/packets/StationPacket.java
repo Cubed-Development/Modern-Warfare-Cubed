@@ -2,9 +2,6 @@ package com.paneedah.weaponlib.network.packets;
 
 import akka.japi.Pair;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -22,12 +19,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class StationPacket implements CompatibleMessage {
+public class StationPacket implements IMessage {
 
 	
 	
@@ -130,7 +131,7 @@ public class StationPacket implements CompatibleMessage {
 		
 	}
 
-	public static class WorkbenchPacketHandler implements CompatibleMessageHandler<StationPacket, CompatibleMessage> {
+	public static class WorkbenchPacketHandler implements IMessageHandler<StationPacket, IMessage> {
 		
 		private ModContext modContext;
 
@@ -141,135 +142,103 @@ public class StationPacket implements CompatibleMessage {
 		}
 
 		@Override
-		public <T extends CompatibleMessage> T onCompatibleMessage(StationPacket m, CompatibleMessageContext ctx) {
-			if(ctx.isServerSide()) {
-	            ctx.runInMainThread(() -> {
-					
+		public IMessage onMessage(StationPacket message, MessageContext messageContext) {
+			if(messageContext.side == Side.SERVER) {
+				messageContext.getServerHandler().player.getServer().addScheduledTask(() -> {
+	            	World world = messageContext.getServerHandler().player.world;
 
-	            	World world = ctx.getPlayer().world;
-	            	
-	            	TileEntity tileEntity = world.getTileEntity(m.teLocation);
+	            	TileEntity tileEntity = world.getTileEntity(message.teLocation);
 	            	if(tileEntity instanceof TileEntityStation) {
 	            		TileEntityStation station = (TileEntityStation) tileEntity;
-	            		
-	            		if(m.opcode == CRAFT) {
-	            			
-	            			
-	            			
-	            			
+
+	            		if(message.opcode == CRAFT) {
 	            			if(tileEntity instanceof TileEntityAmmoPress) {
 	            				// Since it's based on a queue, you can add whatever you'd like and it
 	            				// will merely refuse to craft it until you have the resources avaliable.
-	            				
-	            				
 	            				TileEntityAmmoPress press = (TileEntityAmmoPress) station;
-		            			Item item = CraftingRegistry.getModernCrafting(m.craftingGroup, m.craftingName).getItem();
-		            			ItemStack newStack = new ItemStack(item, m.quantity);
-		            			
-		            			
-		            		
+		            			Item item = CraftingRegistry.getModernCrafting(message.craftingGroup, message.craftingName).getItem();
+		            			ItemStack newStack = new ItemStack(item, message.quantity);
+
 		            			if(press.hasStack()) {
 		            				ItemStack topQueue = press.getCraftingQueue().getLast();
-		            				if(ItemStack.areItemsEqualIgnoreDurability(topQueue, newStack)) {
-		            					
-		            					topQueue.grow(m.quantity);
-		            					
-		            					
-		            				} else {
+		            				if(ItemStack.areItemsEqualIgnoreDurability(topQueue, newStack))
+		            					topQueue.grow(message.quantity);
+									else
 		            					press.addStack(newStack);
-		            				}
-		            			} else {
+		            			} else
 		            				press.addStack(newStack);
-		            			}
-		            			
-		            			
-		            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), m.teLocation), new TargetPoint(0, m.teLocation.getX(), m.teLocation.getY(), m.teLocation.getZ(), 20));
-			            		
-		            			
+
+		            			modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 20));
+
 		            			return;
 	            			}
-	            			
-	            			
-	            		
-	            			
-	            			
-	            			//System.out.println(m.craftingGroup + " | " + m.craftingName);
-	            			CraftingEntry[] modernRecipe = CraftingRegistry.getModernCrafting(m.craftingGroup, m.craftingName).getModernRecipe();
-		            		if(modernRecipe == null) return;
-		            		
-		            	
+	            			CraftingEntry[] modernRecipe = CraftingRegistry.getModernCrafting(message.craftingGroup, message.craftingName).getModernRecipe();
+		            		if(modernRecipe == null)
+								return;
+
 		            		// Add all items to an item list to verify that they exist.
 		            		HashMap<Item, ItemStack> itemList = new HashMap<>(27, 0.7f);
-		            		for(int i = 23; i < station.mainInventory.getSlots(); ++i) {
+		            		for(int i = 23; i < station.mainInventory.getSlots(); ++i)
 		            			itemList.put(station.mainInventory.getStackInSlot(i).getItem(), station.mainInventory.getStackInSlot(i));
-		            		}
-		            		
-		            		
+
 		            		ArrayList<Pair<Item, Integer>> toConsume = new ArrayList<>();
-		            		
+
 		            		// Verify
 		            		for(CraftingEntry stack : modernRecipe) {
-		            			
 		            			if(!stack.isOreDictionary()) {
 		            				// Does it even have that item? / Does it have enough of that item?
-			            			if(!itemList.containsKey(stack.getItem()) || stack.getCount() > itemList.get(stack.getItem()).getCount()) {
+			            			if(!itemList.containsKey(stack.getItem()) || stack.getCount() > itemList.get(stack.getItem()).getCount())
 			            				return;
-			            			}
-			            			
+
 			            			toConsume.add(new Pair<Item, Integer>(stack.getItem(), stack.getCount()));
-		            			} else {		            				
+		            			} else {
 		            				// Stack is an OreDictionary term
 		            				boolean hasAny = false;
 		            				NonNullList<ItemStack> list = OreDictionary.getOres(stack.getOreDictionaryEntry());
 		            				for(ItemStack toTest : list) {
 		            					if(itemList.containsKey(toTest.getItem()) && stack.getCount() <= itemList.get(toTest.getItem()).getCount()) {
 		            						hasAny = true;
-		            						
 		            						toConsume.add(new Pair<Item, Integer>(toTest.getItem(), stack.getCount()));
-		            						
-		            				
 		            						break;
 		            					}
 		            				}
-		            				
+
 		            				if(!hasAny) return;
 		            			}
 		            		}
-		            		
-		         
-		            		
+
 		            		/*
 		            		// Consume materials
 		            		for(CraftingEntry stack : modernRecipe) {
 		            			if(!stack.isOreDictionary()) {
 		            				itemList.get(stack.getItem()).shrink(stack.getCount());
 		            			} else {
-		            				
+
 		            				List<ItemStack> list = OreDictionary.getOres(stack.getOreDictionaryEntry());
 		            				for(ItemStack test : list) {
-		            					
+
 		            				}
 		            				itemList.get(stack.getItem()).shrink(stack.getCount());
 		            			}
-		            			
+
 		            		}*/
-		            		
+
 		            		for(Pair<Item, Integer> i : toConsume)
 		            			itemList.get(i.first()).shrink(i.second());
 
 		            		if(station instanceof TileEntityWorkbench) {
 		            			TileEntityWorkbench workbench = (TileEntityWorkbench) station;
-		            			workbench.craftingTimer = m.craftingTimer;
-		            			workbench.craftingDuration = m.craftingDuration;
-			            		workbench.craftingTarget = CraftingRegistry.getModernCrafting(m.craftingGroup, m.craftingName);
+		            			workbench.craftingTimer = message.craftingTimer;
+		            			workbench.craftingDuration = message.craftingDuration;
+			            		workbench.craftingTarget = CraftingRegistry.getModernCrafting(message.craftingGroup, message.craftingName);
 		            		}
-		            		
+
 		            		station.sendUpdate();
 		            		//station.markDirty();
-		            	
-		            		modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), m.teLocation), new TargetPoint(0, m.teLocation.getX(), m.teLocation.getY(), m.teLocation.getZ(), 20));
-		            		
-	            		} else if(m.opcode == DISMANTLE) {
+
+		            		modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 20));
+
+	            		} else if(message.opcode == DISMANTLE) {
 	            			for(int i = 9; i < 13; ++i) {
 	            				if(station.mainInventory.getStackInSlot(i).isEmpty())
 									continue;
@@ -280,22 +249,19 @@ public class StationPacket implements CompatibleMessage {
 									station.dismantleDuration[i - 9] = ((TileEntityStation) tileEntity).getDismantlingTime(((IModernCrafting) stack.getItem()));
 								}
 	            			}
-	            			
-	            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), m.teLocation), new TargetPoint(0, m.teLocation.getX(), m.teLocation.getY(), m.teLocation.getZ(), 25));
 
-	            		} else if(m.opcode == MOVE_OUTPUT) {
-	            			((EntityPlayer) world.getEntityByID(m.playerID)).addItemStackToInventory(station.mainInventory.getStackInSlot(m.slotToMove));
-	            		} else if(m.opcode == POP_FROM_QUEUE) {
+	            			modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 25));
+	            		} else if(message.opcode == MOVE_OUTPUT) {
+	            			((EntityPlayer) world.getEntityByID(message.playerID)).addItemStackToInventory(station.mainInventory.getStackInSlot(message.slotToMove));
+	            		} else if(message.opcode == POP_FROM_QUEUE) {
 	            			if(!(tileEntity instanceof TileEntityAmmoPress)) return;
-	            			
+
 	            			TileEntityAmmoPress teAmmoPress = (TileEntityAmmoPress) tileEntity;
-	            			
-	            			if(teAmmoPress.hasStack() && teAmmoPress.getCraftingQueue().size() > m.slotToMove) {
-	            				teAmmoPress.getCraftingQueue().remove(m.slotToMove);
-	            			}
-	            			
-	            			modContext.getChannel().getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), m.teLocation), new TargetPoint(0, m.teLocation.getX(), m.teLocation.getY(), m.teLocation.getZ(), 25));
-		            		
+
+	            			if(teAmmoPress.hasStack() && teAmmoPress.getCraftingQueue().size() > message.slotToMove)
+	            				teAmmoPress.getCraftingQueue().remove(message.slotToMove);
+
+	            			modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 25));
 	            		}
 	            	}
 				});

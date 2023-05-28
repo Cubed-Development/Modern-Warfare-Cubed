@@ -139,7 +139,7 @@ public class Vector3D {
         z = vec3d.z;
     }
 
-    public Vec3d convertToVec3d() {
+    public Vec3d toVec3d() {
         return new Vec3d(x, y, z);
     }
 }

@@ -1,17 +1,18 @@
 package com.paneedah.mwc;
 
 import com.paneedah.mwc.init.MWCBlocks;
-import com.paneedah.weaponlib.compatibility.CompatibleBlocks;
-import com.paneedah.weaponlib.compatibility.CompatibleWorldGenerator;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
 
-public class WorldGeneratorEventHandler extends CompatibleWorldGenerator {
+public class WorldGeneratorEventHandler implements IWorldGenerator {
 
     public WorldGeneratorEventHandler() {
 
@@ -25,25 +26,18 @@ public class WorldGeneratorEventHandler extends CompatibleWorldGenerator {
         int x = chunkX * 16;
         int z = chunkZ * 16;
 
-        addOreSpawn(MWCBlocks.copperOre, CompatibleBlocks.STONE, world, ModernConfigManager.copperSpawnsPerChunk,
-                random, x, z, 9, 9, 6 + random.nextInt(4), 2, 110);
+        addOreSpawn(MWCBlocks.copperOre, world, ModernConfigManager.copperSpawnsPerChunk, random, x, z, 9, 9, 6 + random.nextInt(4), 2, 110);
 
-        addOreSpawn(MWCBlocks.sulfurOre, CompatibleBlocks.STONE, world, ModernConfigManager.sulfurSpawnsPerChunk,
-                random, x, z, 13, 13, 6 + random.nextInt(7), 5, 90);
+        addOreSpawn(MWCBlocks.sulfurOre, world, ModernConfigManager.sulfurSpawnsPerChunk, random, x, z, 13, 13, 6 + random.nextInt(7), 5, 90);
 
-        addOreSpawn(MWCBlocks.tinOre, CompatibleBlocks.STONE, world, ModernConfigManager.tinSpawnsPerChunk,
-                random, x, z, 9, 9, 6 + random.nextInt(4), 2, 80);
+        addOreSpawn(MWCBlocks.tinOre, world, ModernConfigManager.tinSpawnsPerChunk, random, x, z, 9, 9, 6 + random.nextInt(4), 2, 80);
 
-        addOreSpawn(MWCBlocks.leadOre, CompatibleBlocks.STONE, world, ModernConfigManager.leadSpawnsPerChunk,
-                random, x, z, 9, 9, 6 + random.nextInt(4), 2, 80);
+        addOreSpawn(MWCBlocks.leadOre, world, ModernConfigManager.leadSpawnsPerChunk, random, x, z, 9, 9, 6 + random.nextInt(4), 2, 80);
 
-        addOreSpawn(MWCBlocks.graphiteOre, CompatibleBlocks.STONE, world, ModernConfigManager.graphiteSpawnsPerChunk,
-                random, x, z, 9, 9, 6 + random.nextInt(4), 2, 80);
+        addOreSpawn(MWCBlocks.graphiteOre, world, ModernConfigManager.graphiteSpawnsPerChunk, random, x, z, 9, 9, 6 + random.nextInt(4), 2, 80);
     }
 
-    public void addOreSpawn(Block block, CompatibleBlocks target, World world, int chancesToSpawn,
-            Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize,
-            int minY, int maxY) {
+    public void addOreSpawn(Block block, World world, int chancesToSpawn, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int minY, int maxY) {
 
         int diffBetweenMinMaxY = maxY - minY;
 
@@ -52,7 +46,7 @@ public class WorldGeneratorEventHandler extends CompatibleWorldGenerator {
             int posY = minY + random.nextInt(diffBetweenMinMaxY);
             int posZ = blockZPos + random.nextInt(maxZ);
 
-            generate(block, maxVeinSize, target, world, random, posX, posY, posZ);
+            new WorldGenMinable(block.getDefaultState(), maxVeinSize).generate(world, random, new BlockPos(posX, posY, posZ));
         }
     }
 }

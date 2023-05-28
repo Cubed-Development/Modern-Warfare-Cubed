@@ -1,8 +1,10 @@
 package com.paneedah.weaponlib.command;
 
 import akka.japi.Pair;
-import com.paneedah.weaponlib.compatibility.CompatibleCommand;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
@@ -23,7 +25,7 @@ import java.util.Map.Entry;
  * 
  * @author Homer Riva-Cambrin, 2022
  */
-public abstract class TidyCompatibleCommand extends CompatibleCommand {
+public abstract class TidyCompatibleCommand extends CommandBase {
 	
 	private String name, usage, displayName;
 	private String[] help;
@@ -123,11 +125,11 @@ public abstract class TidyCompatibleCommand extends CompatibleCommand {
 	}
 
 	@Override
-	protected void execCommand(ICommandSender sender, String[] args) {
+	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 
 		
 		if(args.length == 0) {
-			sender.sendMessage(new TextComponentString(getCompatibleUsage(sender)));
+			sender.sendMessage(new TextComponentString(getUsage(sender)));
 			return;
 		}
 		
@@ -136,7 +138,7 @@ public abstract class TidyCompatibleCommand extends CompatibleCommand {
 			
 			
 			if(args.length == 1 && !this.tree.containsKey(args[0])) {				
-				sender.sendMessage(new TextComponentString(getCompatibleUsage(sender)));
+				sender.sendMessage(new TextComponentString(getUsage(sender)));
 				return;
 			} 
 			
@@ -218,12 +220,12 @@ public abstract class TidyCompatibleCommand extends CompatibleCommand {
 	
 
 	@Override
-	public String getCompatibleName() {
+	public String getName() {
 		return this.name;
 	}
 
 	@Override
-	public String getCompatibleUsage(ICommandSender sender) {
+	public String getUsage(ICommandSender sender) {
 		return this.usage;
 	}
 

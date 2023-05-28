@@ -1,12 +1,12 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -15,8 +15,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemInstanceFactory<PlayerMagazineInstance, MagazineState>, 
 Reloadable, Updatable, Part {
@@ -81,8 +79,8 @@ Reloadable, Updatable, Part {
 	private int ammo;
 	private long reloadingTimeout;
 	private List<ItemBullet> compatibleBullets;
-	private CompatibleSound reloadSound;
-	private CompatibleSound unloadSound;
+	private SoundEvent reloadSound;
+	private SoundEvent unloadSound;
 	private ModContext modContext;
 	private Vec3d rotPoint;
 	
@@ -102,29 +100,24 @@ Reloadable, Updatable, Part {
 	
 
 	
-	ItemStack createItemStack() {
+	public ItemStack createItemStack() {
 		ItemStack attachmentItemStack = new ItemStack(this);
 		ensureItemStack(attachmentItemStack, ammo);
 		return attachmentItemStack;
 	}
 	
 	private void ensureItemStack(ItemStack itemStack, int initialAmmo) {
-		if (compatibility.getTagCompound(itemStack) == null) {
-			compatibility.setTagCompound(itemStack, new NBTTagCompound());
+		if (itemStack.getTagCompound() == null) {
+			itemStack.setTagCompound(new NBTTagCompound());
 			Tags.setAmmo(itemStack, initialAmmo);
 		}
 	}
 	
 	@Override
-	public void onCreated(ItemStack stack, World p_77622_2_, EntityPlayer p_77622_3_) {
+	public void onCreated(ItemStack stack, World world, EntityPlayer player) {
 		ensureItemStack(stack, 0);
-		super.onCreated(stack, p_77622_2_, p_77622_3_);
-	}
-
-	@Override
-	public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world) {
-//		ensureItemStack(stack);
-		return super.onItemUseFirst(stack, player, world);
+		stack.setTagCompound(new NBTTagCompound());
+		super.onCreated(stack, world, player);
 	}
 	
 	@Override
@@ -141,11 +134,11 @@ Reloadable, Updatable, Part {
 		return ammo;
 	}
 
-	public CompatibleSound getReloadSound() {
+	public SoundEvent getReloadSound() {
 		return reloadSound;
 	}
 	
-	public CompatibleSound getUnloadSound() {
+	public SoundEvent getUnloadSound() {
 		return unloadSound;
 	}
 
@@ -179,5 +172,4 @@ Reloadable, Updatable, Part {
     public void unloadMainHeldItemForPlayer(EntityPlayer player) {
     	modContext.getMagazineReloadAspect().unloadMainHeldItem(player);
     }
-	
 }

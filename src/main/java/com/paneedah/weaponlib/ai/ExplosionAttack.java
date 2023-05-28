@@ -2,8 +2,6 @@ package com.paneedah.weaponlib.ai;
 
 import net.minecraft.entity.Entity;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class ExplosionAttack implements CustomMobAttack, Timeable {
     
     private float explosionRadius;
@@ -19,7 +17,7 @@ public class ExplosionAttack implements CustomMobAttack, Timeable {
 
     @Override
     public boolean attackEntity(EntityCustomMob entityMob, Entity target) {
-        compatibility.world(entityMob).createExplosion(entityMob, entityMob.posX, entityMob.posY, entityMob.posZ, 
+        entityMob.world.createExplosion(entityMob, entityMob.posX, entityMob.posY, entityMob.posZ,
                 explosionRadius, isSmokeEnabled);
         entityMob.setDead();
         return false;

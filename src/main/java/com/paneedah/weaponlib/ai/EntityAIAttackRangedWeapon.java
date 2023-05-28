@@ -1,14 +1,13 @@
 package com.paneedah.weaponlib.ai;
 
-import com.paneedah.weaponlib.compatibility.CompatibleEntityAIBase;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.util.EnumHand;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-public class EntityAIAttackRangedWeapon extends CompatibleEntityAIBase
+public class EntityAIAttackRangedWeapon extends EntityAIBase
 {
     private static final float DEFAULT_SECONDARY_EQUIPMENT_USE_CHANCE = 0.25f;
     
@@ -64,9 +63,9 @@ public class EntityAIAttackRangedWeapon extends CompatibleEntityAIBase
     }
 
     protected boolean isItemTypeInMainHand() {
-        return compatibility.getHeldItemMainHand(entity) != null
+        return entity.getHeldItemMainhand() != null
                 && (attackWithItemType.isEmpty() 
-                        || attackWithItemType.stream().anyMatch(a -> a.isInstance(compatibility.getHeldItemMainHand(entity).getItem())));
+                        || attackWithItemType.stream().anyMatch(a -> a.isInstance(entity.getHeldItemMainhand().getItem())));
     }
 
     /**
@@ -109,8 +108,7 @@ public class EntityAIAttackRangedWeapon extends CompatibleEntityAIBase
         	this.entity.getLookHelper().setLookPosition(attackTarget.posX, attackTarget.posY + attackTarget.getEyeHeight() * this.entity.getConfiguration().getLookHeightMultiplier(), attackTarget.posZ, 30f, 30f);
         	//this.entity.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0F, 30.0F);
         	
-            double d0 = this.entity.getDistanceSq(attackTarget.posX, 
-                    compatibility.getBoundingBox(attackTarget).getMinY(), attackTarget.posZ);
+            double d0 = this.entity.getDistanceSq(attackTarget.posX, attackTarget.getEntityBoundingBox().minY, attackTarget.posZ);
             boolean canSeeTarget = this.entity.getEntitySenses().canSee(attackTarget);
             boolean flag1 = this.seeTime > 0;
 
@@ -147,7 +145,7 @@ public class EntityAIAttackRangedWeapon extends CompatibleEntityAIBase
                 this.strafingTime = 0;
             }
 
-            if (compatibility.isStrafingSupported() && this.strafingTime > -1) {
+            if (this.strafingTime > -1) {
                 if (d0 > (double)(this.maxAttackDistanceSquared * 0.75F))
                 {
                     this.strafingBackwards = false;
@@ -157,7 +155,7 @@ public class EntityAIAttackRangedWeapon extends CompatibleEntityAIBase
                     this.strafingBackwards = true;
                 }
 
-                compatibility.strafe(this.entity, this.strafingBackwards ? -0.5F : 0.5F, this.strafingClockwise ? 0.5F : -0.5F);
+                this.entity.getMoveHelper().strafe(this.strafingBackwards ? -0.5F : 0.5F, this.strafingClockwise ? 0.5F : -0.5F);
                 this.entity.faceEntity(attackTarget, 30.0F, 30.0F);
             } else {
                 this.entity.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0F, 30.0F);
@@ -167,7 +165,7 @@ public class EntityAIAttackRangedWeapon extends CompatibleEntityAIBase
                 if (!canSeeTarget && this.seeTime < -60) {
                     this.entity.resetActiveHand();
                 } else if (canSeeTarget) {
-                    if(entity.isFacingEntity(attackTarget)) {
+                    if(Math.abs((-(this.entity.posX - attackTarget.posX) / (this.entity.posZ - attackTarget.posZ)) - Math.tan(this.entity.renderYawOffset / 180f * Math.PI)) < 5.0) {
                         this.entity.resetActiveHand();
                         if(entity.getSecondaryEquipment() != null && entity.getRNG().nextFloat() < secondaryEquipmentUseChance) {
                             this.entity.attackWithSecondaryEquipment(attackTarget, 0); // TODO: set some distance factor
@@ -179,7 +177,7 @@ public class EntityAIAttackRangedWeapon extends CompatibleEntityAIBase
                     }
                 }
             } else if (--this.attackTime <= 0 && this.seeTime >= -60) {
-                this.entity.setActiveMainHand();
+                this.entity.setActiveHand(EnumHand.MAIN_HAND);
             }
         }
     }

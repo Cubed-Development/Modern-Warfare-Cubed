@@ -2,19 +2,17 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.Weapon.ShellCasingEjectDirection;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
-import com.paneedah.weaponlib.compatibility.CompatibleMathHelper;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import java.util.Random;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityShellCasing extends EntityProjectile {
 
@@ -55,7 +53,7 @@ public class EntityShellCasing extends EntityProjectile {
     @Override
     public void setPositionAndDirection(boolean isAim) {
         this.setSize(0.001f, 0.001f);
-        float forwardOffset = compatibility.getCompatibleShellCasingForwardOffset()
+        float forwardOffset = 0.1F
                 + weapon.getShellCasingForwardOffset(); // 0.1f;
 
         float sideOffset;
@@ -77,17 +75,17 @@ public class EntityShellCasing extends EntityProjectile {
         this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight() + yOffset, thrower.posZ,
                 thrower.rotationYaw, thrower.rotationPitch);
 
-        this.posX -= (double) (CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * sideOffset)
-                + CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
-                        * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
+        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * sideOffset)
+                + MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
+                        * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
 
         // float verticalOffset = ;
-        this.posY += (double) (-CompatibleMathHelper.sin((this.rotationPitch) / 180.0F * (float) Math.PI)
+        this.posY += (double) (-MathHelper.sin((this.rotationPitch) / 180.0F * (float) Math.PI)
                 * forwardOffset);
 
-        this.posZ -= (double) (CompatibleMathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * sideOffset)
-                - CompatibleMathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
-                        * CompatibleMathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
+        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * sideOffset)
+                - MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
+                        * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * forwardOffset;
 
         this.setPosition(this.posX, this.posY, this.posZ);
 
@@ -103,10 +101,10 @@ public class EntityShellCasing extends EntityProjectile {
         int directionSignum = weapon.getShellCasingEjectDirection() == ShellCasingEjectDirection.RIGHT ? 1 : -1;
 
         this.motionX = directionSignum
-                * -(double) (CompatibleMathHelper.cos(adjustedRotationYaw / 180.0F * (float) Math.PI) * f);
+                * -(double) (MathHelper.cos(adjustedRotationYaw / 180.0F * (float) Math.PI) * f);
 
         this.motionZ = directionSignum
-                * (double) (-CompatibleMathHelper.sin(adjustedRotationYaw / 180.0F * (float) Math.PI) * f);
+                * (double) (-MathHelper.sin(adjustedRotationYaw / 180.0F * (float) Math.PI) * f);
 
         this.motionY = 0;
         
@@ -157,8 +155,8 @@ public class EntityShellCasing extends EntityProjectile {
      * @see net.minecraft.entity.projectile.EntityThrowable#onImpact(net.minecraft.util.MovingObjectPosition)
      */
     @Override
-    protected void onImpact(CompatibleRayTraceResult position) {
-        if (!compatibility.world(this).isRemote) {
+    protected void onImpact(RayTraceResult position) {
+        if (!world.isRemote) {
             setDead();
         }
     }

@@ -3,25 +3,30 @@ package com.paneedah.weaponlib.tile;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMaterial;
 import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class CustomTileEntityConfiguration<T extends CustomTileEntityConfiguration<T>> {
     
-    private CompatibleMaterial material;
+    private Material material;
     private String name;
     private String textureName;
     private CreativeTabs creativeTab;
@@ -38,7 +43,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         return (T) input;
     }
 
-    public T withMaterial(CompatibleMaterial material) {
+    public T withMaterial(Material material) {
         this.material = material;
         return safeCast(this);
     }
@@ -108,20 +113,32 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         if(!VMWHooksHandler.isOnServer()) {
         	ClientEventHandler.BLANKMAPPED_LIST.add(tileEntityBlock);
         }
-        tileEntityBlock.setBlockName(ModReference.id + "_" + name);
+        tileEntityBlock.setTranslationKey(ModReference.id + "_" + name);
         tileEntityBlock.setHardness(hardness);
         tileEntityBlock.setResistance(resistance);
         tileEntityBlock.setCreativeTab(creativeTab);
         tileEntityBlock.setBoundingBox(boundingBox);
         ResourceLocation textureResource = new ResourceLocation(ModReference.id, textureName);
-        tileEntityBlock.setBlockTextureName(textureResource.toString());
-        compatibility.registerTileEntity(tileEntityClass, "tile" + name);
+        GameRegistry.registerTileEntity(tileEntityClass, "tile" + name);
         
         //System.out.println("RUNNING!");
-               
-        compatibility.registerBlock(modContext, tileEntityBlock, name);
+
+        if (tileEntityBlock.getRegistryName() == null) {
+            if (tileEntityBlock.getTranslationKey().length() < ModReference.id.length() + 2 + 5) {
+                throw new IllegalArgumentException("Unlocalize block name too short " + tileEntityBlock.getTranslationKey());
+            }
+            String unlocalizedName = tileEntityBlock.getTranslationKey().toLowerCase();
+            String registryName = unlocalizedName.substring(5 + ModReference.id.length() + 1);
+            tileEntityBlock.setRegistryName(ModReference.id, registryName);
+        }
+
+        ForgeRegistries.BLOCKS.register(tileEntityBlock);
+        ItemBlock itemBlock = new ItemBlock(tileEntityBlock);
+        // TODO: introduce registerItem()
+
+        modContext.registerRenderableItem(tileEntityBlock.getRegistryName(), itemBlock, null);
         
-        if(compatibility.isClientSide()) {
+        if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
             RendererRegistration.registerRenderableEntity(modContext, name, tileEntityClass, modelClassName, 
                     textureResource, positioning, tileEntityBlock);
         }
@@ -144,8 +161,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
 //                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(tileEntityBlock), 0, itemModelResourceLocation);
                 
                 ModelBase model = (ModelBase) Class.forName(modelClassName).newInstance();
-                compatibility.bindTileEntitySpecialRenderer(tileEntityClass, 
-                        new CustomTileEntityRenderer(model, textureResource, positioning));
+                ClientRegistry.bindTileEntitySpecialRenderer(tileEntityClass, (TileEntitySpecialRenderer)new CustomTileEntityRenderer(model, textureResource, positioning));
                 
             } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
                 e.printStackTrace();

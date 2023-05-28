@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib.command;
 
 import akka.japi.Pair;
+import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.Part;
@@ -8,23 +10,26 @@ import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.paneedah.weaponlib.compatibility.CompatibleCommand;
 import com.paneedah.weaponlib.compatibility.graph.CompatibilityClassGenerator;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.vehicle.VehiclePart;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
 import java.io.*;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class DebugCommand extends CompatibleCommand {
+public class DebugCommand extends CommandBase {
 
     private static final String SHOW_OPTION_CODE = "code";
     private static final String COMMAND_DEBUG = "wdb";
@@ -52,7 +57,7 @@ public class DebugCommand extends CompatibleCommand {
     }
 
     @Override
-    public String getCompatibleName() {
+    public String getName() {
         return COMMAND_DEBUG;
     }
     
@@ -65,12 +70,12 @@ public class DebugCommand extends CompatibleCommand {
     }
 
     @Override
-    public String getCompatibleUsage(ICommandSender sender) {
+    public String getUsage(ICommandSender sender) {
         return getDebugPrefix() + "/" + COMMAND_DEBUG + " (options) or type /wdb help";
     }
 
     public void sendDebugMessage(String message) {
-    	compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + message);
+        mc.player.sendMessage(new TextComponentString(getDebugPrefix() + message));
     }
     
     private String getSubCommandDebugUsage() {
@@ -110,7 +115,7 @@ public class DebugCommand extends CompatibleCommand {
     }
 
     @Override
-    public void execCommand(ICommandSender sender, String[] args) {
+    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
     	
         if (args.length > 0) {
             switch(args[0].toLowerCase()) {
@@ -160,10 +165,10 @@ public class DebugCommand extends CompatibleCommand {
             	processWeapon(args);
             	break;
             default:
-                compatibility.addChatMessage(compatibility.clientPlayer(), getCompatibleUsage(sender));
+                mc.player.sendMessage(new TextComponentString(getUsage(sender)));
             }
         } else {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getCompatibleUsage(sender));
+            mc.player.sendMessage(new TextComponentString(getUsage(sender)));
         }
     }
     
@@ -173,7 +178,7 @@ public class DebugCommand extends CompatibleCommand {
     private static boolean isInfiniteAmmo;
     private static boolean isDebuggingActionPosition;
     private static boolean isWorkingOnScreenShake;
-    private static boolean isForceLiveRenderGUI;
+    private static boolean isForceLiveRenderGUI = true;
     private static boolean isEditingGUI;
     public static Transform debugSlideTransform = new Transform();
     public static Pair<Double, Double> screenShakeParam = new Pair<Double, Double>(0.0, 0.0);
@@ -201,12 +206,12 @@ public class DebugCommand extends CompatibleCommand {
     private void processWeapon(String[] args) {
     	if(args[1].equals("infinite")) {
     		isInfiniteAmmo = !isInfiniteAmmo;
-    		compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + " Infinite ammo mode is " + (isInfiniteAmmo ? "on" : "off"));
+            mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Infinite ammo mode is " + (isInfiniteAmmo ? "on" : "off")));
         	
     	} else if(args[1].equals("slide")) {
     		if(args[2].equals("edit")) {
     			isDebuggingActionPosition = !isDebuggingActionPosition;
-    			compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + " Slide editor mode is " + (isDebuggingActionPosition ? "on" : "off"));
+                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Slide editor mode is " + (isDebuggingActionPosition ? "on" : "off")));
             	
     		}else if(args[2].equals("setpos")) {
     			double x = Double.parseDouble(args[3]);
@@ -217,7 +222,7 @@ public class DebugCommand extends CompatibleCommand {
     	} else if(args[1].equals("shake")) {
     		if(args[2].equals("edit")) {
     			isWorkingOnScreenShake = !isWorkingOnScreenShake;
-    			compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + " Shake editor mode is " + (isWorkingOnScreenShake ? "on" : "off"));
+                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Shake editor mode is " + (isWorkingOnScreenShake ? "on" : "off")));
     		} else if(args[2].equals("set")) {
     			double intensity = Double.parseDouble(args[3]);
     			double lengthModifier = Double.parseDouble(args[4]);
@@ -261,7 +266,7 @@ public class DebugCommand extends CompatibleCommand {
     	if(args[1].equals("new")) {
     		compatList.clear();
     		ccg.setup();
-    		compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + " Started writing new compat method set");
+            mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Started writing new compat method set"));
     	} else if(args[1].equals("add")) {
     		ArrayList<Pair<Class<?>, Method>> list = ccg.findStandardOpenGLMethod(args[2]);
     		for(Pair<Class<?>, Method> pair : list) {
@@ -308,7 +313,7 @@ public class DebugCommand extends CompatibleCommand {
     			AnimationModeProcessor.getInstance().setFPSMode(true);
     		
     		} else {
-    			compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + " You cannot enter animation mode with a legacy gun!");
+                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " You cannot enter animation mode with a legacy gun!"));
     	    	
     			
     		}
@@ -317,10 +322,10 @@ public class DebugCommand extends CompatibleCommand {
     		AnimationModeProcessor.getInstance().setFPSMode(false);
     	} else if(args[1].equals("dh")) {
     		BBLoader.HANDDIVISOR = Double.parseDouble(args[2]);
-    		compatibility.addChatMessage(compatibility.clientPlayer(), "Hand divisor set to " + BBLoader.HANDDIVISOR);
+            mc.player.sendMessage(new TextComponentString("Hand divisor set to " + BBLoader.HANDDIVISOR));
     	}else if(args[1].equals("dg")) {
     		BBLoader.GENDIVISOR = Double.parseDouble(args[2]);
-    		compatibility.addChatMessage(compatibility.clientPlayer(), "General divisor set to " + BBLoader.GENDIVISOR);
+            mc.player.sendMessage(new TextComponentString("General divisor set to " + BBLoader.GENDIVISOR));
     	} else if(args[1].equals("as")) {
     		double x = Double.parseDouble(args[2]);
     		double y = Double.parseDouble(args[3]);
@@ -335,13 +340,13 @@ public class DebugCommand extends CompatibleCommand {
     	switch(args[0].toLowerCase()) {
     	case DEBUG_FREECAM:
     		if(args.length > 1 && args[1].equals("lock")) {
-    			CompatibleClientEventHandler.freecamLock = !CompatibleClientEventHandler.freecamLock;
-    			sendDebugMessage("Freecam lock " + TextFormatting.DARK_GRAY + (CompatibleClientEventHandler.freecamLock ? "enabled" : "disabled"));
+    			ClientEventHandler.freecamLock = !ClientEventHandler.freecamLock;
+    			sendDebugMessage("Freecam lock " + TextFormatting.DARK_GRAY + (ClientEventHandler.freecamLock ? "enabled" : "disabled"));
     			
     		} else {
     			
-    			CompatibleClientEventHandler.freecamEnabled = !CompatibleClientEventHandler.freecamEnabled;
-    			sendDebugMessage("Freecam " + TextFormatting.DARK_GRAY + (CompatibleClientEventHandler.freecamEnabled ? "enabled" : "disabled"));
+    			ClientEventHandler.freecamEnabled = !ClientEventHandler.freecamEnabled;
+    			sendDebugMessage("Freecam " + TextFormatting.DARK_GRAY + (ClientEventHandler.freecamEnabled ? "enabled" : "disabled"));
     			
     		
     		}
@@ -350,13 +355,13 @@ public class DebugCommand extends CompatibleCommand {
     		break;
     	case DEBUG_MUZZLE_POS:
     		 
-    		if(CompatibleClientEventHandler.muzzlePositioner) {
-    			compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + "Exiting muzzle debug...");
-    			CompatibleClientEventHandler.muzzlePositioner = false;
+    		if(ClientEventHandler.muzzlePositioner) {
+                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + "Exiting muzzle debug..."));
+    			ClientEventHandler.muzzlePositioner = false;
       	      
     		} else {
-    			compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + "Entering muzzle debug... a point will display.");
-      	      	CompatibleClientEventHandler.muzzlePositioner = true;
+                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + "Entering muzzle debug... a point will display."));
+      	      	ClientEventHandler.muzzlePositioner = true;
     		}
     		
     		 break;
@@ -375,15 +380,15 @@ public class DebugCommand extends CompatibleCommand {
         }
         if(debugMode != null) {
             DebugPositioner.setDebugMode(debugMode);
-            compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + "Debug mode " + args[0].toLowerCase());
+            mc.player.sendMessage(new TextComponentString(getDebugPrefix() + "Debug mode " + args[0].toLowerCase()));
         } else {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandDebugUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandDebugUsage()));
         }
     }
 
     private void processPauseSubCommand(String[] args) {
         if(args.length != 3) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandPauseUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandPauseUsage()));
             return;
         }
 
@@ -391,16 +396,16 @@ public class DebugCommand extends CompatibleCommand {
             int transitionNumber = Integer.parseInt(args[1]);
             long pauseDuration = Long.parseLong(args[2]);
             DebugPositioner.configureTransitionPause(transitionNumber, pauseDuration);
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Set transition "
-                    + transitionNumber + " pause to " + pauseDuration + "ms");
+            mc.player.sendMessage(new TextComponentString("Set transition "
+                    + transitionNumber + " pause to " + pauseDuration + "ms"));
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandPauseUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandPauseUsage()));
         }
     }
 
     private void processWatchSubCommand(String[] args) {
         if(args.length < 1) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandWatchUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandWatchUsage()));
             return;
         }
 
@@ -409,39 +414,39 @@ public class DebugCommand extends CompatibleCommand {
 
     private void processScaleSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandScaleUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandScaleUsage()));
             return;
         }
 
         if(DebugPositioner.getDebugPart() == null) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Debug part not selected");
+            mc.player.sendMessage(new TextComponentString("Debug part not selected"));
             return;
         }
 
         try {
             float scale = Float.parseFloat(args[1]);
             DebugPositioner.setScale(scale);
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Set scale to " + scale);
+            mc.player.sendMessage(new TextComponentString("Set scale to " + scale));
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandScaleUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandScaleUsage()));
         }
     }
     
     private void processAutorotateSubCommand(String[] args) {
         if(args.length < 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandAutorotateUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandAutorotateUsage()));
             return;
         }
 
         if(DebugPositioner.getDebugPart() == null) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Debug part not selected");
+            mc.player.sendMessage(new TextComponentString("Debug part not selected"));
             return;
         }
 
         try {
             float rpm = Float.parseFloat(args[1]);
             if(rpm < 0) {
-                compatibility.addChatMessage(compatibility.clientPlayer(), "RPM must be greater than 0");
+                mc.player.sendMessage(new TextComponentString("RPM must be greater than 0"));
                 return;
             }
             float xrpm = 0f;
@@ -463,62 +468,62 @@ public class DebugCommand extends CompatibleCommand {
                 xrpm = rpm;
             }
             DebugPositioner.setAutorotate(xrpm, yrpm, zrpm);
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Set autorotate to " 
-                    + xrpm +", " + yrpm + ", " + zrpm);
+            mc.player.sendMessage(new TextComponentString("Set autorotate to "
+                    + xrpm +", " + yrpm + ", " + zrpm));
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandAutorotateUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandAutorotateUsage()));
         }
     }
 
     private void processStepSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandStepUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandStepUsage()));
             return;
         }
 
         if(DebugPositioner.getDebugPart() == null) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Debug part not selected");
+            mc.player.sendMessage(new TextComponentString("Debug part not selected"));
             return;
         }
 
         try {
             float step = Float.parseFloat(args[1]);
             DebugPositioner.setStep(step);
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Set step to " + step);
+            mc.player.sendMessage(new TextComponentString("Set step to " + step));
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandStepUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandStepUsage()));
         }
     }
 
     private void processShowSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandShowUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
             return;
         }
         
         
-        if(CompatibleClientEventHandler.muzzlePositioner) {
-        	compatibility.addChatMessage(compatibility.clientPlayer(), getDebugPrefix() + "Muzzle Position: " + CompatibleClientEventHandler.debugmuzzlePosition);
+        if(ClientEventHandler.muzzlePositioner) {
+            mc.player.sendMessage(new TextComponentString(getDebugPrefix() + "Muzzle Position: " + ClientEventHandler.debugmuzzlePosition));
             return;
         }
         if(DebugPositioner.getDebugPart() == null) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Debug part not selected");
+            mc.player.sendMessage(new TextComponentString("Debug part not selected"));
             return;
         }
 
         switch(args[1].toLowerCase()) {
         case SHOW_OPTION_CODE:
             DebugPositioner.showCode();
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Code is copied to the console");
+            mc.player.sendMessage(new TextComponentString("Code is copied to the console"));
             break;
         default:
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandShowUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
         }
     }
 
     private void processWeaponPartSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandPartUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandPartUsage()));
             return;
         }
 
@@ -539,7 +544,7 @@ public class DebugCommand extends CompatibleCommand {
             default:
                 String partName = args[1];
 
-                Item item = compatibility.findItemByName(partName);
+                Item item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, partName));
                 Part part = null;
                 if(item instanceof Part) {
                     part = (Part) item;
@@ -552,15 +557,15 @@ public class DebugCommand extends CompatibleCommand {
                 break;
             }
 
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Debugging part " + args[1]);
+            mc.player.sendMessage(new TextComponentString("Debugging part " + args[1]));
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandPartUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandPartUsage()));
         }
     }
     
     private void processVehiclePartSubCommand(String[] args) {
         if(args.length != 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandVPartUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandVPartUsage()));
             return;
         }
 
@@ -597,13 +602,13 @@ public class DebugCommand extends CompatibleCommand {
                 DebugPositioner.setDebugPart(VehiclePart.REAR_RIGHT_WHEEL);
                 break;
             default:
-                compatibility.addChatMessage(compatibility.clientPlayer(), "Don't know anything about part " + args[1]);
+                mc.player.sendMessage(new TextComponentString("Don't know anything about part " + args[1]));
                 return;
             }
 
-            compatibility.addChatMessage(compatibility.clientPlayer(), "Debugging part " + args[1]);
+            mc.player.sendMessage(new TextComponentString("Debugging part " + args[1]));
         } catch(NumberFormatException e) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandVPartUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandVPartUsage()));
         }
     }
 

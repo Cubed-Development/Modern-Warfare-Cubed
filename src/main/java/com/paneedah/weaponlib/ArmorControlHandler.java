@@ -1,38 +1,30 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-public class ArmorControlHandler implements CompatibleMessageHandler<ArmorControlMessage, CompatibleMessage>  {
+public class ArmorControlHandler implements IMessageHandler<ArmorControlMessage, IMessage> {
 
     public static final String TAG_NIGHT_VISION = "nv";
-    
-    @SuppressWarnings("unused")
-    private ModContext modContext;
 
-    //private double yOffset = 1;
-
-    public ArmorControlHandler(ModContext modContext) {
-        this.modContext = modContext;
+    public ArmorControlHandler() {
     }
 
     @Override
-    public <T extends CompatibleMessage> T onCompatibleMessage(ArmorControlMessage message, CompatibleMessageContext ctx) {
-        if(ctx.isServerSide()) {
-            ctx.runInMainThread(() -> {
+    public IMessage onMessage(ArmorControlMessage message, MessageContext messageContext) {
+        if(messageContext.side == Side.SERVER) {
+            messageContext.getServerHandler().player.getServer().addScheduledTask(() -> {
                 if(message.isToggleNightVision()) {
-                    EntityPlayer player = ctx.getPlayer();
-                    ItemStack helmetStack = compatibility.getHelmet(player);
-                    if(helmetStack != null && helmetStack.getItem() instanceof CustomArmor 
-                            && ((CustomArmor)helmetStack.getItem()).hasNightVision()) {
-                        compatibility.ensureTagCompound(helmetStack);
-                        NBTTagCompound tagCompound = compatibility.getTagCompound(helmetStack);
+                    ItemStack helmetStack = messageContext.getServerHandler().player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+                    if(helmetStack != null && helmetStack.getItem() instanceof CustomArmor && ((CustomArmor) helmetStack.getItem()).hasNightVision()) {
+                        if (helmetStack.getTagCompound() == null)
+                            helmetStack.setTagCompound(new NBTTagCompound());
+                        NBTTagCompound tagCompound = helmetStack.getTagCompound();
                         boolean nightVisionOn = tagCompound.getBoolean(TAG_NIGHT_VISION);
                         tagCompound.setBoolean(TAG_NIGHT_VISION, !nightVisionOn);
                     }
