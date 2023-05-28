@@ -1,13 +1,9 @@
 package com.paneedah.weaponlib.render;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.AttachmentContainer;
-import com.paneedah.weaponlib.CompatibleAttachment;
-import com.paneedah.weaponlib.Weapon;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.SpriteSheetTools.Sprite;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -73,7 +69,7 @@ public class MuzzleFlashRenderer {
 		// Translate to muzzle position
 		Vec3d muzzle = weapon.getMuzzlePosition();
 		if(AnimationModeProcessor.getInstance().getFPSMode() && AnimationGUI.getInstance().forceFlash.isState()) {
-			muzzle = CompatibleClientEventHandler.debugmuzzlePosition;
+			muzzle = ClientEventHandler.debugmuzzlePosition;
 		}
 		GlStateManager.translate(muzzle.x, muzzle.y, muzzle.z);
 

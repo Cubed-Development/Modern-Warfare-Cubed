@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.render.bgl;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.DepthTexture;
 import com.paneedah.weaponlib.render.HDRFramebuffer;
@@ -486,7 +486,7 @@ public class PostProcessPipeline {
 
 		});
 
-		Vec3d iVec = CompatibleClientEventHandler.getInterpolatedPlayerCoords();
+		Vec3d iVec = MWCUtil.getInterpolatedPlayerPos();
 
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(-iVec.x, -iVec.y, -iVec.z);
@@ -633,7 +633,7 @@ public class PostProcessPipeline {
 		lightManager.updateUniforms(Shaders.postWorld);
 		lightManager.update();
 
-		Vec3d interpolatedPosition = CompatibleClientEventHandler.getInterpolatedPlayerCoords();
+		Vec3d interpolatedPosition = MWCUtil.getInterpolatedPlayerPos();
 		Shaders.postWorld.uniform3f("cameraPosition", (float) interpolatedPosition.x, (float) interpolatedPosition.y,
 				(float) interpolatedPosition.z);
 

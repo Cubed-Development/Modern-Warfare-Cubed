@@ -14,10 +14,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.*;
 import java.util.function.BiPredicate;
+
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 /**
  * This class provides random utility methods.
@@ -53,6 +58,8 @@ public class MWCUtil {
      * @param blockState The IBlockState to check.
      *
      * @return True if the block is penetrable by bullets, false otherwise.
+     *
+     * @author Desoroxx
      */
     public static boolean isPenetrableByBullets(IBlockState blockState) {
         if (PENETRABLE_MATERIALS.contains(blockState.getMaterial()) || PENETRABLE_BLOCKS.contains(blockState.getBlock()) || (!ModernConfigManager.penetrableBlocks.isEmpty() && ModernConfigManager.penetrableBlocks.contains(blockState.getBlock().getRegistryName().toString())))
@@ -69,6 +76,8 @@ public class MWCUtil {
      * @param player The EntityPlayer whose inventory should be consumed from.
      *
      * @return The actual number of items consumed from the inventory. This might be less than amount if the inventory does not contain enough items.
+     *
+     * @author Desoroxx
      */
     public static int consumeItemsFromPlayerInventory(final List<? extends Item> items, final int amount, final EntityPlayer player) {
         if (amount <= 0)
@@ -110,6 +119,8 @@ public class MWCUtil {
      * @param player The player whose inventory is being searched.
      *
      * @return An ItemStack representing the consumed item, or null if no item was consumed.
+     *
+     * @author Desoroxx
      */
     public static ItemStack consumeItemsFromPlayerInventory(final List<? extends ItemMagazine> items, final Comparator<ItemStack> comparator, final EntityPlayer player) {
         ItemStack maxStack = null;
@@ -137,6 +148,8 @@ public class MWCUtil {
      * @param isCollidable A BiPredicate that takes a Block and its IBlockState and returns true if the block is considered collidable, false otherwise.
      *
      * @return A RayTraceResult object containing the result of the ray trace. If no collision is detected, it returns null.
+     *
+     * @author Desoroxx
      */
     public static RayTraceResult rayTraceBlocks(final World world, final Vector3D startPos, final Vector3D endPos, final BiPredicate<Block, IBlockState> isCollidable) {
         int startX = FastMath.floorToInt(startPos.x);
@@ -195,5 +208,23 @@ public class MWCUtil {
             }
         }
         return null;
+    }
+
+    /**
+     * Gets interpolated player coordinates using the current partial render tick.
+     *
+     * @return The interpolated player coordinates
+     */
+    @SideOnly(Side.CLIENT)
+    public static Vec3d getInterpolatedPlayerPos() {
+        EntityPlayer player = mc.player;
+
+        final float renderPartialTicks = mc.getRenderPartialTicks();
+
+        final double interpolatedX = (player.posX - player.prevPosX) * renderPartialTicks + player.prevPosX;
+        final double interpolatedY = (player.posY - player.prevPosY) * renderPartialTicks + player.prevPosY;
+        final double interpolatedZ = (player.posZ - player.prevPosZ) * renderPartialTicks + player.prevPosZ;
+
+        return new Vec3d(interpolatedX, interpolatedY, interpolatedZ);
     }
 }

@@ -958,9 +958,9 @@ public class Interceptors {
     	
     	
     	
-    	if(Keyboard.isKeyDown(Keyboard.KEY_LCONTROL) && CompatibleClientEventHandler.freecamEnabled) {
-    		CompatibleClientEventHandler.yawDelta = yawDelta;
-        	CompatibleClientEventHandler.pitchDelta = pitchDelta;
+    	if(Keyboard.isKeyDown(Keyboard.KEY_LCONTROL) && ClientEventHandler.freecamEnabled) {
+            ClientEventHandler.yawDelta = yawDelta;
+            ClientEventHandler.pitchDelta = pitchDelta;
     		return;
     	}
     	

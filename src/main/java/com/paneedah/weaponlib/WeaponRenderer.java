@@ -13,7 +13,6 @@ import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.animation.jim.SingleAnimation;
 import com.paneedah.weaponlib.animation.movement.WeaponRotationHandler;
 import com.paneedah.weaponlib.command.DebugCommand;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.compatibility.ModelSourceRenderer;
 import com.paneedah.weaponlib.config.BalancePackManager;
@@ -3211,9 +3210,9 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		
 		weaponItemStack.getItem();
 		
-		if(CompatibleClientEventHandler.muzzlePositioner && !OpenGLSelectionHelper.isInSelectionPass) {
+		if(ClientEventHandler.muzzlePositioner && !OpenGLSelectionHelper.isInSelectionPass) {
 			GlStateManager.pushMatrix();
-			Vec3d deb = CompatibleClientEventHandler.debugmuzzlePosition;
+			Vec3d deb = ClientEventHandler.debugmuzzlePosition;
 			GlStateManager.translate(deb.x, deb.y, deb.z);
 			WeaponRenderer.captureAtlasPosition();
 			GlStateManager.popMatrix();
@@ -3230,7 +3229,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 			//mc.getFramebuffer().bindFramebuffer(false);
 			
 			
-			//Vec3d iP  = CompatibleClientEventHandler.getInterpolatedPlayerCoords();
+			//Vec3d iP  = MWCUtil.getInterpolatedPlayerPos();
 			//PostProcessPipeline.getLightManager().addLight((float) iP.x, (float) iP.y, (float) iP.z, 1.0f, 0.623f, 0.262f, 0.1f, 0.009f, 0.032f);
 
 			MuzzleFlashRenderer.renderFlash(renderContext.getPlayer().getEntityId(), weaponItemStack, false);
@@ -3245,8 +3244,8 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 			renderFlash(weaponItemStack, false);
 			*/
 		}
-		//CompatibleClientEventHandler.muzzleFlashMap.clear();
-		//CompatibleClientEventHandler.uploadFlash(mc.player.getEntityId());
+		//ClientEventHandler.muzzleFlashMap.clear();
+		//ClientEventHandler.uploadFlash(mc.player.getEntityId());
 
 		/*
 		 GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, MODELVIEW);
@@ -3637,7 +3636,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 	    	GlStateManager.pushMatrix();
 	    	
 	    	//GlStateManager.translate(mag.getRotationPoint().x, mag.getRotationPoint().y, mag.getRotationPoint().z);
-	    	GlStateManager.translate(CompatibleClientEventHandler.magRotPositioner.x, CompatibleClientEventHandler.magRotPositioner.y, CompatibleClientEventHandler.magRotPositioner.z);
+	    	GlStateManager.translate(ClientEventHandler.magRotPositioner.x, ClientEventHandler.magRotPositioner.y, ClientEventHandler.magRotPositioner.z);
 	    	
 	    	
 	    	WeaponRenderer.captureAtlasPosition();
@@ -3712,8 +3711,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 				if(!(compatibleAttachment.getAttachment() instanceof ItemMagazine)) {
 					compatibleAttachment.getModelPositioning().accept(texturedModel.getU());
 				} else {
-					new Transform().withScale(1, 1, 1).withRotationPoint(CompatibleClientEventHandler.magRotPositioner.x, CompatibleClientEventHandler.magRotPositioner.y, CompatibleClientEventHandler.magRotPositioner.z)
-							.withRotation(45, 0, 0).doGLDirect();
+					new Transform().withScale(1, 1, 1).withRotationPoint(ClientEventHandler.magRotPositioner.x, ClientEventHandler.magRotPositioner.y, ClientEventHandler.magRotPositioner.z).withRotation(45, 0, 0).doGLDirect();
 				}*/
 				
 				
@@ -3751,7 +3749,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 				*/
 				/*
 				if((compatibleAttachment.getAttachment() instanceof ItemMagazine)) {
-					new Transform().withScale(1, 1, 1).withRotationPoint(CompatibleClientEventHandler.magRotPositioner.x, CompatibleClientEventHandler.magRotPositioner.y, CompatibleClientEventHandler.magRotPositioner.z)
+					new Transform().withScale(1, 1, 1).withRotationPoint(ClientEventHandler.magRotPositioner.x, ClientEventHandler.magRotPositioner.y, ClientEventHandler.magRotPositioner.z)
 					.withRotation(0, 0, 0).doGLDirect();
 				}
 				*/

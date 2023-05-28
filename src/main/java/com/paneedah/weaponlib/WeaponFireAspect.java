@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.animation.ClientValueRepo;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
@@ -354,13 +353,13 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
     		velocity = velocity.rotateYaw((float) Math.toRadians(-player.rotationYaw));
     		Shell shell = new Shell(weapon.getShellType(), pos.add(weaponDir), new Vec3d(-90, 0, 180 + player.rotationYaw), velocity);
-        	CompatibleClientEventHandler.SHELL_MANAGER.enqueueShell(shell);
+            ClientEventHandler.SHELL_MANAGER.enqueueShell(shell);
     	
         	//Shell
         	
         	/*
         	// Change the raw position
-        	Vec3d rawPosition = new Vec3d(CompatibleClientEventHandler.NEW_POS.get(0), CompatibleClientEventHandler.NEW_POS.get(1), CompatibleClientEventHandler.NEW_POS.get(2));
+        	Vec3d rawPosition = new Vec3d(ClientEventHandler.NEW_POS.get(0), ClientEventHandler.NEW_POS.get(1), ClientEventHandler.NEW_POS.get(2));
         	
         	
         	// Calculate the final position of the bullet spawn point
@@ -375,7 +374,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
     		
     		// Spawn in shell
     		Shell shell = new Shell(weaponInstance.getWeapon().getShellType(), new Vec3d(finalPosition.x, finalPosition.y, finalPosition.z), new Vec3d(90, 0, 90), velocity);
-        	CompatibleClientEventHandler.shellManager.enqueueShell(shell);
+        	ClientEventHandler.shellManager.enqueueShell(shell);
         	*/
         }
         

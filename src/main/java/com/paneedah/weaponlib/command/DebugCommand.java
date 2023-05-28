@@ -9,7 +9,7 @@ import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.compatibility.graph.CompatibilityClassGenerator;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
@@ -340,13 +340,13 @@ public class DebugCommand extends CommandBase {
     	switch(args[0].toLowerCase()) {
     	case DEBUG_FREECAM:
     		if(args.length > 1 && args[1].equals("lock")) {
-    			CompatibleClientEventHandler.freecamLock = !CompatibleClientEventHandler.freecamLock;
-    			sendDebugMessage("Freecam lock " + TextFormatting.DARK_GRAY + (CompatibleClientEventHandler.freecamLock ? "enabled" : "disabled"));
+    			ClientEventHandler.freecamLock = !ClientEventHandler.freecamLock;
+    			sendDebugMessage("Freecam lock " + TextFormatting.DARK_GRAY + (ClientEventHandler.freecamLock ? "enabled" : "disabled"));
     			
     		} else {
     			
-    			CompatibleClientEventHandler.freecamEnabled = !CompatibleClientEventHandler.freecamEnabled;
-    			sendDebugMessage("Freecam " + TextFormatting.DARK_GRAY + (CompatibleClientEventHandler.freecamEnabled ? "enabled" : "disabled"));
+    			ClientEventHandler.freecamEnabled = !ClientEventHandler.freecamEnabled;
+    			sendDebugMessage("Freecam " + TextFormatting.DARK_GRAY + (ClientEventHandler.freecamEnabled ? "enabled" : "disabled"));
     			
     		
     		}
@@ -355,13 +355,13 @@ public class DebugCommand extends CommandBase {
     		break;
     	case DEBUG_MUZZLE_POS:
     		 
-    		if(CompatibleClientEventHandler.muzzlePositioner) {
+    		if(ClientEventHandler.muzzlePositioner) {
                 mc.player.sendMessage(new TextComponentString(getDebugPrefix() + "Exiting muzzle debug..."));
-    			CompatibleClientEventHandler.muzzlePositioner = false;
+    			ClientEventHandler.muzzlePositioner = false;
       	      
     		} else {
                 mc.player.sendMessage(new TextComponentString(getDebugPrefix() + "Entering muzzle debug... a point will display."));
-      	      	CompatibleClientEventHandler.muzzlePositioner = true;
+      	      	ClientEventHandler.muzzlePositioner = true;
     		}
     		
     		 break;
@@ -502,8 +502,8 @@ public class DebugCommand extends CommandBase {
         }
         
         
-        if(CompatibleClientEventHandler.muzzlePositioner) {
-            mc.player.sendMessage(new TextComponentString(getDebugPrefix() + "Muzzle Position: " + CompatibleClientEventHandler.debugmuzzlePosition));
+        if(ClientEventHandler.muzzlePositioner) {
+            mc.player.sendMessage(new TextComponentString(getDebugPrefix() + "Muzzle Position: " + ClientEventHandler.debugmuzzlePosition));
             return;
         }
         if(DebugPositioner.getDebugPart() == null) {

@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.network.packets;
 
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.network.NetworkUtil;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import io.netty.buffer.ByteBuf;
@@ -51,7 +51,7 @@ public class BulletShellClient implements net.minecraftforge.fml.common.network.
 		public IMessage onMessage(BulletShellClient message, MessageContext messageContext) {
 			mc.addScheduledTask(() -> {
 				if(mc.player.getEntityId() != message.shooter)
-					CompatibleClientEventHandler.SHELL_MANAGER.enqueueShell(new Shell(message.type, message.position, new Vec3d(-90, 0, 90), message.velocity));
+					ClientEventHandler.SHELL_MANAGER.enqueueShell(new Shell(message.type, message.position, new Vec3d(-90, 0, 90), message.velocity));
 			});
 
 			return null;

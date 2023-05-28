@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.particle.vehicle;
 
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.ClientEventHandler;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.entity.Entity;
@@ -38,7 +38,7 @@ public class VehicleExhaustFlameParticle extends Particle {
         
         this.lavaParticleScale = this.particleScale;
         this.particleMaxAge = (int)(1.0D / (Math.random() * 0.8D + 0.2D));
-        setParticleTexture(CompatibleClientEventHandler.carParticles);
+        setParticleTexture(ClientEventHandler.carParticles);
 	}
 	
 	@Override

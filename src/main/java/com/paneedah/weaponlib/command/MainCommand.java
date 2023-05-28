@@ -3,7 +3,6 @@ package com.paneedah.weaponlib.command;
 import com.paneedah.mwc.bases.ManufacturingItemBase;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.block.Block;
 import net.minecraft.client.resources.I18n;
@@ -55,7 +54,7 @@ public class MainCommand extends CommandBase {
     	
     	
     	if(args[0].equals("nosway")) {
-    		CompatibleClientEventHandler.cancelSway = !CompatibleClientEventHandler.cancelSway;
+            ClientEventHandler.cancelSway = !ClientEventHandler.cancelSway;
     		
     	}
     	

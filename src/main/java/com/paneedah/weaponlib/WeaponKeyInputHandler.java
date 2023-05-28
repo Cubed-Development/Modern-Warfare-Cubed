@@ -60,24 +60,24 @@ public class WeaponKeyInputHandler {
 	    /*
 	    try {
 	    	//System.out.println(KeyBindings.jDebugKey);
-	    	if(CompatibleClientEventHandler.muzzlePositioner) {
+	    	if(ClientEventHandler.muzzlePositioner) {
 		    	double incr = 0.1;
 		    	if(KeyBindings.upArrowKey.isPressed()) {
-		    		CompatibleClientEventHandler.debugmuzzlePosition = CompatibleClientEventHandler.debugmuzzlePosition.add(0, incr, 0);
+		    		ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(0, incr, 0);
 		    	} else if(KeyBindings.downArrowKey.isPressed()) {
-		    		CompatibleClientEventHandler.debugmuzzlePosition = CompatibleClientEventHandler.debugmuzzlePosition.add(0, -incr, 0);
+		    		ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(0, -incr, 0);
 			    	
 		    	} else if(KeyBindings.leftArrowKey.isPressed()) {
-		    		CompatibleClientEventHandler.debugmuzzlePosition = CompatibleClientEventHandler.debugmuzzlePosition.add(incr, 0, 0);
+		    		ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(incr, 0, 0);
 			    	
 		    	} else if(KeyBindings.rightArrowKey.isPressed()) {
-		    		CompatibleClientEventHandler.debugmuzzlePosition = CompatibleClientEventHandler.debugmuzzlePosition.add(-incr, 0, 0);
+		    		ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(-incr, 0, 0);
 			    	
 		    	} else if(KeyBindings.jDebugKey.isPressed()) {
-		    		CompatibleClientEventHandler.debugmuzzlePosition = CompatibleClientEventHandler.debugmuzzlePosition.add(0, 0, incr);
+		    		ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(0, 0, incr);
 			    	
 		    	} else if(KeyBindings.kDebugKey.isPressed()) {
-		    		CompatibleClientEventHandler.debugmuzzlePosition = CompatibleClientEventHandler.debugmuzzlePosition.add(0, 0, -incr);
+		    		ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(0, 0, -incr);
 			    	
 		    	}
 		    }
@@ -159,17 +159,17 @@ public class WeaponKeyInputHandler {
 	        }
 	    } else {
 	    	if(KeyBindings.upArrowKey.isKeyDown()) {
-	    		CompatibleClientEventHandler.magRotPositioner = CompatibleClientEventHandler.magRotPositioner.add(0, 0.1, 0);
+	    		ClientEventHandler.magRotPositioner = ClientEventHandler.magRotPositioner.add(0, 0.1, 0);
 	    	} else if(KeyBindings.leftArrowKey.isKeyDown()) {
-	    		CompatibleClientEventHandler.magRotPositioner =CompatibleClientEventHandler.magRotPositioner.add(-0.1, 0, 0);
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(-0.1, 0, 0);
 	    	} else if(KeyBindings.rightArrowKey.isKeyDown()) {
-	    		CompatibleClientEventHandler.magRotPositioner =CompatibleClientEventHandler.magRotPositioner.add(0.1, 0, 0);
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0.1, 0, 0);
 	    	} else if(KeyBindings.downArrowKey.isKeyDown()) {
-	    		CompatibleClientEventHandler.magRotPositioner =CompatibleClientEventHandler.magRotPositioner.add(0, -0.1, 0);
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0, -0.1, 0);
 	    	} else if(KeyBindings.jDebugKey.isKeyDown()) {
-	    		CompatibleClientEventHandler.magRotPositioner =CompatibleClientEventHandler.magRotPositioner.add(0, 0, 0.1);
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0, 0, 0.1);
 	    	} else if(KeyBindings.kDebugKey.isKeyDown()) {
-	    		CompatibleClientEventHandler.magRotPositioner =CompatibleClientEventHandler.magRotPositioner.add(0, 0, -0.1);
+	    		ClientEventHandler.magRotPositioner =ClientEventHandler.magRotPositioner.add(0, 0, -0.1);
 	    	}
 	    }*/
 	    

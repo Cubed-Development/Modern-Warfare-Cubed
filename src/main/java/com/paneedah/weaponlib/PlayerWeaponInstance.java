@@ -61,7 +61,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     public final DynamicShaderGroupSource VIGNETTE_SOURCE = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID,
             new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/vignette.json"))
             .withUniform("Radius", context -> getOpticScopeVignetteRadius(context.getPartialTicks()))
-           // .withUniform("Velocity", context -> new float[]{CompatibleClientEventHandler.scopeVelX, CompatibleClientEventHandler.scopeVelY})
+           // .withUniform("Velocity", context -> new float[]{ClientEventHandler.scopeVelX, ClientEventHandler.scopeVelY})
             .withUniform("Reticle", context -> {
             	
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);

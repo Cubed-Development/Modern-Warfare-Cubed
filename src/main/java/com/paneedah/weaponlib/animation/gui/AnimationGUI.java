@@ -11,7 +11,7 @@ import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.DebugPositioner.Position;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -328,14 +328,14 @@ public class AnimationGUI {
 			
 			
 			
-			if(CompatibleClientEventHandler.muzzlePositioner) {
-				System.out.println("(" + CompatibleClientEventHandler.debugmuzzlePosition.x + ", " + CompatibleClientEventHandler.debugmuzzlePosition.y  + ", " + CompatibleClientEventHandler.debugmuzzlePosition.z + ")");
+			if(ClientEventHandler.muzzlePositioner) {
+				System.out.println("(" + ClientEventHandler.debugmuzzlePosition.x + ", " + ClientEventHandler.debugmuzzlePosition.y  + ", " + ClientEventHandler.debugmuzzlePosition.z + ")");
 				
 				return;
 			}
 
 			if(magEdit.isState()) {
-				System.out.println("(" + CompatibleClientEventHandler.magRotPositioner.x + ", " + CompatibleClientEventHandler.magRotPositioner.y  + ", " + CompatibleClientEventHandler.magRotPositioner.z + ")");
+				System.out.println("(" + ClientEventHandler.magRotPositioner.x + ", " + ClientEventHandler.magRotPositioner.y  + ", " + ClientEventHandler.magRotPositioner.z + ")");
 				return;
 			}
 			
@@ -397,10 +397,10 @@ public class AnimationGUI {
 			}
 		} else if(id == forceFlash) {
 			if(forceFlash.isState()) {
-				CompatibleClientEventHandler.muzzlePositioner = true;
+				ClientEventHandler.muzzlePositioner = true;
 				
 			} else {
-				CompatibleClientEventHandler.muzzlePositioner = false;
+				ClientEventHandler.muzzlePositioner = false;
 			}
 		} else if(id == magEdit) {
 			DebugPositioner.setDebugMode(true);

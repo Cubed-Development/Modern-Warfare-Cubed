@@ -1,12 +1,8 @@
 package com.paneedah.weaponlib.animation;
 
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.ClientModContext;
-import com.paneedah.weaponlib.Part;
-import com.paneedah.weaponlib.PlayerWeaponInstance;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponRenderer.Builder;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.render.Shaders;
 import net.minecraft.client.gui.ScaledResolution;
@@ -239,7 +235,7 @@ public class AnimationModeProcessor {
 			}
 		}
 
-		if(CompatibleClientEventHandler.muzzlePositioner) {
+		if(ClientEventHandler.muzzlePositioner) {
 			DebugPositioner.setDebugPart(Part.NONE);
 			OpenGLSelectionHelper.selectID = 4;
 			transformMode = 1;
@@ -318,17 +314,16 @@ public class AnimationModeProcessor {
 				
 				boolean modernMode = true;
 				
-				if(CompatibleClientEventHandler.muzzlePositioner) {
-					 CompatibleClientEventHandler.debugmuzzlePosition = CompatibleClientEventHandler.debugmuzzlePosition.add(-vec.x*m*0.1, vec.y*m*0.1, vec.z*m*0.1);
+				if(ClientEventHandler.muzzlePositioner) {
+					ClientEventHandler.debugmuzzlePosition = ClientEventHandler.debugmuzzlePosition.add(-vec.x*m*0.1, vec.y*m*0.1, vec.z*m*0.1);
 				} else if(!modernMode){
 					 DebugPositioner.incrementXPosition((float) vec.x*m, false);
 					 DebugPositioner.incrementYPosition((float) vec.y*m, false);
 					 DebugPositioner.incrementZPosition((float) vec.z*m, false);
-				} else if(AnimationGUI.getInstance().magEdit.isState()) { 
-				
-					
-					CompatibleClientEventHandler.magRotPositioner = 
-							CompatibleClientEventHandler.magRotPositioner.add(vec.x*m, vec.y*m, vec.z*m);
+				} else if(AnimationGUI.getInstance().magEdit.isState()) {
+
+
+					ClientEventHandler.magRotPositioner = ClientEventHandler.magRotPositioner.add(vec.x*m, vec.y*m, vec.z*m);
 					
 				} else {
 					
