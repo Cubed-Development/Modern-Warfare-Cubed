@@ -28,7 +28,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added the Workbench and the Ammo Press to the Creative Tab
 - Translations for Chinese, Spanish, and Turkish languages
 - GitHub URL in `mcmod.info`
-- Proning feature in single player mode (**Note: Currently unanimated; player will appear standing**)
+- Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
 
 ### Changed
 
