@@ -77,7 +77,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 - Removed all arcade guns (These will be moved to a sister mod at a later time)
 - Removed the mission system
-- [WIP] Removed a significant part of the compatibility layer
+- [WIP] Removed most of the compatibility layer
 - Removed FXAA
 - Removed Bloom
 
@@ -86,7 +86,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - As a result of a BIG code cleanup MWC as a whole should now be slightly faster, load slightly faster and use slightly less resources
 - Losslessly compressed assets as a result the jar size decreased (35.3MB -> 27.57MB)
 - Improved ShaderLoader
-- Reduced overhead due to the removal of a part of the compatibility layer leading to increased performance
+- Reduced overhead due to the removal of most of the compatibility layer leading to increased performance
 
 ### Internal
 
