@@ -1957,8 +1957,8 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 				if (b.getValue(BlockSnow.LAYERS).intValue() > 2)
 					return;
 				upMag += 0.5;
-			} else*/ if (/*b.causesSuffocation() ||*/ b.getBlock() instanceof BlockPane || b.getBlock() instanceof BlockSlab || b.getBlock() instanceof BlockGlass)
-				return;
+			} else*/ //if (/*b.causesSuffocation() ||*/ b.getBlock() instanceof BlockPane || b.getBlock() instanceof BlockSlab || b.getBlock() instanceof BlockGlass)
+				//return;
 			Vec3d hitVec = ray.hitVec;
 			Vec3d ab = hitVec.subtract(getPositionVector());
 			double distance = ab.lengthSquared();

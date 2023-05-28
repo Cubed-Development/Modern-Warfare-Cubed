@@ -5,7 +5,6 @@ import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -222,7 +221,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
          *  GLASS BREAK CHECK
          */
 
-        if(ModernConfigManager.bulletBreakGlass && !world.isRemote) {
+        if(ModernConfigManager.bulletBreakBlock && !world.isRemote) {
         	 Vec3d motion = new Vec3d(this.motionX, this.motionY, this.motionZ);
              Vec3d start = new Vec3d(this.prevPosX, this.prevPosY, this.prevPosZ);
              Vec3d end = new Vec3d(this.posX, this.posY, this.posZ).add(motion);
@@ -230,8 +229,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
              RayTraceResult rtr = world.rayTraceBlocks(start, end, false, true, false);
              if(rtr != null) {
                  IBlockState state = world.getBlockState(rtr.getBlockPos());
-                 if(state.getMaterial() == Material.GLASS) {
-                     this.world.destroyBlock(rtr.getBlockPos(), true);
+                 String blockId = Block.REGISTRY.getNameForObject(state.getBlock()).toString();
+                 if(ModernConfigManager.breakBlocks.contains(blockId)) {
+                     this.world.destroyBlock(rtr.getBlockPos(), false);
 
                      ModContext context = CommonModContext.getContext();
                      if (context == null)

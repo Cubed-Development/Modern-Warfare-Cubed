@@ -11,12 +11,11 @@ import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.*;
 import com.paneedah.weaponlib.model.Shell;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.resources.I18n;
@@ -907,10 +906,11 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             if (blockImpactHandler == null) {
                 blockImpactHandler = (world, player, entity, position) -> {
                     IBlockState iBlockState = world.getBlockState(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ()));
+                    String blockId = Block.REGISTRY.getNameForObject(iBlockState.getBlock()).toString();
 
-                    if (ModernConfigManager.bulletBreakGlass && iBlockState.getMaterial() == Material.GLASS) {
-                        world.destroyBlock(new BlockPos(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ())), true);
-                    } else {
+                    //if (ModernConfigManager.bulletBreakBlock && ModernConfigManager.breakBlocks.contains(blockId)) {
+                    //    world.destroyBlock(new BlockPos(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ())), true);
+                    //} else {
                         //compatibility.addBlockHitEffect(position);
                         //compatibility.playSound(world, posX, posY, posZ, explosionSound, volume, pitch);
                         NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100);
@@ -920,7 +920,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                         if(materialImpactSound != null) {
                             world.playSound(null, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), materialImpactSound.getSound(), SoundCategory.BLOCKS, materialImpactSound.getVolume(), 1f);
                         }
-                    }
+                    //}
                 };
             }
 

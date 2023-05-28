@@ -9,10 +9,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * This class provides random utility methods.
@@ -50,10 +47,13 @@ public class MWCUtil {
      * @return True if the block is penetrable by bullets, false otherwise.
      */
     public static boolean isPenetrableByBullets(IBlockState blockState) {
-        if (PENETRABLE_MATERIALS.contains(blockState.getMaterial()) || PENETRABLE_BLOCKS.contains(blockState.getBlock()))
+        String blockId = Block.REGISTRY.getNameForObject(blockState.getBlock()).toString();
+        if (PENETRABLE_MATERIALS.contains(blockState.getMaterial())
+                || PENETRABLE_BLOCKS.contains(blockState.getBlock())
+                || ModernConfigManager.penetratingBlocks.contains(blockId))
             return true;
 
-        return ModernConfigManager.bulletBreakGlass && blockState.getMaterial() == Material.GLASS;
+        return ModernConfigManager.bulletBreakBlock && ModernConfigManager.breakBlocks.contains(blockId);
     }
 
     /**

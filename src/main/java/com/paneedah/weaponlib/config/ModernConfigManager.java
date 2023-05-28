@@ -109,8 +109,14 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should players bleed when hit?")
 	public static double enableBleedingOnHit = 1.0F;
 
-	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should glass blocks be breakable by bullets?")
-	public static boolean bulletBreakGlass = true;
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should blocks be breakable by bullets?")
+	public static boolean bulletBreakBlock = true;
+
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "The format is not strict, the block ID can match these will be break.")
+	public static String breakBlocks = "minecraft:ice, minecraft:glass_pane, minecraft:stained_glass_pane";
+
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "The format is not strict, the block ID can match these will be penetrating.")
+	public static String penetratingBlocks = "minecraft:barrier, minecraft:fence";
 
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables muzzle effects.")
 	public static boolean enableMuzzleEffects = true;
