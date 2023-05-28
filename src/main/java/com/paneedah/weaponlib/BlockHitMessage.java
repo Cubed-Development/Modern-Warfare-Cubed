@@ -3,8 +3,9 @@ package com.paneedah.weaponlib;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
-public class BlockHitMessage implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class BlockHitMessage implements IMessage {
 	private BlockPos blockPos;
 	private double posX, posY, posZ;
 	/*

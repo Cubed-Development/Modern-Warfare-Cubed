@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class StationClientPacket implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class StationClientPacket implements IMessage {
 
 	// THIS ONLY EXISTS ON THE SERVER END, THIS
 	// VARIABLE WILL BE NULL ON THE CLIENT END.

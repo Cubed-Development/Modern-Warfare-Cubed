@@ -1,10 +1,11 @@
 package com.paneedah.weaponlib.vehicle.network;
 
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 import java.io.IOException;
 
-public class VehicleControlPacket implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class VehicleControlPacket implements IMessage {
 
 	public VehicleDataContainer serializer;
 

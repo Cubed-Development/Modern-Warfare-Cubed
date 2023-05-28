@@ -5,10 +5,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 import java.io.IOException;
 
-public class EntityInventorySyncMessage implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class EntityInventorySyncMessage implements IMessage {
 
     private NBTTagCompound inventoryCompound;
     private int entityId;

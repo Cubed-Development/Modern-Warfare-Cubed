@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.command;
 
 import akka.japi.Pair;
 import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.Part;
@@ -9,7 +10,6 @@ import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
-import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.compatibility.graph.CompatibilityClassGenerator;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;

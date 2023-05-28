@@ -1,8 +1,9 @@
 package com.paneedah.weaponlib;
 
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
-public class TryFireMessage implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class TryFireMessage implements IMessage {
 
 	private boolean on;
 	private boolean isBurst;

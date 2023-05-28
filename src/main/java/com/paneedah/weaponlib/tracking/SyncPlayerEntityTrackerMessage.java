@@ -1,10 +1,11 @@
 package com.paneedah.weaponlib.tracking;
 
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 import static com.paneedah.mwc.utils.ModReference.log;
 
-public class SyncPlayerEntityTrackerMessage implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class SyncPlayerEntityTrackerMessage implements IMessage {
 
     private PlayerEntityTracker playerEntityTracker;
 	private String statusMessage;

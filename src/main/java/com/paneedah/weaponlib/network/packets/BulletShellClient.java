@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class BulletShellClient implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class BulletShellClient implements IMessage {
 
 	public Vec3d position;
 	public int shooter;

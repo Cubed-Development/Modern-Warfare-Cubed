@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class BalancePackClient implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class BalancePackClient implements IMessage {
 
 	BalancePack pack;
 

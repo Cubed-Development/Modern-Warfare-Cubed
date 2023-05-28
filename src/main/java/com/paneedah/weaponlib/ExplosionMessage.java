@@ -4,11 +4,12 @@ import com.google.common.collect.Lists;
 import com.paneedah.mwc.vectors.Vector3D;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExplosionMessage implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class ExplosionMessage implements IMessage {
 
     private double posX;
     private double posY;

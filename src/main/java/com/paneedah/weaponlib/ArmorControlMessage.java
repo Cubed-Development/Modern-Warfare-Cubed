@@ -1,8 +1,9 @@
 package com.paneedah.weaponlib;
 
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
-public class ArmorControlMessage implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class ArmorControlMessage implements IMessage {
 
     public static enum EntityAction { STOP }
 

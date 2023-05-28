@@ -1,17 +1,13 @@
 package com.paneedah.weaponlib.animation.gui;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.ClientModContext;
-import com.paneedah.weaponlib.PlayerWeaponInstance;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
-import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.WeaponRenderer.Builder;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.DebugPositioner.Position;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
-import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;

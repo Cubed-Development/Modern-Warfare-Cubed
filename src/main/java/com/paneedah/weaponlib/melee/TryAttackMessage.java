@@ -4,8 +4,9 @@ import com.paneedah.weaponlib.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
-public class TryAttackMessage implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class TryAttackMessage implements IMessage {
 
 	private int entityId;
 	private boolean isHeavyAttack;

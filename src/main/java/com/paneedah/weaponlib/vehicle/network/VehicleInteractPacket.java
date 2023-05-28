@@ -1,8 +1,9 @@
 package com.paneedah.weaponlib.vehicle.network;
 
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
-public class VehicleInteractPacket implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class VehicleInteractPacket implements IMessage {
 
 	public boolean right;
 	public int vehicleID;

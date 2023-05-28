@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class BloodPacketClient implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class BloodPacketClient implements IMessage {
 
 	double x, y, z, velx, vely, velz;
 

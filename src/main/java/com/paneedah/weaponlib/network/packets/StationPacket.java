@@ -28,7 +28,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class StationPacket implements net.minecraftforge.fml.common.network.simpleimpl.IMessage {
+public class StationPacket implements IMessage {
 
 	
 	
