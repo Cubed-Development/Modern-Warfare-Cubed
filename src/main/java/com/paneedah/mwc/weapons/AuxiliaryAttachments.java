@@ -20,7 +20,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> BeowulfAction;
     public static ItemAttachment<Weapon> S710TricunActionPully;
     public static ItemAttachment<Weapon> S710TricunActionEjector;
-    public static ItemAttachment<Weapon> SA80Action;
+//    public static ItemAttachment<Weapon> SA80Action;
     public static ItemAttachment<Weapon> P90Action;
     public static ItemAttachment<Weapon> M110Action;
     public static ItemAttachment<Weapon> M4Rail;
@@ -1401,7 +1401,23 @@ public class AuxiliaryAttachments {
                 .withName("SSG08")
                 .withRenderablePart().withTextureName("Dummy.png")
                 .build(ModernWarfareMod.MOD_CONTEXT);
-        
+
+        HecateIIBoltAction1 = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA3)
+                // .withCreativeTab(ModernWarfareMod.gunsTab)
+                .withModel(new com.paneedah.mwc.models.PGMHecateIIBoltAction1(), "pgmhecateii")
+                .withName("PGMHecateIIBoltAction1")
+                .withRenderablePart().withTextureName("Dummy.png")
+                .build(ModernWarfareMod.MOD_CONTEXT);
+
+        HecateIIBoltAction2 = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA2)
+                // .withCreativeTab(ModernWarfareMod.gunsTab)
+                .withModel(new com.paneedah.mwc.models.PGMHecateIIBoltAction2(), "pgmhecateii")
+                .withName("PGMHecateIIBoltAction2")
+                .withRenderablePart().withTextureName("Dummy.png")
+                .build(ModernWarfareMod.MOD_CONTEXT);
+
         Remington700BoltAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 // .withCreativeTab(ModernWarfareMod.gunsTab)
@@ -1627,10 +1643,10 @@ public class AuxiliaryAttachments {
                 .withName("APC9Action").withRenderablePart()
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT);
         
-        SA80Action = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
-                .withModel(new com.paneedah.mwc.models.SA80Action(), "sa80.png")
-                .withName("SA80Action").withRenderablePart()
-                .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT);
+//        SA80Action = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
+//                .withModel(new com.paneedah.mwc.models.SA80Action(), "sa80.png")
+//                .withName("SA80Action").withRenderablePart()
+//                .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT);
         
         BrenAction = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new com.paneedah.mwc.models.CZ805BrenAction(), "cz805bren.png")

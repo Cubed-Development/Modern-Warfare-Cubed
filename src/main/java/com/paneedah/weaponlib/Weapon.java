@@ -913,7 +913,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                     IBlockState iBlockState = world.getBlockState(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ()));
 
                     if (ModernConfigManager.bulletBreakGlass && iBlockState.getMaterial() == Material.GLASS) {
-                        world.destroyBlock(new BlockPos(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ())), true);
+                        world.destroyBlock(new BlockPos(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ())), false);
                     } else {
                         //compatibility.addBlockHitEffect(position);
                         //compatibility.playSound(world, posX, posY, posZ, explosionSound, volume, pitch);
