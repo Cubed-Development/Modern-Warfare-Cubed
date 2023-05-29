@@ -1,13 +1,15 @@
 package com.paneedah.weaponlib.network.packets;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.network.advanced.SimplePacket;
 import com.paneedah.weaponlib.network.advanced.data.DataTypes;
 import com.paneedah.weaponlib.network.advanced.data.PacketSerializer;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.io.ByteArrayOutputStream;
 
@@ -36,7 +38,7 @@ public class CraftingClientPacket extends SimplePacket {
 	
 
 	
-	public static class SimplePacketHandler implements CompatibleMessageHandler<CraftingClientPacket, CompatibleMessage> {
+	public static class SimplePacketHandler implements IMessageHandler<CraftingClientPacket, IMessage> {
 
 		private ModContext context;
 
@@ -48,20 +50,20 @@ public class CraftingClientPacket extends SimplePacket {
 		}
 		
 		@Override
-		public <T extends CompatibleMessage> T onCompatibleMessage(CraftingClientPacket compatibleMessage, CompatibleMessageContext ctx) {
+		@SideOnly(Side.CLIENT)
+		public IMessage onMessage(CraftingClientPacket message, MessageContext messageContext) {
 			mc.addScheduledTask(() -> {
-				
-				int opcode = compatibleMessage.opcode.getValue();
+				int opcode = message.opcode.getValue();
 				if(opcode == RECEIVE_HASH) {
 					// Check if we already have a file with this hash on our system	
-					boolean check = CraftingFileManager.getInstance().checkFileHashAndLoad(compatibleMessage.fileStream.getValue().toByteArray());
+					boolean check = CraftingFileManager.getInstance().checkFileHashAndLoad(message.fileStream.getValue().toByteArray());
 					if(!check) {
 						// Tell the server that we need the file data.
-						context.getChannel().getChannel().sendToServer(new CraftingServerPacket(mc.player.getEntityId()));
+						context.getChannel().sendToServer(new CraftingServerPacket(mc.player.getEntityId()));
 					}
 				} else if(opcode == RECEIVE_FILESTREAM) {
 					// We have gotten the file, save it to disk and load it.
-					CraftingFileManager.getInstance().saveCacheAndLoad(compatibleMessage.fileStream.getValue());
+					CraftingFileManager.getInstance().saveCacheAndLoad(message.fileStream.getValue());
 				}
 				
 			});

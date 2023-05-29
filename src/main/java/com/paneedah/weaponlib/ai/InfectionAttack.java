@@ -8,8 +8,6 @@ import net.minecraft.entity.EntityLivingBase;
 
 import java.util.UUID;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class InfectionAttack implements CustomMobAttack, Spreadable {
     
     private static UUID uuid = UUID.randomUUID();
@@ -34,7 +32,7 @@ public class InfectionAttack implements CustomMobAttack, Spreadable {
         if(target instanceof EntityLivingBase) {
             SpreadableExposure exposure = CompatibleExposureCapability.getExposure(target, SpreadableExposure.class);
             if(exposure == null) {
-                exposure = new SpreadableExposure(firstExposureImpactDelay, compatibility.world(entityMob).getTotalWorldTime())
+                exposure = new SpreadableExposure(firstExposureImpactDelay, entityMob.world.getTotalWorldTime())
                         .withColorImpairment(colorImpairmentR, colorImpairmentG, colorImpairmentB);
                 CompatibleExposureCapability.updateExposure((EntityLivingBase) target, exposure);
             }

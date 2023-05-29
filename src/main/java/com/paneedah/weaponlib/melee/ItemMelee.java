@@ -1,18 +1,23 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
-import com.paneedah.weaponlib.compatibility.CompatibleItem;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -22,9 +27,8 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class ItemMelee extends CompatibleItem implements
+public class ItemMelee extends Item implements
 PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer, Modifiable, Updatable {
 
     public static class Builder {
@@ -197,10 +201,8 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
 
             ItemMelee itemMelee = new ItemMelee(this, modContext);
 
-            itemMelee.attackSound = this.attackSound != null ?
-                    modContext.registerSound(this.attackSound) : CompatibleSound.SNOWBALL_THROW;
-            itemMelee.heavyAttackSound = this.heavyAttackSound != null ?
-                    modContext.registerSound(this.heavyAttackSound) : CompatibleSound.SNOWBALL_THROW;
+            itemMelee.attackSound = this.attackSound != null ? modContext.registerSound(this.attackSound) : SoundEvents.AMBIENT_CAVE;
+            itemMelee.heavyAttackSound = this.heavyAttackSound != null ? modContext.registerSound(this.heavyAttackSound) : SoundEvents.AMBIENT_CAVE;
 
             itemMelee.setCreativeTab(creativeTab);
             itemMelee.setTranslationKey(name);
@@ -212,9 +214,9 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
                 List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(itemMelee, craftingRecipe);
                 boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
                 if(hasOres) {
-                    compatibility.addShapedOreRecipe(itemStack, registeredRecipe.toArray());
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
-                    compatibility.addShapedRecipe(itemStack, registeredRecipe.toArray());
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
             } else if(craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
@@ -223,7 +225,7 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
 
                 List<Object> shape = modContext.getRecipeManager().createShapedRecipe(itemMelee, itemMelee.getName(), optionsMetadata);
 
-                compatibility.addShapedRecipe(new ItemStack(itemMelee), shape.toArray());
+                ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(itemMelee), shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, new ItemStack(itemMelee).getItem().getTranslationKey() + "_recipe"));
 
             } else {
                 //throw new IllegalStateException("No recipe defined for attachment " + name);
@@ -240,11 +242,11 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
 
     private ModContext modContext;
 
-    private CompatibleSound attackSound;
-    private CompatibleSound silencedShootSound;
-    private CompatibleSound heavyAttackSound;
-    private CompatibleSound unloadSound;
-    private CompatibleSound ejectSpentRoundSound;
+    private SoundEvent attackSound;
+    private SoundEvent silencedShootSound;
+    private SoundEvent heavyAttackSound;
+    private SoundEvent unloadSound;
+    private SoundEvent ejectSpentRoundSound;
 
     public static enum State { READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND};
 
@@ -258,23 +260,23 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         return builder.name;
     }
 
-    public CompatibleSound getShootSound() {
+    public SoundEvent getShootSound() {
         return attackSound;
     }
 
-    public CompatibleSound getSilencedShootSound() {
+    public SoundEvent getSilencedShootSound() {
         return silencedShootSound;
     }
 
-    public CompatibleSound getReloadSound() {
+    public SoundEvent getReloadSound() {
         return heavyAttackSound;
     }
 
-    public CompatibleSound getUnloadSound() {
+    public SoundEvent getUnloadSound() {
         return unloadSound;
     }
 
-    public CompatibleSound getEjectSpentRoundSound() {
+    public SoundEvent getEjectSpentRoundSound() {
         return ejectSpentRoundSound;
     }
 
@@ -320,9 +322,9 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
     }
 
     @Override
-    public void addInformation(ItemStack itemStack, List<String> info, boolean flag) {
-        if(info != null && builder.informationProvider != null) {
-            info.addAll(builder.informationProvider.apply(itemStack));
+    public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        if(tooltip != null && builder.informationProvider != null) {
+            tooltip.addAll(builder.informationProvider.apply(itemStack));
         }
     }
 
@@ -423,11 +425,11 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         return builder.heavyAttackCooldownTimeout.get();
     }
 
-    public CompatibleSound getHeavyAtackSound() {
+    public SoundEvent getHeavyAtackSound() {
         return heavyAttackSound;
     }
 
-    public CompatibleSound getLightAtackSound() {
+    public SoundEvent getLightAtackSound() {
         return attackSound;
     }
 
@@ -437,5 +439,11 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         Collection<CompatibleAttachment<ItemMelee>> c = builder.compatibleAttachments.values();
         List<AttachmentCategory> inputCategoryList = Arrays.asList(categories);
         return c.stream().filter(e -> inputCategoryList.contains(e)).collect(Collectors.toList());
+    }
+
+    // Todo: Remove this method once models are fixed to be at correct height
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+        return true;
     }
 }

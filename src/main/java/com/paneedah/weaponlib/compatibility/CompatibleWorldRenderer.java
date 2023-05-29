@@ -61,6 +61,7 @@ import java.util.Random;
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
 
+@Deprecated
 @SideOnly(Side.CLIENT)
 public class CompatibleWorldRenderer extends EntityRenderer
 {
@@ -505,7 +506,7 @@ public class CompatibleWorldRenderer extends EntityRenderer
     /**
      * Changes the field of view of the player depending on if they are underwater or not
      */
-    private float getFOVModifier(float partialTicks, boolean useFOVSetting)
+    public float getFOVModifier(float partialTicks, boolean useFOVSetting)
     {
         if (this.debugView)
         {

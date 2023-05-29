@@ -28,6 +28,7 @@ import java.util.function.Consumer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
+@Deprecated
 public class CompatibleRenderingRegistry implements ICustomModelLoader {
 
 	private List<ModelSourceRenderer> renderers = new ArrayList<>();

@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.render.shells;
 
-import com.paneedah.weaponlib.compatibility.CompatibleShellRenderer;
+import com.paneedah.weaponlib.compatibility.ShellRenderer;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ public class ShellManager {
 		if(shells.isEmpty()) return;
 		
 
-		CompatibleShellRenderer.render(shells);
+		ShellRenderer.render(shells);
 
 	}
 

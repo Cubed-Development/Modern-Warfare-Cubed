@@ -4,8 +4,7 @@ import com.paneedah.weaponlib.ItemStorage;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
 import net.minecraft.item.ItemStack;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import net.minecraftforge.fml.client.FMLClientHandler;
 
 public class BackpackInventoryTab extends InventoryTab {
 
@@ -18,7 +17,7 @@ public class BackpackInventoryTab extends InventoryTab {
 
     @Override
     public void onTabClicked() {
-        clientModContext.getChannel().getChannel()
+        clientModContext.getChannel()
                 .sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.STORAGE_ITEM_INVENTORY_GUI_ID));
     }
 
@@ -34,8 +33,7 @@ public class BackpackInventoryTab extends InventoryTab {
     }
     
     protected static ItemStack getBackpackStackInSlot() {
-        CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability
-                .getInventory(compatibility.getClientPlayer());
+        CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability.getInventory(FMLClientHandler.instance().getClientPlayerEntity());
         return customInventory != null ? customInventory.getStackInSlot(0) : null;
     }
 }

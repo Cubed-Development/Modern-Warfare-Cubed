@@ -10,6 +10,7 @@ import com.paneedah.weaponlib.state.StateManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.text.translation.I18n;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -17,7 +18,6 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
 /*
@@ -120,7 +120,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
 
     private void explode(PlayerGrenadeInstance instance) {
         log.debug("Exploding!");
-        modContext.getChannel().getChannel().sendToServer(new GrenadeMessage(instance, 0));
+        modContext.getChannel().sendToServer(new GrenadeMessage(instance, 0));
     }
 
     private void throwIt(PlayerGrenadeInstance instance) {
@@ -133,8 +133,8 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
         } else {
             activationTimestamp = ItemGrenade.EXPLODE_ON_IMPACT;
         }
-        compatibility.playSound(instance.getPlayer(), instance.getWeapon().getThrowSound(), 1.0F, 1.0F);
-        modContext.getChannel().getChannel().sendToServer(new GrenadeMessage(instance, activationTimestamp));
+        instance.getPlayer().playSound(instance.getWeapon().getThrowSound(), 1, 1);
+        modContext.getChannel().sendToServer(new GrenadeMessage(instance, activationTimestamp));
     }
 
     private void reequip(PlayerGrenadeInstance instance) {
@@ -142,7 +142,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
     }
 
     private void takeSafetyPinOff(PlayerGrenadeInstance instance) {
-        compatibility.playSound(instance.getPlayer(), instance.getWeapon().getSafetyPinOffSound(), 1.0F, 1.0F);
+        instance.getPlayer().playSound(instance.getWeapon().getSafetyPinOffSound(), 1, 1);
         log.debug("Taking safety pin off");
     }
 
@@ -182,7 +182,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                 }
                 
                 
-                String message = compatibility.getLocalizedString("gui.grenadeExplodes",
+                String message = I18n.translateToLocalFormatted("gui.grenadeExplodes",
                         Math.round(remainingTimeUntilExplosion / 1000f));
                 modContext.getStatusMessageCenter().addAlertMessage(message, 1, 1000, 0);
                 grenadeInstance.setLastSafetyPinAlertTimestamp(System.currentTimeMillis());
@@ -198,7 +198,12 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
         
         serverThrowGrenade(modContext, player, instance, activationTimestamp);
 
-        compatibility.consumeInventoryItemFromSlot(player, instance.getItemInventoryIndex());
+        if (player.inventory.getStackInSlot(instance.getItemInventoryIndex()) == null)
+            return;
+
+        player.inventory.getStackInSlot(instance.getItemInventoryIndex()).shrink(1);
+        if (player.inventory.mainInventory.get(instance.getItemInventoryIndex()).getCount() <= 0)
+            player.inventory.removeStackFromSlot(instance.getItemInventoryIndex());
     }
 
     public static void serverThrowGrenade(ModContext modContext, EntityLivingBase player, PlayerGrenadeInstance instance,
@@ -208,7 +213,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
         if(activationTimestamp == 0 && instance.getWeapon().getType() == Type.REGULAR) {
             // explode immediately
         	player.attackEntityFrom(DamageSource.causeExplosionDamage(player), 500f);
-            Explosion.createServerSideExplosion(modContext, compatibility.world(player), null,
+            Explosion.createServerSideExplosion(modContext, player.world, null,
                     player.posX, player.posY, player.posZ, instance.getWeapon().getExplosionStrength(), false, true,
                     instance.getWeapon().isDestroyingBlocks(), 1f, 1f, 1.5f, 1f, null, null, modContext.getExplosionSound());
 
@@ -226,7 +231,8 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .build(modContext);
             log.debug("Throwing velocity {} ", velocity);
-            compatibility.spawnEntity(player, entityGrenade);
+            if(player != null)
+                player.world.spawnEntity(entityGrenade);
         } else if(instance.getWeapon().getType() == Type.GAS) {
             float velocity = instance.isThrowingFar() ? instance.getWeapon().getFarVelocity() : instance.getWeapon().getVelocity();
             EntityGasGrenade entityGrenade = new EntityGasGrenade.Builder()
@@ -241,7 +247,8 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .build(modContext);
             log.debug("Throwing velocity {} ", velocity);
-            compatibility.spawnEntity(player, entityGrenade);
+            if(player != null)
+                player.world.spawnEntity(entityGrenade);
         } else if (instance.getWeapon().getType() == Type.FLASH) {
             float velocity = instance.isThrowingFar() ? instance.getWeapon().getFarVelocity() : instance.getWeapon().getVelocity();
             EntityFlashGrenade entityGrenade = new EntityFlashGrenade.Builder()
@@ -256,7 +263,8 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withDestroyingBlocks(false)
                     .build(modContext);
             log.debug("Throwing velocity {} ", velocity);
-            compatibility.spawnEntity(player, entityGrenade);
+            if(player != null)
+                player.world.spawnEntity(entityGrenade);
         } else {
             float velocity = instance.isThrowingFar() ? instance.getWeapon().getFarVelocity() : instance.getWeapon().getVelocity();
             EntityGrenade entityGrenade = new EntityGrenade.Builder()
@@ -271,7 +279,8 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withDestroyingBlocks(instance.getWeapon().isDestroyingBlocks())
                     .build(modContext);
             log.debug("Throwing velocity {} ", velocity);
-            compatibility.spawnEntity(player, entityGrenade);
+            if(player != null)
+                player.world.spawnEntity(entityGrenade);
         }
     }
 

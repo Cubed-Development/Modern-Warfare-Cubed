@@ -4,7 +4,6 @@ import com.paneedah.mwc.bases.ManufacturingItemBase;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.animation.gui.GuiRenderUtil;
-import com.paneedah.weaponlib.compatibility.CompatibleGuiContainer;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
 import com.paneedah.weaponlib.crafting.workbench.CustomSearchTextField;
@@ -14,6 +13,7 @@ import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 
-public abstract class GUIContainerStation<T extends TileEntityStation> extends CompatibleGuiContainer {
+public abstract class GUIContainerStation<T extends TileEntityStation> extends GuiContainer {
 	
 	// Textures for the GUI
 	protected static final ResourceLocation GUI_TEX = new ResourceLocation(ModReference.id + ":textures/gui/workshop_sheet.png");
@@ -154,7 +154,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 		super.actionPerformed(button);
 		
 		if (button == dismantleButton) {
-			modContext.getChannel().getChannel().sendToServer(new StationPacket(StationPacket.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
+			modContext.getChannel().sendToServer(new StationPacket(StationPacket.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
 
 		} else if (button == leftArrow) {
 			setPage(getPage() - 1);
@@ -371,14 +371,14 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 	}
 	
 	@Override
-	protected void compatibleMouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
-		super.compatibleMouseClicked(mouseX, mouseY, mouseButton);
+	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
+		super.mouseClicked(mouseX, mouseY, mouseButton);
 		this.searchBox.mouseClicked(mouseX, mouseY, mouseButton);
 		
 		
 		if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 40, this.guiTop + 219, 176, 20)) {
 			int boxID = (mouseX - (this.guiLeft + 40))/20;
-			modContext.getChannel().getChannel().sendToServer(new StationPacket(StationPacket.MOVE_OUTPUT,
+			modContext.getChannel().sendToServer(new StationPacket(StationPacket.MOVE_OUTPUT,
 					tileEntity.getPos(), mc.player.getEntityId(), boxID));
 		}
 		

@@ -1,14 +1,13 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleBlockState;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
-import com.paneedah.weaponlib.compatibility.CompatibleTargetPoint;
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.jim.util.HitUtil;
 import com.paneedah.weaponlib.network.packets.BloodPacketClient;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
@@ -18,11 +17,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.RayTraceResult.Type;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 import java.util.List;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponSpawnEntity extends EntityProjectile {
 
@@ -115,10 +114,10 @@ public class WeaponSpawnEntity extends EntityProjectile {
 	 * see net.minecraft.entity.projectile.EntityThrowable#onImpact(net.minecraft.util.MovingObjectPosition)
 	 */
 	@Override
-	protected void onImpact(CompatibleRayTraceResult position) {
-	    if (compatibility.world(this).isRemote) {
-	    //	compatibility.playSound(mc.player, UniversalSoundLookup.lookupSound("headshotsfx"), 10.0f, 1.0f);
-	    	  return;
+	protected void onImpact(RayTraceResult position) {
+	    if (world.isRemote) {
+			//mc.player.playSound(UniversalSoundLookup.lookupSound("headshotsfx"), 10, 1);
+			return;
 	    }
 
 	    if (weapon == null)
@@ -126,41 +125,30 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
 	    if(explosionRadius > 0) {
 
-	    	//PostProcessPipeline.createDistortionPoint((float) position.getHitVec().getXCoord(),(float)  position.getHitVec().getYCoord(), (float) position.getHitVec().getZCoord(), 2f, 3000);
-	        Explosion.createServerSideExplosion(weapon.getModContext(), compatibility.world(this), this,
-	                position.getHitVec().x, position.getHitVec().y, position.getHitVec().z,
+	    	//PostProcessPipeline.createDistortionPoint((float) position.hitVec.getXCoord(),(float)  position.hitVec.getYCoord(), (float) position.hitVec.getZCoord(), 2f, 3000);
+	        Explosion.createServerSideExplosion(weapon.getModContext(), world, this,
+	                position.hitVec.x, position.hitVec.y, position.hitVec.z,
 	                explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient,
 	                smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient,
 	                weapon.getModContext().getRegisteredTexture(explosionParticleTextureId), 
 	                weapon.getModContext().getRegisteredTexture(smokeParticleTextureId), 
 	                weapon.getModContext().getExplosionSound());
-	    } else if(position.getEntityHit() != null) {
+	    } else if(position.entityHit != null) {
 
             //Projectiles projectilesConfig = weapon.getModContext().getConfigurationManager().getProjectiles();
 
             if(this.getThrower() != null) {
-                position.getEntityHit().attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
+                position.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
             } else {
-                position.getEntityHit().attackEntityFrom(compatibility.genericDamageSource(), damage);
+                position.entityHit.attackEntityFrom(new DamageSource("thrown"), damage);
             }
-            
-            /*
-	        if(this.getThrower() != null &&
-	                (projectilesConfig.isKnockbackOnHit() == null || projectilesConfig.isKnockbackOnHit())) {
-	            position.getEntityHit().attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
-	        } else if(this.getThrower() instanceof EntityLivingBase && !(this.getThrower() instanceof EntityPlayer)) {
-                position.getEntityHit().attackEntityFrom(compatibility.mobDamageSource(this.getThrower()), damage);
-            } else {
-	            position.getEntityHit().attackEntityFrom(compatibility.genericDamageSource(), damage);
-	        }*/
 
-            position.getEntityHit().hurtResistantTime = 0;
-            position.getEntityHit().prevRotationYaw -= 0.3D;
+            position.entityHit.hurtResistantTime = 0;
+            position.entityHit.prevRotationYaw -= 0.3D;
 
-            log.debug("Hit entity {}", position.getEntityHit());
+            log.debug("Hit entity {}", position.entityHit);
 
-            CompatibleTargetPoint point = new CompatibleTargetPoint(position.getEntityHit().dimension,
-                    this.posX, this.posY, this.posZ, 100);
+            NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(position.entityHit.dimension, this.posX, this.posY, this.posZ, 100);
 
             //double magnitude = Math.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ) + 1;
             
@@ -173,14 +161,14 @@ public class WeaponSpawnEntity extends EntityProjectile {
                 weapon.getModContext().getChannel().sendToAllAround(new SpawnParticleMessage(
                         SpawnParticleMessage.ParticleType.BLOOD,
                         count,
-                        position.getEntityHit().posX - motionX / magnitude,
-                        position.getEntityHit().posY - motionY / magnitude,
-                        position.getEntityHit().posZ - motionZ / magnitude),
+                        position.entityHit.posX - motionX / magnitude,
+                        position.entityHit.posY - motionY / magnitude,
+                        position.entityHit.posZ - motionZ / magnitude),
                         point);
                         
                 */
                 
-                RayTraceResult rtr = HitUtil.traceProjectilehit(this, position.getEntityHit());
+                RayTraceResult rtr = HitUtil.traceProjectilehit(this, position.entityHit);
                 if(rtr != null && rtr.typeOfHit == Type.BLOCK) {
                 	weapon.getModContext().getChannel().sendToAllAround(new BloodPacketClient(
                     		rtr.hitVec.x,
@@ -191,8 +179,8 @@ public class WeaponSpawnEntity extends EntityProjectile {
                 
             }
 
-	    } else if(position.getTypeOfHit() == CompatibleRayTraceResult.Type.BLOCK) {
-	        weapon.onSpawnEntityBlockImpact(compatibility.world(this), null, this, position);
+	    } else if(position.typeOfHit == RayTraceResult.Type.BLOCK) {
+	        weapon.onSpawnEntityBlockImpact(world, null, this, position);
         }
 
 	    this.setDead();
@@ -274,10 +262,9 @@ public class WeaponSpawnEntity extends EntityProjectile {
     }
 	
 	@Override
-	public boolean canCollideWithBlock(List<BlockPos> violators, Block block, BlockPos pos, CompatibleBlockState metadata) {
+	public boolean canCollideWithBlock(List<BlockPos> violators, Block block, BlockPos pos, IBlockState iBlockState) {
 		// TODO Auto-generated method stub
-		//System.out.println(block);
-		return !compatibility.isBlockPenetratableByBullets(block) && super.canCollideWithBlock(violators, block, pos, metadata);
+		return !MWCUtil.isPenetrableByBullets(iBlockState) && super.canCollideWithBlock(violators, block, pos, iBlockState);
 	}
 
 	

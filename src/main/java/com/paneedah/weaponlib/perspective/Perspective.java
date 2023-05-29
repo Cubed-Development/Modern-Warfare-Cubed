@@ -2,15 +2,14 @@ package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.RenderContext;
-import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
 import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import com.paneedah.weaponlib.shader.DynamicShaderContext;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupManager;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.shader.Framebuffer;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.opengl.ARBFramebufferObject;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
@@ -24,7 +23,6 @@ public abstract class Perspective<S> {
     protected int height;
 
     protected CompatibleWorldRenderer entityRenderer;
-    protected RenderGlobal renderGlobal;
     protected MWCParticleManager effectRenderer;
     protected DynamicShaderGroupManager shaderGroupManager;
 
@@ -36,7 +34,6 @@ public abstract class Perspective<S> {
         }
         this.entityRenderer = manager.getEntityRenderer();
         this.effectRenderer = manager.getEffectRenderer();
-        this.renderGlobal = manager.getRenderGlobal();
         this.shaderGroupManager = new DynamicShaderGroupManager(); //manager.getShaderGroupManager();
         if(this.shaderGroupManager.hasActiveGroups()) {
             System.err.println("!!! Active shader groups found !!!");
@@ -67,6 +64,6 @@ public abstract class Perspective<S> {
         return framebuffer;
     }
 
-    public abstract void update(CompatibleRenderTickEvent event);
+    public abstract void update(TickEvent.RenderTickEvent event);
 
 }

@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.animation;
 
 import com.paneedah.weaponlib.Part;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
+import net.minecraft.util.SoundEvent;
 
 import java.util.function.Consumer;
 
@@ -20,7 +20,7 @@ public class Transition<Context> {
 	private Part attachedTo;
 	private boolean animated;
 
-	private CompatibleSound evt;
+	private SoundEvent evt;
 	
 	public Transition(Consumer<Context> itemPositioning, Part attachedTo, boolean animated) {
         this(itemPositioning, 0, 0);
@@ -35,7 +35,7 @@ public class Transition<Context> {
         this(itemPositioning, duration, pause, null);
     }
 	
-	public void setSound(CompatibleSound event) {
+	public void setSound(SoundEvent event) {
 		this.evt = event;
 	}
 
@@ -58,7 +58,7 @@ public class Transition<Context> {
 		return duration;
 	}
 	
-	public CompatibleSound getSound() {
+	public SoundEvent getSound() {
 		return this.evt;
 	}
 

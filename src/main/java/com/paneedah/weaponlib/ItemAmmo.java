@@ -1,12 +1,14 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleItem;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemAmmo extends CompatibleItem {
+public class ItemAmmo extends Item {
 	
 	private List<Weapon> compatibleWeapons = new ArrayList<>();
 
@@ -15,8 +17,8 @@ public class ItemAmmo extends CompatibleItem {
 	}
 	
 	@Override
-	public void addInformation(ItemStack itemStack, List<String> info, boolean flag) {
-	    info.add("Compatible guns:");
-        compatibleWeapons.forEach((weapon) -> info.add(weapon.getName()));
+	public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		tooltip.add("Compatible guns:");
+        compatibleWeapons.forEach((weapon) -> tooltip.add(weapon.getName()));
 	}
 }

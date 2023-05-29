@@ -1,48 +1,35 @@
 package com.paneedah.weaponlib.vehicle.network;
 
-import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class VehicleClientPacketHandler implements CompatibleMessageHandler<VehicleClientPacket, CompatibleMessage> {
-	
-	public static ModContext context;
+public class VehicleClientPacketHandler implements IMessageHandler<VehicleClientPacket, IMessage> {
 
-	public VehicleClientPacketHandler(ModContext context) {
-		this.context = context;
+	public VehicleClientPacketHandler() {
 	}
 
 	@Override
-	public <T extends CompatibleMessage> T onCompatibleMessage(VehicleClientPacket m, CompatibleMessageContext ctx) {
-		 if(!ctx.isServerSide()) {
-	            compatibility.runInMainClientThread(() -> {
-				
-	            	
-	            	
-				EntityPlayer player = compatibility.clientPlayer();
-				VehicleDataContainer cont = m.serializer;
-				
-				EntityVehicle vehicle = (EntityVehicle) player.world.getEntityByID(cont.entityID);
-				
-				VehiclePacketLatencyTracker.push(vehicle);
-				//System.out.println("There we go! " + vehicle);
-				if(vehicle != null) {
-					
-					vehicle.smoothShell.upload(cont);
-					
-					//cont.updateVehicle(vehicle);
-				}
-				
-				
-				
-			});
-		}
-		
+	@SideOnly(Side.CLIENT)
+	public IMessage onMessage(VehicleClientPacket message, MessageContext messageContext) {
+		mc.addScheduledTask(() -> {
+		   VehicleDataContainer cont = message.serializer;
+
+		   EntityVehicle vehicle = (EntityVehicle) mc.player.world.getEntityByID(cont.entityID);
+
+		   VehiclePacketLatencyTracker.push(vehicle);
+		   if(vehicle != null) {
+			   vehicle.smoothShell.upload(cont);
+
+			   //cont.updateVehicle(vehicle);
+		   }
+	   });
+
 		return null;
 	}
 

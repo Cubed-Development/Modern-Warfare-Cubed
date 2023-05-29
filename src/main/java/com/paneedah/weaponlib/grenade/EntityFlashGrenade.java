@@ -1,19 +1,19 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.LightExposure;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleBlockState;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.function.BiPredicate;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityFlashGrenade extends AbstractEntityGrenade {
 
@@ -140,7 +139,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onGrenadeUpdate() {
-        if (!compatibility.world(this).isRemote && explosionTimeout > 0
+        if (!world.isRemote && explosionTimeout > 0
                 && System.currentTimeMillis() > activationTimestamp + explosionTimeout) {
             explode();
             return;
@@ -148,9 +147,9 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
     }
 
     @Override
-    public void onBounce(CompatibleRayTraceResult movingobjectposition) {
+    public void onBounce(RayTraceResult movingobjectposition) {
 //        System.out.println("Bounce");
-        if(explosionTimeout == ItemGrenade.EXPLODE_ON_IMPACT && !compatibility.world(this).isRemote) {
+        if(explosionTimeout == ItemGrenade.EXPLODE_ON_IMPACT && !world.isRemote) {
             explode();
         } else {
             super.onBounce(movingobjectposition);
@@ -166,8 +165,8 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
         //        modContext.getFlashExplosionSound());
 
 
-        List<?> nearbyEntities = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this,
-                compatibility.getBoundingBox(this).expand(effectiveDistance, effectiveDistance, effectiveDistance));
+        List<?> nearbyEntities = world.getEntitiesWithinAABBExcludingEntity(this,
+                this.getEntityBoundingBox().expand(effectiveDistance, effectiveDistance, effectiveDistance));
 
         for(Object nearbyEntityObject: nearbyEntities) {
             Entity nearbyEntity = (Entity)nearbyEntityObject;
@@ -180,7 +179,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
                 LightExposure exposure = CompatibleExposureCapability.getExposure(nearbyEntity, LightExposure.class);
                 if(exposure == null) {
 //                    System.out.println("Entity " + nearbyEntity + " exposed to light dose " + dose);
-                    exposure = new LightExposure(compatibility.world(nearbyEntity).getTotalWorldTime(), 4000, dose, 0.99f);
+                    exposure = new LightExposure(nearbyEntity.world.getTotalWorldTime(), 4000, dose, 0.99f);
                     CompatibleExposureCapability.updateExposure(nearbyEntity, exposure);
                 } else {
                     float totalDose = exposure.getTotalDose() + dose;
@@ -229,12 +228,9 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
         double posY = this.posY + yOffset;
         double posZ = this.posZ + zOffset;
         final Vector3D grenadePos = new Vector3D(posX, posY, posZ);
-//        BiPredicate<Block, CompatibleBlockState> isCollidable = (block, blockMetadata) -> 
-//            block != Blocks.GLASS && block != Blocks.GLASS_PANE && compatibility.canCollideCheck(block, blockMetadata, false);
+//        BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> block != Blocks.GLASS && block != Blocks.GLASS_PANE && compatibility.canCollideCheck(block, blockMetadata, false);
             
-        BiPredicate<Block, CompatibleBlockState> isCollidable = (block, blockMetadata) -> 
-            !isTransparentBlock(block)
-            && compatibility.canCollideCheck(block, blockMetadata, false);
+        BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> !isTransparentBlock(block) &&  block.canCollideCheck(blockMetadata, false);;
         
         EntityPlayer player = (EntityPlayer) nearbyEntity;
         Vec3d playerLookVec = player.getLook(1f);
@@ -248,7 +244,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
         exposureFactor *= exposureFactor;
                 
         final Vector3D compatiblePlayerEyePos = new Vector3D(playerEyePosition.x, playerEyePosition.y, playerEyePosition.z);
-        CompatibleRayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), grenadePos, compatiblePlayerEyePos, isCollidable);
+        RayTraceResult rayTraceResult = MWCUtil.rayTraceBlocks(world, grenadePos, compatiblePlayerEyePos, isCollidable);
 
         float dose = 0f;
         if(rayTraceResult == null) {

@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -17,6 +16,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +25,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-public class ItemStorage extends CompatibleItem implements ModelSource, IModernCrafting {
+public class ItemStorage extends Item implements ModelSource, IModernCrafting {
     
     public static class Builder {
         
@@ -91,11 +90,6 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
         
         public Builder withGuiTextureName(String guiTextureName) {
             this.guiTextureName = guiTextureName;
-            return this;
-        }
-        
-        public Builder withGuiTextureWidth(int guiTextureWidth) {
-            this.guiTextureWidth = guiTextureWidth;
             return this;
         }
         
@@ -193,8 +187,7 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
             if(!guiTextureName.startsWith("textures/gui/")) {
                 guiTextureName = "textures/gui/" + guiTextureName;
             }
-            ResourceLocation guiTextureLocation = new ResourceLocation(ModReference.id,
-                    addFileExtension(guiTextureName, ".png"));
+            ResourceLocation guiTextureLocation = new ResourceLocation(ModReference.id, addFileExtension(guiTextureName, ".png"));
             
             ItemStorage item = new ItemStorage(modContext, size, validItemPredicate, guiTextureLocation, this.guiTextureWidth);
             
@@ -238,7 +231,7 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
             
             item.customEquippedPositioning = customEquippedPositioning;
             
-            modContext.registerRenderableItem(name, item, compatibility.isClientSide() ? RendererRegistrationHelper.registerRenderer(this, modContext) : null);
+            modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? RendererRegistrationHelper.registerRenderer(this, modContext) : null);
             
             return item;
         }
@@ -366,5 +359,4 @@ public class ItemStorage extends CompatibleItem implements ModelSource, IModernC
 	public void setCraftingGroup(CraftingGroup group) {
 		this.craftGroup = group;
 	}
-    
 }

@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.particle;
 
-import com.paneedah.weaponlib.ModContext;
+import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -15,52 +15,52 @@ import javax.annotation.Nullable;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class CompatibleBloodParticle extends Particle {
+public class ParticleBlood extends Particle {
 
-	public static final String TEXTURE_BLOOD_PARTICLES = "particle/blood";
-
+	public static final String texture = "particle/blood";
    
-	public CompatibleBloodParticle( World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn)
-	    {
-	        super(worldIn, xCoordIn, yCoordIn, zCoordIn);
-	    
-	    // 
-	        
-	       
-	        
-	        
-	    }
-	
-	public CompatibleBloodParticle(ModContext context, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn)
-	{
+	public ParticleBlood(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn) {
 		super(worldIn, xCoordIn, yCoordIn, zCoordIn);
-		   //this.setParticleTexture(mc.getBlockRendererDispatcher().getBlockModelShapes().getTexture(state));
-	        this.particleGravity = 1f;
-	        this.particleRed = 0.6F;
-	        this.particleGreen = 0.6F;
-	        this.particleBlue = 0.6F;
-	        this.particleScale /= 2.0F;
+
+		this.particleGravity = 1;
+
+		this.particleScale /= 2;
+
+		this.particleRed = 0.6F;
+		this.particleGreen = 0.6F;
+		this.particleBlue = 0.6F;
+
+		this.particleTextureIndexX = (int) Math.floor(Math.random() * (3));
+		this.particleTextureIndexY = (int) Math.floor(Math.random() * (3));
+
+		setParticleTexture(mc.getTextureMapBlocks().getAtlasSprite(new ResourceLocation(ModReference.id, texture).toString()));
+	}
+	
+	public ParticleBlood(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
+		super(worldIn, xCoordIn, yCoordIn, zCoordIn);
+
+		this.particleGravity = 1;
 	        
-	        this.motionX = xSpeedIn;
-	        this.motionY = ySpeedIn;
-	        this.motionZ = zSpeedIn;
+		this.motionX = xSpeedIn;
+		this.motionY = ySpeedIn;
+		this.motionZ = zSpeedIn;
+
+		this.particleScale /= 2;
+
+		this.particleRed = 0.6F;
+		this.particleGreen = 0.6F;
+		this.particleBlue = 0.6F;
 	        
-	      //  this.particleMaxAge = 120000;
-	        
-	        this.particleTextureIndexX = (int) Math.floor(Math.random()*(3));
-	        this.particleTextureIndexY = (int) Math.floor(Math.random()*(3));
-	       
-	       // this.particleTextureIndexX = 4;
-	        
-		 TextureAtlasSprite sprite = mc.getTextureMapBlocks().getAtlasSprite(
-	                context.getNamedResource(TEXTURE_BLOOD_PARTICLES).toString());
-	        setParticleTexture(sprite); 
+		this.particleTextureIndexX = (int) Math.floor(Math.random() * (3));
+		this.particleTextureIndexY = (int) Math.floor(Math.random() * (3));
+
+		setParticleTexture(mc.getTextureMapBlocks().getAtlasSprite(new ResourceLocation(ModReference.id, texture).toString()));
 	}
 
 
 
 	protected void multiplyColor(@Nullable BlockPos p_187154_1_) {
-		
+
 	}
 
 	/**
@@ -156,9 +156,8 @@ public class CompatibleBloodParticle extends Particle {
 
 	@SideOnly(Side.CLIENT)
 	public static class Factory implements IParticleFactory {
-		public Particle createParticle(int particleID, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn,
-				double xSpeedIn, double ySpeedIn, double zSpeedIn, int... p_178902_15_) {
-			return (new CompatibleBloodParticle(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn));
+		public Particle createParticle(int particleID, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, int... p_178902_15_) {
+			return (new ParticleBlood(worldIn, xCoordIn, yCoordIn, zCoordIn));
 		}
 	}
 

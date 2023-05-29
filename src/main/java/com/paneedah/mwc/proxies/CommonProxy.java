@@ -20,17 +20,13 @@ import com.paneedah.mwc.wearables.Bullets;
 import com.paneedah.mwc.wearables.Vests;
 import com.paneedah.weaponlib.UniversalSoundLookup;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
-import com.paneedah.weaponlib.compatibility.CompatibleChannel;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.compatibility.CompatibleMaterial;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
 import com.paneedah.weaponlib.vehicle.network.VehiclePhysSerializer;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
 
@@ -67,8 +63,8 @@ public class CommonProxy {
 
 
     // I cannot figure out for the life of me why moving the init classes to the init() instead of the preInit() makes the game die, but I have no choice but to leave it here for now.
-    public void preInit(final ModernWarfareMod mod, final CompatibleFmlPreInitializationEvent initializationEvent) {
-        ModernWarfareMod.MOD_CONTEXT.preInit(mod, initializationEvent, new CompatibleChannel(ModernWarfareMod.CHANNEL));
+    public void preInit(final ModernWarfareMod mod) {
+        ModernWarfareMod.MOD_CONTEXT.preInit(mod, ModernWarfareMod.CHANNEL);
 
         // Sounds
         ModernWarfareMod.MOD_CONTEXT.setChangeZoomSound("OpticZoom");
@@ -79,13 +75,13 @@ public class CommonProxy {
         ModernWarfareMod.MOD_CONTEXT.setExplosionSound("grenadeexplosion");
         ModernWarfareMod.MOD_CONTEXT.setFlashExplosionSound("flashbang");
 
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(CompatibleMaterial.ROCK, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone");
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(CompatibleMaterial.WOOD, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone", "bullet_10_snap");
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(CompatibleMaterial.GRASS, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(CompatibleMaterial.GROUND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(CompatibleMaterial.SAND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(CompatibleMaterial.SNOW, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(CompatibleMaterial.IRON, 1.5f, "bullet_6_iron", "bullet_7_iron", "bullet_8_iron");
+        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.ROCK, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone");
+        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.WOOD, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone", "bullet_10_snap");
+        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.GRASS, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
+        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.GROUND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
+        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.SAND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
+        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.SNOW, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
+        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.IRON, 1.5f, "bullet_6_iron", "bullet_7_iron", "bullet_8_iron");
         UniversalSoundRegistry.init();
         UniversalSoundLookup.initialize(ModernWarfareMod.MOD_CONTEXT);
 
@@ -97,19 +93,19 @@ public class CommonProxy {
         DataSerializers.registerSerializer(VehiclePhysSerializer.SERIALIZER);
 
         // Special object initialization
-        SpecialAttachments.init(mod, initializationEvent, ModernWarfareMod.MOD_CONTEXT);
-        Backpacks.init(mod, initializationEvent);
-        Vests.init(mod, initializationEvent);
-        Armors.init(mod, initializationEvent, ModernWarfareMod.MOD_CONTEXT);
-        Attachments.init(mod, initializationEvent);
-        AuxiliaryAttachments.init(mod, initializationEvent);
-        GunSkins.init(initializationEvent);
-        Bullets.init(mod, initializationEvent);
-        Magazines.init(mod, initializationEvent);
-        Guns.init(mod, initializationEvent, this);
-        Electronics.init(mod, initializationEvent);
-        Grenades.init(mod, initializationEvent, this);
-        CustomSpawnEggs.init(mod, initializationEvent, this);
+        SpecialAttachments.init(mod, ModernWarfareMod.MOD_CONTEXT);
+        Backpacks.init(mod);
+        Vests.init(mod);
+        Armors.init(mod, ModernWarfareMod.MOD_CONTEXT);
+        Attachments.init(mod);
+        AuxiliaryAttachments.init(mod);
+        GunSkins.init(mod);
+        Bullets.init(mod);
+        Magazines.init(mod);
+        Guns.init(mod, this);
+        Electronics.init(mod);
+        Grenades.init(mod, this);
+        CustomSpawnEggs.init(mod, this);
         TileEntities.init(this);
 
         new TacticalTomahawkFactory().createMelee(this);
@@ -117,16 +113,16 @@ public class CommonProxy {
         new BaseballBatNailsFactory().createMelee(this);
         new NightStickFactory().createMelee(this);
 
-        ModernWarfareMod.MOD_CONTEXT.preInitEnd(mod, initializationEvent, ModernWarfareMod.MOD_CONTEXT.getChannel());
+        ModernWarfareMod.MOD_CONTEXT.preInitEnd(mod, ModernWarfareMod.MOD_CONTEXT.getChannel());
     }
 
-    public void init(final ModernWarfareMod mod, final CompatibleFmlInitializationEvent initializationEvent) {
+    public void init(final ModernWarfareMod mod) {
         ModernWarfareMod.MOD_CONTEXT.init(mod);
 
         Entities.init(this);
         Vehicles.init(this);
 
-        compatibility.registerWorldGenerator(new WorldGeneratorEventHandler(), 0);
+        GameRegistry.registerWorldGenerator(new WorldGeneratorEventHandler(), 0);
     }
 
     public void postInit(final ModernWarfareMod mod, final FMLPostInitializationEvent initializationEvent) {

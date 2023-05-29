@@ -8,7 +8,10 @@ import com.paneedah.weaponlib.WeaponAttachmentAspect.EnterAttachmentModePermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ExitAttachmentModePermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.CompoundPermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.UnloadPermit;
-import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
+import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
+import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
+import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.RecipeManager;
 import com.paneedah.weaponlib.crafting.ammopress.BlockAmmoPress;
@@ -30,11 +33,21 @@ import com.paneedah.weaponlib.state.StateManager;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessageMessageHandler;
 import com.paneedah.weaponlib.vehicle.network.*;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.HashMap;
@@ -42,12 +55,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
 public class CommonModContext implements ModContext {
 
-	
-	
     static {
         TypeRegistry.getInstance().register(LoadPermit.class);
         TypeRegistry.getInstance().register(MagazineState.class);
@@ -76,10 +85,10 @@ public class CommonModContext implements ModContext {
     }
 
     static class BulletImpactSoundKey {
-        private CompatibleMaterial material;
+        private Material material;
         private Item bulletItem;
         
-        public BulletImpactSoundKey(CompatibleMaterial material, Item bulletItem) {
+        public BulletImpactSoundKey(Material material, Item bulletItem) {
             this.material = material;
             this.bulletItem = bulletItem;
         }
@@ -114,7 +123,7 @@ public class CommonModContext implements ModContext {
 
 	protected Object mod;
 	
-	protected CompatibleChannel channel;
+	protected SimpleNetworkWrapper channel;
 
 	protected WeaponReloadAspect weaponReloadAspect;
 	protected WeaponAttachmentAspect weaponAttachmentAspect;
@@ -131,23 +140,23 @@ public class CommonModContext implements ModContext {
 
 	protected PlayerItemInstanceRegistry playerItemInstanceRegistry;
 
-	private Map<ResourceLocation, CompatibleSound> registeredSounds = new HashMap<>();
+	private Map<ResourceLocation, SoundEvent> registeredSounds = new HashMap<>();
 
 	private RecipeManager recipeManager;
 
-	private CompatibleSound changeZoomSound;
+	private SoundEvent changeZoomSound;
 
-	private CompatibleSound changeFireModeSound;
+	private SoundEvent changeFireModeSound;
 
-	private CompatibleSound noAmmoSound;
+	private SoundEvent noAmmoSound;
 	
-    private CompatibleSound explosionSound;
+    private SoundEvent explosionSound;
     
-    private CompatibleSound flashExplosionSound;
+    private SoundEvent flashExplosionSound;
     
-    private CompatibleSound nightVisionOnSound;
+    private SoundEvent nightVisionOnSound;
     
-    private CompatibleSound nightVisionOffSound;
+    private SoundEvent nightVisionOffSound;
     
     private Map<BulletImpactSoundKey, MaterialImpactSound> bulletImpactSoundEntries = new HashMap<>();
 
@@ -163,7 +172,7 @@ public class CommonModContext implements ModContext {
 
 
 	@Override
-    public void preInit(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
+    public void preInit(Object mod, SimpleNetworkWrapper channel) {
 		this.mod = mod;
 	    this.channel = channel;
 
@@ -210,101 +219,74 @@ public class CommonModContext implements ModContext {
 		// Initiate config
 		ModernConfigManager.init();
 		
-		channel.registerMessage(new TryFireMessageHandler(weaponFireAspect),
-				TryFireMessage.class, 11, CompatibleSide.SERVER);
+		channel.registerMessage(new TryFireMessageHandler(weaponFireAspect), TryFireMessage.class, 11, Side.SERVER);
 
-		channel.registerMessage(permitManager,
-				PermitMessage.class, 14, CompatibleSide.SERVER);
+		channel.registerMessage(permitManager, PermitMessage.class, 14, Side.SERVER);
 
-		channel.registerMessage(permitManager,
-				PermitMessage.class, 15, CompatibleSide.CLIENT);
+		channel.registerMessage(permitManager, PermitMessage.class, 15, Side.CLIENT);
 
-		channel.registerMessage(new TryAttackMessageHandler(meleeAttackAspect),
-                TryAttackMessage.class, 16, CompatibleSide.SERVER);
+		channel.registerMessage(new TryAttackMessageHandler(meleeAttackAspect), TryAttackMessage.class, 16, Side.SERVER);
 
-		channel.registerMessage(new SyncPlayerEntityTrackerMessageMessageHandler(this),
-		        SyncPlayerEntityTrackerMessage.class, 17, CompatibleSide.CLIENT);
+		channel.registerMessage(new SyncPlayerEntityTrackerMessageMessageHandler(this), SyncPlayerEntityTrackerMessage.class, 17, Side.CLIENT);
 
-		channel.registerMessage(new SpawnParticleMessageHandler(this),
-		        SpawnParticleMessage.class, 18, CompatibleSide.CLIENT);
+		channel.registerMessage(new SpawnParticleMessageHandler(this), SpawnParticleMessage.class, 18, Side.CLIENT);
 
-		channel.registerMessage(new BlockHitMessageHandler(this),
-		        BlockHitMessage.class, 19, CompatibleSide.CLIENT);
+		channel.registerMessage(new BlockHitMessageHandler(), BlockHitMessage.class, 19, Side.CLIENT);
 
-		channel.registerMessage(new GrenadeMessageHandler(grenadeAttackAspect),
-                GrenadeMessage.class, 20, CompatibleSide.SERVER);
+		channel.registerMessage(new GrenadeMessageHandler(grenadeAttackAspect), GrenadeMessage.class, 20, Side.SERVER);
 
-		channel.registerMessage(new ExplosionMessageHandler(this),
-                ExplosionMessage.class, 21, CompatibleSide.CLIENT);
+		channel.registerMessage(new ExplosionMessageHandler(this), ExplosionMessage.class, 21, Side.CLIENT);
 		
-		channel.registerMessage(new ArmorControlHandler(this),
-                ArmorControlMessage.class, 22, CompatibleSide.SERVER);
+		channel.registerMessage(new ArmorControlHandler(), ArmorControlMessage.class, 22, Side.SERVER);
 		
-//		channel.registerMessage(new SpreadableExposureMessageHandler(this),
-//		        SpreadableExposureMessage.class, 23, CompatibleSide.CLIENT);
+//		channel.registerMessage(new SpreadableExposureMessageHandler(this),	SpreadableExposureMessage.class, 23, Side.CLIENT);
 		
-	    channel.registerMessage(new ExposureMessageHandler(this),
-	            ExposureMessage.class, 23, CompatibleSide.CLIENT);
+	    channel.registerMessage(new ExposureMessageHandler(), ExposureMessage.class, 23, Side.CLIENT);
 		
-		channel.registerMessage(new EntityControlHandler(this),
-                EntityControlMessage.class, 24, CompatibleSide.CLIENT);
+		channel.registerMessage(new EntityControlHandler(this), EntityControlMessage.class, 24, Side.CLIENT);
 		
-		channel.registerMessage(new EntityControlHandler(this),
-                EntityControlMessage.class, 25, CompatibleSide.SERVER);
+		channel.registerMessage(new EntityControlHandler(this), EntityControlMessage.class, 25, Side.SERVER);
 		
-		channel.registerMessage(new EntityInventorySyncHandler(this),
-		        EntityInventorySyncMessage.class, 26, CompatibleSide.CLIENT);
+		channel.registerMessage(new EntityInventorySyncHandler(this), EntityInventorySyncMessage.class, 26, Side.CLIENT);
 		
-		channel.registerMessage(new EntityInventorySyncHandler(this),
-                EntityInventorySyncMessage.class, 27, CompatibleSide.SERVER);
+		channel.registerMessage(new EntityInventorySyncHandler(this), EntityInventorySyncMessage.class, 27, Side.SERVER);
 
-		channel.registerMessage(new OpenCustomInventoryGuiHandler(this),
-		        OpenCustomPlayerInventoryGuiMessage.class, 28, CompatibleSide.SERVER);
+		channel.registerMessage(new OpenCustomInventoryGuiHandler(this), OpenCustomPlayerInventoryGuiMessage.class, 28, Side.SERVER);
 		
-        channel.registerMessage(new VehicleControlPacketHandler(this),
-        		VehicleControlPacket.class, 34, CompatibleSide.SERVER);
-        
-        channel.registerMessage(new VehicleClientPacketHandler(this),
-        		VehicleClientPacket.class, 35, CompatibleSide.CLIENT);
-        
-        channel.registerMessage(new VehicleInteractPHandler(this),
-        		VehicleInteractPacket.class, 36, CompatibleSide.SERVER);
-        
-        channel.registerMessage(new GunFXPacket.GunFXPacketHandler(),
-        		GunFXPacket.class, 37, CompatibleSide.CLIENT);
-        
-        channel.registerMessage(new BulletShellClient.GunFXPacketHandler(),
-        		BulletShellClient.class, 38, CompatibleSide.CLIENT);
-        
-        channel.registerMessage(new BalancePackClient.BalancePacketHandler(), BalancePackClient.class, 39, CompatibleSide.CLIENT);
-        channel.registerMessage(new HeadshotSFXPacket.GunFXPacketHandler(), HeadshotSFXPacket.class, 40, CompatibleSide.CLIENT);
-        channel.registerMessage(new BloodPacketClient.BalancePacketHandler(this),
-        		BloodPacketClient.class, 41, CompatibleSide.CLIENT);
-        
-        channel.registerMessage(new OpenDoorPacket.OpenDoorPacketHandler(this),
-        		OpenDoorPacket.class, 42, CompatibleSide.SERVER);
+        channel.registerMessage(new VehicleControlPacketHandler(this), VehicleControlPacket.class, 34, Side.SERVER);
 
-        channel.registerMessage(new StationPacket.WorkbenchPacketHandler(this),
-        		StationPacket.class, 43, CompatibleSide.SERVER);
+        channel.registerMessage(new VehicleClientPacketHandler(), VehicleClientPacket.class, 35, Side.CLIENT);
         
-        channel.registerMessage(new StationClientPacket.WorkshopClientPacketHandler(this),
-        		StationClientPacket.class, 44, CompatibleSide.CLIENT);
+        channel.registerMessage(new VehicleInteractPHandler(this), VehicleInteractPacket.class, 36, Side.SERVER);
         
-        channel.registerMessage(new CraftingClientPacket.SimplePacketHandler(this),
-        		CraftingClientPacket.class, 45, CompatibleSide.CLIENT);
+        channel.registerMessage(new GunFXPacket.GunFXPacketHandler(), GunFXPacket.class, 37, Side.CLIENT);
         
-        channel.registerMessage(new CraftingServerPacket.SimplePacketHandler(this),
-        		CraftingServerPacket.class, 46, CompatibleSide.SERVER);
+        channel.registerMessage(new BulletShellClient.GunFXPacketHandler(), BulletShellClient.class, 38, Side.CLIENT);
         
-        channel.registerMessage(new HighIQPickupPacket.SimplePacketHandler(this),
-        		HighIQPickupPacket.class, 47, CompatibleSide.SERVER);
+        channel.registerMessage(new BalancePackClient.BalancePacketHandler(), BalancePackClient.class, 39, Side.CLIENT);
+
+        channel.registerMessage(new HeadshotSFXPacket.GunFXPacketHandler(), HeadshotSFXPacket.class, 40, Side.CLIENT);
+
+        channel.registerMessage(new BloodPacketClient.BalancePacketHandler(), BloodPacketClient.class, 41, Side.CLIENT);
+        
+        channel.registerMessage(new OpenDoorPacket.OpenDoorPacketHandler(), OpenDoorPacket.class, 42, Side.SERVER);
+
+        channel.registerMessage(new StationPacket.WorkbenchPacketHandler(this), StationPacket.class, 43, Side.SERVER);
+        
+        channel.registerMessage(new StationClientPacket.WorkshopClientPacketHandler(), StationClientPacket.class, 44, Side.CLIENT);
+        
+        channel.registerMessage(new CraftingClientPacket.SimplePacketHandler(this), CraftingClientPacket.class, 45, Side.CLIENT);
+        
+        channel.registerMessage(new CraftingServerPacket.SimplePacketHandler(this), CraftingServerPacket.class, 46, Side.SERVER);
+        
+        channel.registerMessage(new HighIQPickupPacket.SimplePacketHandler(), HighIQPickupPacket.class, 47, Side.SERVER);
         
         
 		ServerEventHandler serverHandler = new ServerEventHandler(this);
-        compatibility.registerWithFmlEventBus(serverHandler);
-        compatibility.registerWithEventBus(serverHandler);
+        MinecraftForge.EVENT_BUS.register(serverHandler);
+        MinecraftForge.EVENT_BUS.register(serverHandler);
 
-		compatibility.registerWithFmlEventBus(new WeaponKeyInputHandler(this, (ctx) -> getPlayer(ctx),
+		MinecraftForge.EVENT_BUS.register(new WeaponKeyInputHandler(this, (ctx) -> getPlayer(ctx),
 				weaponAttachmentAspect, channel));
 
 		CompatiblePlayerEntityTrackerProvider.register(this);
@@ -313,15 +295,15 @@ public class CommonModContext implements ModContext {
 		CompatibleExtraEntityFlags.register(this);
 		CompatibleCustomPlayerInventoryCapability.register(this);
 
-        compatibility.registerModEntity(WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
-        compatibility.registerModEntity(EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, 200, 3, true);
-        compatibility.registerModEntity(EntityShellCasing.class, "ShellCasing" + modEntityID, modEntityID++, mod, 64, 500, true);
-        compatibility.registerModEntity(EntityGrenade.class, "Grenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
-        compatibility.registerModEntity(EntitySmokeGrenade.class, "SmokeGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
-        compatibility.registerModEntity(EntityGasGrenade.class, "GasGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
-        compatibility.registerModEntity(EntityFlashGrenade.class, "FlashGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "ammo" + modEntityID), WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "wcam" + modEntityID), EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, 200, 3, true);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "ShellCasing" + modEntityID), EntityShellCasing.class, "ShellCasing" + modEntityID, modEntityID++, mod, 64, 500, true);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "Grenade" + modEntityID), EntityGrenade.class, "Grenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "SmokeGrenade" + modEntityID), EntitySmokeGrenade.class, "SmokeGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "GasGrenade" + modEntityID), EntityGasGrenade.class, "GasGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "FlashGrenade" + modEntityID), EntityFlashGrenade.class, "FlashGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
 
-        compatibility.registerModEntity(EntitySpreadable.class, "EntitySpreadable" + modEntityID, modEntityID++, mod, 64, 3, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "EntitySpreadable" + modEntityID), EntitySpreadable.class, "EntitySpreadable" + modEntityID, modEntityID++, mod, 64, 3, false);
 
         //compatibility.registerModEntity(EntityVehicle.class, "EntityVehicle" + modEntityID, modEntityID++, mod, 64, 3, false);
 
@@ -359,18 +341,45 @@ public class CommonModContext implements ModContext {
 	}
 	
 	@Override
-	public void preInitEnd(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
-		compatibility.registerTileEntity(TileEntityWorkbench.class, ModReference.id + ":tileworkbench");
-		compatibility.registerBlock(this, new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(ModernWarfareMod.BlocksTab), "weapon_workbench");
-		
-		compatibility.registerTileEntity(TileEntityAmmoPress.class, ModReference.id + ":tileammopress");
-		compatibility.registerBlock(this, new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(ModernWarfareMod.BlocksTab), "ammo_press");	
-	}
+	public void preInitEnd(Object mod, SimpleNetworkWrapper channel) {
+        // Workbench
+		GameRegistry.registerTileEntity(TileEntityWorkbench.class, ModReference.id + ":tileworkbench");
+        Block workbenchblock = new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(ModernWarfareMod.BlocksTab);
+        if (workbenchblock.getRegistryName() == null) {
+            if (workbenchblock.getTranslationKey().length() < ModReference.id.length() + 2 + 5) {
+                throw new IllegalArgumentException("Unlocalize block name too short " + workbenchblock.getTranslationKey());
+            }
+            String unlocalizedName = workbenchblock.getTranslationKey().toLowerCase();
+            String registryName = unlocalizedName.substring(5 + ModReference.id.length() + 1);
+            workbenchblock.setRegistryName(ModReference.id, registryName);
+        }
+
+        ForgeRegistries.BLOCKS.register(workbenchblock);
+        ItemBlock workbenchItemBlock = new ItemBlock(workbenchblock);
+        this.registerRenderableItem(workbenchblock.getRegistryName(), workbenchItemBlock, null);
+
+        // Ammo press
+		GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ModReference.id + ":tileammopress");
+        Block ammopressblock = new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(ModernWarfareMod.BlocksTab);
+
+        if (ammopressblock.getRegistryName() == null) {
+            if (ammopressblock.getTranslationKey().length() < ModReference.id.length() + 2 + 5) {
+                throw new IllegalArgumentException("Unlocalize block name too short " + ammopressblock.getTranslationKey());
+            }
+            String unlocalizedName = ammopressblock.getTranslationKey().toLowerCase();
+            String registryName = unlocalizedName.substring(5 + ModReference.id.length() + 1);
+            ammopressblock.setRegistryName(ModReference.id, registryName);
+        }
+
+        ForgeRegistries.BLOCKS.register(ammopressblock);
+        ItemBlock ammoItemBlock = new ItemBlock(ammopressblock);
+        this.registerRenderableItem(ammopressblock.getRegistryName(), ammoItemBlock, null);
+    }
 
     @Override
     public void init(Object mod) {
-    
-        compatibility.registerGuiHandler(mod, new GuiHandler());
+
+        NetworkRegistry.INSTANCE.registerGuiHandler(mod, new GuiHandler());
     }
     
     public static ModContext getContext() {
@@ -387,7 +396,7 @@ public class CommonModContext implements ModContext {
 	}
 
 	@Override
-	public CompatibleSound registerSound(String sound) {
+	public SoundEvent registerSound(String sound) {
 	    if(sound == null) {
 	        return null;
 	    }
@@ -395,31 +404,33 @@ public class CommonModContext implements ModContext {
 		return registerSound(soundResourceLocation);
 	}
 
-	protected CompatibleSound registerSound(ResourceLocation soundResourceLocation) {
-		CompatibleSound result = registeredSounds.get(soundResourceLocation);
+	protected SoundEvent registerSound(ResourceLocation soundResourceLocation) {
+        SoundEvent result = registeredSounds.get(soundResourceLocation);
 		if(result == null) {
-			result = new CompatibleSound(soundResourceLocation);
+			result = new SoundEvent(soundResourceLocation);
 			registeredSounds.put(soundResourceLocation, result);
-			compatibility.registerSound(result);
+            result.setRegistryName(soundResourceLocation);
+            ForgeRegistries.SOUND_EVENTS.register(result);
 		}
 		return result;
 	}
 
 	@Override
 	public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
-		compatibility.registerItem(weapon, name);
+        weapon.setRegistryName(ModReference.id, name); // temporary hack
+        ForgeRegistries.ITEMS.register(weapon);
 	}
 
-	private EntityPlayer getServerPlayer(CompatibleMessageContext ctx) {
-		return ctx != null ? ctx.getPlayer() : null;
+	private EntityPlayer getServerPlayer(MessageContext ctx) {
+		return ctx != null ? ctx.getServerHandler().player : null;
 	}
 
-	protected EntityPlayer getPlayer(CompatibleMessageContext ctx) {
+	protected EntityPlayer getPlayer(MessageContext ctx) {
 		return getServerPlayer(ctx);
 	}
 
 	@Override
-	public CompatibleChannel getChannel() {
+	public SimpleNetworkWrapper getChannel() {
 		return channel;
 	}
 
@@ -435,12 +446,14 @@ public class CommonModContext implements ModContext {
 
 	@Override
 	public void registerRenderableItem(String name, Item item, Object renderer) {
-		compatibility.registerItem(item, name);
+        item.setRegistryName(ModReference.id, name); // temporary hack
+        ForgeRegistries.ITEMS.register(item);
 	}
 	
 	@Override
     public void registerRenderableItem(ResourceLocation name, Item item, Object renderer) {
-        compatibility.registerItem(item, name);
+        item.setRegistryName(name); // temporary hack
+        ForgeRegistries.ITEMS.register(item);
     }
 
 	@Override
@@ -500,12 +513,12 @@ public class CommonModContext implements ModContext {
 	}
 
 	@Override
-	public CompatibleSound getZoomSound() {
+	public SoundEvent getZoomSound() {
 		return changeZoomSound;
 	}
 
 	@Override
-	public CompatibleSound getChangeFireModeSound() {
+	public SoundEvent getChangeFireModeSound() {
 		return changeFireModeSound;
 	}
 
@@ -520,7 +533,7 @@ public class CommonModContext implements ModContext {
 	}
 
 	@Override
-	public CompatibleSound getNoAmmoSound() {
+	public SoundEvent getNoAmmoSound() {
 		return noAmmoSound;
 	}
 
@@ -530,12 +543,12 @@ public class CommonModContext implements ModContext {
 	}
 
 	@Override
-	public CompatibleSound getExplosionSound() {
+	public SoundEvent getExplosionSound() {
 	    return explosionSound;
 	}
 	
 	@Override
-	public CompatibleSound getFlashExplosionSound() {
+	public SoundEvent getFlashExplosionSound() {
 	    return flashExplosionSound;
 	}
 	
@@ -550,7 +563,7 @@ public class CommonModContext implements ModContext {
     }
 
     @Override
-    public CompatibleSound getNightVisionOnSound() {
+    public SoundEvent getNightVisionOnSound() {
         return nightVisionOnSound;
     }
     
@@ -560,18 +573,20 @@ public class CommonModContext implements ModContext {
     }
 
     @Override
-    public CompatibleSound getNightVisionOffSound() {
+    public SoundEvent getNightVisionOffSound() {
         return nightVisionOffSound;
     }
 
     @Override
     public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer) {
-        compatibility.registerItem(itemMelee, name);
+        itemMelee.setRegistryName(ModReference.id, name); // temporary hack
+        ForgeRegistries.ITEMS.register(itemMelee);
     }
 
     @Override
     public void registerGrenadeWeapon(String name, ItemGrenade itemMelee, GrenadeRenderer renderer) {
-        compatibility.registerItem(itemMelee, name);
+        itemMelee.setRegistryName(ModReference.id, name); // temporary hack
+        ForgeRegistries.ITEMS.register(itemMelee);
     }
 
     @Override
@@ -611,57 +626,52 @@ public class CommonModContext implements ModContext {
     public void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider) {}
 
     @Override
-    public CommonModContext setMaterialsImpactSound(String sound, Item bulletItem, float volume, CompatibleMaterial...materials) {
-        for(CompatibleMaterial material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(
-                    new BulletImpactSoundKey(material, bulletItem), key -> new MaterialImpactSound(volume));
+    public CommonModContext setMaterialsImpactSound(String sound, Item bulletItem, float volume, Material...materials) {
+        for(Material material: materials) {
+            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, bulletItem), key -> new MaterialImpactSound(volume));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
         return this;
     }
     
     @Override
-    public CommonModContext setMaterialImpactSound(String sound, float volume, CompatibleMaterial material) {
-        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(
-                new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
+    public CommonModContext setMaterialImpactSound(String sound, float volume, Material material) {
+        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
         materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         return this;
     }
     
     @Override
-    public CommonModContext setMaterialsImpactSound(String sound, float volume, CompatibleMaterial...materials) {
-        for(CompatibleMaterial material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(
-                    new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
+    public CommonModContext setMaterialsImpactSound(String sound, float volume, Material...materials) {
+        for(Material material: materials) {
+            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
         return this;
     }
     
     @Override
-    public CommonModContext setMaterialsImpactSound(String sound, CompatibleMaterial...materials) {
-        for(CompatibleMaterial material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(
-                    new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(1f));
+    public CommonModContext setMaterialsImpactSound(String sound, Material...materials) {
+        for(Material material: materials) {
+            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(1f));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
         return this;
     }
 
     @Override
-    public MaterialImpactSound getMaterialImpactSound(CompatibleBlockState blockState, WeaponSpawnEntity entity) {
-        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.get(
-                new BulletImpactSoundKey(blockState.getMaterial(), entity.getSpawnedItem()));
-        if(materialImpactSound == null) {
-            bulletImpactSoundEntries.get(
-                    new BulletImpactSoundKey(blockState.getMaterial(), null));
-        }
+    public MaterialImpactSound getMaterialImpactSound(IBlockState iBlockState, WeaponSpawnEntity entity) {
+        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.get(new BulletImpactSoundKey(iBlockState.getMaterial(), entity.getSpawnedItem()));
+
+        if(materialImpactSound == null)
+            bulletImpactSoundEntries.get(new BulletImpactSoundKey(iBlockState.getMaterial(), null));
+
         return materialImpactSound;
     }
 
 
     @Override
-    public CommonModContext setMaterialImpactSounds(CompatibleMaterial material, float volume, String... sounds) {
+    public CommonModContext setMaterialImpactSounds(Material material, float volume, String... sounds) {
         for(String sound: sounds) {
             setMaterialImpactSound(sound, volume, material);
         }

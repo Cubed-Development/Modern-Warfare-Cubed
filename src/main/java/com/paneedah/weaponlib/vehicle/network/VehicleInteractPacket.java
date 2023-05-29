@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.vehicle.network;
 
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
-public class VehicleInteractPacket implements CompatibleMessage {
+public class VehicleInteractPacket implements IMessage {
 
 	public boolean right;
 	public int vehicleID;

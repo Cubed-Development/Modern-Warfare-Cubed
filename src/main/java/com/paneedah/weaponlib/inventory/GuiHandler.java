@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.inventory;
 
 import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
-import com.paneedah.weaponlib.compatibility.CompatibleGuiHandler;
 import com.paneedah.weaponlib.crafting.ammopress.ContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
@@ -11,12 +10,12 @@ import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-public class GuiHandler extends CompatibleGuiHandler {
+public class GuiHandler implements IGuiHandler {
 
     public static final int STORAGE_ITEM_INVENTORY_GUI_ID = 1;
     public static final int CUSTOM_PLAYER_INVENTORY_GUI_ID = 2;
@@ -56,8 +55,7 @@ public class GuiHandler extends CompatibleGuiHandler {
         Object guiContainer = null;
         switch (guiId) {
         case STORAGE_ITEM_INVENTORY_GUI_ID:
-            CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability
-                    .getInventory(compatibility.getClientPlayer());
+            CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability.getInventory(FMLClientHandler.instance().getClientPlayerEntity());
             if (customInventory != null && customInventory.getStackInSlot(0) != null) {
                 guiContainer = new StorageItemGuiContainer((StorageItemContainer) new StorageItemContainer(player,
                         player.inventory, new StorageInventory(customInventory.getStackInSlot(0))));

@@ -1,19 +1,22 @@
 package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.compatibility.CompatibleEntityRenderer;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class WirelessCameraRenderer extends CompatibleEntityRenderer {
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
+
+public class WirelessCameraRenderer extends Render<Entity> {
 
     public WirelessCameraRenderer() {
+        super(mc.getRenderManager());
     }
 
     @Override
-    public void doCompatibleRender(Entity entity, double x, double y, double z, float yaw, float tick) {
+    public void doRender(Entity entity, double x, double y, double z, float yaw, float tick) {
         EntityWirelessCamera weaponSpawnEntity = (EntityWirelessCamera) entity;
         ItemWirelessCamera camera = weaponSpawnEntity.getItem();
         if(camera == null) {

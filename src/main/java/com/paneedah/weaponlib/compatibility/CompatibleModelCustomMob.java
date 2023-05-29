@@ -14,59 +14,31 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class CompatibleModelCustomMob extends ModelBiped
-{
-    public CompatibleModelCustomMob()
-    {
-        this(0.0F, false);
-    }
+public class CompatibleModelCustomMob extends ModelBiped {
 
-    public CompatibleModelCustomMob(float modelSize, boolean p_i46303_2_)
-    {
-        super(modelSize, 0.0F, 64, 32);
-
-        if (!p_i46303_2_)
-        {
-            this.bipedRightArm = new ModelRenderer(this, 40, 16);
-            this.bipedRightArm.addBox(-1.0F, -2.0F, -1.0F, 2, 12, 2, modelSize);
-            this.bipedRightArm.setRotationPoint(-5.0F, 2.0F, 0.0F);
-            this.bipedLeftArm = new ModelRenderer(this, 40, 16);
-            this.bipedLeftArm.mirror = true;
-            this.bipedLeftArm.addBox(-1.0F, -2.0F, -1.0F, 2, 12, 2, modelSize);
-            this.bipedLeftArm.setRotationPoint(5.0F, 2.0F, 0.0F);
-            this.bipedRightLeg = new ModelRenderer(this, 0, 16);
-            this.bipedRightLeg.addBox(-1.0F, 0.0F, -1.0F, 2, 12, 2, modelSize);
-            this.bipedRightLeg.setRotationPoint(-2.0F, 12.0F, 0.0F);
-            this.bipedLeftLeg = new ModelRenderer(this, 0, 16);
-            this.bipedLeftLeg.mirror = true;
-            this.bipedLeftLeg.addBox(-1.0F, 0.0F, -1.0F, 2, 12, 2, modelSize);
-            this.bipedLeftLeg.setRotationPoint(2.0F, 12.0F, 0.0F);
-        }
+    public CompatibleModelCustomMob(float modelSize) {
+        super(modelSize, 0, 64, 32);
     }
 
     /**
      * Used for easily adding entity-dependent animations. The second and third float params here are the same second
      * and third as in the setRotationAngles method.
      */
-    public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float p_78086_2_, float p_78086_3_, float partialTickTime)
-    {
+    @Override
+    public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
         this.rightArmPose = ModelBiped.ArmPose.EMPTY;
         this.leftArmPose = ModelBiped.ArmPose.EMPTY;
         ItemStack itemstack = entitylivingbaseIn.getHeldItem(EnumHand.MAIN_HAND);
 
-        if (itemstack != null && itemstack.getItem() == Items.BOW && ((EntityCustomMob)entitylivingbaseIn).isSwingingArms())
-        {
-            if (entitylivingbaseIn.getPrimaryHand() == EnumHandSide.RIGHT)
-            {
+        if (itemstack != null && itemstack.getItem() == Items.BOW && ((EntityCustomMob) entitylivingbaseIn).isSwingingArms()) {
+            if (entitylivingbaseIn.getPrimaryHand() == EnumHandSide.RIGHT) {
                 this.rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
-            }
-            else
-            {
+            } else {
                 this.leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
             }
         }
 
-        super.setLivingAnimations(entitylivingbaseIn, p_78086_2_, p_78086_3_, partialTickTime);
+        super.setLivingAnimations(entitylivingbaseIn, limbSwing, limbSwingAmount, partialTickTime);
     }
 
     /**
@@ -74,22 +46,21 @@ public class CompatibleModelCustomMob extends ModelBiped
      * and legs, where par1 represents the time(so that arms and legs swing back and forth) and par2 represents how
      * "far" arms and legs can swing at most.
      */
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
-    {
+    @Override
+    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
-        ItemStack itemstack = ((EntityLivingBase)entityIn).getHeldItemMainhand();
-        EntityCustomMob entityCustomMob = (EntityCustomMob)entityIn;
+        ItemStack itemstack = ((EntityLivingBase) entityIn).getHeldItemMainhand();
+        EntityCustomMob entityCustomMob = (EntityCustomMob) entityIn;
 
-        if (entityCustomMob.isSwingingArms() && (itemstack == null || itemstack.getItem() != Items.BOW))
-        {
-            float f = MathHelper.sin(this.swingProgress * (float)Math.PI);
-            float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
+        if (entityCustomMob.isSwingingArms() && (itemstack == null || itemstack.getItem() != Items.BOW)) {
+            float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
+            float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
             this.bipedRightArm.rotateAngleZ = 0.0F;
             this.bipedLeftArm.rotateAngleZ = 0.0F;
             this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
             this.bipedLeftArm.rotateAngleY = 0.1F - f * 0.6F;
-            this.bipedRightArm.rotateAngleX = -((float)Math.PI / 2F);
-            this.bipedLeftArm.rotateAngleX = -((float)Math.PI / 2F);
+            this.bipedRightArm.rotateAngleX = -((float) Math.PI / 2F);
+            this.bipedLeftArm.rotateAngleX = -((float) Math.PI / 2F);
             this.bipedRightArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
             this.bipedLeftArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
             this.bipedRightArm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
@@ -99,8 +70,8 @@ public class CompatibleModelCustomMob extends ModelBiped
         }
     }
 
-    public void postRenderArm(float scale, EnumHandSide side)
-    {
+    @Override
+    public void postRenderArm(float scale, EnumHandSide side) {
         float f = side == EnumHandSide.RIGHT ? 1.0F : -1.0F;
         ModelRenderer modelrenderer = this.getArmForSide(side);
         modelrenderer.rotationPointX += f;

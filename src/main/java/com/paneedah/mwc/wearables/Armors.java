@@ -4,11 +4,9 @@ import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.weaponlib.CustomArmor;
 import com.paneedah.weaponlib.CustomArmor.Builder;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import net.minecraftforge.common.util.EnumHelper;
 
 public class Armors {
 	
@@ -64,10 +62,10 @@ public class Armors {
     public static Item Santaboots;
     public static Item Santahelmet;
     
-    static ArmorMaterial Juggernaut = compatibility.addArmorMaterial("Juggernaut", "Juggernaut", 20, new int[] { 5, 6, 2, 5 }, 20, null, 0); // TODO: last
-    
-    static ArmorMaterial Marine = compatibility.addArmorMaterial("Marine", "Marine", 60, new int[] { 2, 3, 3, 3 }, 15, null, 0); // TODO: last
-    public static void init(Object mod, CompatibleFmlPreInitializationEvent event, ModContext modContext) {
+    static ArmorMaterial Juggernaut = EnumHelper.addArmorMaterial("Juggernaut", "Juggernaut", 20, new int[] { 5, 6, 2, 5}, 20, null, 0);
+    static ArmorMaterial Marine = EnumHelper.addArmorMaterial("Marine", "Marine", 60, new int[] { 2, 3, 3, 3 }, 15, null, 0);
+
+    public static void init(Object mod, ModContext modContext) {
         Builder marineArmorBuilder = new CustomArmor.Builder()
     			.withMaterial(Armors.Marine)
                 .withUnlocalizedName("Marine")

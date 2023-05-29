@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.animation;
 
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.HashMap;
@@ -23,7 +23,7 @@ public class MultipartTransition<Part, Context> {
 	private long duration;
 	private long pause;
 	
-	public CompatibleSound sound;
+	public SoundEvent sound;
 	
 	public Vec3d beizer;
 	public Interpolation interp = Interpolation.SMOOTHSTEP;

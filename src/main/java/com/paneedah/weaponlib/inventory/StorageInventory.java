@@ -1,20 +1,20 @@
 package com.paneedah.weaponlib.inventory;
 
 import com.paneedah.weaponlib.ItemStorage;
-import com.paneedah.weaponlib.compatibility.CompatibleInventory;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.common.util.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-public class StorageInventory extends CompatibleInventory {
+public class StorageInventory implements IInventory {
     
     private static final String TAG_SLOT_INDEX = "Slot";
     private static final String TAG_SIZE = "size";
@@ -39,7 +39,7 @@ public class StorageInventory extends CompatibleInventory {
         }
         this.inventory = new ItemStack[size];
         for(int i = 0; i < this.inventory.length; i++) {
-            this.inventory[i] = compatibility.stackForEmptySlot();
+            this.inventory[i] = new ItemStack(Items.AIR);
         }
         
         if (!storageItemStack.hasTagCompound()) {
@@ -69,14 +69,14 @@ public class StorageInventory extends CompatibleInventory {
     public ItemStack decrStackSize(int slot, int amount) {
         ItemStack stack = getStackInSlot(slot);
         if (stack != null) {
-            if (compatibility.getStackSize(stack) > amount) {
+            if (stack.getCount() > amount) {
                 stack = stack.splitStack(amount);
                 // Don't forget this line or your inventory will not be saved!
                 markDirty();
             } else {
                 // this method also calls onInventoryChanged, so we don't need
                 // to call it again
-                setInventorySlotContents(slot, compatibility.stackForEmptySlot());
+                setInventorySlotContents(slot, new ItemStack(Items.AIR));
             }
         }
         return stack;
@@ -84,10 +84,10 @@ public class StorageInventory extends CompatibleInventory {
 
     @Override
     public void setInventorySlotContents(int slot, ItemStack stack) {
-        this.inventory[slot] = stack != null ? stack : compatibility.stackForEmptySlot();
+        this.inventory[slot] = stack != null ? stack : new ItemStack(Items.AIR);
 
-        if (stack != null && compatibility.getStackSize(stack) > getInventoryStackLimit()) {
-            compatibility.setStackSize(stack, getInventoryStackLimit());
+        if (stack != null && stack.getCount() > getInventoryStackLimit()) {
+            stack.setCount(getInventoryStackLimit());
         }
 
         // Don't forget this line or your inventory will not be saved!
@@ -118,8 +118,8 @@ public class StorageInventory extends CompatibleInventory {
     @Override
     public void markDirty() {
         for (int i = 0; i < getSizeInventory(); ++i) {
-            if (getStackInSlot(i) != null && compatibility.getStackSize(getStackInSlot(i)) == 0) {
-                inventory[i] = compatibility.stackForEmptySlot();
+            if (getStackInSlot(i) != null && getStackInSlot(i).getCount() == 0) {
+                inventory[i] = new ItemStack(Items.AIR);
             }
         }
 
@@ -143,14 +143,14 @@ public class StorageInventory extends CompatibleInventory {
         if(size >= 0 && items.tagCount() >= 0) {
             inventory = new ItemStack[size];
             for(int i = 0; i < size; i++) {
-                inventory[i] = compatibility.stackForEmptySlot();
+                inventory[i] = new ItemStack(Items.AIR);
             }
             for (int i = 0; i < size && i < items.tagCount(); ++i) {
                 NBTTagCompound item = (NBTTagCompound) items.getCompoundTagAt(i);
                 int slot = item.getInteger(TAG_SLOT_INDEX);
 
                 if (slot >= 0 && slot < size) {
-                    inventory[slot] = compatibility.createItemStack(item);
+                    inventory[slot] = new ItemStack(item);;
                 }
             }
         }
@@ -183,5 +183,57 @@ public class StorageInventory extends CompatibleInventory {
         // Add the TagList to the ItemStack's Tag Compound with the name
         // "ItemInventory"
         tagcompound.setTag("ItemInventory", items);
+    }
+
+    @Override
+    public ITextComponent getDisplayName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public ItemStack removeStackFromSlot(int index) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void openInventory(EntityPlayer player) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void closeInventory(EntityPlayer player) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public int getField(int id) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public int getFieldCount() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void clear() {
     }
 }

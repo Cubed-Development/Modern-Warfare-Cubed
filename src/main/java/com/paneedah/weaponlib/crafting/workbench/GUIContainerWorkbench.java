@@ -108,7 +108,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 		super.actionPerformed(button);
 		if (button == craftButton) {
 			if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1) {
-				modContext.getChannel().getChannel()
+				modContext.getChannel()
 						.sendToServer(new StationPacket(StationPacket.CRAFT, tileEntity.getPos(), 0, getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME,
 								CraftingGroup.getValue(getCraftingMode()),
 								getSelectedCraftingPiece().getItem().getTranslationKey()));

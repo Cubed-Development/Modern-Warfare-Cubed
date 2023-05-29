@@ -5,6 +5,7 @@ import com.paneedah.weaponlib.ClassInfo;
 import java.util.HashMap;
 import java.util.Map;
 
+@Deprecated
 public class CompatibleClassInfoProvider {
 
     private static Map<String, ClassInfo> classInfoMap = new HashMap<>();

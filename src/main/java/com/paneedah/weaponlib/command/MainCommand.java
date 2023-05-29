@@ -3,21 +3,23 @@ package com.paneedah.weaponlib.command;
 import com.paneedah.mwc.bases.ManufacturingItemBase;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.paneedah.weaponlib.compatibility.CompatibleCommand;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.block.Block;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
 import java.util.*;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class MainCommand extends CompatibleCommand {
+public class MainCommand extends CommandBase {
 
     private static final String SHOW_OPTION_RECIPE = "recipe";
 
@@ -34,12 +36,12 @@ public class MainCommand extends CompatibleCommand {
     }
 
     @Override
-    public String getCompatibleName() {
+    public String getName() {
         return ModReference.id;
     }
 
     @Override
-    public String getCompatibleUsage(ICommandSender sender) {
+    public String getUsage(ICommandSender sender) {
         return "/" + mainCommandName + "<options>";
     }
 
@@ -48,11 +50,11 @@ public class MainCommand extends CompatibleCommand {
     }
 
     @Override
-    public void execCommand(ICommandSender sender, String[] args) {
+    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
     	
     	
     	if(args[0].equals("nosway")) {
-    		CompatibleClientEventHandler.cancelSway = !CompatibleClientEventHandler.cancelSway;
+            ClientEventHandler.cancelSway = !ClientEventHandler.cancelSway;
     		
     	}
     	
@@ -60,16 +62,16 @@ public class MainCommand extends CompatibleCommand {
             if(ARG_SHOW.indexOf(args[0].toLowerCase()) == 0) {
                 processShowSubCommand(args);
             } else {
-                compatibility.addChatMessage(compatibility.clientPlayer(), getCompatibleUsage(sender));
+                mc.player.sendMessage(new TextComponentString(getUsage(sender)));
             }
         } else {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getCompatibleUsage(sender));
+            mc.player.sendMessage(new TextComponentString(getUsage(sender)));
         }
     }
 
     private void processShowSubCommand(String[] args) {
         if(args.length < 2) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandShowUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
             return;
         }
 
@@ -82,12 +84,12 @@ public class MainCommand extends CompatibleCommand {
             }
             showAttachments(page);
         } else {
-            compatibility.addChatMessage(compatibility.clientPlayer(), getSubCommandShowUsage());
+            mc.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
         }
     }
 
     private void showAttachments(int page) {
-        ItemStack itemStack = compatibility.getHeldItemMainHand(compatibility.clientPlayer());
+        ItemStack itemStack = mc.player.getHeldItemMainhand();
         if(itemStack != null) {
             Item item = itemStack.getItem();
             if(item instanceof AttachmentContainer) {
@@ -105,24 +107,24 @@ public class MainCommand extends CompatibleCommand {
                 int pageSize = 8;
                 int offset = pageSize * (page - 1);
                 if(page < 1) {
-                    compatibility.addChatMessage(compatibility.clientPlayer(), "Invalid page");
+                    mc.player.sendMessage(new TextComponentString("Invalid page"));
                 } else if(sorted.size() == 0) {
-                    compatibility.addChatMessage(compatibility.clientPlayer(), "No attachments found for "
-                            + item.getItemStackDisplayName(itemStack));
+                    mc.player.sendMessage(new TextComponentString("No attachments found for "
+                            + item.getItemStackDisplayName(itemStack)));
                 } else if(offset < sorted.size()) {
-                    compatibility.addChatMessage(compatibility.clientPlayer(), "Attachments for "
+                    mc.player.sendMessage(new TextComponentString("Attachments for "
                             + item.getItemStackDisplayName(itemStack) + ", page " + page + " of "
-                            + (int)Math.ceil((double)sorted.size() / pageSize));
+                            + (int)Math.ceil((double)sorted.size() / pageSize)));
 
                     for(int i = offset; i < offset + pageSize; i++) {
                         if(i < 0 || i >= sorted.size()) {
                             break;
                         }
-                        compatibility.addChatMessage(compatibility.clientPlayer(), " - "
-                                + sorted.get(i).getAttachment().getItemStackDisplayName(null));
+                        mc.player.sendMessage(new TextComponentString(" - "
+                                + sorted.get(i).getAttachment().getItemStackDisplayName(null)));
                     }
                 } else {
-                    compatibility.addChatMessage(compatibility.clientPlayer(), "Invalid page");
+                    mc.player.sendMessage(new TextComponentString("Invalid page"));
                 }
             }
         }
@@ -134,7 +136,7 @@ public class MainCommand extends CompatibleCommand {
     }
 
     private void showRecipe() {
-        ItemStack itemStack = compatibility.getHeldItemMainHand(compatibility.clientPlayer());
+        ItemStack itemStack = mc.player.getHeldItemMainhand();
         if(itemStack != null) {
             Item item = itemStack.getItem();
             showRecipe(item);
@@ -143,8 +145,7 @@ public class MainCommand extends CompatibleCommand {
 
     private void showRecipe(Item item) {
         if(item != null && (item instanceof Weapon)) {
-            compatibility.addChatMessage(compatibility.clientPlayer(), TextFormatting.GOLD +
-                    "-- Recipe for " + TextFormatting.GRAY +  item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--");
+            mc.player.sendMessage(new TextComponentString(TextFormatting.GOLD + "-- Recipe for " + TextFormatting.GRAY +  item.getItemStackDisplayName(null) + TextFormatting.GOLD + "--"));
            
             CraftingEntry[] modernRecipe = ((Weapon) item).getModernRecipe();
             if(modernRecipe == null) {
@@ -161,8 +162,8 @@ public class MainCommand extends CompatibleCommand {
             		System.out.println(craftingItem.getRecoveryChance());
             		toPrint += " -> " + (stack.getCount()*craftingItem.getRecoveryChance()) + "x " + I18n.format(craftingItem.getRegistryName() + ".name");
             	}
-            	
-            	compatibility.addChatMessage(compatibility.clientPlayer(), TextFormatting.GOLD + toPrint);
+
+                mc.player.sendMessage(new TextComponentString(TextFormatting.GOLD + toPrint));
                  
             }
              
@@ -171,7 +172,7 @@ public class MainCommand extends CompatibleCommand {
             if(recipe != null) {
                 formatRecipe(recipe);
             } else {
-                compatibility.addChatMessage(compatibility.clientPlayer(),
+                compatibility.addChatMessage(mc.player,
                         "Recipe for " + item.getItemStackDisplayName(null) + " not found");
             }*/
         }
@@ -201,7 +202,7 @@ public class MainCommand extends CompatibleCommand {
             }
         }
 
-        compatibility.addChatMessage(compatibility.clientPlayer(), "");
+        mc.player.sendMessage(new TextComponentString(""));
 
         for(int i = 0; i < recipe.size(); i++) {
             Object element = recipe.get(i);
@@ -211,8 +212,8 @@ public class MainCommand extends CompatibleCommand {
                     Object decoded = decoder.get(c);
                     builder.append(String.format("[%.20s] ", decoded != null ? decoded : "*"));
                 }
-                compatibility.addChatMessage(compatibility.clientPlayer(),
-                        "" + builder.toString());
+                mc.player.sendMessage(new TextComponentString(
+                        "" + builder.toString()));
             } else {
                 break;
             }

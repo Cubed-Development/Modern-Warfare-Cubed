@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.RenderingPhase;
-import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
 import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
 import net.minecraft.client.renderer.EntityRenderer;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
@@ -23,11 +23,7 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
     }
 
     @Override
-    public void update(CompatibleRenderTickEvent event) {
-    	
-    	
-    	//if(true) return;
-    
+    public void update(TickEvent.RenderTickEvent event) {
         modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.RENDER_PERSPECTIVE);
         long p_78471_2_ = this.renderEndNanoTime + (long)(1000000000 / 60);
         int origDisplayWidth = mc.displayWidth;
@@ -58,7 +54,7 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
        
         
        
-        this.entityRenderer.renderWorld(event.getRenderTickTime(), p_78471_2_);
+        this.entityRenderer.renderWorld(event.renderTickTime, p_78471_2_);
      
         if(PostProcessPipeline.shouldDoFog()) {
         	// Blits onto custom scope depth texture
@@ -119,8 +115,10 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
         modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.NORMAL);
     }
 
-    protected void prepareRenderWorld(CompatibleRenderTickEvent event) {}
+    protected void prepareRenderWorld(TickEvent.RenderTickEvent event) {
+    }
 
-    protected void postRenderWorld(CompatibleRenderTickEvent event) {}
+    protected void postRenderWorld(TickEvent.RenderTickEvent event) {
+    }
 
 }

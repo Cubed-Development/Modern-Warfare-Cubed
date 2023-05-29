@@ -1,41 +1,51 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.compatibility.CompatibleCustomArmor;
-import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
 import com.paneedah.weaponlib.model.ModelBaseRendererWrapper;
 import com.paneedah.weaponlib.model.WrappableModel;
+import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class CustomArmor extends CompatibleCustomArmor implements ExposureProtection , ISpecialArmor, IModernCrafting {
+public class CustomArmor extends ItemArmor implements ExposureProtection , ISpecialArmor, IModernCrafting {
 
     private static final String ACTIVE_ATTACHMENT_TAG = "ActiveAttachments";
 
     private static final String SHIELD_CAPACITY_TAG = "ShieldCapacity";
 
     private static final String SHIELD_HIT_TIMESTAMP_TAG = "ShieldHitTimestamp";
+
+    protected String textureName;
+    protected ModelBiped model;
+    protected String hudTextureName;
 
     public static class Builder {
 
@@ -236,33 +246,35 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 //            }
 
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
-            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
-                    unlocalizedHelmetName, textureName, chestModel, hudTextureName);
+            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.HEAD, unlocalizedHelmetName, textureName, chestModel, hudTextureName);
 
             if (creativeTab != null)
                 armorHelmet.setCreativeTab(creativeTab);
 
             armorHelmet.setTranslationKey(unlocalizedHelmetName);
-            compatibility.registerItem(armorHelmet, unlocalizedHelmetName.toLowerCase());
+            armorHelmet.setRegistryName(ModReference.id, unlocalizedHelmetName.toLowerCase()); // temporary hack
+            ForgeRegistries.ITEMS.register(armorHelmet);
 
             String unlocalizedChestName = unlocalizedName + "_chest";
-            CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.CHEST,
+            CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.CHEST,
                     unlocalizedChestName, textureName, chestModel, hudTextureName);
             if(creativeTab != null) {
                 armorChest.setCreativeTab(creativeTab);
             }
             armorChest.setTranslationKey(unlocalizedChestName);
-            compatibility.registerItem(armorChest, unlocalizedChestName.toLowerCase());
+            armorChest.setRegistryName(ModReference.id, unlocalizedChestName.toLowerCase()); // temporary hack
+            ForgeRegistries.ITEMS.register(armorChest);
 
             String unlocalizedBootsName = unlocalizedName + "_boots";
-            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET,
+            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.FEET,
                     unlocalizedBootsName, textureName, bootsModel, hudTextureName);
 
             if(armorBoots != null)
                 armorBoots.setCreativeTab(creativeTab);
 
             armorBoots.setTranslationKey(unlocalizedBootsName);
-            compatibility.registerItem(armorBoots, unlocalizedBootsName.toLowerCase());
+            armorBoots.setRegistryName(ModReference.id, unlocalizedBootsName.toLowerCase()); // temporary hack
+            ForgeRegistries.ITEMS.register(armorBoots);
 
             armorHelmet.maxShieldCapacity = maxShieldCapacity;
             armorHelmet.shieldRegenerationRate = shieldRegenerationRate;
@@ -304,9 +316,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 helmetModel = HelmetModelFactory.create(modelClassName);
 
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
-
-            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
-                    unlocalizedHelmetName, textureName, helmetModel, hudTextureName);
+            CustomArmor armorHelmet = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.HEAD, unlocalizedHelmetName, textureName, helmetModel, hudTextureName);
 
             CraftingRegistry.registerHook(armorHelmet);
 
@@ -315,7 +325,8 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             armorHelmet.exposureReductionFactor = this.exposureReductionFactor;
             armorHelmet.setTranslationKey(unlocalizedHelmetName);
             armorHelmet.breathingSound = context.registerSound(breathingSound);
-            compatibility.registerItem(armorHelmet, unlocalizedHelmetName.toLowerCase());
+            armorHelmet.setRegistryName(ModReference.id, unlocalizedHelmetName.toLowerCase()); // temporary hack
+            ForgeRegistries.ITEMS.register(armorHelmet);
 
             if (creativeTab != null)
                 armorHelmet.setCreativeTab(creativeTab);
@@ -330,7 +341,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             }
 
             String unlocalizedChestName = unlocalizedName + "_chest";
-            CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.CHEST,
+            CustomArmor armorChest = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.CHEST,
                     unlocalizedChestName, textureName, chestModel, hudTextureName);
 
             CraftingRegistry.registerHook(armorChest);
@@ -340,7 +351,8 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 armorChest.setCreativeTab(creativeTab);
 
             armorChest.setTranslationKey(unlocalizedChestName);
-            compatibility.registerItem(armorChest, unlocalizedChestName.toLowerCase());
+            armorChest.setRegistryName(ModReference.id, unlocalizedChestName.toLowerCase()); // temporary hack
+            ForgeRegistries.ITEMS.register(armorChest);
 
             armorChest.maxShieldCapacity = maxShieldCapacity;
             armorChest.shieldRegenerationRate = shieldRegenerationRate;
@@ -361,7 +373,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 bootsModel = BootsModelFactory.createModel(modelClassName);
 
             String unlocalizedBootsName = unlocalizedName + "_boots";
-            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET,
+            CustomArmor armorBoots = new CustomArmor(unlocalizedName, material, 4, EntityEquipmentSlot.FEET,
                     unlocalizedBootsName, textureName, bootsModel, hudTextureName);
 
             CraftingRegistry.registerHook(armorBoots);
@@ -370,7 +382,8 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 armorBoots.setCreativeTab(creativeTab);
 
             armorBoots.setTranslationKey(unlocalizedBootsName);
-            compatibility.registerItem(armorBoots, unlocalizedBootsName.toLowerCase());
+            armorBoots.setRegistryName(ModReference.id, unlocalizedBootsName.toLowerCase()); // temporary hack
+            ForgeRegistries.ITEMS.register(armorBoots);
 
 //            armorBoots.maxShieldCapacity = maxShieldCapacity;
 //            armorBoots.shieldRegenerationRate = shieldRegenerationRate;
@@ -385,16 +398,15 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
     private Map<ItemAttachment<CustomArmor>, CompatibleAttachment<CustomArmor>> compatibleAttachments = new HashMap<>();
 
-    //private CompatibleEntityEquipmentSlot slot;
+    //private EntityEquipmentSlot slot;
     private boolean hasNightVision;
     private boolean vignetteEnabled;
     private float exposureReductionFactor;
     @SuppressWarnings("unused")
-    private CompatibleSound breathingSound;
-
-    private CompatibleEntityEquipmentSlot compatibleEquipmentType;
-
-//  private boolean shieldEnabled;
+    private SoundEvent breathingSound;
+    private EntityEquipmentSlot compatibleEquipmentType;
+    
+    //private boolean shieldEnabled;
     private long shieldRegenerationTimeout = 1000;
     private double shieldRegenerationRate = 1.0; // restored shield capacity per sec
     private double maxShieldCapacity;
@@ -411,12 +423,52 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 	private CraftingGroup craftGroup;
 
 
-    private CustomArmor(String unlocalizedArmorSetName, ArmorMaterial material, int renderIndex,
-            CompatibleEntityEquipmentSlot armorType, String iconName, String textureName,
-            ModelBiped model, String hudTextureName) {
-        super(material, renderIndex, armorType, iconName.toLowerCase(), textureName, model, hudTextureName);
+    private CustomArmor(String unlocalizedArmorSetName, ArmorMaterial material, int renderIndex, EntityEquipmentSlot armorType, String iconName, String textureName, ModelBiped model, String hudTextureName) {
+        super(material, renderIndex, armorType);
+        this.textureName = textureName;
+        this.model = model;
+        this.hudTextureName = hudTextureName;
         this.compatibleEquipmentType = armorType;
         this.unlocalizedArmorSetName = unlocalizedArmorSetName;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
+        ModelBiped armorModel = null;
+
+        if (itemStack != null) {
+
+            if (itemStack.getItem() instanceof CustomArmor) {
+                armorModel = model;
+            }
+
+            if (armorModel != null) {
+
+                armorModel.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                armorModel.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                armorModel.bipedBody.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                armorModel.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.MAINHAND || armorSlot == EntityEquipmentSlot.OFFHAND;
+                armorModel.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.MAINHAND || armorSlot == EntityEquipmentSlot.OFFHAND;
+
+                armorModel.bipedRightLeg.showModel = armorSlot == EntityEquipmentSlot.FEET;
+                armorModel.bipedLeftLeg.showModel = armorSlot == EntityEquipmentSlot.FEET;
+
+                armorModel.isSneak = entityLiving.isSneaking();
+                armorModel.isRiding = entityLiving.isRiding();
+                armorModel.isChild = entityLiving.isChild();
+
+                if (entityLiving instanceof EntityPlayer) {
+
+                    Render<AbstractClientPlayer> entityRenderObject = mc.getRenderManager().getEntityRenderObject((AbstractClientPlayer) entityLiving);
+                    RenderPlayer renderPlayer = (RenderPlayer) entityRenderObject;
+                    armorModel.leftArmPose = renderPlayer.getMainModel().leftArmPose;
+                    armorModel.rightArmPose = renderPlayer.getMainModel().rightArmPose;
+                }
+                return armorModel;
+            }
+        }
+        return null;
     }
 
     public String getHudTexture() {
@@ -424,6 +476,11 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             return null;
 
         return ModReference.id + ":textures/hud/" + hudTextureName + ".png";
+    }
+
+    @Override
+    public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
+        return ModReference.id + ":textures/models/" + textureName + ".png";
     }
 
     public String getShieldIndicatorMaskTextureName() {
@@ -440,7 +497,8 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
     @SuppressWarnings("unchecked")
     public void changeAttachment(AttachmentCategory attachmentCategory, ItemStack itemStack, EntityPlayer player) {
-        compatibility.ensureTagCompound(itemStack);
+        if (itemStack.getTagCompound() == null)
+            itemStack.setTagCompound(new NBTTagCompound());
 
         int[] activeAttachmentsIds = ensureActiveAttachments(itemStack);
         int activeAttachmentIdForThisCategory = activeAttachmentsIds[attachmentCategory.ordinal()];
@@ -459,7 +517,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
         activeAttachmentsIds[attachmentCategory.ordinal()] = Item.getIdFromItem(nextAttachment);;
 
-        compatibility.getTagCompound(itemStack).setIntArray(ACTIVE_ATTACHMENT_TAG, activeAttachmentsIds);
+        itemStack.getTagCompound().setIntArray(ACTIVE_ATTACHMENT_TAG, activeAttachmentsIds);
     }
 
     private ItemAttachment<CustomArmor> nextCompatibleAttachment(AttachmentCategory category, Item currentAttachment, EntityPlayer player) {
@@ -488,7 +546,8 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     }
 
     public ItemAttachment<CustomArmor> getActiveAttachment (ItemStack itemStack, AttachmentCategory category) {
-        compatibility.ensureTagCompound(itemStack);
+        if (itemStack.getTagCompound() == null)
+            itemStack.setTagCompound(new NBTTagCompound());
 
         ItemAttachment<CustomArmor> itemAttachment = null;
 
@@ -510,7 +569,8 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     }
 
     public List<CompatibleAttachment<CustomArmor>> getActiveAttachments (ItemStack itemStack) {
-        compatibility.ensureTagCompound(itemStack);
+        if (itemStack.getTagCompound() == null)
+            itemStack.setTagCompound(new NBTTagCompound());
 
         List<CompatibleAttachment<CustomArmor>> activeAttachments = new ArrayList<>();
 
@@ -532,11 +592,11 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     }
 
     private int[] ensureActiveAttachments(ItemStack itemStack) {
-        int activeAttachmentsIds[] = compatibility.getTagCompound(itemStack).getIntArray(ACTIVE_ATTACHMENT_TAG);
+        int activeAttachmentsIds[] = itemStack.getTagCompound().getIntArray(ACTIVE_ATTACHMENT_TAG);
 
         if(activeAttachmentsIds == null || activeAttachmentsIds.length != AttachmentCategory.values.length) {
             activeAttachmentsIds = new int[AttachmentCategory.values.length];
-            compatibility.getTagCompound(itemStack).setIntArray(ACTIVE_ATTACHMENT_TAG, activeAttachmentsIds);
+            itemStack.getTagCompound().setIntArray(ACTIVE_ATTACHMENT_TAG, activeAttachmentsIds);
             for(CompatibleAttachment<CustomArmor> attachment: compatibleAttachments.values()) {
                 if(attachment.isDefault()) {
                     activeAttachmentsIds[attachment.getAttachment().getCategory().ordinal()] = Item.getIdFromItem(attachment.getAttachment());
@@ -587,38 +647,40 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                 }
             }
         }
-    }
-//        if(!worldIn.isRemote && entityIn != null) {
-//            compatibility.ensureTagCompound(stack);
-//            NBTTagCompound nbt = stack.getTagCompound();
-//            long lastBreathTimestamp = nbt.getLong("LastBreathTimestamp");
-//            
-//            long breathingPeriodMillis;
-//            if(entityIn.isSprinting()) {
-//                long startRunningTimestamp = nbt.getLong("StartRunningTimestamp");
-//                if(startRunningTimestamp == 0) {
-//                    nbt.setLong("StartRunningTimestamp", System.currentTimeMillis());
-//                }
-//                long runningDuration = System.currentTimeMillis() - startRunningTimestamp;
-//                float runningProgress = MiscUtils.clamp(((float)runningDuration) / 5000, 0.0f, 1.0f);
-//                breathingPeriodMillis = 2000L - (long)(runningProgress * 1500);
-//                System.out.println("Breathing period: " + breathingPeriodMillis);
-//            } else {
-//                nbt.setLong("StartRunningTimestamp", 0L);
-//                breathingPeriodMillis = 2000;
-//            }
-//            
-//            if(lastBreathTimestamp + breathingPeriodMillis < System.currentTimeMillis() 
-//                    && entityIn instanceof EntityLivingBase) {
-//                //compatibility.playSound((EntityLivingBase) entityIn, breathingSound, 1.0f, 1.0f);
-//                compatibility.playSoundAtEntity((EntityLivingBase) entityIn, breathingSound, 1.0f, 1.0f);
-//                System.out.println("Breathe!");
-//                nbt.setLong("LastBreathTimestamp", System.currentTimeMillis());
-//            }
-//        }
-//    }
+        /*
+          if(!worldIn.isRemote && entityIn != null) {
+            if (stack.getTagCompound() == null)
+                stack.setTagCompound(new NBTTagCompound());
 
-    public CompatibleEntityEquipmentSlot getCompatibleEquipmentSlot() {
+            NBTTagCompound nbt = stack.getTagCompound();
+            long lastBreathTimestamp = nbt.getLong("LastBreathTimestamp");
+
+            long breathingPeriodMillis;
+            if(entityIn.isSprinting()) {
+                long startRunningTimestamp = nbt.getLong("StartRunningTimestamp");
+                if(startRunningTimestamp == 0) {
+                    nbt.setLong("StartRunningTimestamp", System.currentTimeMillis());
+                }
+                long runningDuration = System.currentTimeMillis() - startRunningTimestamp;
+                float runningProgress = MiscUtils.clamp(((float)runningDuration) / 5000, 0.0f, 1.0f);
+                breathingPeriodMillis = 2000L - (long)(runningProgress * 1500);
+                System.out.println("Breathing period: " + breathingPeriodMillis);
+            } else {
+                nbt.setLong("StartRunningTimestamp", 0L);
+                breathingPeriodMillis = 2000;
+            }
+
+            if(lastBreathTimestamp + breathingPeriodMillis < System.currentTimeMillis()
+                    && entityIn instanceof EntityLivingBase) {
+                //((EntityLivingBase) entityIn).playSound(breathingSound, 1, 1);
+                compatibility.playSoundAtEntity((EntityLivingBase) entityIn, breathingSound, 1.0f, 1.0f);
+                System.out.println("Breathe!");
+                nbt.setLong("LastBreathTimestamp", System.currentTimeMillis());
+            }
+        }*/
+    }
+
+    public EntityEquipmentSlot getCompatibleEquipmentSlot() {
         return compatibleEquipmentType;
     }
 
@@ -638,34 +700,35 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
     }
 
     private void ensureTagCompound(ItemStack itemStack) {
-        if (compatibility.getTagCompound(itemStack) == null) {
+        if (itemStack.getTagCompound() == null) {
             NBTTagCompound tagCompound = new NBTTagCompound();
-            compatibility.setTagCompound(itemStack, tagCompound);
+            itemStack.setTagCompound(tagCompound);
             tagCompound.setDouble(SHIELD_CAPACITY_TAG, maxShieldCapacity);
         }
     }
 
     public double getShieldCapacity(ItemStack armorStack) {
         ensureTagCompound(armorStack);
-        NBTTagCompound tagCompound = compatibility.getTagCompound(armorStack);
+        NBTTagCompound tagCompound = armorStack.getTagCompound();
         return tagCompound.getDouble(SHIELD_CAPACITY_TAG);
     }
 
     private void setShieldCapacity(ItemStack armorStack, double capacity) {
         ensureTagCompound(armorStack);
-        NBTTagCompound tagCompound = compatibility.getTagCompound(armorStack);
+        NBTTagCompound tagCompound = armorStack.getTagCompound();
         tagCompound.setDouble(SHIELD_CAPACITY_TAG, capacity);
     }
 
     private long getShieldHitTimestamp(ItemStack armorStack) {
         ensureTagCompound(armorStack);
-        NBTTagCompound tagCompound = compatibility.getTagCompound(armorStack);
+        NBTTagCompound tagCompound = armorStack.getTagCompound();
         return tagCompound.getLong(SHIELD_HIT_TIMESTAMP_TAG);
     }
 
     private void setShieldHitTimestamp(ItemStack armorStack, long timestamp) {
-        compatibility.ensureTagCompound(armorStack);
-        NBTTagCompound tagCompound = compatibility.getTagCompound(armorStack);
+        if (armorStack.getTagCompound() == null)
+            armorStack.setTagCompound(new NBTTagCompound());
+        NBTTagCompound tagCompound = armorStack.getTagCompound();
         tagCompound.setLong(SHIELD_HIT_TIMESTAMP_TAG, timestamp);
     }
 

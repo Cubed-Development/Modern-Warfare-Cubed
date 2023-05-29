@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.utils.MathUtil;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
@@ -29,10 +30,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHandSide;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
@@ -47,7 +52,6 @@ import java.util.Map;
 import java.util.Random;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
 public class Interceptors {
@@ -61,7 +65,7 @@ public class Interceptors {
 	public static VehicleRFCam firstPersonCamera = new VehicleRFCam();
     
     public static boolean is3dRenderableItem(Item item) {
-        return compatibility.is3dRenderable(item);
+        return item instanceof ItemBlock;
     }
     
     public static NaturalCamera nc = new NaturalCamera();
@@ -76,7 +80,7 @@ public class Interceptors {
     	
     	
     	PlayerWeaponInstance weaponInstance = getPlayerWeaponInstance();
-        EntityPlayer player = compatibility.getClientPlayer();
+        EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
     	
         
         
@@ -357,8 +361,8 @@ public class Interceptors {
     }
     
     private static PlayerWeaponInstance getPlayerWeaponInstance() {
-        EntityPlayer player = compatibility.getClientPlayer();
-        ItemStack itemStack = compatibility.getHeldItemMainHand(player);
+        EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
+        ItemStack itemStack = player.getHeldItemMainhand();
         PlayerWeaponInstance weaponInstance = null;
         if(itemStack != null) {
             Item item = itemStack.getItem();
@@ -397,7 +401,7 @@ public class Interceptors {
     	//GlStateManager.translate(0, ClientValueRepo.rise, 0);
     	
     	GlStateManager.rotate((float) ClientValueRepo.jumpingSpring.getLerpedPosition(), 1, 0, 0);
-        if(!(compatibility.getRenderViewEntity() instanceof EntityPlayer)) {
+        if(!(mc.getRenderViewEntity() instanceof EntityPlayer)) {
             return true;
         }
         
@@ -416,7 +420,7 @@ public class Interceptors {
        //GlStateManager.rotate(3f*scalar, 0, 1, 0);
       // GlStateManager.rotate(2f*scalar, 1, 0, 0);
        
-        EntityPlayer entityplayer = (EntityPlayer)compatibility.getRenderViewEntity();
+        EntityPlayer entityplayer = (EntityPlayer)mc.getRenderViewEntity();
 
         //ClientValueRepo.forward += mc.player.moveForward/25f;
         
@@ -440,9 +444,9 @@ public class Interceptors {
             
             float xWiggle = (float) LissajousCurve.getXOffsetOnCurve(3, 1, 2, Math.PI, f1);
             
-            GL11.glTranslatef(CompatibleMathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 0.5F, -Math.abs(CompatibleMathHelper.cos(f1 * (float)Math.PI) * f2)*0.5f, 0.0F);
-            GL11.glRotatef(CompatibleMathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 3.0F*sMult, 0.0F, 0.0F, 1.0F);
-            GL11.glRotatef(Math.abs(CompatibleMathHelper.cos((f1 * (float)Math.PI - 0.2F)*speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
+            GL11.glTranslatef(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 0.5F, -Math.abs(MathHelper.cos(f1 * (float)Math.PI) * f2)*0.5f, 0.0F);
+            GL11.glRotatef(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 3.0F*sMult, 0.0F, 0.0F, 1.0F);
+            GL11.glRotatef(Math.abs(MathHelper.cos((f1 * (float)Math.PI - 0.2F)*speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
             GL11.glRotatef(f3*sMult, 1.0F, 0.0F, 0.0F);
         	
         	/*
@@ -453,9 +457,9 @@ public class Interceptors {
             
             float xWiggle = (float) LissajousCurve.getXOffsetOnCurve(3, 1, 2, Math.PI, f1);
             
-            GL11.glTranslatef(CompatibleMathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 0.5F, -Math.abs(CompatibleMathHelper.cos(f1 * (float)Math.PI) * f2)*0.5f, 0.0F);
-            GL11.glRotatef(CompatibleMathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 3.0F*sMult, 0.0F, 0.0F, 1.0F);
-            GL11.glRotatef(Math.abs(CompatibleMathHelper.cos((f1 * (float)Math.PI - 0.2F)*speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
+            GL11.glTranslatef(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 0.5F, -Math.abs(MathHelper.cos(f1 * (float)Math.PI) * f2)*0.5f, 0.0F);
+            GL11.glRotatef(MathHelper.sin(f1 * (float)Math.PI*speed) * f2 * 3.0F*sMult, 0.0F, 0.0F, 1.0F);
+            GL11.glRotatef(Math.abs(MathHelper.cos((f1 * (float)Math.PI - 0.2F)*speed) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
             GL11.glRotatef(f3*sMult, 1.0F, 0.0F, 0.0F);
             */
         } else {
@@ -467,9 +471,9 @@ public class Interceptors {
                      float f1 = -(entityplayer.distanceWalkedModified + f * partialTicks);
                      float f2 = entityplayer.prevCameraYaw + (entityplayer.cameraYaw - entityplayer.prevCameraYaw) * partialTicks;
                      float f3 = entityplayer.prevCameraPitch + (entityplayer.cameraPitch - entityplayer.prevCameraPitch) * partialTicks;
-                     GL11.glTranslatef(CompatibleMathHelper.sin(f1 * (float)Math.PI) * f2 * 0.2F, -Math.abs(CompatibleMathHelper.cos(f1 * (float)Math.PI) * f2)*0.2f, 0.0F);
-                     GL11.glRotatef(CompatibleMathHelper.sin(f1 * (float)Math.PI) * f2 * 3.0F, 0.0F, 0.0F, 1.0F);
-                     GL11.glRotatef(Math.abs(CompatibleMathHelper.cos(f1 * (float)Math.PI - 0.2F) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
+                     GL11.glTranslatef(MathHelper.sin(f1 * (float)Math.PI) * f2 * 0.2F, -Math.abs(MathHelper.cos(f1 * (float)Math.PI) * f2)*0.2f, 0.0F);
+                     GL11.glRotatef(MathHelper.sin(f1 * (float)Math.PI) * f2 * 3.0F, 0.0F, 0.0F, 1.0F);
+                     GL11.glRotatef(Math.abs(MathHelper.cos(f1 * (float)Math.PI - 0.2F) * f2) * 5.0F, 1.0F, 0.0F, 0.0F);
                     
                      GL11.glRotatef(f3, 1.0F, 0.0F, 0.0F);
         		
@@ -600,7 +604,7 @@ public class Interceptors {
     
     public static boolean hurtCameraEffect(float partialTicks) {
 //	    if(1+1==2) return false;  
-        if(!(compatibility.getRenderViewEntity() instanceof EntityPlayer)) {
+        if(!(mc.getRenderViewEntity() instanceof EntityPlayer)) {
             return true;
         }
         
@@ -608,7 +612,7 @@ public class Interceptors {
         
         boolean allowDefaultEffect = false;
 
-        EntityPlayer entitylivingbase = (EntityPlayer)compatibility.getRenderViewEntity();
+        EntityPlayer entitylivingbase = (EntityPlayer)mc.getRenderViewEntity();
         float f = (float) entitylivingbase.hurtTime - partialTicks;
 
         if (entitylivingbase.getHealth() <= 0.0F) {
@@ -621,7 +625,7 @@ public class Interceptors {
         }
 
         f = f / (float) entitylivingbase.maxHurtTime;
-        f = CompatibleMathHelper.sin(f * f * f * f * (float) Math.PI);
+        f = MathHelper.sin(f * f * f * f * (float) Math.PI);
         float f2 = entitylivingbase.attackedAtYaw;
         GL11.glRotatef(-f2, 0.0F, 1.0F, 0.0F);
         SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(entitylivingbase, SpreadableExposure.class);
@@ -698,14 +702,14 @@ public class Interceptors {
                 if(backpackStack != null) {
                     GL11.glPushMatrix();
                     adjustBodyWearablePosition(player);
-                    compatibility.renderItem(player, backpackStack);
+                    mc.getItemRenderer().renderItem(player, backpackStack, null);
                     GL11.glPopMatrix();
                 }
                 ItemStack vestStack = capability.getStackInSlot(1); // TODO: replace 0 with constant for backpack slot 
                 if(vestStack != null) {
                     GL11.glPushMatrix();
                     adjustBodyWearablePosition(player);
-                    compatibility.renderItem(player, vestStack);
+                    mc.getItemRenderer().renderItem(player, vestStack, null);
                     GL11.glPopMatrix();
                 }
             }
@@ -753,8 +757,8 @@ public class Interceptors {
     public static void checkLayerRenderersHooks() {
     	layerRendererHookSetup = true;
     	
-    	layerRendererField = CompatibleReflection.findField(RenderLivingBase.class, "layerRenderers", "field_177097_h");
-    	translateItemField = CompatibleReflection.findMethod(LayerHeldItem.class, "translateToHand", "func_191361_a", EnumHandSide.class);
+    	layerRendererField = ReflectionHelper.findField(RenderLivingBase.class, "layerRenderers", "field_177097_h");
+    	translateItemField = ReflectionHelper.findMethod(LayerHeldItem.class, "translateToHand", "func_191361_a", EnumHandSide.class);
 		 }
     
     @SuppressWarnings("unchecked")
@@ -791,8 +795,7 @@ public class Interceptors {
         if(entity instanceof EntityPlayer /* && isProning((EntityPlayer) entity)*/) { 
             PlayerRenderer playerRenderer = renderers.get(entity);
             EntityPlayer player = (EntityPlayer) entity;
-            if(playerRenderer == null || !playerRenderer.positionItemSide(player, itemStack, CompatibleTransformType.fromItemRenderType(transformType), 
-                    CompatibleEnumHandSide.fromEnumHandSide(handSide))) {
+            if(playerRenderer == null || !playerRenderer.positionItemSide(player, itemStack, transformType, handSide)) {
                 ((ModelBiped)livingEntityRenderer.getMainModel()).postRenderArm(0.0625F, handSide);
             }
         } else {
@@ -955,9 +958,9 @@ public class Interceptors {
     	
     	
     	
-    	if(Keyboard.isKeyDown(Keyboard.KEY_LCONTROL) && CompatibleClientEventHandler.freecamEnabled) {
-    		CompatibleClientEventHandler.yawDelta = yawDelta;
-        	CompatibleClientEventHandler.pitchDelta = pitchDelta;
+    	if(Keyboard.isKeyDown(Keyboard.KEY_LCONTROL) && ClientEventHandler.freecamEnabled) {
+            ClientEventHandler.yawDelta = yawDelta;
+            ClientEventHandler.pitchDelta = pitchDelta;
     		return;
     	}
     	
@@ -985,14 +988,14 @@ public class Interceptors {
 ////            }
 ////            System.out.println("Speed: " + entityVehicle.getSpeed() + ", maxYawD: " + maxYawDelta);
 //            //canChangeRotationYaw = entityVehicle.getState() != VehicleState.STOPPING;
-//            float vehicleRiderYawDelta = CompatibleMathHelper.wrapAngleTo180Float(player.ridingEntity.rotationYaw - player.rotationYaw);
+//            float vehicleRiderYawDelta = MathHelper.wrapAngleTo180Float(player.ridingEntity.rotationYaw - player.rotationYaw);
 //            if(vehicleRiderYawDelta > maxYawDelta) {
 //                vehicleRiderYawDelta = maxYawDelta;
 //                yawDelta = 1f;
 //            }
             
             player.rotationYaw = (float) ((double) player.rotationYaw + (double) yawDelta);
-            float vehicleRiderYawDelta = CompatibleMathHelper.wrapAngleTo180Float(player.getRidingEntity().rotationYaw - player.rotationYaw);
+            float vehicleRiderYawDelta = MathUtil.wrapAngleTo180Float(player.getRidingEntity().rotationYaw - player.rotationYaw);
             //System.out.println("Proposed delta: " + yawDelta + ", allowed: " + vehicleRiderYawDelta);
 
             if(vehicleRiderYawDelta > maxYawDelta) {

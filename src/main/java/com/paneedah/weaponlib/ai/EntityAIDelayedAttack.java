@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.ai;
 
-import com.paneedah.weaponlib.compatibility.CompatibleEntityAIBase;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.EntityAIBase;
 
-public class EntityAIDelayedAttack extends CompatibleEntityAIBase {
+public class EntityAIDelayedAttack extends EntityAIBase {
     
     private EntityCustomMob entityCustomMob;
     private EntityLivingBase targetEntity;

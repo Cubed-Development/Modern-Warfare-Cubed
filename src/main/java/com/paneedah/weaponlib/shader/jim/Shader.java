@@ -67,11 +67,9 @@ public class Shader {
 
 	public void uniform3f(String name, float f, float g, float h) {
 		GL20.glUniform3f(getLoc(name), f, g, h);
-		
 	}
 	
 	private int getLoc(String name) {
 		return OpenGlHelper.glGetUniformLocation(getShaderId(), name);
 	}
-
 }

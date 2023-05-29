@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.vectors.Vector3D;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler.MuzzleFlash;
+import com.paneedah.weaponlib.ClientEventHandler.MuzzleFlash;
 import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.particle.BetterMuzzleSmoke;
 import com.paneedah.weaponlib.particle.ExplosionParticleFX;
@@ -13,7 +13,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 @SideOnly(Side.CLIENT)
 final class ClientEffectManager implements EffectManager {
@@ -22,17 +21,14 @@ final class ClientEffectManager implements EffectManager {
 
 	@Override
     public void spawnSmokeParticle(EntityLivingBase player, float xOffset, float yOffset) {
-	    if(compatibility.isShadersModEnabled())
-	        return;
-
-		Vector3D look = compatibility.getLookVec(player);
+		Vector3D look = new Vector3D(player.getLookVec());
 
 		double motionX = mc.world.rand.nextGaussian() * 0.0003;
 		double motionY = mc.world.rand.nextGaussian() * 0.0003;
 		double motionZ = mc.world.rand.nextGaussian() * 0.0003;
 
 		float distance = 1.2f;
-		float scale = 5f * compatibility.getSmokeEffectScaleFactor(); // TODO: check why scale was set to 2.0 in 1.7.10
+		float scale = 5f * 1; // TODO: check why scale multiplier was set to 2.0 in 1.7.10
 		float positionRandomizationFactor = 0.01f;
 
 		double posX = player.posX + (look.x * distance) + (mc.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (-look.z * xOffset);
@@ -61,17 +57,14 @@ final class ClientEffectManager implements EffectManager {
 
 	@Override
     public void spawnFlashParticle(EntityLivingBase player, float flashIntensity, float flashScale, float xOffset, float yOffset, String texture) {
-	    if (compatibility.isShadersModEnabled())
-	        return;
-
 	    Weapon weapon = (Weapon) player.getHeldItemMainhand().getItem();
 
 	    float distance = 1.0f;
-	    
-		//float scale = 0.8f * compatibility.getEffectScaleFactor() * flashScale;
+
+		//float scale = 0.8f * flashScale;
 		float positionRandomizationFactor = 0.0f;
 
-		Vector3D look = compatibility.getLookVec(player);
+		Vector3D look = new Vector3D(player.getLookVec());
 
 		/*
 		float motionX = (float)mc.world.rand.nextGaussian() * 0.003f;
@@ -99,17 +92,6 @@ final class ClientEffectManager implements EffectManager {
 		
 		if (Math.random() < 0.6/weapon.builder.fireRate)
 			ClientEventHandler.uploadFlash(player.getEntityId());
-
-		/*
-		if (player instanceof EntityPlayer) {
-            if(player.isSneaking())
-                posY -= 0.1f;
-            else if(Interceptors.isProning((EntityPlayer) player))
-                posY -= 1.2f;
-        }
-
-		mc.effectRenderer.addEffect(new FlashFX(mc.world, posX, posY, posZ, scale, flashIntensity * compatibility.getFlashIntencityFactor(), motionX, motionY, motionZ, texture));
-		*/
 	}
 
 	@Override

@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ExplosionParticleFX extends Particle {
 
@@ -58,7 +57,7 @@ public class ExplosionParticleFX extends Particle {
 
         //this.setParticleTextureIndex(7 - this.particleAge * 8 / this.particleMaxAge);
         this.motionY += 0.004D;
-        compatibility.moveParticle(this, this.motionX, this.motionY, this.motionZ);
+        this.move(this.motionX, this.motionY, this.motionZ);
         //this.moveEntity(this.motionX, this.motionY, this.motionZ);
         this.motionX *= 0.99; //8999999761581421D;
         //8999999761581421D;

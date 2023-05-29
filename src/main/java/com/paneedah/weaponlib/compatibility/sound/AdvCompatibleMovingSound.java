@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.compatibility.sound;
 
 import com.paneedah.mwc.vectors.Vector3D;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import net.minecraft.client.audio.MovingSound;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -27,8 +27,8 @@ public class AdvCompatibleMovingSound extends MovingSound {
     private boolean isFadeIn = false;
     private boolean isFade = false;
 
-    public AdvCompatibleMovingSound(CompatibleSound sound, Supplier<Vector3D> positionProvider, Supplier<Boolean> donePlayingProvider, boolean fade) {
-        super(sound.getSound(), SoundCategory.BLOCKS);
+    public AdvCompatibleMovingSound(SoundEvent sound, Supplier<Vector3D> positionProvider, Supplier<Boolean> donePlayingProvider, boolean fade) {
+        super(sound, SoundCategory.BLOCKS);
         this.repeat = true;
         this.volume = 1.5F;
         

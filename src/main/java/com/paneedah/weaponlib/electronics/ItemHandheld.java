@@ -72,5 +72,4 @@ implements PlayerItemInstanceFactory<PlayerHandheldInstance, HandheldState>, Upd
     public Class<? extends Perspective<?>> getRequiredPespectiveType() {
         return builder.perspectiveClass;
     }
-  
 }

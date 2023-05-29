@@ -2,7 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import com.paneedah.weaponlib.animation.PartPositionProvider;
-import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -22,7 +22,7 @@ public class RenderContext<RS> implements PartPositionProvider {
 	private float headPitch;
 	private float scale;
 	private float transitionProgress;
-	private CompatibleTransformType compatibleTransformType;
+	private ItemCameraTransforms.TransformType transformType;
 	private RS fromState;
 	private RS toState;
 	private ModContext modContext;
@@ -114,12 +114,12 @@ public class RenderContext<RS> implements PartPositionProvider {
 		return itemStack;
 	}
 
-	public CompatibleTransformType getCompatibleTransformType() {
-		return compatibleTransformType;
+	public ItemCameraTransforms.TransformType getTransformType() {
+		return transformType;
 	}
 
-	public void setCompatibleTransformType(CompatibleTransformType compatibleTransformType) {
-		this.compatibleTransformType = compatibleTransformType;
+	public void setCompatibleTransformType(ItemCameraTransforms.TransformType transformType) {
+		this.transformType = transformType;
 	}
 
 	public RS getFromState() {

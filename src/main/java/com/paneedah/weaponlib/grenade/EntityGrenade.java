@@ -1,25 +1,24 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleAxisAlignedBB;
-import com.paneedah.weaponlib.compatibility.CompatibleBlockState;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTracing;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.function.BiPredicate;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityGrenade extends AbstractEntityGrenade {
 
@@ -130,7 +129,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
     @Override
     public void onGrenadeUpdate() {
     	  
-        if (!compatibility.world(this).isRemote && explosionTimeout > 0
+        if (!world.isRemote && explosionTimeout > 0
                 && System.currentTimeMillis() > activationTimestamp + explosionTimeout) {
         
           explode();
@@ -139,8 +138,8 @@ public class EntityGrenade extends AbstractEntityGrenade {
     }
 
     @Override
-    public void onBounce(CompatibleRayTraceResult movingobjectposition) {
-        if(explosionTimeout == ItemGrenade.EXPLODE_ON_IMPACT && !compatibility.world(this).isRemote) {
+    public void onBounce(RayTraceResult movingobjectposition) {
+        if(explosionTimeout == ItemGrenade.EXPLODE_ON_IMPACT && !world.isRemote) {
             explode();
         } else {
             super.onBounce(movingobjectposition);
@@ -150,12 +149,12 @@ public class EntityGrenade extends AbstractEntityGrenade {
     private void explode() {
         log.debug("Exploding {}", this);
 
-        Explosion.createServerSideExplosion(modContext, compatibility.world(this), this,
+        Explosion.createServerSideExplosion(modContext, world, this,
                 this.posX, this.posY, this.posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null, 
                 modContext.getExplosionSound());
         
-        List<?> nearbyEntities = compatibility.getEntitiesWithinAABBExcludingEntity(compatibility.world(this), this,
-                compatibility.getBoundingBox(this).expand(5, 5, 5));
+        List<?> nearbyEntities = world.getEntitiesWithinAABBExcludingEntity(this,
+                this.getEntityBoundingBox().expand(5, 5, 5));
 
         float damageCoefficient = (float)ModernConfigManager.explosionDamage;
         float effectiveRadius = itemGrenade.getEffectiveRadius() * damageCoefficient; // 5 block sphere with this entity as a center
@@ -182,24 +181,23 @@ public class EntityGrenade extends AbstractEntityGrenade {
 
             Vector3D cvec2 = new Vector3D(this.posX + x * k, this.posY + y * k, this.posZ + z * k);
 
-            BiPredicate<Block, CompatibleBlockState> isCollidable = (block, blockMetadata) -> compatibility.canCollideCheck(block, blockMetadata, false);
-            CompatibleRayTraceResult rayTraceResult = CompatibleRayTracing.rayTraceBlocks(compatibility.world(this), cvec1, cvec2, isCollidable);
+            BiPredicate<Block, IBlockState> isCollidable = (block, blockMetadata) -> block.canCollideCheck(blockMetadata, false);
+            RayTraceResult rayTraceResult = MWCUtil.rayTraceBlocks(world, cvec1, cvec2, isCollidable);
 
             if(rayTraceResult != null) {
-                cvec2 = rayTraceResult.getHitVec();
+                cvec2 = new Vector3D(rayTraceResult.hitVec);
             }
 
             for(Object nearbyEntityObject: nearbyEntities) {
                 Entity nearbyEntity = (Entity)nearbyEntityObject;
                 if (nearbyEntity.canBeCollidedWith()) {
                     float f = 0.5f;
-                    CompatibleAxisAlignedBB axisalignedbb = compatibility.expandEntityBoundingBox(nearbyEntity, (double) f,
-                            (double) f, (double) f);
-                    CompatibleRayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(cvec10, cvec2);
+                    AxisAlignedBB axisalignedbb = nearbyEntity.getEntityBoundingBox().expand((double) f, (double) f, (double) f);
+                    RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(cvec10.toVec3d(), cvec2.toVec3d());
 
                     if (movingobjectposition1 != null) {
 
-                        double distanceToEntity = cvec10.distanceTo(movingobjectposition1.getHitVec());
+                        double distanceToEntity = cvec10.distanceTo(new Vector3D(movingobjectposition1.hitVec));
                         float damageDistanceReductionFactor = (float)Math.abs(1 - distanceToEntity / effectiveRadius);
 
                         log.trace("Hit entity {} at distance {}, damage reduction {}", nearbyEntity, distanceToEntity,

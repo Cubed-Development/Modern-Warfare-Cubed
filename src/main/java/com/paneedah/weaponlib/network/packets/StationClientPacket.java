@@ -1,19 +1,17 @@
 package com.paneedah.weaponlib.network.packets;
 
-import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
-public class StationClientPacket implements CompatibleMessage {
+public class StationClientPacket implements IMessage {
 
 	// THIS ONLY EXISTS ON THE SERVER END, THIS
 	// VARIABLE WILL BE NULL ON THE CLIENT END.
@@ -58,35 +56,20 @@ public class StationClientPacket implements CompatibleMessage {
 
 	}
 
-	public static class WorkshopClientPacketHandler implements CompatibleMessageHandler<StationClientPacket, CompatibleMessage> {
-		
-		private ModContext modContext;
-		
-		
-		public WorkshopClientPacketHandler(ModContext context) {
-			this.modContext = context;
+	public static class WorkshopClientPacketHandler implements IMessageHandler<StationClientPacket, IMessage> {
+
+		public WorkshopClientPacketHandler() {
 		}
-		
 
 		@Override
-		public <T extends CompatibleMessage> T onCompatibleMessage(StationClientPacket m, CompatibleMessageContext ctx) {
-			 if(!ctx.isServerSide()) {
-		            compatibility.runInMainClientThread(() -> {
-					
-		            	TileEntity te = mc.world.getTileEntity(m.pos);
-		        		if(te != null && te instanceof TileEntityStation) {
-		        			TileEntityStation station = (TileEntityStation) te;
-		        			station.readBytesFromClientSync(m.copiedBuf);
-		        		}
-	
-		            	
-				});
-			}
-			
+		public IMessage onMessage(StationClientPacket message, MessageContext messageContext) {
+			mc.addScheduledTask(() -> {
+				TileEntity tileEntity = mc.world.getTileEntity(message.pos);
+				if(tileEntity != null && tileEntity instanceof TileEntityStation)
+					((TileEntityStation) tileEntity).readBytesFromClientSync(message.copiedBuf);
+			});
+
 			return null;
 		}
-
 	}
-
-	
 }

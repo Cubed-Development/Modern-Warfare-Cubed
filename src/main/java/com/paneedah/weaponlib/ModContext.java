@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.*;
 import com.paneedah.weaponlib.crafting.RecipeManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.GrenadeRenderer;
@@ -9,21 +8,25 @@ import com.paneedah.weaponlib.melee.ItemMelee;
 import com.paneedah.weaponlib.melee.MeleeAttachmentAspect;
 import com.paneedah.weaponlib.melee.MeleeAttackAspect;
 import com.paneedah.weaponlib.melee.MeleeRenderer;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 public interface ModContext {
 
 	public boolean isClient();
 	
-	public void preInitEnd(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
+	public void preInitEnd(Object mod, SimpleNetworkWrapper channel);
 
-	public void preInit(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel);
+	public void preInit(Object mod, SimpleNetworkWrapper channel);
 
 	public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
 
-	public CompatibleChannel getChannel();
+	public SimpleNetworkWrapper getChannel();
 
 	public void runSyncTick(Runnable runnable);
 
@@ -31,8 +34,7 @@ public interface ModContext {
 
 	public void registerRenderableItem(ResourceLocation name, Item weapon, Object renderer);
 
-	// TODO: append mod id in 1.7.10
-	public CompatibleSound registerSound(String sound);
+	public SoundEvent registerSound(String sound);
 
 	public void runInMainThread(Runnable runnable);
 
@@ -52,33 +54,33 @@ public interface ModContext {
 
 	public RecipeManager getRecipeManager();
 
-	public CompatibleSound getZoomSound();
+	public SoundEvent getZoomSound();
 
 	public void setChangeZoomSound(String sound);
 
-	public CompatibleSound getChangeFireModeSound();
+	public SoundEvent getChangeFireModeSound();
 
 	public void setChangeFireModeSound(String sound);
 
-	public CompatibleSound getNoAmmoSound();
+	public SoundEvent getNoAmmoSound();
 
 	public void setNoAmmoSound(String sound);
 
-	public CompatibleSound getExplosionSound();
+	public SoundEvent getExplosionSound();
 
 	public void setExplosionSound(String sound);
 
-	public CompatibleSound getFlashExplosionSound();
+	public SoundEvent getFlashExplosionSound();
 
 	public void setFlashExplosionSound(String sound);
 
 	public void setNightVisionOnSound(String sound);
 
-	public CompatibleSound getNightVisionOnSound();
+	public SoundEvent getNightVisionOnSound();
 
 	public void setNightVisionOffSound(String sound);
 
-	public CompatibleSound getNightVisionOffSound();
+	public SoundEvent getNightVisionOffSound();
 
 	public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer);
 
@@ -106,18 +108,18 @@ public interface ModContext {
 
 	public void init(Object mod);
 
-	public MaterialImpactSound getMaterialImpactSound(CompatibleBlockState blockState, WeaponSpawnEntity entity);
+	public MaterialImpactSound getMaterialImpactSound(IBlockState iBlockState, WeaponSpawnEntity entity);
 
 	public CommonModContext setMaterialsImpactSound(String sound, Item bulletItem, float volume,
-			CompatibleMaterial... materials);
+			Material... materials);
 
-	public CommonModContext setMaterialImpactSound(String sound, float volume, CompatibleMaterial material);
+	public CommonModContext setMaterialImpactSound(String sound, float volume, Material material);
 
-	public CommonModContext setMaterialsImpactSound(String sound, float volume, CompatibleMaterial... materials);
+	public CommonModContext setMaterialsImpactSound(String sound, float volume, Material... materials);
 
-	public CommonModContext setMaterialsImpactSound(String sound, CompatibleMaterial... materials);
+	public CommonModContext setMaterialsImpactSound(String sound, Material... materials);
 
-	public CommonModContext setMaterialImpactSounds(CompatibleMaterial material, float volume, String... sounds);
+	public CommonModContext setMaterialImpactSounds(Material material, float volume, String... sounds);
 
 	public int getRegisteredTextureId(String textureName);
 

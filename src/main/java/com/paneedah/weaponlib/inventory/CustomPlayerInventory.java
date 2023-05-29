@@ -3,15 +3,15 @@ package com.paneedah.weaponlib.inventory;
 import com.paneedah.weaponlib.Contextual;
 import com.paneedah.weaponlib.ItemStorage;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleInventory;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.text.ITextComponent;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-public class CustomPlayerInventory extends CompatibleInventory implements Contextual {
+public class CustomPlayerInventory implements IInventory, Contextual {
     /**
      * The name your custom inventory will display in the GUI, possibly just
      * "Inventory"
@@ -32,7 +32,7 @@ public class CustomPlayerInventory extends CompatibleInventory implements Contex
     public CustomPlayerInventory(/*ModContext modContext*/) {
         inventory = new ItemStack[INV_SIZE];
         for(int i = 0; i < inventory.length; i++) {
-            inventory[i] = compatibility.stackForEmptySlot();
+            inventory[i] = new ItemStack(Items.AIR);
         }
     }
     
@@ -54,11 +54,11 @@ public class CustomPlayerInventory extends CompatibleInventory implements Contex
     public ItemStack decrStackSize(int slot, int amount) {
         ItemStack stack = getStackInSlot(slot);
         if (stack != null) {
-            if (compatibility.getStackSize(stack) > amount) {
+            if (stack.getCount() > amount) {
                 stack = stack.splitStack(amount);
                 markDirty();
             } else {
-                setInventorySlotContents(slot, compatibility.stackForEmptySlot());
+                setInventorySlotContents(slot, new ItemStack(Items.AIR));
             }
         }
         return stack;
@@ -78,14 +78,14 @@ public class CustomPlayerInventory extends CompatibleInventory implements Contex
 
     @Override
     public void setInventorySlotContents(int slot, ItemStack itemstack) {
-        this.inventory[slot] = itemstack != null ? itemstack : compatibility.stackForEmptySlot();
+        this.inventory[slot] = itemstack != null ? itemstack : new ItemStack(Items.AIR);
 
-        if (itemstack != null && compatibility.getStackSize(itemstack) > this.getInventoryStackLimit()) {
+        if (itemstack != null && itemstack.getCount() > this.getInventoryStackLimit()) {
             if(itemstack.getItem() instanceof ItemStorage) {
 //                System.out.println("Setting inventory slot " + slot + " with tag compound "
 //                        + itemstack.getTagCompound());
             }
-            compatibility.setStackSize(itemstack, getInventoryStackLimit());
+            itemstack.setCount(getInventoryStackLimit());
         }
 
         this.markDirty();
@@ -107,15 +107,15 @@ public class CustomPlayerInventory extends CompatibleInventory implements Contex
     @Override
     public void markDirty() {
         for (int i = 0; i < getSizeInventory(); ++i) {
-            if (getStackInSlot(i) != null && compatibility.getStackSize(getStackInSlot(i)) == 0) {
-                inventory[i] = compatibility.stackForEmptySlot();
+            if (getStackInSlot(i) != null && getStackInSlot(i).getCount() == 0) {
+                inventory[i] = new ItemStack(Items.AIR);
             }
         }
         
-        if(modContext != null && owner != null && compatibility.world(owner).isRemote) {
-            modContext.getChannel().getChannel().sendToServer(new EntityInventorySyncMessage(owner, 
+        if(modContext != null && owner != null && owner.world.isRemote) {
+            modContext.getChannel().sendToServer(new EntityInventorySyncMessage(owner, 
                     this, true));
-//            modContext.getChannel().getChannel().sendToAll(
+//            modContext.getChannel().sendToAll(
 //                    new EntityInventorySyncMessage(owner, this, true));
         }
     }
@@ -146,7 +146,7 @@ public class CustomPlayerInventory extends CompatibleInventory implements Contex
             final ItemStack stackInSlot = getStackInSlot(i);
             if (stackInSlot != null) {
 //                System.out.println("Serializing stack " + stackInSlot
-//                        + " with tag compound: " + compatibility.getTagCompound(stackInSlot));
+//                        + " with tag compound: " + stackInSlot.getTagCompound());
                 NBTTagCompound item = new NBTTagCompound();
                 item.setByte("Slot", (byte) i);
                 stackInSlot.writeToNBT(item);
@@ -169,7 +169,7 @@ public class CustomPlayerInventory extends CompatibleInventory implements Contex
             NBTTagCompound item = tagList.getCompoundTagAt(i);
             byte slot = item.getByte("Slot");
             if (slot >= 0 && slot < getSizeInventory()) {
-                inventory[slot] = compatibility.createItemStack(item);
+                inventory[slot] = new ItemStack(item);;
             } else {
 //                System.out.println("Could not find slot " + slot);
             }
@@ -179,5 +179,57 @@ public class CustomPlayerInventory extends CompatibleInventory implements Contex
     @Override
     public void setContext(ModContext modContext) {
         this.modContext = modContext;
+    }
+
+    @Override
+    public ITextComponent getDisplayName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public ItemStack removeStackFromSlot(int index) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void openInventory(EntityPlayer player) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void closeInventory(EntityPlayer player) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public int getField(int id) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public int getFieldCount() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void clear() {
     }
 }

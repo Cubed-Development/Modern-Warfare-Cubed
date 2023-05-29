@@ -3,9 +3,6 @@ package com.paneedah.weaponlib;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.command.MainCommand;
-import com.paneedah.weaponlib.compatibility.CompatibleChannel;
-import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
 import com.paneedah.weaponlib.compatibility.CompatibleRenderingRegistry;
 import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.workbench.GUIContainerWorkbench;
@@ -28,6 +25,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.ClientCommandHandler;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -38,7 +39,6 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ClientModContext extends CommonModContext {
 
@@ -69,8 +69,8 @@ public class ClientModContext extends CommonModContext {
     }
 
     @Override
-    public void preInit(Object mod, CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
-        super.preInit(mod, event, channel);
+    public void preInit(Object mod, SimpleNetworkWrapper channel) {
+        super.preInit(mod, channel);
 
         aspectRatio = (float) mc.displayWidth / mc.displayHeight;
 
@@ -85,7 +85,7 @@ public class ClientModContext extends CommonModContext {
 
         rendererRegistry.preInit();
 
-        List<IResourcePack> defaultResourcePacks = compatibility.getPrivateValue(
+        List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(
                 Minecraft.class, mc, "defaultResourcePacks", "field_110449_ao");
         WeaponResourcePack weaponResourcePack = new WeaponResourcePack();
         defaultResourcePacks.add(weaponResourcePack);
@@ -94,8 +94,8 @@ public class ClientModContext extends CommonModContext {
             ((SimpleReloadableResourceManager) resourceManager).reloadResourcePack(weaponResourcePack);
         }
 
-        compatibility.registerWithEventBus(new CustomGui(mc, this, weaponAttachmentAspect));
-        compatibility.registerWithEventBus(new WeaponEventHandler(this, safeGlobals));
+        MinecraftForge.EVENT_BUS.register(new CustomGui(mc, this, weaponAttachmentAspect));
+        MinecraftForge.EVENT_BUS.register(new WeaponEventHandler(this, safeGlobals));
 
         KeyBindings.init();
 
@@ -107,11 +107,11 @@ public class ClientModContext extends CommonModContext {
 
         clientWeaponTicker.start();
         clientEventHandler = new ClientEventHandler(this, mainLoopLock, safeGlobals, runInClientThreadQueue);
-        compatibility.registerWithFmlEventBus(clientEventHandler);
+        MinecraftForge.EVENT_BUS.register(clientEventHandler);
 
-        compatibility.registerWithEventBus(InventoryTabs.getInstance());
+        MinecraftForge.EVENT_BUS.register(InventoryTabs.getInstance());
 
-        compatibility.registerWithEventBus(clientEventHandler); // TODO: what are the implications of registering the same class with 2 buses
+        MinecraftForge.EVENT_BUS.register(clientEventHandler); // TODO: what are the implications of registering the same class with 2 buses
 
         this.viewManager = new PerspectiveManager(this);
         this.inventoryTextureMap = new HashMap<>();
@@ -127,8 +127,6 @@ public class ClientModContext extends CommonModContext {
     @Override
     public void init(Object mod) {
         super.init(mod);
-
-        //compatibility.registerRenderingRegistry(rendererRegistry);
 
         rendererRegistry.registerEntityRenderingHandler(WeaponSpawnEntity.class, new SpawnEntityRenderer());
         rendererRegistry.registerEntityRenderingHandler(EntityWirelessCamera.class, new WirelessCameraRenderer());
@@ -180,8 +178,8 @@ public class ClientModContext extends CommonModContext {
     }
 
     @Override
-    protected EntityPlayer getPlayer(CompatibleMessageContext ctx) {
-        return compatibility.clientPlayer();
+    protected EntityPlayer getPlayer(MessageContext ctx) {
+        return mc.player;
     }
 
     @Override
@@ -210,7 +208,7 @@ public class ClientModContext extends CommonModContext {
 
     @Override
     public PlayerWeaponInstance getMainHeldWeapon() {
-        return getPlayerItemInstanceRegistry().getMainHandItemInstance(compatibility.clientPlayer(),
+        return getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player,
                 PlayerWeaponInstance.class);
     }
 
@@ -220,7 +218,7 @@ public class ClientModContext extends CommonModContext {
     }
 
     public PlayerMeleeInstance getMainHeldMeleeWeapon() {
-        return getPlayerItemInstanceRegistry().getMainHandItemInstance(compatibility.clientPlayer(),
+        return getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player,
                 PlayerMeleeInstance.class);
     }
 

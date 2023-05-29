@@ -1,13 +1,13 @@
 package com.paneedah.weaponlib.animation.movement;
 
+import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.PlayerWeaponInstance;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.WeaponRenderer.StateDescriptor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.animation.jim.KeyedAnimation;
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.paneedah.weaponlib.compatibility.CompatibleWeaponRenderer.StateDescriptor;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.numerical.LissajousCurve;
 import com.paneedah.weaponlib.numerical.SpringValue;
@@ -110,7 +110,7 @@ public class WeaponRotationHandler {
 	public void run(RenderContext<RenderableState> renderContext, StateDescriptor stateDescriptor) {
 
 		
-		if(CompatibleClientEventHandler.cancelSway) return;
+		if(ClientEventHandler.cancelSway) return;
 		
 		/*
 		 * Prepare values and do calculations

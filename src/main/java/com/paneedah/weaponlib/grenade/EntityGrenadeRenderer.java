@@ -1,27 +1,28 @@
 package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.compatibility.CompatibleEntityRenderer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class EntityGrenadeRenderer extends CompatibleEntityRenderer {
+public class EntityGrenadeRenderer extends Render<Entity> {
 
     //private ModelBase model = new CameraModel();
     //private ResourceLocation textureLocation;
     //private static final String TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/gunmetaltexture.png";
 
     public EntityGrenadeRenderer() {
+        super(mc.getRenderManager());
         //textureLocation = new ResourceLocation(TEXTURE);
     }
 
     @Override
-    public void doCompatibleRender(Entity entity, double x, double y, double z, float yaw, float tick) {
+    public void doRender(Entity entity, double x, double y, double z, float yaw, float tick) {
 
         AbstractEntityGrenade entityGrenade = (AbstractEntityGrenade) entity;
         ItemGrenade itemGrenade = entityGrenade.getItemGrenade();

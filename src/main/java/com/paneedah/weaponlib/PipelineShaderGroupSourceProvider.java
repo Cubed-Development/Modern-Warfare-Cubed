@@ -5,6 +5,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSourceProvider;
 import com.paneedah.weaponlib.shader.DynamicShaderPhase;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
@@ -13,7 +14,6 @@ import net.minecraft.util.math.MathHelper;
 import java.util.UUID;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvider {
     
@@ -49,8 +49,8 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
     
     @Override
     public DynamicShaderGroupSource getShaderSource(DynamicShaderPhase phase) {
-        lightExposure = CompatibleExposureCapability.getExposure(compatibility.clientPlayer(), LightExposure.class);
-        spreadableExposure = CompatibleExposureCapability.getExposure(compatibility.clientPlayer(), SpreadableExposure.class);
+        lightExposure = CompatibleExposureCapability.getExposure(mc.player, LightExposure.class);
+        spreadableExposure = CompatibleExposureCapability.getExposure(mc.player, SpreadableExposure.class);
         spreadableExposureProgress = MiscUtils.smoothstep(0, 1, spreadableExposure != null ? spreadableExposure.getTotalDose() : 0f);
         updateNightVision();
         updateVignette();
@@ -67,9 +67,9 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
         brightness = 1f;
 
 //        System.out.println("Hello");
-        long worldTime = compatibility.world(compatibility.clientPlayer()).getWorldTime();
+        long worldTime = mc.player.world.getWorldTime();
 //        System.out.println("Day brightness: " + dayBrightness + ", time: " + (worldTime % 24000));
-        if(lightExposure != null && lightExposure.getTotalDose() > 0.0003f) { //lightExposure.isEffective(compatibility.world(compatibility.clientPlayer()))) {
+        if(lightExposure != null && lightExposure.getTotalDose() > 0.0003f) { //lightExposure.isEffective(compatibility.world(mc.player))) {
             flashEnabled = true;
             float dayBrightness = (MathHelper.sin( (float)Math.PI * 2 * (float)(worldTime % 24000 - 24000f) / 24000f) + 1f) / 2f;
 //            dayBrightness *= dayBrightness;
@@ -77,7 +77,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
 //            System.out.println("Brightness: " + brightness);
         }
         
-        if(spreadableExposure != null && !compatibility.clientPlayer().isDead) {
+        if(spreadableExposure != null && !mc.player.isDead) {
             Blackout blackout = spreadableExposure.getBlackout();
             blackout.update();
             switch(blackout.getPhase()) {
@@ -103,7 +103,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
 
     private void updateVignette() {
         vignetteEnabled = nightVisionEnabled;
-        ItemStack helmetStack = compatibility.getHelmet();
+        ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
         if(nightVisionEnabled && helmetStack != null && helmetStack.getItem() instanceof CustomArmor) {
             CustomArmor helmet = (CustomArmor)helmetStack.getItem();
             vignetteEnabled = helmet.isVignetteEnabled();
@@ -112,9 +112,9 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
     }
 
     private void updateNightVision() {
-        ItemStack helmetStack = compatibility.getHelmet();
+        ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
         if(helmetStack != null) {
-            NBTTagCompound tagCompound = compatibility.getTagCompound(helmetStack);
+            NBTTagCompound tagCompound = helmetStack.getTagCompound();
             if(tagCompound != null) {
                 nightVisionEnabled = tagCompound.getBoolean("nv");
             } else {

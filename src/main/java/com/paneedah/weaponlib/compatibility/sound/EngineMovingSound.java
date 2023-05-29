@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.compatibility.sound;
 
 import com.paneedah.mwc.vectors.Vector3D;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import net.minecraft.client.audio.ISound;
+import net.minecraft.util.SoundEvent;
 
 import java.util.function.Supplier;
 
@@ -11,8 +11,7 @@ public class EngineMovingSound extends AdvCompatibleMovingSound {
 
 	public EntityVehicle vehicle;
 	
-	public EngineMovingSound(CompatibleSound sound, Supplier<Vector3D> positionProvider,
-			Supplier<Boolean> donePlayingProvider, EntityVehicle vehicle, boolean shouldFade) {
+	public EngineMovingSound(SoundEvent sound, Supplier<Vector3D> positionProvider, Supplier<Boolean> donePlayingProvider, EntityVehicle vehicle, boolean shouldFade) {
 		super(sound, positionProvider, donePlayingProvider, shouldFade);
 		
 		this.vehicle = vehicle;

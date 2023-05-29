@@ -21,6 +21,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL13;
 
 import java.util.Arrays;
@@ -30,7 +33,6 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
 public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implements DynamicShaderGroupSourceProvider {
@@ -59,7 +61,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     public final DynamicShaderGroupSource VIGNETTE_SOURCE = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID,
             new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/vignette.json"))
             .withUniform("Radius", context -> getOpticScopeVignetteRadius(context.getPartialTicks()))
-           // .withUniform("Velocity", context -> new float[]{CompatibleClientEventHandler.scopeVelX, CompatibleClientEventHandler.scopeVelY})
+           // .withUniform("Velocity", context -> new float[]{ClientEventHandler.scopeVelX, ClientEventHandler.scopeVelY})
             .withUniform("Reticle", context -> {
             	
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
@@ -110,10 +112,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 	public PlayerWeaponInstance() {
 		super();
 	}
-
-
-	
-	
 	
     public PlayerWeaponInstance(int itemInventoryIndex, EntityLivingBase player, ItemStack itemStack) {
 		super(itemInventoryIndex, player, itemStack);
@@ -576,11 +574,11 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         ItemAttachment<Weapon> scope = getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
         return scope instanceof ItemScope ? (ItemScope) scope : null;
     }
-    
 
+	@SideOnly(Side.CLIENT)
     private float getOpticScopeVignetteRadius(float partialTicks) {
         //ItemAttachment<Weapon> scope = getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
-        EntityPlayer player = compatibility.getClientPlayer();
+        EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
 //        float f = player.distanceWalkedModified - player.prevDistanceWalkedModified;
 //        float f1 = -(player.distanceWalkedModified + f * partialTicks);
         float f2 = player.prevCameraYaw + (player.cameraYaw - player.prevCameraYaw) * partialTicks;

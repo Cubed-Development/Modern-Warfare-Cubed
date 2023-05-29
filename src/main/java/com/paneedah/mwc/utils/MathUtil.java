@@ -6,6 +6,7 @@ import static com.paneedah.mwc.utils.ModReference.log;
 
 /**
  * This class provides fast focused mathematical methods.
+ *
  * @author Desoroxxx
  */
 public class MathUtil {
@@ -122,5 +123,15 @@ public class MathUtil {
 	 */
 	public static int boolToInt(boolean input) {
 		return input ? 1 : 0;
+	}
+
+	/**
+	 * Wraps the given angle value to the range of -180 to 180 degrees.
+	 *
+	 * @param angle The angle in degrees to be wrapped.
+	 * @return The wrapped angle in the range of -180 to 180 degrees.
+	 */
+	public static float wrapAngleTo180Float(float angle) {
+		return ((angle + 180f) % 360f + 360f) % 360f - 180f;
 	}
 }

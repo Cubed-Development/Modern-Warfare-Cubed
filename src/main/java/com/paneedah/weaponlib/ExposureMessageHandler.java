@@ -1,28 +1,26 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class ExposureMessageHandler implements CompatibleMessageHandler<ExposureMessage, CompatibleMessage>  {
-    
-    @SuppressWarnings("unused")
-    private ModContext modContext;
+public class ExposureMessageHandler implements IMessageHandler<ExposureMessage, IMessage> {
 
-    public ExposureMessageHandler(ModContext modContext) {
-        this.modContext = modContext;
+    public ExposureMessageHandler() {
     }
 
     @Override
-    public <T extends CompatibleMessage> T onCompatibleMessage(ExposureMessage message, CompatibleMessageContext ctx) {
-        if(!ctx.isServerSide()) {
-            compatibility.runInMainClientThread(() -> {
-                CompatibleExposureCapability.updateExposures(compatibility.clientPlayer(), message.getExposures());
-            });
-        }
+    @SideOnly(Side.CLIENT)
+    public IMessage onMessage(ExposureMessage message, MessageContext messageContext) {
+        mc.addScheduledTask(() -> {
+            CompatibleExposureCapability.updateExposures(mc.player, message.getExposures());
+        });
+
         return null;
     }
 }

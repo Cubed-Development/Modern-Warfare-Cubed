@@ -1,15 +1,17 @@
 package com.paneedah.weaponlib.network.packets;
 
-import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessage;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
-import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import com.paneedah.weaponlib.jim.util.RandomUtil;
+import com.paneedah.weaponlib.particle.ParticleBlood;
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class BloodPacketClient implements CompatibleMessage {
+public class BloodPacketClient implements IMessage {
 
 	double x, y, z, velx, vely, velz;
 
@@ -48,47 +50,34 @@ public class BloodPacketClient implements CompatibleMessage {
 		buf.writeDouble(this.velz);
 	}
 
-	public static class BalancePacketHandler implements CompatibleMessageHandler<BloodPacketClient, CompatibleMessage> {
-		
-		private ModContext modContext;
-		
-		
-		public BalancePacketHandler(ModContext context) {
-			this.modContext = context;
+	public static class BalancePacketHandler implements IMessageHandler<BloodPacketClient, IMessage> {
+
+		public BalancePacketHandler() {
 		}
-		
 
 		@Override
-		public <T extends CompatibleMessage> T onCompatibleMessage(BloodPacketClient m, CompatibleMessageContext ctx) {
-			 if(!ctx.isServerSide()) {
-		            compatibility.runInMainClientThread(() -> {
-					
-		            	
-		            	double velX = m.velx;
-		            	double velY = m.vely;
-		            	double velZ = m.velz;
-		            	
-		            	double length = Math.sqrt(velX*velX + velY*velY + velZ*velZ);
-		            	velX /= -length;
-		            	velY /= -length;
-		            	velZ /= -length;
-		            	
-		            	
-		            	double scale = 0.2;
-		            	double spreader = 0.05;
-		            	
-		            	RandomUtil util = new RandomUtil();
-		            	
-		            	for(int i = 0; i < 15; ++i) {
-		            	///	System.out.println(m.x + " | " + m.y  + " | " + m.z);
-		            		compatibility.addBloodParticle(modContext, m.x, m.y, m.z, velX*scale + util.getRandomWithNegatives(spreader), velY*scale + util.getRandomWithNegatives(spreader), velZ*scale + util.getRandomWithNegatives(spreader));
-			            	
-							
-		            	}
-		            	
-				});
-			}
-			
+		@SideOnly(Side.CLIENT)
+		public IMessage onMessage(BloodPacketClient message, MessageContext messageContext) {
+			mc.addScheduledTask(() -> {
+				double velX = message.velx;
+				double velY = message.vely;
+				double velZ = message.velz;
+
+				double length = Math.sqrt(velX * velX + velY * velY + velZ * velZ);
+				velX /= -length;
+				velY /= -length;
+				velZ /= -length;
+
+				double scale = 0.2;
+				double spreader = 0.05;
+
+				RandomUtil util = new RandomUtil();
+
+				for(int i = 0; i < 15; ++i) {
+					mc.effectRenderer.addEffect(new ParticleBlood(mc.world, message.x, message.y, message.z, velX * scale + util.getRandomWithNegatives(spreader), velY * scale + util.getRandomWithNegatives(spreader), velZ * scale + util.getRandomWithNegatives(spreader)));
+				}
+		   });
+
 			return null;
 		}
 

@@ -12,7 +12,6 @@ import java.util.UUID;
 import java.util.function.Supplier;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class TrackableEntity {
 
@@ -33,7 +32,7 @@ public class TrackableEntity {
         this.entitySupplier = () -> entity;
         this.startTimestamp = startTimestamp;
         this.trackingDuration = trackingDuration;
-        this.worldSupplier = () -> compatibility.world(entity);
+        this.worldSupplier = () -> entity.world;
     }
 
     public UUID getUuid() {
@@ -55,7 +54,7 @@ public class TrackableEntity {
             Entity entity = entitySupplier.get();
             if(entity != null) {
                 if(entity instanceof EntityPlayer) {
-                    displayName = compatibility.getDisplayName((EntityPlayer)entity);
+                    displayName = ((EntityPlayer) entity).getDisplayNameString();
                 } else if(entity instanceof EntityLivingBase) {
                     displayName = EntityList.getEntityString(entity);
                 }
@@ -96,7 +95,7 @@ public class TrackableEntity {
             if(w.isRemote) {
                 return w.getEntityByID(entityId);
             }
-            return compatibility.getEntityByUuid(uuid, w);
+            return w.getPlayerEntityByUUID(uuid);
         };
     }
 

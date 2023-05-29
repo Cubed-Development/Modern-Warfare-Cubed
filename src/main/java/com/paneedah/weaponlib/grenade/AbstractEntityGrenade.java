@@ -2,18 +2,16 @@ package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.weaponlib.EntityBounceable;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleBlockState;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult.Type;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public abstract class AbstractEntityGrenade extends EntityBounceable {
 
@@ -22,7 +20,7 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
     protected ItemGrenade itemGrenade;
 
     protected AbstractEntityGrenade(ModContext modContext, ItemGrenade itemGrenade, EntityLivingBase thrower, float velocity, float gravityVelocity, float rotationSlowdownFactor) {
-        super(modContext, compatibility.world(thrower), thrower, velocity, gravityVelocity, rotationSlowdownFactor);
+        super(modContext, thrower.world, thrower, velocity, gravityVelocity, rotationSlowdownFactor);
         this.itemGrenade = itemGrenade;
     }
 
@@ -69,22 +67,26 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
     protected abstract void onGrenadeUpdate();
 
     @Override
-    public void onBounce(CompatibleRayTraceResult movingobjectposition) {
+    public void onBounce(RayTraceResult movingobjectposition) {
     	
-        if(movingobjectposition.getTypeOfHit() == Type.BLOCK && itemGrenade != null) {
-            CompatibleSound bounceHardSound = itemGrenade.getBounceHardSound();
+        if(movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK && itemGrenade != null) {
+            SoundEvent bounceHardSound = itemGrenade.getBounceHardSound();
             if(bounceHardSound != null) {
-                CompatibleBlockState blockState = compatibility.getBlockAtPosition(compatibility.world(this), movingobjectposition);
-                if(compatibility.madeFromHardMaterial(blockState)) {
-                    compatibility.playSoundAtEntity(this, bounceHardSound, 2.0f / (bounceCount + 1f), 1.0f);
+                IBlockState iBlockState = world.getBlockState(new BlockPos(movingobjectposition.getBlockPos().getX(), movingobjectposition.getBlockPos().getY(), movingobjectposition.getBlockPos().getZ()));
+                Material material = iBlockState.getMaterial();
+
+                if(material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD) {
+                    this.playSound(bounceHardSound, 2.0f / (bounceCount + 1f), 1.0f);
                 }
             }
 
-            CompatibleSound bounceSoftSound = itemGrenade.getBounceSoftSound();
+            SoundEvent bounceSoftSound = itemGrenade.getBounceSoftSound();
             if(bounceSoftSound != null) {
-                CompatibleBlockState blockState = compatibility.getBlockAtPosition(compatibility.world(this), movingobjectposition);
-                if(!compatibility.madeFromHardMaterial(blockState)) {
-                    compatibility.playSoundAtEntity(this, bounceSoftSound, 1.0f / (bounceCount + 1f), 1.0f);
+                IBlockState iBlockState = world.getBlockState(new BlockPos(movingobjectposition.getBlockPos().getX(), movingobjectposition.getBlockPos().getY(), movingobjectposition.getBlockPos().getZ()));
+                Material material = iBlockState.getMaterial();
+
+                if(material == Material.ROCK || material == Material.IRON || material == Material.ICE || material == Material.WOOD) {
+                    this.playSound(bounceHardSound, 1.0f / (bounceCount + 1f), 1.0f);
                 }
             }
         }
@@ -92,10 +94,5 @@ public abstract class AbstractEntityGrenade extends EntityBounceable {
 
     public ItemGrenade getItemGrenade() {
         return itemGrenade;
-    }
-
-    @Override
-    public boolean canCollideWithBlock(Block block, CompatibleBlockState metadata) {
-        return !compatibility.isBlockPenetratableByGrenades(block) && super.canCollideWithBlock(block, metadata);
     }
 }

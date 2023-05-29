@@ -25,7 +25,6 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
     public BetterMuzzleSmoke(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double p_i1221_8_, double p_i1221_10_, double p_i1221_12_, int indexY) {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, p_i1221_8_, p_i1221_10_, p_i1221_12_, indexY);
 
-        //this.setParticleTexture(CompatibleClientEventHandler.smoke1);
         this.particleMaxAge = (int) (6 + ((int) 4 * Math.random()));
         double sub = 5;
         this.motionX = (Math.random() - 0.5) / sub;

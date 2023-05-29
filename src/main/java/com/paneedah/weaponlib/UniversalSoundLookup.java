@@ -1,16 +1,15 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
+import net.minecraft.util.SoundEvent;
 
 import java.util.HashMap;
 
 public class UniversalSoundLookup {
 	
-	private static HashMap<String, CompatibleSound> registry = new HashMap<>();
+	private static HashMap<String, SoundEvent> registry = new HashMap<>();
 	
 	
 	public static void initialize(ModContext context) {
-		//	System.out.println("Properly initialized " + entry.getKey() + " | " + registry.get(entry.getKey()));
 		registry.replaceAll((k, v) -> context.registerSound(k));
 	}
 	
@@ -18,7 +17,7 @@ public class UniversalSoundLookup {
 		return registry.containsKey(name.toLowerCase());
 	}
 	
-	public static CompatibleSound lookupSound(String soundName) {
+	public static SoundEvent lookupSound(String soundName) {
 		return registry.get(soundName.toLowerCase());
 	}
 	

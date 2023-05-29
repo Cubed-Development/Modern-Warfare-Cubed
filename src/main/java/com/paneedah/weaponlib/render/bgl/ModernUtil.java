@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.render.bgl;
 
-import com.paneedah.weaponlib.compatibility.CompatibleShellRenderer;
+import com.paneedah.weaponlib.compatibility.ShellRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
@@ -14,7 +14,7 @@ public class ModernUtil {
 	public static void setupLighting(Vec3d position) {
 		GlStateManager.enableLighting();
 		mc.entityRenderer.enableLightmap();
-		CompatibleShellRenderer.setupLightmapCoords(mc.player.getPositionVector().add(0, 1, 0));
+		ShellRenderer.setupLightmapCoords(mc.player.getPositionVector().add(0, 1, 0));
 		
 	}
 	

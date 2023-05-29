@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
 import com.paneedah.weaponlib.particle.SpawnParticleMessage;
 import com.paneedah.weaponlib.particle.SpawnParticleMessage.ParticleType;
 import io.netty.buffer.ByteBuf;
@@ -9,9 +8,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntitySmokeGrenade extends AbstractEntityGrenade {
 
@@ -143,16 +142,16 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
             // Do nothing
         } else if (timeRemaining < 0) {
             setDead();
-        } else if(!compatibility.world(this).isRemote && timeRemaining <= activeDuration ) {
+        } else if(!world.isRemote && timeRemaining <= activeDuration ) {
 
             double f = 0.4 + Math.sin(Math.PI * (1 - (double)timeRemaining / activeDuration)) * 0.3;
             if(rand.nextDouble() <= f) {
-                for (Object o : compatibility.world(this).playerEntities) {
+                for (Object o : world.playerEntities) {
                     EntityPlayer player = (EntityPlayer) o;
                     if (player.getDistanceSq(posX, posY, posZ) < 4096.0D) {
                         ParticleType particleType = ParticleType.SMOKE_GRENADE_SMOKE;
                         double movement = bounceCount > 0 ? 0.1 : 0.005;
-                        modContext.getChannel().getChannel().sendTo(
+                        modContext.getChannel().sendTo(
                                 new SpawnParticleMessage(particleType, 1,
                                         posX + rand.nextGaussian() / 7,
                                         posY + rand.nextGaussian() / 10,
@@ -168,7 +167,7 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
     }
 
     @Override
-    public void onBounce(CompatibleRayTraceResult movingobjectposition) {
+    public void onBounce(RayTraceResult movingobjectposition) {
         if(activationDelay == ItemGrenade.EXPLODE_ON_IMPACT) {
             activationDelay = 0;
             activationTimestamp = System.currentTimeMillis();
@@ -179,9 +178,8 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onStop() {
-        World world = compatibility.world(this);
         if(!world.isRemote && itemGrenade != null) {
-            compatibility.playSound(compatibility.world(this), posX, posY, posZ, itemGrenade.getStopAfterThrowingSound(), 2f,
+            world.playSound(null, posX, posY, posZ, itemGrenade.getStopAfterThrowingSound(), SoundCategory.BLOCKS, 2f,
                     (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7f);
         }
 

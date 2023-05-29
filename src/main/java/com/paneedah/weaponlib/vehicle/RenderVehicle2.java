@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.vehicle;
 
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.MatrixHelper;
-import com.paneedah.weaponlib.compatibility.CompatibleEntityRenderer;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.vehicle.collisions.GJKResult;
 import com.paneedah.weaponlib.vehicle.collisions.OBBCollider;
@@ -32,8 +31,7 @@ import javax.vecmath.Vector3d;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class RenderVehicle2 extends CompatibleEntityRenderer
-{
+public class RenderVehicle2 extends Render<Entity> {
 	
 	public static final ResourceLocation VEHICLE_SHADOW = new ResourceLocation(ModReference.id + ":textures/entity/vehicleshadow.png");
 	
@@ -54,8 +52,9 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 	
 	
 	
-	public RenderVehicle2(StatefulRenderer<VehicleRenderableState> mainRenderer)
-	{
+	public RenderVehicle2(StatefulRenderer<VehicleRenderableState> mainRenderer) {
+		super(mc.getRenderManager());
+
 		this.shadowSize = 0.5F;
 		this.mainRenderer = mainRenderer;
 	}
@@ -909,8 +908,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
     }
 
 	@Override
-	public void doCompatibleRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9)
-	{
+	public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9) {
 		this.renderVehicle((EntityVehicle)par1Entity, par2, par4, par6, par8, par9);
 	}
 }

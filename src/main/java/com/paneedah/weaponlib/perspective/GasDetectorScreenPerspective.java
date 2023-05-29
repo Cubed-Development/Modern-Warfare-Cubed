@@ -5,14 +5,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class GasDetectorScreenPerspective extends ScreenPerspective {
 
     @Override
     protected void drawScreen() {
         float fontScale = 11f;
-        FontRenderer fontRender = compatibility.getFontRenderer();
+        FontRenderer fontRender = mc.fontRenderer;
         int color = 0xAAAA07;
 
         GL11.glScalef(fontScale, fontScale, fontScale);
@@ -23,9 +23,9 @@ public class GasDetectorScreenPerspective extends ScreenPerspective {
 
     private String getMessage() {
         float dose = 0f;
-        ItemStack itemStack = compatibility.getHeldItemMainHand(compatibility.clientPlayer());
+        ItemStack itemStack = mc.player.getHeldItemMainhand();
         if (itemStack != null) {
-            NBTTagCompound nbt = compatibility.getTagCompound(itemStack);
+            NBTTagCompound nbt = itemStack.getTagCompound();
             if (nbt != null) {
                 dose = nbt.getFloat("dose");
             }

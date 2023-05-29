@@ -1,23 +1,26 @@
 package com.paneedah.weaponlib.perspective;
 
 import com.paneedah.weaponlib.PlayerItemInstance;
-import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
 import com.paneedah.weaponlib.electronics.PlayerTabletInstance;
 import com.paneedah.weaponlib.electronics.SignalQuality;
 import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
 import com.paneedah.weaponlib.tracking.TrackableEntity;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
@@ -48,7 +51,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 //        this.watchablePlayer.setEntityLiving(null);
 //        if(true) return;
 
-        EntityPlayer entityPlayer = compatibility.clientPlayer();
+        EntityPlayer entityPlayer = mc.player;
         PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
                 .getMainHandItemInstance(entityPlayer);
 
@@ -75,7 +78,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         } else {
             displayName = te.getDisplayName();
             watchableEntity = te.getEntity();
-            batteryLevel = 1f - ((float)(compatibility.world(entityPlayer).getWorldTime() 
+            batteryLevel = 1f - ((float)(entityPlayer.world.getWorldTime()
                     - te.getStartTimestamp()) / te.getTrackingDuration());
             if(batteryLevel > 1f) {
                 batteryLevel = 1f;
@@ -84,7 +87,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
             }
         }
 
-        Entity realEntity = watchableEntity == null ? null : compatibility.world(watchableEntity)
+        Entity realEntity = watchableEntity == null ? null : watchableEntity.world
                 .getEntityByID(watchableEntity.getEntityId());
         if (realEntity != null && realEntity != watchableEntity) {
             watchableEntity = (EntityLivingBase) realEntity;
@@ -97,18 +100,13 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         if(tickCounter++ %50 == 0) {
             log.trace("Using entity tracker {}", playerEntityTracker);
             if(watchableEntity != null) {
-                log.debug("Watching {} with uuid {}, distance: {}  ",
-                        watchableEntity,
-                        watchableEntity.getUniqueID(),
-                        Math.sqrt(Math.pow(watchableEntity.posX - compatibility.getClientPlayer().posX, 2)
-                                + Math.pow(watchableEntity.posZ - compatibility.getClientPlayer().posZ, 2))
-                        );
+                log.debug("Watching {} with uuid {}, distance: {}  ", watchableEntity, watchableEntity.getUniqueID(), Math.sqrt(Math.pow(watchableEntity.posX - FMLClientHandler.instance().getClientPlayerEntity().posX, 2) + Math.pow(watchableEntity.posZ - FMLClientHandler.instance().getClientPlayerEntity().posZ, 2)));
             }
         }
 
 
         if(watchableEntity == null || watchableEntity instanceof EntityLivingBase) {
-            this.watchablePlayer.setEntityLiving((EntityLivingBase)watchableEntity);
+            this.watchablePlayer = ((EntityPlayerSP) watchableEntity);
         }
     }
 
@@ -121,10 +119,10 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         int maxDistance = 120;
         int displayCameraIndex = activeWatchIndex + 1;
         String message = "Cam " + displayCameraIndex + "/" + totalTrackableEntities + ": " + displayName;
-        EntityLivingBase watchableEntity = watchablePlayer.getEntityLiving();
+        EntityLivingBase watchableEntity = watchablePlayer;
         int color =  0xFFFF00;
         if(watchableEntity != null) {
-            EntityPlayer origPlayer = compatibility.clientPlayer();
+            EntityPlayer origPlayer = mc.player;
             //origPlayer.getDistanceToEntity(watchableEntity);
             double distance = Math.pow(watchableEntity.posX - origPlayer.posX, 2)
                     + Math.pow(watchableEntity.posY - origPlayer.posY, 2)
@@ -158,7 +156,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
             drawStatic();
         }
 
-        FontRenderer fontRender = compatibility.getFontRenderer();
+        FontRenderer fontRender = mc.fontRenderer;
 
         float scale = 2f;
         GL11.glScalef(scale, scale, scale);
@@ -203,22 +201,30 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         double height = this.height;
         double zLevel = 0;
 
-        CompatibleTessellator tessellator = CompatibleTessellator.getInstance();
-        tessellator.startDrawingQuads();
-        tessellator.addVertexWithUV(x + 0, y + height, zLevel, aU, aV);
-        tessellator.addVertexWithUV(x + width, y + height, zLevel, bU, bV);
-        tessellator.addVertexWithUV(x + width, y + 0, zLevel, cU, cV);
-        tessellator.addVertexWithUV(x + 0, y + 0, zLevel, dU, dV);
+        final Tessellator tessellator = Tessellator.getInstance();
+        final BufferBuilder buffer = tessellator.getBuffer();
+
+        buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+
+        buffer.pos(x + 0, y + height, zLevel).tex(aU, aV).endVertex();
+        buffer.pos(x + width, y + height, zLevel).tex(bU, bV).endVertex();
+        buffer.pos(x + width, y + 0, zLevel).tex(cU, cV).endVertex();
+        buffer.pos(x + 0, y + 0, zLevel).tex(dU, dV).endVertex();
+
         tessellator.draw();
     }
 
     private static void drawTexturedQuadFit(double x, double y, double width, double height, double zLevel){
-        CompatibleTessellator tessellator = CompatibleTessellator.getInstance();
-        tessellator.startDrawingQuads();
-        tessellator.addVertexWithUV(x + 0, y + height, zLevel, 0,1);
-        tessellator.addVertexWithUV(x + width, y + height, zLevel, 1, 1);
-        tessellator.addVertexWithUV(x + width, y + 0, zLevel, 1,0);
-        tessellator.addVertexWithUV(x + 0, y + 0, zLevel, 0, 0);
+        final Tessellator tessellator = Tessellator.getInstance();
+        final BufferBuilder buffer = tessellator.getBuffer();
+
+        buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+
+        buffer.pos(x + 0, y + height, zLevel).tex(0, 1).endVertex();
+        buffer.pos(x + width, y + height, zLevel).tex(1, 1).endVertex();
+        buffer.pos(x + width, y + 0, zLevel).tex(1, 0).endVertex();
+        buffer.pos(x + 0, y + 0, zLevel).tex(0, 0).endVertex();
+
         tessellator.draw();
     }
 }

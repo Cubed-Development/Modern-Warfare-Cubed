@@ -1,19 +1,23 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.weaponlib.animation.Transform;
-import com.paneedah.weaponlib.compatibility.CompatibleEntityRenderer;
 import com.paneedah.weaponlib.particle.BetterMuzzleSmoke;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
-public class SpawnEntityRenderer extends CompatibleEntityRenderer {
+public class SpawnEntityRenderer extends Render<Entity> {
+
+	protected SpawnEntityRenderer() {
+		super(mc.getRenderManager());
+	}
 
 	@Override
-	public void doCompatibleRender(Entity entity, double x, double y, double z, float yaw, float tick) {
+	public void doRender(Entity entity, double x, double y, double z, float yaw, float tick) {
 		
 	//	if(/*entity.distanceWalkedModified < 1.5f */entity.ticksExisted < 2) {
 	    //    return;

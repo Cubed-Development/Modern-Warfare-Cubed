@@ -5,10 +5,6 @@ import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.StatusMessageCenter.Message;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
-import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
-import com.paneedah.weaponlib.compatibility.CompatibleGui;
-import com.paneedah.weaponlib.compatibility.CompatibleMathHelper;
-import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.debug.DebugRenderer;
@@ -25,26 +21,34 @@ import net.minecraft.block.BlockDoor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
 import net.minecraft.client.renderer.GlStateManager.SourceFactor;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 import static net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType.*;
 
-public class CustomGui extends CompatibleGui {
+public class CustomGui extends Gui {
 
     //    private static final int BUFF_ICON_SIZE = 256;
 
@@ -75,10 +79,10 @@ public class CustomGui extends CompatibleGui {
 		if(FONT_RENDERER == null) FONT_RENDERER = ClientProxy.mc.fontRenderer;
 		return FONT_RENDERER;
 	}
-	
-	
-	@Override
-	public void onCompatibleRenderHud(RenderGameOverlayEvent.Pre event) {
+
+
+	@SubscribeEvent
+	public final void onRenderHud(RenderGameOverlayEvent.Pre event) {
 		handleAnimationModeHUD(event);
 		
 		handleVehicleHUD(event);
@@ -150,7 +154,7 @@ public class CustomGui extends CompatibleGui {
 		}
 	    
 		
-		if(compatibility.getEventType(event) == RenderGameOverlayEvent.ElementType.HELMET && mc.player.isRiding() && mc.player.getRidingEntity() instanceof EntityVehicle) {
+		if(event.getType() == RenderGameOverlayEvent.ElementType.HELMET && mc.player.isRiding() && mc.player.getRidingEntity() instanceof EntityVehicle) {
 			
 			
 			
@@ -160,20 +164,20 @@ public class CustomGui extends CompatibleGui {
 	}
 	
 	public void handleHelmetHUD(RenderGameOverlayEvent.Pre event) {
-		if(compatibility.getEventType(event) == RenderGameOverlayEvent.ElementType.HELMET) {
+		if(event.getType() == RenderGameOverlayEvent.ElementType.HELMET) {
 	        
-			ItemStack helmetStack = compatibility.getHelmet();
+			ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 			if(helmetStack != null && mc.gameSettings.thirdPersonView == 0 && helmetStack.getItem() instanceof CustomArmor) {
 			    	            
 				// Texture must be Width: 427, height: 240
 				String hudTexture = ((CustomArmor)helmetStack.getItem()).getHudTexture();
 				if(hudTexture != null) {
-				    ScaledResolution scaledResolution = compatibility.getResolution(event);
+				    ScaledResolution scaledResolution = event.getResolution();
 	                int screenWidth = scaledResolution.getScaledWidth();
 	                int screenHeight = scaledResolution.getScaledHeight();
 
-	                ItemStack chestStack = compatibility.getItemStackFromSlot(CompatibleEntityEquipmentSlot.CHEST);
-	                ItemStack feetStack = compatibility.getItemStackFromSlot(CompatibleEntityEquipmentSlot.FEET);
+	                ItemStack chestStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+	                ItemStack feetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 
 				    if (chestStack != null && helmetStack != null && feetStack != null
 	                        && chestStack.getItem() instanceof CustomArmor
@@ -188,8 +192,7 @@ public class CustomGui extends CompatibleGui {
 	                    double maxShieldCapacity = armor.getMaxShieldCapacity();
 	                    if(maxShieldCapacity > 0) {
 	                        double currentShieldCapacity = armor.getShieldCapacity(chestStack);
-	                        drawShieldIndicator(armor, CompatibleMathHelper.clamp_double(currentShieldCapacity / maxShieldCapacity, 0.0, 1.0),
-	                                screenWidth, screenHeight);
+	                        drawShieldIndicator(armor, MathHelper.clamp(currentShieldCapacity / maxShieldCapacity, 0.0, 1.0), screenWidth, screenHeight);
 	                    }
 	                }
 
@@ -435,27 +438,27 @@ public class CustomGui extends CompatibleGui {
 			}
          }
 	}
-	
 
-	@Override
-	public void onCompatibleRenderCrosshair(RenderGameOverlayEvent.Pre event) {
+
+	@SubscribeEvent
+	public final void onRenderCrosshair(RenderGameOverlayEvent.Pre event) {
 		
-		if (compatibility.getEventType(event) != RenderGameOverlayEvent.ElementType.CROSSHAIRS ) {
+		if (event.getType() != RenderGameOverlayEvent.ElementType.CROSSHAIRS ) {
 			return;
 		}
 		
 		
 
-		ItemStack itemStack = compatibility.getHeldItemMainHand(compatibility.clientPlayer());
+		ItemStack itemStack = mc.player.getHeldItemMainhand();
 
 		if(itemStack == null) {
 			return;
 		}
 		
-		ScaledResolution scaledResolution = compatibility.getResolution(event);
+		ScaledResolution scaledResolution = event.getResolution();
         int width = scaledResolution.getScaledWidth();
         int height = scaledResolution.getScaledHeight();
-        FontRenderer fontRender = compatibility.getFontRenderer();
+        FontRenderer fontRender = mc.fontRenderer;
 
 		PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
 
@@ -577,9 +580,9 @@ public class CustomGui extends CompatibleGui {
 	}
 
     private void drawShieldIndicator(CustomArmor armor, double capacity, double screenWidth, double screenHeight) {
-        
-        if(!compatibility.isStencilEnabled(mc.getFramebuffer())) {
-            compatibility.enableStencil(mc.getFramebuffer());
+		Framebuffer framebuffer = mc.getFramebuffer();
+        if(!framebuffer.isStencilEnabled()) {
+			framebuffer.enableStencil();
         }
         
         GL11.glEnable(GL11.GL_ALPHA_TEST);
@@ -665,8 +668,7 @@ public class CustomGui extends CompatibleGui {
 		
 		ItemMagazine magazine = (ItemMagazine) itemStack.getItem();
 
-		String ammoCounterMessage = compatibility.getLocalizedString(
-                "gui.ammoCounter", Tags.getAmmo(itemStack) + "/" + magazine.getAmmo());
+		String ammoCounterMessage = I18n.translateToLocalFormatted("gui.ammoCounter", Tags.getAmmo(itemStack) + "/" + magazine.getAmmo());
 		return ammoCounterMessage;
 	}
 
@@ -683,10 +685,10 @@ public class CustomGui extends CompatibleGui {
 
 		String text;
 		if(weaponInstance.getWeapon().getAmmoCapacity() == 0 && totalCapacity == 0) {
-			text = compatibility.getLocalizedString("gui.noMagazine");
+			text = I18n.translateToLocalFormatted("gui.noMagazine");
 		} else {
-			text = compatibility.getLocalizedString(
-	                "gui.ammoCounter", weaponInstance.getWeapon().getCurrentAmmo(compatibility.clientPlayer()) + "/" + totalCapacity);
+			text = I18n.translateToLocalFormatted(
+	                "gui.ammoCounter", weaponInstance.getWeapon().getCurrentAmmo(mc.player) + "/" + totalCapacity);
 		}
 		return text;
 	}
@@ -708,14 +710,16 @@ public class CustomGui extends CompatibleGui {
     }
 
 	private static void drawTexturedQuadFit(double x, double y, double width, double height, double zLevel){
-		CompatibleTessellator tessellator = CompatibleTessellator.getInstance();
-        tessellator.startDrawingQuads();
-        //tessellator.startDrawingParticles();
-        //tessellator.setColorRgba(1f, 1f, 1f, 1f);
-        tessellator.addVertexWithUV(x + 0, y + height, zLevel, 0,1);
-        tessellator.addVertexWithUV(x + width, y + height, zLevel, 1, 1);
-        tessellator.addVertexWithUV(x + width, y + 0, zLevel, 1,0);
-        tessellator.addVertexWithUV(x + 0, y + 0, zLevel, 0, 0);
+		final Tessellator tessellator = Tessellator.getInstance();
+		final BufferBuilder buffer = tessellator.getBuffer();
+
+		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+
+		buffer.pos(x + 0, y + height, zLevel).tex(0, 1).endVertex();
+		buffer.pos(x + width, y + height, zLevel).tex(1, 1).endVertex();
+		buffer.pos(x + width, y + 0, zLevel).tex(1, 0).endVertex();
+		buffer.pos(x + 0, y + 0, zLevel).tex(0, 0).endVertex();
+
 		tessellator.draw();
 	}
 }

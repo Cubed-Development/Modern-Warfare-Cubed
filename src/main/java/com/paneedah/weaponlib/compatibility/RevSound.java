@@ -4,6 +4,7 @@ import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import net.minecraft.client.audio.PositionedSound;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -14,8 +15,8 @@ public class RevSound extends PositionedSound {
     private Supplier<Vector3D> positionProvider;
     private EntityVehicle vehicle;
 
-    public RevSound(CompatibleSound sound, Supplier<Vector3D> positionProvider, EntityVehicle vehicle) {
-        super(sound.getSound(), SoundCategory.BLOCKS);
+    public RevSound(SoundEvent sound, Supplier<Vector3D> positionProvider, EntityVehicle vehicle) {
+        super(sound, SoundCategory.BLOCKS);
         this.repeat = true;
         this.volume = 1.5F;
         this.vehicle = vehicle;

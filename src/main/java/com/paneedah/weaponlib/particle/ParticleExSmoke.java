@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.particle;
 
-import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.ClientEventHandler;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.entity.Entity;
@@ -29,7 +29,7 @@ public class ParticleExSmoke extends Particle {
 		maxAge = 100 + rand.nextInt(40);
 		randomSeed = worldIn.rand.nextInt();
 		
-		this.setParticleTexture(CompatibleClientEventHandler.carParticles);
+		this.setParticleTexture(ClientEventHandler.carParticles);
 	}
 	public void setMotion(double x, double y, double z){
 		this.motionX = x;

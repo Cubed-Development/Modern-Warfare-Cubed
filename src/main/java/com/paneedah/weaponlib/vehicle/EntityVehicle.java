@@ -2312,16 +2312,14 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 		int ran = (int) Math.floor(Math.random() * (max - min + 1) + min);
 		if (ran < 1) {
 
-			PositionedSound ps = new PositionedSoundRecord(getConfiguration().getBackfireSound().getSound(),
-					SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
+			PositionedSound ps = new PositionedSoundRecord(getConfiguration().getBackfireSound(), SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
 			mc.getSoundHandler().playSound(ps);
 
 			for (int x = 0; x < 20 + (solver.synthAccelFor); ++x) {
 				// Vec3d pE =
 				// posExhaust.subtract(getPositionVector()).scale(1.0f+(Math.random()*0.5)).add(getPositionVector());
 				Vec3d pE = posExhaust;
-				mc.effectRenderer.addEffect(new VehicleExhaustFlameParticle(this.world, pE.x,
-						pE.y, pE.z, partDirExhaust2.x * mult, 0, partDirExhaust2.z * mult));
+				mc.effectRenderer.addEffect(new VehicleExhaustFlameParticle(this.world, pE.x, pE.y, pE.z, partDirExhaust2.x * mult, 0, partDirExhaust2.z * mult));
 
 				// this.world.spawnParticle(EnumParticleTypes.FLAME, posExhaust.x, posExhaust.y,
 				// posExhaust.z, partDirExhaust.x, partDirExhaust.y, partDirExhaust.z,
@@ -2631,7 +2629,6 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 						System.out.println("REPORT!");
 					}
 
-					// System.out.println(isCollided + " | " + isCollidedHorizontally + " | " +
 					// isCollidedVertically);
 
 					//doBlockCollisions();
@@ -2674,7 +2671,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 					// oldHC();
 
 					// System.out.println("ID: " + getEntityId());
-					context.getChannel().getChannel()
+					context.getChannel()
 							.sendToServer(new VehicleControlPacket(new VehicleDataContainer(this)));
 					
 					// doNetworking(false);
@@ -2733,8 +2730,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 		
 		// PLAY SHIFTING SOUND
 		if (isInShift()) {
-			PositionedSound ps = new PositionedSoundRecord(getConfiguration().getShiftSound().getSound(),
-					SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
+			PositionedSound ps = new PositionedSoundRecord(getConfiguration().getShiftSound(), SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
 			mc.getSoundHandler().playSound(ps);
 		}
 
@@ -2762,7 +2758,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 /*
 			int sMat = 0;
 			
-			CompatibleSound chosen = null;
+			SoundEvent chosen = null;
 
 			if (mat == Material.GRASS || mat == Material.GROUND || mat == Material.CLAY || mat == Material.SAND) {
 				current = mat;

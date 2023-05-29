@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.ai;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.ai.EntityConfiguration.Equipment;
 import com.paneedah.weaponlib.ai.EntityConfiguration.TexturedModel;
-import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.CompatibleDataManager;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
@@ -11,38 +11,40 @@ import com.paneedah.weaponlib.network.packets.HighIQPickupPacket;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.*;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.stats.StatList;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 
 import javax.annotation.Nullable;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-public class EntityCustomMob extends CompatibleEntityMob
-        implements IRangedAttackMob, Contextual, Configurable<EntityConfiguration> {
+public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Contextual, Configurable<EntityConfiguration> {
 
     private static final float FLAT_WORLD_SPAWN_CHANCE = 0.01f;
-    private static final CompatibleDataManager.Key VARIANT = CompatibleDataManager.createKey(EntityCustomMob.class,
-            int.class);
-    private static final CompatibleDataManager.Key SWINGING_ARMS = CompatibleDataManager
-            .createKey(EntityCustomMob.class, boolean.class);
-    private static final CompatibleDataManager.Key DELAYED_ATTACK_TIMER_INCREMENT = CompatibleDataManager
-            .createKey(EntityCustomMob.class, int.class);
-    private static final CompatibleDataManager.Key DELAYED_ATTACK_STARTED = CompatibleDataManager
-            .createKey(EntityCustomMob.class, boolean.class);
+    private static final CompatibleDataManager.Key VARIANT = CompatibleDataManager.createKey(EntityCustomMob.class, int.class);
+    private static final CompatibleDataManager.Key SWINGING_ARMS = CompatibleDataManager.createKey(EntityCustomMob.class, boolean.class);
+    private static final CompatibleDataManager.Key DELAYED_ATTACK_TIMER_INCREMENT = CompatibleDataManager.createKey(EntityCustomMob.class, int.class);
+    private static final CompatibleDataManager.Key DELAYED_ATTACK_STARTED = CompatibleDataManager.createKey(EntityCustomMob.class, boolean.class);
+
+    protected CompatibleDataManager compatibleDataManager;
 
     private ModContext modContext;
 
@@ -53,13 +55,9 @@ public class EntityCustomMob extends CompatibleEntityMob
     private int delayedAttackTimer;
 
     private EntityPlayer customer;
-    
-  
-   
 
     public EntityCustomMob(World worldIn) {
         super(worldIn);
-        //System.out.println(getConfiguration());
         setSize(getConfiguration().getSizeWidth(), getConfiguration().getSizeHeight());
         
         //this.setSize(0.6F, 1.99F);
@@ -115,20 +113,17 @@ public class EntityCustomMob extends CompatibleEntityMob
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        compatibility.setEntityAttribute(this, CompatibleSharedMonsterAttributes.FOLLOW_RANGE,
-                getConfiguration().getFollowRange());
-        compatibility.setEntityAttribute(this, CompatibleSharedMonsterAttributes.MOVEMENT_SPEED,
-                getConfiguration().getMaxSpeed());
-        compatibility.setEntityAttribute(this, CompatibleSharedMonsterAttributes.MAX_HEALTH,
-                getConfiguration().getMaxHealth());
-        compatibility.setEntityAttribute(this, CompatibleSharedMonsterAttributes.ATTACK_DAMAGE,
-                getConfiguration().getCollisionAttackDamage());
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(getConfiguration().getFollowRange());
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(getConfiguration().getMaxSpeed());
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(getConfiguration().getMaxHealth());
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(getConfiguration().getCollisionAttackDamage());
     }
     
 
 
     protected void entityInit() {
         super.entityInit();
+        compatibleDataManager = new CompatibleDataManager(dataManager);
         compatibleDataManager.register(VARIANT, Integer.valueOf(0));
         compatibleDataManager.register(SWINGING_ARMS, Boolean.valueOf(false));
         compatibleDataManager.register(DELAYED_ATTACK_TIMER_INCREMENT, Integer.valueOf(0));
@@ -136,23 +131,23 @@ public class EntityCustomMob extends CompatibleEntityMob
     }
 
     @Override
-    protected CompatibleSound getCompatibleAmbientSound() {
+    protected SoundEvent getAmbientSound() {
         return getConfiguration().getAmbientSound();
     }
 
     @Override
-    protected CompatibleSound getCompatibleHurtSound() {
+    protected SoundEvent getHurtSound(DamageSource damageSource) {
         return getConfiguration().getHurtSound();
     }
 
     @Override
-    protected CompatibleSound getCompatibleDeathSound() {
+    protected SoundEvent getDeathSound() {
         return getConfiguration().getDeathSound();
     }
 
     @Override
-    protected void playStepSound(CompatibleBlockPos pos, Block blockIn) {
-        compatibility.playSound(this, getConfiguration().getStepSound(), 0.15F, 1.0F);
+    protected void playStepSound(BlockPos pos, Block blockIn) {
+        this.playSound(getConfiguration().getStepSound(), 0.15F, 1);
     }
 
     @Override
@@ -201,18 +196,18 @@ public class EntityCustomMob extends CompatibleEntityMob
 
     @Override
     public void onDeath(DamageSource cause) {
-        ItemStack itemStack = compatibility.getHeldItemMainHand(this); // getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
+        ItemStack itemStack = this.getHeldItemMainhand(); // getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
 
-        if (!compatibility.world(this).isRemote && itemStack != null) {
+        if (!world.isRemote && itemStack != null) {
             initAmmo(itemStack);
         }
 
         super.onDeath(cause);
 
-        Entity trueDamageSource = compatibility.getTrueDamageSource(cause);
+        Entity trueDamageSource = cause.getTrueSource();
         if (trueDamageSource instanceof EntityPlayer) {
             EntityPlayer entityplayer = (EntityPlayer) trueDamageSource;
-            compatibility.addStat(entityplayer, CompatibleAchievement.KILL_ENEMY);
+            entityplayer.addStat(StatList.MOB_KILLS);
         }
 
         if (secondaryEquipment != null) {
@@ -251,7 +246,9 @@ public class EntityCustomMob extends CompatibleEntityMob
      * Gives armor or weapon for entity based on given DifficultyInstance
      */
     @Override
-    protected void setEquipmentBasedOnDifficulty(CompatibleDifficulty difficulty) {
+    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
+        super.setEquipmentBasedOnDifficulty(difficulty);
+
         setArmorEquipment();
         setPrimaryEquipment();
         setSecondaryEquipment();
@@ -259,16 +256,15 @@ public class EntityCustomMob extends CompatibleEntityMob
 
     private void setArmorEquipment() {
         EntityConfiguration configuration = getConfiguration();
-        setCompatibleInventoryArmorDropChances(configuration.getArmorDropChance());
+        Arrays.fill(this.inventoryArmorDropChances, configuration.getArmorDropChance());
         for (CustomArmor armor : configuration.getArmorSet()) {
-            compatibility.setItemStackToSlot(this, armor.getCompatibleEquipmentSlot(), new ItemStack(armor));
+            this.setItemStackToSlot(armor.getCompatibleEquipmentSlot(), new ItemStack(armor));
         }
     }
 
     private void setSecondaryEquipment() {
         EntityConfiguration configuration = getConfiguration();
-        Equipment secondaryEquipment = configuration.getSecondaryEquipmentOptions()
-                .pick(compatibility.getDifficulty(compatibility.world(this)));
+        Equipment secondaryEquipment = configuration.getSecondaryEquipmentOptions().pick(world.getDifficulty());
         if (secondaryEquipment != null) {
             ItemStack equipmentItemStack = new ItemStack(secondaryEquipment.item);
             if (secondaryEquipment.item instanceof ItemGrenade) {
@@ -278,11 +274,37 @@ public class EntityCustomMob extends CompatibleEntityMob
         }
     }
 
+    @Override
+    public void setActiveHand(EnumHand hand)
+    {
+        ItemStack itemstack = this.getHeldItem(hand);
+
+        if (itemstack != null && !this.isHandActive())
+        {
+            // int duration = net.minecraftforge.event.ForgeEventFactory.onItemUseStart(this, itemstack, itemstack.getMaxItemUseDuration());
+            // if (duration <= 0) return;
+            this.activeItemStack = itemstack;
+            this.activeItemStackUseCount = 100;
+
+            if (!this.world.isRemote)
+            {
+                int i = 1;
+
+                if (hand == EnumHand.OFF_HAND)
+                {
+                    i |= 2;
+                }
+
+                this.dataManager.set(HAND_STATES, Byte.valueOf((byte) i));
+            }
+        }
+    }
+
     private void setPrimaryEquipment() {
         EntityConfiguration configuration = getConfiguration();
-        Equipment equipment = configuration.getEquipmentOptions().pick(compatibility.getDifficulty(compatibility.world(this)));
+        Equipment equipment = configuration.getEquipmentOptions().pick(world.getDifficulty());
 
-        setCompatibleInventoryHandsDropChances(configuration.getPrimaryEquipmentDropChance());
+        Arrays.fill(this.inventoryHandsDropChances, configuration.getPrimaryEquipmentDropChance());
         if (equipment != null) {
             ItemStack equipmentItemStack = new ItemStack(equipment.item);
             if (equipment.item instanceof Weapon) {
@@ -291,7 +313,7 @@ public class EntityCustomMob extends CompatibleEntityMob
                 initGrenade(equipment, equipmentItemStack);
             }
 
-            compatibility.setItemStackToSlot(this, CompatibleEntityEquipmentSlot.MAIN_HAND, equipmentItemStack);
+            this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, equipmentItemStack);
         }
     }
 
@@ -328,9 +350,8 @@ public class EntityCustomMob extends CompatibleEntityMob
      */
     @Nullable
     @Override
-    public IEntityLivingData onCompatibleSpawn(CompatibleDifficulty difficulty,
-            @Nullable IEntityLivingData livingdata) {
-        livingdata = super.onCompatibleSpawn(difficulty, livingdata);
+    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
+        livingdata = super.onInitialSpawn(difficulty, livingdata);
 
         List<TexturedModel> variants = this.getConfiguration().getTexturedModelVariants();
         int variant = 0;
@@ -370,7 +391,7 @@ public class EntityCustomMob extends CompatibleEntityMob
             return;
         }
 
-        ItemStack itemStack = compatibility.getHeldItemMainHand(this);
+        ItemStack itemStack = this.getHeldItemMainhand();
 
         if (itemStack == null) {
             return;
@@ -380,14 +401,14 @@ public class EntityCustomMob extends CompatibleEntityMob
             WeaponFireAspect fireAspect = modContext.getWeaponFireAspect();
 
             BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith = (weapon, player) -> {
-                int difficultyId = compatibility.getDifficulty(compatibility.world(this)).getId();
+                int difficultyId = world.getDifficulty().getId();
                 float inaccuracy = weapon.getInaccuracy() + (3f - difficultyId) * 0.5f; // *
                                                                                         // 2
                                                                                         // +
                                                                                         // distanceFactor
                                                                                         // *
                                                                                         // 3f;
-                WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, compatibility.world(player), player,
+                WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, world, player,
                         weapon.getSpawnEntityVelocity(), weapon.getSpawnEntityGravityVelocity(), inaccuracy,
                         weapon.getSpawnEntityDamage() * 0.01f * 0.2f, weapon.getSpawnEntityExplosionRadius(), false, false, 1f, 1f, 1.5f, 1f,
                         -1, -1);
@@ -438,7 +459,7 @@ public class EntityCustomMob extends CompatibleEntityMob
 
         NBTTagCompound secondaryNbt = compound.getCompoundTag("Secondary");
         if (secondaryNbt != null) {
-            this.secondaryEquipment = compatibility.createItemStack(secondaryNbt);
+            this.secondaryEquipment = new ItemStack(secondaryNbt);;
         }
     }
 
@@ -489,9 +510,8 @@ public class EntityCustomMob extends CompatibleEntityMob
     }
 
     @Override
-    public float getCompatibleBlockPathWeight(CompatibleBlockPos pos) {
-        return getConfiguration().getMaxTolerableLightBrightness()
-                - compatibility.getLightBrightness(compatibility.world(this), pos);
+    public float getBlockPathWeight(BlockPos pos) {
+        return getConfiguration().getMaxTolerableLightBrightness() - world.getLightBrightness(pos);
     }
     
     @Override
@@ -544,7 +564,7 @@ public class EntityCustomMob extends CompatibleEntityMob
 
     @Override
     public boolean getCanSpawnHere() {
-        boolean canSpawn = compatibility.getWorldType(compatibility.world(this)) != WorldType.FLAT
+        boolean canSpawn = world.getWorldType() != WorldType.FLAT
                 || rand.nextFloat() > (1f - FLAT_WORLD_SPAWN_CHANCE);
         Predicate<Entity> predicate = getConfiguration().getCanSpawnHere();
         return canSpawn && (predicate != null ? predicate.test(this) : super.getCanSpawnHere());
@@ -586,7 +606,7 @@ public class EntityCustomMob extends CompatibleEntityMob
         
         	
     
-        	modContext.getChannel().getChannel().sendToServer(new HighIQPickupPacket(player.getEntityId(), getEntityId()));
+        	modContext.getChannel().sendToServer(new HighIQPickupPacket(player.getEntityId(), getEntityId()));
         	
         	return true;
         }
@@ -621,88 +641,4 @@ public class EntityCustomMob extends CompatibleEntityMob
             return super.processInteract(player, hand);
         }
     }
-
-    /*
-    @SideOnly(Side.CLIENT)
-    protected void displayTradeGui(EntityPlayer player) {
-        Collection<MissionOffering> redeemableMissionOfferings = Missions.getRedeemableMissionOfferings(this, player);
-        if(!redeemableMissionOfferings.isEmpty()) {
-            mc.displayGuiScreen(
-                    new MissionAcceptGui(
-                            true, 
-                            redeemableMissionOfferings.iterator().next(), 
-                            this, player, modContext, 
-                            getConfiguration().getDialogBackground(), 
-                            getConfiguration().getRewardsBackground(),
-                            null));
-        } else {
-            mc.displayGuiScreen(
-                    new MissionIntroGui(this, player, modContext, 
-                            getConfiguration().getDialogContent(), 
-                            getConfiguration().getDialogBackground(),
-                            getConfiguration().getIntroImage(),
-                            getConfiguration().getRewardsBackground(),
-                            getConfiguration().getMissionSelectionBackground()
-                            ));
-        }
-        
-    }
-
-    public void setCustomer(EntityPlayer customer) {
-        this.customer = customer;
-    }
-
-    public EntityPlayer getCustomer() {
-        return customer;
-    }
-
-    protected boolean isTrading() {
-        return customer != null;
-    }
-
-    @Override
-    public void redeem(Mission mission, EntityPlayer player) {
-        
-        MissionOffering missionOffering = getMissionOfferings().get(mission.getMissionOfferingId());
-        
-        if(missionOffering != null && !mission.isRedeemed() && mission.isCompleted(player)
-                && !mission.isExpired(compatibility.world(player).getTotalWorldTime())
-                && mission.getAssignerId().equals(getUniqueID())) {
-            boolean goalsMet = true;
-            for(Goal goal: mission.getGoals()) {
-                if(goal.getRequiredAction() instanceof ObtainItemAction) {
-                    if(compatibility.removeMatchingInventoryItemStacks(player, 
-                            ((ObtainItemAction)goal.getRequiredAction()).getItem(), goal.getQuantity())
-                            < goal.getQuantity()) {
-                        goalsMet = false;
-                        break;
-                    }
-                }
-            }
-            if(goalsMet) {
-                mission.setRedeemed(compatibility.world(player).getTotalWorldTime());
-                missionOffering.getRewards().forEach(reward -> reward.redeem(player));
-                CompatibleMissionCapability.updateMission(player, mission);
-                modContext.getChannel().getChannel().sendTo(
-                        new PlayerMissionSyncMessage(CompatibleMissionCapability.getMissions(player)),
-                        (EntityPlayerMP)player);
-            }
-        } 
-    }
-
-    @Override
-    public void assign(MissionOffering offering, EntityPlayer player) {
-        if(offering.isAvailableFor(player)) {
-            CompatibleMissionCapability.updateMission(player, 
-                    new Mission(offering.getId(), this, compatibility.world(player).getTotalWorldTime(),
-                            offering.getMaxDuration(),
-                            offering.createGoals()));
-            modContext.getChannel().getChannel().sendTo(
-                    new PlayerMissionSyncMessage(CompatibleMissionCapability.getMissions(player)),
-                    (EntityPlayerMP)player);
-            customer = null;
-        }
-    }
-	*/
-
 }
