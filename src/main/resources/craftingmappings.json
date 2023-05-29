@@ -6632,8 +6632,8 @@
           "count": 2
         },
         {
-          "entryName": "ingotSteel",
-          "isOreDictionary": true,
+          "entryName": "mwc:steel_ingot",
+          "isOreDictionary": false,
           "count": 2
         },
         {
@@ -6653,8 +6653,8 @@
       "craftingGroup": "GRENADE",
       "recipe": [
         {
-          "entryName": "ingotSteel",
-          "isOreDictionary": true,
+          "entryName": "mwc:steel_ingot",
+          "isOreDictionary": false,
           "count": 2
         },
         {
@@ -6679,8 +6679,8 @@
           "count": 2
         },
         {
-          "entryName": "ingotSteel",
-          "isOreDictionary": true,
+          "entryName": "mwc:steel_ingot",
+          "isOreDictionary": false,
           "count": 3
         },
         {
@@ -6705,8 +6705,8 @@
           "count": 2
         },
         {
-          "entryName": "ingotSteel",
-          "isOreDictionary": true,
+          "entryName": "mwc:steel_ingot",
+          "isOreDictionary": false,
           "count": 2
         },
         {
