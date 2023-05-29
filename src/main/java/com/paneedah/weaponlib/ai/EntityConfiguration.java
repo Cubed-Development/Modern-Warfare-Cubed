@@ -2,20 +2,22 @@ package com.paneedah.weaponlib.ai;
 
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.compatibility.CompatibleBiomeType;
-import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
-import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import com.paneedah.weaponlib.config.AIEntity;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAITasks;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.*;
 import java.util.function.Function;
@@ -23,7 +25,6 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 import static com.paneedah.mwc.utils.ModReference.log;
-import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityConfiguration {
 
@@ -64,9 +65,9 @@ public class EntityConfiguration {
             int weightedProb;
             int min;
             int max;
-            CompatibleBiomeType biomeTypes[];
+            BiomeDictionary.Type biomeTypes[];
             
-            public Spawn(int weightedProb, int min, int max, CompatibleBiomeType biomeTypes[]) {
+            public Spawn(int weightedProb, int min, int max, BiomeDictionary.Type biomeTypes[]) {
                 this.weightedProb = weightedProb;
                 this.min = min;
                 this.max = max;
@@ -153,7 +154,7 @@ public class EntityConfiguration {
         private ResourceLocation lootTable;
         
         private Predicate<Entity> canSpawnHere;
-        private Predicate<Entity> isValidLightLevel = e -> compatibility.world(e).rand.nextFloat() > 0.5f;
+        private Predicate<Entity> isValidLightLevel = e -> e.world.rand.nextFloat() > 0.5f;
         
         private float maxTolerableLightBrightness = DEFAULT_MAX_TOLERABLE_LIGHT_BRIGHTNESS;
         
@@ -174,7 +175,7 @@ public class EntityConfiguration {
         private boolean spawnEgg;
         private int primaryEggColor;
         private int secondaryEggColor;
-        private Map<CompatibleEntityEquipmentSlot, CustomArmor> armor = new HashMap<>();
+        private Map<EntityEquipmentSlot, CustomArmor> armor = new HashMap<>();
         
         private float primaryEquipmentDropChance = DEFAULT_PRIMARY_EQUIPMENT_DROP_CHANCE;
         private float secondaryEquipmentDropChance = DEFAULT_SECONDARY_EQUIPMENT_DROP_CHANCE;
@@ -281,7 +282,7 @@ public class EntityConfiguration {
             return this;
         }
         
-        public Builder withSpawn(int weightedProb, int min, int max, CompatibleBiomeType... biomeTypes) {
+        public Builder withSpawn(int weightedProb, int min, int max, BiomeDictionary.Type... biomeTypes) {
             spawns.add(new Spawn(weightedProb, min, max, biomeTypes));
             return this;
         }
@@ -415,7 +416,7 @@ public class EntityConfiguration {
             configuration.collisionAttack = collisionAttack;
             configuration.delayedAttack = delayedAttack;
             configuration.mobName = name;
-
+            
             int modEntityId = entityIdSupplier.get();
             String entityName = name != null ? name : baseClass.getSimpleName() + "Ext" + modEntityId;
 
@@ -426,82 +427,69 @@ public class EntityConfiguration {
 
             AIEntity entityConfig = ModernConfigManager.aiEntities.get(entityName);
 
+            if (entityConfig.getName().equalsIgnoreCase("terrorist") || entityConfig.getName().equalsIgnoreCase("soldier")) {
+                WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
+                if (ModernConfigManager.terroristEquipmentConfiguration == null || ModernConfigManager.terroristEquipmentConfiguration.isEmpty()) {
+                    equipmentOptions.forEach((key, value) -> equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
 
-            WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
-            if (ModernConfigManager.terroristEquipmentConfiguration == null || ModernConfigManager.terroristEquipmentConfiguration.isEmpty()) {
-                equipmentOptions.forEach((key, value) -> equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
+                } else {
+                    Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
 
-            } else {
-                Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
+                    EnumDifficulty difficultyLevel = EnumDifficulty.EASY;
+                    EnumDifficulty[] difficultyValues = EnumDifficulty.values();
 
-                EnumDifficulty difficultyLevel = EnumDifficulty.EASY;
-                EnumDifficulty[] difficultyValues = EnumDifficulty.values();
+                    String[] attachments = ModernConfigManager.terroristEquipmentConfiguration.split(", ");
+                    for (String attachment : attachments) {
+                        String[] parts = attachment.split(":");
+                        if (parts.length < 2) {
+                            ModReference.log.warn("Invalid attachment configuration for entity " + name + ": " + attachment + ". Expected format: <gunId>:<weight>[:<attachment>...]");
+                            continue;
+                        }
 
-                String[] attachments = ModernConfigManager.terroristEquipmentConfiguration.split(", ");
-                for (String attachment : attachments) {
-                    String[] parts = attachment.split(":");
-                    if (parts.length < 2) {
-                        ModReference.log.warn("Invalid attachment configuration for entity " + name + ": " + attachment + ". Expected format: <gunId>:<weight>[:<attachment>...]");
-                        continue;
-                    }
+                        String gunId = parts[0];
+                        double weight;
+                        try { weight = Double.parseDouble(parts[1]); }
+                        catch (NumberFormatException e) {
+                            ModReference.log.warn("Invalid weight for gun " + name + ": " + parts[1] + ". Expected a valid double.");
+                            continue;
+                        }
 
-                    String gunId = parts[0];
-                    double weight;
-                    try {
-                        weight = Double.parseDouble(parts[1]);
-                    } catch (NumberFormatException e) {
-                        ModReference.log.warn("Invalid weight for gun " + name + ": " + parts[1] + ". Expected a valid double.");
-                        continue;
-                    }
+                        Item gun = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, gunId));
+                        if (gun == null) {
+                            ModReference.log.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
+                            continue;
+                        }
 
-                    Item gun = compatibility.findItemByName(gunId);
-                    if (gun == null) {
-                        ModReference.log.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
-                        continue;
-                    }
+                        Equipment equipment = new Equipment();
+                        equipment.item = gun;
+                        equipment.attachments = new ArrayList<>();
 
-                    Equipment equipment = new Equipment();
-                    switch (entityConfig.getName()) {
-                        case "turret":
-                            equipment.item = compatibility.findItemByName("turretgun");
-                            break;
-                        case "turretupgraded":
-                            equipment.item = compatibility.findItemByName("turretgunupgraded");
-                            break;
-                        case "turretsilenced":
-                            equipment.item = compatibility.findItemByName("turretgunsilenced");
-                            break;
-                        default:
-                            equipment.item = gun;
-                    }
-                    equipment.attachments = new ArrayList<>();
+                        if (parts.length >= 3) {
+                            for (String attachmentId : Arrays.asList(parts).subList(2, parts.length)) {
+                                Item att = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, attachmentId));
+                                if (!(att instanceof ItemAttachment)) {
+                                    ModReference.log.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
+                                    continue;
+                                }
 
-                    if (parts.length >= 3) {
-                        for (String attachmentId : Arrays.asList(parts).subList(2, parts.length)) {
-                            Item att = compatibility.findItemByName(attachmentId);
-                            if (!(att instanceof ItemAttachment)) {
-                                ModReference.log.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
-                                continue;
+                                equipment.attachments.add((ItemAttachment<?>) att);
                             }
+                        }
 
-                            equipment.attachments.add((ItemAttachment<?>) att);
+                        for (int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
+                            equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item, equipment.attachments.toArray(new ItemAttachment<?>[0])),
+                                    new EquipmentValue(equipment, (float) weight));
                         }
                     }
 
-                    for (int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
-                        equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item, equipment.attachments.toArray(new ItemAttachment<?>[0])),
-                                new EquipmentValue(equipment, (float) weight));
-                    }
+                    equipmentOptions.forEach((key, value) -> {
+                        equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight);
+                    });
                 }
 
-                equipmentOptions.forEach((key, value) -> {
-                    equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight);
-                });
+                configuration.equipmentOptions = equipmentOptionsBuilder.build();
             }
-
-            configuration.equipmentOptions = equipmentOptionsBuilder.build();
-
-
+            
             WeightedOptions.Builder<EnumDifficulty, Equipment> secondaryEquipmentOptionsBuilder = new WeightedOptions.Builder<>();
             secondaryEquipmentOptions.forEach((key, value) -> secondaryEquipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
 
@@ -532,25 +520,33 @@ public class EntityConfiguration {
             configuration.pickupItemID = pickupItemID;
             configuration.sizeHeight = this.sizeHeight;
             configuration.sizeWidth = this.sizeWidth;
-
+            
             Class<? extends Entity> entityClass = EntityClassFactory.getInstance().generateEntitySubclass(baseClass, modEntityId, configuration);
 
             SecondaryEntityRegistry.map.put(name, entityClass);
 
-            compatibility.registerModEntity(entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
+            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, entityName), entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
 
-            if (spawnEgg)
-                compatibility.registerEgg(context, entityClass, entityName, primaryEggColor, secondaryEggColor);
+            if(spawnEgg)
+               EntityRegistry.registerEgg(EntityList.getKey(entityClass), primaryEggColor, secondaryEggColor);
 
-            for (Spawn spawn : spawns) {
-                //int weightedProb = spawn.weightedProb;
-                int weightedProb = (int) (entityConfig.getSpawn());
-                if (weightedProb > 0)
-                    compatibility.addSpawn(safeCast(entityClass), weightedProb, spawn.min, spawn.max, spawn.biomeTypes);
+            for(Spawn spawn: spawns) {
+            	//int weightedProb = spawn.weightedProb;
+                int weightedProb = (int)(entityConfig.getSpawn());
+                if(weightedProb > 0) {
+                    Set<Biome> biomes = new HashSet<>();
+
+                    for (BiomeDictionary.Type biomeType : spawn.biomeTypes) {
+                        Set<Biome> biomesForType = BiomeDictionary.getBiomes(biomeType);
+                        biomes.addAll(biomesForType);
+                    }
+
+                    EntityRegistry.addSpawn(safeCast(entityClass), weightedProb, spawn.min, spawn.max, EnumCreatureType.MONSTER, biomes.toArray(new Biome[0]));
+                }
             }
-
-            if (compatibility.isClientSide()) {
-                for (TexturedModel tmv : texturedModelVariants) {
+            
+            if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+                for(TexturedModel tmv: texturedModelVariants) {
                     tmv.textureResource = new ResourceLocation(ModReference.id, "textures/entity/" + tmv.textureName);
                     try {
                         tmv.model = (ModelBiped) Class.forName(tmv.modelClassName).newInstance();
@@ -558,7 +554,7 @@ public class EntityConfiguration {
                         e.printStackTrace();
                     }
                 }
-
+                
                 RendererRegistration.registerRenderableEntity(context, entityClass, texturedModelVariants);
             }
         }
@@ -589,10 +585,10 @@ public class EntityConfiguration {
 
     private List<AiTask> aiTasks;
     private List<AiTask> aiTargetTasks;
-    private CompatibleSound ambientSound;
-    private CompatibleSound hurtSound;
-    private CompatibleSound deathSound;
-    private CompatibleSound stepSound;
+    private SoundEvent ambientSound;
+    private SoundEvent hurtSound;
+    private SoundEvent deathSound;
+    private SoundEvent stepSound;
     private ResourceLocation lootTable;
     private double maxHealth;
     private Predicate<Entity> canSpawnHere;
@@ -613,7 +609,7 @@ public class EntityConfiguration {
 
     public float sizeWidth, sizeHeight;
 
-    private Map<CompatibleEntityEquipmentSlot, CustomArmor> armor;
+    private Map<EntityEquipmentSlot, CustomArmor> armor;
     private float primaryEquipmentDropChance;
     private float secondaryEquipmentDropChance;
     private float armorDropChance;
@@ -665,19 +661,19 @@ public class EntityConfiguration {
     	return this.lookHeightMultiplier;
     }
 
-    public CompatibleSound getAmbientSound() {
+    public SoundEvent getAmbientSound() {
         return ambientSound;
     }
 
-    public CompatibleSound getHurtSound() {
+    public SoundEvent getHurtSound() {
         return hurtSound;
     }
 
-    public CompatibleSound getDeathSound() {
+    public SoundEvent getDeathSound() {
         return deathSound;
     }
 
-    public CompatibleSound getStepSound() {
+    public SoundEvent getStepSound() {
         return stepSound;
     }
 
