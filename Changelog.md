@@ -23,7 +23,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Durability to all vests as a temporary measure to resolve vest-related issues
 - Smelting of sulfur into gunpowder
 - .50 AE in the Ammo Press
-- Crafting recipes for the M1014, Supernova, grenades (excluding gas grenade) and tactical night vision goggles
+- Crafting recipes for the M1014, Supernova and tactical night vision goggles
+- Crafting of grenades (excluding gas grenade) in the ammo press (Once overhauled, they will be moved on the workbench)
 - Weapon system version to weapon tooltips
 - Added the Workbench and the Ammo Press to the Creative Tab
 - Translations for Chinese, Spanish, and Turkish languages
@@ -40,6 +41,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Nerfed XP gains from smelting ores
 - Reloading now only stops once the gun is fully reloaded or no compatible ammunition remains in inventory
 - Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines)
+- Grenades in creative mode are now infinite 
 - Expanded crafting to accommodate any type of planks
 - Weapons are now rendered in 3D in the inventory, this means that there will be a small freeze when first opening the Creative Menu this will be improved over time as we optimize rendering
 - Reduced the stack size of M202 rockets and RPG7 rockets to 4 and 2, respectively
