@@ -229,7 +229,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
              if(rtr != null) {
                  IBlockState state = world.getBlockState(rtr.getBlockPos());
                  if(state.getMaterial() == Material.GLASS) {
-                     if(!ModernConfigManager.penetratesGlass || ModernConfigManager.bulletBreakGlass)
+                     if(ModernConfigManager.bulletBreakGlass)
                          this.world.destroyBlock(rtr.getBlockPos(), true);
 
 

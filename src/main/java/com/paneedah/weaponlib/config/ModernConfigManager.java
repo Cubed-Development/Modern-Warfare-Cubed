@@ -113,10 +113,7 @@ public class ModernConfigManager {
 	public static boolean bulletBreakGlass = true;
 
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "A list of blocks that should be penetrable by bullets ")
-	public static String penetrableBlocks = "";
-
-	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should bullets penetrate glass?")
-	public static boolean penetratesGlass = false;
+	public static String penetrableBlocks = "minecraft:glass, minecraft:glass_pane, minecraft:stained_glass, minecraft:stained_glass_pane";
 
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables muzzle effects.")
 	public static boolean enableMuzzleEffects = true;
