@@ -6649,27 +6649,6 @@
       ]
     },
     {
-      "entryName": "mwc:impactgrenade",
-      "craftingGroup": "GRENADE",
-      "recipe": [
-        {
-          "entryName": "mwc:steel_ingot",
-          "isOreDictionary": false,
-          "count": 2
-        },
-        {
-          "entryName": "minecraft:tnt",
-          "isOreDictionary": false,
-          "count": 1
-        },
-        {
-          "entryName": "mwc:synthetic_polymer_composite",
-          "isOreDictionary": false,
-          "count": 4
-        }
-      ]
-    },
-    {
       "entryName": "mwc:m18white",
       "craftingGroup": "GRENADE",
       "recipe": [
@@ -6713,6 +6692,27 @@
           "entryName": "mwc:synthetic_polymer_composite",
           "isOreDictionary": false,
           "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:impactgrenade",
+      "craftingGroup": "GRENADE",
+      "recipe": [
+        {
+          "entryName": "mwc:steel_ingot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:tnt",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mwc:synthetic_polymer_composite",
+          "isOreDictionary": false,
+          "count": 4
         }
       ]
     },
