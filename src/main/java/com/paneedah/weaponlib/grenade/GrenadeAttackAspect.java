@@ -11,6 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.translation.I18n;
+import net.minecraft.world.GameType;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -201,7 +202,8 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
         if (player.inventory.getStackInSlot(instance.getItemInventoryIndex()) == null)
             return;
 
-        player.inventory.getStackInSlot(instance.getItemInventoryIndex()).shrink(1);
+        if(!player.capabilities.isCreativeMode)
+            player.inventory.getStackInSlot(instance.getItemInventoryIndex()).shrink(1);
         if (player.inventory.mainInventory.get(instance.getItemInventoryIndex()).getCount() <= 0)
             player.inventory.removeStackFromSlot(instance.getItemInventoryIndex());
     }

@@ -1,13 +1,18 @@
 package com.paneedah.mwc.items.grenade;
 
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.ImpactGrenade;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.crafting.CraftingEntry;
+import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.grenade.GrenadeRenderer;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.grenade.RenderableState;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import org.lwjgl.opengl.GL11;
 
 public class ImpactGrenadeFactory implements GrenadeFactory {
@@ -31,6 +36,12 @@ public class ImpactGrenadeFactory implements GrenadeFactory {
                 .withRotationSlowdownFactor(() -> 0.99f)
                 .withExplosionOnImpact()
                 .withDestroyingBlocks(false)
+                .withModernRecipe(
+                        CraftingGroup.GRENADE,
+                        new CraftingEntry(MWCItems.steelIngot, 2),
+                        new CraftingEntry(Blocks.TNT, 1),
+                        new CraftingEntry(MWCItems.syntheticPolymerComposite, 4)
+                )
                 .withRenderer(new GrenadeRenderer.Builder()
                 
                         .withModel(new ImpactGrenade())

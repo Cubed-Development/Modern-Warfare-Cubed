@@ -6632,35 +6632,14 @@
           "count": 2
         },
         {
-          "entryName": "ingotSteel",
-          "isOreDictionary": true,
+          "entryName": "mwc:steel_ingot",
+          "isOreDictionary": false,
           "count": 2
         },
         {
           "entryName": "minecraft:gunpowder",
           "isOreDictionary": false,
           "count": 6
-        },
-        {
-          "entryName": "mwc:synthetic_polymer_composite",
-          "isOreDictionary": false,
-          "count": 4
-        }
-      ]
-    },
-    {
-      "entryName": "mwc:impactgrenade",
-      "craftingGroup": "GRENADE",
-      "recipe": [
-        {
-          "entryName": "ingotSteel",
-          "isOreDictionary": true,
-          "count": 2
-        },
-        {
-          "entryName": "minecraft:tnt",
-          "isOreDictionary": false,
-          "count": 1
         },
         {
           "entryName": "mwc:synthetic_polymer_composite",
@@ -6679,8 +6658,8 @@
           "count": 2
         },
         {
-          "entryName": "ingotSteel",
-          "isOreDictionary": true,
+          "entryName": "mwc:steel_ingot",
+          "isOreDictionary": false,
           "count": 3
         },
         {
@@ -6705,14 +6684,35 @@
           "count": 2
         },
         {
-          "entryName": "ingotSteel",
-          "isOreDictionary": true,
+          "entryName": "mwc:steel_ingot",
+          "isOreDictionary": false,
           "count": 2
         },
         {
           "entryName": "mwc:synthetic_polymer_composite",
           "isOreDictionary": false,
           "count": 5
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:impactgrenade",
+      "craftingGroup": "GRENADE",
+      "recipe": [
+        {
+          "entryName": "mwc:steel_ingot",
+          "isOreDictionary": false,
+          "count": 2
+        },
+        {
+          "entryName": "minecraft:tnt",
+          "isOreDictionary": false,
+          "count": 1
+        },
+        {
+          "entryName": "mwc:synthetic_polymer_composite",
+          "isOreDictionary": false,
+          "count": 4
         }
       ]
     },
