@@ -151,7 +151,7 @@ public class ModernConfigManager {
 
 	@RangeDouble(min=0, max=1.0)
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should soldiers spawn?")
-	public static double solderSpawn = 0.0;
+	public static double soldierspawn = 0.0;
 
 	@RangeDouble(min=0.1, max=2.0)
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should soldiers have?")
@@ -249,7 +249,7 @@ public class ModernConfigManager {
 
 	public static final Map<String, AIEntity> aiEntities = new LinkedHashMap<String, AIEntity>(){{
 		put("terrorist", new AIEntity("terrorist", ModernConfigManager.terroristHealth, ModernConfigManager.terroristsSpawn));
-		put("soldier", new AIEntity("soldier", ModernConfigManager.soldierHealth, ModernConfigManager.solderSpawn));
+		put("soldier", new AIEntity("soldier", ModernConfigManager.soldierHealth, ModernConfigManager.soldierspawn));
 	}};
 	
 	public static void init() {
