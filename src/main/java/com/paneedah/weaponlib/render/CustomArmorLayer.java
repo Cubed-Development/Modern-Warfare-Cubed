@@ -120,8 +120,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
 	}
 
 	
-	public void doEquipmentRender(ModelBase model, EntityPlayer player, ItemStack itemStack, BiConsumer<EntityPlayer, ItemStack> positioning, ResourceLocation texture, float limbSwing, float limbSwingAmount, float partialTicks,
-			float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void doEquipmentRender(ModelBase model, EntityPlayer player, ItemStack itemStack, BiConsumer<EntityPlayer, ItemStack> positioning, ResourceLocation texture, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		
 		// Load the correct texture
 		mc.getTextureManager().bindTexture(texture);

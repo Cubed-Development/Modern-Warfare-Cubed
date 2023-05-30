@@ -46,8 +46,16 @@ public class BalancePackManager {
 	private static final String FIRE_MODE_BURST = "firemodeBurst";
 	private static final String FIRE_MODE_SINGLE = "firemodeSingle";
 
-	public static enum GunConfigurationGroup {
-		NONE, SIDEARM, SHOTGUN, REVOLVER, SMG, DMR, RIFLES, LONG_RANGE_RIFLES, HEAVY;
+	public enum GunConfigurationGroup {
+		NONE,
+		SIDEARM,
+		SHOTGUN,
+		REVOLVER,
+		SMG,
+		DMR,
+		RIFLES,
+		LONG_RANGE_RIFLES,
+		HEAVY
 	}
 
 	public static String getPackManagerVersion() {

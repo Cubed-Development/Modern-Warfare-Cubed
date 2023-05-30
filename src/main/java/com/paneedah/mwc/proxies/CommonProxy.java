@@ -94,7 +94,7 @@ public class CommonProxy {
 
         // Special object initialization
         SpecialAttachments.init(mod, ModernWarfareMod.MOD_CONTEXT);
-        Backpacks.init(mod);
+        Backpacks.init();
         Vests.init(mod);
         Armors.init(mod, ModernWarfareMod.MOD_CONTEXT);
         Attachments.init(mod);
