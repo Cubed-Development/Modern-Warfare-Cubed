@@ -620,9 +620,12 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         ItemStack itemStack = getItemStack();
         if(itemStack != null) {
             int expectedStackAmmo = Tags.getAmmo(itemStack);
-            if(this.ammo > expectedStackAmmo) {
+			EntityPlayer entityPlayer = (EntityPlayer) player;
+
+            if(this.ammo > expectedStackAmmo && !entityPlayer.capabilities.isCreativeMode) {
                 log.debug("Reconciling. Expected ammo: {}, actual: {}", expectedStackAmmo, this.ammo);
                 this.ammo = expectedStackAmmo;
+				setAmmo(expectedStackAmmo);
             }
             
 //            int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
