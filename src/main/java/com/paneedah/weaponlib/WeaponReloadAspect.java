@@ -2,7 +2,6 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.network.TypeRegistry;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
@@ -594,11 +593,9 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
         //ItemStack magazineStack = ItemStack.EMPTY;
         int ammo = Tags.getAmmo(magazineStack);
-        if(ModernConfigManager.infiniteAmmo)
-            ammo = Integer.MAX_VALUE;
-        instance.setAmmo(ammo);
         Tags.setAmmo(weaponItemStack, ammo);
         WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineStack.getItem(), instance);
+        instance.setAmmo(ammo);
         
         p.setStatus(Status.GRANTED);
 
