@@ -113,7 +113,7 @@ public class ModernConfigManager {
 	public static boolean bulletBreakGlass = true;
 
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "A list of blocks that should be penetrable by bullets.")
-	public static String penetrableBlocks = "minecraft:glass_pane, minecraft:stained_glass_pane";
+	public static String penetrableBlocks = "minecraft:glass, minecraft:glass_pane, minecraft:stained_glass, minecraft:stained_glass_pane";
 
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "The protection of armor will be greatly enhanced. More suitable for PVP mini games")
 	public static boolean oldDamageOfPlayer = false;

@@ -27,7 +27,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Category adjustments have been made to some weapons
 - Fix the damage error of players' armor equipment, which can be restored by enabling oldDamageOfPlayer
 - Able to adjust weapon inaccuracies
-- Fix server backend screen swiping
+- 
 - 
 - Durability to all vests as a temporary measure to resolve vest-related issues
 - Smelting of sulfur into gunpowder
