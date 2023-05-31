@@ -3,7 +3,8 @@ package com.paneedah.weaponlib.grenade;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.crafting.*;
+import com.paneedah.weaponlib.crafting.CraftingComplexity;
+import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -21,7 +22,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class ItemGrenade extends Item implements
-PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContainer, Updatable, IModernCrafting {
+PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContainer, Updatable {
 
     public static final int DEFAULT_FUSE_TIMEOUT = 3000;
     public static final float DEFAULT_EXPLOSION_STRENTH = 2f;
@@ -35,35 +36,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
     public static final float DEFAULT_EFFECTIVE_RADIUS = 20f;
     public static final float DEFAULT_FRAGMENT_DAMAGE = 15f;
     public static final int DEFAULT_FRAGMENT_COUNT = 100;
-
-    private CraftingEntry[] modernRecipe;
-    private CraftingGroup craftGroup;
-
-    @Override
-    public CraftingEntry[] getModernRecipe() {
-        return this.modernRecipe;
-    }
-
-    @Override
-    public Item getItem() {
-        return this;
-    }
-
-    @Override
-    public CraftingGroup getCraftingGroup() {
-        return this.craftGroup;
-    }
-
-    @Override
-    public void setCraftingRecipe(CraftingEntry[] recipe) {
-        this.modernRecipe = recipe;
-    }
-
-    @Override
-    public void setCraftingGroup(CraftingGroup group) {
-        this.craftGroup = group;
-    }
-
+    
     public static enum Type {
         REGULAR, SMOKE, GAS, FLASH
     }
@@ -120,14 +93,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
         private long activeDuration;
         private Object[] craftingRecipe;
         private boolean isDestroyingBlocks = true;
-        private CraftingEntry[] modernRecipe;
-        private CraftingGroup craftingGroup;
 
-        public Builder withModernRecipe(CraftingGroup group, CraftingEntry...is) {
-            this.modernRecipe = is;
-            this.craftingGroup = group;
-            return this;
-        }
 
         public Builder withName(String name) {
             this.name = name;
@@ -341,15 +307,11 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
         }
 
         public ItemGrenade build(ModContext modContext) {
+
             ItemGrenade grenade = new ItemGrenade(this, modContext);
             grenade.setTranslationKey(ModReference.id + "_" + name);
             grenade.setCreativeTab(tab);
             grenade.maxStackSize = maxStackSize;
-
-            grenade.setCraftingGroup(craftingGroup);
-            grenade.setCraftingRecipe(modernRecipe);
-
-            CraftingRegistry.registerHook(grenade);
 
             if(this.bounceHardSound != null) {
                 grenade.bounceHardSound = modContext.registerSound(this.bounceHardSound);
@@ -378,7 +340,14 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
             modContext.registerGrenadeWeapon(name, grenade, renderer);
 
             if(craftingRecipe != null && craftingRecipe.length >= 2) {
-                modContext.getRecipeManager().registerShapedRecipe(grenade, craftingRecipe);
+                ItemStack itemStack = new ItemStack(grenade);
+                List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(grenade, craftingRecipe);
+                boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
+                if(hasOres) {
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
+                } else {
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
+                }
             } else if(craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
                     .withSlotCount(9)
