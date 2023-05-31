@@ -119,7 +119,6 @@ public class Guns {
     public static Item M60E4;
     public static Item StonerA1;
     public static Item SSG08;
-    public static Item PGMHecateII;
     public static Item DSR1;
     public static Item L96A1;
     public static Item M200Intervention;
