@@ -12,7 +12,7 @@ import net.minecraft.item.Item;
  * @version September 23rd, 2022
  */
 public interface IModernCrafting {
-
+	
 	CraftingEntry[] getModernRecipe();
 	Item getItem();
 	CraftingGroup getCraftingGroup();
