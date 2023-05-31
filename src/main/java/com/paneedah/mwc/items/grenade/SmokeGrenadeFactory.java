@@ -2,15 +2,20 @@ package com.paneedah.mwc.items.grenade;
 
 import com.paneedah.mwc.Grenades;
 import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.M18;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.weaponlib.Part;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.crafting.CraftingEntry;
+import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.grenade.GrenadeRenderer;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.grenade.ItemGrenade.Type;
 import com.paneedah.weaponlib.grenade.RenderableState;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import org.lwjgl.opengl.GL11;
 
 public class SmokeGrenadeFactory implements GrenadeFactory {
@@ -36,6 +41,13 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                 .withFarVelocity(() -> 1.3f)
                 .withGravityVelocity(() -> 0.06f)
                 .withRotationSlowdownFactor(() -> 0.99f)
+                .withModernRecipe(
+                        CraftingGroup.GRENADE,
+                        new CraftingEntry(Items.IRON_INGOT, 2),
+                        new CraftingEntry(MWCItems.steelIngot, 2),
+                        new CraftingEntry(MWCItems.syntheticPolymerComposite, 5),
+                        new CraftingEntry(Blocks.WOOL, 2)
+                )
                 .withRenderer(
                         new GrenadeRenderer.Builder()
                 
