@@ -40,15 +40,13 @@ public class GasGrenadeFactory implements GrenadeFactory {
                 .withFarVelocity(() -> 1.3f)
                 .withGravityVelocity(() -> 0.06f)
                 .withRotationSlowdownFactor(() -> 0.99f)
-//                .withCraftingRecipe(
-//                                " XG",
-//                                "XFX",
-//                                "EF ",
-//                                'X', CommonProxy.SteelPlate,
-//                                'F', Items.COAL,
-//                                'E', Items.GUNPOWDER,
-//                                'G', MwItems.steelIngot
-//                                )
+                 .withDestroyingBlocks(false)
+                .withModernRecipe(
+                        CraftingGroup.GRENADE,
+                        new CraftingEntry(Items.IRON_INGOT, 4),
+                        new CraftingEntry(MWCItems.steelIngot, 3),
+                        new CraftingEntry(MWCItems.syntheticPolymerComposite, 9)
+                )
                 .withRenderer(
                         new GrenadeRenderer.Builder()
                 
