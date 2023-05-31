@@ -39,6 +39,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Translations for Chinese, Spanish, and Turkish languages
 - GitHub URL in `mcmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
+- Shells life go increased 1606% no performance impact in extreme cases
 
 ### Changed
 
