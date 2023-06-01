@@ -1626,11 +1626,6 @@ public class AuxiliaryAttachments {
                 .withName("APC9Action").withRenderablePart()
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT);
         
-//        SA80Action = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
-//                .withModel(new com.paneedah.mwc.models.SA80Action(), "sa80.png")
-//                .withName("SA80Action").withRenderablePart()
-//                .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT);
-        
         BrenAction = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new com.paneedah.mwc.models.CZ805BrenAction(), "cz805bren.png")
                 .withName("BrenAction").withRenderablePart()
