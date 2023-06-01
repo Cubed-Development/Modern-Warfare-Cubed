@@ -20,7 +20,6 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> BeowulfAction;
     public static ItemAttachment<Weapon> S710TricunActionPully;
     public static ItemAttachment<Weapon> S710TricunActionEjector;
-//    public static ItemAttachment<Weapon> SA80Action;
     public static ItemAttachment<Weapon> P90Action;
     public static ItemAttachment<Weapon> M110Action;
     public static ItemAttachment<Weapon> M4Rail;
