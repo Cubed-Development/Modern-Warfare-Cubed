@@ -236,7 +236,7 @@ public class ServerEventHandler {
     protected void onLivingHurtEvent(LivingHurtEvent livingHurtEvent) {
         CustomPlayerInventory inventory = CompatibleCustomPlayerInventoryCapability
                 .getInventory(livingHurtEvent.getEntityLiving());
-        if ((inventory != null && inventory.getStackInSlot(1).getItem() != Items.AIR) || ModernConfigManager.oldDamageOfPlayer) {
+        if (inventory != null && (inventory.getStackInSlot(1).getItem() != Items.AIR || ModernConfigManager.oldDamageOfPlayer)) {
             NonNullList<ItemStack> stackList = NonNullList.create();
 
             ItemStack[] itemStacks = new ItemStack[] { inventory.getStackInSlot(1) };
