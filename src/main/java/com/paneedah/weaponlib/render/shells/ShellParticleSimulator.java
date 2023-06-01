@@ -16,7 +16,7 @@ public class ShellParticleSimulator {
 	
 	public static final double CHUNK_SIZE = 1.5;
 	
-	private static final int SHELL_LIFE = 1024;
+	private static final int SHELL_LIFE = 60;
 	private static final double RESTITUTION = 0.3;
 	
 	public static Bullet556 bulletModel = new Bullet556();

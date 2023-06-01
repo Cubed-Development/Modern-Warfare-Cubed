@@ -32,7 +32,7 @@ public class MAC10Factory {
         .withFireRate(0.999f)
         .withRecoil(1f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.SMG)
+        .withConfigGroup(GunConfigurationGroup.SIDEARM)
         .withShellType(Type.PISTOL)
         .withMuzzlePosition(new Vec3d (-0.16000000476837156, -0.9519999985694882, -2.755999888420105))
         .withMaxShots(1, Integer.MAX_VALUE)

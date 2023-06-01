@@ -25,7 +25,7 @@ public class MP40Factory {
         .withFireRate(0.55f)
         .withRecoil(1.5f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.SMG)
+        .withConfigGroup(GunConfigurationGroup.SIDEARM)
         .withMaxShots(1, Integer.MAX_VALUE)
         //.withMaxShots(5)
         .withShootSound("mp40")

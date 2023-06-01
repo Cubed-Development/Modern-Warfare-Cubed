@@ -29,7 +29,7 @@ public class ScorpionEVO3A1Factory implements GunFactory {
 		.withFireRate(0.999f)
 		.withRecoil(1.5f)
 		.withZoom(0.9f)
-		.withConfigGroup(GunConfigurationGroup.SMG)
+		.withConfigGroup(GunConfigurationGroup.SIDEARM)
 		.withShellType(Type.PISTOL)
 		.withMaxShots(1, Integer.MAX_VALUE)
 		.withShootSound("scorpion")

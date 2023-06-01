@@ -32,7 +32,7 @@ public class FMG9Factory implements GunFactory {
 		.withFireRate(0.8f)
 		.withRecoil(1f)
 		.withZoom(0.9f)
-		.withConfigGroup(GunConfigurationGroup.SMG)
+		.withConfigGroup(GunConfigurationGroup.RIFLES)
 		.hasFlashPedals()
 		.withMaxShots(1, 3, Integer.MAX_VALUE)
 		.withMuzzlePosition(new Vec3d(-0.06400000190734866, -0.8879999966621398, -3.099999898672101))

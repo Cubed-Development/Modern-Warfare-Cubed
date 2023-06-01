@@ -28,7 +28,7 @@ public class ZbroyarZ10Factory implements GunFactory {
         .withFireRate(0.65f)
         .withRecoil(6f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.DMR)
+        .withConfigGroup(GunConfigurationGroup.LONG_RANGE_RIFLES)
         .withMaxShots(1)
         .withShootSound("m110")
         .withSilencedShootSound("m110_silenced")
