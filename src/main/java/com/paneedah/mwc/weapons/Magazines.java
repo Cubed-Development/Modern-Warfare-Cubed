@@ -22,7 +22,6 @@ public class Magazines {
     public static ItemMagazine SOCOM_Mag;
     public static ItemMagazine HK417Mag;
     public static ItemMagazine C8Mag;
-//    public static ItemMagazine SA80Mag;
     public static ItemMagazine Stanag50;
     public static ItemMagazine Stanag60;
     public static ItemMagazine Stanag100;
