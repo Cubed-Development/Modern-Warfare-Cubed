@@ -175,7 +175,6 @@ public class ServerEventHandler {
                     new EntityInventorySyncMessage(e.getTarget(), 
                             CompatibleCustomPlayerInventoryCapability.getInventory((EntityLivingBase) e.getTarget()), false), 
                             (EntityPlayerMP) e.getEntityPlayer());
-            //System.out.println("Player " + e.getEntityPlayer() + " started tracking "  + e.getTarget());
             return;
         }
         if(e.getTarget() instanceof EntityProjectile || e.getTarget() instanceof EntityBounceable) {
@@ -261,11 +260,9 @@ public class ServerEventHandler {
         		Vec3d eyes = livingHurtEvent.getEntityLiving().getPositionEyes(1.0f);
             	if(hit.hitVec.distanceTo(eyes) < 0.6f) {
             		
-            		//System.out.println("Current headshot multiplier is " + BalancePackManager.getHeadshotMultiplier());
             		livingHurtEvent.setAmount((float) (livingHurtEvent.getAmount()*BalancePackManager.getHeadshotMultiplier()));
             		
             		if(livingHurtEvent.getSource().getTrueSource() instanceof EntityPlayer) {
-            			//System.out.println(livingHurtEvent.getSource().getTrueSource());
             			modContext.getChannel().sendTo(new HeadshotSFXPacket(), (EntityPlayerMP) livingHurtEvent.getSource().getTrueSource());
             		}
                 	
