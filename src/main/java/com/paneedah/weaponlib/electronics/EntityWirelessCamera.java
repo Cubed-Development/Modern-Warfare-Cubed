@@ -90,7 +90,7 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
                             "Tracking " + displayName),
                             (EntityPlayerMP)getThrower());
                 }
-                entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, getThrower()), 0.001f);
+                entityHit.attackEntityFrom(DamageSource.causeArrowDamage(null, getThrower()), 0.001f);
             }
         }
 
