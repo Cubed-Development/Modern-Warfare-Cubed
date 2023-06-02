@@ -9,8 +9,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector4f;
@@ -20,18 +18,15 @@ import java.util.ArrayList;
 
 public class QRenderer extends ModelRenderer {
 
-	private boolean compiled = false;
 	private int displayList;
 
 	public boolean baked = false;
 
 	public QRenderer(ModelBase model) {
 		super(model);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public void bake(float scale) {
-		
 		ArrayList<Pair<Matrix4f, ModelRenderer>> list = new ArrayList<>();
 		
 		GL11.glPushMatrix();
@@ -42,12 +37,10 @@ public class QRenderer extends ModelRenderer {
 		compiler(list, scale);
 		
 		this.baked = true;
-		
 	}
 	
 
 	public void compiler(ArrayList<Pair<Matrix4f, ModelRenderer>> list, float scale) {
-
 		this.displayList = GLAllocation.generateDisplayLists(1);
 		GlStateManager.glNewList(this.displayList, 4864);
 		BufferBuilder bufferbuilder = Tessellator.getInstance().getBuffer();
@@ -65,35 +58,24 @@ public class QRenderer extends ModelRenderer {
 		 */
 
 		GlStateManager.glEndList();
-		this.compiled = true;
-
 	}
 
 	public void transformQuads(ModelBox box, Matrix4f mat) {
-
 		Field fieldQuadList = ReflectionHelper.findField(ModelBox.class, "quadList", "field_78254_i");
 
 		try {
 			TexturedQuad[] quadList = (TexturedQuad[]) fieldQuadList.get(box);
 
-			for (TexturedQuad quad : quadList) {
+			for (TexturedQuad quad : quadList)
 				applyMatrixToQuad(quad, mat);
-			}
 
 			fieldQuadList.set(box, quadList);
-
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public void preprocessTransforms(ArrayList<Pair<Matrix4f, ModelRenderer>> list, ModelRenderer re, float scale) {
-
 		if (re.isHidden || !re.showModel)
 			return;
 
@@ -103,10 +85,10 @@ public class QRenderer extends ModelRenderer {
 			for (ModelRenderer child : re.childModels)
 				preprocessTransforms(list, child, scale);
 		}
+
 		GL11.glScaled(scale, scale, scale);
 		list.add(new Pair<Matrix4f, ModelRenderer>(MatrixHelper.captureMatrix(), re));
 		GL11.glPopMatrix();
-
 	}
 
 	public void applyTransformations(ModelRenderer re, float scale) {
@@ -161,78 +143,23 @@ public class QRenderer extends ModelRenderer {
 
 			// GlStateManager.popMatrix();
 		}
-
 		// GlStateManager.translate(-re.offsetX, -re.offsetY, -re.offsetZ);
-
 	}
 
 	@Override
 	public void render(float scale) {
-
-		//long t1 = System.nanoTime();
-		
 		// look into how to remove this rescale normal thing -3k ns
 		GlStateManager.enableRescaleNormal();
 		GL11.glScalef(1/scale, 1/scale, 1/scale);
 		
 		if (!this.isHidden && showModel) {
-			if (!this.baked) {
+			if (!this.baked)
 				bake(scale);
-			}
-			
 			GlStateManager.callList(this.displayList);
-			
 		}
 		
 		GL11.glScalef(scale, scale, scale);
 		GlStateManager.disableRescaleNormal();
-		
-		//long t2 = System.nanoTime();
-		
-		//System.out.println("Bruh " + (t2-t1) + " ns");
-		
-		
-		
-		
-		/*
-		 * GlStateManager.translate(this.offsetX, this.offsetY, this.offsetZ);
-		 * 
-		 * GlStateManager.translate(this.rotationPointX * scale, this.rotationPointY *
-		 * scale, this.rotationPointZ * scale);
-		 * 
-		 * GlStateManager.callList(this.displayList);
-		 * GlStateManager.translate(-this.rotationPointX * scale, -this.rotationPointY *
-		 * scale, -this.rotationPointZ * scale); GlStateManager.translate(-this.offsetX,
-		 * -this.offsetY, -this.offsetZ);
-		 */
-		// if(true) return;
-		/*
-		 * if (!this.isHidden) { if (this.showModel) {
-		 * 
-		 * if (!this.compiled) { this.compileDisplayList(scale); }
-		 * 
-		 * 
-		 * 
-		 * } }
-		 */
-
-	}
-
-	/**
-	 * Compiles a GL display list for this model
-	 */
-	@SideOnly(Side.CLIENT)
-	private void compileDisplayList(float scale) {
-		this.displayList = GLAllocation.generateDisplayLists(1);
-		GlStateManager.glNewList(this.displayList, 4864);
-		BufferBuilder bufferbuilder = Tessellator.getInstance().getBuffer();
-
-		for (int i = 0; i < this.cubeList.size(); ++i) {
-			((ModelBox) this.cubeList.get(i)).render(bufferbuilder, scale);
-		}
-
-		GlStateManager.glEndList();
-		this.compiled = true;
 	}
 
 	public void applyMatrixToQuad(TexturedQuad quad, Matrix4f mat) {
@@ -252,64 +179,4 @@ public class QRenderer extends ModelRenderer {
 		return vert;
 
 	}
-
-	/*
-	 * @SideOnly(Side.CLIENT) private void compileDisplayList(float scale) {
-	 * 
-	 * if(true) return; this.displayList = GLAllocation.generateDisplayLists(1);
-	 * GlStateManager.glNewList(this.displayList, 4864); BufferBuilder bufferbuilder
-	 * = Tessellator.getInstance().getBuffer();
-	 * 
-	 * 
-	 * 
-	 * if(this.childModels == null) return;
-	 * 
-	 * 
-	 * // COMPILE IN MAIN CUBES for (int i = 0; i < this.cubeList.size(); ++i) {
-	 * ModelBox box = ((ModelBox)this.cubeList.get(i)); box.render(bufferbuilder,
-	 * scale);
-	 * 
-	 * }
-	 * 
-	 * 
-	 * // COMPILE THE CHILDREN, AND THEIR CHILDREN! for(ModelRenderer child :
-	 * this.childModels) { if(child == null) continue; compileChild(child,
-	 * bufferbuilder, scale); }
-	 * 
-	 * 
-	 * /* for (int i = 0; i < this.cubeList.size(); ++i) { ModelBox box =
-	 * ((ModelBox)this.cubeList.get(i)); box.render(bufferbuilder, scale);
-	 * 
-	 * }
-	 * 
-	 * GlStateManager.glEndList(); this.compiled = true; }
-	 */
-
-	public void compileChild(ModelRenderer re, BufferBuilder b, float s) {
-
-		GL11.glPushMatrix();
-		// GL11.glLoadIdentity();
-		GlStateManager.translate(re.rotationPointX * s, re.rotationPointY * s, re.rotationPointZ * s);
-
-		org.lwjgl.util.vector.Matrix4f transform = MatrixHelper.captureMatrix();
-
-		for (int i = 0; i < re.cubeList.size(); ++i) {
-
-			ModelBox box = ((ModelBox) re.cubeList.get(i));
-
-			box.render(b, s);
-		}
-
-		if (re.childModels != null && !re.childModels.isEmpty()) {
-			for (ModelRenderer c : re.childModels)
-				compileChild(c, b, s);
-		}
-
-		GlStateManager.translate(-re.rotationPointX * s, -re.rotationPointY * s, -re.rotationPointZ * s);
-		GL11.glPopMatrix();
-
-		// System.out.println(MatrixHelper.captureMatrix());
-
-	}
-
 }
