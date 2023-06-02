@@ -118,6 +118,9 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "The protection of armor will be greatly enhanced. More suitable for PVP mini games")
 	public static boolean oldDamageOfPlayer = false;
 
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should hit entities be repelled?")
+	public static boolean knockbackOnHit = true;
+
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables muzzle effects.")
 	public static boolean enableMuzzleEffects = true;
 
