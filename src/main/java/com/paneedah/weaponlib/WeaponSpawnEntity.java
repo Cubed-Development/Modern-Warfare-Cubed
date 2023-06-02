@@ -138,11 +138,13 @@ public class WeaponSpawnEntity extends EntityProjectile {
             //Projectiles projectilesConfig = weapon.getModContext().getConfigurationManager().getProjectiles();
 
             if(this.getThrower() != null) {
-                position.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
+				position.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
             } else {
                 position.entityHit.attackEntityFrom(new DamageSource("thrown"), damage);
             }
 
+			if(!ModernConfigManager.knockbackOnHit)
+				position.entityHit.setVelocity(this.motionX / 1500, this.motionY / 1500, this.motionZ / 1500);
             position.entityHit.hurtResistantTime = 0;
             position.entityHit.prevRotationYaw -= 0.3D;
 
