@@ -32,7 +32,7 @@ public class KBP9A91Factory {
         .withFireRate(0.7f)
         .withRecoil(2f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.RIFLES)
+        .withConfigGroup(GunConfigurationGroup.SIDEARM)
         .withShellType(Type.PISTOL)
         .hasFlashPedals()
         .withMaxShots(1, Integer.MAX_VALUE)

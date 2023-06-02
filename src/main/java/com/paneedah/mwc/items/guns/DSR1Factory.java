@@ -28,7 +28,7 @@ public class DSR1Factory implements GunFactory {
         .withEjectSpentRoundSound("l96a1_bolt_action")
         .withRecoil(8f)
         .withZoom(0.8f)
-        .withConfigGroup(GunConfigurationGroup.LONG_RANGE_RIFLES)
+        .withConfigGroup(GunConfigurationGroup.DMR)
         .withMaxShots(1)
         .withShootSound("l96a1")
         .withPumpTimeout(1000)

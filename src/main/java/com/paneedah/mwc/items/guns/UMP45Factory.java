@@ -29,7 +29,7 @@ public class UMP45Factory {
         .withFireRate(0.6f)
         .withRecoil(2f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.SMG)
+        .withConfigGroup(GunConfigurationGroup.SIDEARM)
         .withShellType(Type.PISTOL)
         .hasFlashPedals()
         .withMaxShots(1, Integer.MAX_VALUE)

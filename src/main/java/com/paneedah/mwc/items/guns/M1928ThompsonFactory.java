@@ -24,7 +24,7 @@ public class M1928ThompsonFactory {
         .withFireRate(0.75f)
         .withRecoil(1.8f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.SMG)
+        .withConfigGroup(GunConfigurationGroup.SIDEARM)
         .withMaxShots(1, Integer.MAX_VALUE)
         //.withMaxShots(5)
         .withShootSound("m1a1_thompson")
