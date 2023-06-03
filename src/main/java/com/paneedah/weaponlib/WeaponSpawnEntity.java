@@ -10,6 +10,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
@@ -138,10 +139,13 @@ public class WeaponSpawnEntity extends EntityProjectile {
             //Projectiles projectilesConfig = weapon.getModContext().getConfigurationManager().getProjectiles();
 
             if(this.getThrower() != null) {
-                position.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
+				position.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
             } else {
                 position.entityHit.attackEntityFrom(new DamageSource("thrown"), damage);
             }
+
+			if(!ModernConfigManager.knockbackOnHit)
+				position.entityHit.setVelocity(this.motionX / 1500, this.motionY / 1500, this.motionZ / 1500);
 
             position.entityHit.hurtResistantTime = 0;
             position.entityHit.prevRotationYaw -= 0.3D;
