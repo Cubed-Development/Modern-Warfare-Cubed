@@ -137,7 +137,6 @@ public class WeaponSpawnEntity extends EntityProjectile {
 	    } else if(position.entityHit != null) {
 
             //Projectiles projectilesConfig = weapon.getModContext().getConfigurationManager().getProjectiles();
-			//((EntityLivingBase) position.entityHit).getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).getBaseValue();
 
             if(this.getThrower() != null) {
 				position.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
