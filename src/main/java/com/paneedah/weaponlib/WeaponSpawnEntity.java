@@ -147,6 +147,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
 			if(!ModernConfigManager.knockbackOnHit)
 				position.entityHit.setVelocity(this.motionX / 1500, this.motionY / 1500, this.motionZ / 1500);
+
             position.entityHit.hurtResistantTime = 0;
             position.entityHit.prevRotationYaw -= 0.3D;
 
