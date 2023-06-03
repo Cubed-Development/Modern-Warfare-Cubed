@@ -416,7 +416,7 @@ public class EntityConfiguration {
             configuration.collisionAttack = collisionAttack;
             configuration.delayedAttack = delayedAttack;
             configuration.mobName = name;
-
+            
             int modEntityId = entityIdSupplier.get();
             String entityName = name != null ? name : baseClass.getSimpleName() + "Ext" + modEntityId;
 
@@ -427,80 +427,68 @@ public class EntityConfiguration {
 
             AIEntity entityConfig = ModernConfigManager.aiEntities.get(entityName);
 
+            if (entityConfig.getName().equalsIgnoreCase("terrorist") || entityConfig.getName().equalsIgnoreCase("soldier")) {
+                WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
+                if (ModernConfigManager.terroristEquipmentConfiguration == null || ModernConfigManager.terroristEquipmentConfiguration.isEmpty()) {
+                    equipmentOptions.forEach((key, value) -> equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
 
-            WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
-            if (ModernConfigManager.terroristEquipmentConfiguration == null || ModernConfigManager.terroristEquipmentConfiguration.isEmpty()) {
-                equipmentOptions.forEach((key, value) -> equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
+                } else {
+                    Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
 
-            } else {
-                Map<EquipmentKey, EquipmentValue> equipmentOptions = new HashMap<>();
+                    EnumDifficulty difficultyLevel = EnumDifficulty.EASY;
+                    EnumDifficulty[] difficultyValues = EnumDifficulty.values();
 
-                EnumDifficulty difficultyLevel = EnumDifficulty.EASY;
-                EnumDifficulty[] difficultyValues = EnumDifficulty.values();
+                    String[] attachments = ModernConfigManager.terroristEquipmentConfiguration.split(", ");
+                    for (String attachment : attachments) {
+                        String[] parts = attachment.split(":");
+                        if (parts.length < 2) {
+                            ModReference.log.warn("Invalid attachment configuration for entity " + name + ": " + attachment + ". Expected format: <gunId>:<weight>[:<attachment>...]");
+                            continue;
+                        }
 
-                String[] attachments = ModernConfigManager.terroristEquipmentConfiguration.split(", ");
-                for (String attachment : attachments) {
-                    String[] parts = attachment.split(":");
-                    if (parts.length < 2) {
-                        ModReference.log.warn("Invalid attachment configuration for entity " + name + ": " + attachment + ". Expected format: <gunId>:<weight>[:<attachment>...]");
-                        continue;
-                    }
+                        String gunId = parts[0];
+                        double weight;
+                        try { weight = Double.parseDouble(parts[1]); }
+                        catch (NumberFormatException e) {
+                            ModReference.log.warn("Invalid weight for gun " + name + ": " + parts[1] + ". Expected a valid double.");
+                            continue;
+                        }
 
-                    String gunId = parts[0];
-                    double weight;
-                    try {
-                        weight = Double.parseDouble(parts[1]);
-                    } catch (NumberFormatException e) {
-                        ModReference.log.warn("Invalid weight for gun " + name + ": " + parts[1] + ". Expected a valid double.");
-                        continue;
-                    }
+                        Item gun = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, gunId));
+                        if (gun == null) {
+                            ModReference.log.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
+                            continue;
+                        }
 
-                    Item gun = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, gunId));
-                    if (gun == null) {
-                        ModReference.log.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
-                        continue;
-                    }
+                        Equipment equipment = new Equipment();
+                        equipment.item = gun;
+                        equipment.attachments = new ArrayList<>();
 
-                    Equipment equipment = new Equipment();
-                    switch (entityConfig.getName()) {
-                        case "turret":
-                            equipment.item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, "turretgun"));
-                            break;
-                        case "turretupgraded":
-                            equipment.item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, "turretgunupgraded"));
-                            break;
-                        case "turretsilenced":
-                            equipment.item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, "turretgunsilenced"));
-                            break;
-                        default:
-                            equipment.item = gun;
-                    }
-                    equipment.attachments = new ArrayList<>();
+                        if (parts.length >= 3) {
+                            for (String attachmentId : Arrays.asList(parts).subList(2, parts.length)) {
+                                Item att = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, attachmentId));
+                                if (!(att instanceof ItemAttachment)) {
+                                    ModReference.log.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
+                                    continue;
+                                }
 
-                    if (parts.length >= 3) {
-                        for (String attachmentId : Arrays.asList(parts).subList(2, parts.length)) {
-                            Item att = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, attachmentId));
-                            if (!(att instanceof ItemAttachment)) {
-                                ModReference.log.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
-                                continue;
+                                equipment.attachments.add((ItemAttachment<?>) att);
                             }
+                        }
 
-                            equipment.attachments.add((ItemAttachment<?>) att);
+                        for (int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
+                            equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item, equipment.attachments.toArray(new ItemAttachment<?>[0])),
+                                    new EquipmentValue(equipment, (float) weight));
                         }
                     }
 
-                    for (int i = difficultyLevel.ordinal(); i < difficultyValues.length; i++) {
-                        equipmentOptions.put(new EquipmentKey(difficultyValues[i], equipment.item, equipment.attachments.toArray(new ItemAttachment<?>[0])),
-                                new EquipmentValue(equipment, (float) weight));
-                    }
+                    equipmentOptions.forEach((key, value) -> {
+                        equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight);
+                    });
                 }
 
-                equipmentOptions.forEach((key, value) -> {
-                    equipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight);
-                });
+                configuration.equipmentOptions = equipmentOptionsBuilder.build();
             }
-
-            configuration.equipmentOptions = equipmentOptionsBuilder.build();
             
             WeightedOptions.Builder<EnumDifficulty, Equipment> secondaryEquipmentOptionsBuilder = new WeightedOptions.Builder<>();
             secondaryEquipmentOptions.forEach((key, value) -> secondaryEquipmentOptionsBuilder.withOption(value.equipment, key.difficulty, value.weight));
