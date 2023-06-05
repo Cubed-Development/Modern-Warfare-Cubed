@@ -21,6 +21,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - explosionBreak
   - penetrableBlocks
   - knockbackOnHit
+- Adjust the order of weapons in the creation column
 - Make the turret work again
 - Durability to all vests as a temporary measure to resolve vest-related issues
 - Smelting of sulfur into gunpowder
