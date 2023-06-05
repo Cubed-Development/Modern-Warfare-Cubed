@@ -22,7 +22,6 @@ public class CustomPlayerInventoryGuiContainer extends GuiContainer {
     @Override
     public void initGui() {
         super.initGui();
-        this.buttonList.clear();
         
         final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
 
