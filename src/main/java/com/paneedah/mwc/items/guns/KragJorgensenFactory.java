@@ -22,7 +22,7 @@ public class KragJorgensenFactory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("Krag_Jorgensen")
-//      .withAmmo(CommonProxy.XWPMag)
+//      .QRenderer(CommonProxy.XWPMag)
         .withAmmoCapacity(5)
         .withFireRate(0.16f)
         .withIteratedLoad()

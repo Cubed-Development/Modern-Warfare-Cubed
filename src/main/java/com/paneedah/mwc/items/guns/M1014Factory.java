@@ -23,7 +23,7 @@ public class M1014Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("m1014")
-//      .withAmmo(CommonProxy.Remington870Mag)
+//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(7)
         .withMaxBulletsPerReload(7)
         .withFireRate(0.5f)
