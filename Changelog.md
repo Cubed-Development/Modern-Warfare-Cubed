@@ -21,7 +21,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - explosionBreak
   - penetrableBlocks
   - knockbackOnHit
-- Make the turret work again
 - Center the firing position of the bullet when aiming
 - Durability to all vests as a temporary measure to resolve vest-related issues
 - Smelting of sulfur into gunpowder
@@ -80,10 +79,12 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed crashes caused by certain shaders
 - Fixed duplication issues related to copper, gunpowder, and ammo
 - Fixed a problem where the carryable inventory tab was shifting the entire inventory to the left for no reasons
+- Fixed turrets spawning without weapons
 
 ### Removed
 
 - Removed all arcade guns (These will be moved to a sister mod at a later time)
+- Removed the SA80
 - Removed the mission system
 - Removed most of the compatibility layer
 - Removed FXAA
