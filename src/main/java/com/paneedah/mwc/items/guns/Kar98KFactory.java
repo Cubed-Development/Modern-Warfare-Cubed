@@ -22,7 +22,7 @@ public class Kar98KFactory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("Kar98K")
-//      .withAmmo(CommonProxy.XWPMag)
+//      .withCapacity(CommonProxy.XWPMag)
         .withAmmoCapacity(5)
         .withFireRate(0.16f)
         .withIteratedLoad()

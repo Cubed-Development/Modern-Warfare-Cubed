@@ -22,7 +22,7 @@ public class BrowningAuto5Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("browning_auto_5")
-//      .withAmmo(CommonProxy.Remington870Mag)
+//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(4)
         .withMaxBulletsPerReload(4)
         .withFireRate(0.2f)

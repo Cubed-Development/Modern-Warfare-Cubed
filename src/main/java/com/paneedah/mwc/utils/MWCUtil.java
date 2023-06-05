@@ -126,7 +126,7 @@ public class MWCUtil {
         ItemStack maxStack = null;
 
         if (player.isCreative())
-            return items.stream().map(ItemMagazine::createItemStack).max(comparator).orElse(null);
+            return items.stream().map(ItemMagazine::create).max(comparator).orElse(null);
 
         for (final ItemStack currentStack : player.inventory.mainInventory)
             if (items.contains(currentStack.getItem()) && (maxStack == null || comparator.compare(currentStack, maxStack) > 0))

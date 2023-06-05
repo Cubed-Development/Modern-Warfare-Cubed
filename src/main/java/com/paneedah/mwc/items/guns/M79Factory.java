@@ -21,7 +21,7 @@ public class M79Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("m79")
-//      .withAmmo(CommonProxy.AR15Mag)
+//      .withCapacity(CommonProxy.AR15Mag)
         .withAmmoCapacity(1)
         .withFireRate(0.7f)
         .withRecoil(5f)

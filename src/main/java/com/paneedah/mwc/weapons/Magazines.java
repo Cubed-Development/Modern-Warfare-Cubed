@@ -132,7 +132,7 @@ public class Magazines {
 
     public static void init(Object mod) {
     	
-        Magazines.FuelCell = new ItemMagazine.Builder().withAmmo(1000)
+        Magazines.FuelCell = new ItemMagazine.Builder().withCapacity(1000)
                 .withName("FuelCell")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.ChainsawFuel(), "ChainsawFuel.png")
@@ -160,7 +160,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
 /*
         Magazines.NinthSinMag = new ItemMagazine.Builder()
-        		.withAmmo(100)
+        		.withCapacity(100)
                 .withName("NinthSinMag")
 
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
@@ -189,7 +189,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
 */
         Magazines.BrenMag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet762x51)
         		.withName("BrenMag")
 
@@ -219,7 +219,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.JohnsonMAG = new ItemMagazine.Builder()
-                .withAmmo(20)
+                .withCapacity(20)
                 .withCompatibleBullet(Bullets.Bullet3006Springfield)
                 .withName("JohnsonMAG")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
@@ -248,7 +248,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.VectorMag = new ItemMagazine.Builder()
-        		.withAmmo(25)
+        		.withCapacity(25)
         		.withCompatibleBullet(Bullets.Bullet45ACP)
         		.withName("VectorMag")
         		.withRotationPoint(-0.12000000357627871, 1.0400000309944155, -2.0400000607967383)
@@ -276,7 +276,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.VectorDrumMag = new ItemMagazine.Builder()
-        		.withAmmo(50)
+        		.withCapacity(50)
         		.withCompatibleBullet(Bullets.Bullet45ACP)
         		.withName("VectorDrumMag")
         		.withRotationPoint(-0.12000000357627871, 1.0400000309944155, -2.0400000607967383)
@@ -304,7 +304,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M4A1Mag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet556x45)
         		.withName("M4A1Mag_2")
         		.withRotationPoint(-0.16000000476837162, -0.16000000476837162, -1.5200000452995304)
@@ -335,7 +335,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.NGSWRMag = new ItemMagazine.Builder()
-        		.withAmmo(20)
+        		.withCapacity(20)
         		.withCompatibleBullet(Bullets.Bullet556x45)
         		.withName("NGSWR_Mag")
         		.withRotationPoint(-0.16000000476837162, -0.44000001311302195, -1.4800000441074375)
@@ -362,7 +362,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.FamasF1Mag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet556x45)
         		.withName("FamasF1Mag")
         		.withRotationPoint(-0.12000000357627871, 1.0400000309944155, -2.0400000607967383)
@@ -390,7 +390,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.BeowulfMag = new ItemMagazine.Builder()
-        		.withAmmo(13)
+        		.withCapacity(13)
         		.withCompatibleBullet(Bullets.Bullet50Beowulf)
         		.withName("BeowulfMag")
 
@@ -419,7 +419,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.SA80Mag = new ItemMagazine.Builder()
-        		.withAmmo(60)
+        		.withCapacity(60)
         		.withCompatibleBullet(Bullets.Bullet556x45)
         		.withName("SA80Mag")
 
@@ -449,7 +449,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.AUG9mmMag = new ItemMagazine.Builder().withAmmo(30).withCompatibleBullet(Bullets.Bullet9x19mm).withName("AUG9mmMag")
+        Magazines.AUG9mmMag = new ItemMagazine.Builder().withCapacity(30).withCompatibleBullet(Bullets.Bullet9x19mm).withName("AUG9mmMag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.AUG9mmConvMAG(), "gun.png")
                 .withRequiredAttachments(Attachments.AUGParaConversion)
@@ -476,7 +476,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.S710TricunMag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet10mm)
         		.withName("S710TricunMag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
@@ -504,7 +504,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
 
-        Magazines.M134Mag = new ItemMagazine.Builder().withAmmo(1000).withCompatibleBullet(Bullets.Bullet762x51).withName("M134Mag")
+        Magazines.M134Mag = new ItemMagazine.Builder().withCapacity(1000).withCompatibleBullet(Bullets.Bullet762x51).withName("M134Mag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.M134Mag(), "gun.png")
 
@@ -530,7 +530,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.M60Mag = new ItemMagazine.Builder().withAmmo(100).withCompatibleBullet(Bullets.Bullet762x51).withName("M60Mag")
+        Magazines.M60Mag = new ItemMagazine.Builder().withCapacity(100).withCompatibleBullet(Bullets.Bullet762x51).withName("M60Mag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.M60Mag(), "m60.png")
 
@@ -557,7 +557,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M249Mag = new ItemMagazine.Builder()
-        		.withAmmo(100)
+        		.withCapacity(100)
         		.withCompatibleBullet(Bullets.Bullet556x45)
         		.withName("M249Mag")
         		.withRotationPoint(0.8812000082910061, 0.8648000418066975, -1.40640004143715)
@@ -587,7 +587,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
 
-        Magazines.StonerMag = new ItemMagazine.Builder().withAmmo(100).withCompatibleBullet(Bullets.Bullet556x45).withName("StonerMag")
+        Magazines.StonerMag = new ItemMagazine.Builder().withCapacity(100).withCompatibleBullet(Bullets.Bullet556x45).withName("StonerMag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.StonerA1MAG(), "m249.png")
 
@@ -614,7 +614,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.HoneyBadgerMag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet762x35)
         		.withName("HoneyBadgerMag_2")
         		.withRotationPoint(-0.16000000476837162, -0.16000000476837162, -1.5200000452995304)
@@ -643,7 +643,7 @@ public class Magazines {
         
         Magazines.M38Mag = new ItemMagazine.Builder()
         		
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet556x45)
         		.withName("M38Mag_2")
         		.withRotationPoint(-0.16000000476837162, -0.16000000476837162, -1.5200000452995304)
@@ -675,7 +675,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.SOCOM_Mag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet556x45)
         		.withName("socom_mag")
         		.withRotationPoint(-0.16000000476837162, -0.16000000476837162, -1.5200000452995304)
@@ -705,7 +705,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.HK417Mag = new ItemMagazine.Builder()
-        		.withAmmo(20)
+        		.withCapacity(20)
         		.withCompatibleBullet(Bullets.Bullet762x51)
         		.withName("hk417_mag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
@@ -730,7 +730,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.C8Mag = new ItemMagazine.Builder().withAmmo(30).withCompatibleBullet(Bullets.Bullet556x45).withName("C8Mag")
+        Magazines.C8Mag = new ItemMagazine.Builder().withCapacity(30).withCompatibleBullet(Bullets.Bullet556x45).withName("C8Mag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.C8Mag(), "c8mag.png")
                 .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver, 
@@ -755,7 +755,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.Stanag50 = new ItemMagazine.Builder()
-        		.withAmmo(50)
+        		.withCapacity(50)
         		.withCompatibleBullet(Bullets.Bullet556x45)
         		.withName("Stanag50")
         		.withRotationPoint(-0.16000000476837162, -0.16000000476837162, -1.5200000452995304)
@@ -786,7 +786,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.Stanag60 = new ItemMagazine.Builder()
-        		.withAmmo(60)
+        		.withCapacity(60)
         		.withCompatibleBullet(Bullets.Bullet556x45)
         		.withName("Stanag60")
         		.withRotationPoint(-0.16000000476837162, -0.16000000476837162, -1.5200000452995304)
@@ -817,7 +817,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.Stanag100 = new ItemMagazine.Builder()
-        		.withAmmo(100)
+        		.withCapacity(100)
         		.withCompatibleBullet(Bullets.Bullet556x45)
         		.withName("Stanag100")
         		.withRotationPoint(-0.16000000476837162, -0.16000000476837162, -1.5200000452995304)
@@ -847,7 +847,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.G36CMag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet556x45)
         		.withName("G36CMag_2")
         		.withRotationPoint(-0.040000001192092904, -0.28000000834465033, -1.4400000429153446)
@@ -875,7 +875,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AK101Mag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet556x45)
         		.withName("AK101Mag_2")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.8800000560283665)
@@ -903,7 +903,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AK74Mag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet545x39)
         		.withName("AK74Mag")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.8800000560283665)
@@ -931,7 +931,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AK74Mag60 = new ItemMagazine.Builder()
-        		.withAmmo(60)
+        		.withCapacity(60)
         		.withCompatibleBullet(Bullets.Bullet545x39)
         		.withName("AK74Mag60")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.8800000560283665)
@@ -959,7 +959,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AK60Mag = new ItemMagazine.Builder()
-        		.withAmmo(60)
+        		.withCapacity(60)
         		.withCompatibleBullet(Bullets.Bullet556x45)
         		.withName("AK60Mag")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.8800000560283665)
@@ -987,7 +987,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AK15Mag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet762x39)
         		.withName("AK15Mag_2")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.8800000560283665)
@@ -1015,7 +1015,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AK12Mag545x39 = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet545x39)
         		.withName("AK12Mag_2")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.8800000560283665)
@@ -1043,7 +1043,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AK75Mag545x39 = new ItemMagazine.Builder()
-        		.withAmmo(75)
+        		.withCapacity(75)
         		.withCompatibleBullet(Bullets.Bullet545x39)
         		.withName("AK75Mag545x39")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.8800000560283665)
@@ -1070,7 +1070,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AK12Mag = new ItemMagazine.Builder()
-        		.withAmmo(31)
+        		.withCapacity(31)
         		.withCompatibleBullet(Bullets.Bullet545x39)
         		.withName("AK12Mag")
         		.withRotationPoint(-0.12000000357627871, 0.36000001072883614, -1.9200000572204599)
@@ -1097,7 +1097,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AK47PMAGTan = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet762x39)
         		.withName("AK47PMAGTan")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.8800000560283665)
@@ -1125,7 +1125,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AK47Mag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet762x39)
         		.withName("AK47Mag")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.880000056028367)
@@ -1153,7 +1153,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AK50Mag = new ItemMagazine.Builder()
-        		.withAmmo(50)
+        		.withCapacity(50)
         		.withCompatibleBullet(Bullets.Bullet762x39)
         		.withName("AK50Mag")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.8800000560283665)
@@ -1181,7 +1181,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AK75Mag = new ItemMagazine.Builder()
-        		.withAmmo(75)
+        		.withCapacity(75)
         		.withCompatibleBullet(Bullets.Bullet762x39)
         		.withName("AK75Mag")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.8800000560283665)
@@ -1208,7 +1208,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AK100Mag = new ItemMagazine.Builder()
-        		.withAmmo(100)
+        		.withCapacity(100)
         		.withCompatibleBullet(Bullets.Bullet762x39)
         		.withName("AK100Mag")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.8800000560283665)
@@ -1236,7 +1236,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.DragunovMag = new ItemMagazine.Builder()
-        		.withAmmo(10)
+        		.withCapacity(10)
         		.withCompatibleBullet(Bullets.Bullet762x39)
         		.withName("DragunovMag")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.880000056028367)
@@ -1264,7 +1264,7 @@ public class Magazines {
                 .withTextureName("Dummy.png")
                 .build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.SaigaMag = new ItemMagazine.Builder().withAmmo(5).withCompatibleBullet(Bullets.Shotgun12Guage).withName("SaigaMag_2")
+        Magazines.SaigaMag = new ItemMagazine.Builder().withCapacity(5).withCompatibleBullet(Bullets.Shotgun12Guage).withName("SaigaMag_2")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.Saiga12mag(), "gun.png")
 
@@ -1291,7 +1291,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.Origin12Mag = new ItemMagazine.Builder()
-        		.withAmmo(5)
+        		.withCapacity(5)
                 .withCompatibleBullet(Bullets.Shotgun12Guage)
                 .withName("Origin12Mag")
                 .withRotationPoint(-0.12000000357627871, 1.0000000298023226, -1.9200000572204607)
@@ -1318,7 +1318,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.Origin12DrumMag = new ItemMagazine.Builder()
-        		.withAmmo(20)
+        		.withCapacity(20)
                 .withCompatibleBullet(Bullets.Shotgun12Guage)
                 .withName("Origin12DrumMag")
                 .withRotationPoint(-0.12000000357627871, 1.0000000298023226, -1.9200000572204607)
@@ -1345,7 +1345,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M9A1Mag = new ItemMagazine.Builder()
-        		.withAmmo(15)
+        		.withCapacity(15)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("M9Mag_2")
         		.withRotationPoint(-0.16000000476837162, 0.5600000166893007, 0.040000001192092904)
@@ -1373,7 +1373,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.FiveSevenMag = new ItemMagazine.Builder()
-        		.withAmmo(20)
+        		.withCapacity(20)
         		.withCompatibleBullet(Bullets.Bullet57x28mm)
         		.withName("FiveSevenMag")
         		.withRotationPoint(-0.16000000476837162, 0.5600000166893007, 0.040000001192092904)
@@ -1399,7 +1399,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.SamuraiEdgeMag = new ItemMagazine.Builder().withAmmo(15).withCompatibleBullet(Bullets.Bullet40SW)
+        Magazines.SamuraiEdgeMag = new ItemMagazine.Builder().withCapacity(15).withCompatibleBullet(Bullets.Bullet40SW)
         		.withName("SamuraiEdgeMag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.M9A1mag(), "m9a1.png")
@@ -1424,7 +1424,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.SCCYCPX2Mag = new ItemMagazine.Builder()
-        		.withAmmo(10)
+        		.withCapacity(10)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("sccycpx2mag")
         		.withRotationPoint(-0.16000000476837162, 0.5600000166893007, 0.040000001192092904)
@@ -1452,7 +1452,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.SCCYCPX2MagExt = new ItemMagazine.Builder()
-        		.withAmmo(15)
+        		.withCapacity(15)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("sccycpx2magext")
         		.withRotationPoint(-0.16000000476837162, 0.5600000166893007, 0.040000001192092904)
@@ -1480,7 +1480,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.DesertEagleMag = new ItemMagazine.Builder()
-        		.withAmmo(7)
+        		.withCapacity(7)
         		.withCompatibleBullet(Bullets.Bullet50AE)
         		.withName("DesertEagleMag")
         		.withRotationPoint(-0.16000000476837162, 0.5600000166893007, 0.040000001192092904)
@@ -1510,7 +1510,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.M9Mag30 = new ItemMagazine.Builder().withAmmo(30).withCompatibleBullet(Bullets.Bullet9x19mm).withName("M9Mag30")
+        Magazines.M9Mag30 = new ItemMagazine.Builder().withCapacity(30).withCompatibleBullet(Bullets.Bullet9x19mm).withName("M9Mag30")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.M9Mag30(), "gun.png")
 
@@ -1533,7 +1533,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.M9DrumMag = new ItemMagazine.Builder().withAmmo(65).withCompatibleBullet(Bullets.Bullet9x19mm).withName("M9DrumMag")
+        Magazines.M9DrumMag = new ItemMagazine.Builder().withCapacity(65).withCompatibleBullet(Bullets.Bullet9x19mm).withName("M9DrumMag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.M9DrumMag(), "gun.png")
 
@@ -1557,7 +1557,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.MP443Mag = new ItemMagazine.Builder()
-        		.withAmmo(18)
+        		.withCapacity(18)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("MP443Mag_2")
         		.withRotationPoint(-0.20000000596046452, 0.48000001430511485, 0.040000001192092904)
@@ -1583,7 +1583,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.M45A1Mag = new ItemMagazine.Builder().withAmmo(7).withCompatibleBullet(Bullets.Bullet45ACP).withName("M45A1Mag_2")
+        Magazines.M45A1Mag = new ItemMagazine.Builder().withCapacity(7).withCompatibleBullet(Bullets.Bullet45ACP).withName("M45A1Mag_2")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.GlockMagazine(), "gun.png")
                 .withRequiredAttachments(Attachments.M1911Body)
@@ -1609,7 +1609,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.M1911_44Mag = new ItemMagazine.Builder().withAmmo(7).withCompatibleBullet(Bullets.Bullet44).withName("M1911_44Mag")
+        Magazines.M1911_44Mag = new ItemMagazine.Builder().withCapacity(7).withCompatibleBullet(Bullets.Bullet44).withName("M1911_44Mag")
                 .withRequiredAttachments(Attachments.M191144MagBody)
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.GlockMagazine(), "gun.png")
@@ -1636,7 +1636,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.M45A1Mag14 = new ItemMagazine.Builder().withAmmo(14).withCompatibleBullet(Bullets.Bullet45ACP).withName("M45A1Mag14")
+        Magazines.M45A1Mag14 = new ItemMagazine.Builder().withCapacity(14).withCompatibleBullet(Bullets.Bullet45ACP).withName("M45A1Mag14")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.M9Mag30(), "gun.png")
                 .withRequiredAttachments(Attachments.M1911Body)
@@ -1664,7 +1664,7 @@ public class Magazines {
         
         
         Magazines.M17Mag = new ItemMagazine.Builder()
-        		.withAmmo(17)
+        		.withCapacity(17)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("M17Mag")
         		.withRotationPoint(-0.16000000476837162, 0.5600000166893007, 0.040000001192092904)
@@ -1689,7 +1689,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.MakarovMag = new ItemMagazine.Builder().withAmmo(8)
+        Magazines.MakarovMag = new ItemMagazine.Builder().withCapacity(8)
         		.withCompatibleBullet(Bullets.Bullet9x18mm)
         		.withName("MakarovMag")
         		.withRequiredAttachments(Attachments.MakarovSlide, Attachments.MakarovPBBody)
@@ -1714,7 +1714,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.USP45Mag = new ItemMagazine.Builder().withAmmo(8).withCompatibleBullet(Bullets.Bullet45ACP).withName("USP45Mag")
+        Magazines.USP45Mag = new ItemMagazine.Builder().withCapacity(8).withCompatibleBullet(Bullets.Bullet45ACP).withName("USP45Mag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.USP45Mag(), "USP45.png")
                 .withFirstPersonPositioning((player, itemStack) -> {
@@ -1736,7 +1736,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.HiPowerMag = new ItemMagazine.Builder().withAmmo(13).withCompatibleBullet(Bullets.Bullet9x19mm).withName("HiPowerMag")
+        Magazines.HiPowerMag = new ItemMagazine.Builder().withCapacity(13).withCompatibleBullet(Bullets.Bullet9x19mm).withName("HiPowerMag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.GlockMagazine(), "gun.png")
 
@@ -1762,7 +1762,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.FrommerStopMag = new ItemMagazine.Builder().withAmmo(8).withCompatibleBullet(Bullets.Bullet380ACP).withName("FrommerStopMag")
+        Magazines.FrommerStopMag = new ItemMagazine.Builder().withCapacity(8).withCompatibleBullet(Bullets.Bullet380ACP).withName("FrommerStopMag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.M9A1mag(), "gun.png")
 
@@ -1789,7 +1789,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.APSMag = new ItemMagazine.Builder()
-        		.withAmmo(20)
+        		.withCapacity(20)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("APSMag_2")
         		.withRotationPoint(-0.12000000357627871, 0.48000001430511485, 0.0)
@@ -1815,7 +1815,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.GlockMag13 = new ItemMagazine.Builder().withAmmo(13).withCompatibleBullet(Bullets.Bullet9x19mm).withName("GlockMag13")
+        Magazines.GlockMag13 = new ItemMagazine.Builder().withCapacity(13).withCompatibleBullet(Bullets.Bullet9x19mm).withName("GlockMag13")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.Glock13rndMagazine(), "glock18c.png")
 
@@ -1838,7 +1838,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.Glock18CMag = new ItemMagazine.Builder().withAmmo(20).withCompatibleBullet(Bullets.Bullet9x19mm).withName("Glock18Cmag_2")
+        Magazines.Glock18CMag = new ItemMagazine.Builder().withCapacity(20).withCompatibleBullet(Bullets.Bullet9x19mm).withName("Glock18Cmag_2")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.Glock18Cmag(), "glock18c.png")
 
@@ -1861,7 +1861,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.GlockMag50 = new ItemMagazine.Builder().withAmmo(50).withCompatibleBullet(Bullets.Bullet9x19mm).withName("GlockMag50")
+        Magazines.GlockMag50 = new ItemMagazine.Builder().withCapacity(50).withCompatibleBullet(Bullets.Bullet9x19mm).withName("GlockMag50")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.M9DrumMag(), "gun.png")
 
@@ -1884,7 +1884,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.AS50Mag = new ItemMagazine.Builder().withAmmo(10).withCompatibleBullet(Bullets.Bullet50BMG).withName("AS50Mag_2")
+        Magazines.AS50Mag = new ItemMagazine.Builder().withCapacity(10).withCompatibleBullet(Bullets.Bullet50BMG).withName("AS50Mag_2")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.AS50mag(), "M4A1Mag.png")
 
@@ -1911,7 +1911,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M82Mag = new ItemMagazine.Builder()
-        		.withAmmo(10)
+        		.withCapacity(10)
         		.withCompatibleBullet(Bullets.Bullet50BMG)
         		.withName("M82Mag_2")
         		.withRotationPoint(-0.12000000357627871, 0.40000001192092904, -2.4800000739097605)
@@ -1938,7 +1938,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.NTW20Mag = new ItemMagazine.Builder().withAmmo(3).withCompatibleBullet(Bullets.Bullet20x82mm).withName("NTW20Mag")
+        Magazines.NTW20Mag = new ItemMagazine.Builder().withCapacity(3).withCompatibleBullet(Bullets.Bullet20x82mm).withName("NTW20Mag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.NTW20MAG(), "gun.png")
                 
@@ -1965,7 +1965,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.KBP9A91Mag = new ItemMagazine.Builder()
-        		.withAmmo(20)
+        		.withCapacity(20)
         		.withCompatibleBullet(Bullets.Bullet9x39mm)
         		.withName("KBP9A91Mag_2")
         		.withRotationPoint(-0.12000000357627871, 0.36000001072883614, -1.9600000584125523)
@@ -1991,7 +1991,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.KedrMag = new ItemMagazine.Builder().withAmmo(20).withCompatibleBullet(Bullets.Bullet9x19mm).withName("KedrMag_2")
+        Magazines.KedrMag = new ItemMagazine.Builder().withCapacity(20).withCompatibleBullet(Bullets.Bullet9x19mm).withName("KedrMag_2")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.KedrMag(), "kedr.png")
 
@@ -2014,7 +2014,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.L96A1Mag = new ItemMagazine.Builder().withAmmo(10).withCompatibleBullet(Bullets.Bullet762x54).withName("L96A1Mag_2")
+        Magazines.L96A1Mag = new ItemMagazine.Builder().withCapacity(10).withCompatibleBullet(Bullets.Bullet762x54).withName("L96A1Mag_2")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.L115Mag(), "gun.png")
 
@@ -2041,7 +2041,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.DSR1Mag = new ItemMagazine.Builder()
-        		.withAmmo(5)
+        		.withCapacity(5)
         		.withCompatibleBullet(Bullets.Bullet762x54)
         		.withName("DSR1Mag")
 
@@ -2071,7 +2071,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.DSR1MagExt = new ItemMagazine.Builder()
-        		.withAmmo(10)
+        		.withCapacity(10)
         		.withCompatibleBullet(Bullets.Bullet762x54)
         		.withName("DSR1MagExt")
 
@@ -2101,7 +2101,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.InterventionMag = new ItemMagazine.Builder()
-        		.withAmmo(7)
+        		.withCapacity(7)
         		.withCompatibleBullet(Bullets.Bullet408CT)
         		.withName("InterventionMag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
@@ -2130,7 +2130,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M40A6Mag = new ItemMagazine.Builder()
-        		.withAmmo(7)
+        		.withCapacity(7)
         		.withCompatibleBullet(Bullets.Bullet308Winchester)
         		.withName("M40A6Mag_2")
 
@@ -2159,7 +2159,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.R700Mag = new ItemMagazine.Builder().withAmmo(5).withCompatibleBullet(Bullets.Bullet762x54).withName("R700Mag")
+        Magazines.R700Mag = new ItemMagazine.Builder().withCapacity(5).withCompatibleBullet(Bullets.Bullet762x54).withName("R700Mag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.Remington700Mag(), "remington700.png")
 
@@ -2185,7 +2185,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.R700Mag10rnd = new ItemMagazine.Builder().withAmmo(10).withCompatibleBullet(Bullets.Bullet762x54).withName("R700Mag10rnd")
+        Magazines.R700Mag10rnd = new ItemMagazine.Builder().withCapacity(10).withCompatibleBullet(Bullets.Bullet762x54).withName("R700Mag10rnd")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.Remington700Mag10rnd(), "remington700.png")
 
@@ -2212,7 +2212,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.SSG08Mag = new ItemMagazine.Builder()
-        		.withAmmo(8)
+        		.withCapacity(8)
         		.withCompatibleBullet(Bullets.Bullet308Winchester)
         		.withName("SSG08Mag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
@@ -2241,7 +2241,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M110Mag = new ItemMagazine.Builder()
-        		.withAmmo(10)
+        		.withCapacity(10)
         		.withCompatibleBullet(Bullets.Bullet762x51)
         		.withName("M110Mag_2")
 
@@ -2267,7 +2267,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.Z10Mag = new ItemMagazine.Builder()
-        		.withAmmo(10)
+        		.withCapacity(10)
         		.withCompatibleBullet(Bullets.Bullet762x51)
         		.withName("Z10Mag")
         		.withRotationPoint(-0.1, 0.0, -1.4000000000000001)
@@ -2293,7 +2293,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.M1928Mag = new ItemMagazine.Builder().withAmmo(50).withCompatibleBullet(Bullets.Bullet45ACP).withName("M1928Mag")
+        Magazines.M1928Mag = new ItemMagazine.Builder().withCapacity(50).withCompatibleBullet(Bullets.Bullet45ACP).withName("M1928Mag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.M1928ThompsonMag(), "gun.png")
 
@@ -2319,7 +2319,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.M1A1Mag = new ItemMagazine.Builder().withAmmo(30).withCompatibleBullet(Bullets.Bullet45ACP)
+        Magazines.M1A1Mag = new ItemMagazine.Builder().withCapacity(30).withCompatibleBullet(Bullets.Bullet45ACP)
                 .withName("M1A1Mag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.M1A1mag(), "gun.png")
@@ -2346,7 +2346,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.M712Mag = new ItemMagazine.Builder().withAmmo(20).withCompatibleBullet(Bullets.Bullet763x25).withName("M712mag_2")
+        Magazines.M712Mag = new ItemMagazine.Builder().withCapacity(20).withCompatibleBullet(Bullets.Bullet763x25).withName("M712mag_2")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.M712mag(), "m712.png")
 
@@ -2372,7 +2372,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.MG42Mag = new ItemMagazine.Builder().withAmmo(50).withCompatibleBullet(Bullets.Bullet792x57).withName("MG42Mag_2")
+        Magazines.MG42Mag = new ItemMagazine.Builder().withCapacity(50).withCompatibleBullet(Bullets.Bullet792x57).withName("MG42Mag_2")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.MG42mag(), "mg42mag.png")
 
@@ -2398,7 +2398,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.DP28Mag = new ItemMagazine.Builder().withAmmo(47).withCompatibleBullet(Bullets.Bullet762x54).withName("DP28Mag")
+        Magazines.DP28Mag = new ItemMagazine.Builder().withCapacity(47).withCompatibleBullet(Bullets.Bullet762x54).withName("DP28Mag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.DP28Mag(), "gun.png")
 
@@ -2425,7 +2425,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M1CarbineMag = new ItemMagazine.Builder()
-        		.withAmmo(15)
+        		.withCapacity(15)
         		.withCompatibleBullet(Bullets.Bullet762x51)
         		.withName("M1CarbineMag")
 
@@ -2455,7 +2455,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.FNFALMag = new ItemMagazine.Builder()
-        		.withAmmo(20)
+        		.withCapacity(20)
         		.withCompatibleBullet(Bullets.Bullet762x51)
         		.withName("FNFALMag")
         		.withRotationPoint(-0.12000000357627871, -0.6800000202655794, -2.36000007033348)
@@ -2483,7 +2483,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.G3Mag = new ItemMagazine.Builder()
-        		.withAmmo(20)
+        		.withCapacity(20)
         		.withCompatibleBullet(Bullets.Bullet762x51)
         		.withName("G3Mag")
         		.withRotationPoint(0.0, -0.6400000190734865, -1.4000000417232517)
@@ -2511,7 +2511,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.Mk14EBRMag = new ItemMagazine.Builder()
-        		.withAmmo(20)
+        		.withCapacity(20)
         		.withCompatibleBullet(Bullets.Bullet762x51)
         		.withName("Mk14EBRmag_2")
         		.withRotationPoint(-0.12000000357627871, 0.5600000166893007, -3.000000089406967)
@@ -2539,7 +2539,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.M14Drum50 = new ItemMagazine.Builder()
-        		.withAmmo(50)
+        		.withCapacity(50)
         		.withCompatibleBullet(Bullets.Bullet762x51)
         		.withName("M14Drum50")
         		.withRotationPoint(-0.12000000357627871, 0.5600000166893007, -3.000000089406967)
@@ -2566,7 +2566,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.MP40Mag = new ItemMagazine.Builder().withAmmo(32).withCompatibleBullet(Bullets.Bullet9x19mm).withName("MP40Mag_2")
+        Magazines.MP40Mag = new ItemMagazine.Builder().withCapacity(32).withCompatibleBullet(Bullets.Bullet9x19mm).withName("MP40Mag_2")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.MP40MagACTUAL(), "gun.png")
 
@@ -2593,7 +2593,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.MP5A5Mag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("MP5A5Mag")
         		.withRotationPoint(0.0, 0.20000000596046452, -1.5600000464916233)
@@ -2621,7 +2621,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.HK50Drum = new ItemMagazine.Builder()
-        		.withAmmo(50)
+        		.withCapacity(50)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("HK50Drum")
         		.withRotationPoint(0.0, 0.20000000596046452, -1.5600000464916233)
@@ -2649,7 +2649,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.MP7Mag = new ItemMagazine.Builder()
-        		.withAmmo(40)
+        		.withCapacity(40)
         		.withCompatibleBullet(Bullets.Bullet46x30mm)
         		.withName("MP7Mag")
         		.withRotationPoint(-0.12000000357627871, 0.6400000190734865, -0.08000000238418581)
@@ -2677,7 +2677,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.MP7Mag20 = new ItemMagazine.Builder()
-        		.withAmmo(20)
+        		.withCapacity(20)
         		.withCompatibleBullet(Bullets.Bullet46x30mm)
         		.withName("MP7Mag20")
         		.withRotationPoint(-0.12000000357627871, 0.6400000190734865, -0.08000000238418581)
@@ -2705,7 +2705,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.UMP45Mag = new ItemMagazine.Builder()
-        		.withAmmo(25)
+        		.withCapacity(25)
         		.withCompatibleBullet(Bullets.Bullet45ACP)
         		.withName("UMP45Mag")
         		.withRotationPoint(-0.12000000357627871, 0.32000000953674324, -1.280000038146973)
@@ -2733,7 +2733,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.UMP9Mag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("UMP9Mag")
         		.withRotationPoint(-0.12000000357627871, 0.32000000953674324, -1.280000038146973)
@@ -2761,7 +2761,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.MPXMag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("MPXMag")
         		.withRotationPoint(-0.040000001192092904, 0.44000001311302195, -1.24000003695488)
@@ -2788,7 +2788,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.APC9Mag = new ItemMagazine.Builder().withAmmo(30)
+        Magazines.APC9Mag = new ItemMagazine.Builder().withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("APC9Mag")
 
@@ -2817,7 +2817,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.ScorpionMag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("ScorpionMag")
         		.withRotationPoint(-0.12000000357627871, 1.0000000298023226, -1.680000050067902)
@@ -2845,7 +2845,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.P90Mag = new ItemMagazine.Builder()
-        		.withAmmo(50)
+        		.withCapacity(50)
         		.withCompatibleBullet(Bullets.Bullet57x28mm)
         		.withName("P90Mag")
         		.withRotationPoint(-0.12000000357627871, -1.1200000333786013, 1.8400000548362736)
@@ -2872,7 +2872,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.P90TerminatorMag = new ItemMagazine.Builder().withAmmo(65).withCompatibleBullet(Bullets.Bullet46x30mm)
+        Magazines.P90TerminatorMag = new ItemMagazine.Builder().withCapacity(65).withCompatibleBullet(Bullets.Bullet46x30mm)
                 .withName("P90TerminatorMag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.M4A1Mag(), "M4A1Mag.png")
@@ -2900,7 +2900,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.MAC10Mag = new ItemMagazine.Builder()
-        		.withAmmo(30)
+        		.withCapacity(30)
         		.withCompatibleBullet(Bullets.Bullet45ACP)
         		.withName("MAC10Mag")
         		.withRotationPoint(0.08000000238418581, 0.5200000154972078, -0.5600000166893007)
@@ -2925,7 +2925,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.G11Mag = new ItemMagazine.Builder().withAmmo(50)
+        Magazines.G11Mag = new ItemMagazine.Builder().withCapacity(50)
         		.withCompatibleBullet(Bullets.Bullet473x33mm)
                 .withName("G11Mag")
                 .withRotationPoint(-0.12000000357627871, -1.5200000452995304, -3.8800001156330115)
@@ -2955,7 +2955,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.ScarHMag = new ItemMagazine.Builder()
-        		.withAmmo(20)
+        		.withCapacity(20)
         		.withCompatibleBullet(Bullets.Bullet762x51)
         		.withName("ScarHMag_2")
         		.withRotationPoint(-0.16000000476837162, -0.16000000476837162, -1.5200000452995304)
@@ -2983,7 +2983,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.Scar40Mag = new ItemMagazine.Builder()
-        		.withAmmo(40)
+        		.withCapacity(40)
         		.withCompatibleBullet(Bullets.Bullet762x51)
         		.withName("Scar40Mag")
         		.withRotationPoint(-0.16000000476837162, -0.16000000476837162, -1.5200000452995304)
@@ -3011,7 +3011,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.Scar60Mag = new ItemMagazine.Builder()
-        		.withAmmo(60)
+        		.withCapacity(60)
         		.withCompatibleBullet(Bullets.Bullet762x51)
         		.withName("Scar60Mag")
         		.withRotationPoint(-0.16000000476837162, -0.16000000476837162, -1.5200000452995304)
@@ -3039,7 +3039,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.VSSVintorezMag = new ItemMagazine.Builder()
-        		.withAmmo(10)
+        		.withCapacity(10)
         		.withCompatibleBullet(Bullets.Bullet9x39mm)
         		.withName("VSSVintorezMag_2")
         		.withRotationPoint(-0.040000001192092904, -0.28000000834465033, -1.3600000405311587)
@@ -3067,7 +3067,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.ASValMag = new ItemMagazine.Builder()
-        		.withAmmo(20)
+        		.withCapacity(20)
         		.withCompatibleBullet(Bullets.Bullet9x39mm)
         		.withName("ASValMag")
         		.withRotationPoint(-0.040000001192092904, -0.28000000834465033, -1.3600000405311587)
@@ -3094,7 +3094,7 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.STG44Mag = new ItemMagazine.Builder().withAmmo(30).withCompatibleBullet(Bullets.Bullet792x33Kurz).withName("STG44Mag_2")
+        Magazines.STG44Mag = new ItemMagazine.Builder().withCapacity(30).withCompatibleBullet(Bullets.Bullet792x33Kurz).withName("STG44Mag_2")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.STG44Mag(), "gun.png")
 
@@ -3120,7 +3120,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.G43GewehrMag = new ItemMagazine.Builder().withAmmo(10).withCompatibleBullet(Bullets.Bullet792x57).withName("g43_gewehr_mag")
+        Magazines.G43GewehrMag = new ItemMagazine.Builder().withCapacity(10).withCompatibleBullet(Bullets.Bullet792x57).withName("g43_gewehr_mag")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.G43GewehrMag(), "gun.png")
 
@@ -3146,7 +3146,7 @@ public class Magazines {
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
-        Magazines.SV98Mag = new ItemMagazine.Builder().withAmmo(10).withCompatibleBullet(Bullets.Bullet762x54).withName("SV98Mag_2")
+        Magazines.SV98Mag = new ItemMagazine.Builder().withCapacity(10).withCompatibleBullet(Bullets.Bullet762x54).withName("SV98Mag_2")
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
                 .withModel(new com.paneedah.mwc.models.SV98Mag(), "sv98.png")
 
@@ -3173,7 +3173,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.UziMag = new ItemMagazine.Builder()
-        		.withAmmo(32)
+        		.withCapacity(32)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("UziMag_2")
         		.withRotationPoint(-0.040000001192092904, 0.7200000214576723, -0.40000001192092904)
@@ -3204,7 +3204,7 @@ public class Magazines {
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.VP70Mag = new ItemMagazine.Builder()
-        		.withAmmo(18)
+        		.withCapacity(18)
         		.withCompatibleBullet(Bullets.Bullet9x19mm)
         		.withName("VP70mag_2")
         		.withRotationPoint(-0.12000000357627871, 0.24000000715255743, 0.08000000238418581)

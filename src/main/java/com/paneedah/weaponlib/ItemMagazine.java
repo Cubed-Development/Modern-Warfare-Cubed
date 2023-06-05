@@ -1,46 +1,35 @@
 package com.paneedah.weaponlib;
 
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemInstanceFactory<PlayerMagazineInstance, MagazineState>, 
-Reloadable, Updatable, Part {
-	
-	private static final long DEFAULT_RELOADING_TIMEOUT_TICKS = 25;
+public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemInstanceFactory<PlayerMagazineInstance, MagazineState>, Reloadable, Updatable, Part {
 	
 	public static final class Builder extends AttachmentBuilder<Weapon> {
-		private int ammo;
-		private long reloadingTimeout = DEFAULT_RELOADING_TIMEOUT_TICKS;
-		private Set<ItemBullet> compatibleBullets = new HashSet<>();
+		private int capacity;
+		private final List<ItemBullet> compatibleBullets = new ArrayList<>();
 		private String reloadSound;
 		private String unloadSound;
 		
-
-		
-		public Builder withAmmo(int ammo) {
-			this.ammo = ammo;
+		public Builder withCapacity(int capacity) {
+			this.capacity = capacity;
 			return this;
 		}
-		 
 
-		public Builder withReloadingTimeout(int reloadingTimeout) {
-			this.reloadingTimeout = reloadingTimeout;
+		public Builder withCompatibleBullet(ItemBullet compatibleBullet) {
+			this.compatibleBullets.add(compatibleBullet);
 			return this;
 		}
-		
+
 		public Builder withUnloadSound(String unloadSound) {
 			this.unloadSound = unloadSound;
 			return this;
@@ -51,62 +40,56 @@ Reloadable, Updatable, Part {
 			return this;
 		}
 		
-		public Builder withCompatibleBullet(ItemBullet compatibleBullet) {
-			this.compatibleBullets.add(compatibleBullet);
-			return this;
-		}
-		
-		
-		
 		@Override
 		protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
-			ItemMagazine magazine = new ItemMagazine(getModel(), getTextureName(), ammo);
-			magazine.reloadingTimeout = reloadingTimeout;
-	
-			magazine.compatibleBullets = new ArrayList<>(compatibleBullets);
-			if(reloadSound != null) {
+			final ItemMagazine magazine = new ItemMagazine(getModel(), getTextureName(), capacity);
+
+			magazine.compatibleBullets = compatibleBullets;
+
+			if(reloadSound != null)
 				magazine.reloadSound = modContext.registerSound(reloadSound);
+
+			if (unloadSound!= null)
 				magazine.unloadSound = modContext.registerSound(unloadSound);
-			}
+
 			magazine.modContext = modContext;
-			withInformationProvider((stack) -> TextFormatting.RED + "Ammo: " + TextFormatting.GRAY + Tags.getAmmo(stack) + "/" + ammo);
+
+			withInformationProvider((stack) -> TextFormatting.RED + "Ammo: " + TextFormatting.GRAY + Tags.getAmmo(stack) + "/" + capacity);
+
 			return magazine;
 		}
 	}
-	
-	private final int DEFAULT_MAX_STACK_SIZE = 1;
-	
-	private int ammo;
-	private long reloadingTimeout;
+
+	private ModContext modContext;
+
+	private final int capacity;
 	private List<ItemBullet> compatibleBullets;
 	private SoundEvent reloadSound;
 	private SoundEvent unloadSound;
-	private ModContext modContext;
-	private Vec3d rotPoint;
-	
-	ItemMagazine(ModelBase model, String textureName, int ammo) {
-		this(model, textureName, ammo, null, null);
-	}
-	
-	
 
-	ItemMagazine(ModelBase model, String textureName, int ammo,
-			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
-			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
+	ItemMagazine(ModelBase model, String textureName, int capacity) {
+		this(model, textureName, capacity, null, null);
+	}
+
+	ItemMagazine(ModelBase model, String textureName, int capacity, ApplyHandler<Weapon> apply, ApplyHandler<Weapon> remove) {
 		super(AttachmentCategory.MAGAZINE, model, textureName, null, apply, remove);
-		this.ammo = ammo;
-		setMaxStackSize(DEFAULT_MAX_STACK_SIZE);
+		this.capacity = capacity;
+		setMaxStackSize(1);
 	}
-	
 
-	
-	public ItemStack createItemStack() {
-		ItemStack attachmentItemStack = new ItemStack(this);
-		ensureItemStack(attachmentItemStack, ammo);
-		return attachmentItemStack;
+	public ItemStack create(int ammunition) {
+		final ItemStack itemStack = new ItemStack(this);
+
+		initializeTag(itemStack, ammunition);
+
+		return itemStack;
 	}
-	
-	private void ensureItemStack(ItemStack itemStack, int initialAmmo) {
+
+	public ItemStack create() {
+		return this.create(capacity);
+	}
+
+	private void initializeTag(ItemStack itemStack, int initialAmmo) {
 		if (itemStack.getTagCompound() == null) {
 			itemStack.setTagCompound(new NBTTagCompound());
 			Tags.setAmmo(itemStack, initialAmmo);
@@ -115,23 +98,15 @@ Reloadable, Updatable, Part {
 	
 	@Override
 	public void onCreated(ItemStack stack, World world, EntityPlayer player) {
-		ensureItemStack(stack, 0);
-		stack.setTagCompound(new NBTTagCompound());
-		super.onCreated(stack, world, player);
-	}
-	
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int p_77663_4_, boolean p_77663_5_) {
-		ensureItemStack(stack, ammo);
-		super.onUpdate(stack, world, entity, p_77663_4_, p_77663_5_);
+		initializeTag(stack, 0);
 	}
 
 	List<ItemBullet> getCompatibleBullets() {
 		return compatibleBullets;
 	}
 
-	public int getAmmo() {
-		return ammo;
+	public int getCapacity() {
+		return capacity;
 	}
 
 	public SoundEvent getReloadSound() {
@@ -142,10 +117,6 @@ Reloadable, Updatable, Part {
 		return unloadSound;
 	}
 
-	public long getReloadTimeout() {
-		return reloadingTimeout;
-	}
-	
 	@Override
 	public Part getRenderablePart() {
 		return this;
@@ -153,8 +124,10 @@ Reloadable, Updatable, Part {
 
 	@Override
 	public PlayerMagazineInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot) {
-		PlayerMagazineInstance instance = new PlayerMagazineInstance(slot, player, itemStack);
+		final PlayerMagazineInstance instance = new PlayerMagazineInstance(slot, player, itemStack);
+
 		instance.setState(MagazineState.READY);
+
 		return instance;
 	}
 
