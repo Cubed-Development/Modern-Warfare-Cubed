@@ -145,7 +145,6 @@ public class Guns {
     public static Item HK_P12;
     
     // UK Light Support
-    public static Item SA80;
     
     // French Light
     
@@ -219,8 +218,6 @@ public class Guns {
         M17 = new M17Factory().createGun(proxy);
 
         HK_P12 = new HK_P12Factory().createGun(proxy);
-        
-        SA80 = new SA80Factory().createGun(proxy);
         
         Remington700 = new Remington700Factory().createGun(proxy);
         
