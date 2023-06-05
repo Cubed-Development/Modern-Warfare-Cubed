@@ -22,7 +22,6 @@ public class Magazines {
     public static ItemMagazine SOCOM_Mag;
     public static ItemMagazine HK417Mag;
     public static ItemMagazine C8Mag;
-    public static ItemMagazine SA80Mag;
     public static ItemMagazine Stanag50;
     public static ItemMagazine Stanag60;
     public static ItemMagazine Stanag100;
@@ -416,37 +415,6 @@ public class Magazines {
                     GL11.glScaled(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
-                .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
-        
-        Magazines.SA80Mag = new ItemMagazine.Builder()
-        		.withCapacity(60)
-        		.withCompatibleBullet(Bullets.Bullet556x45)
-        		.withName("SA80Mag")
-
-                .withCreativeTab(ModernWarfareMod.AmmoTab)
-                .withModel(new com.paneedah.mwc.models.NATOMag60rnd(), "M4A1Mag.png")
-                .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver, 
-                        Attachments.AUGDefaultKit, Attachments.Vector556Handguard)
-                .withFirstPersonPositioning((player, itemStack) -> {
-                    GL11.glTranslatef(0.1F, -0.3F, 0.4F);
-                    GL11.glRotatef(30F, 0f, 1f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
-                    GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
-                    GL11.glRotatef(-50F, 0f, 1f, 0f);
-                    GL11.glRotatef(10F, 1f, 0f, 0f);
-                    GL11.glScaled(0.7F, 0.7F, 0.7F);
-                }).withInventoryPositioning((itemStack) -> {
-                    GL11.glTranslatef(0.3F, 0.6F, -0.6F);
-                    GL11.glRotatef(-150F, 0f, 1f, 0f);
-                    GL11.glRotatef(-6F, 1f, 0f, 0f);
-                    GL11.glRotatef(-15F, 0f, 0f, 1f);
-                    GL11.glScaled(1.1F, 1.1F, 1.1f);
-                })
-                .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
         
         Magazines.AUG9mmMag = new ItemMagazine.Builder().withCapacity(30).withCompatibleBullet(Bullets.Bullet9x19mm).withName("AUG9mmMag")
@@ -2239,7 +2207,7 @@ public class Magazines {
                           MWCItems.steelIngot,
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(ModernWarfareMod.MOD_CONTEXT, ItemMagazine.class);
-        
+
         Magazines.M110Mag = new ItemMagazine.Builder()
         		.withCapacity(10)
         		.withCompatibleBullet(Bullets.Bullet762x51)
