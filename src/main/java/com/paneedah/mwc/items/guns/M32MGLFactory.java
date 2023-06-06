@@ -21,7 +21,7 @@ public class M32MGLFactory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("m32_mgl")
-//      .withAmmo(CommonProxy.AR15Mag)
+//      .withCapacity(CommonProxy.AR15Mag)
         .withAmmoCapacity(6)
         .withFireRate(0.16f)
         .withIteratedLoad()

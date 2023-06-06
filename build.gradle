@@ -1,11 +1,11 @@
 import org.jetbrains.gradle.ext.Gradle
 
 plugins {
-    id("java")
-    id("java-library")
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
-    id("com.gtnewhorizons.retrofuturagradle") version "1.+"
-    id("com.matthewprenger.cursegradle") version "1.4.0"
+    id 'java'
+    id 'java-library'
+    id 'org.jetbrains.gradle.plugin.idea-ext' version '1.1.7'
+    id 'com.gtnewhorizons.retrofuturagradle' version '1.+'
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 
 // Add version to the jar name
@@ -22,17 +22,15 @@ java {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = "UTF-8"
+    options.encoding = 'UTF-8'
     options.fork = true
-    options.forkOptions.jvmArgs += ["-Xmx4G"]
+    options.forkOptions.jvmArgs += ['-Xmx4G']
 }
 
 minecraft {
     mcVersion = '1.12.2'
 
-    username = "Desoroxxx"
-
-    def args = ['-Dfml.coreMods.load=com.paneedah.weaponlib.core.WeaponlibCorePlugin']
+    username = 'Desoroxxx'
 
     injectedTags.put('ID', project.id)
     injectedTags.put('VERSION', project.version)
@@ -74,6 +72,8 @@ configurations {
 
 repositories {
     ivy {
+        name 'Red Studio Ragnarök GitHub Releases'
+
         url 'https://github.com/'
 
         patternLayout { artifact '[organisation]/[module]/releases/download/[revision]/[module]-[revision].[ext]' }
@@ -89,7 +89,7 @@ dependencies {
     embed 'net.jafama:jafama:2.+'
 }
 
-def at = project.files("src/main/resources/META-INF/mwc_at.cfg")
+def at = project.files("src/main/resources/META-INF/${project.id}_at.cfg")
 
 tasks.deobfuscateMergedJarToSrg.accessTransformerFiles.from(at)
 tasks.srgifyBinpatchedJar.accessTransformerFiles.from(at)
@@ -110,37 +110,39 @@ jar {
 idea {
     module { inheritOutputDirs = true }
 
-    module {
-        excludeDirs = [file(".github"), file(".gradle"), file(".idea"), file("build"), file("gradle"), file("run")]
-    }
+    module { excludeDirs = [file('.github'), file('.gradle'), file('.idea'), file('build'), file('gradle'), file('run')] }
 
     project { settings {
         runConfigurations {
-            "1. Client"(Gradle) {
-                taskNames = ["runClient"]
+            'Client'(Gradle) {
+                taskNames = ['runClient']
             }
-            "2. Server"(Gradle) {
-                taskNames = ["runServer"]
+            'Server'(Gradle) {
+                taskNames = ['runServer']
             }
-            "3. Obfuscated Client"(Gradle) {
-                taskNames = ["runObfClient"]
+            'Obfuscated Client'(Gradle) {
+                taskNames = ['runObfClient']
             }
-            "4. Obfuscated Server"(Gradle) {
-                taskNames = ["runObfServer"]
+            'Obfuscated Server'(Gradle) {
+                taskNames = ['runObfServer']
+            }
+            'Vanilla Client'(Gradle) {
+                taskNames = ['runVanillaClient']
+            }
+            'Vanilla Server'(Gradle) {
+                taskNames = ['runVanillaServer']
             }
         }
 
         compiler.javac {
             afterEvaluate {
-                javacAdditionalOptions = "-encoding utf8"
-                moduleJavacAdditionalOptions = [
-                        (project.id + ".main"): tasks.compileJava.options.compilerArgs.collect { '"' + it + '"' }.join(' ')
-                ]
+                javacAdditionalOptions = '-encoding utf8'
+                moduleJavacAdditionalOptions = [ (project.id + '.main'): tasks.compileJava.options.compilerArgs.collect { ''' + it + ''' }.join(' ') ]
             }
         }
     }}
 }
 
-tasks.named("processIdeaSettings").configure {
-    dependsOn("injectTags")
+tasks.named('processIdeaSettings').configure {
+    dependsOn('injectTags')
 }

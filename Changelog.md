@@ -21,7 +21,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - explosionBreak
   - penetrableBlocks
   - knockbackOnHit
-- Make the turret work again
+- Center the firing position of the bullet when aiming
 - Durability to all vests as a temporary measure to resolve vest-related issues
 - Smelting of sulfur into gunpowder
 - .50 AE in the Ammo Press
@@ -43,7 +43,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Temporarily nerfed all vests as a part of vest problem mitigation
 - Nerfed XP gains from smelting ores
 - Reloading now only stops once the gun is fully reloaded or no compatible ammunition remains in inventory
-- Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines)
+- Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines) this can be bypassed by sneaking
 - Grenades in creative mode are now infinite 
 - Expanded crafting to accommodate any type of planks
 - Weapons are now rendered in 3D in the inventory, this means that there will be a small freeze when first opening the Creative Menu this will be improved over time as we optimize rendering
@@ -64,6 +64,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Migrated the config setting for bullets breaking glass into the new config file (ModernWarfareCubed.cfg)
 - Forge configuration `Emissive Item Rendering` is now forced to be off (This does not influence Optifine emissive item rendering)
 - Changed categories of some weapons
+- Magazines are created empty
 
 ### Fixed
 
@@ -79,10 +80,12 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed crashes caused by certain shaders
 - Fixed duplication issues related to copper, gunpowder, and ammo
 - Fixed a problem where the carryable inventory tab was shifting the entire inventory to the left for no reasons
+- Fixed turrets spawning without weapons
 
 ### Removed
 
 - Removed all arcade guns (These will be moved to a sister mod at a later time)
+- Removed the SA80
 - Removed the mission system
 - Removed most of the compatibility layer
 - Removed FXAA
