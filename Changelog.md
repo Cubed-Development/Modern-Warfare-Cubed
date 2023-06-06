@@ -81,6 +81,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed duplication issues related to copper, gunpowder, and ammo
 - Fixed a problem where the carryable inventory tab was shifting the entire inventory to the left for no reasons
 - Fixed turrets spawning without weapons
+- Fixed 7.62x54mm SVD magazine using 7.62x39mm bullets
 
 ### Removed
 
