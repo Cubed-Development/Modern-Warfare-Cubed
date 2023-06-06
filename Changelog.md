@@ -24,6 +24,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - knockbackOnHit
 - Fix the damage error of players' armor equipment, which can be restored by enabling oldDamageOfPlayer
 - Make the turret work again
+- Fixed the issue of server screen swiping
 - Durability to all vests as a temporary measure to resolve vest-related issues
 - Smelting of sulfur into gunpowder
 - .50 AE in the Ammo Press
