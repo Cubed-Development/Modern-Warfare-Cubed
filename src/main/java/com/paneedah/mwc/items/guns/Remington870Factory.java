@@ -21,8 +21,8 @@ public class Remington870Factory implements GunFactory {
 
         .withName("remington870")
 //      .withAmmo(CommonProxy.Remington870Mag)
-        .withAmmoCapacity(5)
-        .withMaxBulletsPerReload(5)
+        .withAmmoCapacity(4)
+        .withMaxBulletsPerReload(4)
         .withFireRate(0.5f)
         .withEjectRoundRequired()
         .withIteratedLoad()
