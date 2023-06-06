@@ -24,7 +24,7 @@ public class S710TricunFactory implements GunFactory {
 		.withFireRate(0.85f)
 		.withRecoil(1.5f)
 		.withZoom(0.9f)
-		.withConfigGroup(GunConfigurationGroup.SIDEARM)
+		.withConfigGroup(GunConfigurationGroup.SMG)
 		.withMaxShots(1, Integer.MAX_VALUE)
 		.withShootSound("mpx")
 		.withSilencedShootSound("m110_silenced")

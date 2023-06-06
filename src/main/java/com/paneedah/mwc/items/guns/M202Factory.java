@@ -23,7 +23,7 @@ public class M202Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("m202")
-//      .withAmmo(CommonProxy.AR15Mag)
+//      .withCapacity(CommonProxy.AR15Mag)
         .withAmmoCapacity(4)
         .withFireRate(0.1f)
         .withRecoil(5f)

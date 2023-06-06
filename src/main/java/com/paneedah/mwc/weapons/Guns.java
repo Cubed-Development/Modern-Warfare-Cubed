@@ -145,7 +145,6 @@ public class Guns {
     public static Item HK_P12;
     
     // UK Light Support
-    public static Item SA80;
     
     // French Light
     
@@ -330,10 +329,5 @@ public class Guns {
         turretgun = new turretgunFactory().createGun(proxy);
         turretgunupgraded = new turretgunupgradedFactory().createGun(proxy);
         turretgunsilenced = new turretgunsilencedFactory().createGun(proxy);
-
-//        PGMHecateII = new PGMHecateIIFactory().createGun(proxy);
-//        NTW20 = new NTW20Factory().createGun(proxy);
-//        NinthSin = new NinthSinFactory().createGun(proxy);
-       
     }
 }
