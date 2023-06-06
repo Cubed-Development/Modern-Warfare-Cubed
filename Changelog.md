@@ -43,7 +43,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Temporarily nerfed all vests as a part of vest problem mitigation
 - Nerfed XP gains from smelting ores
 - Reloading now only stops once the gun is fully reloaded or no compatible ammunition remains in inventory
-- Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines)
+- Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines) this can be bypassed by sneaking
 - Grenades in creative mode are now infinite 
 - Expanded crafting to accommodate any type of planks
 - Weapons are now rendered in 3D in the inventory, this means that there will be a small freeze when first opening the Creative Menu this will be improved over time as we optimize rendering
