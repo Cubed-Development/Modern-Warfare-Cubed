@@ -63,6 +63,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Updated `mcmod.info` description and credits
 - Migrated the config setting for bullets breaking glass into the new config file (ModernWarfareCubed.cfg)
 - Forge configuration `Emissive Item Rendering` is now forced to be off (This does not influence Optifine emissive item rendering)
+- Changed categories of some weapons
 - Magazines are created empty
 
 ### Fixed

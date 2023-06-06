@@ -32,7 +32,7 @@ public class MP5A5Factory {
         .withFireRate(0.8f)
         .withRecoil(1.5f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.SIDEARM)
+        .withConfigGroup(GunConfigurationGroup.SMG)
         .withShellType(Type.PISTOL)
         .withMaxShots(1, Integer.MAX_VALUE)
         //.withMaxShots(5)
