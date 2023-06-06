@@ -17,14 +17,14 @@ java {
         languageVersion.set(JavaLanguageVersion.of(8))
         vendor.set(JvmVendorSpec.ADOPTIUM)
     }
-    // Generate sources jar when building
+    // Generate sources jar when building and publishing
     withSourcesJar()
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
     options.fork = true
-    options.forkOptions.jvmArgs += ['-Xmx4G']
+    options.forkOptions.jvmArgs += '-Xmx4G'
 }
 
 minecraft {
@@ -32,45 +32,29 @@ minecraft {
 
     username = 'Desoroxxx'
 
+    extraRunJvmArguments.addAll('-Xmx4G', '-Xms4G', '-Dforge.logging.console.level=debug', '-Dmixin.hotSwap=true', '-Dmixin.checks.interfaces=true', '-Dmixin.debug.export=true')
+
     injectedTags.put('ID', project.id)
     injectedTags.put('VERSION', project.version)
 }
 
-// Generate a Tags class with the version and id as a field
+// Generate a my.project.Tags class with the version number as a field
 tasks.injectTags.configure {
     outputClassName.set("com.paneedah.${project.id}.Tags")
 }
 
-// Replace version and id in `mcmod.info`
-processResources {
-    inputs.property 'id', project.id
-    inputs.property 'version', project.version
-    filesMatching(['mcmod.info', 'pack.mcmeta']) { fcd ->
-        include 'mcmod.info'
-        fcd.expand(
-                'id': project.id,
-                'version': project.version
-        )
-    }
-
-    from('src/main/java') {
-        include '**/*.png'
-
-        include '**/*.json'
-
-        include '**/*.vsh'
-
-        include '**/*.fsh'
-    }
-}
-
-// Create configuration to include embedded dependencies into FBP jar
+// Create configuration to include embedded dependencies into the jar
 configurations {
     implementation
     compile.extendsFrom(embed)
 }
 
 repositories {
+    maven {
+        name 'Cleanroom'
+        url 'https://maven.cleanroommc.com'
+    }
+
     ivy {
         name 'Red Studio Ragnarök GitHub Releases'
 
@@ -87,6 +71,13 @@ dependencies {
 
     implementation 'net.jafama:jafama:2.+'
     embed 'net.jafama:jafama:2.+'
+
+    String mixin = modUtils.enableMixins('zone.rong:mixinbooter:8.2', "mixins.${project.id}.refmap.json")
+    api (mixin) { transitive = false }
+    annotationProcessor 'org.ow2.asm:asm-debug-all:5.2'
+    annotationProcessor 'com.google.guava:guava:24.1.1-jre'
+    annotationProcessor 'com.google.code.gson:gson:2.8.6'
+    annotationProcessor (mixin) { transitive = false }
 }
 
 def at = project.files("src/main/resources/META-INF/${project.id}_at.cfg")
@@ -94,11 +85,34 @@ def at = project.files("src/main/resources/META-INF/${project.id}_at.cfg")
 tasks.deobfuscateMergedJarToSrg.accessTransformerFiles.from(at)
 tasks.srgifyBinpatchedJar.accessTransformerFiles.from(at)
 
+// Replace version and id in `mcmod.info`
+processResources {
+    inputs.property 'id', project.id
+    inputs.property 'version', project.version
+    filesMatching(['mcmod.info', 'pack.mcmeta']) { fcd ->
+        include 'mcmod.info'
+        fcd.expand (
+                'id': project.id,
+                'version': project.version
+        )
+    }
+
+    from('src/main/java') {
+        include '**/*.png'
+
+        include '**/*.json'
+
+        include '**/*.vsh'
+
+        include '**/*.fsh'
+    }
+}
+
 jar {
     manifest.attributes([
             'ModSide': 'BOTH',
-            'FMLAT': 'mwc_at.cfg',
-            'FMLCorePlugin': 'com.paneedah.weaponlib.core.WeaponlibCorePlugin',
+            'FMLAT': "${project.id}_at.cfg",
+            'FMLCorePlugin': "com.paneedah.weaponlib.core.WeaponlibCorePlugin",
             'FMLCorePluginContainsFMLMod': 'true',
             'ForceLoadAsMod': 'true'
     ])
@@ -106,6 +120,7 @@ jar {
     // Add all embedded dependencies into the jar
     from(provider{ configurations.embed.collect {it.isDirectory() ? it : zipTree(it)} })
 }
+
 
 idea {
     module { inheritOutputDirs = true }
