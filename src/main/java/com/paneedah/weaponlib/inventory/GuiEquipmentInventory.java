@@ -3,25 +3,32 @@ package com.paneedah.weaponlib.inventory;
 import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.gui.inventory.GuiInventory;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.InventoryEffectRenderer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
 import java.io.IOException;
 
-public class CustomPlayerInventoryGuiContainer extends GuiContainer {
+public class GuiEquipmentInventory extends InventoryEffectRenderer {
 
     private static final ResourceLocation backGround = new ResourceLocation(ModReference.id, "textures/gui/inventory/custom_inventory.png");
 
-    private static final ThreadLocal<CustomPlayerInventoryGuiContainer> threadLocalGuiContainer = new ThreadLocal<>();
+    private static GuiEquipmentInventory currentGuiContainer;
 
-    public CustomPlayerInventoryGuiContainer(EntityPlayer player, InventoryPlayer inventoryPlayer, CustomPlayerInventory inventoryCustom) {
+    public GuiEquipmentInventory(EntityPlayer player, InventoryPlayer inventoryPlayer, CustomPlayerInventory inventoryCustom) {
         super(new CustomPlayerInventoryContainer(player, inventoryPlayer, inventoryCustom));
+        allowUserInput = true;
     }
     
     @Override
     public void initGui() {
+        buttonList.clear();
+
         super.initGui();
+
+        guiLeft = (width - xSize) / 2;
         
         final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
 
@@ -38,35 +45,29 @@ public class CustomPlayerInventoryGuiContainer extends GuiContainer {
         renderHoveredToolTip(mouseX, mouseY);
     }
 
+    @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
+        GlStateManager.color(1, 1, 1, 1);
         mc.getTextureManager().bindTexture(backGround);
 
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 
         GuiInventory.drawEntityOnScreen(guiLeft + 51, guiTop + 75, 30, (guiLeft + 51) - mouseX, (guiTop + 25) - mouseY, mc.player);
     }
-    
+
     @Override
     protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
-        try {
-            threadLocalGuiContainer.set(this);
-            super.mouseClicked(mouseX, mouseY, mouseButton);
-        } finally {
-            threadLocalGuiContainer.remove();
-        }
-    }
-    
-    @Override
-    protected void mouseReleased(int mouseX, int mouseY, int state) {
-        try {
-            threadLocalGuiContainer.set(this);
-            super.mouseReleased(mouseX, mouseY, state);
-        } finally {
-            threadLocalGuiContainer.remove();
-        }
+        currentGuiContainer = this;
+        super.mouseClicked(mouseX, mouseY, mouseButton);
     }
 
-    protected static CustomPlayerInventoryGuiContainer getClickedGuiContainer() {
-        return threadLocalGuiContainer.get();
+    @Override
+    protected void mouseReleased(int mouseX, int mouseY, int state) {
+        currentGuiContainer = this;
+        super.mouseReleased(mouseX, mouseY, state);
+    }
+
+    protected static GuiEquipmentInventory getClickedGuiContainer() {
+        return currentGuiContainer;
     }
 }

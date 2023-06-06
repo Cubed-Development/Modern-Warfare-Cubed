@@ -53,7 +53,6 @@ public class InventoryTabs {
     }
 
     public void openInventoryGui() {
-        mc.player.closeScreen();
         GuiInventory inventory = new GuiInventory(mc.player);
         mc.displayGuiScreen(inventory);
     }

@@ -15,8 +15,7 @@ public class CustomPlayerInventoryTab extends InventoryTab {
 
     @Override
     public void onTabClicked() {
-        clientModContext.getChannel()
-                .sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.CUSTOM_PLAYER_INVENTORY_GUI_ID));
+        clientModContext.getChannel().sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.CUSTOM_PLAYER_INVENTORY_GUI_ID));
 
     }
 

@@ -30,7 +30,7 @@ public class CustomSlot extends Slot {
     
     private static class SlotChangeHandler {
         private static void onGuiSlotChanged() {
-            CustomPlayerInventoryGuiContainer container = CustomPlayerInventoryGuiContainer.getClickedGuiContainer();
+            GuiEquipmentInventory container = GuiEquipmentInventory.getClickedGuiContainer();
             if(container != null) {           
                 container.initGui();
             }

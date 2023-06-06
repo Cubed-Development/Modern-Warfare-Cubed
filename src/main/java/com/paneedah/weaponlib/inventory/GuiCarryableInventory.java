@@ -4,11 +4,11 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.util.ResourceLocation;
 
-public class StorageItemGuiContainer extends GuiContainer {
+public class GuiCarryableInventory extends GuiContainer {
 
     private final ResourceLocation background;
 
-    public StorageItemGuiContainer(StorageItemContainer storageItemContainer) {
+    public GuiCarryableInventory(StorageItemContainer storageItemContainer) {
         super(storageItemContainer);
 
         final StorageInventory inventory = storageItemContainer.getStorageInventory();
