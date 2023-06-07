@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CustomPlayerInventoryContainer extends Container {
+public class EquipmentInventory extends Container {
     
     @SuppressWarnings("unused")
     private CustomPlayerInventory customPlayerInventory;
@@ -35,8 +35,8 @@ public class CustomPlayerInventoryContainer extends Container {
     
     private List<Slot> customSlots;
     
-    public CustomPlayerInventoryContainer(EntityPlayer player, InventoryPlayer inventoryPlayer,
-            CustomPlayerInventory customPlayerInventory) {
+    public EquipmentInventory(EntityPlayer player, InventoryPlayer inventoryPlayer,
+                              CustomPlayerInventory customPlayerInventory) {
         
         this.customPlayerInventory = customPlayerInventory;
         
@@ -66,9 +66,7 @@ public class CustomPlayerInventoryContainer extends Container {
     }
 
     protected List<Slot> createCustomSlots(CustomPlayerInventory inventoryCustom) {
-        return Arrays.asList(
-                new CustomSlot(ItemStorage.class, inventoryCustom, 0, 80, 8),
-                new CustomSlot(ItemVest.class, inventoryCustom, 1, 80, 26));
+        return Arrays.asList(new CustomSlot(ItemStorage.class, inventoryCustom, 0, 80, 8), new CustomSlot(ItemVest.class, inventoryCustom, 1, 80, 26));
     }
 
     protected List<Slot> createHotbarSlots(InventoryPlayer inventoryPlayer) {

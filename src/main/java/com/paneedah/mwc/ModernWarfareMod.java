@@ -1,6 +1,7 @@
 package com.paneedah.mwc;
 
 import com.paneedah.mwc.creativetab.*;
+import com.paneedah.mwc.handlers.ClientEventHandler;
 import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.utils.ModReference;
@@ -10,6 +11,7 @@ import com.paneedah.weaponlib.command.CraftingFileCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -19,6 +21,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = ModReference.id, name = ModReference.name, version = ModReference.version, guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory")
 public class ModernWarfareMod {
@@ -48,6 +51,9 @@ public class ModernWarfareMod {
     @EventHandler
     public void init(FMLPreInitializationEvent event) {
         proxy.preInit(this);
+
+        if (event.getSide() == Side.CLIENT)
+            MinecraftForge.EVENT_BUS.register(ClientEventHandler.class);
     }
 
     @EventHandler

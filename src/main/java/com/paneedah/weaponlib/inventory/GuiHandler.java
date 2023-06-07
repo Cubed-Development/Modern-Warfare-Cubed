@@ -30,13 +30,13 @@ public class GuiHandler implements IGuiHandler {
             CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability
                     .getInventory(player);
             if (customInventory != null && customInventory.getStackInSlot(0) != null) {
-                container = new StorageItemContainer(player, player.inventory,
+                container = new CarryableInventory(player, player.inventory,
                         new StorageInventory(customInventory.getStackInSlot(0)));
             }
         }
             break;
         case CUSTOM_PLAYER_INVENTORY_GUI_ID:
-            container = new CustomPlayerInventoryContainer(player, player.inventory,
+            container = new EquipmentInventory(player, player.inventory,
                     CompatibleCustomPlayerInventoryCapability.getInventory(player));
             break;
         case WORKBENCH_GUI_ID:
@@ -57,7 +57,7 @@ public class GuiHandler implements IGuiHandler {
         case STORAGE_ITEM_INVENTORY_GUI_ID:
             CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability.getInventory(FMLClientHandler.instance().getClientPlayerEntity());
             if (customInventory != null && customInventory.getStackInSlot(0) != null) {
-                guiContainer = new GuiCarryableInventory((StorageItemContainer) new StorageItemContainer(player,
+                guiContainer = new GuiCarryableInventory((CarryableInventory) new CarryableInventory(player,
                         player.inventory, new StorageInventory(customInventory.getStackInSlot(0))));
             }
             break;

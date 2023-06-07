@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StorageItemContainer extends Container {
+public class CarryableInventory extends Container {
     /**
      * The Item Inventory for this Container, only needed if you want to
      * reference isUseableByPlayer
@@ -34,7 +34,7 @@ public class StorageItemContainer extends Container {
     
     private List<Slot> storageSlots;
 
-    public StorageItemContainer(EntityPlayer player, InventoryPlayer inventoryPlayer, StorageInventory inventoryItem) {
+    public CarryableInventory(EntityPlayer player, InventoryPlayer inventoryPlayer, StorageInventory inventoryItem) {
         this.inventory = inventoryItem;
         
         this.storageSlots = createStorageSlots(inventory);

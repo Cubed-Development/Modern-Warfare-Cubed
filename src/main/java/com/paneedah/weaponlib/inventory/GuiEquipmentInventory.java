@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.inventory;
 
 import com.paneedah.mwc.utils.ModReference;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.InventoryEffectRenderer;
@@ -18,7 +17,7 @@ public class GuiEquipmentInventory extends InventoryEffectRenderer {
     private static GuiEquipmentInventory currentGuiContainer;
 
     public GuiEquipmentInventory(EntityPlayer player, InventoryPlayer inventoryPlayer, CustomPlayerInventory inventoryCustom) {
-        super(new CustomPlayerInventoryContainer(player, inventoryPlayer, inventoryCustom));
+        super(new EquipmentInventory(player, inventoryPlayer, inventoryCustom));
         allowUserInput = true;
     }
     

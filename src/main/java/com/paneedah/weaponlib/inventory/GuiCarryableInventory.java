@@ -8,10 +8,10 @@ public class GuiCarryableInventory extends GuiContainer {
 
     private final ResourceLocation background;
 
-    public GuiCarryableInventory(StorageItemContainer storageItemContainer) {
-        super(storageItemContainer);
+    public GuiCarryableInventory(CarryableInventory carryableInventory) {
+        super(carryableInventory);
 
-        final StorageInventory inventory = storageItemContainer.getStorageInventory();
+        final StorageInventory inventory = carryableInventory.getStorageInventory();
 
         background = inventory.getItemStorage().getGuiTextureLocation();
 
