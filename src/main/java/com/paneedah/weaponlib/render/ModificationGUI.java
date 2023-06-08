@@ -4,6 +4,7 @@ import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.FlaggedAttachment;
 import com.paneedah.weaponlib.command.DebugCommand;
+import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.render.gui.ColorPalette;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
@@ -632,9 +633,9 @@ public class ModificationGUI {
 				TextFormatting.GOLD + translate(weapon.getTranslationKey()),
 				30, 30, 1.0, ColorPalette.WHITE);
 		GUIRenderHelper.drawScaledString(
-				"Damage :: " + TextFormatting.GOLD + weapon.getSpawnEntityDamage(),
+				"Damage :: " + TextFormatting.GOLD + BalancePackManager.getNetGunDamage(weapon),
 				30, 60, 1, ColorPalette.WHITE);
-		GUIRenderHelper.drawScaledString("Recoil :: " + TextFormatting.GOLD + weaponInstance.getRecoil(),
+		GUIRenderHelper.drawScaledString("Recoil :: " + TextFormatting.GOLD + (float) BalancePackManager.getNewWeaponRecoil(weapon),
 				30, 75, 1, ColorPalette.WHITE);
 		GUIRenderHelper.drawScaledString("Firerate :: " + TextFormatting.GOLD + weaponInstance.getFireRate(), 30, 90, 1,
 				ColorPalette.WHITE);
