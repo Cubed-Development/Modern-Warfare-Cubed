@@ -1,6 +1,9 @@
-<h1 align="center">Modern Warfare Cubed</h1>
+<h1 align="center">Modern Warfare Cubed 1.20-0.1</h1>
+
+<h1 align="center">THIS VERSION IS NOT READY OR STARTED YET. DO NOT USE IT.</h1>
 
 <h5 align="center">A well optimized, open source Modern Warfare fork, made in light of Vic's Modern Warfare!</h5>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <p align="center">
   <a href="https://modrinth.com/mod/modern-warfare-cubed">
