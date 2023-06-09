@@ -1205,7 +1205,7 @@ public class Magazines {
         
         Magazines.DragunovMag = new ItemMagazine.Builder()
         		.withCapacity(10)
-        		.withCompatibleBullet(Bullets.Bullet762x39)
+        		.withCompatibleBullet(Bullets.Bullet762x54)
         		.withName("DragunovMag")
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.880000056028367)
 

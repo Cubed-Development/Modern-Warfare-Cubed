@@ -499,7 +499,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         Comparator<ItemStack> comparator;
         comparator = (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2));
 
-        if (player.isCreative())
+        if (player.isCreative() && !player.isSneaking())
             return (ItemAttachment<Weapon>) compatibleMagazines.stream().map(ItemMagazine::create).max(comparator).orElse(null).getItem();
 
         ItemStack maxStack = null;
@@ -536,7 +536,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         Comparator<ItemStack> comparator;
         comparator = (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2));
 
-        if (player.isCreative())
+        if (player.isCreative() && !player.isSneaking())
             return compatibleMagazines.stream().map(ItemMagazine::create).max(comparator).orElse(null);
 
         ItemStack maxStack = null;
