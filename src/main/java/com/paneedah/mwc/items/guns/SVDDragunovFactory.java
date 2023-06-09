@@ -29,7 +29,7 @@ public class SVDDragunovFactory {
         .withFireRate(0.3f)
         .withRecoil(4f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.RIFLES)
+        .withConfigGroup(GunConfigurationGroup.LONG_RANGE_RIFLES)
         .hasFlashPedals()
         .withMaxShots(1)
         //.withMaxShots(5)

@@ -23,7 +23,7 @@ public class KS23Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("ks23")
-//      .withAmmo(CommonProxy.Remington870Mag)
+//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(4)
         .withMaxBulletsPerReload(3)
         .withFireRate(0.5f)

@@ -29,7 +29,7 @@ public class UziFactory implements GunFactory {
         .withFireRate(0.7f)
         .withRecoil(2f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.SIDEARM)
+        .withConfigGroup(GunConfigurationGroup.SMG)
         .withShellType(Type.PISTOL)
         .withMuzzlePosition(new Vec3d(-0.12400000369548798, -0.7799999934434887, -3.427999908447264))
         .withMaxShots(1, Integer.MAX_VALUE)

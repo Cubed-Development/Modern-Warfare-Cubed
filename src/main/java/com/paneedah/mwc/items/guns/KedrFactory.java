@@ -25,7 +25,7 @@ public class KedrFactory {
         .withFireRate(0.7f)
         .withRecoil(2f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.SIDEARM)
+        .withConfigGroup(GunConfigurationGroup.SMG)
         .withMaxShots(1, Integer.MAX_VALUE)
         //.withMaxShots(5)
         .withShootSound("kedr")

@@ -22,7 +22,7 @@ public class Spas12Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("spas_12")
-//      .withAmmo(CommonProxy.Remington870Mag)
+//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(7)
         .withMaxBulletsPerReload(7)
         .withFireRate(0.2f)

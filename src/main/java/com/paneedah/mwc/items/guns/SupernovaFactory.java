@@ -20,7 +20,7 @@ public class SupernovaFactory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("supernova")
-//      .withAmmo(CommonProxy.Remington870Mag)
+//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(7)
         .withMaxBulletsPerReload(7)
         .withFireRate(0.5f)
