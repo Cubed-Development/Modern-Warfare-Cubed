@@ -225,7 +225,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
                     .getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
             int maxAmmo = 0;
             if (existingMagazine != null) {
-                maxAmmo = existingMagazine.getAmmo();
+                maxAmmo = existingMagazine.getCapacity();
             } else if (weaponInstance.getWeapon().getAmmoCapacity() > 0) {
                 maxAmmo = weaponInstance.getWeapon().getAmmoCapacity();
             }

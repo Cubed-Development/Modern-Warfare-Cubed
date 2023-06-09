@@ -23,7 +23,7 @@ public class MaresLegFactory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("mares_leg")
-//      .withAmmo(CommonProxy.Remington870Mag)
+//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(6)
         .withMaxBulletsPerReload(6)
         .withFireRate(0.5f)

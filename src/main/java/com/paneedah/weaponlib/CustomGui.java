@@ -308,7 +308,7 @@ public class CustomGui extends Gui {
 		ItemMagazine magazine = (ItemMagazine) WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
 		int totalCapacity;
 		if(magazine != null) {
-			totalCapacity = magazine.getAmmo();
+			totalCapacity = magazine.getCapacity();
 		} else {
 			totalCapacity = weaponInstance.getWeapon().getAmmoCapacity();
 		}
@@ -668,7 +668,7 @@ public class CustomGui extends Gui {
 		
 		ItemMagazine magazine = (ItemMagazine) itemStack.getItem();
 
-		String ammoCounterMessage = I18n.translateToLocalFormatted("gui.ammoCounter", Tags.getAmmo(itemStack) + "/" + magazine.getAmmo());
+		String ammoCounterMessage = I18n.translateToLocalFormatted("gui.ammoCounter", Tags.getAmmo(itemStack) + "/" + magazine.getCapacity());
 		return ammoCounterMessage;
 	}
 
@@ -678,7 +678,7 @@ public class CustomGui extends Gui {
 		ItemMagazine magazine = (ItemMagazine) attachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
 		int totalCapacity;
 		if(magazine != null) {
-			totalCapacity = magazine.getAmmo();
+			totalCapacity = magazine.getCapacity();
 		} else {
 			totalCapacity = weaponInstance.getWeapon().getAmmoCapacity();
 		}

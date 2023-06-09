@@ -22,7 +22,7 @@ public class M1873Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("M1873")
-//      .withAmmo(CommonProxy.Remington870Mag)
+//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(7)
         .withMaxBulletsPerReload(7)
         .withFireRate(0.5f)
