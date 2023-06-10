@@ -149,7 +149,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
     private void explode() {
         log.debug("Exploding {}", this);
 
-        Explosion.createServerSideExplosion(modContext, world, this,
+        Explosion.createServerSideExplosion(modContext, world, this.getThrower(), this,
                 this.posX, this.posY, this.posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null, 
                 modContext.getExplosionSound());
         

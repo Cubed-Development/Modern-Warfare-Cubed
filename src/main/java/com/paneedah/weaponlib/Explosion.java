@@ -89,9 +89,9 @@ public class Explosion {
         this.explosionSound = explosionSound;
     }
 
-    public static void createServerSideExplosion(ModContext modContext, World world, Entity entity, double posX, double posY, double posZ, float explosionStrength, boolean isFlaming, boolean isSmoking, boolean isDestroyingBlocks, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, SoundEvent explosionSound) {
+    public static void createServerSideExplosion(ModContext modContext, World world, EntityLivingBase thrower, Entity entity, double posX, double posY, double posZ, float explosionStrength, boolean isFlaming, boolean isSmoking, boolean isDestroyingBlocks, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, SoundEvent explosionSound) {
 
-        world.createExplosion(entity, entity.posX, entity.posY + 1.0f, entity.posZ, (float) explosionDamage, explosionBreak);
+        world.createExplosion(thrower, entity.posX, entity.posY + 1.0f, entity.posZ, (float) explosionDamage, explosionBreak);
 
         /*
         explosionStrength *= ModernConfigManager.explosionDamage;

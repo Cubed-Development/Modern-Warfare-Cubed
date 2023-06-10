@@ -127,12 +127,12 @@ public class WeaponSpawnEntity extends EntityProjectile {
 	    if(explosionRadius > 0) {
 
 	    	//PostProcessPipeline.createDistortionPoint((float) position.hitVec.getXCoord(),(float)  position.hitVec.getYCoord(), (float) position.hitVec.getZCoord(), 2f, 3000);
-	        Explosion.createServerSideExplosion(weapon.getModContext(), world, this,
+	        Explosion.createServerSideExplosion(weapon.getModContext(), world, this.getThrower(), this,
 	                position.hitVec.x, position.hitVec.y, position.hitVec.z,
 	                explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient,
 	                smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient,
-	                weapon.getModContext().getRegisteredTexture(explosionParticleTextureId), 
-	                weapon.getModContext().getRegisteredTexture(smokeParticleTextureId), 
+	                weapon.getModContext().getRegisteredTexture(explosionParticleTextureId),
+	                weapon.getModContext().getRegisteredTexture(smokeParticleTextureId),
 	                weapon.getModContext().getExplosionSound());
 	    } else if(position.entityHit != null) {
 
@@ -144,11 +144,8 @@ public class WeaponSpawnEntity extends EntityProjectile {
                 position.entityHit.attackEntityFrom(new DamageSource("thrown"), damage);
             }
 
-			if(!ModernConfigManager.knockbackOnHit) {
-				position.entityHit.motionX = motionX / 1500;
-				position.entityHit.motionY = motionY / 1500;
-				position.entityHit.motionZ = motionZ / 1500;
-			}
+			if(!ModernConfigManager.knockbackOnHit)
+				position.entityHit.setVelocity(this.motionX / 1500, this.motionY / 1500, this.motionZ / 1500);
 
             position.entityHit.hurtResistantTime = 0;
             position.entityHit.prevRotationYaw -= 0.3D;
