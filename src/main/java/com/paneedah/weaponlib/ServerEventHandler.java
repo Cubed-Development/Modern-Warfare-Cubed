@@ -6,7 +6,6 @@ import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import com.paneedah.weaponlib.config.BalancePackManager;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
@@ -23,8 +22,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
@@ -105,6 +102,7 @@ public class ServerEventHandler {
                     doseNbt.setFloat("dose", ((SpreadableExposure) exposure).getLastDose());
                 }
                 if(!exposure.isEffective(livingUpdateEvent.getEntity().world)) {
+                    //System.out.println("Removing expired exposure " + exposure);
                     iterator.remove();
                     effectiveUpdate = true;
                 }
@@ -174,6 +172,7 @@ public class ServerEventHandler {
                     new EntityInventorySyncMessage(e.getTarget(), 
                             CompatibleCustomPlayerInventoryCapability.getInventory((EntityLivingBase) e.getTarget()), false), 
                             (EntityPlayerMP) e.getEntityPlayer());
+            System.out.println("Player " + e.getEntityPlayer() + " started tracking "  + e.getTarget());
             return;
         }
         if(e.getTarget() instanceof EntityProjectile || e.getTarget() instanceof EntityBounceable) {
@@ -235,7 +234,7 @@ public class ServerEventHandler {
     protected void onLivingHurtEvent(LivingHurtEvent livingHurtEvent) {
         CustomPlayerInventory inventory = CompatibleCustomPlayerInventoryCapability
                 .getInventory(livingHurtEvent.getEntityLiving());
-        if (inventory != null && (inventory.getStackInSlot(1).getItem() != Items.AIR || ModernConfigManager.oldDamageOfPlayer)) {
+        if (inventory != null && inventory.getStackInSlot(1) != null) {
             NonNullList<ItemStack> stackList = NonNullList.create();
 
             ItemStack[] itemStacks = new ItemStack[] { inventory.getStackInSlot(1) };
@@ -244,13 +243,8 @@ public class ServerEventHandler {
                 stackList.add(itemStacks[i]);
             }
 
-            if (ModernConfigManager.oldDamageOfPlayer) {
-                float amt = ISpecialArmor.ArmorProperties.applyArmor(livingHurtEvent.getEntityLiving(), stackList, livingHurtEvent.getSource(), livingHurtEvent.getAmount());
-                livingHurtEvent.setAmount(amt);
-            } else {
-                Item DamageBlocked = inventory.getStackInSlot(1).getItem();
-                livingHurtEvent.setAmount((float) (livingHurtEvent.getAmount() * (1 - ((ItemVest) DamageBlocked).getDamageBlocked())));
-            }
+            float amt = ISpecialArmor.ArmorProperties.applyArmor(livingHurtEvent.getEntityLiving(), stackList, livingHurtEvent.getSource(), livingHurtEvent.getAmount());
+            livingHurtEvent.setAmount(amt);
         }
         
         if(livingHurtEvent.getSource().getImmediateSource() instanceof EntityProjectile) {
@@ -258,10 +252,12 @@ public class ServerEventHandler {
         	if(hit != null) {
         		Vec3d eyes = livingHurtEvent.getEntityLiving().getPositionEyes(1.0f);
             	if(hit.hitVec.distanceTo(eyes) < 0.6f) {
-
+            		
+            		//tSystem.out.println("Current headshot multiplier is " + BalancePackManager.getHeadshotMultiplier());
             		livingHurtEvent.setAmount((float) (livingHurtEvent.getAmount()*BalancePackManager.getHeadshotMultiplier()));
             		
             		if(livingHurtEvent.getSource().getTrueSource() instanceof EntityPlayer) {
+            			//System.out.println(livingHurtEvent.getSource().getTrueSource());
             			modContext.getChannel().sendTo(new HeadshotSFXPacket(), (EntityPlayerMP) livingHurtEvent.getSource().getTrueSource());
             		}
                 	
