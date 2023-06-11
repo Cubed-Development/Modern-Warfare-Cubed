@@ -1246,8 +1246,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
     }
 
     public static boolean isActiveAttachment(PlayerWeaponInstance weaponInstance, ItemAttachment<Weapon> attachment) {
-        return weaponInstance != null ?
-                WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance) : false;
+        return weaponInstance != null ? WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance) : false;
     }
 
     @Override

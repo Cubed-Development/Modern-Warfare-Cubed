@@ -14,11 +14,11 @@ import static com.paneedah.mwc.utils.ModReference.log;
 
 public class SyncManager<S extends ManagedState<S>> {
 
-	private PermitManager permitManager;
+	private final PermitManager permitManager;
 	
-	private Map<PlayerItemInstance<?>, Long> watchables = new LinkedHashMap<>();
+	private final Map<PlayerItemInstance<?>, Long> watchables = new LinkedHashMap<>();
 	
-	private long syncTimeout = 10000;
+	private final long syncTimeout = 10000;
 	
 	@SuppressWarnings("unchecked")
 	public SyncManager(PermitManager permitManager) {
@@ -50,12 +50,7 @@ public class SyncManager<S extends ManagedState<S>> {
 	}
 	
 	public void run() {
-		List<PlayerItemInstance<?>> instancesToUpdate = watchables.entrySet().stream()
-				.filter(e -> e.getKey().getUpdateId() != e.getValue() 
-							//&& !e.getKey().getState().isTransient()
-							&& e.getKey().getSyncStartTimestamp() + syncTimeout < System.currentTimeMillis())
-				.map(e -> e.getKey())
-				.collect(Collectors.toList());
+		List<PlayerItemInstance<?>> instancesToUpdate = watchables.entrySet().stream().filter(e -> e.getKey().getUpdateId() != e.getValue() /*&& !e.getKey().getState().isTransient()*/ && e.getKey().getSyncStartTimestamp() + syncTimeout < System.currentTimeMillis()).map(Map.Entry::getKey).collect(Collectors.toList());
 		instancesToUpdate.forEach(this::sync);
 	}
 	
@@ -64,7 +59,7 @@ public class SyncManager<S extends ManagedState<S>> {
 		log.debug("Syncing {} in state {} with update id {} to server", watchable, watchable.getState(), watchable.getUpdateId());
 		long updateId = watchable.getUpdateId(); // capturing update id
 		watchable.setSyncStartTimestamp(System.currentTimeMillis());
-		permitManager.request(new Permit<S>((S) watchable.getState()), (PlayerItemInstance<S>)watchable, (p, e) -> {
+		permitManager.request(new Permit<>((S) watchable.getState()), (PlayerItemInstance<S>)watchable, (p, e) -> {
 			// During sync, the watchable.getUpdateId() can change, so using the original update id
 			watchables.put(watchable, updateId); 
 			watchable.setSyncStartTimestamp(0);
