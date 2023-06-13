@@ -2,7 +2,6 @@ package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.BulletHoleRenderer.BulletHole;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
@@ -15,6 +14,7 @@ import com.paneedah.weaponlib.crafting.*;
 import com.paneedah.weaponlib.model.Shell;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;

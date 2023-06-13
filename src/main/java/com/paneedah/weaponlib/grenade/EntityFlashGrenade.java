@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.mwc.utils.MWCUtil;
-import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.LightExposure;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import io.netty.buffer.ByteBuf;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;

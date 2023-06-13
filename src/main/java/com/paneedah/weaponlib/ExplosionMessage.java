@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib;
 
 import com.google.common.collect.Lists;
-import com.paneedah.mwc.vectors.Vector3D;
 import io.netty.buffer.ByteBuf;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
