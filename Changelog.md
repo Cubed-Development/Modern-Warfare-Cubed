@@ -20,9 +20,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - penetratesGlass
   - explosionBreak
   - penetrableBlocks
-  - oldDamageOfPlayer
   - knockbackOnHit
-- Fix the damage error of players' armor equipment, which can be restored by enabling oldDamageOfPlayer
+- Fix the damage error of players' armor equipment
 - Make the turret work again
 - Fixed the issue of server screen swiping
 - Durability to all vests as a temporary measure to resolve vest-related issues
