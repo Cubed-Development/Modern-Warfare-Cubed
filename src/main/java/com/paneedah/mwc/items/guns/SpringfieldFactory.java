@@ -22,7 +22,7 @@ public class SpringfieldFactory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("Springfield")
-//      .withAmmo(CommonProxy.XWPMag)
+//      .withCapacity(CommonProxy.XWPMag)
         .withAmmoCapacity(5)
         .withFireRate(0.16f)
         .withIteratedLoad()
@@ -30,7 +30,7 @@ public class SpringfieldFactory implements GunFactory {
         .withEjectSpentRoundSound("springfield_boltaction")
         .withRecoil(6f)
         .withZoom(0.8f)
-        .withConfigGroup(GunConfigurationGroup.LONG_RANGE_RIFLES)
+        .withConfigGroup(GunConfigurationGroup.RIFLES)
         .withMaxShots(1)
         .withShootSound("springfield")
         .withPumpTimeout(950)

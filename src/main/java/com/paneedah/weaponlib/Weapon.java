@@ -1031,7 +1031,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             		descriptionBuilder.add(plate + "Magazines:");
             		ArrayList<ItemMagazine> mags = new ArrayList<>();
                     weapon.getCompatibleAttachments(AttachmentCategory.MAGAZINE).forEach(c -> mags.add((ItemMagazine) c.getAttachment()));
-                    mags.sort((a, b) -> a.getAmmo()-b.getAmmo());
+                    mags.sort((a, b) -> a.getCapacity()-b.getCapacity());
                   
                     mags.forEach(c -> descriptionBuilder.add(plain + (I18n.format(c.getTranslationKey() + ".name"))));
                 } else {
@@ -1246,8 +1246,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
     }
 
     public static boolean isActiveAttachment(PlayerWeaponInstance weaponInstance, ItemAttachment<Weapon> attachment) {
-        return weaponInstance != null ?
-                WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance) : false;
+        return weaponInstance != null ? WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance) : false;
     }
 
     @Override

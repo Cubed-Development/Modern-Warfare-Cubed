@@ -25,7 +25,7 @@ public class M1941JohnsonFactory {
         .withFireRate(0.5f)
         .withRecoil(2.5f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.RIFLES)
+        .withConfigGroup(GunConfigurationGroup.HEAVY)
         .withMaxShots(1, Integer.MAX_VALUE)
         //.withMaxShots(5)
         .withShootSound("m1941")

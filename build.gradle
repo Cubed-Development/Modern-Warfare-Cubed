@@ -1,11 +1,11 @@
 import org.jetbrains.gradle.ext.Gradle
 
 plugins {
-    id("java")
-    id("java-library")
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
-    id("com.gtnewhorizons.retrofuturagradle") version "1.+"
-    id("com.matthewprenger.cursegradle") version "1.4.0"
+    id 'java'
+    id 'java-library'
+    id 'org.jetbrains.gradle.plugin.idea-ext' version '1.1.7'
+    id 'com.gtnewhorizons.retrofuturagradle' version '1.+'
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 
 // Add version to the jar name
@@ -17,31 +17,73 @@ java {
         languageVersion.set(JavaLanguageVersion.of(8))
         vendor.set(JvmVendorSpec.ADOPTIUM)
     }
-    // Generate sources jar when building
+    // Generate sources jar when building and publishing
     withSourcesJar()
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = "UTF-8"
+    options.encoding = 'UTF-8'
     options.fork = true
-    options.forkOptions.jvmArgs += ["-Xmx4G"]
+    options.forkOptions.jvmArgs += '-Xmx4G'
 }
 
 minecraft {
     mcVersion = '1.12.2'
 
-    username = "Desoroxxx"
+    username = 'Desoroxxx'
 
-    def args = ['-Dfml.coreMods.load=com.paneedah.weaponlib.core.WeaponlibCorePlugin']
+    extraRunJvmArguments.addAll('-Xmx4G', '-Xms4G', '-Dforge.logging.console.level=debug', '-Dmixin.hotSwap=true', '-Dmixin.checks.interfaces=true', '-Dmixin.debug.export=true')
 
     injectedTags.put('ID', project.id)
     injectedTags.put('VERSION', project.version)
 }
 
-// Generate a Tags class with the version and id as a field
+// Generate a my.project.Tags class with the version number as a field
 tasks.injectTags.configure {
     outputClassName.set("com.paneedah.${project.id}.Tags")
 }
+
+// Create configuration to include embedded dependencies into the jar
+configurations {
+    implementation
+    compile.extendsFrom(embed)
+}
+
+repositories {
+    maven {
+        name 'Cleanroom'
+        url 'https://maven.cleanroommc.com'
+    }
+
+    ivy {
+        name 'Red Studio Ragnarök GitHub Releases'
+
+        url 'https://github.com/'
+
+        patternLayout { artifact '[organisation]/[module]/releases/download/[revision]/[module]-[revision].[ext]' }
+
+        metadataSources { artifact() }
+    }
+}
+
+dependencies {
+    implementation 'Red-Studio-Ragnarok:Red-Core:0.2-Dev-2@jar'
+
+    implementation 'net.jafama:jafama:2.+'
+    embed 'net.jafama:jafama:2.+'
+
+    String mixin = modUtils.enableMixins('zone.rong:mixinbooter:8.2', "mixins.${project.id}.refmap.json")
+    api (mixin) { transitive = false }
+    annotationProcessor 'org.ow2.asm:asm-debug-all:5.2'
+    annotationProcessor 'com.google.guava:guava:24.1.1-jre'
+    annotationProcessor 'com.google.code.gson:gson:2.8.6'
+    annotationProcessor (mixin) { transitive = false }
+}
+
+def at = project.files("src/main/resources/META-INF/${project.id}_at.cfg")
+
+tasks.deobfuscateMergedJarToSrg.accessTransformerFiles.from(at)
+tasks.srgifyBinpatchedJar.accessTransformerFiles.from(at)
 
 // Replace version and id in `mcmod.info`
 processResources {
@@ -49,7 +91,7 @@ processResources {
     inputs.property 'version', project.version
     filesMatching(['mcmod.info', 'pack.mcmeta']) { fcd ->
         include 'mcmod.info'
-        fcd.expand(
+        fcd.expand (
                 'id': project.id,
                 'version': project.version
         )
@@ -66,39 +108,11 @@ processResources {
     }
 }
 
-// Create configuration to include embedded dependencies into FBP jar
-configurations {
-    implementation
-    compile.extendsFrom(embed)
-}
-
-repositories {
-    ivy {
-        url 'https://github.com/'
-
-        patternLayout { artifact '[organisation]/[module]/releases/download/[revision]/[module]-[revision].[ext]' }
-
-        metadataSources { artifact() }
-    }
-}
-
-dependencies {
-    implementation 'Red-Studio-Ragnarok:Red-Core:0.2-Dev-2@jar'
-
-    implementation 'net.jafama:jafama:2.+'
-    embed 'net.jafama:jafama:2.+'
-}
-
-def at = project.files("src/main/resources/META-INF/mwc_at.cfg")
-
-tasks.deobfuscateMergedJarToSrg.accessTransformerFiles.from(at)
-tasks.srgifyBinpatchedJar.accessTransformerFiles.from(at)
-
 jar {
     manifest.attributes([
             'ModSide': 'BOTH',
-            'FMLAT': 'mwc_at.cfg',
-            'FMLCorePlugin': 'com.paneedah.weaponlib.core.WeaponlibCorePlugin',
+            'FMLAT': "${project.id}_at.cfg",
+            'FMLCorePlugin': "com.paneedah.weaponlib.core.WeaponlibCorePlugin",
             'FMLCorePluginContainsFMLMod': 'true',
             'ForceLoadAsMod': 'true'
     ])
@@ -107,40 +121,43 @@ jar {
     from(provider{ configurations.embed.collect {it.isDirectory() ? it : zipTree(it)} })
 }
 
+
 idea {
     module { inheritOutputDirs = true }
 
-    module {
-        excludeDirs = [file(".github"), file(".gradle"), file(".idea"), file("build"), file("gradle"), file("run")]
-    }
+    module { excludeDirs = [file('.github'), file('.gradle'), file('.idea'), file('build'), file('gradle'), file('run')] }
 
     project { settings {
         runConfigurations {
-            "1. Client"(Gradle) {
-                taskNames = ["runClient"]
+            'Client'(Gradle) {
+                taskNames = ['runClient']
             }
-            "2. Server"(Gradle) {
-                taskNames = ["runServer"]
+            'Server'(Gradle) {
+                taskNames = ['runServer']
             }
-            "3. Obfuscated Client"(Gradle) {
-                taskNames = ["runObfClient"]
+            'Obfuscated Client'(Gradle) {
+                taskNames = ['runObfClient']
             }
-            "4. Obfuscated Server"(Gradle) {
-                taskNames = ["runObfServer"]
+            'Obfuscated Server'(Gradle) {
+                taskNames = ['runObfServer']
+            }
+            'Vanilla Client'(Gradle) {
+                taskNames = ['runVanillaClient']
+            }
+            'Vanilla Server'(Gradle) {
+                taskNames = ['runVanillaServer']
             }
         }
 
         compiler.javac {
             afterEvaluate {
-                javacAdditionalOptions = "-encoding utf8"
-                moduleJavacAdditionalOptions = [
-                        (project.id + ".main"): tasks.compileJava.options.compilerArgs.collect { '"' + it + '"' }.join(' ')
-                ]
+                javacAdditionalOptions = '-encoding utf8'
+                moduleJavacAdditionalOptions = [ (project.id + '.main'): tasks.compileJava.options.compilerArgs.collect { ''' + it + ''' }.join(' ') ]
             }
         }
     }}
 }
 
-tasks.named("processIdeaSettings").configure {
-    dependsOn("injectTags")
+tasks.named('processIdeaSettings').configure {
+    dependsOn('injectTags')
 }

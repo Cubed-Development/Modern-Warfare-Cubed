@@ -62,7 +62,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
     private StateManager<MagazineState, ? super PlayerMagazineInstance> stateManager;
 
     private Predicate<PlayerMagazineInstance> notFull = instance -> {
-        boolean result = Tags.getAmmo(instance.getItemStack()) < instance.getMagazine().getAmmo();
+        boolean result = Tags.getAmmo(instance.getItemStack()) < instance.getMagazine().getCapacity();
         return result;
     };
     
@@ -246,7 +246,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
             List<ItemBullet> bullets = magazine.getCompatibleBullets();
             int currentAmmo = Tags.getAmmo(magazineStack);
             int consumedAmount;
-            if (currentAmmo < magazine.getAmmo() && (consumedAmount = MWCUtil.consumeItemsFromPlayerInventory(bullets, magazine.getAmmo() - currentAmmo, (EntityPlayer) magazineInstance.getPlayer())) != 0) {
+            if (currentAmmo < magazine.getCapacity() && (consumedAmount = MWCUtil.consumeItemsFromPlayerInventory(bullets, magazine.getCapacity() - currentAmmo, (EntityPlayer) magazineInstance.getPlayer())) != 0) {
                 
                 ItemStack remainingStack = null;
                 if(shouldSplitStack) {
