@@ -235,22 +235,17 @@ public class ServerEventHandler {
     protected void onLivingHurtEvent(LivingHurtEvent livingHurtEvent) {
         CustomPlayerInventory inventory = CompatibleCustomPlayerInventoryCapability
                 .getInventory(livingHurtEvent.getEntityLiving());
-        if (inventory != null && (inventory.getStackInSlot(1).getItem() != Items.AIR || ModernConfigManager.oldDamageOfPlayer)) {
+        if (inventory != null && inventory.getStackInSlot(1).getItem() != Items.AIR) {
             NonNullList<ItemStack> stackList = NonNullList.create();
 
-            ItemStack[] itemStacks = new ItemStack[] { inventory.getStackInSlot(1) };
+            ItemStack[] itemStacks = new ItemStack[]{inventory.getStackInSlot(1)};
 
             for (int i = 0; i < itemStacks.length; i++) {
                 stackList.add(itemStacks[i]);
             }
 
-            if (ModernConfigManager.oldDamageOfPlayer) {
-                float amt = ISpecialArmor.ArmorProperties.applyArmor(livingHurtEvent.getEntityLiving(), stackList, livingHurtEvent.getSource(), livingHurtEvent.getAmount());
-                livingHurtEvent.setAmount(amt);
-            } else {
-                Item DamageBlocked = inventory.getStackInSlot(1).getItem();
-                livingHurtEvent.setAmount((float) (livingHurtEvent.getAmount() * (1 - ((ItemVest) DamageBlocked).getDamageBlocked())));
-            }
+            Item DamageBlocked = inventory.getStackInSlot(1).getItem();
+            livingHurtEvent.setAmount((float) (livingHurtEvent.getAmount() * (1 - ((ItemVest) DamageBlocked).getDamageBlocked())));
         }
         
         if(livingHurtEvent.getSource().getImmediateSource() instanceof EntityProjectile) {
