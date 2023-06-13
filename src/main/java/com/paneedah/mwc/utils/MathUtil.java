@@ -2,7 +2,7 @@ package com.paneedah.mwc.utils;
 
 import net.jafama.FastMath;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 /**
  * This class provides fast focused mathematical methods.
@@ -50,13 +50,13 @@ public class MathUtil {
 	 */
 	public static float clampTest(float input, float min, float max) {
 		if (input < min) {
-			log.info("Clamped to minimum");
+			LOG.info("Clamped to minimum");
 			return min;
 		} else if (input > max) {
-			log.info("Clamped to maximum");
+			LOG.info("Clamped to maximum");
 			return max;
 		} else {
-			log.info("Did not clamp");
+			LOG.info("Did not clamp");
 			return input;
 		}
 	}

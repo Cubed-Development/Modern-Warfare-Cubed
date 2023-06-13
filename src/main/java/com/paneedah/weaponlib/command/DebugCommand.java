@@ -544,7 +544,7 @@ public class DebugCommand extends CommandBase {
             default:
                 String partName = args[1];
 
-                Item item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, partName));
+                Item item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.ID, partName));
                 Part part = null;
                 if(item instanceof Part) {
                     part = (Part) item;

@@ -15,11 +15,11 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class BBLoader {
 	
-	public static String directory  = ModReference.id + ":animations/";
+	public static String directory  = ModReference.ID + ":animations/";
 	public static Gson gson = (new GsonBuilder()).create();
 	public static String version = "1.8.0";
 
@@ -87,7 +87,7 @@ public class BBLoader {
 		if(!actualAnimations.containsKey(animation)) {
 			AnimationSet set = loadAnimationFile(animation + animationSuffix);
 			if(set == null) {
-				log.error("Could not load animation set for animation name {}", animation);
+				LOG.error("Could not load animation set for animation name {}", animation);
 				return null;
 			} else {
 				actualAnimations.put(animation, set);
@@ -129,7 +129,7 @@ public class BBLoader {
 			AnimationSet set = loadAnimationFile(animation + animationSuffix);
 			
 			if(set == null) {
-				log.error("Could not load animation set for animation name {}", animation);
+				LOG.error("Could not load animation set for animation name {}", animation);
 				return null;
 			} else {
 				actualAnimations.put(animation, set);
@@ -155,7 +155,7 @@ public class BBLoader {
 			ResourceLocation loc = new ResourceLocation(directory + fileName);
 			br = new BufferedReader(new InputStreamReader(mc.getResourceManager().getResource(loc).getInputStream()));
 		} catch(Exception e) {
-			log.error("Failed to create reader for file: {}", fileName);
+			LOG.error("Failed to create reader for file: {}", fileName);
 			return null;
 		}
 		
@@ -166,10 +166,10 @@ public class BBLoader {
 		// lines up. Alert the user if it's a different version so the developer can make adjustments.
 		if(!masterJSON.has("format_version")) {
 			
-			log.error("Could not locate \"format_version\" key, cannot read file {} ", fileName); 
+			LOG.error("Could not locate \"format_version\" key, cannot read file {} ", fileName);
 			return null;
 		} else if(!masterJSON.get("format_version").getAsString().equals(version)){
-			log.error("Warning, this file is running version {}, and this version of VMW is looking for {}", masterJSON.get("format_version").getAsString(), version);
+			LOG.error("Warning, this file is running version {}, and this version of VMW is looking for {}", masterJSON.get("format_version").getAsString(), version);
 			//System.err.printf("Warning, this file is running version {}, and this version of VMW is looking for {}", masterJSON.get("format_version").getAsString(), version);	
 		}
 		

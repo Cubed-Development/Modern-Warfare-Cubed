@@ -22,10 +22,10 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 public class AmmoPress extends ModelBase {
 	
 	private Bullet bulletModel = new Bullet();
-	private ResourceLocation bulletTexture = new ResourceLocation(ModReference.id + ":textures/blocks/bullet.png");
+	private ResourceLocation bulletTexture = new ResourceLocation(ModReference.ID + ":textures/blocks/bullet.png");
 	
 	private Gunpowder gunpowderModel = new Gunpowder();
-	private ResourceLocation powderTexture = new ResourceLocation(ModReference.id + ":textures/blocks/gunpowder.png");
+	private ResourceLocation powderTexture = new ResourceLocation(ModReference.ID + ":textures/blocks/gunpowder.png");
 	
 	
 	private final ModelRenderer bone13;

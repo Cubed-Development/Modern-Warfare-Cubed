@@ -24,7 +24,7 @@ import java.util.ArrayDeque;
 import java.util.List;
 import java.util.Queue;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class EntityBounceable extends Entity implements Contextual, IThrowableEntity, IEntityAdditionalSpawnData {
 
@@ -83,7 +83,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         this.initialPitch = this.rotationPitch;
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity /*1.3f*/, 10.0F); // TODO: make inaccuracy configurable parameter
 
-        log.debug("Throwing with position {}{}{}, rotation pitch {}, velocity {}, {}, {}",
+        LOG.debug("Throwing with position {}{}{}, rotation pitch {}, velocity {}, {}, {}",
                 posX, posY, posZ,
                 this.rotationPitch,
                 this.motionX, this.motionY, this.motionZ);
@@ -202,18 +202,18 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
             }
         }
 
-        log.trace("Ori position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ,
+        LOG.trace("Ori position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ,
                 motionX, motionY, motionZ);
 
         if(movingobjectposition != null && (movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK || (movingobjectposition.typeOfHit == RayTraceResult.Type.ENTITY))) {
 
             //TODO: remove logging since it's creating wrapper objects
-            log.trace("Hit {}, vec set to {}, {}, {}", movingobjectposition.typeOfHit,
+            LOG.trace("Hit {}, vec set to {}, {}, {}", movingobjectposition.typeOfHit,
                     movingobjectposition.hitVec.x,
                     movingobjectposition.hitVec.y,
                     movingobjectposition.hitVec.z);
 
-            log.trace("Before bouncing {}, side {}, motion set to {}, {}, {}", bounceCount,
+            LOG.trace("Before bouncing {}, side {}, motion set to {}, {}, {}", bounceCount,
                     movingobjectposition.sideHit,
                     motionX, motionY, motionZ);
 
@@ -257,7 +257,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
                 avoidBlockCollisionAfterBounce(movingobjectposition);
             }
 
-            log.trace("After bouncing {}  motion set to {}, {}, {}", bounceCount, motionX, motionY, motionZ);
+            LOG.trace("After bouncing {}  motion set to {}, {}, {}", bounceCount, motionX, motionY, motionZ);
             onBounce(movingobjectposition);
             bounceCount++;
             if(this.isDead) {
@@ -326,13 +326,13 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         if(!velocityHistory.stream().anyMatch(v -> v > STOP_THRESHOLD)) {
             motionX = motionY = motionZ = 0.0;
             stopped = true;
-            log.trace("Stopping {}", this);
+            LOG.trace("Stopping {}", this);
             onStop();
         } else {
             this.motionY -=  (double)currentGravityVelocity;
         }
 
-        log.trace("Set position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ,
+        LOG.trace("Set position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ,
                 motionX, motionY, motionZ);
     }
 
@@ -367,7 +367,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
                 this.posX = projectedXPos;
                 this.posY = projectedYPos;
                 this.posZ = projectedZPos;
-                log.trace("Found non-intercepting post-bounce position on iteration {}", i);
+                LOG.trace("Found non-intercepting post-bounce position on iteration {}", i);
                 break;
             }
         }
@@ -399,7 +399,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
                 BlockPos blockPos = new BlockPos(projectedPos.x, projectedPos.y, projectedPos.z);
                 if((iBlockState = world.getBlockState(blockPos)) != null && !(iBlockState.getBlock() == Blocks.AIR)) {
-                    log.debug("Found non-intercept position colliding with block {}", iBlockState);
+                    LOG.debug("Found non-intercept position colliding with block {}", iBlockState);
                     intercept = movingobjectposition;
                 } else {
                 	
@@ -416,7 +416,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         }
 
         if(intercept != null) {
-            log.debug("Could not find non-intercept position after bounce");
+            LOG.debug("Could not find non-intercept position after bounce");
         }
     }
 
@@ -475,7 +475,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
 
         setPosition(posX, posY, posZ);
 
-        log.debug("Restoring with position {}{}{}, rotation pitch {}, velocity {}, {}, {}",
+        LOG.debug("Restoring with position {}{}{}, rotation pitch {}, velocity {}, {}, {}",
                 posX, posY, posZ,
                 this.rotationPitch,
                 this.motionX, this.motionY, this.motionZ);

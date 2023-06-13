@@ -7,7 +7,7 @@ public class QRL {
 	
 	public static ResourceLocation quickLoc(String folder, String name) {
 		//new ResourceLocation(ModReference.id + ":textures/entity/vehicleshadow.png");
-		return new ResourceLocation(ModReference.id + ":textures/" + folder + "/" + name + ".png");
+		return new ResourceLocation(ModReference.ID + ":textures/" + folder + "/" + name + ".png");
 	}
 
 }

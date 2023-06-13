@@ -22,7 +22,7 @@ import java.util.Map.Entry;
 import java.util.UUID;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class DynamicShaderGroupManager {
 
@@ -137,7 +137,7 @@ public class DynamicShaderGroupManager {
             group.createBindFramebuffers(mc.displayWidth, mc.displayHeight);
             return group;
         } catch (JsonSyntaxException | IOException e) {
-            log.error("Failed to create shader due to " + e, e);
+            LOG.error("Failed to create shader due to " + e, e);
             return null;
         }
     }

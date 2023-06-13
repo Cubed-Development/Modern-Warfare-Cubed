@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.function.BiPredicate;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class EntityGrenade extends AbstractEntityGrenade {
 
@@ -147,7 +147,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
     }
 
     private void explode() {
-        log.debug("Exploding {}", this);
+        LOG.debug("Exploding {}", this);
 
         Explosion.createServerSideExplosion(modContext, world, this,
                 this.posX, this.posY, this.posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null, 
@@ -168,7 +168,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
             
             double d2 = x * x + y * y + z * z;
             if(d2 == 0) {
-                log.debug("Ignoring zero distance index {}", i);
+                LOG.debug("Ignoring zero distance index {}", i);
                 continue;
             }
             double k = Math.sqrt(effectiveRadius * effectiveRadius  / d2);
@@ -200,7 +200,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
                         double distanceToEntity = cvec10.distanceTo(new Vector3D(movingobjectposition1.hitVec));
                         float damageDistanceReductionFactor = (float)Math.abs(1 - distanceToEntity / effectiveRadius);
 
-                        log.trace("Hit entity {} at distance {}, damage reduction {}", nearbyEntity, distanceToEntity,
+                        LOG.trace("Hit entity {} at distance {}, damage reduction {}", nearbyEntity, distanceToEntity,
                                 damageDistanceReductionFactor);
 
                         nearbyEntity.attackEntityFrom(

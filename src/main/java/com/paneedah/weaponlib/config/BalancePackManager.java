@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class BalancePackManager {
 
@@ -325,7 +325,7 @@ public class BalancePackManager {
 		public static BalancePack fromJSONObject(JsonObject jsonObject) {
 
 			if (!jsonObject.has(PACK_NAME_KEY) || !jsonObject.has(PACK_VERSION_KEY)) {
-				log.error("Missing pack name or version key! Cannot load balance pack from JSON data.");
+				LOG.error("Missing pack name or version key! Cannot load balance pack from JSON data.");
 				return null;
 			}
 
@@ -356,26 +356,26 @@ public class BalancePackManager {
 			if (jsonObject.has(GUN_CONFIG_LIST)) {
 
 				JsonArray array = jsonObject.get(GUN_CONFIG_LIST).getAsJsonArray();
-				log.debug("Found weapon config list with {} entries.", array.size());
+				LOG.debug("Found weapon config list with {} entries.", array.size());
 				for (int i = 0; i < array.size(); ++i) {
 					GunBalanceConfiguration balanceConfig = GunBalanceConfiguration
 							.fromJSONObject(array.get(i).getAsJsonObject());
 					bp.addWeaponConfig(balanceConfig);
 				}
 			} else {
-				log.debug("Weapon config list was empty.");
+				LOG.debug("Weapon config list was empty.");
 			}
 
 			if (jsonObject.has(CATEGORY_CONFIG_LIST)) {
 				JsonArray categoricalArray = jsonObject.get(CATEGORY_CONFIG_LIST).getAsJsonArray();
-				log.debug("Found category config list with {} entries.", categoricalArray.size());
+				LOG.debug("Found category config list with {} entries.", categoricalArray.size());
 				for (int i = 0; i < categoricalArray.size(); ++i) {
 					GunCategoryBalanceConfiguration categoryBalancing = GunCategoryBalanceConfiguration
 							.fromJSONObject(categoricalArray.get(i).getAsJsonObject());
 					bp.addBalancingCategory(categoryBalancing);
 				}
 			} else {
-				log.debug("Weapon category config list was empty.");
+				LOG.debug("Weapon category config list was empty.");
 			}
 
 			return bp;
@@ -513,8 +513,8 @@ public class BalancePackManager {
 			updateIndexFile();
 
 		} catch (IOException e) {
-			log.catching(e);
-			log.error("Failed to create a new index.json");
+			LOG.catching(e);
+			LOG.error("Failed to create a new index.json");
 		}
 	}
 
@@ -523,13 +523,13 @@ public class BalancePackManager {
 		INDEX_FILE = new File(DimensionManager.getCurrentSaveRootDirectory() + "/balancepacksindex.json");
 		try {
 			if (!INDEX_FILE.exists()) {
-				log.debug("No index file found! Creating a new index.json.");
+				LOG.debug("No index file found! Creating a new index.json.");
 				INDEX_FILE.createNewFile();
 				updateIndexFile();
 			}
 		} catch (IOException e) {
-			log.catching(e);
-			log.error("Failed to create a new index.json");
+			LOG.catching(e);
+			LOG.error("Failed to create a new index.json");
 		}
 	}
 
@@ -538,11 +538,11 @@ public class BalancePackManager {
 		try {
 			reader = new FileReader(file);
 		} catch (FileNotFoundException e) {
-			log.catching(e);
+			LOG.catching(e);
 		}
 
 		if (reader == null) {
-			log.error("Failed to read file {} from the disk!", file.getName());
+			LOG.error("Failed to read file {} from the disk!", file.getName());
 			return null;
 		}
 		JsonObject object = null;
@@ -555,8 +555,8 @@ public class BalancePackManager {
 		try {
 			reader.close();
 		} catch (IOException e) {
-			log.catching(e);
-			log.error("Failed to close file reader for file {}!", file.getName());
+			LOG.catching(e);
+			LOG.error("Failed to close file reader for file {}!", file.getName());
 		}
 		return object;
 	}
@@ -567,8 +567,8 @@ public class BalancePackManager {
 			try {
 				file.createNewFile();
 			} catch (IOException e1) {
-				log.catching(e1);
-				log.error("Tried to create new file {} in order to write JSON to it, but failed!", file.getName());
+				LOG.catching(e1);
+				LOG.error("Tried to create new file {} in order to write JSON to it, but failed!", file.getName());
 				return false;
 			}
 
@@ -576,11 +576,11 @@ public class BalancePackManager {
 		try {
 			writer = new FileWriter(file);
 		} catch (IOException e) {
-			log.catching(e);
+			LOG.catching(e);
 		}
 
 		if (writer == null) {
-			log.error("Failed to write file {} to the disk!", file.getName());
+			LOG.error("Failed to write file {} to the disk!", file.getName());
 			return false;
 		}
 
@@ -589,11 +589,11 @@ public class BalancePackManager {
 		try {
 			writer.close();
 		} catch (IOException e) {
-			log.catching(e);
-			log.error("Failed to close file writer for file {}!", file.getName());
+			LOG.catching(e);
+			LOG.error("Failed to close file writer for file {}!", file.getName());
 		}
 
-		log.debug("Succesfully wrote file {} to disk!", file.getName());
+		LOG.debug("Succesfully wrote file {} to disk!", file.getName());
 		return true;
 	}
 
@@ -621,20 +621,20 @@ public class BalancePackManager {
 			try {
 				index = readJSONFile(getIndexFile());
 			} catch (JsonSyntaxException e) {
-				log.error("Index.json is not a proper JSON file. Recreating index.json.");
+				LOG.error("Index.json is not a proper JSON file. Recreating index.json.");
 				remakeIndexFile();
 				index = readJSONFile(getIndexFile());
 			}
 
 			if (!index.has("loadedPack")) {
-				log.error(
+				LOG.error(
 						"Error! Index file for balance packs does not contain loadedPacks key. File may have been tampered with.");
 			} else {
 				String result = index.get("loadedPack").getAsString();
 				if (result.equals("null")) {
-					log.debug("No loaded pack.");
+					LOG.debug("No loaded pack.");
 				} else {
-					log.debug("Balance pack manager found actively loaded pack {}", result);
+					LOG.debug("Balance pack manager found actively loaded pack {}", result);
 					loadBalancePack(null, result);
 				}
 			}
@@ -653,7 +653,7 @@ public class BalancePackManager {
 		try {
 			object = GSON_MANAGER.fromJson(alledgedJson, JsonObject.class);
 		} catch (JsonSyntaxException e) {
-			log.error("Attempt to load balance pack from String failed. Was not JSON.");
+			LOG.error("Attempt to load balance pack from String failed. Was not JSON.");
 			if (sender != null)
 				sender.sendMessage(new TextComponentString(
 						header + " Attempt to load balance pack from String failed. Was not JSON."));
@@ -664,7 +664,7 @@ public class BalancePackManager {
 			return;
 
 		if (!object.has("packName")) {
-			log.debug("Balance pack missing pack name key! Will not load.");
+			LOG.debug("Balance pack missing pack name key! Will not load.");
 			if (sender != null)
 				sender.sendMessage(new TextComponentString(
 						header + " Balance pack downloading failed. Did not have pack name key."));
@@ -700,7 +700,7 @@ public class BalancePackManager {
 			if (sender != null)
 				sender.sendMessage(
 						new TextComponentString(header + " Balance pack loading failed. File does not exist."));
-			log.error("Balance pack {} does not exist! Game refusing to load it. Recreating index.json.", fileName);
+			LOG.error("Balance pack {} does not exist! Game refusing to load it. Recreating index.json.", fileName);
 			remakeIndexFile();
 			return;
 		}
@@ -710,7 +710,7 @@ public class BalancePackManager {
 		try {
 			object = readJSONFile(balancePack);
 		} catch (JsonSyntaxException e) {
-			log.error("Json file {} is not proper JSON! Please check the formatting.", fileName);
+			LOG.error("Json file {} is not proper JSON! Please check the formatting.", fileName);
 			if (sender != null)
 				sender.sendMessage(new TextComponentString(header + " Json file " + TextFormatting.RED + fileName
 						+ TextFormatting.WHITE + " is not proper JSON! Please check the formatting."));

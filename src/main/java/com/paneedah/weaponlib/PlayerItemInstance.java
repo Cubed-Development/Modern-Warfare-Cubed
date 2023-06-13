@@ -11,7 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObject implements ExtendedState<S>, PlayerContext {
 
@@ -126,7 +126,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 		markDirty();
 		if(preparedState != null) { // TODO: use comparator or equals?
 			if(preparedState.getState().commitPhase() == state) {
-				log.debug("Committing state {} to {}", preparedState.getState(),
+				LOG.debug("Committing state {} to {}", preparedState.getState(),
 						preparedState.getState().commitPhase());
 				updateWith(preparedState, false);
 			} else {

@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class CompressionUtil {
 	
@@ -14,25 +14,25 @@ public class CompressionUtil {
 		try {
 			gos = new GZIPOutputStream(bos);
 		} catch (IOException e1) {
-			log.catching(e1);
+			LOG.catching(e1);
 		}
 		
 		if(gos == null) {
-			log.error("Failure to create compression output stream.");
+			LOG.error("Failure to create compression output stream.");
 			return null;
 		}
 		
 		try {
 			gos.write(str.getBytes());
 		} catch (IOException e) {
-			log.catching(e);
+			LOG.catching(e);
 		}
 		try {
 			bos.close();
 			gos.close();
 		} catch (IOException e) {
-			log.catching(e);
-			log.error("Failed to close output streams.");
+			LOG.catching(e);
+			LOG.error("Failed to close output streams.");
 		}
 		
 		
@@ -47,11 +47,11 @@ public class CompressionUtil {
 			try {
 				gis = new GZIPInputStream(bis);
 			} catch (IOException e1) {
-				log.catching(e1);
+				LOG.catching(e1);
 			}
 			
 			if(gis == null) {
-				log.error("Error creating compression input stream!");
+				LOG.error("Error creating compression input stream!");
 				return null;
 			}
 			
@@ -62,8 +62,8 @@ public class CompressionUtil {
 					line += reader.readLine();
 				}
 			} catch (IOException e1) {
-				log.catching(e1);
-				log.error("Failed while reading lines from compression stream.");
+				LOG.catching(e1);
+				LOG.error("Failed while reading lines from compression stream.");
 			}
 			
 			try {
@@ -71,8 +71,8 @@ public class CompressionUtil {
 				bis.close();
 				reader.close();
 			} catch(IOException e) {
-				log.catching(e);
-				log.debug("Failed to close input streams");
+				LOG.catching(e);
+				LOG.debug("Failed to close input streams");
 			}
 			
 	

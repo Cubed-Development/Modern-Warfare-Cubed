@@ -47,7 +47,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.Collection;
 import java.util.Iterator;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 
 /**
@@ -153,7 +153,7 @@ public class ServerEventHandler {
             ((Contextual)entityJoinWorldEvent.getEntity()).setContext(modContext);
 
         if(entityJoinWorldEvent.getEntity() instanceof EntityPlayerMP && !entityJoinWorldEvent.getWorld().isRemote) {
-            log.debug("Player {} joined the world", entityJoinWorldEvent.getEntity());
+            LOG.debug("Player {} joined the world", entityJoinWorldEvent.getEntity());
             PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) entityJoinWorldEvent.getEntity());
 
             if(tracker != null)
@@ -180,7 +180,7 @@ public class ServerEventHandler {
         }
         PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) e.getEntity());
         if (tracker != null && tracker.updateTrackableEntity(e.getTarget())) {
-            log.debug("Player {} started tracking {} with uuid {}", e.getEntityPlayer(), e.getTarget(), e.getTarget().getUniqueID());
+            LOG.debug("Player {} started tracking {} with uuid {}", e.getEntityPlayer(), e.getTarget(), e.getTarget().getUniqueID());
             modContext.getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker),
                     (EntityPlayerMP)e.getEntityPlayer());
             
@@ -308,17 +308,17 @@ public class ServerEventHandler {
     @SubscribeEvent
     public void attachCapability(AttachCapabilitiesEvent<Entity> event) {
         if (event.getObject() instanceof EntityPlayer) {
-            ResourceLocation PLAYER_ENTITY_TRACKER = new ResourceLocation(ModReference.id, "PLAYER_ENTITY_TRACKER");
+            ResourceLocation PLAYER_ENTITY_TRACKER = new ResourceLocation(ModReference.ID, "PLAYER_ENTITY_TRACKER");
             event.addCapability(PLAYER_ENTITY_TRACKER, new CompatiblePlayerEntityTrackerProvider());
 
-            ResourceLocation extraFlagsResourceLocation = new ResourceLocation(ModReference.id, "PLAYER_ENTITY_FLAGS");
+            ResourceLocation extraFlagsResourceLocation = new ResourceLocation(ModReference.ID, "PLAYER_ENTITY_FLAGS");
             event.addCapability(extraFlagsResourceLocation, new CompatibleExtraEntityFlags());
 
-            ResourceLocation customInventoryLocation = new ResourceLocation(ModReference.id, "PLAYER_CUSTOM_INVENTORY");
+            ResourceLocation customInventoryLocation = new ResourceLocation(ModReference.ID, "PLAYER_CUSTOM_INVENTORY");
             event.addCapability(customInventoryLocation, new CompatibleCustomPlayerInventoryCapability());
         }
 
-        ResourceLocation exposureResourceLocation = new ResourceLocation(ModReference.id, "EXPOSURE");
+        ResourceLocation exposureResourceLocation = new ResourceLocation(ModReference.ID, "EXPOSURE");
         event.addCapability(exposureResourceLocation, new CompatibleExposureCapability());
     }
 

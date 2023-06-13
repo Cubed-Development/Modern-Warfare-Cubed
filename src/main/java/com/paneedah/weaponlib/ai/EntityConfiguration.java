@@ -24,7 +24,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class EntityConfiguration {
 
@@ -248,7 +248,7 @@ public class EntityConfiguration {
 
         private Builder withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
             if(item == null) {
-                log.warn("Attempted to configure entity equipment with null item");
+                LOG.warn("Attempted to configure entity equipment with null item");
                 return this;
             }
             Equipment equipment = new Equipment();
@@ -442,7 +442,7 @@ public class EntityConfiguration {
                 for (String attachment : attachments) {
                     String[] parts = attachment.split(":");
                     if (parts.length < 2) {
-                        ModReference.log.warn("Invalid attachment configuration for entity " + name + ": " + attachment + ". Expected format: <gunId>:<weight>[:<attachment>...]");
+                        ModReference.LOG.warn("Invalid attachment configuration for entity " + name + ": " + attachment + ". Expected format: <gunId>:<weight>[:<attachment>...]");
                         continue;
                     }
 
@@ -451,26 +451,26 @@ public class EntityConfiguration {
                     try {
                         weight = Double.parseDouble(parts[1]);
                     } catch (NumberFormatException e) {
-                        ModReference.log.warn("Invalid weight for gun " + name + ": " + parts[1] + ". Expected a valid double.");
+                        ModReference.LOG.warn("Invalid weight for gun " + name + ": " + parts[1] + ". Expected a valid double.");
                         continue;
                     }
 
-                    Item gun = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, gunId));
+                    Item gun = Item.REGISTRY.getObject(new ResourceLocation(ModReference.ID, gunId));
                     if (gun == null) {
-                        ModReference.log.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
+                        ModReference.LOG.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
                         continue;
                     }
 
                     Equipment equipment = new Equipment();
                     switch (entityConfig.getName()) {
                         case "turret":
-                            equipment.item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, "turretgun"));
+                            equipment.item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.ID, "turretgun"));
                             break;
                         case "turretupgraded":
-                            equipment.item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, "turretgunupgraded"));
+                            equipment.item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.ID, "turretgunupgraded"));
                             break;
                         case "turretsilenced":
-                            equipment.item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, "turretgunsilenced"));
+                            equipment.item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.ID, "turretgunsilenced"));
                             break;
                         default:
                             equipment.item = gun;
@@ -479,9 +479,9 @@ public class EntityConfiguration {
 
                     if (parts.length >= 3) {
                         for (String attachmentId : Arrays.asList(parts).subList(2, parts.length)) {
-                            Item att = Item.REGISTRY.getObject(new ResourceLocation(ModReference.id, attachmentId));
+                            Item att = Item.REGISTRY.getObject(new ResourceLocation(ModReference.ID, attachmentId));
                             if (!(att instanceof ItemAttachment)) {
-                                ModReference.log.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
+                                ModReference.LOG.warn("Invalid attachment for entity " + name + ": " + attachmentId + ". Expected a valid item.");
                                 continue;
                             }
 
@@ -537,7 +537,7 @@ public class EntityConfiguration {
 
             SecondaryEntityRegistry.map.put(name, entityClass);
 
-            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, entityName), entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
+            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, entityName), entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
 
             if(spawnEgg)
                EntityRegistry.registerEgg(EntityList.getKey(entityClass), primaryEggColor, secondaryEggColor);
@@ -559,7 +559,7 @@ public class EntityConfiguration {
             
             if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
                 for(TexturedModel tmv: texturedModelVariants) {
-                    tmv.textureResource = new ResourceLocation(ModReference.id, "textures/entity/" + tmv.textureName);
+                    tmv.textureResource = new ResourceLocation(ModReference.ID, "textures/entity/" + tmv.textureName);
                     try {
                         tmv.model = (ModelBiped) Class.forName(tmv.modelClassName).newInstance();
                     } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {

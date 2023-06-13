@@ -7,13 +7,13 @@ import org.apache.logging.log4j.Logger;
 /**
  * This class defines constants for MWC.
  * <p>
- * id and version are automatically updated by RFG.
+ * ID and VERSION are automatically updated by RFG.
  */
 public class ModReference {
 
-    public static final String id = Tags.ID;
-    public static final String name = "Modern Warfare Cubed";
-    public static final String version = Tags.VERSION;
-    public static final Logger log = LogManager.getLogger(id);
+    public static final String ID = Tags.ID;
+    public static final String NAME = "Modern Warfare Cubed";
+    public static final String VERSION = Tags.VERSION;
+    public static final Logger LOG = LogManager.getLogger(ID);
 }
 

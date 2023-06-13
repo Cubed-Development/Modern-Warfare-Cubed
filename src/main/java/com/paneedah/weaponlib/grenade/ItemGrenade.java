@@ -342,7 +342,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
 
         public ItemGrenade build(ModContext modContext) {
             ItemGrenade grenade = new ItemGrenade(this, modContext);
-            grenade.setTranslationKey(ModReference.id + "_" + name);
+            grenade.setTranslationKey(ModReference.ID + "_" + name);
             grenade.setCreativeTab(tab);
             grenade.maxStackSize = maxStackSize;
 
@@ -389,9 +389,9 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
                 ItemStack itemStack = new ItemStack(grenade);
                 itemStack.setCount(craftingCount);
                 if(optionsMetadata.hasOres()) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
             } else {
                 //throw new IllegalStateException("No recipe defined for attachment " + name);

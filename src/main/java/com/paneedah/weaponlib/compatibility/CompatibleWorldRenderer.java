@@ -59,7 +59,7 @@ import java.util.List;
 import java.util.Random;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 @Deprecated
 @SideOnly(Side.CLIENT)
@@ -237,13 +237,13 @@ public class CompatibleWorldRenderer extends EntityRenderer
         }
         catch (IOException ioexception)
         {
-            log.warn("Failed to load shader: {}", resourceLocationIn, ioexception);
+            LOG.warn("Failed to load shader: {}", resourceLocationIn, ioexception);
             this.shaderIndex = SHADER_COUNT;
             this.useShader = false;
         }
         catch (JsonSyntaxException jsonsyntaxexception)
         {
-            log.warn("Failed to load shader: {}", resourceLocationIn, jsonsyntaxexception);
+            LOG.warn("Failed to load shader: {}", resourceLocationIn, jsonsyntaxexception);
             this.shaderIndex = SHADER_COUNT;
             this.useShader = false;
         }

@@ -249,7 +249,7 @@ public class AttachmentBuilder<T> {
 	@SuppressWarnings("deprecation")
 	public ItemAttachment<T> build(ModContext modContext) {
 		ItemAttachment<T> attachment = createAttachment(modContext);
-		attachment.setTranslationKey(ModReference.id + "_" + name);
+		attachment.setTranslationKey(ModReference.ID + "_" + name);
 		attachment.setCreativeTab(tab);
 		attachment.setPostRenderer(postRenderer);
 		attachment.setName(name);
@@ -271,7 +271,7 @@ public class AttachmentBuilder<T> {
 		    attachment.setInformationProvider(informationProvider);
 
 		if (getTextureName() != null)
-			attachment.setTextureName(ModReference.id + ":" + stripFileExtension(getTextureName(), ".png"));
+			attachment.setTextureName(ModReference.ID + ":" + stripFileExtension(getTextureName(), ".png"));
 
 		if(isRenderablePart) {
 			attachment.setRenderablePart(new Part() {
@@ -313,9 +313,9 @@ public class AttachmentBuilder<T> {
 			ItemStack itemStack = new ItemStack(attachment);
 			itemStack.setCount(craftingCount);
             if(optionsMetadata.hasOres()) {
-				ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
+				ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe"));
 			} else {
-				ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
+				ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe"));
 			}
 		} else if(attachment.getCategory() == AttachmentCategory.GRIP
 		        || attachment.getCategory() == AttachmentCategory.SCOPE

@@ -35,7 +35,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 
@@ -531,7 +531,7 @@ public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 		PlayerMeleeInstance playerMeleeInstance = null;
 		if(playerItemInstance == null || !(playerItemInstance instanceof PlayerMeleeInstance)
 		        || playerItemInstance.getItem() != itemStack.getItem()) {
-		    log.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
+		    LOG.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
 		} else {
 		    playerMeleeInstance = (PlayerMeleeInstance) playerItemInstance;
 		}
@@ -559,7 +559,7 @@ public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 				}
 			}
 
-			log.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
+			LOG.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
 		}
 
 		if(currentState == null) {
@@ -643,7 +643,7 @@ public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 				if(partTransitions != null && partTransitions.size() > i) {
 					partTransition = partTransitions.get(i);
 				} else {
-					log.warn("Transition not defined for part {}", custom);
+					LOG.warn("Transition not defined for part {}", custom);
 				}
 				t.withPartPositionFunction(e.getKey(), createWeaponPartPositionFunction(partTransition));
 			}
@@ -720,7 +720,7 @@ public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 		}
 
 		if(builder.getTextureName() != null) {
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + builder.getTextureName()));
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + builder.getTextureName()));
 		} else {
 			String textureName = null;
 			CompatibleAttachment<?> compatibleSkin = attachments.stream()
@@ -742,7 +742,7 @@ public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 				textureName = weapon.getTextureName();
 			}
 
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID
 					+ ":textures/models/" + textureName));
 		}
 
@@ -793,7 +793,7 @@ public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 		}
 
 		for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID
 					+ ":textures/models/" + texturedModel.getV()));
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);

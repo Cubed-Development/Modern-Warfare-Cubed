@@ -15,7 +15,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class PlayerItemInstanceRegistry {
 	
@@ -94,11 +94,11 @@ public class PlayerItemInstanceRegistry {
 				}
 			}
 			if(result != null && result.getItemInventoryIndex() != slot) {
-				log.warn("Invalid instance slot id, correcting...");
+				LOG.warn("Invalid instance slot id, correcting...");
 				result.setItemInventoryIndex(slot);
 			}
 			if(result != null && result.getPlayer() != player) {
-				log.warn("Invalid player " + result.getPlayer()
+				LOG.warn("Invalid player " + result.getPlayer()
 						+ " associated with instance in slot, changing to {}", player);
 				result.setPlayer(player);
 			}
@@ -152,14 +152,14 @@ public class PlayerItemInstanceRegistry {
 		PlayerItemInstance<?> result = null;
 		if(itemStack != null && itemStack.getItem() instanceof PlayerItemInstanceFactory) {
 			try {
-			    log.debug("Deserializing instance for slot {} from stack {}", slot, itemStack);
+			    LOG.debug("Deserializing instance for slot {} from stack {}", slot, itemStack);
 				result = Tags.getInstance(itemStack);
-				log.debug("Deserialized instance {} for slot {} from stack {}", result, slot, itemStack);
+				LOG.debug("Deserialized instance {} for slot {} from stack {}", result, slot, itemStack);
 			} catch(RuntimeException e) {
-				log.debug("Failed to deserialize instance from {}", itemStack);
+				LOG.debug("Failed to deserialize instance from {}", itemStack);
 			}
 			if(result == null) {
-			    log.debug("Creating instance for slot {} from stack {}", slot, itemStack);
+			    LOG.debug("Creating instance for slot {} from stack {}", slot, itemStack);
 				result = ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(player, itemStack, slot);
 				result.markClean();
 			}
@@ -182,7 +182,7 @@ public class PlayerItemInstanceRegistry {
 		Optional<PlayerItemInstance<?>> result = Optional.empty();
 		try {
 			result = itemStackInstanceCache.get(itemStack, () -> {
-				log.debug("ItemStack {} not found in cache, initializing...", itemStack);
+				LOG.debug("ItemStack {} not found in cache, initializing...", itemStack);
 				PlayerItemInstance<?> instance = null;
 				int slot = -1;
 				if(mc.player == player) {
@@ -195,20 +195,20 @@ public class PlayerItemInstanceRegistry {
 				
 				if(slot >= 0) {
 					instance = getItemInstance((EntityPlayer) player, slot);
-					log.debug("Resolved item stack instance {} in slot {}", instance, slot);
+					LOG.debug("Resolved item stack instance {} in slot {}", instance, slot);
 				}
 				
 				if(instance == null || instance.getItem() != itemStack.getItem()) {
 					try {
 						instance = Tags.getInstance(itemStack);
 					} catch(RuntimeException e) {
-						log.error("Failed to deserialize instance from stack {}: {}", itemStack, e.toString());
+						LOG.error("Failed to deserialize instance from stack {}: {}", itemStack, e.toString());
 					}
 				}
 				
 				if((instance == null || instance.getItem() != itemStack.getItem())
 				        && itemStack.getItem() instanceof PlayerItemInstanceFactory) {
-				    log.debug("Creating temporary item stack instance {}", instance);
+				    LOG.debug("Creating temporary item stack instance {}", instance);
                     instance = ((PlayerItemInstanceFactory<?, ?>) itemStack.getItem()).createItemInstance(player, itemStack, -1);
 		            instance.setPlayer(player);
 		        }
@@ -216,7 +216,7 @@ public class PlayerItemInstanceRegistry {
 				return Optional.ofNullable(instance);
 			});
 		} catch (UncheckedExecutionException | ExecutionException e) {
-			log.error("Failed to initialize cache instance from {}", itemStack, e.getCause());
+			LOG.error("Failed to initialize cache instance from {}", itemStack, e.getCause());
 		}
 		return result.orElse(null);
 	}
@@ -235,7 +235,7 @@ public class PlayerItemInstanceRegistry {
 				//log.debug("Slot {} contains item {} stack {}", e.getKey(), e.getValue(), System.identityHashCode(slotStack));
 				if(slotStack == null || slotStack.getItem() != e.getValue().getItem() 
 				        || !e.getValue().getUuid().equals(Tags.getInstanceUuid(slotStack))) {
-					log.debug("Removing {} from slot {}", e.getValue(), e.getKey());
+					LOG.debug("Removing {} from slot {}", e.getValue(), e.getKey());
 					syncManager.unwatch((PlayerItemInstance) e.getValue());
 					it.remove();
 				}

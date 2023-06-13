@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.function.BiPredicate;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class EntityFlashGrenade extends AbstractEntityGrenade {
 
@@ -157,7 +157,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
     }
 
     private void explode() {
-        log.debug("Exploding {}", this);
+        LOG.debug("Exploding {}", this);
         
         explosionStrength = 0.1f;
         //Explosion.createServerSideExplosion(modContext, compatibility.world(this), this,

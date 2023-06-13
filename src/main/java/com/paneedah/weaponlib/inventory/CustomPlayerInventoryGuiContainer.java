@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class CustomPlayerInventoryGuiContainer extends GuiContainer {
 
-    private static final ResourceLocation backGround = new ResourceLocation(ModReference.id, "textures/gui/custom_inventory.png");
+    private static final ResourceLocation backGround = new ResourceLocation(ModReference.ID, "textures/gui/custom_inventory.png");
 
     private static final ThreadLocal<CustomPlayerInventoryGuiContainer> threadLocalGuiContainer = new ThreadLocal<>();
 

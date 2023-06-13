@@ -35,7 +35,7 @@ public class ModificationGUI {
 
 	
 	// Texture for gui
-	private static final ResourceLocation MODIFICATION_GUI_TEXTURES = new ResourceLocation(ModReference.id + ":textures/gui/modificationguisheet.png");
+	private static final ResourceLocation MODIFICATION_GUI_TEXTURES = new ResourceLocation(ModReference.ID + ":textures/gui/modificationguisheet.png");
 
 	
 	private static final double SIDEBAR_SCALE = 0.8;

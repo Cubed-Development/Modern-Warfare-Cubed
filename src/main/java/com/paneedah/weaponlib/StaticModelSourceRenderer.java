@@ -436,7 +436,7 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 			if (texturedModel.getV().startsWith("customskin_")) {
 				mc.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getV().toLowerCase().replace("customskin_", "").replace(".png", "")));
 			} else {
-				mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + texturedModel.getV()));
+				mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + texturedModel.getV()));
 			}
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT);

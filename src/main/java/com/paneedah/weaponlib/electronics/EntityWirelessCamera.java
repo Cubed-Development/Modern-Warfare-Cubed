@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
 import java.util.List;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class EntityWirelessCamera extends EntityThrowable implements IEntityAdditionalSpawnData {
 
@@ -68,7 +68,7 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
     @Override
     protected void onImpact(RayTraceResult rayTraceResult) {
         Entity entityHit = rayTraceResult.entityHit;
-        log.debug("Player {} hit entity {}", getThrower(), rayTraceResult.entityHit);
+        LOG.debug("Player {} hit entity {}", getThrower(), rayTraceResult.entityHit);
 
         boolean hit = false;
         if (entityHit != null && getThrower() instanceof EntityPlayer) {
@@ -80,7 +80,7 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
             }
 
             if (!world.isRemote) {
-                log.debug("Server hit entity uuid {}", rayTraceResult.entityHit.getPersistentID());
+                LOG.debug("Server hit entity uuid {}", rayTraceResult.entityHit.getPersistentID());
                 PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) getThrower());
                 if(tracker != null) {
                     hit = true;

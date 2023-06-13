@@ -17,7 +17,7 @@ import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInstance> {
 
@@ -596,13 +596,13 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         else if (attachment instanceof ItemMagazine && !player.isCreative()) {
             ItemStack attachmentItemStack = ((ItemMagazine) attachment).create(originalAmmo);
             if (!player.inventory.addItemStackToInventory(attachmentItemStack))
-                log.error("Cannot add attachment " + attachment + " for " + instance + "back to the inventory");
+                LOG.error("Cannot add attachment " + attachment + " for " + instance + "back to the inventory");
             p.setStatus(Status.GRANTED);
         }
     }
     
     private void processLoadPermit(LoadPermit p, PlayerWeaponInstance weaponInstance) {
-        log.debug("Processing load permit on server for {}", weaponInstance);
+        LOG.debug("Processing load permit on server for {}", weaponInstance);
 
         ItemStack weaponItemStack = weaponInstance.getItemStack();
 
@@ -646,7 +646,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 if (magazineItemStack != null) {
                     ammo = Tags.getAmmo(magazineItemStack);
                     Tags.setAmmo(weaponItemStack, ammo);
-                    log.debug("Setting server side ammo for {} to {}", weaponInstance, ammo);
+                    LOG.debug("Setting server side ammo for {} to {}", weaponInstance, ammo);
                     WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineItemStack.getItem(), weaponInstance);
                     player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0f, 1.0F);
                 } else
@@ -668,7 +668,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
             weaponInstance.setAmmo(weapon.builder.ammoCapacity);
             player.world.playSound(player instanceof EntityPlayer ? (EntityPlayer) player : null, player.posX, player.posY, player.posZ, weapon.getReloadSound(), player.getSoundCategory(), 1.0F, 1.0F);
         } else {
-            log.debug("No suitable ammo found for {}. Permit denied.", weaponInstance);
+            LOG.debug("No suitable ammo found for {}. Permit denied.", weaponInstance);
             //Tags.setAmmo(weaponItemStack, 0);
             //weaponInstance.setAmmo(0);
             status = Status.DENIED;
@@ -686,7 +686,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
     }
 
     private void processUnloadPermit(UnloadPermit p, PlayerWeaponInstance weaponInstance) {
-        log.debug("Processing unload permit on server for {}", weaponInstance);
+        LOG.debug("Processing unload permit on server for {}", weaponInstance);
 
         if (!(weaponInstance.getPlayer() instanceof EntityPlayer))
             return;
@@ -708,7 +708,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
                 previousMagazine = attachment;
                 ItemStack attachmentItemStack = ((ItemMagazine) attachment).create(weaponInstance.getAmmo());
                 if (!player.inventory.addItemStackToInventory(attachmentItemStack))
-                    log.error("Cannot add attachment " + attachment + " for " + weaponInstance + "back to the inventory");
+                    LOG.error("Cannot add attachment " + attachment + " for " + weaponInstance + "back to the inventory");
             }
 
             Tags.setAmmo(weaponItemStack, 0);
@@ -726,7 +726,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
     private void completeClientLoad(PlayerWeaponInstance weaponInstance, LoadPermit permit) {
         weaponInstance.setLoadAfterUnloadEnabled(false);
         if (permit == null) {
-            log.error("Permit is null, something went wrong");
+            LOG.error("Permit is null, something went wrong");
             return;
         }
 

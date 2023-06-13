@@ -10,7 +10,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
@@ -22,7 +21,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 import java.util.List;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class WeaponSpawnEntity extends EntityProjectile {
 
@@ -150,7 +149,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
             position.entityHit.hurtResistantTime = 0;
             position.entityHit.prevRotationYaw -= 0.3D;
 
-            log.debug("Hit entity {}", position.entityHit);
+            LOG.debug("Hit entity {}", position.entityHit);
 
             NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(position.entityHit.dimension, this.posX, this.posY, this.posZ, 100);
 
@@ -160,7 +159,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
             
             if(bleedingCoefficient > 0.0f) {
                 int count = (int)(getParticleCount (damage) * bleedingCoefficient);
-                log.debug("Generating {} particle(s) per damage {}", count, damage);
+                LOG.debug("Generating {} particle(s) per damage {}", count, damage);
                 /*
                 weapon.getModContext().getChannel().sendToAllAround(new SpawnParticleMessage(
                         SpawnParticleMessage.ParticleType.BLOOD,

@@ -15,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 
 public class TireTracks extends ParticleFootStep {
 
-	private static final ResourceLocation NORMAL_TRACK = new ResourceLocation(ModReference.id + ":textures/particle/tiretracknormal.png");
+	private static final ResourceLocation NORMAL_TRACK = new ResourceLocation(ModReference.ID + ":textures/particle/tiretracknormal.png");
 	public int footstepAge;
     public int footstepMaxAge;
     public TextureManager currentFootStepsIn;

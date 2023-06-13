@@ -61,7 +61,7 @@ public class CustomGui extends Gui {
 	
 	public static VehicleCustomGUI vehicleGUIOverlay = new VehicleCustomGUI();
 	
-	public static final ResourceLocation AMMO_COUNTER_TEXTURES = new ResourceLocation(ModReference.id + ":textures/hud/ammoiconsheet.png");
+	public static final ResourceLocation AMMO_COUNTER_TEXTURES = new ResourceLocation(ModReference.ID + ":textures/hud/ammoiconsheet.png");
 
 	private static FontRenderer FONT_RENDERER = null;
 	

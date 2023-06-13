@@ -7,7 +7,7 @@ import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import net.minecraft.client.multiplayer.WorldClient;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class PerspectiveManager {
 
@@ -55,7 +55,7 @@ public class PerspectiveManager {
             result = perspectiveClass.newInstance();
             result.activate(clientModContext, this);
         } catch (InstantiationException | IllegalAccessException e) {
-            log.error("Failed to create view of {} - {}", perspectiveClass, e, e);
+            LOG.error("Failed to create view of {} - {}", perspectiveClass, e, e);
         }
         return result;
     }

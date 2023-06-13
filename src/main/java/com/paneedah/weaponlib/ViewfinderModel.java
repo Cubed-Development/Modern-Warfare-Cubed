@@ -20,7 +20,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class ViewfinderModel extends ModelBase {
 	
-	private static final ResourceLocation SCOPE_GRIME_TEXTURE = new ResourceLocation(ModReference.id + ":textures/hud/scopedirt.png");
+	private static final ResourceLocation SCOPE_GRIME_TEXTURE = new ResourceLocation(ModReference.ID + ":textures/hud/scopedirt.png");
 
 	private ModelRenderer surfaceRenderer;
 	private FlatSurfaceModelBox box;

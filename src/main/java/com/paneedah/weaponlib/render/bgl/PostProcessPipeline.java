@@ -46,10 +46,10 @@ public class PostProcessPipeline {
 	private static int height = -1;
 
 	// Textures
-	public static final ResourceLocation HEAT_DISTORTION = new ResourceLocation(ModReference.id + "textures/maps/heatdistortion.png");
-	public static final ResourceLocation CLOUD_SPRITE = new ResourceLocation(ModReference.id + "textures/maps/cloudsprite.png");
-	public static final ResourceLocation RAIN_DROP_TEXTURE = new ResourceLocation(ModReference.id + "textures/maps/raindrop.png");
-	public static final ResourceLocation SNOW_FLAKE_TEXTURE = new ResourceLocation(ModReference.id + "textures/maps/snowflake.png");
+	public static final ResourceLocation HEAT_DISTORTION = new ResourceLocation(ModReference.ID + "textures/maps/heatdistortion.png");
+	public static final ResourceLocation CLOUD_SPRITE = new ResourceLocation(ModReference.ID + "textures/maps/cloudsprite.png");
+	public static final ResourceLocation RAIN_DROP_TEXTURE = new ResourceLocation(ModReference.ID + "textures/maps/raindrop.png");
+	public static final ResourceLocation SNOW_FLAKE_TEXTURE = new ResourceLocation(ModReference.ID + "textures/maps/snowflake.png");
 
 	// Float buffers
 	private static final FloatBuffer projectionBuffer = BufferUtils.createFloatBuffer(16);
