@@ -20,8 +20,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - penetratesGlass
   - explosionBreak
   - penetrableBlocks
-  - knockbackOnHit
-- The kill caused by the explosion will display the killer
+  - knockbackOnHi
 - Durability to all vests as a temporary measure to resolve vest-related issues
 - Smelting of sulfur into gunpowder
 - .50 AE in the Ammo Press
@@ -66,6 +65,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Changed categories of some weapons
 - Magazines are created empty
 - The position of the bullet when shooting is now centered when aiming
+- Explosive projectiles are now linked to the player who launched them meaning that the kill message will say who killed whom
 
 ### Fixed
 
