@@ -43,10 +43,9 @@ tasks.injectTags.configure {
     outputClassName.set("com.paneedah.${project.id}.Tags")
 }
 
-// Create configuration to include embedded dependencies into the jar
 configurations {
-    implementation
-    compile.extendsFrom(embed)
+    // Define a configuration to download and attach sources
+    sources
 }
 
 repositories {
@@ -56,21 +55,18 @@ repositories {
     }
 
     ivy {
-        name 'Red Studio Ragnarök GitHub Releases'
-
+        name 'Red Studio GitHub Releases'
         url 'https://github.com/'
 
-        patternLayout { artifact '[organisation]/[module]/releases/download/[revision]/[module]-[revision].[ext]' }
+        patternLayout { artifact '[organisation]/[module]/releases/download/[revision]/[module]-[revision](-[classifier]).[ext]' }
 
         metadataSources { artifact() }
     }
 }
 
 dependencies {
-    implementation 'Red-Studio-Ragnarok:Red-Core:0.2-Dev-2@jar'
-
-    implementation 'net.jafama:jafama:2.+'
-    embed 'net.jafama:jafama:2.+'
+    implementation 'Red-Studio-Ragnarok:Red-Core:0.2'
+    sources 'Red-Studio-Ragnarok:Red-Core:0.2:sources@jar'
 
     String mixin = modUtils.enableMixins('zone.rong:mixinbooter:8.2', "mixins.${project.id}.refmap.json")
     api (mixin) { transitive = false }
@@ -116,9 +112,6 @@ jar {
             'FMLCorePluginContainsFMLMod': 'true',
             'ForceLoadAsMod': 'true'
     ])
-
-    // Add all embedded dependencies into the jar
-    from(provider{ configurations.embed.collect {it.isDirectory() ? it : zipTree(it)} })
 }
 
 
