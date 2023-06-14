@@ -1030,14 +1030,12 @@ tile.mwc_spookyghost2.name=Spooky Ghost 2
 tile.mwc_spookyghost3.name=Spooky Ghost 3
 tile.mwc_swat_truck.name=SWAT Truck
 
-itemGroup.guns_tab=MWC Resources
 itemGroup.AssaultRifles_tab=MWC Guns
 itemGroup.props_tab=MWC Props (Creative Use Only)
 itemGroup.AmmoTab=MWC Ammunition
 itemGroup.AttachmentsTab=MWC Attachments
 itemGroup.ArmorTab=MWC Armor
 itemGroup.GrenadesTab=MWC Grenades
-itemGroup.SpartanTab=MWC Spartan Armors Tab
 itemGroup.GadgetsTab=MWC Gadgets
 itemGroup.BlocksTab=MWC Blocks & Ingots
 
