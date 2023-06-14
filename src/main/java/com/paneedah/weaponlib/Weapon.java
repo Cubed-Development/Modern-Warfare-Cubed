@@ -865,10 +865,10 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                     // System.out.println(weapon.getName() + " | " + spawnEntityRocketParticles);
                      
                     WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, player.world, player, spawnEntitySpeed,
-                            spawnEntityGravityVelocity, inaccuracy, (float) damage, spawnEntityExplosionRadius, 
+                            spawnEntityGravityVelocity, inaccuracy, (float) damage, spawnEntityExplosionRadius,
                             isDestroyingBlocks, spawnEntityRocketParticles, spawnEntityParticleAgeCoefficient, spawnEntitySmokeParticleAgeCoefficient,
                             spawnEntityExplosionParticleScaleCoefficient, spawnEntitySmokeParticleScaleCoefficient,
-                            explosionParticleTextureId, 
+                            explosionParticleTextureId,
                             smokeParticleTextureId);
                     bullet.setPositionAndDirection(true);
                     return bullet;

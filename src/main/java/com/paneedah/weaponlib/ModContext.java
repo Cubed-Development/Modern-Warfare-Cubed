@@ -110,9 +110,6 @@ public interface ModContext {
 
 	public MaterialImpactSound getMaterialImpactSound(IBlockState iBlockState, WeaponSpawnEntity entity);
 
-	public CommonModContext setMaterialsImpactSound(String sound, Item bulletItem, float volume,
-			Material... materials);
-
 	public CommonModContext setMaterialImpactSound(String sound, float volume, Material material);
 
 	public CommonModContext setMaterialsImpactSound(String sound, float volume, Material... materials);

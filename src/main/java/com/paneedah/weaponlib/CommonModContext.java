@@ -86,18 +86,15 @@ public class CommonModContext implements ModContext {
 
     static class BulletImpactSoundKey {
         private Material material;
-        private Item bulletItem;
-        
-        public BulletImpactSoundKey(Material material, Item bulletItem) {
+
+        public BulletImpactSoundKey(Material material) {
             this.material = material;
-            this.bulletItem = bulletItem;
         }
         
         @Override
         public int hashCode() {
             final int prime = 31;
             int result = 1;
-            result = prime * result + ((bulletItem == null) ? 0 : bulletItem.hashCode());
             result = prime * result + ((material == null) ? 0 : material.hashCode());
             return result;
         }
@@ -110,9 +107,6 @@ public class CommonModContext implements ModContext {
                 return false;
 
             BulletImpactSoundKey other = (BulletImpactSoundKey) obj;
-
-            if (bulletItem != other.bulletItem)
-                return false;
 
             if (material == null)
                 return other.material == null;
@@ -626,17 +620,8 @@ public class CommonModContext implements ModContext {
     public void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider) {}
 
     @Override
-    public CommonModContext setMaterialsImpactSound(String sound, Item bulletItem, float volume, Material...materials) {
-        for(Material material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, bulletItem), key -> new MaterialImpactSound(volume));
-            materialImpactSound.addSound(registerSound(sound.toLowerCase()));
-        }
-        return this;
-    }
-    
-    @Override
     public CommonModContext setMaterialImpactSound(String sound, float volume, Material material) {
-        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
+        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material), key -> new MaterialImpactSound(volume));
         materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         return this;
     }
@@ -644,7 +629,7 @@ public class CommonModContext implements ModContext {
     @Override
     public CommonModContext setMaterialsImpactSound(String sound, float volume, Material...materials) {
         for(Material material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
+            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material), key -> new MaterialImpactSound(volume));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
         return this;
@@ -653,7 +638,7 @@ public class CommonModContext implements ModContext {
     @Override
     public CommonModContext setMaterialsImpactSound(String sound, Material...materials) {
         for(Material material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(1f));
+            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material), key -> new MaterialImpactSound(1f));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
         return this;
@@ -661,12 +646,7 @@ public class CommonModContext implements ModContext {
 
     @Override
     public MaterialImpactSound getMaterialImpactSound(IBlockState iBlockState, WeaponSpawnEntity entity) {
-        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.get(new BulletImpactSoundKey(iBlockState.getMaterial(), entity.getSpawnedItem()));
-
-        if(materialImpactSound == null)
-            bulletImpactSoundEntries.get(new BulletImpactSoundKey(iBlockState.getMaterial(), null));
-
-        return materialImpactSound;
+        return bulletImpactSoundEntries.get(new BulletImpactSoundKey(iBlockState.getMaterial()));
     }
 
 
