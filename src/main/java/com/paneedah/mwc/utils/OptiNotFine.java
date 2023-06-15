@@ -2,33 +2,46 @@ package com.paneedah.mwc.utils;
 
 import java.lang.reflect.Field;
 
+import static com.paneedah.mwc.utils.ModReference.RED_LOG;
+
 /**
- * This class provides methods to communicate with OptiNotFine (Can you see that I hate Optifine?)
+ * This class provides methods to communicate with OptiNotFine (Can you see that I hate OptiFine?)
  *
  * @author Desoroxxx
  */
 public class OptiNotFine {
 
+    private static boolean isOptiFineInstalled = true;
+
+    private static Field shaderPackLoadedField = null;
+
     /**
-     * Checks if shaders are enabled in OptiNotFine.
+     * Checks if the shaders are enabled in the OptiNotFine.
      * <p>
-     * The method attempts to load the "Shaders" class from the OptiFine package, and access the "shaderPackLoaded" field.
-     * If the class is not found, it indicates that OptiFine is not installed, hence it returns false.
-     * In case of successful class and field loading, the value of the "shaderPackLoaded" field is returned which should represent whether shaders are currently enabled.
+     * This method works by attempting to load the "Shaders" class from the OptiFine package, and then attempting to access the "shaderPackLoaded" field.
+     * <p>
+     * If the method is unable to find the "Shaders" class, this indicates that OptiFine is not installed, and the method will return false.
+     * <p>
+     * However, if the method is able to successfully load the class and the field, the method will return the value of the "shaderPackLoaded" field, which should indicate whether or not the shaders are currently enabled.
+     *
      *
      * @return True if the shaders are enabled, false if they are disabled or if OptiNotFine is not installed.
      */
     public static boolean shadersEnabled() {
+        if (!isOptiFineInstalled)
+            return false;
+
         try {
-            Class<?> shadersClass = Class.forName("net.optifine.shaders.Shaders");
-            Field shaderPackLoadedField = shadersClass.getDeclaredField("shaderPackLoaded");
-            shaderPackLoadedField.setAccessible(true);
+            if (shaderPackLoadedField == null) {
+                shaderPackLoadedField = Class.forName("net.optifine.shaders.Shaders").getDeclaredField("shaderPackLoaded");
+                shaderPackLoadedField.setAccessible(true);
+            }
 
             return (boolean) shaderPackLoadedField.get(null);
         } catch (ClassNotFoundException ignored) {
+            isOptiFineInstalled = false;
         } catch (IllegalAccessException | NoSuchFieldException exception) {
-            // Todo: When I finished the log Utils for Fancier Block Particles I should replace the stacktrace below with a better log error. (Desoroxxx on the 2023-05-26)
-            exception.printStackTrace();
+            RED_LOG.printFramedError("OptiNotFine", "Could not get OptiFine shaders status.", "If shaders are enabled things might break", exception.getMessage());
         }
 
         return false;
