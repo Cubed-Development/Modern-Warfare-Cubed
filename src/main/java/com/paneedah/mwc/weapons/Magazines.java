@@ -760,7 +760,7 @@ public class Magazines {
         		.withRotationPoint(-0.16000000476837162, -0.16000000476837162, -1.5200000452995304)
 
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
-                .withModel(new com.paneedah.mwc.models.Stanag60(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Stanag60(), "Stanag60.png")
                 .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver, 
                         Attachments.AUGDefaultKit, Attachments.Vector556Handguard,
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
@@ -1017,7 +1017,7 @@ public class Magazines {
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.8800000560283665)
 
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
-                .withModel(new com.paneedah.mwc.models.Mag75rnd(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Mag75rnd(), "Mag75rnd.png")
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1182,7 +1182,7 @@ public class Magazines {
         		.withRotationPoint(-0.12000000357627871, 0.28000000834465033, -1.8800000560283665)
 
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
-                .withModel(new com.paneedah.mwc.models.AKDrum100(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.AKDrum100(), "AKDrum100.png")
 
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
