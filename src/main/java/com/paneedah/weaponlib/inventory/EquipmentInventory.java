@@ -126,8 +126,6 @@ public class EquipmentInventory extends Container {
                     return ItemArmor.EMPTY_SLOT_NAMES[entityequipmentslot.getIndex()];
                 }
             });
-            //slots.add(new ArmorSlot(player, inventoryPlayer, inventoryPlayer.getSizeInventory() - 1 - i - 1,
-            //        8, 8 + i * 18, EntityEquipmentSlot.valueOf(i)));
         }
         return slots;
     }

@@ -91,13 +91,6 @@ public class CarryableInventory extends Container {
     }
 
     protected List<Slot> createArmorSlots(EntityPlayer player, InventoryPlayer inventoryPlayer) {
-        /*
-    	List<Slot> slots = new ArrayList<>();
-        int i;
-        for (i = 0; i < 4; ++i) {
-            slots.add(new ArmorSlot(player, inventoryPlayer, inventoryPlayer.getSizeInventory() - 1 - i,
-                    8, 8 + i * 18, EntityEquipmentSlot.valueOf(i)));
-        }*/
     	List<Slot> slots = new ArrayList<>();
         int i;
         for (i = 0; i < 4; ++i) {
@@ -136,8 +129,6 @@ public class CarryableInventory extends Container {
                     return ItemArmor.EMPTY_SLOT_NAMES[entityequipmentslot.getIndex()];
                 }
             });
-            //slots.add(new ArmorSlot(player, inventoryPlayer, inventoryPlayer.getSizeInventory() - 1 - i - 1,
-            //        8, 8 + i * 18, EntityEquipmentSlot.valueOf(i)));
         }
         return slots;
     }
