@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.ItemStorage;
+import com.paneedah.weaponlib.ItemCarryableInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,12 +13,12 @@ public class StorageSlot extends Slot {
 
     public StorageSlot(StorageInventory inv, int index, int xPos, int yPos) {
         super(inv, index, xPos, yPos);
-        this.validItemPredicate = inv.getItemStorage().getValidItemPredicate();
+        this.validItemPredicate = inv.getItemCarryableInventory().getValidItemPredicate();
     }
 
     @Override
     public boolean isItemValid(ItemStack itemstack) {
-        return !(itemstack.getItem() instanceof ItemStorage) && validItemPredicate.test(itemstack.getItem());
+        return !(itemstack.getItem() instanceof ItemCarryableInventory) && validItemPredicate.test(itemstack.getItem());
     }
 
     @Override

@@ -13,7 +13,7 @@ public class GuiCarryableInventory extends GuiContainer {
 
         final StorageInventory inventory = carryableInventory.getStorageInventory();
 
-        background = inventory.getItemStorage().getGuiTextureLocation();
+        background = inventory.getItemCarryableInventory().getGuiTextureLocation();
 
         final int columns = inventory.getSizeInventory() / 4;
 

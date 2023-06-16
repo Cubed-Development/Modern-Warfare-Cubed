@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.ItemStorage;
+import com.paneedah.weaponlib.ItemCarryableInventory;
 import com.paneedah.weaponlib.ItemVest;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -40,7 +40,7 @@ public class CustomSlot extends Slot {
     @Override
     @SideOnly(Side.CLIENT)
     public String getSlotTexture() {
-        if (itemClass.equals(ItemStorage.class))
+        if (itemClass.equals(ItemCarryableInventory.class))
             return emptyBackpackSlotTexture.toString();
         else if (itemClass.equals(ItemVest.class))
             return emptyVestSlotTexture.toString();

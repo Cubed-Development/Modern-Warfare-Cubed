@@ -189,15 +189,15 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
        
         public ItemVest build(ModContext modContext) {
             if(name == null) {
-                throw new IllegalStateException("ItemStorage name not set");
+                throw new IllegalStateException("ItemCarryableInventory name not set");
             }
             
 //            if(size <= 0) {
-//                throw new IllegalStateException("ItemStorage size must be greater than 0");
+//                throw new IllegalStateException("ItemCarryableInventory size must be greater than 0");
 //            }
             
 //            if(guiTextureName == null) {
-//                throw new IllegalStateException("ItemStorage gui texture not set");
+//                throw new IllegalStateException("ItemCarryableInventory gui texture not set");
 //            }
 //            
 //            if(!guiTextureName.startsWith("textures/gui/")) {

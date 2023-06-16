@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.inventory;
 
 import com.paneedah.weaponlib.Contextual;
-import com.paneedah.weaponlib.ItemStorage;
+import com.paneedah.weaponlib.ItemCarryableInventory;
 import com.paneedah.weaponlib.ModContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -81,7 +81,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
         this.inventory[slot] = itemstack != null ? itemstack : new ItemStack(Items.AIR);
 
         if (itemstack != null && itemstack.getCount() > this.getInventoryStackLimit()) {
-            if(itemstack.getItem() instanceof ItemStorage) {
+            if(itemstack.getItem() instanceof ItemCarryableInventory) {
 //                System.out.println("Setting inventory slot " + slot + " with tag compound "
 //                        + itemstack.getTagCompound());
             }

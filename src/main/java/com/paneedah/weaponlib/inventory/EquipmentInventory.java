@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.ItemStorage;
+import com.paneedah.weaponlib.ItemCarryableInventory;
 import com.paneedah.weaponlib.ItemVest;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -66,7 +66,7 @@ public class EquipmentInventory extends Container {
     }
 
     protected List<Slot> createCustomSlots(CustomPlayerInventory inventoryCustom) {
-        return Arrays.asList(new CustomSlot(ItemStorage.class, inventoryCustom, 0, 80, 8), new CustomSlot(ItemVest.class, inventoryCustom, 1, 80, 26));
+        return Arrays.asList(new CustomSlot(ItemCarryableInventory.class, inventoryCustom, 0, 80, 8), new CustomSlot(ItemVest.class, inventoryCustom, 1, 80, 26));
     }
 
     protected List<Slot> createHotbarSlots(InventoryPlayer inventoryPlayer) {

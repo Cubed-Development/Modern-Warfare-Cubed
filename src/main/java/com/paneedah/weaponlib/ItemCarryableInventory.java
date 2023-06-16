@@ -14,9 +14,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -29,7 +26,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class ItemStorage extends Item implements ModelSource, IModernCrafting {
+public class ItemCarryableInventory extends Item implements ModelSource, IModernCrafting {
     
     public static class Builder {
         
@@ -214,18 +211,18 @@ public class ItemStorage extends Item implements ModelSource, IModernCrafting {
             }
         }
        
-        public ItemStorage build(ModContext modContext) {
+        public ItemCarryableInventory build(ModContext modContext) {
             if(name == null) {
-                throw new IllegalStateException("ItemStorage name not set");
+                throw new IllegalStateException("ItemCarryableInventory name not set");
             }
             
             if(size <= 0) {
-                throw new IllegalStateException("ItemStorage size must be greater than 0");
+                throw new IllegalStateException("ItemCarryableInventory size must be greater than 0");
             }
 
             ResourceLocation guiTextureLocation = new ResourceLocation(ModReference.id, "textures/gui/inventory/carryable/" + size + "slots.png");
             
-            ItemStorage item = new ItemStorage(modContext, size, validItemPredicate, guiTextureLocation, this.guiTextureWidth);
+            ItemCarryableInventory item = new ItemCarryableInventory(modContext, size, validItemPredicate, guiTextureLocation, this.guiTextureWidth);
             
             ServerGearModelHookRegistry.modelArray.add(this.modelFileString);
             
@@ -304,10 +301,10 @@ public class ItemStorage extends Item implements ModelSource, IModernCrafting {
     	return this.properTextureName;
     }
     
-    public ItemStorage(ModContext context, int size,
-            Predicate<Item> validItemPredicate,
-            ResourceLocation guiTextureLocation, 
-            int guiTextureWidth) {
+    public ItemCarryableInventory(ModContext context, int size,
+                                  Predicate<Item> validItemPredicate,
+                                  ResourceLocation guiTextureLocation,
+                                  int guiTextureWidth) {
         this.validItemPredicate = validItemPredicate;
         this.size = size;
         this.guiTextureLocation = guiTextureLocation;

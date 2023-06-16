@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.ItemStorage;
+import com.paneedah.weaponlib.ItemCarryableInventory;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
@@ -34,8 +34,8 @@ public class StorageInventory implements IInventory {
 
         int size = 0;
         Item item = storageItemStack.getItem();
-        if(item instanceof ItemStorage) {
-            size = ((ItemStorage)item).getSize();
+        if(item instanceof ItemCarryableInventory) {
+            size = ((ItemCarryableInventory)item).getSize();
         }
         this.inventory = new ItemStack[size];
         for(int i = 0; i < this.inventory.length; i++) {
@@ -51,8 +51,8 @@ public class StorageInventory implements IInventory {
         deserialize(storageItemStack.getTagCompound());
     }
 
-    public ItemStorage getItemStorage() {
-        return (ItemStorage) storageItemStack.getItem();
+    public ItemCarryableInventory getItemCarryableInventory() {
+        return (ItemCarryableInventory) storageItemStack.getItem();
     }
 
     @Override
