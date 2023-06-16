@@ -72,6 +72,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Fixed
 
+- Fixed Minecraft armor making you invulnerable to bullet (less realistic but they aren't anyway lol)
 - Fixed issue with config for bullets breaking glass being ignored
 - Fixed bullet's being able to penetrate:
   - Glass
