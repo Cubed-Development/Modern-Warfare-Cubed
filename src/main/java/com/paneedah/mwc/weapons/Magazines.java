@@ -4,7 +4,6 @@ import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.UMP45mag;
 import com.paneedah.mwc.models.UMP9Mag;
-import com.paneedah.mwc.wearables.Bullets;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import org.lwjgl.opengl.GL11;

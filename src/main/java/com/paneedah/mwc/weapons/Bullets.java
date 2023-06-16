@@ -1,4 +1,4 @@
-package com.paneedah.mwc.wearables;
+package com.paneedah.mwc.weapons;
 
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.mwc.init.MWCItems;

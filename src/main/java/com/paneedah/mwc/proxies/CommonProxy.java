@@ -16,7 +16,7 @@ import com.paneedah.mwc.weapons.Guns;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.mwc.wearables.Armors;
 import com.paneedah.mwc.wearables.Backpacks;
-import com.paneedah.mwc.wearables.Bullets;
+import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.mwc.wearables.Vests;
 import com.paneedah.weaponlib.UniversalSoundLookup;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
