@@ -68,7 +68,7 @@ dependencies {
     implementation 'Red-Studio-Ragnarok:Red-Core:0.2'
     sources 'Red-Studio-Ragnarok:Red-Core:0.2:sources@jar'
 
-    String mixin = modUtils.enableMixins('zone.rong:mixinbooter:8.2', "mixins.${project.id}.refmap.json")
+    String mixin = modUtils.enableMixins('zone.rong:mixinbooter:8.3', "mixins.${project.id}.refmap.json")
     api (mixin) { transitive = false }
     annotationProcessor 'org.ow2.asm:asm-debug-all:5.2'
     annotationProcessor 'com.google.guava:guava:24.1.1-jre'
