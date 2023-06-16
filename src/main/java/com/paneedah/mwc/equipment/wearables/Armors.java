@@ -1,4 +1,4 @@
-package com.paneedah.mwc.wearables;
+package com.paneedah.mwc.equipment.wearables;
 
 import com.paneedah.mwc.ModernWarfareMod;
 import com.paneedah.weaponlib.CustomArmor;
