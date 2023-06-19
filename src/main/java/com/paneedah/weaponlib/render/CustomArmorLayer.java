@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.render;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.ItemCarryableInventory;
+import com.paneedah.mwc.items.equipment.ItemCarryableStorage;
 import com.paneedah.weaponlib.ItemVest;
 import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
 import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
@@ -58,7 +58,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
             	/*
         		ItemStack backpackStack = capability.getStackInSlot(0); 
             	
-            	ItemCarryableInventory storage = (ItemCarryableInventory) backpackStack.getItem();
+            	ItemCarryableStorage storage = (ItemCarryableStorage) backpackStack.getItem();
             	ModelBase model = (ModelBase) storage.getTexturedModels().get(0).getU();
     			
             	ResourceLocation resource = new ResourceLocation(ModReference.id + ":textures/models/" + storage.getTexturedModels().get(0).getV());
@@ -68,7 +68,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
             	*/
         		ItemStack backpackStack = capability.getStackInSlot(0); 
 
-        		ItemCarryableInventory storage = (ItemCarryableInventory) backpackStack.getItem();
+        		ItemCarryableStorage storage = (ItemCarryableStorage) backpackStack.getItem();
             	
             	ModelBiped biped = GearModelRepository.pull(storage.getModelFileString());
             	ResourceLocation resource = new ResourceLocation(ModReference.id + ":textures/models/" + storage.getProperTextureName());

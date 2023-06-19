@@ -2,6 +2,7 @@ package com.paneedah.mwc.proxies;
 
 import com.paneedah.mwc.*;
 import com.paneedah.mwc.entities.Entities;
+import com.paneedah.mwc.equipment.Belts;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.items.melee.BaseballBatFactory;
 import com.paneedah.mwc.items.melee.BaseballBatNailsFactory;
@@ -14,10 +15,10 @@ import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Guns;
 import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.mwc.equipment.wearables.Armors;
-import com.paneedah.mwc.equipment.wearables.Backpacks;
+import com.paneedah.mwc.equipment.Armors;
+import com.paneedah.mwc.equipment.Backpacks;
 import com.paneedah.mwc.weapons.Bullets;
-import com.paneedah.mwc.equipment.wearables.Vests;
+import com.paneedah.mwc.equipment.Vests;
 import com.paneedah.weaponlib.UniversalSoundLookup;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
@@ -95,6 +96,7 @@ public class CommonProxy {
         // Special object initialization
         SpecialAttachments.init(mod, ModernWarfareMod.MOD_CONTEXT);
         Backpacks.init();
+        Belts.init();
         Vests.init(mod);
         Armors.init(mod, ModernWarfareMod.MOD_CONTEXT);
         Attachments.init(mod);

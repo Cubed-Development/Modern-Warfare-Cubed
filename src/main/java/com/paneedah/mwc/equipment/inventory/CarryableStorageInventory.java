@@ -1,10 +1,9 @@
-package com.paneedah.weaponlib.inventory;
+package com.paneedah.mwc.equipment.inventory;
 
-import com.paneedah.weaponlib.ItemCarryableInventory;
+import com.paneedah.mwc.items.equipment.ItemCarryableStorage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -14,45 +13,42 @@ import net.minecraftforge.common.util.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StorageInventory implements IInventory {
+public class CarryableStorageInventory implements IInventory {
     
     private static final String TAG_SLOT_INDEX = "Slot";
     private static final String TAG_SIZE = "size";
 
-    private String name = "Inventory Item";
+    private final String name;
 
-    private final ItemStack storageItemStack;
+    private final ItemStack owner;
 
     private ItemStack[] inventory;
 
     /**
-     * @param itemstack
-     *            - the ItemStack to which this inventory belongs
+     * @param owner The ItemStack to which this inventory belongs
      */
-    public StorageInventory(ItemStack storageItemStack) {
-        this.storageItemStack = storageItemStack;
+    public CarryableStorageInventory(ItemStack owner) {
+        this.owner = owner;
+        this.name = null;
 
-        int size = 0;
-        Item item = storageItemStack.getItem();
-        if(item instanceof ItemCarryableInventory) {
-            size = ((ItemCarryableInventory)item).getSize();
-        }
-        this.inventory = new ItemStack[size];
-        for(int i = 0; i < this.inventory.length; i++) {
-            this.inventory[i] = new ItemStack(Items.AIR);
-        }
+        final int size = ((ItemCarryableStorage)owner.getItem()).getSize();
+
+        inventory = new ItemStack[size];
+
+        for(int i = 0; i < inventory.length; i++)
+            inventory[i] = new ItemStack(Items.AIR);
         
-        if (!storageItemStack.hasTagCompound()) {
+        if (!owner.hasTagCompound()) {
             NBTTagCompound storageCompound = new NBTTagCompound();
             storageCompound.setInteger(TAG_SIZE, size);
-            storageItemStack.setTagCompound(storageCompound);
+            owner.setTagCompound(storageCompound);
         }
         
-        deserialize(storageItemStack.getTagCompound());
+        deserialize(owner.getTagCompound());
     }
 
-    public ItemCarryableInventory getItemCarryableInventory() {
-        return (ItemCarryableInventory) storageItemStack.getItem();
+    public ItemCarryableStorage getOwner() {
+        return (ItemCarryableStorage) owner.getItem();
     }
 
     @Override
@@ -68,40 +64,34 @@ public class StorageInventory implements IInventory {
     @Override
     public ItemStack decrStackSize(int slot, int amount) {
         ItemStack stack = getStackInSlot(slot);
-        if (stack != null) {
-            if (stack.getCount() > amount) {
-                stack = stack.splitStack(amount);
-                // Don't forget this line or your inventory will not be saved!
-                markDirty();
-            } else {
-                // this method also calls onInventoryChanged, so we don't need
-                // to call it again
-                setInventorySlotContents(slot, new ItemStack(Items.AIR));
-            }
-        }
+
+        if (stack.getCount() > amount) {
+            stack = stack.splitStack(amount);
+            markDirty(); // Don't forget this line or your inventory will not be saved!
+        } else
+            setInventorySlotContents(slot, new ItemStack(Items.AIR)); // This method also calls markDirty, so we don't need to call it again
+
         return stack;
     }
 
     @Override
     public void setInventorySlotContents(int slot, ItemStack stack) {
-        this.inventory[slot] = stack != null ? stack : new ItemStack(Items.AIR);
+        inventory[slot] = stack;
 
-        if (stack != null && stack.getCount() > getInventoryStackLimit()) {
+        if (stack.getCount() > getInventoryStackLimit())
             stack.setCount(getInventoryStackLimit());
-        }
 
-        // Don't forget this line or your inventory will not be saved!
-        markDirty();
+        markDirty(); // Don't forget this line or your inventory will not be saved!
     }
     
     @Override
     public String getName() {
-        return name;
+        return hasCustomName() ? name : "Inventory Item";
     }
 
     @Override
     public boolean hasCustomName() {
-        return name.length() > 0;
+        return name != null;
     }
 
     @Override
@@ -110,29 +100,26 @@ public class StorageInventory implements IInventory {
     }
 
     /**
-     * This is the method that will handle saving the inventory contents, as it
-     * is called (or should be called!) anytime the inventory changes. Perfect.
-     * Much better than using onUpdate in an Item, as this will also let you
-     * change things in your inventory without ever opening a Gui, if you want.
+     * This is the method that will handle saving the inventory contents, as it is called (or should be called!) anytime the inventory changes.
+     * Perfect.
+     * Much better than using onUpdate in an Item, as this will also let you change things in your inventory without ever opening a Gui if you want.
      */
     @Override
     public void markDirty() {
-        for (int i = 0; i < getSizeInventory(); ++i) {
-            if (getStackInSlot(i) != null && getStackInSlot(i).getCount() == 0) {
+        for (int i = 0; i < getSizeInventory(); ++i)
+            if (getStackInSlot(i).getCount() == 0)
                 inventory[i] = new ItemStack(Items.AIR);
-            }
-        }
 
-        serialize(storageItemStack.getTagCompound());
+        serialize(owner.getTagCompound());
     }
 
     @Override
-    public boolean isUsableByPlayer(EntityPlayer entityplayer) {
+    public boolean isUsableByPlayer(EntityPlayer entityPlayer) {
         return true;
     }
 
     @Override
-    public boolean isItemValidForSlot(int slot, ItemStack itemstack) {
+    public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
         return true;
     }
 

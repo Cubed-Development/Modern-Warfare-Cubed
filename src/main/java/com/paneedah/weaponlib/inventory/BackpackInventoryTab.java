@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.ItemCarryableInventory;
+import com.paneedah.mwc.items.equipment.ItemCarryableStorage;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
 import net.minecraft.item.ItemStack;
@@ -24,7 +24,7 @@ public class BackpackInventoryTab extends InventoryTab {
     @Override
     public boolean shouldAddToList() {
         final ItemStack stackInSlot = getBackpackStackInSlot();
-        return stackInSlot != null && stackInSlot.getItem() instanceof ItemCarryableInventory;
+        return stackInSlot != null && stackInSlot.getItem() instanceof ItemCarryableStorage;
     }
     
     @Override

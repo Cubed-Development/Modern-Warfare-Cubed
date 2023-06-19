@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.inventory;
 
+import com.paneedah.mwc.equipment.inventory.CarryableStorageContainer;
+import com.paneedah.mwc.equipment.inventory.CarryableStorageInventory;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.util.ResourceLocation;
@@ -8,12 +10,12 @@ public class GuiCarryableInventory extends GuiContainer {
 
     private final ResourceLocation background;
 
-    public GuiCarryableInventory(CarryableInventory carryableInventory) {
-        super(carryableInventory);
+    public GuiCarryableInventory(CarryableStorageContainer carryableStorageContainer) {
+        super(carryableStorageContainer);
 
-        final StorageInventory inventory = carryableInventory.getStorageInventory();
+        final CarryableStorageInventory inventory = carryableStorageContainer.getStorageInventory();
 
-        background = inventory.getItemCarryableInventory().getGuiTextureLocation();
+        background = inventory.getOwner().getGuiTextureLocation();
 
         final int columns = inventory.getSizeInventory() / 4;
 

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.items.equipment.ItemCarryableStorage;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
@@ -272,7 +273,7 @@ public class ServerEventHandler {
         for(Iterator<EntityItem> it = playerDropsEvent.getDrops().iterator(); it.hasNext();) {
             EntityItem entityItem = it.next();
             // TODO: check if this item is item storage and prevent dropping if necessary, add it back to player inventory
-            if(entityItem.getItem().getItem() instanceof ItemCarryableInventory) {
+            if(entityItem.getItem().getItem() instanceof ItemCarryableStorage) {
                 it.remove();
             }
         }

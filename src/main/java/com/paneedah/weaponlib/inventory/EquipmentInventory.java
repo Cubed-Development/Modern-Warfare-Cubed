@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.inventory;
 
-import com.paneedah.weaponlib.ItemCarryableInventory;
+import com.paneedah.mwc.items.equipment.ItemCarryableStorage;
 import com.paneedah.weaponlib.ItemVest;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,7 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class EquipmentInventory extends Container {
-    
+
     @SuppressWarnings("unused")
     private CustomPlayerInventory customPlayerInventory;
 
@@ -32,41 +32,44 @@ public class EquipmentInventory extends Container {
     private int standardInventorySlotEndIndex;
     private int hotbarSlotStartIndex;
     private int hotbarSlotEndIndex;
-    
+
     private List<Slot> customSlots;
-    
-    public EquipmentInventory(EntityPlayer player, InventoryPlayer inventoryPlayer,
-                              CustomPlayerInventory customPlayerInventory) {
-        
+
+    public EquipmentInventory(EntityPlayer player, InventoryPlayer inventoryPlayer, CustomPlayerInventory customPlayerInventory) {
+
         this.customPlayerInventory = customPlayerInventory;
-        
+
         this.customSlots = createCustomSlots(customPlayerInventory);
         customSlots.forEach(slot -> addSlotToContainer(slot));
-        
+
         this.customSlotStartIndex = 0;
         this.customSlotEndIndex = customSlotStartIndex + customSlots.size() - 1;
-        
+
         List<Slot> armorSlots = createArmorSlots(player, inventoryPlayer);
-       // armorSlots.forEach(slot -> addSlotToContainer(slot));
-        
+        // armorSlots.forEach(slot -> addSlotToContainer(slot));
+
         this.armorSlotStartIndex = customPlayerInventory.getSizeInventory();
         this.armorSlotEndIndex = armorSlotStartIndex + armorSlots.size() - 1;
-        
+
         List<Slot> standardInventorySlots = createStandardInventorySlots(inventoryPlayer);
         standardInventorySlots.forEach(slot -> addSlotToContainer(slot));
-        
+
         this.standardInventorySlotStartIndex = armorSlotEndIndex + 1;
         this.standardInventorySlotEndIndex = standardInventorySlotStartIndex + standardInventorySlots.size() - 1;
-        
+
         List<Slot> hotbarSlots = createHotbarSlots(inventoryPlayer);
         hotbarSlots.forEach(slot -> addSlotToContainer(slot));
-        
+
         this.hotbarSlotStartIndex = standardInventorySlotEndIndex + 1;
         this.hotbarSlotEndIndex = hotbarSlotStartIndex + hotbarSlots.size() - 1;
     }
 
     protected List<Slot> createCustomSlots(CustomPlayerInventory inventoryCustom) {
-        return Arrays.asList(new CustomSlot(ItemCarryableInventory.class, inventoryCustom, 0, 80, 8), new CustomSlot(ItemVest.class, inventoryCustom, 1, 80, 26));
+        return Arrays.asList(
+                new CustomSlot(ItemCarryableStorage.class, inventoryCustom, 0, 80, 8),
+                new CustomSlot(ItemCarryableStorage.class, inventoryCustom, 1, 80, 26),
+                new CustomSlot(ItemVest.class, inventoryCustom, 2, 80, 44)
+        );
     }
 
     protected List<Slot> createHotbarSlots(InventoryPlayer inventoryPlayer) {
@@ -91,38 +94,36 @@ public class EquipmentInventory extends Container {
         List<Slot> slots = new ArrayList<>();
         int i;
         for (i = 0; i < 4; ++i) {
-        	final EntityEquipmentSlot entityequipmentslot = new EntityEquipmentSlot[] {EntityEquipmentSlot.HEAD, EntityEquipmentSlot.CHEST, EntityEquipmentSlot.LEGS, EntityEquipmentSlot.FEET}[i];
+            final EntityEquipmentSlot entityequipmentslot = new EntityEquipmentSlot[]{EntityEquipmentSlot.HEAD, EntityEquipmentSlot.CHEST, EntityEquipmentSlot.LEGS, EntityEquipmentSlot.FEET}[i];
             this.addSlotToContainer(new Slot(inventoryPlayer, inventoryPlayer.getSizeInventory() - 1 - i - 1,
-                            8, 8 + i * 18)
-            {
+                    8, 8 + i * 18) {
                 /**
                  * Returns the maximum stack size for a given slot (usually the same as getInventoryStackLimit(), but 1
                  * in the case of armor slots)
                  */
-                public int getSlotStackLimit()
-                {
+                public int getSlotStackLimit() {
                     return 1;
                 }
+
                 /**
                  * Check if the stack is allowed to be placed in this slot, used for armor slots as well as furnace
                  * fuel.
                  */
-                public boolean isItemValid(ItemStack stack)
-                {
+                public boolean isItemValid(ItemStack stack) {
                     return stack.getItem().isValidArmor(stack, entityequipmentslot, player);
                 }
+
                 /**
                  * Return whether this slot's stack can be taken from this slot.
                  */
-                public boolean canTakeStack(EntityPlayer playerIn)
-                {
+                public boolean canTakeStack(EntityPlayer playerIn) {
                     ItemStack itemstack = this.getStack();
                     return !itemstack.isEmpty() && !playerIn.isCreative() && EnchantmentHelper.hasBindingCurse(itemstack) ? false : super.canTakeStack(playerIn);
                 }
+
                 @Nullable
                 @SideOnly(Side.CLIENT)
-                public String getSlotTexture()
-                {
+                public String getSlotTexture() {
                     return ItemArmor.EMPTY_SLOT_NAMES[entityequipmentslot.getIndex()];
                 }
             });
@@ -146,20 +147,20 @@ public class EquipmentInventory extends Container {
      * them
      */
     public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
-    	ItemStack itemstack = null;
-    	try {
-    		
-    		
+        ItemStack itemstack = null;
+        try {
+
+
             Slot slot = (Slot) this.inventorySlots.get(slotIndex);
 
             if (slot != null && slot.getHasStack()) {
-            	
+
                 ItemStack itemstack1 = slot.getStack();
                 itemstack = itemstack1.copy();
 
                 // Either armor slot or custom item slot was clicked
                 if (slotIndex < standardInventorySlotStartIndex) {
-                	
+
                     // try to place in player inventory / action bar
                     if (!this.mergeItemStack(itemstack1, standardInventorySlotStartIndex, hotbarSlotEndIndex + 1, true)) {
                         return new ItemStack(Items.AIR);
@@ -170,27 +171,26 @@ public class EquipmentInventory extends Container {
                 // Item is in inventory / hotbar, try to place either in custom or
                 // armor slots
                 else {
-                	
+
                     // if item is our custom item                
                     if (customSlots.stream().anyMatch(s -> s.isItemValid(itemstack1))) {
-                    	
-                    	if (!this.mergeItemStack(itemstack1, customSlotStartIndex, customSlotEndIndex + 1, false)) {
+
+                        if (!this.mergeItemStack(itemstack1, customSlotStartIndex, customSlotEndIndex + 1, false)) {
                             return new ItemStack(Items.AIR);
                         }
                     }
                     // if item is armor
                     else if (itemstack1.getItem() instanceof ItemArmor) {
-                    
-                    	ItemArmor armor = ((ItemArmor) itemstack1.getItem());
-                    	int ordinal = 4 - armor.getEquipmentSlot().getSlotIndex();
-                		if (!this.mergeItemStack(itemstack1, armorSlotStartIndex + ordinal, armorSlotStartIndex + ordinal + 1, false)) {
-   
-                            if (!this.mergeItemStack(itemstack1, 0, inventorySlots.size()-1, false))
-                            {
+
+                        ItemArmor armor = ((ItemArmor) itemstack1.getItem());
+                        int ordinal = 4 - armor.getEquipmentSlot().getSlotIndex();
+                        if (!this.mergeItemStack(itemstack1, armorSlotStartIndex + ordinal, armorSlotStartIndex + ordinal + 1, false)) {
+
+                            if (!this.mergeItemStack(itemstack1, 0, inventorySlots.size() - 1, false)) {
                                 return ItemStack.EMPTY;
                             }
-                			
-                			return ItemStack.EMPTY;
+
+                            return ItemStack.EMPTY;
                         }
                 	
                 		
@@ -239,10 +239,10 @@ public class EquipmentInventory extends Container {
                 slot.onTake(player, itemstack1);
             }
 
-    	} catch(Exception e) {
-    		e.printStackTrace();
-    	}
-    	
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return itemstack != null ? itemstack : new ItemStack(Items.AIR);
     }
 }

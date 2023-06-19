@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.inventory;
 
+import com.paneedah.mwc.equipment.inventory.CarryableStorageContainer;
+import com.paneedah.mwc.equipment.inventory.CarryableStorageInventory;
 import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
 import com.paneedah.weaponlib.crafting.ammopress.ContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
@@ -30,8 +32,7 @@ public class GuiHandler implements IGuiHandler {
             CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability
                     .getInventory(player);
             if (customInventory != null && customInventory.getStackInSlot(0) != null) {
-                container = new CarryableInventory(player, player.inventory,
-                        new StorageInventory(customInventory.getStackInSlot(0)));
+                container = new CarryableStorageContainer(player, player.inventory, new CarryableStorageInventory(customInventory.getStackInSlot(0)));
             }
         }
             break;
@@ -57,8 +58,8 @@ public class GuiHandler implements IGuiHandler {
         case STORAGE_ITEM_INVENTORY_GUI_ID:
             CustomPlayerInventory customInventory = CompatibleCustomPlayerInventoryCapability.getInventory(FMLClientHandler.instance().getClientPlayerEntity());
             if (customInventory != null && customInventory.getStackInSlot(0) != null) {
-                guiContainer = new GuiCarryableInventory((CarryableInventory) new CarryableInventory(player,
-                        player.inventory, new StorageInventory(customInventory.getStackInSlot(0))));
+                guiContainer = new GuiCarryableInventory((CarryableStorageContainer) new CarryableStorageContainer(player,
+                        player.inventory, new CarryableStorageInventory(customInventory.getStackInSlot(0))));
             }
             break;
         case CUSTOM_PLAYER_INVENTORY_GUI_ID:

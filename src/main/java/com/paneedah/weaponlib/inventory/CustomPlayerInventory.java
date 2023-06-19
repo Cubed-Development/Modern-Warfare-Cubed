@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.inventory;
 
 import com.paneedah.weaponlib.Contextual;
-import com.paneedah.weaponlib.ItemCarryableInventory;
+import com.paneedah.mwc.items.equipment.ItemCarryableStorage;
 import com.paneedah.weaponlib.ModContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -21,7 +21,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
     /** The key used to store and retrieve the inventory from NBT */
     private static final String tagName = "CustomInvTag";
 
-    private static final int INV_SIZE = 2;
+    private static final int INV_SIZE = 3;
 
     private ItemStack[] inventory;
 
@@ -81,7 +81,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
         this.inventory[slot] = itemstack != null ? itemstack : new ItemStack(Items.AIR);
 
         if (itemstack != null && itemstack.getCount() > this.getInventoryStackLimit()) {
-            if(itemstack.getItem() instanceof ItemCarryableInventory) {
+            if(itemstack.getItem() instanceof ItemCarryableStorage) {
 //                System.out.println("Setting inventory slot " + slot + " with tag compound "
 //                        + itemstack.getTagCompound());
             }

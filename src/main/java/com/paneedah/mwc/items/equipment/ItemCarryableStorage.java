@@ -1,6 +1,7 @@
-package com.paneedah.weaponlib;
+package com.paneedah.mwc.items.equipment;
 
 import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -26,7 +27,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class ItemCarryableInventory extends Item implements ModelSource, IModernCrafting {
+public class ItemCarryableStorage extends Item implements ModelSource, IModernCrafting {
     
     public static class Builder {
         
@@ -211,18 +212,18 @@ public class ItemCarryableInventory extends Item implements ModelSource, IModern
             }
         }
        
-        public ItemCarryableInventory build(ModContext modContext) {
+        public ItemCarryableStorage build(ModContext modContext) {
             if(name == null) {
-                throw new IllegalStateException("ItemCarryableInventory name not set");
+                throw new IllegalStateException("ItemCarryableStorage name not set");
             }
             
             if(size <= 0) {
-                throw new IllegalStateException("ItemCarryableInventory size must be greater than 0");
+                throw new IllegalStateException("ItemCarryableStorage size must be greater than 0");
             }
 
             ResourceLocation guiTextureLocation = new ResourceLocation(ModReference.id, "textures/gui/inventory/carryable/" + size + "slots.png");
             
-            ItemCarryableInventory item = new ItemCarryableInventory(modContext, size, validItemPredicate, guiTextureLocation, this.guiTextureWidth);
+            ItemCarryableStorage item = new ItemCarryableStorage(modContext, size, validItemPredicate, guiTextureLocation, this.guiTextureWidth);
             
             ServerGearModelHookRegistry.modelArray.add(this.modelFileString);
             
@@ -301,10 +302,10 @@ public class ItemCarryableInventory extends Item implements ModelSource, IModern
     	return this.properTextureName;
     }
     
-    public ItemCarryableInventory(ModContext context, int size,
-                                  Predicate<Item> validItemPredicate,
-                                  ResourceLocation guiTextureLocation,
-                                  int guiTextureWidth) {
+    public ItemCarryableStorage(ModContext context, int size,
+                                Predicate<Item> validItemPredicate,
+                                ResourceLocation guiTextureLocation,
+                                int guiTextureWidth) {
         this.validItemPredicate = validItemPredicate;
         this.size = size;
         this.guiTextureLocation = guiTextureLocation;

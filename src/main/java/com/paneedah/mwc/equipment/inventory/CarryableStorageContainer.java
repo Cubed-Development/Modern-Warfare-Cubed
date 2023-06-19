@@ -1,5 +1,7 @@
-package com.paneedah.weaponlib.inventory;
+package com.paneedah.mwc.equipment.inventory;
 
+import com.paneedah.mwc.equipment.inventory.CarryableStorageInventory;
+import com.paneedah.mwc.equipment.inventory.CarryableStorageSlot;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -16,32 +18,28 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarryableInventory extends Container {
-    /**
-     * The Item Inventory for this Container, only needed if you want to
-     * reference isUseableByPlayer
-     */
-    private final StorageInventory inventory;
+public class CarryableStorageContainer extends Container {
 
-    private int customSlotStartIndex;
-    private int customSlotEndIndex;
+    /**
+     * The Item Inventory for this Container, only needed if you want to reference isUseableByPlayer
+     */
+    private final CarryableStorageInventory inventory;
+
     private int armorSlotStartIndex;
     private int armorSlotEndIndex;
     private int standardInventorySlotStartIndex;
     private int standardInventorySlotEndIndex;
     private int hotbarSlotStartIndex;
     private int hotbarSlotEndIndex;
-    
-    private List<Slot> storageSlots;
 
-    public CarryableInventory(EntityPlayer player, InventoryPlayer inventoryPlayer, StorageInventory inventoryItem) {
+    public CarryableStorageContainer(EntityPlayer player, InventoryPlayer inventoryPlayer, CarryableStorageInventory inventoryItem) {
         this.inventory = inventoryItem;
-        
-        this.storageSlots = createStorageSlots(inventory);
+
+        final List<Slot> storageSlots = createStorageSlots(inventory);
         storageSlots.forEach(slot -> addSlotToContainer(slot));
-        
-        this.customSlotStartIndex = 0;
-        this.customSlotEndIndex = customSlotStartIndex + storageSlots.size() - 1;
+
+        final int customSlotStartIndex = 0;
+        final int customSlotEndIndex = customSlotStartIndex + storageSlots.size() - 1;
         
         List<Slot> armorSlots = createArmorSlots(player, inventoryPlayer);
         armorSlots.forEach(slot -> addSlotToContainer(slot));
@@ -62,11 +60,11 @@ public class CarryableInventory extends Container {
         this.hotbarSlotEndIndex = hotbarSlotStartIndex + hotbarSlots.size() - 1;
     }
 
-    protected List<Slot> createStorageSlots(StorageInventory inventoryCustom) {
+    protected List<Slot> createStorageSlots(CarryableStorageInventory inventoryCustom) {
         
         List<Slot> slots = new ArrayList<>();
         for (int i = 0; i < inventoryCustom.getSizeInventory(); ++i) {
-            slots.add(new StorageSlot(this.inventory, i, 80 + (18 * (int) (i / 4)), 8 + (18 * (i % 4))));
+            slots.add(new CarryableStorageSlot(this.inventory, i, 80 + (18 * (int) (i / 4)), 8 + (18 * (i % 4))));
         }
         
         return slots;
@@ -143,8 +141,8 @@ public class CarryableInventory extends Container {
      * you will crash when someone does that.
      */
     public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int index) {
-        ItemStack itemstack = null;
-        Slot slot = (Slot) this.inventorySlots.get(index);
+        ItemStack itemstack = new ItemStack(Items.AIR);
+        Slot slot = this.inventorySlots.get(index);
 
         if (slot != null && slot.getHasStack()) {
             ItemStack itemstack1 = slot.getStack();
@@ -234,10 +232,10 @@ public class CarryableInventory extends Container {
             slot.onTake(par1EntityPlayer, itemstack1);
         }
 
-        return itemstack != null ? itemstack : new ItemStack(Items.AIR);
+        return itemstack;
     }
 
-    StorageInventory getStorageInventory() {
+    public CarryableStorageInventory getStorageInventory() {
         return inventory;
     }
 }

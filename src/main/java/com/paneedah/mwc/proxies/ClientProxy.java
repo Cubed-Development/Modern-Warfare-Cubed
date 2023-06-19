@@ -5,7 +5,7 @@ import com.paneedah.mwc.PlayerAnimations;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.mwc.equipment.wearables.Armors;
+import com.paneedah.mwc.equipment.Armors;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.model.AmmoPress;
