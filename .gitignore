@@ -20,3 +20,6 @@ build
 
 # Forge
 run
+
+# Docusaurus
+node_modules
