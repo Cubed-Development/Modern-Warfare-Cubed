@@ -23,7 +23,7 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 /*
  * On a client side this class is used from within a separate client "ticker" thread
@@ -189,7 +189,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
     }
 
     public void serverAttack(EntityPlayer player, PlayerMeleeInstance instance, Entity entity, boolean isHeavyAttack) {
-        log.debug("Player {} hits {} with {} in state {} with damage {}", player, entity, instance, instance.getState(),
+        LOG.debug("Player {} hits {} with {} in state {} with damage {}", player, entity, instance, instance.getState(),
                 instance.getWeapon().getDamage(isHeavyAttack));
         float damage = instance.getWeapon().getDamage(isHeavyAttack);
         entity.attackEntityFrom(DamageSource.causePlayerDamage(player), damage);
@@ -201,7 +201,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
         double motionZ = entity.posZ - player.posZ;
 
         int count = getParticleCount (damage);
-        log.debug("Generating {} particle(s) per damage {}", count, damage);
+        LOG.debug("Generating {} particle(s) per damage {}", count, damage);
 
         modContext.getChannel().sendToAllAround(new SpawnParticleMessage(
                 SpawnParticleMessage.ParticleType.BLOOD,

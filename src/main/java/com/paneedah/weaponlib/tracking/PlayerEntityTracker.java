@@ -11,7 +11,7 @@ import java.util.*;
 import java.util.function.Supplier;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class PlayerEntityTracker {
 
@@ -90,7 +90,7 @@ public class PlayerEntityTracker {
                 TrackableEntity te = TrackableEntity.fromBuf(buf, world);
                 trackableEntities.put(te.getUuid(), te);
             } catch(RuntimeException e) {
-                log.error("Failed to deserialize trackable entity {}", e.toString(), e);
+                LOG.error("Failed to deserialize trackable entity {}", e.toString(), e);
             }
         }
     }
@@ -107,7 +107,7 @@ public class PlayerEntityTracker {
         if(bytes != null && bytes.length > 0) {
             tracker.init(buf);
         } else {
-            log.warn("Cannot deserialize tracker from empty byte array");
+            LOG.warn("Cannot deserialize tracker from empty byte array");
         }
         return tracker;
     }

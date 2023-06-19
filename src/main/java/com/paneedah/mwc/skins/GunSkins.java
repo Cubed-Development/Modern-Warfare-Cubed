@@ -115,11 +115,11 @@ public class GunSkins {
                             .withName(skinName)
                             .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
                     CommonRegistry.gunSkins.add(skin);
-                    ModReference.log.info("Registered custom gun skin: " + skinName);
+                    ModReference.LOG.info("Registered custom gun skin: " + skinName);
                 }
 
             } catch (Exception e) {
-                ModReference.log.error("Failed to set up custom skins directory!");
+                ModReference.LOG.error("Failed to set up custom skins directory!");
                 e.printStackTrace();
                 return;
             }
@@ -148,7 +148,7 @@ public class GunSkins {
                     .withName(name.replace(".png", ""))
                     .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
             CommonRegistry.gunSkins.add(skin);
-            ModReference.log.info("Registered custom gun skin: " + name);
+            ModReference.LOG.info("Registered custom gun skin: " + name);
         }
     }
 }

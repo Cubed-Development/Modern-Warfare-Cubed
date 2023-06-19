@@ -24,7 +24,7 @@ public class VMWModConfigGUI extends GuiConfig {
 	private static boolean shouldUpdateCache = true;
 	
 	public VMWModConfigGUI(GuiScreen parentScreen) {
-		super(parentScreen, getElements(), ModReference.id, false, false, "Finally... a config!");
+		super(parentScreen, getElements(), ModReference.ID, false, false, "Finally... a config!");
 	}
 
 	public static ConfigGuiType getGUITypeFromFieldType(Field f) {

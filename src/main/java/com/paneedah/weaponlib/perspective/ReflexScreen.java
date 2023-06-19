@@ -84,7 +84,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		//reflexReticle.use();
 		
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-		ResourceLocation loc = new ResourceLocation(ModReference.id + ":textures/crosshairs/okp.png");
+		ResourceLocation loc = new ResourceLocation(ModReference.ID + ":textures/crosshairs/okp.png");
 	
 		mc.getTextureManager().bindTexture(loc);
 		

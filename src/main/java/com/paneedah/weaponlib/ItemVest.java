@@ -216,7 +216,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
             
             item.modelFileString = this.modelFileString;
             item.properTextureName = this.properTextureName;
-            item.setTranslationKey(ModReference.id + "_" + name);
+            item.setTranslationKey(ModReference.ID + "_" + name);
             
             // Register hook
             CraftingRegistry.registerHook(item);

@@ -86,18 +86,15 @@ public class CommonModContext implements ModContext {
 
     static class BulletImpactSoundKey {
         private Material material;
-        private Item bulletItem;
-        
-        public BulletImpactSoundKey(Material material, Item bulletItem) {
+
+        public BulletImpactSoundKey(Material material) {
             this.material = material;
-            this.bulletItem = bulletItem;
         }
         
         @Override
         public int hashCode() {
             final int prime = 31;
             int result = 1;
-            result = prime * result + ((bulletItem == null) ? 0 : bulletItem.hashCode());
             result = prime * result + ((material == null) ? 0 : material.hashCode());
             return result;
         }
@@ -110,9 +107,6 @@ public class CommonModContext implements ModContext {
                 return false;
 
             BulletImpactSoundKey other = (BulletImpactSoundKey) obj;
-
-            if (bulletItem != other.bulletItem)
-                return false;
 
             if (material == null)
                 return other.material == null;
@@ -295,15 +289,15 @@ public class CommonModContext implements ModContext {
 		CompatibleExtraEntityFlags.register(this);
 		CompatibleCustomPlayerInventoryCapability.register(this);
 
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "ammo" + modEntityID), WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "wcam" + modEntityID), EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, 200, 3, true);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "ShellCasing" + modEntityID), EntityShellCasing.class, "ShellCasing" + modEntityID, modEntityID++, mod, 64, 500, true);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "Grenade" + modEntityID), EntityGrenade.class, "Grenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "SmokeGrenade" + modEntityID), EntitySmokeGrenade.class, "SmokeGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "GasGrenade" + modEntityID), EntityGasGrenade.class, "GasGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "FlashGrenade" + modEntityID), EntityFlashGrenade.class, "FlashGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "ammo" + modEntityID), WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "wcam" + modEntityID), EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, 200, 3, true);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "ShellCasing" + modEntityID), EntityShellCasing.class, "ShellCasing" + modEntityID, modEntityID++, mod, 64, 500, true);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "Grenade" + modEntityID), EntityGrenade.class, "Grenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "SmokeGrenade" + modEntityID), EntitySmokeGrenade.class, "SmokeGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "GasGrenade" + modEntityID), EntityGasGrenade.class, "GasGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "FlashGrenade" + modEntityID), EntityFlashGrenade.class, "FlashGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
 
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.id, "EntitySpreadable" + modEntityID), EntitySpreadable.class, "EntitySpreadable" + modEntityID, modEntityID++, mod, 64, 3, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "EntitySpreadable" + modEntityID), EntitySpreadable.class, "EntitySpreadable" + modEntityID, modEntityID++, mod, 64, 3, false);
 
         //compatibility.registerModEntity(EntityVehicle.class, "EntityVehicle" + modEntityID, modEntityID++, mod, 64, 3, false);
 
@@ -343,15 +337,15 @@ public class CommonModContext implements ModContext {
 	@Override
 	public void preInitEnd(Object mod, SimpleNetworkWrapper channel) {
         // Workbench
-		GameRegistry.registerTileEntity(TileEntityWorkbench.class, ModReference.id + ":tileworkbench");
+		GameRegistry.registerTileEntity(TileEntityWorkbench.class, ModReference.ID + ":tileworkbench");
         Block workbenchblock = new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(ModernWarfareMod.BlocksTab);
         if (workbenchblock.getRegistryName() == null) {
-            if (workbenchblock.getTranslationKey().length() < ModReference.id.length() + 2 + 5) {
+            if (workbenchblock.getTranslationKey().length() < ModReference.ID.length() + 2 + 5) {
                 throw new IllegalArgumentException("Unlocalize block name too short " + workbenchblock.getTranslationKey());
             }
             String unlocalizedName = workbenchblock.getTranslationKey().toLowerCase();
-            String registryName = unlocalizedName.substring(5 + ModReference.id.length() + 1);
-            workbenchblock.setRegistryName(ModReference.id, registryName);
+            String registryName = unlocalizedName.substring(5 + ModReference.ID.length() + 1);
+            workbenchblock.setRegistryName(ModReference.ID, registryName);
         }
 
         ForgeRegistries.BLOCKS.register(workbenchblock);
@@ -359,16 +353,16 @@ public class CommonModContext implements ModContext {
         this.registerRenderableItem(workbenchblock.getRegistryName(), workbenchItemBlock, null);
 
         // Ammo press
-		GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ModReference.id + ":tileammopress");
+		GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ModReference.ID + ":tileammopress");
         Block ammopressblock = new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(ModernWarfareMod.BlocksTab);
 
         if (ammopressblock.getRegistryName() == null) {
-            if (ammopressblock.getTranslationKey().length() < ModReference.id.length() + 2 + 5) {
+            if (ammopressblock.getTranslationKey().length() < ModReference.ID.length() + 2 + 5) {
                 throw new IllegalArgumentException("Unlocalize block name too short " + ammopressblock.getTranslationKey());
             }
             String unlocalizedName = ammopressblock.getTranslationKey().toLowerCase();
-            String registryName = unlocalizedName.substring(5 + ModReference.id.length() + 1);
-            ammopressblock.setRegistryName(ModReference.id, registryName);
+            String registryName = unlocalizedName.substring(5 + ModReference.ID.length() + 1);
+            ammopressblock.setRegistryName(ModReference.ID, registryName);
         }
 
         ForgeRegistries.BLOCKS.register(ammopressblock);
@@ -400,7 +394,7 @@ public class CommonModContext implements ModContext {
 	    if(sound == null) {
 	        return null;
 	    }
-		ResourceLocation soundResourceLocation = new ResourceLocation(ModReference.id, sound);
+		ResourceLocation soundResourceLocation = new ResourceLocation(ModReference.ID, sound);
 		return registerSound(soundResourceLocation);
 	}
 
@@ -417,7 +411,7 @@ public class CommonModContext implements ModContext {
 
 	@Override
 	public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
-        weapon.setRegistryName(ModReference.id, name); // temporary hack
+        weapon.setRegistryName(ModReference.ID, name); // temporary hack
         ForgeRegistries.ITEMS.register(weapon);
 	}
 
@@ -446,7 +440,7 @@ public class CommonModContext implements ModContext {
 
 	@Override
 	public void registerRenderableItem(String name, Item item, Object renderer) {
-        item.setRegistryName(ModReference.id, name); // temporary hack
+        item.setRegistryName(ModReference.ID, name); // temporary hack
         ForgeRegistries.ITEMS.register(item);
 	}
 	
@@ -579,19 +573,19 @@ public class CommonModContext implements ModContext {
 
     @Override
     public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer) {
-        itemMelee.setRegistryName(ModReference.id, name); // temporary hack
+        itemMelee.setRegistryName(ModReference.ID, name); // temporary hack
         ForgeRegistries.ITEMS.register(itemMelee);
     }
 
     @Override
     public void registerGrenadeWeapon(String name, ItemGrenade itemMelee, GrenadeRenderer renderer) {
-        itemMelee.setRegistryName(ModReference.id, name); // temporary hack
+        itemMelee.setRegistryName(ModReference.ID, name); // temporary hack
         ForgeRegistries.ITEMS.register(itemMelee);
     }
 
     @Override
     public ResourceLocation getNamedResource(String name) {
-        return new ResourceLocation(ModReference.id, name);
+        return new ResourceLocation(ModReference.ID, name);
     }
 
     @Override
@@ -626,17 +620,8 @@ public class CommonModContext implements ModContext {
     public void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider) {}
 
     @Override
-    public CommonModContext setMaterialsImpactSound(String sound, Item bulletItem, float volume, Material...materials) {
-        for(Material material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, bulletItem), key -> new MaterialImpactSound(volume));
-            materialImpactSound.addSound(registerSound(sound.toLowerCase()));
-        }
-        return this;
-    }
-    
-    @Override
     public CommonModContext setMaterialImpactSound(String sound, float volume, Material material) {
-        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
+        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material), key -> new MaterialImpactSound(volume));
         materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         return this;
     }
@@ -644,7 +629,7 @@ public class CommonModContext implements ModContext {
     @Override
     public CommonModContext setMaterialsImpactSound(String sound, float volume, Material...materials) {
         for(Material material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(volume));
+            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material), key -> new MaterialImpactSound(volume));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
         return this;
@@ -653,7 +638,7 @@ public class CommonModContext implements ModContext {
     @Override
     public CommonModContext setMaterialsImpactSound(String sound, Material...materials) {
         for(Material material: materials) {
-            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material, null), key -> new MaterialImpactSound(1f));
+            MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.computeIfAbsent(new BulletImpactSoundKey(material), key -> new MaterialImpactSound(1f));
             materialImpactSound.addSound(registerSound(sound.toLowerCase()));
         }
         return this;
@@ -661,12 +646,7 @@ public class CommonModContext implements ModContext {
 
     @Override
     public MaterialImpactSound getMaterialImpactSound(IBlockState iBlockState, WeaponSpawnEntity entity) {
-        MaterialImpactSound materialImpactSound = bulletImpactSoundEntries.get(new BulletImpactSoundKey(iBlockState.getMaterial(), entity.getSpawnedItem()));
-
-        if(materialImpactSound == null)
-            bulletImpactSoundEntries.get(new BulletImpactSoundKey(iBlockState.getMaterial(), null));
-
-        return materialImpactSound;
+        return bulletImpactSoundEntries.get(new BulletImpactSoundKey(iBlockState.getMaterial()));
     }
 
 

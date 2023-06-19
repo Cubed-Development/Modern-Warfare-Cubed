@@ -20,7 +20,7 @@ public class WavefrontLoader {
 	private static final String HEADER_TEX_COORD = "vt";
 	private static final String HEADER_LIGHT_COORD = "vn";
 	private static final String HEADER_FACE = "f";
-	private static final String OBJ_MODEL_LOCATION = ModReference.id + ":models/obj/";
+	private static final String OBJ_MODEL_LOCATION = ModReference.ID + ":models/obj/";
 
 	/*
 	public static WavefrontModel loadSubModel(String modelName, String objectName) {

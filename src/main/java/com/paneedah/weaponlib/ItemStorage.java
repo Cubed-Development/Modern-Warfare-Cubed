@@ -187,7 +187,7 @@ public class ItemStorage extends Item implements ModelSource, IModernCrafting {
             if(!guiTextureName.startsWith("textures/gui/")) {
                 guiTextureName = "textures/gui/" + guiTextureName;
             }
-            ResourceLocation guiTextureLocation = new ResourceLocation(ModReference.id, addFileExtension(guiTextureName, ".png"));
+            ResourceLocation guiTextureLocation = new ResourceLocation(ModReference.ID, addFileExtension(guiTextureName, ".png"));
             
             ItemStorage item = new ItemStorage(modContext, size, validItemPredicate, guiTextureLocation, this.guiTextureWidth);
             
@@ -196,7 +196,7 @@ public class ItemStorage extends Item implements ModelSource, IModernCrafting {
             item.modelFileString = this.modelFileString;
             item.properTextureName = this.properTextureName;
             
-            item.setTranslationKey(ModReference.id + "_" + name);
+            item.setTranslationKey(ModReference.ID + "_" + name);
 
             if(this.modelFileString != null && !VMWHooksHandler.isOnServer()) {
             	

@@ -252,7 +252,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorHelmet.setCreativeTab(creativeTab);
 
             armorHelmet.setTranslationKey(unlocalizedHelmetName);
-            armorHelmet.setRegistryName(ModReference.id, unlocalizedHelmetName.toLowerCase()); // temporary hack
+            armorHelmet.setRegistryName(ModReference.ID, unlocalizedHelmetName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorHelmet);
 
             String unlocalizedChestName = unlocalizedName + "_chest";
@@ -262,7 +262,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorChest.setCreativeTab(creativeTab);
             }
             armorChest.setTranslationKey(unlocalizedChestName);
-            armorChest.setRegistryName(ModReference.id, unlocalizedChestName.toLowerCase()); // temporary hack
+            armorChest.setRegistryName(ModReference.ID, unlocalizedChestName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorChest);
 
             String unlocalizedBootsName = unlocalizedName + "_boots";
@@ -273,7 +273,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorBoots.setCreativeTab(creativeTab);
 
             armorBoots.setTranslationKey(unlocalizedBootsName);
-            armorBoots.setRegistryName(ModReference.id, unlocalizedBootsName.toLowerCase()); // temporary hack
+            armorBoots.setRegistryName(ModReference.ID, unlocalizedBootsName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorBoots);
 
             armorHelmet.maxShieldCapacity = maxShieldCapacity;
@@ -325,7 +325,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
             armorHelmet.exposureReductionFactor = this.exposureReductionFactor;
             armorHelmet.setTranslationKey(unlocalizedHelmetName);
             armorHelmet.breathingSound = context.registerSound(breathingSound);
-            armorHelmet.setRegistryName(ModReference.id, unlocalizedHelmetName.toLowerCase()); // temporary hack
+            armorHelmet.setRegistryName(ModReference.ID, unlocalizedHelmetName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorHelmet);
 
             if (creativeTab != null)
@@ -351,7 +351,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorChest.setCreativeTab(creativeTab);
 
             armorChest.setTranslationKey(unlocalizedChestName);
-            armorChest.setRegistryName(ModReference.id, unlocalizedChestName.toLowerCase()); // temporary hack
+            armorChest.setRegistryName(ModReference.ID, unlocalizedChestName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorChest);
 
             armorChest.maxShieldCapacity = maxShieldCapacity;
@@ -382,7 +382,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
                 armorBoots.setCreativeTab(creativeTab);
 
             armorBoots.setTranslationKey(unlocalizedBootsName);
-            armorBoots.setRegistryName(ModReference.id, unlocalizedBootsName.toLowerCase()); // temporary hack
+            armorBoots.setRegistryName(ModReference.ID, unlocalizedBootsName.toLowerCase()); // temporary hack
             ForgeRegistries.ITEMS.register(armorBoots);
 
 //            armorBoots.maxShieldCapacity = maxShieldCapacity;
@@ -475,20 +475,20 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
         if(hudTextureName == null)
             return null;
 
-        return ModReference.id + ":textures/hud/" + hudTextureName + ".png";
+        return ModReference.ID + ":textures/hud/" + hudTextureName + ".png";
     }
 
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-        return ModReference.id + ":textures/models/" + textureName + ".png";
+        return ModReference.ID + ":textures/models/" + textureName + ".png";
     }
 
     public String getShieldIndicatorMaskTextureName() {
-        return ModReference.id + ":textures/hud/" + shieldIndicatorMaskTextureName + ".png";
+        return ModReference.ID + ":textures/hud/" + shieldIndicatorMaskTextureName + ".png";
     }
 
     public String getShieldIndicatorProgressBarTextureName() {
-        return ModReference.id + ":textures/hud/" + shieldIndicatorProgressBarTextureName + ".png";
+        return ModReference.ID + ":textures/hud/" + shieldIndicatorProgressBarTextureName + ".png";
     }
 
     public String getUnlocalizedArmorSetName() {

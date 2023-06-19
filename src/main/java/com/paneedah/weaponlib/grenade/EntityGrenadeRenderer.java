@@ -34,7 +34,7 @@ public class EntityGrenadeRenderer extends Render<Entity> {
         GrenadeRenderer renderer = itemGrenade.getRenderer();
 
         mc.renderEngine.bindTexture(
-                new ResourceLocation(ModReference.id, // TODO: init entity with mod context
+                new ResourceLocation(ModReference.ID, // TODO: init entity with mod context
                 "textures/models/" + itemGrenade.getTextureName()));
 
         ModelBase model = renderer.getModel();

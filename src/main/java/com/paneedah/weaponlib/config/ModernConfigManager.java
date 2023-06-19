@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class ModernConfigManager {
 	
@@ -172,7 +172,7 @@ public class ModernConfigManager {
 			// fields are static.
 			f.set(null, value);
 		} catch (IllegalArgumentException | IllegalAccessException e) {
-			log.error("Could not set field for field name: {}, please report this to developers.", f.getName());
+			LOG.error("Could not set field for field name: {}, please report this to developers.", f.getName());
 			e.printStackTrace();
 		}
 

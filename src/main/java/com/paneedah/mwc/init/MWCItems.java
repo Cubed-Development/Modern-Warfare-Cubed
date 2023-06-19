@@ -4,7 +4,6 @@ import com.paneedah.mwc.bases.ItemBase;
 import com.paneedah.mwc.bases.ManufacturingItemBase;
 import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -13,7 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
 
-@Mod.EventBusSubscriber(modid = ModReference.id)
+@Mod.EventBusSubscriber(modid = ModReference.ID)
 public class MWCItems {
 
     //Ingots

@@ -4,9 +4,9 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.paneedah.mwc.utils.MWCUtil;
-import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentProtection;
@@ -89,9 +89,9 @@ public class Explosion {
         this.explosionSound = explosionSound;
     }
 
-    public static void createServerSideExplosion(ModContext modContext, World world, Entity entity, double posX, double posY, double posZ, float explosionStrength, boolean isFlaming, boolean isSmoking, boolean isDestroyingBlocks, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, SoundEvent explosionSound) {
+    public static void createServerSideExplosion(ModContext modContext, World world, EntityLivingBase thrower, Entity entity, double posX, double posY, double posZ, float explosionStrength, boolean isFlaming, boolean isSmoking, boolean isDestroyingBlocks, float particleAgeCoefficient, float smokeParticleAgeCoefficient, float explosionParticleScaleCoefficient, float smokeParticleScaleCoefficient, String explosionParticleTextureName, String smokeParticleTextureName, SoundEvent explosionSound) {
 
-        world.createExplosion(entity, entity.posX, entity.posY + 1.0f, entity.posZ, (float) explosionDamage, explosionBreak);
+        world.createExplosion(thrower, entity.posX, entity.posY + 1.0f, entity.posZ, (float) explosionDamage, explosionBreak);
 
         /*
         explosionStrength *= ModernConfigManager.explosionDamage;

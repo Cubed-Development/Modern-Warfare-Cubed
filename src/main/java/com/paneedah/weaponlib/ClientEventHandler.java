@@ -59,7 +59,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 /**
  * Handles the client events, and apparently was my testing playground?
@@ -576,7 +576,7 @@ public class ClientEventHandler {
 	@SubscribeEvent
 	public void onTextureStitchEvent(TextureStitchEvent.Pre event) {
 		event.getMap().registerSprite(getModContext().getNamedResource(ParticleBlood.texture));
-		carParticles = event.getMap().registerSprite(new ResourceLocation(ModReference.id + ":particle/carparticle"));
+		carParticles = event.getMap().registerSprite(new ResourceLocation(ModReference.ID + ":particle/carparticle"));
 	}
 
 	@SubscribeEvent
@@ -598,7 +598,7 @@ public class ClientEventHandler {
 		try {
 			EVENT_DWHEEL_FIELD.set(null, 0);
 		} catch (Exception e) {
-			log.error("Could not assign value to EVENT_DWHEEL_FIELD!");
+			LOG.error("Could not assign value to EVENT_DWHEEL_FIELD!");
 			e.printStackTrace();
 		}
 	}

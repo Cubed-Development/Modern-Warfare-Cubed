@@ -41,7 +41,7 @@ import static net.minecraft.util.text.TextFormatting.WHITE;
 public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPress> {
 	
 	// Ammo press texture location
-	private static final ResourceLocation AMMO_PRESS_TEX = new ResourceLocation(ModReference.id + ":textures/gui/ammosheet.png");
+	private static final ResourceLocation AMMO_PRESS_TEX = new ResourceLocation(ModReference.ID + ":textures/gui/ammosheet.png");
 
 	// Selectors & Quantity Box
 	private GUIButtonCustom bulletSelector, magazineSelector, grenadeSelector;

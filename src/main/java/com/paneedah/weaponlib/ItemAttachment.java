@@ -69,7 +69,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 //			this.texturedModels.add(new Tuple<ModelBase, String>(model, textureName));
 //		}
 		this.textureName = textureName.toLowerCase();
-		this.crosshair = crosshair != null ? ModReference.id + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
+		this.crosshair = crosshair != null ? ModReference.ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;
 	}
@@ -77,7 +77,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 	protected ItemAttachment(AttachmentCategory category, String crosshair,
 			ApplyHandler<T> apply, ApplyHandler<T> remove) {
 		this.category = category;
-		this.crosshair = crosshair != null ? ModReference.id + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
+		this.crosshair = crosshair != null ? ModReference.ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;
 	}

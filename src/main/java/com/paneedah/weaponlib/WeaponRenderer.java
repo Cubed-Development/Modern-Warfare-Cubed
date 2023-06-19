@@ -79,7 +79,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 
@@ -2462,7 +2462,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		PlayerWeaponInstance playerWeaponInstance = null;
 		if(playerItemInstance == null || !(playerItemInstance instanceof PlayerWeaponInstance)
 		        || playerItemInstance.getItem() != itemStack.getItem()) {
-		    log.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
+		    LOG.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
 		} else {
 		    playerWeaponInstance = (PlayerWeaponInstance) playerItemInstance;
 		}
@@ -2698,7 +2698,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
         PlayerWeaponInstance playerWeaponInstance = null;
         if(playerItemInstance == null || !(playerItemInstance instanceof PlayerWeaponInstance)
                 || playerItemInstance.getItem() != itemStack.getItem()) {
-            log.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
+            LOG.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
         } else {
             playerWeaponInstance = (PlayerWeaponInstance) playerItemInstance;
         }
@@ -2929,7 +2929,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 				if(partTransitions != null && partTransitions.size() > i) {
 					partTransition = partTransitions.get(i);
 				} else {
-					log.warn("Transition not defined for part {}", custom);
+					LOG.warn("Transition not defined for part {}", custom);
 				}
 				t.withPartPositionFunction(e.getKey(), createWeaponPartPositionFunction(partTransition));
 			}
@@ -3199,8 +3199,8 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
         }
     }
 	
-	public static ResourceLocation SPARKS_ONE = new ResourceLocation(ModReference.id + ":textures/flashes/sparks1.png");
-	public static ResourceLocation FLASHF = new ResourceLocation(ModReference.id + ":textures/flashes/flashfront2.png");
+	public static ResourceLocation SPARKS_ONE = new ResourceLocation(ModReference.ID + ":textures/flashes/sparks1.png");
+	public static ResourceLocation FLASHF = new ResourceLocation(ModReference.ID + ":textures/flashes/flashfront2.png");
 
 	public static ItemAttachment<Weapon> magicMagReplacement;
 	public static boolean updateMagicMagazine;
@@ -3266,7 +3266,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		}
 
 		if(getBuilder().getTextureName() != null) {
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + getBuilder().getTextureName()));
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + getBuilder().getTextureName()));
 		} else {
 			String textureName = null;
 			/*
@@ -3289,7 +3289,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 				textureName = weapon.getTextureName();
 			}
 
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + textureName));
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + textureName));
 		}
 		
 		
@@ -3317,7 +3317,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 				if (itemSkin.getTextureName().startsWith("customskin_")) {
 					mc.getTextureManager().bindTexture(CustomSkin.getCustomSkinResource(itemSkin.getTextureName().toLowerCase().replace("customskin_", "")));
 				} else {
-					mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id+":textures/models/"+itemSkin.getTextureName()+".png"));
+					mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.ID +":textures/models/"+itemSkin.getTextureName()+".png"));
 				}
 				
 				GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
@@ -3492,7 +3492,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		} else if(isCompoundReloadEmptyTactical() && nextState == WeaponState.COMPOUND_RELOAD_EMPTY) {
 			
 			// Log
-			log.debug("Creating a compound empty animation using the magic magazine system");
+			LOG.debug("Creating a compound empty animation using the magic magazine system");
 			
 			getWeaponRendererBuilder().compoundReloadEmptyContainer.getCustom().put(SpecialAttachments.MagicMag.getRenderablePart(),
 					BBLoader.getAnimation(getBuilder().getAnimationFileName(), BBLoader.KEY_COMPOUND_RELOAD_EMPTY, BBLoader.KEY_MAGIC_MAGAZINE)
@@ -3503,7 +3503,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		} else if(isCompoundReloadTactical() && nextState == WeaponState.COMPOUND_RELOAD) {
 			
 			// Log
-			log.debug("Creating a standard compound animation using the magic magazine system");
+			LOG.debug("Creating a standard compound animation using the magic magazine system");
 			
 			getWeaponRendererBuilder().compoundReloadContainer.getCustom().put(SpecialAttachments.MagicMag.getRenderablePart(),
 					BBLoader.getAnimation(getBuilder().getAnimationFileName(), BBLoader.KEY_COMPOUND_RELOAD, BBLoader.KEY_MAGIC_MAGAZINE)
@@ -3690,7 +3690,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 	   
 	    
 		for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + texturedModel.getV()));
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + texturedModel.getV()));
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
 			
@@ -4252,7 +4252,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 				if (!OpenGLSelectionHelper.isInSelectionPass && AnimationModeProcessor.getInstance().getFPSMode()) {
 
 					GlStateManager.pushMatrix();
-					ResourceLocation loc = new ResourceLocation(ModReference.id + ":textures/hud/grid.png");
+					ResourceLocation loc = new ResourceLocation(ModReference.ID + ":textures/hud/grid.png");
 
 					Shader grid = Shaders.grid;
 					// GlStateManager.rotate(45f, 0, 1, 0);

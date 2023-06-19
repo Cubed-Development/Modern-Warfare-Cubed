@@ -29,7 +29,7 @@ public class OreBase extends BlockOre {
         itemBlock = Item.getItemFromBlock(this);
         //If the block is smelt-able (i.e like gold or iron) then drop the block itself, otherwise drop the designated drop.
         if(this.smelt) {
-            if(this.drop != null) ModReference.log.warn("Block " + this.getRegistryName() + " is smeltable but does not drop itself!");
+            if(this.drop != null) ModReference.LOG.warn("Block " + this.getRegistryName() + " is smeltable but does not drop itself!");
             return itemBlock;
         } else {
             return this.drop;

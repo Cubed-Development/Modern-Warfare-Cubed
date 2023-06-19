@@ -26,7 +26,7 @@ public class WirelessCameraRenderer extends Render<Entity> {
         if(model != null) {
             String textureName = camera.getTextureName();
             ResourceLocation textureLocation = textureName != null ?
-                    new ResourceLocation(ModReference.id + ":textures/models/" + textureName) : null;
+                    new ResourceLocation(ModReference.ID + ":textures/models/" + textureName) : null;
             //System.out.println("Rendering entity at " + x + ", " + y + ", " + z);
             if(model != null) {
                 GL11.glPushMatrix();
@@ -46,7 +46,7 @@ public class WirelessCameraRenderer extends Render<Entity> {
         EntityWirelessCamera camera = (EntityWirelessCamera) entity;
         ItemWirelessCamera item = camera.getItem();
         if(item != null) {
-            return new ResourceLocation(ModReference.id + ":textures/models/" + item.getTextureName());
+            return new ResourceLocation(ModReference.ID + ":textures/models/" + item.getTextureName());
         } else {
             return null;
         }

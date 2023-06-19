@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.mwc.utils.MWCUtil;
-import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.LightExposure;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import io.netty.buffer.ByteBuf;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.function.BiPredicate;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class EntityFlashGrenade extends AbstractEntityGrenade {
 
@@ -157,7 +157,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
     }
 
     private void explode() {
-        log.debug("Exploding {}", this);
+        LOG.debug("Exploding {}", this);
         
         explosionStrength = 0.1f;
         //Explosion.createServerSideExplosion(modContext, compatibility.world(this), this,

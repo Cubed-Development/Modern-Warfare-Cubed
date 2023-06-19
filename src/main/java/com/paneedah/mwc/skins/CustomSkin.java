@@ -15,7 +15,7 @@ public class CustomSkin {
 
     public CustomSkin(String name, File file) {
         try {
-            resourceLocation = new ResourceLocation(ModReference.id, "customskin_"+name.toLowerCase());
+            resourceLocation = new ResourceLocation(ModReference.ID, "customskin_"+name.toLowerCase());
             mc.getTextureManager().loadTexture(resourceLocation, new DynamicTexture(ImageIO.read(file)));
             mc.getTextureManager().bindTexture(resourceLocation);
         } catch (Exception e) { e.printStackTrace(); }
@@ -24,7 +24,7 @@ public class CustomSkin {
     public static ResourceLocation getCustomSkinResource(String skinName) {
         File image = new File("./config/mwc/skins/"+skinName+".png");
         if (!image.exists())
-            return new ResourceLocation(ModReference.id+":textures/models/"+GunSkins.WoodlandCamo.getTextureName()+".png");
+            return new ResourceLocation(ModReference.ID +":textures/models/"+GunSkins.WoodlandCamo.getTextureName()+".png");
 
         if (!GunSkins.customSkins.containsKey(skinName))
             GunSkins.customSkins.put(skinName, new CustomSkin(skinName, image));

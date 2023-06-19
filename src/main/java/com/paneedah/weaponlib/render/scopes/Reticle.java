@@ -29,7 +29,7 @@ public class Reticle {
 	
 	public Reticle(String textureName, float textureScale, int background) {
 		this.reticleType = Type.HOLOGRAPHIC;
-		this.reticleTexture = new ResourceLocation(ModReference.id + ":textures/crosshairs/" + textureName + ".png");
+		this.reticleTexture = new ResourceLocation(ModReference.ID + ":textures/crosshairs/" + textureName + ".png");
 		this.textureScale = textureScale;
 		this.backgroundColor = extractColorFromHex(background);
 	}

@@ -11,14 +11,13 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.translation.I18n;
-import net.minecraft.world.GameType;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 
 /*
@@ -120,12 +119,12 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
     }
 
     private void explode(PlayerGrenadeInstance instance) {
-        log.debug("Exploding!");
+        LOG.debug("Exploding!");
         modContext.getChannel().sendToServer(new GrenadeMessage(instance, 0));
     }
 
     private void throwIt(PlayerGrenadeInstance instance) {
-        log.debug("Throwing with state " + instance.getState());
+        LOG.debug("Throwing with state " + instance.getState());
         long activationTimestamp;
         if(instance.getWeapon().getType() != Type.REGULAR) {
             activationTimestamp = System.currentTimeMillis();
@@ -139,16 +138,16 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
     }
 
     private void reequip(PlayerGrenadeInstance instance) {
-        log.debug("Reequipping");
+        LOG.debug("Reequipping");
     }
 
     private void takeSafetyPinOff(PlayerGrenadeInstance instance) {
         instance.getPlayer().playSound(instance.getWeapon().getSafetyPinOffSound(), 1, 1);
-        log.debug("Taking safety pin off");
+        LOG.debug("Taking safety pin off");
     }
 
     private void releaseStrikerLever(PlayerGrenadeInstance instance) {
-        log.debug("Safety pin is off");
+        LOG.debug("Safety pin is off");
         instance.setActivationTimestamp(System.currentTimeMillis());
     }
 
@@ -193,7 +192,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
     }
 
     public void serverThrowGrenade(EntityPlayer player, PlayerGrenadeInstance instance, long activationTimestamp) {
-        log.debug("Throwing grenade");
+        LOG.debug("Throwing grenade");
        
         //boolean isSmokeGrenade = instance.getWeapon().isSmokeOnly();
         
@@ -215,7 +214,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
         if(activationTimestamp == 0 && instance.getWeapon().getType() == Type.REGULAR) {
             // explode immediately
         	player.attackEntityFrom(DamageSource.causeExplosionDamage(player), 500f);
-            Explosion.createServerSideExplosion(modContext, player.world, null,
+            Explosion.createServerSideExplosion(modContext, player.world, player, null,
                     player.posX, player.posY, player.posZ, instance.getWeapon().getExplosionStrength(), false, true,
                     instance.getWeapon().isDestroyingBlocks(), 1f, 1f, 1.5f, 1f, null, null, modContext.getExplosionSound());
 
@@ -232,7 +231,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withGravityVelocity(instance.getWeapon().getGravityVelocity())
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .build(modContext);
-            log.debug("Throwing velocity {} ", velocity);
+            LOG.debug("Throwing velocity {} ", velocity);
             if(player != null)
                 player.world.spawnEntity(entityGrenade);
         } else if(instance.getWeapon().getType() == Type.GAS) {
@@ -248,7 +247,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withGravityVelocity(instance.getWeapon().getGravityVelocity())
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .build(modContext);
-            log.debug("Throwing velocity {} ", velocity);
+            LOG.debug("Throwing velocity {} ", velocity);
             if(player != null)
                 player.world.spawnEntity(entityGrenade);
         } else if (instance.getWeapon().getType() == Type.FLASH) {
@@ -264,7 +263,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .withDestroyingBlocks(false)
                     .build(modContext);
-            log.debug("Throwing velocity {} ", velocity);
+            LOG.debug("Throwing velocity {} ", velocity);
             if(player != null)
                 player.world.spawnEntity(entityGrenade);
         } else {
@@ -280,7 +279,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .withDestroyingBlocks(instance.getWeapon().isDestroyingBlocks())
                     .build(modContext);
-            log.debug("Throwing velocity {} ", velocity);
+            LOG.debug("Throwing velocity {} ", velocity);
             if(player != null)
                 player.world.spawnEntity(entityGrenade);
         }
