@@ -33,8 +33,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -42,10 +40,9 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class ClientModContext extends CommonModContext {
 
-    protected static ThreadLocal<ClientModContext> currentContext = new ThreadLocal<>();
+    protected static ClientModContext currentContext;
     private ClientEventHandler clientEventHandler;
     private Lock mainLoopLock = new ReentrantLock();
-    private Queue<Runnable> runInClientThreadQueue = new LinkedBlockingQueue<>();
     private CompatibleRenderingRegistry rendererRegistry;
 
     private SafeGlobals safeGlobals = new SafeGlobals();
@@ -65,12 +62,14 @@ public class ClientModContext extends CommonModContext {
     private PlayerTransitionProvider playerTransitionProvider;
 
     public static ClientModContext getContext() {
-        return currentContext.get();
+        return currentContext;
     }
 
     @Override
     public void preInit(Object mod, SimpleNetworkWrapper channel) {
         super.preInit(mod, channel);
+
+        currentContext = new ClientModContext();
 
         aspectRatio = (float) mc.displayWidth / mc.displayHeight;
 
@@ -106,7 +105,7 @@ public class ClientModContext extends CommonModContext {
         }));
 
         clientWeaponTicker.start();
-        clientEventHandler = new ClientEventHandler(this, mainLoopLock, safeGlobals, runInClientThreadQueue);
+        clientEventHandler = new ClientEventHandler(this, mainLoopLock, safeGlobals);
         MinecraftForge.EVENT_BUS.register(clientEventHandler);
 
         MinecraftForge.EVENT_BUS.register(InventoryTabs.getInstance());
@@ -193,11 +192,6 @@ public class ClientModContext extends CommonModContext {
     }
 
     @Override
-    public void runInMainThread(Runnable runnable) {
-        runInClientThreadQueue.add(runnable);
-    }
-
-    @Override
     public PlayerItemInstanceRegistry getPlayerItemInstanceRegistry() {
         return playerItemInstanceRegistry;
     }
@@ -275,8 +269,4 @@ public class ClientModContext extends CommonModContext {
     public void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider) {
         this.playerTransitionProvider = playerTransitionProvider;
     }
-
-//    public MissionManager getMissionManager() {
-//        return null;
-//    }
 }
