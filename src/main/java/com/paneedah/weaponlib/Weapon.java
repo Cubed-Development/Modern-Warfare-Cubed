@@ -1535,7 +1535,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             break;
         case GRIP:
             handler = (a, i) -> {
-                i.setRecoil(builder.recoil);
+                i.setRecoil(BalancePackManager.shouldChangeWeaponRecoil(i.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(i.getWeapon()) : builder.recoil);
             };
             break;
         default:
@@ -1549,7 +1549,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
     }
 
     public float getRecoil() {
-        return builder.recoil;
+        return BalancePackManager.shouldChangeWeaponRecoil(this) ? (float) BalancePackManager.getNewWeaponRecoil(this) : builder.recoil;
     }
 
     public ModContext getModContext() {
