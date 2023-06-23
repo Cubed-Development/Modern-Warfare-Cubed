@@ -319,7 +319,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
 		setAmmo(otherWeaponInstance.ammo);
 		setZoom(otherWeaponInstance.zoom);
-		setRecoil(otherWeaponInstance.recoil);
+		setRecoil(BalancePackManager.shouldChangeWeaponRecoil(otherWeaponInstance.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(otherWeaponInstance.getWeapon()) : otherWeaponInstance.recoil);
 		setSelectedAttachmentIndexes(otherWeaponInstance.selectedAttachmentIndexes);
 		setActiveAttachmentIds(otherWeaponInstance.activeAttachmentIds);
 		setActiveTextureIndex(otherWeaponInstance.activeTextureIndex);
