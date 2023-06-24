@@ -36,7 +36,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Changed
 
-- Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1, NATO Drum Magazine, Aimpoint Comp M5 Sight and the pink camo skin
+- Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1, 100 Rounds NATO Drum Magazine, Aimpoint Comp M5 Sight and the pink camo skin
 - Overhauled animations of the M40A6
 - Reworked the config system:
   - Old XML config has been removed, and all configs have been consolidated into a new JSON config. Issues with some non-functioning configs have been resolved
