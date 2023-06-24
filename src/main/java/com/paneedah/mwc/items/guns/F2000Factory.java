@@ -28,7 +28,7 @@ public class F2000Factory {
 
         .withName("f2000")
         .withFireRate(0.85f)
-        .withRecoil(2.1f)
+        .withRecoil(1.5f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.RIFLES)
         .hasFlashPedals()
