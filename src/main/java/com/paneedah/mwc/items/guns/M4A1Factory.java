@@ -102,7 +102,7 @@ public class M4A1Factory implements GunFactory {
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.M16Stock, (model) -> {
-            GL11.glTranslatef(0f, -0.28f, -0.55f);
+            GL11.glTranslatef(0f, 0.0f, -0.04f);
             GL11.glScaled(1F, 1F, 0.85F);
         })
         .withCompatibleAttachment(Attachments.MagpulCTRStockTan, (model) -> {

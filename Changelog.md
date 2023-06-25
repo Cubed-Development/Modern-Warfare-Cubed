@@ -86,6 +86,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed a problem where the carryable inventory tab was shifting the entire inventory to the left for no reasons
 - Fixed turrets spawning without weapons
 - Fixed 7.62x54mm SVD magazine using 7.62x39mm bullets
+- Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
+- Fixed the visual bug of the FN F2000 especially when aiming the gun
+- Fixed M4A1 "M16 Stock" visual bugs, Malyuk "grip" visual bugs
 
 ### Removed
 
