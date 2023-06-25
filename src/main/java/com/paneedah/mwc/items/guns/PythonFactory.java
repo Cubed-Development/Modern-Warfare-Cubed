@@ -22,7 +22,7 @@ public class PythonFactory implements GunFactory {
 		.withName("Python")
 		.withAmmoCapacity(6)
 		.withFireRate(0.2f)
-		.withRecoil(7f)
+		.withRecoil(6f)
 		.withZoom(0.9f)
 		.withConfigGroup(GunConfigurationGroup.REVOLVER)
 		.withMaxShots(1)
