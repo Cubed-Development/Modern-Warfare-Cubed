@@ -327,15 +327,15 @@ public class MP7Factory {
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
-                GL11.glScaled(0.4F, 0.4F, 0.4F);
-                GL11.glTranslatef(1, 2.3f, 0.95f);
+                GL11.glScaled(0.28F, 0.28F, 0.28F);
+                GL11.glTranslatef(1, 2f, -1.2f);
                 GL11.glRotatef(-120F, -0.5f, 7f, 3f);
             })
             .withThirdPersonPositioning((renderContext) -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
+                GL11.glTranslatef(-1.8F, -1.1F, 2F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
-                GL11.glTranslatef(0.100000f, 3.875000f, 1.700000f);
                 })
             
             .withFirstPersonPositioning(

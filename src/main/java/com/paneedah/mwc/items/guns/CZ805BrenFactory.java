@@ -26,7 +26,7 @@ public class CZ805BrenFactory implements GunFactory {
 
         .withName("cz805_bren")
         .withFireRate(0.8f)
-        .withRecoil(3f)
+        .withRecoil(3.2f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.RIFLES)
         .withMaxShots(1, Integer.MAX_VALUE)
@@ -360,11 +360,11 @@ public class CZ805BrenFactory implements GunFactory {
                 GL11.glRotatef(-120F, -0.5f, 7f, 3f);
             })
             .withThirdPersonPositioning((renderContext) -> {
-                GL11.glScaled(0.65F, 0.65F, 0.65F);
-                GL11.glTranslatef(-1.1F, -0.45F, 1.1F);
+                GL11.glScaled(0.6F, 0.6F, 0.6F);
+                GL11.glTranslatef(-1.7F, -0.8F, 1.9F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
-                })
+            })
                 
             .withFirstPersonPositioning(
 					new Transform()
