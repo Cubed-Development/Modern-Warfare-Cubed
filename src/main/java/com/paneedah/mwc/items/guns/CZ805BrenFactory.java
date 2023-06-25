@@ -26,7 +26,7 @@ public class CZ805BrenFactory implements GunFactory {
 
         .withName("cz805_bren")
         .withFireRate(0.8f)
-        .withRecoil(3.2f)
+        .withRecoil(3f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.RIFLES)
         .withMaxShots(1, Integer.MAX_VALUE)
