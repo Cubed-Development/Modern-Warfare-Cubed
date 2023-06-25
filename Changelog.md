@@ -36,7 +36,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Changed
 
-- Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1, 100 Rounds NATO Drum Magazine, Aimpoint Comp M5 Sight and the pink camo skin
+- Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1, 100 Rounds NATO Drum Magazine, revamped textured sight set and the pink camo skin
 - Overhauled animations of the M40A6
 - Reworked the config system:
   - Old XML config has been removed, and all configs have been consolidated into a new JSON config. Issues with some non-functioning configs have been resolved
@@ -89,6 +89,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
 - Fixed the visual bug of the FN F2000 especially when aiming the gun
 - Fixed M4A1 "M16 Stock" visual bugs, Malyuk "grip" visual bugs
+- Fixed Uzi sound effects
+- Fixed the attachment of the Long Deagle
 
 ### Removed
 
