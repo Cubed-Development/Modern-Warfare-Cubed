@@ -20,8 +20,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - penetratesGlass
   - explosionBreak
   - penetrableBlocks
-  - oldDamageOfPlayer
-  - knockbackOnHit
+  - knockbackOnHi
+  - hipFireSpread
 - Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)
 - Fix the damage error of players' armor equipment, which can be restored by enabling oldDamageOfPlayer
 - Make the turret work again
