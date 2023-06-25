@@ -831,7 +831,7 @@ public class BalancePackManager {
 
 	public static double getNewWeaponDamage(Weapon weapon) {
 		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon))
-			return -1;
+			return weapon.getSpawnEntityDamage();
 		return getActiveBalancePack().getWeaponBalancing(weapon.getName()).getDamage();
 	}
 
@@ -884,7 +884,7 @@ public class BalancePackManager {
 
 	public static double getNewWeaponRecoil(Weapon weapon) {
 		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon))
-			return -1;
+			return weapon.getRecoil();
 		return getActiveBalancePack().getWeaponBalancing(weapon.getName()).getRecoil();
 	}
 

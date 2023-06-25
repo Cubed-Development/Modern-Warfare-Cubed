@@ -18,110 +18,108 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 public interface ModContext {
 
-	public boolean isClient();
+	boolean isClient();
 	
-	public void preInitEnd(Object mod, SimpleNetworkWrapper channel);
+	void preInitEnd(Object mod, SimpleNetworkWrapper channel);
 
-	public void preInit(Object mod, SimpleNetworkWrapper channel);
+	void preInit(Object mod, SimpleNetworkWrapper channel);
 
-	public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
+	void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
 
-	public SimpleNetworkWrapper getChannel();
+	SimpleNetworkWrapper getChannel();
 
-	public void runSyncTick(Runnable runnable);
+	void runSyncTick(Runnable runnable);
 
-	public void registerRenderableItem(String name, Item weapon, Object renderer);
+	void registerRenderableItem(String name, Item weapon, Object renderer);
 
-	public void registerRenderableItem(ResourceLocation name, Item weapon, Object renderer);
+	void registerRenderableItem(ResourceLocation name, Item weapon, Object renderer);
 
-	public SoundEvent registerSound(String sound);
+	SoundEvent registerSound(String sound);
 
-	public void runInMainThread(Runnable runnable);
+	PlayerItemInstanceRegistry getPlayerItemInstanceRegistry();
 
-	public PlayerItemInstanceRegistry getPlayerItemInstanceRegistry();
+	WeaponReloadAspect getWeaponReloadAspect();
 
-	public WeaponReloadAspect getWeaponReloadAspect();
+	WeaponFireAspect getWeaponFireAspect();
 
-	public WeaponFireAspect getWeaponFireAspect();
+	WeaponAttachmentAspect getAttachmentAspect();
 
-	public WeaponAttachmentAspect getAttachmentAspect();
+	MagazineReloadAspect getMagazineReloadAspect();
 
-	public MagazineReloadAspect getMagazineReloadAspect();
+	PlayerWeaponInstance getMainHeldWeapon();
 
-	public PlayerWeaponInstance getMainHeldWeapon();
+	StatusMessageCenter getStatusMessageCenter();
 
-	public StatusMessageCenter getStatusMessageCenter();
+	RecipeManager getRecipeManager();
 
-	public RecipeManager getRecipeManager();
+	SoundEvent getZoomSound();
 
-	public SoundEvent getZoomSound();
+	void setChangeZoomSound(String sound);
 
-	public void setChangeZoomSound(String sound);
+	SoundEvent getChangeFireModeSound();
 
-	public SoundEvent getChangeFireModeSound();
+	void setChangeFireModeSound(String sound);
 
-	public void setChangeFireModeSound(String sound);
+	SoundEvent getNoAmmoSound();
 
-	public SoundEvent getNoAmmoSound();
+	void setNoAmmoSound(String sound);
 
-	public void setNoAmmoSound(String sound);
+	SoundEvent getExplosionSound();
 
-	public SoundEvent getExplosionSound();
+	void setExplosionSound(String sound);
 
-	public void setExplosionSound(String sound);
+	SoundEvent getFlashExplosionSound();
 
-	public SoundEvent getFlashExplosionSound();
+	void setFlashExplosionSound(String sound);
 
-	public void setFlashExplosionSound(String sound);
+	void setNightVisionOnSound(String sound);
 
-	public void setNightVisionOnSound(String sound);
+	SoundEvent getNightVisionOnSound();
 
-	public SoundEvent getNightVisionOnSound();
+	void setNightVisionOffSound(String sound);
 
-	public void setNightVisionOffSound(String sound);
+	SoundEvent getNightVisionOffSound();
 
-	public SoundEvent getNightVisionOffSound();
+	void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer);
 
-	public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer);
+	void registerGrenadeWeapon(String name, ItemGrenade itemGrenade, GrenadeRenderer renderer);
 
-	public void registerGrenadeWeapon(String name, ItemGrenade itemGrenade, GrenadeRenderer renderer);
+	MeleeAttackAspect getMeleeAttackAspect();
 
-	public MeleeAttackAspect getMeleeAttackAspect();
+	MeleeAttachmentAspect getMeleeAttachmentAspect();
 
-	public MeleeAttachmentAspect getMeleeAttachmentAspect();
+	AttachmentContainer getGrenadeAttachmentAspect();
 
-	public AttachmentContainer getGrenadeAttachmentAspect();
+	ResourceLocation getNamedResource(String name);
 
-	public ResourceLocation getNamedResource(String name);
+	float getAspectRatio();
 
-	public float getAspectRatio();
+	GrenadeAttackAspect getGrenadeAttackAspect();
 
-	public GrenadeAttackAspect getGrenadeAttackAspect();
+	EffectManager getEffectManager();
 
-	public EffectManager getEffectManager();
+	Object getMod();
 
-	public Object getMod();
+	void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer);
 
-	public void registerRenderableEntity(Class<? extends Entity> entityClass, Object renderer);
+	void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider);
 
-	public void setPlayerTransitionProvider(PlayerTransitionProvider playerTransitionProvider);
+	void init(Object mod);
 
-	public void init(Object mod);
+	MaterialImpactSound getMaterialImpactSound(IBlockState iBlockState, WeaponSpawnEntity entity);
 
-	public MaterialImpactSound getMaterialImpactSound(IBlockState iBlockState, WeaponSpawnEntity entity);
+	CommonModContext setMaterialImpactSound(String sound, float volume, Material material);
 
-	public CommonModContext setMaterialImpactSound(String sound, float volume, Material material);
+	CommonModContext setMaterialsImpactSound(String sound, float volume, Material... materials);
 
-	public CommonModContext setMaterialsImpactSound(String sound, float volume, Material... materials);
+	CommonModContext setMaterialsImpactSound(String sound, Material... materials);
 
-	public CommonModContext setMaterialsImpactSound(String sound, Material... materials);
+	CommonModContext setMaterialImpactSounds(Material material, float volume, String... sounds);
 
-	public CommonModContext setMaterialImpactSounds(Material material, float volume, String... sounds);
+	int getRegisteredTextureId(String textureName);
 
-	public int getRegisteredTextureId(String textureName);
+	int registerTexture(String explosionParticleTextureName);
 
-	public int registerTexture(String explosionParticleTextureName);
-
-	public String getRegisteredTexture(int particleTextureId);
+	String getRegisteredTexture(int particleTextureId);
 
 }

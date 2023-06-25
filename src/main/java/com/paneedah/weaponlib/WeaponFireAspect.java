@@ -312,8 +312,6 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	 weaponInstance.setSlideLock(true);
 
         float recoilAmount = weaponInstance.getRecoil();
-       
-        if(BalancePackManager.shouldChangeWeaponRecoil(weapon)) recoilAmount = (float) BalancePackManager.getNewWeaponRecoil(weapon);
         recoilAmount *= BalancePackManager.getGlobalRecoilMultiplier();
         recoilAmount *= BalancePackManager.getGroupRecoilMultiplier(weapon.getConfigurationGroup());
         
