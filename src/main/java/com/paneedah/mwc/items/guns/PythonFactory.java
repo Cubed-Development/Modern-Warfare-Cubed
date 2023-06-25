@@ -5,7 +5,7 @@ import com.paneedah.mwc.models.Python;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Bullets;
+import com.paneedah.mwc.wearables.Bullets;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transform;
@@ -22,7 +22,7 @@ public class PythonFactory implements GunFactory {
 		.withName("Python")
 		.withAmmoCapacity(6)
 		.withFireRate(0.2f)
-		.withRecoil(6f)
+		.withRecoil(7f)
 		.withZoom(0.9f)
 		.withConfigGroup(GunConfigurationGroup.REVOLVER)
 		.withMaxShots(1)
