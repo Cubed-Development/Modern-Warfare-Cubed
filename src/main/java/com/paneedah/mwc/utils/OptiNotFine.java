@@ -1,11 +1,16 @@
 package com.paneedah.mwc.utils;
 
+import net.minecraftforge.fml.client.FMLClientHandler;
+
 import java.lang.reflect.Field;
 
 import static com.paneedah.mwc.utils.ModReference.RED_LOG;
 
 /**
  * This class provides methods to communicate with OptiNotFine (Can you see that I hate OptiFine?)
+ * <p>
+ * Todo: Use {@link FMLClientHandler#hasOptifine}
+ * Todo: Strip from the server
  *
  * @author Desoroxxx
  */

@@ -1373,7 +1373,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         //state.setAmmo(Tags.getAmmo(itemStack)); // TODO: get ammo properly
         instance.setState(WeaponState.READY);
     
-        instance.setRecoil(builder.recoil);
+        instance.setRecoil(BalancePackManager.shouldChangeWeaponRecoil(instance.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(instance.getWeapon()) : builder.recoil);
         instance.setMaxShots(builder.maxShots.get(0));
 
         for(CompatibleAttachment<Weapon> compatibleAttachment: ((Weapon) itemStack.getItem()).getCompatibleAttachments().values()) {
@@ -1529,16 +1529,14 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         ItemAttachment.ApplyHandler2<Weapon> handler = (a, i) -> {};
         switch(attachmentCategory) {
         case SCOPE:
-            handler = (a, i) -> {
-                //i.setZoom(builder.zoom);
-            };
+            //handler = (a, i) -> {
+            //    //i.setZoom(builder.zoom);
+            //};
             break;
         case GRIP:
             handler = (a, i) -> {
-                i.setRecoil(builder.recoil);
+                i.setRecoil(BalancePackManager.shouldChangeWeaponRecoil(i.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(i.getWeapon()) : builder.recoil);
             };
-            break;
-        default:
             break;
         }
         return handler;
@@ -1549,7 +1547,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
     }
 
     public float getRecoil() {
-        return builder.recoil;
+        return BalancePackManager.shouldChangeWeaponRecoil(this) ? (float) BalancePackManager.getNewWeaponRecoil(this) : builder.recoil;
     }
 
     public ModContext getModContext() {

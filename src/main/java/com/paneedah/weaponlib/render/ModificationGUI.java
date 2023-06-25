@@ -633,14 +633,14 @@ public class ModificationGUI {
 				TextFormatting.GOLD + translate(weapon.getTranslationKey()),
 				30, 30, 1.0, ColorPalette.WHITE);
 		GUIRenderHelper.drawScaledString(
-				"Damage :: " + TextFormatting.GOLD + BalancePackManager.getNetGunDamage(weapon),
+				"Damage :: " + TextFormatting.GOLD + String.format("%.2f" , (BalancePackManager.getNetGunDamage(weapon))),
 				30, 60, 1, ColorPalette.WHITE);
-		GUIRenderHelper.drawScaledString("Recoil :: " + TextFormatting.GOLD + (float) BalancePackManager.getNewWeaponRecoil(weapon),
+		GUIRenderHelper.drawScaledString("Recoil :: " + TextFormatting.GOLD + String.format("%.2f" , (weaponInstance.getRecoil())),
 				30, 75, 1, ColorPalette.WHITE);
 		GUIRenderHelper.drawScaledString("Firerate :: " + TextFormatting.GOLD + weaponInstance.getFireRate(), 30, 90, 1,
 				ColorPalette.WHITE);
 		GUIRenderHelper.drawScaledString(
-				"Inaccuracy :: " + TextFormatting.GOLD + weaponInstance.getInaccuracy(), 30,
+				"Inaccuracy :: " + TextFormatting.GOLD + String.format("%.1f" , (weaponInstance.getInaccuracy())), 30,
 				105, 1, ColorPalette.WHITE);
 
 		GlStateManager.popMatrix();

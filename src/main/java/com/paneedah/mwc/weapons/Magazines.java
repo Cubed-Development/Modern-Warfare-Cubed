@@ -790,7 +790,7 @@ public class Magazines {
         		.withName("Stanag100")
         		.withRotationPoint(-0.16000000476837162, -0.16000000476837162, -1.5200000452995304)
                 .withCreativeTab(ModernWarfareMod.AmmoTab)
-                .withModel(new com.paneedah.mwc.models.NATODrum100(), "Drum100rndMag.png")
+                .withModel(new com.paneedah.mwc.models.NATODrum100(), "drum100rndmag.png")
                 .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver, 
                         Attachments.AUGDefaultKit, Attachments.Vector556Handguard,
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
