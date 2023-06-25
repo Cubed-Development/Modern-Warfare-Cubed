@@ -25,7 +25,7 @@ public class M4A1Factory implements GunFactory {
 		.withName("m4a1")
 		//.withAmmoCapacity(30)
 		.withFireRate(0.75f)
-		.withRecoil(3.0f)
+		.withRecoil(3f)
 		.withZoom(0.9f)
 		.withConfigGroup(GunConfigurationGroup.RIFLES)
 		.hasFlashPedals()
