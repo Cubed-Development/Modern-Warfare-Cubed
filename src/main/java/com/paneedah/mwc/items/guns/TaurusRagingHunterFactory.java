@@ -6,7 +6,7 @@ import com.paneedah.mwc.models.TaurusRagingHunter;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.wearables.Bullets;
+import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
@@ -126,8 +126,8 @@ public class TaurusRagingHunterFactory implements GunFactory {
                 GL11.glRotatef(-120F, -0.5f, 7f, 3f);
             })
             .withThirdPersonPositioning((renderContext) -> {
-                GL11.glScaled(0.45F, 0.45F, 0.45F);
-                GL11.glTranslatef(-2.6F, -0.2F, 2.3F);
+				GL11.glScaled(0.5F, 0.5F, 0.5F);
+				GL11.glTranslatef(-1.8F, -1F, 2F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
                 })
