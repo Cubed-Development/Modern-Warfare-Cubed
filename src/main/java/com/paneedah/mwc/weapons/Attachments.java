@@ -5801,7 +5801,7 @@ public class Attachments {
         DesertEagleLongBody = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
-                .withModel(new com.paneedah.mwc.models.DesertEagleLong(), "DesertEagle.png")
+                .withModel(new com.paneedah.mwc.models.DesertEagleLong(), "deagle.png")
                 .withInventoryModelPositioning((model, s) -> {
                     if (model instanceof com.paneedah.mwc.models.DesertEagleLong) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
@@ -12932,7 +12932,7 @@ public class Attachments {
         		})
         		.withCategory(AttachmentCategory.SCOPE)
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
-                .withModel(new com.paneedah.mwc.models.OKP7(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.OKP7(), "okp7.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
@@ -13107,7 +13107,7 @@ public class Attachments {
         		.withCategory(AttachmentCategory.SCOPE)
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
                 .withRenderablePart()
-                .withModel(new com.paneedah.mwc.models.BijiaReflex(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.BijiaReflex(), "bijiareflex.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
@@ -13478,7 +13478,7 @@ public class Attachments {
         		.withCategory(AttachmentCategory.SCOPE)
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
                 .withRenderablePart()
-                .withModel(new com.paneedah.mwc.models.Holographic(), "Holographic.png")
+                .withModel(new com.paneedah.mwc.models.Holographic(), "holographic.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
@@ -13550,7 +13550,7 @@ public class Attachments {
                 .withCategory(AttachmentCategory.SCOPE)
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
                 .withRenderablePart()
-                .withModel(new com.paneedah.mwc.models.EotechHybrid2(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.EotechHybrid2(), "eotechhybrid.png")
                 .withModel(new com.paneedah.mwc.models.EotechScopeRing(), "gun.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_NORMAL,
@@ -13906,7 +13906,7 @@ public class Attachments {
         		.withCategory(AttachmentCategory.SCOPE)
                 .withCreativeTab(ModernWarfareMod.AttachmentsTab)
                 .withRenderablePart()
-                .withModel(new com.paneedah.mwc.models.RMRsight(), "RMRsight.png")
+                .withModel(new com.paneedah.mwc.models.RMRsight(), "rmrsight.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 1),
@@ -14235,7 +14235,7 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.steelIngot, 5))
         		.withCrosshair("LP")
         		.withRenderablePart()
-                .withModel(new com.paneedah.mwc.models.LeupoldRail(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.LeupoldRail(), "leupold.png")
 //                .withModel(new com.paneedah.mwc.models.JPUreticle(), "black.png")
                 .withFirstPersonModelPositioning((model, itemStack) -> {
                     if (model instanceof com.paneedah.mwc.models.LeupoldRail) {
