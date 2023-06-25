@@ -286,27 +286,27 @@ public class MalyukFactory {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
         })
         .withCompatibleAttachment(Attachments.Bipod, (model) -> {
-        	GL11.glTranslatef(-0.18F, -0.15F, -4F);
+        	GL11.glTranslatef(-0.18F, -0.15F, -2.6F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         })
         .withCompatibleAttachment(Attachments.Grip2, (model) -> {
-            GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+            GL11.glTranslatef(-0.2F, -0.1F, -2F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.StubbyGrip, (model) -> {
-            GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+            GL11.glTranslatef(-0.2F, -0.1F, -2F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.AngledGrip, (model) -> {
-            GL11.glTranslatef(-0.2F, 0.05F, -4F);
+            GL11.glTranslatef(-0.2F, 0.05F, -2.4F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.VGrip, (model) -> {
-            GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+            GL11.glTranslatef(-0.2F, -0.1F, -2.0F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.JunoGrip, (model) -> {
-            GL11.glTranslatef(-0.3F, -0.35F, -4.5F);
+            GL11.glTranslatef(-0.3F, -0.35F, -2.5F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.Silencer762x39, renderContext -> {
