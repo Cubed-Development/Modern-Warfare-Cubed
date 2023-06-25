@@ -80,8 +80,8 @@ public class DesertEagle extends ModelWithAttachments {
 	private final ModelRenderer gun114_r1;
 
 	public DesertEagle() {
-		textureWidth = 128;
-		textureHeight = 128;
+		textureWidth = 150;
+		textureHeight = 150;
 
 		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, 24.0F, 0.0F);
