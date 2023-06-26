@@ -11,6 +11,7 @@ import static com.paneedah.mwc.utils.ModReference.RED_LOG;
  * <p>
  * Todo: Use {@link FMLClientHandler#hasOptifine}
  * Todo: Strip from the server
+ * Todo: Force Fast Render off
  *
  * @author Desoroxxx
  */
