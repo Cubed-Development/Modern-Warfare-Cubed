@@ -36,8 +36,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Changed
 
-- Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1, 100 Rounds NATO Drum Magazine, revamped textured sight set and the pink camo skin
+- Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1, 100 Rounds NATO Drum Magazine and the pink camo skin
 - Overhauled animations of the M40A6
+- Overhouled the texture of the sights
 - Reworked the config system:
   - Old XML config has been removed, and all configs have been consolidated into a new JSON config. Issues with some non-functioning configs have been resolved
   - Adjusted craftingmappings.json to now only override recipes, rather than removing all recipes
