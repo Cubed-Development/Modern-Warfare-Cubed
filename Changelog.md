@@ -22,6 +22,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - penetrableBlocks
   - knockbackOnHi
   - hipFireSpread
+- Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)
 - Durability to all vests as a temporary measure to resolve vest-related issues
 - Smelting of sulfur into gunpowder
 - .50 AE in the Ammo Press
