@@ -422,10 +422,10 @@ public class EntityConfiguration {
 
             //TODO: Remove this and actually have a proper way to register entities
             //     This is just a temporary solution to resolve the NPE
-            if (!ModernConfigManager.aiEntities.containsKey(entityName))
-                ModernConfigManager.aiEntities.put(entityName, new AIEntity(entityName, 1.0, 0.0));
-
-            AIEntity entityConfig = ModernConfigManager.aiEntities.get(entityName);
+            //Obsolete?
+            //if (!ModernConfigManager.aiEntities.containsKey(entityName))
+            //    ModernConfigManager.aiEntities.put(entityName, new AIEntity(entityName, 1.0, 0.0));
+            //AIEntity entityConfig = ModernConfigManager.aiEntities.get(entityName);
 
 
             WeightedOptions.Builder<EnumDifficulty, Equipment> equipmentOptionsBuilder = new WeightedOptions.Builder<>();
@@ -462,7 +462,7 @@ public class EntityConfiguration {
                     }
 
                     Equipment equipment = new Equipment();
-                    switch (entityConfig.getName()) {
+                    switch (name) {
                         case "turret":
                             equipment.item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.ID, "turretgun"));
                             break;
@@ -511,7 +511,7 @@ public class EntityConfiguration {
             configuration.deathSound = context.registerSound(deathSound);
             configuration.stepSound = context.registerSound(stepSound);
             configuration.lootTable = lootTable;
-            configuration.maxHealth = ModernConfigManager.terroristHealth * maxHealth;
+            configuration.maxHealth = maxHealth;
             configuration.maxSpeed = maxSpeed;
             configuration.followRange = followRange;
             configuration.canSpawnHere = canSpawnHere;
@@ -543,8 +543,18 @@ public class EntityConfiguration {
                EntityRegistry.registerEgg(EntityList.getKey(entityClass), primaryEggColor, secondaryEggColor);
 
             for(Spawn spawn: spawns) {
-            	//int weightedProb = spawn.weightedProb;
-                int weightedProb = (int)(entityConfig.getSpawn());
+                int weightedProb = spawn.weightedProb;
+                //int weightedProb = (int)(entityConfig.getSpawn());
+
+                if(entityName.equals("terrorist")) {
+                    weightedProb = (int) (spawn.weightedProb * ModernConfigManager.terroristsSpawn);
+                    configuration.maxHealth = ModernConfigManager.terroristHealth * maxHealth;
+                }
+                else if(entityName.equals("soldier")) {
+                    weightedProb = (int) (spawn.weightedProb * ModernConfigManager.soldierSpawn);
+                    configuration.maxHealth = ModernConfigManager.soldierHealth * maxHealth;
+                }
+
                 if(weightedProb > 0) {
                     Set<Biome> biomes = new HashSet<>();
 
