@@ -162,7 +162,7 @@ public class CommonModContext implements ModContext {
     
     private int registeredTextureCounter;
     
-    protected static ThreadLocal<ModContext> currentContext = new ThreadLocal<>();
+    protected static ModContext currentContext;
 
 
 	@Override
@@ -377,7 +377,7 @@ public class CommonModContext implements ModContext {
     }
     
     public static ModContext getContext() {
-        return currentContext.get();
+        return currentContext;
     }
 	
 	@Override
@@ -433,12 +433,7 @@ public class CommonModContext implements ModContext {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
-	public void runInMainThread(Runnable runnable) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
+    @Override
 	public void registerRenderableItem(String name, Item item, Object renderer) {
         item.setRegistryName(ModReference.ID, name); // temporary hack
         ForgeRegistries.ITEMS.register(item);

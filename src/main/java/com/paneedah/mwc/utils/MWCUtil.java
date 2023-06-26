@@ -160,6 +160,9 @@ public class MWCUtil {
         final int endY = FastMath.floorToInt(endPos.y);
         final int endZ = FastMath.floorToInt(endPos.z);
 
+        final BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos(startX, startY, startZ);
+        IBlockState iBlockState;
+
         for (int i = 0; i < 256; i++) {
             if (startX == endX && startY == endY && startZ == endZ)
                 return null;
@@ -199,8 +202,8 @@ public class MWCUtil {
                 if (direction == EnumFacing.SOUTH) startZ--;
             }
 
-            final BlockPos blockPos = new BlockPos(startX, startY, startZ);
-            final IBlockState iBlockState = world.getBlockState(blockPos);
+            blockPos.setPos(startX, startY, startZ);
+            iBlockState = world.getBlockState(blockPos);
             if (isCollidable.test(iBlockState.getBlock(), iBlockState)) {
                 final RayTraceResult rayTraceResult = iBlockState.collisionRayTrace(world, blockPos, startPos.toVec3d(), endPos.toVec3d());
                 if (rayTraceResult != null)

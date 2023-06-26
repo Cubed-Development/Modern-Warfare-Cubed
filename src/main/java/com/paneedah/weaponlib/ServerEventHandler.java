@@ -78,7 +78,7 @@ public class ServerEventHandler {
     @SubscribeEvent
     public void onTick(TickEvent.ServerTickEvent serverTickEvent) {
         if(serverTickEvent.phase == TickEvent.Phase.START)
-            CommonModContext.currentContext.set(modContext);
+            CommonModContext.currentContext = modContext;
     }
 
     @SubscribeEvent
