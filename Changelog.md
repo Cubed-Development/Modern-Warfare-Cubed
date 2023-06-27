@@ -22,6 +22,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - penetrableBlocks
   - knockbackOnHi
   - hipFireSpread
+- Add Small Gunpower(Reduce the cost of manufacturing bullets)
 - Durability to all vests as a temporary measure to resolve vest-related issues
 - Smelting of sulfur into gunpowder
 - .50 AE in the Ammo Press
