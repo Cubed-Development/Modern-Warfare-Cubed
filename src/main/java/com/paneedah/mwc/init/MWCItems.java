@@ -16,7 +16,6 @@ import net.minecraftforge.oredict.OreDictionary;
 public class MWCItems {
 
     //Ingots
-    public static ItemBase copperIngot;
     public static ItemBase tinIngot;
     public static ItemBase leadIngot;
 
@@ -30,9 +29,10 @@ public class MWCItems {
     public static ItemBase carbonFiber;
     public static ItemBase syntheticPolymerComposite;
     public static ItemBase syntheticPlastic;
-
+    public static ItemBase smallGunpowder;
 
     //Items used in the custom crafting table
+    public static ManufacturingItemBase copperIngot;
     public static ManufacturingItemBase steelIngot;
     public static ManufacturingItemBase gunmetalIngot;
     public static ManufacturingItemBase gunmetalPlate;
@@ -44,8 +44,6 @@ public class MWCItems {
     public static ItemBase[] items;
 
     public static void init() {
-        copperIngot = new ItemBase("copper_ingot");
-        copperIngot.setOreDict("ingotCopper");
 
         tinIngot = new ItemBase("tin_ingot");
         tinIngot.setOreDict("ingotTin");
@@ -75,6 +73,13 @@ public class MWCItems {
         syntheticPlastic = new ItemBase("synthetic_plastic");
         syntheticPlastic.setOreDict("plastic");
 
+        smallGunpowder = new ItemBase("small_gunpowder");
+        smallGunpowder.setOreDict(new String[]{"smallGunpowder", "nether_wart"});
+
+        copperIngot = new ManufacturingItemBase("copper_ingot");
+        copperIngot.setOreDict("ingotCopper");
+        copperIngot.setRecoveryChance(0);
+
         gunmetalIngot = new ManufacturingItemBase("gunmetal_ingot");
         gunmetalIngot.setOreDict("ingotGunmetal");
         gunmetalIngot.setRecoveryChance(.3);
@@ -99,6 +104,7 @@ public class MWCItems {
                 leadIngot,
                 sulfurDust,
                 steelDust,
+                smallGunpowder,
                 graphiteChunk,
                 gunmetalComposite,
                 carbonFiber,
