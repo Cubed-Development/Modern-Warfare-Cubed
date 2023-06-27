@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.Glock18C;
 import com.paneedah.mwc.models.Reflex2;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -46,7 +46,7 @@ public class DesertEagleFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.14f)
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -261,6 +261,6 @@ public class DesertEagleFactory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.02f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

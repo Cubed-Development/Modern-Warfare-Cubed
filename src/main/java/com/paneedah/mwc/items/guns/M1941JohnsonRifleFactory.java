@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -45,7 +45,7 @@ public class M1941JohnsonRifleFactory {
         .withFlashOffsetY(() -> 0.12f)
 //        .withShellCasingSideOffset(0f)
         .withShellCasingVerticalOffset(-0.1f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Semi-Automatic Rifle",
         "Damage: 15", 
@@ -1037,7 +1037,7 @@ public class M1941JohnsonRifleFactory {
         .withSpawnEntityDamage(15f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

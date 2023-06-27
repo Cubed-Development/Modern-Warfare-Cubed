@@ -1,6 +1,6 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.ATV;
 import com.paneedah.mwc.models.SampleVehicleControlArm;
 import com.paneedah.mwc.models.SampleVehicleSteeringWheel;
@@ -208,7 +208,7 @@ public class SampleVehicleFactory implements VehicleFactory {
 //                .withAccelerationIncrement(0.015)
 //                .withForwardDeccelerationFactor(0.97)
                 .withRenderer(renderer)
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
     }
 
 }

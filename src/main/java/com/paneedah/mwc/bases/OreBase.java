@@ -1,6 +1,6 @@
 package com.paneedah.mwc.bases;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.state.IBlockState;
@@ -21,7 +21,7 @@ public class OreBase extends BlockOre {
         setHardness(6F);
         setResistance(15F);
         setHarvestLevel("pickaxe", harvestLevel);
-        setCreativeTab(ModernWarfareMod.BlocksTab);
+        setCreativeTab(MWC.BLOCKS_TAB);
     }
 
     @Override

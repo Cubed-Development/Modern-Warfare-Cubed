@@ -18,10 +18,10 @@ public class Electronics {
         Tablet = new ItemTablet.Builder<>()
                 .withViewfinderPositioning((p, s) -> {
                     float scale = 5.9f;
-                    GL11.glScalef(scale, scale / ModernWarfareMod.MOD_CONTEXT.getAspectRatio(), scale);
+                    GL11.glScalef(scale, scale / MWC.modContext.getAspectRatio(), scale);
                     GL11.glTranslatef(-0.12f, 0.56f, 0.01f);
                 })
-                .withCreativeTab(ModernWarfareMod.GadgetsTab)
+                .withCreativeTab(MWC.GADGETS_TAB)
                 .withCrosshair("HP")
                 .withModel(new TabletModel(), "IPad.png")
                 //.withModel(new com.paneedah.mwc.models.LPscope(), "HP2.png")
@@ -76,12 +76,12 @@ public class Electronics {
                 .withName("tablet")
         
                 .withTextureName("Dummy.png")
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
 
         new ItemWirelessCamera.Builder()
 
         .withName("wcam")
-        .withCreativeTab(ModernWarfareMod.GadgetsTab)
+        .withCreativeTab(MWC.GADGETS_TAB)
         .withModel(new CameraModel(), "gun")
         .withFirstPersonPositioning((player, itemStack) -> {
             // GL11.glTranslatef(0.5F, -1.5F, -0.7F);
@@ -134,17 +134,17 @@ public class Electronics {
                 }
                 )
 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
 
 
         new ItemHandheld.Builder<>()
         .withScreenPerspectiveType(GasDetectorScreenPerspective.class)
         .withScreenPositioning((p, s) -> {
             float scale = 1.9f;
-            GL11.glScalef(scale, scale / ModernWarfareMod.MOD_CONTEXT.getAspectRatio(), scale);
+            GL11.glScalef(scale, scale / MWC.modContext.getAspectRatio(), scale);
             GL11.glTranslatef(0.017f, 0.16f, 0.17f);
         })
-        .withCreativeTab(ModernWarfareMod.GadgetsTab)
+        .withCreativeTab(MWC.GADGETS_TAB)
         .withCrosshair("HP")
         .withModel(new GasDetector(), "gasdetector.png")
         .withFirstPersonPositioning((player, itemStack) -> {
@@ -204,6 +204,6 @@ public class Electronics {
         .withName("gas-detector")
 
         .withTextureName("Dummy.png")
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

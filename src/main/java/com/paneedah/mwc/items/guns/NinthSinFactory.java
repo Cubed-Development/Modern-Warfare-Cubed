@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.NinthSin;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -45,7 +45,7 @@ public class NinthSinFactory implements GunFactory {
 //        .withBleedingCoefficient(10f)
         .withShellCasingEjectEnabled(false)
         .withPellets(3)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Vacuum Combat Sidearm", 
         "Damage: 4", 
@@ -2457,6 +2457,6 @@ public class NinthSinFactory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.0118f)
                 
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

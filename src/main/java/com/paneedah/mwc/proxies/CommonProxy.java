@@ -63,27 +63,27 @@ public class CommonProxy {
 
 
     // I cannot figure out for the life of me why moving the init classes to the init() instead of the preInit() makes the game die, but I have no choice but to leave it here for now.
-    public void preInit(final ModernWarfareMod mod) {
-        ModernWarfareMod.MOD_CONTEXT.preInit(mod, ModernWarfareMod.CHANNEL);
+    public void preInit(final MWC mod) {
+        MWC.modContext.preInit(mod, MWC.CHANNEL);
 
         // Sounds
-        ModernWarfareMod.MOD_CONTEXT.setChangeZoomSound("OpticZoom");
-        ModernWarfareMod.MOD_CONTEXT.setNightVisionOnSound("nightvision_on");
-        ModernWarfareMod.MOD_CONTEXT.setNightVisionOffSound("nightvision_off");
-        ModernWarfareMod.MOD_CONTEXT.setChangeFireModeSound("firerate_toggle");
-        ModernWarfareMod.MOD_CONTEXT.setNoAmmoSound("dry_fire");
-        ModernWarfareMod.MOD_CONTEXT.setExplosionSound("grenadeexplosion");
-        ModernWarfareMod.MOD_CONTEXT.setFlashExplosionSound("flashbang");
+        MWC.modContext.setChangeZoomSound("OpticZoom");
+        MWC.modContext.setNightVisionOnSound("nightvision_on");
+        MWC.modContext.setNightVisionOffSound("nightvision_off");
+        MWC.modContext.setChangeFireModeSound("firerate_toggle");
+        MWC.modContext.setNoAmmoSound("dry_fire");
+        MWC.modContext.setExplosionSound("grenadeexplosion");
+        MWC.modContext.setFlashExplosionSound("flashbang");
 
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.ROCK, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone");
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.WOOD, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone", "bullet_10_snap");
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.GRASS, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.GROUND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.SAND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.SNOW, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        ModernWarfareMod.MOD_CONTEXT.setMaterialImpactSounds(Material.IRON, 1.5f, "bullet_6_iron", "bullet_7_iron", "bullet_8_iron");
+        MWC.modContext.setMaterialImpactSounds(Material.ROCK, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone");
+        MWC.modContext.setMaterialImpactSounds(Material.WOOD, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone", "bullet_10_snap");
+        MWC.modContext.setMaterialImpactSounds(Material.GRASS, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
+        MWC.modContext.setMaterialImpactSounds(Material.GROUND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
+        MWC.modContext.setMaterialImpactSounds(Material.SAND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
+        MWC.modContext.setMaterialImpactSounds(Material.SNOW, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
+        MWC.modContext.setMaterialImpactSounds(Material.IRON, 1.5f, "bullet_6_iron", "bullet_7_iron", "bullet_8_iron");
         UniversalSoundRegistry.init();
-        UniversalSoundLookup.initialize(ModernWarfareMod.MOD_CONTEXT);
+        UniversalSoundLookup.initialize(MWC.modContext);
 
         // Forcing Item Initialization here, at the very least the variables, before they get registered normally on the init() (@SubscribeEvent) phase.
         MWCItems.init();
@@ -93,10 +93,10 @@ public class CommonProxy {
         DataSerializers.registerSerializer(VehiclePhysSerializer.SERIALIZER);
 
         // Special object initialization
-        SpecialAttachments.init(mod, ModernWarfareMod.MOD_CONTEXT);
+        SpecialAttachments.init(mod, MWC.modContext);
         Backpacks.init(mod);
         Vests.init(mod);
-        Armors.init(mod, ModernWarfareMod.MOD_CONTEXT);
+        Armors.init(mod, MWC.modContext);
         Attachments.init(mod);
         AuxiliaryAttachments.init(mod);
         GunSkins.init(mod);
@@ -113,11 +113,11 @@ public class CommonProxy {
         new BaseballBatNailsFactory().createMelee(this);
         new NightStickFactory().createMelee(this);
 
-        ModernWarfareMod.MOD_CONTEXT.preInitEnd(mod, ModernWarfareMod.MOD_CONTEXT.getChannel());
+        MWC.modContext.preInitEnd(mod, MWC.modContext.getChannel());
     }
 
-    public void init(final ModernWarfareMod mod) {
-        ModernWarfareMod.MOD_CONTEXT.init(mod);
+    public void init(final MWC mod) {
+        MWC.modContext.init(mod);
 
         Entities.init(this);
         Vehicles.init(this);
@@ -125,6 +125,6 @@ public class CommonProxy {
         GameRegistry.registerWorldGenerator(new WorldGeneratorEventHandler(), 0);
     }
 
-    public void postInit(final ModernWarfareMod mod, final FMLPostInitializationEvent initializationEvent) {
+    public void postInit(final MWC mod, final FMLPostInitializationEvent initializationEvent) {
     }
 }

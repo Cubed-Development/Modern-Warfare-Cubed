@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.Chainsaw;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -45,7 +45,7 @@ public class ChainsawFactory implements GunFactory {
 //        .withShellCasingEjectDirection()
         .withShellCasingForwardOffset(0.05f)
         .withShellCasingVerticalOffset(-0.03f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
 //         .withCrafting(CraftingComplexity.MEDIUM,
 //                Ores.PlasticPlate,
 //                MwItems.gunmetalPlate)
@@ -567,6 +567,6 @@ public class ChainsawFactory implements GunFactory {
         .withSpawnEntitySpeed(1.9F)
                 
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

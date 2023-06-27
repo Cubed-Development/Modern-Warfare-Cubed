@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.Glock18C;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -47,7 +47,7 @@ public class turretgunFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.17f)
         .withShellCasingForwardOffset(0.05f)
         .withShellCasingVerticalOffset(-0.03f)
-//        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+//        .withCreativeTab(MWC.AssaultRiflesTab)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Carbine", 
         "Damage: 6", 
@@ -321,6 +321,6 @@ public class turretgunFactory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.0118f)
                 
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

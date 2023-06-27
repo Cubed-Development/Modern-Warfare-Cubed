@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -46,7 +46,7 @@ public class M200InterventionFactory implements GunFactory {
         .withFlashOffsetX(() -> 0.08f)
         .withFlashOffsetY(() -> 0.11f)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Sniper Rifle",
         "Damage: 20", 
@@ -2397,6 +2397,6 @@ public class M200InterventionFactory implements GunFactory {
 //        .withSpawnEntitySpeed(80f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

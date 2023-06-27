@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -44,7 +44,7 @@ public class DP28Factory {
         .withFlashOffsetX(() -> 0.09f)
         .withFlashOffsetY(() -> 0.14f)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Light Machine Gun",
         "Damage: 14", 
@@ -953,7 +953,7 @@ public class DP28Factory {
         .withSpawnEntityDamage(14f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

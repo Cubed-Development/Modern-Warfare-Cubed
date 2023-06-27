@@ -1,10 +1,9 @@
 package com.paneedah.mwc.wearables;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.ItemStorage;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.Transform;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -32,7 +31,7 @@ public class Backpacks {
         .withName("combat_sustainment_backpack")
         .withSize(10)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
-        .withTab(ModernWarfareMod.ArmorTab)
+        .withTab(MWC.ARMOR_TAB)
         .withProperModel("com.paneedah.mwc.models.CombatSustainmentBackpack", "combatsustainmentbackpack.png")
         .withGuiTextureName("combat_sustainment_backpack.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
@@ -47,13 +46,13 @@ public class Backpacks {
 	        .withScale(3.2, 3.2, 3.2)
 	        .doGLDirect();
         })
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
         
         CombatSustainmentBackpackBlack = new ItemStorage.Builder()
                 .withName("combat_sustainment_backpack_black")
                 .withSize(10)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(ModernWarfareMod.ArmorTab)
+                .withTab(MWC.ARMOR_TAB)
                 .withProperModel("com.paneedah.mwc.models.CombatSustainmentBackpack", "combatsustainmentblack.png")
                 .withGuiTextureName("combat_sustainment_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
@@ -68,13 +67,13 @@ public class Backpacks {
         	        .withScale(3.2, 3.2, 3.2)
         	        .doGLDirect();
                 })
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
         
         CombatSustainmentBackpackForest = new ItemStorage.Builder()
                 .withName("combat_sustainment_backpack_forest")
                 .withSize(10)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(ModernWarfareMod.ArmorTab)
+                .withTab(MWC.ARMOR_TAB)
                 .withProperModel("com.paneedah.mwc.models.CombatSustainmentBackpack", "combatsustainmentforest.png")
                 .withGuiTextureName("combat_sustainment_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
@@ -89,13 +88,13 @@ public class Backpacks {
         	        .withScale(3.2, 3.2, 3.2)
         	        .doGLDirect();
                 })
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
         
         AssaultBackpack = new ItemStorage.Builder()
         .withName("assault_backpack")
         .withSize(16)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
-        .withTab(ModernWarfareMod.ArmorTab)
+        .withTab(MWC.ARMOR_TAB)
         .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpack.png")
         .withGuiTextureName("assault_backpack.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
@@ -110,13 +109,13 @@ public class Backpacks {
 	        .withScale(3.2, 3.2, 3.2)
 	        .doGLDirect();
         })
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
         
         AssaultBackpackBlack = new ItemStorage.Builder()
                 .withName("assault_backpack_black")
                 .withSize(16)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(ModernWarfareMod.ArmorTab)
+                .withTab(MWC.ARMOR_TAB)
                 .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpackblack.png")
                 .withGuiTextureName("assault_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
@@ -131,13 +130,13 @@ public class Backpacks {
         	        .withScale(3.2, 3.2, 3.2)
         	        .doGLDirect();
                 })
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
         
         AssaultBackpackForest = new ItemStorage.Builder()
                 .withName("assault_backpack_forest")
                 .withSize(16)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(ModernWarfareMod.ArmorTab)
+                .withTab(MWC.ARMOR_TAB)
                 .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpackforest.png")
                 .withGuiTextureName("assault_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
@@ -152,13 +151,13 @@ public class Backpacks {
         	        .withScale(3.2, 3.2, 3.2)
         	        .doGLDirect();
                 })
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
         
         F5SwitchbladeBackpack = new ItemStorage.Builder()
                 .withName("f5switchbladebackpack")
                 .withSize(16)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(ModernWarfareMod.ArmorTab)
+                .withTab(MWC.ARMOR_TAB)
                 .withProperModel("com.paneedah.mwc.models.F5SwitchbladeBackpack", "f5switchbladebackpack.png")
                 .withGuiTextureName("assault_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
@@ -173,13 +172,13 @@ public class Backpacks {
         	        .withScale(3.2, 3.2, 3.2)
         	        .doGLDirect();
                 })
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
         
         TruSpecCorduraBackpack = new ItemStorage.Builder()
         .withName("tru_spec_cordura_backpack")
         .withSize(20)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
-        .withTab(ModernWarfareMod.ArmorTab)
+        .withTab(MWC.ARMOR_TAB)
         .withProperModel("com.paneedah.mwc.models.TruSpecCorduraBackpack", "truspeccordurabackpack.png")
         .withGuiTextureName("tru_spec_cordura_backpack.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
@@ -194,13 +193,13 @@ public class Backpacks {
 	        .withScale(3.2, 3.2, 3.2)
 	        .doGLDirect();
         })
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
         
         TruSpecCorduraBackpackBlack = new ItemStorage.Builder()
                 .withName("tru_spec_cordura_backpack_black")
                 .withSize(20)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(ModernWarfareMod.ArmorTab)
+                .withTab(MWC.ARMOR_TAB)
                 .withProperModel("com.paneedah.mwc.models.TruSpecCorduraBackpack", "truspeccordurablack.png")
                 .withGuiTextureName("tru_spec_cordura_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
@@ -215,13 +214,13 @@ public class Backpacks {
         	        .withScale(3.2, 3.2, 3.2)
         	        .doGLDirect();
                 })
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
         
         TruSpecCorduraBackpackForest = new ItemStorage.Builder()
                 .withName("tru_spec_cordura_backpack_forest")
                 .withSize(20)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(ModernWarfareMod.ArmorTab)
+                .withTab(MWC.ARMOR_TAB)
                 .withProperModel("com.paneedah.mwc.models.TruSpecCorduraBackpack", "truspeccorduraforest.png")
                 .withGuiTextureName("tru_spec_cordura_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
@@ -236,13 +235,13 @@ public class Backpacks {
         	        .withScale(3.2, 3.2, 3.2)
         	        .doGLDirect();
                 })
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
         
         Dufflebag = new ItemStorage.Builder()
         .withName("duffle_bag")
         .withSize(24)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
-        .withTab(ModernWarfareMod.ArmorTab)
+        .withTab(MWC.ARMOR_TAB)
         .withProperModel("com.paneedah.mwc.models.Dufflebag", "dufflebag.png")
         .withGuiTextureName("duffle_bag.png")
         .withCustomEquippedPositioning((player, stack) -> {
@@ -257,7 +256,7 @@ public class Backpacks {
 	        .withScale(2.8, 2.8, 2.8)
 	        .doGLDirect();
         })
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
         
         /*
          * item ->

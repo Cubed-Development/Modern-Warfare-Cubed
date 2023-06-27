@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -52,7 +52,7 @@ public class MAC10Factory {
         .withFlashOffsetX(() -> 0.16f)
         .withFlashOffsetY(() -> 0.16f)
         .withInaccuracy(3f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -738,7 +738,7 @@ public class MAC10Factory {
         .withSpawnEntityDamage(5.3f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

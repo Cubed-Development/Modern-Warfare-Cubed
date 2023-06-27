@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.MP43E;
 import com.paneedah.mwc.models.Shotgun12Gauge;
 import com.paneedah.mwc.models.Shotgun12Gauge2;
@@ -47,7 +47,7 @@ public class MP43EFactory implements GunFactory {
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.09f)
         .withFlashOffsetY(() -> 0.09f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Shotgun",
         "Damage per Pellet: 6",
@@ -1346,6 +1346,6 @@ public class MP43EFactory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.8f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

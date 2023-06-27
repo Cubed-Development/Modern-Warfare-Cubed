@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -19,7 +19,7 @@ public class BlockHitMessageHandler implements IMessageHandler<BlockHitMessage, 
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(BlockHitMessage message, MessageContext messageContext) {
         mc.addScheduledTask(() -> {
-            for (int i = 0; i < ModernWarfareMod.bulletHitParticleMult; i++) {
+            for (int i = 0; i < MWC.bulletHitParticleMult; i++) {
                 mc.effectRenderer.addBlockHitEffects(message.getBlockPos(), message.getSideHit());
                 mc.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, message.getPosX(), message.getPosY(), message.getPosZ(), 0, 0, 0);
             }
