@@ -55,7 +55,7 @@ public class FMG9Factory implements GunFactory {
 		.withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
 		.withInaccuracy(3)
-		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
 		.withRecoilParam(new RecoilParam(
 				// The weapon power

@@ -1174,28 +1174,13 @@ tile.mwc_ump45_gfl.name=UMP45手办
 tile.weapon_workbench.name=武器工作台
 tile.ammo_press.name=子弹压制器
 
-
-itemGroup.guns_tab=现代战争资源
-
-itemGroup.AssaultRifles_tab=MWC武器
-
-itemGroup.props_tab=MWC传染主题道具 (仅创造)
-
-itemGroup.AmmoTab=MWC弹药
-
-itemGroup.AttachmentsTab=MWC配件
-
-itemGroup.ArmorTab=MWC护具
-
-itemGroup.GrenadesTab=MWC手榴弹
-
-itemGroup.SpartanTab=MWC斯巴达护甲
-
-itemGroup.GadgetsTab=MWC小装置
-
-itemGroup.BlocksTab=MWC方块&锭
-
-itemGroup.CombatServer_tab=MWC街机武器
+itemGroup.weapons=武器
+itemGroup.props=传染主题道具 (仅创造)
+itemGroup.ammunitionAndMagazines=弹药和杂志
+itemGroup.attachments=配件
+itemGroup.equipment=设备
+itemGroup.throwables=投掷物
+itemGroup.blocksAndIngots=方块&锭
 
 key.categories.weaponlib=现代战争立方体
 

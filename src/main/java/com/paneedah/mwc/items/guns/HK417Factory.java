@@ -47,7 +47,7 @@ public class HK417Factory implements GunFactory {
 		.withShellCasingForwardOffset(0.05f)
 		.withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
-		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power

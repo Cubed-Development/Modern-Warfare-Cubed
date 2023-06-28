@@ -1,7 +1,6 @@
 package com.paneedah.mwc.bases;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -23,7 +22,7 @@ public class OreBase extends BlockOre {
         setHardness(6F);
         setResistance(15F);
         setHarvestLevel("pickaxe", harvestLevel);
-        setCreativeTab(MWC.BLOCKS_TAB);
+        setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
     }
 
     @Override

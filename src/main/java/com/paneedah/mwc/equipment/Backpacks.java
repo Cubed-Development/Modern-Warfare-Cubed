@@ -31,7 +31,7 @@ public class Backpacks {
                 .withName("combat_sustainment_backpack")
                 .withSize(10)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.ARMOR_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.CombatSustainmentBackpack", "combatsustainmentbackpack.png")
                 .withInventoryPositioning(stack -> new Transform()
                         .withPosition(-0.15, -4.6, 0.35)
@@ -44,7 +44,7 @@ public class Backpacks {
                 .withName("combat_sustainment_backpack_black")
                 .withSize(10)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.ARMOR_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.CombatSustainmentBackpack", "combatsustainmentblack.png")
                 .withInventoryPositioning(stack -> new Transform()
                         .withPosition(-0.15, -4.6, 0.35)
@@ -57,7 +57,7 @@ public class Backpacks {
                 .withName("combat_sustainment_backpack_forest")
                 .withSize(10)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.ARMOR_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.CombatSustainmentBackpack", "combatsustainmentforest.png")
                 .withInventoryPositioning(stack -> new Transform()
                         .withPosition(-0.15, -4.6, 0.35)
@@ -70,7 +70,7 @@ public class Backpacks {
                 .withName("assault_backpack")
                 .withSize(16)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.ARMOR_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpack.png")
                 .build(MWC.modContext);
 
@@ -78,7 +78,7 @@ public class Backpacks {
                 .withName("assault_backpack_black")
                 .withSize(16)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.ARMOR_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpackblack.png")
                 .build(MWC.modContext);
 
@@ -86,7 +86,7 @@ public class Backpacks {
                 .withName("assault_backpack_forest")
                 .withSize(16)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.ARMOR_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpackforest.png")
                 .build(MWC.modContext);
 
@@ -94,7 +94,7 @@ public class Backpacks {
                 .withName("f5switchbladebackpack")
                 .withSize(16)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.ARMOR_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.F5SwitchbladeBackpack", "f5switchbladebackpack.png")
                 .build(MWC.modContext);
 
@@ -102,7 +102,7 @@ public class Backpacks {
                 .withName("tru_spec_cordura_backpack")
                 .withSize(20)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.ARMOR_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.TruSpecCorduraBackpack", "truspeccordurabackpack.png")
                 .build(MWC.modContext);
 
@@ -110,7 +110,7 @@ public class Backpacks {
                 .withName("tru_spec_cordura_backpack_black")
                 .withSize(20)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.ARMOR_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.TruSpecCorduraBackpack", "truspeccordurablack.png")
                 .build(MWC.modContext);
 
@@ -118,7 +118,7 @@ public class Backpacks {
                 .withName("tru_spec_cordura_backpack_forest")
                 .withSize(20)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.ARMOR_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.TruSpecCorduraBackpack", "truspeccorduraforest.png")
                 .build(MWC.modContext);
 
@@ -126,7 +126,7 @@ public class Backpacks {
                 .withName("duffle_bag")
                 .withSize(24)
                 .withValidItemPredicate(item -> !(item instanceof Weapon) || (((Weapon) item).getConfigurationGroup() == BalancePackManager.GunConfigurationGroup.SIDEARM || ((Weapon) item).getConfigurationGroup() == BalancePackManager.GunConfigurationGroup.REVOLVER))
-                .withTab(MWC.ARMOR_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.Dufflebag", "dufflebag.png")
                 .withInventoryPositioning(stack -> new Transform()
                         .withPosition(-0.15, -3.65, 0.35)

@@ -45,7 +45,7 @@ public class APC9Factory implements GunFactory {
 		.withShellCasingVerticalOffset(-0.03f)
 		.withInaccuracy(1f)
 //		.withShellCasingEjectEnabled(false)
-		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+		.withCreativeTab(MWC.WEAPONS_TAB)
 		.withInformationProvider(stack -> Arrays.asList(
 		"Type: Submachine Gun", 
 		"Damage: 5", 

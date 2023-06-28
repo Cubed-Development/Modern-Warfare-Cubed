@@ -51,7 +51,7 @@ public class KBP9A91Factory {
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.15f)
         .withInaccuracy(2f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power

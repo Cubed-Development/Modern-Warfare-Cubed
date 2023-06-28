@@ -16,7 +16,7 @@ public class Belts {
                 .withName("magazine_belt")
                 .withSize(8)
                 .withValidItemPredicate(item -> item instanceof ItemMagazine)
-                .withTab(MWC.ARMOR_TAB)
+                .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.equipment.belts.MagazineBelt", "belts.png")
                 .withInventoryPositioning(stack -> new Transform()
                         .withPosition(-0.15, -5.1, 0.35)

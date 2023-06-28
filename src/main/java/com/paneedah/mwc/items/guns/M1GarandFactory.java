@@ -44,7 +44,7 @@ public class M1GarandFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.1f)
         .withShellCasingForwardOffset(0.05f)
         .withShellCasingVerticalOffset(-0.03f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Semi-Automatic Rifle", 
         "Damage: 15", 

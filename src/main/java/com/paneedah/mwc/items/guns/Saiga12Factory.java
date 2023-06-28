@@ -53,7 +53,7 @@ public class Saiga12Factory {
                  1f, // y
                  10f) // z
          
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Carbine/Shotgun",
         "Damage per Pellet: 6",

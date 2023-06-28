@@ -71,6 +71,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - The position of the bullet when shooting is now centered when aiming
 - Explosive projectiles are now linked to the player who launched them meaning that the kill message will say who killed whom
 - Renamed `Armor` creative tab to `Equipment`
+- Renamed `Ammunition` creative tab to `Ammunition & Magazines`
+- Renamed `Grenades` creative tab to `Throwables`
+- Merged the Gadget creative tab into the `Equipment` creative tab
 
 ### Fixed
 

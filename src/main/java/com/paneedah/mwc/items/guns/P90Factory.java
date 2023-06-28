@@ -52,7 +52,7 @@ public class P90Factory {
         .withFlashOffsetY(() -> 0.27f)
         .withShellCasingEjectEnabled(false)
         .withInaccuracy(2f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power

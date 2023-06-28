@@ -49,7 +49,7 @@ public class UMP45Factory {
         .withFlashOffsetX(() -> 0.13f)
         .withFlashOffsetY(() -> 0.17f)
         .withInaccuracy(2f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power

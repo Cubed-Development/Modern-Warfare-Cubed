@@ -55,7 +55,7 @@ public class M1014Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.11f)
         .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
         .withShellCasingModelTexture("shotgun12gauge")
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Shotgun",
         "Damage per Pellet: 6",

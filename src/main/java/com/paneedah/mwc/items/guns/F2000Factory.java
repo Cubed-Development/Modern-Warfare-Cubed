@@ -48,7 +48,7 @@ public class F2000Factory {
         .withFlashScale(() -> 0.5f)
         .withFlashOffsetX(() -> 0.08f)
         .withFlashOffsetY(() -> 0.16f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
 		.withRecoilParam(new RecoilParam(
 				// The weapon power

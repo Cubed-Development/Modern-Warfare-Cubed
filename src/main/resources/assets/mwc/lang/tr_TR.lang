@@ -1029,17 +1029,13 @@ tile.mwc_spookyghost2.name=Ürkütücü Hayalet 2
 tile.mwc_spookyghost3.name=Ürkütücü Hayalet 3
 tile.mwc_swat_truck.name=SWAT Kamyonu
 
-
-itemGroup.guns_tab=MWC Kaynakları
-itemGroup.AssaultRifles_tab=MWC Silahlar
-itemGroup.props_tab=MWC Eşyaları (Yaratıcı Modda Kullanım İçin)
-itemGroup.AmmoTab=MWC Mühimmat
-itemGroup.AttachmentsTab=MWC Aksesuarlar
-itemGroup.ArmorTab=MWC Zırh
-itemGroup.GrenadesTab=MWC El Bombaları
-itemGroup.SpartanTab=MWC Spartan Zırhı Sekmesi
-itemGroup.GadgetsTab=MWC Cihazlar
-itemGroup.BlocksTab=MWC Bloklar ve Lingotlar
+itemGroup.weapons=Silahlar
+itemGroup.props=Eşyaları (Yaratıcı Modda Kullanım İçin)
+itemGroup.ammunitionAndMagazines=Mühimmat ve Dergiler
+itemGroup.attachments=Aksesuarlar
+itemGroup.equipment=Ekipmanlar
+itemGroup.throwables=Fırlatılabilirler
+itemGroup.blocksAndIngots=Bloklar ve Lingotlar
 
 key.categories.weaponlib=Modern Warfare
 key.texture_change=Silah Desenini Değiştir

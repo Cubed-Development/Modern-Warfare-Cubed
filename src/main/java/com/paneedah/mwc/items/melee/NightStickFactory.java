@@ -17,7 +17,7 @@ public class NightStickFactory implements MeleeFactory {
         return new ItemMelee.Builder()
         
                 .withName("night_stick")
-                .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+                .withCreativeTab(MWC.WEAPONS_TAB)
                 .withTextureNames("gun")
                 .withAttackDamage(1f)
                 .withHeavyAttackDamage(3f)

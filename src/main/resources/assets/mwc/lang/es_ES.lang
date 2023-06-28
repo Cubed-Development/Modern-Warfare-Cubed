@@ -1030,16 +1030,13 @@ tile.mwc_spookyghost2.name=Spooky Ghost 2
 tile.mwc_spookyghost3.name=Spooky Ghost 3
 tile.mwc_swat_truck.name=SWAT Truck
 
-itemGroup.guns_tab=MWC Resources
-itemGroup.AssaultRifles_tab=MWC Armas
-itemGroup.props_tab=MWC Props (Creative Use Only)
-itemGroup.AmmoTab=MWC Munición
-itemGroup.AttachmentsTab=MWC Accesorios
-itemGroup.ArmorTab=MWC Armadura
-itemGroup.GrenadesTab=MWC granadas
-itemGroup.SpartanTab=MWC Spartan Armors Tab
-itemGroup.GadgetsTab=MWC Artilugios
-itemGroup.BlocksTab=MWC Bloques y Lingotes
+itemGroup.weapons=Armas
+itemGroup.props=Props (Creative Use Only)
+itemGroup.ammunitionAndMagazines=Municiones y Revistas
+itemGroup.attachments=Accesorios
+itemGroup.equipment=Equipos
+itemGroup.throwables=Tirables
+itemGroup.blocksAndIngots=Bloques y Lingotes
 
 key.categories.weaponlib=Modern Warfare
 key.texture_change=Cambiar la skin del arma

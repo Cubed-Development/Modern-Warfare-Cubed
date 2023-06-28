@@ -49,7 +49,7 @@ public class KrissVectorFactory {
         .withFlashOffsetX(() -> 0.12f)
         .withFlashOffsetY(() -> 0.22f)
         .withInaccuracy(2f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power

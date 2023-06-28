@@ -45,7 +45,7 @@ public class M1941JohnsonRifleFactory {
         .withFlashOffsetY(() -> 0.12f)
 //        .withShellCasingSideOffset(0f)
         .withShellCasingVerticalOffset(-0.1f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Semi-Automatic Rifle",
         "Damage: 15", 

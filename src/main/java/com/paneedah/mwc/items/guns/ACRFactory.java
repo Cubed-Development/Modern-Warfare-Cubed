@@ -51,7 +51,7 @@ public class ACRFactory implements GunFactory {
         .withFlashScale(() -> 0.6f) // Flash scale
         .withFlashOffsetX(() -> 0.14f) // Flash offset X
         .withFlashOffsetY(() -> 0.16f) // Flash offset Y
-		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB) // Creative tab
+		.withCreativeTab(MWC.WEAPONS_TAB) // Creative tab
 		.useNewSystem() // Use new system
 		.withRecoilParam(new RecoilParam( // Recoil param
 				// The weapon power
@@ -94,7 +94,7 @@ public class ACRFactory implements GunFactory {
         		CraftingEntry(MWCItems.gunmetalPlate, 12), new
         		CraftingEntry(MWCItems.steelIngot, 3))
         
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)  // Creative tab
+        .withCreativeTab(MWC.WEAPONS_TAB)  // Creative tab
 
         // Unremovable attachment categories
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)

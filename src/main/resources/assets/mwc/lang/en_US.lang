@@ -1030,14 +1030,13 @@ tile.mwc_spookyghost2.name=Spooky Ghost 2
 tile.mwc_spookyghost3.name=Spooky Ghost 3
 tile.mwc_swat_truck.name=SWAT Truck
 
-itemGroup.AssaultRifles_tab=Weapons
-itemGroup.props_tab=Props (Creative Use Only)
-itemGroup.AmmoTab=Ammunition
-itemGroup.AttachmentsTab=Attachments
-itemGroup.ArmorTab=Armor
-itemGroup.GrenadesTab=Grenades
-itemGroup.GadgetsTab=Gadgets
-itemGroup.BlocksTab=Blocks & Ingots
+itemGroup.weapons=Weapons
+itemGroup.props=Props (Creative Use Only)
+itemGroup.ammunitionAndMagazines=Ammunition & Magazines
+itemGroup.attachments=Attachments
+itemGroup.equipment=Equipment
+itemGroup.throwables=Throwables
+itemGroup.blocksAndIngots=Blocks & Ingots
 
 key.categories.weaponlib=Modern Warfare
 key.texture_change=Change Gun Skin

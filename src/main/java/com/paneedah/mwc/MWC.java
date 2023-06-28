@@ -37,14 +37,13 @@ public final class MWC {
 
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
 
-    public static final CreativeTabs ARMOR_TAB = new ArmorTab(CreativeTabs.getNextID(), "ArmorTab");
-	public static final CreativeTabs ASSAULT_RIFLES_TAB = new AssaultRiflesTab(CreativeTabs.getNextID(), "AssaultRifles_tab");
-	public static final CreativeTabs AMMO_TAB = new AmmoTab(CreativeTabs.getNextID(), "AmmoTab");
-	public static final CreativeTabs ATTACHMENTS_TAB = new AttachmentsTab(CreativeTabs.getNextID(), "AttachmentsTab");
-	public static final CreativeTabs GRENADES_TAB = new GrenadesTab(CreativeTabs.getNextID(), "GrenadesTab");
-	public static final CreativeTabs GADGETS_TAB = new GadgetsTab(CreativeTabs.getNextID(), "GadgetsTab");
-	public static final CreativeTabs PROPS_TAB = new PropsTab(CreativeTabs.getNextID(), "props_tab");
-	public static final CreativeTabs BLOCKS_TAB = new BlocksTab(CreativeTabs.getNextID(), "BlocksTab");
+    public static final CreativeTabs EQUIPMENT_TAB = new ArmorTab(CreativeTabs.getNextID(), "equipment");
+	public static final CreativeTabs WEAPONS_TAB = new AssaultRiflesTab(CreativeTabs.getNextID(), "weapons");
+	public static final CreativeTabs AMMUNITION_AND_MAGAZINES_TAB = new AmmoTab(CreativeTabs.getNextID(), "ammunitionAndMagazines");
+	public static final CreativeTabs ATTACHMENTS_TAB = new AttachmentsTab(CreativeTabs.getNextID(), "attachments");
+	public static final CreativeTabs THROWABLES_TAB = new GrenadesTab(CreativeTabs.getNextID(), "throwables");
+	public static final CreativeTabs PROPS_TAB = new PropsTab(CreativeTabs.getNextID(), "props");
+	public static final CreativeTabs BLOCKS_AND_INGOTS_TAB = new BlocksTab(CreativeTabs.getNextID(), "blocksAndIngots");
 
     // Todo: Make this configurable via the future YAML config system from FBP, or Valkyrie integration, the later would be best.
     public static int bulletHitParticleMult = 6;

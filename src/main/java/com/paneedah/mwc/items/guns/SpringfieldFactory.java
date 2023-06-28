@@ -56,7 +56,7 @@ public class SpringfieldFactory implements GunFactory {
                  2f, // y
                  7f) // z
          
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Bolt-action rifle",
         "Damage: 15",

@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.MagazineReloadAspect.LoadPermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.EnterAttachmentModePermit;
@@ -340,7 +339,7 @@ public class CommonModContext implements ModContext {
 	public void preInitEnd(Object mod, SimpleNetworkWrapper channel) {
         // Workbench
 		GameRegistry.registerTileEntity(TileEntityWorkbench.class, ID + ":tileworkbench");
-        Block workbenchblock = new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(MWC.BLOCKS_TAB);
+        Block workbenchblock = new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
         if (workbenchblock.getRegistryName() == null) {
             if (workbenchblock.getTranslationKey().length() < ID.length() + 2 + 5) {
                 throw new IllegalArgumentException("Unlocalize block name too short " + workbenchblock.getTranslationKey());
@@ -356,7 +355,7 @@ public class CommonModContext implements ModContext {
 
         // Ammo press
 		GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ID + ":tileammopress");
-        Block ammopressblock = new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(MWC.BLOCKS_TAB);
+        Block ammopressblock = new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
 
         if (ammopressblock.getRegistryName() == null) {
             if (ammopressblock.getTranslationKey().length() < ID.length() + 2 + 5) {

@@ -23,7 +23,7 @@ public class FuseGrenadeFactory implements GrenadeFactory {
         return new ItemGrenade.Builder()
         
                 .withName("M67Frag")
-                .withCreativeTab(MWC.GRENADES_TAB)
+                .withCreativeTab(MWC.THROWABLES_TAB)
                 .withTextureNames("M67Frag")
                 .withExplosionStrength(3f)
                 .withExplosionTimeout(5000)

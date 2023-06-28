@@ -42,7 +42,7 @@ public class M1928ThompsonFactory {
         .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.12f)
         .withInaccuracy(2f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Sub Machine Gun",
         "Damage: 5.3", 

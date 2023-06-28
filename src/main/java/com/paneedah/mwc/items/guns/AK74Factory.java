@@ -55,7 +55,7 @@ public class AK74Factory {
 //        .withSpawnEntityModel(ammoModel)
 //        .withSpawnEntityModelTexture(ammoModelTextureName)
         .withShellCasingVerticalOffset(-0.05f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power

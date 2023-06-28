@@ -1,7 +1,6 @@
 package com.paneedah.mwc;
 
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.HighIQSpawnEgg;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
@@ -18,7 +17,7 @@ public class CustomSpawnEggs {
 				.withItemName("turret")
 				.withEntitySpawnName("turret")
 				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ID + ":turret_base"))
-				.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+				.withCreativeTab(MWC.WEAPONS_TAB)
 				.build();
 		
 		TURRETUPGRADED_EGG = new HighIQSpawnEgg.Builder()
@@ -26,7 +25,7 @@ public class CustomSpawnEggs {
 				.withItemName("turretupgraded")
 				.withEntitySpawnName("turretupgraded")
 				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ID + ":turret_base"))
-				.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+				.withCreativeTab(MWC.WEAPONS_TAB)
 				.build();
 		
 		TURRETSILENCED_EGG = new HighIQSpawnEgg.Builder()
@@ -34,7 +33,7 @@ public class CustomSpawnEggs {
 				.withItemName("turretsilenced")
 				.withEntitySpawnName("turretsilenced")
 				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ID + ":turret_base"))
-				.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+				.withCreativeTab(MWC.WEAPONS_TAB)
 				.build();
 	}
 }

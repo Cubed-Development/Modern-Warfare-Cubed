@@ -42,7 +42,7 @@ public class PythonFactory implements GunFactory {
 		.withFlashOffsetY(() -> 0.15f)
 		.withInaccuracy(2)
 		.withShellCasingEjectEnabled(false)
-		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
