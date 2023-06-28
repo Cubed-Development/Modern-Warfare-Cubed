@@ -1,11 +1,11 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.Python;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Bullets;
+import com.paneedah.mwc.wearables.Bullets;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transform;
@@ -42,7 +42,7 @@ public class PythonFactory implements GunFactory {
 		.withFlashOffsetY(() -> 0.15f)
 		.withInaccuracy(2)
 		.withShellCasingEjectEnabled(false)
-		.withCreativeTab(ModernWarfareMod.AssaultRiflesTab)	
+		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
 		.useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -219,6 +219,6 @@ public class PythonFactory implements GunFactory {
 		.withSpawnEntityGravityVelocity(0.016f)
 		
 		 
-		.build(ModernWarfareMod.MOD_CONTEXT);
+		.build(MWC.modContext);
 	}
 }

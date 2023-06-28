@@ -1,6 +1,6 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.vehicle.engines.McLarenSennaEngine;
 import com.paneedah.weaponlib.ModContext;
@@ -235,7 +235,7 @@ public class McLarenSennaFactory implements VehicleFactory {
                 .withOBBDimensions(3.5, 2.5, 1.75)
                 .withSeat(new Vec3d(-0.15, -0.4, 0.5))
                 .withRenderer(renderer)
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
     }
 
 }

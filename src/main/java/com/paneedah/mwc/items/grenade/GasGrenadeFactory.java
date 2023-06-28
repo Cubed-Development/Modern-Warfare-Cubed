@@ -1,20 +1,16 @@
 package com.paneedah.mwc.items.grenade;
 
 import com.paneedah.mwc.Grenades;
-import com.paneedah.mwc.ModernWarfareMod;
-import com.paneedah.mwc.init.MWCItems;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.gasgrenade;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.weaponlib.Part;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.animation.Transition;
-import com.paneedah.weaponlib.crafting.CraftingEntry;
-import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.grenade.GrenadeRenderer;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.grenade.ItemGrenade.Type;
 import com.paneedah.weaponlib.grenade.RenderableState;
-import net.minecraft.init.Items;
 import org.lwjgl.opengl.GL11;
 
 public class GasGrenadeFactory implements GrenadeFactory {
@@ -24,7 +20,7 @@ public class GasGrenadeFactory implements GrenadeFactory {
         return new ItemGrenade.Builder()
         
                 .withName("GasGrenade")
-                .withCreativeTab(ModernWarfareMod.GrenadesTab)
+                .withCreativeTab(MWC.GRENADES_TAB)
                 .withTextureNames("gasgrenade")
                 .withExplosionStrength(0.4f)
                 .withType(Type.GAS)
@@ -351,6 +347,6 @@ public class GasGrenadeFactory implements GrenadeFactory {
 
                         .build())
 
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
     }
 }

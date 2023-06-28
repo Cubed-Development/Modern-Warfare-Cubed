@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -49,7 +49,7 @@ public class M1873Factory implements GunFactory {
         .withFlashScale(() -> 0.5f)
         .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.06f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Lever Action Rifle",
         "Damage: 5.5",
@@ -936,6 +936,6 @@ public class M1873Factory implements GunFactory {
         .withSpawnEntityDamage(5.5f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

@@ -1,6 +1,6 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.JLTVM1280;
 import com.paneedah.mwc.models.JLTVM1280wheel;
 import com.paneedah.mwc.models.SampleVehicleControlArm;
@@ -204,7 +204,7 @@ public class JLTVM1280Factory implements VehicleFactory {
 //                .withAccelerationIncrement(0.015)
 //                .withForwardDeccelerationFactor(0.97)
                 .withRenderer(renderer)
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
     }
 
 }

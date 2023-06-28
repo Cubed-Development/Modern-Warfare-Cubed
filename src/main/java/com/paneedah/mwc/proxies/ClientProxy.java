@@ -1,6 +1,6 @@
 package com.paneedah.mwc.proxies;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.PlayerAnimations;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
@@ -37,21 +37,21 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void preInit(final ModernWarfareMod mod) {
+    public void preInit(final MWC mod) {
         super.preInit(mod);
 
         final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
 
         inventoryTabs.registerTab(new StandardPlayerInventoryTab());
-        inventoryTabs.registerTab(new CustomPlayerInventoryTab(ModernWarfareMod.MOD_CONTEXT, MWCItems.vestRender));
-        inventoryTabs.registerTab(new BackpackInventoryTab(ModernWarfareMod.MOD_CONTEXT));
+        inventoryTabs.registerTab(new CustomPlayerInventoryTab(MWC.modContext, MWCItems.vestRender));
+        inventoryTabs.registerTab(new BackpackInventoryTab(MWC.modContext));
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWorkbench.class, new TESRWorkbench(new Workbench(), new ResourceLocation(ModReference.ID + ":textures/blocks/workbench.png")));
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAmmoPress.class, new TESRAmmoPress(new AmmoPress(), new ResourceLocation(ModReference.ID + ":textures/blocks/ammo_press.png")));
     }
 
     @Override
-    public void init(final ModernWarfareMod mod) {
+    public void init(final MWC mod) {
         super.init(mod);
 
         PlayerAnimations.init(mod);
@@ -113,7 +113,7 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void postInit(final ModernWarfareMod mod, final FMLPostInitializationEvent initializationEvent) {
+    public void postInit(final MWC mod, final FMLPostInitializationEvent initializationEvent) {
         mc.getRenderManager().getSkinMap().forEach((p, r) -> r.addLayer(new CustomArmorLayer(r)));
     }
 }

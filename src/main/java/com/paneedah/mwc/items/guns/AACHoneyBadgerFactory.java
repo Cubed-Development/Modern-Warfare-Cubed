@@ -3,7 +3,7 @@ package com.paneedah.mwc.items.guns;
 
 // IMPORT LIST START
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -50,7 +50,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 //        .withShootSoundVolume(1f)
                 .withShellCasingForwardOffset(0.1f) // Shell casing forward offset
                 .withShellCasingVerticalOffset(-0.05f) // Shell casing vertical offset
-                .withCreativeTab(ModernWarfareMod.AssaultRiflesTab) // Creative tab
+                .withCreativeTab(MWC.ASSAULT_RIFLES_TAB) // Creative tab
                 .useNewSystem() // Use new system
                 .withRecoilParam(new RecoilParam( // Recoil param
                         // The weapon power
@@ -1012,6 +1012,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withSpawnEntityGravityVelocity(0.0118f)
 
 
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
     }
 }

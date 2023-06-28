@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -43,7 +43,7 @@ public class STG44Factory {
         .withFlashOffsetX(() -> 0.12f)
         .withFlashOffsetY(() -> 0.14f)
         .withInaccuracy(1f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Assault rifle",
         "Damage: 7.7", 
@@ -1458,7 +1458,7 @@ public class STG44Factory {
         .withSpawnEntityDamage(7.7f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.AKRail;
 import com.paneedah.mwc.models.JPUreticle;
 import com.paneedah.mwc.models.NTW20;
@@ -47,7 +47,7 @@ public class NTW20Factory implements GunFactory {
         .withFlashScale(() -> 0.8f)
         .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.13f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Anti-Materiel Sniper Rifle",
         "Damage: 35", 
@@ -1750,6 +1750,6 @@ public class NTW20Factory implements GunFactory {
         .withSpawnEntityGravityVelocity(0f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

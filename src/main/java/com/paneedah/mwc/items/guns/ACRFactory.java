@@ -3,7 +3,7 @@ package com.paneedah.mwc.items.guns;
 
 // IMPORT LIST START
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -51,7 +51,7 @@ public class ACRFactory implements GunFactory {
         .withFlashScale(() -> 0.6f) // Flash scale
         .withFlashOffsetX(() -> 0.14f) // Flash offset X
         .withFlashOffsetY(() -> 0.16f) // Flash offset Y
-		.withCreativeTab(ModernWarfareMod.AssaultRiflesTab) // Creative tab
+		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB) // Creative tab
 		.useNewSystem() // Use new system
 		.withRecoilParam(new RecoilParam( // Recoil param
 				// The weapon power
@@ -94,7 +94,7 @@ public class ACRFactory implements GunFactory {
         		CraftingEntry(MWCItems.gunmetalPlate, 12), new
         		CraftingEntry(MWCItems.steelIngot, 3))
         
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)  // Creative tab
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)  // Creative tab
 
         // Unremovable attachment categories
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
@@ -1133,7 +1133,7 @@ public class ACRFactory implements GunFactory {
 		.withSpawnEntityGravityVelocity(0.0118f)
 
 
-		.build(ModernWarfareMod.MOD_CONTEXT);
+		.build(MWC.modContext);
 	}
 
 }

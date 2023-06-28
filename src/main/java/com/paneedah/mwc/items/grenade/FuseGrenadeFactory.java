@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.grenade;
 
 import com.paneedah.mwc.Grenades;
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.M67Frag;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -23,7 +23,7 @@ public class FuseGrenadeFactory implements GrenadeFactory {
         return new ItemGrenade.Builder()
         
                 .withName("M67Frag")
-                .withCreativeTab(ModernWarfareMod.GrenadesTab)
+                .withCreativeTab(MWC.GRENADES_TAB)
                 .withTextureNames("M67Frag")
                 .withExplosionStrength(3f)
                 .withExplosionTimeout(5000)
@@ -350,6 +350,6 @@ public class FuseGrenadeFactory implements GrenadeFactory {
 
                         .build())
 
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
     }
 }
