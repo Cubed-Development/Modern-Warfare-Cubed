@@ -27,6 +27,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class ItemCarryableStorage extends Item implements ModelSource, IModernCrafting {
     
     public static class Builder {
@@ -221,7 +223,7 @@ public class ItemCarryableStorage extends Item implements ModelSource, IModernCr
                 throw new IllegalStateException("ItemCarryableStorage size must be greater than 0");
             }
 
-            ResourceLocation guiTextureLocation = new ResourceLocation(ModReference.id, "textures/gui/inventory/carryable/" + size + "slots.png");
+            ResourceLocation guiTextureLocation = new ResourceLocation(ID, "textures/gui/inventory/carryable/" + size + "slots.png");
 
             ItemCarryableStorage item = new ItemCarryableStorage(modContext, size, validItemPredicate, guiTextureLocation, this.guiTextureWidth);
             
@@ -230,7 +232,7 @@ public class ItemCarryableStorage extends Item implements ModelSource, IModernCr
             item.modelFileString = this.modelFileString;
             item.properTextureName = this.properTextureName;
             
-            item.setTranslationKey(ModReference.ID + "_" + name);
+            item.setTranslationKey(ID + "_" + name);
 
             if(this.modelFileString != null && !VMWHooksHandler.isOnServer()) {
             	

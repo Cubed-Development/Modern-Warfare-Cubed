@@ -184,7 +184,7 @@ public class Magazines {
 //                .withCrafting(CraftingComplexity.MEDIUM,
 //                          MwItems.steelIngot,
 //                          MwItems.gunmetalIngot)
-                .withTextureName("Dummy.png").build(MWC.MOD_CONTEXT, ItemMagazine.class);
+                .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
 */
         Magazines.BrenMag = new ItemMagazine.Builder()
         		.withCapacity(30)

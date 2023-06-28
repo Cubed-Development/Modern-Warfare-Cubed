@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static net.minecraft.util.text.TextFormatting.WHITE;
 
 /**
@@ -41,7 +42,7 @@ import static net.minecraft.util.text.TextFormatting.WHITE;
 public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPress> {
 	
 	// Ammo press texture location
-	private static final ResourceLocation AMMO_PRESS_TEX = new ResourceLocation(ModReference.ID + ":textures/gui/ammosheet.png");
+	private static final ResourceLocation AMMO_PRESS_TEX = new ResourceLocation(ID + ":textures/gui/ammosheet.png");
 
 	// Selectors & Quantity Box
 	private GUIButtonCustom bulletSelector, magazineSelector, grenadeSelector;

@@ -79,6 +79,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
@@ -3199,8 +3200,8 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
         }
     }
 	
-	public static ResourceLocation SPARKS_ONE = new ResourceLocation(ModReference.ID + ":textures/flashes/sparks1.png");
-	public static ResourceLocation FLASHF = new ResourceLocation(ModReference.ID + ":textures/flashes/flashfront2.png");
+	public static ResourceLocation SPARKS_ONE = new ResourceLocation(ID + ":textures/flashes/sparks1.png");
+	public static ResourceLocation FLASHF = new ResourceLocation(ID + ":textures/flashes/flashfront2.png");
 
 	public static ItemAttachment<Weapon> magicMagReplacement;
 	public static boolean updateMagicMagazine;
@@ -3224,7 +3225,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		boolean shot = false;
 		if(renderContext.getPlayer() != null && (ClientEventHandler.checkShot(renderContext.getPlayer().getEntityId()) || AnimationGUI.getInstance().forceFlash.isState())) {
 			shot = true;
-			//flash = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":shaders/flash"));
+			//flash = ShaderLoader.loadShader(new ResourceLocation(ID + ":shaders/flash"));
 
 		    //MuzzleFlashRenderer.renderFlash(renderContext.getPlayer().getEntityId(), weaponItemStack, true);
 			//mc.getFramebuffer().bindFramebuffer(false);
@@ -3266,7 +3267,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		}
 
 		if(getBuilder().getTextureName() != null) {
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + getBuilder().getTextureName()));
+			mc.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + getBuilder().getTextureName()));
 		} else {
 			String textureName = null;
 			/*
@@ -3289,13 +3290,13 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 				textureName = weapon.getTextureName();
 			}
 
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + textureName));
+			mc.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + textureName));
 		}
 		
 		
 		if(DebugCommand.debugFlag == 3) return;
 		
-		//gunLightingShader = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":shaders/gunlight"));
+		//gunLightingShader = ShaderLoader.loadShader(new ResourceLocation(ID + ":shaders/gunlight"));
 	    
 		//Shaders.gunLightingShader = ShaderLoader.loadVMWShader("gunlight");
 		
@@ -3317,7 +3318,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 				if (itemSkin.getTextureName().startsWith("customskin_")) {
 					mc.getTextureManager().bindTexture(CustomSkin.getCustomSkinResource(itemSkin.getTextureName().toLowerCase().replace("customskin_", "")));
 				} else {
-					mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.ID +":textures/models/"+itemSkin.getTextureName()+".png"));
+					mc.getTextureManager().bindTexture(new ResourceLocation(ID +":textures/models/"+itemSkin.getTextureName()+".png"));
 				}
 				
 				GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
@@ -3372,7 +3373,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 			//	GlStateManager.translate(0, 0, test1);
 				//GlStateManager.translate(-0.05*test1, 0.01*test1, 0);
 				//GlStateManager.rotate(-10f*test1, 1, 1, 0);
-				//mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/items/sexmoiv.png"));
+				//mc.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/items/sexmoiv.png"));
 
 				if (getBuilder().getModel() != null) {
 					getBuilder().getModel().render(this.player,
@@ -3690,7 +3691,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 	   
 	    
 		for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + texturedModel.getV()));
+			mc.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getV()));
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
 			
@@ -4252,7 +4253,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 				if (!OpenGLSelectionHelper.isInSelectionPass && AnimationModeProcessor.getInstance().getFPSMode()) {
 
 					GlStateManager.pushMatrix();
-					ResourceLocation loc = new ResourceLocation(ModReference.ID + ":textures/hud/grid.png");
+					ResourceLocation loc = new ResourceLocation(ID + ":textures/hud/grid.png");
 
 					Shader grid = Shaders.grid;
 					// GlStateManager.rotate(45f, 0, 1, 0);
@@ -4472,7 +4473,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 					DebugPositioner.position(Part.MAIN_ITEM, renderContext);
 				}
 
-				// gunLightingShader = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":"
+				// gunLightingShader = ShaderLoader.loadShader(new ResourceLocation(ID + ":"
 				// + "shaders/gunlight"));
 				if (player != null && player.getHeldItemMainhand() != null
 						&& player.getHeldItemMainhand().getItem() instanceof Weapon) {
@@ -4545,7 +4546,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 
 
 
-			// gunLightingShader = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":"
+			// gunLightingShader = ShaderLoader.loadShader(new ResourceLocation(ID + ":"
 			// + "shaders/gunlight"));
 
 			/*

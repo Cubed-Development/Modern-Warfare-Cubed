@@ -30,10 +30,11 @@ import javax.vecmath.Matrix3f;
 import javax.vecmath.Vector3d;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class RenderVehicle2 extends Render<Entity> {
 	
-	public static final ResourceLocation VEHICLE_SHADOW = new ResourceLocation(ModReference.ID + ":textures/entity/vehicleshadow.png");
+	public static final ResourceLocation VEHICLE_SHADOW = new ResourceLocation(ID + ":textures/entity/vehicleshadow.png");
 	
 	
     private static ThreadLocal<Matrix4f> cameraTransformMatrix = new ThreadLocal<>();
@@ -510,7 +511,7 @@ public class RenderVehicle2 extends Render<Entity> {
 				GlStateManager.enableBlend();
 				GL11.glScaled(1.0001, 1.0001, 1.0001);
 				GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
-				ResourceLocation loc = new ResourceLocation(ModReference.ID + ":textures/entity/audis4lights.png");
+				ResourceLocation loc = new ResourceLocation(ID + ":textures/entity/audis4lights.png");
 				
 				context.renderAlternateTexture(loc);
 				
@@ -520,7 +521,7 @@ public class RenderVehicle2 extends Render<Entity> {
 			
 		}
 		
-		ResourceLocation loc = new ResourceLocation(ModReference.ID + ":textures/entity/suspensionblue.png");
+		ResourceLocation loc = new ResourceLocation(ID + ":textures/entity/suspensionblue.png");
 		mc.getTextureManager().bindTexture(loc);
 		
 		

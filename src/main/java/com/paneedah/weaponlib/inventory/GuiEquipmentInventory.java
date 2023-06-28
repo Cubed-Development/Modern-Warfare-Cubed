@@ -10,10 +10,12 @@ import net.minecraft.util.ResourceLocation;
 
 import java.io.IOException;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class GuiEquipmentInventory extends InventoryEffectRenderer {
 
     // Todo: Fix this name
-    private static final ResourceLocation backGround = new ResourceLocation(ModReference.id, "textures/gui/inventory/custom_inventory.png");
+    private static final ResourceLocation backGround = new ResourceLocation(ID, "textures/gui/inventory/custom_inventory.png");
 
     private static GuiEquipmentInventory currentGuiContainer;
 

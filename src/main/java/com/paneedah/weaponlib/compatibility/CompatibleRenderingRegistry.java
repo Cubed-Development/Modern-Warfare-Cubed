@@ -27,6 +27,7 @@ import java.util.Set;
 import java.util.function.Consumer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 @Deprecated
 public class CompatibleRenderingRegistry implements ICustomModelLoader {
@@ -56,8 +57,8 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	        renderers.add((ModelSourceRenderer) renderer);
 	    }
 		
-		modelSourceLocations.add(ModReference.ID + ":models/item/" + name);
-		ModelResourceLocation modelID = new ModelResourceLocation(ModReference.ID + ":" + name, "inventory");
+		modelSourceLocations.add(ID + ":models/item/" + name);
+		ModelResourceLocation modelID = new ModelResourceLocation(ID + ":" + name, "inventory");
 		if(renderer != null) {
 		    ((ModelSourceRenderer) renderer).setResourceLocation(modelID);
 		}
@@ -72,7 +73,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	    // TODO: figure out what's going on with this name
         if(renderer != null) {
             renderers.add((ModelSourceRenderer) renderer);
-            modelSourceLocations.add(ModReference.ID + ":models/item/" + name);
+            modelSourceLocations.add(ID + ":models/item/" + name);
         }
         
         ModelResourceLocation modelID = new ModelResourceLocation(name, "inventory");
@@ -93,7 +94,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	@Override
 	public boolean accepts(ResourceLocation modelLocation) {
 		// Do not accept attachments
-		return ModReference.ID.equals(modelLocation.getNamespace()) && modelSourceLocations.contains(modelLocation.toString());
+		return ID.equals(modelLocation.getNamespace()) && modelSourceLocations.contains(modelLocation.toString());
 	}
 
 	@Override

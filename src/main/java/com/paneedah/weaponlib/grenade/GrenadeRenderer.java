@@ -34,6 +34,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel {
@@ -864,7 +865,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 			Positioner<Part, RenderContext<RenderableState>> positioner) {
 
 		if(builder.getTextureName() != null) {
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + builder.getTextureName()));
+			mc.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + builder.getTextureName()));
 		} else {
 			String textureName = null;
 
@@ -873,7 +874,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 				textureName = weapon.getTextureName();
 			}
 
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + textureName));
+			mc.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + textureName));
 		}
 
 		//limbSwing, float flimbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale
@@ -934,7 +935,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 	    }
 
 	    for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-	        mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + texturedModel.getV()));
+	        mc.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getV()));
 	        GL11.glPushMatrix();
 	        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
 	        if(compatibleAttachment.getModelPositioning() != null) {

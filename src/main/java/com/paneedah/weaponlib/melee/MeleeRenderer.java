@@ -35,6 +35,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
@@ -720,7 +721,7 @@ public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 		}
 
 		if(builder.getTextureName() != null) {
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + builder.getTextureName()));
+			mc.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + builder.getTextureName()));
 		} else {
 			String textureName = null;
 			CompatibleAttachment<?> compatibleSkin = attachments.stream()
@@ -742,7 +743,7 @@ public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 				textureName = weapon.getTextureName();
 			}
 
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID
+			mc.renderEngine.bindTexture(new ResourceLocation(ID
 					+ ":textures/models/" + textureName));
 		}
 
@@ -793,7 +794,7 @@ public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 		}
 
 		for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID
+			mc.renderEngine.bindTexture(new ResourceLocation(ID
 					+ ":textures/models/" + texturedModel.getV()));
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);

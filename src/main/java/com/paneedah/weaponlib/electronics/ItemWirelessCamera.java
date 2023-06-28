@@ -24,6 +24,8 @@ import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class ItemWirelessCamera extends Item implements ModelSource {
 
     public static final long DEFAULT_DURATION = 300 * 1000;
@@ -165,14 +167,14 @@ public class ItemWirelessCamera extends Item implements ModelSource {
         public ItemWirelessCamera build(ModContext modContext) {
 
             ItemWirelessCamera camera = new ItemWirelessCamera(this, modContext);
-            camera.setTranslationKey(ModReference.ID + "_" + name);
+            camera.setTranslationKey(ID + "_" + name);
             camera.setCreativeTab(tab);
 //            camera.setPostRenderer(postRenderer);
 //            camera.setName(name);
             camera.maxStackSize = maxStackSize;
 
 //            if(textureName != null) {
-//                camera.textureName = ModReference.id + ":" + stripFileExtension(textureName, ".png");
+//                camera.textureName = ID + ":" + stripFileExtension(textureName, ".png");
 //            }
 
             texturedModels.forEach(tm -> camera.texturedModels.add(new Tuple<>(tm.getU(), addFileExtension(tm.getV(), ".png"))));
@@ -195,9 +197,9 @@ public class ItemWirelessCamera extends Item implements ModelSource {
                 ItemStack itemStack = new ItemStack(camera);
                 itemStack.setCount(craftingCount);
                 if(optionsMetadata.hasOres()) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe"));
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
             }
 

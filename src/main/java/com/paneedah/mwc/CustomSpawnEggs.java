@@ -4,6 +4,8 @@ import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.HighIQSpawnEgg;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class CustomSpawnEggs {
 	
 	public static HighIQSpawnEgg TURRET_EGG;
@@ -15,7 +17,7 @@ public class CustomSpawnEggs {
 				.withID(1)
 				.withItemName("turret")
 				.withEntitySpawnName("turret")
-				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ModReference.ID + ":turret_base"))
+				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ID + ":turret_base"))
 				.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
 				.build();
 		
@@ -23,7 +25,7 @@ public class CustomSpawnEggs {
 				.withID(2)
 				.withItemName("turretupgraded")
 				.withEntitySpawnName("turretupgraded")
-				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ModReference.ID + ":turret_base"))
+				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ID + ":turret_base"))
 				.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
 				.build();
 		
@@ -31,7 +33,7 @@ public class CustomSpawnEggs {
 				.withID(3)
 				.withItemName("turretsilenced")
 				.withEntitySpawnName("turretsilenced")
-				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ModReference.ID + ":turret_base"))
+				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ID + ":turret_base"))
 				.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
 				.build();
 	}

@@ -3,11 +3,13 @@ package com.paneedah.weaponlib.render;
 import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.util.ResourceLocation;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class QRL {
 	
 	public static ResourceLocation quickLoc(String folder, String name) {
-		//new ResourceLocation(ModReference.id + ":textures/entity/vehicleshadow.png");
-		return new ResourceLocation(ModReference.ID + ":textures/" + folder + "/" + name + ".png");
+		//new ResourceLocation(ID + ":textures/entity/vehicleshadow.png");
+		return new ResourceLocation(ID + ":textures/" + folder + "/" + name + ".png");
 	}
 
 }

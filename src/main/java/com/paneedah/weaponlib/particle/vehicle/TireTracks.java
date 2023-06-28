@@ -13,9 +13,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class TireTracks extends ParticleFootStep {
 
-	private static final ResourceLocation NORMAL_TRACK = new ResourceLocation(ModReference.ID + ":textures/particle/tiretracknormal.png");
+	private static final ResourceLocation NORMAL_TRACK = new ResourceLocation(ID + ":textures/particle/tiretracknormal.png");
 	public int footstepAge;
     public int footstepMaxAge;
     public TextureManager currentFootStepsIn;

@@ -15,11 +15,12 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class BBLoader {
 	
-	public static String directory  = ModReference.ID + ":animations/";
+	public static String directory  = ID + ":animations/";
 	public static Gson gson = (new GsonBuilder()).create();
 	public static String version = "1.8.0";
 

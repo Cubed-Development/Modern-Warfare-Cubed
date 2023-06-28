@@ -19,6 +19,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class AttachmentBuilder<T> {
 	
 	public static int noRecipe = 0;
@@ -249,7 +251,7 @@ public class AttachmentBuilder<T> {
 	@SuppressWarnings("deprecation")
 	public ItemAttachment<T> build(ModContext modContext) {
 		ItemAttachment<T> attachment = createAttachment(modContext);
-		attachment.setTranslationKey(ModReference.ID + "_" + name);
+		attachment.setTranslationKey(ID + "_" + name);
 		attachment.setCreativeTab(tab);
 		attachment.setPostRenderer(postRenderer);
 		attachment.setName(name);
@@ -271,7 +273,7 @@ public class AttachmentBuilder<T> {
 		    attachment.setInformationProvider(informationProvider);
 
 		if (getTextureName() != null)
-			attachment.setTextureName(ModReference.ID + ":" + stripFileExtension(getTextureName(), ".png"));
+			attachment.setTextureName(ID + ":" + stripFileExtension(getTextureName(), ".png"));
 
 		if(isRenderablePart) {
 			attachment.setRenderablePart(new Part() {
@@ -313,9 +315,9 @@ public class AttachmentBuilder<T> {
 			ItemStack itemStack = new ItemStack(attachment);
 			itemStack.setCount(craftingCount);
             if(optionsMetadata.hasOres()) {
-				ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe"));
+				ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
 			} else {
-				ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe"));
+				ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
 			}
 		} else if(attachment.getCategory() == AttachmentCategory.GRIP
 		        || attachment.getCategory() == AttachmentCategory.SCOPE

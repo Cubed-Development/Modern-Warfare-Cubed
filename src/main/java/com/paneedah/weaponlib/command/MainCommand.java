@@ -18,6 +18,7 @@ import net.minecraft.util.text.TextFormatting;
 import java.util.*;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class MainCommand extends CommandBase {
 
@@ -32,12 +33,12 @@ public class MainCommand extends CommandBase {
 
     public MainCommand(ModContext modContext) {
         this.modContext = modContext;
-        this.mainCommandName = ModReference.ID;
+        this.mainCommandName = ID;
     }
 
     @Override
     public String getName() {
-        return ModReference.ID;
+        return ID;
     }
 
     @Override

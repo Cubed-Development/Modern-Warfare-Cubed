@@ -24,6 +24,7 @@ import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ModernSkyRenderer extends IRenderHandler {
 	
@@ -68,7 +69,7 @@ public class ModernSkyRenderer extends IRenderHandler {
 		    1.0f,-1.0f, 1.0f
 		};
 	
-	private static final String str = ModReference.ID + ":textures/sky/hd/";
+	private static final String str = ID + ":textures/sky/hd/";
 	
 	public static ByteBuffer readByteBuffer3(BufferedImage image) {
     	
@@ -193,7 +194,7 @@ GlStateManager.disableCull();
 		skyShader.use();
 		
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-		ResourceLocation loc = new ResourceLocation(ModReference.ID + ":textures/crosshairs/okp.png");
+		ResourceLocation loc = new ResourceLocation(ID + ":textures/crosshairs/okp.png");
 	
 		mc.getTextureManager().bindTexture(loc);
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);

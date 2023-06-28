@@ -28,6 +28,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class DebugCommand extends CommandBase {
 
@@ -544,7 +545,7 @@ public class DebugCommand extends CommandBase {
             default:
                 String partName = args[1];
 
-                Item item = Item.REGISTRY.getObject(new ResourceLocation(ModReference.ID, partName));
+                Item item = Item.REGISTRY.getObject(new ResourceLocation(ID, partName));
                 Part part = null;
                 if(item instanceof Part) {
                     part = (Part) item;

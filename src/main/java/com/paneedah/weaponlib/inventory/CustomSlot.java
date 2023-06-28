@@ -10,12 +10,12 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.utils.ModReference.id;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class CustomSlot extends Slot {
 
-    private static final ResourceLocation emptyBackpackSlotTexture = new ResourceLocation(id, "gui/inventory/empty_backpack_slot");
-    private static final ResourceLocation emptyVestSlotTexture = new ResourceLocation(id, "gui/inventory/empty_vest_slot");
+    private static final ResourceLocation emptyBackpackSlotTexture = new ResourceLocation(ID, "gui/inventory/empty_backpack_slot");
+    private static final ResourceLocation emptyVestSlotTexture = new ResourceLocation(ID, "gui/inventory/empty_vest_slot");
     
     private final Class<?> itemClass;
     

@@ -46,6 +46,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType.*;
 
 public class CustomGui extends Gui {
@@ -61,7 +62,7 @@ public class CustomGui extends Gui {
 	
 	public static VehicleCustomGUI vehicleGUIOverlay = new VehicleCustomGUI();
 	
-	public static final ResourceLocation AMMO_COUNTER_TEXTURES = new ResourceLocation(ModReference.ID + ":textures/hud/ammoiconsheet.png");
+	public static final ResourceLocation AMMO_COUNTER_TEXTURES = new ResourceLocation(ID + ":textures/hud/ammoiconsheet.png");
 
 	private static FontRenderer FONT_RENDERER = null;
 	

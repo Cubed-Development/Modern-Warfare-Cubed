@@ -55,6 +55,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class CommonModContext implements ModContext {
 
     static {
@@ -289,15 +291,15 @@ public class CommonModContext implements ModContext {
 		CompatibleExtraEntityFlags.register(this);
 		CompatibleCustomPlayerInventoryCapability.register(this);
 
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "ammo" + modEntityID), WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "wcam" + modEntityID), EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, 200, 3, true);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "ShellCasing" + modEntityID), EntityShellCasing.class, "ShellCasing" + modEntityID, modEntityID++, mod, 64, 500, true);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "Grenade" + modEntityID), EntityGrenade.class, "Grenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "SmokeGrenade" + modEntityID), EntitySmokeGrenade.class, "SmokeGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "GasGrenade" + modEntityID), EntityGasGrenade.class, "GasGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "FlashGrenade" + modEntityID), EntityFlashGrenade.class, "FlashGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "ammo" + modEntityID), WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "wcam" + modEntityID), EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, 200, 3, true);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "ShellCasing" + modEntityID), EntityShellCasing.class, "ShellCasing" + modEntityID, modEntityID++, mod, 64, 500, true);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "Grenade" + modEntityID), EntityGrenade.class, "Grenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "SmokeGrenade" + modEntityID), EntitySmokeGrenade.class, "SmokeGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "GasGrenade" + modEntityID), EntityGasGrenade.class, "GasGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "FlashGrenade" + modEntityID), EntityFlashGrenade.class, "FlashGrenade" + modEntityID, modEntityID++, mod, 64, 10000, false);
 
-        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, "EntitySpreadable" + modEntityID), EntitySpreadable.class, "EntitySpreadable" + modEntityID, modEntityID++, mod, 64, 3, false);
+        net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "EntitySpreadable" + modEntityID), EntitySpreadable.class, "EntitySpreadable" + modEntityID, modEntityID++, mod, 64, 3, false);
 
         //compatibility.registerModEntity(EntityVehicle.class, "EntityVehicle" + modEntityID, modEntityID++, mod, 64, 3, false);
 
@@ -337,15 +339,15 @@ public class CommonModContext implements ModContext {
 	@Override
 	public void preInitEnd(Object mod, SimpleNetworkWrapper channel) {
         // Workbench
-		GameRegistry.registerTileEntity(TileEntityWorkbench.class, ModReference.ID + ":tileworkbench");
+		GameRegistry.registerTileEntity(TileEntityWorkbench.class, ID + ":tileworkbench");
         Block workbenchblock = new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(MWC.BLOCKS_TAB);
         if (workbenchblock.getRegistryName() == null) {
-            if (workbenchblock.getTranslationKey().length() < ModReference.ID.length() + 2 + 5) {
+            if (workbenchblock.getTranslationKey().length() < ID.length() + 2 + 5) {
                 throw new IllegalArgumentException("Unlocalize block name too short " + workbenchblock.getTranslationKey());
             }
             String unlocalizedName = workbenchblock.getTranslationKey().toLowerCase();
-            String registryName = unlocalizedName.substring(5 + ModReference.ID.length() + 1);
-            workbenchblock.setRegistryName(ModReference.ID, registryName);
+            String registryName = unlocalizedName.substring(5 + ID.length() + 1);
+            workbenchblock.setRegistryName(ID, registryName);
         }
 
         ForgeRegistries.BLOCKS.register(workbenchblock);
@@ -353,16 +355,16 @@ public class CommonModContext implements ModContext {
         this.registerRenderableItem(workbenchblock.getRegistryName(), workbenchItemBlock, null);
 
         // Ammo press
-		GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ModReference.ID + ":tileammopress");
+		GameRegistry.registerTileEntity(TileEntityAmmoPress.class, ID + ":tileammopress");
         Block ammopressblock = new BlockAmmoPress(this, "ammo_press", Material.IRON).setCreativeTab(MWC.BLOCKS_TAB);
 
         if (ammopressblock.getRegistryName() == null) {
-            if (ammopressblock.getTranslationKey().length() < ModReference.ID.length() + 2 + 5) {
+            if (ammopressblock.getTranslationKey().length() < ID.length() + 2 + 5) {
                 throw new IllegalArgumentException("Unlocalize block name too short " + ammopressblock.getTranslationKey());
             }
             String unlocalizedName = ammopressblock.getTranslationKey().toLowerCase();
-            String registryName = unlocalizedName.substring(5 + ModReference.ID.length() + 1);
-            ammopressblock.setRegistryName(ModReference.ID, registryName);
+            String registryName = unlocalizedName.substring(5 + ID.length() + 1);
+            ammopressblock.setRegistryName(ID, registryName);
         }
 
         ForgeRegistries.BLOCKS.register(ammopressblock);
@@ -394,7 +396,7 @@ public class CommonModContext implements ModContext {
 	    if(sound == null) {
 	        return null;
 	    }
-		ResourceLocation soundResourceLocation = new ResourceLocation(ModReference.ID, sound);
+		ResourceLocation soundResourceLocation = new ResourceLocation(ID, sound);
 		return registerSound(soundResourceLocation);
 	}
 
@@ -411,7 +413,7 @@ public class CommonModContext implements ModContext {
 
 	@Override
 	public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
-        weapon.setRegistryName(ModReference.ID, name); // temporary hack
+        weapon.setRegistryName(ID, name); // temporary hack
         ForgeRegistries.ITEMS.register(weapon);
 	}
 
@@ -435,7 +437,7 @@ public class CommonModContext implements ModContext {
 
     @Override
 	public void registerRenderableItem(String name, Item item, Object renderer) {
-        item.setRegistryName(ModReference.ID, name); // temporary hack
+        item.setRegistryName(ID, name); // temporary hack
         ForgeRegistries.ITEMS.register(item);
 	}
 	
@@ -568,19 +570,19 @@ public class CommonModContext implements ModContext {
 
     @Override
     public void registerMeleeWeapon(String name, ItemMelee itemMelee, MeleeRenderer renderer) {
-        itemMelee.setRegistryName(ModReference.ID, name); // temporary hack
+        itemMelee.setRegistryName(ID, name); // temporary hack
         ForgeRegistries.ITEMS.register(itemMelee);
     }
 
     @Override
     public void registerGrenadeWeapon(String name, ItemGrenade itemMelee, GrenadeRenderer renderer) {
-        itemMelee.setRegistryName(ModReference.ID, name); // temporary hack
+        itemMelee.setRegistryName(ID, name); // temporary hack
         ForgeRegistries.ITEMS.register(itemMelee);
     }
 
     @Override
     public ResourceLocation getNamedResource(String name) {
-        return new ResourceLocation(ModReference.ID, name);
+        return new ResourceLocation(ID, name);
     }
 
     @Override

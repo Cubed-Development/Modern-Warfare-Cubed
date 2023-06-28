@@ -20,6 +20,7 @@ import org.lwjgl.input.Mouse;
 import java.util.ArrayList;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 /**
  * Singleton modification GUI render & logic class
@@ -36,7 +37,7 @@ public class ModificationGUI {
 
 	
 	// Texture for gui
-	private static final ResourceLocation MODIFICATION_GUI_TEXTURES = new ResourceLocation(ModReference.ID + ":textures/gui/modificationguisheet.png");
+	private static final ResourceLocation MODIFICATION_GUI_TEXTURES = new ResourceLocation(ID + ":textures/gui/modificationguisheet.png");
 
 	
 	private static final double SIDEBAR_SCALE = 0.8;

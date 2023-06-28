@@ -27,6 +27,8 @@ import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModernCrafting, IHasModel {
         
     
@@ -216,7 +218,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
             
             item.modelFileString = this.modelFileString;
             item.properTextureName = this.properTextureName;
-            item.setTranslationKey(ModReference.ID + "_" + name);
+            item.setTranslationKey(ID + "_" + name);
             
             // Register hook
             CraftingRegistry.registerHook(item);

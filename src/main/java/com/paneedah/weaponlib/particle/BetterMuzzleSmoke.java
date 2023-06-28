@@ -14,11 +14,12 @@ import org.lwjgl.opengl.GL11;
 import java.util.Random;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
 
-    public static final ResourceLocation SMOKE1 = new ResourceLocation(ModReference.ID + ":textures/smokes/smokesheet.png");
-    public static final ResourceLocation SMOKE2 = new ResourceLocation(ModReference.ID + ":textures/smokes/smokes2.png");
+    public static final ResourceLocation SMOKE1 = new ResourceLocation(ID + ":textures/smokes/smokesheet.png");
+    public static final ResourceLocation SMOKE2 = new ResourceLocation(ID + ":textures/smokes/smokes2.png");
 
     public int ran;
 
@@ -92,7 +93,7 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
         }
         //GlStateManager.enableBlend();
 
-        mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.ID + ":textures/smokes/smoke4.png"));
+        mc.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/smokes/smoke4.png"));
         GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
         GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
 

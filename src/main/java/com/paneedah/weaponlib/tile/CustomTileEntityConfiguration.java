@@ -24,6 +24,8 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class CustomTileEntityConfiguration<T extends CustomTileEntityConfiguration<T>> {
     
     private Material material;
@@ -113,23 +115,23 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         if(!VMWHooksHandler.isOnServer()) {
         	ClientEventHandler.BLANKMAPPED_LIST.add(tileEntityBlock);
         }
-        tileEntityBlock.setTranslationKey(ModReference.ID + "_" + name);
+        tileEntityBlock.setTranslationKey(ID + "_" + name);
         tileEntityBlock.setHardness(hardness);
         tileEntityBlock.setResistance(resistance);
         tileEntityBlock.setCreativeTab(creativeTab);
         tileEntityBlock.setBoundingBox(boundingBox);
-        ResourceLocation textureResource = new ResourceLocation(ModReference.ID, textureName);
+        ResourceLocation textureResource = new ResourceLocation(ID, textureName);
         GameRegistry.registerTileEntity(tileEntityClass, "tile" + name);
         
         //System.out.println("RUNNING!");
 
         if (tileEntityBlock.getRegistryName() == null) {
-            if (tileEntityBlock.getTranslationKey().length() < ModReference.ID.length() + 2 + 5) {
+            if (tileEntityBlock.getTranslationKey().length() < ID.length() + 2 + 5) {
                 throw new IllegalArgumentException("Unlocalize block name too short " + tileEntityBlock.getTranslationKey());
             }
             String unlocalizedName = tileEntityBlock.getTranslationKey().toLowerCase();
-            String registryName = unlocalizedName.substring(5 + ModReference.ID.length() + 1);
-            tileEntityBlock.setRegistryName(ModReference.ID, registryName);
+            String registryName = unlocalizedName.substring(5 + ID.length() + 1);
+            tileEntityBlock.setRegistryName(ID, registryName);
         }
 
         ForgeRegistries.BLOCKS.register(tileEntityBlock);
@@ -155,9 +157,9 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
 
 //                mc.getRenderItem().getItemModelMesher()
 //                    .register(Item.getItemFromBlock(tileEntityBlock), 0,
-//                        new ModelResourceLocation(ModReference.id + ":" + name, "inventory"));
+//                        new ModelResourceLocation(ID + ":" + name, "inventory"));
                 
-//                ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(ModReference.id + ":" + name, "inventory");
+//                ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(ID + ":" + name, "inventory");
 //                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(tileEntityBlock), 0, itemModelResourceLocation);
                 
                 ModelBase model = (ModelBase) Class.forName(modelClassName).newInstance();

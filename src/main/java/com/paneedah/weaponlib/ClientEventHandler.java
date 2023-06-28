@@ -59,6 +59,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 /**
@@ -565,7 +566,7 @@ public class ClientEventHandler {
 	@SubscribeEvent
 	public void onTextureStitchEvent(TextureStitchEvent.Pre event) {
 		event.getMap().registerSprite(getModContext().getNamedResource(ParticleBlood.texture));
-		carParticles = event.getMap().registerSprite(new ResourceLocation(ModReference.ID + ":particle/carparticle"));
+		carParticles = event.getMap().registerSprite(new ResourceLocation(ID + ":particle/carparticle"));
 	}
 
 	@SubscribeEvent

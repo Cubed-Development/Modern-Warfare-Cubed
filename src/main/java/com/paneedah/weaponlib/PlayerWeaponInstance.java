@@ -32,6 +32,7 @@ import java.util.UUID;
 import java.util.concurrent.LinkedBlockingDeque;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 
@@ -65,7 +66,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
             .withUniform("Reticle", context -> {
             	
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-            	mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.ID + ":textures/hud/reticle1.png"));
+            	mc.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/hud/reticle1.png"));
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
             	
             	return 4;

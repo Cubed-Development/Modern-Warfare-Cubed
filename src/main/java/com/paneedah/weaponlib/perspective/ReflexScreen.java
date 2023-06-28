@@ -35,6 +35,7 @@ import org.lwjgl.opengl.GL20;
 import java.util.function.BiConsumer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ReflexScreen extends ModelBase implements CustomRenderer<RenderableState>{
 	
@@ -84,7 +85,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		//reflexReticle.use();
 		
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-		ResourceLocation loc = new ResourceLocation(ModReference.ID + ":textures/crosshairs/okp.png");
+		ResourceLocation loc = new ResourceLocation(ID + ":textures/crosshairs/okp.png");
 	
 		mc.getTextureManager().bindTexture(loc);
 		
@@ -275,6 +276,6 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		
 		
 
-		//reflexReticle = ShaderLoader.loadShader(new ResourceLocation(ModReference.id + ":shaders/reflex"));
+		//reflexReticle = ShaderLoader.loadShader(new ResourceLocation(ID + ":shaders/reflex"));
 	}
 }

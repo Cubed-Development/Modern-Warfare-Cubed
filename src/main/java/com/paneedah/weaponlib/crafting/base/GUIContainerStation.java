@@ -35,12 +35,14 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 
 public abstract class GUIContainerStation<T extends TileEntityStation> extends GuiContainer {
 	
 	// Textures for the GUI
-	protected static final ResourceLocation GUI_TEX = new ResourceLocation(ModReference.ID + ":textures/gui/workshop_sheet.png");
-	protected static final ResourceLocation GUI_INV_TEX = new ResourceLocation(ModReference.ID + ":textures/gui/workbench_inv_sheet.png");
+	protected static final ResourceLocation GUI_TEX = new ResourceLocation(ID + ":textures/gui/workshop_sheet.png");
+	protected static final ResourceLocation GUI_INV_TEX = new ResourceLocation(ID + ":textures/gui/workbench_inv_sheet.png");
 
 	// GUI dimensions
 	private static final int GUI_TEXTURE_WIDTH = 402;

@@ -17,10 +17,11 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ViewfinderModel extends ModelBase {
 	
-	private static final ResourceLocation SCOPE_GRIME_TEXTURE = new ResourceLocation(ModReference.ID + ":textures/hud/scopedirt.png");
+	private static final ResourceLocation SCOPE_GRIME_TEXTURE = new ResourceLocation(ID + ":textures/hud/scopedirt.png");
 
 	private ModelRenderer surfaceRenderer;
 	private FlatSurfaceModelBox box;
@@ -136,7 +137,7 @@ public class ViewfinderModel extends ModelBase {
     	
     	/* Code for a future hybrid scope
     	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+7);
-		ResourceLocation loc = new ResourceLocation(ModReference.id + ":textures/crosshairs/reflexret.png");
+		ResourceLocation loc = new ResourceLocation(ID + ":textures/crosshairs/reflexret.png");
 		mc.getTextureManager().bindTexture(loc);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);

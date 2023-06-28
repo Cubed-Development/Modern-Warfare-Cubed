@@ -9,6 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class EntityGrenadeRenderer extends Render<Entity> {
 
@@ -34,7 +35,7 @@ public class EntityGrenadeRenderer extends Render<Entity> {
         GrenadeRenderer renderer = itemGrenade.getRenderer();
 
         mc.renderEngine.bindTexture(
-                new ResourceLocation(ModReference.ID, // TODO: init entity with mod context
+                new ResourceLocation(ID, // TODO: init entity with mod context
                 "textures/models/" + itemGrenade.getTextureName()));
 
         ModelBase model = renderer.getModel();

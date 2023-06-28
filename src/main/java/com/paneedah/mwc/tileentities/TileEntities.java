@@ -706,7 +706,7 @@ public class TileEntities {
 ////        .withEquipmentOption(Guns.M45A1, EnumDifficulty.EASY, 3f)
 ////        .withEquipmentOption(Items.air, EnumDifficulty.EASY, 150f, 1)
 //        .withEquipmentDispenseTimeout(10)
-//        .build(MWC.MOD_CONTEXT);
+//        .build(MWC.modContext);
         
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)

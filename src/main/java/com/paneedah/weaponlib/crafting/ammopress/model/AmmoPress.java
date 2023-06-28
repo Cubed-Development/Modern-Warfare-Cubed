@@ -13,6 +13,7 @@ import net.minecraft.util.math.MathHelper;
 import java.util.Arrays;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 // Made with Blockbench 4.3.1
 // Exported for Minecraft version 1.7 - 1.12
@@ -22,10 +23,10 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 public class AmmoPress extends ModelBase {
 	
 	private Bullet bulletModel = new Bullet();
-	private ResourceLocation bulletTexture = new ResourceLocation(ModReference.ID + ":textures/blocks/bullet.png");
+	private ResourceLocation bulletTexture = new ResourceLocation(ID + ":textures/blocks/bullet.png");
 	
 	private Gunpowder gunpowderModel = new Gunpowder();
-	private ResourceLocation powderTexture = new ResourceLocation(ModReference.ID + ":textures/blocks/gunpowder.png");
+	private ResourceLocation powderTexture = new ResourceLocation(ID + ":textures/blocks/gunpowder.png");
 	
 	
 	private final ModelRenderer bone13;

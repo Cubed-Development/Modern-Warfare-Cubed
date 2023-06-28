@@ -94,7 +94,7 @@ public class CommonProxy {
         DataSerializers.registerSerializer(VehiclePhysSerializer.SERIALIZER);
 
         // Special object initialization
-        SpecialAttachments.init(mod, ModernWarfareMod.MOD_CONTEXT);
+        SpecialAttachments.init(mod, MWC.modContext);
         Backpacks.init();
         Belts.init();
         Vests.init(mod);

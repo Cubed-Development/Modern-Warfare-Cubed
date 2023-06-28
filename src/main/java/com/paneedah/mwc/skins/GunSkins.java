@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 
+import static com.paneedah.mwc.utils.ModReference.LOG;
+
 public class GunSkins {
 
     public static ItemSkin WoodlandCamo;
@@ -115,11 +117,11 @@ public class GunSkins {
                             .withName(skinName)
                             .build(MWC.modContext, ItemSkin.class);
                     CommonRegistry.gunSkins.add(skin);
-                    ModReference.LOG.info("Registered custom gun skin: " + skinName);
+                    LOG.info("Registered custom gun skin: " + skinName);
                 }
 
             } catch (Exception e) {
-                ModReference.LOG.error("Failed to set up custom skins directory!");
+                LOG.error("Failed to set up custom skins directory!");
                 e.printStackTrace();
                 return;
             }
@@ -148,7 +150,7 @@ public class GunSkins {
                     .withName(name.replace(".png", ""))
                     .build(MWC.modContext, ItemSkin.class);
             CommonRegistry.gunSkins.add(skin);
-            ModReference.LOG.info("Registered custom gun skin: " + name);
+            LOG.info("Registered custom gun skin: " + name);
         }
     }
 }

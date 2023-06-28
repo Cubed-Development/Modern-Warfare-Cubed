@@ -51,6 +51,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.Collection;
 import java.util.Iterator;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 
@@ -308,17 +309,17 @@ public class ServerEventHandler {
     @SubscribeEvent
     public void attachCapability(AttachCapabilitiesEvent<Entity> event) {
         if (event.getObject() instanceof EntityPlayer) {
-            ResourceLocation PLAYER_ENTITY_TRACKER = new ResourceLocation(ModReference.ID, "PLAYER_ENTITY_TRACKER");
+            ResourceLocation PLAYER_ENTITY_TRACKER = new ResourceLocation(ID, "PLAYER_ENTITY_TRACKER");
             event.addCapability(PLAYER_ENTITY_TRACKER, new CompatiblePlayerEntityTrackerProvider());
 
-            ResourceLocation extraFlagsResourceLocation = new ResourceLocation(ModReference.ID, "PLAYER_ENTITY_FLAGS");
+            ResourceLocation extraFlagsResourceLocation = new ResourceLocation(ID, "PLAYER_ENTITY_FLAGS");
             event.addCapability(extraFlagsResourceLocation, new CompatibleExtraEntityFlags());
 
-            ResourceLocation customInventoryLocation = new ResourceLocation(ModReference.ID, "PLAYER_CUSTOM_INVENTORY");
+            ResourceLocation customInventoryLocation = new ResourceLocation(ID, "PLAYER_CUSTOM_INVENTORY");
             event.addCapability(customInventoryLocation, new CompatibleCustomPlayerInventoryCapability());
         }
 
-        ResourceLocation exposureResourceLocation = new ResourceLocation(ModReference.ID, "EXPOSURE");
+        ResourceLocation exposureResourceLocation = new ResourceLocation(ID, "EXPOSURE");
         event.addCapability(exposureResourceLocation, new CompatibleExposureCapability());
     }
 

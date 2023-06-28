@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class WavefrontLoader {
 
@@ -20,7 +21,7 @@ public class WavefrontLoader {
 	private static final String HEADER_TEX_COORD = "vt";
 	private static final String HEADER_LIGHT_COORD = "vn";
 	private static final String HEADER_FACE = "f";
-	private static final String OBJ_MODEL_LOCATION = ModReference.ID + ":models/obj/";
+	private static final String OBJ_MODEL_LOCATION = ID + ":models/obj/";
 
 	/*
 	public static WavefrontModel loadSubModel(String modelName, String objectName) {

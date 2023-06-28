@@ -20,6 +20,7 @@ import org.lwjgl.opengl.GL11;
 import java.awt.Color;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class VehicleCustomGUI extends Gui {
 	
@@ -235,7 +236,7 @@ public class VehicleCustomGUI extends Gui {
 		// enmd
 		
 		// render knob
-		ResourceLocation loc = new ResourceLocation(ModReference.ID + ":textures/gui/caricons.png");
+		ResourceLocation loc = new ResourceLocation(ID + ":textures/gui/caricons.png");
 		mc.getTextureManager().bindTexture(loc);
 		GlStateManager.color(1.0f, 1.0f, 1.0f);
 		GL11.glTranslated(x+nX, y+nZ, 0);

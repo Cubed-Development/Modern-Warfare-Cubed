@@ -31,15 +31,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class AnimationGUI {
 	
 	private static AnimationGUI instance = new AnimationGUI();
 	
 	
-	public static final ResourceLocation TEXTURES = new ResourceLocation(ModReference.ID + ":textures/hud/animguio.png");
-	
-	
+	public static final ResourceLocation TEXTURES = new ResourceLocation(ID + ":textures/hud/animguio.png");
+
+
 
 	public ArrayList<Panel> panels = new ArrayList<>();
 
@@ -471,7 +472,7 @@ public class AnimationGUI {
 	}
 	
 	public static void renderTexturedRect(int id, double x, double y, double w, double h) {
-		mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.ID + ":textures/hud/animguio.png"));
+		mc.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/hud/animguio.png"));
 		
 		GlStateManager.enableAlpha();
 		GlStateManager.enableBlend();
