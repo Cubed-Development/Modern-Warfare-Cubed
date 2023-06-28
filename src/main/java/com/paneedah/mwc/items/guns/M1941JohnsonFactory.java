@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.JohnsonLMG;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -25,7 +25,7 @@ public class M1941JohnsonFactory {
         .withFireRate(0.5f)
         .withRecoil(2.5f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.RIFLES)
+        .withConfigGroup(GunConfigurationGroup.HEAVY)
         .withMaxShots(1, Integer.MAX_VALUE)
         //.withMaxShots(5)
         .withShootSound("m1941")
@@ -44,7 +44,7 @@ public class M1941JohnsonFactory {
         .withFlashOffsetY(() -> 0.15f)
 //        .withShellCasingSideOffset(0f)
         .withShellCasingVerticalOffset(-0.1f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Light Machine Gun",
         "Damage: 15", 
@@ -1053,7 +1053,7 @@ public class M1941JohnsonFactory {
         .withSpawnEntityDamage(15f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

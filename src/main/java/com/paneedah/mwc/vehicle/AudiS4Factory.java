@@ -1,6 +1,6 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.vehicle.engines.AudiS4Engine;
 import com.paneedah.weaponlib.ModContext;
@@ -244,7 +244,7 @@ public class AudiS4Factory implements VehicleFactory {
                 .withSeat(new Vec3d(0.0, -0.2, 0.0))
                 .withSeat(new Vec3d(0.5, -0.2, 0.0))
                 .withRenderer(renderer)
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
     }
 
 }

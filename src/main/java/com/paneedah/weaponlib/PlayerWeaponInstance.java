@@ -32,7 +32,7 @@ import java.util.UUID;
 import java.util.concurrent.LinkedBlockingDeque;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 
 public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implements DynamicShaderGroupSourceProvider {
@@ -65,7 +65,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
             .withUniform("Reticle", context -> {
             	
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-            	mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.id + ":textures/hud/reticle1.png"));
+            	mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.ID + ":textures/hud/reticle1.png"));
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
             	
             	return 4;
@@ -171,7 +171,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 		
 		// Give the old animations
 		if(!getWeapon().builder.isUsingNewSystem()) {
-			log.debug("Weapon is using the old system, returning standard value");
+			LOG.debug("Weapon is using the old system, returning standard value");
 			return getWeapon().getTotalReloadingDuration();
 		}
 		
@@ -282,8 +282,8 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
 	private static void serializeIntArray(ByteBuf buf, int a[]) {
 		buf.writeByte(a.length);
-		for(int i = 0; i < a.length; i++) {
-			buf.writeInt(a[i]);
+		for (int j : a) {
+			buf.writeInt(j);
 		}
 	}
 
@@ -618,19 +618,20 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
    	@Override
    	protected void reconcile() {
         ItemStack itemStack = getItemStack();
+
         if(itemStack != null) {
             int expectedStackAmmo = Tags.getAmmo(itemStack);
             if(this.ammo > expectedStackAmmo) {
-                log.debug("Reconciling. Expected ammo: {}, actual: {}", expectedStackAmmo, this.ammo);
+                LOG.debug("Reconciling. Expected ammo: {}, actual: {}", expectedStackAmmo, this.ammo);
                 this.ammo = expectedStackAmmo;
             }
             
 //            int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
 //            if(!Arrays.equals(expectedAttachmentIds, this.activeAttachmentIds)) {
-//                log.debug("Reconciling. Expected attachments: {}, actual: {}", 
-//                        Arrays.toString(expectedAttachmentIds), Arrays.toString(this.activeAttachmentIds));
+//                log.debug("Reconciling. Expected attachments: {}, actual: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(this.activeAttachmentIds));
 //                this.activeAttachmentIds = expectedAttachmentIds;
 //            }
+
             updateTimestamp = System.currentTimeMillis();
         }
    	}

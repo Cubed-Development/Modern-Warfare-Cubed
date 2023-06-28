@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.compatibility;
 
-import com.paneedah.mwc.utils.MathUtil;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
@@ -995,7 +994,7 @@ public class Interceptors {
 //            }
             
             player.rotationYaw = (float) ((double) player.rotationYaw + (double) yawDelta);
-            float vehicleRiderYawDelta = MathUtil.wrapAngleTo180Float(player.getRidingEntity().rotationYaw - player.rotationYaw);
+            float vehicleRiderYawDelta = (((player.getRidingEntity().rotationYaw - player.rotationYaw + 180f) % 360f + 360f) % 360f - 180f);
             //System.out.println("Proposed delta: " + yawDelta + ", allowed: " + vehicleRiderYawDelta);
 
             if(vehicleRiderYawDelta > maxYawDelta) {

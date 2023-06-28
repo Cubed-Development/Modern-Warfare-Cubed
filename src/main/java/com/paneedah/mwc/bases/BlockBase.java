@@ -1,6 +1,6 @@
 package com.paneedah.mwc.bases;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,7 +18,7 @@ public class BlockBase extends Block {
         setHardness(6F);
         setResistance(15F);
         setHarvestLevel("pickaxe", 2);
-        setCreativeTab(ModernWarfareMod.BlocksTab);
+        setCreativeTab(MWC.BLOCKS_TAB);
     }
 
     @Override

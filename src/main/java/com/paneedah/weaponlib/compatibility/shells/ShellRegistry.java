@@ -49,7 +49,7 @@ public class ShellRegistry {
 	 */
 	public static void addShellToRegistry(Type type, String modelName, String textureName) {
 		shellRegistrar.put(type, new Pair<WavefrontModel, ResourceLocation>(WavefrontLoader.loadSubModel(modelName, "casing"),
-				new ResourceLocation(ModReference.id + ":textures/models/" + textureName + ".png")));
+				new ResourceLocation(ModReference.ID + ":textures/models/" + textureName + ".png")));
 	}
 	
 	public static HashMap<Shell.Type, Pair<WavefrontModel, ResourceLocation>> getShellMappings() {

@@ -4,6 +4,7 @@ import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.FlaggedAttachment;
 import com.paneedah.weaponlib.command.DebugCommand;
+import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.render.gui.ColorPalette;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
@@ -35,7 +36,7 @@ public class ModificationGUI {
 
 	
 	// Texture for gui
-	private static final ResourceLocation MODIFICATION_GUI_TEXTURES = new ResourceLocation(ModReference.id + ":textures/gui/modificationguisheet.png");
+	private static final ResourceLocation MODIFICATION_GUI_TEXTURES = new ResourceLocation(ModReference.ID + ":textures/gui/modificationguisheet.png");
 
 	
 	private static final double SIDEBAR_SCALE = 0.8;
@@ -632,14 +633,14 @@ public class ModificationGUI {
 				TextFormatting.GOLD + translate(weapon.getTranslationKey()),
 				30, 30, 1.0, ColorPalette.WHITE);
 		GUIRenderHelper.drawScaledString(
-				"Damage :: " + TextFormatting.GOLD + weapon.getSpawnEntityDamage(),
+				"Damage :: " + TextFormatting.GOLD + String.format("%.2f" , (BalancePackManager.getNetGunDamage(weapon))),
 				30, 60, 1, ColorPalette.WHITE);
-		GUIRenderHelper.drawScaledString("Recoil :: " + TextFormatting.GOLD + weaponInstance.getRecoil(),
+		GUIRenderHelper.drawScaledString("Recoil :: " + TextFormatting.GOLD + String.format("%.2f" , (weaponInstance.getRecoil())),
 				30, 75, 1, ColorPalette.WHITE);
 		GUIRenderHelper.drawScaledString("Firerate :: " + TextFormatting.GOLD + weaponInstance.getFireRate(), 30, 90, 1,
 				ColorPalette.WHITE);
 		GUIRenderHelper.drawScaledString(
-				"Inaccuracy :: " + TextFormatting.GOLD + weaponInstance.getInaccuracy(), 30,
+				"Inaccuracy :: " + TextFormatting.GOLD + String.format("%.1f" , (weaponInstance.getInaccuracy())), 30,
 				105, 1, ColorPalette.WHITE);
 
 		GlStateManager.popMatrix();

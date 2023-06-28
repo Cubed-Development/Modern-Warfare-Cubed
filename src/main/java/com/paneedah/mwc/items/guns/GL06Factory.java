@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -21,7 +21,7 @@ public class GL06Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("gl06")
-//      .withAmmo(CommonProxy.AR15Mag)
+//      .withCapacity(CommonProxy.AR15Mag)
         .withAmmoCapacity(1)
         .withFireRate(0.7f)
         .withRecoil(5f)
@@ -46,7 +46,7 @@ public class GL06Factory implements GunFactory {
                 3f, // y
                 2f) // z
         
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList("Type: Grenade Launcher", "Damage: 70", 
         "Cartridge: 40mm Grenade", "Fire Rate: Semi"))
         .withCompatibleAttachment(Bullets.Grenade40mm, (model) -> {})
@@ -1081,6 +1081,6 @@ public class GL06Factory implements GunFactory {
             .withSpawnEntityGravityVelocity(0.3f)
             .withSpawnEntitySpeed(5f)
             .withSpawnEntityExplosionRadius(4f)
-            .build(ModernWarfareMod.MOD_CONTEXT);
+            .build(MWC.modContext);
         }
     }

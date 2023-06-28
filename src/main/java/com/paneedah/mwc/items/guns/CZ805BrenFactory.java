@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -47,7 +47,7 @@ public class CZ805BrenFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.18f)
         .withShellCasingForwardOffset(0.05f)
         .withShellCasingVerticalOffset(-0.03f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
 		.withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -360,11 +360,11 @@ public class CZ805BrenFactory implements GunFactory {
                 GL11.glRotatef(-120F, -0.5f, 7f, 3f);
             })
             .withThirdPersonPositioning((renderContext) -> {
-                GL11.glScaled(0.65F, 0.65F, 0.65F);
-                GL11.glTranslatef(-1.1F, -0.45F, 1.1F);
+                GL11.glScaled(0.6F, 0.6F, 0.6F);
+                GL11.glTranslatef(-1.7F, -0.8F, 1.9F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
-                })
+            })
                 
             .withFirstPersonPositioning(
 					new Transform()
@@ -776,6 +776,6 @@ public class CZ805BrenFactory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.0118f)
                 
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

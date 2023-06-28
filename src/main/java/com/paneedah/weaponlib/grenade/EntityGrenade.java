@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.mwc.utils.MWCUtil;
-import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.function.BiPredicate;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class EntityGrenade extends AbstractEntityGrenade {
 
@@ -147,9 +147,9 @@ public class EntityGrenade extends AbstractEntityGrenade {
     }
 
     private void explode() {
-        log.debug("Exploding {}", this);
+        LOG.debug("Exploding {}", this);
 
-        Explosion.createServerSideExplosion(modContext, world, this,
+        Explosion.createServerSideExplosion(modContext, world, this.getThrower(), this,
                 this.posX, this.posY, this.posZ, explosionStrength, false, true, destroyBlocks, 1f, 1f, 1.5f, 1f, null, null, 
                 modContext.getExplosionSound());
         
@@ -168,7 +168,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
             
             double d2 = x * x + y * y + z * z;
             if(d2 == 0) {
-                log.debug("Ignoring zero distance index {}", i);
+                LOG.debug("Ignoring zero distance index {}", i);
                 continue;
             }
             double k = Math.sqrt(effectiveRadius * effectiveRadius  / d2);
@@ -200,7 +200,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
                         double distanceToEntity = cvec10.distanceTo(new Vector3D(movingobjectposition1.hitVec));
                         float damageDistanceReductionFactor = (float)Math.abs(1 - distanceToEntity / effectiveRadius);
 
-                        log.trace("Hit entity {} at distance {}, damage reduction {}", nearbyEntity, distanceToEntity,
+                        LOG.trace("Hit entity {} at distance {}, damage reduction {}", nearbyEntity, distanceToEntity,
                                 damageDistanceReductionFactor);
 
                         nearbyEntity.attackEntityFrom(

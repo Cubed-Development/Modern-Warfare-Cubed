@@ -32,12 +32,12 @@ public class MainCommand extends CommandBase {
 
     public MainCommand(ModContext modContext) {
         this.modContext = modContext;
-        this.mainCommandName = ModReference.id;
+        this.mainCommandName = ModReference.ID;
     }
 
     @Override
     public String getName() {
-        return ModReference.id;
+        return ModReference.ID;
     }
 
     @Override

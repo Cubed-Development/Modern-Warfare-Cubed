@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -22,7 +22,7 @@ public class Kar98KFactory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("Kar98K")
-//      .withAmmo(CommonProxy.XWPMag)
+//      .withCapacity(CommonProxy.XWPMag)
         .withAmmoCapacity(5)
         .withFireRate(0.16f)
         .withIteratedLoad()
@@ -50,7 +50,7 @@ public class Kar98KFactory implements GunFactory {
         .withFlashOffsetX(() -> 0.08f)
         .withFlashOffsetY(() -> 0.16f)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Bolt-action rifle",
         "Damage: 13.5",
@@ -2263,6 +2263,6 @@ public class Kar98KFactory implements GunFactory {
         .withSpawnEntityGravityVelocity(0f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -32,7 +32,7 @@ public class MAC10Factory {
         .withFireRate(0.999f)
         .withRecoil(1f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.SIDEARM)
+        .withConfigGroup(GunConfigurationGroup.SMG)
         .withShellType(Type.PISTOL)
         .withMuzzlePosition(new Vec3d (-0.16000000476837156, -0.9519999985694882, -2.755999888420105))
         .withMaxShots(1, Integer.MAX_VALUE)
@@ -52,7 +52,7 @@ public class MAC10Factory {
         .withFlashOffsetX(() -> 0.16f)
         .withFlashOffsetY(() -> 0.16f)
         .withInaccuracy(3f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -738,7 +738,7 @@ public class MAC10Factory {
         .withSpawnEntityDamage(5.3f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

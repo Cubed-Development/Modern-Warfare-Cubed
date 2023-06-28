@@ -7,6 +7,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
@@ -23,6 +24,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
@@ -48,7 +51,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.Collection;
 import java.util.Iterator;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 
 /**
@@ -76,7 +79,7 @@ public class ServerEventHandler {
     @SubscribeEvent
     public void onTick(TickEvent.ServerTickEvent serverTickEvent) {
         if(serverTickEvent.phase == TickEvent.Phase.START)
-            CommonModContext.currentContext.set(modContext);
+            CommonModContext.currentContext = modContext;
     }
 
     @SubscribeEvent
@@ -103,7 +106,6 @@ public class ServerEventHandler {
                     doseNbt.setFloat("dose", ((SpreadableExposure) exposure).getLastDose());
                 }
                 if(!exposure.isEffective(livingUpdateEvent.getEntity().world)) {
-                    //System.out.println("Removing expired exposure " + exposure);
                     iterator.remove();
                     effectiveUpdate = true;
                 }
@@ -154,7 +156,7 @@ public class ServerEventHandler {
             ((Contextual)entityJoinWorldEvent.getEntity()).setContext(modContext);
 
         if(entityJoinWorldEvent.getEntity() instanceof EntityPlayerMP && !entityJoinWorldEvent.getWorld().isRemote) {
-            log.debug("Player {} joined the world", entityJoinWorldEvent.getEntity());
+            LOG.debug("Player {} joined the world", entityJoinWorldEvent.getEntity());
             PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) entityJoinWorldEvent.getEntity());
 
             if(tracker != null)
@@ -173,7 +175,6 @@ public class ServerEventHandler {
                     new EntityInventorySyncMessage(e.getTarget(), 
                             CompatibleCustomPlayerInventoryCapability.getInventory((EntityLivingBase) e.getTarget()), false), 
                             (EntityPlayerMP) e.getEntityPlayer());
-            System.out.println("Player " + e.getEntityPlayer() + " started tracking "  + e.getTarget());
             return;
         }
         if(e.getTarget() instanceof EntityProjectile || e.getTarget() instanceof EntityBounceable) {
@@ -181,7 +182,7 @@ public class ServerEventHandler {
         }
         PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) e.getEntity());
         if (tracker != null && tracker.updateTrackableEntity(e.getTarget())) {
-            log.debug("Player {} started tracking {} with uuid {}", e.getEntityPlayer(), e.getTarget(), e.getTarget().getUniqueID());
+            LOG.debug("Player {} started tracking {} with uuid {}", e.getEntityPlayer(), e.getTarget(), e.getTarget().getUniqueID());
             modContext.getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker),
                     (EntityPlayerMP)e.getEntityPlayer());
             
@@ -235,17 +236,17 @@ public class ServerEventHandler {
     protected void onLivingHurtEvent(LivingHurtEvent livingHurtEvent) {
         CustomPlayerInventory inventory = CompatibleCustomPlayerInventoryCapability
                 .getInventory(livingHurtEvent.getEntityLiving());
-        if (inventory != null && inventory.getStackInSlot(1) != null) {
+        if (inventory != null && inventory.getStackInSlot(1).getItem() != Items.AIR) {
             NonNullList<ItemStack> stackList = NonNullList.create();
 
-            ItemStack[] itemStacks = new ItemStack[] { inventory.getStackInSlot(1) };
+            ItemStack[] itemStacks = new ItemStack[]{inventory.getStackInSlot(1)};
 
             for (int i = 0; i < itemStacks.length; i++) {
                 stackList.add(itemStacks[i]);
             }
 
-            float amt = ISpecialArmor.ArmorProperties.applyArmor(livingHurtEvent.getEntityLiving(), stackList, livingHurtEvent.getSource(), livingHurtEvent.getAmount());
-            livingHurtEvent.setAmount(amt);
+            Item DamageBlocked = inventory.getStackInSlot(1).getItem();
+            livingHurtEvent.setAmount((float) (livingHurtEvent.getAmount() * (1 - ((ItemVest) DamageBlocked).getDamageBlocked())));
         }
         
         if(livingHurtEvent.getSource().getImmediateSource() instanceof EntityProjectile) {
@@ -253,12 +254,10 @@ public class ServerEventHandler {
         	if(hit != null) {
         		Vec3d eyes = livingHurtEvent.getEntityLiving().getPositionEyes(1.0f);
             	if(hit.hitVec.distanceTo(eyes) < 0.6f) {
-            		
-            		//tSystem.out.println("Current headshot multiplier is " + BalancePackManager.getHeadshotMultiplier());
+
             		livingHurtEvent.setAmount((float) (livingHurtEvent.getAmount()*BalancePackManager.getHeadshotMultiplier()));
             		
             		if(livingHurtEvent.getSource().getTrueSource() instanceof EntityPlayer) {
-            			//System.out.println(livingHurtEvent.getSource().getTrueSource());
             			modContext.getChannel().sendTo(new HeadshotSFXPacket(), (EntityPlayerMP) livingHurtEvent.getSource().getTrueSource());
             		}
                 	
@@ -309,17 +308,17 @@ public class ServerEventHandler {
     @SubscribeEvent
     public void attachCapability(AttachCapabilitiesEvent<Entity> event) {
         if (event.getObject() instanceof EntityPlayer) {
-            ResourceLocation PLAYER_ENTITY_TRACKER = new ResourceLocation(ModReference.id, "PLAYER_ENTITY_TRACKER");
+            ResourceLocation PLAYER_ENTITY_TRACKER = new ResourceLocation(ModReference.ID, "PLAYER_ENTITY_TRACKER");
             event.addCapability(PLAYER_ENTITY_TRACKER, new CompatiblePlayerEntityTrackerProvider());
 
-            ResourceLocation extraFlagsResourceLocation = new ResourceLocation(ModReference.id, "PLAYER_ENTITY_FLAGS");
+            ResourceLocation extraFlagsResourceLocation = new ResourceLocation(ModReference.ID, "PLAYER_ENTITY_FLAGS");
             event.addCapability(extraFlagsResourceLocation, new CompatibleExtraEntityFlags());
 
-            ResourceLocation customInventoryLocation = new ResourceLocation(ModReference.id, "PLAYER_CUSTOM_INVENTORY");
+            ResourceLocation customInventoryLocation = new ResourceLocation(ModReference.ID, "PLAYER_CUSTOM_INVENTORY");
             event.addCapability(customInventoryLocation, new CompatibleCustomPlayerInventoryCapability());
         }
 
-        ResourceLocation exposureResourceLocation = new ResourceLocation(ModReference.id, "EXPOSURE");
+        ResourceLocation exposureResourceLocation = new ResourceLocation(ModReference.ID, "EXPOSURE");
         event.addCapability(exposureResourceLocation, new CompatibleExposureCapability());
     }
 

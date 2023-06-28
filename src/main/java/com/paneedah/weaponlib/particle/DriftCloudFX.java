@@ -15,7 +15,7 @@ import java.util.Random;
 public class DriftCloudFX extends ParticleCloud {
 	
 	
-	public static final ResourceLocation CAR_PARTICLES = new ResourceLocation(ModReference.id + ":particle/carparticle.png");
+	public static final ResourceLocation CAR_PARTICLES = new ResourceLocation(ModReference.ID + ":particle/carparticle.png");
 	
 	public DriftCloudFX(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double p_i1221_8_,
 			double p_i1221_10_, double p_i1221_12_) {

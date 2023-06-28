@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.RPG7;
 import com.paneedah.mwc.models.RPG7rocketPROJECTILE;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -22,7 +22,7 @@ public class RPG7Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("rpg7")
-//      .withAmmo(CommonProxy.AR15Mag)
+//      .withCapacity(CommonProxy.AR15Mag)
         .withAmmoCapacity(1)
         .withFireRate(0.7f)
         .withRecoil(10f)
@@ -41,7 +41,7 @@ public class RPG7Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.14f)
         .withShellCasingEjectEnabled(false)
         .withDestroyingBlocks(false)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 1f, // x 
@@ -966,6 +966,6 @@ public class RPG7Factory implements GunFactory {
             .withSpawnEntityExplosionRadius(4f)
             .withSpawnEntityModel(new RPG7rocketPROJECTILE())
             .withSpawnEntityModelTexture("rpg7")
-            .build(ModernWarfareMod.MOD_CONTEXT);
+            .build(MWC.modContext);
         }
     }

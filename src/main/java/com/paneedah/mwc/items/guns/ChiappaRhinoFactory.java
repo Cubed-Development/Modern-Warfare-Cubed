@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.ChiappaRhino;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -46,7 +46,7 @@ public class ChiappaRhinoFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.15f)
         .withInaccuracy(3)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab) 
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         
         .withInformationProvider(stack -> Arrays.asList(
                 "Type: Revolver",
@@ -1860,6 +1860,6 @@ public class ChiappaRhinoFactory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.016f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

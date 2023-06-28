@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL12;
 
 import java.nio.FloatBuffer;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 /**
  * Depth texture class that holds a depth buffer with a depth texture attachment that allows
@@ -101,18 +101,18 @@ public class DepthTexture {
 
 		if (status != OpenGlHelper.GL_FRAMEBUFFER_COMPLETE) {
 			if (status == OpenGlHelper.GL_FB_INCOMPLETE_ATTACHMENT) {
-				log.error("Depth framebuffer creation returned an incomplete attachment error.");
+				LOG.error("Depth framebuffer creation returned an incomplete attachment error.");
 			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_MISS_ATTACH) {
-				log.error("Depth framebuffer creation returned a missing attachment error.");
+				LOG.error("Depth framebuffer creation returned a missing attachment error.");
 			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_DRAW_BUFFER) {
-				log.error("Depth framebuffer creation returned an incomplete draw buffer error.");
+				LOG.error("Depth framebuffer creation returned an incomplete draw buffer error.");
 			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_READ_BUFFER) {
-				log.error("Depth framebuffer creation returned an incomplete read buffer error.");
+				LOG.error("Depth framebuffer creation returned an incomplete read buffer error.");
 			} else {
-				log.error("Depth framebuffer creation returned an unknown status");
+				LOG.error("Depth framebuffer creation returned an unknown status");
 			}
 		} else {
-			log.debug("Succesfully created depth buffer.");
+			LOG.debug("Succesfully created depth buffer.");
 		}
 	}
 	

@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.Reflex2;
 import com.paneedah.mwc.models.TaurusRagingHunter;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -44,7 +44,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
 		.withFlashOffsetY(() -> 0.15f)
         .withInaccuracy(2)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab) 
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -126,8 +126,8 @@ public class TaurusRagingHunterFactory implements GunFactory {
                 GL11.glRotatef(-120F, -0.5f, 7f, 3f);
             })
             .withThirdPersonPositioning((renderContext) -> {
-                GL11.glScaled(0.45F, 0.45F, 0.45F);
-                GL11.glTranslatef(-2.6F, -0.2F, 2.3F);
+				GL11.glScaled(0.5F, 0.5F, 0.5F);
+				GL11.glTranslatef(-1.8F, -1F, 2F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
                 })
@@ -243,6 +243,6 @@ public class TaurusRagingHunterFactory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.016f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

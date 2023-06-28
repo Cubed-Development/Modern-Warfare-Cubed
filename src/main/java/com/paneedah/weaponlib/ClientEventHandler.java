@@ -59,7 +59,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 /**
  * Handles the client events, and apparently was my testing playground?
@@ -115,7 +115,6 @@ public class ClientEventHandler {
 
 	private Lock mainLoopLock = new ReentrantLock();
 	private SafeGlobals safeGlobals;
-	private Queue<Runnable> runInClientThreadQueue;
 
 	private ClientModContext modContext;
     private DynamicShaderGroupManager shaderGroupManager;
@@ -127,12 +126,11 @@ public class ClientEventHandler {
 		return modContext;
 	}
 
-	public ClientEventHandler(ClientModContext modContext, Lock mainLoopLock, SafeGlobals safeGlobals,
-			Queue<Runnable> runInClientThreadQueue /*, ReloadAspect reloadAspect*/) {
+	public ClientEventHandler(ClientModContext modContext, Lock mainLoopLock, SafeGlobals safeGlobals
+			/*, ReloadAspect reloadAspect*/) {
 		this.modContext = modContext;
 		this.mainLoopLock = mainLoopLock;
 		this.safeGlobals = safeGlobals;
-		this.runInClientThreadQueue = runInClientThreadQueue;
         this.shaderGroupManager = new DynamicShaderGroupManager();
         //this.reloadAspect = reloadAspect;
 	}
@@ -181,7 +179,6 @@ public class ClientEventHandler {
 	        }
 	        
 			mainLoopLock.unlock();
-			processRunInClientThreadQueue();
 			safeGlobals.objectMouseOver.set(mc.objectMouseOver);
 			if(mc.player != null) {
 				safeGlobals.currentItemIndex.set(mc.player.inventory.currentItem);
@@ -324,13 +321,6 @@ public class ClientEventHandler {
 		}
 	}
 
-	private void processRunInClientThreadQueue() {
-		Runnable r;
-		while((r = runInClientThreadQueue.poll()) != null) {
-			r.run();
-		}
-	}
-
 	@SubscribeEvent
 	public void onRenderHand(RenderHandEvent event) {
 	    Minecraft minecraft = mc;
@@ -354,7 +344,7 @@ public class ClientEventHandler {
         EntityPlayer clientPlayer = mc.player;
         
         if(event.phase == TickEvent.RenderTickEvent.Phase.START ) {
-            ClientModContext.currentContext.set(modContext);
+            ClientModContext.currentContext = modContext;
             mainLoopLock.lock();
             if(clientPlayer != null) {
                 PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
@@ -380,7 +370,6 @@ public class ClientEventHandler {
             safeGlobals.renderingPhase.set(null);
             shaderGroupManager.removeStaleShaders(shaderContext);
             mainLoopLock.unlock();
-            ClientModContext.currentContext.remove();
         }
     }
 
@@ -576,7 +565,7 @@ public class ClientEventHandler {
 	@SubscribeEvent
 	public void onTextureStitchEvent(TextureStitchEvent.Pre event) {
 		event.getMap().registerSprite(getModContext().getNamedResource(ParticleBlood.texture));
-		carParticles = event.getMap().registerSprite(new ResourceLocation(ModReference.id + ":particle/carparticle"));
+		carParticles = event.getMap().registerSprite(new ResourceLocation(ModReference.ID + ":particle/carparticle"));
 	}
 
 	@SubscribeEvent
@@ -598,7 +587,7 @@ public class ClientEventHandler {
 		try {
 			EVENT_DWHEEL_FIELD.set(null, 0);
 		} catch (Exception e) {
-			log.error("Could not assign value to EVENT_DWHEEL_FIELD!");
+			LOG.error("Could not assign value to EVENT_DWHEEL_FIELD!");
 			e.printStackTrace();
 		}
 	}

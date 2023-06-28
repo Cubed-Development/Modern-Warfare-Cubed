@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -22,7 +22,7 @@ public class KragJorgensenFactory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("Krag_Jorgensen")
-//      .withAmmo(CommonProxy.XWPMag)
+//      .QRenderer(CommonProxy.XWPMag)
         .withAmmoCapacity(5)
         .withFireRate(0.16f)
         .withIteratedLoad()
@@ -56,7 +56,7 @@ public class KragJorgensenFactory implements GunFactory {
                 2f, // y
                 7f) // z
         
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Repeating Bolt-action rifle",
         "Damage: 13.8",
@@ -1723,6 +1723,6 @@ public class KragJorgensenFactory implements GunFactory {
         .withSpawnEntityGravityVelocity(0f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

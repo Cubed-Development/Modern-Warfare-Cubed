@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -31,7 +31,7 @@ public class VSSVintorezFactory {
         .withFireRate(0.7f)
         .withRecoil(1.5f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.RIFLES)
+        .withConfigGroup(GunConfigurationGroup.LONG_RANGE_RIFLES)
         .withMuzzlePosition(new Vec3d (-0.13200000393390654, -0.7959999939203257, -6.976000014185902))
         .withMaxShots(1, Integer.MAX_VALUE)
         //.withMaxShots(5)
@@ -50,7 +50,7 @@ public class VSSVintorezFactory {
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.11f)
         .withShootSoundVolume(1f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -846,7 +846,7 @@ public class VSSVintorezFactory {
         .withSpawnEntityDamage(13f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

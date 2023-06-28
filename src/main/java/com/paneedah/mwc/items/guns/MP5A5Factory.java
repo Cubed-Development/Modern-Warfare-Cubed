@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -32,7 +32,7 @@ public class MP5A5Factory {
         .withFireRate(0.8f)
         .withRecoil(1.5f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.SIDEARM)
+        .withConfigGroup(GunConfigurationGroup.SMG)
         .withShellType(Type.PISTOL)
         .withMaxShots(1, Integer.MAX_VALUE)
         //.withMaxShots(5)
@@ -51,7 +51,7 @@ public class MP5A5Factory {
         .withFlashOffsetX(() -> 0.13f)
         .withFlashOffsetY(() -> 0.17f)
         .withInaccuracy(2f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -892,7 +892,7 @@ public class MP5A5Factory {
         .withSpawnEntityDamage(5f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

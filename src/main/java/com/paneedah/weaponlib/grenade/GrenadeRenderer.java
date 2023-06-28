@@ -34,7 +34,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel {
 
@@ -654,7 +654,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 		PlayerGrenadeInstance playerGrenadeInstance = null;
 		if(playerItemInstance == null || !(playerItemInstance instanceof PlayerGrenadeInstance)
 		        || playerItemInstance.getItem() != itemStack.getItem()) {
-		    log.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
+		    LOG.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
 		} else {
 		    playerGrenadeInstance = (PlayerGrenadeInstance) playerItemInstance;
 		}
@@ -686,7 +686,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 				}
 			}
 
-			log.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
+			LOG.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
 		}
 
 		if(currentState == null) {
@@ -779,7 +779,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 				if(partTransitions != null && partTransitions.size() > i) {
 					partTransition = partTransitions.get(i);
 				} else {
-					log.warn("Transition not defined for part {}", custom);
+					LOG.warn("Transition not defined for part {}", custom);
 				}
 				t.withPartPositionFunction(e.getKey(), partTransition.getAttachedTo(), createWeaponPartPositionFunction(partTransition));
 			}
@@ -864,7 +864,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 			Positioner<Part, RenderContext<RenderableState>> positioner) {
 
 		if(builder.getTextureName() != null) {
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + builder.getTextureName()));
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + builder.getTextureName()));
 		} else {
 			String textureName = null;
 
@@ -873,7 +873,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 				textureName = weapon.getTextureName();
 			}
 
-			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + textureName));
+			mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + textureName));
 		}
 
 		//limbSwing, float flimbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale
@@ -934,7 +934,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 	    }
 
 	    for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-	        mc.renderEngine.bindTexture(new ResourceLocation(ModReference.id + ":textures/models/" + texturedModel.getV()));
+	        mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + texturedModel.getV()));
 	        GL11.glPushMatrix();
 	        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
 	        if(compatibleAttachment.getModelPositioning() != null) {

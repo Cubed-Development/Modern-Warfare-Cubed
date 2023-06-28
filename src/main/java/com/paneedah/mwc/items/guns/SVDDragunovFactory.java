@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -29,7 +29,7 @@ public class SVDDragunovFactory {
         .withFireRate(0.3f)
         .withRecoil(4f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.RIFLES)
+        .withConfigGroup(GunConfigurationGroup.LONG_RANGE_RIFLES)
         .hasFlashPedals()
         .withMaxShots(1)
         //.withMaxShots(5)
@@ -47,7 +47,7 @@ public class SVDDragunovFactory {
         .withFlashScale(() -> 0.5f)
         .withFlashOffsetX(() -> 0.12f)
         .withFlashOffsetY(() -> 0.16f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -813,7 +813,7 @@ public class SVDDragunovFactory {
         .withSpawnEntityDamage(14f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

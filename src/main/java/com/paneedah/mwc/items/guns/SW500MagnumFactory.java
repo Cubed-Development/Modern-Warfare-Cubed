@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.Reflex2;
 import com.paneedah.mwc.models.SW500Magnum;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -47,7 +47,7 @@ public class SW500MagnumFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.2f)
         .withInaccuracy(2)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab) 
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
                 "Type: Revolver",
                 "Damage: 7",
@@ -1657,6 +1657,6 @@ public class SW500MagnumFactory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.016f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

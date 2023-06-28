@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.melee;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.animation.Transition;
@@ -17,7 +17,7 @@ public class TacticalTomahawkFactory implements MeleeFactory {
         return new ItemMelee.Builder()
         
                 .withName("tactical_tomahawk")
-                .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+                .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
                 .withTextureNames("tacticaltomahawk")
                 .withAttackDamage(5f)
                 .withHeavyAttackDamage(10f)
@@ -233,6 +233,6 @@ public class TacticalTomahawkFactory implements MeleeFactory {
 
                                 .build())
 
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
     }
 }

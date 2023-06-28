@@ -56,8 +56,8 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	        renderers.add((ModelSourceRenderer) renderer);
 	    }
 		
-		modelSourceLocations.add(ModReference.id + ":models/item/" + name);
-		ModelResourceLocation modelID = new ModelResourceLocation(ModReference.id + ":" + name, "inventory");
+		modelSourceLocations.add(ModReference.ID + ":models/item/" + name);
+		ModelResourceLocation modelID = new ModelResourceLocation(ModReference.ID + ":" + name, "inventory");
 		if(renderer != null) {
 		    ((ModelSourceRenderer) renderer).setResourceLocation(modelID);
 		}
@@ -72,7 +72,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	    // TODO: figure out what's going on with this name
         if(renderer != null) {
             renderers.add((ModelSourceRenderer) renderer);
-            modelSourceLocations.add(ModReference.id + ":models/item/" + name);
+            modelSourceLocations.add(ModReference.ID + ":models/item/" + name);
         }
         
         ModelResourceLocation modelID = new ModelResourceLocation(name, "inventory");
@@ -93,7 +93,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	@Override
 	public boolean accepts(ResourceLocation modelLocation) {
 		// Do not accept attachments
-		return ModReference.id.equals(modelLocation.getNamespace()) && modelSourceLocations.contains(modelLocation.toString());
+		return ModReference.ID.equals(modelLocation.getNamespace()) && modelSourceLocations.contains(modelLocation.toString());
 	}
 
 	@Override

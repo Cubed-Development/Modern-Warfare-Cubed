@@ -1,6 +1,6 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.ATV;
 import com.paneedah.mwc.models.ATVSteering;
 import com.paneedah.mwc.models.ATVWheel;
@@ -268,7 +268,7 @@ public class ATVFactory implements VehicleFactory {
                 .withOBBDimensions(1, 1, 1)
                 .withSeat(new Vec3d(-0.5, 0.2, -0.3))
                 .withRenderer(renderer)
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
     }
 
 }

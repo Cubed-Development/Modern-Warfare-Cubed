@@ -2,7 +2,6 @@ package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.BulletHoleRenderer.BulletHole;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
@@ -15,6 +14,7 @@ import com.paneedah.weaponlib.crafting.*;
 import com.paneedah.weaponlib.model.Shell;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
@@ -46,7 +46,7 @@ import java.util.Map.Entry;
 import java.util.function.*;
 import java.util.stream.Collectors;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>,
 AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCrafting {
@@ -389,18 +389,18 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withCrosshair(String crosshair) {
-            this.crosshair = ModReference.id + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
+            this.crosshair = ModReference.ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
             return this;
         }
 
         public Builder withCrosshair(String crosshair, boolean fullScreen) {
-            this.crosshair = ModReference.id + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
+            this.crosshair = ModReference.ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
             this.crosshairFullScreen = fullScreen;
             return this;
         }
 
         public Builder withCrosshairRunning(String crosshairRunning) {
-            this.crosshairRunning = ModReference.id + ":textures/crosshairs/" + crosshairRunning.toLowerCase() + ".png";
+            this.crosshairRunning = ModReference.ID + ":textures/crosshairs/" + crosshairRunning.toLowerCase() + ".png";
             return this;
         }
 
@@ -409,7 +409,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withCrosshairZoomed(String crosshairZoomed, boolean fullScreen) {
-            this.crosshairZoomed = ModReference.id + ":textures/crosshairs/" + crosshairZoomed.toLowerCase() + ".png";
+            this.crosshairZoomed = ModReference.ID + ":textures/crosshairs/" + crosshairZoomed.toLowerCase() + ".png";
             this.crosshairZoomedFullScreen = fullScreen;
             return this;
         }
@@ -624,7 +624,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withSpawnEntityModelTexture(String ammoModelTextureName) {
-            this.ammoModelTextureName = ModReference.id + ":textures/models/" + ammoModelTextureName.toLowerCase() + ".png";
+            this.ammoModelTextureName = ModReference.ID + ":textures/models/" + ammoModelTextureName.toLowerCase() + ".png";
             return this;
         }
 
@@ -644,7 +644,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withShellCasingModelTexture(String shellModelTextureName) {
-            this.shellCasingModelTextureName = ModReference.id + ":textures/models/" + shellModelTextureName.toLowerCase() + ".png";
+            this.shellCasingModelTextureName = ModReference.ID + ":textures/models/" + shellModelTextureName.toLowerCase() + ".png";
             return this;
         }
 
@@ -715,7 +715,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
         
         public Builder withFlashTexture(String flashTexture) {
-            this.flashTexture = ModReference.id + ":textures/particle/" + flashTexture.toLowerCase() + ".png";
+            this.flashTexture = ModReference.ID + ":textures/particle/" + flashTexture.toLowerCase() + ".png";
             return this;
         }
 
@@ -769,7 +769,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             if(explosionParticleTexture.endsWith(".png") && explosionParticleTexture.length() > 4) {
                 explosionParticleTexture = explosionParticleTexture.substring(0, explosionParticleTexture.length() - 4);
             }
-            this.explosionParticleTexture = ModReference.id + ":textures/particle/" + explosionParticleTexture.toLowerCase() + ".png";
+            this.explosionParticleTexture = ModReference.ID + ":textures/particle/" + explosionParticleTexture.toLowerCase() + ".png";
             return this;
         }
         
@@ -777,7 +777,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             if(smokeParticleTexture.endsWith(".png") && smokeParticleTexture.length() > 4) {
                 smokeParticleTexture = smokeParticleTexture.substring(0, smokeParticleTexture.length() - 4);
             }
-            this.smokeParticleTexture = ModReference.id + ":textures/particle/" + smokeParticleTexture.toLowerCase() + ".png";
+            this.smokeParticleTexture = ModReference.ID + ":textures/particle/" + smokeParticleTexture.toLowerCase() + ".png";
             return this;
         }
         
@@ -865,10 +865,10 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                     // System.out.println(weapon.getName() + " | " + spawnEntityRocketParticles);
                      
                     WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, player.world, player, spawnEntitySpeed,
-                            spawnEntityGravityVelocity, inaccuracy, (float) damage, spawnEntityExplosionRadius, 
+                            spawnEntityGravityVelocity, inaccuracy, (float) damage, spawnEntityExplosionRadius,
                             isDestroyingBlocks, spawnEntityRocketParticles, spawnEntityParticleAgeCoefficient, spawnEntitySmokeParticleAgeCoefficient,
                             spawnEntityExplosionParticleScaleCoefficient, spawnEntitySmokeParticleScaleCoefficient,
-                            explosionParticleTextureId, 
+                            explosionParticleTextureId,
                             smokeParticleTextureId);
                     bullet.setPositionAndDirection(true);
                     return bullet;
@@ -982,9 +982,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                 List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(weapon, craftingRecipe);
                 boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
                 if(hasOres) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
             } else if(craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
@@ -994,9 +994,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                 List<Object> shape = modContext.getRecipeManager().createShapedRecipe(weapon, weapon.getName(), optionsMetadata);
 
                 if(optionsMetadata.hasOres()) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
                 } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
                 }
 
             } else {
@@ -1031,7 +1031,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             		descriptionBuilder.add(plate + "Magazines:");
             		ArrayList<ItemMagazine> mags = new ArrayList<>();
                     weapon.getCompatibleAttachments(AttachmentCategory.MAGAZINE).forEach(c -> mags.add((ItemMagazine) c.getAttachment()));
-                    mags.sort((a, b) -> a.getAmmo()-b.getAmmo());
+                    mags.sort((a, b) -> a.getCapacity()-b.getCapacity());
                   
                     mags.forEach(c -> descriptionBuilder.add(plain + (I18n.format(c.getTranslationKey() + ".name"))));
                 } else {
@@ -1213,7 +1213,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
         if(instance != null) {
             float recoil = instance.getWeapon().builder.recoil * factor;
-            log.debug("Changing recoil to {} for instance {}", recoil, instance);
+            LOG.debug("Changing recoil to {} for instance {}", recoil, instance);
             instance.setRecoil(recoil);
         }
     }
@@ -1246,8 +1246,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
     }
 
     public static boolean isActiveAttachment(PlayerWeaponInstance weaponInstance, ItemAttachment<Weapon> attachment) {
-        return weaponInstance != null ?
-                WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance) : false;
+        return weaponInstance != null ? WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance) : false;
     }
 
     @Override
@@ -1374,7 +1373,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         //state.setAmmo(Tags.getAmmo(itemStack)); // TODO: get ammo properly
         instance.setState(WeaponState.READY);
     
-        instance.setRecoil(builder.recoil);
+        instance.setRecoil(BalancePackManager.shouldChangeWeaponRecoil(instance.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(instance.getWeapon()) : builder.recoil);
         instance.setMaxShots(builder.maxShots.get(0));
 
         for(CompatibleAttachment<Weapon> compatibleAttachment: ((Weapon) itemStack.getItem()).getCompatibleAttachments().values()) {
@@ -1427,7 +1426,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         } else {
             message = net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode.burst");
         }
-        log.debug("Changed fire mode of {} to {}", instance, result);
+        LOG.debug("Changed fire mode of {} to {}", instance, result);
 
         modContext.getStatusMessageCenter().addMessage(net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode", message), 1000);
 
@@ -1498,9 +1497,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
 
             modContext.getStatusMessageCenter().addMessage(net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.currentZoom", Math.round(ratio * 100)), 800);
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
-            log.debug("Changed optical zoom to {}", instance.getZoom());
+            LOG.debug("Changed optical zoom to {}", instance.getZoom());
         } else {
-            log.debug("Cannot change non-optical zoom");
+            LOG.debug("Cannot change non-optical zoom");
         }
     }
 
@@ -1520,9 +1519,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
             modContext.getStatusMessageCenter().addMessage(net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.currentZoom", Math.round(ratio * 100)), 800);
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
-            log.debug("Changed optical zoom to {}", zoom);
+            LOG.debug("Changed optical zoom to {}", zoom);
         } else {
-            log.debug("Cannot change non-optical zoom");
+            LOG.debug("Cannot change non-optical zoom");
         }
     }
 
@@ -1530,16 +1529,14 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         ItemAttachment.ApplyHandler2<Weapon> handler = (a, i) -> {};
         switch(attachmentCategory) {
         case SCOPE:
-            handler = (a, i) -> {
-                //i.setZoom(builder.zoom);
-            };
+            //handler = (a, i) -> {
+            //    //i.setZoom(builder.zoom);
+            //};
             break;
         case GRIP:
             handler = (a, i) -> {
-                i.setRecoil(builder.recoil);
+                i.setRecoil(BalancePackManager.shouldChangeWeaponRecoil(i.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(i.getWeapon()) : builder.recoil);
             };
-            break;
-        default:
             break;
         }
         return handler;
@@ -1550,7 +1547,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
     }
 
     public float getRecoil() {
-        return builder.recoil;
+        return BalancePackManager.shouldChangeWeaponRecoil(this) ? (float) BalancePackManager.getNewWeaponRecoil(this) : builder.recoil;
     }
 
     public ModContext getModContext() {

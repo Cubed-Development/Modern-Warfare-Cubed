@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -29,7 +29,7 @@ public class UMP45Factory {
         .withFireRate(0.6f)
         .withRecoil(2f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.SIDEARM)
+        .withConfigGroup(GunConfigurationGroup.SMG)
         .withShellType(Type.PISTOL)
         .hasFlashPedals()
         .withMaxShots(1, Integer.MAX_VALUE)
@@ -49,7 +49,7 @@ public class UMP45Factory {
         .withFlashOffsetX(() -> 0.13f)
         .withFlashOffsetY(() -> 0.17f)
         .withInaccuracy(2f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -732,7 +732,7 @@ public class UMP45Factory {
         .withSpawnEntityDamage(5.3f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

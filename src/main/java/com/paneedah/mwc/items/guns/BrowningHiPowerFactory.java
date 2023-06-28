@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.BrowningHiPower;
 import com.paneedah.mwc.models.Emp1911Slide;
 import com.paneedah.mwc.models.M1911frontsight;
@@ -47,7 +47,7 @@ public class BrowningHiPowerFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.12f)
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Single Action Semi-Automatic Pistol", 
         "Damage: 5", 
@@ -1400,6 +1400,6 @@ public class BrowningHiPowerFactory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.02f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

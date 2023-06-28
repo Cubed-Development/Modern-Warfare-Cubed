@@ -113,23 +113,23 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         if(!VMWHooksHandler.isOnServer()) {
         	ClientEventHandler.BLANKMAPPED_LIST.add(tileEntityBlock);
         }
-        tileEntityBlock.setTranslationKey(ModReference.id + "_" + name);
+        tileEntityBlock.setTranslationKey(ModReference.ID + "_" + name);
         tileEntityBlock.setHardness(hardness);
         tileEntityBlock.setResistance(resistance);
         tileEntityBlock.setCreativeTab(creativeTab);
         tileEntityBlock.setBoundingBox(boundingBox);
-        ResourceLocation textureResource = new ResourceLocation(ModReference.id, textureName);
+        ResourceLocation textureResource = new ResourceLocation(ModReference.ID, textureName);
         GameRegistry.registerTileEntity(tileEntityClass, "tile" + name);
         
         //System.out.println("RUNNING!");
 
         if (tileEntityBlock.getRegistryName() == null) {
-            if (tileEntityBlock.getTranslationKey().length() < ModReference.id.length() + 2 + 5) {
+            if (tileEntityBlock.getTranslationKey().length() < ModReference.ID.length() + 2 + 5) {
                 throw new IllegalArgumentException("Unlocalize block name too short " + tileEntityBlock.getTranslationKey());
             }
             String unlocalizedName = tileEntityBlock.getTranslationKey().toLowerCase();
-            String registryName = unlocalizedName.substring(5 + ModReference.id.length() + 1);
-            tileEntityBlock.setRegistryName(ModReference.id, registryName);
+            String registryName = unlocalizedName.substring(5 + ModReference.ID.length() + 1);
+            tileEntityBlock.setRegistryName(ModReference.ID, registryName);
         }
 
         ForgeRegistries.BLOCKS.register(tileEntityBlock);

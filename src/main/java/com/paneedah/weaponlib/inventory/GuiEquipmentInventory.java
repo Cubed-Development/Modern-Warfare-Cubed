@@ -12,6 +12,7 @@ import java.io.IOException;
 
 public class GuiEquipmentInventory extends InventoryEffectRenderer {
 
+    // Todo: Fix this name
     private static final ResourceLocation backGround = new ResourceLocation(ModReference.id, "textures/gui/inventory/custom_inventory.png");
 
     private static GuiEquipmentInventory currentGuiContainer;

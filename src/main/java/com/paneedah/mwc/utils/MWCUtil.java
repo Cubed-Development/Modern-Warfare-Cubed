@@ -1,8 +1,8 @@
 package com.paneedah.mwc.utils;
 
-import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.weaponlib.config.ModernConfigManager;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.jafama.FastMath;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -83,7 +83,7 @@ public class MWCUtil {
         if (amount <= 0)
             return 0;
 
-        if (player.isCreative())
+        if (player.isCreative() && !player.isSneaking())
             return amount;
 
         int consumedAmount = 0;
@@ -125,8 +125,8 @@ public class MWCUtil {
     public static ItemStack consumeItemsFromPlayerInventory(final List<? extends ItemMagazine> items, final Comparator<ItemStack> comparator, final EntityPlayer player) {
         ItemStack maxStack = null;
 
-        if (player.isCreative())
-            return items.stream().map(ItemMagazine::createItemStack).max(comparator).orElse(null);
+        if (player.isCreative() && !player.isSneaking())
+            return items.stream().map(ItemMagazine::create).max(comparator).orElse(null);
 
         for (final ItemStack currentStack : player.inventory.mainInventory)
             if (items.contains(currentStack.getItem()) && (maxStack == null || comparator.compare(currentStack, maxStack) > 0))
@@ -159,6 +159,9 @@ public class MWCUtil {
         final int endX = FastMath.floorToInt(endPos.x);
         final int endY = FastMath.floorToInt(endPos.y);
         final int endZ = FastMath.floorToInt(endPos.z);
+
+        final BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos(startX, startY, startZ);
+        IBlockState iBlockState;
 
         for (int i = 0; i < 256; i++) {
             if (startX == endX && startY == endY && startZ == endZ)
@@ -199,8 +202,8 @@ public class MWCUtil {
                 if (direction == EnumFacing.SOUTH) startZ--;
             }
 
-            final BlockPos blockPos = new BlockPos(startX, startY, startZ);
-            final IBlockState iBlockState = world.getBlockState(blockPos);
+            blockPos.setPos(startX, startY, startZ);
+            iBlockState = world.getBlockState(blockPos);
             if (isCollidable.test(iBlockState.getBlock(), iBlockState)) {
                 final RayTraceResult rayTraceResult = iBlockState.collisionRayTrace(world, blockPos, startPos.toVec3d(), endPos.toVec3d());
                 if (rayTraceResult != null)

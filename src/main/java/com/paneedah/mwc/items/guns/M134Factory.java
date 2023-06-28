@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.M134;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -45,7 +45,7 @@ public class M134Factory implements GunFactory {
         .withShellCasingForwardOffset(-0.02f)
         .withShellCasingVerticalOffset(-0.05f)
         .withBleedingCoefficient(7f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Minigun", 
         "Damage: 10", 
@@ -1021,6 +1021,6 @@ public class M134Factory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.0118f)
                 
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

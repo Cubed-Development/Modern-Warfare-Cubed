@@ -1,6 +1,6 @@
 package com.paneedah.mwc.bases;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.state.IBlockState;
@@ -21,7 +21,7 @@ public class OreBase extends BlockOre {
         setHardness(6F);
         setResistance(15F);
         setHarvestLevel("pickaxe", harvestLevel);
-        setCreativeTab(ModernWarfareMod.BlocksTab);
+        setCreativeTab(MWC.BLOCKS_TAB);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class OreBase extends BlockOre {
         itemBlock = Item.getItemFromBlock(this);
         //If the block is smelt-able (i.e like gold or iron) then drop the block itself, otherwise drop the designated drop.
         if(this.smelt) {
-            if(this.drop != null) ModReference.log.warn("Block " + this.getRegistryName() + " is smeltable but does not drop itself!");
+            if(this.drop != null) ModReference.LOG.warn("Block " + this.getRegistryName() + " is smeltable but does not drop itself!");
             return itemBlock;
         } else {
             return this.drop;

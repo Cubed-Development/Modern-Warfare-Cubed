@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -50,7 +50,7 @@ public class MalyukFactory {
         .withFlashScale(() -> 0.5f)
         .withFlashOffsetX(() -> 0.12f)
         .withFlashOffsetY(() -> 0.16f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -286,27 +286,27 @@ public class MalyukFactory {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
         })
         .withCompatibleAttachment(Attachments.Bipod, (model) -> {
-        	GL11.glTranslatef(-0.18F, -0.15F, -4F);
+        	GL11.glTranslatef(-0.18F, -0.15F, -2.6F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         })
         .withCompatibleAttachment(Attachments.Grip2, (model) -> {
-            GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+            GL11.glTranslatef(-0.2F, -0.1F, -2F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.StubbyGrip, (model) -> {
-            GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+            GL11.glTranslatef(-0.2F, -0.1F, -2F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.AngledGrip, (model) -> {
-            GL11.glTranslatef(-0.2F, 0.05F, -4F);
+            GL11.glTranslatef(-0.2F, 0.05F, -2.4F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.VGrip, (model) -> {
-            GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+            GL11.glTranslatef(-0.2F, -0.1F, -2.0F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.JunoGrip, (model) -> {
-            GL11.glTranslatef(-0.3F, -0.35F, -4.5F);
+            GL11.glTranslatef(-0.3F, -0.35F, -2.5F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.Silencer762x39, renderContext -> {
@@ -793,7 +793,7 @@ public class MalyukFactory {
         .withSpawnEntityDamage(6.6f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

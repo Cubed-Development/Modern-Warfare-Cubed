@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -24,7 +24,7 @@ public class M1928ThompsonFactory {
         .withFireRate(0.75f)
         .withRecoil(1.8f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.SIDEARM)
+        .withConfigGroup(GunConfigurationGroup.SMG)
         .withMaxShots(1, Integer.MAX_VALUE)
         //.withMaxShots(5)
         .withShootSound("m1a1_thompson")
@@ -42,7 +42,7 @@ public class M1928ThompsonFactory {
         .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.12f)
         .withInaccuracy(2f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Sub Machine Gun",
         "Damage: 5.3", 
@@ -1298,7 +1298,7 @@ public class M1928ThompsonFactory {
         .withSpawnEntityDamage(5.3f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

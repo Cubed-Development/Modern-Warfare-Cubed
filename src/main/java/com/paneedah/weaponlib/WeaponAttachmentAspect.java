@@ -22,7 +22,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerWeaponInstance> {
 
@@ -179,7 +179,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 	}
 
 	private void enterAttachmentSelectionMode(EnterAttachmentModePermit permit, PlayerWeaponInstance weaponInstance) {
-		log.debug("Entering attachment mode");
+		LOG.debug("Entering attachment mode");
 		byte selectedAttachmentIndexes[] = new byte[AttachmentCategory.values.length];
 		Arrays.fill(selectedAttachmentIndexes, (byte) -1);
 		weaponInstance.setSelectedAttachmentIndexes(selectedAttachmentIndexes);
@@ -188,7 +188,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 	}
 
 	private void exitAttachmentSelectionMode(ExitAttachmentModePermit permit, PlayerWeaponInstance weaponInstance) {
-		log.debug("Exiting attachment mode");
+		LOG.debug("Exiting attachment mode");
 		weaponInstance.setSelectedAttachmentIndexes(new byte[0]);
 
 		permit.setStatus(Status.GRANTED);
@@ -573,7 +573,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 				currentIndex -= INVENTORY_SIZE + (isCategoryRemovable ? 1 : 0);
 			}
 
-			log.debug("Searching for an attachment in slot {}", currentIndex);
+			LOG.debug("Searching for an attachment in slot {}", currentIndex);
 
 			if (currentIndex == -1) {
 				result.index = -1;

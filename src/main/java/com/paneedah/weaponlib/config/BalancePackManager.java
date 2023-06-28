@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class BalancePackManager {
 
@@ -23,11 +23,13 @@ public class BalancePackManager {
 	private static File INDEX_FILE;
 
 	// JSON LOOKUP KEYS FOR PACK MANAGER VERSION 1.0v
-	private static final String PACK_MANAGER_VERSION = "1.0";
+	private static final String PACK_MANAGER_VERSION = "1.2";
 
 	private static final String HEADSHOT_MULTIPLIER_KEY = "headshotMultiplier";
 	private static final String DAMAGE_MULTIPLIER_KEY = "damageMultiplier";
 	private static final String RECOIL_MULTIPLIER_KEY = "recoilMultiplier";
+	private static final String HIP_FIRE_SPREAD_KEY = "hipFireSpread";
+	private static final String HIP_FIRE_SPREAD_MULTIPLIER_KEY = "hipFireSpreadMultiplier";
 	private static final String GLOBAL_PARAMETERS_KEY = "globalParameters";
 	private static final String PACK_VERSION_KEY = "version";
 	private static final String PACK_NAME_KEY = "packName";
@@ -66,12 +68,14 @@ public class BalancePackManager {
 		private GunConfigurationGroup group;
 		private double damageMultiplier = 1.0;
 		private double recoilMultiplier = 1.0;
+		private double hipFireSpreadMultiplier = 1.0;
 
 		public GunCategoryBalanceConfiguration(GunConfigurationGroup group, double damageMultiplier,
-				double recoilMultiplier) {
+				double recoilMultiplier, double hipFireSpread) {
 			this.group = group;
 			this.damageMultiplier = damageMultiplier;
 			this.recoilMultiplier = recoilMultiplier;
+			this.hipFireSpreadMultiplier = hipFireSpread;
 		}
 
 		public GunConfigurationGroup getGroup() {
@@ -98,11 +102,20 @@ public class BalancePackManager {
 			this.recoilMultiplier = recoilMultiplier;
 		}
 
+		public double getHipFireSpread() {
+			return hipFireSpreadMultiplier;
+		}
+
+		public void setHipFireSpread(double hipFireSpread) {
+			this.hipFireSpreadMultiplier = hipFireSpread;
+		}
+
 		public JsonObject toJSONObject() {
 			JsonObject category = new JsonObject();
 			category.addProperty("group", getGroup().toString());
 			category.addProperty(DAMAGE_MULTIPLIER_KEY, getDamageMultiplier());
 			category.addProperty(RECOIL_MULTIPLIER_KEY, getRecoilMultiplier());
+			category.addProperty(HIP_FIRE_SPREAD_MULTIPLIER_KEY, getHipFireSpread());
 
 			return category;
 		}
@@ -112,8 +125,9 @@ public class BalancePackManager {
 					.valueOf(obj.get("group").getAsString().toUpperCase());
 			double damage = obj.has(DAMAGE_MULTIPLIER_KEY) ? obj.get(DAMAGE_MULTIPLIER_KEY).getAsDouble() : 1.0;
 			double recoil = obj.has(RECOIL_MULTIPLIER_KEY) ? obj.get(RECOIL_MULTIPLIER_KEY).getAsDouble() : 1.0;
+			double hipFireSpread = obj.has(HIP_FIRE_SPREAD_MULTIPLIER_KEY) ? obj.get(HIP_FIRE_SPREAD_MULTIPLIER_KEY).getAsDouble() : 1.0;
 
-			return new GunCategoryBalanceConfiguration(configurationGroup, damage, recoil);
+			return new GunCategoryBalanceConfiguration(configurationGroup, damage, recoil, hipFireSpread);
 		}
 
 	}
@@ -135,7 +149,7 @@ public class BalancePackManager {
 		private boolean fireModePropertiesChanged = false;
 
 		private boolean fireModeBurstChanged = false;
-		private int burstShots = 0;
+		private int burstShots = 3;
 
 		private boolean fireModeSingleChanged = false;
 		private boolean singleFireEnabled = false;
@@ -143,11 +157,13 @@ public class BalancePackManager {
 		private boolean fireModeAutoChanged = false;
 		private boolean autoFireEnabled = false;
 
-		public GunBalanceConfiguration(String weaponName, boolean enabled, double damage, double recoil) {
+		public GunBalanceConfiguration(String weaponName, boolean enabled, double damage, double recoil, float firerate, float inaccuracy) {
 			this.weaponName = weaponName;
 			this.enabled = enabled;
 			this.damage = damage;
 			this.recoil = recoil;
+			this.fireRate = firerate;
+			this.inaccuracy = inaccuracy;
 		}
 
 		public String getWeaponName() {
@@ -273,12 +289,12 @@ public class BalancePackManager {
 			boolean enabled = obj.has("enabled") ? obj.get("enabled").getAsBoolean() : true;
 			double damage = obj.has("damage") ? obj.get("damage").getAsDouble() : -1;
 			double recoil = obj.has("recoil") ? obj.get("recoil").getAsDouble() : -1;
+			float fireRate = obj.has("firerate") ? obj.get("firerate").getAsFloat() : -1;
+			float inaccuracy = obj.has("inaccuracy") ? obj.get("inaccuracy").getAsFloat() : -1;
 
-			GunBalanceConfiguration gbc = new GunBalanceConfiguration(name, enabled, damage, recoil);
+			GunBalanceConfiguration gbc = new GunBalanceConfiguration(name, enabled, damage, recoil, fireRate, inaccuracy);
 
 			if (obj.has(FIRE_RATE_MODIFIER)) {
-				// System.out.println("For " + name + " firerate will be " +
-				// obj.get(FIRE_RATE_MODIFIER).getAsFloat());
 				gbc.setFirerate(obj.get(FIRE_RATE_MODIFIER).getAsFloat());
 			}
 
@@ -303,6 +319,7 @@ public class BalancePackManager {
 		private double headshotMultiplier = 2.5;
 		private double globalRecoilMultiplier = 1.0;
 		private double globalDamageMultiplier = 1.0;
+		private double globalHipFireSpread = 7.5;
 
 		private String fileName;
 
@@ -310,12 +327,13 @@ public class BalancePackManager {
 		private HashMap<GunConfigurationGroup, GunCategoryBalanceConfiguration> gunCategoryConfigurations = new HashMap<>();
 
 		public BalancePack(String name, String version, double headshotMult, double globalRecoilMultiplier,
-				double globalDamageMultiplier) {
+				double globalDamageMultiplier, double globalHipFireSpread) {
 			this.name = name;
 			this.version = version;
 			this.headshotMultiplier = headshotMult;
 			this.globalDamageMultiplier = globalDamageMultiplier;
 			this.globalRecoilMultiplier = globalRecoilMultiplier;
+			this.globalHipFireSpread = globalHipFireSpread;
 		}
 
 		public void addFileName(String fileName) {
@@ -333,7 +351,7 @@ public class BalancePackManager {
 		public static BalancePack fromJSONObject(JsonObject jsonObject) {
 
 			if (!jsonObject.has(PACK_NAME_KEY) || !jsonObject.has(PACK_VERSION_KEY)) {
-				log.error("Missing pack name or version key! Cannot load balance pack from JSON data.");
+				LOG.error("Missing pack name or version key! Cannot load balance pack from JSON data.");
 				return null;
 			}
 
@@ -342,12 +360,14 @@ public class BalancePackManager {
 			String packName = jsonObject.get(PACK_NAME_KEY).getAsString();
 			String packVersion = jsonObject.get(PACK_VERSION_KEY).getAsString();
 
-			double globalRecoil, globalDamage, headshotMultiplier = 2.5;
+			double globalRecoil, globalDamage, headshotMultiplier = 2.5, globalHipFireSpread;
 			if (jsonObject.has(GLOBAL_PARAMETERS_KEY)) {
 				JsonObject globalParameters = jsonObject.get(GLOBAL_PARAMETERS_KEY).getAsJsonObject();
 
 				globalDamage = globalParameters.get(DAMAGE_MULTIPLIER_KEY).getAsDouble();
 				globalRecoil = globalParameters.get(RECOIL_MULTIPLIER_KEY).getAsDouble();
+				globalHipFireSpread = globalParameters.get(HIP_FIRE_SPREAD_KEY).getAsDouble();
+
 
 				if (globalParameters.has(HEADSHOT_MULTIPLIER_KEY)) {
 					headshotMultiplier = globalParameters.get(HEADSHOT_MULTIPLIER_KEY).getAsDouble();
@@ -356,34 +376,35 @@ public class BalancePackManager {
 			} else {
 				globalRecoil = 1.0;
 				globalDamage = 1.0;
+				globalHipFireSpread = 7.5;
 
 			}
 
-			BalancePack bp = new BalancePack(packName, packVersion, headshotMultiplier, globalRecoil, globalDamage);
+			BalancePack bp = new BalancePack(packName, packVersion, headshotMultiplier, globalRecoil, globalDamage, globalHipFireSpread);
 
 			if (jsonObject.has(GUN_CONFIG_LIST)) {
 
 				JsonArray array = jsonObject.get(GUN_CONFIG_LIST).getAsJsonArray();
-				log.debug("Found weapon config list with {} entries.", array.size());
+				LOG.debug("Found weapon config list with {} entries.", array.size());
 				for (int i = 0; i < array.size(); ++i) {
 					GunBalanceConfiguration balanceConfig = GunBalanceConfiguration
 							.fromJSONObject(array.get(i).getAsJsonObject());
 					bp.addWeaponConfig(balanceConfig);
 				}
 			} else {
-				log.debug("Weapon config list was empty.");
+				LOG.debug("Weapon config list was empty.");
 			}
 
 			if (jsonObject.has(CATEGORY_CONFIG_LIST)) {
 				JsonArray categoricalArray = jsonObject.get(CATEGORY_CONFIG_LIST).getAsJsonArray();
-				log.debug("Found category config list with {} entries.", categoricalArray.size());
+				LOG.debug("Found category config list with {} entries.", categoricalArray.size());
 				for (int i = 0; i < categoricalArray.size(); ++i) {
 					GunCategoryBalanceConfiguration categoryBalancing = GunCategoryBalanceConfiguration
 							.fromJSONObject(categoricalArray.get(i).getAsJsonObject());
 					bp.addBalancingCategory(categoryBalancing);
 				}
 			} else {
-				log.debug("Weapon category config list was empty.");
+				LOG.debug("Weapon category config list was empty.");
 			}
 
 			return bp;
@@ -404,6 +425,7 @@ public class BalancePackManager {
 			globalParameters.addProperty(DAMAGE_MULTIPLIER_KEY, this.globalDamageMultiplier);
 			globalParameters.addProperty(RECOIL_MULTIPLIER_KEY, this.globalRecoilMultiplier);
 			globalParameters.addProperty(HEADSHOT_MULTIPLIER_KEY, this.headshotMultiplier);
+			globalParameters.addProperty(HIP_FIRE_SPREAD_KEY, this.globalHipFireSpread);
 			obj.add(GLOBAL_PARAMETERS_KEY, globalParameters);
 
 			// Write the individual weapon keys
@@ -453,6 +475,14 @@ public class BalancePackManager {
 
 		public void setGlobalDamageMultiplier(double globalDamageMultiplier) {
 			this.globalDamageMultiplier = globalDamageMultiplier;
+		}
+
+		public double getGlobalHipFireSpread() {
+			return globalHipFireSpread;
+		}
+
+		public void setGlobalHipFireSpread(double globalHipFireSpread) {
+			this.globalHipFireSpread = globalHipFireSpread;
 		}
 
 		public HashMap<String, GunBalanceConfiguration> getGunConfigurations() {
@@ -521,8 +551,8 @@ public class BalancePackManager {
 			updateIndexFile();
 
 		} catch (IOException e) {
-			log.catching(e);
-			log.error("Failed to create a new index.json");
+			LOG.catching(e);
+			LOG.error("Failed to create a new index.json");
 		}
 	}
 
@@ -531,13 +561,13 @@ public class BalancePackManager {
 		INDEX_FILE = new File(DimensionManager.getCurrentSaveRootDirectory() + "/balancepacksindex.json");
 		try {
 			if (!INDEX_FILE.exists()) {
-				log.debug("No index file found! Creating a new index.json.");
+				LOG.debug("No index file found! Creating a new index.json.");
 				INDEX_FILE.createNewFile();
 				updateIndexFile();
 			}
 		} catch (IOException e) {
-			log.catching(e);
-			log.error("Failed to create a new index.json");
+			LOG.catching(e);
+			LOG.error("Failed to create a new index.json");
 		}
 	}
 
@@ -546,11 +576,11 @@ public class BalancePackManager {
 		try {
 			reader = new FileReader(file);
 		} catch (FileNotFoundException e) {
-			log.catching(e);
+			LOG.catching(e);
 		}
 
 		if (reader == null) {
-			log.error("Failed to read file {} from the disk!", file.getName());
+			LOG.error("Failed to read file {} from the disk!", file.getName());
 			return null;
 		}
 		JsonObject object = null;
@@ -563,8 +593,8 @@ public class BalancePackManager {
 		try {
 			reader.close();
 		} catch (IOException e) {
-			log.catching(e);
-			log.error("Failed to close file reader for file {}!", file.getName());
+			LOG.catching(e);
+			LOG.error("Failed to close file reader for file {}!", file.getName());
 		}
 		return object;
 	}
@@ -575,8 +605,8 @@ public class BalancePackManager {
 			try {
 				file.createNewFile();
 			} catch (IOException e1) {
-				log.catching(e1);
-				log.error("Tried to create new file {} in order to write JSON to it, but failed!", file.getName());
+				LOG.catching(e1);
+				LOG.error("Tried to create new file {} in order to write JSON to it, but failed!", file.getName());
 				return false;
 			}
 
@@ -584,11 +614,11 @@ public class BalancePackManager {
 		try {
 			writer = new FileWriter(file);
 		} catch (IOException e) {
-			log.catching(e);
+			LOG.catching(e);
 		}
 
 		if (writer == null) {
-			log.error("Failed to write file {} to the disk!", file.getName());
+			LOG.error("Failed to write file {} to the disk!", file.getName());
 			return false;
 		}
 
@@ -597,11 +627,11 @@ public class BalancePackManager {
 		try {
 			writer.close();
 		} catch (IOException e) {
-			log.catching(e);
-			log.error("Failed to close file writer for file {}!", file.getName());
+			LOG.catching(e);
+			LOG.error("Failed to close file writer for file {}!", file.getName());
 		}
 
-		log.debug("Succesfully wrote file {} to disk!", file.getName());
+		LOG.debug("Succesfully wrote file {} to disk!", file.getName());
 		return true;
 	}
 
@@ -629,20 +659,20 @@ public class BalancePackManager {
 			try {
 				index = readJSONFile(getIndexFile());
 			} catch (JsonSyntaxException e) {
-				log.error("Index.json is not a proper JSON file. Recreating index.json.");
+				LOG.error("Index.json is not a proper JSON file. Recreating index.json.");
 				remakeIndexFile();
 				index = readJSONFile(getIndexFile());
 			}
 
 			if (!index.has("loadedPack")) {
-				log.error(
+				LOG.error(
 						"Error! Index file for balance packs does not contain loadedPacks key. File may have been tampered with.");
 			} else {
 				String result = index.get("loadedPack").getAsString();
 				if (result.equals("null")) {
-					log.debug("No loaded pack.");
+					LOG.debug("No loaded pack.");
 				} else {
-					log.debug("Balance pack manager found actively loaded pack {}", result);
+					LOG.debug("Balance pack manager found actively loaded pack {}", result);
 					loadBalancePack(null, result);
 				}
 			}
@@ -661,7 +691,7 @@ public class BalancePackManager {
 		try {
 			object = GSON_MANAGER.fromJson(alledgedJson, JsonObject.class);
 		} catch (JsonSyntaxException e) {
-			log.error("Attempt to load balance pack from String failed. Was not JSON.");
+			LOG.error("Attempt to load balance pack from String failed. Was not JSON.");
 			if (sender != null)
 				sender.sendMessage(new TextComponentString(
 						header + " Attempt to load balance pack from String failed. Was not JSON."));
@@ -672,7 +702,7 @@ public class BalancePackManager {
 			return;
 
 		if (!object.has("packName")) {
-			log.debug("Balance pack missing pack name key! Will not load.");
+			LOG.debug("Balance pack missing pack name key! Will not load.");
 			if (sender != null)
 				sender.sendMessage(new TextComponentString(
 						header + " Balance pack downloading failed. Did not have pack name key."));
@@ -708,7 +738,7 @@ public class BalancePackManager {
 			if (sender != null)
 				sender.sendMessage(
 						new TextComponentString(header + " Balance pack loading failed. File does not exist."));
-			log.error("Balance pack {} does not exist! Game refusing to load it. Recreating index.json.", fileName);
+			LOG.error("Balance pack {} does not exist! Game refusing to load it. Recreating index.json.", fileName);
 			remakeIndexFile();
 			return;
 		}
@@ -718,7 +748,7 @@ public class BalancePackManager {
 		try {
 			object = readJSONFile(balancePack);
 		} catch (JsonSyntaxException e) {
-			log.error("Json file {} is not proper JSON! Please check the formatting.", fileName);
+			LOG.error("Json file {} is not proper JSON! Please check the formatting.", fileName);
 			if (sender != null)
 				sender.sendMessage(new TextComponentString(header + " Json file " + TextFormatting.RED + fileName
 						+ TextFormatting.WHITE + " is not proper JSON! Please check the formatting."));
@@ -755,10 +785,10 @@ public class BalancePackManager {
 	}
 
 	public static void createDefaultBalancePack() {
-		BalancePack defaultPack = new BalancePack("default", "1.0", 2.5, 1.0, 1.0);
-		defaultPack.addWeaponConfig(new GunBalanceConfiguration("exampleWeapon", true, 8.0, 1.0));
+		BalancePack defaultPack = new BalancePack("default", "1.0", 2.5, 1.0, 1.0, 7.5);
+		defaultPack.addWeaponConfig(new GunBalanceConfiguration("exampleWeapon", true, 8.0, 1.0, 0.5f, 0.0f));
 		for (GunConfigurationGroup i : GunConfigurationGroup.values()) {
-			defaultPack.addBalancingCategory(new GunCategoryBalanceConfiguration(i, 1.0, 1.0));
+			defaultPack.addBalancingCategory(new GunCategoryBalanceConfiguration(i, 1.0, 1.0, 1.0));
 		}
 		writeJSONToFile(defaultPack.toJSONObject(), new File("balancepacks/default_pack.json"));
 	}
@@ -784,7 +814,7 @@ public class BalancePackManager {
 	public static float getFirerate(Weapon weapon) {
 
 		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon)
-				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getFirerate() == -1) {
+				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getFirerate() < 0) {
 			return weapon.builder.getFirerate();
 		}
 
@@ -794,7 +824,7 @@ public class BalancePackManager {
 	public static float getInaccuracy(Weapon weapon) {
 
 		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon)
-				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getInaccuracy() == -1) {
+				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getInaccuracy() < 0) {
 			return weapon.builder.getInaccuracy();
 		}
 
@@ -809,7 +839,7 @@ public class BalancePackManager {
 
 	public static double getNewWeaponDamage(Weapon weapon) {
 		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon))
-			return -1;
+			return weapon.getSpawnEntityDamage();
 		return getActiveBalancePack().getWeaponBalancing(weapon.getName()).getDamage();
 	}
 
@@ -821,7 +851,7 @@ public class BalancePackManager {
 
 	public static boolean shouldChangeWeaponDamage(Weapon weapon) {
 		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon)
-				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getDamage() == -1)
+				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getDamage() < 0)
 			return false;
 		return true;
 	}
@@ -855,14 +885,14 @@ public class BalancePackManager {
 
 	public static boolean shouldChangeWeaponRecoil(Weapon weapon) {
 		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon)
-				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getRecoil() == -1)
+				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getRecoil() < 0)
 			return false;
 		return true;
 	}
 
 	public static double getNewWeaponRecoil(Weapon weapon) {
 		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon))
-			return -1;
+			return weapon.getRecoil();
 		return getActiveBalancePack().getWeaponBalancing(weapon.getName()).getRecoil();
 	}
 
@@ -878,6 +908,12 @@ public class BalancePackManager {
 		return getActiveBalancePack().getCategoryBalancing(group).getRecoilMultiplier();
 	}
 
+	public static double getGroupHipFireSpread(GunConfigurationGroup group) {
+		if (!hasActiveBalancePack() || !balancePackAddressesGroup(group))
+			return 1.0;
+		return getActiveBalancePack().getCategoryBalancing(group).getHipFireSpread();
+	}
+
 	public static double getGlobalDamageMultiplier() {
 		if (!hasActiveBalancePack())
 			return 1.0;
@@ -888,6 +924,12 @@ public class BalancePackManager {
 		if (!hasActiveBalancePack())
 			return 1.0;
 		return getActiveBalancePack().getGlobalRecoilMultiplier();
+	}
+
+	public static double getGlobalHipFireSpread() {
+		if (!hasActiveBalancePack())
+			return 7.5;
+		return getActiveBalancePack().getGlobalHipFireSpread();
 	}
 
 	public static double getNetGunDamage(Weapon weapon) {

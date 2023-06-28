@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -23,7 +23,7 @@ public class M1014Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("m1014")
-//      .withAmmo(CommonProxy.Remington870Mag)
+//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(7)
         .withMaxBulletsPerReload(7)
         .withFireRate(0.5f)
@@ -55,7 +55,7 @@ public class M1014Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.11f)
         .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
         .withShellCasingModelTexture("shotgun12gauge")
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Shotgun",
         "Damage per Pellet: 6",
@@ -1435,6 +1435,6 @@ public class M1014Factory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.8f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

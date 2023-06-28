@@ -235,7 +235,7 @@ public class VehicleCustomGUI extends Gui {
 		// enmd
 		
 		// render knob
-		ResourceLocation loc = new ResourceLocation(ModReference.id + ":textures/gui/caricons.png");
+		ResourceLocation loc = new ResourceLocation(ModReference.ID + ":textures/gui/caricons.png");
 		mc.getTextureManager().bindTexture(loc);
 		GlStateManager.color(1.0f, 1.0f, 1.0f);
 		GL11.glTranslated(x+nX, y+nZ, 0);

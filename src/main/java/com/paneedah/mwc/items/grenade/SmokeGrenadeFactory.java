@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.grenade;
 
 import com.paneedah.mwc.Grenades;
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.M18;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -25,7 +25,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
         return new ItemGrenade.Builder()
         
                 .withName("M18White")
-                .withCreativeTab(ModernWarfareMod.GrenadesTab)
+                .withCreativeTab(MWC.GRENADES_TAB)
                 .withTextureNames("M18White")
                 .withExplosionStrength(0.4f)
                 .withType(Type.SMOKE)
@@ -350,6 +350,6 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
 
                         .build())
 
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
     }
 }

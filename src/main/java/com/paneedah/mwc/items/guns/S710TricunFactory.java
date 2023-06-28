@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -24,7 +24,7 @@ public class S710TricunFactory implements GunFactory {
 		.withFireRate(0.85f)
 		.withRecoil(1.5f)
 		.withZoom(0.9f)
-		.withConfigGroup(GunConfigurationGroup.SIDEARM)
+		.withConfigGroup(GunConfigurationGroup.SMG)
 		.withMaxShots(1, Integer.MAX_VALUE)
 		.withShootSound("mpx")
 		.withSilencedShootSound("m110_silenced")
@@ -44,7 +44,7 @@ public class S710TricunFactory implements GunFactory {
 		.withShellCasingForwardOffset(0.05f)
 		.withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
-		.withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
 		.withInformationProvider(stack -> Arrays.asList(
 		"Type: Submachine Gun", 
 		"Damage: 5.4", 
@@ -2004,6 +2004,6 @@ public class S710TricunFactory implements GunFactory {
 		.withSpawnEntityGravityVelocity(0.0118f)
 				
 		 
-		.build(ModernWarfareMod.MOD_CONTEXT);
+		.build(MWC.modContext);
 	}
 }

@@ -62,9 +62,6 @@ public class ShellCasingRenderer extends Render<Entity> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
-		WeaponSpawnEntity weaponSpawnEntity = (WeaponSpawnEntity) entity;
-        return new ResourceLocation(weaponSpawnEntity.getWeapon().getAmmoModelTextureName());
+        return new ResourceLocation(((WeaponSpawnEntity) entity).getWeapon().getAmmoModelTextureName());
 	}
-
-
 }

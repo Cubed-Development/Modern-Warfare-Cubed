@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.vehicle;
 
 import com.google.common.collect.Lists;
-import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Randomizer;
 import com.paneedah.weaponlib.compatibility.sound.EngineMovingSound;
@@ -18,6 +17,7 @@ import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.WheelSolver;
 import com.paneedah.weaponlib.vehicle.network.*;
 import com.paneedah.weaponlib.vehicle.smoothlib.PTIVec;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.melee;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.animation.Transition;
@@ -17,7 +17,7 @@ public class NightStickFactory implements MeleeFactory {
         return new ItemMelee.Builder()
         
                 .withName("night_stick")
-                .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+                .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
                 .withTextureNames("gun")
                 .withAttackDamage(1f)
                 .withHeavyAttackDamage(3f)
@@ -187,6 +187,6 @@ public class NightStickFactory implements MeleeFactory {
 
                                 .build())
 
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
     }
 }

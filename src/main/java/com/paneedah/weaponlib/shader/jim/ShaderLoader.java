@@ -32,7 +32,7 @@ public class ShaderLoader {
         if (!enableShaders)
             return new Shader(0);
 
-        ResourceLocation file = new ResourceLocation(ModReference.id + ":shaders/" + name);
+        ResourceLocation file = new ResourceLocation(ModReference.ID + ":shaders/" + name);
 
         int vertexShaderId = GL20.glCreateShader(GL20.GL_VERTEX_SHADER);
         int fragmentShaderId = GL20.glCreateShader(GL20.GL_FRAGMENT_SHADER);
@@ -42,14 +42,14 @@ public class ShaderLoader {
             GL20.glShaderSource(vertexShaderId, readFileToBuf(new ResourceLocation(file.getNamespace(), file.getPath() + ".vert")));
             GL20.glCompileShader(vertexShaderId);
             if (GL20.glGetShaderi(vertexShaderId, GL20.GL_COMPILE_STATUS) == GL11.GL_FALSE) {
-                ModReference.log.error(GL20.glGetShaderInfoLog(vertexShaderId, GL20.GL_INFO_LOG_LENGTH));
+                ModReference.LOG.error(GL20.glGetShaderInfoLog(vertexShaderId, GL20.GL_INFO_LOG_LENGTH));
                 throw new RuntimeException("Error creating vertex shader: " + file);
             }
 
             GL20.glShaderSource(fragmentShaderId, readFileToBuf(new ResourceLocation(file.getNamespace(), file.getPath() + ".frag")));
             GL20.glCompileShader(fragmentShaderId);
             if (GL20.glGetShaderi(fragmentShaderId, GL20.GL_COMPILE_STATUS) == GL11.GL_FALSE) {
-                ModReference.log.error(GL20.glGetShaderInfoLog(fragmentShaderId, GL20.GL_INFO_LOG_LENGTH));
+                ModReference.LOG.error(GL20.glGetShaderInfoLog(fragmentShaderId, GL20.GL_INFO_LOG_LENGTH));
                 throw new RuntimeException("Error creating fragment shader: " + file);
             }
 
@@ -64,16 +64,16 @@ public class ShaderLoader {
 
             GL20.glLinkProgram(programId);
             if (GL20.glGetProgrami(programId, GL20.GL_LINK_STATUS) == GL11.GL_FALSE) {
-                ModReference.log.error(GL20.glGetProgramInfoLog(programId, GL20.GL_INFO_LOG_LENGTH));
+                ModReference.LOG.error(GL20.glGetProgramInfoLog(programId, GL20.GL_INFO_LOG_LENGTH));
                 throw new RuntimeException("Error creating fragment shader: " + file);
             }
 
-            ModReference.log.debug("Loaded shader successfully for " + file);
+            ModReference.LOG.debug("Loaded shader successfully for " + file);
 
             return new Shader(programId);
         } catch (IOException ioException) {
             GL20.glDeleteProgram(programId);
-            ModReference.log.error("Failed loading shader for " + ioException);
+            ModReference.LOG.error("Failed loading shader for " + ioException);
         } finally {
             GL20.glDeleteShader(vertexShaderId);
             GL20.glDeleteShader(fragmentShaderId);

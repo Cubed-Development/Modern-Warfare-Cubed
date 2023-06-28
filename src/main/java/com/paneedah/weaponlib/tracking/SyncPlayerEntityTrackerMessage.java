@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.tracking;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class SyncPlayerEntityTrackerMessage implements IMessage {
 
@@ -32,7 +32,7 @@ public class SyncPlayerEntityTrackerMessage implements IMessage {
 	        }
 	        playerEntityTracker = PlayerEntityTracker.fromBuf(buf);
 	    } catch(Exception e) {
-	        log.error("Failed to deserialize tracker {}", e);
+	        LOG.error("Failed to deserialize tracker {}", e);
 	    }
 	}
 

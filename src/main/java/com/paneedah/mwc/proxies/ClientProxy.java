@@ -1,6 +1,6 @@
 package com.paneedah.mwc.proxies;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.PlayerAnimations;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
@@ -37,74 +37,74 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void preInit(final ModernWarfareMod mod) {
+    public void preInit(final MWC mod) {
         super.preInit(mod);
 
         final InventoryTabs inventoryTabs = InventoryTabs.getInstance();
 
         inventoryTabs.registerTab(new StandardPlayerInventoryTab());
-        inventoryTabs.registerTab(new CustomPlayerInventoryTab(ModernWarfareMod.MOD_CONTEXT, MWCItems.vestRender));
-        inventoryTabs.registerTab(new BackpackInventoryTab(ModernWarfareMod.MOD_CONTEXT));
+        inventoryTabs.registerTab(new CustomPlayerInventoryTab(MWC.modContext, MWCItems.vestRender));
+        inventoryTabs.registerTab(new BackpackInventoryTab(MWC.modContext));
 
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWorkbench.class, new TESRWorkbench(new Workbench(), new ResourceLocation(ModReference.id + ":textures/blocks/workbench.png")));
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAmmoPress.class, new TESRAmmoPress(new AmmoPress(), new ResourceLocation(ModReference.id + ":textures/blocks/ammo_press.png")));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWorkbench.class, new TESRWorkbench(new Workbench(), new ResourceLocation(ModReference.ID + ":textures/blocks/workbench.png")));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAmmoPress.class, new TESRAmmoPress(new AmmoPress(), new ResourceLocation(ModReference.ID + ":textures/blocks/ammo_press.png")));
     }
 
     @Override
-    public void init(final ModernWarfareMod mod) {
+    public void init(final MWC mod) {
         super.init(mod);
 
         PlayerAnimations.init(mod);
 
         final ItemModelMesher modelMesher = mc.getRenderItem().getItemModelMesher();
 
-        modelMesher.register(Armors.Marineboots, 0, new ModelResourceLocation(ModReference.id + ":marine_boots", "inventory"));
-        modelMesher.register(Armors.Marinechest, 0, new ModelResourceLocation(ModReference.id + ":marine_chest", "inventory"));
-        modelMesher.register(Armors.Marinehelmet, 0, new ModelResourceLocation(ModReference.id + ":marine_helmet", "inventory"));
+        modelMesher.register(Armors.Marineboots, 0, new ModelResourceLocation(ModReference.ID + ":marine_boots", "inventory"));
+        modelMesher.register(Armors.Marinechest, 0, new ModelResourceLocation(ModReference.ID + ":marine_chest", "inventory"));
+        modelMesher.register(Armors.Marinehelmet, 0, new ModelResourceLocation(ModReference.ID + ":marine_helmet", "inventory"));
 
-        modelMesher.register(Armors.Spetznazboots, 0, new ModelResourceLocation(ModReference.id + ":spetznaz_boots", "inventory"));
-        modelMesher.register(Armors.Spetznazchest, 0, new ModelResourceLocation(ModReference.id + ":spetznaz_chest", "inventory"));
-        modelMesher.register(Armors.Spetznazhelmet, 0, new ModelResourceLocation(ModReference.id + ":spetznaz_helmet", "inventory"));
+        modelMesher.register(Armors.Spetznazboots, 0, new ModelResourceLocation(ModReference.ID + ":spetznaz_boots", "inventory"));
+        modelMesher.register(Armors.Spetznazchest, 0, new ModelResourceLocation(ModReference.ID + ":spetznaz_chest", "inventory"));
+        modelMesher.register(Armors.Spetznazhelmet, 0, new ModelResourceLocation(ModReference.ID + ":spetznaz_helmet", "inventory"));
 
-        modelMesher.register(Armors.Urbanboots, 0, new ModelResourceLocation(ModReference.id + ":urban_boots", "inventory"));
-        modelMesher.register(Armors.Urbanchest, 0, new ModelResourceLocation(ModReference.id + ":urban_chest", "inventory"));
-        modelMesher.register(Armors.Urbanhelmet, 0, new ModelResourceLocation(ModReference.id + ":urban_helmet", "inventory"));
+        modelMesher.register(Armors.Urbanboots, 0, new ModelResourceLocation(ModReference.ID + ":urban_boots", "inventory"));
+        modelMesher.register(Armors.Urbanchest, 0, new ModelResourceLocation(ModReference.ID + ":urban_chest", "inventory"));
+        modelMesher.register(Armors.Urbanhelmet, 0, new ModelResourceLocation(ModReference.ID + ":urban_helmet", "inventory"));
 
-        modelMesher.register(Armors.Ghilliehelmet, 0, new ModelResourceLocation(ModReference.id + ":ghillie_helmet", "inventory"));
-        modelMesher.register(Armors.Ghilliechest, 0, new ModelResourceLocation(ModReference.id + ":ghillie_chest", "inventory"));
-        modelMesher.register(Armors.Ghillieboots, 0, new ModelResourceLocation(ModReference.id + ":ghillie_boots", "inventory"));
+        modelMesher.register(Armors.Ghilliehelmet, 0, new ModelResourceLocation(ModReference.ID + ":ghillie_helmet", "inventory"));
+        modelMesher.register(Armors.Ghilliechest, 0, new ModelResourceLocation(ModReference.ID + ":ghillie_chest", "inventory"));
+        modelMesher.register(Armors.Ghillieboots, 0, new ModelResourceLocation(ModReference.ID + ":ghillie_boots", "inventory"));
 
-        modelMesher.register(Armors.Blackcamochest, 0, new ModelResourceLocation(ModReference.id + ":blackcamo_chest", "inventory"));
-        modelMesher.register(Armors.Forestchest, 0, new ModelResourceLocation(ModReference.id + ":forest_chest", "inventory"));
+        modelMesher.register(Armors.Blackcamochest, 0, new ModelResourceLocation(ModReference.ID + ":blackcamo_chest", "inventory"));
+        modelMesher.register(Armors.Forestchest, 0, new ModelResourceLocation(ModReference.ID + ":forest_chest", "inventory"));
 
-        modelMesher.register(Armors.BlackJeansboots, 0, new ModelResourceLocation(ModReference.id + ":blackjeans_boots", "inventory"));
-        modelMesher.register(Armors.KhakiJeansboots, 0, new ModelResourceLocation(ModReference.id + ":khakijeans_boots", "inventory"));
+        modelMesher.register(Armors.BlackJeansboots, 0, new ModelResourceLocation(ModReference.ID + ":blackjeans_boots", "inventory"));
+        modelMesher.register(Armors.KhakiJeansboots, 0, new ModelResourceLocation(ModReference.ID + ":khakijeans_boots", "inventory"));
 
-        modelMesher.register(Armors.Swatboots, 0, new ModelResourceLocation(ModReference.id + ":swat_boots", "inventory"));
-        modelMesher.register(Armors.Swatchest, 0, new ModelResourceLocation(ModReference.id + ":swat_chest", "inventory"));
-        modelMesher.register(Armors.Swathelmet, 0, new ModelResourceLocation(ModReference.id + ":swat_helmet", "inventory"));
+        modelMesher.register(Armors.Swatboots, 0, new ModelResourceLocation(ModReference.ID + ":swat_boots", "inventory"));
+        modelMesher.register(Armors.Swatchest, 0, new ModelResourceLocation(ModReference.ID + ":swat_chest", "inventory"));
+        modelMesher.register(Armors.Swathelmet, 0, new ModelResourceLocation(ModReference.ID + ":swat_helmet", "inventory"));
 
-        modelMesher.register(Armors.Santaboots, 0, new ModelResourceLocation(ModReference.id + ":santa_boots", "inventory"));
-        modelMesher.register(Armors.Santachest, 0, new ModelResourceLocation(ModReference.id + ":santa_chest", "inventory"));
-        modelMesher.register(Armors.Santahelmet, 0, new ModelResourceLocation(ModReference.id + ":santa_helmet", "inventory"));
+        modelMesher.register(Armors.Santaboots, 0, new ModelResourceLocation(ModReference.ID + ":santa_boots", "inventory"));
+        modelMesher.register(Armors.Santachest, 0, new ModelResourceLocation(ModReference.ID + ":santa_chest", "inventory"));
+        modelMesher.register(Armors.Santahelmet, 0, new ModelResourceLocation(ModReference.ID + ":santa_helmet", "inventory"));
 
-        modelMesher.register(Armors.NaziSantaboots, 0, new ModelResourceLocation(ModReference.id + ":nazisanta_boots", "inventory"));
-        modelMesher.register(Armors.NaziSantachest, 0, new ModelResourceLocation(ModReference.id + ":nazisanta_chest", "inventory"));
-        modelMesher.register(Armors.NaziSantahelmet, 0, new ModelResourceLocation(ModReference.id + ":nazisanta_helmet", "inventory"));
+        modelMesher.register(Armors.NaziSantaboots, 0, new ModelResourceLocation(ModReference.ID + ":nazisanta_boots", "inventory"));
+        modelMesher.register(Armors.NaziSantachest, 0, new ModelResourceLocation(ModReference.ID + ":nazisanta_chest", "inventory"));
+        modelMesher.register(Armors.NaziSantahelmet, 0, new ModelResourceLocation(ModReference.ID + ":nazisanta_helmet", "inventory"));
 
-        modelMesher.register(Armors.SpecOpsboots, 0, new ModelResourceLocation(ModReference.id + ":spec_ops_boots", "inventory"));
-        modelMesher.register(Armors.SpecOpschest, 0, new ModelResourceLocation(ModReference.id + ":spec_ops_chest", "inventory"));
-        modelMesher.register(Armors.SpecOpshelmet, 0, new ModelResourceLocation(ModReference.id + ":spec_ops_helmet", "inventory"));
+        modelMesher.register(Armors.SpecOpsboots, 0, new ModelResourceLocation(ModReference.ID + ":spec_ops_boots", "inventory"));
+        modelMesher.register(Armors.SpecOpschest, 0, new ModelResourceLocation(ModReference.ID + ":spec_ops_chest", "inventory"));
+        modelMesher.register(Armors.SpecOpshelmet, 0, new ModelResourceLocation(ModReference.ID + ":spec_ops_helmet", "inventory"));
 
-        modelMesher.register(Armors.Juggernautboots, 0, new ModelResourceLocation(ModReference.id + ":juggernaut_boots", "inventory"));
-        modelMesher.register(Armors.Juggernautchest, 0, new ModelResourceLocation(ModReference.id + ":juggernaut_chest", "inventory"));
-        modelMesher.register(Armors.Juggernauthelmet, 0, new ModelResourceLocation(ModReference.id + ":juggernaut_helmet", "inventory"));
+        modelMesher.register(Armors.Juggernautboots, 0, new ModelResourceLocation(ModReference.ID + ":juggernaut_boots", "inventory"));
+        modelMesher.register(Armors.Juggernautchest, 0, new ModelResourceLocation(ModReference.ID + ":juggernaut_chest", "inventory"));
+        modelMesher.register(Armors.Juggernauthelmet, 0, new ModelResourceLocation(ModReference.ID + ":juggernaut_helmet", "inventory"));
 
-        modelMesher.register(Armors.Tacticalhelmet, 0, new ModelResourceLocation(ModReference.id + ":tactical_helmet", "inventory"));
+        modelMesher.register(Armors.Tacticalhelmet, 0, new ModelResourceLocation(ModReference.ID + ":tactical_helmet", "inventory"));
 
-        modelMesher.register(Armors.JPNVG18helmet, 0, new ModelResourceLocation(ModReference.id + ":jpnvg18_helmet", "inventory"));
+        modelMesher.register(Armors.JPNVG18helmet, 0, new ModelResourceLocation(ModReference.ID + ":jpnvg18_helmet", "inventory"));
 
-        modelMesher.register(Armors.GasMaskM40, 0, new ModelResourceLocation(ModReference.id + ":m40gasmask_helmet", "inventory"));
+        modelMesher.register(Armors.GasMaskM40, 0, new ModelResourceLocation(ModReference.ID + ":m40gasmask_helmet", "inventory"));
 
         // Todo: Actually remove this once fixed.
         
@@ -113,7 +113,7 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void postInit(final ModernWarfareMod mod, final FMLPostInitializationEvent initializationEvent) {
+    public void postInit(final MWC mod, final FMLPostInitializationEvent initializationEvent) {
         mc.getRenderManager().getSkinMap().forEach((p, r) -> r.addLayer(new CustomArmorLayer(r)));
     }
 }

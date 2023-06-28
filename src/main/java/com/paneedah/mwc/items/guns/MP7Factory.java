@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -32,7 +32,7 @@ public class MP7Factory {
         .withFireRate(0.9f)
         .withRecoil(1f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.SIDEARM)
+        .withConfigGroup(GunConfigurationGroup.SMG)
         .withShellType(Type.PISTOL)
         .hasFlashPedals()
         .withMuzzlePosition(new Vec3d(-0.15600000464916233, -0.7239999917745591, -2.523999881505966))
@@ -53,7 +53,7 @@ public class MP7Factory {
         .withFlashOffsetX(() -> 0.16f)
         .withFlashOffsetY(() -> 0.23f)
         .withInaccuracy(2f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -327,15 +327,15 @@ public class MP7Factory {
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
-                GL11.glScaled(0.4F, 0.4F, 0.4F);
-                GL11.glTranslatef(1, 2.3f, 0.95f);
+                GL11.glScaled(0.28F, 0.28F, 0.28F);
+                GL11.glTranslatef(1, 2f, -1.2f);
                 GL11.glRotatef(-120F, -0.5f, 7f, 3f);
             })
             .withThirdPersonPositioning((renderContext) -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
+                GL11.glTranslatef(-1.8F, -1.1F, 2F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
-                GL11.glTranslatef(0.100000f, 3.875000f, 1.700000f);
                 })
             
             .withFirstPersonPositioning(
@@ -769,7 +769,7 @@ public class MP7Factory {
         .withSpawnEntityDamage(5.5f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

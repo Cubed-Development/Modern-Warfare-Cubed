@@ -165,7 +165,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
         public ItemWirelessCamera build(ModContext modContext) {
 
             ItemWirelessCamera camera = new ItemWirelessCamera(this, modContext);
-            camera.setTranslationKey(ModReference.id + "_" + name);
+            camera.setTranslationKey(ModReference.ID + "_" + name);
             camera.setCreativeTab(tab);
 //            camera.setPostRenderer(postRenderer);
 //            camera.setName(name);
@@ -195,9 +195,9 @@ public class ItemWirelessCamera extends Item implements ModelSource {
                 ItemStack itemStack = new ItemStack(camera);
                 itemStack.setCount(craftingCount);
                 if(optionsMetadata.hasOres()) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.id, itemStack.getItem().getTranslationKey() + "_recipe"));
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
             }
 

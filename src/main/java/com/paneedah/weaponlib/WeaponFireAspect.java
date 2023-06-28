@@ -30,7 +30,7 @@ import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 
 /*
@@ -312,8 +312,6 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	 weaponInstance.setSlideLock(true);
 
         float recoilAmount = weaponInstance.getRecoil();
-       
-        if(BalancePackManager.shouldChangeWeaponRecoil(weapon)) recoilAmount = (float) BalancePackManager.getNewWeaponRecoil(weapon);
         recoilAmount *= BalancePackManager.getGlobalRecoilMultiplier();
         recoilAmount *= BalancePackManager.getGroupRecoilMultiplier(weapon.getConfigurationGroup());
         
@@ -415,7 +413,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         int currentServerAmmo = Tags.getAmmo(itemStack);
         
         if(currentServerAmmo <= 0) {
-            log.error("No server ammo");
+            LOG.error("No server ammo");
             return;
         }
         
@@ -445,11 +443,13 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         
         
         for(int i = 0; i < weapon.builder.pellets; i++) {
-        	double damage = weapon.getSpawnEntityDamage();
+        	double damage = weapon.getSpawnEntityDamage(), hipFireSpread = 2.6;
             if(BalancePackManager.hasActiveBalancePack()) {
             	if(BalancePackManager.shouldChangeWeaponDamage(weapon)) damage = BalancePackManager.getNewWeaponDamage(weapon);
             	damage *= BalancePackManager.getGroupDamageMultiplier(weapon.getConfigurationGroup());
             	damage *= BalancePackManager.getGlobalDamageMultiplier();
+                hipFireSpread = BalancePackManager.getGlobalHipFireSpread();
+                hipFireSpread *= BalancePackManager.getGroupHipFireSpread(weapon.getConfigurationGroup());
             }
        	
             damage *= damageMultiplier;
@@ -457,7 +457,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
            // System.out.println(weapon.getName() + " | " + spawnEntityRocketParticles);
 
            WeaponSpawnEntity bullet = new WeaponSpawnEntity(weapon, player.world, player, weapon.getSpawnEntityVelocity(),
-                   weapon.getSpawnEntityGravityVelocity(), BalancePackManager.getInaccuracy(weapon) + (isAimed ? 0.0f : 2.6f), (float) damage, weapon.getSpawnEntityExplosionRadius(),
+                   weapon.getSpawnEntityGravityVelocity(), BalancePackManager.getInaccuracy(weapon) + (isAimed ? 0.0f : (float) hipFireSpread), (float) damage, weapon.getSpawnEntityExplosionRadius(),
                    weapon.isDestroyingBlocks(), weapon.hasRocketParticles(), weapon.getParticleAgeCoefficient(), weapon.getSmokeParticleAgeCoefficient(),
                    weapon.getExplosionScaleCoefficient(), weapon.getSmokeParticleScaleCoefficient(),
                    0, 

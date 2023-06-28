@@ -7,7 +7,7 @@ import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>> {
 
@@ -200,7 +200,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 			
 			
 			S updateToState = processedPermit.getStatus() == Status.GRANTED ? toState : fromState;
-			log.debug("Applying permit with status {} to {}, changing state to {}", 
+			LOG.debug("Applying permit with status {} to {}, changing state to {}",
 			        processedPermit.getStatus(), updatedState, toState);
 			
 			if(stateUpdater.apply(updateToState, safeCast(updatedState))) {
@@ -358,7 +358,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 		S ts[] = targetStates;
 		while((newStateRule = findNextStateRule(aspect, extendedState, s, ts)) != null) {
 			extendedState.setState(newStateRule.toState);
-			log.debug("Changed state of {} to {}", extendedState, newStateRule.toState);
+			LOG.debug("Changed state of {} to {}", extendedState, newStateRule.toState);
 			result = new Result(true, newStateRule.toState);
 			if(newStateRule.action != null) {
 				result.actionResult = newStateRule.action.execute(extendedState, s, newStateRule.toState, permit);

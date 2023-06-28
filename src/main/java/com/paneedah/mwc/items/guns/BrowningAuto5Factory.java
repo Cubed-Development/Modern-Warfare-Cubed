@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.BrowningAuto5;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -22,7 +22,7 @@ public class BrowningAuto5Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("browning_auto_5")
-//      .withAmmo(CommonProxy.Remington870Mag)
+//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(4)
         .withMaxBulletsPerReload(4)
         .withFireRate(0.2f)
@@ -48,7 +48,7 @@ public class BrowningAuto5Factory implements GunFactory {
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.1f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Semi-Automatic Shotgun",
         "Damage per Pellet: 6",
@@ -699,6 +699,6 @@ public class BrowningAuto5Factory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.8f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

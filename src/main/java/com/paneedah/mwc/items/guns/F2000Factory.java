@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -44,11 +44,11 @@ public class F2000Factory {
         .withCrosshair("gun")
         .withCrosshairRunning("Running")
         .withCrosshairZoomed("Sight")
-        .withFlashIntensity(0.5f)
-        .withFlashScale(() -> 0.6f)
-        .withFlashOffsetX(() -> 0.1f)
+        .withFlashIntensity(0.6f)
+        .withFlashScale(() -> 0.5f)
+        .withFlashOffsetX(() -> 0.08f)
         .withFlashOffsetY(() -> 0.16f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
 		.withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -526,11 +526,11 @@ public class F2000Factory {
                         )
             
             .withFirstPersonPositioningZooming((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                GL11.glTranslatef(0.232f, 0.21f, -1f);
+//                GL11.glRotatef(45F, 0f, 1f, 0f);
+//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
+                GL11.glTranslatef(0.059f,-0.81f,-0.5f);
 
-                
+
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.F2000Scope)) {
                     //System.out.println("Position me for Acog");
@@ -819,7 +819,7 @@ public class F2000Factory {
         .withSpawnEntityDamage(6f)
         .withSpawnEntityGravityVelocity(0.0118f)
                 
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }
 

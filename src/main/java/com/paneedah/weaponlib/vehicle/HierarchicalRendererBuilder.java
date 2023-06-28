@@ -191,7 +191,7 @@ public class HierarchicalRendererBuilder<Part, State extends RenderState> {
             
             
 
-            ResourceLocation textureResource = new ResourceLocation(ModReference.id,
+            ResourceLocation textureResource = new ResourceLocation(ModReference.ID,
                     "textures/entity/" + partConfiguration.textureName + ( partConfiguration.textureName.endsWith(".png") ? "" : ".png"));
 
             Supplier<MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>>> stateManagerSupplier = 

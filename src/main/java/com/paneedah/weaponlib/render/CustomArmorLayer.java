@@ -71,7 +71,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
         		ItemCarryableStorage storage = (ItemCarryableStorage) backpackStack.getItem();
             	
             	ModelBiped biped = GearModelRepository.pull(storage.getModelFileString());
-            	ResourceLocation resource = new ResourceLocation(ModReference.id + ":textures/models/" + storage.getProperTextureName());
+            	ResourceLocation resource = new ResourceLocation(ModReference.ID + ":textures/models/" + storage.getProperTextureName());
         		mc.getTextureManager().bindTexture(resource);
         		doEquipmentRender(biped, player, null, (a, b) -> {}, resource, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
             	//System.out.println("yo1");
@@ -103,7 +103,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
             	ItemVest storage = (ItemVest) vestStack.getItem();
             	
             	ModelBiped biped = GearModelRepository.pull(storage.getModelFileString());
-            	ResourceLocation resource = new ResourceLocation(ModReference.id + ":textures/models/" + storage.getProperTextureName());
+            	ResourceLocation resource = new ResourceLocation(ModReference.ID + ":textures/models/" + storage.getProperTextureName());
         		mc.getTextureManager().bindTexture(resource);
         		doEquipmentRender(biped, player, null, (a, b) -> {}, resource, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
             	//System.out.println("yo2");

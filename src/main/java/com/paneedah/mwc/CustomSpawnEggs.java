@@ -15,24 +15,24 @@ public class CustomSpawnEggs {
 				.withID(1)
 				.withItemName("turret")
 				.withEntitySpawnName("turret")
-				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ModReference.id + ":turret_base"))
-				.withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ModReference.ID + ":turret_base"))
+				.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
 				.build();
 		
 		TURRETUPGRADED_EGG = new HighIQSpawnEgg.Builder()
 				.withID(2)
 				.withItemName("turretupgraded")
 				.withEntitySpawnName("turretupgraded")
-				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ModReference.id + ":turret_base"))
-				.withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ModReference.ID + ":turret_base"))
+				.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
 				.build();
 		
 		TURRETSILENCED_EGG = new HighIQSpawnEgg.Builder()
 				.withID(3)
 				.withItemName("turretsilenced")
 				.withEntitySpawnName("turretsilenced")
-				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ModReference.id + ":turret_base"))
-				.withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+				.withBlockPredicate(b -> b.getRegistryName().toString().equals(ModReference.ID + ":turret_base"))
+				.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
 				.build();
 	}
 }

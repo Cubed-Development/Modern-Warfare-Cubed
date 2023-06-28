@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.Python;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -42,7 +42,7 @@ public class PythonFactory implements GunFactory {
 		.withFlashOffsetY(() -> 0.15f)
 		.withInaccuracy(2)
 		.withShellCasingEjectEnabled(false)
-		.withCreativeTab(ModernWarfareMod.AssaultRiflesTab)	
+		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
 		.useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -80,7 +80,7 @@ public class PythonFactory implements GunFactory {
 //            GL11.glRotatef(25F, 0f, 0f, 1f);
 		})
 		.withCompatibleAttachment(Attachments.DanWessonLaser, (p, s) -> {
-            GL11.glTranslatef(0.01F, -1.45F, -2.6F);
+            GL11.glTranslatef(-0.3F, -0.8F, -3.0F);
             GL11.glScaled(0.9F, 0.9F, 0.9F);
 //            GL11.glRotatef(-90F, 0f, 0f, -4f);
         })
@@ -102,8 +102,8 @@ public class PythonFactory implements GunFactory {
                 GL11.glRotatef(-120F, -0.5f, 7f, 3f);
             })
             .withThirdPersonPositioning((renderContext) -> {
-                GL11.glScaled(0.45F, 0.45F, 0.45F);
-                GL11.glTranslatef(-2.6F, -0.2F, 2.3F);
+				GL11.glScaled(0.5F, 0.5F, 0.5F);
+				GL11.glTranslatef(-1.8F, -1F, 2F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
                 })
@@ -147,12 +147,12 @@ public class PythonFactory implements GunFactory {
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
                     //System.out.println("Position me for Holo");
-                    GL11.glTranslatef(0f, 0.2f, 1f);
+                    GL11.glTranslatef(0f, 0f, 1f);
                 } 
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                     //System.out.println("Position me for Holo");
-                    GL11.glTranslatef(0f, 0.32f, 1f);
+                    GL11.glTranslatef(0f, 0.1f, 1f);
                 } 
                 
                 // Everything else
@@ -219,6 +219,6 @@ public class PythonFactory implements GunFactory {
 		.withSpawnEntityGravityVelocity(0.016f)
 		
 		 
-		.build(ModernWarfareMod.MOD_CONTEXT);
+		.build(MWC.modContext);
 	}
 }

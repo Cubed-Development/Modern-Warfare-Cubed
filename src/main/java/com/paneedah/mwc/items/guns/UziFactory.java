@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -29,7 +29,7 @@ public class UziFactory implements GunFactory {
         .withFireRate(0.7f)
         .withRecoil(2f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.SIDEARM)
+        .withConfigGroup(GunConfigurationGroup.SMG)
         .withShellType(Type.PISTOL)
         .withMuzzlePosition(new Vec3d(-0.12400000369548798, -0.7799999934434887, -3.427999908447264))
         .withMaxShots(1, Integer.MAX_VALUE)
@@ -49,7 +49,7 @@ public class UziFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.23f)
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
 		.withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -507,6 +507,6 @@ public class UziFactory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.02f)
         
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

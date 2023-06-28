@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -28,7 +28,7 @@ public class ZbroyarZ10Factory implements GunFactory {
         .withFireRate(0.65f)
         .withRecoil(6f)
         .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.LONG_RANGE_RIFLES)
+        .withConfigGroup(GunConfigurationGroup.DMR)
         .withMaxShots(1)
         .withShootSound("m110")
         .withSilencedShootSound("m110_silenced")
@@ -47,7 +47,7 @@ public class ZbroyarZ10Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.15f)
         .withShellCasingForwardOffset(0.05f)
         .withShellCasingVerticalOffset(-0.03f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -937,6 +937,6 @@ public class ZbroyarZ10Factory implements GunFactory {
         .withSpawnEntityGravityVelocity(0.0118f)
                 
          
-        .build(ModernWarfareMod.MOD_CONTEXT);
+        .build(MWC.modContext);
     }
 }

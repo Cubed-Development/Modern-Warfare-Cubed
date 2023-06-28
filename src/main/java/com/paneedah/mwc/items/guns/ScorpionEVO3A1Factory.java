@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -29,7 +29,7 @@ public class ScorpionEVO3A1Factory implements GunFactory {
 		.withFireRate(0.999f)
 		.withRecoil(1.5f)
 		.withZoom(0.9f)
-		.withConfigGroup(GunConfigurationGroup.SIDEARM)
+		.withConfigGroup(GunConfigurationGroup.SMG)
 		.withShellType(Type.PISTOL)
 		.withMaxShots(1, Integer.MAX_VALUE)
 		.withShootSound("scorpion")
@@ -51,7 +51,7 @@ public class ScorpionEVO3A1Factory implements GunFactory {
 		.withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
 		.withInaccuracy(2f)
-		.withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
 		.useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -771,6 +771,6 @@ public class ScorpionEVO3A1Factory implements GunFactory {
 		.withSpawnEntityGravityVelocity(0.0118f)
 				
 		 
-		.build(ModernWarfareMod.MOD_CONTEXT);
+		.build(MWC.modContext);
 	}
 }

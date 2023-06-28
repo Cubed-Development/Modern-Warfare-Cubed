@@ -216,7 +216,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
             
             item.modelFileString = this.modelFileString;
             item.properTextureName = this.properTextureName;
-            item.setTranslationKey(ModReference.id + "_" + name);
+            item.setTranslationKey(ModReference.ID + "_" + name);
             
             // Register hook
             CraftingRegistry.registerHook(item);
@@ -312,7 +312,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
     public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
     	super.addInformation(itemStack, worldIn, tooltip, flagIn);
     	double formattedDouble = Math.round(this.percentDamageBlocked * 10000) / 100.0;
-    	tooltip.add(String.format("%s%% Damage Blocked:%s %s", TextFormatting.GREEN, TextFormatting.GRAY, formattedDouble));
+    	tooltip.add(String.format("%sDamage Blocked: %s%s%%", TextFormatting.GREEN, TextFormatting.GRAY, formattedDouble));
     }
 
     @Override
@@ -328,6 +328,10 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
     @Override
     public CustomRenderer<?> getPostRenderer() {
         return null;
+    }
+
+    public double getDamageBlocked() {
+        return this.percentDamageBlocked;
     }
     
     public int getSize() {

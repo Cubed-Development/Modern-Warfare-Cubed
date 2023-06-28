@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.M202;
 import com.paneedah.mwc.models.M202RocketPROJECTILE;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -23,7 +23,7 @@ public class M202Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("m202")
-//      .withAmmo(CommonProxy.AR15Mag)
+//      .withCapacity(CommonProxy.AR15Mag)
         .withAmmoCapacity(4)
         .withFireRate(0.1f)
         .withRecoil(5f)
@@ -42,7 +42,7 @@ public class M202Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.14f)
         .withShellCasingEjectEnabled(false)
         .withDestroyingBlocks(false)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 1f, // x 
@@ -680,6 +680,6 @@ public class M202Factory implements GunFactory {
             .withSpawnEntityParticleAgeCoefficient(0.2F)
             .withSpawnEntityModel(new M202RocketPROJECTILE())
             .withSpawnEntityModelTexture("gun")
-            .build(ModernWarfareMod.MOD_CONTEXT);
+            .build(MWC.modContext);
         }
     }

@@ -222,7 +222,7 @@ public class ItemCarryableStorage extends Item implements ModelSource, IModernCr
             }
 
             ResourceLocation guiTextureLocation = new ResourceLocation(ModReference.id, "textures/gui/inventory/carryable/" + size + "slots.png");
-            
+
             ItemCarryableStorage item = new ItemCarryableStorage(modContext, size, validItemPredicate, guiTextureLocation, this.guiTextureWidth);
             
             ServerGearModelHookRegistry.modelArray.add(this.modelFileString);
@@ -230,7 +230,7 @@ public class ItemCarryableStorage extends Item implements ModelSource, IModernCr
             item.modelFileString = this.modelFileString;
             item.properTextureName = this.properTextureName;
             
-            item.setTranslationKey(ModReference.id + "_" + name);
+            item.setTranslationKey(ModReference.ID + "_" + name);
 
             if(this.modelFileString != null && !VMWHooksHandler.isOnServer()) {
             	

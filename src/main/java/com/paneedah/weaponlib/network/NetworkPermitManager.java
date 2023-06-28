@@ -18,7 +18,7 @@ import java.util.UUID;
 import java.util.function.BiConsumer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
-import static com.paneedah.mwc.utils.ModReference.log;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class NetworkPermitManager implements PermitManager, IMessageHandler<PermitMessage, IMessage> {
 
@@ -42,7 +42,7 @@ public class NetworkPermitManager implements PermitManager, IMessageHandler<Perm
 	@Override
 	public <S extends ManagedState<S>, P extends Permit<S>, E extends ExtendedState<S>> void registerEvaluator(Class<? extends P> permitClass, Class<? extends E> esClass, BiConsumer<P, E> evaluator) {
 		evaluators.put(permitClass,  (p, c) -> { 
-			log.debug("Processing permit {} for instance {}", p, c);
+			LOG.debug("Processing permit {} for instance {}", p, c);
 			evaluator.accept(permitClass.cast(p), esClass.cast(c)); 
 		});
 	}

@@ -120,7 +120,7 @@ public class PlayerAnimations {
 
                 .build();
         
-        ModernWarfareMod.MOD_CONTEXT.setPlayerTransitionProvider(playerTransitionProvider);
+        MWC.modContext.setPlayerTransitionProvider(playerTransitionProvider);
     }
 
 }

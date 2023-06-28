@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.utils.MWCUtil;
-import com.paneedah.mwc.vectors.Vector3D;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -81,9 +81,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
     public void setPositionAndDirection(boolean isAim) {
         this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(), thrower.posZ, thrower.rotationYaw, thrower.rotationPitch);
         
-        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
-        this.posY -= 0.10000000149011612D;
-        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * (isAim ? 0F : 0.16F));
+        this.posY -= (isAim ? 0D : 0.10000000149011612D);
+        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * (isAim ? 0F : 0.16F));
         this.setPosition(this.posX, this.posY, this.posZ);
 
 

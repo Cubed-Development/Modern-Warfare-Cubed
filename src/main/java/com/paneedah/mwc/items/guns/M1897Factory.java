@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -22,7 +22,7 @@ public class M1897Factory implements GunFactory {
 		return new Weapon.Builder()
 		
 		.withName("M1897")
-//		.withAmmo(CommonProxy.Remington870Mag)
+//		.withCapacity(CommonProxy.Remington870Mag)
 		.withAmmoCapacity(4)
 		.withMaxBulletsPerReload(4)
 		.withFireRate(0.5f)
@@ -53,14 +53,14 @@ public class M1897Factory implements GunFactory {
 		.withFlashScale(() -> 0.8f)
 		.withFlashOffsetX(() -> 0.08f)
 		.withFlashOffsetY(() -> 0.13f)
-		.withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
 		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                5f, // x 
 	                1f, // y
 	                10f) // z
 		 
-	        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+	        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
 	        .withInformationProvider(stack -> Arrays.asList(
 	        "Type: Shotgun",
 	        "Damage per Pellet: 6",
@@ -1409,6 +1409,6 @@ public class M1897Factory implements GunFactory {
 		.withSpawnEntityGravityVelocity(0.8f)
 		
 		 
-		.build(ModernWarfareMod.MOD_CONTEXT);
+		.build(MWC.modContext);
 	}
 }

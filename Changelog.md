@@ -20,6 +20,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - penetratesGlass
   - explosionBreak
   - penetrableBlocks
+  - knockbackOnHi
+  - hipFireSpread
 - Durability to all vests as a temporary measure to resolve vest-related issues
 - Smelting of sulfur into gunpowder
 - .50 AE in the Ammo Press
@@ -30,10 +32,12 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Translations for Chinese, Spanish, and Turkish languages
 - GitHub URL in `mcmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
+- Shells life go increased 1606% no performance impact in extreme cases
 
 ### Changed
 
-- Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1 and the pink camo skin
+- Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1, 100 Rounds NATO Drum Magazine, Aimpoint Comp M5 Sight and the pink camo skin
+- Overhauled animations of the M40A6
 - You can now carry sidearms in carryable inventories
 - Reworked the config system:
   - Old XML config has been removed, and all configs have been consolidated into a new JSON config. Issues with some non-functioning configs have been resolved
@@ -41,7 +45,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Temporarily nerfed all vests as a part of vest problem mitigation
 - Nerfed XP gains from smelting ores
 - Reloading now only stops once the gun is fully reloaded or no compatible ammunition remains in inventory
-- Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines)
+- Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines) this can be bypassed by sneaking
 - Grenades in creative mode are now infinite 
 - Expanded crafting to accommodate any type of planks
 - Weapons are now rendered in 3D in the inventory, this means that there will be a small freeze when first opening the Creative Menu this will be improved over time as we optimize rendering
@@ -61,10 +65,16 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Updated `mcmod.info` description and credits
 - Migrated the config setting for bullets breaking glass into the new config file (ModernWarfareCubed.cfg)
 - Forge configuration `Emissive Item Rendering` is now forced to be off (This does not influence Optifine emissive item rendering)
+- OptiFine configuration `Fast Render` is now forced to be off
+- Changed categories of some weapons
+- Magazines are created empty
+- The position of the bullet when shooting is now centered when aiming
+- Explosive projectiles are now linked to the player who launched them meaning that the kill message will say who killed whom
 - Renamed `Armor` creative tab to `Equipment`
 
 ### Fixed
 
+- Fixed Minecraft armor making you invulnerable to bullet (less realistic but they aren't anyway lol)
 - Fixed issue with config for bullets breaking glass being ignored
 - Fixed bullet's being able to penetrate:
   - Glass
@@ -77,11 +87,17 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed crashes caused by certain shaders
 - Fixed duplication issues related to copper, gunpowder, and ammo
 - Fixed a problem where the carryable inventory tab was shifting the entire inventory to the left for no reasons
+- Fixed turrets spawning without weapons
+- Fixed 7.62x54mm SVD magazine using 7.62x39mm bullets
+- Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
+- Fixed the visual bug of the FN F2000 especially when aiming the gun
+- Fixed M4A1 "M16 Stock" visual bugs, Malyuk "grip" visual bugs
 - Fixed position of the backpacks in inventory
 
 ### Removed
 
 - Removed all arcade guns (These will be moved to a sister mod at a later time)
+- Removed the SA80
 - Removed the mission system
 - Removed most of the compatibility layer
 - Removed FXAA
