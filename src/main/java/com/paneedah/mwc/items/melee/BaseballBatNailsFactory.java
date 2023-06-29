@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.melee;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.animation.Transition;
@@ -17,7 +17,7 @@ public class BaseballBatNailsFactory implements MeleeFactory {
         return new ItemMelee.Builder()
         
                 .withName("baseball_bat_nails")
-                .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+                .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
                 .withTextureNames("bat_nails")
                 .withAttackDamage(4f)
                 .withHeavyAttackDamage(12f)
@@ -166,6 +166,6 @@ public class BaseballBatNailsFactory implements MeleeFactory {
 
                                 .build())
 
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
     }
 }

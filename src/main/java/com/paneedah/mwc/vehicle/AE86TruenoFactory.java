@@ -1,6 +1,6 @@
 package com.paneedah.mwc.vehicle;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.vehicle.engines.AE86TruenoEngine;
 import com.paneedah.weaponlib.ModContext;
@@ -287,7 +287,7 @@ public class AE86TruenoFactory implements VehicleFactory {
                 .withOBBDimensions(3.3, 2.5, 1.75)
                 .withSeat(new Vec3d(-0.89, -0.2, 0.0))
                 .withRenderer(renderer)
-                .build(ModernWarfareMod.MOD_CONTEXT);
+                .build(MWC.modContext);
     }
 
 }

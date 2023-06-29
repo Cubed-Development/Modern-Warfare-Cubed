@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -53,7 +53,7 @@ public class M32MGLFactory implements GunFactory {
                 3f, // y
                 2f) // z
         
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         .withInformationProvider(stack -> Arrays.asList("Type: Multiple Grenade Launcher", 
         "Cartridge: 40mm Grenade", "Fire Rate: Semi"))
         .withCompatibleAttachment(Bullets.Grenade40mm, (model) -> {})
@@ -1674,6 +1674,6 @@ public class M32MGLFactory implements GunFactory {
             .withSpawnEntityGravityVelocity(0.3f)
             .withSpawnEntitySpeed(5f)
             .withSpawnEntityExplosionRadius(3f)
-            .build(ModernWarfareMod.MOD_CONTEXT);
+            .build(MWC.modContext);
         }
     }

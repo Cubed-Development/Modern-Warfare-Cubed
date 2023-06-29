@@ -241,7 +241,7 @@ public class CustomGui extends Gui {
 	// Ammo counter spec
 	public static final int AMMO_COUNTER_WIDTH = 256;
 	public static final int AMMO_COUNTER_HEIGHT = 53;
-	public static final double AMMO_COUNTER_SCALE = 0.50;
+	//public static final double AMMO_COUNTER_SCALE = 0.50;
 	
 	// Weapon name
 	public static final int AMMO_COUNTER_WEAPON_NAME_DOWNSCALE_THRESHOLD = 13;
@@ -277,16 +277,19 @@ public class CustomGui extends Gui {
 	public static final double CURRENT_AMMO_WIDTH_MULTIPLIER = 2.0;
 	public static final double TOTAL_AMMO_STRING_SCALE = 6.625;
 	
-	public void handleAmmoCounter(RenderGameOverlayEvent.Pre event, PlayerWeaponInstance weaponInstance, double scaledWidth, double scaledHeight) {		final int AMMO_COUNTER_Y_POS = 128;
-		
+	public void handleAmmoCounter(RenderGameOverlayEvent.Pre event, PlayerWeaponInstance weaponInstance, double scaledWidth, double scaledHeight) {
+		//If moved up, the game needs to be restarted every time there is a change
+		final int AMMO_COUNTER_X_POS = 256 + ModernConfigManager.ammoCounterX;
+		final int AMMO_COUNTER_Y_POS = 128 + ModernConfigManager.ammoCounterY;
+		final double AMMO_COUNTER_SIZE = ModernConfigManager.ammoCounterSize;
+
 		
 		GlStateManager.enableBlend();
 		GlStateManager.pushMatrix();
 		
-		GlStateManager.translate((scaledWidth - AMMO_COUNTER_WIDTH * AMMO_COUNTER_SCALE), (scaledHeight - AMMO_COUNTER_Y_POS * AMMO_COUNTER_SCALE), 0);
-		GlStateManager.scale(AMMO_COUNTER_SCALE, AMMO_COUNTER_SCALE, AMMO_COUNTER_SCALE);
+		GlStateManager.translate((scaledWidth - AMMO_COUNTER_X_POS * AMMO_COUNTER_SIZE), (scaledHeight - AMMO_COUNTER_Y_POS * AMMO_COUNTER_SIZE), 0);
+		GlStateManager.scale(AMMO_COUNTER_SIZE, AMMO_COUNTER_SIZE, AMMO_COUNTER_SIZE);
 		mc.getTextureManager().bindTexture(AMMO_COUNTER_TEXTURES);
-		
 		
 		// Figure out the firemode, and assign it an ID
 		int firemode = 0;
@@ -327,9 +330,16 @@ public class CustomGui extends Gui {
 		double keyNameOffset = getFontRenderer().getStringWidth(keyNameString);
 		
 		// Render main ammo counter body
-		if(ModernConfigManager.enableAmmoCounterBackground) drawTexturedModalRect(0, 0, 0, 0, AMMO_COUNTER_WIDTH, AMMO_COUNTER_HEIGHT);
-		
-		
+		if(ModernConfigManager.enableAmmoCounterBackground) {
+			if(ModernConfigManager.ammoCounterBackgroundReverse) {
+				GlStateManager.enableBlend();
+				GlStateManager.pushMatrix();
+				GlStateManager.scale(-1, 1, 1);
+				drawTexturedModalRect(-90, 0, 0, 0, -AMMO_COUNTER_WIDTH, AMMO_COUNTER_HEIGHT);
+				GlStateManager.popMatrix();
+			} else
+				drawTexturedModalRect(0, 0, 0, 0, AMMO_COUNTER_WIDTH, AMMO_COUNTER_HEIGHT);
+		}
 		
 		// Draw the firemode indicator
 
@@ -337,7 +347,7 @@ public class CustomGui extends Gui {
 		GlStateManager.translate(AMMO_COUNTER_WIDTH - FIREMODE_INDICATOR_X_OFFSET - (keyNameOffset * KEY_NAME_OFFSET_FIREMODE_INDICATOR_MULTIPLIER), FIREMODE_INDICATOR_Y_OFFSET, 0);
 		GlStateManager.scale(FIREMODE_INDICATOR_SCALE, FIREMODE_INDICATOR_SCALE, FIREMODE_INDICATOR_SCALE);
 		GlStateManager.enableBlend();
-		drawTexturedModalRect(0, 0, 
+		drawTexturedModalRect(0, 0,
 				FIREMODE_INDICATOR_U_OFFSET + FIREMODE_INDICATOR_U_WIDTH * (Weapon.FIREMODE_AUTO - firemode),
 				FIREMODE_INDICATOR_V_HEIGHT, FIREMODE_INDICATOR_U_WIDTH, FIREMODE_INDICATOR_U_WIDTH);
 		GlStateManager.popMatrix();

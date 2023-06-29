@@ -1,6 +1,6 @@
 package com.paneedah.mwc.bases;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import net.minecraft.item.Item;
 
 import java.util.Arrays;
@@ -16,7 +16,7 @@ public class ItemBase extends Item {
 
         setMaxStackSize(stackSize);
         // Might want to change that?
-        setCreativeTab(ModernWarfareMod.BlocksTab);
+        setCreativeTab(MWC.BLOCKS_TAB);
     }
 
     public void setStackSize(int stackSize) {

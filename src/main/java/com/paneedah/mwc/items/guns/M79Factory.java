@@ -1,6 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.M79;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -40,7 +40,7 @@ public class M79Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.101f)
         .withShellCasingEjectEnabled(false)
         .withDestroyingBlocks(false)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
+        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 4f, // x 
@@ -616,6 +616,6 @@ public class M79Factory implements GunFactory {
             .withSpawnEntityGravityVelocity(0.3f)
             .withSpawnEntitySpeed(5f)
             .withSpawnEntityExplosionRadius(4f)
-            .build(ModernWarfareMod.MOD_CONTEXT);
+            .build(MWC.modContext);
         }
     }

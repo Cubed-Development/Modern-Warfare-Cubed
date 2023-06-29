@@ -4,7 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.CommonRegistry;
 import com.paneedah.weaponlib.ItemSkin;
@@ -35,58 +35,58 @@ public class GunSkins {
     public static void init(Object mod) {
         GunSkins.WoodlandCamo = new ItemSkin.Builder()
         		.withTextureVariant("woodlandcamo")
-                .withCreativeTab(ModernWarfareMod.AttachmentsTab)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("WoodlandCamo")
-                .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
+                .build(MWC.modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.WoodlandCamo);
         
         GunSkins.PinkCamo = new ItemSkin.Builder()
         		.withTextureVariant("pinkcamo")
-                .withCreativeTab(ModernWarfareMod.AttachmentsTab)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("PinkCamo")
-                .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
+                .build(MWC.modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.PinkCamo);
         
         GunSkins.ArcticCamo = new ItemSkin.Builder()
         		.withTextureVariant("arcticcamo")
-                .withCreativeTab(ModernWarfareMod.AttachmentsTab)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("ArcticCamo")
-                .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
+                .build(MWC.modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.ArcticCamo);
         
         GunSkins.BlueCamo = new ItemSkin.Builder()
         		.withTextureVariant("bluecamo")
-                .withCreativeTab(ModernWarfareMod.AttachmentsTab)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("BlueCamo")
-                .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
+                .build(MWC.modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.BlueCamo);
         
         GunSkins.Unit01Camo = new ItemSkin.Builder()
         		.withTextureVariant("unit01camo")
-                .withCreativeTab(ModernWarfareMod.AttachmentsTab)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("Unit01Camo")
-                .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
+                .build(MWC.modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.Unit01Camo);
         
         GunSkins.BloodForestCamo = new ItemSkin.Builder()
         		.withTextureVariant("bloodforestcamo")
-                .withCreativeTab(ModernWarfareMod.AttachmentsTab)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("BloodForestCamo")
-                .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
+                .build(MWC.modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.BloodForestCamo);
         
         GunSkins.DiamondCamo = new ItemSkin.Builder()
         		.withTextureVariant("diamondcamo")
-                .withCreativeTab(ModernWarfareMod.AttachmentsTab)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("DiamondCamo")
-                .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
+                .build(MWC.modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.DiamondCamo);
         
         GunSkins.GoldCamo = new ItemSkin.Builder()
         		.withTextureVariant("goldcamo")
-                .withCreativeTab(ModernWarfareMod.AttachmentsTab)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("GoldCamo")
-                .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
+                .build(MWC.modContext, ItemSkin.class);
         CommonRegistry.gunSkins.add(GunSkins.GoldCamo);
 
         File customSkinsDir = new File("./config/mwc/skins");
@@ -111,9 +111,9 @@ public class GunSkins {
                     String skinName = element.getAsString();
                     ItemSkin skin = new ItemSkin.Builder()
                             .withTextureVariant("customskin_" + skinName.toLowerCase())
-                            .withCreativeTab(ModernWarfareMod.AttachmentsTab)
+                            .withCreativeTab(MWC.ATTACHMENTS_TAB)
                             .withName(skinName)
-                            .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
+                            .build(MWC.modContext, ItemSkin.class);
                     CommonRegistry.gunSkins.add(skin);
                     ModReference.LOG.info("Registered custom gun skin: " + skinName);
                 }
@@ -144,9 +144,9 @@ public class GunSkins {
 
             ItemSkin skin = new ItemSkin.Builder()
                     .withTextureVariant("customskin_" + name.toLowerCase().replace(".png", ""))
-                    .withCreativeTab(ModernWarfareMod.AttachmentsTab)
+                    .withCreativeTab(MWC.ATTACHMENTS_TAB)
                     .withName(name.replace(".png", ""))
-                    .build(ModernWarfareMod.MOD_CONTEXT, ItemSkin.class);
+                    .build(MWC.modContext, ItemSkin.class);
             CommonRegistry.gunSkins.add(skin);
             ModReference.LOG.info("Registered custom gun skin: " + name);
         }
