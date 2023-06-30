@@ -36,7 +36,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Changed
 
-- Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1, 100rnd NATO Drum Magazine and the pink camo skin
+- Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1, 100rnd 5.56x45mm NATO STANAG Drum Magazine and the pink camo skin
 - Overhauled animations of the M40A6
 - Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight and Eotech Hybrid HHS™ II Sight
 - Reworked the config system:
