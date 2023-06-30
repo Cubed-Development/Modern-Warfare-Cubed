@@ -17,8 +17,8 @@ public class DesertEagleMag extends ModelWithAttachments {
 	private final ModelRenderer mag5_r1;
 
 	public DesertEagleMag() {
-		textureWidth = 128;
-		textureHeight = 128;
+		textureWidth = 150;
+		textureHeight = 150;
 
 		magazine = new ModelRenderer(this);
 		magazine.setRotationPoint(0.0F, 24.0F, 0.0F);
