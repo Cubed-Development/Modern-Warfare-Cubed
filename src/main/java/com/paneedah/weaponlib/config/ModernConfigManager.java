@@ -95,15 +95,28 @@ public class ModernConfigManager {
 //	 Fixing Method
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the ammo counter")
 	public static boolean enableAmmoCounter = true;
-	
+
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "")
+	public static int ammoCounterX = 0;
+
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "")
+	public static int ammoCounterY = 0;
+
+	@RangeDouble(min=0.1, max=3.0)
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "")
+	public static double ammoCounterSize = 0.50;
+
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the black background on the ammo counter.")
+	public static boolean enableAmmoCounterBackground = true;
+
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "")
+	public static boolean ammoCounterBackgroundReverse = false;
+
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enable open door key display when hovering doors")
 	public static boolean enableOpenDoorDisplay = true;
 	
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "If true, hold to aim. If false, toggle to aim.")
 	public static boolean holdToAim = true;
-	
-	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the black background on the ammo counter.")
-	public static boolean enableAmmoCounterBackground = true;
 
 	@RangeDouble(min=0.0, max=1.0)
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should players bleed when hit?")
