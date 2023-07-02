@@ -26,8 +26,8 @@ public class RMRsight extends ModelBase {
 	private final ModelRenderer sight7_r1;
 
 	public RMRsight() {
-		textureWidth = 90;
-		textureHeight = 90;
+		textureWidth = 80;
+		textureHeight = 80;
 
 		Sight = new ModelRenderer(this);
 		Sight.setRotationPoint(2.1762F, -3.0914F, -5.4192F);
