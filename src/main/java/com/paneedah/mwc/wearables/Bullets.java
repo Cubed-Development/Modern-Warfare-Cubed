@@ -75,7 +75,7 @@ public class Bullets {
                 .build(MWC.modContext, ItemBullet.class);
         
         M202Rocket = new ItemBullet.Builder()
-                .withCreativeTab(MWC.AMMO_TAB).withName("m202rocket").withMaxStackSize(4)
+                .withCreativeTab(MWC.AMMO_TAB).withName("m202rocket").withMaxStackSize(16)
                 .withModel(new com.paneedah.mwc.models.M202Rocket(), "gun.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", MWCItems.gunmetalPlate, MWCItems.gunmetalIngot)
                 .withFirstPersonPositioning((player, itemStack) -> {
