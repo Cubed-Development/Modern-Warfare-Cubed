@@ -20,7 +20,6 @@ import java.net.URL;
 import java.util.HashMap;
 
 public class GunSkins {
-
     public static ItemSkin WoodlandCamo;
     public static ItemSkin PinkCamo;
     public static ItemSkin ArcticCamo;
