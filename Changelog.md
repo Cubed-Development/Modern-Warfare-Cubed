@@ -115,6 +115,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 ### Optimization
 
 - As a result of a BIG code cleanup MWC as a whole should now be slightly faster, load slightly faster and use slightly less resources
+- As a result of the equipment overhaul MWC should use less ram and lag less when rendering equipment
 - Losslessly compressed assets as a result the jar size decreased (35.3MB -> 27.57MB)
 - Improved ShaderLoader
 - Reduced overhead due to the removal of most of the compatibility layer leading to increased performance
