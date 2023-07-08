@@ -67,29 +67,21 @@ item.SCPGuard_boots.name=SCP Guard Boots
 item.Dclass_chest.name=D-Class Chestpiece
 item.Dclass_boots.name=D-Class Boots
 
-item.mwc_tactical_push_backpack.name=Tactical Push Pack
-
-item.mwc_combat_sustainment_backpack.name=Combat Sustainment Backpack
+item.mwc_combat_sustainment_backpack_tan.name=Combat Sustainment Backpack (Tan)
 item.mwc_combat_sustainment_backpack_black.name=Combat Sustainment Backpack (Black)
 item.mwc_combat_sustainment_backpack_forest.name=Combat Sustainment Backpack (Forest)
 
-item.mwc_assault_backpack.name=Assault Backpack
+item.mwc_assault_backpack_tan.name=Assault Backpack (Tan)
 item.mwc_assault_backpack_black.name=Assault Backpack (Black)
 item.mwc_assault_backpack_forest.name=Assault Backpack (Forest)
 
-item.mwc_tru_spec_cordura_backpack.name=Tru-Spec Cordura Backpack
+item.mwc_tru_spec_cordura_backpack_tan.name=Tru-Spec Cordura Backpack (Tan)
 item.mwc_tru_spec_cordura_backpack_black.name=Tru-Spec Cordura Backpack (Black)
 item.mwc_tru_spec_cordura_backpack_forest.name=Tru-Spec Cordura Backpack (Forest)
 
+item.mwc_f5_switchblade_backpack.name=F5 Switchblade Backpack
+
 item.mwc_duffle_bag.name=Duffle Bag
-
-item.mwc_pilgrim_backpack.name=Pilgrim Backpack
-
-item.mwc_f4m_terminator_backpack.name=F4M Terminator Backpack
-
-item.mwc_bergen_backpack.name=Bergen Backpack
-
-item.mwc_g2_gunslinger2_backpack.name=G2 Gunslinger II Backpack
 
 item.mwc_flyye_field_compact_plate_carrier.name=Molle Plate Carrier
 item.mwc_molle_black.name=Molle Plate Carrier (Black)

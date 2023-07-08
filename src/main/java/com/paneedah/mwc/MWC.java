@@ -1,6 +1,7 @@
 package com.paneedah.mwc;
 
 import com.paneedah.mwc.creativetab.*;
+import com.paneedah.mwc.handlers.ClientEventHandler;
 import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.utils.OptiNotFine;
@@ -56,6 +57,9 @@ public final class MWC {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent preInitializationEvent) {
+        if (preInitializationEvent.getSide() == Side.CLIENT)
+            MinecraftForge.EVENT_BUS.register(ClientEventHandler.class);
+
         commonProxy.preInit(this);
     }
 

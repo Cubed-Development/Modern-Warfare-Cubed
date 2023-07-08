@@ -1,16 +1,14 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.items.equipment.ItemCarryableStorage;
-import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
+import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
 import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import com.paneedah.weaponlib.config.BalancePackManager;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
-import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
 import com.paneedah.weaponlib.inventory.EntityInventorySyncMessage;
 import com.paneedah.weaponlib.jim.util.ByteArrayUtils;
 import com.paneedah.weaponlib.jim.util.HitUtil;
@@ -33,7 +31,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -219,7 +216,7 @@ public class ServerEventHandler {
         if(entity instanceof EntityPlayer && !entity.world.isRemote) {
 
             if(!entity.world.getGameRules().getBoolean("keepInventory")) {
-                CustomPlayerInventory inventory = CompatibleCustomPlayerInventoryCapability.getInventory(entity);
+                EquipmentInventory inventory = CompatibleCustomPlayerInventoryCapability.getInventory(entity);
                 
                 for(int slotIndex = 0; slotIndex < inventory.getSizeInventory(); slotIndex++) {
                     ItemStack stackInSlot = inventory.getStackInSlot(slotIndex);
@@ -235,7 +232,7 @@ public class ServerEventHandler {
 
     @SubscribeEvent
     protected void onLivingHurtEvent(LivingHurtEvent livingHurtEvent) {
-        CustomPlayerInventory inventory = CompatibleCustomPlayerInventoryCapability
+        EquipmentInventory inventory = CompatibleCustomPlayerInventoryCapability
                 .getInventory(livingHurtEvent.getEntityLiving());
         if (inventory != null && inventory.getStackInSlot(1).getItem() != Items.AIR) {
             NonNullList<ItemStack> stackList = NonNullList.create();
@@ -273,7 +270,7 @@ public class ServerEventHandler {
         for(Iterator<EntityItem> it = playerDropsEvent.getDrops().iterator(); it.hasNext();) {
             EntityItem entityItem = it.next();
             // TODO: check if this item is item storage and prevent dropping if necessary, add it back to player inventory
-            if(entityItem.getItem().getItem() instanceof ItemCarryableStorage) {
+            if(entityItem.getItem().getItem() instanceof ItemBackpack) {
                 it.remove();
             }
         }
@@ -281,7 +278,7 @@ public class ServerEventHandler {
 
     @SubscribeEvent
     protected void onPlayerCloneEvent(PlayerEvent.Clone playerCloneEvent) {
-        CustomPlayerInventory originalInventory = CompatibleCustomPlayerInventoryCapability.getInventory(playerCloneEvent.getOriginal());
+        EquipmentInventory originalInventory = CompatibleCustomPlayerInventoryCapability.getInventory(playerCloneEvent.getOriginal());
 
         if(originalInventory != null) {
             CompatibleCustomPlayerInventoryCapability.setInventory(playerCloneEvent.getEntityPlayer(), originalInventory);

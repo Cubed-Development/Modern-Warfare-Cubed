@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.inventory;
 
+import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
@@ -17,7 +18,7 @@ public class EntityInventorySyncMessage implements IMessage {
 
     public EntityInventorySyncMessage() {}
     
-    public EntityInventorySyncMessage(Entity entity, CustomPlayerInventory inventory, boolean excludeEntity) {
+    public EntityInventorySyncMessage(Entity entity, EquipmentInventory inventory, boolean excludeEntity) {
         this.entityId = entity.getEntityId();
         this.excludeEntity = excludeEntity;
         this.inventoryCompound = new NBTTagCompound();
@@ -42,8 +43,8 @@ public class EntityInventorySyncMessage implements IMessage {
         packetBuf.writeCompoundTag(inventoryCompound);
     }
     
-    protected CustomPlayerInventory getInventory() {
-        CustomPlayerInventory inventory = new CustomPlayerInventory();
+    protected EquipmentInventory getInventory() {
+        EquipmentInventory inventory = new EquipmentInventory();
         if(inventoryCompound != null) {
             inventory.readFromNBT(inventoryCompound);
         }

@@ -67,29 +67,21 @@ item.SCPGuard_boots.name=SCP Guard Boots
 item.Dclass_chest.name=D-Class Chestpiece
 item.Dclass_boots.name=D-Class Boots
 
-item.mwc_tactical_push_backpack.name=Tactical Push Pack
-
-item.mwc_combat_sustainment_backpack.name=Mochila de mantenimiento de combate
+item.mwc_combat_sustainment_backpack_tan.name=Mochila de mantenimiento de combate (Bronceado)
 item.mwc_combat_sustainment_backpack_black.name=Mochila de mantenimiento de combate (Negro)
 item.mwc_combat_sustainment_backpack_forest.name=Mochila de mantenimiento de combate (Forest)
 
-item.mwc_assault_backpack.name=Mochila de asalto
+item.mwc_assault_backpack_tan.name=Mochila de asalto (Bronceado)
 item.mwc_assault_backpack_black.name=Mochila de asalto (Negro)
 item.mwc_assault_backpack_forest.name=Mochila de asalto (Forest)
 
-item.mwc_tru_spec_cordura_backpack.name=Mochila Cordura Tru-Spec
+item.mwc_tru_spec_cordura_backpack_tan.name=Mochila Cordura Tru-Spec (Bronceado)
 item.mwc_tru_spec_cordura_backpack_black.name=Mochila Cordura Tru-Spec (Negro)
 item.mwc_tru_spec_cordura_backpack_forest.name=Mochila Cordura Tru-Spec (Forest)
 
+item.mwc_f5_switchblade_backpack.name=Mochila F5 Switchblade
+
 item.mwc_duffle_bag.name=Bolsa de lona
-
-item.mwc_pilgrim_backpack.name=Pilgrim Backpack
-
-item.mwc_f4m_terminator_backpack.name=Mochila Terminator F4M
-
-item.mwc_bergen_backpack.name=Mochila Bergen
-
-item.mwc_g2_gunslinger2_backpack.name=Mochila G2 Pistolero II
 
 item.mwc_flyye_field_compact_plate_carrier.name=Portador de placa Molle
 item.mwc_molle_black.name=Portador de placa Molle(Negro)

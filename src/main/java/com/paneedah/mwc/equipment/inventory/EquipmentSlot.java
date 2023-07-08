@@ -1,6 +1,6 @@
-package com.paneedah.weaponlib.inventory;
+package com.paneedah.mwc.equipment.inventory;
 
-import com.paneedah.mwc.items.equipment.ItemCarryableStorage;
+import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
 import com.paneedah.weaponlib.ItemVest;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -12,14 +12,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 
-public class CustomSlot extends Slot {
+public class EquipmentSlot extends Slot {
 
     private static final ResourceLocation emptyBackpackSlotTexture = new ResourceLocation(ID, "gui/inventory/empty_backpack_slot");
     private static final ResourceLocation emptyVestSlotTexture = new ResourceLocation(ID, "gui/inventory/empty_vest_slot");
     
     private final Class<?> itemClass;
     
-    public CustomSlot(Class<?> itemClass, IInventory inventory, int slotIndex, int x, int y) {
+    public EquipmentSlot(Class<?> itemClass, IInventory inventory, int slotIndex, int x, int y) {
         super(inventory, slotIndex, x, y);
         this.itemClass = itemClass;
     }
@@ -40,7 +40,7 @@ public class CustomSlot extends Slot {
     @Override
     @SideOnly(Side.CLIENT)
     public String getSlotTexture() {
-        if (itemClass.equals(ItemCarryableStorage.class))
+        if (itemClass.equals(ItemBackpack.class))
             return emptyBackpackSlotTexture.toString();
         else if (itemClass.equals(ItemVest.class))
             return emptyVestSlotTexture.toString();
@@ -50,7 +50,7 @@ public class CustomSlot extends Slot {
 
     @SideOnly(Side.CLIENT)
     private static void onGuiSlotChanged() {
-        final GuiEquipmentInventory container = GuiEquipmentInventory.getClickedGuiContainer();
+        final GuiEquipment container = GuiEquipment.getClickedGuiContainer();
 
         if(container != null)
             container.initGui();

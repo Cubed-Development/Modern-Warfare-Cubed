@@ -1,6 +1,6 @@
-package com.paneedah.mwc.equipment.inventory;
+package com.paneedah.mwc.equipment.inventory.carryable.backpack;
 
-import com.paneedah.mwc.items.equipment.ItemCarryableStorage;
+import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
@@ -13,7 +13,7 @@ import net.minecraftforge.common.util.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarryableStorageInventory implements IInventory {
+public class BackpackInventory implements IInventory {
     
     private static final String TAG_SLOT_INDEX = "Slot";
     private static final String TAG_SIZE = "size";
@@ -27,11 +27,11 @@ public class CarryableStorageInventory implements IInventory {
     /**
      * @param owner The ItemStack to which this inventory belongs
      */
-    public CarryableStorageInventory(ItemStack owner) {
+    public BackpackInventory(ItemStack owner) {
         this.owner = owner;
         this.name = null;
 
-        final int size = ((ItemCarryableStorage)owner.getItem()).getSize();
+        final int size = ((ItemBackpack)owner.getItem()).getSize();
 
         inventory = new ItemStack[size];
 
@@ -47,8 +47,8 @@ public class CarryableStorageInventory implements IInventory {
         deserialize(owner.getTagCompound());
     }
 
-    public ItemCarryableStorage getOwner() {
-        return (ItemCarryableStorage) owner.getItem();
+    public ItemBackpack getOwner() {
+        return (ItemBackpack) owner.getItem();
     }
 
     @Override

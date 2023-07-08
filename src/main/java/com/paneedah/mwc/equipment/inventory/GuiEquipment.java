@@ -1,6 +1,7 @@
-package com.paneedah.weaponlib.inventory;
+package com.paneedah.mwc.equipment.inventory;
 
-import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.weaponlib.inventory.CustomPlayerInventoryTab;
+import com.paneedah.weaponlib.inventory.InventoryTabs;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.InventoryEffectRenderer;
@@ -12,15 +13,15 @@ import java.io.IOException;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 
-public class GuiEquipmentInventory extends InventoryEffectRenderer {
+public class GuiEquipment extends InventoryEffectRenderer {
 
     // Todo: Fix this name
     private static final ResourceLocation backGround = new ResourceLocation(ID, "textures/gui/inventory/custom_inventory.png");
 
-    private static GuiEquipmentInventory currentGuiContainer;
+    private static GuiEquipment currentGuiContainer;
 
-    public GuiEquipmentInventory(EntityPlayer player, InventoryPlayer inventoryPlayer, CustomPlayerInventory inventoryCustom) {
-        super(new EquipmentInventory(player, inventoryPlayer, inventoryCustom));
+    public GuiEquipment(EntityPlayer player, InventoryPlayer inventoryPlayer, EquipmentInventory inventoryCustom) {
+        super(new EquipmentContainer(player, inventoryPlayer, inventoryCustom));
         allowUserInput = true;
     }
     
@@ -69,7 +70,7 @@ public class GuiEquipmentInventory extends InventoryEffectRenderer {
         super.mouseReleased(mouseX, mouseY, state);
     }
 
-    protected static GuiEquipmentInventory getClickedGuiContainer() {
+    protected static GuiEquipment getClickedGuiContainer() {
         return currentGuiContainer;
     }
 }

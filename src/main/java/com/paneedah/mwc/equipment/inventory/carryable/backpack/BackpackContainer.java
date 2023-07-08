@@ -1,7 +1,5 @@
-package com.paneedah.mwc.equipment.inventory;
+package com.paneedah.mwc.equipment.inventory.carryable.backpack;
 
-import com.paneedah.mwc.equipment.inventory.CarryableStorageInventory;
-import com.paneedah.mwc.equipment.inventory.CarryableStorageSlot;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -18,12 +16,12 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarryableStorageContainer extends Container {
+public class BackpackContainer extends Container {
 
     /**
      * The Item Inventory for this Container, only needed if you want to reference isUseableByPlayer
      */
-    private final CarryableStorageInventory inventory;
+    public final BackpackInventory inventory;
 
     private int armorSlotStartIndex;
     private int armorSlotEndIndex;
@@ -32,7 +30,7 @@ public class CarryableStorageContainer extends Container {
     private int hotbarSlotStartIndex;
     private int hotbarSlotEndIndex;
 
-    public CarryableStorageContainer(EntityPlayer player, InventoryPlayer inventoryPlayer, CarryableStorageInventory inventoryItem) {
+    public BackpackContainer(EntityPlayer player, InventoryPlayer inventoryPlayer, BackpackInventory inventoryItem) {
         this.inventory = inventoryItem;
 
         final List<Slot> storageSlots = createStorageSlots(inventory);
@@ -60,11 +58,11 @@ public class CarryableStorageContainer extends Container {
         this.hotbarSlotEndIndex = hotbarSlotStartIndex + hotbarSlots.size() - 1;
     }
 
-    protected List<Slot> createStorageSlots(CarryableStorageInventory inventoryCustom) {
+    protected List<Slot> createStorageSlots(BackpackInventory inventoryCustom) {
         
         List<Slot> slots = new ArrayList<>();
         for (int i = 0; i < inventoryCustom.getSizeInventory(); ++i) {
-            slots.add(new CarryableStorageSlot(this.inventory, i, 80 + (18 * (int) (i / 4)), 8 + (18 * (i % 4))));
+            slots.add(new BackpackSlot(this.inventory, i, 80 + (18 * (int) (i / 4)), 8 + (18 * (i % 4))));
         }
         
         return slots;
@@ -233,9 +231,5 @@ public class CarryableStorageContainer extends Container {
         }
 
         return itemstack;
-    }
-
-    public CarryableStorageInventory getStorageInventory() {
-        return inventory;
     }
 }

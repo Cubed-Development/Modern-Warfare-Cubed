@@ -1,6 +1,6 @@
-package com.paneedah.weaponlib.inventory;
+package com.paneedah.mwc.equipment.inventory;
 
-import com.paneedah.mwc.items.equipment.ItemCarryableStorage;
+import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
 import com.paneedah.weaponlib.ItemVest;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,10 +19,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class EquipmentInventory extends Container {
+public class EquipmentContainer extends Container {
 
-    @SuppressWarnings("unused")
-    private CustomPlayerInventory customPlayerInventory;
+    private EquipmentInventory equipmentInventory;
 
     private int customSlotStartIndex;
     private int customSlotEndIndex;
@@ -35,11 +34,11 @@ public class EquipmentInventory extends Container {
 
     private List<Slot> customSlots;
 
-    public EquipmentInventory(EntityPlayer player, InventoryPlayer inventoryPlayer, CustomPlayerInventory customPlayerInventory) {
+    public EquipmentContainer(EntityPlayer player, InventoryPlayer inventoryPlayer, EquipmentInventory equipmentInventory) {
 
-        this.customPlayerInventory = customPlayerInventory;
+        this.equipmentInventory = equipmentInventory;
 
-        this.customSlots = createCustomSlots(customPlayerInventory);
+        this.customSlots = createCustomSlots(equipmentInventory);
         customSlots.forEach(slot -> addSlotToContainer(slot));
 
         this.customSlotStartIndex = 0;
@@ -48,7 +47,7 @@ public class EquipmentInventory extends Container {
         List<Slot> armorSlots = createArmorSlots(player, inventoryPlayer);
         // armorSlots.forEach(slot -> addSlotToContainer(slot));
 
-        this.armorSlotStartIndex = customPlayerInventory.getSizeInventory();
+        this.armorSlotStartIndex = equipmentInventory.getSizeInventory();
         this.armorSlotEndIndex = armorSlotStartIndex + armorSlots.size() - 1;
 
         List<Slot> standardInventorySlots = createStandardInventorySlots(inventoryPlayer);
@@ -64,11 +63,11 @@ public class EquipmentInventory extends Container {
         this.hotbarSlotEndIndex = hotbarSlotStartIndex + hotbarSlots.size() - 1;
     }
 
-    protected List<Slot> createCustomSlots(CustomPlayerInventory inventoryCustom) {
+    protected List<Slot> createCustomSlots(EquipmentInventory inventoryCustom) {
         return Arrays.asList(
-                new CustomSlot(ItemCarryableStorage.class, inventoryCustom, 0, 80, 8),
-                new CustomSlot(ItemCarryableStorage.class, inventoryCustom, 1, 80, 26),
-                new CustomSlot(ItemVest.class, inventoryCustom, 2, 80, 44)
+                new EquipmentSlot(ItemBackpack.class, inventoryCustom, 0, 80, 8),
+                new EquipmentSlot(ItemBackpack.class, inventoryCustom, 1, 80, 26),
+                new EquipmentSlot(ItemVest.class, inventoryCustom, 2, 80, 44)
         );
     }
 

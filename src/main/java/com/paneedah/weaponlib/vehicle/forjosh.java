@@ -24,7 +24,7 @@ public class forjosh {
         ItemStack[] backpack = null;
         if(inventory != null){
             try {
-                backpack = (ItemStack[]) ReflectionHelper.findField(Class.forName("com.paneedah.weaponlib.inventory.CustomPlayerInventory"), "inventory").get(inventory);
+                backpack = (ItemStack[]) ReflectionHelper.findField(Class.forName("com.paneedah.mwc.equipment.inventory.EquipmentInventory"), "inventory").get(inventory);
             } catch (Exception e) { return null; }
         }
         ItemStackHandler handler = new ItemStackHandler(2);

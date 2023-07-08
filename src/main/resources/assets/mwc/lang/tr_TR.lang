@@ -67,29 +67,21 @@ item.SCPGuard_boots.name=SCP Muhafızı Botları
 item.Dclass_chest.name=D Sınıfı Göğüslükleri
 item.Dclass_boots.name=D Sınıfı Botları
 
-item.mwc_tactical_push_backpack.name=Taktik Sırt Çantası
-
-item.mwc_combat_sustainment_backpack.name=Savaş Destek Çantası
+item.mwc_combat_sustainment_backpack_tan.name=Savaş Destek Çantası (Tan)
 item.mwc_combat_sustainment_backpack_black.name=Savaş Destek Çantası (Siyah)
 item.mwc_combat_sustainment_backpack_forest.name=Savaş Destek Çantası (Orman)
 
-item.mwc_assault_backpack.name=Taarruz Çantası
+item.mwc_assault_backpack_tan.name=Taarruz Çantası (Tan)
 item.mwc_assault_backpack_black.name=Taarruz Çantası (Siyah)
 item.mwc_assault_backpack_forest.name=Taarruz Çantası (Orman)
 
-item.mwc_tru_spec_cordura_backpack.name=Tru-Spec Cordura Çantası
+item.mwc_tru_spec_cordura_backpack_tan.name=Tru-Spec Cordura Çantası (Tan)
 item.mwc_tru_spec_cordura_backpack_black.name=Tru-Spec Cordura Çantası (Siyah)
 item.mwc_tru_spec_cordura_backpack_forest.name=Tru-Spec Cordura Çantası (Orman)
 
+item.mwc_f5_switchblade_backpack.name=F5 Sustalı Sırt Çantası
+
 item.mwc_duffle_bag.name=Spor Çantası
-
-item.mwc_pilgrim_backpack.name=Pilgrim Sırt Çantası
-
-item.mwc_f4m_terminator_backpack.name=F4M Terminator Sırt Çantası
-
-item.mwc_bergen_backpack.name=Bergen Sırt Çantası
-
-item.mwc_g2_gunslinger2_backpack.name=G2 Gunslinger II Sırt Çantası
 
 item.mwc_flyye_field_compact_plate_carrier.name=Molle Plaka Taşıyıcı
 item.mwc_molle_black.name=Molle Plaka Taşıyıcı (Siyah)

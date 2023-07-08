@@ -11,6 +11,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 **If you are upgrading from either Vic's Modern Warfare or Modern Warfare Cubed Version 0.1-Dev-6 or under all Modern Warfare related item, blocks weapons etc... will disappear from your save either back up your world or start a new one.**
 
+**When updating to this version from an existing world all tan variants of every back as well as the F5 Switchblade will disappear, they aren't being removed then just changed internally**
+
 ### Highlight
 
 ### Added

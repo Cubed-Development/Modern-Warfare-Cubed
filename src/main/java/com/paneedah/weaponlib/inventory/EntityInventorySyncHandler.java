@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.inventory;
 
+import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
 import net.minecraft.entity.Entity;
@@ -38,7 +39,7 @@ public class EntityInventorySyncHandler implements IMessageHandler<EntityInvento
     public void onServerMessage(EntityInventorySyncMessage message, MessageContext messageContext) {
         messageContext.getServerHandler().player.getServer().addScheduledTask(() -> {
             EntityPlayer player = messageContext.getServerHandler().player;
-            CustomPlayerInventory inventory = message.getInventory();
+            EquipmentInventory inventory = message.getInventory();
             inventory.setContext(modContext);
             inventory.setOwner((EntityPlayer) player);
             CompatibleCustomPlayerInventoryCapability.setInventory((EntityLivingBase) player, inventory);
@@ -54,7 +55,7 @@ public class EntityInventorySyncHandler implements IMessageHandler<EntityInvento
             Entity targetEntity = message.getEntity(player.world);
 
             if(targetEntity != player || (targetEntity == player && !message.isExcludeEntity())) {
-                CustomPlayerInventory inventory = message.getInventory();
+                EquipmentInventory inventory = message.getInventory();
                 inventory.setContext(modContext);
                 inventory.setOwner((EntityPlayer) targetEntity);
                 CompatibleCustomPlayerInventoryCapability.setInventory((EntityLivingBase) targetEntity, inventory);

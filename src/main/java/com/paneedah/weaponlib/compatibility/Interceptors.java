@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
+import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.weaponlib.numerical.LissajousCurve;
 import com.paneedah.weaponlib.render.NewScreenshakingManager;
 import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
@@ -695,7 +695,7 @@ public class Interceptors {
             
             
             
-            CustomPlayerInventory capability = CompatibleCustomPlayerInventoryCapability.getInventory(player);
+            EquipmentInventory capability = CompatibleCustomPlayerInventoryCapability.getInventory(player);
             if(capability != null) {
                 ItemStack backpackStack = capability.getStackInSlot(0); // TODO: replace 0 with constant for backpack slot 
                 if(backpackStack != null) {

@@ -109,46 +109,21 @@ item.scar_helmet.name=空间站军直侦查连EVA头盔
 item.scar_chest.name=空间站军直侦查连EVA服装
 item.scar_boots.name=空间站军直侦查连EVA靴子
 
-item.mwc_tactical_push_backpack.name=战术随身腰包
-item.mwc_desert_tactical_push_backpack.name=战术随身腰包 (沙漠)
+item.mwc_combat_sustainment_backpack_tan.name=战斗持久背包（棕色）
+item.mwc_combat_sustainment_backpack_black.name=战斗持久背包（黑色）
+item.mwc_combat_sustainment_backpack_forest.name=战斗持久背包（森林色）
 
-item.mwc_combat_sustainment_backpack.name=战斗支援背包
-item.mwc_forest_combat_sustainment_backpack.name=战斗支援背包 (丛林)
+item.mwc_assault_backpack_tan.name=突击背包（棕色）
+item.mwc_assault_backpack_black.name=突击背包（黑色）
+item.mwc_assault_backpack_forest.name=突击背包（森林色）
 
-item.mwc_blackhawk_stealth_backpack.name=黑鹰诡影背包
-item.mwc_urban_blackhawk_stealth_backpack.name=黑鹰诡影背包 (城市)
-item.mwc_forest_blackhawk_stealth_backpack.name=黑鹰诡影背包 (丛林)
+item.mwc_tru_spec_cordura_backpack_tan.name=Tru-Spec科尔杜拉背包（棕色）
+item.mwc_tru_spec_cordura_backpack_black.name=Tru-Spec科尔杜拉背包（黑色）
+item.mwc_tru_spec_cordura_backpack_forest.name=Tru-Spec科尔杜拉背包（森林色）
 
-item.mwc_assault_backpack.name=突击背包
-item.mwc_urban_assault_backpack.name=突击背包 (城市)
-item.mwc_forest_assault_backpack.name=突击背包 (丛林)
+item.mwc_f5_switchblade_backpack.name=F5 Switchblade背包
 
-item.mwc_tru_spec_cordura_backpack.name=特战防水背包
-item.mwc_desert_tru_spec_cordura_backpack.name=特战防水背包 (沙漠)
-item.mwc_black_tru_spec_cordura_backpack.name=特战防水背包 (黑)
-
-item.mwc_mil_spec_alice_backpack.name=军用帆布背包
-item.mwc_desert_mil_spec_alice_backpack.name=军用帆布背包 (沙漠)
-item.mwc_urban_mil_spec_alice_backpack.name=军用帆布背包 (城市)
-
-item.mwc_duffle_bag.name=圆筒型旅行包
-
-item.mwc_tri_zip_backpack.name=3合1后背包
-
-item.mwc_pilgrim_backpack.name=旅行背包
-
-item.mwc_f4m_terminator_backpack.name=F4M 终结者 背包
-item.mwc_urban_f4m_terminator_backpack.name=F4M 终结者 背包 (城市)
-item.mwc_forest_f4m_terminator_backpack.name=F4M 终结者 背包 (丛林)
-
-item.mwc_bergen_backpack.name=卑尔根后背包
-item.mwc_forest_bergen_backpack.name=卑尔根后背包 (丛林)
-item.mwc_urban_bergen_backpack.name=卑尔根后背包 (城市)
-
-item.mwc_sso_attack_2.name=SSO Attack II 背包
-item.mwc_forest_sso_attack_2.name=SSO Attack II 背包 (丛林)
-
-item.mwc_g2_gunslinger2_backpack.name=G2 Gunslinger II 背包
+item.mwc_duffle_bag.name=行李袋
 
 item.mwc_flyye_field_compact_plate_carrier.name=翔野战术背心
 item.mwc_forest_flyye_field_compact_plate_carrier.name=翔野战术背心 (丛林)

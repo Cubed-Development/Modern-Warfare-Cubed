@@ -1,8 +1,9 @@
-package com.paneedah.weaponlib.inventory;
+package com.paneedah.mwc.equipment.inventory;
 
+import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
 import com.paneedah.weaponlib.Contextual;
-import com.paneedah.mwc.items.equipment.ItemCarryableStorage;
 import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.inventory.EntityInventorySyncMessage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
@@ -11,7 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.text.ITextComponent;
 
-public class CustomPlayerInventory implements IInventory, Contextual {
+public class EquipmentInventory implements IInventory, Contextual {
     /**
      * The name your custom inventory will display in the GUI, possibly just
      * "Inventory"
@@ -29,7 +30,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
     
     private EntityPlayer owner;
 
-    public CustomPlayerInventory(/*ModContext modContext*/) {
+    public EquipmentInventory(/*ModContext modContext*/) {
         inventory = new ItemStack[INV_SIZE];
         for(int i = 0; i < inventory.length; i++) {
             inventory[i] = new ItemStack(Items.AIR);
@@ -81,7 +82,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
         this.inventory[slot] = itemstack != null ? itemstack : new ItemStack(Items.AIR);
 
         if (itemstack != null && itemstack.getCount() > this.getInventoryStackLimit()) {
-            if(itemstack.getItem() instanceof ItemCarryableStorage) {
+            if(itemstack.getItem() instanceof ItemBackpack) {
 //                System.out.println("Setting inventory slot " + slot + " with tag compound "
 //                        + itemstack.getTagCompound());
             }
@@ -113,7 +114,7 @@ public class CustomPlayerInventory implements IInventory, Contextual {
         }
         
         if(modContext != null && owner != null && owner.world.isRemote) {
-            modContext.getChannel().sendToServer(new EntityInventorySyncMessage(owner, 
+            modContext.getChannel().sendToServer(new EntityInventorySyncMessage(owner,
                     this, true));
 //            modContext.getChannel().sendToAll(
 //                    new EntityInventorySyncMessage(owner, this, true));

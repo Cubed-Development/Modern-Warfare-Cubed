@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.compatibility;
 
 import com.paneedah.weaponlib.CommonModContext;
-import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
+import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -16,20 +16,20 @@ import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 public class CompatibleCustomPlayerInventoryCapability implements ICapabilitySerializable<NBTBase> {
     
     public static interface InventoryContainer {
-        public void setInventory(CustomPlayerInventory inventory);
-        public CustomPlayerInventory getInventory();
+        public void setInventory(EquipmentInventory inventory);
+        public EquipmentInventory getInventory();
     }
     
     public static class InventoryContainerImpl implements InventoryContainer {
-        private CustomPlayerInventory inventory = new CustomPlayerInventory();
+        private EquipmentInventory inventory = new EquipmentInventory();
 
         @Override
-        public void setInventory(CustomPlayerInventory inventory) {
+        public void setInventory(EquipmentInventory inventory) {
             this.inventory = inventory;
         }
 
         @Override
-        public CustomPlayerInventory getInventory() {
+        public EquipmentInventory getInventory() {
             return inventory;
         }
     }
@@ -47,7 +47,7 @@ public class CompatibleCustomPlayerInventoryCapability implements ICapabilitySer
         @Override
         public void readNBT(Capability<InventoryContainer> capability, InventoryContainer instance, EnumFacing side,
                 NBTBase nbt) {
-            CustomPlayerInventory inventory = new CustomPlayerInventory();
+            EquipmentInventory inventory = new EquipmentInventory();
             inventory.readFromNBT((NBTTagCompound)nbt);
             instance.setInventory(inventory);
             
@@ -59,7 +59,7 @@ public class CompatibleCustomPlayerInventoryCapability implements ICapabilitySer
     private InventoryContainer instance = capabilityContainer.getDefaultInstance(); // doesn't this trigger null pointer exception if capability is not registered?
 
 
-    public static void setInventory(EntityLivingBase entity, CustomPlayerInventory inventory) {
+    public static void setInventory(EntityLivingBase entity, EquipmentInventory inventory) {
         if(entity == null) return ;
         InventoryContainer container = entity.getCapability(capabilityContainer, null);
         if(container != null) {
@@ -72,7 +72,7 @@ public class CompatibleCustomPlayerInventoryCapability implements ICapabilitySer
                 InventoryContainerImpl.class);
     }
 
-    public static CustomPlayerInventory getInventory(EntityLivingBase entity) {
+    public static EquipmentInventory getInventory(EntityLivingBase entity) {
         if(entity == null) return null;
         InventoryContainer container = entity.getCapability(capabilityContainer, null);
         return container != null ? container.getInventory() : null;

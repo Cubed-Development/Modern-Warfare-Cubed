@@ -59,8 +59,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
         updateBrightness();
         spreadableExposure = null;
         lightExposure = null;
-        return nightVisionEnabled || blurEnabled || vignetteEnabled || sepiaRatio > 0 || flashEnabled ?
-                source : null;
+        return nightVisionEnabled || blurEnabled || vignetteEnabled || sepiaRatio > 0 || flashEnabled ? source : null;
     }
     
     private void updateBrightness() {

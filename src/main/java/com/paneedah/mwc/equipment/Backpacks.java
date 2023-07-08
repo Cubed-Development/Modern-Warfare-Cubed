@@ -1,7 +1,8 @@
 package com.paneedah.mwc.equipment;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.items.equipment.ItemCarryableStorage;
+import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
+import com.paneedah.mwc.models.*;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.config.BalancePackManager;
@@ -9,30 +10,30 @@ import net.minecraft.item.Item;
 
 public class Backpacks {
 
-    public static Item CombatSustainmentBackpack;
-    public static Item CombatSustainmentBackpackBlack;
-    public static Item CombatSustainmentBackpackForest;
+    public static Item combatSustainmentBackpackTan;
+    public static Item combatSustainmentBackpackBlack;
+    public static Item combatSustainmentBackpackForest;
 
-    public static Item AssaultBackpack;
-    public static Item AssaultBackpackBlack;
-    public static Item AssaultBackpackForest;
+    public static Item assaultBackpackTan;
+    public static Item assaultBackpackBlack;
+    public static Item assaultBackpackForest;
 
-    public static Item F5SwitchbladeBackpack;
+    public static Item truSpecCorduraBackpackTan;
+    public static Item truSpecCorduraBackpackBlack;
+    public static Item truSpecCorduraBackpackForest;
 
-    public static Item TruSpecCorduraBackpack;
-    public static Item TruSpecCorduraBackpackBlack;
-    public static Item TruSpecCorduraBackpackForest;
+    public static Item f5SwitchbladeBackpack;
 
-    public static Item Dufflebag;
+    public static Item duffleBag;
 
     public static void init() {
 
-        CombatSustainmentBackpack = new ItemCarryableStorage.Builder()
-                .withName("combat_sustainment_backpack")
+        combatSustainmentBackpackTan = new ItemBackpack.Builder()
+                .withName("combat_sustainment_backpack_tan")
                 .withSize(10)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.EQUIPMENT_TAB)
-                .withProperModel("com.paneedah.mwc.models.CombatSustainmentBackpack", "combatsustainmentbackpack.png")
+                .withModel(new CombatSustainmentBackpack())
+                .withTexture("equipment/carryable/backpacks/combat_sustainment_backpack_tan")
                 .withInventoryPositioning(stack -> new Transform()
                         .withPosition(-0.15, -4.6, 0.35)
                         .withRotation(18, -50, 0)
@@ -40,12 +41,12 @@ public class Backpacks {
                         .doGLDirect())
                 .build(MWC.modContext);
 
-        CombatSustainmentBackpackBlack = new ItemCarryableStorage.Builder()
+        combatSustainmentBackpackBlack = new ItemBackpack.Builder()
                 .withName("combat_sustainment_backpack_black")
                 .withSize(10)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.EQUIPMENT_TAB)
-                .withProperModel("com.paneedah.mwc.models.CombatSustainmentBackpack", "combatsustainmentblack.png")
+                .withModel(new CombatSustainmentBackpack())
+                .withTexture("equipment/carryable/backpacks/combat_sustainment_backpack_black")
                 .withInventoryPositioning(stack -> new Transform()
                         .withPosition(-0.15, -4.6, 0.35)
                         .withRotation(18, -50, 0)
@@ -53,12 +54,12 @@ public class Backpacks {
                         .doGLDirect())
                 .build(MWC.modContext);
 
-        CombatSustainmentBackpackForest = new ItemCarryableStorage.Builder()
+        combatSustainmentBackpackForest = new ItemBackpack.Builder()
                 .withName("combat_sustainment_backpack_forest")
                 .withSize(10)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.EQUIPMENT_TAB)
-                .withProperModel("com.paneedah.mwc.models.CombatSustainmentBackpack", "combatsustainmentforest.png")
+                .withModel(new CombatSustainmentBackpack())
+                .withTexture("equipment/carryable/backpacks/combat_sustainment_backpack_forest")
                 .withInventoryPositioning(stack -> new Transform()
                         .withPosition(-0.15, -4.6, 0.35)
                         .withRotation(18, -50, 0)
@@ -66,68 +67,68 @@ public class Backpacks {
                         .doGLDirect())
                 .build(MWC.modContext);
 
-        AssaultBackpack = new ItemCarryableStorage.Builder()
-                .withName("assault_backpack")
+        assaultBackpackTan = new ItemBackpack.Builder()
+                .withName("assault_backpack_tan")
                 .withSize(16)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.EQUIPMENT_TAB)
-                .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpack.png")
+                .withModel(new AssaultBackpack())
+                .withTexture("equipment/carryable/backpacks/assault_backpack_tan")
                 .build(MWC.modContext);
 
-        AssaultBackpackBlack = new ItemCarryableStorage.Builder()
+        assaultBackpackBlack = new ItemBackpack.Builder()
                 .withName("assault_backpack_black")
                 .withSize(16)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.EQUIPMENT_TAB)
-                .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpackblack.png")
+                .withModel(new AssaultBackpack())
+                .withTexture("equipment/carryable/backpacks/assault_backpack_black")
                 .build(MWC.modContext);
 
-        AssaultBackpackForest = new ItemCarryableStorage.Builder()
+        assaultBackpackForest = new ItemBackpack.Builder()
                 .withName("assault_backpack_forest")
                 .withSize(16)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.EQUIPMENT_TAB)
-                .withProperModel("com.paneedah.mwc.models.AssaultBackpack", "assaultbackpackforest.png")
+                .withModel(new AssaultBackpack())
+                .withTexture("equipment/carryable/backpacks/assault_backpack_forest")
                 .build(MWC.modContext);
 
-        F5SwitchbladeBackpack = new ItemCarryableStorage.Builder()
-                .withName("f5switchbladebackpack")
-                .withSize(16)
-                .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.EQUIPMENT_TAB)
-                .withProperModel("com.paneedah.mwc.models.F5SwitchbladeBackpack", "f5switchbladebackpack.png")
-                .build(MWC.modContext);
-
-        TruSpecCorduraBackpack = new ItemCarryableStorage.Builder()
-                .withName("tru_spec_cordura_backpack")
+        truSpecCorduraBackpackTan = new ItemBackpack.Builder()
+                .withName("tru_spec_cordura_backpack_tan")
                 .withSize(20)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.EQUIPMENT_TAB)
-                .withProperModel("com.paneedah.mwc.models.TruSpecCorduraBackpack", "truspeccordurabackpack.png")
+                .withModel(new TruSpecCorduraBackpack())
+                .withTexture("equipment/carryable/backpacks/tru_spec_cordura_backpack_tan")
                 .build(MWC.modContext);
 
-        TruSpecCorduraBackpackBlack = new ItemCarryableStorage.Builder()
+        truSpecCorduraBackpackBlack = new ItemBackpack.Builder()
                 .withName("tru_spec_cordura_backpack_black")
                 .withSize(20)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.EQUIPMENT_TAB)
-                .withProperModel("com.paneedah.mwc.models.TruSpecCorduraBackpack", "truspeccordurablack.png")
+                .withModel(new TruSpecCorduraBackpack())
+                .withTexture("equipment/carryable/backpacks/tru_spec_cordura_backpack_black")
                 .build(MWC.modContext);
 
-        TruSpecCorduraBackpackForest = new ItemCarryableStorage.Builder()
+        truSpecCorduraBackpackForest = new ItemBackpack.Builder()
                 .withName("tru_spec_cordura_backpack_forest")
                 .withSize(20)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
-                .withTab(MWC.EQUIPMENT_TAB)
-                .withProperModel("com.paneedah.mwc.models.TruSpecCorduraBackpack", "truspeccorduraforest.png")
+                .withModel(new TruSpecCorduraBackpack())
+                .withTexture("equipment/carryable/backpacks/tru_spec_cordura_backpack_forest")
                 .build(MWC.modContext);
 
-        Dufflebag = new ItemCarryableStorage.Builder()
+        f5SwitchbladeBackpack = new ItemBackpack.Builder()
+                .withName("f5_switchblade_backpack")
+                .withSize(16)
+                .withValidItemPredicate(item -> !(item instanceof Weapon))
+                .withModel(new F5SwitchbladeBackpack())
+                .withTexture("equipment/carryable/backpacks/f5_switchblade_backpack")
+                .build(MWC.modContext);
+
+        duffleBag = new ItemBackpack.Builder()
                 .withName("duffle_bag")
                 .withSize(24)
                 .withValidItemPredicate(item -> !(item instanceof Weapon) || (((Weapon) item).getConfigurationGroup() == BalancePackManager.GunConfigurationGroup.SIDEARM || ((Weapon) item).getConfigurationGroup() == BalancePackManager.GunConfigurationGroup.REVOLVER))
-                .withTab(MWC.EQUIPMENT_TAB)
-                .withProperModel("com.paneedah.mwc.models.Dufflebag", "dufflebag.png")
+                .withModel(new Dufflebag())
+                .withTexture("equipment/carryable/backpacks/duffle_bag")
                 .withInventoryPositioning(stack -> new Transform()
                         .withPosition(-0.15, -3.65, 0.35)
                         .withRotation(18, -50, 0)

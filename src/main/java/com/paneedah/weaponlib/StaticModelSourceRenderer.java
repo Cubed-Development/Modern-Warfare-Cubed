@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.items.equipment.carryable.ItemCarryable;
 import com.paneedah.mwc.skins.CustomSkin;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
 import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.compatibility.ModelSourceRenderer;
@@ -257,24 +257,24 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
     
     public void renderCustomEquipped(EntityPlayer player, ItemStack itemStack) {
         RenderContext<RenderableState> renderContext = new RenderContext<>(getModContext(), player, itemStack);
-        
+
         GL11.glPushMatrix();
-        
+
         GL11.glScalef(0.33f, 0.33f, 0.33f);
-        
+
 //        float pivotOffsetX = 0f;
 //        float pivotOffsetY = 0f;
 //        float pivotOffsetZ = 0f;
 //        GL11.glTranslatef(pivotOffsetX, pivotOffsetY, pivotOffsetZ);
         GL11.glRotatef(180f, 0.001f, 0.0f, 0.0f);
 //        GL11.glTranslatef(-pivotOffsetX, -pivotOffsetY, -pivotOffsetZ);
-        
-        
+
+
         GL11.glTranslatef(-0.5f, 0.5f, 0.5f);
-        
+
         if(Interceptors.isProning(player)) {
             PlayerRenderer playerRenderer = Interceptors.getPlayerRenderer(player);
-            
+
             if(playerRenderer != null) {
                 Positioner<Part, RenderContext<RenderableState>> bodyPositioner = playerRenderer.getCurrentPositioner();
                 if(bodyPositioner != null) {
@@ -284,12 +284,12 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
         }
 
         BiConsumer<EntityPlayer, ItemStack> positioning = builder.getCustomEquippedPositioning();
-        
+
         if(positioning != null) {
             positioning.accept(player, itemStack);
-            renderModelSource(renderContext, itemStack, null, null,  0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
+            renderModelSource(renderContext, itemStack, null, 0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
         }
-        
+
         GL11.glPopMatrix();
     }
 
@@ -301,8 +301,7 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 		}
 
 		if(itemStack == null) return Collections.emptyList();
-		if(transformType == null
-				|| transformType == ItemCameraTransforms.TransformType.GROUND
+		if(transformType == null || transformType == ItemCameraTransforms.TransformType.GROUND
 				|| transformType == ItemCameraTransforms.TransformType.GUI
 				|| transformType == ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND
 				|| transformType == ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND
@@ -418,16 +417,20 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 			default:
 		}
 
-		renderModelSource(renderContext, itemStack, transformType, null,  0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
+		renderModelSource(renderContext, itemStack, transformType, 0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
 
 		GL11.glPopMatrix();
 	}
 
 
-	protected void renderModelSource(RenderContext<RenderableState> renderContext, ItemStack itemStack, ItemCameraTransforms.TransformType transformType, Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		if(!(itemStack.getItem() instanceof ModelSource)) {
-			throw new IllegalArgumentException();
+	protected void renderModelSource(RenderContext<RenderableState> renderContext, ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float f, float f1, float f2, float f3, float f4, float f5) {
+		if (itemStack.getItem() instanceof ItemCarryable) {
+			renderModelSourceCarryableItem(itemStack, transformType, f, f1, f2, f3, f4, f5);
+			return;
 		}
+
+		if(!(itemStack.getItem() instanceof ModelSource))
+			throw new IllegalArgumentException();
 
 		GL11.glPushMatrix();
 
@@ -461,7 +464,7 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 				}
 			}
 
-			model.render(entity, f, f1, f2, f3, f4, f5);
+			model.render(mc.player, f, f1, f2, f3, f4, f5);
 			GL11.glPopAttrib();
 			GL11.glPopMatrix();
 		}
@@ -483,6 +486,47 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 			GL11.glPopAttrib();
 			GL11.glPopMatrix();
 		}
+		GL11.glPopMatrix();
+	}
+
+	protected void renderModelSourceCarryableItem(ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float f, float f1, float f2, float f3, float f4, float f5) {
+		GL11.glPushMatrix();
+
+		ItemCarryable itemCarryable = (ItemCarryable) itemStack.getItem();
+
+		ModelBase model = itemCarryable.getModel();
+		String textureName = itemCarryable.getTextureName();
+
+		mc.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + textureName));
+
+		GL11.glPushMatrix();
+
+		GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
+
+		if(transformType != null) {
+			switch (transformType) {
+				case GROUND:
+					builder.getEntityModelPositioning().accept(model, itemStack);
+					break;
+				case GUI:
+					builder.getInventoryModelPositioning().accept(model, itemStack);
+					break;
+				case THIRD_PERSON_RIGHT_HAND: case THIRD_PERSON_LEFT_HAND:
+					builder.getThirdPersonModelPositioning().accept(model, itemStack);
+					break;
+				case FIRST_PERSON_RIGHT_HAND: case FIRST_PERSON_LEFT_HAND:
+					builder.getFirstPersonModelPositioning().accept(model, itemStack);
+					break;
+				default:
+			}
+		}
+
+		model.render(mc.player, f, f1, f2, f3, f4, f5);
+
+		GL11.glPopAttrib();
+
+		GL11.glPopMatrix();
+
 		GL11.glPopMatrix();
 	}
 

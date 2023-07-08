@@ -1,19 +1,19 @@
-package com.paneedah.weaponlib.inventory;
+package com.paneedah.mwc.equipment.inventory.carryable.backpack;
 
-import com.paneedah.mwc.equipment.inventory.CarryableStorageContainer;
-import com.paneedah.mwc.equipment.inventory.CarryableStorageInventory;
+import com.paneedah.weaponlib.inventory.BackpackInventoryTab;
+import com.paneedah.weaponlib.inventory.InventoryTabs;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.util.ResourceLocation;
 
-public class GuiCarryableInventory extends GuiContainer {
+public class GuiBackpack extends GuiContainer {
 
     private final ResourceLocation background;
 
-    public GuiCarryableInventory(CarryableStorageContainer carryableStorageContainer) {
-        super(carryableStorageContainer);
+    public GuiBackpack(BackpackContainer backpackContainer) {
+        super(backpackContainer);
 
-        final CarryableStorageInventory inventory = carryableStorageContainer.getStorageInventory();
+        final BackpackInventory inventory = backpackContainer.inventory;
 
         background = inventory.getOwner().getGuiTextureLocation();
 
