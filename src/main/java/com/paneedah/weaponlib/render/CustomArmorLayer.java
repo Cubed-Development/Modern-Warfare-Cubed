@@ -124,36 +124,32 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
 
 	
 	public void doEquipmentRender(ModelBiped model, EntityPlayer player, ItemStack itemStack, BiConsumer<EntityPlayer, ItemStack> positioning, ResourceLocation texture, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		final float swingProgress = model.swingProgress;
+		final boolean isRiding = model.isRiding;
+		final boolean isChild = model.isChild;
+		final ModelBiped.ArmPose leftArmPose = model.leftArmPose;
+		final ModelBiped.ArmPose rightArmPose = model.rightArmPose;
+		final boolean isSneak = model.isSneak;
+
 		// Load the correct texture
 		mc.getTextureManager().bindTexture(texture);
 
     	GlStateManager.pushMatrix();
 
-
-    	/*
-    	// Apply positioning
-    	positioning.accept(player, itemStack);
-
-
-    	if(player.isSneaking()) {
-    		GlStateManager.translate(0, .2, -0.1);
-    		GlStateManager.rotate(35f, 1, 0, 0);
-    	}*/
-    	//GlStateManager.scale(0.8, 0.8, 0.8);
-
     	// Set the model attributes & render.
-
-		// This make Big Chungus
     	model.setModelAttributes(this.renderer.getMainModel());
-
-    	//model.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitc h, scale, player);
-
-		// This make Fucky Fucky
+    	model.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, player);
     	model.setLivingAnimations(player, limbSwing, limbSwingAmount, partialTicks);
-
     	model.render(player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 
     	GlStateManager.popMatrix();
+
+		model.swingProgress = swingProgress;
+		model.isRiding = isRiding;
+		model.isChild = isChild;
+		model.leftArmPose = leftArmPose;
+		model.rightArmPose = rightArmPose;
+		model.isSneak = isSneak;
 	}
 
 
