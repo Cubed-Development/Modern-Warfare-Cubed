@@ -71,7 +71,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
 
         		ItemCarryable storage = (ItemCarryable) backpackStack.getItem();
 
-            	ModelBiped biped = (ModelBiped) storage.getModel();
+            	ModelBiped biped = storage.getModel();
             	ResourceLocation resource = new ResourceLocation(ID + ":textures/models/" + storage.getTextureName());
         		mc.getTextureManager().bindTexture(resource);
         		doEquipmentRender(biped, player, null, (a, b) -> {}, resource, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
@@ -121,7 +121,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
 	}
 
 	
-	public void doEquipmentRender(ModelBase model, EntityPlayer player, ItemStack itemStack, BiConsumer<EntityPlayer, ItemStack> positioning, ResourceLocation texture, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void doEquipmentRender(ModelBiped model, EntityPlayer player, ItemStack itemStack, BiConsumer<EntityPlayer, ItemStack> positioning, ResourceLocation texture, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		// Load the correct texture
 		mc.getTextureManager().bindTexture(texture);
 
