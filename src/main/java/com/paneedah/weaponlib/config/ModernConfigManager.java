@@ -150,21 +150,20 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Where should the status bar be located?")
 	public static String statusBarPosition = "TOP_RIGHT";
 
-
 	@RangeDouble(min=0.1, max=2.0)
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should terrorists have?")
 	public static double terroristHealth = 1.0;
 
 	@RangeDouble(min=0, max=1.0)
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should terrorists spawn?")
-	public static double terroristsSpawn = 1.0;
+	public static double terroristSpawn = 1.0;
 
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "What equipment should the terrorists have?")
 	public static String terroristEquipmentConfiguration = "m4a1:1.0:M4A1Mag_2, m16a1:1.0:M4A1Mag_2, Remington870:1.0";
 
 	@RangeDouble(min=0, max=1.0)
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should soldiers spawn?")
-	public static double soldierspawn = 0.0;
+	public static double soldierSpawn = 0.0;
 
 	@RangeDouble(min=0.1, max=2.0)
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should soldiers have?")
@@ -261,8 +260,8 @@ public class ModernConfigManager {
 	}
 
 	public static final Map<String, AIEntity> aiEntities = new LinkedHashMap<String, AIEntity>(){{
-		put("terrorist", new AIEntity("terrorist", ModernConfigManager.terroristHealth, ModernConfigManager.terroristsSpawn));
-		put("soldier", new AIEntity("soldier", ModernConfigManager.soldierHealth, ModernConfigManager.soldierspawn));
+		put("terrorist", new AIEntity("terrorist", ModernConfigManager.terroristHealth, ModernConfigManager.terroristSpawn));
+		put("soldier", new AIEntity("soldier", ModernConfigManager.soldierHealth, ModernConfigManager.soldierSpawn));
 	}};
 	
 	public static void init() {
