@@ -146,7 +146,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
 
     	//model.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitc h, scale, player);
 
-		// This make Big Chungus
+		// This make Fucky Fucky
     	model.setLivingAnimations(player, limbSwing, limbSwingAmount, partialTicks);
 
     	model.render(player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
