@@ -121,11 +121,11 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 ### General Guns & Attachment Changes
 
 - Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1, 100rnd NATO STANAG Drum Magazine and the pink camo skin
-- Overhauled animations and sound effects of the M40A6 and Uzi
-- Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, , OKP-7 Sight, etc..
+- Overhauled animations and sound effects of the M40A6 and Uzi, respectively
+- Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, OKP-7 Sight, among others
 - Fixed 7.62x54mm SVD magazine using 7.62x39mm bullets
 - Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
-- Fixed visual bug of FN F2000 when aiming weapon, M4A1 "M16 Stock" and Malyuk grips
+- Fixed visual bug of FN F2000 when aiming weapon, M4A1 "M16 Stock", Malyuk grips and and the attachments of the revolvers
 - Fixed the attachment of the Long Deagle
 - General Biped Attachment Fixes(ARX-160 and P90)
 
