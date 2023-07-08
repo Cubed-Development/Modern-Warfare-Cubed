@@ -13,10 +13,8 @@ public class ItemSkin extends ItemAttachment<Weapon> {
 		private final List<String> textureVariants = new ArrayList<>();
 
 		public Builder withTextureVariant(String... textureVariantNames) {
-			for(String s: textureVariantNames) {
+			for (String s: textureVariantNames)
 				this.textureVariants.add(stripFileExtension(s.toLowerCase(), ".png"));
-			}
-		
 			return this;
 		}
 

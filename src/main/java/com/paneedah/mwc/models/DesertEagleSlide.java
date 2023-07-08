@@ -58,8 +58,8 @@ public class DesertEagleSlide extends ModelWithAttachments {
 	private final ModelRenderer slide104_r1;
 
 	public DesertEagleSlide() {
-		textureWidth = 128;
-		textureHeight = 128;
+		textureWidth = 150;
+		textureHeight = 150;
 
 		slide = new ModelRenderer(this);
 		slide.setRotationPoint(0.0F, 24.0F, 0.0F);
