@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.command;
 
 import akka.japi.Pair;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.ItemAttachment;
@@ -10,12 +9,10 @@ import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
-import com.paneedah.weaponlib.compatibility.graph.CompatibilityClassGenerator;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.vehicle.VehiclePart;
 import net.minecraft.command.CommandBase;
-import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
 import net.minecraft.server.MinecraftServer;
@@ -23,8 +20,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
-import java.io.*;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
@@ -49,8 +44,6 @@ public class DebugCommand extends CommandBase {
     
     private static final String DEBUG_FREECAM = "freecam";
     private static final String DEBUG_MUZZLE_POS = "muzzle";
-    private static final String DEBUG_COMPAT = "compat";
-
     
     public static int debugFlag = 0;
 
@@ -116,8 +109,7 @@ public class DebugCommand extends CommandBase {
     }
 
     @Override
-    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
-    	
+    public void execute(MinecraftServer server, ICommandSender sender, String[] args) {
         if (args.length > 0) {
             switch(args[0].toLowerCase()) {
             case DEBUG_ARG_ON:
@@ -159,9 +151,6 @@ public class DebugCommand extends CommandBase {
             case DEBUG_ANIM_MODE:
             	processAnimMode(args);
             	break;
-            case DEBUG_COMPAT:
-            	processCompatMode(args);
-            	break;
             case DEBUG_WEAPON:
             	processWeapon(args);
             	break;
@@ -172,8 +161,7 @@ public class DebugCommand extends CommandBase {
             mc.player.sendMessage(new TextComponentString(getUsage(sender)));
         }
     }
-    
-    public CompatibilityClassGenerator ccg = new CompatibilityClassGenerator();
+
     public ArrayList<String> compatList = new ArrayList<>();
     
     private static boolean isInfiniteAmmo;
@@ -205,136 +193,95 @@ public class DebugCommand extends CommandBase {
     }
     
     private void processWeapon(String[] args) {
-    	if(args[1].equals("infinite")) {
-    		isInfiniteAmmo = !isInfiniteAmmo;
-            mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Infinite ammo mode is " + (isInfiniteAmmo ? "on" : "off")));
-        	
-    	} else if(args[1].equals("slide")) {
-    		if(args[2].equals("edit")) {
-    			isDebuggingActionPosition = !isDebuggingActionPosition;
-                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Slide editor mode is " + (isDebuggingActionPosition ? "on" : "off")));
-            	
-    		}else if(args[2].equals("setpos")) {
-    			double x = Double.parseDouble(args[3]);
-    			double y = Double.parseDouble(args[4]);
-    			double z = Double.parseDouble(args[5]);
-    			debugSlideTransform.withPosition(x, y, z);
-    		}
-    	} else if(args[1].equals("shake")) {
-    		if(args[2].equals("edit")) {
-    			isWorkingOnScreenShake = !isWorkingOnScreenShake;
-                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Shake editor mode is " + (isWorkingOnScreenShake ? "on" : "off")));
-    		} else if(args[2].equals("set")) {
-    			double intensity = Double.parseDouble(args[3]);
-    			double lengthModifier = Double.parseDouble(args[4]);
-    			screenShakeParam = new Pair<Double, Double>(intensity, lengthModifier);
-    		}
-    	} else if(args[1].equals("buildsheet")) {
-    		
-    		sendDebugMessage("Checking to see if a sprite sheet can be built...");
-    		
-    		WeaponSpritesheetBuilder.build();
-    		
-    		sendDebugMessage("Generating icon sheet as... " + TextFormatting.GREEN + " guniconsheet.png");
-    	
-    		
-    	} else if(args[1].equals("liverender")) {
-    		if(args[2].equals("toggle")) {
-    			isForceLiveRenderGUI = !isForceLiveRenderGUI;
-    			sendDebugMessage("Live render is now " + TextFormatting.DARK_GRAY + (isForceLiveRenderGUI ? "on" : "off"));
-    		} else if(args[2].equals("?")) {
-    			sendDebugMessage("Live render causes weapons to switch off of the icon sheet and directly render into the inventory. This should only ever be used for debugging.");
-    			//LayerBipedArmor
-    		}
-    		
-    	} else if(args[1].equals("gui")) {
-    		if(args[2].equals("print")) {
-    			sendDebugMessage("Printing locations to console (or log)");
-    			
-    			 ModificationGUI.getInstance().printTabLocations();
-    		} else {
-    			isEditingGUI = !isEditingGUI;
-        		sendDebugMessage("GUI editing mode: " + TextFormatting.DARK_GRAY + (isEditingGUI ? "on" : "off"));
-    			
-    		}
-    		
-    	} else if(args[1].equals("debugFlag")) {
-    		debugFlag = Integer.parseInt(args[2]);
-    	}
-    }
-    
-    private void processCompatMode(String[] args) {
-    	if(args[1].equals("new")) {
-    		compatList.clear();
-    		ccg.setup();
-            mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Started writing new compat method set"));
-    	} else if(args[1].equals("add")) {
-    		ArrayList<Pair<Class<?>, Method>> list = ccg.findStandardOpenGLMethod(args[2]);
-    		for(Pair<Class<?>, Method> pair : list) {
-    			//ccg.buildOutMethod(original, searchTerm)
-    			compatList.add(ccg.buildOutMethod(pair, args[2]).toString());
-    		}
-    	} else if(args[1].equals("build")) {
-    		File f = new File("debugcompat\\output.txt");
-    		System.out.println(f.getAbsolutePath());
-    		try {
-				f.createNewFile();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-    		f.mkdirs();
-    		try {
-				f.createNewFile();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-    		try {
-				BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(f));
-				for(String s : compatList) {
-					bos.write(s.getBytes());
-				}
-				bos.close();
-				
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-    	}
+        switch (args[1]) {
+            case "infinite":
+                isInfiniteAmmo = !isInfiniteAmmo;
+                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Infinite ammo mode is " + (isInfiniteAmmo ? "on" : "off")));
+                break;
+            case "slide":
+                if (args[2].equals("edit")) {
+                    isDebuggingActionPosition = !isDebuggingActionPosition;
+                    mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Slide editor mode is " + (isDebuggingActionPosition ? "on" : "off")));
+
+                } else if (args[2].equals("setpos")) {
+                    double x = Double.parseDouble(args[3]);
+                    double y = Double.parseDouble(args[4]);
+                    double z = Double.parseDouble(args[5]);
+                    debugSlideTransform.withPosition(x, y, z);
+                }
+                break;
+            case "shake":
+                if (args[2].equals("edit")) {
+                    isWorkingOnScreenShake = !isWorkingOnScreenShake;
+                    mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " Shake editor mode is " + (isWorkingOnScreenShake ? "on" : "off")));
+                } else if (args[2].equals("set")) {
+                    double intensity = Double.parseDouble(args[3]);
+                    double lengthModifier = Double.parseDouble(args[4]);
+                    screenShakeParam = new Pair<Double, Double>(intensity, lengthModifier);
+                }
+                break;
+            case "buildsheet":
+                sendDebugMessage("Checking to see if a sprite sheet can be built...");
+                WeaponSpritesheetBuilder.build();
+                sendDebugMessage("Generating icon sheet as... " + TextFormatting.GREEN + " guniconsheet.png");
+                break;
+
+            case "liverender":
+                if (args[2].equals("toggle")) {
+                    isForceLiveRenderGUI = !isForceLiveRenderGUI;
+                    sendDebugMessage("Live render is now " + TextFormatting.DARK_GRAY + (isForceLiveRenderGUI ? "on" : "off"));
+                } else if (args[2].equals("?")) {
+                    sendDebugMessage("Live render causes weapons to switch off of the icon sheet and directly render into the inventory. This should only ever be used for debugging.");
+                }
+                break;
+
+            case "gui":
+                if (args[2].equals("print")) {
+                    sendDebugMessage("Printing locations to console (or log)");
+                    ModificationGUI.getInstance().printTabLocations();
+                } else {
+                    isEditingGUI = !isEditingGUI;
+                    sendDebugMessage("GUI editing mode: " + TextFormatting.DARK_GRAY + (isEditingGUI ? "on" : "off"));
+                }
+                break;
+
+            case "debugFlag":
+                debugFlag = Integer.parseInt(args[2]);
+                break;
+        }
     }
     
     private void processAnimMode(String[] args) {
-    	if(args[1].equals("on")) {
-    		
-    		if(!AnimationModeProcessor.getInstance().isLegacyMode()) {
-    			AnimationModeProcessor.getInstance().setFPSMode(true);
-    		
-    		} else {
-                mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " You cannot enter animation mode with a legacy gun!"));
-    	    	
-    			
-    		}
-    		
-    	} else if(args[1].equals("off")) {
-    		AnimationModeProcessor.getInstance().setFPSMode(false);
-    	} else if(args[1].equals("dh")) {
-    		BBLoader.HANDDIVISOR = Double.parseDouble(args[2]);
-            mc.player.sendMessage(new TextComponentString("Hand divisor set to " + BBLoader.HANDDIVISOR));
-    	}else if(args[1].equals("dg")) {
-    		BBLoader.GENDIVISOR = Double.parseDouble(args[2]);
-            mc.player.sendMessage(new TextComponentString("General divisor set to " + BBLoader.GENDIVISOR));
-    	} else if(args[1].equals("as")) {
-    		double x = Double.parseDouble(args[2]);
-    		double y = Double.parseDouble(args[3]);
-    		double z = Double.parseDouble(args[4]);
-    		
-    		ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder().firstPersonLeftHandTransform.withScale(x, y, z);
-    	
-    }
+        switch (args[1]) {
+            case "on":
+                if (!AnimationModeProcessor.getInstance().isLegacyMode()) {
+                    AnimationModeProcessor.getInstance().setFPSMode(true);
+                } else {
+                    mc.player.sendMessage(new TextComponentString(getDebugPrefix() + " You cannot enter animation mode with a legacy gun!"));
+                }
+                break;
+
+            case "off":
+                AnimationModeProcessor.getInstance().setFPSMode(false);
+                break;
+
+            case "dh":
+                BBLoader.HANDDIVISOR = Double.parseDouble(args[2]);
+                mc.player.sendMessage(new TextComponentString("Hand divisor set to " + BBLoader.HANDDIVISOR));
+                break;
+
+            case "dg":
+                BBLoader.GENDIVISOR = Double.parseDouble(args[2]);
+                mc.player.sendMessage(new TextComponentString("General divisor set to " + BBLoader.GENDIVISOR));
+                break;
+
+            case "as":
+                final double x = Double.parseDouble(args[2]);
+                final double y = Double.parseDouble(args[3]);
+                final double z = Double.parseDouble(args[4]);
+                ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder().firstPersonLeftHandTransform.withScale(x, y, z);
+                break;
+        }
      }
     
     private void processFreecamAndMuzzleSubCommands(String[] args) {
@@ -343,20 +290,14 @@ public class DebugCommand extends CommandBase {
     		if(args.length > 1 && args[1].equals("lock")) {
     			ClientEventHandler.freecamLock = !ClientEventHandler.freecamLock;
     			sendDebugMessage("Freecam lock " + TextFormatting.DARK_GRAY + (ClientEventHandler.freecamLock ? "enabled" : "disabled"));
-    			
     		} else {
-    			
     			ClientEventHandler.freecamEnabled = !ClientEventHandler.freecamEnabled;
     			sendDebugMessage("Freecam " + TextFormatting.DARK_GRAY + (ClientEventHandler.freecamEnabled ? "enabled" : "disabled"));
-    			
-    		
     		}
-    		
-    		 
     		break;
+
     	case DEBUG_MUZZLE_POS:
-    		 
-    		if(ClientEventHandler.muzzlePositioner) {
+    		if (ClientEventHandler.muzzlePositioner) {
                 mc.player.sendMessage(new TextComponentString(getDebugPrefix() + "Exiting muzzle debug..."));
     			ClientEventHandler.muzzlePositioner = false;
       	      
@@ -397,8 +338,7 @@ public class DebugCommand extends CommandBase {
             int transitionNumber = Integer.parseInt(args[1]);
             long pauseDuration = Long.parseLong(args[2]);
             DebugPositioner.configureTransitionPause(transitionNumber, pauseDuration);
-            mc.player.sendMessage(new TextComponentString("Set transition "
-                    + transitionNumber + " pause to " + pauseDuration + "ms"));
+            mc.player.sendMessage(new TextComponentString("Set transition " + transitionNumber + " pause to " + pauseDuration + "ms"));
         } catch(NumberFormatException e) {
             mc.player.sendMessage(new TextComponentString(getSubCommandPauseUsage()));
         }
@@ -512,12 +452,10 @@ public class DebugCommand extends CommandBase {
             return;
         }
 
-        switch(args[1].toLowerCase()) {
-        case SHOW_OPTION_CODE:
+        if (args[1].equalsIgnoreCase(SHOW_OPTION_CODE)) {
             DebugPositioner.showCode();
             mc.player.sendMessage(new TextComponentString("Code is copied to the console"));
-            break;
-        default:
+        } else {
             mc.player.sendMessage(new TextComponentString(getSubCommandShowUsage()));
         }
     }
@@ -615,6 +553,6 @@ public class DebugCommand extends CommandBase {
 
     @Override
     public int getRequiredPermissionLevel() {
-        return 0;
+        return 2;
     }
 }
