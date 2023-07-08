@@ -2,6 +2,7 @@ package com.paneedah.mwc.skins;
 
 import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.renderer.texture.DynamicTexture;
+import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.ResourceLocation;
 
 import javax.imageio.ImageIO;
@@ -10,14 +11,15 @@ import java.io.File;
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class CustomSkin {
-
     protected ResourceLocation resourceLocation;
 
     public CustomSkin(String name, File file) {
         try {
             resourceLocation = new ResourceLocation(ModReference.ID, "customskin_"+name.toLowerCase());
-            mc.getTextureManager().loadTexture(resourceLocation, new DynamicTexture(ImageIO.read(file)));
-            mc.getTextureManager().bindTexture(resourceLocation);
+            final TextureManager textureManager = mc.getTextureManager();
+            file = new File(file.getPath(), name.toLowerCase()+".png.mcmeta");
+            textureManager.loadTexture(resourceLocation, new DynamicTexture(ImageIO.read(file)));
+            textureManager.bindTexture(resourceLocation);
         } catch (Exception e) { e.printStackTrace(); }
     }
 
