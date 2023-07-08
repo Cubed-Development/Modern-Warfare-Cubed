@@ -39,7 +39,7 @@ public class ItemCarryable extends Item implements IModernCrafting {
         protected static final int DEFAULT_GUI_TEXTURE_WIDTH = 176;
 
         protected String name;
-        protected ModelBase model;
+        protected ModelBiped model;
         protected String textureName;
 
         protected Consumer<ItemStack> entityPositioning;
@@ -118,7 +118,7 @@ public class ItemCarryable extends Item implements IModernCrafting {
             return self();
         }
 
-        public T withModel(ModelBase model) {
+        public T withModel(ModelBiped model) {
             this.model = model;
             return self();
         }
@@ -235,7 +235,7 @@ public class ItemCarryable extends Item implements IModernCrafting {
         return customEquippedPositioning;
     }
 
-    protected ModelBase model;
+    protected ModelBiped model;
     protected String textureName;
 
     public ModelBiped getModel() {

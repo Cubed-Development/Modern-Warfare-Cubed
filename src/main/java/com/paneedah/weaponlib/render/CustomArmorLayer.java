@@ -141,11 +141,12 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
 
     	// Set the model attributes & render.
 
-
+		// This make Big Chungus
     	model.setModelAttributes(this.renderer.getMainModel());
 
     	//model.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitc h, scale, player);
 
+		// This make Big Chungus
     	model.setLivingAnimations(player, limbSwing, limbSwingAmount, partialTicks);
 
     	model.render(player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
