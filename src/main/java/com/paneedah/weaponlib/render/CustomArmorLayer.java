@@ -14,12 +14,15 @@ import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.function.BiConsumer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
+@SideOnly(Side.CLIENT)
 public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
 
 	private final RenderLivingBase<?> renderer;
