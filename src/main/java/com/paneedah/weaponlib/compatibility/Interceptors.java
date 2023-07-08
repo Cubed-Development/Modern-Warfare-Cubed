@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
+import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
@@ -695,7 +696,7 @@ public class Interceptors {
             
             
             
-            EquipmentInventory capability = CompatibleCustomPlayerInventoryCapability.getInventory(player);
+            EquipmentInventory capability = EquipmentCapability.getInventory(player);
             if(capability != null) {
                 ItemStack backpackStack = capability.getStackInSlot(0); // TODO: replace 0 with constant for backpack slot 
                 if(backpackStack != null) {

@@ -4,7 +4,7 @@ import com.paneedah.mwc.equipment.inventory.*;
 import com.paneedah.mwc.equipment.inventory.carryable.backpack.BackpackContainer;
 import com.paneedah.mwc.equipment.inventory.carryable.backpack.BackpackInventory;
 import com.paneedah.mwc.equipment.inventory.carryable.backpack.GuiBackpack;
-import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
+import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.weaponlib.crafting.ammopress.ContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
@@ -31,7 +31,7 @@ public class GuiHandler implements IGuiHandler {
         Object container = null;
         switch (guiId) {
         case STORAGE_ITEM_INVENTORY_GUI_ID: {
-            EquipmentInventory customInventory = CompatibleCustomPlayerInventoryCapability
+            EquipmentInventory customInventory = EquipmentCapability
                     .getInventory(player);
             if (customInventory != null && customInventory.getStackInSlot(0) != null) {
                 container = new BackpackContainer(player, player.inventory, new BackpackInventory(customInventory.getStackInSlot(0)));
@@ -40,7 +40,7 @@ public class GuiHandler implements IGuiHandler {
             break;
         case CUSTOM_PLAYER_INVENTORY_GUI_ID:
             container = new EquipmentContainer(player, player.inventory,
-                    CompatibleCustomPlayerInventoryCapability.getInventory(player));
+                    EquipmentCapability.getInventory(player));
             break;
         case WORKBENCH_GUI_ID:
         	container = new ContainerWorkbench(player, player.inventory, (TileEntityWorkbench) world.getTileEntity(new BlockPos(x, y, z)));
@@ -58,14 +58,14 @@ public class GuiHandler implements IGuiHandler {
         Object guiContainer = null;
         switch (guiId) {
         case STORAGE_ITEM_INVENTORY_GUI_ID:
-            EquipmentInventory customInventory = CompatibleCustomPlayerInventoryCapability.getInventory(FMLClientHandler.instance().getClientPlayerEntity());
+            EquipmentInventory customInventory = EquipmentCapability.getInventory(FMLClientHandler.instance().getClientPlayerEntity());
             if (customInventory != null && customInventory.getStackInSlot(0) != null) {
                 guiContainer = new GuiBackpack((BackpackContainer) new BackpackContainer(player,
                         player.inventory, new BackpackInventory(customInventory.getStackInSlot(0))));
             }
             break;
         case CUSTOM_PLAYER_INVENTORY_GUI_ID:
-            guiContainer = new GuiEquipment(player, player.inventory, CompatibleCustomPlayerInventoryCapability.getInventory(player));
+            guiContainer = new GuiEquipment(player, player.inventory, EquipmentCapability.getInventory(player));
             break;
                 
         case WORKBENCH_GUI_ID:

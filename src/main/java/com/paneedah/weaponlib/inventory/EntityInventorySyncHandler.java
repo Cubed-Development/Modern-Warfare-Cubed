@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.inventory;
 
 import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
+import com.paneedah.mwc.capabilities.EquipmentCapability;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -42,7 +42,7 @@ public class EntityInventorySyncHandler implements IMessageHandler<EntityInvento
             EquipmentInventory inventory = message.getInventory();
             inventory.setContext(modContext);
             inventory.setOwner((EntityPlayer) player);
-            CompatibleCustomPlayerInventoryCapability.setInventory((EntityLivingBase) player, inventory);
+            EquipmentCapability.setInventory((EntityLivingBase) player, inventory);
             NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(player.dimension, player.posX, player.posY, player.posZ, 1000);
             modContext.getChannel().sendToAllAround(new EntityInventorySyncMessage(player, inventory, true), point);
         });
@@ -58,7 +58,7 @@ public class EntityInventorySyncHandler implements IMessageHandler<EntityInvento
                 EquipmentInventory inventory = message.getInventory();
                 inventory.setContext(modContext);
                 inventory.setOwner((EntityPlayer) targetEntity);
-                CompatibleCustomPlayerInventoryCapability.setInventory((EntityLivingBase) targetEntity, inventory);
+                EquipmentCapability.setInventory((EntityLivingBase) targetEntity, inventory);
             }
         });
     }

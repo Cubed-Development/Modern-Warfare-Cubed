@@ -7,7 +7,7 @@ import com.paneedah.weaponlib.WeaponAttachmentAspect.EnterAttachmentModePermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ExitAttachmentModePermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.CompoundPermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.UnloadPermit;
-import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
+import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
@@ -288,7 +288,7 @@ public class CommonModContext implements ModContext {
 		//CompatibleEntityPropertyProvider.register(this);
 		CompatibleExposureCapability.register(this);
 		CompatibleExtraEntityFlags.register(this);
-		CompatibleCustomPlayerInventoryCapability.register(this);
+		EquipmentCapability.register();
 
         net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "ammo" + modEntityID), WeaponSpawnEntity.class, "Ammo" + modEntityID, modEntityID++, mod, 64, 3, true);
         net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, "wcam" + modEntityID), EntityWirelessCamera.class, "wcam" + modEntityID, modEntityID++, mod, 200, 3, true);

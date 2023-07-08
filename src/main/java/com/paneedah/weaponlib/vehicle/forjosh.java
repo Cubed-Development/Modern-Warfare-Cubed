@@ -15,7 +15,7 @@ public class forjosh {
     {
         Method m = null;
         try {
-            m = ReflectionHelper.findMethod(Class.forName("com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability"), "getInventory", null, EntityLivingBase.class);
+            m = ReflectionHelper.findMethod(Class.forName("com.paneedah.mwc.capabilities.EquipmentCapability"), "getInventory", null, EntityLivingBase.class);
         } catch (Exception e) { return null; }
         Object inventory = null;
         try {

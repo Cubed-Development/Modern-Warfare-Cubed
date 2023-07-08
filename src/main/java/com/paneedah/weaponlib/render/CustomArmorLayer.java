@@ -2,11 +2,10 @@ package com.paneedah.weaponlib.render;
 
 import com.paneedah.mwc.items.equipment.carryable.ItemCarryable;
 import com.paneedah.weaponlib.ItemVest;
-import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
+import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.weaponlib.model.USMCVestTwo;
 import com.paneedah.weaponlib.render.modelrepo.GearModelRepository;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
@@ -51,7 +50,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
 	private void renderEquipLayer(EntityPlayer player, float limbSwing, float limbSwingAmount, float partialTicks,
 			float ageInTicks, float netHeadYaw, float headPitch, float scale, int index) {
         // Construction
-        EquipmentInventory capability = CompatibleCustomPlayerInventoryCapability.getInventory(player);
+        EquipmentInventory capability = EquipmentCapability.getInventory(player);
         
         if(capability == null) return;
         

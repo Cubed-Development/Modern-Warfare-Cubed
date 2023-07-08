@@ -469,7 +469,7 @@ public class ClientEventHandler {
 			preRenderPlayerEvent.getRenderer().getRenderManager().renderViewEntity = preRenderPlayerEvent.getEntityPlayer();
 		}
 		/*
-		EquipmentInventory capability = CompatibleCustomPlayerInventoryCapability.getInventory(preRenderPlayerEvent.getPlayer());
+		EquipmentInventory capability = EquipmentCapability.getInventory(preRenderPlayerEvent.getPlayer());
 
         if(capability != null) {
             ItemStack vestStack = capability.getStackInSlot(1);

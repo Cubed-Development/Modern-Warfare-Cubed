@@ -2,7 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
-import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
+import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
@@ -162,7 +162,7 @@ public class ServerEventHandler {
 
             EntityPlayer player = (EntityPlayer) entityJoinWorldEvent.getEntity();
             modContext.getChannel().sendTo(new EntityControlMessage(player, CompatibleExtraEntityFlags.getFlags(player)), (EntityPlayerMP)entityJoinWorldEvent.getEntity());
-            modContext.getChannel().sendToAll(new EntityInventorySyncMessage(entityJoinWorldEvent.getEntity(), CompatibleCustomPlayerInventoryCapability.getInventory(player), false));
+            modContext.getChannel().sendToAll(new EntityInventorySyncMessage(entityJoinWorldEvent.getEntity(), EquipmentCapability.getInventory(player), false));
         }
     }
 
@@ -171,7 +171,7 @@ public class ServerEventHandler {
         if(e.getTarget() instanceof EntityPlayer && !e.getTarget().world.isRemote) {
             modContext.getChannel().sendTo(
                     new EntityInventorySyncMessage(e.getTarget(), 
-                            CompatibleCustomPlayerInventoryCapability.getInventory((EntityLivingBase) e.getTarget()), false), 
+                            EquipmentCapability.getInventory((EntityLivingBase) e.getTarget()), false),
                             (EntityPlayerMP) e.getEntityPlayer());
             return;
         }
@@ -216,7 +216,7 @@ public class ServerEventHandler {
         if(entity instanceof EntityPlayer && !entity.world.isRemote) {
 
             if(!entity.world.getGameRules().getBoolean("keepInventory")) {
-                EquipmentInventory inventory = CompatibleCustomPlayerInventoryCapability.getInventory(entity);
+                EquipmentInventory inventory = EquipmentCapability.getInventory(entity);
                 
                 for(int slotIndex = 0; slotIndex < inventory.getSizeInventory(); slotIndex++) {
                     ItemStack stackInSlot = inventory.getStackInSlot(slotIndex);
@@ -232,7 +232,7 @@ public class ServerEventHandler {
 
     @SubscribeEvent
     protected void onLivingHurtEvent(LivingHurtEvent livingHurtEvent) {
-        EquipmentInventory inventory = CompatibleCustomPlayerInventoryCapability
+        EquipmentInventory inventory = EquipmentCapability
                 .getInventory(livingHurtEvent.getEntityLiving());
         if (inventory != null && inventory.getStackInSlot(1).getItem() != Items.AIR) {
             NonNullList<ItemStack> stackList = NonNullList.create();
@@ -278,10 +278,10 @@ public class ServerEventHandler {
 
     @SubscribeEvent
     protected void onPlayerCloneEvent(PlayerEvent.Clone playerCloneEvent) {
-        EquipmentInventory originalInventory = CompatibleCustomPlayerInventoryCapability.getInventory(playerCloneEvent.getOriginal());
+        EquipmentInventory originalInventory = EquipmentCapability.getInventory(playerCloneEvent.getOriginal());
 
         if(originalInventory != null) {
-            CompatibleCustomPlayerInventoryCapability.setInventory(playerCloneEvent.getEntityPlayer(), originalInventory);
+            EquipmentCapability.setInventory(playerCloneEvent.getEntityPlayer(), originalInventory);
             originalInventory.setContext(modContext);
             originalInventory.setOwner(playerCloneEvent.getEntityPlayer());
             //modContext.getChannel().sendToAll(new EntityInventorySyncMessage(playerCloneEvent.getPlayer(), originalInventory, false));
@@ -290,7 +290,7 @@ public class ServerEventHandler {
 
     @SubscribeEvent
     protected void onPlayerRespawnEvent(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent playerRespawnEvent) {
-        modContext.getChannel().sendToAll(new EntityInventorySyncMessage(playerRespawnEvent.player, CompatibleCustomPlayerInventoryCapability.getInventory(playerRespawnEvent.player), false));
+        modContext.getChannel().sendToAll(new EntityInventorySyncMessage(playerRespawnEvent.player, EquipmentCapability.getInventory(playerRespawnEvent.player), false));
     }
 
     @SubscribeEvent
@@ -313,7 +313,7 @@ public class ServerEventHandler {
             event.addCapability(extraFlagsResourceLocation, new CompatibleExtraEntityFlags());
 
             ResourceLocation customInventoryLocation = new ResourceLocation(ID, "PLAYER_CUSTOM_INVENTORY");
-            event.addCapability(customInventoryLocation, new CompatibleCustomPlayerInventoryCapability());
+            event.addCapability(customInventoryLocation, new EquipmentCapability());
         }
 
         ResourceLocation exposureResourceLocation = new ResourceLocation(ID, "EXPOSURE");

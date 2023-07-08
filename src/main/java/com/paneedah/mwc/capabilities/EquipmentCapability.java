@@ -1,6 +1,5 @@
-package com.paneedah.weaponlib.compatibility;
+package com.paneedah.mwc.capabilities;
 
-import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTBase;
@@ -12,14 +11,16 @@ import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
-@Deprecated
-public class CompatibleCustomPlayerInventoryCapability implements ICapabilitySerializable<NBTBase> {
-    
-    public static interface InventoryContainer {
-        public void setInventory(EquipmentInventory inventory);
-        public EquipmentInventory getInventory();
+import javax.annotation.Nonnull;
+
+public class EquipmentCapability implements ICapabilitySerializable<NBTBase> {
+
+    public interface InventoryContainer {
+        void setInventory(EquipmentInventory inventory);
+
+        EquipmentInventory getInventory();
     }
-    
+
     public static class InventoryContainerImpl implements InventoryContainer {
         private EquipmentInventory inventory = new EquipmentInventory();
 
@@ -33,61 +34,62 @@ public class CompatibleCustomPlayerInventoryCapability implements ICapabilitySer
             return inventory;
         }
     }
-    
+
     public static class InventoryStorage implements IStorage<InventoryContainer> {
 
         @Override
-        public NBTBase writeNBT(Capability<InventoryContainer> capability, InventoryContainer instance,
-                EnumFacing side) {
+        public NBTBase writeNBT(Capability<InventoryContainer> capability, InventoryContainer instance, EnumFacing side) {
             NBTTagCompound compound = new NBTTagCompound();
             instance.getInventory().writeToNBT(compound);
             return compound;
         }
 
         @Override
-        public void readNBT(Capability<InventoryContainer> capability, InventoryContainer instance, EnumFacing side,
-                NBTBase nbt) {
+        public void readNBT(Capability<InventoryContainer> capability, InventoryContainer instance, EnumFacing side, NBTBase nbt) {
             EquipmentInventory inventory = new EquipmentInventory();
-            inventory.readFromNBT((NBTTagCompound)nbt);
+            inventory.readFromNBT((NBTTagCompound) nbt);
             instance.setInventory(inventory);
-            
+
         }
     }
-    
+
     @CapabilityInject(InventoryContainer.class)
     static Capability<InventoryContainer> capabilityContainer = null;
-    private InventoryContainer instance = capabilityContainer.getDefaultInstance(); // doesn't this trigger null pointer exception if capability is not registered?
+    private final InventoryContainer instance = capabilityContainer.getDefaultInstance(); // Doesn't this trigger null pointer exception if capability is not registered?
 
 
     public static void setInventory(EntityLivingBase entity, EquipmentInventory inventory) {
-        if(entity == null) return ;
+        if (entity == null)
+            return;
+
         InventoryContainer container = entity.getCapability(capabilityContainer, null);
-        if(container != null) {
+
+        if (container != null)
             container.setInventory(inventory);
-        }
     }
 
-    public static void register(CommonModContext commonModContext) {
-        CapabilityManager.INSTANCE.register(InventoryContainer.class, new InventoryStorage(), 
-                InventoryContainerImpl.class);
+    public static void register() {
+        CapabilityManager.INSTANCE.register(InventoryContainer.class, new InventoryStorage(), InventoryContainerImpl::new);
     }
 
     public static EquipmentInventory getInventory(EntityLivingBase entity) {
-        if(entity == null) return null;
+        if (entity == null)
+            return null;
+
         InventoryContainer container = entity.getCapability(capabilityContainer, null);
         return container != null ? container.getInventory() : null;
     }
 
     @Override
-    public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
+    public boolean hasCapability(@Nonnull Capability<?> capability, EnumFacing facing) {
         return capability == capabilityContainer;
     }
 
     @Override
-    public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+    public <T> T getCapability(@Nonnull Capability<T> capability, EnumFacing facing) {
         return capability == capabilityContainer ? capabilityContainer.cast(instance) : null;
     }
-    
+
     @Override
     public NBTBase serializeNBT() {
         return capabilityContainer.getStorage().writeNBT(capabilityContainer, instance, null);
