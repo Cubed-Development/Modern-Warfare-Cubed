@@ -11,8 +11,6 @@ import net.minecraftforge.fml.common.Loader;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
@@ -159,7 +157,7 @@ public class ModernConfigManager {
 	@RequiresMcRestart
 	@RangeDouble(min=0, max=2.0)
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should terrorists spawn?")
-	public static double terroristsSpawn = 0.2;
+	public static double terroristSpawn = 0.2;
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=5.0)

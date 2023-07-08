@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.ai;
 
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.config.AIEntity;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.*;
@@ -547,7 +546,7 @@ public class EntityConfiguration {
                 //int weightedProb = (int)(entityConfig.getSpawn());
 
                 if(entityName.equals("terrorist")) {
-                    weightedProb = (int) (spawn.weightedProb * ModernConfigManager.terroristsSpawn);
+                    weightedProb = (int) (spawn.weightedProb * ModernConfigManager.terroristSpawn);
                     configuration.maxHealth = ModernConfigManager.terroristHealth * maxHealth;
                 }
                 else if(entityName.equals("soldier")) {
