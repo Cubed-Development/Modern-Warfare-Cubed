@@ -1,6 +1,6 @@
 package com.paneedah.mwc.entities;
 
-import com.paneedah.mwc.ModernWarfareMod;
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Guns;
 import com.paneedah.mwc.weapons.Magazines;
@@ -72,7 +72,7 @@ public class Entities {
         .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
         .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
         .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "tyke", true))
-        .register(ModernWarfareMod.MOD_CONTEXT);
+        .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
         .withName("soldier")
@@ -123,7 +123,7 @@ public class Entities {
         .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
         .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
         .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "tyke", true))
-        .register(ModernWarfareMod.MOD_CONTEXT);
+        .register(MWC.modContext);
 
         new EntityConfiguration.Builder()
                 .withName("turret")
@@ -173,7 +173,7 @@ public class Entities {
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "tyke", true))
-                .register(ModernWarfareMod.MOD_CONTEXT);
+                .register(MWC.modContext);
         new EntityConfiguration.Builder()
                 .withName("turretupgraded")
                 .withBaseClass(EntityCustomMob.class)
@@ -222,7 +222,7 @@ public class Entities {
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "tyke", true))
-                .register(ModernWarfareMod.MOD_CONTEXT);
+                .register(MWC.modContext);
 
         new EntityConfiguration.Builder()
                 .withName("turretsilenced")
@@ -272,6 +272,6 @@ public class Entities {
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
                 .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "tyke", true))
-                .register(ModernWarfareMod.MOD_CONTEXT);
+                .register(MWC.modContext);
         }
 }
