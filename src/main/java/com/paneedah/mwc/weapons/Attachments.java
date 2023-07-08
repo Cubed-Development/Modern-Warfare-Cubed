@@ -12868,7 +12868,7 @@ public class Attachments {
                     GL11.glScalef(1.15f, 1.15f, 1.1f);
                     GL11.glTranslatef(-0.299f, 0.215f, 1.15f);
                 }).withCategory(AttachmentCategory.SCOPE).withCreativeTab(MWC.ATTACHMENTS_TAB).withCrosshair("LP")
-                .withModel(new com.paneedah.mwc.models.PSO1(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.PSO1(), "pso1.png")
                 .withModel(new com.paneedah.mwc.models.PSO12(), "gun.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_NORMAL,

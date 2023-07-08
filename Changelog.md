@@ -39,7 +39,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 ### Changed
 
 - Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1, 100rnd 5.56x45mm NATO STANAG Drum Magazine and the pink camo skin
-- Overhauled animations of the M40A6
+- Overhauled animations and sound effects of the M40A6 and Uzi
 - Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight and Eotech Hybrid HHS™ II Sight
 - Reworked the config system:
   - Old XML config has been removed, and all configs have been consolidated into a new JSON config. Issues with some non-functioning configs have been resolved
@@ -92,9 +92,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed turrets spawning without weapons
 - Fixed 7.62x54mm SVD magazine using 7.62x39mm bullets
 - Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
-- Fixed the visual bug of the FN F2000 especially when aiming the gun
-- Fixed M4A1 "M16 Stock" visual bugs, Malyuk visual bugs
-- Fixed Uzi sound effects
+- Fixed visual bugs for weapons like FN F2000 when aiming the gun, M4A1 with "M16 Stock", Malyuk with grip accessories, beowulf50Cal with m38 front sight, revolver related accessories and general bipod adjustments on weapons
 - Fixed the attachment of the Long Deagle
 
 ### Removed
