@@ -11,8 +11,8 @@ on:
 
 jobs:
   qodana:
-    timeout-minutes: 45
     runs-on: ubuntu-latest
+    
     steps:
       - name: Code Checkout
       - uses: actions/checkout@v3
