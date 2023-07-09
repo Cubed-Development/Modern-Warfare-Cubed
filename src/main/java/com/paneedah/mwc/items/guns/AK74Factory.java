@@ -43,6 +43,7 @@ public class AK74Factory {
         .withReloadSound("ak_reload")
         .withUnloadSound("ak_unload")
         .withInspectSound("inspection")
+        .withEndOfShootSound("gun_click")
         .withDrawSound("ak_draw")
         .withReloadingTime(45)
         .withCrosshair("gun")
