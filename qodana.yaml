@@ -1,7 +1,35 @@
 version: "1.0"
 linter: jetbrains/qodana-jvm-community:2023.1
+profile:
+  name: qodana.recommended
 include:
-  - name: All
+  - name: DuplicateBranchesInSwitch
+  - name: CommentedOutCode
+  - name: UnnecessaryModifier
+  - name: Deprecation
+  - name: UNCHECKED_WARNING
+  - name: FieldCanBeLocal
+  - name: NullableProblems
+  - name: FieldMayBeFinal
+  - name: RedundantCast
+  - name: UnnecessarySemicolon
+  - name: TrivialIf
+  - name: NonStrictComparisonCanBeEquality
+  - name: SillyAssignment
+  - name: UnnecessaryToStringCall
+  - name: StringBufferReplaceableByString
+  - name: UnnecessaryLocalVariable
+  - name: NonFinalFieldInEnum
+  - name: JavadocDeclaration
+  - name: SimplifyStreamApiCallChains
+  - name: JavadocReference
+  - name: RedundantTypeArguments
+  - name: CStyleArrayDeclaration
+  - name: DeprecatedIsStillUsed
+  - name: FunctionalExpressionCanBeFolded
+  - name: DanglingJavadoc
+  - name: ManualMinMaxCalculation
+  - name: FinalStaticMethod
 exclude:
   - name: All
     paths:
