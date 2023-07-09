@@ -15,10 +15,8 @@ jobs:
     
     steps:
       - name: Code Checkout
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
-          fetch-depth: 0  # a full history is required for pull request analysis
+        uses: actions/checkout@v3.5.3
+
           
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.1.5
