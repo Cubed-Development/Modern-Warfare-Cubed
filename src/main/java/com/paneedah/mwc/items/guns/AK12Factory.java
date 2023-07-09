@@ -40,6 +40,7 @@ public class AK12Factory {
         .withUnloadSound("ak_unload")
         .withInspectSound("inspection")
         .withDrawSound("ak_draw")
+        .withEndOfShootSound("gun_click")
         .withReloadingTime(45)
         .withCrosshair("gun")
         .withCrosshairRunning("Running")
