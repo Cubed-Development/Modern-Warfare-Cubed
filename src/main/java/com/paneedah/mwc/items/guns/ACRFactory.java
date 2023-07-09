@@ -43,6 +43,7 @@ public class ACRFactory implements GunFactory {
 		.withReloadSound("acr_reload") // Reload sound
 		.withUnloadSound("acr_unload") // Unload sound
 		.withDrawSound("acr_draw") // Draw sound
+        .withInspectSound("m4a1_inspection") // Inspect sound
 		.withReloadingTime(30) // Reloading time in ticks
 		.withCrosshair("gun") // Crosshair
 		.withCrosshairRunning("Running") // Running crosshair
