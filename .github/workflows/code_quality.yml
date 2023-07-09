@@ -13,10 +13,18 @@ jobs:
     timeout-minutes: 45
     runs-on: ubuntu-latest
     steps:
+      - name: Code Checkout
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+          fetch-depth: 0  # a full history is required for pull request analysis
+          
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.1.5
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+          
+      - name: Qodana GitHub Report
+        uses: github/codeql-action/upload-sarif@v2.20.3
+        with:
+          sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
