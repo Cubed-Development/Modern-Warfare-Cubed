@@ -2,6 +2,7 @@
     "parent": "builtin/generated",
     "textures": {
         "layer0": "mwc:items/barrier"
+	"particle": "minecraft:block/obsidian"
     },
     "display": {
 		"thirdperson_righthand": {
