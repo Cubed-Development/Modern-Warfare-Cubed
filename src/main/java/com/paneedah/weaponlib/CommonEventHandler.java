@@ -49,22 +49,19 @@ import java.util.Iterator;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
-
 /**
  * Handles server events
  *
  * @author Victor Matskiv Sr.
  * @since October 23rd, 2022 by Homer Riva-Cambrin
  * - Re-factored class
- * - Added TO-DOs for necessary sections
  */
-// Todo: Rename to common event handler, since it's invoked on both sides
 // Todo: Cleanup this mess
-public class ServerEventHandler {
+public class CommonEventHandler {
 
     private final ModContext modContext;
 
-    public ServerEventHandler(ModContext modContext) {
+    public CommonEventHandler(ModContext modContext) {
         this.modContext = modContext;
     }
 

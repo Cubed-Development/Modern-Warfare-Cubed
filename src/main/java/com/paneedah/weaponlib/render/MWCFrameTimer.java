@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.render;
 
-public class VMWFrameTimer {
+public class MWCFrameTimer {
 	private long previousFrame = System.currentTimeMillis();
 	private long currentFrame = System.currentTimeMillis();
 	

@@ -277,7 +277,7 @@ public class CommonModContext implements ModContext {
         channel.registerMessage(new HighIQPickupPacket.SimplePacketHandler(), HighIQPickupPacket.class, 47, Side.SERVER);
         
         
-		ServerEventHandler serverHandler = new ServerEventHandler(this);
+		CommonEventHandler serverHandler = new CommonEventHandler(this);
         MinecraftForge.EVENT_BUS.register(serverHandler);
         MinecraftForge.EVENT_BUS.register(serverHandler);
 
