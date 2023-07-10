@@ -3,6 +3,7 @@
     "parent": "builtin/generated",
     "textures": {
         "layer0": "mwc:items/barrel"
+	"particle": "minecraft:block/obsidian"
     },
     "display": {
 		"thirdperson_righthand": {
