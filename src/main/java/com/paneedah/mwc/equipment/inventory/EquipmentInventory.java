@@ -12,6 +12,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.text.ITextComponent;
 
+import javax.annotation.Nullable;
+
 public class EquipmentInventory implements IInventory, Contextual {
     /**
      * The name your custom inventory will display in the GUI, possibly just
@@ -78,17 +80,15 @@ public class EquipmentInventory implements IInventory, Contextual {
 //    }
 
     @Override
-    public void setInventorySlotContents(int slot, ItemStack itemstack) {
+    public void setInventorySlotContents(int slot, @Nullable ItemStack itemstack) {
         this.inventory[slot] = itemstack != null ? itemstack : new ItemStack(Items.AIR);
-
         if (itemstack != null && itemstack.getCount() > this.getInventoryStackLimit()) {
-            if(itemstack.getItem() instanceof ItemBackpack) {
-//                System.out.println("Setting inventory slot " + slot + " with tag compound "
-//                        + itemstack.getTagCompound());
-            }
+            /*if (itemstack.getItem() instanceof ItemBackpack) {
+                 System.out.println("Setting inventory slot " + slot + " with tag compound "
+                         + itemstack.getTagCompound());
+            }*/
             itemstack.setCount(getInventoryStackLimit());
         }
-
         this.markDirty();
     }
 
