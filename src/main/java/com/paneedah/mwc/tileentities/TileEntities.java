@@ -445,7 +445,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("office_chair")
-        .withModelClassName("com.paneedah.mwc.models.OfficeChair")
+        .withModelClassName("com.paneedah.mwc.models.OfficeChair2")
         .withTextureName("textures/models/officechair.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -458,7 +458,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("office_chair_2")
-        .withModelClassName("com.paneedah.mwc.models.OfficeChair2")
+        .withModelClassName("com.paneedah.mwc.models.OfficeChair")
         .withTextureName("textures/models/officechair.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -486,7 +486,6 @@ public class TileEntities {
         .withName("desk_corner_alt1")
         .withModelClassName("com.paneedah.mwc.models.DeskCornerAlt1")
         .withTextureName("textures/models/desk.png")
-//        .withEquipementDispenseSound(sound)
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1.07f, 1f, 1f);
