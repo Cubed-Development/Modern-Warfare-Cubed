@@ -252,7 +252,6 @@ public class TileEntities {
         .withName("locker")
         .withModelClassName("com.paneedah.mwc.models.Locker")
         .withTextureName("textures/models/locker.png")
-//        .withEquipementDispenseSound(sound)
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.5f, 0.5f, 0.5f);
@@ -826,7 +825,6 @@ public class TileEntities {
         .withName("vent")
         .withModelClassName("com.paneedah.mwc.models.Vent")
         .withTextureName("textures/models/vent.png")
-//        .withEquipementDispenseSound(sound)
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
