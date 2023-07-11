@@ -1260,10 +1260,31 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.Radio")
         .withTextureName("textures/models/radio.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0.09, 0, 0.09, 0.77, 0.33, 0.93);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0.22, 0, 0.05, 0.92, 0.33, 0.9);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0.1, 0, 0.23, 0.95, 0.33, 0.92);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )    
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.7f, 0.7f, 0.7f);
             GL11.glTranslatef(0.65f, 0.58f, 0.6f);
-//            GL11.glRotatef(-45F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
