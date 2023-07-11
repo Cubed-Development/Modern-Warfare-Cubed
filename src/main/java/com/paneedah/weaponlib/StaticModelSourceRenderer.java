@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.items.equipment.carryable.ItemCarryable;
 import com.paneedah.mwc.skins.CustomSkin;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
@@ -7,6 +8,8 @@ import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.compatibility.ModelSourceRenderer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -31,7 +34,7 @@ import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class StaticModelSourceRenderer extends ModelSourceRenderer implements IBakedModel {
@@ -77,18 +80,11 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 		
 		private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioning;
 		private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioning;
-		
 
-		private ModContext modContext;
 		private boolean isHiddenInInventory;
 		
 		public Builder withHiddenInventory(boolean isHiddenInInventory) {
 		    this.isHiddenInInventory = isHiddenInInventory;
-		    return this;
-		}
-		
-		public Builder withModContext(ModContext modContext) {
-		    this.modContext = modContext;
 		    return this;
 		}
 
@@ -250,13 +246,9 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 		this.builder = builder;
 		this.pair = Pair.of((IBakedModel) this, null);
 	}
-	
-    protected ModContext getModContext() {
-        return builder.modContext;
-    }
     
     public void renderCustomEquipped(EntityPlayer player, ItemStack itemStack) {
-        RenderContext<RenderableState> renderContext = new RenderContext<>(getModContext(), player, itemStack);
+        RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
 
         GL11.glPushMatrix();
 
@@ -365,7 +357,7 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 
 	@Override
 	public TextureAtlasSprite getParticleTexture() {
-		return mc.getTextureMapBlocks().getMissingSprite();
+		return MC.getTextureMapBlocks().getMissingSprite();
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -374,15 +366,15 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 
 		GL11.glScaled(-1F, -1F, 1F);
 
-		EntityPlayer player = mc.player;
-		RenderContext<RenderableState> renderContext = new RenderContext<>(getModContext(), player, itemStack);
+		final EntityPlayer player = MC.player;
+		final RenderContext<RenderableState> renderContext = new RenderContext<>(player, itemStack);
 
 		switch (transformType) {
 			case GROUND:
 				GL11.glScaled(0.35F, 0.35F, 0.35F);
 				GL11.glTranslatef(-0.7f, -1f, -0.1f);
 				GL11.glRotatef(0F, 1f, 0f, 0f);
-				//GL11.glRotatef(150F, 0f, 1f, 0f);
+				GL11.glRotatef(150F, 0f, 1f, 0f);
 				GL11.glRotatef(90F, 0f, 0f, 1f);
 				builder.getEntityPositioning().accept(itemStack);
 				break;
@@ -417,15 +409,15 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 			default:
 		}
 
-		renderModelSource(renderContext, itemStack, transformType, 0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
+		renderModelSource(renderContext, itemStack, transformType, 0, 0, -0.4F, 0, 0, 0.08F);
 
 		GL11.glPopMatrix();
 	}
 
 
-	protected void renderModelSource(RenderContext<RenderableState> renderContext, ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float f, float f1, float f2, float f3, float f4, float f5) {
+	protected void renderModelSource(RenderContext<RenderableState> renderContext, ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (itemStack.getItem() instanceof ItemCarryable) {
-			renderModelSourceCarryableItem(itemStack, transformType, f, f1, f2, f3, f4, f5);
+			renderModelSourceCarryableItem(itemStack, transformType, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 			return;
 		}
 
@@ -438,9 +430,9 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 
 		for(Tuple<ModelBase, String> texturedModel: modelSource.getTexturedModels()) {
 			if (texturedModel.getV().startsWith("customskin_")) {
-				mc.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getV().toLowerCase().replace("customskin_", "").replace(".png", "")));
+				MC.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getV().toLowerCase().replace("customskin_", "").replace(".png", "")));
 			} else {
-				mc.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getV()));
+				MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getV()));
 			}
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
@@ -464,7 +456,7 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 				}
 			}
 
-			model.render(mc.player, f, f1, f2, f3, f4, f5);
+			model.render(MC.player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 			GL11.glPopAttrib();
 			GL11.glPopMatrix();
 		}
@@ -477,7 +469,7 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 			renderContext.setScale(0.08f);
 			renderContext.setCompatibleTransformType(transformType);
 
-			renderContext.setPlayerItemInstance(getModContext().getPlayerItemInstanceRegistry().getItemInstance(renderContext.getPlayer(), itemStack));
+			renderContext.setPlayerItemInstance(MWC.modContext.getPlayerItemInstanceRegistry().getItemInstance(renderContext.getPlayer(), itemStack));
 
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
@@ -489,19 +481,12 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 		GL11.glPopMatrix();
 	}
 
-	protected void renderModelSourceCarryableItem(ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float f, float f1, float f2, float f3, float f4, float f5) {
-		GL11.glPushMatrix();
-
+	protected void renderModelSourceCarryableItem(ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		ItemCarryable itemCarryable = (ItemCarryable) itemStack.getItem();
 
-		ModelBase model = itemCarryable.getModel();
-		String textureName = itemCarryable.getTextureName();
+		final ModelBiped model = itemCarryable.model;
 
-		mc.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + textureName));
-
-		GL11.glPushMatrix();
-
-		GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
+		MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/models/" + itemCarryable.textureName));
 
 		if(transformType != null) {
 			switch (transformType) {
@@ -521,13 +506,7 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 			}
 		}
 
-		model.render(mc.player, f, f1, f2, f3, f4, f5);
-
-		GL11.glPopAttrib();
-
-		GL11.glPopMatrix();
-
-		GL11.glPopMatrix();
+		model.render(MC.player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 	}
 
 	@Override

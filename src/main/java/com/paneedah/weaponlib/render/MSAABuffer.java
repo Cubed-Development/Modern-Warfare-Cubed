@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import net.minecraft.client.renderer.OpenGlHelper;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class MSAABuffer {
 	
@@ -42,7 +42,7 @@ public class MSAABuffer {
 			GLCompatible.glTexImage2DMultisample(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, 4, GL14.GL_DEPTH_COMPONENT24, width, height, false);
 		}
 		*/
-		GLCompatible.glBindFramebuffer(GLCompatible.GL_FRAMEBUFFER, mc.getFramebuffer().framebufferObject);
+		GLCompatible.glBindFramebuffer(GLCompatible.GL_FRAMEBUFFER, MC.getFramebuffer().framebufferObject);
 		
 	}
 	

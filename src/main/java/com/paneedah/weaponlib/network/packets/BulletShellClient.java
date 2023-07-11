@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class BulletShellClient implements IMessage {
 
@@ -49,8 +49,8 @@ public class BulletShellClient implements IMessage {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(BulletShellClient message, MessageContext messageContext) {
-			mc.addScheduledTask(() -> {
-				if(mc.player.getEntityId() != message.shooter)
+			MC.addScheduledTask(() -> {
+				if(MC.player.getEntityId() != message.shooter)
 					ClientEventHandler.SHELL_MANAGER.enqueueShell(new Shell(message.type, message.position, new Vec3d(-90, 0, 90), message.velocity));
 			});
 

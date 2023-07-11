@@ -80,7 +80,7 @@ public class InertialStabilizer {
 			rotationPitch += (0-rotationPitch)*dampener;
 		}
 		
-		//double iy = InterpolationKit.interpolateValue(prevRotationRoll, rotationRoll, mc.getRenderPartialTicks());
+		//double iy = InterpolationKit.interpolateValue(prevRotationRoll, rotationRoll, MC.getRenderPartialTicks());
 		
 		GL11.glTranslated(0.0, rotationPitch, 0.0);
 		

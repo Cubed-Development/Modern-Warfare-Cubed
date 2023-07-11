@@ -13,7 +13,7 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.UUID;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvider {
     
@@ -44,13 +44,13 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
                 .withUniform("Brightness", context -> brightness)
                 .withUniform("SepiaRatio", context -> sepiaRatio)
                 .withUniform("SepiaColor", context -> new float[] {colorImpairmentR, colorImpairmentG, colorImpairmentB})
-                .withUniform("IntensityAdjust", context -> 40f - mc.gameSettings.gammaSetting * 38)
-                .withUniform("NoiseAmplification", context ->  2f + 3f * mc.gameSettings.gammaSetting);
+                .withUniform("IntensityAdjust", context -> 40f - MC.gameSettings.gammaSetting * 38)
+                .withUniform("NoiseAmplification", context ->  2f + 3f * MC.gameSettings.gammaSetting);
     
     @Override
     public DynamicShaderGroupSource getShaderSource(DynamicShaderPhase phase) {
-        lightExposure = CompatibleExposureCapability.getExposure(mc.player, LightExposure.class);
-        spreadableExposure = CompatibleExposureCapability.getExposure(mc.player, SpreadableExposure.class);
+        lightExposure = CompatibleExposureCapability.getExposure(MC.player, LightExposure.class);
+        spreadableExposure = CompatibleExposureCapability.getExposure(MC.player, SpreadableExposure.class);
         spreadableExposureProgress = MiscUtils.smoothstep(0, 1, spreadableExposure != null ? spreadableExposure.getTotalDose() : 0f);
         updateNightVision();
         updateVignette();
@@ -66,9 +66,9 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
         brightness = 1f;
 
 //        System.out.println("Hello");
-        long worldTime = mc.player.world.getWorldTime();
+        long worldTime = MC.player.world.getWorldTime();
 //        System.out.println("Day brightness: " + dayBrightness + ", time: " + (worldTime % 24000));
-        if(lightExposure != null && lightExposure.getTotalDose() > 0.0003f) { //lightExposure.isEffective(compatibility.world(mc.player))) {
+        if(lightExposure != null && lightExposure.getTotalDose() > 0.0003f) { //lightExposure.isEffective(compatibility.world(MC.player))) {
             flashEnabled = true;
             float dayBrightness = (MathHelper.sin( (float)Math.PI * 2 * (float)(worldTime % 24000 - 24000f) / 24000f) + 1f) / 2f;
 //            dayBrightness *= dayBrightness;
@@ -76,7 +76,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
 //            System.out.println("Brightness: " + brightness);
         }
         
-        if(spreadableExposure != null && !mc.player.isDead) {
+        if(spreadableExposure != null && !MC.player.isDead) {
             Blackout blackout = spreadableExposure.getBlackout();
             blackout.update();
             switch(blackout.getPhase()) {
@@ -102,7 +102,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
 
     private void updateVignette() {
         vignetteEnabled = nightVisionEnabled;
-        ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+        ItemStack helmetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
         if(nightVisionEnabled && helmetStack != null && helmetStack.getItem() instanceof CustomArmor) {
             CustomArmor helmet = (CustomArmor)helmetStack.getItem();
             vignetteEnabled = helmet.isVignetteEnabled();
@@ -111,7 +111,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
     }
 
     private void updateNightVision() {
-        ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+        ItemStack helmetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
         if(helmetStack != null) {
             NBTTagCompound tagCompound = helmetStack.getTagCompound();
             if(tagCompound != null) {

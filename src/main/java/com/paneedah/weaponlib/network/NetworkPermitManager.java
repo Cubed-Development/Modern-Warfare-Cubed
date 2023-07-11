@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class NetworkPermitManager implements PermitManager, IMessageHandler<PermitMessage, IMessage> {
@@ -77,9 +77,9 @@ public class NetworkPermitManager implements PermitManager, IMessageHandler<Perm
 		Permit<?> permit = permitMessage.getPermit();
 		Object extendedState = permitMessage.getContext();
 
-		mc.addScheduledTask(() -> {
+		MC.addScheduledTask(() -> {
 			if(extendedState instanceof PlayerContext)
-				((PlayerContext) extendedState).setPlayer(mc.player);
+				((PlayerContext) extendedState).setPlayer(MC.player);
 			@SuppressWarnings("unchecked")
 			BiConsumer<Permit<?>, Object> callback = (BiConsumer<Permit<?>, Object>) permitCallbacks.remove(permit.getUuid());
 			if(callback != null)

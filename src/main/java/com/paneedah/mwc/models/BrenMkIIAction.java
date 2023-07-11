@@ -1747,20 +1747,20 @@ public class BrenMkIIAction extends ModelWithAttachments
     setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     Action1.render(f5);
     Action2.render(f5);
-//    Mag1.render(f5);
-//    Mag2.render(f5);
-//    Mag3.render(f5);
-//    Mag4.render(f5);
-//    Mag5.render(f5);
-//    Mag6.render(f5);
-//    Mag7.render(f5);
-//    Mag8.render(f5);
-//    Mag9.render(f5);
-//    Mag10.render(f5);
-//    Mag11.render(f5);
-//    Mag12.render(f5);
-//    Mag13.render(f5);
-//    Mag14.render(f5);
+//    Mag1.renderer(f5);
+//    Mag2.renderer(f5);
+//    Mag3.renderer(f5);
+//    Mag4.renderer(f5);
+//    Mag5.renderer(f5);
+//    Mag6.renderer(f5);
+//    Mag7.renderer(f5);
+//    Mag8.renderer(f5);
+//    Mag9.renderer(f5);
+//    Mag10.renderer(f5);
+//    Mag11.renderer(f5);
+//    Mag12.renderer(f5);
+//    Mag13.renderer(f5);
+//    Mag14.renderer(f5);
   }
   
 }

@@ -50,13 +50,30 @@ public class BalancePackManager {
 
 	public enum GunConfigurationGroup {
 		NONE,
-		SIDEARM,
+		HANDGUN,
+		LONG_GUN,
+		RIFLE,
 		SHOTGUN,
+		CARBINE,
+		ASSAULT_RIFLE,
+		BATTLE_RIFLE,
+		SNIPER_RIFLE,
+		MACHINE_GUN,
+		SUBMACHINE_GUN,
+
+		@Deprecated
+		SIDEARM,
+		@Deprecated
 		REVOLVER,
+		@Deprecated
 		SMG,
+		@Deprecated
 		DMR,
+		@Deprecated
 		RIFLES,
+		@Deprecated
 		LONG_RANGE_RIFLES,
+		@Deprecated
 		HEAVY
 	}
 

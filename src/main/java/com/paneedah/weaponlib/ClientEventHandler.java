@@ -58,7 +58,7 @@ import java.util.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
@@ -167,11 +167,11 @@ public class ClientEventHandler {
 			update();
 			modContext.getSyncManager().run();
 
-			PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(mc.player);
+			PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(MC.player);
 			if(tracker != null)
 			    tracker.update();
 			
-			EntityPlayer player = mc.player;
+			EntityPlayer player = MC.player;
 	        if (player instanceof EntityPlayerSP && player.getRidingEntity() instanceof EntityVehicle) {
 	            EntityPlayerSP clientPlayer = (EntityPlayerSP) player;
 	            
@@ -180,16 +180,16 @@ public class ClientEventHandler {
 	        }
 	        
 			mainLoopLock.unlock();
-			safeGlobals.objectMouseOver.set(mc.objectMouseOver);
-			if(mc.player != null) {
-				safeGlobals.currentItemIndex.set(mc.player.inventory.currentItem);
-				//reloadAspect.updateMainHeldItem(mc.player);
+			safeGlobals.objectMouseOver.set(MC.objectMouseOver);
+			if(MC.player != null) {
+				safeGlobals.currentItemIndex.set(MC.player.inventory.currentItem);
+				//reloadAspect.updateMainHeldItem(MC.player);
 			}
 		}
 
 		// ModernConfigManager.init();
 
-		EntityPlayer player = mc.player;
+		EntityPlayer player = MC.player;
 
 		if (player != null && clientTickEvent.phase == TickEvent.Phase.END) {
 
@@ -203,11 +203,11 @@ public class ClientEventHandler {
 
 		// Past here we only want to deal with Phase.START.
 		// Also we should be in a world.
-		if(clientTickEvent.phase != TickEvent.Phase.START || mc.player == null) return;
+		if(clientTickEvent.phase != TickEvent.Phase.START || MC.player == null) return;
 
 		// Run recalculations for the weather renderer
-		if (ModernConfigManager.enableFancyRainAndSnow && PostProcessPipeline.getWeatherRenderer() != null && PostProcessPipeline.getWeatherRenderer().shouldRecalculateRainVectors(mc.player))
-			PostProcessPipeline.getWeatherRenderer().recalculateRainVectors(mc.player, MWCUtil.getInterpolatedPlayerPos());
+		if (ModernConfigManager.enableFancyRainAndSnow && PostProcessPipeline.getWeatherRenderer() != null && PostProcessPipeline.getWeatherRenderer().shouldRecalculateRainVectors(MC.player))
+			PostProcessPipeline.getWeatherRenderer().recalculateRainVectors(MC.player, MWCUtil.getInterpolatedPlayerPos());
 
 
 		if (getModContext() != null) {
@@ -222,21 +222,21 @@ public class ClientEventHandler {
 
 		int ticksRequired = (int) Math.round(AnimationGUI.getInstance().debugFireRate.getValue());
 
-		if (DebugCommand.isWorkingOnScreenShake() && mc.player.ticksExisted % 20 == 0 && getModContext().getMainHeldWeapon() != null) {
-			uploadFlash(mc.player.getEntityId());
+		if (DebugCommand.isWorkingOnScreenShake() && MC.player.ticksExisted % 20 == 0 && getModContext().getMainHeldWeapon() != null) {
+			uploadFlash(MC.player.getEntityId());
 			ClientValueRepo.fireWeapon(getModContext().getMainHeldWeapon());
 		}
 
-		if (mc.player.ticksExisted % ticksRequired == 0 && AnimationModeProcessor.getInstance().getFPSMode() && !AnimationGUI.getInstance().isPanelClosed("Recoil"))
+		if (MC.player.ticksExisted % ticksRequired == 0 && AnimationModeProcessor.getInstance().getFPSMode() && !AnimationGUI.getInstance().isPanelClosed("Recoil"))
 			ClientValueRepo.fireWeapon(getModContext().getMainHeldWeapon());
 
-		ClientValueRepo.TICKER.update(mc.player.ticksExisted);
+		ClientValueRepo.TICKER.update(MC.player.ticksExisted);
 
 		SHELL_MANAGER.update(0.05);
 	}
 	
 	private void updateOnStartTick() {
-	    EntityPlayer player = mc.player;
+	    EntityPlayer player = MC.player;
 	    if(player != null) {
 	        int newSlotIndex = player.inventory.currentItem;
 	        if(currentSlotIndex != newSlotIndex) {
@@ -249,7 +249,7 @@ public class ClientEventHandler {
 	}
 
     private void update() {
-		EntityPlayer player = mc.player;
+		EntityPlayer player = MC.player;
 		modContext.getPlayerItemInstanceRegistry().update(player);
 		PlayerWeaponInstance mainHandHeldWeaponInstance = modContext.getMainHeldWeapon();
 		if(player != null) {
@@ -286,16 +286,16 @@ public class ClientEventHandler {
 		if(player != null) {
 		    //ItemStack helmet = compatibility.getHelmet();
 		    
-		    SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(mc.player, SpreadableExposure.class);
+		    SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(MC.player, SpreadableExposure.class);
 	        if(spreadableExposure != null && spreadableExposure.getTotalDose() > SLOW_DOWN_WHEN_POISONED_DOSE_THRESHOLD) {
 	            slowPlayerDown(player, SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER);
 	        } else {
 	            restorePlayerSpeed(player, SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER);
 	        }
 	        
-	        LightExposure lightExposure = CompatibleExposureCapability.getExposure(mc.player, LightExposure.class);
+	        LightExposure lightExposure = CompatibleExposureCapability.getExposure(MC.player, LightExposure.class);
 	        if(lightExposure != null) {
-	            lightExposure.update(mc.player);
+	            lightExposure.update(MC.player);
 	        }
 		}
 	}
@@ -324,7 +324,7 @@ public class ClientEventHandler {
 
 	@SubscribeEvent
 	public void onRenderHand(RenderHandEvent event) {
-	    Minecraft minecraft = mc;
+	    Minecraft minecraft = MC;
 	    if (minecraft.gameSettings.thirdPersonView == 0 & !OptiNotFine.shadersEnabled()) {
 	        PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
 
@@ -337,12 +337,12 @@ public class ClientEventHandler {
 	@SideOnly(Side.CLIENT)
     public final void onRenderTickEvent(TickEvent.RenderTickEvent event) {
 		
-        Minecraft minecraft = mc;
+        Minecraft minecraft = MC;
         DynamicShaderContext shaderContext = new DynamicShaderContext(DynamicShaderPhase.POST_WORLD_RENDER,
                 minecraft.entityRenderer,
                 minecraft.getFramebuffer(), event.renderTickTime);
 
-        EntityPlayer clientPlayer = mc.player;
+        EntityPlayer clientPlayer = MC.player;
         
         if(event.phase == TickEvent.RenderTickEvent.Phase.START ) {
             ClientModContext.currentContext = modContext;
@@ -412,13 +412,13 @@ public class ClientEventHandler {
 
 		if (ModernConfigManager.enableHDRFramebuffer) {
 			// Check if our
-			Framebuffer current = mc.getFramebuffer();
+			Framebuffer current = MC.getFramebuffer();
 
 			if (!(current instanceof HDRFramebuffer)) {
 				// Create an EXACT match, but in the HDR format. This will break w/ other mods that try to do anything similar.
 				Framebuffer newFBO = new HDRFramebuffer(current.framebufferWidth, current.framebufferHeight, current.useDepth);
 
-				mc.framebuffer = newFBO;
+				MC.framebuffer = newFBO;
 			}
 		}
 
@@ -436,10 +436,10 @@ public class ClientEventHandler {
 		SHELL_MANAGER.render();
 
 		if (AnimationModeProcessor.getInstance().getFPSMode()) {
-			mc.setIngameNotInFocus();
-			// mc.mouseHelper.ungrabMouseCursor();
+			MC.setIngameNotInFocus();
+			// MC.mouseHelper.ungrabMouseCursor();
 			AnimationModeProcessor.getInstance().onTick();
-			mc.player.inventory.currentItem = 0;
+			MC.player.inventory.currentItem = 0;
 
 			return;
 		}
@@ -510,7 +510,7 @@ public class ClientEventHandler {
 
 	@SubscribeEvent
 	public void onRightHandEmpty(PlayerInteractEvent.RightClickEmpty rightClickEmptyEvent) {
-		final EntityPlayer player = mc.player;
+		final EntityPlayer player = MC.player;
 
 		List<EntityVehicle> entityVehicleList = player.world.getEntitiesWithinAABB(EntityVehicle.class, new AxisAlignedBB(player.getPosition()).grow(10));
 
@@ -521,7 +521,7 @@ public class ClientEventHandler {
 			OreintedBB boundingBox = entityVehicle.getOreintedBoundingBox();
 
 			//boundingBox.move(entityVehicle.posX, entityVehicle.posY, entityVehicle.posZ);
-			Vec3d start = player.getPositionEyes(mc.getRenderPartialTicks());
+			Vec3d start = player.getPositionEyes(MC.getRenderPartialTicks());
 			Vec3d endVec = start.add(player.getLookVec().scale(7));
 
 			boundingBox.updateInverse();
@@ -535,7 +535,7 @@ public class ClientEventHandler {
 
 	@SubscribeEvent
 	public void onLeftHandEmpty(PlayerInteractEvent.LeftClickEmpty leftClickEmptyEvent) {
-		final EntityPlayer player = mc.player;
+		final EntityPlayer player = MC.player;
 
 		List<EntityVehicle> entityVehicleList = player.world.getEntitiesWithinAABB(EntityVehicle.class, new AxisAlignedBB(player.getPosition()).grow(3));
 
@@ -546,7 +546,7 @@ public class ClientEventHandler {
 			OreintedBB boundingBox = entityVehicle.getOreintedBoundingBox();
 
 			//boundingBox.move(entityVehicle.posX, entityVehicle.posY, entityVehicle.posZ);
-			Vec3d start = player.getPositionEyes(mc.getRenderPartialTicks());
+			Vec3d start = player.getPositionEyes(MC.getRenderPartialTicks());
 			Vec3d endVec = start.add(player.getLookVec().scale(4));
 
 			//boundingBox.updateInverse();

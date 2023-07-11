@@ -22,13 +22,13 @@ public class CompatibleClassInfoProvider {
                 
         classInfoMap.put("net/minecraft/client/model/ModelBiped", 
                 new ClassInfo("net/minecraft/client/model/ModelBiped", "bpx")
-                .addMethodInfo2("render", "(Lnet/minecraft/entity/Entity;FFFFFF)V", "a", "(Lvg;FFFFFF)V")
+                .addMethodInfo2("renderer", "(Lnet/minecraft/entity/Entity;FFFFFF)V", "a", "(Lvg;FFFFFF)V")
                 .addMethodInfo2("postRenderArm", "(FLnet/minecraft/util/EnumHandSide;)V", "a", "(FLvo;)V")
                 );
         
         classInfoMap.put("net/minecraft/client/model/ModelPlayer", 
                 new ClassInfo("net/minecraft/client/model/ModelPlayer", "bqj")
-                .addMethodInfo2("render", "(Lnet/minecraft/entity/Entity;FFFFFF)V", "a", "(Lvg;FFFFFF)V")
+                .addMethodInfo2("renderer", "(Lnet/minecraft/entity/Entity;FFFFFF)V", "a", "(Lvg;FFFFFF)V")
                 );
         
         classInfoMap.put("net/minecraft/client/renderer/entity/RenderLivingBase", 
@@ -39,7 +39,7 @@ public class CompatibleClassInfoProvider {
         
         classInfoMap.put("net/minecraft/client/model/ModelBase", 
                 new ClassInfo("net/minecraft/client/model/ModelBase", "bqf")
-                .addMethodInfo2("render", "(Lnet/minecraft/entity/Entity;FFFFFF)V", "a", "(Lvg;FFFFFF)V")
+                .addMethodInfo2("renderer", "(Lnet/minecraft/entity/Entity;FFFFFF)V", "a", "(Lvg;FFFFFF)V")
                 );
         
         classInfoMap.put("net/minecraft/client/renderer/entity/layers/LayerArmorBase", 
@@ -87,7 +87,7 @@ public class CompatibleClassInfoProvider {
         
         classInfoMap.put("net/minecraft/client/model/ModelRenderer", 
                 new ClassInfo("net/minecraft/client/model/ModelRenderer", "brs")
-                .addMethodInfo2("render", "(F)V", "a", "(F)V")
+                .addMethodInfo2("renderer", "(F)V", "a", "(F)V")
                 .addFieldInfo("cubeList", "Lnet/minecraft/client/renderer/entity/RenderLivingBase;", "field_78804_l", "Lcaa;")
                 );
         
@@ -106,10 +106,10 @@ public class CompatibleClassInfoProvider {
         return instance;
     }
 
-    public ClassInfo getClassInfo(String mcpClassName) {
-    	if(!mcpClassName.equals("paulscode.sound.libraries.SourceLWJGLOpenAL")) {
-    		return classInfoMap.get(mcpClassName.replace('.', '/'));
-    	} else return classInfoMap.get(mcpClassName);
+    public ClassInfo getClassInfo(String MCpClassName) {
+    	if(!MCpClassName.equals("paulscode.sound.libraries.SourceLWJGLOpenAL")) {
+    		return classInfoMap.get(MCpClassName.replace('.', '/'));
+    	} else return classInfoMap.get(MCpClassName);
         
     }
 

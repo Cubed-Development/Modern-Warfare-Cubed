@@ -300,9 +300,9 @@ public class Glock13rndMagazine extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		mag13rnd.render(f5);
-//		mag20rnd.render(f5);
-//		G18slide.render(f5);
-//		G18cncslide.render(f5);
+//		mag20rnd.renderer(f5);
+//		G18slide.renderer(f5);
+//		G18cncslide.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

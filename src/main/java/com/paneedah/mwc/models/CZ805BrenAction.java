@@ -37,10 +37,10 @@ public class CZ805BrenAction extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		upperreceiver.render(f5);
-//		grip.render(f5);
+//		upperreceiver.renderer(f5);
+//		grip.renderer(f5);
 		action.render(f5);
-//		stock.render(f5);
+//		stock.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

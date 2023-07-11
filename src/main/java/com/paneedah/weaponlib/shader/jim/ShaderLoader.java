@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
@@ -92,7 +92,7 @@ public class ShaderLoader {
      * @throws IOException If there is an error reading the file
      */
     private static ByteBuffer readFileToBuf(ResourceLocation file) throws IOException {
-        try (InputStream inputStream = mc.getResourceManager().getResource(file).getInputStream()) {
+        try (InputStream inputStream = MC.getResourceManager().getResource(file).getInputStream()) {
             byte[] bytes = IOUtils.toByteArray(inputStream);
             ByteBuffer buffer = BufferUtils.createByteBuffer(bytes.length);
             buffer.put(bytes);

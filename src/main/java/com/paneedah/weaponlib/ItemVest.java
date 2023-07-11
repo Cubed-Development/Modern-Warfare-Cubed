@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -9,6 +8,7 @@ import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import com.paneedah.weaponlib.render.IHasModel;
 import com.paneedah.weaponlib.render.modelrepo.ServerGearModelHookRegistry;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -184,7 +184,6 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
                 .withThirdPersonModelPositioning(builder.thirdPersonModelPositioning)
                 .withInventoryModelPositioning(builder.inventoryModelPositioning)
                 .withFirstPersonHandPositioning(builder.firstPersonLeftHandPositioning, builder.firstPersonRightHandPositioning)
-                .withModContext(modContext)
                 .build();
             }
         }
@@ -217,7 +216,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
             ServerGearModelHookRegistry.modelArray.add(this.modelFileString);
             
             item.modelFileString = this.modelFileString;
-            item.properTextureName = this.properTextureName;
+            item.textureName = this.properTextureName;
             item.setTranslationKey(ID + "_" + name);
             
             // Register hook
@@ -291,16 +290,16 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
     	return customEquippedPositioning;
     }
 
-    
+    public ModelBiped model;
     private String modelFileString;
-    private String properTextureName;
+    public String textureName;
     
     public String getModelFileString() {
     	return this.modelFileString;
     }
     
-    public String getProperTextureName() {
-    	return this.properTextureName;
+    public String getTextureName() {
+    	return this.textureName;
     }
     
     

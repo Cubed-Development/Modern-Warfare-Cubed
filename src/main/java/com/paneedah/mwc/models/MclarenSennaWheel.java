@@ -1929,9 +1929,9 @@ public class MclarenSennaWheel extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		wheel5.render(f5);
-//		windows.render(f5);
-//		steering_wheel.render(f5);
-//		car.render(f5);
+//		windows.renderer(f5);
+//		steering_wheel.renderer(f5);
+//		car.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

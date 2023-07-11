@@ -3551,18 +3551,18 @@ public class VSSVintorezDustCover extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
+//		gun.renderer(f5);
 		dustcover.render(f5);
-//		vssm_dustcover.render(f5);
-//		vssvintorez_stock.render(f5);
-//		vssvintorez_handguard.render(f5);
-//		asval_handguard.render(f5);
-//		asval_stock.render(f5);
-//		kulatac_milspec_stock.render(f5);
-//		action.render(f5);
-//		tri_rail_mount.render(f5);
-//		vss_mag.render(f5);
-//		asval_mag.render(f5);
+//		vssm_dustcover.renderer(f5);
+//		vssvintorez_stock.renderer(f5);
+//		vssvintorez_handguard.renderer(f5);
+//		asval_handguard.renderer(f5);
+//		asval_stock.renderer(f5);
+//		kulatac_milspec_stock.renderer(f5);
+//		action.renderer(f5);
+//		tri_rail_mount.renderer(f5);
+//		vss_mag.renderer(f5);
+//		asval_mag.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

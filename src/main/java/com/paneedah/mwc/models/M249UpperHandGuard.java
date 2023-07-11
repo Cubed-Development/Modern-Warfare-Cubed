@@ -2023,19 +2023,19 @@ public class M249UpperHandGuard extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		ironsight.render(f5);
-//		belt.render(f5);
-//		hatch.render(f5);
-//		stock.render(f5);
-//		mk48para_stock.render(f5);
-//		stockadapter.render(f5);
+//		gun.renderer(f5);
+//		ironsight.renderer(f5);
+//		belt.renderer(f5);
+//		hatch.renderer(f5);
+//		stock.renderer(f5);
+//		mk48para_stock.renderer(f5);
+//		stockadapter.renderer(f5);
 		upperhandguard.render(f5);
-//		mk48upperguard.render(f5);
-//		lowerhandguard.render(f5);
-//		mk48lowerguard.render(f5);
-//		action.render(f5);
-//		mag.render(f5);
+//		mk48upperguard.renderer(f5);
+//		lowerhandguard.renderer(f5);
+//		mk48lowerguard.renderer(f5);
+//		action.renderer(f5);
+//		mag.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

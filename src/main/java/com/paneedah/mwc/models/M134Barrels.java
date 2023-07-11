@@ -2446,9 +2446,9 @@ public class M134Barrels extends ModelWithAttachments
     BarrelBlock70.render(f5);
     BarrelBlock71.render(f5);
     BarrelBlock72.render(f5);
-//    Magonminus1.render(f5);
-//    Magonminus2.render(f5);
-//    Magonminus3.render(f5);
+//    Magonminus1.renderer(f5);
+//    Magonminus2.renderer(f5);
+//    Magonminus3.renderer(f5);
   }
   
 }

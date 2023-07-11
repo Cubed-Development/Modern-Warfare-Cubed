@@ -15,7 +15,7 @@ import org.lwjgl.input.Mouse;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 class ClientWeaponTicker extends Thread {
 
@@ -146,7 +146,7 @@ class ClientWeaponTicker extends Thread {
         	if(player.isSprinting()) {
         		player.setSprinting(false);
         		
-        		KeyBinding.setKeyBindState(mc.gameSettings.keyBindSprint.getKeyCode(), false);
+        		KeyBinding.setKeyBindState(MC.gameSettings.keyBindSprint.getKeyCode(), false);
         		ClientValueRepo.shouldContinueRunning = true;
         	}
             ((Weapon) item).toggleAiming();

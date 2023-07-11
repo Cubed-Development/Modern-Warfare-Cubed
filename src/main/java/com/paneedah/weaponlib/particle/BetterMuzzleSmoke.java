@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib.particle;
 
-import com.paneedah.mwc.render.ParticleRenderer;
-import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.renderer.ParticleRenderer;
 import com.paneedah.weaponlib.particle.vehicle.TurbulentSmokeParticle;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.entity.Entity;
@@ -13,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
@@ -64,7 +63,7 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
         int oldInd = (this.particleAge - 1) * 16 / this.particleMaxAge;
         int ind = this.particleAge * 16 / this.particleMaxAge;
 
-        ind = (int) (oldInd + (ind - oldInd) * mc.getRenderPartialTicks());
+        ind = (int) (oldInd + (ind - oldInd) * MC.getRenderPartialTicks());
 
         int nR = (int) (ind / 4) * 512;
 
@@ -87,13 +86,13 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
         double v = 1 / 4.0;
 
         if (this.ran == 0) {
-            mc.getTextureManager().bindTexture(SMOKE1);
+            MC.getTextureManager().bindTexture(SMOKE1);
         } else {
-            mc.getTextureManager().bindTexture(SMOKE2);
+            MC.getTextureManager().bindTexture(SMOKE2);
         }
         //GlStateManager.enableBlend();
 
-        mc.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/smokes/smoke4.png"));
+        MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/smokes/smoke4.png"));
         GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
         GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
 

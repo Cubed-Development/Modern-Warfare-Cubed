@@ -350,7 +350,6 @@ public class AttachmentBuilder<T> {
 		.withThirdPersonModelPositioning(thirdPersonModelPositioning)
 		.withInventoryModelPositioning(inventoryModelPositioning)
 		.withFirstPersonHandPositioning(firstPersonLeftHandPositioning, firstPersonRightHandPositioning)
-		.withModContext(modContext)
 		.build();
 	}
 

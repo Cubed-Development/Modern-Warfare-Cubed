@@ -5,7 +5,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class SpreadableExposureMessageHandler implements IMessageHandler<SpreadableExposureMessage, IMessage> {
 
@@ -14,17 +14,17 @@ public class SpreadableExposureMessageHandler implements IMessageHandler<Spreada
 
     @Override
     public IMessage onMessage(SpreadableExposureMessage message, MessageContext messageContext) {
-        mc.addScheduledTask(() -> {
+        MC.addScheduledTask(() -> {
             SpreadableExposure spreadableExposure = message.getSpreadableExposure();
             if(spreadableExposure != null) {
-                SpreadableExposure currentExposure = CompatibleExposureCapability.getExposure(mc.player, SpreadableExposure.class);
+                SpreadableExposure currentExposure = CompatibleExposureCapability.getExposure(MC.player, SpreadableExposure.class);
                 if(currentExposure != null) {
                     currentExposure.updateFrom(spreadableExposure);
                 } else {
-                    CompatibleExposureCapability.updateExposure(mc.player, spreadableExposure);
+                    CompatibleExposureCapability.updateExposure(MC.player, spreadableExposure);
                 }
             } else {
-                CompatibleExposureCapability.removeExposure(mc.player, SpreadableExposure.class); // TODO: remove hardcoded class
+                CompatibleExposureCapability.removeExposure(MC.player, SpreadableExposure.class); // TODO: remove hardcoded class
             }
         });
 

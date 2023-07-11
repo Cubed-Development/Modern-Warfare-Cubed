@@ -11,6 +11,7 @@ import net.minecraft.util.ResourceLocation;
 
 import java.io.IOException;
 
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class GuiEquipment extends InventoryEffectRenderer {
@@ -51,11 +52,11 @@ public class GuiEquipment extends InventoryEffectRenderer {
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
         GlStateManager.color(1, 1, 1, 1);
-        mc.getTextureManager().bindTexture(backGround);
+        MC.getTextureManager().bindTexture(backGround);
 
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 
-        GuiInventory.drawEntityOnScreen(guiLeft + 51, guiTop + 75, 30, (guiLeft + 51) - mouseX, (guiTop + 25) - mouseY, mc.player);
+        GuiInventory.drawEntityOnScreen(guiLeft + 51, guiTop + 75, 30, (guiLeft + 51) - mouseX, (guiTop + 25) - mouseY, MC.player);
     }
 
     @Override

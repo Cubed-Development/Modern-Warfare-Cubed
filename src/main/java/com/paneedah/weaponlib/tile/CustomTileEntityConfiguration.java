@@ -155,7 +155,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
                 ResourceLocation textureResource, Consumer<TileEntity> positioning, CustomTileEntityBlock tileEntityBlock) {
             try {
 
-//                mc.getRenderItem().getItemModelMesher()
+//                MC.getRenderItem().getItemModelMesher()
 //                    .register(Item.getItemFromBlock(tileEntityBlock), 0,
 //                        new ModelResourceLocation(ID + ":" + name, "inventory"));
                 

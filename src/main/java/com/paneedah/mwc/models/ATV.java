@@ -1162,8 +1162,8 @@ public class ATV extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		body.render(f5);
-//		steering_thing.render(f5);
-//		wheel_small.render(f5);
+//		steering_thing.renderer(f5);
+//		wheel_small.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

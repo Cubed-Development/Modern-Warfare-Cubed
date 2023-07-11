@@ -13,6 +13,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 **When updating to this version from an existing world all tan variants of every back as well as the F5 Switchblade will disappear, they aren't being removed then just changed internally**
 
+**When updating to this version from an existing world all equipment placed in the equipment inventory will disappear 
+
 ### Highlight
 
 ### Added
@@ -34,7 +36,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Weapon system version to weapon tooltips
 - Added the Workbench and the Ammo Press to the Creative Tab
 - Translations for Chinese, Spanish, and Turkish languages
-- GitHub URL in `mcmod.info`
+- GitHub URL in `MCmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
 - Shells life go increased 1606% no performance impact in extreme cases
 
@@ -67,7 +69,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Cactus
   - Cake
 - Bullets collision has been enhanced to work compatibly with mods
-- Updated `mcmod.info` description and credits
+- Updated `MCmod.info` description and credits
 - Migrated the config setting for bullets breaking glass into the new config file (ModernWarfareCubed.cfg)
 - Forge configuration `Emissive Item Rendering` is now forced to be off (This does not influence Optifine emissive item rendering)
 - OptiFine configuration `Fast Render` is now forced to be off
@@ -79,6 +81,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Renamed `Ammunition` creative tab to `Ammunition & Magazines`
 - Renamed `Grenades` creative tab to `Throwables`
 - Merged the Gadget creative tab into the `Equipment` creative tab
+- Debug commands are now only accessible to oped players (Oped of level 4)
 
 ### Fixed
 

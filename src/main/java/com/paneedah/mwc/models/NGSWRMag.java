@@ -1496,11 +1496,11 @@ public class NGSWRMag extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		handguard.render(f5);
-//		rails_attachment.render(f5);
-//		action.render(f5);
-//		stock_adapter.render(f5);
+//		gun.renderer(f5);
+//		handguard.renderer(f5);
+//		rails_attachment.renderer(f5);
+//		action.renderer(f5);
+//		stock_adapter.renderer(f5);
 		magazine.render(f5);
 	}
 

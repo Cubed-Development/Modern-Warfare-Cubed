@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL30;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 //https://www.lighthouse3d.com/tutorials/opengl-selection-tutorial/
 public class OpenGLSelectionHelper {
@@ -49,16 +49,16 @@ public class OpenGLSelectionHelper {
 
 	public static void bindBallBuf() {
 		if(ballBuf == null) {
-			ballBuf = new Framebuffer(mc.displayWidth, mc.displayHeight, true);
+			ballBuf = new Framebuffer(MC.displayWidth, MC.displayHeight, true);
 		}
 		ballBuf.bindFramebuffer(false);;
 	}
 	
 	public static void bindSelectBuffer() {
-		if (mc.displayWidth != width || mc.displayHeight != height
+		if (MC.displayWidth != width || MC.displayHeight != height
 				|| fbo == null) {
-			width = mc.displayWidth;
-			height = mc.displayHeight;
+			width = MC.displayWidth;
+			height = MC.displayHeight;
 			fbo = new Framebuffer(width, height, true);
 
 			ballBuf = new Framebuffer(width, height, true);
@@ -83,36 +83,36 @@ public class OpenGLSelectionHelper {
 		GL11.glGetInteger(GL11.GL_VIEWPORT, VIEWPORT);
 		VIEWPORT.rewind();
 		*/
-		ScaledResolution scaledResolution = new ScaledResolution(mc);
+		ScaledResolution scaledResolution = new ScaledResolution(MC);
 
 		int width = scaledResolution.getScaledWidth();
 		int height = scaledResolution.getScaledHeight();
 
 		/*
-		 * width = mc.displayWidth; height =
-		 * mc.displayHeight;
+		 * width = MC.displayWidth; height =
+		 * MC.displayHeight;
 		 */
 
-		int mouseX = Mouse.getX() * width / mc.displayWidth;
-		int mouseZ = height - Mouse.getY() * height / mc.displayHeight - 1;
+		int mouseX = Mouse.getX() * width / MC.displayWidth;
+		int mouseZ = height - Mouse.getY() * height / MC.displayHeight - 1;
 
 		// System.out.println( + " | " + (Mouse.getY()-boof.get(3)));
 		// System.out.println(mouseX + " | " + mouseZ);
 
-		mouseX = (int) Math.round((mouseX / (double) width) * mc.displayWidth);
-		mouseZ = (int) Math.round((mouseZ / (double) height) * mc.displayHeight);
+		mouseX = (int) Math.round((mouseX / (double) width) * MC.displayWidth);
+		mouseZ = (int) Math.round((mouseZ / (double) height) * MC.displayHeight);
 
 		// System.out.println("Pre: " + mouseX + " | " + mouseZ);
 
 		/*
-		 * mouseX = mc.displayWidth/2; mouseZ =
-		 * mc.displayHeight/2;
+		 * mouseX = MC.displayWidth/2; mouseZ =
+		 * MC.displayHeight/2;
 		 * 
 		 * mouseX = 0; mouseZ = 0;
 		 */
-		// mouseZ = mc.displayHeight-1;
+		// mouseZ = MC.displayHeight-1;
 
-		mouseZ = mc.displayHeight - mouseZ - 1;
+		mouseZ = MC.displayHeight - mouseZ - 1;
 
 		// System.out.println("Post: " + mouseX + " | " + mouseZ);
 		
@@ -132,7 +132,7 @@ public class OpenGLSelectionHelper {
 		/*
 		 * GL11.glFlush(); GL11.glFinish();
 		 */
-		// mc.getFramebuffer().unbindFramebufferTexture();
+		// MC.getFramebuffer().unbindFramebufferTexture();
 
 		// maybe needed
 		//GL11.glPixelStoref(GL11.GL_UNPACK_ALIGNMENT, 1);
@@ -156,18 +156,18 @@ public class OpenGLSelectionHelper {
 
 	public static ByteBuffer readScreenArea() {
 
-		ScaledResolution scaledResolution = new ScaledResolution(mc);
+		ScaledResolution scaledResolution = new ScaledResolution(MC);
 
 		int width = scaledResolution.getScaledWidth();
 		int height = scaledResolution.getScaledHeight();
 
-		int mouseX = Mouse.getX() * width / mc.displayWidth;
-		int mouseZ = height - Mouse.getY() * height / mc.displayHeight - 1;
+		int mouseX = Mouse.getX() * width / MC.displayWidth;
+		int mouseZ = height - Mouse.getY() * height / MC.displayHeight - 1;
 
-		mouseX = (int) Math.round((mouseX / (double) width) * mc.displayWidth);
-		mouseZ = (int) Math.round((mouseZ / (double) height) * mc.displayHeight);
+		mouseX = (int) Math.round((mouseX / (double) width) * MC.displayWidth);
+		mouseZ = (int) Math.round((mouseZ / (double) height) * MC.displayHeight);
 
-		mouseZ = mc.displayHeight - mouseZ - 1;
+		mouseZ = MC.displayHeight - mouseZ - 1;
 
 		
 		

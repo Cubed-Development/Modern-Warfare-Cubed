@@ -2242,13 +2242,13 @@ public class SCCYCPX2 extends ModelWithAttachments {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		body.render(f5);
-//		body_tan.render(f5);
-//		slide.render(f5);
-//		slide_with_mount.render(f5);
-//		mag.render(f5);
-//		mag_extended.render(f5);
-//		laser.render(f5);
-//		grip_tape.render(f5);
+//		body_tan.renderer(f5);
+//		slide.renderer(f5);
+//		slide_with_mount.renderer(f5);
+//		mag.renderer(f5);
+//		mag_extended.renderer(f5);
+//		laser.renderer(f5);
+//		grip_tape.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

@@ -5,6 +5,7 @@ import com.paneedah.mwc.utils.LangUtil;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.Tuple;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -24,15 +25,12 @@ public class ItemBackpack extends ItemCarryable {
         }
 
         @Override
-        public ItemBackpack build(ModContext modContext) {
+        public ItemBackpack build() {
             validateInput();
 
             ResourceLocation guiTexture = new ResourceLocation(ID, "textures/gui/inventory/carryable/" + size + "slots.png");
 
-            ItemBackpack itemBackpack = new ItemBackpack(size, validItemPredicate, guiTexture, this.guiTextureWidth);
-
-            itemBackpack.model = model;
-            itemBackpack.textureName = textureName;
+            ItemBackpack itemBackpack = new ItemBackpack(size, validItemPredicate, guiTexture, this.guiTextureWidth, model, textureName);
 
             itemBackpack.setTranslationKey(LangUtil.format(name)).setCreativeTab(MWC.EQUIPMENT_TAB);
 
@@ -41,13 +39,13 @@ public class ItemBackpack extends ItemCarryable {
 
             itemBackpack.customEquippedPositioning = customEquippedPositioning;
 
-            modContext.registerRenderableItem(name, itemBackpack, FMLCommonHandler.instance().getSide() == Side.CLIENT ? RendererRegistrationHelper.registerRenderer(this, modContext) : null);
+            MWC.modContext.registerRenderableItem(name, itemBackpack, FMLCommonHandler.instance().getSide() == Side.CLIENT ? RendererRegistrationHelper.registerRenderer(this) : null);
 
             return itemBackpack;
         }
     }
 
-    public ItemBackpack(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth) {
-        super(size, validItemPredicate, guiTextureLocation, guiTextureWidth);
+    public ItemBackpack(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth, ModelBiped model, String textureName) {
+        super(size, validItemPredicate, guiTextureLocation, guiTextureWidth, model, textureName);
     }
 }

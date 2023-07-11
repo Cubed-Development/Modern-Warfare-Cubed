@@ -226,7 +226,6 @@ public class ItemWirelessCamera extends Item implements ModelSource {
             .withThirdPersonModelPositioning(thirdPersonModelPositioning)
             .withInventoryModelPositioning(inventoryModelPositioning)
             .withFirstPersonHandPositioning(firstPersonLeftHandPositioning, firstPersonRightHandPositioning)
-            .withModContext(modContext)
             .build();
         }
     }

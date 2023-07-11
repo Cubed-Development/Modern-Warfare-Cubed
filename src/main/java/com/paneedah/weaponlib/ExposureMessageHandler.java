@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class ExposureMessageHandler implements IMessageHandler<ExposureMessage, IMessage> {
 
@@ -17,8 +17,8 @@ public class ExposureMessageHandler implements IMessageHandler<ExposureMessage, 
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(ExposureMessage message, MessageContext messageContext) {
-        mc.addScheduledTask(() -> {
-            CompatibleExposureCapability.updateExposures(mc.player, message.getExposures());
+        MC.addScheduledTask(() -> {
+            CompatibleExposureCapability.updateExposures(MC.player, message.getExposures());
         });
 
         return null;

@@ -1908,31 +1908,31 @@ public class HKS20Grip extends ModelBase
     grip65.render(f5);
     grip66.render(f5);
     
-//    stock1.render(f5);
-//    stock2.render(f5);
-//    stock3.render(f5);
-//    stock4.render(f5);
-//    stock5.render(f5);
-//    stock6.render(f5);
-//    stock7.render(f5);
-//    stock8.render(f5);
-//    stock9.render(f5);
-//    stock10.render(f5);
-//    stock11.render(f5);
-//    stock12.render(f5);
-//    stock13.render(f5);
-//    stock14.render(f5);
-//    stock15.render(f5);
-//    stock16.render(f5);
-//    stock17.render(f5);
-//    stock18.render(f5);
-//    stock19.render(f5);
-//    stock20.render(f5);
-//    stock21.render(f5);
-//    stock22.render(f5);
-//    stock23.render(f5);
-//    stock24.render(f5);
-//    stock25.render(f5);
+//    stock1.renderer(f5);
+//    stock2.renderer(f5);
+//    stock3.renderer(f5);
+//    stock4.renderer(f5);
+//    stock5.renderer(f5);
+//    stock6.renderer(f5);
+//    stock7.renderer(f5);
+//    stock8.renderer(f5);
+//    stock9.renderer(f5);
+//    stock10.renderer(f5);
+//    stock11.renderer(f5);
+//    stock12.renderer(f5);
+//    stock13.renderer(f5);
+//    stock14.renderer(f5);
+//    stock15.renderer(f5);
+//    stock16.renderer(f5);
+//    stock17.renderer(f5);
+//    stock18.renderer(f5);
+//    stock19.renderer(f5);
+//    stock20.renderer(f5);
+//    stock21.renderer(f5);
+//    stock22.renderer(f5);
+//    stock23.renderer(f5);
+//    stock24.renderer(f5);
+//    stock25.renderer(f5);
   }
   
   private void setRotation(ModelRenderer model, float x, float y, float z)

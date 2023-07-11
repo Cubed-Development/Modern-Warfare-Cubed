@@ -7,13 +7,13 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.opengl.ARBFramebufferObject;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public abstract class ScreenPerspective extends Perspective<RenderableState> {
 
     public ScreenPerspective() {
-        this.width = 427; //mc.displayWidth >> 1;
-        this.height = 240; //mc.displayHeight >> 1;
+        this.width = 427; //MC.displayWidth >> 1;
+        this.height = 240; //MC.displayHeight >> 1;
     }
 
     @Override
@@ -23,7 +23,7 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
         
         GL11.glPushMatrix();
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
-        //mc.entityRenderer.disableLightmap();
+        //MC.entityRenderer.disableLightmap();
         enable2DRenderingMode(427, 240);
         
         framebuffer.framebufferClear();
@@ -33,13 +33,13 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
 
         restoreRenderingMode();
   
-        //mc.entityRenderer.enableLightmap();
+        //MC.entityRenderer.enableLightmap();
         GL11.glPopAttrib();
         GL11.glPopMatrix();
 
         if (OpenGlHelper.isFramebufferEnabled()) {
             OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, originalFramebufferId);
-            GlStateManager.viewport(0, 0, mc.getFramebuffer().framebufferWidth, mc.getFramebuffer().framebufferHeight);
+            GlStateManager.viewport(0, 0, MC.getFramebuffer().framebufferWidth, MC.getFramebuffer().framebufferHeight);
         }
     }
 

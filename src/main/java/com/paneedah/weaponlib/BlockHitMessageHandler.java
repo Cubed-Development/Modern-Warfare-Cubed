@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class BlockHitMessageHandler implements IMessageHandler<BlockHitMessage, IMessage> {
 
@@ -18,10 +18,10 @@ public class BlockHitMessageHandler implements IMessageHandler<BlockHitMessage, 
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(BlockHitMessage message, MessageContext messageContext) {
-        mc.addScheduledTask(() -> {
+        MC.addScheduledTask(() -> {
             for (int i = 0; i < MWC.bulletHitParticleMult; i++) {
-                mc.effectRenderer.addBlockHitEffects(message.getBlockPos(), message.getSideHit());
-                mc.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, message.getPosX(), message.getPosY(), message.getPosZ(), 0, 0, 0);
+                MC.effectRenderer.addBlockHitEffects(message.getBlockPos(), message.getSideHit());
+                MC.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, message.getPosX(), message.getPosY(), message.getPosZ(), 0, 0, 0);
             }
         });
 

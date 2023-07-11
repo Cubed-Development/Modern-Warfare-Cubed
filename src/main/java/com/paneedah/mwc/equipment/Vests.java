@@ -130,12 +130,12 @@ public class Vests {
         .build(MWC.modContext);
         
         new ItemVest.Builder()
-        .withName("usmc_vest")
+        .withName("usMC_vest")
         .withPercentDamageBlocked(0.4)
 	.withDurability(250)
         .withTab(MWC.EQUIPMENT_TAB)
-        .withProperModel("com.paneedah.mwc.models.USMCVest", "usmc.png")
-//        .withModelTextureName("usmc.png")
+        .withProperModel("com.paneedah.mwc.models.USMCVest", "usMC.png")
+//        .withModelTextureName("usMC.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
@@ -151,13 +151,13 @@ public class Vests {
         .build(MWC.modContext);
         
         new ItemVest.Builder()
-        .withName("usmc_vest_black")
+        .withName("usMC_vest_black")
 //        .withDamageReduceAmount(8) // use numbers from 1 to 8
         .withPercentDamageBlocked(0.4)
 	.withDurability(250) // works the same way as shield's max capacity
         .withTab(MWC.EQUIPMENT_TAB)
-        .withProperModel("com.paneedah.mwc.models.USMCVest", "usmcvestblack.png")
-//        .withModelTextureName("usmc.png")
+        .withProperModel("com.paneedah.mwc.models.USMCVest", "usMCvestblack.png")
+//        .withModelTextureName("usMC.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
@@ -173,13 +173,13 @@ public class Vests {
         .build(MWC.modContext);
         
         new ItemVest.Builder()
-        .withName("usmc_vest_green")
+        .withName("usMC_vest_green")
 //        .withDamageReduceAmount(8) // use numbers from 1 to 8
         .withPercentDamageBlocked(0.4)
 	.withDurability(250) // works the same way as shield's max capacity
         .withTab(MWC.EQUIPMENT_TAB)
         .withProperModel("com.paneedah.mwc.models.USMCVest", "militaryuniformforest.png")
-//        .withModelTextureName("usmc.png")
+//        .withModelTextureName("usMC.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
@@ -195,13 +195,13 @@ public class Vests {
         .build(MWC.modContext);
         
         new ItemVest.Builder()
-        .withName("usmc_vest_urban")
+        .withName("usMC_vest_urban")
 //        .withDamageReduceAmount(8) // use numbers from 1 to 8
         .withPercentDamageBlocked(0.4)
 	.withDurability(250) // works the same way as shield's max capacity
         .withTab(MWC.EQUIPMENT_TAB)
         .withProperModel("com.paneedah.mwc.models.USMCVest", "militaryuniformurban.png")
-//        .withModelTextureName("usmc.png")
+//        .withModelTextureName("usMC.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);

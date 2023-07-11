@@ -16,7 +16,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<State> {
     
@@ -76,9 +76,9 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
          * USE CASE: vehicle lights
          */
         if(context.shouldRenderAlternateTexture()) {
-        	mc.getTextureManager().bindTexture(context.getAlternateTexture());
+        	MC.getTextureManager().bindTexture(context.getAlternateTexture());
         } else {
-        	mc.getTextureManager().bindTexture(textureResource);
+        	MC.getTextureManager().bindTexture(textureResource);
         }
         
         
@@ -101,8 +101,8 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
             int pass = net.minecraftforge.client.MinecraftForgeClient.getRenderPass();
             
             
-            double susRoll = InterpolationKit.interpolateValue(v.getSolver().prevSuspensionRoll, v.getSolver().suspensionRoll, mc.getRenderPartialTicks());
-            double susPitch = InterpolationKit.interpolateValue(v.getSolver().prevSuspensionPitch, v.getSolver().suspensionPitch, mc.getRenderPartialTicks());
+            double susRoll = InterpolationKit.interpolateValue(v.getSolver().prevSuspensionRoll, v.getSolver().suspensionRoll, MC.getRenderPartialTicks());
+            double susPitch = InterpolationKit.interpolateValue(v.getSolver().prevSuspensionPitch, v.getSolver().suspensionPitch, MC.getRenderPartialTicks());
             
            // System.out.println(susPitch);
             if(pass == 0 && part != VehiclePart.WINDOWS) {
@@ -124,7 +124,7 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
             	if(part == VehiclePart.WINDOWS) {
                   	 GlStateManager.enableBlend();
                   	 float transparency = 0.5f;
-                  	 if(mc.gameSettings.thirdPersonView == 0) {
+                  	 if(MC.gameSettings.thirdPersonView == 0) {
                   		 transparency = 0.2f;
                   	 }
                   	 GlStateManager.color(0.1f, 0.1f, 0.15f, transparency);

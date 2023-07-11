@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import javax.imageio.ImageIO;
 import java.io.File;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class CustomSkin {
@@ -17,8 +17,8 @@ public class CustomSkin {
     public CustomSkin(String name, File file) {
         try {
             resourceLocation = new ResourceLocation(ID, "customskin_"+name.toLowerCase());
-            mc.getTextureManager().loadTexture(resourceLocation, new DynamicTexture(ImageIO.read(file)));
-            mc.getTextureManager().bindTexture(resourceLocation);
+            MC.getTextureManager().loadTexture(resourceLocation, new DynamicTexture(ImageIO.read(file)));
+            MC.getTextureManager().bindTexture(resourceLocation);
         } catch (Exception e) { e.printStackTrace(); }
     }
 

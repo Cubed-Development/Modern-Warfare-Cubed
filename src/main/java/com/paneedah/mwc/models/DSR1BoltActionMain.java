@@ -1652,15 +1652,15 @@ public class DSR1BoltActionMain extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		handguard.render(f5);
-//		handguard_railed.render(f5);
-//		barrel.render(f5);
-//		barrel_long.render(f5);
-//		boltaction.render(f5);
+//		gun.renderer(f5);
+//		handguard.renderer(f5);
+//		handguard_railed.renderer(f5);
+//		barrel.renderer(f5);
+//		barrel_long.renderer(f5);
+//		boltaction.renderer(f5);
 		boltaction_main.render(f5);
-//		magazine_actual.render(f5);
-//		magazine_ext.render(f5);
+//		magazine_actual.renderer(f5);
+//		magazine_ext.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

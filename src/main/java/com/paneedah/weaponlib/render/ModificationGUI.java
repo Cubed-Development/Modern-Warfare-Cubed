@@ -19,11 +19,11 @@ import org.lwjgl.input.Mouse;
 
 import java.util.ArrayList;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 /**
- * Singleton modification GUI render & logic class
+ * Singleton modification GUI renderer & logic class
  * 
  * @author James R. Holden, 2022 [HRC]
  */
@@ -276,7 +276,7 @@ public class ModificationGUI {
 		}
 		
 		/**
-		 * In order to render sequentially,
+		 * In order to renderer sequentially,
 		 * returns lines as String[]
 		 * @return String array of lines split @ newline
 		 */
@@ -540,18 +540,18 @@ public class ModificationGUI {
 		Weapon weapon = weaponInstance.getWeapon();
 		
 		// Gets scaled screen coordinates and mouse coordinaties
-		ScaledResolution scaledresolution = new ScaledResolution(mc);
+		ScaledResolution scaledresolution = new ScaledResolution(MC);
 		final int scaledWidth = scaledresolution.getScaledWidth();
 		final int scaledHeight = scaledresolution.getScaledHeight();
-		int mouseX = Mouse.getX() * scaledWidth / mc.displayWidth;
-		int mouseY = scaledHeight - Mouse.getY() * scaledHeight / mc.displayHeight - 1;
+		int mouseX = Mouse.getX() * scaledWidth / MC.displayWidth;
+		int mouseY = scaledHeight - Mouse.getY() * scaledHeight / MC.displayHeight - 1;
 
 		GlStateManager.pushMatrix();
-		mc.setIngameNotInFocus();
+		MC.setIngameNotInFocus();
 
 
 		// Handle mouse clicks
-		if (!waitingForMouseRelease && Mouse.isButtonDown(0) && mc.currentScreen == null) {
+		if (!waitingForMouseRelease && Mouse.isButtonDown(0) && MC.currentScreen == null) {
 			waitingForMouseRelease = true;
 			isInClick = true;
 		} else if (!Mouse.isButtonDown(0)) {
@@ -593,7 +593,7 @@ public class ModificationGUI {
 
 		
 
-		if (mc.player.ticksExisted % 50 == 0) {
+		if (MC.player.ticksExisted % 50 == 0) {
 
 			float firerate = weaponInstance.getFireRate();
 			float inaccuracy = weaponInstance.getWeapon().getInaccuracy()/10f;
@@ -620,7 +620,7 @@ public class ModificationGUI {
 		}, () -> {
 			GlStateManager.enableTexture2D();
 		}, () -> {
-			radarChart.render(84, 275.5, mouseX, mouseY, SIDEBAR_SCALE);
+			radarChart.renderer(84, 275.5, mouseX, mouseY, SIDEBAR_SCALE);
 		});
 		*/
 		
@@ -646,7 +646,7 @@ public class ModificationGUI {
 
 		GlStateManager.popMatrix();
 		
-		mc.getTextureManager().bindTexture(MODIFICATION_GUI_TEXTURES);
+		MC.getTextureManager().bindTexture(MODIFICATION_GUI_TEXTURES);
 		
 		//tabHovered = -1;
 		
@@ -659,7 +659,7 @@ public class ModificationGUI {
 			GUIRenderHelper.drawColoredRectangle(scaledresolution.getScaledWidth_double() - 15,
 					scaledresolution.getScaledHeight_double() - 75 - (18 * groupID), 15, 15, 0.5, 0x00000);
 
-			mc.getTextureManager().bindTexture(MODIFICATION_GUI_TEXTURES);
+			MC.getTextureManager().bindTexture(MODIFICATION_GUI_TEXTURES);
 			
 			GlStateManager.enableTexture2D();
 			TexturedRect groupSelector = new TexturedRect(scaledresolution.getScaledWidth_double() - 13,
@@ -730,7 +730,7 @@ public class ModificationGUI {
 		String title = tab.title;
 		AttachmentCategory category = tab.category;
 
-		//System.out.println(mc.displayHeight - (y/scale + 200));
+		//System.out.println(MC.displayHeight - (y/scale + 200));
 		if(tab.isDropDownOpen && sr.getScaledHeight_double() < (y + 100)) {
 			y -= 30;
 		}
@@ -785,7 +785,7 @@ public class ModificationGUI {
 		boolean dropdownHovered = DROPDOWN_SELECT_ELEMENT.checkBounding(x, y, mouseX, mouseY, scale);
 
 		// Bind texture
-		mc.getTextureManager().bindTexture(MODIFICATION_GUI_TEXTURES);
+		MC.getTextureManager().bindTexture(MODIFICATION_GUI_TEXTURES);
 
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(x, y, 0.0);
@@ -871,7 +871,7 @@ public class ModificationGUI {
 			}
 
 			if (isInClick) {
-				mc.player.playSound(UniversalSoundLookup.lookupSound("attachmentoff"), 10, 1);
+				MC.player.playSound(UniversalSoundLookup.lookupSound("attachmentoff"), 10, 1);
 	        	
 				modcontext.getAttachmentAspect().forceAttachment(category, modcontext.getMainHeldWeapon(),
 						ItemStack.EMPTY);
@@ -973,7 +973,7 @@ public class ModificationGUI {
 			GUIRenderHelper.drawScaledString(title, 125, 10, 2.5, ColorPalette.WHITE);
 		}
 
-		// Primary item render
+		// Primary item renderer
 		ItemAttachment<Weapon> current = pwi.getAttachmentItemWithCategory(category);
 	
 		if (current != null) {
@@ -1007,7 +1007,7 @@ public class ModificationGUI {
 				// RenderHelper.disableStandardItemLighting();
 				GlStateManager.enableBlend();
 				GlStateManager.enableAlpha();
-				mc.getTextureManager().bindTexture(MODIFICATION_GUI_TEXTURES);
+				MC.getTextureManager().bindTexture(MODIFICATION_GUI_TEXTURES);
 
 				// TexturedRect redBlockade = new TexturedRect(i + 11, 150, 0, 300, 89, 89, 512,
 				// 512, 1);
@@ -1046,7 +1046,7 @@ public class ModificationGUI {
 										.getFormattedText());
 
 						if (isInClick) {
-							mc.player.playSound(UniversalSoundLookup.lookupSound("attachmenton"), 10, 1);
+							MC.player.playSound(UniversalSoundLookup.lookupSound("attachmenton"), 10, 1);
 				        	
 							modcontext.getAttachmentAspect().forceAttachment(category, modcontext.getMainHeldWeapon(),
 									flag.getItemStack());
@@ -1075,7 +1075,7 @@ public class ModificationGUI {
 			// tooltip.addLine("fuck off");
 
 			// Bind tooltip texture
-			mc.getTextureManager().bindTexture(MODIFICATION_GUI_TEXTURES);
+			MC.getTextureManager().bindTexture(MODIFICATION_GUI_TEXTURES);
 			setAlpha(0.5f);
 
 			String[] args = tooltip.getLines();
@@ -1084,7 +1084,7 @@ public class ModificationGUI {
 			double maxStringHeight = args.length * 12;
 
 			for (String s : args) {
-				double len = mc.fontRenderer.getStringWidth(s) + 5.0;
+				double len = MC.fontRenderer.getStringWidth(s) + 5.0;
 
 				if (len > maxStringWidth) {
 					maxStringWidth = len;

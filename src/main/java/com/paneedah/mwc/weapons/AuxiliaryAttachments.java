@@ -1587,7 +1587,7 @@ public class AuxiliaryAttachments {
                 .withTextureName("Dummy.png").build(MWC.modContext);
         
         SIGMCXAction = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA)
-                .withModel(new com.paneedah.mwc.models.SIGMCXAction(), "sigmcx.png")
+                .withModel(new com.paneedah.mwc.models.SIGMCXAction(), "sigMCx.png")
                 .withName("SIGMCXAction").withRenderablePart()
                 .withTextureName("Dummy.png").build(MWC.modContext);
         

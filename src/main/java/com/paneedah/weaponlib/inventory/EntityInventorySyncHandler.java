@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class EntityInventorySyncHandler implements IMessageHandler<EntityInventorySyncMessage, IMessage> {
 
@@ -50,8 +50,8 @@ public class EntityInventorySyncHandler implements IMessageHandler<EntityInvento
 
     @SideOnly(Side.CLIENT)
     public void onClientMessage(EntityInventorySyncMessage message, MessageContext messageContext) {
-        mc.addScheduledTask(() -> {
-            EntityPlayer player = mc.player;
+        MC.addScheduledTask(() -> {
+            EntityPlayer player = MC.player;
             Entity targetEntity = message.getEntity(player.world);
 
             if(targetEntity != player || (targetEntity == player && !message.isExcludeEntity())) {

@@ -1402,9 +1402,9 @@ public class AE86TruenoSteeringWheel extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		steering_wheel.render(f5);
-//		body_AE86.render(f5);
-//		wheel.render(f5);
-//		windows.render(f5);
+//		body_AE86.renderer(f5);
+//		wheel.renderer(f5);
+//		windows.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

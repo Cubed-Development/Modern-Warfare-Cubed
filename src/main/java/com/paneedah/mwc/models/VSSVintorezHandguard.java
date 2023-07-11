@@ -3551,13 +3551,13 @@ public class VSSVintorezHandguard extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		vssvintorez_stock.render(f5);
+//		vssvintorez_stock.renderer(f5);
 		vssvintorez_handguard.render(f5);
-//		asval_handguard.render(f5);
-//		asval_stock.render(f5);
-//		kulatac_milspec_stock.render(f5);
-//		action.render(f5);
-//		tri_rail_mount.render(f5);
+//		asval_handguard.renderer(f5);
+//		asval_stock.renderer(f5);
+//		kulatac_milspec_stock.renderer(f5);
+//		action.renderer(f5);
+//		tri_rail_mount.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

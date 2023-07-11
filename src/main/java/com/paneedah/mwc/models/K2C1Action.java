@@ -1562,10 +1562,10 @@ public class K2C1Action extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		Gun.render(f5);
-//		Handguard.render(f5);
+//		Gun.renderer(f5);
+//		Handguard.renderer(f5);
 		Action.render(f5);
-//		Grip.render(f5);
+//		Grip.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

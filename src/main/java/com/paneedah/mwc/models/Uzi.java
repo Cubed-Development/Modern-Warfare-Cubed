@@ -1692,24 +1692,24 @@ public class Uzi extends ModelWithAttachments
     gun237.render(f5);
     gun238.render(f5);
     gun239.render(f5);
-//    action1.render(f5);
-//    action2.render(f5);
-//    action3.render(f5);
-//    Release1.render(f5);
-//    Release2.render(f5);
-//    Release3.render(f5);
-//    Release4.render(f5);
-//    Release5.render(f5);
-//    Release6.render(f5);
-//    Release7.render(f5);
-//    mag1.render(f5);
-//    mag2.render(f5);
-//    mag3.render(f5);
-//    mag4.render(f5);
-//    mag5.render(f5);
-//    mag6.render(f5);
-//    mag7.render(f5);
-//    mag8.render(f5);
+//    action1.renderer(f5);
+//    action2.renderer(f5);
+//    action3.renderer(f5);
+//    Release1.renderer(f5);
+//    Release2.renderer(f5);
+//    Release3.renderer(f5);
+//    Release4.renderer(f5);
+//    Release5.renderer(f5);
+//    Release6.renderer(f5);
+//    Release7.renderer(f5);
+//    mag1.renderer(f5);
+//    mag2.renderer(f5);
+//    mag3.renderer(f5);
+//    mag4.renderer(f5);
+//    mag5.renderer(f5);
+//    mag6.renderer(f5);
+//    mag7.renderer(f5);
+//    mag8.renderer(f5);
 
   }
 

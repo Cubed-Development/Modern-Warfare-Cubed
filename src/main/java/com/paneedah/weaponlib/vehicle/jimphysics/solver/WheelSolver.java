@@ -14,7 +14,7 @@ import net.minecraft.util.math.Vec3d;
 
 import javax.vecmath.Vector3d;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class WheelSolver implements IEncodable<WheelSolver>{
 	
@@ -128,7 +128,7 @@ public WheelSolver(TyreSize tyreSize, double mass, boolean isDrive, double grass
 	}
 	
 	public double getInterpolatedWheelRotation() {
-		return Math.toDegrees(InterpolationKit.interpolateValue(prevWheelRot, wheelRot, mc.getRenderPartialTicks()));
+		return Math.toDegrees(InterpolationKit.interpolateValue(prevWheelRot, wheelRot, MC.getRenderPartialTicks()));
 	}
 	
 	public Vec3d getSuspensionPosition() {

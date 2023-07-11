@@ -2313,10 +2313,10 @@ public class KrissVectorMk1ModularGuard extends ModelWithAttachments {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		mk1_modular_guard.render(f5);
-//		carbine_guard.render(f5);
-//		taped_grip.render(f5);
-//		magazine_25.render(f5);
-//		magazine_50.render(f5);
+//		carbine_guard.renderer(f5);
+//		taped_grip.renderer(f5);
+//		magazine_25.renderer(f5);
+//		magazine_50.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

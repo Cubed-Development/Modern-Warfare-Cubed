@@ -299,9 +299,9 @@ public class Glock18CCNCslide extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		mag13rnd.render(f5);
-//		mag20rnd.render(f5);
-//		G18slide.render(f5);
+//		mag13rnd.renderer(f5);
+//		mag20rnd.renderer(f5);
+//		G18slide.renderer(f5);
 		G18cncslide.render(f5);
 	}
 

@@ -2133,8 +2133,8 @@ public class M1014 extends ModelWithAttachments {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		Mainweapon.render(f5);
-//		ACTION.render(f5);
-//		Stock.render(f5);
+//		ACTION.renderer(f5);
+//		Stock.renderer(f5);
 		Handguard.render(f5);
 		GripArea.render(f5);
 	}

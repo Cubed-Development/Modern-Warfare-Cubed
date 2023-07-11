@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class ExplosionMessageHandler implements IMessageHandler<ExplosionMessage, IMessage> {
 
@@ -23,8 +23,8 @@ public class ExplosionMessageHandler implements IMessageHandler<ExplosionMessage
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(ExplosionMessage message, MessageContext messageContext) {
-        EntityPlayer player = mc.player;
-        mc.addScheduledTask(() -> {
+        EntityPlayer player = MC.player;
+        MC.addScheduledTask(() -> {
             Explosion explosion = new Explosion(modContext,
                     player.world,
                     null,

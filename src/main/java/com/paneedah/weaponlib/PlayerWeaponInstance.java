@@ -31,7 +31,7 @@ import java.util.Deque;
 import java.util.UUID;
 import java.util.concurrent.LinkedBlockingDeque;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
@@ -56,8 +56,8 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     public final DynamicShaderGroupSource NIGHT_VISION_SOURCE = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID,
             new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/night-vision.json"))
-            .withUniform("IntensityAdjust", context -> 40f - mc.gameSettings.gammaSetting * 38)
-            .withUniform("NoiseAmplification", context ->  2f + 3f * mc.gameSettings.gammaSetting);
+            .withUniform("IntensityAdjust", context -> 40f - MC.gameSettings.gammaSetting * 38)
+            .withUniform("NoiseAmplification", context ->  2f + 3f * MC.gameSettings.gammaSetting);
 
     public final DynamicShaderGroupSource VIGNETTE_SOURCE = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID,
             new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/vignette.json"))
@@ -66,7 +66,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
             .withUniform("Reticle", context -> {
             	
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-            	mc.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/hud/reticle1.png"));
+            	MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/hud/reticle1.png"));
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
             	
             	return 4;

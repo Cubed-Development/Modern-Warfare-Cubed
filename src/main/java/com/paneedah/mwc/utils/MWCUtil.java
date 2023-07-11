@@ -22,7 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.*;
 import java.util.function.BiPredicate;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 /**
  * This class provides random utility methods.
@@ -214,15 +214,15 @@ public class MWCUtil {
     }
 
     /**
-     * Gets interpolated player coordinates using the current partial render tick.
+     * Gets interpolated player coordinates using the current partial renderer tick.
      *
      * @return The interpolated player coordinates
      */
     @SideOnly(Side.CLIENT)
     public static Vec3d getInterpolatedPlayerPos() {
-        EntityPlayer player = mc.player;
+        EntityPlayer player = MC.player;
 
-        final float renderPartialTicks = mc.getRenderPartialTicks();
+        final float renderPartialTicks = MC.getRenderPartialTicks();
 
         final double interpolatedX = (player.posX - player.prevPosX) * renderPartialTicks + player.prevPosX;
         final double interpolatedY = (player.posY - player.prevPosY) * renderPartialTicks + player.prevPosY;

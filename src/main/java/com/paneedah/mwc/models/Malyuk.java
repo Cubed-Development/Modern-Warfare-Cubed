@@ -1519,8 +1519,8 @@ public class Malyuk extends ModelWithAttachments {
 		gun.render(f5);
 		grip.render(f5);
 		barrel.render(f5);
-//		rails.render(f5);
-//		action.render(f5);
+//		rails.renderer(f5);
+//		action.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

@@ -2575,11 +2575,11 @@ public class MP40 extends ModelWithAttachments
     gun285.render(f5);
     gun286.render(f5);
     gun287.render(f5);
-//    action1.render(f5);
-//    action2.render(f5);
-//    action3.render(f5);
-//    action4.render(f5);
-//    action5.render(f5);
+//    action1.renderer(f5);
+//    action2.renderer(f5);
+//    action3.renderer(f5);
+//    action4.renderer(f5);
+//    action5.renderer(f5);
     gun288.render(f5);
     gun289.render(f5);
   }

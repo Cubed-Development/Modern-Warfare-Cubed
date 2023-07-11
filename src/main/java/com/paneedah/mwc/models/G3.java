@@ -1726,13 +1726,13 @@ public class G3 extends ModelWithAttachments {
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		grip.render(f5);
 		gun.render(f5);
-//		action.render(f5);
+//		action.renderer(f5);
 		barrel.render(f5);
-//		charginghandle.render(f5);
-//		handguard_a1.render(f5);
-//		stock.render(f5);
-//		mag.render(f5);
-//		handguard_a3.render(f5);
+//		charginghandle.renderer(f5);
+//		handguard_a1.renderer(f5);
+//		stock.renderer(f5);
+//		mag.renderer(f5);
+//		handguard_a3.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

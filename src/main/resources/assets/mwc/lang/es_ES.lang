@@ -2,7 +2,7 @@ item.m40gasmask_helmet.name=Máscara antigás M40
 item.JPNVG18_helmet.name=Casco de visión nocturna GPNVG-18
 
 item.audis4.name=Audi S4
-item.mclaren_senna.name=Mclaren Senna
+item.MClaren_senna.name=Mclaren Senna
 item.ae86trueno.name=Toyota AE86 Trueno
 item.atv_polaris_sportsman_850_2019.name=2019 Polaris Sportsman 850
 
@@ -90,10 +90,10 @@ item.mwc_molle_urban.name=Portador de placa Moller (Urbano)
 
 item.mwc_fort_armor.name=6B43 6A Chaleco antibalas
 
-item.mwc_usmc_vest.name=Chaleco Force Recon
-item.mwc_usmc_vest_black.name=Chaleco Force Recon (Negro)
-item.mwc_usmc_vest_green.name=Chaleco Force Recon (Verde)
-item.mwc_usmc_vest_urban.name=Chaleco Force Recon (Urbano)
+item.mwc_usMC_vest.name=Chaleco Force Recon
+item.mwc_usMC_vest_black.name=Chaleco Force Recon (Negro)
+item.mwc_usMC_vest_green.name=Chaleco Force Recon (Verde)
+item.mwc_usMC_vest_urban.name=Chaleco Force Recon (Urbano)
 
 item.mwc_juggernaut_body_armor.name=Arnadura Juggernaut 
 
@@ -246,7 +246,7 @@ item.g2_contender.name=G2 Contender
 item.beowulf_50_cal.name=Beowulf .50 Cal
 item.hk_417.name=HK 417
 item.ar15.name=AR-15
-item.sig_mcx.name=SIG MCX
+item.sig_MCx.name=SIG MCX
 item.mas_21.name=MAS-21
 item.mp443.name=MP443
 item.ump_45.name=UMP45

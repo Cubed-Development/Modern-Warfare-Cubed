@@ -3552,8 +3552,8 @@ public class ASValHandguard extends ModelWithAttachments {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		asval_handguard.render(f5);
-//		asval_stock.render(f5);
-//		asval_mag.render(f5);
+//		asval_stock.renderer(f5);
+//		asval_mag.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

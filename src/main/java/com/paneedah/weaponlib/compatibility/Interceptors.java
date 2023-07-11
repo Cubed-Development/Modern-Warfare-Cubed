@@ -51,7 +51,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 
 public class Interceptors {
@@ -84,35 +84,35 @@ public class Interceptors {
     	
         
         
-        	if(authenticFOV != 0.0f && mc.gameSettings.fovSetting == 80.0f) {
-        		mc.gameSettings.fovSetting = authenticFOV;
+        	if(authenticFOV != 0.0f && MC.gameSettings.fovSetting == 80.0f) {
+        		MC.gameSettings.fovSetting = authenticFOV;
         		authenticFOV = 0.0f;
         	}
         
         	
         
-        if(player.isRiding() && player.getRidingEntity() instanceof EntityVehicle && mc.gameSettings.thirdPersonView == 0) {
+        if(player.isRiding() && player.getRidingEntity() instanceof EntityVehicle && MC.gameSettings.thirdPersonView == 0) {
         	EntityVehicle vehicle = (EntityVehicle) player.getRidingEntity();
         	// DEBUG //
         	//GL11.glRotated(-vehicle.rotationPitch*0.1, 1, 0, 0);
         	//GL11.glRotated(vehicle.sideLean, 0.0, 0.0, 1.0);
         	
         	
-        	//mc.setRenderViewEntity(vehicle);
+        	//MC.setRenderViewEntity(vehicle);
         	
         	
         	
-        	if(mc.gameSettings.thirdPersonView == 0) {
+        	if(MC.gameSettings.thirdPersonView == 0) {
         		
-        		if(mc.gameSettings.fovSetting != 80.0f) {
-        			authenticFOV = mc.gameSettings.fovSetting;
-        			mc.gameSettings.fovSetting = 80.0f;
+        		if(MC.gameSettings.fovSetting != 80.0f) {
+        			authenticFOV = MC.gameSettings.fovSetting;
+        			MC.gameSettings.fovSetting = 80.0f;
         		}
         		
         		
         		//MatrixHelper.applyMatrix(RenderVehicle2.tm);
         		//vehicle.rotationPitch = 0;
-        		float mu = (float) ((1 - Math.cos(mc.getRenderPartialTicks() * Math.PI)) / 2f);
+        		float mu = (float) ((1 - Math.cos(MC.getRenderPartialTicks() * Math.PI)) / 2f);
         		
         		/*
         		 * BEGIN YAW & PITCH
@@ -179,7 +179,7 @@ public class Interceptors {
         }
         
         
-    	if(player.isRiding() && player.getRidingEntity() instanceof EntityVehicle && mc.gameSettings.thirdPersonView == 1) {
+    	if(player.isRiding() && player.getRidingEntity() instanceof EntityVehicle && MC.gameSettings.thirdPersonView == 1) {
     		EntityVehicle vehicle = (EntityVehicle) player.getRidingEntity();
     		
     		/*
@@ -198,7 +198,7 @@ public class Interceptors {
     		//Vec3d vcv = vehicle.getSolver().getVelocityVector().scale(0.1);
     		//GL11.glTranslated(vcv.x, vcv.y, vcv.z);
     		
-    		//mc.gameSettings.fovSetting = (float) (70f + ((vehicle.getSolver().currentRPM)/500.0f) + (vehicle.getRealSpeed()/2));
+    		//MC.gameSettings.fovSetting = (float) (70f + ((vehicle.getSolver().currentRPM)/500.0f) + (vehicle.getRealSpeed()/2));
     		Vec3d pV = player.getPositionVector();
     		//GL11.glTranslated(-pV.x, -pV.y, -pV.z);
     		
@@ -245,7 +245,7 @@ public class Interceptors {
     		
     		
     		/*
-    		float muRoll = (float) ((1 - Math.cos(mc.getRenderPartialTicks() * Math.PI)) / 2f);
+    		float muRoll = (float) ((1 - Math.cos(MC.getRenderPartialTicks() * Math.PI)) / 2f);
     		float roll = (vehicle.prevRotationRollH+vehicle.prevRotationRoll) + ((vehicle.rotationRoll+vehicle.rotationRollH)-(vehicle.prevRotationRoll+vehicle.prevRotationRollH))*muRoll;
     		
     		GL11.glRotated(-roll, 0.0, 0.0, 1.0);
@@ -401,7 +401,7 @@ public class Interceptors {
     	//GlStateManager.translate(0, ClientValueRepo.rise, 0);
     	
     	GlStateManager.rotate((float) ClientValueRepo.jumpingSpring.getLerpedPosition(), 1, 0, 0);
-        if(!(mc.getRenderViewEntity() instanceof EntityPlayer)) {
+        if(!(MC.getRenderViewEntity() instanceof EntityPlayer)) {
             return true;
         }
         
@@ -420,9 +420,9 @@ public class Interceptors {
        //GlStateManager.rotate(3f*scalar, 0, 1, 0);
       // GlStateManager.rotate(2f*scalar, 1, 0, 0);
        
-        EntityPlayer entityplayer = (EntityPlayer)mc.getRenderViewEntity();
+        EntityPlayer entityplayer = (EntityPlayer)MC.getRenderViewEntity();
 
-        //ClientValueRepo.forward += mc.player.moveForward/25f;
+        //ClientValueRepo.forward += MC.player.moveForward/25f;
         
         
         PlayerWeaponInstance pwi = ClientModContext.getContext().getMainHeldWeapon();
@@ -537,7 +537,7 @@ public class Interceptors {
             }
             
             float appliedAmplitude = 0.0f;
-            if(mc.gameSettings.thirdPersonView != 0) {
+            if(MC.gameSettings.thirdPersonView != 0) {
             	appliedAmplitude = amplitude;
             } else appliedAmplitude = amplitude/7.5f;
             
@@ -604,7 +604,7 @@ public class Interceptors {
     
     public static boolean hurtCameraEffect(float partialTicks) {
 //	    if(1+1==2) return false;  
-        if(!(mc.getRenderViewEntity() instanceof EntityPlayer)) {
+        if(!(MC.getRenderViewEntity() instanceof EntityPlayer)) {
             return true;
         }
         
@@ -612,7 +612,7 @@ public class Interceptors {
         
         boolean allowDefaultEffect = false;
 
-        EntityPlayer entitylivingbase = (EntityPlayer)mc.getRenderViewEntity();
+        EntityPlayer entitylivingbase = (EntityPlayer)MC.getRenderViewEntity();
         float f = (float) entitylivingbase.hurtTime - partialTicks;
 
         if (entitylivingbase.getHealth() <= 0.0F) {
@@ -647,7 +647,7 @@ public class Interceptors {
     public static boolean nauseaCameraEffect(float partialTicks) {
         boolean allowDefaultEffect = false;
 
-//        float f1 = mc.thePlayer.prevTimeInPortal + (mc.thePlayer.timeInPortal - mc.thePlayer.prevTimeInPortal) * partialTicks;
+//        float f1 = MC.thePlayer.prevTimeInPortal + (MC.thePlayer.timeInPortal - MC.thePlayer.prevTimeInPortal) * partialTicks;
 //
 //        int i = 1;
 //
@@ -702,14 +702,14 @@ public class Interceptors {
                 if(backpackStack != null) {
                     GL11.glPushMatrix();
                     adjustBodyWearablePosition(player);
-                    mc.getItemRenderer().renderItem(player, backpackStack, null);
+                    MC.getItemRenderer().renderItem(player, backpackStack, null);
                     GL11.glPopMatrix();
                 }
                 ItemStack vestStack = capability.getStackInSlot(1); // TODO: replace 0 with constant for backpack slot 
                 if(vestStack != null) {
                     GL11.glPushMatrix();
                     adjustBodyWearablePosition(player);
-                    mc.getItemRenderer().renderItem(player, vestStack, null);
+                    MC.getItemRenderer().renderItem(player, vestStack, null);
                     GL11.glPopMatrix();
                 }
             }
@@ -854,7 +854,7 @@ public class Interceptors {
     public static float adjustCameraPosition(EntityLivingBase player, float position) {
     
         return player instanceof EntityPlayer && isProning((EntityPlayer) player) 
-                && mc.gameSettings.thirdPersonView == 0 ? position 
+                && MC.gameSettings.thirdPersonView == 0 ? position
                 + player.getEyeHeight() * 1.6f : position;
     }
     
@@ -895,7 +895,7 @@ public class Interceptors {
     	
     	//ClientValueRepo.gunPow.velocity += yawDelta*0.02;
     	
-    	//compatibility.addChatMessage(mc.player, "Working " + mc.player.ticksExisted);
+    	//compatibility.addChatMessage(MC.player, "Working " + MC.player.ticksExisted);
     	
     	
     	
@@ -978,7 +978,7 @@ public class Interceptors {
        
        
         boolean canChangeRotationYaw = true;
-        if(player.getRidingEntity() instanceof EntityVehicle && mc.gameSettings.thirdPersonView == 0) {
+        if(player.getRidingEntity() instanceof EntityVehicle && MC.gameSettings.thirdPersonView == 0) {
         	
             maxPitch = 90f;
 //            EntityVehicle entityVehicle = (EntityVehicle) player.ridingEntity;

@@ -8,7 +8,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class EntityGrenadeRenderer extends Render<Entity> {
@@ -18,7 +18,7 @@ public class EntityGrenadeRenderer extends Render<Entity> {
     //private static final String TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/gunmetaltexture.png";
 
     public EntityGrenadeRenderer() {
-        super(mc.getRenderManager());
+        super(MC.getRenderManager());
         //textureLocation = new ResourceLocation(TEXTURE);
     }
 
@@ -34,7 +34,7 @@ public class EntityGrenadeRenderer extends Render<Entity> {
 
         GrenadeRenderer renderer = itemGrenade.getRenderer();
 
-        mc.renderEngine.bindTexture(
+        MC.renderEngine.bindTexture(
                 new ResourceLocation(ID, // TODO: init entity with mod context
                 "textures/models/" + itemGrenade.getTextureName()));
 

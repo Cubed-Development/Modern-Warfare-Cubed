@@ -3423,11 +3423,11 @@ public class ScorpionEVO3A1 extends ModelWithAttachments {
 		receiver_stock_connector.render(f5);
 		stock.render(f5);
 		
-//		handguard_short.render(f5);
-//		handguard_long.render(f5);
+//		handguard_short.renderer(f5);
+//		handguard_long.renderer(f5);
 		
-//		magazine.render(f5);
-//		action.render(f5);
+//		magazine.renderer(f5);
+//		action.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

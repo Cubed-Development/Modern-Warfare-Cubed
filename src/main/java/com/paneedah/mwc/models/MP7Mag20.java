@@ -1653,10 +1653,10 @@ public class MP7Mag20 extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		mag_40.render(f5);
+//		mag_40.renderer(f5);
 		mag_20.render(f5);
-//		action.render(f5);
-//		grip.render(f5);
+//		action.renderer(f5);
+//		grip.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

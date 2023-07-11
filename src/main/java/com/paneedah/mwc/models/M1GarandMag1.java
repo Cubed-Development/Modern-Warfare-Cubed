@@ -797,15 +797,15 @@ public class M1GarandMag1 extends ModelBase
     bullet86.render(f5);
     bullet87.render(f5);
     bullet88.render(f5);
-//    mag1.render(f5);
-//    mag2.render(f5);
-//    mag3.render(f5);
-//    mag4.render(f5);
-//    mag5.render(f5);
-//    mag6.render(f5);
-//    mag7.render(f5);
-//    mag8.render(f5);
-//    mag9.render(f5);
+//    mag1.renderer(f5);
+//    mag2.renderer(f5);
+//    mag3.renderer(f5);
+//    mag4.renderer(f5);
+//    mag5.renderer(f5);
+//    mag6.renderer(f5);
+//    mag7.renderer(f5);
+//    mag8.renderer(f5);
+//    mag9.renderer(f5);
   }
   
   private void setRotation(ModelRenderer model, float x, float y, float z)

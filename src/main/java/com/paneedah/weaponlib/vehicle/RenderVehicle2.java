@@ -29,7 +29,7 @@ import org.lwjgl.util.vector.Matrix4f;
 import javax.vecmath.Matrix3f;
 import javax.vecmath.Vector3d;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class RenderVehicle2 extends Render<Entity> {
@@ -54,7 +54,7 @@ public class RenderVehicle2 extends Render<Entity> {
 	
 	
 	public RenderVehicle2(StatefulRenderer<VehicleRenderableState> mainRenderer) {
-		super(mc.getRenderManager());
+		super(MC.getRenderManager());
 
 		this.shadowSize = 0.5F;
 		this.mainRenderer = mainRenderer;
@@ -69,7 +69,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		
 		DebugRenderer.setupBasicRender();
 		
-		Vec3d playerPos = mc.player.getPositionVector();
+		Vec3d playerPos = MC.player.getPositionVector();
 		
 		GL11.glTranslated(-playerPos.x, -playerPos.y, -playerPos.z);
 		//bruhBody = null;
@@ -202,7 +202,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		int renderPass = net.minecraftforge.client.MinecraftForgeClient.getRenderPass();
 		
 		
-		//		int pass = mc.getRenderManager().rend
+		//		int pass = MC.getRenderManager().rend
 
 		// RENDER VECTORS
 		/*
@@ -230,7 +230,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		
 		//DebugRenderer.renderLine(Vec3d.ZERO.add(0, 3, 0), Vec3d.ZERO.add(0, -sr*100, 0), new Vec3d(1, 0, 0));
 		GlStateManager.color(1.0f, 1f, 1f);
-		if(mc.getRenderManager().isDebugBoundingBox()) {
+		if(MC.getRenderManager().isDebugBoundingBox()) {
 			entityVehicle.oreintedBoundingBox.renderOBB();
 		}
 		DebugRenderer.destructBasicRender();
@@ -243,7 +243,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		GL11.glPushMatrix();
 		invertCameraTransform();
 		EntityVehicle v = entityVehicle;
-		float pt = mc.getRenderPartialTicks();
+		float pt = MC.getRenderPartialTicks();
 		
 
 		/*
@@ -261,7 +261,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		
 		
 		
-		float muRoll = (float) ((1 - Math.cos(mc.getRenderPartialTicks() * Math.PI)) / 2f);
+		float muRoll = (float) ((1 - Math.cos(MC.getRenderPartialTicks() * Math.PI)) / 2f);
 		float roll = (entityVehicle.prevRotationRollH+entityVehicle.prevRotationRoll) + ((entityVehicle.rotationRoll+entityVehicle.rotationRollH)-(entityVehicle.prevRotationRoll+entityVehicle.prevRotationRollH))*muRoll;
 		
 		
@@ -270,7 +270,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		GL11.glRotatef(180.0F - rotationYaw, 0.0F, 1.0F, 0.0F);
 		
 		
-		if(mc.gameSettings.thirdPersonView == 0) { 
+		if(MC.gameSettings.thirdPersonView == 0) {
 			GL11.glRotatef(roll, 0.0f, 0.0f, 1.0f);
 		} else {
 			GL11.glRotatef(roll, 0.0f, 0.0f, 1.0f);
@@ -285,15 +285,15 @@ public class RenderVehicle2 extends Render<Entity> {
 		}
 		*/
 		
-		float mu2 = mc.getRenderPartialTicks();
-		//float mu2 = (float) ((1 - Math.cos(mc.getRenderPartialTicks() * Math.PI)) / 2f);
+		float mu2 = MC.getRenderPartialTicks();
+		//float mu2 = (float) ((1 - Math.cos(MC.getRenderPartialTicks() * Math.PI)) / 2f);
 		float interpPitch = entityVehicle.prevRotationPitch + (entityVehicle.rotationPitch-entityVehicle.prevRotationPitch)*mu2;
 		
 		//interpPitch += entityVehicle.forwardLean;
 		
 		
 		// debug DD
-		if(mc.gameSettings.thirdPersonView != 0) {
+		if(MC.gameSettings.thirdPersonView != 0) {
 			GL11.glRotatef(interpPitch, 1.0F, 0.0F, 0.0F);
 		} else {
 
@@ -305,7 +305,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		
 
 		/* wtf does this even do???
-		if(mc.gameSettings.thirdPersonView == 0) {
+		if(MC.gameSettings.thirdPersonView == 0) {
 			double interp = 1.0*(roll/45.0);
 			System.out.println("fuck " + interp);
 			GL11.glTranslated(interp, 0.0, 0.0);
@@ -335,7 +335,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		
 		}*/
 		
-		if(mc.gameSettings.thirdPersonView == 0) {
+		if(MC.gameSettings.thirdPersonView == 0) {
 
 			//GL11.glTranslated(0.0, (Math.abs(entityVehicle.rotationPitch)/90.0)*2.0, 0.0);
 
@@ -372,7 +372,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		if(renderPass == 0) {
 			for(Entity pass : entityVehicle.getPassengers()) {
 				
-				if(mc.gameSettings.thirdPersonView == 0 && pass == mc.player) continue;
+				if(MC.gameSettings.thirdPersonView == 0 && pass == MC.player) continue;
 				
 				GL11.glPushMatrix();
 				GL11.glScaled(0.95, 0.95, 0.95);
@@ -382,10 +382,10 @@ public class RenderVehicle2 extends Render<Entity> {
 				GL11.glTranslated(-seatOffset.x, seatOffset.y, -seatOffset.z);
 				
 				if(!(pass instanceof EntityPlayer)) {
-					mc.getRenderManager().renderEntity(pass, 0, 0, 0, -pass.rotationYaw, mc.getRenderPartialTicks(), true);		
+					MC.getRenderManager().renderEntity(pass, 0, 0, 0, -pass.rotationYaw, MC.getRenderPartialTicks(), true);
 				} else {
 					EntityPlayer player = (EntityPlayer) pass;
-					RenderManager rManager = mc.getRenderManager();
+					RenderManager rManager = MC.getRenderManager();
 					Render<Entity> render = rManager.getEntityRenderObject(pass);
 					
 					
@@ -415,7 +415,7 @@ public class RenderVehicle2 extends Render<Entity> {
 					
 					player.renderYawOffset = 180;
 					player.prevRenderYawOffset = 180;
-					render.doRender(player, 0, 0, 0, 180, mc.getRenderPartialTicks());		
+					render.doRender(player, 0, 0, 0, 180, MC.getRenderPartialTicks());
 					
 					player.renderYawOffset = aYO;
 					player.prevRenderYawOffset = apYO;
@@ -436,7 +436,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		GL11.glScalef(0.6F / f4, 0.6F / f4, 0.6F / f4);
 		//this.bindEntityTexture(entityVehicle);
 		GL11.glScalef(-1.0F, -1.0F, 1.0F);
-		//this.model.render(entityVehicle, 0.0625F);
+		//this.model.renderer(entityVehicle, 0.0625F);
 		
 		VehicleRenderableState renderState = null;
 		switch(entityVehicle.getState()) {
@@ -493,8 +493,8 @@ public class RenderVehicle2 extends Render<Entity> {
 		
 		
 		
-		EntityPlayer player = mc.player;
-		int gameView = mc.gameSettings.thirdPersonView;
+		EntityPlayer player = MC.player;
+		int gameView = MC.gameSettings.thirdPersonView;
 		boolean isPlayerRiding = player.isRiding();
 		boolean isRidingVehicle = isPlayerRiding;
 		if(isRidingVehicle) isRidingVehicle = ((player.getRidingEntity() instanceof EntityVehicle));
@@ -522,7 +522,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		}
 		
 		ResourceLocation loc = new ResourceLocation(ID + ":textures/entity/suspensionblue.png");
-		mc.getTextureManager().bindTexture(loc);
+		MC.getTextureManager().bindTexture(loc);
 		
 		
 		
@@ -544,7 +544,7 @@ public class RenderVehicle2 extends Render<Entity> {
 			GL11.glRotated(0, 1.0, 0.0, 0.0);
 			GL11.glScaled(1.0, 0.25 + (w.getSuspension().getStretch()*-1)*0.3, 1.0);
 			GL11.glTranslated(0.0, -1.5, 0.0);
-			(new SuspensionModel()).render(entityVehicle, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+			(new SuspensionModel()).renderer(entityVehicle, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
 			GL11.glPopMatrix();
 			
 		}
@@ -559,7 +559,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		
 		/*
 		if(entityVehicle.ticksExisted > 200) entityVehicle.ticksExisted = 0;
-		float interp = (entityVehicle.ticksExisted-1)+(entityVehicle.ticksExisted-(entityVehicle.ticksExisted-1))*mc.getRenderPartialTicks();
+		float interp = (entityVehicle.ticksExisted-1)+(entityVehicle.ticksExisted-(entityVehicle.ticksExisted-1))*MC.getRenderPartialTicks();
 		double tE = entityVehicle.ticksExisted;
 		
 		double dV = Math.sin(interp*2)/(Math.max(1.0, tE*tE/9000));
@@ -589,7 +589,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		GL11.glScaled(1.0, 1.0 + (susSolve.getStretch()*-1), 1.0);
 		GL11.glTranslated(0.0, -1.5, 0.0);
 		
-		(new SuspensionModel()).render(entityVehicle, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+		(new SuspensionModel()).renderer(entityVehicle, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
 		*/
 		
 		//DebugRenderer.destructBasicRender();
@@ -627,7 +627,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		GL11.glScaled(1.001, 1.001, 1.001);
 		GlStateManager.blendFunc(GL11.GL_ONE, GL11.GL_ONE);
 		
-		mainRenderer.render(context);
+		mainRenderer.renderer(context);
 		
 		GlStateManager.disableBlend();
 		*/
@@ -639,7 +639,7 @@ public class RenderVehicle2 extends Render<Entity> {
 		
 		
 		/*
-		if(mc.getRenderManager().isDebugBoundingBox()) {
+		if(MC.getRenderManager().isDebugBoundingBox()) {
 			GL11.glPushMatrix();
 			
 			DebugRenderer.setupBasicRender();
