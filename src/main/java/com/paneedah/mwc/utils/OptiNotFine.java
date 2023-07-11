@@ -78,7 +78,7 @@ public class OptiNotFine {
 
             fastRenderField.set(MC.gameSettings, false);
         } catch (IllegalAccessException | ClassNotFoundException | NoSuchFieldException exception) {
-            RED_LOG.printFramedError("OptiNotFine", "Could not get OptiFine shaders status.", "If shaders are enabled things might break", exception.getMessage());
+            RED_LOG.printFramedError("OptiNotFine", "Could not disable OptiFine fast renderer", "Things will break", exception.getMessage());
         }
     }
 
