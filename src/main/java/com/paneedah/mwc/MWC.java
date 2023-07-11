@@ -77,9 +77,6 @@ public final class MWC {
     public void init(FMLInitializationEvent initializationEvent) {
         if (initializationEvent.getSide() == Side.CLIENT) {
             MC.getRenderManager().getSkinMap().forEach((model, playerRenderer) -> playerRenderer.addLayer(new EquipmentRenderer(playerRenderer)));
-
-            if (OptiNotFine.isOptiFineInstalled())
-                MinecraftForge.EVENT_BUS.register(OptiNotFine.class);
         }
 
         MWCRecipes.register();
@@ -89,6 +86,9 @@ public final class MWC {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent postInitializationEvent) {
         commonProxy.postInit(this, postInitializationEvent);
+
+        if (postInitializationEvent.getSide() == Side.CLIENT && OptiNotFine.isOptiFineInstalled())
+            MinecraftForge.EVENT_BUS.register(OptiNotFine.class);
     }
 
     @Mod.EventHandler
