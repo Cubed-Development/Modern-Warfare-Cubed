@@ -15,7 +15,26 @@ public class TileEntities {
 
     public static void init(CommonProxy commonProxy) {
     	new TurretBaseFactory().createTileEntity(MWC.modContext);
-    	
+
+//        Example LootBox
+//        new LootBoxConfiguration()
+//        .withMaterial(Material.WOOD)
+//        .withName("blank")
+//        .withModelClassName("com.paneedah.mwc.models.Black")
+//        .withTextureName("textures/models/bodybag.png")
+////        .withEquipementDispenseSound(sound)
+//        .withCreativeTab(MWC.PropsTab)
+//        .withPositioning(tileEntity -> {
+//            GL11.glScalef(0.9f, 0.9f, 0.9f);
+//            GL11.glTranslatef(0.5f, -0.9f, 0.55f);
+//            GL11.glRotatef(-90F, 0f, 1f, 0f);
+//        })
+////        .withEquipmentOption(Guns.M9A1, EnumDifficulty.EASY, 4f)
+////        .withEquipmentOption(Guns.M45A1, EnumDifficulty.EASY, 3f)
+////        .withEquipmentOption(Items.air, EnumDifficulty.EASY, 150f, 1)
+//        .withEquipmentDispenseTimeout(10)
+//        .build(MWC.MOD_CONTEXT);
+
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("weapons_case")
@@ -48,9 +67,6 @@ public class TileEntities {
             GL11.glScalef(0.6f, 0.6f, 0.6f);
             GL11.glTranslatef(0.7f, 1.1f, 0.5f);
         })
-//        .withEquipmentOption(Guns.M4A1, EnumDifficulty.EASY, 1f)
-//        .withEquipmentOption(null, EnumDifficulty.EASY, 25f, 1)
-        .withEquipmentDispenseTimeout(10)
         .build(MWC.modContext);
         
         new LootBoxConfiguration()
@@ -58,7 +74,6 @@ public class TileEntities {
         .withName("weapons_case_small")
         .withModelClassName("com.paneedah.mwc.models.GunCaseSmall")
         .withTextureName("textures/models/gun_case_small.png")
-//        .withEquipementDispenseSound(sound)
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
         		blockState -> {
@@ -217,10 +232,6 @@ public class TileEntities {
             GL11.glTranslatef(0.2f, 1.63f, 1.7f);
             GL11.glRotatef(90F, 0f, 1f, 0f);
         })
-        .withEquipmentOption(Guns.AK101, EnumDifficulty.EASY, 2f)
-        .withEquipmentOption(Guns.M38, EnumDifficulty.EASY, 2f)
-        .withEquipmentOption(Guns.APS, EnumDifficulty.EASY, 4f)
-        .withEquipmentDispenseTimeout(10)
         .build(MWC.modContext);
         
         new LootBoxConfiguration()
@@ -248,10 +259,6 @@ public class TileEntities {
             GL11.glTranslatef(0.7f, 1.85f, 1f);
 //            GL11.glRotatef(90F, 0f, 1f, 0f);
         })
-//        .withEquipmentOption(Guns.M9A1, EnumDifficulty.EASY, 4f)
-//        .withEquipmentOption(Guns.M45A1, EnumDifficulty.EASY, 3f)
-//        .withEquipmentOption(Items.air, EnumDifficulty.EASY, 150f, 1)
-        .withEquipmentDispenseTimeout(10)
         .build(MWC.modContext);
         
         new LootBoxConfiguration()
@@ -259,17 +266,12 @@ public class TileEntities {
         .withName("scp_locker")
         .withModelClassName("com.paneedah.mwc.models.SCPLocker")
         .withTextureName("textures/models/scplocker.png")
-//        .withEquipementDispenseSound(sound)
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.8f, 0.8f, 0.8f);
             GL11.glTranslatef(0.5f, 0.45f, 0.6f);
             GL11.glRotatef(-90F, 0f, 1f, 0f);
         })
-//        .withEquipmentOption(Guns.M9A1, EnumDifficulty.EASY, 4f)
-//        .withEquipmentOption(Guns.M45A1, EnumDifficulty.EASY, 3f)
-//        .withEquipmentOption(Items.air, EnumDifficulty.EASY, 150f, 1)
-        .withEquipmentDispenseTimeout(10)
         .build(MWC.modContext);
         
         
@@ -688,24 +690,6 @@ public class TileEntities {
             GL11.glRotatef(-90F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
-        
-//        new LootBoxConfiguration()
-//        .withMaterial(Material.WOOD)
-//        .withName("blank")
-//        .withModelClassName("com.paneedah.mwc.models.Black")
-//        .withTextureName("textures/models/bodybag.png")
-////        .withEquipementDispenseSound(sound)
-//        .withCreativeTab(MWC.PropsTab)
-//        .withPositioning(tileEntity -> {
-//            GL11.glScalef(0.9f, 0.9f, 0.9f);
-//            GL11.glTranslatef(0.5f, -0.9f, 0.55f);
-//            GL11.glRotatef(-90F, 0f, 1f, 0f);
-//        })
-////        .withEquipmentOption(Guns.M9A1, EnumDifficulty.EASY, 4f)
-////        .withEquipmentOption(Guns.M45A1, EnumDifficulty.EASY, 3f)
-////        .withEquipmentOption(Items.air, EnumDifficulty.EASY, 150f, 1)
-//        .withEquipmentDispenseTimeout(10)
-//        .build(MWC.MOD_CONTEXT);
         
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
