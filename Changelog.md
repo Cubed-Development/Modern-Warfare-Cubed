@@ -93,7 +93,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed turrets spawning without weapons
 - Fixed 7.62x54mm SVD magazine using 7.62x39mm bullets
 - Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
-- Fixed visual bugs for weapons like FN F2000 when aiming the gun, M4A1 with "M16 Stock", Malyuk with grip accessories, beowulf50Cal with m38 front sight, revolver related accessories and general bipod adjustments on weapons
+- Fixed visual bugs for weapons like FN F2000 when aiming the gun, M4A1 with "M16 Stock", Malyuk and M40A6 with grip accessories, beowulf50Cal with m38 front sight, Famas F1 with Aim Point Comp M5 Sight, revolvers related accessories and general bipod adjustments on weapons
 - Fixed the attachment of the Long Deagle
 
 ### Removed
