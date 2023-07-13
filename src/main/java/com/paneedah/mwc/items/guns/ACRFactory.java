@@ -117,8 +117,20 @@ public class ACRFactory implements GunFactory {
 //          GL11.glScaled(1.15F, 1.2F, 1.2F);
       })
 
+        // Compatible ACR attachment ACRPRSSStock
+        .withCompatibleAttachment(Attachments.ACRPRSStock, (model) -> {
+//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
+//          GL11.glScaled(1.15F, 1.2F, 1.2F);
+        })
+
         // Compatible ACR attachment ACRPRSStockTan
         .withCompatibleAttachment(Attachments.ACRPRSStockTan, (model) -> {
+//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
+//          GL11.glScaled(1.15F, 1.2F, 1.2F);
+        })
+
+        // Compatible ACR attachment ACRFixedStock
+        .withCompatibleAttachment(Attachments.ACRFixedStock, (model) -> {
 //          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
 //          GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
@@ -199,6 +211,15 @@ public class ACRFactory implements GunFactory {
             }
         })
 
+        // Compatible ACR attachment ACRWEMSKHandGuard
+        .withCompatibleAttachment(Attachments.ACRWEMSKHandGuard, (model) -> {
+            if(model instanceof AKRail) {
+            	GL11.glTranslatef(-0.03F, -0.77F, -3.94F);
+                GL11.glScaled(0.85F, 0.85F, 0.75F);
+                GL11.glRotatef(180F, 0f, 0f, 1f);
+            } 
+        })
+        
         // Compatible ACR attachment ACRWEMSKHandGuardTan
         .withCompatibleAttachment(Attachments.ACRWEMSKHandGuardTan, (model) -> {
             if(model instanceof AKRail) {
@@ -208,8 +229,20 @@ public class ACRFactory implements GunFactory {
             } 
         })
 
+        // Compatible ACR attachment ACRPrecisionHandGuard
+        .withCompatibleAttachment(Attachments.ACRPrecisionHandGuard, (model) -> {
+//        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
+//            GL11.glScaled(1.1F, 1.1F, 1.1F);
+        })
+
         // Compatible ACR attachment ACRPrecisionHandGuardTan
         .withCompatibleAttachment(Attachments.ACRPrecisionHandGuardTan, (model) -> {
+//        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
+//            GL11.glScaled(1.1F, 1.1F, 1.1F);
+        })
+
+        // Compatible ACR attachment ACRPolymerHandGuard
+        .withCompatibleAttachment(Attachments.ACRPolymerHandGuard, (model) -> {
 //        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
 //            GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
@@ -219,10 +252,22 @@ public class ACRFactory implements GunFactory {
 //        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
 //            GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
+        
+        // Compatible ACR attachment ACRSBRHandGuard
+        .withCompatibleAttachment(Attachments.ACRSBRHandGuard, (model) -> {
+//        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
+//            GL11.glScaled(1.1F, 1.1F, 1.1F);
+        })
 
         // Compatible ACR attachment ACRSBRHandGuardTan
         .withCompatibleAttachment(Attachments.ACRSBRHandGuardTan, (model) -> {
 //        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
+//            GL11.glScaled(1.1F, 1.1F, 1.1F);
+        })
+
+        // Compatible ACR attachment ACRSquareDropHandguard
+        .withCompatibleAttachment(Attachments.ACRSquareDropHandguard, (model) -> {
+        	GL11.glTranslatef(0.001f, -0f, 0f);
 //            GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
 
@@ -475,7 +520,8 @@ public class ACRFactory implements GunFactory {
             if(instance != null) {
                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                         AttachmentCategory.GUARD, instance);
-                if(activeAttachment == Attachments.ACRPrecisionHandGuardTan) {
+                if(activeAttachment == Attachments.ACRPrecisionHandGuard 
+                		|| activeAttachment == Attachments.ACRPrecisionHandGuardTan) {
                 	GL11.glTranslatef(-0.2F, -0.35F, -5F);
     	            GL11.glScaled(1F, 1F, 1F);
                 } else {

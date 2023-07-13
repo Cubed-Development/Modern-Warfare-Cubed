@@ -567,11 +567,11 @@ public class AuxiliaryAttachments {
                 .withTextureName("Dummy.png").build(MWC.modContext);
         
         ACRRails = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA5)
-                .withModel(new com.paneedah.mwc.models.AKRail(), "acrrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail2(), "acrrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail3(), "acrrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail4(), "acrrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail5(), "acrrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "acrsbrhandguardtan.png")
+                .withModel(new com.paneedah.mwc.models.AKRail2(), "acrsbrhandguardtan.png")
+                .withModel(new com.paneedah.mwc.models.AKRail3(), "acrsbrhandguardtan.png")
+                .withModel(new com.paneedah.mwc.models.AKRail4(), "acrsbrhandguardtan.png")
+                .withModel(new com.paneedah.mwc.models.AKRail5(), "acrsbrhandguardtan.png")
                 .withName("ACRRails").withRenderablePart()
                 .withTextureName("Dummy.png").build(MWC.modContext);
         
