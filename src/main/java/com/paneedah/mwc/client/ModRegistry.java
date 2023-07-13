@@ -81,28 +81,28 @@ public class ModRegistry {
 
     // -------------------------------------------ORES-------------------------------------------
     public static final RegistryObject<Block> SULFUR_ORE = registerBlock("sulfur_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> NITER_ORE = registerBlock("niter_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> LEAD_ORE = registerBlock("lead_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
                     .strength(5f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> ALUMINUM_ORE = registerBlock("aluminum_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
                     .strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> GRAPHITE_ORE = registerBlock("graphite_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
                     .strength(3f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> TUNGSTEN_ORE = registerBlock("tungsten_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
                     .strength(7f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> TITANIUM_ORE = registerBlock("titanium_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
                     .strength(8f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> URANIUM_ORE = registerBlock("uranium_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
                     .strength(5f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

@@ -46,14 +46,14 @@ public class ConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> sulfurOre = List.of(OreConfiguration.target(stoneReplaceables, ModRegistry.SULFUR_ORE.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModRegistry.SULFUR_ORE.get().defaultBlockState()));
 
-        register(context, ALUMINUM_ORE, Feature.ORE, new OreConfiguration(aluminumOre, 8));
-        register(context, LEAD_ORE, Feature.ORE, new OreConfiguration(leadOre, 6));
-        register(context, TITANIUM_ORE, Feature.ORE, new OreConfiguration(titaniumOre, 4));
-        register(context, TUNGSTEN_ORE, Feature.ORE, new OreConfiguration(tungstenOre, 3));
-        register(context, URANIUM_ORE, Feature.ORE, new OreConfiguration(uraniumOre, 5));
-        register(context, GRAPHITE_ORE, Feature.ORE, new OreConfiguration(graphiteOre, 6));
-        register(context, SULFUR_ORE, Feature.ORE, new OreConfiguration(sulfurOre, 5));
-        register(context, NITER_ORE, Feature.ORE, new OreConfiguration(niterOre, 7));
+        register(context, ALUMINUM_ORE, Feature.ORE, new OreConfiguration(aluminumOre, 8*4));
+        register(context, LEAD_ORE, Feature.ORE, new OreConfiguration(leadOre, 6*4));
+        register(context, TITANIUM_ORE, Feature.ORE, new OreConfiguration(titaniumOre, 4*4));
+        register(context, TUNGSTEN_ORE, Feature.ORE, new OreConfiguration(tungstenOre, 3*4));
+        register(context, URANIUM_ORE, Feature.ORE, new OreConfiguration(uraniumOre, 5*4));
+        register(context, GRAPHITE_ORE, Feature.ORE, new OreConfiguration(graphiteOre, 6*4));
+        register(context, SULFUR_ORE, Feature.ORE, new OreConfiguration(sulfurOre, 5*4));
+        register(context, NITER_ORE, Feature.ORE, new OreConfiguration(niterOre, 7*4));
     }
 
 

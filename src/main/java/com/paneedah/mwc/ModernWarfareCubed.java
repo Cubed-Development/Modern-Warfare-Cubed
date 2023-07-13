@@ -86,7 +86,7 @@ public class ModernWarfareCubed {
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if(event.getTab() == CTRegistry.BaseTab) {
+        if(event.getTab() == CTRegistry.ResourcesTab) {
             // INGOTS
             event.accept(ModRegistry.GUNMETAL_INGOT);
             event.accept(ModRegistry.STEEL_INGOT);

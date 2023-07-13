@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 40,
+  "experience": 1.0,
+  "group": "sulfur",
+  "ingredient": {
+    "item": "mwc:sulfur"
+  },
+  "result": "minecraft:gunpowder"
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "mwc:block/uranium_ore"
+    }
+  }
+}

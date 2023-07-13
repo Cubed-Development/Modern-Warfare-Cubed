@@ -2,7 +2,7 @@ package com.paneedah.mwc.content;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.paneedah.mwc.ModernWarfare;
+import com.paneedah.mwc.ModernWarfareCubed;
 import com.paneedah.mwc.client.ModRegistry;
 import com.paneedah.mwc.content.types.PackFile;
 import com.paneedah.mwc.content.types.PackZip;
@@ -30,7 +30,7 @@ public class PackLoader {
         try {
             this.packZip = new PackZip(pack);
         } catch (Exception e) {
-            ModernWarfare.logger.info("A pack could not be loaded as a zip, now trying directory: " + pack.getName());
+            ModernWarfareCubed.logger.info("A pack could not be loaded as a zip, now trying directory: " + pack.getName());
         }
         registerPack();
     }
@@ -42,14 +42,14 @@ public class PackLoader {
                 if(packJson.exists()) {
                     handleLoading(false);
                 } else
-                    ModernWarfare.logger.error("A possible content pack in MWC folder, failed to load due to missing pack.json");
+                    ModernWarfareCubed.logger.error("A possible content pack in MWC folder, failed to load due to missing pack.json");
             } else if(ContentPackHandler.zipJar.matcher(pack.getName()).matches()) {
                 ZipFile zip = new ZipFile(pack);
                 ZipEntry entry = zip.getEntry("pack.json");
                 if(entry != null && !entry.isDirectory()) {
                     handleLoading(true);
                 } else
-                    ModernWarfare.logger.error("A possible content pack in MWC folder, failed to load due to missing pack.json");
+                    ModernWarfareCubed.logger.error("A possible content pack in MWC folder, failed to load due to missing pack.json");
             }
         }
         catch(Exception e) {
@@ -61,17 +61,17 @@ public class PackLoader {
         try {
             // If not a zip
             if(!zip) {
-                ModernWarfare.packs.put(pack.getName(), pack);
+                ModernWarfareCubed.packs.put(pack.getName(), pack);
                 try {
                     JsonObject obj = (JsonObject) JsonParser.parseReader(new FileReader(new File(pack, "pack.json")));
                     if(loadPackInfo(obj)) {
                         loadDirectory();
                         ItemLoader items = new ItemLoader();
-                        ModernWarfare.logger.info("["+this.pack.getPackName()+"] Successfully loaded!");
+                        ModernWarfareCubed.logger.info("["+this.pack.getPackName()+"] Successfully loaded!");
                     }
                     return;
                 } catch (Exception e) {
-                    ModernWarfare.logger.error("Error while handling a content pack as directory: ");
+                    ModernWarfareCubed.logger.error("Error while handling a content pack as directory: ");
                     e.printStackTrace();
                 }
                 return;
@@ -99,17 +99,17 @@ public class PackLoader {
                 String json = new String(buffer, StandardCharsets.UTF_8);
                 JsonObject obj = JsonParser.parseString(json).getAsJsonObject();
                 if(obj.get("name").getAsString() == null || obj.get("id").getAsString() == null) {
-                    ModernWarfare.logger.error("Content pack load failed due to missing name/id entry in pack.json");
+                    ModernWarfareCubed.logger.error("Content pack load failed due to missing name/id entry in pack.json");
                     return;
                 }
                 if(loadPackInfo(obj)){
                     loadArchive();
-                    ModernWarfare.logger.info("["+this.pack.getPackName()+"] Successfully loaded!");
+                    ModernWarfareCubed.logger.info("["+this.pack.getPackName()+"] Successfully loaded!");
                 }
                 ItemLoader items = new ItemLoader();
-            } else ModernWarfare.logger.error("Pack.json was null while loading archive pack info.");
+            } else ModernWarfareCubed.logger.error("Pack.json was null while loading archive pack info.");
         } catch (Exception e) {
-            ModernWarfare.logger.error("Error while handling a content pack as zip: "+pack.getName());
+            ModernWarfareCubed.logger.error("Error while handling a content pack as zip: "+pack.getName());
             e.printStackTrace();
         }
     }
@@ -117,15 +117,15 @@ public class PackLoader {
     private boolean loadPackInfo(JsonObject obj) {
         String packName, packId;
         if((packName = obj.get("id").getAsString()) == null | (packId = obj.get("name").getAsString()) == null) {
-            ModernWarfare.logger.error("Content pack load failed due to missing name/id entry in pack.json");
+            ModernWarfareCubed.logger.error("Content pack load failed due to missing name/id entry in pack.json");
             return false;
         }
         if(!pack.setPackName(packName)) {
-            ModernWarfare.logger.error("Content pack failed to load due to invalid name ["+packName+"]. Characters allowed include A-B|0-9|_|space");
+            ModernWarfareCubed.logger.error("Content pack failed to load due to invalid name ["+packName+"]. Characters allowed include A-B|0-9|_|space");
             return false;
         }
         if(!pack.setPackId(packId)) {
-            ModernWarfare.logger.error("Content pack failed to load due to invalid id ["+packId+"]. Characters allowed include A-B|0-9|_");
+            ModernWarfareCubed.logger.error("Content pack failed to load due to invalid id ["+packId+"]. Characters allowed include A-B|0-9|_");
             return false;
         }
         return true;
@@ -153,7 +153,7 @@ public class PackLoader {
                         line = reader.readLine();
                     }
                     catch(Exception e) {
-                        ModernWarfare.logger.error("An error occurred while loading: "+this.pack.getName()+"/pack.json");
+                        ModernWarfareCubed.logger.error("An error occurred while loading: "+this.pack.getName()+"/pack.json");
                         e.printStackTrace();
                         break;
                     }
@@ -164,7 +164,7 @@ public class PackLoader {
                 break;
             } while(true);
         } catch (Exception e) {
-            ModernWarfare.logger.error("Error while handling a pack.json for zip: "+pack.getName());
+            ModernWarfareCubed.logger.error("Error while handling a pack.json for zip: "+pack.getName());
             e.printStackTrace();
         }
     }
@@ -194,7 +194,7 @@ public class PackLoader {
                         line = reader.readLine();
                     }
                     catch(Exception e) {
-                        ModernWarfare.logger.error("["+pack.getPackName()+"] An error occurred while loading "+typeFile.name);
+                        ModernWarfareCubed.logger.error("["+pack.getPackName()+"] An error occurred while loading "+typeFile.name);
                         e.printStackTrace();
                         break;
                     }
@@ -218,7 +218,7 @@ public class PackLoader {
             File folder = new File(this.pack, type.folderName);
             File[] files = folder.listFiles();
             if(files == null || files.length == 0) {
-                ModernWarfare.logger.warn("["+this.pack.getPackName()+"] No "+type.folderName+" were loaded.");
+                ModernWarfareCubed.logger.warn("["+this.pack.getPackName()+"] No "+type.folderName+" were loaded.");
             } else {
                 for(File file : Objects.requireNonNull(files)) {
                     TypeFile newEntry = new TypeFile(this.pack.getName(), type.folderName, type, file.getName());
@@ -252,13 +252,13 @@ public class PackLoader {
                 RegistryObject<Item> item = ModRegistry.ITEMS.register(obj.get("id").getAsString(), () -> new Item(new Item.Properties()));
                 LangLoader.list.put(item.get(), obj.get("name").getAsString());
                 if(ModRegistry.items.contains(item)) {
-                    ModernWarfare.logger.error("Cancelled loading for duplicate item: "+obj.get("name").getAsString()+" ("+obj.get("id").getAsString()+")");
+                    ModernWarfareCubed.logger.error("Cancelled loading for duplicate item: "+obj.get("name").getAsString()+" ("+obj.get("id").getAsString()+")");
                     return;
                 }
                 ModRegistry.items.add(item);
             } catch (Exception e) {
-                ModernWarfare.logger.warn("Error in making an item:");
-                ModernWarfare.logger.throwing(e);
+                ModernWarfareCubed.logger.warn("Error in making an item:");
+                ModernWarfareCubed.logger.throwing(e);
             }
         }
     }

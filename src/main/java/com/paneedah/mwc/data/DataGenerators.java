@@ -1,6 +1,6 @@
 package com.paneedah.mwc.data;
 
-import com.paneedah.mwc.ModernWarfare;
+import com.paneedah.mwc.ModernWarfareCubed;
 import com.paneedah.mwc.data.generators.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.List;
 import java.util.Set;
 
-@Mod.EventBusSubscriber(modid = ModernWarfare.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = ModernWarfareCubed.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {

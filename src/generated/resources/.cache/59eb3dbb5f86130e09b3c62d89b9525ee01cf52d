@@ -1,0 +1,9 @@
+// 1.19.4	2023-07-13T15:34:20.5383542	Loot Tables
+a5ac8ac0cd3bcd376bd2246e37e39cf0128206ca data/mwc/loot_tables/blocks/aluminum_ore.json
+9baba5b312e508b0c4c0af0a1b4ffafdbdc2b261 data/mwc/loot_tables/blocks/graphite_ore.json
+efc4592c8405f96425422ca73c32c24d3718f9e9 data/mwc/loot_tables/blocks/lead_ore.json
+7cde5eb85ab1118328aa8fb4161d91d557e66f37 data/mwc/loot_tables/blocks/niter_ore.json
+3a4b4134bf26a7158b62aa734cb483d7a4e7fc88 data/mwc/loot_tables/blocks/sulfur_ore.json
+01b30f759a4208a119a3bd19a51c27d7844b1b23 data/mwc/loot_tables/blocks/titanium_ore.json
+ea50d21add2153c0b51b343abced83745d550104 data/mwc/loot_tables/blocks/tungsten_ore.json
+70e9b4ab050a8e0d8f972a38a2f909ba5de1c48a data/mwc/loot_tables/blocks/uranium_ore.json

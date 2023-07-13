@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "mwc:empty_syringe"
+    },
+    "K": {
+      "item": "minecraft:nether_wart"
+    }
+  },
+  "pattern": [
+    " K ",
+    "KFK",
+    " K "
+  ],
+  "result": {
+    "item": "mwc:stimpak"
+  },
+  "show_notification": true
+}

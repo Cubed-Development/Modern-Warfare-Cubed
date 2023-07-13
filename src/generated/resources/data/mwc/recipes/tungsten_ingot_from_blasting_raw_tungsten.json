@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 150,
+  "experience": 0.9,
+  "group": "tungsten",
+  "ingredient": {
+    "item": "mwc:raw_tungsten"
+  },
+  "result": "mwc:tungsten_ingot"
+}

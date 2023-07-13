@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 110,
+  "experience": 1.0,
+  "group": "sulfur",
+  "ingredient": {
+    "item": "mwc:sulfur"
+  },
+  "result": "minecraft:gunpowder"
+}

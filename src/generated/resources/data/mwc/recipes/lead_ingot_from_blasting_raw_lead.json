@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 150,
+  "experience": 0.7,
+  "group": "lead",
+  "ingredient": {
+    "item": "mwc:raw_lead"
+  },
+  "result": "mwc:lead_ingot"
+}

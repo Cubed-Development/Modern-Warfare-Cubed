@@ -1,0 +1,25 @@
+// 1.19.4	2023-07-13T15:34:20.5361878	Block States: mwc
+f57617e10ef8806b394b870b05d9bf08a32a64eb assets/mwc/blockstates/aluminum_ore.json
+e70d43e73db1180ad4b243eacfd5cb07b74fe989 assets/mwc/blockstates/graphite_ore.json
+de4cec1ed03b440fa07517770f14fce2fc5e2507 assets/mwc/blockstates/lead_ore.json
+efded7d8a6318dbd50ba20dc3fc2b502bd5d19a5 assets/mwc/blockstates/niter_ore.json
+b40fee9b7fa0dad674f188a950e54e41f7b3c3be assets/mwc/blockstates/sulfur_ore.json
+0bd17ff5ab816613c2b62eec8b06c18e298cb47c assets/mwc/blockstates/titanium_ore.json
+1e6ba5e35602a0247c60301b0bcff93898a626cd assets/mwc/blockstates/tungsten_ore.json
+ed3482e7b3e5dbb7e264d48416d89667045cf877 assets/mwc/blockstates/uranium_ore.json
+f269ff4faeda7aca2306ba052cbeea5ed88edb72 assets/mwc/models/block/aluminum_ore.json
+34c78d3663211b0dfec93c22b7831a7f4eda2b6c assets/mwc/models/block/graphite_ore.json
+ed7770c00ad21edf90c9dd0c2afa3c23e2171634 assets/mwc/models/block/lead_ore.json
+a12108f22ae4570f68545e3c3c2d3b2b10a0680b assets/mwc/models/block/niter_ore.json
+48fe9b6d10b1a42b151f7ffc9e0bc342707f80e8 assets/mwc/models/block/sulfur_ore.json
+b14b1d52881ccd3fd196b13ea567333364632d77 assets/mwc/models/block/titanium_ore.json
+51941f27d16dd7d252a8d98a98fdc69f9b12690f assets/mwc/models/block/tungsten_ore.json
+69b19ed2e9b6cd2ddbe5f2d5ae8a869f9a9dd58c assets/mwc/models/block/uranium_ore.json
+4d7c3c34b25d19a1adfec5a48b3025c6a0eb4e1c assets/mwc/models/item/aluminum_ore.json
+ff1845dfcdd532682d8e0d8e82ed951af45f0512 assets/mwc/models/item/graphite_ore.json
+f8b3999e48728b52e6f4a187ccf8080eb9ef151f assets/mwc/models/item/lead_ore.json
+57f3afc5511bd2dc63342f3673ceaf84741055f9 assets/mwc/models/item/niter_ore.json
+57a1f8b95cdb574b5c1c383d9d09c0df7a9f255a assets/mwc/models/item/sulfur_ore.json
+beb417bc2eb7d042b0a488b013c39c92b3d62f58 assets/mwc/models/item/titanium_ore.json
+f326ed17cd7214ad4d08ce0fd4219bdd74bdc5fe assets/mwc/models/item/tungsten_ore.json
+cccef7d3685c251fca725459e56914faf11782ec assets/mwc/models/item/uranium_ore.json

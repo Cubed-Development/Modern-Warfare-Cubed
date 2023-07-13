@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "mwc:block/lead_ore"
+    }
+  }
+}
