@@ -256,13 +256,13 @@ public class ClientEventHandler {
 			PlayerUtils.restorePlayerSpeed(player, SLOW_DOWN_WHILE_ZOOMING_ATTRIBUTE_MODIFIER);
 		}
 
-		final SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(mc.player, SpreadableExposure.class);
+		final SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(MC.player, SpreadableExposure.class);
 		if (spreadableExposure != null && spreadableExposure.getTotalDose() > SLOW_DOWN_WHEN_POISONED_DOSE_THRESHOLD) PlayerUtils.slowPlayerDown(player, SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER);
 		else PlayerUtils.restorePlayerSpeed(player, SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER);
 
-		final LightExposure lightExposure = CompatibleExposureCapability.getExposure(mc.player, LightExposure.class);
+		final LightExposure lightExposure = CompatibleExposureCapability.getExposure(MC.player, LightExposure.class);
 		if (lightExposure != null)
-			lightExposure.update(mc.player);
+			lightExposure.update(MC.player);
 	}
 
 	/*@SubscribeEvent
@@ -278,7 +278,7 @@ public class ClientEventHandler {
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
     public final void onRenderTickEvent(TickEvent.RenderTickEvent event) {
-        final DynamicShaderContext shaderContext = new DynamicShaderContext(DynamicShaderPhase.POST_WORLD_RENDER, mc.entityRenderer, mc.getFramebuffer(), event.renderTickTime);
+        final DynamicShaderContext shaderContext = new DynamicShaderContext(DynamicShaderPhase.POST_WORLD_RENDER, MC.entityRenderer, MC.getFramebuffer(), event.renderTickTime);
         final EntityPlayer clientPlayer = MC.player;
         
         if (event.phase == TickEvent.RenderTickEvent.Phase.START) {
@@ -346,7 +346,7 @@ public class ClientEventHandler {
 		// Hot swaps the Minecraft frame-buffer for an HDR one.
 
 		if (ModernConfigManager.enableHDRFramebuffer) {
-			final Framebuffer current = mc.getFramebuffer();
+			final Framebuffer current = MC.getFramebuffer();
 			if (!(current instanceof HDRFramebuffer)) {
 				// Create an EXACT match, but in the HDR format. This will break w/ other mods that try to do anything similar.
 				MC.framebuffer = new HDRFramebuffer(current.framebufferWidth, current.framebufferHeight, current.useDepth);
