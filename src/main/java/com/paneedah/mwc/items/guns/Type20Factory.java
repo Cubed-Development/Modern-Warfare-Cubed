@@ -295,7 +295,7 @@ public class Type20Factory implements GunFactory {
             if(instance != null) {
                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                         AttachmentCategory.GUARD, instance);
-                if(activeAttachment == Attachments.ACRPrecisionHandGuard 
+                if(activeAttachment == Attachments.ACRPrecisionHandGuardTan
                 		|| activeAttachment == Attachments.ACRPrecisionHandGuardTan) {
                 	GL11.glTranslatef(-0.2F, -0.35F, -5F);
     	            GL11.glScaled(1F, 1F, 1F);
