@@ -9,7 +9,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ## Warning
 
-**If you are upgrading from either Vic's Modern Warfare or Modern Warfare Cubed Version 0.1-Dev-6 or under all Modern Warfare related item, blocks weapons etc... will disappear from your save either back up your world or start a new one.**
+**If you are upgrading from either Vic's Modern Warfare or Modern Warfare Cubed Version 0.1-Dev-6 or under all Modern Warfare related items, blocks weapons, etc... will disappear from your save either back up your world or start a new one.**
 
 ### Highlight
 
@@ -34,13 +34,13 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Translations for Chinese, Spanish, and Turkish languages
 - GitHub URL in `mcmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
-- Shells life go increased 1606% no performance impact in extreme cases
+- Shells life got increased to 1606 with no performance impact in extreme cases
 
 ### Changed
 
 - Overhauled textures of AAC Honey Badger, Bushmaster ACR, Beowulf, HK 417, M16A1, 100rnd 5.56x45mm NATO STANAG Drum Magazine and the pink camo skin
 - Overhauled animations and sound effects of the M40A6 and Uzi
-- Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight and Eotech Hybrid HHS™ II Sight
+- Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight, and Eotech Hybrid HHS™ II Sight
 - Reworked the config system:
   - Old XML config has been removed, and all configs have been consolidated into a new JSON config. Issues with some non-functioning configs have been resolved
   - Adjusted craftingmappings.json to now only override recipes, rather than removing all recipes
@@ -76,7 +76,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 ### Fixed
 
 - Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)
-- Fixed Minecraft armor making you invulnerable to bullet (less realistic but they aren't anyway lol)
+- Fixed Minecraft armor making you invulnerable to bullets (less realistic but they aren't anyway lol)
 - Fixed issue with config for bullets breaking glass being ignored
 - Fixed bullet's being able to penetrate:
   - Glass
@@ -94,6 +94,13 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
 - Fixed visual bugs for weapons like FN F2000 when aiming the gun, M4A1 with "M16 Stock", Malyuk and M40A6 with grip accessories, beowulf50Cal with m38 front sight, revolver related accessories and general bipod adjustments on weapons
 - Fixed the attachment of the Long Deagle
+- Fixed prop hitboxes not lining up with their models:
+  - Fridge (open/closed)
+  - Locker
+  - SCP Locker
+  - Dumpster
+  - Sandbag
+  - Duel Floodlight
 
 ### Removed
 
@@ -115,13 +122,13 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 - Switched to [Raven](https://github.com/eigenraven) amazing [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle)
 - Updated to Gradle 8.1.1
-- Cleaned-up on build.gradle & gradle.properties
-- Gradle now automatically updates version and id in `ModReference.java`
+- Cleaned up build.gradle & gradle.properties
+- Gradle now automatically updates the version and id in `ModReference.java`
 - Updated Forge version
 - Improved build times
 - Automatically mark some folders as excluded
 - Major Refactors
-- [WIP] Cleaned-up the codebase
+- [WIP] Cleaned up the codebase
 - [WIP] Renamed unintelligible variables to more readable names
 - Overhauled the internal process of item and block creation
 - Changed name and mod id

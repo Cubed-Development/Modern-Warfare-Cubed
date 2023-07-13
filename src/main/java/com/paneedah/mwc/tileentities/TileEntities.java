@@ -15,7 +15,7 @@ public class TileEntities {
 
     public static void init(CommonProxy commonProxy) {
     	new TurretBaseFactory().createTileEntity(MWC.modContext);
-    	
+
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("weapons_case")
@@ -48,9 +48,6 @@ public class TileEntities {
             GL11.glScalef(0.6f, 0.6f, 0.6f);
             GL11.glTranslatef(0.7f, 1.1f, 0.5f);
         })
-//        .withEquipmentOption(Guns.M4A1, EnumDifficulty.EASY, 1f)
-//        .withEquipmentOption(null, EnumDifficulty.EASY, 25f, 1)
-        .withEquipmentDispenseTimeout(10)
         .build(MWC.modContext);
         
         new LootBoxConfiguration()
@@ -58,7 +55,6 @@ public class TileEntities {
         .withName("weapons_case_small")
         .withModelClassName("com.paneedah.mwc.models.GunCaseSmall")
         .withTextureName("textures/models/gun_case_small.png")
-//        .withEquipementDispenseSound(sound)
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
         		blockState -> {
@@ -175,6 +171,28 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.FridgeOpen")
         .withTextureName("textures/models/fridge.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glTranslatef(0.55f, 0f, 0.5f);
             GL11.glRotatef(-90F, 0f, 1f, 0f);
@@ -187,6 +205,28 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.FridgeClosed")
         .withTextureName("textures/models/fridge.png")
         .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glTranslatef(0.55f, 0f, 0.5f);
             GL11.glRotatef(-90F, 0f, 1f, 0f);
@@ -217,10 +257,6 @@ public class TileEntities {
             GL11.glTranslatef(0.2f, 1.63f, 1.7f);
             GL11.glRotatef(90F, 0f, 1f, 0f);
         })
-        .withEquipmentOption(Guns.AK101, EnumDifficulty.EASY, 2f)
-        .withEquipmentOption(Guns.M38, EnumDifficulty.EASY, 2f)
-        .withEquipmentOption(Guns.APS, EnumDifficulty.EASY, 4f)
-        .withEquipmentDispenseTimeout(10)
         .build(MWC.modContext);
         
         new LootBoxConfiguration()
@@ -232,7 +268,6 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.6f, 0.6f, 0.6f);
             GL11.glTranslatef(0.7f, 1.13f, 0.5f);
-//            GL11.glRotatef(90F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
@@ -241,17 +276,33 @@ public class TileEntities {
         .withName("locker")
         .withModelClassName("com.paneedah.mwc.models.Locker")
         .withTextureName("textures/models/locker.png")
-//        .withEquipementDispenseSound(sound)
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.5f, 0.5f, 0.5f);
             GL11.glTranslatef(0.7f, 1.85f, 1f);
-//            GL11.glRotatef(90F, 0f, 1f, 0f);
         })
-//        .withEquipmentOption(Guns.M9A1, EnumDifficulty.EASY, 4f)
-//        .withEquipmentOption(Guns.M45A1, EnumDifficulty.EASY, 3f)
-//        .withEquipmentOption(Items.air, EnumDifficulty.EASY, 150f, 1)
-        .withEquipmentDispenseTimeout(10)
         .build(MWC.modContext);
         
         new LootBoxConfiguration()
@@ -259,17 +310,34 @@ public class TileEntities {
         .withName("scp_locker")
         .withModelClassName("com.paneedah.mwc.models.SCPLocker")
         .withTextureName("textures/models/scplocker.png")
-//        .withEquipementDispenseSound(sound)
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.8f, 0.8f, 0.8f);
             GL11.glTranslatef(0.5f, 0.45f, 0.6f);
             GL11.glRotatef(-90F, 0f, 1f, 0f);
         })
-//        .withEquipmentOption(Guns.M9A1, EnumDifficulty.EASY, 4f)
-//        .withEquipmentOption(Guns.M45A1, EnumDifficulty.EASY, 3f)
-//        .withEquipmentOption(Items.air, EnumDifficulty.EASY, 150f, 1)
-        .withEquipmentDispenseTimeout(10)
         .build(MWC.modContext);
         
         
@@ -282,7 +350,6 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
         	GL11.glScalef(0.9f, 0.8f, 0.9f);
             GL11.glTranslatef(0.55f, 0.4f, 0.55f);
-//            GL11.glRotatef(90F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
@@ -295,7 +362,6 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
         	GL11.glScalef(0.9f, 0.8f, 0.9f);
             GL11.glTranslatef(0.55f, 0.4f, 0.55f);
-//            GL11.glRotatef(90F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
@@ -308,7 +374,6 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.9f, 0.9f, 0.9f);
             GL11.glTranslatef(0.7f, 0.25f, 0.6f);
-//            GL11.glRotatef(90F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
@@ -321,7 +386,6 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.7f, 0.7f, 0.7f);
             GL11.glTranslatef(0.5f, 0.71f, 0.6f);
-//            GL11.glRotatef(90F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
@@ -334,7 +398,6 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.9f, 0.9f, 0.9f);
             GL11.glTranslatef(0.7f, 0.25f, 0.6f);
-//            GL11.glRotatef(90F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
@@ -633,7 +696,6 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
             GL11.glScalef(1.1f, 1.2f, 1f);
             GL11.glTranslatef(0.42f, -0.25f, 0.5f);
-//            GL11.glRotatef(-90F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
@@ -689,30 +751,35 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-//        new LootBoxConfiguration()
-//        .withMaterial(Material.WOOD)
-//        .withName("blank")
-//        .withModelClassName("com.paneedah.mwc.models.Black")
-//        .withTextureName("textures/models/bodybag.png")
-////        .withEquipementDispenseSound(sound)
-//        .withCreativeTab(MWC.PropsTab)
-//        .withPositioning(tileEntity -> {
-//            GL11.glScalef(0.9f, 0.9f, 0.9f);
-//            GL11.glTranslatef(0.5f, -0.9f, 0.55f);
-//            GL11.glRotatef(-90F, 0f, 1f, 0f);
-//        })
-////        .withEquipmentOption(Guns.M9A1, EnumDifficulty.EASY, 4f)
-////        .withEquipmentOption(Guns.M45A1, EnumDifficulty.EASY, 3f)
-////        .withEquipmentOption(Items.air, EnumDifficulty.EASY, 150f, 1)
-//        .withEquipmentDispenseTimeout(10)
-//        .build(MWC.MOD_CONTEXT);
-        
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("dumpster")
         .withModelClassName("com.paneedah.mwc.models.Dumpster")
         .withTextureName("textures/models/dumpster.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 2, 1, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 2, 1, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 2, 1, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 2, 1, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.9f, 0.9f, 0.9f);
             GL11.glTranslatef(0.6f, 0.2f, 0.5f);
@@ -842,7 +909,6 @@ public class TileEntities {
         .withName("vent")
         .withModelClassName("com.paneedah.mwc.models.Vent")
         .withTextureName("textures/models/vent.png")
-//        .withEquipementDispenseSound(sound)
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
@@ -1078,6 +1144,28 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.VendingMachine")
         .withTextureName("textures/models/vendingmachine.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.8f, 0.8f, 0.8f);
             GL11.glTranslatef(0.55f, 0.4f, 0.62f);
@@ -1221,10 +1309,31 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.DuelFloodLight")
         .withTextureName("textures/models/duelfloodlight.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.8f, 0.8f, 0.8f);
             GL11.glTranslatef(0.6f, 0.35f, 0.6f);
-//            GL11.glRotatef(-45F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
@@ -1237,7 +1346,6 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.9f, 0.9f, 0.9f);
             GL11.glTranslatef(0.6f, 0.175f, 0.6f);
-//            GL11.glRotatef(-45F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
@@ -1260,10 +1368,31 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.Radio")
         .withTextureName("textures/models/radio.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0.09, 0, 0.09, 0.77, 0.33, 0.93);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0.22, 0, 0.05, 0.92, 0.33, 0.9);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0.1, 0, 0.23, 0.95, 0.33, 0.92);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )    
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.7f, 0.7f, 0.7f);
             GL11.glTranslatef(0.65f, 0.58f, 0.6f);
-//            GL11.glRotatef(-45F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
@@ -1315,7 +1444,6 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
-//            GL11.glRotatef(90F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
@@ -1325,6 +1453,28 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.Sandbag")
         .withTextureName("textures/models/sandbag.png")
         .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1472,7 +1622,6 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
             GL11.glScalef(1.5f, 1.5f, 1.5f);
             GL11.glTranslatef(0.3f, -0.45f, -1f);
-//            GL11.glRotatef(-45F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
@@ -1486,7 +1635,6 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.5f, 0.5f, 0.5f);
             GL11.glTranslatef(1f, 1.5f, 1f);
-//            GL11.glRotatef(-45F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         }
