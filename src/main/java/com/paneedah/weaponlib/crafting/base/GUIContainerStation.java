@@ -35,6 +35,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 
@@ -63,7 +64,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 	// Tile entity
 	protected T tileEntity;
 	
-	// Current item to have a tooltip render.
+	// Current item to have a tooltip renderer.
 	private ArrayList<String> tooltipRenderItem = new ArrayList<>();
 
 	// Mod context
@@ -381,7 +382,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 40, this.guiTop + 219, 176, 20)) {
 			int boxID = (mouseX - (this.guiLeft + 40))/20;
 			modContext.getChannel().sendToServer(new StationPacket(StationPacket.MOVE_OUTPUT,
-					tileEntity.getPos(), mc.player.getEntityId(), boxID));
+					tileEntity.getPos(), MC.player.getEntityId(), boxID));
 		}
 		
 		
@@ -411,7 +412,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		
 		// This 'if' statement prevents the GUI from closing when we hit "E" (or whatever
 		// the inventory key is!)
-		if(!(mc.gameSettings.keyBindInventory.isActiveAndMatches(keyCode) && searchBox.isFocused()))
+		if(!(MC.gameSettings.keyBindInventory.isActiveAndMatches(keyCode) && searchBox.isFocused()))
 			super.keyTyped(typedChar, keyCode);
 		
 		this.searchBox.textboxKeyTyped(typedChar, keyCode);
@@ -441,7 +442,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		this.tooltipRenderItem.clear();
 		this.tooltipRenderItem.add(format(stack.getItem().getTranslationKey()));
 
-		ITooltipFlag flag = mc.gameSettings.advancedItemTooltips
+		ITooltipFlag flag = MC.gameSettings.advancedItemTooltips
 				? ITooltipFlag.TooltipFlags.ADVANCED
 				: ITooltipFlag.TooltipFlags.NORMAL;
 		stack.getItem().addInformation(stack, this.tileEntity.getWorld(), this.tooltipRenderItem, flag);
@@ -490,7 +491,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		GlStateManager.scale(4, 4, 4);
 		GlStateManager.enableLighting();
 		RenderHelper.enableStandardItemLighting();
-		mc.getRenderItem().renderItem(new ItemStack(item),
+		MC.getRenderItem().renderItem(new ItemStack(item),
 				TransformType.THIRD_PERSON_LEFT_HAND);
 		RenderHelper.disableStandardItemLighting();
 		GlStateManager.disableLighting();
@@ -513,14 +514,14 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		GlStateManager.enableBlend();
 		
 		if (getPage() == 1) {
-			mc.getTextureManager().bindTexture(GUI_INV_TEX);
+			MC.getTextureManager().bindTexture(GUI_INV_TEX);
 			drawModalRectWithCustomSizedTexture(this.guiLeft, this.guiTop, 0f, 0f, 402, 232, 480, 370);
 
 			for (int i = 0; i < 4; ++i) {
 				if (tileEntity.dismantleStatus[i] == -1 || tileEntity.dismantleDuration[i] == -1)
 					continue;
 
-				double progress = InterpolationKit.interpolateValue(tileEntity.previousDismantleStatus[i], tileEntity.dismantleStatus[i], mc.getRenderPartialTicks()) / (double) tileEntity.dismantleDuration[i];
+				double progress = InterpolationKit.interpolateValue(tileEntity.previousDismantleStatus[i], tileEntity.dismantleStatus[i], MC.getRenderPartialTicks()) / (double) tileEntity.dismantleDuration[i];
 				drawModalRectWithCustomSizedTexture(this.guiLeft + 261 + i * 31, this.guiTop + 57, 81, 232, 29, 7, 480,
 						370);
 				drawModalRectWithCustomSizedTexture(this.guiLeft + 261 + i * 31, this.guiTop + 57, 81, 239,
@@ -536,7 +537,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 			GlStateManager.color(1f, 1f, 1f, 1f);
 
 			GlStateManager.pushMatrix();
-			mc.getTextureManager().bindTexture(GUI_TEX);
+			MC.getTextureManager().bindTexture(GUI_TEX);
 
 			GlStateManager.enableBlend();
 
@@ -550,7 +551,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 			
 			 double prevProgress = (Math.max(tileEntity.prevCraftingTimer, 0)) / (double) tileEntity.craftingDuration;
              double currProgress = (Math.max(tileEntity.craftingTimer, 0)) / (double) tileEntity.craftingDuration;
-             double intpProgress = InterpolationKit.interpolateValue(prevProgress, currProgress, mc.getRenderPartialTicks());
+             double intpProgress = InterpolationKit.interpolateValue(prevProgress, currProgress, MC.getRenderPartialTicks());
 			double progress = (0.025) * (Math.round(intpProgress / (0.025)));
 			drawModalRectWithCustomSizedTexture(this.guiLeft + 304, this.guiTop + 185, 53f, 240f, 81, 11, 480, 370);
 			drawModalRectWithCustomSizedTexture(this.guiLeft + 304, this.guiTop + 185, 53f, 240f + 11, (int) (81 * progress), 11, 480,
@@ -619,12 +620,12 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 			
 						
 						RenderHelper.enableGUIStandardItemLighting();
-						mc.getRenderItem().renderItemIntoGUI(
+						MC.getRenderItem().renderItemIntoGUI(
 								new ItemStack(filteredCraftingList.get(c).getItem()), this.guiLeft + 15 + (x * 23),
 								this.guiTop + 55 + (y * 23));
 						
 						
-						mc.getTextureManager().bindTexture(GUI_TEX);
+						MC.getTextureManager().bindTexture(GUI_TEX);
 						RenderHelper.disableStandardItemLighting();
 						
 						c += 1;
@@ -654,7 +655,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 				GlStateManager.translate(this.guiLeft + 275, this.guiTop + 45, 0);
 				GlStateManager.scale(3, 3, 3);
 
-				mc.getRenderItem()
+				MC.getRenderItem()
 						.renderItemIntoGUI(new ItemStack(getSelectedCraftingPiece().getItem()), 0, 0);
 				GlStateManager.popMatrix();
 			}
@@ -675,7 +676,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 					int c = 0;
 					for (CraftingEntry stack : weapon.getModernRecipe()) {
 						ItemStack itemStack = new ItemStack(stack.getItem());
-						mc.getTextureManager().bindTexture(GUI_TEX);
+						MC.getTextureManager().bindTexture(GUI_TEX);
 
 						boolean hasItem = this.hasAvailiableMaterials.get(stack.getItem());
 
@@ -707,7 +708,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 							}
 
 							GlStateManager.enableTexture2D();
-							mc.getTextureManager().bindTexture(GUI_TEX);
+							MC.getTextureManager().bindTexture(GUI_TEX);
 							GlStateManager.enableBlend();
 
 						}
@@ -723,7 +724,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 						}
 						GlStateManager.popMatrix();
 
-						mc.getRenderItem().renderItemIntoGUI(itemStack, x, y);
+						MC.getRenderItem().renderItemIntoGUI(itemStack, x, y);
 
 						GUIRenderHelper.drawScaledString("x" + stack.getCount(), x + 8, y + 12, 0.6,
 								hasItem ? GREEN : RED);
@@ -740,14 +741,14 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
 			GlStateManager.popMatrix();
 
-			boolean playerInventoryFull = mc.player.inventory.getFirstEmptyStack() == -1;
+			boolean playerInventoryFull = MC.player.inventory.getFirstEmptyStack() == -1;
 			if (playerInventoryFull) {
 				GUIRenderHelper.drawAlignedString("Inventory Full!", StringAlignment.LEFT, false, this.guiLeft + 245, this.guiTop + 214,
 						1.0, RED);
 			}
 			for (int i = 0; i < 9; ++i) {
 				ItemStack stack = tileEntity.mainInventory.getStackInSlot(i);
-				mc.getTextureManager().bindTexture(GUI_TEX);
+				MC.getTextureManager().bindTexture(GUI_TEX);
 
 				if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 40 + (i * 22), this.guiTop + 219, 20, 20)) {
 					GUIRenderHelper.drawTexturedRect(this.guiLeft + 39 + (i * 22), this.guiTop + 218, playerInventoryFull ? 18 : 0, 351,
@@ -757,7 +758,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 				}
 				
 				RenderHelper.enableGUIStandardItemLighting();
-				mc.getRenderItem().renderItemIntoGUI(stack,
+				MC.getRenderItem().renderItemIntoGUI(stack,
 						this.guiLeft + 40 + (i * 22), this.guiTop + 219);
 				RenderHelper.disableStandardItemLighting();
 				

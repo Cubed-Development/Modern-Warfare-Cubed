@@ -1960,9 +1960,9 @@ public class Spas12 extends ModelWithAttachments
     gun17.render(f5);
     gun18.render(f5);
     gun19.render(f5);
-//    gun20.render(f5);
-//    gun21.render(f5);
-//    gun22.render(f5);
+//    gun20.renderer(f5);
+//    gun21.renderer(f5);
+//    gun22.renderer(f5);
     gun24.render(f5);
     gun27.render(f5);
     gun28.render(f5);

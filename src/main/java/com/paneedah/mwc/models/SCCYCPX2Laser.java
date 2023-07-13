@@ -2242,7 +2242,7 @@ public class SCCYCPX2Laser extends ModelWithAttachments {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		laser.render(f5);
-//		grip_tape.render(f5);
+//		grip_tape.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

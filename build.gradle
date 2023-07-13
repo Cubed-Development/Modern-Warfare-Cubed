@@ -6,6 +6,7 @@ plugins {
     id 'org.jetbrains.gradle.plugin.idea-ext' version '1.1.7'
     id 'com.gtnewhorizons.retrofuturagradle' version '1.+'
     id 'com.matthewprenger.cursegradle' version '1.4.0'
+    id "me.champeau.jmh" version "0.7.1"
 }
 
 // Add version to the jar name
@@ -51,7 +52,7 @@ configurations {
 repositories {
     maven {
         name 'Cleanroom'
-        url 'https://maven.cleanroommc.com'
+        url 'https://maven.cleanroomMC.com'
     }
 
     ivy {
@@ -68,7 +69,10 @@ dependencies {
     implementation 'Red-Studio-Ragnarok:Red-Core:0.2'
     sources 'Red-Studio-Ragnarok:Red-Core:0.2:sources@jar'
 
-    String mixin = modUtils.enableMixins('zone.rong:mixinbooter:8.3', "mixins.${project.id}.refmap.json")
+    jmh 'org.openjdk.jmh:jmh-core:1.36'
+    jmh 'org.openjdk.jmh:jmh-generator-annprocess:1.36'
+
+    final String mixin = modUtils.enableMixins('zone.rong:mixinbooter:8.3', "mixins.${project.id}.refmap.json")
     api (mixin) { transitive = false }
     annotationProcessor 'org.ow2.asm:asm-debug-all:5.2'
     annotationProcessor 'com.google.guava:guava:24.1.1-jre'
@@ -76,17 +80,23 @@ dependencies {
     annotationProcessor (mixin) { transitive = false }
 }
 
+jmh {
+    warmupIterations = 5
+    iterations = 10
+    fork = 1
+}
+
 def at = project.files("src/main/resources/META-INF/${project.id}_at.cfg")
 
 tasks.deobfuscateMergedJarToSrg.accessTransformerFiles.from(at)
 tasks.srgifyBinpatchedJar.accessTransformerFiles.from(at)
 
-// Replace version and id in `mcmod.info`
+// Replace version and id in `MCmod.info`
 processResources {
     inputs.property 'id', project.id
     inputs.property 'version', project.version
-    filesMatching(['mcmod.info', 'pack.mcmeta']) { fcd ->
-        include 'mcmod.info'
+    filesMatching(['MCmod.info', 'pack.MCmeta']) { fcd ->
+        include 'MCmod.info'
         fcd.expand (
                 'id': project.id,
                 'version': project.version

@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.vehicle.smoothlib;
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import net.minecraft.util.math.Vec3d;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class PTIVec {
 	
@@ -20,7 +20,7 @@ public class PTIVec {
 	
 	
 	public Vec3d get() {
-		return InterpolationKit.interpolateVector(prev, cur, mc.getRenderPartialTicks());
+		return InterpolationKit.interpolateVector(prev, cur, MC.getRenderPartialTicks());
 	}
 
 }

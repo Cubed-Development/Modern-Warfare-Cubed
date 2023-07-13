@@ -1968,13 +1968,13 @@ public class Remington700 extends ModelWithAttachments {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		gun.render(f5);
-//		mag_5rnd.render(f5);
-//		mag_10rnd.render(f5);
-//		chassis.render(f5);
-//		apac_chassis.render(f5);
-//		mdt_xrs_chassis.render(f5);
-//		boltactiongrabby.render(f5);
-//		boltaction.render(f5);
+//		mag_5rnd.renderer(f5);
+//		mag_10rnd.renderer(f5);
+//		chassis.renderer(f5);
+//		apac_chassis.renderer(f5);
+//		mdt_xrs_chassis.renderer(f5);
+//		boltactiongrabby.renderer(f5);
+//		boltaction.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

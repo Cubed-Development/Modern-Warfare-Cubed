@@ -15,14 +15,15 @@ import net.minecraft.util.text.ITextComponent;
 import javax.annotation.Nullable;
 
 public class EquipmentInventory implements IInventory, Contextual {
+
     /**
      * The name your custom inventory will display in the GUI, possibly just
      * "Inventory"
      */
-    private final String name = "Custom Inventory";
+    private final String name = "Equipment Inventory";
 
     /** The key used to store and retrieve the inventory from NBT */
-    private static final String tagName = "CustomInvTag";
+    private static final String tagName = "equipmentInventory";
 
     private static final int INV_SIZE = 3;
 
@@ -155,9 +156,7 @@ public class EquipmentInventory implements IInventory, Contextual {
             }
         }
 
-        // We're storing our items in a custom tag list using our 'tagName' from
-        // above
-        // to prevent potential conflicts
+        // We're storing our items in a custom tag list using our 'tagName' from above to prevent potential conflicts
         compound.setTag(tagName, items);
     }
 
@@ -165,6 +164,7 @@ public class EquipmentInventory implements IInventory, Contextual {
         // now you must include the NBTBase type ID when getting the list;
         // NBTTagCompound's ID is 10
         NBTTagList tagList = compound.getTagList(tagName, compound.getId());
+
         for (int i = 0; i < tagList.tagCount(); ++i) {
             // tagAt(int) has changed to getCompoundTagAt(int)
             NBTTagCompound item = tagList.getCompoundTagAt(i);

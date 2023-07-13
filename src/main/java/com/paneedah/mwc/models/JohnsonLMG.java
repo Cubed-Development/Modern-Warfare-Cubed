@@ -1749,9 +1749,9 @@ public class JohnsonLMG extends ModelWithAttachments
     Main38.render(f5);
     Main39Action.render(f5);
     Main40.render(f5);
-//    Main41Action.render(f5);
-//    Main42Action.render(f5);
-//    Main43Action.render(f5);
+//    Main41Action.renderer(f5);
+//    Main42Action.renderer(f5);
+//    Main43Action.renderer(f5);
     Main44.render(f5);
     Main45.render(f5);
     Main46.render(f5);
@@ -1894,11 +1894,11 @@ public class JohnsonLMG extends ModelWithAttachments
     Main191Stock.render(f5);
     Main192Stock.render(f5);
     Main193Stock.render(f5);
-//    MAG1.render(f5);
-//    MAG2.render(f5);
-//    MAG3.render(f5);
-//    MAG4.render(f5);
-//    MAG5.render(f5);
+//    MAG1.renderer(f5);
+//    MAG2.renderer(f5);
+//    MAG3.renderer(f5);
+//    MAG4.renderer(f5);
+//    MAG5.renderer(f5);
     Main189.render(f5);
     Main190.render(f5);
     Main191.render(f5);
@@ -1934,22 +1934,22 @@ public class JohnsonLMG extends ModelWithAttachments
     Main176Barrel.render(f5);
     Main177Barrel.render(f5);
     Main178Barrel.render(f5);
-//    MAG6.render(f5);
-//    MAG7.render(f5);
-//    MAG8.render(f5);
-//    MAG9.render(f5);
-//    MAG10.render(f5);
-//    MAG11.render(f5);
-//    MAG12.render(f5);
-//    MAG13.render(f5);
-//    MAG14.render(f5);
-//    MAG15.render(f5);
-//    MAG16.render(f5);
-//    MAG17.render(f5);
-//    MAG18.render(f5);
-//    MAG19.render(f5);
-//    MAG20.render(f5);
-//    MAG21.render(f5);
+//    MAG6.renderer(f5);
+//    MAG7.renderer(f5);
+//    MAG8.renderer(f5);
+//    MAG9.renderer(f5);
+//    MAG10.renderer(f5);
+//    MAG11.renderer(f5);
+//    MAG12.renderer(f5);
+//    MAG13.renderer(f5);
+//    MAG14.renderer(f5);
+//    MAG15.renderer(f5);
+//    MAG16.renderer(f5);
+//    MAG17.renderer(f5);
+//    MAG18.renderer(f5);
+//    MAG19.renderer(f5);
+//    MAG20.renderer(f5);
+//    MAG21.renderer(f5);
   }
   
 }

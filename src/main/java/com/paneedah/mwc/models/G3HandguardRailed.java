@@ -1724,8 +1724,8 @@ public class G3HandguardRailed extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		stock.render(f5);
-//		mag.render(f5);
+//		stock.renderer(f5);
+//		mag.renderer(f5);
 		handguard_a3.render(f5);
 	}
 

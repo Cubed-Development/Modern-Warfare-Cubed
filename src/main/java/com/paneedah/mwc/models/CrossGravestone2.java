@@ -49,7 +49,7 @@ public class CrossGravestone2 extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		bone.render(f5);
-//		bb_main.render(f5);
+//		bb_main.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

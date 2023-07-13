@@ -17,7 +17,7 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
@@ -391,11 +391,11 @@ public class CraftingFileManager extends JSONDatabaseManager {
 	public void saveCacheAndLoad(ByteArrayOutputStream baos) {
 		// If we are in single player, cancel this.
 		// We have alternate loading mechanisms for this.
-		if(mc.isIntegratedServerRunning())
+		if(MC.isIntegratedServerRunning())
 			return;
 		
 		// Get the server IP
-		String serverIP = mc.getCurrentServerData().serverIP;
+		String serverIP = MC.getCurrentServerData().serverIP;
 		
 		// Create the cache directory if it doesn't exist
 		CACHE_DIR.mkdirs();

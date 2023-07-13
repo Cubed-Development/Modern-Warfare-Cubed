@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class GunFXPacket implements IMessage {
 
@@ -33,8 +33,8 @@ public class GunFXPacket implements IMessage {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(GunFXPacket message, MessageContext messageContext) {
-			mc.addScheduledTask(() -> {
-				if(mc.player.getEntityId() == message.entID)
+			MC.addScheduledTask(() -> {
+				if(MC.player.getEntityId() == message.entID)
 				   return;
 
 			   ClientEventHandler.uploadFlash(message.entID);

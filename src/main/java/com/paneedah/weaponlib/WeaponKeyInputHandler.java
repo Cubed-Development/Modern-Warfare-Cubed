@@ -25,7 +25,7 @@ import org.lwjgl.input.Keyboard;
 
 import java.util.function.Function;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class WeaponKeyInputHandler {
 
@@ -113,7 +113,7 @@ public class WeaponKeyInputHandler {
 	 			IBlockState state = player.world.getBlockState(rtr.getBlockPos());
 	 			if(state.getBlock() instanceof BlockDoor) {
 	 				
-	 				mc.playerController.processRightClickBlock(mc.player, mc.world, rtr.getBlockPos(), rtr.sideHit, rtr.hitVec, EnumHand.MAIN_HAND);
+	 				MC.playerController.processRightClickBlock(MC.player, MC.world, rtr.getBlockPos(), rtr.sideHit, rtr.hitVec, EnumHand.MAIN_HAND);
 	 				//modContext.getChannel().sendToServer(new OpenDoorPacket(rtr.getBlockPos()));
 	 				
 	 				
@@ -227,13 +227,13 @@ public class WeaponKeyInputHandler {
         }
 
         else if(KeyBindings.nightVisionSwitchKey.isPressed()) {
-            ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+            ItemStack helmetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
             if(helmetStack != null && helmetStack.getItem() instanceof CustomArmor 
                     && ((CustomArmor)helmetStack.getItem()).hasNightVision()){
                 modContext.getChannel().sendToServer(new ArmorControlMessage(true));
                 NBTTagCompound tagCompound = helmetStack.getTagCompound();
                 boolean nightVisionOn = tagCompound != null && tagCompound.getBoolean(ArmorControlHandler.TAG_NIGHT_VISION);
-                mc.player.playSound(nightVisionOn ? modContext.getNightVisionOffSound() : modContext.getNightVisionOnSound(), 1, 1);
+                MC.player.playSound(nightVisionOn ? modContext.getNightVisionOffSound() : modContext.getNightVisionOnSound(), 1, 1);
             } else {
                 PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
                 if(instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.MODIFYING || instance.getState() == WeaponState.EJECT_REQUIRED)) {
@@ -256,8 +256,8 @@ public class WeaponKeyInputHandler {
                 	}
                 }
                 
-               if(!mc.inGameHasFocus) {
-            	   mc.setIngameFocus();
+               if(!MC.inGameHasFocus) {
+            	   MC.setIngameFocus();
                }
                 
             }
@@ -351,7 +351,7 @@ public class WeaponKeyInputHandler {
                 instance.getWeapon().decrementZoom(instance);
         }
 
-        else if (mc.isSingleplayer() && KeyBindings.proningSwitchKey.isPressed()) {
+        else if (MC.isSingleplayer() && KeyBindings.proningSwitchKey.isPressed()) {
             modContext.getChannel().sendToServer(new EntityControlMessage(player, CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
         }
     }

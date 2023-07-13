@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ParticleBlood extends Particle {
@@ -34,7 +34,7 @@ public class ParticleBlood extends Particle {
 		this.particleTextureIndexX = (int) Math.floor(Math.random() * (3));
 		this.particleTextureIndexY = (int) Math.floor(Math.random() * (3));
 
-		setParticleTexture(mc.getTextureMapBlocks().getAtlasSprite(new ResourceLocation(ID, texture).toString()));
+		setParticleTexture(MC.getTextureMapBlocks().getAtlasSprite(new ResourceLocation(ID, texture).toString()));
 	}
 	
 	public ParticleBlood(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
@@ -55,7 +55,7 @@ public class ParticleBlood extends Particle {
 		this.particleTextureIndexX = (int) Math.floor(Math.random() * (3));
 		this.particleTextureIndexY = (int) Math.floor(Math.random() * (3));
 
-		setParticleTexture(mc.getTextureMapBlocks().getAtlasSprite(new ResourceLocation(ID, texture).toString()));
+		setParticleTexture(MC.getTextureMapBlocks().getAtlasSprite(new ResourceLocation(ID, texture).toString()));
 	}
 
 

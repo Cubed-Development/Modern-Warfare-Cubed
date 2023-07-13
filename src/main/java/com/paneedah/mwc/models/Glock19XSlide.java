@@ -2302,13 +2302,13 @@ public class Glock19XSlide extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		G19slide.render(f5);
-//		G19razorbackbody.render(f5);
-//		G19razorbackslide.render(f5);
-//		G19rockslide.render(f5);
-//		G19ghostprecisionslide.render(f5);
-//		G19Xbody.render(f5);
+//		gun.renderer(f5);
+//		G19slide.renderer(f5);
+//		G19razorbackbody.renderer(f5);
+//		G19razorbackslide.renderer(f5);
+//		G19rockslide.renderer(f5);
+//		G19ghostprecisionslide.renderer(f5);
+//		G19Xbody.renderer(f5);
 		G19Xslide.render(f5);
 	}
 

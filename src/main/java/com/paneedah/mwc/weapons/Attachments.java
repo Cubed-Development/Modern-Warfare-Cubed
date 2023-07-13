@@ -9051,7 +9051,7 @@ public class Attachments {
                 .build(MWC.modContext);
         SIGMCXHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.SIGMCXHandguard(), "sigmcx.png")
+                .withModel(new com.paneedah.mwc.models.SIGMCXHandguard(), "sigMCx.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail3(), "akrail.png")
@@ -9092,7 +9092,7 @@ public class Attachments {
         
         SIGMCXHandguardShort = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.SIGMCXHandguardShort(), "sigmcx.png")
+                .withModel(new com.paneedah.mwc.models.SIGMCXHandguardShort(), "sigMCx.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail3(), "akrail.png")
@@ -10802,7 +10802,7 @@ public class Attachments {
         SIGMCXStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRenderablePart()
-                .withModel(new com.paneedah.mwc.models.SIGMCXStock(), "sigmcx.png")
+                .withModel(new com.paneedah.mwc.models.SIGMCXStock(), "sigMCx.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))

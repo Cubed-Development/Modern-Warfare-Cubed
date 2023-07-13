@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static net.minecraft.util.text.TextFormatting.WHITE;
 
@@ -218,7 +219,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			LinkedList<ItemStack> queue = tileEntity.getCraftingQueue();
 			GlStateManager.enableBlend();
 			for(int i = 0; i < queue.size(); ++i) {
-				mc.getTextureManager().bindTexture(AMMO_PRESS_TEX);
+				MC.getTextureManager().bindTexture(AMMO_PRESS_TEX);
 				if(GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 200 + i*20, this.guiTop, 20, 20)) {
 					GUIRenderHelper.drawTexturedRect(this.guiLeft + 200 + i*20, this.guiTop, 20, 40, 20, 20, 256, 256);
 				} else {
@@ -228,7 +229,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			
 			for(int i = 0; i < queue.size(); ++i) {
 				ItemStack stack = queue.get(i);
-				mc.getRenderItem().renderItemIntoGUI(stack, this.guiLeft + 202 + i*20, this.guiTop + 2);
+				MC.getRenderItem().renderItemIntoGUI(stack, this.guiLeft + 202 + i*20, this.guiTop + 2);
 			}
 			
 			for(int i = 0; i < queue.size(); ++i) {
@@ -257,7 +258,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			if (mouseY >= this.guiTop && mouseY <= this.guiTop + 20) {
 				int id = (mouseX - (this.guiLeft + 200))/20;
 				if(id >= 0 && tileEntity.getCraftingQueue().size() - 1 >= id)
-					modContext.getChannel().sendToServer(new StationPacket(StationPacket.POP_FROM_QUEUE, tileEntity.getPos(), mc.player.getEntityId(), id));
+					modContext.getChannel().sendToServer(new StationPacket(StationPacket.POP_FROM_QUEUE, tileEntity.getPos(), MC.player.getEntityId(), id));
 			}
 		}
 	}

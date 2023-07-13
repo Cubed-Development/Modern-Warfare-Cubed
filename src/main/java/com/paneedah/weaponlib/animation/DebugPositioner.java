@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class DebugPositioner {
@@ -95,7 +95,7 @@ public class DebugPositioner {
 	public static void incrementXRotation(float increment) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
+			MC.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 
@@ -107,7 +107,7 @@ public class DebugPositioner {
 	public static void incrementYRotation(float increment) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
+			MC.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		partPosition.yRotation += increment;
@@ -118,7 +118,7 @@ public class DebugPositioner {
 	public static void incrementZRotation(float increment) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
+			MC.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		partPosition.zRotation += increment;
@@ -129,7 +129,7 @@ public class DebugPositioner {
 	public static void incrementXPosition(float increment, boolean altMode) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
+			MC.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		if (altMode) {
@@ -145,7 +145,7 @@ public class DebugPositioner {
 	public static void incrementYPosition(float increment, boolean altMode) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
+			MC.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		if (altMode) {
@@ -161,7 +161,7 @@ public class DebugPositioner {
 	public static void incrementZPosition(float increment, boolean altMode) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
+			MC.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		if (altMode) {
@@ -177,7 +177,7 @@ public class DebugPositioner {
 	public static void setScale(float scale) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
+			MC.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		partPosition.scale = scale;
@@ -187,7 +187,7 @@ public class DebugPositioner {
 	public static void setStep(float step) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
+			MC.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		partPosition.step = step;
@@ -211,7 +211,7 @@ public class DebugPositioner {
 	public static void reset() {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
+			MC.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 		transitionConfigurations.clear();
@@ -357,7 +357,7 @@ public class DebugPositioner {
 			System.out.println("\n" + result);
 		} else {
 
-			System.out.println(mc.player.getHeldItemMainhand());
+			System.out.println(MC.player.getHeldItemMainhand());
 
 			StringBuilder result = new StringBuilder();
 			result.append(String.format("GL11.glScalef(%ff, %ff, %ff);\n", partPosition.scale, partPosition.scale,
@@ -395,7 +395,7 @@ public class DebugPositioner {
 	}
 
 	public static void watch() {
-		PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(mc.player);
+		PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(MC.player);
 		System.out.println("Trackable entities: " + tracker.getTrackableEntitites());
 	}
 
@@ -428,7 +428,7 @@ public class DebugPositioner {
 	public static void setAutorotate(float xrpm, float yrpm, float zrpm) {
 		Position partPosition = getCurrentPartPosition();
 		if (partPosition == null) {
-			mc.player.sendMessage(new TextComponentString("Debug part not selected"));
+			MC.player.sendMessage(new TextComponentString("Debug part not selected"));
 			return;
 		}
 

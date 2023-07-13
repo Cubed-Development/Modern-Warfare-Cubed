@@ -11,7 +11,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.stats.StatisticsManager;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public abstract class RemoteFirstPersonPerspective extends Perspective<RenderableState> {
 
@@ -21,20 +21,20 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
     public RemoteFirstPersonPerspective() {
         this.renderEndNanoTime = System.nanoTime();
-        this.width = 427; //mc.displayWidth >> 1;
-        this.height = 240; //mc.displayHeight >> 1;
-        WorldClient world = (WorldClient) mc.player.world;
-        this.watchablePlayer = new EntityPlayerSP(mc, world, mc.getConnection(), new StatisticsManager(), null);
+        this.width = 427; //MC.displayWidth >> 1;
+        this.height = 240; //MC.displayHeight >> 1;
+        WorldClient world = (WorldClient) MC.player.world;
+        this.watchablePlayer = new EntityPlayerSP(MC, world, MC.getConnection(), new StatisticsManager(), null);
     }
 
     @Override
     public void update(TickEvent.RenderTickEvent event) {
         
-        if(mc.isGamePaused()) {
+        if(MC.isGamePaused()) {
             return;
         }
 
-        EntityPlayerSP origPlayer = mc.player;
+        EntityPlayerSP origPlayer = MC.player;
 
         if(origPlayer == null) {
             return;
@@ -42,24 +42,24 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
         updateWatchablePlayer();
 
-        RenderGlobal origRenderGlobal = mc.renderGlobal;
-        Entity origRenderViewEntity = mc.getRenderViewEntity();
-        EntityRenderer origEntityRenderer = mc.entityRenderer;
-        int origDisplayWidth = mc.displayWidth;
-        int origDisplayHeight = mc.displayHeight;
+        RenderGlobal origRenderGlobal = MC.renderGlobal;
+        Entity origRenderViewEntity = MC.getRenderViewEntity();
+        EntityRenderer origEntityRenderer = MC.entityRenderer;
+        int origDisplayWidth = MC.displayWidth;
+        int origDisplayHeight = MC.displayHeight;
 
-        mc.displayWidth = this.width;
-        mc.displayHeight = this.height;
+        MC.displayWidth = this.width;
+        MC.displayHeight = this.height;
 
         framebuffer.bindFramebuffer(true);
 
-        mc.effectRenderer = MWCParticleManager.getParticleManager();
+        MC.effectRenderer = MWCParticleManager.getParticleManager();
 
-        mc.entityRenderer = this.entityRenderer;
+        MC.entityRenderer = this.entityRenderer;
         if (watchablePlayer != null && !watchablePlayer.isDead) {
 
-            mc.setRenderViewEntity(watchablePlayer);
-            mc.player = watchablePlayer;
+            MC.setRenderViewEntity(watchablePlayer);
+            MC.player = watchablePlayer;
 
             modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.RENDER_PERSPECTIVE);
 
@@ -70,20 +70,20 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
             modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.NORMAL);
 
-            mc.setRenderViewEntity(origRenderViewEntity);
-            mc.player = origPlayer;
+            MC.setRenderViewEntity(origRenderViewEntity);
+            MC.player = origPlayer;
         }
 
         renderOverlay();
 
-        mc.getFramebuffer().bindFramebuffer(true);
+        MC.getFramebuffer().bindFramebuffer(true);
 
-        mc.renderGlobal = origRenderGlobal;
-        mc.effectRenderer = MWCParticleManager.getParticleManager();
+        MC.renderGlobal = origRenderGlobal;
+        MC.effectRenderer = MWCParticleManager.getParticleManager();
 
-        mc.displayWidth = origDisplayWidth;
-        mc.displayHeight = origDisplayHeight;
-        mc.entityRenderer = origEntityRenderer;
+        MC.displayWidth = origDisplayWidth;
+        MC.displayHeight = origDisplayHeight;
+        MC.entityRenderer = origEntityRenderer;
 
         this.renderEndNanoTime = System.nanoTime();
     }

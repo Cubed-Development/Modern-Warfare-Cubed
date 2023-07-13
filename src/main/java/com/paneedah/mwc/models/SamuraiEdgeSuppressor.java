@@ -1989,9 +1989,9 @@ public class SamuraiEdgeSuppressor extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		samurai_edge_body.render(f5);
-//		samurai_edge_slide.render(f5);
-//		samurai_edge_mount.render(f5);
+//		samurai_edge_body.renderer(f5);
+//		samurai_edge_slide.renderer(f5);
+//		samurai_edge_mount.renderer(f5);
 		samurai_edge_suppressor.render(f5);
 	}
 

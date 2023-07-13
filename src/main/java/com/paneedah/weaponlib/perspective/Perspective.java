@@ -12,7 +12,7 @@ import net.minecraft.client.shader.Framebuffer;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.opengl.ARBFramebufferObject;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public abstract class Perspective<S> {
 
@@ -48,7 +48,7 @@ public abstract class Perspective<S> {
         this.shaderGroupManager.removeAllShaders(new DynamicShaderContext(null, entityRenderer, null, 0f));
         if (OpenGlHelper.isFramebufferEnabled()) {
             OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, originalFramebufferId);
-            GlStateManager.viewport(0, 0, mc.getFramebuffer().framebufferWidth, mc.getFramebuffer().framebufferHeight);
+            GlStateManager.viewport(0, 0, MC.getFramebuffer().framebufferWidth, MC.getFramebuffer().framebufferHeight);
         }
     }
 

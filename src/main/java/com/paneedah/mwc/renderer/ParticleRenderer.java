@@ -1,4 +1,4 @@
-package com.paneedah.mwc.render;
+package com.paneedah.mwc.renderer;
 
 import net.minecraft.client.renderer.BufferBuilder;
 

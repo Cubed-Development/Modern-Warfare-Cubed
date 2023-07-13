@@ -6,12 +6,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class ShellCasingRenderer extends Render<Entity> {
 
 	protected ShellCasingRenderer() {
-		super(mc.getRenderManager());
+		super(MC.getRenderManager());
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class ShellCasingRenderer extends Render<Entity> {
 				bindTexture(textureLocation);
 
 			GL11.glTranslated(x, y, z);
-			float fov = mc.gameSettings.fovSetting;
+			float fov = MC.gameSettings.fovSetting;
 
 			/*
         	 * fov    scale

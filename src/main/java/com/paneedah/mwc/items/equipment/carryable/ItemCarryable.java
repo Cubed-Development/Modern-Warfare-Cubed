@@ -1,9 +1,11 @@
 package com.paneedah.mwc.items.equipment.carryable;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.models.equipment.belts.MagazineBelt;
 import com.paneedah.mwc.utils.LangUtil;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -56,7 +58,7 @@ public class ItemCarryable extends Item implements IModernCrafting {
         protected int size;
         protected int guiTextureWidth = DEFAULT_GUI_TEXTURE_WIDTH;
 
-        protected Predicate<Item> validItemPredicate = item -> true;
+        protected Predicate<Item> validItemPredicate = item -> !(item instanceof Weapon) || (((Weapon) item).getConfigurationGroup() == BalancePackManager.GunConfigurationGroup.HANDGUN);
 
         public T withName(String name) {
             this.name = name;
@@ -182,7 +184,7 @@ public class ItemCarryable extends Item implements IModernCrafting {
         }
 
         protected static class RendererRegistrationHelper {
-            protected static Object registerRenderer(Builder builder, ModContext modContext) {
+            protected static Object registerRenderer(Builder builder) {
                 return new StaticModelSourceRenderer.Builder()
                         .withHiddenInventory(false)
                         .withEntityPositioning(builder.entityPositioning)
@@ -190,12 +192,11 @@ public class ItemCarryable extends Item implements IModernCrafting {
                         .withThirdPersonPositioning(builder.thirdPersonPositioning)
                         .withCustomEquippedPositioning(builder.customEquippedPositioning)
                         .withInventoryPositioning(builder.inventoryPositioning != null ? builder.inventoryPositioning : stack -> new Transform().withPosition(-0.15, -4.15, 0.35).withRotation(18, -50, 0).withScale(2.9, 2.9, 2.9).doGLDirect())
-                        .withEntityModelPositioning(builder.entityModelPositioning)
+                        .withEntityModelPositioning(builder.entityModelPositioning != null? builder.entityModelPositioning : (modelBase, itemStack) -> new Transform().withPosition(-5.3, -0.20, -1.25).withRotation(0, -150, -90).withScale(3.8, 3.8, 3.8).doGLDirect())
                         .withFirstPersonModelPositioning(builder.firstPersonModelPositioning)
                         .withThirdPersonModelPositioning(builder.thirdPersonModelPositioning)
                         .withInventoryModelPositioning(builder.inventoryModelPositioning)
                         .withFirstPersonHandPositioning(builder.firstPersonLeftHandPositioning, builder.firstPersonRightHandPositioning)
-                        .withModContext(modContext)
                         .build();
             }
         }
@@ -217,7 +218,7 @@ public class ItemCarryable extends Item implements IModernCrafting {
 
         protected abstract T self();
 
-        public abstract ItemCarryable build(ModContext modContext);
+        public abstract ItemCarryable build();
     }
 
     protected int size;
@@ -235,22 +236,16 @@ public class ItemCarryable extends Item implements IModernCrafting {
         return customEquippedPositioning;
     }
 
-    protected ModelBiped model;
-    protected String textureName;
+    public final ModelBiped model;
+    public final String textureName;
 
-    public ModelBiped getModel() {
-        return model;
-    }
-
-    public String getTextureName() {
-        return textureName;
-    }
-
-    public ItemCarryable(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth) {
+    public ItemCarryable(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth, ModelBiped model, String textureName) {
         this.validItemPredicate = validItemPredicate;
         this.size = size;
         this.guiTextureLocation = guiTextureLocation;
         this.guiTextureWidth = guiTextureWidth;
+        this.model = model;
+        this.textureName = textureName;
     }
 
     // Without this method, your inventory will NOT work!!!

@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 @Deprecated
@@ -109,7 +109,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	}
 	
 	public void processDelayedRegistrations() {
-        RenderItem renderItem = mc.getRenderItem();
+        RenderItem renderItem = MC.getRenderItem();
         delayedRegistrations.forEach(r -> { r.accept(renderItem);});
         delayedRegistrations.clear();
     }

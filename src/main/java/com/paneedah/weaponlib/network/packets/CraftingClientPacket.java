@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.io.ByteArrayOutputStream;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class CraftingClientPacket extends SimplePacket {
 	
@@ -52,14 +52,14 @@ public class CraftingClientPacket extends SimplePacket {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(CraftingClientPacket message, MessageContext messageContext) {
-			mc.addScheduledTask(() -> {
+			MC.addScheduledTask(() -> {
 				int opcode = message.opcode.getValue();
 				if(opcode == RECEIVE_HASH) {
 					// Check if we already have a file with this hash on our system	
 					boolean check = CraftingFileManager.getInstance().checkFileHashAndLoad(message.fileStream.getValue().toByteArray());
 					if(!check) {
 						// Tell the server that we need the file data.
-						context.getChannel().sendToServer(new CraftingServerPacket(mc.player.getEntityId()));
+						context.getChannel().sendToServer(new CraftingServerPacket(MC.player.getEntityId()));
 					}
 				} else if(opcode == RECEIVE_FILESTREAM) {
 					// We have gotten the file, save it to disk and load it.

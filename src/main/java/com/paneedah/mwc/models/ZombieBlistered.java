@@ -385,7 +385,7 @@ public class ZombieBlistered extends ModelBiped
 //      this.bipedEars.rotateAngleX = this.bipedHead.rotateAngleX;
 //      this.bipedEars.rotationPointX = 0.0F;
 //      this.bipedEars.rotationPointY = 0.0F;
-//      this.bipedEars.render(p_78110_1_);
+//      this.bipedEars.renderer(p_78110_1_);
 //  }
 
 //  /**
@@ -393,7 +393,7 @@ public class ZombieBlistered extends ModelBiped
 //   */
 //  public void renderCloak(float p_78111_1_)
 //  {
-//      this.bipedCloak.render(p_78111_1_);
+//      this.bipedCloak.renderer(p_78111_1_);
 //  }
   
   private void setRotation(ModelRenderer model, float x, float y, float z)

@@ -1516,10 +1516,10 @@ public class MalyukAction extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		grip.render(f5);
-//		barrel.render(f5);
-//		rails.render(f5);
+//		gun.renderer(f5);
+//		grip.renderer(f5);
+//		barrel.renderer(f5);
+//		rails.renderer(f5);
 		action.render(f5);
 	}
 

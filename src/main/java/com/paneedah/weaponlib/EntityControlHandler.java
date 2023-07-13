@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class EntityControlHandler implements IMessageHandler<EntityControlMessage, IMessage> {
 
@@ -50,8 +50,8 @@ public class EntityControlHandler implements IMessageHandler<EntityControlMessag
 
     @SideOnly(Side.CLIENT)
     public void onClientMessage(EntityControlMessage message, MessageContext messageContext) {
-        mc.addScheduledTask(() -> {
-            EntityPlayer player = mc.player;
+        MC.addScheduledTask(() -> {
+            EntityPlayer player = MC.player;
             Entity targetEntity = message.getEntity(player.world);
             CompatibleExtraEntityFlags.setFlags(targetEntity, message.getFlags(), message.getValues());
 

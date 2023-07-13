@@ -17,6 +17,7 @@ public class ModReference {
     public static final String ID = Tags.ID;
     public static final String NAME = "Modern Warfare Cubed";
     public static final String VERSION = Tags.VERSION;
+    public static final int DATA_FIXER_VERSION = 1;
     public static final Logger LOG = LogManager.getLogger(ID);
 
     public static URI NEW_ISSUE_URL;

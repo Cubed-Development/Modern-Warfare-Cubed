@@ -1635,11 +1635,11 @@ public class SSG08 extends ModelWithAttachments {
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		whole_gripperoni.render(f5);
 		berrl.render(f5);
-//		Stock.render(f5);
-//		underchassis.render(f5);
-//		bolt_action_2.render(f5);
-//		bolt_action_1.render(f5);
-//		Magazine.render(f5);
+//		Stock.renderer(f5);
+//		underchassis.renderer(f5);
+//		bolt_action_2.renderer(f5);
+//		bolt_action_1.renderer(f5);
+//		Magazine.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

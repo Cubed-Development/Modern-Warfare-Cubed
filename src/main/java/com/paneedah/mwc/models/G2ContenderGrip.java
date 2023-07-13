@@ -2237,10 +2237,10 @@ public class G2ContenderGrip extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		GUN.render(f5);
-//		barrel_SHORT.render(f5);
-//		barrel_LONG.render(f5);
-//		STOCK.render(f5);
+//		GUN.renderer(f5);
+//		barrel_SHORT.renderer(f5);
+//		barrel_LONG.renderer(f5);
+//		STOCK.renderer(f5);
 		GRIP.render(f5);
 	}
 

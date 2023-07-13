@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class SyncPlayerEntityTrackerMessageMessageHandler implements IMessageHandler<SyncPlayerEntityTrackerMessage, IMessage> {
 
@@ -24,8 +24,8 @@ public class SyncPlayerEntityTrackerMessageMessageHandler implements IMessageHan
     @Override
 	@SideOnly(Side.CLIENT)
 	public IMessage onMessage(SyncPlayerEntityTrackerMessage message, MessageContext messageContext) {
-		mc.addScheduledTask(() -> {
-			CompatiblePlayerEntityTrackerProvider.setTracker(mc.player, message.getTracker());
+		MC.addScheduledTask(() -> {
+			CompatiblePlayerEntityTrackerProvider.setTracker(MC.player, message.getTracker());
 			if(message.getStatusMessage() != null)
 				modContext.getStatusMessageCenter().addMessage(message.getStatusMessage(), 1000);
 		});

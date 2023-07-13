@@ -49,7 +49,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 /*   __      __  _     _      _           
 	 \ \    / / | |   (_)    | |          
@@ -261,7 +261,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 	public float getInterpolatedWheelRotation() {
 		return (float) InterpolationKit.interpolateValue(prevWheelRotationAngle, wheelRotationAngle,
-				mc.getRenderPartialTicks());
+				MC.getRenderPartialTicks());
 	}
 
 	public float getWheelRotationAngle() {
@@ -270,7 +270,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 	public float getInterpolatedYawDelta() {
 		return (float) InterpolationKit.interpolateValue(prevLastYawDelta, lastYawDelta,
-				mc.getRenderPartialTicks());
+				MC.getRenderPartialTicks());
 	}
 
 	public double getLastYawDelta() {
@@ -350,7 +350,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 			/*
 			 * float muRoll = (float) ((1 -
-			 * Math.cos(mc.getRenderPartialTicks() * Math.PI)) / 2f);
+			 * Math.cos(MC.getRenderPartialTicks() * Math.PI)) / 2f);
 			 * float roll = (prevRotationRollH+prevRotationRoll) +
 			 * ((rotationRoll+rotationRollH)-(prevRotationRoll+prevRotationRollH))*muRoll;
 			 * 
@@ -1045,7 +1045,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 						
 						EntityPlayer player = (EntityPlayer) ent;
 						
-					//	mc.getConnection().sendPacket(new CPacketPlayer.PositionRotation(this.motionX, -999.0D, this.motionZ, this.rotationYaw, this.rotationPitch, true));
+					//	MC.getConnection().sendPacket(new CPacketPlayer.PositionRotation(this.motionX, -999.0D, this.motionZ, this.rotationYaw, this.rotationPitch, true));
 			               //player.onGround = true;
 						
 						//player.fallDistance = 0.0f;
@@ -1474,7 +1474,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 	public float getInterpolatedLiftOffset() {
 		return (float) InterpolationKit.interpolateValue((double) prevLiftOffset, (double) liftOffset,
-				(double) mc.getRenderPartialTicks());
+				(double) MC.getRenderPartialTicks());
 	}
 
 	public void oldHC() {
@@ -2298,7 +2298,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 				.rotatePitch((float) Math.toRadians(rotationPitch)).scale(0.1);
 
 		for (int x = 0; x < 2 + (solver.synthAccelFor / 2); ++x) {
-			mc.effectRenderer.addEffect(new ExhaustParticle(this.world, posExhaust.x,
+			MC.effectRenderer.addEffect(new ExhaustParticle(this.world, posExhaust.x,
 					posExhaust.y, posExhaust.z, partDirExhaust.x, partDirExhaust.y, partDirExhaust.z, 2));
 
 		}
@@ -2313,13 +2313,13 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 		if (ran < 1) {
 
 			PositionedSound ps = new PositionedSoundRecord(getConfiguration().getBackfireSound(), SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
-			mc.getSoundHandler().playSound(ps);
+			MC.getSoundHandler().playSound(ps);
 
 			for (int x = 0; x < 20 + (solver.synthAccelFor); ++x) {
 				// Vec3d pE =
 				// posExhaust.subtract(getPositionVector()).scale(1.0f+(Math.random()*0.5)).add(getPositionVector());
 				Vec3d pE = posExhaust;
-				mc.effectRenderer.addEffect(new VehicleExhaustFlameParticle(this.world, pE.x, pE.y, pE.z, partDirExhaust2.x * mult, 0, partDirExhaust2.z * mult));
+				MC.effectRenderer.addEffect(new VehicleExhaustFlameParticle(this.world, pE.x, pE.y, pE.z, partDirExhaust2.x * mult, 0, partDirExhaust2.z * mult));
 
 				// this.world.spawnParticle(EnumParticleTypes.FLAME, posExhaust.x, posExhaust.y,
 				// posExhaust.z, partDirExhaust.x, partDirExhaust.y, partDirExhaust.z,
@@ -2361,7 +2361,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 		
 		if(wSolve.isDriveWheel()) {
             if(Math.abs(Math.toDegrees(getSolver().getSideSlipAngle())) > 3) {
-            	mc.effectRenderer.addEffect(new TireTracks(mc.getTextureManager(),
+            	MC.effectRenderer.addEffect(new TireTracks(MC.getTextureManager(),
         				this.world, realPos.x, realPos.y+0.001, realPos.z, -rotationYaw+Math.toDegrees(getSolver().getSideSlipAngle())));
 
             }
@@ -2390,7 +2390,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 					id = 1;
 				if (getSolver().materialBelow == Material.SAND)
 					id = 4;
-				mc.effectRenderer.addEffect(new DriftCloudParticle(this.world, realPos.x + gaus,
+				MC.effectRenderer.addEffect(new DriftCloudParticle(this.world, realPos.x + gaus,
 						realPos.y + gaus+0.2, realPos.z + gaus, direction.x, direction.y, direction.z, id));
 
 			}
@@ -2410,7 +2410,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 			Random rand = new Random();
 			for (int x = 0; x < 4; ++x) {
 				double gaus = rand.nextGaussian() / 2;
-				mc.effectRenderer.addEffect(new DriftSmokeFX(this.world, posDir.x + gaus,
+				MC.effectRenderer.addEffect(new DriftSmokeFX(this.world, posDir.x + gaus,
 						posDir.y + gaus, posDir.z + gaus, partDir.x, partDir.y, partDir.z));
 
 			}
@@ -2583,7 +2583,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 				
 				
-				if (mc.player == player) {
+				if (MC.player == player) {
 					/*
 					 * DRIVER SIDE
 					 */
@@ -2731,7 +2731,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 		// PLAY SHIFTING SOUND
 		if (isInShift()) {
 			PositionedSound ps = new PositionedSoundRecord(getConfiguration().getShiftSound(), SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
-			mc.getSoundHandler().playSound(ps);
+			MC.getSoundHandler().playSound(ps);
 		}
 
 		
@@ -2748,7 +2748,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 			
 				this.drivingSound = new EngineMovingSound(getConfiguration().getRunSound(), soundPositionProvider, donePlayingSoundProvider, this, false);
 
-			mc.getSoundHandler().playSound(this.drivingSound);
+			MC.getSoundHandler().playSound(this.drivingSound);
 		}
 
 		
@@ -2773,7 +2773,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 			}
 
 			this.driftingSound = new DriftMovingSound(chosen, soundPositionProvider, isDorifto, this, false, sMat, this.currentMaterial);
-			mc.getSoundHandler().playSound(this.driftingSound);
+			MC.getSoundHandler().playSound(this.driftingSound);
 		*/
 		}
 

@@ -4,7 +4,6 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.PlayerAnimations;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.equipment.Armors;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
@@ -15,23 +14,16 @@ import com.paneedah.weaponlib.inventory.BackpackInventoryTab;
 import com.paneedah.weaponlib.inventory.CustomPlayerInventoryTab;
 import com.paneedah.weaponlib.inventory.InventoryTabs;
 import com.paneedah.weaponlib.inventory.StandardPlayerInventoryTab;
-import com.paneedah.weaponlib.render.CustomArmorLayer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ClientProxy extends CommonProxy {
-
-    /**
-     * Static final reference to the Minecraft Client instance.
-     */
-    public static final Minecraft mc = Minecraft.getMinecraft();
 
     @Override
     protected boolean isClient() {
@@ -58,7 +50,7 @@ public class ClientProxy extends CommonProxy {
 
         PlayerAnimations.init(mod);
 
-        final ItemModelMesher modelMesher = mc.getRenderItem().getItemModelMesher();
+        final ItemModelMesher modelMesher = MC.getRenderItem().getItemModelMesher();
 
         modelMesher.register(Armors.Marineboots, 0, new ModelResourceLocation(ID + ":marine_boots", "inventory"));
         modelMesher.register(Armors.Marinechest, 0, new ModelResourceLocation(ID + ":marine_chest", "inventory"));
@@ -112,10 +104,5 @@ public class ClientProxy extends CommonProxy {
         
         if (ForgeModContainer.allowEmissiveItems)
             ForgeModContainer.allowEmissiveItems = false;
-    }
-
-    @Override
-    public void postInit(final MWC mod, final FMLPostInitializationEvent initializationEvent) {
-        mc.getRenderManager().getSkinMap().forEach((p, r) -> r.addLayer(new CustomArmorLayer(r)));
     }
 }

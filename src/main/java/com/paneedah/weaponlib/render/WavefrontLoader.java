@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class WavefrontLoader {
@@ -123,7 +123,7 @@ public class WavefrontLoader {
 		IResource resource = null;
 
 		try {
-			resource = mc.getResourceManager().getResource(loc);
+			resource = MC.getResourceManager().getResource(loc);
 		} catch (IOException e) {
 			System.err.println("Could not load obj file " + loc.getPath());
 			return null;

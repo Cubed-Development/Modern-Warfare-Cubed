@@ -1834,26 +1834,26 @@ public class M712 extends ModelWithAttachments
     gun208.render(f5);
     gun209.render(f5);
     gun210.render(f5);
-//    action1.render(f5);
-//    action2.render(f5);
-//    action3.render(f5);
-//    action4.render(f5);
-//    action5.render(f5);
-//    action6.render(f5);
-//    action7.render(f5);
-//    action8.render(f5);
-//    action9.render(f5);
-//    mag1.render(f5);
-//    mag2.render(f5);
-//    mag3.render(f5);
-//    mag4.render(f5);
-//    mag5.render(f5);
-//    mag6.render(f5);
-//    mag7.render(f5);
-//    mag8.render(f5);
-//    mag9.render(f5);
-//    mag10.render(f5);
-//    mag11.render(f5);
+//    action1.renderer(f5);
+//    action2.renderer(f5);
+//    action3.renderer(f5);
+//    action4.renderer(f5);
+//    action5.renderer(f5);
+//    action6.renderer(f5);
+//    action7.renderer(f5);
+//    action8.renderer(f5);
+//    action9.renderer(f5);
+//    mag1.renderer(f5);
+//    mag2.renderer(f5);
+//    mag3.renderer(f5);
+//    mag4.renderer(f5);
+//    mag5.renderer(f5);
+//    mag6.renderer(f5);
+//    mag7.renderer(f5);
+//    mag8.renderer(f5);
+//    mag9.renderer(f5);
+//    mag10.renderer(f5);
+//    mag11.renderer(f5);
   }
 
 }

@@ -807,8 +807,8 @@ public class ScarMLOKHandguard extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		handguard.render(f5);
-//		handguard_midwest_industries.render(f5);
+//		handguard.renderer(f5);
+//		handguard_midwest_industries.renderer(f5);
 		handguard_mlok.render(f5);
 	}
 

@@ -1307,10 +1307,10 @@ public class G36C extends ModelWithAttachments {
 		body.render(f5);
 		grip.render(f5);
 		stock.render(f5);
-//		mag.render(f5);
+//		mag.renderer(f5);
 		handguard.render(f5);
 		carryhandle.render(f5);
-//		action.render(f5);
+//		action.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

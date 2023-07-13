@@ -2,7 +2,7 @@ item.m40gasmask_helmet.name=M40 Gaz Maskesi
 item.JPNVG18_helmet.name=GPNVG-18 Gece Görüşü Kaskı
 
 item.audis4.name=Audi S4
-item.mclaren_senna.name=Mclaren Senna
+item.MClaren_senna.name=Mclaren Senna
 item.ae86trueno.name=Toyota AE86 Trueno
 item.atv_polaris_sportsman_850_2019.name=2019 Polaris Sportsman 850
 
@@ -90,10 +90,10 @@ item.mwc_molle_urban.name=Molle Plaka Taşıyıcı (Şehir)
 
 item.mwc_fort_armor.name=6B43 6A Vücut Zırhı
 
-item.mwc_usmc_vest.name=Force Recon Yeleği
-item.mwc_usmc_vest_black.name=Force Recon Yeleği (Siyah)
-item.mwc_usmc_vest_green.name=Force Recon Yeleği (Yeşil)
-item.mwc_usmc_vest_urban.name=Force Recon Yeleği (Şehir)
+item.mwc_usMC_vest.name=Force Recon Yeleği
+item.mwc_usMC_vest_black.name=Force Recon Yeleği (Siyah)
+item.mwc_usMC_vest_green.name=Force Recon Yeleği (Yeşil)
+item.mwc_usMC_vest_urban.name=Force Recon Yeleği (Şehir)
 
 item.mwc_juggernaut_body_armor.name=Juggernaut Vücut Zırhı
 
@@ -246,7 +246,7 @@ item.g2_contender.name=G2 Contender
 item.beowulf_50_cal.name=Beowulf .50 Kalibre
 item.hk_417.name=HK 417
 item.ar15.name=AR-15
-item.sig_mcx.name=SIG MCX
+item.sig_MCx.name=SIG MCX
 item.mas_21.name=MAS-21
 item.mp443.name=MP443
 item.ump_45.name=UMP45

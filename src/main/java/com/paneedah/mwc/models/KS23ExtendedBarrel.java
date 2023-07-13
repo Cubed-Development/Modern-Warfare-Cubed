@@ -1337,13 +1337,13 @@ public class KS23ExtendedBarrel extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		barrel.render(f5);
-//		pump.render(f5);
-//		stock.render(f5);
+//		gun.renderer(f5);
+//		barrel.renderer(f5);
+//		pump.renderer(f5);
+//		stock.renderer(f5);
 		extendedbarrel.render(f5);
-//		sawedstock.render(f5);
-//		gripstock.render(f5);
+//		sawedstock.renderer(f5);
+//		gripstock.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

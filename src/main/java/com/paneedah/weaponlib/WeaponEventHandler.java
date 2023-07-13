@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class WeaponEventHandler {
 
@@ -39,7 +39,7 @@ public class WeaponEventHandler {
 		
 		/*
 		 * TODO: if optical zoom is on then
-		 * 			if rendering phase is "render viewfinder" then
+		 * 			if rendering phase is "renderer viewfinder" then
 		 * 				setNewFov(getZoom());
 		 *          else if rendering phase is normal then
 		 *              setNewFov(1);
@@ -53,7 +53,7 @@ public class WeaponEventHandler {
 		//ItemStack stack = compatibility.getHeldItemMainHand(compatibility.getEntity(event));
 		//ClientModContext modContext = ClientModContext.getContext();
 		PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
-		EntityPlayer clientPlayer = mc.player;
+		EntityPlayer clientPlayer = MC.player;
 		if (instance != null) {
 		   
 		    float fov;
@@ -67,9 +67,9 @@ public class WeaponEventHandler {
 		            fov = clientPlayer.capabilities.isFlying ? 1.1f : 1.0f;
 		        }
 		    } else {
-		    	 fov = mc.player.capabilities.isFlying ? 1.1f : 1.0f;
+		    	 fov = MC.player.capabilities.isFlying ? 1.1f : 1.0f;
 		    	//fov = instance.isAimed() ? instance.getZoom() : 1f;
-		       // fov = compatibility.isFlying(mc.player) ? 1.1f : 1.0f; //instance.isAimed() ? instance.getZoom() : 1f;
+		       // fov = compatibility.isFlying(MC.player) ? 1.1f : 1.0f; //instance.isAimed() ? instance.getZoom() : 1f;
 		    }
 
 		   RenderingPhase phase = (((ClientModContext) modContext).getSafeGlobals().renderingPhase).get();
@@ -78,16 +78,16 @@ public class WeaponEventHandler {
 		    	fov = 0.7f;
 		    }
 		     
-		    if(mc.player.isSprinting()) {
+		    if(MC.player.isSprinting()) {
 		    	fov *= 1.2;
 		    }
 		    
 		    //fov = 0.3f;
 			event.setNewfov(fov);
 		} else {
-		    SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(mc.player, SpreadableExposure.class);
+		    SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(MC.player, SpreadableExposure.class);
             if(spreadableExposure != null && spreadableExposure.getTotalDose() > 0f) {
-                float fov = mc.player.capabilities.isFlying ? 1.1f : 1.0f;
+                float fov = MC.player.capabilities.isFlying ? 1.1f : 1.0f;
 				event.setNewfov(fov);
             }
 		}
@@ -99,7 +99,7 @@ public class WeaponEventHandler {
 		
 		if(event.getButton() == 0 || event.getButton() == 1) {
 			// If the current player holds the weapon in their main hand, cancel default minecraft mouse processing
-		    PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player);
+		    PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player);
 		    //PlayerWeaponInstance mainHandHeldWeaponInstance = modContext.getMainHeldWeapon();
 			if(instance instanceof PlayerWeaponInstance || instance instanceof PlayerMeleeInstance
 			        || instance instanceof PlayerGrenadeInstance) { // TODO: introduce common action handler interface and check instanceof ActionHandler instead
@@ -138,7 +138,7 @@ public class WeaponEventHandler {
     @SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public final void onRenderItemEvent(RenderHandEvent event) {
-	    if (mc.player.getRidingEntity() instanceof EntityVehicle)
+	    if (MC.player.getRidingEntity() instanceof EntityVehicle)
 	    	event.setCanceled(true);
 	}
 

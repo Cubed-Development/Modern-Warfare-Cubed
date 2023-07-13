@@ -26,15 +26,15 @@ public class McLarenSennaFactory implements VehicleFactory {
     		renderer = new VehicleRendererBuilder()
                     .performShiftAnimation(false)
                     .shiftWithRight(true)
-                    .withPartTexturedModel(VehiclePart.MAIN, MclarenSenna::new, "mclarensenna")
-                    .withPartTexturedModel(VehiclePart.WINDOWS, MclarenSennaWindows::new, "mclarensenna")
-                    .withPartTexturedModel(VehiclePart.STEERING_WHEEL, MclarenSennaSteeringWheel::new, "mclarensenna")
+                    .withPartTexturedModel(VehiclePart.MAIN, MclarenSenna::new, "MClarensenna")
+                    .withPartTexturedModel(VehiclePart.WINDOWS, MclarenSennaWindows::new, "MClarensenna")
+                    .withPartTexturedModel(VehiclePart.STEERING_WHEEL, MclarenSennaSteeringWheel::new, "MClarensenna")
                     .withPartTexturedModel(VehiclePart.FRONT_LEFT_CONTROL_ARM, SampleVehicleControlArm::new, "sample-vehicle")
                     .withPartTexturedModel(VehiclePart.FRONT_RIGHT_CONTROL_ARM, SampleVehicleControlArm::new, "sample-vehicle")
-                    .withPartTexturedModel(VehiclePart.FRONT_LEFT_WHEEL, MclarenSennaWheel::new, "mclarensenna")
-                    .withPartTexturedModel(VehiclePart.FRONT_RIGHT_WHEEL, MclarenSennaWheel::new, "mclarensenna")
-                    .withPartTexturedModel(VehiclePart.REAR_LEFT_WHEEL, MclarenSennaWheel::new, "mclarensenna")
-                    .withPartTexturedModel(VehiclePart.REAR_RIGHT_WHEEL, MclarenSennaWheel::new, "mclarensenna")
+                    .withPartTexturedModel(VehiclePart.FRONT_LEFT_WHEEL, MclarenSennaWheel::new, "MClarensenna")
+                    .withPartTexturedModel(VehiclePart.FRONT_RIGHT_WHEEL, MclarenSennaWheel::new, "MClarensenna")
+                    .withPartTexturedModel(VehiclePart.REAR_LEFT_WHEEL, MclarenSennaWheel::new, "MClarensenna")
+                    .withPartTexturedModel(VehiclePart.REAR_RIGHT_WHEEL, MclarenSennaWheel::new, "MClarensenna")
 
                     // part positions
                     
@@ -191,7 +191,7 @@ public class McLarenSennaFactory implements VehicleFactory {
     	}
 
         new EntityVehicleConfiguration.Builder()
-                .withName("mclaren_senna")
+                .withName("MClaren_senna")
                 .withEntityIdSupplier(() -> 10203)
                 .withPhysicsConfig(new PhysicsConfiguration(
                         /* WHEELBASE (m)*/ 2.67,
@@ -227,7 +227,7 @@ public class McLarenSennaFactory implements VehicleFactory {
                 .withGearshiftSound("gearshift4")
                 .withEnterSound("vehicle-enter")
                 .withExitSound("vehicle-exit")
-                .withRunSound("mclaren_senna_engine")
+                .withRunSound("MClaren_senna_engine")
                 .withShiftSettings(false, true)
 //                .withIdleSound("audi_s4_rev")
 //                .withRevSounds("audi_s4_rev$")

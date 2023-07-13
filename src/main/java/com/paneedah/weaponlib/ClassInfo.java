@@ -44,39 +44,39 @@ public class ClassInfo {
     }
 
     private String notchClassName;
-    private String mcpClassName;
+    private String MCpClassName;
     private Map<MethodSignature, String> notchMethodInfoMap = new HashMap<>();
     private Map<MethodSignature, String> notchSignatureMap = new HashMap<>();
 
-    private Map<MethodSignature, String> mcpMethodInfoMap = new HashMap<>();
+    private Map<MethodSignature, String> MCpMethodInfoMap = new HashMap<>();
 
     private Map<String, String> notchFieldNameMap = new HashMap<>();
     private Map<String, String> notchFieldTypeMap = new HashMap<>();
 
-    public ClassInfo(String mcpClassName, String notchClassName) {
-        this.mcpClassName = mcpClassName;
+    public ClassInfo(String MCpClassName, String notchClassName) {
+        this.MCpClassName = MCpClassName;
         this.notchClassName = notchClassName;
     }
     
-    public ClassInfo addFieldInfo(String mcpFieldName, String fieldType, String notchFieldName, String notchFieldType) {
-        notchFieldNameMap.put(mcpFieldName, notchFieldName);
-        notchFieldTypeMap.put(mcpFieldName, notchFieldType);
+    public ClassInfo addFieldInfo(String MCpFieldName, String fieldType, String notchFieldName, String notchFieldType) {
+        notchFieldNameMap.put(MCpFieldName, notchFieldName);
+        notchFieldTypeMap.put(MCpFieldName, notchFieldType);
         return this;
     }
 
-    public ClassInfo addMethodInfo(String mcpMethodName, String signature, String notchName) {
-        notchMethodInfoMap.put(new MethodSignature(mcpMethodName, signature), notchName);
+    public ClassInfo addMethodInfo(String MCpMethodName, String signature, String notchName) {
+        notchMethodInfoMap.put(new MethodSignature(MCpMethodName, signature), notchName);
         return this;
     }
     
-    public ClassInfo addMethodInfo2(String mcpMethodName, String signature, String notchName, String notchSignature) {
-        notchMethodInfoMap.put(new MethodSignature(mcpMethodName, signature), notchName);
-        notchSignatureMap.put(new MethodSignature(mcpMethodName, signature), notchSignature);
+    public ClassInfo addMethodInfo2(String MCpMethodName, String signature, String notchName, String notchSignature) {
+        notchMethodInfoMap.put(new MethodSignature(MCpMethodName, signature), notchName);
+        notchSignatureMap.put(new MethodSignature(MCpMethodName, signature), notchSignature);
         return this;
     }
     
-    public ClassInfo addMethodInfo(String genericMethodName, String mcpMethodName, String signature, String notchName) {
-        mcpMethodInfoMap.put(new MethodSignature(genericMethodName, signature), mcpMethodName);
+    public ClassInfo addMethodInfo(String genericMethodName, String MCpMethodName, String signature, String notchName) {
+        MCpMethodInfoMap.put(new MethodSignature(genericMethodName, signature), MCpMethodName);
         notchMethodInfoMap.put(new MethodSignature(genericMethodName, signature), notchName);
         return this;
     }
@@ -87,7 +87,7 @@ public class ClassInfo {
     		normalizedClassName = className.replace('.', '/');
     	} else normalizedClassName = className;
         
-        return mcpClassName.equals(normalizedClassName) || notchClassName.equals(normalizedClassName);
+        return MCpClassName.equals(normalizedClassName) || notchClassName.equals(normalizedClassName);
     }
 
     public boolean methodMatches(
@@ -103,7 +103,7 @@ public class ClassInfo {
     	/*
     	System.out.println("Checking @ " + methodName + " w/ expected  " + expectedMcpMethodName + " w/ expected sig " + expectedMcpMethodSignature);
     	System.out.println("Virtual method names & sigs -> " + methodName + " -> " + methodSignature);
-    	System.out.println("MCP Class name: " + mcpClassName + " vs. " + methodOwnerClassName);
+    	System.out.println("MCP Class name: " + MCpClassName + " vs. " + methodOwnerClassName);
     	System.out.println("Notch class names: " + notchClassName + " vs. " + methodOwnerClassName);
        	*/
         if(!expectedMcpMethodSignature.equals(methodSignature) 
@@ -115,9 +115,9 @@ public class ClassInfo {
       //  System.out.println("Passed first flag.");
         
 
-        if(mcpClassName.equals(methodOwnerClassName)) {
+        if(MCpClassName.equals(methodOwnerClassName)) {
             return expectedMcpMethodName.equals(methodName) 
-                    || methodName.equals(mcpMethodInfoMap.get(new MethodSignature(expectedMcpMethodName, expectedMcpMethodSignature)));
+                    || methodName.equals(MCpMethodInfoMap.get(new MethodSignature(expectedMcpMethodName, expectedMcpMethodSignature)));
         }
         
       //  System.out.println("Passed second flag.");
@@ -139,19 +139,19 @@ public class ClassInfo {
     }
     
     public String getMcpClassName() {
-        return mcpClassName;
+        return MCpClassName;
     }
 
-    public String getNotchMethodName(String mcpMethodName, String signature) {
-        return notchMethodInfoMap.get(new MethodSignature(mcpMethodName, signature));
+    public String getNotchMethodName(String MCpMethodName, String signature) {
+        return notchMethodInfoMap.get(new MethodSignature(MCpMethodName, signature));
     }
     
-    public String getNotchFieldName(String mcpFieldName) {
-        return notchFieldNameMap.get(mcpFieldName);
+    public String getNotchFieldName(String MCpFieldName) {
+        return notchFieldNameMap.get(MCpFieldName);
     }
     
-    public String getNotchFieldType(String mcpFieldName) {
-        return notchFieldTypeMap.get(mcpFieldName);
+    public String getNotchFieldType(String MCpFieldName) {
+        return notchFieldTypeMap.get(MCpFieldName);
     }
 
 }

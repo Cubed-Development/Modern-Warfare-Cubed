@@ -20,7 +20,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.function.Function;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 
 public class StatefulRenderers {
@@ -49,14 +49,14 @@ public class StatefulRenderers {
         public void render(PartRenderContext<State> context) {
             Entity entity = entitySupplier.apply(context);
             if(entity != null && entity instanceof EntityPlayer) {
-                Minecraft minecraft = mc;
+                Minecraft minecraft = MC;
                 if(minecraft.gameSettings.thirdPersonView == 0) {
                 	
                 
                 	
                     minecraft.getTextureManager().bindTexture(((AbstractClientPlayer) entity).getLocationSkin());
 
-                    Render<AbstractClientPlayer> entityRenderObject = mc.getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
+                    Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
                     RenderPlayer render = (RenderPlayer) entityRenderObject;
 
                     ModelBiped model = render.getMainModel();
@@ -70,7 +70,7 @@ public class StatefulRenderers {
                     model.bipedLeftArm.rotateAngleX = model.bipedLeftArm.rotateAngleY = model.bipedLeftArm.rotateAngleZ = 0f;
                     model.bipedLeftArm.render(0.0625F);
                     
-                 // start armor render
+                 // start armor renderer
                     GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
                     EntityPlayer player = (EntityPlayer) entity;
                     ItemStack itemstack = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
@@ -105,11 +105,11 @@ public class StatefulRenderers {
         public void render(PartRenderContext<State> context) {
             Entity entity = entitySupplier.apply(context);
             if(entity != null && entity instanceof EntityPlayer) {
-                Minecraft minecraft = mc;
+                Minecraft minecraft = MC;
                 if(minecraft.gameSettings.thirdPersonView == 0) {
                     minecraft.getTextureManager().bindTexture(((AbstractClientPlayer) entity).getLocationSkin());
 
-                    Render<AbstractClientPlayer> entityRenderObject = mc.getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
+                    Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
                     RenderPlayer render = (RenderPlayer) entityRenderObject;
 
                     ModelBiped model = render.getMainModel();

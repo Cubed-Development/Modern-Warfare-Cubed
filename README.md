@@ -7,7 +7,7 @@
     <img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg">
   </a>
 
-  <a href="https://www.curseforge.com/minecraft/mc-mods/modern-warfare-cubed">
+  <a href="https://www.curseforge.com/minecraft/MC-mods/modern-warfare-cubed">
     <img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/curseforge_vector.svg">
   </a>
   

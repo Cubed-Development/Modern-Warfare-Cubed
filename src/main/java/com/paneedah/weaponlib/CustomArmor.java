@@ -33,7 +33,7 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class CustomArmor extends ItemArmor implements ExposureProtection , ISpecialArmor, IModernCrafting {
@@ -461,7 +461,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 
                 if (entityLiving instanceof EntityPlayer) {
 
-                    Render<AbstractClientPlayer> entityRenderObject = mc.getRenderManager().getEntityRenderObject((AbstractClientPlayer) entityLiving);
+                    Render<AbstractClientPlayer> entityRenderObject = MC.getRenderManager().getEntityRenderObject((AbstractClientPlayer) entityLiving);
                     RenderPlayer renderPlayer = (RenderPlayer) entityRenderObject;
                     armorModel.leftArmPose = renderPlayer.getMainModel().leftArmPose;
                     armorModel.rightArmPose = renderPlayer.getMainModel().rightArmPose;

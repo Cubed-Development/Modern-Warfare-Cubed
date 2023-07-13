@@ -582,7 +582,7 @@ public class MakarovPMSlide extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
+//		gun.renderer(f5);
 		pm_slide.render(f5);
 	}
 

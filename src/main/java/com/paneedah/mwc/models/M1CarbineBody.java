@@ -1034,19 +1034,19 @@ public class M1CarbineBody extends ModelWithAttachments
     body64.render(f5);
     body65.render(f5);
     
-//    guard5.render(f5);
-//    guard1.render(f5);
-//    guard4.render(f5);
-//    guard9.render(f5);
-//    guard2.render(f5);
-//    guard3.render(f5);
-//    guard6.render(f5);
-//    guard8.render(f5);
-//    guard7.render(f5);
-//    guard10.render(f5);
-//    guard11.render(f5);
-//    guard12.render(f5);
-//    guard13.render(f5);
+//    guard5.renderer(f5);
+//    guard1.renderer(f5);
+//    guard4.renderer(f5);
+//    guard9.renderer(f5);
+//    guard2.renderer(f5);
+//    guard3.renderer(f5);
+//    guard6.renderer(f5);
+//    guard8.renderer(f5);
+//    guard7.renderer(f5);
+//    guard10.renderer(f5);
+//    guard11.renderer(f5);
+//    guard12.renderer(f5);
+//    guard13.renderer(f5);
     
   }
 

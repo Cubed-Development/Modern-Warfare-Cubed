@@ -29,7 +29,7 @@ import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 
@@ -221,7 +221,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
     @SideOnly(Side.CLIENT)
     private void playShootSound(PositionedSoundRecord psr) {
-    	mc.getSoundHandler().playSound(psr);
+    	MC.getSoundHandler().playSound(psr);
     }
     
     
@@ -287,15 +287,15 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	if(!VMWHooksHandler.isOnServer()) {
         		
         		//
-        		PositionedSoundRecord psr = new PositionedSoundRecord(shootSound, SoundCategory.PLAYERS, silencerOn ? weapon.getSilencedShootSoundVolume() * 0.4f : weapon.getShootSoundVolume() * 0.4f, 1.0F, mc.player.getPosition().up(5));
+        		PositionedSoundRecord psr = new PositionedSoundRecord(shootSound, SoundCategory.PLAYERS, silencerOn ? weapon.getSilencedShootSoundVolume() * 0.4f : weapon.getShootSoundVolume() * 0.4f, 1.0F, MC.player.getPosition().up(5));
             	playShootSound(psr);
-        		//mc.getSoundHandler().playSound(psr);
+        		//MC.getSoundHandler().playSound(psr);
         	}
         	
         	
         	
         	
-        	//mc.getSoundHandler().playSound(new PositionedSoundRecord(shootSound.getSound(), SoundCategory.PLAYERS,silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1f, mc.player.getPosition()));
+        	//MC.getSoundHandler().playSound(new PositionedSoundRecord(shootSound.getSound(), SoundCategory.PLAYERS,silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1f, MC.player.getPosition()));
             /*
         	player.playSound(shootSound, silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1);
                     */
@@ -303,9 +303,9 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         
         int currentAmmo = weaponInstance.getAmmo();
         if(currentAmmo == 1 && weapon.getEndOfShootSound() != null && !VMWHooksHandler.isOnServer()) {
-        	PositionedSoundRecord psr = new PositionedSoundRecord(weapon.getEndOfShootSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, mc.player.getPosition().up(5));
+        	PositionedSoundRecord psr = new PositionedSoundRecord(weapon.getEndOfShootSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, MC.player.getPosition().up(5));
         	playShootSound(psr);
-        	//mc.getSoundHandler().playSound(psr);
+        	//MC.getSoundHandler().playSound(psr);
         }
 
         if(currentAmmo == 1)
@@ -339,11 +339,11 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
         if(weapon.isShellCasingEjectEnabled())  {
 
-        	float fovMult = mc.gameSettings.fovSetting < 70f ? (mc.gameSettings.fovSetting/50) : -(mc.gameSettings.fovSetting/200f);
+        	float fovMult = MC.gameSettings.fovSetting < 70f ? (MC.gameSettings.fovSetting/50) : -(MC.gameSettings.fovSetting/200f);
 
             // Panda: Replaced this with the above line, undo if it breaks anything for whatever reason.
-        	//if (mc.gameSettings.fovSetting < 70f) fovMult = (mc.gameSettings.fovSetting/50);
-        	//else fovMult = -(mc.gameSettings.fovSetting/200f);
+        	//if (MC.gameSettings.fovSetting < 70f) fovMult = (MC.gameSettings.fovSetting/50);
+        	//else fovMult = -(MC.gameSettings.fovSetting/200f);
         	
         	Vec3d pos = player.getPositionEyes(1.0f);
         	Vec3d weaponDir = new Vec3d(0, -0.1, 1.0 + fovMult).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw));
@@ -363,12 +363,12 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	// Calculate the final position of the bullet spawn point
         	// by changing it's position along its own vector
         	double distance = 0.5;
-			Vec3d eyePos = mc.player.getPositionEyes(1.0f);
+			Vec3d eyePos = MC.player.getPositionEyes(1.0f);
 			Vec3d finalPosition = rawPosition.subtract(eyePos).normalize().scale(distance).add(eyePos);
 			
         	// Calculate velocity as 90 degrees to player
 			Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
-    		velocity = velocity.rotateYaw((float) Math.toRadians(-mc.player.rotationYaw));
+    		velocity = velocity.rotateYaw((float) Math.toRadians(-MC.player.rotationYaw));
     		
     		// Spawn in shell
     		Shell shell = new Shell(weaponInstance.getWeapon().getShellType(), new Vec3d(finalPosition.x, finalPosition.y, finalPosition.z), new Vec3d(90, 0, 90), velocity);

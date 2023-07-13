@@ -1605,12 +1605,12 @@ public class AUGScope extends ModelWithAttachments
   {
     super.render(entity, f, f1, f2, f3, f4, f5);
     setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-//    scope8.render(f5);
-//    scope9.render(f5);
-//    scope10.render(f5);
-//    scope11.render(f5);
-//    scope12.render(f5);
-//    scope13.render(f5);
+//    scope8.renderer(f5);
+//    scope9.renderer(f5);
+//    scope10.renderer(f5);
+//    scope11.renderer(f5);
+//    scope12.renderer(f5);
+//    scope13.renderer(f5);
     scope1.render(f5);
     scope2.render(f5);
     scope3.render(f5);

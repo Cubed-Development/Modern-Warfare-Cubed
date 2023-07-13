@@ -393,9 +393,9 @@ public class Beowulf50Cal extends ModelWithAttachments {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		gun.render(f5);
-//		receiver.render(f5);
+//		receiver.renderer(f5);
 		barrel.render(f5);
-//		action.render(f5);
+//		action.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

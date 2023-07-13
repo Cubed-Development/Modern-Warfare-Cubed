@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.numerical;
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import net.minecraft.util.math.Vec3d;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 
 /**
@@ -74,7 +74,7 @@ public class RandomVector {
 	}
 	
 	public Vec3d getInterpolatedVector(double amplitude) {
-		float ticks = mc.getRenderPartialTicks();
+		float ticks = MC.getRenderPartialTicks();
 		return new Vec3d(MatrixHelper.solveLerp(this.prevX, this.x, ticks),
 				MatrixHelper.solveLerp(this.prevY, this.y, ticks),
 				MatrixHelper.solveLerp(this.prevZ, this.z, ticks)).scale(amplitude);

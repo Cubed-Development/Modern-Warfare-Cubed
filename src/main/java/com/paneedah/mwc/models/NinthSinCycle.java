@@ -724,23 +724,23 @@ public class NinthSinCycle extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
+//		gun.renderer(f5);
 		
-//		panel_upper_EXTRA.render(f5);
-//		panel_lower_EXTRA2.render(f5);
-//		regulator_upper_EXTRA3.render(f5);
-//		regulator_lower_EXTRA4.render(f5);
-//		regulator_rotator_EXTRA5.render(f5);
-//		regulatorlower_upper_EXTRA6.render(f5);
-//		regulatorlower_lower_EXTRA7.render(f5);
-//		regulator_action_EXTRA8.render(f5);
-//		cycler_front_RECEIVER.render(f5);
-//		cycler_back_left_FRONTSIGHT.render(f5);
-//		cycler_back_right_BACKGRIP.render(f5);
+//		panel_upper_EXTRA.renderer(f5);
+//		panel_lower_EXTRA2.renderer(f5);
+//		regulator_upper_EXTRA3.renderer(f5);
+//		regulator_lower_EXTRA4.renderer(f5);
+//		regulator_rotator_EXTRA5.renderer(f5);
+//		regulatorlower_upper_EXTRA6.renderer(f5);
+//		regulatorlower_lower_EXTRA7.renderer(f5);
+//		regulator_action_EXTRA8.renderer(f5);
+//		cycler_front_RECEIVER.renderer(f5);
+//		cycler_back_left_FRONTSIGHT.renderer(f5);
+//		cycler_back_right_BACKGRIP.renderer(f5);
 		cycler_GUARD.render(f5);
-//		energy_cell_MAGAZINE.render(f5);
+//		energy_cell_MAGAZINE.renderer(f5);
 		
-//		bb_main.render(f5);
+//		bb_main.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

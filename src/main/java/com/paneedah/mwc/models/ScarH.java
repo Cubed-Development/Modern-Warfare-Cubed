@@ -1226,9 +1226,9 @@ public class ScarH extends ModelWithAttachments {
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		gun.render(f5);
 		upperreceiver.render(f5);
-//		action.render(f5);
-//		handguard.render(f5);
-//		magazine.render(f5);
+//		action.renderer(f5);
+//		handguard.renderer(f5);
+//		magazine.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

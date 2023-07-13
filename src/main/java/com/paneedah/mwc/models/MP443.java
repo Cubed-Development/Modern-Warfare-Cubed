@@ -1406,10 +1406,10 @@ public class MP443 extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		slide.render(f5);
+//		slide.renderer(f5);
 		gunmain.render(f5);
-//		hammer.render(f5);
-//		mag.render(f5);
+//		hammer.renderer(f5);
+//		mag.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

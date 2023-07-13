@@ -54,7 +54,7 @@ public class QRenderer extends ModelRenderer {
 
 		/*
 		 * for (int i = 0; i < this.cubeList.size(); ++i) {
-		 * ((ModelBox)this.cubeList.get(i)).render(bufferbuilder, scale); }
+		 * ((ModelBox)this.cubeList.get(i)).renderer(bufferbuilder, scale); }
 		 */
 
 		GlStateManager.glEndList();
@@ -100,7 +100,7 @@ public class QRenderer extends ModelRenderer {
 				 * GlStateManager.callList(re.displayList);
 				 * 
 				 * if (re.childModels != null) { for (int k = 0; k < re.childModels.size(); ++k)
-				 * { ((ModelRenderer)re.childModels.get(k)).render(scale); } }
+				 * { ((ModelRenderer)re.childModels.get(k)).renderer(scale); } }
 				 */
 			} else {
 				GlStateManager.translate(re.rotationPointX * scale, re.rotationPointY * scale,
@@ -111,7 +111,7 @@ public class QRenderer extends ModelRenderer {
 				 * 
 				 * if (re.childModels != null) { for (int j = 0; j < re.childModels.size(); ++j)
 				 * { //System.out.println("BITHC: " +re.childModels.size());
-				 * ((ModelRenderer)re.childModels.get(j)).render(scale); } }
+				 * ((ModelRenderer)re.childModels.get(j)).renderer(scale); } }
 				 */
 
 				// GlStateManager.translate(-re.rotationPointX * scale, -re.rotationPointY *
@@ -138,7 +138,7 @@ public class QRenderer extends ModelRenderer {
 			 * 
 			 * if (re.childModels != null) { for (int i = 0; i < re.childModels.size(); ++i)
 			 * { System.out.println("JNDD: "+ re.childModels.size());
-			 * ((ModelRenderer)re.childModels.get(i)).render(scale); } }
+			 * ((ModelRenderer)re.childModels.get(i)).renderer(scale); } }
 			 */
 
 			// GlStateManager.popMatrix();

@@ -69,9 +69,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 //        if(thrower != null) {
 //            RayTraceResult rayTraceResult = thrower.rayTrace(50, 0);
 //            if(rayTraceResult != null && rayTraceResult.hitVec != null) {
-//                double dx = mc.player.posX - rayTraceResult.hitVec.x;
-//                double dy = mc.player.posY - rayTraceResult.hitVec.y;
-//                double dz = mc.player.posZ - rayTraceResult.hitVec.z;
+//                double dx = MC.player.posX - rayTraceResult.hitVec.x;
+//                double dy = MC.player.posY - rayTraceResult.hitVec.y;
+//                double dz = MC.player.posZ - rayTraceResult.hitVec.z;
 //                double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
 //                this.aimTan = 0.4 / distance;
 //            }
@@ -432,7 +432,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
     }
 
     /**
-     * Checks if the entity is in range to render by using the past in distance
+     * Checks if the entity is in range to renderer by using the past in distance
      * and comparing it to its average edge length * 64 * renderDistanceWeight
      * Args: distance
      */

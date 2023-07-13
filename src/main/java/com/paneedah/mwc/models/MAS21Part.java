@@ -536,11 +536,11 @@ public class MAS21Part extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		slideactual.render(f5);
-//		rotatingbarrel2.render(f5);
+//		gun.renderer(f5);
+//		slideactual.renderer(f5);
+//		rotatingbarrel2.renderer(f5);
 		movingpart.render(f5);
-//		lever.render(f5);
+//		lever.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

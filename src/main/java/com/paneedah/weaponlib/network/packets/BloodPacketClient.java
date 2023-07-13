@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class BloodPacketClient implements IMessage {
 
@@ -58,7 +58,7 @@ public class BloodPacketClient implements IMessage {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(BloodPacketClient message, MessageContext messageContext) {
-			mc.addScheduledTask(() -> {
+			MC.addScheduledTask(() -> {
 				double velX = message.velx;
 				double velY = message.vely;
 				double velZ = message.velz;
@@ -74,7 +74,7 @@ public class BloodPacketClient implements IMessage {
 				RandomUtil util = new RandomUtil();
 
 				for(int i = 0; i < 15; ++i) {
-					mc.effectRenderer.addEffect(new ParticleBlood(mc.world, message.x, message.y, message.z, velX * scale + util.getRandomWithNegatives(spreader), velY * scale + util.getRandomWithNegatives(spreader), velZ * scale + util.getRandomWithNegatives(spreader)));
+					MC.effectRenderer.addEffect(new ParticleBlood(MC.world, message.x, message.y, message.z, velX * scale + util.getRandomWithNegatives(spreader), velY * scale + util.getRandomWithNegatives(spreader), velZ * scale + util.getRandomWithNegatives(spreader)));
 				}
 		   });
 

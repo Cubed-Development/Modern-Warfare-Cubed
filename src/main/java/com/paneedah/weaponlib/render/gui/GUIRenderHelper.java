@@ -11,10 +11,10 @@ import scala.concurrent.duration.Duration;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class GUIRenderHelper {
-	private static final double FONT_SIZE_HALVED = mc.fontRenderer.FONT_HEIGHT / 2.0;
+	private static final double FONT_SIZE_HALVED = MC.fontRenderer.FONT_HEIGHT / 2.0;
 
 	public static String formatTimeString(long time, TimeUnit unit) {
 		final Duration duration = Duration.create(time, unit);
@@ -27,8 +27,8 @@ public class GUIRenderHelper {
 	
 	public static void drawAlignedString(String text, StringAlignment alignment, boolean verticallyCentered, double x, double y, double scale, int color) {
 		switch(alignment) {
-			case CENTERED: x -= mc.fontRenderer.getStringWidth(text)*scale/2;
-			case RIGHT: x -= mc.fontRenderer.getStringWidth(text)*scale;
+			case CENTERED: x -= MC.fontRenderer.getStringWidth(text)*scale/2;
+			case RIGHT: x -= MC.fontRenderer.getStringWidth(text)*scale;
 		}
 
 		if (verticallyCentered)
@@ -45,7 +45,7 @@ public class GUIRenderHelper {
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(x, y, 0);
 		GlStateManager.scale(scale, scale, scale);
-		mc.fontRenderer.drawStringWithShadow(text, 0, 0, color);
+		MC.fontRenderer.drawStringWithShadow(text, 0, 0, color);
 		GlStateManager.popMatrix();
 	}
 
@@ -54,7 +54,7 @@ public class GUIRenderHelper {
 		GlStateManager.translate(x, y, 0);
 		GlStateManager.scale(scale, scale, 1.0);
 		RenderHelper.enableGUIStandardItemLighting();
-		mc.getRenderItem().renderItemIntoGUI(new ItemStack(item), 0, 0);
+		MC.getRenderItem().renderItemIntoGUI(new ItemStack(item), 0, 0);
 		RenderHelper.disableStandardItemLighting();
 		GlStateManager.popMatrix();
 	}

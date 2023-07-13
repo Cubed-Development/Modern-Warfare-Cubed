@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.function.BiConsumer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class LaserBeamRenderer implements CustomRenderer {
 	
@@ -79,7 +79,7 @@ public class LaserBeamRenderer implements CustomRenderer {
 			bb.pos(xOffset, yOffset, -50).color(1.0f, 0.0f, 0.0f, 0.1f).endVertex();
 			tes.draw();
 			
-			mc.getFramebuffer().bindFramebuffer(false);
+			MC.getFramebuffer().bindFramebuffer(false);
 			 tes = Tessellator.getInstance();
 			 bb = tes.getBuffer();
 			bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);

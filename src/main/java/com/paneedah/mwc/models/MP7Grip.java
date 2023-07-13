@@ -1653,8 +1653,8 @@ public class MP7Grip extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		mag_40.render(f5);
-//		action.render(f5);
+//		mag_40.renderer(f5);
+//		action.renderer(f5);
 		grip.render(f5);
 	}
 

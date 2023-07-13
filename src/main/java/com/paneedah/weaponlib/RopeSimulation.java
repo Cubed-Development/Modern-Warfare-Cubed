@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class RopeSimulation {
 	
@@ -254,7 +254,7 @@ public class RopeSimulation {
 				box = box.grow(0.1);
 				box = box.offset(p.pos);
 				
-				List<AxisAlignedBB> i = mc.world.getCollisionBoxes(null, box);
+				List<AxisAlignedBB> i = MC.world.getCollisionBoxes(null, box);
 				
 				for(AxisAlignedBB b : i) {
 					if(b.maxY < p.pos.y) {

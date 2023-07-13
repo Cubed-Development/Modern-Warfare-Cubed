@@ -443,7 +443,7 @@ public class WeaponlibClassTransformer implements IClassTransformer {
             mv.visitVarInsn(Opcodes.FLOAD, 5);
             mv.visitVarInsn(Opcodes.FLOAD, 6);
             mv.visitVarInsn(Opcodes.FLOAD, 7);
-            mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/weaponlib/compatibility/Interceptors", "render", "(Lnet/minecraft/client/model/ModelBase;Lnet/minecraft/entity/Entity;FFFFFF)Z", false);
+            mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/weaponlib/compatibility/Interceptors", "renderer", "(Lnet/minecraft/client/model/ModelBase;Lnet/minecraft/entity/Entity;FFFFFF)Z", false);
             Label l1 = new Label();
             mv.visitJumpInsn(Opcodes.IFNE, l1);
             Label l2 = new Label();
@@ -464,7 +464,7 @@ public class WeaponlibClassTransformer implements IClassTransformer {
         
         @Override
         public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
-            if (modelBaseClassInfo.methodMatches("render", "(Lnet/minecraft/entity/Entity;FFFFFF)V", owner, name, desc)) {
+            if (modelBaseClassInfo.methodMatches("renderer", "(Lnet/minecraft/entity/Entity;FFFFFF)V", owner, name, desc)) {
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/weaponlib/compatibility/Interceptors", "render2", "(Lnet/minecraft/client/model/ModelBase;Lnet/minecraft/entity/Entity;FFFFFF)V", false);
             } else {
                 super.visitMethodInsn(opcode, owner, name, desc, itf);
@@ -480,7 +480,7 @@ public class WeaponlibClassTransformer implements IClassTransformer {
         
         @Override
         public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
-            if (modelBaseClassInfo.methodMatches("render", "(Lnet/minecraft/entity/Entity;FFFFFF)V", owner, name, desc)) {
+            if (modelBaseClassInfo.methodMatches("renderer", "(Lnet/minecraft/entity/Entity;FFFFFF)V", owner, name, desc)) {
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/weaponlib/compatibility/Interceptors", "renderArmorLayer", "(Lnet/minecraft/client/model/ModelBase;Lnet/minecraft/entity/Entity;FFFFFF)V", false);
             } else {
                 super.visitMethodInsn(opcode, owner, name, desc, itf);
@@ -504,7 +504,7 @@ public class WeaponlibClassTransformer implements IClassTransformer {
                 String fieldName = "livingEntityRenderer";
                 if(notchMode) {
                     fieldName = layerHeldItemClassInfo.getNotchFieldName(fieldName);
-                    //String notchFieldType = layerHeldItemClassInfo.getNotchFieldType(mcpFieldName);
+                    //String notchFieldType = layerHeldItemClassInfo.getNotchFieldType(MCpFieldName);
                 }
                 
                 mv.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/renderer/entity/layers/LayerHeldItem", 

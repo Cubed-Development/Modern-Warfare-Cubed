@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class InventoryTabs {
 
@@ -53,8 +53,8 @@ public class InventoryTabs {
     }
 
     public void openInventoryGui() {
-        GuiInventory inventory = new GuiInventory(mc.player);
-        mc.displayGuiScreen(inventory);
+        GuiInventory inventory = new GuiInventory(MC.player);
+        MC.displayGuiScreen(inventory);
     }
 
     public void updateTabValues(int cornerX, int cornerY, Class<?> selectedButton) {

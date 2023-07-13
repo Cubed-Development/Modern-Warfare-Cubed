@@ -7,19 +7,19 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 
 public class ModernUtil {
 	
 	public static void setupLighting(Vec3d position) {
 		GlStateManager.enableLighting();
-		mc.entityRenderer.enableLightmap();
-		ShellRenderer.setupLightmapCoords(mc.player.getPositionVector().add(0, 1, 0));
+		MC.entityRenderer.enableLightmap();
+		ShellRenderer.setupLightmapCoords(MC.player.getPositionVector().add(0, 1, 0));
 		
 	}
 	
 	public static void destructLighting(Vec3d position) {
-		mc.entityRenderer.disableLightmap();
+		MC.entityRenderer.disableLightmap();
 		GlStateManager.disableLighting();
 	}
 	

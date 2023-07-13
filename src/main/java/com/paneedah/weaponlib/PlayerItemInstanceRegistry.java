@@ -14,7 +14,7 @@ import java.util.Map.Entry;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.MWC.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class PlayerItemInstanceRegistry {
@@ -185,7 +185,7 @@ public class PlayerItemInstanceRegistry {
 				LOG.debug("ItemStack {} not found in cache, initializing...", itemStack);
 				PlayerItemInstance<?> instance = null;
 				int slot = -1;
-				if(mc.player == player) {
+				if(MC.player == player) {
 				    // For current player, the latest instance is available locally
 					for(slot = 0; slot < ((EntityPlayer) player).inventory.getSizeInventory(); slot++) {
 						if(((EntityPlayer) player).inventory.getStackInSlot(slot) == itemStack)

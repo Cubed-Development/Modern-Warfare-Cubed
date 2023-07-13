@@ -1,14 +1,10 @@
 package com.paneedah.mwc.equipment;
 
-import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
 import com.paneedah.mwc.models.equipment.belts.MagazineBelt;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.weaponlib.animation.Transform;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
 
 public class Belts {
 
@@ -19,7 +15,7 @@ public class Belts {
         magazineBelt = new ItemBackpack.Builder()
                 .withName("magazine_belt")
                 .withSize(8)
-                .withValidItemPredicate(item -> item instanceof ItemMagazine)
+                .withValidItemPredicate(ItemMagazine.class::isInstance)
                 .withModel(new MagazineBelt())
                 .withTexture("equipment/carryable/belts")
                 .withInventoryPositioning(stack -> new Transform()
@@ -27,6 +23,6 @@ public class Belts {
                         .withRotation(18, -50, 0)
                         .withScale(3.1, 3.1, 3.1)
                         .doGLDirect())
-                .build(MWC.modContext);
+                .build();
     }
 }
