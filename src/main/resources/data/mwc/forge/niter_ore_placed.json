@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#is_overworld",
+  "features": "mwc:niter_ore_placed",
+  "step": "underground_ores"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+	"minecraft:badlands",
+	"minecraft:wooded_badlands",
+	"minecraft:eroded_badlands"
+  ],
+  "features": "mwc:uranium_ore_placed",
+  "step": "underground_ores"
+}

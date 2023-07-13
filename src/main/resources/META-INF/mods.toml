@@ -1,0 +1,23 @@
+modLoader = "javafml"
+loaderVersion = "[45,)"
+license = "All Rights Reserved"
+[[mods]]
+modId = "mwc"
+version = "0.0.1"
+displayName = "Modern Warfare v2"
+authors = "Paneedah, SticksDev, Yassev"
+description = '''
+\nModern Warfare Cubed - Revamped Edition
+'''
+[[dependencies.mwc]]
+modId = "forge"
+mandatory = true
+versionRange = "[45,)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.mwc]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19.4,1.20)"
+ordering = "NONE"
+side = "BOTH"

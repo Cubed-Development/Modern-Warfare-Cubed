@@ -1,0 +1,14 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#is_overworld",
+  "features": [
+    "mwc:aluminum_ore_placed",
+	"mwc:lead_ore_placed",
+	"mwc:graphite_ore_placed",
+	"mwc:sulfur_ore_placed",
+	"mwc:niter_ore_placed",
+	"mwc:tungsten_ore_placed",
+	"mwc:titanium_ore_placed"
+  ],
+  "step": "underground_ores"
+}

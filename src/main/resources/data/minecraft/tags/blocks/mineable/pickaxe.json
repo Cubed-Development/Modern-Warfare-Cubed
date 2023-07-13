@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "mwc:aluminum_ore",
+    "mwc:lead_ore",
+    "mwc:sulfur_ore",
+    "mwc:niter_ore",
+    "mwc:uranium_ore",
+    "mwc:tungsten_ore",
+    "mwc:titanium_ore",
+    "mwc:graphite_ore"
+  ]
+}
