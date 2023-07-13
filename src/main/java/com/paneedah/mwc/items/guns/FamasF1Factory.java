@@ -188,7 +188,7 @@ public class FamasF1Factory {
             }
         })
         .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
-        	GL11.glTranslatef(-0.177F, -2.22F, -1.2F);
+        	GL11.glTranslatef(-0.177F, -1.52F, -1.2F);
             GL11.glScaled(0.36F, 0.36F, 0.36F);
 	    },(model) -> {
 	        if(model instanceof Reflex2) {
