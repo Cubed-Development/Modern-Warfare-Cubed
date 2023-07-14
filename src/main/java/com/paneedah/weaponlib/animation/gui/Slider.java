@@ -8,7 +8,7 @@ import org.lwjgl.input.Mouse;
 
 import java.awt.Color;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class Slider implements IElement{
 

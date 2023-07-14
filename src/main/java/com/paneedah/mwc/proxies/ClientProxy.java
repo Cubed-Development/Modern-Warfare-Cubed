@@ -5,6 +5,7 @@ import com.paneedah.mwc.PlayerAnimations;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
 import com.paneedah.mwc.equipment.Armors;
+import com.paneedah.mwc.renderer.EquipmentRenderer;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.model.AmmoPress;
@@ -14,16 +15,25 @@ import com.paneedah.weaponlib.inventory.BackpackInventoryTab;
 import com.paneedah.weaponlib.inventory.CustomPlayerInventoryTab;
 import com.paneedah.weaponlib.inventory.InventoryTabs;
 import com.paneedah.weaponlib.inventory.StandardPlayerInventoryTab;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ClientProxy extends CommonProxy {
+
+    /**
+     * Static final reference to the Minecraft Client instance.
+     */
+    @SideOnly(Side.CLIENT)
+    public static final Minecraft MC = Minecraft.getMinecraft();
 
     @Override
     protected boolean isClient() {
@@ -104,5 +114,7 @@ public class ClientProxy extends CommonProxy {
         
         if (ForgeModContainer.allowEmissiveItems)
             ForgeModContainer.allowEmissiveItems = false;
+
+        MC.getRenderManager().getSkinMap().forEach((model, playerRenderer) -> playerRenderer.addLayer(new EquipmentRenderer(playerRenderer)));
     }
 }

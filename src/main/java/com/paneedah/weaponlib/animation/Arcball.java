@@ -4,7 +4,7 @@ import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.util.vector.Quaternion;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class Arcball {
 	

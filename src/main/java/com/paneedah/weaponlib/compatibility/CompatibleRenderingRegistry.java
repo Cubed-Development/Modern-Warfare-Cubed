@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
-import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.renderer.ModelSourceRenderer;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -26,10 +26,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 @Deprecated
+@SideOnly(Side.CLIENT)
 public class CompatibleRenderingRegistry implements ICustomModelLoader {
 
 	private List<ModelSourceRenderer> renderers = new ArrayList<>();

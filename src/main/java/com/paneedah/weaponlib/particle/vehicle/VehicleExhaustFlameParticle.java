@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class VehicleExhaustFlameParticle extends Particle {
 	

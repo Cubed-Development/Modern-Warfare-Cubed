@@ -14,7 +14,7 @@ import net.minecraft.util.math.Vec3d;
 
 import javax.vecmath.Vector3d;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class WheelSolver implements IEncodable<WheelSolver>{
 	

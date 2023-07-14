@@ -49,7 +49,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 /*   __      __  _     _      _           
 	 \ \    / / | |   (_)    | |          

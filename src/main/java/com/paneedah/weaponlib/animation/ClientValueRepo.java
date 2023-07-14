@@ -10,7 +10,7 @@ import com.paneedah.weaponlib.numerical.RandomVector;
 import com.paneedah.weaponlib.numerical.SpringValue;
 import net.minecraft.entity.player.EntityPlayer;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 /**
  * Stores a bunch of values that need to update on an interval, and typically

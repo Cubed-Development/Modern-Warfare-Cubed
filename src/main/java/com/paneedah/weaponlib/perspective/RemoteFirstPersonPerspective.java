@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.perspective;
 
+import com.paneedah.mwc.utils.PlayerCreatureWrapper;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.RenderingPhase;
 import com.paneedah.weaponlib.compatibility.MWCParticleManager;
@@ -8,23 +9,24 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.stats.StatisticsManager;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public abstract class RemoteFirstPersonPerspective extends Perspective<RenderableState> {
 
     private long renderEndNanoTime;
 
-    protected EntityPlayerSP watchablePlayer;
+    protected PlayerCreatureWrapper watchablePlayer;
 
     public RemoteFirstPersonPerspective() {
         this.renderEndNanoTime = System.nanoTime();
         this.width = 427; //MC.displayWidth >> 1;
         this.height = 240; //MC.displayHeight >> 1;
         WorldClient world = (WorldClient) MC.player.world;
-        this.watchablePlayer = new EntityPlayerSP(MC, world, MC.getConnection(), new StatisticsManager(), null);
+        this.watchablePlayer = new PlayerCreatureWrapper(MC, world);
     }
 
     @Override
@@ -56,9 +58,9 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
         MC.effectRenderer = MWCParticleManager.getParticleManager();
 
         MC.entityRenderer = this.entityRenderer;
-        if (watchablePlayer != null && !watchablePlayer.isDead) {
+        if (watchablePlayer.getEntityLiving() != null && !watchablePlayer.getEntityLiving().isDead) {
 
-            MC.setRenderViewEntity(watchablePlayer);
+            MC.setRenderViewEntity(watchablePlayer.getEntityLiving());
             MC.player = watchablePlayer;
 
             modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.RENDER_PERSPECTIVE);

@@ -33,7 +33,7 @@ public class ItemSkin extends ItemAttachment<Weapon> {
 			} else if(getTextureName() == null) {
 				this.textureName = textureVariants.get(0);
 			}
-			if(inventoryPositioning == null) {
+			if(transforms.getInventoryPositioning() == null) {
 				withInventoryPositioning((itemStack) -> {
 					
 					/*

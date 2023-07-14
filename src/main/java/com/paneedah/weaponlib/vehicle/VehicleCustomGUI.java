@@ -19,7 +19,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.awt.Color;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class VehicleCustomGUI extends Gui {

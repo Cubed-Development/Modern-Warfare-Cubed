@@ -1,19 +1,13 @@
 package com.paneedah.mwc.items.equipment.carryable;
 
-import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.equipment.belts.MagazineBelt;
-import com.paneedah.mwc.utils.LangUtil;
+import com.paneedah.mwc.renderer.ModelSourceTransforms;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
-import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
-import com.paneedah.weaponlib.render.IHasModel;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -21,12 +15,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -41,20 +32,20 @@ public class ItemCarryable extends Item implements IModernCrafting {
         protected static final int DEFAULT_GUI_TEXTURE_WIDTH = 176;
 
         protected String name;
-        protected ModelBiped model;
+        protected ModelBase model;
         protected String textureName;
+        protected ModelSourceTransforms transforms = ModelSourceTransforms.builder()
+                .entityPositioning(itemStack -> new Transform()
+                        .withPosition(-0.5, -1.75, 0.4)
+                        .withScale(1, 1, 1)
+                        .doGLDirect())
+                .inventoryPositioning(itemStack -> new Transform()
+                        .withPosition(-0.15, -4.15, 0.35)
+                        .withRotation(18, -50, 0)
+                        .withScale(2.9, 2.9, 2.9)
+                        .doGLDirect())
+                .build();
 
-        protected Consumer<ItemStack> entityPositioning;
-        protected Consumer<ItemStack> inventoryPositioning;
-        protected BiConsumer<EntityPlayer, ItemStack> thirdPersonPositioning;
-        protected BiConsumer<EntityPlayer, ItemStack> customEquippedPositioning;
-        protected BiConsumer<EntityPlayer, ItemStack> firstPersonPositioning;
-        protected BiConsumer<ModelBase, ItemStack> firstPersonModelPositioning;
-        protected BiConsumer<ModelBase, ItemStack> thirdPersonModelPositioning;
-        protected BiConsumer<ModelBase, ItemStack> inventoryModelPositioning;
-        protected BiConsumer<ModelBase, ItemStack> entityModelPositioning;
-        protected Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioning;
-        protected Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioning;
         protected int size;
         protected int guiTextureWidth = DEFAULT_GUI_TEXTURE_WIDTH;
 
@@ -120,8 +111,10 @@ public class ItemCarryable extends Item implements IModernCrafting {
             return self();
         }
 
-        public T withModel(ModelBiped model) {
-            this.model = model;
+        public T withModel(ModelBase model) {
+            if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+                this.model = model;
+
             return self();
         }
 
@@ -131,74 +124,54 @@ public class ItemCarryable extends Item implements IModernCrafting {
         }
 
         public T withEntityPositioning(Consumer<ItemStack> entityPositioning) {
-            this.entityPositioning = entityPositioning;
+            transforms.setEntityPositioning(entityPositioning);
             return self();
         }
 
         public T withInventoryPositioning(Consumer<ItemStack> inventoryPositioning) {
-            this.inventoryPositioning = inventoryPositioning;
+            transforms.setInventoryPositioning(inventoryPositioning);
             return self();
         }
 
         public T withThirdPersonPositioning(BiConsumer<EntityPlayer, ItemStack> thirdPersonPositioning) {
-            this.thirdPersonPositioning = thirdPersonPositioning;
+            transforms.setThirdPersonPositioning(thirdPersonPositioning);
             return self();
         }
 
         public T withCustomEquippedPositioning(BiConsumer<EntityPlayer, ItemStack> customEquippedPositioning) {
-            this.customEquippedPositioning = customEquippedPositioning;
+            transforms.setCustomEquippedPositioning(customEquippedPositioning);
             return self();
         }
 
         public T withFirstPersonPositioning(BiConsumer<EntityPlayer, ItemStack> firstPersonPositioning) {
-            this.firstPersonPositioning = firstPersonPositioning;
+            transforms.setFirstPersonPositioning(firstPersonPositioning);
             return self();
         }
 
         public T withFirstPersonModelPositioning(BiConsumer<ModelBase, ItemStack> firstPersonModelPositioning) {
-            this.firstPersonModelPositioning = firstPersonModelPositioning;
+            transforms.setFirstPersonModelPositioning(firstPersonModelPositioning);
             return self();
         }
 
         public T withEntityModelPositioning(BiConsumer<ModelBase, ItemStack> entityModelPositioning) {
-            this.entityModelPositioning = entityModelPositioning;
+            transforms.setEntityModelPositioning(entityModelPositioning);
             return self();
         }
 
         public T withInventoryModelPositioning(BiConsumer<ModelBase, ItemStack> inventoryModelPositioning) {
-            this.inventoryModelPositioning = inventoryModelPositioning;
+            transforms.setInventoryModelPositioning(inventoryModelPositioning);
             return self();
         }
 
         public T withThirdPersonModelPositioning(BiConsumer<ModelBase, ItemStack> thirdPersonModelPositioning) {
-            this.thirdPersonModelPositioning = thirdPersonModelPositioning;
+            transforms.setThirdPersonModelPositioning(thirdPersonModelPositioning);
             return self();
         }
 
-        public T withFirstPersonHandPositioning(
-                Consumer<RenderContext<RenderableState>> leftHand,
-                Consumer<RenderContext<RenderableState>> rightHand) {
-            this.firstPersonLeftHandPositioning = leftHand;
-            this.firstPersonRightHandPositioning = rightHand;
+        public T withFirstPersonHandPositioning(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
+            transforms.setFirstPersonLeftHandPositioning(leftHand);
+            transforms.setFirstPersonRightHandPositioning(rightHand);
             return self();
-        }
-
-        protected static class RendererRegistrationHelper {
-            protected static Object registerRenderer(Builder builder) {
-                return new StaticModelSourceRenderer.Builder()
-                        .withHiddenInventory(false)
-                        .withEntityPositioning(builder.entityPositioning)
-                        .withFirstPersonPositioning(builder.firstPersonPositioning)
-                        .withThirdPersonPositioning(builder.thirdPersonPositioning)
-                        .withCustomEquippedPositioning(builder.customEquippedPositioning)
-                        .withInventoryPositioning(builder.inventoryPositioning != null ? builder.inventoryPositioning : stack -> new Transform().withPosition(-0.15, -4.15, 0.35).withRotation(18, -50, 0).withScale(2.9, 2.9, 2.9).doGLDirect())
-                        .withEntityModelPositioning(builder.entityModelPositioning != null? builder.entityModelPositioning : (modelBase, itemStack) -> new Transform().withPosition(-5.3, -0.20, -1.25).withRotation(0, -150, -90).withScale(3.8, 3.8, 3.8).doGLDirect())
-                        .withFirstPersonModelPositioning(builder.firstPersonModelPositioning)
-                        .withThirdPersonModelPositioning(builder.thirdPersonModelPositioning)
-                        .withInventoryModelPositioning(builder.inventoryModelPositioning)
-                        .withFirstPersonHandPositioning(builder.firstPersonLeftHandPositioning, builder.firstPersonRightHandPositioning)
-                        .build();
-            }
         }
 
         protected void validateInput() {
@@ -236,10 +209,10 @@ public class ItemCarryable extends Item implements IModernCrafting {
         return customEquippedPositioning;
     }
 
-    public final ModelBiped model;
+    public final ModelBase model;
     public final String textureName;
 
-    public ItemCarryable(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth, ModelBiped model, String textureName) {
+    public ItemCarryable(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth, ModelBase model, String textureName) {
         this.validItemPredicate = validItemPredicate;
         this.size = size;
         this.guiTextureLocation = guiTextureLocation;

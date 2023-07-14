@@ -8,7 +8,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.awt.Color;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class Textbar {
 	

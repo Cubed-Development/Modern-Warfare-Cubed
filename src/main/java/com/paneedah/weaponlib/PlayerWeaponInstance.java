@@ -31,7 +31,7 @@ import java.util.Deque;
 import java.util.UUID;
 import java.util.concurrent.LinkedBlockingDeque;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 

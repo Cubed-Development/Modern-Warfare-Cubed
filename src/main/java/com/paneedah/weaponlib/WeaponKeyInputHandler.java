@@ -25,7 +25,7 @@ import org.lwjgl.input.Keyboard;
 
 import java.util.function.Function;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class WeaponKeyInputHandler {
 

@@ -11,7 +11,7 @@ import scala.concurrent.duration.Duration;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class GUIRenderHelper {
 	private static final double FONT_SIZE_HALVED = MC.fontRenderer.FONT_HEIGHT / 2.0;

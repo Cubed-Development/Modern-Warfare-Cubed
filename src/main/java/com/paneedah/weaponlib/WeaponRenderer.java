@@ -14,7 +14,7 @@ import com.paneedah.weaponlib.animation.jim.SingleAnimation;
 import com.paneedah.weaponlib.animation.movement.WeaponRotationHandler;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.compatibility.Interceptors;
-import com.paneedah.weaponlib.compatibility.ModelSourceRenderer;
+import com.paneedah.mwc.renderer.ModelSourceRenderer;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
@@ -77,7 +77,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 

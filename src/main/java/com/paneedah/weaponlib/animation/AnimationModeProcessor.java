@@ -23,7 +23,7 @@ import java.nio.FloatBuffer;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class AnimationModeProcessor {
 

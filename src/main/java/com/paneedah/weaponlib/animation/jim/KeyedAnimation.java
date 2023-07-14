@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class KeyedAnimation {
 

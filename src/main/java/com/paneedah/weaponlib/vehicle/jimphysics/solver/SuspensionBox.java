@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.vehicle.jimphysics.solver;
 
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class SuspensionBox {
 	

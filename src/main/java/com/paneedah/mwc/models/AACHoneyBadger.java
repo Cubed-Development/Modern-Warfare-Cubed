@@ -4,6 +4,8 @@ import com.paneedah.weaponlib.ModelWithAttachments;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 // Made with Blockbench 3.6.5
 // Exported for Minecraft version 1.12

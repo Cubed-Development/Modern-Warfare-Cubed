@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Map.Entry;
 import java.util.Stack;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class LightManager {
 	

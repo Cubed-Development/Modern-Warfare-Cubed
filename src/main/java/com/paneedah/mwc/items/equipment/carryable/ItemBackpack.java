@@ -1,10 +1,10 @@
 package com.paneedah.mwc.items.equipment.carryable;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.renderer.StaticModelSourceRendererRenderer;
 import com.paneedah.mwc.utils.LangUtil;
-import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.Tuple;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -37,15 +37,13 @@ public class ItemBackpack extends ItemCarryable {
             // Register hook
             CraftingRegistry.registerHook(itemBackpack);
 
-            itemBackpack.customEquippedPositioning = customEquippedPositioning;
-
-            MWC.modContext.registerRenderableItem(name, itemBackpack, FMLCommonHandler.instance().getSide() == Side.CLIENT ? RendererRegistrationHelper.registerRenderer(this) : null);
+            MWC.modContext.registerRenderableItem(name, itemBackpack, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRendererRenderer(transforms) : null);
 
             return itemBackpack;
         }
     }
 
-    public ItemBackpack(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth, ModelBiped model, String textureName) {
+    public ItemBackpack(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth, ModelBase model, String textureName) {
         super(size, validItemPredicate, guiTextureLocation, guiTextureWidth, model, textureName);
     }
 }

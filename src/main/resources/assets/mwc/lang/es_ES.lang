@@ -436,8 +436,8 @@ item.baseball_bat_nails.name=Bate de béisbol con clavos
 item.night_stick.name=Night Stick
 
 item.gas_can.name=Bidón de gasolina (PROP)
-item.mwc_wcam.name=MWC Camera
-item.mwc_tablet.name=MWC Tablet
+item.mwc_wcam.name=Camera
+item.mwc_tablet.name=Tablet
 
 
 item.mwc_M67Frag.name=Granada de fragmentación M67

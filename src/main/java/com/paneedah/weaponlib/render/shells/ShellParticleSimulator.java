@@ -10,7 +10,7 @@ import javax.vecmath.Vector3d;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ShellParticleSimulator {
 	

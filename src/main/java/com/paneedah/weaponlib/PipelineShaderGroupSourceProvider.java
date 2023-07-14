@@ -13,7 +13,7 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.UUID;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvider {
     

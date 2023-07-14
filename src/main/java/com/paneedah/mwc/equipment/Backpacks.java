@@ -7,6 +7,8 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 public class Backpacks {
 
@@ -37,6 +39,11 @@ public class Backpacks {
                         .withPosition(-0.15, -4.6, 0.35)
                         .withRotation(18, -50, 0)
                         .withScale(3.3, 3.3, 3.3)
+                        .doGLDirect())
+                .withFirstPersonModelPositioning((modelBase, itemStack) -> new Transform()
+                        .withPosition(-64, -0.20, -1.25)
+                        .withRotation(0, 0, 0)
+                        .withScale(16, 16, 16)
                         .doGLDirect())
                 .build();
 
@@ -118,6 +125,10 @@ public class Backpacks {
                 .withSize(24)
                 .withModel(new Dufflebag())
                 .withTexture("equipment/carryable/backpacks/duffle_bag")
+                .withEntityPositioning(itemStack -> new Transform()
+                        .withPosition(-0.5F, -1.9F, 0.5F)
+                        .withScale(1, 1, 1)
+                        .doGLDirect())
                 .withInventoryPositioning(itemStack -> new Transform()
                         .withPosition(-0.15, -3.65, 0.35)
                         .withRotation(18, -50, 0)

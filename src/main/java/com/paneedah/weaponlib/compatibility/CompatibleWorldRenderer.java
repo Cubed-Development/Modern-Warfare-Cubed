@@ -58,7 +58,7 @@ import java.nio.FloatBuffer;
 import java.util.List;
 import java.util.Random;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 @Deprecated

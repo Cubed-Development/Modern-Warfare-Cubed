@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib.electronics;
 
+import com.paneedah.mwc.renderer.ModelSourceTransforms;
 import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.perspective.PerspectiveRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,6 +17,19 @@ implements PlayerItemInstanceFactory<PlayerTabletInstance, TabletState>, Updatab
     private final int DEFAULT_MAX_STACK_SIZE = 1;
         
     public static final class Builder<T> extends AttachmentBuilder<T> {
+
+        {
+            transforms = ModelSourceTransforms.builder()
+                    .entityPositioning(itemStack -> new Transform()
+                            .withScale(0.3, 0.3, 0.3)
+                            .withPosition(-0.5, -0.5, 0.5)
+                            .doGLDirect())
+                    .inventoryPositioning(itemStack -> new Transform()
+                            .withScale(1, 1, 1)
+                            .withPosition(-0.24, 0.24, 0)
+                            .doGLDirect())
+                    .build();
+        }
         
         private BiConsumer<EntityLivingBase, ItemStack> viewfinderPositioning;
         

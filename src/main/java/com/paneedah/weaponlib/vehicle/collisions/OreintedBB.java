@@ -11,7 +11,7 @@ import javax.vecmath.Matrix3d;
 import javax.vecmath.Matrix3f;
 import javax.vecmath.Vector3d;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class OreintedBB {
 	

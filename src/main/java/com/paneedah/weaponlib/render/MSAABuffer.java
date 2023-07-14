@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import net.minecraft.client.renderer.OpenGlHelper;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class MSAABuffer {
 	

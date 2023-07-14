@@ -12,7 +12,7 @@ import net.minecraft.client.shader.Framebuffer;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.opengl.ARBFramebufferObject;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public abstract class Perspective<S> {
 

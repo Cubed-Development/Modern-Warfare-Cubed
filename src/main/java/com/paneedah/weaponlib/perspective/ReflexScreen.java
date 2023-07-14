@@ -34,7 +34,7 @@ import org.lwjgl.opengl.GL20;
 
 import java.util.function.BiConsumer;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ReflexScreen extends ModelBase implements CustomRenderer<RenderableState>{

@@ -22,7 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.*;
 import java.util.function.BiPredicate;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 /**
  * This class provides random utility methods.

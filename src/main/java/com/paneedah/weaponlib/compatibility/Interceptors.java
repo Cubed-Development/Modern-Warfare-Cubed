@@ -51,7 +51,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 
 public class Interceptors {

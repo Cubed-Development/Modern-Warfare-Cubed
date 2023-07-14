@@ -16,7 +16,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<State> {
     

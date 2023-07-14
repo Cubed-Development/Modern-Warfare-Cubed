@@ -10,8 +10,6 @@ import com.paneedah.weaponlib.command.BalancePackCommand;
 import com.paneedah.weaponlib.command.CraftingFileCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
-import com.paneedah.mwc.renderer.EquipmentRenderer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -23,7 +21,6 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.NAME;
@@ -39,12 +36,6 @@ import static com.paneedah.mwc.utils.ModReference.VERSION;
 //  |__/     |__/ \______/  \_______/ \_______/|__/      |__/  |__/      |__/     \__/ \_______/|__/      |__/     \_______/|__/       \_______/       \______/  \______/ |_______/  \_______/ \_______/
 @Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:redcore@[0.2,);", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/master/update.json")
 public final class MWC {
-
-    /**
-     * Static final reference to the Minecraft Client instance.
-     */
-    @SideOnly(Side.CLIENT)
-    public static final Minecraft MC = Minecraft.getMinecraft();
 
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
 
@@ -67,7 +58,7 @@ public final class MWC {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent preInitializationEvent) {
-        if (preInitializationEvent.getSide() == Side.CLIENT)
+        if (preInitializationEvent.getSide().isClient())
             MinecraftForge.EVENT_BUS.register(ClientEventHandler.class);
 
         commonProxy.preInit(this);
@@ -75,10 +66,6 @@ public final class MWC {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent initializationEvent) {
-        if (initializationEvent.getSide() == Side.CLIENT) {
-            MC.getRenderManager().getSkinMap().forEach((model, playerRenderer) -> playerRenderer.addLayer(new EquipmentRenderer(playerRenderer)));
-        }
-
         MWCRecipes.register();
         commonProxy.init(this);
     }

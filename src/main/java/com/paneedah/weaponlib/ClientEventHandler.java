@@ -58,7 +58,7 @@ import java.util.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
@@ -476,15 +476,15 @@ public class ClientEventHandler {
             if(vestStack != null) {
                 compatibility.renderItem(preRenderPlayerEvent.getPlayer(), vestStack);
                 IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(vestStack, null);
-                if(customRenderer instanceof StaticModelSourceRenderer) {
-                    ((StaticModelSourceRenderer) customRenderer).renderCustomEquipped(preRenderPlayerEvent.getPlayer(), vestStack);
+                if(customRenderer instanceof StaticModelSourceRendererRenderer) {
+                    ((StaticModelSourceRendererRenderer) customRenderer).renderCustomEquipped(preRenderPlayerEvent.getPlayer(), vestStack);
                 }
             }
             ItemStack backpackStack = capability.getStackInSlot(0); // TODO: replace 0 with constant for backpack slot
             if(backpackStack != null) {
                 IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(backpackStack, null);
-                if(customRenderer instanceof StaticModelSourceRenderer) {
-                    ((StaticModelSourceRenderer) customRenderer).renderCustomEquipped(preRenderPlayerEvent.getPlayer(), backpackStack);
+                if(customRenderer instanceof StaticModelSourceRendererRenderer) {
+                    ((StaticModelSourceRendererRenderer) customRenderer).renderCustomEquipped(preRenderPlayerEvent.getPlayer(), backpackStack);
                 }
                 compatibility.renderItem(preRenderPlayerEvent.getPlayer(), backpackStack);
             }

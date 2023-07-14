@@ -53,7 +53,7 @@ configurations {
 repositories {
     maven {
         name 'Cleanroom'
-        url 'https://maven.cleanroomMC.com'
+        url 'https://maven.cleanroommc.com'
     }
 
     ivy {
@@ -92,12 +92,12 @@ def at = project.files("src/main/resources/META-INF/${project.id}_at.cfg")
 tasks.deobfuscateMergedJarToSrg.accessTransformerFiles.from(at)
 tasks.srgifyBinpatchedJar.accessTransformerFiles.from(at)
 
-// Replace version and id in `MCmod.info`
+// Replace version and id in `mcmod.info`
 processResources {
     inputs.property 'id', project.id
     inputs.property 'version', project.version
-    filesMatching(['MCmod.info', 'pack.MCmeta']) { fcd ->
-        include 'MCmod.info'
+    filesMatching(['mcmod.info', 'pack.mcmeta']) { fcd ->
+        include 'mcmod.info'
         fcd.expand (
                 'id': project.id,
                 'version': project.version

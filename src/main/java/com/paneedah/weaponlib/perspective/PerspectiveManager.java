@@ -6,7 +6,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import com.paneedah.weaponlib.compatibility.MWCParticleManager;
 import net.minecraft.client.multiplayer.WorldClient;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class PerspectiveManager {

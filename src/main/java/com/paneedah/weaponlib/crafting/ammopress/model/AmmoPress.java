@@ -12,7 +12,7 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.Arrays;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 // Made with Blockbench 4.3.1

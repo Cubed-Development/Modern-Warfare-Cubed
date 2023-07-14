@@ -80,8 +80,11 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Renamed `Armor` creative tab to `Equipment`
 - Renamed `Ammunition` creative tab to `Ammunition & Magazines`
 - Renamed `Grenades` creative tab to `Throwables`
+- Renamed `MWC Camera` and `MWC Tablet` to `Camera` and `Tablet`
+- When a thrown camera hits the ground it now only drops the camera item if the thrower is not in creative mode
 - Merged the Gadget creative tab into the `Equipment` creative tab
 - Debug commands are now only accessible to oped players (Oped of level 4)
+- Rewritten the rendering system, items are now positions correctly everywhere
 
 ### Fixed
 

@@ -5,7 +5,7 @@ import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class FirstPersonPerspective<S> extends Perspective<S> {
 

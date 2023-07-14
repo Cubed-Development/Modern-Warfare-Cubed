@@ -15,7 +15,7 @@ import org.lwjgl.input.Mouse;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 class ClientWeaponTicker extends Thread {
 

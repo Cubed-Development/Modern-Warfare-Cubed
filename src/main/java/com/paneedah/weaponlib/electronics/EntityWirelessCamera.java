@@ -95,9 +95,9 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
         }
 
         if (!world.isRemote) {
-            if(!hit) {
+            if(!hit && (thrower instanceof EntityPlayer && !((EntityPlayer) thrower).isCreative()))
                 dropItem(itemWirelessCamera, 1);
-            }
+
             this.setDead();
         }
     }

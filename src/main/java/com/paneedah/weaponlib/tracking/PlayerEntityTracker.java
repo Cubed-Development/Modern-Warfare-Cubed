@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import java.util.*;
 import java.util.function.Supplier;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class PlayerEntityTracker {

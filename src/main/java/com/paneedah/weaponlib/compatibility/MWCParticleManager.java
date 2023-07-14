@@ -4,7 +4,7 @@ import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.world.World;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class MWCParticleManager extends ParticleManager {
 

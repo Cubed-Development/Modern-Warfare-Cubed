@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.numerical;
 
 import com.paneedah.weaponlib.animation.MatrixHelper;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 /**
  * Simulates a spring. Used for lots of effects that intend

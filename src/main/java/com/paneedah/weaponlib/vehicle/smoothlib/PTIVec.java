@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.vehicle.smoothlib;
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import net.minecraft.util.math.Vec3d;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class PTIVec {
 	

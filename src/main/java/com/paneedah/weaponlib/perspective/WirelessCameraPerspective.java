@@ -19,7 +19,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-import static com.paneedah.mwc.MWC.MC;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
@@ -106,7 +106,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
 
         if(watchableEntity == null || watchableEntity instanceof EntityLivingBase) {
-            this.watchablePlayer = ((EntityPlayerSP) watchableEntity);
+            this.watchablePlayer.setEntityLiving((EntityLivingBase) watchableEntity);
         }
     }
 
@@ -119,7 +119,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         int maxDistance = 120;
         int displayCameraIndex = activeWatchIndex + 1;
         String message = "Cam " + displayCameraIndex + "/" + totalTrackableEntities + ": " + displayName;
-        EntityLivingBase watchableEntity = watchablePlayer;
+        EntityLivingBase watchableEntity = watchablePlayer.getEntityLiving();
         int color =  0xFFFF00;
         if(watchableEntity != null) {
             EntityPlayer origPlayer = MC.player;
