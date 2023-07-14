@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.entities.PlayerUtils;
+import com.paneedah.mwc.equipment.Armors;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
@@ -30,11 +31,17 @@ import net.minecraft.block.Block;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.settings.GameSettings;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EnumPlayerModelParts;
+import net.minecraft.init.Items;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
@@ -160,9 +167,10 @@ public class ClientEventHandler {
 			update();
 			modContext.getSyncManager().run();
 
-			PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(MC.player);
+			final PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(MC.player);
 			if(tracker != null)
 			    tracker.update();
+
 	        if (player instanceof EntityPlayerSP && player.getRidingEntity() instanceof EntityVehicle) {
 	            final EntityPlayerSP clientPlayer = (EntityPlayerSP) player;
 	            final EntityVehicle entityBoat = (EntityVehicle) clientPlayer.getRidingEntity();
@@ -171,8 +179,8 @@ public class ClientEventHandler {
 	        
 			mainLoopLock.unlock();
 			safeGlobals.objectMouseOver.set(MC.objectMouseOver);
-			if(MC.player != null) {
-				safeGlobals.currentItemIndex.set(MC.player.inventory.currentItem);
+			if(player != null) {
+				safeGlobals.currentItemIndex.set(player.inventory.currentItem);
 				//reloadAspect.updateMainHeldItem(MC.player);
 			}
 		}
@@ -263,6 +271,22 @@ public class ClientEventHandler {
 		final LightExposure lightExposure = CompatibleExposureCapability.getExposure(MC.player, LightExposure.class);
 		if (lightExposure != null)
 			lightExposure.update(MC.player);
+
+		final Item helmet = player.inventory.armorInventory.get(EntityEquipmentSlot.HEAD.getIndex()).getItem();
+		final Item chestplate = player.inventory.armorInventory.get(EntityEquipmentSlot.CHEST.getIndex()).getItem();
+		final Item legs = player.inventory.armorInventory.get(EntityEquipmentSlot.LEGS.getIndex()).getItem();
+		final Item boots = player.inventory.armorInventory.get(EntityEquipmentSlot.FEET.getIndex()).getItem();
+
+		MC.gameSettings.setModelPartEnabled(EnumPlayerModelParts.HAT, helmet == Items.AIR || !(helmet instanceof ItemArmor) || !Armors.helmets.contains(helmet));
+
+		final boolean shouldShowJacket = !(chestplate != Items.AIR && chestplate instanceof ItemArmor && Armors.chestplates.contains(chestplate));
+		MC.gameSettings.setModelPartEnabled(EnumPlayerModelParts.JACKET, shouldShowJacket);
+		MC.gameSettings.setModelPartEnabled(EnumPlayerModelParts.LEFT_SLEEVE, shouldShowJacket);
+		MC.gameSettings.setModelPartEnabled(EnumPlayerModelParts.RIGHT_SLEEVE, shouldShowJacket);
+
+		final boolean shouldShowPants = !((legs != Items.AIR && legs instanceof ItemArmor && Armors.leggings.contains(legs)) || (boots != Items.AIR && boots instanceof ItemArmor && Armors.boots.contains(boots)));
+		MC.gameSettings.setModelPartEnabled(EnumPlayerModelParts.LEFT_PANTS_LEG, shouldShowPants);
+		MC.gameSettings.setModelPartEnabled(EnumPlayerModelParts.RIGHT_PANTS_LEG, shouldShowPants);
 	}
 
 	/*@SubscribeEvent

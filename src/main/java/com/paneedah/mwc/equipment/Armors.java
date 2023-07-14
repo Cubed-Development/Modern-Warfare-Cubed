@@ -8,7 +8,16 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Armors {
+    
+    // Lists of armours
+    public static Set<Item> helmets = new HashSet<>();
+    public static Set<Item> chestplates = new HashSet<>();
+    public static Set<Item> leggings = new HashSet<>();
+    public static Set<Item> boots = new HashSet<>();
 	
 	// realistic armors
 	public static Item JPNVG18helmet;
@@ -67,163 +76,196 @@ public class Armors {
 
     public static void init(Object mod, ModContext modContext) {
         Builder marineArmorBuilder = new CustomArmor.Builder()
-    			.withMaterial(Armors.Marine)
+    			.withMaterial(Marine)
                 .withUnlocalizedName("Marine")
                 .withTextureName("USMC")
                 .withModelClass("com.paneedah.mwc.models.USMC")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.Marinehelmet = marineArmorBuilder.buildHelmet(modContext);
-        Armors.Marinechest = marineArmorBuilder.buildChest(modContext.isClient());
-        Armors.Marineboots = marineArmorBuilder.buildBoots(modContext.isClient());
+        Marinehelmet = marineArmorBuilder.buildHelmet(modContext);
+        helmets.add(Marinehelmet);
+        Marinechest = marineArmorBuilder.buildChest(modContext.isClient());
+        chestplates.add(Marinechest);
+        Marineboots = marineArmorBuilder.buildBoots(modContext.isClient());
+        boots.add(Marineboots);
         
         Builder specopsArmorBuilder = new CustomArmor.Builder()
-        		.withMaterial(Armors.Marine)
+        		.withMaterial(Marine)
                 .withUnlocalizedName("Spec_Ops")
                 .withTextureName("militaryuniformblack")
                 .withModelClass("com.paneedah.mwc.models.SpecOps")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.SpecOpshelmet = specopsArmorBuilder.buildHelmet(modContext);
-        Armors.SpecOpschest = specopsArmorBuilder.buildChest(modContext.isClient());
-        Armors.SpecOpsboots = specopsArmorBuilder.buildBoots(modContext.isClient());
+        SpecOpshelmet = specopsArmorBuilder.buildHelmet(modContext);
+        helmets.add(SpecOpshelmet);
+        SpecOpschest = specopsArmorBuilder.buildChest(modContext.isClient());
+        chestplates.add(SpecOpschest);
+        SpecOpsboots = specopsArmorBuilder.buildBoots(modContext.isClient());
+        boots.add(SpecOpsboots);
         
         Builder spetznazArmorBuilder = new CustomArmor.Builder()
-        		.withMaterial(Armors.Marine)
+        		.withMaterial(Marine)
                 .withCreativeTab(MWC.EQUIPMENT_TAB)
                 .withUnlocalizedName("Spetznaz")
                 .withTextureName("militaryuniformforest")
                 .withModelClass("com.paneedah.mwc.models.USMC")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.Spetznazhelmet = spetznazArmorBuilder.buildHelmet(modContext);
-        Armors.Spetznazchest = spetznazArmorBuilder.buildChest(modContext.isClient());
-        Armors.Spetznazboots = spetznazArmorBuilder.buildBoots(modContext.isClient());
+        Spetznazhelmet = spetznazArmorBuilder.buildHelmet(modContext);
+        helmets.add(Spetznazhelmet);
+        Spetznazchest = spetznazArmorBuilder.buildChest(modContext.isClient());
+        chestplates.add(Spetznazchest);
+        Spetznazboots = spetznazArmorBuilder.buildBoots(modContext.isClient());
+        boots.add(Spetznazboots);
         
         Builder urbanArmorBuilder = new CustomArmor.Builder()
-        		.withMaterial(Armors.Marine)
+        		.withMaterial(Marine)
                 .withCreativeTab(MWC.EQUIPMENT_TAB)
                 .withUnlocalizedName("Urban")
                 .withTextureName("militaryuniformurban")
                 .withModelClass("com.paneedah.mwc.models.USMC")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.Urbanhelmet = urbanArmorBuilder.buildHelmet(modContext);
-        Armors.Urbanchest = urbanArmorBuilder.buildChest(modContext.isClient());
-        Armors.Urbanboots = urbanArmorBuilder.buildBoots(modContext.isClient());
+        Urbanhelmet = urbanArmorBuilder.buildHelmet(modContext);
+        helmets.add(Urbanhelmet);
+        Urbanchest = urbanArmorBuilder.buildChest(modContext.isClient());
+        chestplates.add(Urbanchest);
+        Urbanboots = urbanArmorBuilder.buildBoots(modContext.isClient());
+        boots.add(Urbanboots);
         
         Builder multicamoblackArmorBuilder = new CustomArmor.Builder()
-        		.withMaterial(Armors.Marine)
+        		.withMaterial(Marine)
                 .withCreativeTab(MWC.EQUIPMENT_TAB)
                 .withUnlocalizedName("blackcamo")
                 .withTextureName("multicamoblackshirt")
                 .withModelClass("com.paneedah.mwc.models.MultiCamoBlackShirt")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.Blackcamochest = multicamoblackArmorBuilder.buildChest(modContext.isClient());
+        Blackcamochest = multicamoblackArmorBuilder.buildChest(modContext.isClient());
+        chestplates.add(Blackcamochest);
         
         Builder forestArmorBuilder = new CustomArmor.Builder()
-        		.withMaterial(Armors.Marine)
+        		.withMaterial(Marine)
                 .withCreativeTab(MWC.EQUIPMENT_TAB)
                 .withUnlocalizedName("forest")
                 .withTextureName("militaryshirtforest")
                 .withModelClass("com.paneedah.mwc.models.MultiCamoBlackShirt")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.Forestchest = forestArmorBuilder.buildChest(modContext.isClient());
+        Forestchest = forestArmorBuilder.buildChest(modContext.isClient());
+        chestplates.add(Forestchest);
         
         Builder blackjeansArmorBuilder = new CustomArmor.Builder()
-        		.withMaterial(Armors.Marine)
+        		.withMaterial(Marine)
                 .withCreativeTab(MWC.EQUIPMENT_TAB)
                 .withUnlocalizedName("blackjeans")
                 .withTextureName("blackjeans")
                 .withModelClass("com.paneedah.mwc.models.Jeans")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.BlackJeansboots = blackjeansArmorBuilder.buildBoots(modContext.isClient());
+        BlackJeansboots = blackjeansArmorBuilder.buildBoots(modContext.isClient());
+        boots.add(BlackJeansboots);
         
         Builder khakijeansArmorBuilder = new CustomArmor.Builder()
-        		.withMaterial(Armors.Marine)
+        		.withMaterial(Marine)
                 .withCreativeTab(MWC.EQUIPMENT_TAB)
                 .withUnlocalizedName("khakijeans")
                 .withTextureName("khakijeans")
                 .withModelClass("com.paneedah.mwc.models.Jeans")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.KhakiJeansboots = khakijeansArmorBuilder.buildBoots(modContext.isClient());
+        KhakiJeansboots = khakijeansArmorBuilder.buildBoots(modContext.isClient());
+        boots.add(KhakiJeansboots);
         
         Builder santaArmorBuilder = new CustomArmor.Builder()
-        		.withMaterial(Armors.Marine)
+        		.withMaterial(Marine)
                 .withUnlocalizedName("Santa")
                 .withTextureName("santasuit_normal")
                 .withModelClass("com.paneedah.mwc.models.SantasuitNormal")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.Santahelmet = santaArmorBuilder.buildHelmet(modContext);
-        Armors.Santachest = santaArmorBuilder.buildChest(modContext.isClient());
-        Armors.Santaboots = santaArmorBuilder.buildBoots(modContext.isClient());
+        Santahelmet = santaArmorBuilder.buildHelmet(modContext);
+        helmets.add(Santahelmet);
+        Santachest = santaArmorBuilder.buildChest(modContext.isClient());
+        chestplates.add(Santachest);
+        Santaboots = santaArmorBuilder.buildBoots(modContext.isClient());
+        boots.add(Santaboots);
         
-        Builder nazisantaArmorBuilder = new CustomArmor.Builder().withMaterial(Armors.Marine)
+        Builder nazisantaArmorBuilder = new CustomArmor.Builder().withMaterial(Marine)
                 .withUnlocalizedName("Nazisanta")
                 .withTextureName("santasuit_nazi")
                 .withModelClass("com.paneedah.mwc.models.SantaSuit")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.NaziSantahelmet = nazisantaArmorBuilder.buildHelmet(modContext);
-        Armors.NaziSantachest = nazisantaArmorBuilder.buildChest(modContext.isClient());
-        Armors.NaziSantaboots = nazisantaArmorBuilder.buildBoots(modContext.isClient());
+        NaziSantahelmet = nazisantaArmorBuilder.buildHelmet(modContext);
+        helmets.add(NaziSantahelmet);
+        NaziSantachest = nazisantaArmorBuilder.buildChest(modContext.isClient());
+        chestplates.add(NaziSantachest);
+        NaziSantaboots = nazisantaArmorBuilder.buildBoots(modContext.isClient());
+        boots.add(NaziSantaboots);
         
-        Builder juggernautsuitArmorBuilder = new CustomArmor.Builder().withMaterial(Armors.Juggernaut)
+        Builder juggernautsuitArmorBuilder = new CustomArmor.Builder().withMaterial(Juggernaut)
                 .withUnlocalizedName("Juggernaut")
                 .withTextureName("JuggernautSuit")
                 .withModelClass("com.paneedah.mwc.models.JuggernautSuit")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.Juggernauthelmet = juggernautsuitArmorBuilder.buildHelmet(modContext);
-        Armors.Juggernautchest = juggernautsuitArmorBuilder.buildChest(modContext.isClient());
-        Armors.Juggernautboots = juggernautsuitArmorBuilder.buildBoots(modContext.isClient());
+        Juggernauthelmet = juggernautsuitArmorBuilder.buildHelmet(modContext);
+        helmets.add(Juggernauthelmet);
+        Juggernautchest = juggernautsuitArmorBuilder.buildChest(modContext.isClient());
+        chestplates.add(Juggernautchest);
+        Juggernautboots = juggernautsuitArmorBuilder.buildBoots(modContext.isClient());
+        boots.add(Juggernautboots);
         
         Builder ghillieArmorBuilder = new CustomArmor.Builder()
-        		.withMaterial(Armors.Marine)
+        		.withMaterial(Marine)
                 .withUnlocalizedName("ghillie")
                 .withTextureName("ghillie")
                 .withModelClass("com.paneedah.mwc.models.Ghillie")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.Ghilliehelmet = ghillieArmorBuilder.buildHelmet(modContext);
-        Armors.Ghilliechest = ghillieArmorBuilder.buildChest(modContext.isClient());
-        Armors.Ghillieboots = ghillieArmorBuilder.buildBoots(modContext.isClient());
+        Ghilliehelmet = ghillieArmorBuilder.buildHelmet(modContext);
+        helmets.add(Ghilliehelmet);
+        Ghilliechest = ghillieArmorBuilder.buildChest(modContext.isClient());
+        chestplates.add(Ghilliechest);
+        Ghillieboots = ghillieArmorBuilder.buildBoots(modContext.isClient());
+        boots.add(Ghillieboots);
 
-        Builder swatArmorBuilder = new CustomArmor.Builder().withMaterial(Armors.Marine)
+        Builder swatArmorBuilder = new CustomArmor.Builder().withMaterial(Marine)
                 .withUnlocalizedName("Swat")
                 .withTextureName("Swat")
                 .withModelClass("com.paneedah.mwc.models.Swat")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.Swathelmet = swatArmorBuilder.buildHelmet(modContext);
-        Armors.Swatchest = swatArmorBuilder.buildChest(modContext.isClient());
-        Armors.Swatboots = swatArmorBuilder.buildBoots(modContext.isClient());
+        Swathelmet = swatArmorBuilder.buildHelmet(modContext);
+        helmets.add(Swathelmet);
+        Swatchest = swatArmorBuilder.buildChest(modContext.isClient());
+        chestplates.add(Swatchest);
+        Swatboots = swatArmorBuilder.buildBoots(modContext.isClient());
+        boots.add(Swatboots);
 
         Builder tacticalArmorBuilder = new CustomArmor.Builder()
-        		.withMaterial(Armors.Marine)
+        		.withMaterial(Marine)
                 .withUnlocalizedName("Tactical")
                 .withTextureName("Tactical")
                 .withModelClass("com.paneedah.mwc.models.Tactical")
                 .withNightVision(true)
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.Tacticalhelmet = tacticalArmorBuilder.buildHelmet(modContext);
+        Tacticalhelmet = tacticalArmorBuilder.buildHelmet(modContext);
+        helmets.add(Tacticalhelmet);
         
-        Builder jpnvg18ArmorBuilder = new CustomArmor.Builder().withMaterial(Armors.Marine)
+        Builder jpnvg18ArmorBuilder = new CustomArmor.Builder().withMaterial(Marine)
                 .withUnlocalizedName("JPNVG18")
                 .withTextureName("jpnvg18")
                 .withModelClass("com.paneedah.mwc.models.JPNVG18")
                 .withNightVision(true)
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.JPNVG18helmet = jpnvg18ArmorBuilder.buildHelmet(modContext);
+        JPNVG18helmet = jpnvg18ArmorBuilder.buildHelmet(modContext);
+        helmets.add(JPNVG18helmet);
 
-        Builder gasSuitArmorBuilder = new CustomArmor.Builder().withMaterial(Armors.Marine)
+        Builder gasSuitArmorBuilder = new CustomArmor.Builder().withMaterial(Marine)
                 .withUnlocalizedName("m40gasmask")
                 .withTextureName("m40gasmask")
                 .withExposureReductionFactor(0.99f)
@@ -231,6 +273,7 @@ public class Armors {
                 .withHudTextureName("goggles_overlay")
                 .withCreativeTab(MWC.EQUIPMENT_TAB);
 
-        Armors.GasMaskM40 = gasSuitArmorBuilder.buildHelmet(modContext);
+        GasMaskM40 = gasSuitArmorBuilder.buildHelmet(modContext);
+        helmets.add(GasMaskM40);
     }
 }
