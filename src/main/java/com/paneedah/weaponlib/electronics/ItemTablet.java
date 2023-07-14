@@ -11,8 +11,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.function.BiConsumer;
 
-public class ItemTablet<T> extends ItemAttachment<T> 
-implements PlayerItemInstanceFactory<PlayerTabletInstance, TabletState>, Updatable {
+public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstanceFactory<PlayerTabletInstance, TabletState>, Updatable {
     
     private final int DEFAULT_MAX_STACK_SIZE = 1;
         
@@ -59,14 +58,13 @@ implements PlayerItemInstanceFactory<PlayerTabletInstance, TabletState>, Updatab
             return super.build(modContext);
         }
     }
-    
+
     @SuppressWarnings("unused")
     private ModContext modContext;
     private Builder<T> builder;
     
     private ItemTablet(Builder<T> builder) {
-        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null,
-                null, null);
+        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null, null, null);
         this.builder = builder;
         
         setMaxStackSize(DEFAULT_MAX_STACK_SIZE);

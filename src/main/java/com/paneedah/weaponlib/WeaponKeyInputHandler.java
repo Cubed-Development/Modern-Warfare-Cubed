@@ -4,6 +4,7 @@ import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
+import com.paneedah.weaponlib.electronics.PlayerTabletInstance;
 import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.inventory.OpenCustomPlayerInventoryGuiMessage;
 import com.paneedah.weaponlib.render.ModificationGUI;
@@ -324,14 +325,29 @@ public class WeaponKeyInputHandler {
         
         else if(KeyBindings.periodKey.isPressed()) {
             PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
-            if(instance instanceof PlayerWeaponInstance && instance.getState() == WeaponState.MODIFYING 
-                    && ((PlayerWeaponInstance) instance).isAltMofificationModeEnabled()) {
+            if(instance instanceof PlayerWeaponInstance && instance.getState() == WeaponState.MODIFYING  && ((PlayerWeaponInstance) instance).isAltMofificationModeEnabled()) {
                 AttachmentCategory category = AttachmentCategory.FRONTSIGHT;
                 modContext.getAttachmentAspect().changeAttachment(category, (PlayerWeaponInstance) instance);
             }
         }*/
 
-        else if(KeyBindings.fireModeKey.isPressed()) {
+         else if (KeyBindings.leftArrowKey.isPressed()) {
+             PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
+             if (instance instanceof PlayerTabletInstance) {
+                 PlayerTabletInstance playerTabletInstance = (PlayerTabletInstance) instance;
+                 playerTabletInstance.previousActiveWatchIndex();
+             }
+         }
+
+         else if (KeyBindings.rightArrowKey.isPressed()) {
+             PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player);
+             if (instance instanceof PlayerTabletInstance) {
+                 PlayerTabletInstance playerTabletInstance = (PlayerTabletInstance) instance;
+                 playerTabletInstance.nextActiveWatchIndex();
+             }
+         }
+
+        else if (KeyBindings.fireModeKey.isPressed()) {
             PlayerWeaponInstance instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(player, PlayerWeaponInstance.class);
             if(instance != null && instance.getState() == WeaponState.READY) {
                 instance.getWeapon().changeFireMode(instance);
