@@ -1130,3 +1130,5 @@ config.rendering.enableFancyRainAndSnow.property.name=On-Screen Rain and Snow
 config.rendering.enableFancyRainAndSnow.property.tooltip=Please keep this setting DISABLED as it is currently broken.
 
 overlay.opendoor.name=Open Door
+
+death.attack.gun=%s was shot by %s using %s

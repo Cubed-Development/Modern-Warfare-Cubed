@@ -49,8 +49,7 @@ import java.util.stream.Collectors;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
-public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>,
-AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCrafting {
+public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>, AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCrafting {
 
     public enum ShellCasingEjectDirection { LEFT, RIGHT };
     
