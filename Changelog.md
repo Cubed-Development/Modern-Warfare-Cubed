@@ -39,6 +39,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - GitHub URL in `MCmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
 - Shells life go increased 1606% no performance impact in extreme cases
+- Added keybindings to switching cameras on the tablet
 
 ### Changed
 
