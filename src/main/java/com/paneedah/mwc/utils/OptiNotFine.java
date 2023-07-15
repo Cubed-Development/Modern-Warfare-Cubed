@@ -7,6 +7,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.lang.reflect.Field;
 
+import static com.paneedah.mwc.proxies.ClientProxy.mc;
 import static com.paneedah.mwc.utils.ModReference.RED_LOG;
 
 /**
@@ -68,16 +69,16 @@ public class OptiNotFine {
     }
 
     /**
-     * Disable OptiFine fast render.
+     * Disable OptiFine fast renderer.
      */
     private static void disableFastRender() {
         try {
             if (fastRenderField == null)
                 fastRenderField = Class.forName("net.minecraft.client.settings.GameSettings").getDeclaredField("ofFastRender");
 
-            fastRenderField.set(null, false);
+            fastRenderField.set(mc.gameSettings, false);
         } catch (IllegalAccessException | ClassNotFoundException | NoSuchFieldException exception) {
-            RED_LOG.printFramedError("OptiNotFine", "Could not get OptiFine shaders status.", "If shaders are enabled things might break", exception.getMessage());
+            RED_LOG.printFramedError("OptiNotFine", "Could not disable OptiFine fast renderer", "Things will break", exception.getMessage());
         }
     }
 

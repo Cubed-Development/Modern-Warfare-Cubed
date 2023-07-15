@@ -5,6 +5,7 @@ import com.paneedah.mwc.PlayerAnimations;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
 import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.utils.OptiNotFine;
 import com.paneedah.mwc.wearables.Armors;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
@@ -21,8 +22,10 @@ import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ForgeModContainer;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.relauncher.Side;
 
 public class ClientProxy extends CommonProxy {
 
@@ -110,6 +113,9 @@ public class ClientProxy extends CommonProxy {
         
         if (ForgeModContainer.allowEmissiveItems)
             ForgeModContainer.allowEmissiveItems = false;
+
+        if (OptiNotFine.isOptiFineInstalled())
+            MinecraftForge.EVENT_BUS.register(OptiNotFine.class);
     }
 
     @Override

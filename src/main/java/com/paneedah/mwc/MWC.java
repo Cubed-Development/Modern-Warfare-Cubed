@@ -61,9 +61,6 @@ public final class MWC {
 
     @EventHandler
     public void init(FMLInitializationEvent initializationEvent) {
-        if (initializationEvent.getSide() == Side.CLIENT && OptiNotFine.isOptiFineInstalled())
-            MinecraftForge.EVENT_BUS.register(OptiNotFine.class);
-
         MWCRecipes.register();
         commonProxy.init(this);
     }
