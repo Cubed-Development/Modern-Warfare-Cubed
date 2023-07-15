@@ -26,8 +26,10 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - penetrableBlocks
   - knockbackOnHi
   - hipFireSpread
-  - ammoCounterX \ ammoCounterY
-  - ammoCounterSize \ ammoCounterBackgroundReverse
+  - ammoCounterX 
+  - ammoCounterY
+  - ammoCounterSize 
+  - ammoCounterBackgroundReverse
 - Durability to all vests as a temporary measure to resolve vest-related issues
 - Smelting of sulfur into gunpowder
 - .50 AE in the Ammo Press
@@ -38,14 +40,13 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Translations for Chinese, Spanish, and Turkish languages
 - GitHub URL in `MCmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
-- Shells life go increased 1606% no performance impact in extreme cases
 - Added keybindings to switching cameras on the tablet
 
 ### Changed
 
 - Overhauled textures of AAC Honey Badger, Beowulf, HK 417, M16A1, 100rnd 5.56x45mm NATO STANAG Drum Magazine and the pink camo skin
 - Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight and Eotech Hybrid HHS™ II Sight
-- - Overhauled animations and sound effects of the M40A6 and Uzi
+- Overhauled animations and sound effects of the M40A6 and Uzi
 - You can now carry sidearms in carryable inventories
 - Reworked the config system:
   - Old XML config has been removed, and all configs have been consolidated into a new JSON config. Issues with some non-functioning configs have been resolved
@@ -76,6 +77,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - OptiFine configuration `Fast Render` is now forced to be off
 - Changed categories of some weapons
 - Magazines are created empty
+- Shells life go increased 1606% no performance impact in extreme cases
 - The position of the bullet when shooting is now centered when aiming
 - Explosive projectiles are now linked to the player who launched them meaning that the kill message will say who killed whom
 - Renamed `Armor` creative tab to `Equipment`
@@ -90,7 +92,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 ### Fixed
 
 - Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)
-- Fixed Minecraft armor making you invulnerable to bullet (less realistic but they aren't anyway lol)
+- Fixed Minecraft armor making you invulnerable to bullet (less realistic, but they aren't anyway lol)
+- Fixed soldiers and terrorists spawning with Minecraft armor
 - Fixed issue with config for bullets breaking glass being ignored
 - Fixed bullet's being able to penetrate:
   - Glass
