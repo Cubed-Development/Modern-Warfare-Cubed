@@ -714,6 +714,7 @@ public class TileEntities {
         .withName("barrier")
         .withModelClassName("com.paneedah.mwc.models.Barrier")
         .withTextureName("textures/models/barrier.png")
+        .withHardness(50)
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1.1f, 1.2f, 1f);
@@ -726,6 +727,7 @@ public class TileEntities {
         .withName("barrier_rotated")
         .withModelClassName("com.paneedah.mwc.models.Barrier")
         .withTextureName("textures/models/barrier.png")
+        .withHardness(50)
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
         	GL11.glScalef(1.1f, 1.2f, 1.1f);
