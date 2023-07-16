@@ -221,6 +221,9 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
         @Override
         public ITextComponent getDeathMessage(EntityLivingBase entityLivingBaseIn) {
+            if (this.shooter == null)
+                return new TextComponentTranslation("death.attack.gun.noshooter", entityLivingBaseIn.getDisplayName(), this.gunName);
+
             return new TextComponentTranslation("death.attack.gun", entityLivingBaseIn.getDisplayName(), this.shooter.getDisplayName(), this.gunName);
         }
     }

@@ -1132,3 +1132,4 @@ config.rendering.enableFancyRainAndSnow.property.tooltip=Please keep this settin
 overlay.opendoor.name=Open Door
 
 death.attack.gun=%s was shot by %s using %s
+death.attack.gun.noshooter=%s was shot to death using %s
