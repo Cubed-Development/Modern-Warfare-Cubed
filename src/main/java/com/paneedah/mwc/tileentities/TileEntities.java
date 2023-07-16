@@ -4,7 +4,7 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Guns;
 import com.paneedah.weaponlib.tile.CustomTileEntityBlock;
-import com.paneedah.weaponlib.tile.LootBoxConfiguration;
+import com.paneedah.weaponlib.tile.PropConfiguration;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -16,7 +16,7 @@ public class TileEntities {
     public static void init(CommonProxy commonProxy) {
     	new TurretBaseFactory().createTileEntity(MWC.modContext);
 
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("weapons_case")
         .withModelClassName("com.paneedah.mwc.models.GunCase")
@@ -50,7 +50,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("weapons_case_small")
         .withModelClassName("com.paneedah.mwc.models.GunCaseSmall")
@@ -84,7 +84,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("russian_weapons_case")
         .withModelClassName("com.paneedah.mwc.models.MilitaryCrate")
@@ -118,7 +118,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("ammo_box")
         .withModelClassName("com.paneedah.mwc.models.Ammobox1")
@@ -152,7 +152,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("weapons_locker")
         .withModelClassName("com.paneedah.mwc.models.GunRack")
@@ -165,7 +165,7 @@ public class TileEntities {
         .build(MWC.modContext);
         
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("fridge_open")
         .withModelClassName("com.paneedah.mwc.models.FridgeOpen")
@@ -199,7 +199,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("fridge_closed")
         .withModelClassName("com.paneedah.mwc.models.FridgeClosed")
@@ -233,7 +233,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("artillery_PROP")
         .withModelClassName("com.paneedah.mwc.models.ArtilleryProp20")
@@ -246,7 +246,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("supply_drop")
         .withModelClassName("com.paneedah.mwc.models.SupplyDrop")
@@ -259,7 +259,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("medical_crate")
         .withModelClassName("com.paneedah.mwc.models.MedicalCrate")
@@ -271,7 +271,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("locker")
         .withModelClassName("com.paneedah.mwc.models.Locker")
@@ -305,7 +305,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("scp_locker")
         .withModelClassName("com.paneedah.mwc.models.SCPLocker")
@@ -341,7 +341,7 @@ public class TileEntities {
         .build(MWC.modContext);
         
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("barrel")
         .withModelClassName("com.paneedah.mwc.models.Barrel")
@@ -353,7 +353,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("explosive_barrel")
         .withModelClassName("com.paneedah.mwc.models.Barrel")
@@ -365,7 +365,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("pc")
         .withModelClassName("com.paneedah.mwc.models.PC")
@@ -377,7 +377,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("laptop")
         .withModelClassName("com.paneedah.mwc.models.Laptop")
@@ -389,7 +389,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("monitor")
         .withModelClassName("com.paneedah.mwc.models.Monitor")
@@ -401,7 +401,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("filingcabinet")
         .withModelClassName("com.paneedah.mwc.models.FilingCabinet")
@@ -414,7 +414,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("filingcabinet_opened")
         .withModelClassName("com.paneedah.mwc.models.FilingCabinetOpened")
@@ -427,7 +427,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("shelf_right")
         .withModelClassName("com.paneedah.mwc.models.ShelfRight")
@@ -440,7 +440,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("shelf_left")
         .withModelClassName("com.paneedah.mwc.models.ShelfLeft")
@@ -453,7 +453,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("shelf_top")
         .withModelClassName("com.paneedah.mwc.models.ShelfTop")
@@ -488,7 +488,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("tv")
         .withModelClassName("com.paneedah.mwc.models.TV")
@@ -501,7 +501,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("ceiling_tv")
         .withModelClassName("com.paneedah.mwc.models.CeilingTV")
@@ -514,7 +514,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("ceiling_tv_rotated")
         .withModelClassName("com.paneedah.mwc.models.CeilingTV")
@@ -527,7 +527,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("office_chair")
         .withModelClassName("com.paneedah.mwc.models.OfficeChair2")
@@ -540,7 +540,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("office_chair_2")
         .withModelClassName("com.paneedah.mwc.models.OfficeChair")
@@ -553,7 +553,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_corner")
         .withModelClassName("com.paneedah.mwc.models.DeskCorner")
@@ -566,7 +566,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_corner_alt1")
         .withModelClassName("com.paneedah.mwc.models.DeskCornerAlt1")
@@ -579,7 +579,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_left")
         .withModelClassName("com.paneedah.mwc.models.DeskLeft")
@@ -592,7 +592,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_left_alt1")
         .withModelClassName("com.paneedah.mwc.models.DeskLeftAlt1")
@@ -605,7 +605,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_middle")
         .withModelClassName("com.paneedah.mwc.models.DeskMiddle")
@@ -618,7 +618,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_middle_alt1")
         .withModelClassName("com.paneedah.mwc.models.DeskMiddleAlt1")
@@ -631,7 +631,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_right")
         .withModelClassName("com.paneedah.mwc.models.DeskRight")
@@ -644,7 +644,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_right_alt1")
         .withModelClassName("com.paneedah.mwc.models.DeskRightAlt1")
@@ -657,7 +657,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_shelf")
         .withModelClassName("com.paneedah.mwc.models.DeskShelf")
@@ -670,7 +670,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_shelf_alt1")
         .withModelClassName("com.paneedah.mwc.models.DeskShelfAlt1")
@@ -683,7 +683,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_shelf_alt2")
         .withModelClassName("com.paneedah.mwc.models.DeskShelfAlt2")
@@ -696,7 +696,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_shelf_alt3")
         .withModelClassName("com.paneedah.mwc.models.DeskShelfAlt4")
@@ -709,7 +709,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("barrier")
         .withModelClassName("com.paneedah.mwc.models.Barrier")
@@ -721,7 +721,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("barrier_rotated")
         .withModelClassName("com.paneedah.mwc.models.Barrier")
@@ -734,7 +734,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("body_bag")
         .withModelClassName("com.paneedah.mwc.models.BodyBag")
@@ -747,7 +747,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("hanging_body")
         .withModelClassName("com.paneedah.mwc.models.HangingBody")
@@ -760,7 +760,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("impaled_body")
         .withModelClassName("com.paneedah.mwc.models.ImpaledBody")
@@ -773,7 +773,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("dumpster")
         .withModelClassName("com.paneedah.mwc.models.Dumpster")
@@ -809,7 +809,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("wooden_crate")
         .withModelClassName("com.paneedah.mwc.models.WoodenCrate")
@@ -822,7 +822,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("wooden_crate_opened")
         .withModelClassName("com.paneedah.mwc.models.WoodenCrateOpened")
@@ -835,7 +835,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("operating_table")
         .withModelClassName("com.paneedah.mwc.models.OperatingTable")
@@ -848,7 +848,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("operating_table_alt")
         .withModelClassName("com.paneedah.mwc.models.OperatingTableAlt")
@@ -861,7 +861,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("forklift")
         .withModelClassName("com.paneedah.mwc.models.Forklift")
@@ -874,7 +874,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("forklift_alt")
         .withModelClassName("com.paneedah.mwc.models.ForkLiftAlt")
@@ -887,7 +887,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("trusses")
         .withModelClassName("com.paneedah.mwc.models.Trusses")
@@ -900,7 +900,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("ceiling_lamp")
         .withModelClassName("com.paneedah.mwc.models.CeilingLamp")
@@ -913,7 +913,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("ceiling_lamp_alt")
         .withModelClassName("com.paneedah.mwc.models.CeilingLampAlt")
@@ -926,7 +926,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent")
         .withModelClassName("com.paneedah.mwc.models.Vent")
@@ -939,7 +939,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_rotated")
         .withModelClassName("com.paneedah.mwc.models.Vent")
@@ -952,7 +952,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_corner")
         .withModelClassName("com.paneedah.mwc.models.VentCorner")
@@ -965,7 +965,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_corner_rotated")
         .withModelClassName("com.paneedah.mwc.models.VentCorner")
@@ -978,7 +978,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
 
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_corner_rotated_alt")
         .withModelClassName("com.paneedah.mwc.models.VentCorner")
@@ -991,7 +991,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_intersection")
         .withModelClassName("com.paneedah.mwc.models.VentIntersection")
@@ -1004,7 +1004,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_end")
         .withModelClassName("com.paneedah.mwc.models.VentEnd")
@@ -1017,7 +1017,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("white_desk_left")
         .withModelClassName("com.paneedah.mwc.models.WhiteDeskLeft")
@@ -1030,7 +1030,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("white_desk_middle")
         .withModelClassName("com.paneedah.mwc.models.WhiteDeskMiddle")
@@ -1043,7 +1043,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("white_desk_right")
         .withModelClassName("com.paneedah.mwc.models.WhiteDeskRight")
@@ -1056,7 +1056,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("trash_bin")
         .withModelClassName("com.paneedah.mwc.models.TrashBin")
@@ -1069,7 +1069,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("caution_sign")
         .withModelClassName("com.paneedah.mwc.models.CautionSign")
@@ -1082,7 +1082,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("electric_box")
         .withModelClassName("com.paneedah.mwc.models.ElectricBox")
@@ -1095,7 +1095,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("electric_box_opened")
         .withModelClassName("com.paneedah.mwc.models.ElectricBoxOpened")
@@ -1108,7 +1108,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("home_chair")
         .withModelClassName("com.paneedah.mwc.models.HomeChair")
@@ -1121,7 +1121,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("outdoor_chair")
         .withModelClassName("com.paneedah.mwc.models.OutdoorChair")
@@ -1134,7 +1134,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("home_chair_rotated")
         .withModelClassName("com.paneedah.mwc.models.HomeChair")
@@ -1147,7 +1147,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("outdoor_chair_rotated")
         .withModelClassName("com.paneedah.mwc.models.OutdoorChair")
@@ -1160,7 +1160,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("vending_machine")
         .withModelClassName("com.paneedah.mwc.models.VendingMachine")
@@ -1195,7 +1195,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("ServerRackLeft")
         .withModelClassName("com.paneedah.mwc.models.ServerRackLeft")
@@ -1208,7 +1208,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("ServerRackEmptyLeft")
         .withModelClassName("com.paneedah.mwc.models.ServerRackEmptyLeft")
@@ -1221,7 +1221,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("ServerRackLeftAlt")
         .withModelClassName("com.paneedah.mwc.models.ServerRackLeftAlt")
@@ -1234,7 +1234,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("ServerRackLeftAlt2")
         .withModelClassName("com.paneedah.mwc.models.ServerRackLeftAlt2")
@@ -1247,7 +1247,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("ServerRackLeftAlt3")
         .withModelClassName("com.paneedah.mwc.models.ServerRackLeftAlt3")
@@ -1260,7 +1260,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("ServerRackEmptyRight")
         .withModelClassName("com.paneedah.mwc.models.ServerRackEmptyRight")
@@ -1273,7 +1273,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("ServerRackRight")
         .withModelClassName("com.paneedah.mwc.models.ServerRackRight")
@@ -1286,7 +1286,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("ServerRackRightAlt")
         .withModelClassName("com.paneedah.mwc.models.ServerRackRightAlt")
@@ -1299,7 +1299,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("ServerRackTopLeft")
         .withModelClassName("com.paneedah.mwc.models.ServerRackTop")
@@ -1334,7 +1334,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("ServerRackTopRight")
         .withModelClassName("com.paneedah.mwc.models.ServerRackTopRight")
@@ -1369,7 +1369,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("DuelFloodLight")
         .withModelClassName("com.paneedah.mwc.models.DuelFloodLight")
@@ -1403,7 +1403,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("FloodLight")
         .withModelClassName("com.paneedah.mwc.models.Floodlight")
@@ -1437,7 +1437,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("Radio_rotated")
         .withModelClassName("com.paneedah.mwc.models.Radio")
@@ -1450,7 +1450,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("Radio")
         .withModelClassName("com.paneedah.mwc.models.Radio")
@@ -1484,7 +1484,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("camera_rotated")
         .withModelClassName("com.paneedah.mwc.models.Camera")
@@ -1497,7 +1497,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("propanetank")
         .withModelClassName("com.paneedah.mwc.models.PropaneTank")
@@ -1510,7 +1510,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("towablefloodlight")
         .withModelClassName("com.paneedah.mwc.models.TowableFloodLight")
@@ -1523,7 +1523,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.SAND)
         .withName("sandbag")
         .withModelClassName("com.paneedah.mwc.models.Sandbag")
@@ -1558,7 +1558,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.SAND)
         .withName("sandbagwall")
         .withModelClassName("com.paneedah.mwc.models.SandbagWall")
@@ -1571,7 +1571,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("crossgravestone")
         .withModelClassName("com.paneedah.mwc.models.CrossGravestone")
@@ -1584,7 +1584,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
 
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("crossgravestone2")
         .withModelClassName("com.paneedah.mwc.models.CrossGravestone2")
@@ -1597,7 +1597,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("crossgravestone3")
         .withModelClassName("com.paneedah.mwc.models.CrossGravestone3")
@@ -1610,7 +1610,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("gravestoneskull")
         .withModelClassName("com.paneedah.mwc.models.GravestoneSkull")
@@ -1623,7 +1623,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.ROCK)
         .withName("gravestone")
         .withModelClassName("com.paneedah.mwc.models.Gravestone")
@@ -1636,7 +1636,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.WOOD)
         .withName("scarecrow")
         .withModelClassName("com.paneedah.mwc.models.Scarecrow")
@@ -1650,7 +1650,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.CLOTH)
         .withName("spookyghost")
         .withModelClassName("com.paneedah.mwc.models.SpookyGhost")
@@ -1663,7 +1663,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.CLOTH)
         .withName("spookyghost2")
         .withModelClassName("com.paneedah.mwc.models.SpookyGhost")
@@ -1676,7 +1676,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.CLOTH)
         .withName("spookyghost3")
         .withModelClassName("com.paneedah.mwc.models.SpookyGhost")
@@ -1689,7 +1689,7 @@ public class TileEntities {
         })
         .build(MWC.modContext);
         
-        new LootBoxConfiguration()
+        new PropConfiguration()
         .withMaterial(Material.IRON)
         .withName("swat_truck")
         .withModelClassName("com.paneedah.mwc.models.SwatTruck")
