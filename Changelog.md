@@ -105,7 +105,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - SCP Locker
   - Dumpster
   - Sandbag
-  - Duel Floodlight
+  - Duel and Single Floodlight
+  - Shelf Top
+  - Server Rack Top
 
 ### Removed
 
@@ -115,6 +117,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Removed most of the compatibility layer
 - Removed FXAA
 - Removed Bloom
+- Deleted broken Hescobastion and UMP45GFL props  
 
 ### Optimization
 
