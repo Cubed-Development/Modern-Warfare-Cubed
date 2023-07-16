@@ -37,6 +37,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - GitHub URL in `mcmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
 - Shells life got increased to 1606 with no performance impact in extreme cases
+- Custom Death Messages when shot with a gun
 
 ### Changed
 
