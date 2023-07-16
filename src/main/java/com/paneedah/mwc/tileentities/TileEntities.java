@@ -459,6 +459,28 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.ShelfTop")
         .withTextureName("textures/models/shelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1283,6 +1305,28 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.ServerRackTop")
         .withTextureName("textures/models/serverrackleft.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1296,6 +1340,28 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.ServerRackTopRight")
         .withTextureName("textures/models/serverrackleft.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1343,6 +1409,28 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.Floodlight")
         .withTextureName("textures/models/floodlight.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.9f, 0.9f, 0.9f);
             GL11.glTranslatef(0.6f, 0.175f, 0.6f);
@@ -1437,23 +1525,11 @@ public class TileEntities {
         
         new LootBoxConfiguration()
         .withMaterial(Material.SAND)
-        .withName("hescobastion")
-        .withModelClassName("com.paneedah.mwc.models.HescoBastion")
-        .withTextureName("textures/models/hescobastion.png")
-        .withCreativeTab(MWC.PROPS_TAB)
-        .withPositioning(tileEntity -> {
-            GL11.glScalef(1f, 1f, 1f);
-            GL11.glTranslatef(0.5f, 0f, 0.5f);
-        })
-        .build(MWC.modContext);
-        
-        new LootBoxConfiguration()
-        .withMaterial(Material.SAND)
         .withName("sandbag")
         .withModelClassName("com.paneedah.mwc.models.Sandbag")
         .withTextureName("textures/models/sandbag.png")
         .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
+        .withBoundingBox(
         		blockState -> {
         			AxisAlignedBB boundingBox = null;
         			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
@@ -1622,19 +1698,6 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
             GL11.glScalef(1.5f, 1.5f, 1.5f);
             GL11.glTranslatef(0.3f, -0.45f, -1f);
-        })
-        .build(MWC.modContext);
-        
-        new LootBoxConfiguration()
-        .withMaterial(Material.ROCK)
-        .withName("ump45_gfl")
-        .withModelClassName("com.paneedah.mwc.models.UMP45GFL")
-        .withTextureName("textures/models/ump45gfl.png")
-        .withCreativeTab(MWC.PROPS_TAB)
-        .withBoundingBox(0.3, 0, 0.3, 0.7, 1, 0.7)
-        .withPositioning(tileEntity -> {
-            GL11.glScalef(0.5f, 0.5f, 0.5f);
-            GL11.glTranslatef(1f, 1.5f, 1f);
         })
         .build(MWC.modContext);
         }
