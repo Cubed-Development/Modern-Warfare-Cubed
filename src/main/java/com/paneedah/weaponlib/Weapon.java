@@ -1309,7 +1309,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return builder.ejectSpentRoundRequired;
     }
 
-    List<ItemMagazine> getCompatibleMagazines() {
+    public List<ItemMagazine> getCompatibleMagazines() {
         return builder.compatibleAttachments.keySet().stream()
                 .filter(a -> a instanceof ItemMagazine)
                 .map(a -> (ItemMagazine)a)
@@ -1320,7 +1320,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return builder.renderer;
     }
 
-    List<ItemAttachment<Weapon>> getCompatibleAttachments(Class<? extends ItemAttachment<Weapon>> target) {
+    public List<ItemAttachment<Weapon>> getCompatibleAttachments(Class<? extends ItemAttachment<Weapon>> target) {
         return builder.compatibleAttachments.entrySet().stream()
                 .filter(e -> target.isInstance(e.getKey()))
                 .map(e -> e.getKey())
