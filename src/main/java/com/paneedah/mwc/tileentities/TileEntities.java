@@ -1612,18 +1612,5 @@ public class TileEntities {
             GL11.glTranslatef(0.3f, -0.45f, -1f);
         })
         .build(MWC.modContext);
-        
-        new LootBoxConfiguration()
-        .withMaterial(Material.ROCK)
-        .withName("ump45_gfl")
-        .withModelClassName("com.paneedah.mwc.models.UMP45GFL")
-        .withTextureName("textures/models/ump45gfl.png")
-        .withCreativeTab(MWC.PROPS_TAB)
-        .withBoundingBox(0.3, 0, 0.3, 0.7, 1, 0.7)
-        .withPositioning(tileEntity -> {
-            GL11.glScalef(0.5f, 0.5f, 0.5f);
-            GL11.glTranslatef(1f, 1.5f, 1f);
-        })
-        .build(MWC.modContext);
         }
 }
