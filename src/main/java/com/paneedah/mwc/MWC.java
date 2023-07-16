@@ -4,12 +4,12 @@ import com.paneedah.mwc.creativetab.*;
 import com.paneedah.mwc.handlers.ClientEventHandler;
 import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.utils.OptiNotFine;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.command.BalancePackCommand;
 import com.paneedah.weaponlib.command.CraftingFileCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
+import io.redstudioragnarok.redcore.RedCore;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -21,6 +21,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.NAME;
@@ -73,9 +74,12 @@ public final class MWC {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent postInitializationEvent) {
         commonProxy.postInit(this, postInitializationEvent);
+    }
 
-        if (postInitializationEvent.getSide() == Side.CLIENT && OptiNotFine.isOptiFineInstalled())
-            MinecraftForge.EVENT_BUS.register(OptiNotFine.class);
+    @Mod.EventHandler
+    @SideOnly(Side.CLIENT)
+    public void postInitClient(FMLPostInitializationEvent postInitializationEvent) {
+        RedCore.forceOptiFineFastRenderOff();
     }
 
     @Mod.EventHandler

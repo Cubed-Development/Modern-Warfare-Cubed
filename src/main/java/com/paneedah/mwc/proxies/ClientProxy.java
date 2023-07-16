@@ -15,6 +15,7 @@ import com.paneedah.weaponlib.inventory.BackpackInventoryTab;
 import com.paneedah.weaponlib.inventory.CustomPlayerInventoryTab;
 import com.paneedah.weaponlib.inventory.InventoryTabs;
 import com.paneedah.weaponlib.inventory.StandardPlayerInventoryTab;
+import io.redstudioragnarok.redcore.RedCore;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
