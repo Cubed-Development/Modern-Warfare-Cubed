@@ -1151,9 +1151,9 @@ tile.ammo_press.name=子弹压制器
 
 itemGroup.weapons=武器
 itemGroup.props=传染主题道具 (仅创造)
-itemGroup.ammunitionAndMagazines=弹药和杂志
+itemGroup.ammunitionAndMagazines=弹药与弹匣
 itemGroup.attachments=配件
-itemGroup.equipment=设备
+itemGroup.equipment=护具
 itemGroup.throwables=投掷物
 itemGroup.blocksAndIngots=方块&锭
 
