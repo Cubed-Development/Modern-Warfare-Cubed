@@ -1437,18 +1437,6 @@ public class TileEntities {
         
         new LootBoxConfiguration()
         .withMaterial(Material.SAND)
-        .withName("hescobastion")
-        .withModelClassName("com.paneedah.mwc.models.HescoBastion")
-        .withTextureName("textures/models/hescobastion.png")
-        .withCreativeTab(MWC.PROPS_TAB)
-        .withPositioning(tileEntity -> {
-            GL11.glScalef(1f, 1f, 1f);
-            GL11.glTranslatef(0.5f, 0f, 0.5f);
-        })
-        .build(MWC.modContext);
-        
-        new LootBoxConfiguration()
-        .withMaterial(Material.SAND)
         .withName("sandbag")
         .withModelClassName("com.paneedah.mwc.models.Sandbag")
         .withTextureName("textures/models/sandbag.png")
