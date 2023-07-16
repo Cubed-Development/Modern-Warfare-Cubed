@@ -105,7 +105,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - SCP Locker
   - Dumpster
   - Sandbag
-  - Duel and Single Floodlight
+  - Duel Floodlight
+  - Single Floodlight
   - Shelf Top
   - Server Rack Top
 
