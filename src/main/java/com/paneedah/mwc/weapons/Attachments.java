@@ -209,10 +209,15 @@ public class Attachments {
     
     public static ItemAttachment<Weapon> ACRHandGuard;
     public static ItemAttachment<Weapon> ACRHandGuardBlack;
+    public static ItemAttachment<Weapon> ACRWEMSKHandGuard;
     public static ItemAttachment<Weapon> ACRWEMSKHandGuardTan;
+    public static ItemAttachment<Weapon> ACRPrecisionHandGuard;
     public static ItemAttachment<Weapon> ACRPrecisionHandGuardTan;
+    public static ItemAttachment<Weapon> ACRSBRHandGuard;
     public static ItemAttachment<Weapon> ACRSBRHandGuardTan;
+    public static ItemAttachment<Weapon> ACRPolymerHandGuard;
     public static ItemAttachment<Weapon> ACRPolymerHandGuardTan;
+    public static ItemAttachment<Weapon> ACRSquareDropHandguard;
     public static ItemAttachment<Weapon> ACRSquareDropHandguardTan;
     
     public static ItemAttachment<Weapon> Type20Handguard;
@@ -344,7 +349,9 @@ public class Attachments {
     
     public static ItemAttachment<Weapon> ACRStock;
     public static ItemAttachment<Weapon> ACRStockBlack;
+    public static ItemAttachment<Weapon> ACRPRSStock;
     public static ItemAttachment<Weapon> ACRPRSStockTan;
+    public static ItemAttachment<Weapon> ACRFixedStock;
     public static ItemAttachment<Weapon> ACRFixedStockTan;
     public static ItemAttachment<Weapon> ACRLongRangeStock;
     public static ItemAttachment<Weapon> ACRPDWStock;
@@ -1923,9 +1930,9 @@ public class Attachments {
         ACRHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.ACRHandGuard(), "acr.png")
-                .withModel(new com.paneedah.mwc.models.AKRail(), "acrrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail2(), "acrrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail3(), "acrrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "acrsbrhandguardtan.png")
+                .withModel(new com.paneedah.mwc.models.AKRail2(), "acrsbrhandguardtan.png")
+                .withModel(new com.paneedah.mwc.models.AKRail3(), "acrsbrhandguardtan.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
@@ -2002,10 +2009,50 @@ public class Attachments {
                 })
                 .withName("ACRHandGuardBlack").withTextureName("Dummy.png")
                 .build(MWC.modContext);
+        
+        ACRWEMSKHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withModel(new com.paneedah.mwc.models.ACRWEMSKHandguard(), "ACRWEMSKHandguard.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
+                .withModernRecipe(
+                    	CraftingGroup.ATTACHMENT_MODIFICATION,
+                    	new CraftingEntry(MWCItems.gunmetalIngot, 2),
+                    	new CraftingEntry(MWCItems.steelIngot, 1))
+                .withInventoryModelPositioning((model, s) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRWEMSKHandguard) {
+                        GL11.glTranslatef(-0.6F, 0.5F, -1.3F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRWEMSKHandguard) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
 
+                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRWEMSKHandguard) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("ACRWEMSKHandguard").withTextureName("Dummy.png")
+                .build(MWC.modContext);
+        
         ACRWEMSKHandGuardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.ACRWEMSKHandguard(), "acr.png")
+                .withModel(new com.paneedah.mwc.models.ACRWEMSKHandguard(), "ACRWEMSKHandguardtan.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
@@ -2041,10 +2088,48 @@ public class Attachments {
                 })
                 .withName("ACRWEMSKHandguardTan").withTextureName("Dummy.png")
                 .build(MWC.modContext);
+        
+        ACRPrecisionHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withModel(new com.paneedah.mwc.models.ACRPrecisionHandguard(), "ACRPrecisionHandGuard.png")
+                .withModernRecipe(
+                    	CraftingGroup.ATTACHMENT_MODIFICATION,
+                    	new CraftingEntry(MWCItems.gunmetalIngot, 3))
+                .withInventoryModelPositioning((model, s) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRPrecisionHandguard) {
+                        GL11.glTranslatef(-0.6F, 0.5F, -1.6F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRPrecisionHandguard) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
 
+                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRPrecisionHandguard) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("ACRPrecisionHandGuard").withTextureName("Dummy.png")
+                .build(MWC.modContext);
+        
         ACRPrecisionHandGuardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.ACRPrecisionHandguard(), "acr.png")
+                .withModel(new com.paneedah.mwc.models.ACRPrecisionHandguard(), "ACRPrecisionHandGuardTan.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
@@ -2080,9 +2165,47 @@ public class Attachments {
                 .withName("ACRPrecisionHandGuardTan").withTextureName("Dummy.png")
                 .build(MWC.modContext);
         
+        ACRSBRHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withModel(new com.paneedah.mwc.models.ACRSBRHandguard(), "acrsbrhandguard.png")
+                .withModernRecipe(
+                    	CraftingGroup.ATTACHMENT_MODIFICATION,
+                    	new CraftingEntry(MWCItems.gunmetalIngot, 3))
+                .withInventoryModelPositioning((model, s) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRSBRHandguard) {
+                        GL11.glTranslatef(-0.6F, 0.5F, -1.6F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.8F, 0.8F, 0.8f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRSBRHandguard) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+
+                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRSBRHandguard) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("ACRSBRHandGuard").withTextureName("Dummy.png")
+                .build(MWC.modContext);
+        
         ACRSBRHandGuardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.ACRSBRHandguard(), "acr.png")
+                .withModel(new com.paneedah.mwc.models.ACRSBRHandguard(), "ACRSBRHandGuardtan.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
@@ -2117,10 +2240,48 @@ public class Attachments {
                 })
                 .withName("ACRSBRHandGuardTan").withTextureName("Dummy.png")
                 .build(MWC.modContext);
+        
+        ACRPolymerHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withModel(new com.paneedah.mwc.models.ACRPolymerHandguard(), "acrpolymerhandguard.png")
+                .withModernRecipe(
+                    	CraftingGroup.ATTACHMENT_MODIFICATION,
+                    	new CraftingEntry(MWCItems.gunmetalIngot, 3))
+                .withInventoryModelPositioning((model, s) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRPolymerHandguard) {
+                        GL11.glTranslatef(-0.6F, 0.5F, -1.3F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRPolymerHandguard) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
 
+                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRPolymerHandguard) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("ACRPolymerHandguard").withTextureName("Dummy.png")
+                .build(MWC.modContext);
+        
         ACRPolymerHandGuardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.ACRPolymerHandguard(), "acr.png")
+                .withModel(new com.paneedah.mwc.models.ACRPolymerHandguard(), "acrpolymerhandguardtan.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
@@ -2155,10 +2316,48 @@ public class Attachments {
                 })
                 .withName("ACRPolymerHandguardTan").withTextureName("Dummy.png")
                 .build(MWC.modContext);
+        
+        ACRSquareDropHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withModel(new com.paneedah.mwc.models.ACRSquareDropHandguard(), "ACRSBRHandguard.png")
+                .withModernRecipe(
+                    	CraftingGroup.ATTACHMENT_MODIFICATION,
+                    	new CraftingEntry(MWCItems.gunmetalIngot, 3))
+                .withInventoryModelPositioning((model, s) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRSquareDropHandguard) {
+                        GL11.glTranslatef(-0.6F, 0.5F, -1.3F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRSquareDropHandguard) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
 
+                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRSquareDropHandguard) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("ACRSquareDropHandguard").withTextureName("Dummy.png")
+                .build(MWC.modContext);
+        
         ACRSquareDropHandguardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.ACRSquareDropHandguard(), "acr.png")
+                .withModel(new com.paneedah.mwc.models.ACRSquareDropHandguard(), "ACRSBRHandguardtan.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
@@ -4030,10 +4229,48 @@ public class Attachments {
                 })
                 .withName("ACRStockBlack").withTextureName("Dummy.png")
                 .build(MWC.modContext);
+        
+        ACRFixedStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withModel(new com.paneedah.mwc.models.ACRFixedStock(), "acrfixedstock.png")
+                .withModernRecipe(
+                    	CraftingGroup.ATTACHMENT_MODIFICATION,
+                    	new CraftingEntry(MWCItems.gunmetalIngot, 3))
+                .withInventoryModelPositioning((model, s) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRFixedStock) {
+                        GL11.glTranslatef(-0.6F, 0.3F, 1.4F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRFixedStock) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
 
+                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRFixedStock) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("ACRFixedStock").withTextureName("Dummy.png")
+                .build(MWC.modContext);
+        
         ACRFixedStockTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.ACRFixedStock(), "acr.png")
+                .withModel(new com.paneedah.mwc.models.ACRFixedStock(), "acrfixedstocktan.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
@@ -4069,9 +4306,47 @@ public class Attachments {
                 .withName("ACRFixedStockTan").withTextureName("Dummy.png")
                 .build(MWC.modContext);
         
+        ACRPRSStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withModel(new com.paneedah.mwc.models.ACRPRSStock(), "acrprsstock.png")
+                .withModernRecipe(
+                    	CraftingGroup.ATTACHMENT_MODIFICATION,
+                    	new CraftingEntry(MWCItems.gunmetalIngot, 3))
+                .withInventoryModelPositioning((model, s) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRPRSStock) {
+                        GL11.glTranslatef(-0.6F, 0.3F, 1.4F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRPRSStock) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+
+                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.ACRPRSStock) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("ACRPRSStock").withTextureName("Dummy.png")
+                .build(MWC.modContext);
+        
         ACRPRSStockTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.ACRPRSStock(), "acr.png")
+                .withModel(new com.paneedah.mwc.models.ACRPRSStock(), "acrprsstocktan.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
@@ -4109,7 +4384,7 @@ public class Attachments {
         
         ACRLongRangeStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.ACRLongRangeStock(), "acr.png")
+                .withModel(new com.paneedah.mwc.models.ACRLongRangeStock(), "ACRLongRangeStock.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
@@ -4148,7 +4423,7 @@ public class Attachments {
         
         ACRPDWStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.ACRPDWStock(), "acr.png")
+                .withModel(new com.paneedah.mwc.models.ACRPDWStock(), "ACRPDWStock.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
@@ -12437,10 +12712,10 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.steelIngot, 1))
                 .withRequiredAttachments(M38HandGuard, LVOAVHandGuard, Mk18HandGuard, 
                         StonerHANDGUARD, AR57Handguard, M16A4HandGuard, M4CarbineHandGuard, 
-                        ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
-                         ACRPrecisionHandGuardTan,
-                        ACRSBRHandGuardTan, ACRPolymerHandGuardTan,
-                         ACRSquareDropHandguardTan, HoneyBadgerHandguard,
+                        ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuard, ACRWEMSKHandGuardTan,
+                        ACRPrecisionHandGuard, ACRPrecisionHandGuardTan, ACRSBRHandGuard,
+                        ACRSBRHandGuardTan, ACRPolymerHandGuard, ACRPolymerHandGuardTan,
+                        ACRSquareDropHandguard, ACRSquareDropHandguardTan, HoneyBadgerHandguard,
                         HoneyBadgerMatrixArmsHandguard, Placeholder, HK417Handguard, HK417HandguardTan, 
                         Block2SOCOMHandguard, FSSTacLiteHandguard, Mk18HandGuardBlack, M110Handguard, 
                         HK416HandGuardBlackAndTan, SIGMCXHandguard, SIGMCXHandguardShort, AR15HandGuard, 
@@ -12485,10 +12760,10 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.steelIngot, 1))
                 .withRequiredAttachments(M38HandGuard, LVOAVHandGuard, Mk18HandGuard, 
                         StonerHANDGUARD, AR57Handguard, M16A4HandGuard, M4CarbineHandGuard, 
-                        ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
-                         ACRPrecisionHandGuardTan,
-                        ACRSBRHandGuardTan, ACRPolymerHandGuardTan,
-                        ACRSquareDropHandguardTan, HoneyBadgerHandguard,
+                        ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuard, ACRWEMSKHandGuardTan,
+                        ACRPrecisionHandGuard, ACRPrecisionHandGuardTan, ACRSBRHandGuard,
+                        ACRSBRHandGuardTan, ACRPolymerHandGuard, ACRPolymerHandGuardTan,
+                        ACRSquareDropHandguard, ACRSquareDropHandguardTan, HoneyBadgerHandguard,
                         HoneyBadgerMatrixArmsHandguard, KrissVectorReceiver, Vector556Handguard, APC9Placeholder,
                         ARX160Chassis, HK417Handguard, HK417HandguardTan, 
                         Block2SOCOMHandguard, FSSTacLiteHandguard, Mk18HandGuardBlack, M110Handguard, Placeholder, 
@@ -14134,7 +14409,7 @@ public class Attachments {
 //                    GL11.glRotatef(30F, 1f, 0f, 0f);
                 })
                 .withCreativeTab(MWC.ATTACHMENTS_TAB).withCrosshair("HP")
-                .withModel(new com.paneedah.mwc.models.F2000Scope(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.F2000Scope(), "f2000.png")
                 .withModel(new com.paneedah.mwc.models.F2000Scope2(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.F2000Reticle(), "black.png")
                 .withFirstPersonModelPositioning((model, itemStack) -> {
@@ -16839,7 +17114,7 @@ public class Attachments {
                         AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver, 
                         Vector556Handguard, Remington870FABDefensePump, 
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard,
-                        ACRHandGuardBlack, ACRWEMSKHandGuardTan,
+                        ACRHandGuardBlack, ACRWEMSKHandGuard, ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, 
                         FNFALPARAHandguard, M16A1PicatinnyRail, K2C1Handguard, AR10SuperSASSHandguard,
                         UMP45Receiver, UMP9Receiver, ScorpionHandguardShort, APC9Placeholder, ARX160Chassis,
@@ -17028,8 +17303,8 @@ public class Attachments {
                         LVOAVHandGuard, M38HandGuard, GripPlaceholder, UTGTriRailHandGuard, Mk18HandGuard, 
                         M60E4HandGuard, AUGA3extGuard, AR57Handguard, RPK16Handguard, 
                         StonerHANDGUARD, KrissVectorReceiver, Vector556Handguard, 
-                        Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
-                        ACRWEMSKHandGuardTan,
+                        Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack, 
+                        ACRWEMSKHandGuard, ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, FNFALPARAHandguard, M16A1PicatinnyRail, 
                         AR10SuperSASSHandguard, ARX160Chassis, FamasF1PicatinnyRail, 
                         HK417Handguard, HK417HandguardTan, AK12Handguard, AK12BHandguard, CZ805BrenReceiver, M14SOCOMChassis, 
@@ -17088,7 +17363,8 @@ public class Attachments {
                         GripPlaceholder, Mk18HandGuard, M60E4HandGuard, P90Swordfish, AUGA3extGuard,
                         AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver, 
                         Vector556Handguard, Remington870FABDefensePump, 
-                        Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
+                        Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
+                        ACRWEMSKHandGuard, ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, 
                         FNFALPARAHandguard, M16A1PicatinnyRail, K2C1Handguard, AR10SuperSASSHandguard,
                         UMP45Receiver, UMP9Receiver, ScorpionHandguardShort, APC9Placeholder, ARX160Chassis,
@@ -17154,7 +17430,7 @@ public class Attachments {
                         M60E4HandGuard, P90Swordfish, AUGA3extGuard, AR57Handguard, RPK16Handguard, StonerHANDGUARD,
                         KrissVectorReceiver, Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
-                         ACRWEMSKHandGuardTan,
+                        ACRWEMSKHandGuard, ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, Mk14TanBody, Mk14SnowBody, 
                         Mk14BlackBody, FNFALPARAHandguard, M16A1PicatinnyRail, K2C1Handguard, AR10SuperSASSHandguard,
                         UMP45Receiver, UMP9Receiver, ScorpionHandguardShort, APC9Placeholder, ARX160Chassis,
@@ -17210,8 +17486,8 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard, 
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard, GripPlaceholder, 
                         Mk18HandGuard, AUGA3extGuard, AR57Handguard, RPK16Handguard, StonerHANDGUARD, 
-                        StonerHANDGUARD, KrissVectorReceiver, Vector556Handguard, M16A4HandGuard, ACRHandGuard,
-                        ACRPrecisionHandGuardTan, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
+                        StonerHANDGUARD, KrissVectorReceiver, Vector556Handguard, M16A4HandGuard, ACRPrecisionHandGuard, ACRHandGuard, 
+                        ACRPrecisionHandGuardTan, ACRHandGuardBlack, ACRWEMSKHandGuard, ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, SSG08Chassis,
                         FNFALPARAHandguard, M16A1PicatinnyRail, K2C1Handguard, AR10SuperSASSHandguard, ARX160Chassis,
                         HK417Handguard, HK417HandguardTan, AK12Handguard, AK12BHandguard, CZ805BrenReceiver, M14SOCOMChassis, 
