@@ -64,7 +64,12 @@ public class CustomTileEntityBlock extends BlockContainer {
     public boolean isOpaqueCube(IBlockState iBlockState) {
         return false;
     }
-    
+
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
+
     @Override
     public TileEntity createNewTileEntity(World world, int p_149915_2_) {
         try {

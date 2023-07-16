@@ -141,10 +141,10 @@ public abstract class BlockStation extends Block {
 			float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
 		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
 	}
-	
 
-	
-	
+
+
+
 	
 	
 	@Override
@@ -159,6 +159,11 @@ public abstract class BlockStation extends Block {
 	
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+
+	@Override
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 	
