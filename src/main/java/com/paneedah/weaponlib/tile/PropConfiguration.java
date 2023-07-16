@@ -10,7 +10,7 @@ import net.minecraft.world.EnumDifficulty;
 
 import java.util.*;
 
-public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxConfiguration> {
+public class PropConfiguration extends CustomTileEntityConfiguration<PropConfiguration> {
 
     private static final int DEFAULT_EQUIPMENT_DISPENSE_TIMEOUT_TICKS = 100;
 
@@ -96,32 +96,32 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
     private SoundEvent dispenseCompatibleSound;
     private SoundEvent equipmentNotAvailableCompatibleSound;
 
-    public LootBoxConfiguration withEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>...attachments) {
+    public PropConfiguration withEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>...attachments) {
         withEquipmentOption(equipmentOptions, item, difficultyLevel, weight, attachments);
         return this;
     }
     
-    public LootBoxConfiguration withEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, int stackSize) {
+    public PropConfiguration withEquipmentOption(Item item, EnumDifficulty difficultyLevel, float weight, int stackSize) {
         withEquipmentOption(equipmentOptions, item, difficultyLevel, weight, stackSize);
         return this;
     }
     
-    public LootBoxConfiguration withEquipmentDispenseTimeout(int timeoutSeconds) {
+    public PropConfiguration withEquipmentDispenseTimeout(int timeoutSeconds) {
         this.equipmentDispenseTimeoutTicks = timeoutSeconds * 20;
         return this;
     }
     
-    public LootBoxConfiguration withEquipementDispenseSound(String sound) {
+    public PropConfiguration withEquipementDispenseSound(String sound) {
         this.dispenseSound = sound.toLowerCase();
         return this;
     }
     
-    public LootBoxConfiguration withEquipmentNotAvailableSound(String sound) {
+    public PropConfiguration withEquipmentNotAvailableSound(String sound) {
         this.equipmentNotAvailableSound = sound.toLowerCase();
         return this;
     }
 
-    private LootBoxConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, 
+    private PropConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, 
             EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
 //        if(item == null) {
 //            log.warn("Attempted to configure entity equipment with null item");
@@ -138,7 +138,7 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
         return this;
     }
     
-    private LootBoxConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, 
+    private PropConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, 
             EnumDifficulty difficultyLevel, float weight, int stackSize) {
 //        if(item == null) {
 //            log.warn("Attempted to configure entity equipment with null item");
