@@ -205,7 +205,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.FridgeClosed")
         .withTextureName("textures/models/fridge.png")
         .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(
+        .withBoundingBox(
         		blockState -> {
         			AxisAlignedBB boundingBox = null;
         			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
@@ -685,6 +685,28 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.DeskShelf")
         .withTextureName("textures/models/deskshelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -711,6 +733,28 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.DeskShelfAlt2")
         .withTextureName("textures/models/deskshelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
