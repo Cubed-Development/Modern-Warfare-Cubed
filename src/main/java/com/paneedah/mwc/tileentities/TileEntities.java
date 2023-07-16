@@ -1228,7 +1228,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("ServerRackLeftAlt3")
-        .withModelClassName("com.paneedah.mwc.models.ServerRackLeftAlt3")
+        .withModelClassName("com.paneedah.mwc.models.ServerRackLeftAlt2")
         .withTextureName("textures/models/serverrackleftalt3.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
