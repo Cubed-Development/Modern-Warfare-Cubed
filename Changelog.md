@@ -97,7 +97,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
 - Fixed m249 accessories floating
 - Fixed P90 magazine with Terminator conversion
-- Fixed visual bugs for weapons like FN F2000 when aiming the gun, M4A1 with "M16 Stock", Malyuk and M40A6 with grip accessories, beowulf50Cal with m38 front sight, revolver related accessories and general bipod adjustments on weapons
+- Fixed visual bugs for weapons like FN F2000, M4A1 with "M16 Stock", Malyuk and M40A6 with grip accessories, beowulf50Cal with m38 front sight, revolver related accessories and general bipod adjustments on weapons
 - Fixed the attachment of the Long Deagle
 - Fixed prop hitboxes not lining up with their models:
   - Fridge (open/closed)
