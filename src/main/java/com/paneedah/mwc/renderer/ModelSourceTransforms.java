@@ -18,7 +18,6 @@ import java.util.function.Consumer;
 @Getter
 @Setter
 @Builder
-@SideOnly(Side.CLIENT)
 public final class ModelSourceTransforms {
 
     @Builder.Default private Consumer<ItemStack> entityPositioning = itemStack -> {};

@@ -5,7 +5,6 @@ import com.paneedah.mwc.renderer.StaticModelSourceRendererRenderer;
 import com.paneedah.mwc.utils.LangUtil;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -30,7 +29,7 @@ public class ItemBackpack extends ItemCarryable {
 
             ResourceLocation guiTexture = new ResourceLocation(ID, "textures/gui/inventory/carryable/" + size + "slots.png");
 
-            ItemBackpack itemBackpack = new ItemBackpack(size, validItemPredicate, guiTexture, this.guiTextureWidth, model, textureName);
+            ItemBackpack itemBackpack = new ItemBackpack(size, validItemPredicate, guiTexture, this.guiTextureWidth, modelName, textureName);
 
             itemBackpack.setTranslationKey(LangUtil.format(name)).setCreativeTab(MWC.EQUIPMENT_TAB);
 
@@ -43,7 +42,7 @@ public class ItemBackpack extends ItemCarryable {
         }
     }
 
-    public ItemBackpack(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth, ModelBase model, String textureName) {
-        super(size, validItemPredicate, guiTextureLocation, guiTextureWidth, model, textureName);
+    public ItemBackpack(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth, String modelName, String textureName) {
+        super(size, validItemPredicate, guiTextureLocation, guiTextureWidth, modelName, textureName);
     }
 }

@@ -54,6 +54,7 @@ import java.util.Random;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 
+@Deprecated // This is just a huge mess with tons of hacks we will be transitioning away from it
 public class Interceptors {
 	
 	public static final int OPTIMIZATION_MODE_MIN = 400;
@@ -668,44 +669,44 @@ public class Interceptors {
     	
         return renderers.get(entity);
     }
-    
+
     public static void render2(ModelBase modelBase, Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
     	//if(1+1==2) return;
-    	
-    	
-    	
+
+
+
     	if(entityIn instanceof EntityPlayer) {
     		EntityPlayer player = (EntityPlayer) entityIn;
     		if(player.isRiding() && player.getRidingEntity() instanceof EntityVehicle) {
     			double b = ((EntityPlayer) entityIn).limbSwing;
-    			if(b != 39.0) return;    			
+    			if(b != 39.0) return;
     		}
     	}
-    	
-    	
+
+
         if(entityIn instanceof EntityPlayer && modelBase instanceof ModelPlayer) {
-            
+
             ModelPlayer modelPlayer = (ModelPlayer) modelBase;
             EntityPlayer player = (EntityPlayer) entityIn;
 
-            PlayerRenderer playerRenderer = renderers.computeIfAbsent(entityIn, 
+            PlayerRenderer playerRenderer = renderers.computeIfAbsent(entityIn,
                     e -> new PlayerRenderer((EntityPlayer) entityIn, ClientModContext.getContext()));
-            
-            
+
+
             playerRenderer.renderModel(modelPlayer, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-            
-            
-            
+
+
+
             EquipmentInventory capability = EquipmentCapability.getInventory(player);
             if(capability != null) {
-                ItemStack backpackStack = capability.getStackInSlot(0); // TODO: replace 0 with constant for backpack slot 
+                ItemStack backpackStack = capability.getStackInSlot(0); // TODO: replace 0 with constant for backpack slot
                 if(backpackStack != null) {
                     GL11.glPushMatrix();
                     adjustBodyWearablePosition(player);
                     MC.getItemRenderer().renderItem(player, backpackStack, null);
                     GL11.glPopMatrix();
                 }
-                ItemStack vestStack = capability.getStackInSlot(1); // TODO: replace 0 with constant for backpack slot 
+                ItemStack vestStack = capability.getStackInSlot(1); // TODO: replace 0 with constant for backpack slot
                 if(vestStack != null) {
                     GL11.glPushMatrix();
                     adjustBodyWearablePosition(player);
@@ -716,8 +717,8 @@ public class Interceptors {
         } else {
             modelBase.render(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         }
-        
-        
+
+
     }
     
     private static void adjustBodyWearablePosition(EntityPlayer player) {
@@ -737,8 +738,8 @@ public class Interceptors {
     }
 
     public static void renderArmorLayer(ModelBase modelBase, Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-       
-        if(entityIn instanceof EntityPlayer) { 
+
+        if(entityIn instanceof EntityPlayer) {
             PlayerRenderer playerRenderer = renderers.get(entityIn);
             EntityPlayer player = (EntityPlayer) entityIn;
             if(playerRenderer == null || !playerRenderer.renderArmor((ModelBiped) modelBase, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale)) {
@@ -786,20 +787,20 @@ public class Interceptors {
     	return null;
     	
     }
-   
+
 
     public static void positionItemSide(RenderLivingBase<?> livingEntityRenderer, EntityLivingBase entity,
             ItemStack itemStack, TransformType transformType, EnumHandSide handSide) {
-    	
-    	
-        if(entity instanceof EntityPlayer /* && isProning((EntityPlayer) entity)*/) { 
+
+
+        if(entity instanceof EntityPlayer /* && isProning((EntityPlayer) entity)*/) {
             PlayerRenderer playerRenderer = renderers.get(entity);
             EntityPlayer player = (EntityPlayer) entity;
             if(playerRenderer == null || !playerRenderer.positionItemSide(player, itemStack, transformType, handSide)) {
                 ((ModelBiped)livingEntityRenderer.getMainModel()).postRenderArm(0.0625F, handSide);
             }
         } else {
-        	
+
         	/*
         	 * This is a pretty complex fix, essentially this method replaces something that can be
         	 * overriden in a few small cases, and the fix that was here before was to cast it to a (ModelBiped) and
@@ -807,40 +808,40 @@ public class Interceptors {
         	 * what we do is we find the layerRenderers method from RenderLivingBase, and use it to get the LayerHeldItem
         	 * which we can then invoke. This fix is complex because this entire method is based around ASM.
         	 */
-        	
+
         	if(!layerRendererHookSetup) {
         		checkLayerRenderersHooks();
         	}
-        	
-        	
+
+
         	if(!sidePositioningMap.containsKey(livingEntityRenderer)) {
         		LayerHeldItem lhi = extractLayerHeldItem(livingEntityRenderer);
         		if(lhi == null) {
         			((ModelBiped) livingEntityRenderer.getMainModel()).postRenderArm(0.0625F, handSide);
         		}
-        		
+
         		sidePositioningMap.put(livingEntityRenderer, lhi);
-        		
-        		
-        		
+
+
+
         	}
-        	
-        	
-        
+
+
+
         	if(sidePositioningMap.containsKey(livingEntityRenderer)) {
         		try {
 					translateItemField.invoke(sidePositioningMap.get(livingEntityRenderer), handSide);
 				} catch (IllegalAccessException e) {
 					((ModelBiped) livingEntityRenderer.getMainModel()).postRenderArm(0.0625F, handSide);
-			          
+
 					e.printStackTrace();
 				} catch (IllegalArgumentException e) {
 					((ModelBiped) livingEntityRenderer.getMainModel()).postRenderArm(0.0625F, handSide);
-			          
+
 					e.printStackTrace();
 				} catch (InvocationTargetException e) {
 					((ModelBiped) livingEntityRenderer.getMainModel()).postRenderArm(0.0625F, handSide);
-			          
+
 					e.printStackTrace();
 				}
         	}

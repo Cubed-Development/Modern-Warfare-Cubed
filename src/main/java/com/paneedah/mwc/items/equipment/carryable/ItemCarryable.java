@@ -15,8 +15,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -32,7 +30,7 @@ public class ItemCarryable extends Item implements IModernCrafting {
         protected static final int DEFAULT_GUI_TEXTURE_WIDTH = 176;
 
         protected String name;
-        protected ModelBase model;
+        protected String modelName;
         protected String textureName;
         protected ModelSourceTransforms transforms = ModelSourceTransforms.builder()
                 .entityPositioning(itemStack -> new Transform()
@@ -111,10 +109,8 @@ public class ItemCarryable extends Item implements IModernCrafting {
             return self();
         }
 
-        public T withModel(ModelBase model) {
-            if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
-                this.model = model;
-
+        public T withModel(String model) {
+            this.modelName = "com.paneedah.mwc.models." + model;
             return self();
         }
 
@@ -184,9 +180,6 @@ public class ItemCarryable extends Item implements IModernCrafting {
                 RED_LOG.printFramedError("Carryable Item", name + " size was not greater than 0", "Non critical exception falling back to a size of 8", "At:" + new Throwable().getStackTrace()[3].toString());
                 size = 8;
             }
-
-            if (model == null)
-                RED_LOG.printFramedError("Carryable Item", name + " model was not set", "Non critical exception model will not be rendered", "At:" + new Throwable().getStackTrace()[3].toString());
         }
 
         protected abstract T self();
@@ -209,15 +202,15 @@ public class ItemCarryable extends Item implements IModernCrafting {
         return customEquippedPositioning;
     }
 
-    public final ModelBase model;
+    public final String modelName;
     public final String textureName;
 
-    public ItemCarryable(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth, ModelBase model, String textureName) {
+    public ItemCarryable(int size, Predicate<Item> validItemPredicate, ResourceLocation guiTextureLocation, int guiTextureWidth, String modelName, String textureName) {
         this.validItemPredicate = validItemPredicate;
         this.size = size;
         this.guiTextureLocation = guiTextureLocation;
         this.guiTextureWidth = guiTextureWidth;
-        this.model = model;
+        this.modelName = modelName;
         this.textureName = textureName;
     }
 

@@ -155,10 +155,6 @@ public class StaticModelSourceRendererRenderer extends ModelSourceRenderer imple
         return Collections.emptyList();
     }
 
-    protected boolean onGround() {
-        return transformType == null;
-    }
-
     @Override
     public final boolean isAmbientOcclusion() {
         return true;
@@ -220,6 +216,7 @@ public class StaticModelSourceRendererRenderer extends ModelSourceRenderer imple
                 break;
             default:
         }
+
 
         renderModelSource(renderContext, itemStack, transformType, 0, 0, -0.4F, 0, 0, 0.08F);
 
@@ -298,7 +295,7 @@ public class StaticModelSourceRendererRenderer extends ModelSourceRenderer imple
     protected void renderModelSourceCarryableItem(ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         ItemCarryable itemCarryable = (ItemCarryable) itemStack.getItem();
 
-        final ModelBiped model = (ModelBiped) itemCarryable.model;
+        final ModelBiped model = EquipmentModelPool.get(itemCarryable.modelName);
 
         MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/models/" + itemCarryable.textureName));
 
@@ -323,11 +320,6 @@ public class StaticModelSourceRendererRenderer extends ModelSourceRenderer imple
         }
 
         model.render(MC.player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-    }
-
-    @Override
-    public ItemCameraTransforms getItemCameraTransforms() {
-        return ItemCameraTransforms.DEFAULT;
     }
 
     @Override

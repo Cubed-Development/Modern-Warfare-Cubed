@@ -1,7 +1,6 @@
 package com.paneedah.mwc.equipment;
 
 import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
-import com.paneedah.mwc.models.equipment.belts.MagazineBelt;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.weaponlib.animation.Transform;
 import net.minecraft.item.Item;
@@ -16,7 +15,7 @@ public class Belts {
                 .withName("magazine_belt")
                 .withSize(8)
                 .withValidItemPredicate(ItemMagazine.class::isInstance)
-                .withModel(new MagazineBelt())
+                .withModel("equipment.belts.MagazineBelt")
                 .withTexture("equipment/carryable/belts")
                 .withEntityPositioning(itemStack -> new Transform()
                         .withPosition(-0.5F, -1.95F, 0.5F)

@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.opengl.GL11;
 
 import javax.annotation.Nonnull;
 
@@ -40,7 +41,7 @@ public final class EquipmentRenderer implements LayerRenderer<EntityPlayer> {
 
         if (!backpackSlot.isEmpty()) {
             final ItemCarryable itemCarryable = (ItemCarryable) backpackSlot.getItem();
-            final ModelBiped model = EquipmentPlayerModelPool.get(itemCarryable.model.getClass().getName());
+            final ModelBiped model = EquipmentModelPool.get(itemCarryable.modelName);
 
 
             doEquipmentRender(model, player, new ResourceLocation(ID + ":textures/models/" + itemCarryable.textureName), limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
@@ -48,26 +49,41 @@ public final class EquipmentRenderer implements LayerRenderer<EntityPlayer> {
 
         if (!beltSlot.isEmpty()) {
             /*final ItemBelt itemBelt = (ItemBelt) beltSlot.getItem();
-            final ModelBiped model = EquipmentPlayerModelPool.get(itemBelt.model.getClass().getName());
+            final ModelBiped model = EquipmentModelPool.get(itemBelt.model.getClass().getName());
 
             doEquipmentRender(model, player, new ResourceLocation(ID + ":textures/models/" + itemBelt.textureName), limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);*/
         }
 
         if (!vestSlot.isEmpty()) {
             final ItemVest itemVest = (ItemVest) vestSlot.getItem();
-            final ModelBiped model = EquipmentPlayerModelPool.get(itemVest.model.getClass().getName());
+            final ModelBiped model = EquipmentModelPool.get(itemVest.model.getClass().getName());
 
             doEquipmentRender(model, player, new ResourceLocation(ID + ":textures/models/" + itemVest.textureName), limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
         }
     }
 
     public void doEquipmentRender(ModelBiped model, EntityPlayer player, ResourceLocation texture, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        final float swingProgress = model.swingProgress;
+        final boolean isRiding = model.isRiding;
+        final boolean isChild = model.isChild;
+
+        final ModelBiped.ArmPose leftArmPose = model.leftArmPose;
+        final ModelBiped.ArmPose rightArmPose = model.rightArmPose;
+        final boolean isSneak = model.isSneak;
+
         MC.getTextureManager().bindTexture(texture);
 
         model.setModelAttributes(this.renderer.getMainModel());
-        model.setLivingAnimations(player, limbSwing, limbSwingAmount, partialTicks);
 
-        model.render(player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        model.render(MC.player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+
+        model.swingProgress = swingProgress;
+        model.isRiding = isRiding;
+        model.isChild = isChild;
+
+        model.leftArmPose = leftArmPose;
+        model.rightArmPose = rightArmPose;
+        model.isSneak = isSneak;
     }
 
     @Override

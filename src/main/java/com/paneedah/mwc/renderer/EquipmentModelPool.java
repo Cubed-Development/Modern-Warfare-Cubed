@@ -10,7 +10,7 @@ import java.util.HashMap;
 import static com.paneedah.mwc.utils.ModReference.RED_LOG;
 
 /**
- * Singleton class for managing and pooling player equipment models.
+ * Singleton class for managing and pooling equipment models.
  * <p>
  * This class ensures that only one instance of each model is created lazily and kept in memory, improving performance.
  *
@@ -18,7 +18,7 @@ import static com.paneedah.mwc.utils.ModReference.RED_LOG;
  * @since 0.1
  */
 @SideOnly(Side.CLIENT)
-public final class EquipmentPlayerModelPool {
+public final class EquipmentModelPool {
 
     /**
      * A static pool of all loaded models. This uses the model's class name as the key.
