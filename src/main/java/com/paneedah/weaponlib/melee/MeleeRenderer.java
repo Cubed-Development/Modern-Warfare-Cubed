@@ -768,7 +768,6 @@ public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 		}
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void renderCompatibleAttachment(CompatibleAttachment<?> compatibleAttachment,
 			Positioner<Part, RenderContext<RenderableState>> positioner, RenderContext<RenderableState> renderContext) {
 
@@ -812,7 +811,7 @@ public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 			GL11.glPopMatrix();
 		}
 
-		@SuppressWarnings("unchecked")
+		
         CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) compatibleAttachment.getAttachment().getPostRenderer();
 		if(postRenderer != null) {
 			GL11.glPushMatrix();

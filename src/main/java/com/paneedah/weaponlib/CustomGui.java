@@ -675,7 +675,6 @@ public class CustomGui extends Gui {
 
 
 	private String getDefaultWeaponMessage(PlayerWeaponInstance weaponInstance) {
-		@SuppressWarnings("static-access")
 		ItemMagazine magazine = (ItemMagazine) attachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
 		int totalCapacity;
 		if(magazine != null) {

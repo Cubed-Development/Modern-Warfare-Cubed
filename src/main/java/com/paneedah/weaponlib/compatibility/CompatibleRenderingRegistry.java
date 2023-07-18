@@ -103,7 +103,6 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 		return ModelLoaderRegistry.getMissingModel();
 	}
 
-	@SuppressWarnings({ "deprecation", "unchecked" })
 	public void registerEntityRenderingHandler(Class<? extends Entity> class1,
 	        Object spawnEntityRenderer) {
 		RenderingRegistry.registerEntityRenderingHandler(class1, (Render<? extends Entity>) spawnEntityRenderer);

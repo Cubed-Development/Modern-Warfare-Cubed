@@ -46,7 +46,7 @@ public class VehicleDrivingAspect implements Aspect<VehicleState, EntityVehicle>
     private static Predicate<EntityVehicle> speedupTimeoutExpired = vehicle ->
         System.currentTimeMillis() >= 300 + vehicle.getStateUpdateTimestamp();
 
-//    @SuppressWarnings("unused")
+//    
 //    private ModContext modContext;
 
     private StateManager<VehicleState, ? super EntityVehicle> stateManager;

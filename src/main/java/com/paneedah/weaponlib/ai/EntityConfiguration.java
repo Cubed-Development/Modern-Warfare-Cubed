@@ -595,7 +595,7 @@ public class EntityConfiguration {
             }
         }
 
-        @SuppressWarnings("unchecked")
+        
         private Class<? extends EntityLiving> safeCast(Class<? extends Entity> entityClass) {
             return (Class<? extends EntityLiving>) entityClass;
         }

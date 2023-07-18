@@ -242,7 +242,6 @@ public class AttachmentBuilder<T> {
         return new ItemAttachment<T>(attachmentCategory, crosshair, apply, remove);
     }
 
-    @SuppressWarnings("deprecation")
     public ItemAttachment<T> build(ModContext modContext) {
         ItemAttachment<T> attachment = createAttachment(modContext);
         attachment.setTranslationKey(ID + "_" + name);

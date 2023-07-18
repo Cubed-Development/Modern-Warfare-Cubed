@@ -259,7 +259,7 @@ public class StaticModelSourceRendererRenderer extends ModelSourceRenderer imple
             GL11.glPopMatrix();
         }
 
-        @SuppressWarnings("unchecked")
+        
         CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) modelSource.getPostRenderer();
 
         if (postRenderer != null) {

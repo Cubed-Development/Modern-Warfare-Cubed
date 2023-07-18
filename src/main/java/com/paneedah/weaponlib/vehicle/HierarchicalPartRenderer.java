@@ -53,7 +53,7 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
         this.currentProgressProvider = currentProgressProvider;
     }
     
-    @SuppressWarnings("unchecked")
+    
     public void render(PartRenderContext<State> context) {
         
         MultipartRenderStateManager<State, SinglePart, PartRenderContext<State>> stateManager = stateManagers.computeIfAbsent(context.getEntity(), e -> stateManagerSupplier.get());

@@ -39,7 +39,7 @@ public class ItemBullet extends ItemAttachment<Weapon> {
         }
     }
 
-    @SuppressWarnings("unused")
+    
     private List<ItemMagazine> compatibleMagazines = new ArrayList<>();
 
     public ItemBullet(AttachmentCategory category, ModelBase model, String textureName, String crosshair,

@@ -38,7 +38,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
     private Consumer<TileEntity> positioning = tileEntity -> {};
     private Function<IBlockState, AxisAlignedBB> boundingBox;
     
-    @SuppressWarnings("unchecked")
+    
     private T safeCast(CustomTileEntityConfiguration<T> input) {
         return (T) input;
     }
@@ -98,7 +98,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         return CustomTileEntity.class;
     }
     
-    @SuppressWarnings("unchecked")
+    
     protected Class<CustomTileEntity<T>> createTileEntityClass() {
         int modEntityId = entityIdSupplier.get();
         return (Class<CustomTileEntity<T>>) CustomTileEntityClassFactory.getInstance().generateEntitySubclass(

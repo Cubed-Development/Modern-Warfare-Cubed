@@ -952,7 +952,7 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 	        GL11.glPopMatrix();
 	    }
 
-	    @SuppressWarnings("unchecked")
+	    
 	    CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) compatibleAttachment.getAttachment().getPostRenderer();
 	    if(postRenderer != null) {
 	        GL11.glPushMatrix();

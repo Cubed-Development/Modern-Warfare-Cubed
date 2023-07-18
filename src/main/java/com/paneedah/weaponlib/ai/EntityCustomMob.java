@@ -315,7 +315,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
         }
     }
 
-    @SuppressWarnings("unchecked")
+    
     private void initWeaponWithAttachments(Equipment equipment, ItemStack itemStack) {
         if (equipment.attachments != null && equipment.item instanceof Weapon
                 && equipment.item instanceof PlayerItemInstanceFactory) {

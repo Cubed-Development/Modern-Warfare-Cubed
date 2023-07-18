@@ -17,7 +17,7 @@ public class CustomTileEntity<T extends CustomTileEntityConfiguration<T>> extend
     
     private int side;
     
-    @SuppressWarnings("unchecked")
+    
     private T safeCast(Object input) {
         return (T)input;
     }

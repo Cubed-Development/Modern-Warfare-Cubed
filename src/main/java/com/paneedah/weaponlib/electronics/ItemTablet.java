@@ -59,7 +59,7 @@ public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstan
         }
     }
 
-    @SuppressWarnings("unused")
+    
     private ModContext modContext;
     private Builder<T> builder;
     

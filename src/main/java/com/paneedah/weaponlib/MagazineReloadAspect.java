@@ -140,7 +140,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
         }
     }
 
-    @SuppressWarnings("unchecked")
+    
     private void evaluateUnload(UnloadPermit p, PlayerMagazineInstance magazineInstance) {
 
     	
@@ -219,7 +219,7 @@ public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazin
     }
     
     
-    @SuppressWarnings("unchecked")
+    
     private void evaluateLoad(LoadPermit p, PlayerMagazineInstance magazineInstance) {
 
         if(!(magazineInstance.getPlayer() instanceof EntityPlayer)) {

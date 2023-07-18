@@ -487,7 +487,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 		return scopeItem instanceof ItemScope;
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	public ItemAttachment<Weapon> getAttachmentItemWithCategory(AttachmentCategory category) {
 		if(activeAttachmentIds == null || activeAttachmentIds.length <= category.ordinal()) {
 			return null;

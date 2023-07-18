@@ -29,7 +29,7 @@ public class BetterAINearestAttackableTarget<T extends EntityLivingBase> extends
 		this.enemyName = name;
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	public boolean shouldExecute() {
 		if (this.targetChance > 0 && this.taskOwner.getRNG().nextInt(this.targetChance) != 0)

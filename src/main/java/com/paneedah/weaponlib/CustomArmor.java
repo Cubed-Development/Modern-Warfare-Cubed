@@ -111,7 +111,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
         }
 
         private String textureName;
-        @SuppressWarnings("unused")
+        
         private String iconName;
         private ArmorMaterial material;
         private String unlocalizedName;
@@ -403,7 +403,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
     private boolean hasNightVision;
     private boolean vignetteEnabled;
     private float exposureReductionFactor;
-    @SuppressWarnings("unused")
+    
     private SoundEvent breathingSound;
     private EntityEquipmentSlot compatibleEquipmentType;
     
@@ -498,7 +498,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
         return unlocalizedArmorSetName;
     }
 
-    @SuppressWarnings("unchecked")
+    
     public void changeAttachment(AttachmentCategory attachmentCategory, ItemStack itemStack, EntityPlayer player) {
         if (itemStack.getTagCompound() == null)
             itemStack.setTagCompound(new NBTTagCompound());

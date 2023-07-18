@@ -111,7 +111,7 @@ public class PlayerItemInstanceRegistry {
 		return Item.getIdFromItem(instance1.getItem()) == Item.getIdFromItem(instance2.getItem());
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	public <S extends ManagedState<S>, T extends PlayerItemInstance<S>> boolean update(S newManagedState, T extendedStateToMerge) {
 	
 		Map<Integer, PlayerItemInstance<?>> slotContexts = registry.get(extendedStateToMerge.getPlayer().getUniqueID());
@@ -221,7 +221,6 @@ public class PlayerItemInstanceRegistry {
 		return result.orElse(null);
 	}
 
-	@SuppressWarnings({ "rawtypes" })
 	public void update(EntityPlayer player) {
 		if(player == null) {
 			return;

@@ -220,7 +220,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	private void changeAttachment(ChangeAttachmentPermit permit, PlayerMeleeInstance weaponInstance) {
         if(!(weaponInstance.getPlayer() instanceof EntityPlayer)) {
 	        return;
@@ -352,7 +352,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 			
 			ItemStack slotItemStack = ((EntityPlayer)weaponInstance.getPlayer()).inventory.getStackInSlot(currentIndex);
 			if(slotItemStack != null && slotItemStack.getItem() instanceof ItemAttachment) {
-				@SuppressWarnings("unchecked")
+				
 				ItemAttachment<ItemMelee> attachmentItemFromInventory = (ItemAttachment<ItemMelee>) slotItemStack.getItem();
 				CompatibleAttachment<ItemMelee> compatibleAttachment;
 				if(attachmentItemFromInventory.getCategory() == category 
@@ -372,7 +372,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 		return result;
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	/**
 	 * Adds the attachment to the weapon identified by the itemStack without removing the attachment from the inventory.
 	 * 
@@ -399,7 +399,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	/**
 	 * Removes the attachment from the weapon identified by the itemStack without adding the attachment to the inventory.
 	 * 

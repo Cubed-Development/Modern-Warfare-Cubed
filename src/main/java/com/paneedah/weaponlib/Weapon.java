@@ -102,7 +102,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         
         private Vec3d muzzlePosition = new Vec3d(-.3, -1.0, -5.3);
 
-        @SuppressWarnings("unused")
+        
         private String exceededMaxShotsSound;
         ItemAmmo ammo;
         float fireRate = Weapon.DEFAULT_FIRE_RATE;

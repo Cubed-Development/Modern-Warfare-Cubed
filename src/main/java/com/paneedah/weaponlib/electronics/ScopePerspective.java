@@ -36,7 +36,7 @@ public class ScopePerspective extends PerspectiveRenderer {
 
 		ClientModContext clientModContext = (ClientModContext) MWC.modContext;
 
-		@SuppressWarnings("unchecked")
+		
         Perspective<RenderableState> perspective = (Perspective<RenderableState>) clientModContext.getViewManager().getPerspective(renderContext.getPlayerItemInstance(), false);
 		if(perspective == null) {
 		    perspective = STATIC_TEXTURE_PERSPECTIVE;

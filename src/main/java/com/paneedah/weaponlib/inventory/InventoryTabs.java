@@ -72,7 +72,7 @@ public class InventoryTabs {
         }
     }
 
-    @SuppressWarnings("unchecked")
+    
     public void addTabsToList(List<?> buttonList) {
         for (InventoryTab tab : tabList) {
             if (tab.shouldAddToList()) {

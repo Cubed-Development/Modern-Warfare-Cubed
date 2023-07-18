@@ -280,7 +280,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 
 	}
 
-	@SuppressWarnings("static-access")
 	public ArrayList<FlaggedAttachment> getInventoryAttachments(AttachmentCategory category,
 			PlayerWeaponInstance weaponInstance) {
 		EntityPlayer player = (EntityPlayer) weaponInstance.getPlayer();
@@ -292,7 +291,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 		for (ItemStack i : player.inventory.mainInventory) {
 			if (i.getItem() instanceof ItemAttachment<?>) {
 
-				@SuppressWarnings("unchecked")
+				
 				ItemAttachment<Weapon> potentialAttachment = (ItemAttachment<Weapon>) i.getItem();
 
 				FlaggedAttachment flaggedAttachment = new FlaggedAttachment(i, potentialAttachment);
@@ -358,7 +357,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 		changeAttachment(permit, weaponInstance);
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	private void changeAttachment(ChangeAttachmentPermit permit, PlayerWeaponInstance weaponInstance) {
 		if (!(weaponInstance.getPlayer() instanceof EntityPlayer)) {
 			return;
@@ -583,7 +582,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 			ItemStack slotItemStack = ((EntityPlayer) weaponInstance.getPlayer()).inventory
 					.getStackInSlot(currentIndex);
 			if (slotItemStack != null && slotItemStack.getItem() instanceof ItemAttachment) {
-				@SuppressWarnings("unchecked")
+				
 				ItemAttachment<Weapon> attachmentItemFromInventory = (ItemAttachment<Weapon>) slotItemStack.getItem();
 				CompatibleAttachment<Weapon> compatibleAttachment;
 				if (attachmentItemFromInventory.getCategory() == category
@@ -659,7 +658,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 		return requireesList;
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	/**
 	 * Adds the attachment to the weapon identified by the itemStack without
 	 * removing the attachment from the inventory.
@@ -691,7 +690,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 		}
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	/**
 	 * Removes the attachment from the weapon identified by the itemStack without
 	 * adding the attachment to the inventory.

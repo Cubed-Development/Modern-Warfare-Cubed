@@ -32,7 +32,7 @@ public class DynamicShaderContext {
         return this;
     }
 
-    @SuppressWarnings("unchecked")
+    
     public <T> T getProperty(String name) {
         return (T) properties.get(name);
     }

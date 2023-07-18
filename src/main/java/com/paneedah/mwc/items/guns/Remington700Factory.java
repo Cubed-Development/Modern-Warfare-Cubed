@@ -19,7 +19,7 @@ import java.util.Arrays;
 
 public class Remington700Factory implements GunFactory {
 
-    @SuppressWarnings("unchecked")
+    
 	public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
 

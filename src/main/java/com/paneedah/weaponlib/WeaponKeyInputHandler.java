@@ -30,7 +30,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class WeaponKeyInputHandler {
 
-    @SuppressWarnings("unused")
+    
     private SimpleNetworkWrapper channel;
     private Function<MessageContext, EntityPlayer> entityPlayerSupplier;
     private ModContext modContext;

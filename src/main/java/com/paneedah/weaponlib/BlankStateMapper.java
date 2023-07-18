@@ -12,7 +12,7 @@ public class BlankStateMapper implements IStateMapper {
 	
 	public static final BlankStateMapper DEFAULT = new BlankStateMapper();
 
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	public Map<IBlockState, ModelResourceLocation> putStateModelLocations(Block blockIn) {
 		return Collections.EMPTY_MAP;

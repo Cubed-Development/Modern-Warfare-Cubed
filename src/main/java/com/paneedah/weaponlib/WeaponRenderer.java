@@ -2326,7 +2326,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		}
 		
 		
-		@SuppressWarnings("unchecked")
+		
 		public void buildCustomTransitionList(LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> lhm) {
 			lhm.forEach((p, t) -> {
                 if(((List<Transition<RenderContext<RenderableState>>>) t).size() != lhm.size()) {
@@ -3411,7 +3411,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		
 		/*
 		for(CompatibleAttachment<?> compatibleAttachment: attachments) {
-			@SuppressWarnings("unchecked")
+			
 	        CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) compatibleAttachment.getAttachment().getPostRenderer();
 			if(postRenderer != null) {
 				
@@ -3499,8 +3499,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 	private CompatibleAttachment<?> currentMagazine;
 
 	public String name;
-	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+
     private void renderCompatibleAttachment(CompatibleAttachment<?> compatibleAttachment,
 			Positioner<Part, RenderContext<RenderableState>> positioner, RenderContext<RenderableState> renderContext) {
 
@@ -3810,7 +3809,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		
 		
 		/*
-		@SuppressWarnings("unchecked")
+		
         CustomRenderer<RenderableState> postRenderer = (CustomRenderer<RenderableState>) compatibleAttachment.getAttachment().getPostRenderer();
 		if(postRenderer != null) {
 			// Stuff like lasers goes in here
@@ -5579,7 +5578,6 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		model.setVisible(true);
 	}
 
-	@SuppressWarnings("incomplete-switch")
 	protected void setModelSlotVisible(ModelBiped p_188359_1_, EntityEquipmentSlot slotIn) {
 		this.setModelVisible(p_188359_1_);
 

@@ -388,7 +388,6 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         }
     }
 
-//    @SuppressWarnings({ "rawtypes", "unchecked", "deprecation" })
 //    public Multimap getItemAttributeModifiers() {
 //        Multimap multimap = super.getItemAttributeModifiers();
 //        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),

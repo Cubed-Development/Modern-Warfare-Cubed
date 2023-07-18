@@ -140,7 +140,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
         }
     }
 
-    @SuppressWarnings("unused")
+    
     private ModContext modContext;
     private Builder builder;
 

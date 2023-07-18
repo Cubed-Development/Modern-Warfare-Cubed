@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 public class SSG08Factory implements GunFactory {
 
-    @SuppressWarnings("unchecked")
+    
 	public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
 

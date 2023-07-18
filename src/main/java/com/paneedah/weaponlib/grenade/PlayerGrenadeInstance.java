@@ -192,7 +192,7 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	public ItemAttachment<ItemGrenade> getAttachmentItemWithCategory(AttachmentCategory category) {
 		if(activeAttachmentIds == null || activeAttachmentIds.length <= category.ordinal()) {
 			return null;

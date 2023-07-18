@@ -55,7 +55,7 @@ public class EntitySpreadable extends Entity implements Contextual, Spreadable {
     
     private float concentrationDecayFactor = DEFAULT_CONCENTRATION_DECAY_FACTOR;
     
-    @SuppressWarnings("unused")
+    
     private ModContext modContext;
     
     public EntitySpreadable(World worldIn) {

@@ -34,7 +34,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
 
     private static final long HEAVY_STUB_DURATION = 250;
 
-    @SuppressWarnings("unused")
+    
     private static final long ALERT_TIMEOUT = 300;
 
     private static Predicate<PlayerMeleeInstance> attackTimeoutExpired =
@@ -147,7 +147,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
         }
     }
 
-    @SuppressWarnings("unused")
+    
     private void cannotAttack(PlayerMeleeInstance meleeInstance) {
         modContext.getStatusMessageCenter().addAlertMessage(I18n.translateToLocalFormatted("gui.coolingDown"), 2, 200, 100);
         meleeInstance.getPlayer().playSound(modContext.getNoAmmoSound(), 1, 1);

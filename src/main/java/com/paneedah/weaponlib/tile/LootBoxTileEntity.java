@@ -79,7 +79,7 @@ public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
 //      this.ContainerItemStacks = new ItemStack[5];
     }
 
-    @SuppressWarnings("unchecked")
+    
     private void initWeaponWithAttachments(Equipment equipment, ItemStack itemStack, EntityPlayer player) {
         if(equipment.attachments != null && equipment.item instanceof Weapon && equipment.item instanceof PlayerItemInstanceFactory) {
             PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) ((PlayerItemInstanceFactory<?, ?>)equipment.item).createItemInstance(player, new ItemStack(equipment.item), 0);

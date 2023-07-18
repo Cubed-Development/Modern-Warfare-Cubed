@@ -23,7 +23,7 @@ import java.util.Arrays;
 
 public class ScarLFactory implements GunFactory {
 
-    @SuppressWarnings("unchecked")
+    
 	public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
 

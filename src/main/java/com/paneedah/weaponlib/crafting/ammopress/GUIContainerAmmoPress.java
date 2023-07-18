@@ -263,7 +263,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 		}
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	protected void keyTyped(char typedChar, int keyCode) throws IOException {
 		boolean cancelationForQuantity = this.quantityBox.getText().length() == 0 && keyCode == Keyboard.KEY_BACK;
