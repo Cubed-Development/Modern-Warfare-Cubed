@@ -7,7 +7,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
-import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import com.paneedah.weaponlib.render.IHasModel;
 import com.paneedah.weaponlib.render.modelrepo.ServerGearModelHookRegistry;
 import net.minecraft.client.model.ModelBase;
@@ -198,7 +197,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
             CraftingRegistry.registerHook(item);
 
 
-            if (this.modelFileString != null && !VMWHooksHandler.isOnServer()) {
+            if (this.modelFileString != null && !FMLCommonHandler.instance().getSide().isServer()) {
 
                 try {
                     //System.out.println("FOR ITEM: " + item.getRegistryName() + " | ");

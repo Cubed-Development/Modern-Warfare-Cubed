@@ -8,7 +8,6 @@ import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.animation.movement.WeaponRotationHandler;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.compatibility.ModelRegistryServerInterchange;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.particle.ParticleBlood;
@@ -329,7 +328,6 @@ public class ClientEventHandler {
 		// Frame-timer syncs to 120
 		double divisor = 120 / frameTimer.getFramerate() * 0.05;
 		divisor = Math.min(0.08, divisor);
-		Interceptors.nsm.update();
 
 		BULLET_HOLE_RENDERER.render();
 

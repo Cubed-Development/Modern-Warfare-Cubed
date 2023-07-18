@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.config;
 
-import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import net.minecraftforge.common.config.Config.RangeDouble;
 import net.minecraftforge.common.config.Config.RangeInt;
 import net.minecraftforge.common.config.Config.RequiresMcRestart;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
 
 import java.io.File;
@@ -277,7 +277,7 @@ public class ModernConfigManager {
 
 			registerProperty(f, annotation);
 			
-			if(!VMWHooksHandler.isOnServer()) {
+			if(!FMLCommonHandler.instance().getSide().isServer()) {
 				// Submits field to be organized within the tree
 				VMWModConfigGUI.submitField(annotation, f);
 			}

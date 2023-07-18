@@ -557,7 +557,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         
         public Builder withRenderer(WeaponRenderer renderer) {
-            //if(VMWHooksHandler.isOnServer()) return this;
+            //if(FMLCommonHandler.instance().getSide().isServer()) return this;
             this.renderer = renderer;
             return this;
         }

@@ -3,6 +3,7 @@ package com.paneedah.weaponlib;
 import akka.japi.Pair;
 import com.google.common.collect.Maps;
 import com.paneedah.mwc.skins.CustomSkin;
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
@@ -13,11 +14,9 @@ import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.animation.jim.SingleAnimation;
 import com.paneedah.weaponlib.animation.movement.WeaponRotationHandler;
 import com.paneedah.weaponlib.command.DebugCommand;
-import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.mwc.renderer.ModelSourceRenderer;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import com.paneedah.weaponlib.render.*;
 import com.paneedah.weaponlib.shader.jim.Shader;
 import net.minecraft.block.state.IBlockState;
@@ -1300,7 +1299,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		
 		
 		public Builder setupModernAnimations(String animationFile, ItemAttachment<Weapon> aR15Action) {
-			if(VMWHooksHandler.isOnServer()) return this;
+			if(FMLCommonHandler.instance().getSide().isServer()) return this;
 			
 			final String mainBoneName = "main";
 			final String leftBoneName = "lefthand";
@@ -1413,7 +1412,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 			
 		
 		public Builder setupModernEjectSpentRoundAnimation(String animationFile) {
-			if(VMWHooksHandler.isOnServer()) return this;
+			if(FMLCommonHandler.instance().getSide().isServer()) return this;
 			
 			
 			AnimationData main = BBLoader.getAnimation(animationFile, BBLoader.KEY_EJECT_SPENT_ROUND, BBLoader.KEY_MAIN);
@@ -1433,7 +1432,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		}
 		
 		public Builder setupModernEjectSpentRoundAimedAnimation(String animationFile) {
-			if(VMWHooksHandler.isOnServer()) return this;
+			if(FMLCommonHandler.instance().getSide().isServer()) return this;
 			
 			
 			
@@ -1461,7 +1460,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		
 		
 		public Builder setupBoltActionAnimations(ItemAttachment<Weapon> action, String animationFile, String partKey) {
-			if(VMWHooksHandler.isOnServer()) return this;
+			if(FMLCommonHandler.instance().getSide().isServer()) return this;
 			
 			AnimationSet set = BBLoader.getAnimationSet(animationFile);
 			
@@ -1487,7 +1486,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		}
 		
 		public Builder setupCustomKeyedPart(ItemAttachment<Weapon> action, String animationFile, String partKey) {
-			if(VMWHooksHandler.isOnServer()) return this;
+			if(FMLCommonHandler.instance().getSide().isServer()) return this;
 			
 			AnimationSet set = BBLoader.getAnimationSet(animationFile);
 			
@@ -2652,7 +2651,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		}
 		
         
-        if(player instanceof EntityPlayer && Interceptors.isProning((EntityPlayer) player)) {
+        if(player instanceof EntityPlayer && MWCUtil.isProning((EntityPlayer) player)) {
             switch(currentState) {
             case NORMAL:
                 currentState = RenderableState.PRONING;
@@ -3360,58 +3359,42 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 		    sqDistance = projectView.squareDistanceTo(player.posX, player.posY, player.posZ);
 		}
 
-		double volumeThreshold = sqDistance;
+		if(!AnimationModeProcessor.getInstance().shouldIsolateCategory()) {
+		//	GlStateManager.translate(0, 0, test1);
+			//GlStateManager.translate(-0.05*test1, 0.01*test1, 0);
+			//GlStateManager.rotate(-10f*test1, 1, 1, 0);
+			//MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/items/sexmoiv.png"));
 
-		if(sqDistance > Interceptors.OPTIMIZATION_MODE_MIN)
-			Interceptors.setRenderVolumeThreshold(volumeThreshold - Interceptors.OPTIMIZATION_MODE_MIN);
-		
-		//Interceptors.setRenderVolumeThreshold(0.0);
-		
-		try {
-			if(!AnimationModeProcessor.getInstance().shouldIsolateCategory()) {
-			//	GlStateManager.translate(0, 0, test1);
-				//GlStateManager.translate(-0.05*test1, 0.01*test1, 0);
-				//GlStateManager.rotate(-10f*test1, 1, 1, 0);
-				//MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/items/sexmoiv.png"));
-
-				if (getBuilder().getModel() != null) {
-					getBuilder().getModel().render(this.player,
-							renderContext.getLimbSwing(),
-							renderContext.getFlimbSwingAmount(),
-							renderContext.getAgeInTicks(),
-							renderContext.getNetHeadYaw(),
-							renderContext.getHeadPitch(),
-							renderContext.getScale());
-				} else {
-					// TODO: Make It renderer
-					getBuilder().getBakedModel();
-				}
+			if (getBuilder().getModel() != null) {
+				getBuilder().getModel().render(this.player,
+						renderContext.getLimbSwing(),
+						renderContext.getFlimbSwingAmount(),
+						renderContext.getAgeInTicks(),
+						renderContext.getNetHeadYaw(),
+						renderContext.getHeadPitch(),
+						renderContext.getScale());
+			} else {
+				// TODO: Make It renderer
+				getBuilder().getBakedModel();
 			}
-		    
-			if(DebugCommand.debugFlag == 6) return;
-			
-
-			// NOTE: Removed as the cube count optimization wasn't working due to
-			// Q-renderer.
-		    if(/*sqDistance < 900*/ true) {
-		    	if(sqDistance > Interceptors.OPTIMIZATION_MODE_MIN)
-		    		Interceptors.setRenderVolumeThreshold(volumeThreshold - Interceptors.OPTIMIZATION_MODE_MIN);
-		        if(attachments != null) {
-		       
-		            renderAttachments(positioner, renderContext, attachments);
-		        }
-		    }
-		    
-		    if(DebugCommand.debugFlag == 7)
-				return;
-			
-		} finally {
-		    Interceptors.setRenderVolumeThreshold(0.0);
 		}
-		
-		
-		
-		
+
+		if(DebugCommand.debugFlag == 6) return;
+
+
+		// NOTE: Removed as the cube count optimization wasn't working due to
+		// Q-renderer.
+		if(/*sqDistance < 900*/ true) {
+		    if(attachments != null) {
+
+		        renderAttachments(positioner, renderContext, attachments);
+		    }
+		}
+
+		if(DebugCommand.debugFlag == 7)
+				return;
+
+
 		if(DebugCommand.debugFlag == 8)
 			return;
 		
@@ -4190,7 +4173,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 				GL11.glRotatef(110F, 1f, 0f, 0f);
 				GL11.glRotatef(135F, 0f, 1f, 0f);
 				GL11.glRotatef(-180F, 0f, 0f, 1f);
-				if (player instanceof EntityPlayer && !Interceptors.isProning((EntityPlayer) player)) {
+				if (player instanceof EntityPlayer && !MWCUtil.isProning((EntityPlayer) player)) {
 					StateDescriptor thirdPersonStateDescriptor = getThirdPersonStateDescriptor(player, itemStack);
 
 					renderContext.setPlayerItemInstance(thirdPersonStateDescriptor.instance);

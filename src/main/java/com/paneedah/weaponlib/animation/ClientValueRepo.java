@@ -1,9 +1,7 @@
 package com.paneedah.weaponlib.animation;
 
-import akka.japi.Pair;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.PlayerWeaponInstance;
-import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.numerical.LerpedValue;
 import com.paneedah.weaponlib.numerical.RandomVector;
@@ -116,18 +114,7 @@ public class ClientValueRepo {
 
 		RecoilParam params = pwi.getRecoilParameters();
 
-		Pair<Double, Double> screenShakeParam = pwi.getScreenShakeParameters();
-
 		double power = params.getWeaponPower();
-
-		if (gunPow.currentValue < INITIAL_GUN_POWER_CUTOFF) {
-			Interceptors.nsm.impulse(screenShakeParam.first());
-			power *= INITIAL_GUN_POWER_MULTIPLIER;
-		} else if (gunPow.currentValue > params.getStockLength()) {
-			power *= GUN_POWER_PAST_STOCK_DIVISOR;
-			Interceptors.nsm.impulse(screenShakeParam.first() * GUN_POWER_PAST_STOCK_DIVISOR);
-		} else
-			Interceptors.nsm.impulse(screenShakeParam.first());
 
 		weaponRecovery.velocity += power * WEAPON_RECOVERY_VELOCITY_POWER;
 

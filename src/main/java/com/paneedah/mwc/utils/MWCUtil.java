@@ -1,6 +1,7 @@
 package com.paneedah.mwc.utils;
 
 import com.paneedah.weaponlib.ItemMagazine;
+import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.jafama.FastMath;
@@ -229,5 +230,9 @@ public class MWCUtil {
         final double interpolatedZ = (player.posZ - player.prevPosZ) * renderPartialTicks + player.prevPosZ;
 
         return new Vec3d(interpolatedX, interpolatedY, interpolatedZ);
+    }
+
+    public static boolean isProning(EntityPlayer player) {
+        return (CompatibleExtraEntityFlags.getFlags(player) & CompatibleExtraEntityFlags.PRONING) != 0;
     }
 }

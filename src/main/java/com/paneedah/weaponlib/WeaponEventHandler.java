@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
-import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
@@ -123,7 +123,7 @@ public class WeaponEventHandler {
 			            .getItemInstance(player, itemStack);
 			    if(instance instanceof PlayerWeaponInstance) {
 			        PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) instance;
-					if (!Interceptors.isProning(player) && (weaponInstance.isAimed() || weaponInstance.getState() == WeaponState.FIRING || weaponInstance.getState() == WeaponState.RECOILED || weaponInstance.getState() == WeaponState.PAUSED)) {
+					if (!MWCUtil.isProning(player) && (weaponInstance.isAimed() || weaponInstance.getState() == WeaponState.FIRING || weaponInstance.getState() == WeaponState.RECOILED || weaponInstance.getState() == WeaponState.PAUSED)) {
 						rp.getMainModel().leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
 						rp.getMainModel().rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
 					} else {

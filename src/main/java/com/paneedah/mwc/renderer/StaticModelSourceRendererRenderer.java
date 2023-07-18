@@ -4,8 +4,6 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.items.equipment.carryable.ItemCarryable;
 import com.paneedah.mwc.skins.CustomSkin;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
-import com.paneedah.weaponlib.compatibility.Interceptors;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -80,17 +78,6 @@ public class StaticModelSourceRendererRenderer extends ModelSourceRenderer imple
 
 
         GL11.glTranslatef(-0.5f, 0.5f, 0.5f);
-
-        if (Interceptors.isProning(player)) {
-            PlayerRenderer playerRenderer = Interceptors.getPlayerRenderer(player);
-
-            if (playerRenderer != null) {
-                Positioner<Part, RenderContext<RenderableState>> bodyPositioner = playerRenderer.getCurrentPositioner();
-                if (bodyPositioner != null) {
-                    bodyPositioner.position(Part.MAIN, renderContext);
-                }
-            }
-        }
 
         BiConsumer<EntityPlayer, ItemStack> positioning = transforms.getCustomEquippedPositioning();
 

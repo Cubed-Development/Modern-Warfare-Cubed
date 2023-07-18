@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.ClientEventHandler.MuzzleFlash;
-import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.particle.BetterMuzzleSmoke;
 import com.paneedah.weaponlib.particle.ExplosionParticleFX;
 import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
@@ -46,7 +46,7 @@ final class ClientEffectManager implements EffectManager {
 	    if(player instanceof EntityPlayer) {
 	        if(player.isSneaking())
 	            posY -= 0.1f;
-            else if(Interceptors.isProning((EntityPlayer) player))
+            else if(MWCUtil.isProning((EntityPlayer) player))
                 posY -= 1.2f;
 	    }
 

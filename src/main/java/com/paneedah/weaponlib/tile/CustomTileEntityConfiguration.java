@@ -1,9 +1,7 @@
 package com.paneedah.weaponlib.tile;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
@@ -112,7 +110,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         Class<? extends TileEntity> tileEntityClass = createTileEntityClass();
         
         CustomTileEntityBlock tileEntityBlock = new CustomTileEntityBlock(material, tileEntityClass);
-        if(!VMWHooksHandler.isOnServer()) {
+        if(!FMLCommonHandler.instance().getSide().isServer()) {
         	ClientEventHandler.BLANKMAPPED_LIST.add(tileEntityBlock);
         }
         tileEntityBlock.setTranslationKey(ID + "_" + name);

@@ -5,7 +5,6 @@ import java.io.*;
 /**
  * Based off of post on Stack Overflow (https://stackoverflow.com/questions/25711648/find-the-location-in-code-of-a-system-out-println)
  * @author Jim Holden, 2022
- *
  */
 public class SysOutController {
 	
