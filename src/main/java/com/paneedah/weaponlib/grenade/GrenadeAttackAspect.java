@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.network.messages.GrenadeMessage;
 import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;

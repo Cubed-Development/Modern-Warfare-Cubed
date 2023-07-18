@@ -1,13 +1,20 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.capabilities.EquipmentCapability;
+import com.paneedah.mwc.network.CraftingClientMessageHandler;
+import com.paneedah.mwc.network.CraftingServerMessageHandler;
+import com.paneedah.mwc.network.GrenadeMessageHandler;
+import com.paneedah.mwc.network.messages.CraftingClientMessage;
+import com.paneedah.mwc.network.messages.CraftingServerMessage;
+import com.paneedah.mwc.network.messages.GrenadeMessage;
+import com.paneedah.mwc.network.messages.WorkbenchMessage;
 import com.paneedah.weaponlib.MagazineReloadAspect.LoadPermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.EnterAttachmentModePermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ExitAttachmentModePermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.CompoundPermit;
 import com.paneedah.weaponlib.WeaponReloadAspect.UnloadPermit;
-import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
@@ -48,6 +55,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
+import com.paneedah.mwc.network.WorkbenchMessageHandler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -266,13 +274,13 @@ public class CommonModContext implements ModContext {
         
         channel.registerMessage(new OpenDoorPacket.OpenDoorPacketHandler(), OpenDoorPacket.class, 42, Side.SERVER);
 
-        channel.registerMessage(new StationPacket.WorkbenchPacketHandler(this), StationPacket.class, 43, Side.SERVER);
+        channel.registerMessage(new WorkbenchMessageHandler(this), WorkbenchMessage.class, 43, Side.SERVER);
         
         channel.registerMessage(new StationClientPacket.WorkshopClientPacketHandler(), StationClientPacket.class, 44, Side.CLIENT);
         
-        channel.registerMessage(new CraftingClientPacket.SimplePacketHandler(this), CraftingClientPacket.class, 45, Side.CLIENT);
+        channel.registerMessage(new CraftingClientMessageHandler(this), CraftingClientMessage.class, 45, Side.CLIENT);
         
-        channel.registerMessage(new CraftingServerPacket.SimplePacketHandler(this), CraftingServerPacket.class, 46, Side.SERVER);
+        channel.registerMessage(new CraftingServerMessageHandler(this), CraftingServerMessage.class, 46, Side.SERVER);
         
         channel.registerMessage(new HighIQPickupPacket.SimplePacketHandler(), HighIQPickupPacket.class, 47, Side.SERVER);
         

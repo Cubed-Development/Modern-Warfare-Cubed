@@ -3,6 +3,7 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
+import com.paneedah.mwc.network.messages.CraftingClientMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
@@ -13,7 +14,6 @@ import com.paneedah.weaponlib.inventory.EntityInventorySyncMessage;
 import com.paneedah.weaponlib.jim.util.ByteArrayUtils;
 import com.paneedah.weaponlib.jim.util.HitUtil;
 import com.paneedah.weaponlib.network.packets.BalancePackClient;
-import com.paneedah.weaponlib.network.packets.CraftingClientPacket;
 import com.paneedah.weaponlib.network.packets.HeadshotSFXPacket;
 import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
@@ -221,22 +221,23 @@ public class CommonEventHandler {
     }
 
     @SubscribeEvent
+    // Todo: Fix this for the new equipment inventory
     protected void onLivingHurtEvent(LivingHurtEvent event) {
-        final EntityLivingBase entity = event.getEntityLiving();
-        final EquipmentInventory inventory = EquipmentCapability.getInventory(entity);
+        final EntityLivingBase entityLiving = event.getEntityLiving();
+        final EquipmentInventory equipmentInventory = EquipmentCapability.getInventory(entityLiving);
 
-        if (inventory != null && inventory.getStackInSlot(1).getItem() != Items.AIR) {
+        if (equipmentInventory != null && equipmentInventory.getStackInSlot(1).getItem() != Items.AIR) {
             final NonNullList<ItemStack> stackList = NonNullList.create();
-            final ItemStack[] itemStacks = new ItemStack[]{inventory.getStackInSlot(1)};
+            final ItemStack[] itemStacks = new ItemStack[]{equipmentInventory.getStackInSlot(1)};
             stackList.addAll(Arrays.asList(itemStacks));
-            event.setAmount((float) (event.getAmount() * (1 - ((ItemVest) inventory.getStackInSlot(1).getItem()).getDamageBlocked())));
+            event.setAmount((float) (event.getAmount() * (1 - ((ItemVest) equipmentInventory.getStackInSlot(1).getItem()).getDamageBlocked())));
         }
 
         final DamageSource source = event.getSource();
 
         if (source.getImmediateSource() instanceof EntityProjectile) {
-            final RayTraceResult hit = HitUtil.traceProjectilehit(source.getImmediateSource(), entity);
-            if (hit != null && hit.hitVec.distanceTo(entity.getPositionEyes(1.0f)) < 0.6f) {
+            final RayTraceResult hit = HitUtil.traceProjectilehit(source.getImmediateSource(), entityLiving);
+            if (hit != null && hit.hitVec.distanceTo(entityLiving.getPositionEyes(1.0f)) < 0.6f) {
                 event.setAmount((float) (event.getAmount() * BalancePackManager.getHeadshotMultiplier()));
                 if (source.getTrueSource() instanceof EntityPlayer)
                     modContext.getChannel().sendTo(new HeadshotSFXPacket(), (EntityPlayerMP) source.getTrueSource());
@@ -343,6 +344,6 @@ public class CommonEventHandler {
         if (baos == null) return;
 
         // Send the player the hash
-        getModContext().getChannel().sendTo(new CraftingClientPacket(baos, true), (EntityPlayerMP) player);
+        getModContext().getChannel().sendTo(new CraftingClientMessage(0, baos), (EntityPlayerMP) player);
     }
 }
