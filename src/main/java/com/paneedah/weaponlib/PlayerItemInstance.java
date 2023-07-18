@@ -61,10 +61,6 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         return player instanceof EntityPlayer ? ((EntityPlayer) player).inventory.getStackInSlot(itemInventoryIndex) : null;
     }
 
-    protected void setItemInventoryIndex(int itemInventoryIndex) {
-        this.itemInventoryIndex = itemInventoryIndex;
-    }
-
     protected <T extends PlayerItemInstance<S>> T getPreparedState() {
         return (T) preparedState;
     }
