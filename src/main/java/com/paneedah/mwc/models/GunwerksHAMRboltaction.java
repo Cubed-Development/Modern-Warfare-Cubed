@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class GunwerksHAMRboltaction extends ModelBase {
-	private final QRenderer boltaction;
+	private final ModelRenderer boltaction;
 	private final ModelRenderer BoltAction45;
 	private final ModelRenderer BoltAction44;
 	private final ModelRenderer BoltAction43;
@@ -48,7 +48,7 @@ public class GunwerksHAMRboltaction extends ModelBase {
 	private final ModelRenderer BoltAction3;
 	private final ModelRenderer BoltAction2;
 	private final ModelRenderer BoltAction1;
-	private final QRenderer boltprime;
+	private final ModelRenderer boltprime;
 	private final ModelRenderer BoltAction39;
 	private final ModelRenderer BoltAction35;
 	private final ModelRenderer BoltAction37;
@@ -60,7 +60,7 @@ public class GunwerksHAMRboltaction extends ModelBase {
 		textureWidth = 320;
 		textureHeight = 320;
 
-		boltaction = new QRenderer(this);
+		boltaction = new ModelRenderer(this);
 		boltaction.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 
@@ -264,7 +264,7 @@ public class GunwerksHAMRboltaction extends ModelBase {
 		boltaction.addChild(BoltAction1);
 		BoltAction1.cubeList.add(new ModelBox(BoltAction1, 140, 95, 0.0F, 0.0F, 0.0F, 4, 1, 24, 0.0F, false));
 
-		boltprime = new QRenderer(this);
+		boltprime = new ModelRenderer(this);
 		boltprime.setRotationPoint(6.0F, 21.0F, 0.0F);
 		
 

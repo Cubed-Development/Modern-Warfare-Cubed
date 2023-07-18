@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class Z10 extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer gun156_r1;
 	private final ModelRenderer gun154_r1;
 	private final ModelRenderer gun153_r1;
@@ -189,7 +189,7 @@ public class Z10 extends ModelWithAttachments {
 	private final ModelRenderer gun56_r2;
 	private final ModelRenderer bone10;
 	private final ModelRenderer gun50_r11;
-	private final QRenderer stock;
+	private final ModelRenderer stock;
 	private final ModelRenderer gun71_r1;
 	private final ModelRenderer gun70_r1;
 	private final ModelRenderer gun70_r2;
@@ -266,7 +266,7 @@ public class Z10 extends ModelWithAttachments {
 		textureWidth = 300;
 		textureHeight = 300;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(-1.4157F, -10.7703F, -9.8009F);
 		gun.cubeList.add(new ModelBox(gun, 5, 81, 1.3657F, -1.0797F, -2.9491F, 1, 2, 1, -0.2F, false));
 		gun.cubeList.add(new ModelBox(gun, 104, 99, 1.4157F, 0.4203F, -2.9501F, 1, 1, 1, -0.2F, false));
@@ -1488,7 +1488,7 @@ public class Z10 extends ModelWithAttachments {
 		gun50_r11.cubeList.add(new ModelBox(gun50_r11, 76, 11, -1.0F, -0.5007F, 6.0F, 2, 1, 2, -0.3F, false));
 		gun50_r11.cubeList.add(new ModelBox(gun50_r11, 96, 102, -1.0F, -0.5007F, -11.0F, 2, 1, 5, -0.3F, false));
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(0.0F, 23.3F, 4.5F);
 		stock.cubeList.add(new ModelBox(stock, 0, 60, -3.0F, -33.95F, -1.0F, 3, 1, 3, 0.0F, false));
 		stock.cubeList.add(new ModelBox(stock, 221, 176, -2.0F, -38.5F, 0.0F, 1, 1, 28, 0.0F, false));

@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class MP7FrontSightFlipped extends ModelBase {
-	private final QRenderer master;
+	private final ModelRenderer master;
 	private final ModelRenderer rearsight;
 	private final ModelRenderer rearsight27;
 	private final ModelRenderer rearsight26;
@@ -64,7 +64,7 @@ public class MP7FrontSightFlipped extends ModelBase {
 		textureWidth = 128;
 		textureHeight = 128;
 
-		master = new QRenderer(this);
+		master = new ModelRenderer(this);
 		master.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 

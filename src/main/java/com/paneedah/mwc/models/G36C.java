@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class G36C extends ModelWithAttachments {
-	private final QRenderer body;
+	private final ModelRenderer body;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -40,7 +40,7 @@ public class G36C extends ModelWithAttachments {
 	private final ModelRenderer cube_r25;
 	private final ModelRenderer cube_r26;
 	private final ModelRenderer cube_r27;
-	private final QRenderer grip;
+	private final ModelRenderer grip;
 	private final ModelRenderer cube_r28;
 	private final ModelRenderer cube_r29;
 	private final ModelRenderer cube_r30;
@@ -56,7 +56,7 @@ public class G36C extends ModelWithAttachments {
 	private final ModelRenderer bone6;
 	private final ModelRenderer gun241_r3;
 	private final ModelRenderer gun242_r2;
-	private final QRenderer stock;
+	private final ModelRenderer stock;
 	private final ModelRenderer cube_r31;
 	private final ModelRenderer cube_r32;
 	private final ModelRenderer cube_r33;
@@ -69,7 +69,7 @@ public class G36C extends ModelWithAttachments {
 	private final ModelRenderer cube_r40;
 	private final ModelRenderer cube_r41;
 	private final ModelRenderer cube_r42;
-	private final QRenderer mag;
+	private final ModelRenderer mag;
 	private final ModelRenderer cube_r43;
 	private final ModelRenderer cube_r44;
 	private final ModelRenderer cube_r45;
@@ -99,7 +99,7 @@ public class G36C extends ModelWithAttachments {
 	private final ModelRenderer cube_r66;
 	private final ModelRenderer cube_r67;
 	private final ModelRenderer cube_r68;
-	private final QRenderer handguard;
+	private final ModelRenderer handguard;
 	private final ModelRenderer cube_r69;
 	private final ModelRenderer cube_r70;
 	private final ModelRenderer cube_r71;
@@ -142,7 +142,7 @@ public class G36C extends ModelWithAttachments {
 	private final ModelRenderer teeth3;
 	private final ModelRenderer DustCover8_r2;
 	private final ModelRenderer DustCover9_r1;
-	private final QRenderer carryhandle;
+	private final ModelRenderer carryhandle;
 	private final ModelRenderer cube_r101;
 	private final ModelRenderer cube_r102;
 	private final ModelRenderer cube_r103;
@@ -158,13 +158,13 @@ public class G36C extends ModelWithAttachments {
 	private final ModelRenderer teeth;
 	private final ModelRenderer DustCover9_r2;
 	private final ModelRenderer DustCover8_r3;
-	private final QRenderer action;
+	private final ModelRenderer action;
 
 	public G36C() {
 		textureWidth = 220;
 		textureHeight = 220;
 
-		body = new QRenderer(this);
+		body = new ModelRenderer(this);
 		body.setRotationPoint(0.8457F, -11.0F, -22.7706F);
 		body.cubeList.add(new ModelBox(body, 130, 0, -1.1705F, 3.0F, -1.7294F, 1, 4, 11, 0.001F, false));
 		body.cubeList.add(new ModelBox(body, 69, 129, -1.4707F, -6.0F, 10.2706F, 1, 1, 17, 0.0F, false));
@@ -386,7 +386,7 @@ public class G36C extends ModelWithAttachments {
 		setRotationAngle(cube_r27, 0.0F, 0.0F, -0.2269F);
 		cube_r27.cubeList.add(new ModelBox(cube_r27, 94, 39, -1.0F, -2.0F, 0.0F, 1, 2, 35, 0.0F, false));
 
-		grip = new QRenderer(this);
+		grip = new ModelRenderer(this);
 		grip.setRotationPoint(-0.3915F, 0.9283F, -0.4854F);
 		grip.cubeList.add(new ModelBox(grip, 47, 65, -1.6075F, -6.8532F, -7.9352F, 1, 2, 1, 0.0F, false));
 		grip.cubeList.add(new ModelBox(grip, 60, 92, -1.9335F, -7.3283F, -16.0146F, 3, 4, 4, -0.001F, false));
@@ -489,7 +489,7 @@ public class G36C extends ModelWithAttachments {
 		setRotationAngle(gun242_r2, 0.4363F, 0.0F, 0.0F);
 		gun242_r2.cubeList.add(new ModelBox(gun242_r2, 53, 30, -2.004F, -8.0F, -1.175F, 4, 4, 3, -0.003F, false));
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(0.0F, 24.0F, 17.05F);
 		stock.cubeList.add(new ModelBox(stock, 110, 79, -1.625F, -41.0F, -12.5F, 2, 1, 2, 0.002F, false));
 		stock.cubeList.add(new ModelBox(stock, 82, 27, -3.375F, -40.999F, -12.5F, 2, 1, 2, 0.001F, false));
@@ -579,7 +579,7 @@ public class G36C extends ModelWithAttachments {
 		setRotationAngle(cube_r42, 0.0F, 0.0F, 0.7854F);
 		cube_r42.cubeList.add(new ModelBox(cube_r42, 113, 66, -0.5F, -0.5F, -8.5F, 1, 1, 2, 0.0F, false));
 
-		mag = new QRenderer(this);
+		mag = new ModelRenderer(this);
 		mag.setRotationPoint(-0.8249F, -3.218F, -17.884F);
 		
 
@@ -759,7 +759,7 @@ public class G36C extends ModelWithAttachments {
 		setRotationAngle(cube_r68, -0.1309F, 0.0F, 0.0F);
 		cube_r68.cubeList.add(new ModelBox(cube_r68, 47, 73, -2.0F, -3.0F, -1.5F, 4, 5, 3, 0.001F, false));
 
-		handguard = new QRenderer(this);
+		handguard = new ModelRenderer(this);
 		handguard.setRotationPoint(0.0F, 24.0F, 0.0F);
 		handguard.cubeList.add(new ModelBox(handguard, 64, 21, 0.25F, -40.999F, -41.751F, 1, 2, 1, 0.0F, false));
 		handguard.cubeList.add(new ModelBox(handguard, 19, 109, -3.5F, -41.0F, -41.5F, 4, 4, 1, 0.001F, false));
@@ -1099,7 +1099,7 @@ public class G36C extends ModelWithAttachments {
 		DustCover9_r1.cubeList.add(new ModelBox(DustCover9_r1, 87, 36, -0.5F, -0.5F, 12.497F, 1, 1, 1, -0.1F, false));
 		DustCover9_r1.cubeList.add(new ModelBox(DustCover9_r1, 79, 92, -0.5F, -0.5F, 14.122F, 1, 1, 1, -0.1F, false));
 
-		carryhandle = new QRenderer(this);
+		carryhandle = new ModelRenderer(this);
 		carryhandle.setRotationPoint(0.0F, 24.0F, 0.0F);
 		carryhandle.cubeList.add(new ModelBox(carryhandle, 0, 17, -0.75F, -43.0F, -18.5F, 1, 2, 20, 0.0F, false));
 		carryhandle.cubeList.add(new ModelBox(carryhandle, 47, 48, -1.75F, -44.0F, -41.5F, 2, 1, 43, 0.0F, false));
@@ -1293,7 +1293,7 @@ public class G36C extends ModelWithAttachments {
 		DustCover8_r3.cubeList.add(new ModelBox(DustCover8_r3, 0, 117, -0.5F, -0.5F, 30.372F, 1, 1, 1, -0.1F, false));
 		DustCover8_r3.cubeList.add(new ModelBox(DustCover8_r3, 19, 117, -0.5F, -0.5F, 31.997F, 1, 1, 1, -0.1F, false));
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(0.0F, 24.0F, 0.0F);
 		action.cubeList.add(new ModelBox(action, 71, 31, -2.5F, -40.5F, -36.5F, 2, 1, 5, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 110, 82, -2.5F, -40.3F, -31.5F, 2, 1, 2, 0.0F, false));

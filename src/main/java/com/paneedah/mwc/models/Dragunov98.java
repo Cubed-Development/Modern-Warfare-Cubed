@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class Dragunov98 extends ModelBase {
-	private final QRenderer dustcover;
+	private final ModelRenderer dustcover;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -39,7 +39,7 @@ public class Dragunov98 extends ModelBase {
 		textureWidth = 370;
 		textureHeight = 370;
 
-		dustcover = new QRenderer(this);
+		dustcover = new ModelRenderer(this);
 		dustcover.setRotationPoint(0.0F, -15.0F, 0.0F);
 		dustcover.cubeList.add(new ModelBox(dustcover, 179, 220, -2.5F, -1.0F, -43.0F, 2, 1, 43, 0.0F, false));
 		dustcover.cubeList.add(new ModelBox(dustcover, 75, 7, -0.1F, 2.8F, -2.0F, 1, 1, 5, 0.0F, false));

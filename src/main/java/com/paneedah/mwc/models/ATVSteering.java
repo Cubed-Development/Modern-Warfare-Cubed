@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class ATVSteering extends ModelBase {
-	private final QRenderer body;
+	private final ModelRenderer body;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -138,7 +138,7 @@ public class ATVSteering extends ModelBase {
 	private final ModelRenderer cube_r120;
 	private final ModelRenderer cube_r121;
 	private final ModelRenderer cube_r122;
-	private final QRenderer steering_thing;
+	private final ModelRenderer steering_thing;
 	private final ModelRenderer cube_r123;
 	private final ModelRenderer cube_r124;
 	private final ModelRenderer cube_r125;
@@ -160,7 +160,7 @@ public class ATVSteering extends ModelBase {
 	private final ModelRenderer cube_r141;
 	private final ModelRenderer cube_r142;
 	private final ModelRenderer cube_r143;
-	private final QRenderer wheel_small;
+	private final ModelRenderer wheel_small;
 	private final ModelRenderer cube_r144;
 	private final ModelRenderer cube_r145;
 	private final ModelRenderer cube_r146;
@@ -177,7 +177,7 @@ public class ATVSteering extends ModelBase {
 		textureWidth = 170;
 		textureHeight = 170;
 
-		body = new QRenderer(this);
+		body = new ModelRenderer(this);
 		body.setRotationPoint(0.0F, 9.9311F, 22.2017F);
 		body.cubeList.add(new ModelBox(body, 31, 25, -14.0F, -8.7029F, -18.2022F, 28, 2, 2, 0.0F, false));
 		body.cubeList.add(new ModelBox(body, 19, 112, 8.9411F, -9.2771F, -25.1578F, 3, 2, 7, 0.0F, false));
@@ -954,7 +954,7 @@ public class ATVSteering extends ModelBase {
 		setRotationAngle(cube_r122, 0.0406F, -0.4346F, -0.0962F);
 		cube_r122.cubeList.add(new ModelBox(cube_r122, 88, 31, -4.0F, -0.5F, -1.0F, 8, 1, 2, 0.01F, false));
 
-		steering_thing = new QRenderer(this);
+		steering_thing = new ModelRenderer(this);
 		steering_thing.setRotationPoint(0.0F, 0.2141F, 6.5824F);
 		
 
@@ -1086,7 +1086,7 @@ public class ATVSteering extends ModelBase {
 		setRotationAngle(cube_r143, 0.1886F, -0.3864F, -0.0718F);
 		cube_r143.cubeList.add(new ModelBox(cube_r143, 26, 87, -2.0F, -0.497F, -3.0F, 3, 1, 2, 0.0F, false));
 
-		wheel_small = new QRenderer(this);
+		wheel_small = new ModelRenderer(this);
 		wheel_small.setRotationPoint(11.0F, 16.5308F, 0.0F);
 		wheel_small.cubeList.add(new ModelBox(wheel_small, 32, 124, -3.0F, 4.4692F, -2.0F, 6, 3, 4, 0.01F, false));
 		wheel_small.cubeList.add(new ModelBox(wheel_small, 58, 78, -2.0F, -4.5308F, -5.0F, 4, 9, 10, 0.0F, false));

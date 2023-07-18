@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class SOCOM_Mag extends ModelBase {
-	private final QRenderer mag;
+	private final ModelRenderer mag;
 	private final ModelRenderer gun41;
 	private final ModelRenderer gun40;
 	private final ModelRenderer gun39;
@@ -42,7 +42,7 @@ public class SOCOM_Mag extends ModelBase {
 		textureWidth = 50;
 		textureHeight = 50;
 
-		mag = new QRenderer(this);
+		mag = new ModelRenderer(this);
 		mag.setRotationPoint(0.0F, 24.0F, 0.0F);
 		mag.cubeList.add(new ModelBox(mag, 17, 24, 3.2F, -33.301F, -0.7F, 1, 1, 1, 0.0F, false));
 		mag.cubeList.add(new ModelBox(mag, 21, 6, 3.401F, -32.901F, -0.7F, 1, 1, 1, -0.2F, false));

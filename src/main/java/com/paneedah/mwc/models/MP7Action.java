@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -26,7 +26,7 @@ public class MP7Action extends ModelWithAttachments {
 	private final ModelRenderer cube_r10;
 	private final ModelRenderer cube_r11;
 	private final ModelRenderer cube_r12;
-	private final QRenderer action;
+	private final ModelRenderer action;
 	private final ModelRenderer milspec_stock;
 	private final ModelRenderer cube_r13;
 	private final ModelRenderer cube_r14;
@@ -305,7 +305,7 @@ public class MP7Action extends ModelWithAttachments {
 		cube_r12.cubeList.add(new ModelBox(cube_r12, 0, 47, -2.0F, 0.2F, -4.6F, 2, 4, 1, 0.001F, false));
 		cube_r12.cubeList.add(new ModelBox(cube_r12, 66, 39, -2.0F, 0.0F, -3.0F, 2, 4, 3, 0.001F, false));
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(-2.0F, -6.0F, -3.6F);
 		action.cubeList.add(new ModelBox(action, 0, 38, -1.0F, -1.0F, 0.0F, 1, 2, 7, 0.0F, false));
 

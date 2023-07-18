@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class DragunovAction extends ModelWithAttachments {
-	private final QRenderer action;
+	private final ModelRenderer action;
 	private final ModelRenderer cube_r97;
 	private final ModelRenderer cube_r98;
 	private final ModelRenderer cube_r99;
@@ -22,7 +22,7 @@ public class DragunovAction extends ModelWithAttachments {
 		textureWidth = 350;
 		textureHeight = 350;
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(-3.5F, -11.75F, -22.0F);
 		action.cubeList.add(new ModelBox(action, 46, 47, 0.3F, -1.0F, -20.0F, 1, 1, 20, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 46, 68, 0.0F, -1.0F, -19.5F, 1, 1, 3, 0.0F, false));

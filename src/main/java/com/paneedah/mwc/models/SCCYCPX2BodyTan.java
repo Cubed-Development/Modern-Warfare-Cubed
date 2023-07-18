@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class SCCYCPX2BodyTan extends ModelWithAttachments {
-	private final QRenderer body;
+	private final ModelRenderer body;
 	private final ModelRenderer gun173_r1;
 	private final ModelRenderer gun174_r1;
 	private final ModelRenderer gun172_r1;
@@ -76,7 +76,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 	private final ModelRenderer gun16_r2;
 	private final ModelRenderer gun16_r3;
 	private final ModelRenderer gun2;
-	private final QRenderer body_tan;
+	private final ModelRenderer body_tan;
 	private final ModelRenderer gun174_r3;
 	private final ModelRenderer gun175_r2;
 	private final ModelRenderer gun173_r3;
@@ -140,7 +140,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 	private final ModelRenderer gun17_r3;
 	private final ModelRenderer gun17_r4;
 	private final ModelRenderer gun30;
-	private final QRenderer slide;
+	private final ModelRenderer slide;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -189,7 +189,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 	private final ModelRenderer cube_r46;
 	private final ModelRenderer cube_r47;
 	private final ModelRenderer cube_r48;
-	private final QRenderer slide_with_mount;
+	private final ModelRenderer slide_with_mount;
 	private final ModelRenderer cube_r49;
 	private final ModelRenderer cube_r50;
 	private final ModelRenderer cube_r51;
@@ -245,14 +245,14 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 	private final ModelRenderer slide15_r1;
 	private final ModelRenderer slide15_r2;
 	private final ModelRenderer slide18_r1;
-	private final QRenderer mag;
+	private final ModelRenderer mag;
 	private final ModelRenderer mag4;
 	private final ModelRenderer mag3;
 	private final ModelRenderer mag5_r1;
 	private final ModelRenderer mag4_r1;
 	private final ModelRenderer mag1;
 	private final ModelRenderer mag2;
-	private final QRenderer mag_extended;
+	private final ModelRenderer mag_extended;
 	private final ModelRenderer mag6;
 	private final ModelRenderer bone2;
 	private final ModelRenderer mag8;
@@ -260,7 +260,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 	private final ModelRenderer mag6_r1;
 	private final ModelRenderer mag5_r2;
 	private final ModelRenderer mag9;
-	private final QRenderer laser;
+	private final ModelRenderer laser;
 	private final ModelRenderer gun19_r1;
 	private final ModelRenderer gun21_r3;
 	private final ModelRenderer gun21_r4;
@@ -270,7 +270,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 	private final ModelRenderer gun16_r5;
 	private final ModelRenderer gun17_r5;
 	private final ModelRenderer gun17_r6;
-	private final QRenderer grip_tape;
+	private final ModelRenderer grip_tape;
 	private final ModelRenderer cube_r97;
 	private final ModelRenderer cube_r98;
 	private final ModelRenderer cube_r99;
@@ -293,7 +293,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 		textureWidth = 170;
 		textureHeight = 170;
 
-		body = new QRenderer(this);
+		body = new ModelRenderer(this);
 		body.setRotationPoint(0.0F, 24.0F, 0.0F);
 		body.cubeList.add(new ModelBox(body, 101, 72, 0.6F, -32.8F, -6.3F, 1, 1, 2, 0.0F, false));
 		body.cubeList.add(new ModelBox(body, 57, 136, -2.0F, -37.2F, -16.2F, 1, 1, 6, 0.0F, false));
@@ -709,7 +709,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 		setRotationAngle(gun2, 1.2641F, 0.0F, 0.0F);
 		gun2.cubeList.add(new ModelBox(gun2, 38, 122, 0.0F, -0.2049F, -1.009F, 3, 2, 3, 0.001F, false));
 
-		body_tan = new QRenderer(this);
+		body_tan = new ModelRenderer(this);
 		body_tan.setRotationPoint(0.0F, 24.0F, 0.0F);
 		body_tan.cubeList.add(new ModelBox(body_tan, 62, 0, 0.6F, -32.8F, -6.3F, 1, 1, 2, 0.0F, false));
 		body_tan.cubeList.add(new ModelBox(body_tan, 134, 2, -2.0F, -37.2F, -16.2F, 1, 1, 6, 0.0F, false));
@@ -1125,7 +1125,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 		setRotationAngle(gun30, 1.2641F, 0.0F, 0.0F);
 		gun30.cubeList.add(new ModelBox(gun30, 60, 39, 0.0F, -0.2049F, -1.009F, 3, 2, 3, 0.001F, false));
 
-		slide = new QRenderer(this);
+		slide = new ModelRenderer(this);
 		slide.setRotationPoint(0.6F, -9.6F, -5.0F);
 		slide.cubeList.add(new ModelBox(slide, 15, 110, -1.0F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
 		slide.cubeList.add(new ModelBox(slide, 120, 121, -1.0F, -1.0F, -0.6F, 1, 1, 1, -0.001F, false));
@@ -1531,7 +1531,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 		cube_r48.cubeList.add(new ModelBox(cube_r48, 46, 118, 2.8F, -1.4F, -0.8F, 1, 1, 1, -0.2F, false));
 		cube_r48.cubeList.add(new ModelBox(cube_r48, 42, 118, 2.8F, -0.8F, -0.8F, 1, 1, 1, -0.2F, false));
 
-		slide_with_mount = new QRenderer(this);
+		slide_with_mount = new ModelRenderer(this);
 		slide_with_mount.setRotationPoint(0.6F, -9.6F, -5.0F);
 		slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 103, 0, -1.0F, -2.0F, -1.0F, 1, 2, 1, 0.0F, false));
 		slide_with_mount.cubeList.add(new ModelBox(slide_with_mount, 0, 114, -1.0F, -1.0F, -0.6F, 1, 1, 1, -0.001F, false));
@@ -1979,7 +1979,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 		setRotationAngle(slide18_r1, 0.0F, -1.2043F, 0.0F);
 		slide18_r1.cubeList.add(new ModelBox(slide18_r1, 9, 59, -2.0F, 0.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
-		mag = new QRenderer(this);
+		mag = new ModelRenderer(this);
 		mag.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 
@@ -2019,7 +2019,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 		setRotationAngle(mag2, 0.0744F, 0.0F, 0.0F);
 		mag2.cubeList.add(new ModelBox(mag2, 34, 22, 0.0F, 0.0F, -1.0F, 3, 2, 1, 0.0F, false));
 
-		mag_extended = new QRenderer(this);
+		mag_extended = new ModelRenderer(this);
 		mag_extended.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 
@@ -2064,7 +2064,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 		setRotationAngle(mag9, 0.0744F, 0.0F, 0.0F);
 		mag9.cubeList.add(new ModelBox(mag9, 9, 31, 0.0F, 0.0F, -1.0F, 3, 2, 1, 0.0F, false));
 
-		laser = new QRenderer(this);
+		laser = new ModelRenderer(this);
 		laser.setRotationPoint(0.0F, 24.0F, 0.0F);
 		laser.cubeList.add(new ModelBox(laser, 31, 86, -3.0F, -32.7F, -17.5F, 3, 3, 2, 0.101F, false));
 		laser.cubeList.add(new ModelBox(laser, 21, 57, -1.75F, -31.7F, -22.5F, 2, 3, 5, 0.001F, false));
@@ -2132,7 +2132,7 @@ public class SCCYCPX2BodyTan extends ModelWithAttachments {
 		setRotationAngle(gun17_r6, -0.1222F, 0.0F, 0.0F);
 		gun17_r6.cubeList.add(new ModelBox(gun17_r6, 9, 9, -3.0F, -4.0F, 0.0F, 3, 4, 1, 0.1F, false));
 
-		grip_tape = new QRenderer(this);
+		grip_tape = new ModelRenderer(this);
 		grip_tape.setRotationPoint(5.0F, -1.0F, 0.0F);
 		
 

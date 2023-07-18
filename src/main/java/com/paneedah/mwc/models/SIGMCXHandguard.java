@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class SIGMCXHandguard extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer gun42_r1;
 	private final ModelRenderer gun41_r1;
 	private final ModelRenderer receiver_lower;
@@ -90,7 +90,7 @@ public class SIGMCXHandguard extends ModelWithAttachments {
 	private final ModelRenderer bone9;
 	private final ModelRenderer gun157_r1;
 	private final ModelRenderer gun153_r1;
-	private final QRenderer handguard;
+	private final ModelRenderer handguard;
 	private final ModelRenderer handguard_normalboi2;
 	private final ModelRenderer long_guard_right3;
 	private final ModelRenderer long_guard_right8_r1;
@@ -153,7 +153,7 @@ public class SIGMCXHandguard extends ModelWithAttachments {
 	private final ModelRenderer handguard_normalboi3;
 	private final ModelRenderer long_guard_left4;
 	private final ModelRenderer bone213;
-	private final QRenderer handguard_short;
+	private final ModelRenderer handguard_short;
 	private final ModelRenderer handguard_normalboi4;
 	private final ModelRenderer long_guard_right2;
 	private final ModelRenderer long_guard_right9_r9;
@@ -200,7 +200,7 @@ public class SIGMCXHandguard extends ModelWithAttachments {
 	private final ModelRenderer handguard_normalboi5;
 	private final ModelRenderer long_guard_left2;
 	private final ModelRenderer bone11;
-	private final QRenderer stonk;
+	private final ModelRenderer stonk;
 	private final ModelRenderer bone316;
 	private final ModelRenderer bone300;
 	private final ModelRenderer bone302;
@@ -219,7 +219,7 @@ public class SIGMCXHandguard extends ModelWithAttachments {
 	private final ModelRenderer bone313;
 	private final ModelRenderer bone314;
 	private final ModelRenderer bone315;
-	private final QRenderer action;
+	private final ModelRenderer action;
 	private final ModelRenderer receiver16_r1;
 	private final ModelRenderer receiver16_r2;
 	private final ModelRenderer receiver15_r1;
@@ -229,7 +229,7 @@ public class SIGMCXHandguard extends ModelWithAttachments {
 		textureWidth = 256;
 		textureHeight = 256;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, 24.7F, 1.5F);
 		gun.cubeList.add(new ModelBox(gun, 54, 85, -0.2F, -34.9F, -8.2F, 1, 1, 1, -0.3F, false));
 		gun.cubeList.add(new ModelBox(gun, 15, 84, -0.2F, -34.9F, -8.6F, 1, 1, 1, -0.3F, false));
@@ -813,7 +813,7 @@ public class SIGMCXHandguard extends ModelWithAttachments {
 		setRotationAngle(gun153_r1, 0.7854F, 0.0F, 0.0F);
 		gun153_r1.cubeList.add(new ModelBox(gun153_r1, 85, 66, -1.2F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
-		handguard = new QRenderer(this);
+		handguard = new ModelRenderer(this);
 		handguard.setRotationPoint(0.0F, 24.7F, 4.7F);
 		
 
@@ -1252,7 +1252,7 @@ public class SIGMCXHandguard extends ModelWithAttachments {
 		setRotationAngle(bone213, 0.0F, 0.0F, -0.7854F);
 		bone213.cubeList.add(new ModelBox(bone213, 74, 86, 0.0F, -0.7071F, -5.0F, 1, 1, 9, -0.001F, false));
 
-		handguard_short = new QRenderer(this);
+		handguard_short = new ModelRenderer(this);
 		handguard_short.setRotationPoint(0.0F, 24.7F, 4.7F);
 		
 
@@ -1584,7 +1584,7 @@ public class SIGMCXHandguard extends ModelWithAttachments {
 		setRotationAngle(bone11, 0.0F, 0.0F, -0.7854F);
 		bone11.cubeList.add(new ModelBox(bone11, 50, 63, 0.0F, -0.7071F, -5.0F, 1, 1, 9, -0.001F, false));
 
-		stonk = new QRenderer(this);
+		stonk = new ModelRenderer(this);
 		stonk.setRotationPoint(0.0F, 24.7F, 0.5F);
 		stonk.cubeList.add(new ModelBox(stonk, 61, 51, -3.0F, -42.0F, 4.5F, 3, 4, 2, 0.0F, false));
 		stonk.cubeList.add(new ModelBox(stonk, 6, 26, 0.0F, -40.75F, 4.75F, 1, 3, 1, 0.0F, false));
@@ -1728,7 +1728,7 @@ public class SIGMCXHandguard extends ModelWithAttachments {
 		setRotationAngle(bone315, -0.7854F, 0.0F, 0.0F);
 		bone315.cubeList.add(new ModelBox(bone315, 110, 3, -0.0733F, -0.1745F, -2.1184F, 1, 1, 2, -0.002F, false));
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(0.1F, 23.1F, -2.0F);
 		
 

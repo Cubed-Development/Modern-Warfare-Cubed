@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class CZ805BrenStock extends ModelWithAttachments {
-	private final QRenderer stock;
+	private final ModelRenderer stock;
 	private final ModelRenderer cube_r68;
 	private final ModelRenderer cube_r69;
 	private final ModelRenderer cube_r70;
@@ -48,7 +48,7 @@ public class CZ805BrenStock extends ModelWithAttachments {
 		textureWidth = 220;
 		textureHeight = 220;
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(0.0F, -7.3F, 12.0F);
 		stock.cubeList.add(new ModelBox(stock, 43, 14, -3.4F, -6.0F, -2.0F, 4, 6, 1, 0.0F, false));
 		stock.cubeList.add(new ModelBox(stock, 0, 16, -0.65F, -5.5F, -5.0F, 1, 5, 3, 0.0F, false));

@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class R700action extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer gun25_r1;
 	private final ModelRenderer gun26_r1;
 	private final ModelRenderer gun22_r1;
@@ -57,9 +57,9 @@ public class R700action extends ModelWithAttachments {
 	private final ModelRenderer gun3;
 	private final ModelRenderer gun2;
 	private final ModelRenderer gun1;
-	private final QRenderer mag_5rnd;
-	private final QRenderer mag_10rnd;
-	private final QRenderer chassis;
+	private final ModelRenderer mag_5rnd;
+	private final ModelRenderer mag_10rnd;
+	private final ModelRenderer chassis;
 	private final ModelRenderer chassis48_r1;
 	private final ModelRenderer chassis4_r1;
 	private final ModelRenderer chassis3_r1;
@@ -131,7 +131,7 @@ public class R700action extends ModelWithAttachments {
 	private final ModelRenderer gun31;
 	private final ModelRenderer gun35;
 	private final ModelRenderer gun36;
-	private final QRenderer apac_chassis;
+	private final ModelRenderer apac_chassis;
 	private final ModelRenderer gun43_r1;
 	private final ModelRenderer gun42_r2;
 	private final ModelRenderer gun43_r2;
@@ -175,7 +175,7 @@ public class R700action extends ModelWithAttachments {
 	private final ModelRenderer bone4;
 	private final ModelRenderer cube_r37;
 	private final ModelRenderer cube_r38;
-	private final QRenderer mdt_xrs_chassis;
+	private final ModelRenderer mdt_xrs_chassis;
 	private final ModelRenderer cube_r39;
 	private final ModelRenderer cube_r40;
 	private final ModelRenderer cube_r41;
@@ -224,11 +224,11 @@ public class R700action extends ModelWithAttachments {
 	private final ModelRenderer cube_r84;
 	private final ModelRenderer cube_r85;
 	private final ModelRenderer cube_r86;
-	private final QRenderer boltactiongrabby;
+	private final ModelRenderer boltactiongrabby;
 	private final ModelRenderer cube_r87;
 	private final ModelRenderer cube_r88;
 	private final ModelRenderer cube_r89;
-	private final QRenderer boltaction;
+	private final ModelRenderer boltaction;
 	private final ModelRenderer cube_r90;
 	private final ModelRenderer cube_r91;
 	private final ModelRenderer cube_r92;
@@ -242,7 +242,7 @@ public class R700action extends ModelWithAttachments {
 		textureWidth = 400;
 		textureHeight = 400;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, 24.0F, 0.0F);
 		gun.cubeList.add(new ModelBox(gun, 9, 70, -1.55F, -29.57F, 8.97F, 1, 1, 2, 0.001F, false));
 		gun.cubeList.add(new ModelBox(gun, 77, 153, -0.9F, -30.4F, -81.7F, 1, 1, 75, -0.001F, false));
@@ -586,7 +586,7 @@ public class R700action extends ModelWithAttachments {
 		gun.addChild(gun1);
 		gun1.cubeList.add(new ModelBox(gun1, 94, 52, 0.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F, false));
 
-		mag_5rnd = new QRenderer(this);
+		mag_5rnd = new ModelRenderer(this);
 		mag_5rnd.setRotationPoint(0.0F, -2.0F, 0.4F);
 		setRotationAngle(mag_5rnd, -0.0349F, 0.0F, 0.0F);
 		mag_5rnd.cubeList.add(new ModelBox(mag_5rnd, 27, 35, -2.25F, -1.5F, -5.8F, 2, 4, 1, 0.0F, false));
@@ -598,7 +598,7 @@ public class R700action extends ModelWithAttachments {
 		mag_5rnd.cubeList.add(new ModelBox(mag_5rnd, 169, 141, -0.65F, 2.5F, -5.8F, 1, 1, 9, 0.0F, false));
 		mag_5rnd.cubeList.add(new ModelBox(mag_5rnd, 130, 96, -2.35F, 2.5F, -5.8F, 2, 1, 9, -0.001F, false));
 
-		mag_10rnd = new QRenderer(this);
+		mag_10rnd = new ModelRenderer(this);
 		mag_10rnd.setRotationPoint(0.0F, 1.0F, 0.3F);
 		setRotationAngle(mag_10rnd, -0.0349F, 0.0F, 0.0F);
 		mag_10rnd.cubeList.add(new ModelBox(mag_10rnd, 26, 93, -2.25F, -4.5F, -5.8F, 2, 7, 1, 0.0F, false));
@@ -610,7 +610,7 @@ public class R700action extends ModelWithAttachments {
 		mag_10rnd.cubeList.add(new ModelBox(mag_10rnd, 190, 24, -0.65F, 2.5F, -5.8F, 1, 1, 9, 0.0F, false));
 		mag_10rnd.cubeList.add(new ModelBox(mag_10rnd, 130, 130, -2.35F, 2.5F, -5.8F, 2, 1, 9, -0.001F, false));
 
-		chassis = new QRenderer(this);
+		chassis = new ModelRenderer(this);
 		chassis.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 
@@ -1046,7 +1046,7 @@ public class R700action extends ModelWithAttachments {
 		setRotationAngle(gun36, 1.0328F, 0.0F, 0.0F);
 		gun36.cubeList.add(new ModelBox(gun36, 18, 40, 0.0F, 0.0F, 0.0F, 2, 1, 1, -0.001F, false));
 
-		apac_chassis = new QRenderer(this);
+		apac_chassis = new ModelRenderer(this);
 		apac_chassis.setRotationPoint(-2.5F, -5.6F, -7.7F);
 		apac_chassis.cubeList.add(new ModelBox(apac_chassis, 114, 36, 0.0F, 0.0F, 0.0F, 3, 1, 16, 0.0F, false));
 		apac_chassis.cubeList.add(new ModelBox(apac_chassis, 87, 48, -0.25F, 0.0F, -1.0F, 1, 2, 1, 0.0F, false));
@@ -1508,7 +1508,7 @@ public class R700action extends ModelWithAttachments {
 		cube_r38.cubeList.add(new ModelBox(cube_r38, 77, 113, 0.0F, 0.65F, -22.0F, 1, 1, 35, -0.001F, false));
 		cube_r38.cubeList.add(new ModelBox(cube_r38, 94, 0, 0.0F, 0.0F, -22.0F, 1, 1, 5, 0.001F, false));
 
-		mdt_xrs_chassis = new QRenderer(this);
+		mdt_xrs_chassis = new ModelRenderer(this);
 		mdt_xrs_chassis.setRotationPoint(-2.55F, -5.6F, -8.7F);
 		mdt_xrs_chassis.cubeList.add(new ModelBox(mdt_xrs_chassis, 0, 93, -0.15F, 0.5F, 1.0F, 1, 4, 13, 0.001F, false));
 		mdt_xrs_chassis.cubeList.add(new ModelBox(mdt_xrs_chassis, 154, 0, -0.15F, 0.05F, 1.0F, 1, 1, 13, 0.0F, false));
@@ -1879,7 +1879,7 @@ public class R700action extends ModelWithAttachments {
 		setRotationAngle(cube_r86, 0.7156F, 0.0F, 0.0F);
 		cube_r86.cubeList.add(new ModelBox(cube_r86, 29, 19, 0.15F, -2.15F, -1.15F, 1, 2, 1, 0.15F, false));
 
-		boltactiongrabby = new QRenderer(this);
+		boltactiongrabby = new ModelRenderer(this);
 		boltactiongrabby.setRotationPoint(-2.25F, -6.3F, 10.05F);
 		boltactiongrabby.cubeList.add(new ModelBox(boltactiongrabby, 44, 90, 0.05F, -0.4F, -1.75F, 1, 2, 1, -0.1F, false));
 
@@ -1903,7 +1903,7 @@ public class R700action extends ModelWithAttachments {
 		setRotationAngle(cube_r89, 0.0F, 0.0F, 0.8203F);
 		cube_r89.cubeList.add(new ModelBox(cube_r89, 77, 88, -0.15F, -0.6F, -1.25F, 1, 2, 1, -0.101F, false));
 
-		boltaction = new QRenderer(this);
+		boltaction = new ModelRenderer(this);
 		boltaction.setRotationPoint(-1.5F, -7.2F, -4.85F);
 		boltaction.cubeList.add(new ModelBox(boltaction, 0, 167, 0.0F, -0.1F, 0.0F, 1, 1, 13, -0.1F, false));
 		boltaction.cubeList.add(new ModelBox(boltaction, 68, 76, 0.0F, -0.1F, 12.5F, 1, 1, 2, -0.15F, false));

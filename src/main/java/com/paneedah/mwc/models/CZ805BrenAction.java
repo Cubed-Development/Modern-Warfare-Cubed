@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -13,14 +13,14 @@ import net.minecraft.entity.Entity;
 
 public class CZ805BrenAction extends ModelWithAttachments {
 	
-	private final QRenderer action;
+	private final ModelRenderer action;
 	private final ModelRenderer cube_r67;
 
 	public CZ805BrenAction() {
 		textureWidth = 220;
 		textureHeight = 220;
 		
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(-3.0F, -10.75F, -23.0F);
 		action.cubeList.add(new ModelBox(action, 27, 0, 0.0F, -2.0F, 0.0F, 1, 2, 12, -0.001F, false));
 		action.cubeList.add(new ModelBox(action, 134, 164, 0.2F, -4.8F, -6.0F, 1, 2, 17, -0.001F, false));

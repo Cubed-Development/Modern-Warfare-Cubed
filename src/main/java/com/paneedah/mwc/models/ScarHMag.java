@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class ScarHMag extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer gun132;
 	private final ModelRenderer lowerreceiver;
 	private final ModelRenderer gun58_r1;
@@ -48,7 +48,7 @@ public class ScarHMag extends ModelWithAttachments {
 	private final ModelRenderer gun708_r1;
 	private final ModelRenderer gun707_r1;
 	private final ModelRenderer gun706_r1;
-	private final QRenderer upperreceiver;
+	private final ModelRenderer upperreceiver;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -101,8 +101,8 @@ public class ScarHMag extends ModelWithAttachments {
 	private final ModelRenderer bone3;
 	private final ModelRenderer cube_r50;
 	private final ModelRenderer cube_r51;
-	private final QRenderer action;
-	private final QRenderer handguard;
+	private final ModelRenderer action;
+	private final ModelRenderer handguard;
 	private final ModelRenderer cube_r52;
 	private final ModelRenderer cube_r53;
 	private final ModelRenderer cube_r54;
@@ -120,7 +120,7 @@ public class ScarHMag extends ModelWithAttachments {
 	private final ModelRenderer bone5;
 	private final ModelRenderer cube_r64;
 	private final ModelRenderer cube_r65;
-	private final QRenderer magazine;
+	private final ModelRenderer magazine;
 	private final ModelRenderer cube_r66;
 	private final ModelRenderer cube_r67;
 
@@ -128,7 +128,7 @@ public class ScarHMag extends ModelWithAttachments {
 		textureWidth = 300;
 		textureHeight = 300;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 
@@ -414,7 +414,7 @@ public class ScarHMag extends ModelWithAttachments {
 		setRotationAngle(gun706_r1, -0.3491F, 0.0F, 0.0F);
 		gun706_r1.cubeList.add(new ModelBox(gun706_r1, 85, 90, -0.1F, -1.0F, 0.0F, 2, 1, 1, 0.0F, false));
 
-		upperreceiver = new QRenderer(this);
+		upperreceiver = new ModelRenderer(this);
 		upperreceiver.setRotationPoint(0.65F, -12.5F, -49.0F);
 		upperreceiver.cubeList.add(new ModelBox(upperreceiver, 133, 166, -4.45F, -1.999F, -2.0F, 4, 3, 25, 0.0F, false));
 		upperreceiver.cubeList.add(new ModelBox(upperreceiver, 94, 27, -4.95F, -1.4F, 18.5F, 1, 1, 4, 0.0F, false));
@@ -917,7 +917,7 @@ public class ScarHMag extends ModelWithAttachments {
 		cube_r51.cubeList.add(new ModelBox(cube_r51, 27, 127, -0.8F, -0.2F, 3.3F, 1, 1, 1, -0.198F, false));
 		cube_r51.cubeList.add(new ModelBox(cube_r51, 35, 127, -0.8F, -0.2F, 2.05F, 1, 1, 1, -0.198F, false));
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(-0.25F, -15.7F, -45.0F);
 		action.cubeList.add(new ModelBox(action, 197, 160, -1.0F, -2.0F, -2.0F, 1, 2, 31, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 90, 76, -0.5F, -1.35F, 11.8F, 3, 1, 1, -0.05F, false));
@@ -933,7 +933,7 @@ public class ScarHMag extends ModelWithAttachments {
 		action.cubeList.add(new ModelBox(action, 100, 166, -2.5F, -2.0F, -2.0F, 1, 2, 31, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 26, 0, -3.3F, 1.5F, 19.0F, 1, 2, 12, 0.0F, false));
 
-		handguard = new QRenderer(this);
+		handguard = new ModelRenderer(this);
 		handguard.setRotationPoint(-3.8F, -11.2F, -51.0F);
 		handguard.cubeList.add(new ModelBox(handguard, 55, 0, 2.5F, -0.6F, 0.0F, 1, 2, 22, 0.001F, false));
 		handguard.cubeList.add(new ModelBox(handguard, 0, 80, 3.5F, -1.0F, 0.0F, 1, 1, 22, -0.001F, false));
@@ -1171,7 +1171,7 @@ public class ScarHMag extends ModelWithAttachments {
 		cube_r65.cubeList.add(new ModelBox(cube_r65, 23, 119, -9.0105F, 10.68F, 3.3F, 1, 1, 1, -0.198F, false));
 		cube_r65.cubeList.add(new ModelBox(cube_r65, 31, 119, -9.0105F, 10.68F, 2.05F, 1, 1, 1, -0.198F, false));
 
-		magazine = new QRenderer(this);
+		magazine = new ModelRenderer(this);
 		magazine.setRotationPoint(0.25F, -4.0F, -24.95F);
 		magazine.cubeList.add(new ModelBox(magazine, 114, 112, -1.0F, -5.0F, 0.25F, 1, 15, 1, 0.0F, false));
 		magazine.cubeList.add(new ModelBox(magazine, 12, 24, -1.35F, -5.0F, 0.45F, 1, 18, 4, -0.002F, false));

@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -51,7 +51,7 @@ public class AR15FN15Handguard extends ModelWithAttachments {
 	private final ModelRenderer gun132;
 	private final ModelRenderer gun67;
 	private final ModelRenderer gun60;
-	private final QRenderer handguard;
+	private final ModelRenderer handguard;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -368,7 +368,7 @@ public class AR15FN15Handguard extends ModelWithAttachments {
 		gun60.cubeList.add(new ModelBox(gun60, 100, 55, 0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 		gun60.cubeList.add(new ModelBox(gun60, 100, 53, -3.2F, 0.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
-		handguard = new QRenderer(this);
+		handguard = new ModelRenderer(this);
 		handguard.setRotationPoint(-0.5F, -16.1F, -60.7F);
 		handguard.cubeList.add(new ModelBox(handguard, 159, 7, -2.0F, 0.0F, -5.0F, 2, 1, 43, 0.001F, false));
 		handguard.cubeList.add(new ModelBox(handguard, 207, 12, -2.0F, 4.1F, -5.0F, 2, 1, 43, 0.001F, false));

@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -31,7 +31,7 @@ public class MP7Stock extends ModelWithAttachments {
 	private final ModelRenderer cube_r13;
 	private final ModelRenderer cube_r14;
 	private final ModelRenderer cube_r15;
-	private final QRenderer stock;
+	private final ModelRenderer stock;
 	private final ModelRenderer gun9_r1;
 	private final ModelRenderer gun8_r1;
 	private final ModelRenderer gun9_r2;
@@ -337,7 +337,7 @@ public class MP7Stock extends ModelWithAttachments {
 		cube_r15.cubeList.add(new ModelBox(cube_r15, 56, 5, -3.3F, -1.1F, -2.1F, 2, 1, 2, 0.099F, false));
 		cube_r15.cubeList.add(new ModelBox(cube_r15, 46, 62, -1.1F, -1.1F, -2.1F, 1, 1, 2, 0.099F, false));
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(-2.0F, -3.05F, 34.05F);
 		stock.cubeList.add(new ModelBox(stock, 78, 20, 1.7F, -5.4F, -2.8F, 1, 1, 4, 0.001F, false));
 		stock.cubeList.add(new ModelBox(stock, 84, 59, 0.2F, -6.6F, -2.8F, 2, 1, 2, 0.001F, false));

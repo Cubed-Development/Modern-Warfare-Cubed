@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class ScarAdapterStock extends ModelBase {
-	private final QRenderer upperreceiver;
+	private final ModelRenderer upperreceiver;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -65,8 +65,8 @@ public class ScarAdapterStock extends ModelBase {
 	private final ModelRenderer bone3;
 	private final ModelRenderer cube_r50;
 	private final ModelRenderer cube_r51;
-	private final QRenderer action;
-	private final QRenderer stock;
+	private final ModelRenderer action;
+	private final ModelRenderer stock;
 	private final ModelRenderer cube_r52;
 	private final ModelRenderer cube_r53;
 	private final ModelRenderer cube_r54;
@@ -117,7 +117,7 @@ public class ScarAdapterStock extends ModelBase {
 	private final ModelRenderer bone2;
 	private final ModelRenderer cube_r98;
 	private final ModelRenderer cube_r99;
-	private final QRenderer stock_short;
+	private final ModelRenderer stock_short;
 	private final ModelRenderer cube_r100;
 	private final ModelRenderer cube_r101;
 	private final ModelRenderer cube_r102;
@@ -183,7 +183,7 @@ public class ScarAdapterStock extends ModelBase {
 	private final ModelRenderer cube_r161;
 	private final ModelRenderer cube_r162;
 	private final ModelRenderer stock_adapter;
-	private final QRenderer cube_r163;
+	private final ModelRenderer cube_r163;
 	private final ModelRenderer cube_r164;
 	private final ModelRenderer cube_r165;
 	private final ModelRenderer cube_r166;
@@ -210,7 +210,7 @@ public class ScarAdapterStock extends ModelBase {
 		textureWidth = 360;
 		textureHeight = 360;
 
-		upperreceiver = new QRenderer(this);
+		upperreceiver = new ModelRenderer(this);
 		upperreceiver.setRotationPoint(0.65F, -12.5F, -49.0F);
 		upperreceiver.cubeList.add(new ModelBox(upperreceiver, 248, 274, -4.45F, -1.999F, 0.0F, 4, 3, 25, 0.0F, false));
 		upperreceiver.cubeList.add(new ModelBox(upperreceiver, 129, 55, -4.95F, -1.4F, 20.5F, 1, 1, 4, 0.0F, false));
@@ -714,7 +714,7 @@ public class ScarAdapterStock extends ModelBase {
 		cube_r51.cubeList.add(new ModelBox(cube_r51, 8, 158, -0.8F, -0.2F, 3.3F, 1, 1, 1, -0.198F, false));
 		cube_r51.cubeList.add(new ModelBox(cube_r51, 19, 158, -0.8F, -0.2F, 2.05F, 1, 1, 1, -0.198F, false));
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(-0.25F, -15.7F, -45.0F);
 		action.cubeList.add(new ModelBox(action, 248, 179, -1.0F, -2.0F, 0.0F, 1, 2, 29, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 26, 6, -0.5F, -1.35F, 11.8F, 3, 1, 1, -0.05F, false));
@@ -730,7 +730,7 @@ public class ScarAdapterStock extends ModelBase {
 		action.cubeList.add(new ModelBox(action, 157, 248, -2.5F, -2.0F, 0.0F, 1, 2, 29, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 0, 24, -3.3F, 1.5F, 21.0F, 1, 2, 10, 0.0F, false));
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(0.1F, -16.5F, 2.0F);
 		stock.cubeList.add(new ModelBox(stock, 98, 77, -1.3F, -1.55F, 0.6F, 2, 4, 1, 0.0F, false));
 		stock.cubeList.add(new ModelBox(stock, 87, 90, -1.2F, -1.55F, 1.1F, 1, 4, 1, -0.001F, false));
@@ -1101,7 +1101,7 @@ public class ScarAdapterStock extends ModelBase {
 		setRotationAngle(cube_r99, 0.0F, -0.4887F, 0.0F);
 		cube_r99.cubeList.add(new ModelBox(cube_r99, 65, 35, 0.0743F, 0.0F, -1.0669F, 2, 9, 1, -0.001F, false));
 
-		stock_short = new QRenderer(this);
+		stock_short = new ModelRenderer(this);
 		stock_short.setRotationPoint(0.1F, -16.5F, 2.0F);
 		stock_short.cubeList.add(new ModelBox(stock_short, 24, 54, -3.9F, -1.0F, 0.5F, 2, 9, 2, 0.0F, false));
 		stock_short.cubeList.add(new ModelBox(stock_short, 38, 66, -4.9F, 3.0F, 2.5F, 2, 2, 4, 0.0F, false));
@@ -1610,7 +1610,7 @@ public class ScarAdapterStock extends ModelBase {
 		stock_adapter.cubeList.add(new ModelBox(stock_adapter, 43, 149, -0.5F, -41.6F, 3.8F, 1, 1, 1, -0.001F, false));
 		stock_adapter.cubeList.add(new ModelBox(stock_adapter, 47, 149, -3.5F, -41.6F, 3.8F, 1, 1, 1, -0.001F, false));
 
-		cube_r163 = new QRenderer(this);
+		cube_r163 = new ModelRenderer(this);
 		cube_r163.setRotationPoint(-3.8F, -38.0F, 3.1F);
 		stock_adapter.addChild(cube_r163);
 		setRotationAngle(cube_r163, 0.0F, 0.7854F, 0.0F);

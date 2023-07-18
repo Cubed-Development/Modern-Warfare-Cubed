@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class CZ805BrenReceiver extends ModelWithAttachments {
-	private final QRenderer upperreceiver;
+	private final ModelRenderer upperreceiver;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -59,7 +59,7 @@ public class CZ805BrenReceiver extends ModelWithAttachments {
 		textureWidth = 220;
 		textureHeight = 220;
 
-		upperreceiver = new QRenderer(this);
+		upperreceiver = new ModelRenderer(this);
 		upperreceiver.setRotationPoint(0.0F, 24.0F, 0.0F);
 		upperreceiver.cubeList.add(new ModelBox(upperreceiver, 112, 84, -3.5F, -34.0F, -23.0F, 4, 1, 25, 0.0F, false));
 		upperreceiver.cubeList.add(new ModelBox(upperreceiver, 27, 55, -3.5F, -34.75F, -23.0F, 1, 1, 12, -0.001F, false));

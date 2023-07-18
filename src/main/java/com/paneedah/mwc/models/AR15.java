@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class AR15 extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer receiver17_r1;
 	private final ModelRenderer receiver16_r1;
 	private final ModelRenderer receiver18_r1;
@@ -67,7 +67,7 @@ public class AR15 extends ModelWithAttachments {
 		textureWidth = 300;
 		textureHeight = 300;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, 24.0F, 0.0F);
 		gun.cubeList.add(new ModelBox(gun, 72, 56, -1.8F, -37.8F, -78.5F, 1, 1, 5, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 71, 118, -1.8F, -37.8F, -73.0F, 1, 1, 1, 0.0F, false));

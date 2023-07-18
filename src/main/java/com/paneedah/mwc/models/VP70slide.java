@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class VP70slide extends ModelBase {
-	private final QRenderer slide;
+	private final ModelRenderer slide;
 	private final ModelRenderer gun14_r1;
 	private final ModelRenderer gun13_r1;
 	private final ModelRenderer gun16_r1;
@@ -190,7 +190,7 @@ public class VP70slide extends ModelBase {
 		textureWidth = 180;
 		textureHeight = 180;
 
-		slide = new QRenderer(this);
+		slide = new ModelRenderer(this);
 		slide.setRotationPoint(0.0F, 24.0F, 0.0F);
 		slide.cubeList.add(new ModelBox(slide, 100, 75, -1.249F, -38.075F, 0.375F, 1, 1, 2, 0.0F, false));
 		slide.cubeList.add(new ModelBox(slide, 80, 100, -1.749F, -38.075F, 0.375F, 1, 1, 2, 0.001F, false));

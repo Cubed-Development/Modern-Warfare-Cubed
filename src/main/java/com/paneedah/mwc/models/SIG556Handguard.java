@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class SIG556Handguard extends ModelWithAttachments {
-	private final QRenderer handguard;
+	private final ModelRenderer handguard;
 	private final ModelRenderer cube_r19;
 	private final ModelRenderer cube_r20;
 	private final ModelRenderer cube_r21;
@@ -43,7 +43,7 @@ public class SIG556Handguard extends ModelWithAttachments {
 		textureWidth = 350;
 		textureHeight = 350;
 
-		handguard = new QRenderer(this);
+		handguard = new ModelRenderer(this);
 		handguard.setRotationPoint(0.0F, -15.3F, -35.0F);
 		handguard.cubeList.add(new ModelBox(handguard, 121, 160, -2.0F, -2.0F, -18.25F, 1, 2, 27, 0.002F, false));
 		handguard.cubeList.add(new ModelBox(handguard, 103, 105, -2.0F, 7.0F, 5.75F, 1, 1, 3, 0.001F, false));

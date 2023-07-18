@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class G3HandguardRailed extends ModelWithAttachments {
-	private final QRenderer grip;
+	private final ModelRenderer grip;
 	private final ModelRenderer gun241_r1;
 	private final ModelRenderer gun240_r1;
 	private final ModelRenderer gun241_r2;
@@ -21,7 +21,7 @@ public class G3HandguardRailed extends ModelWithAttachments {
 	private final ModelRenderer gun244_r1;
 	private final ModelRenderer gun243_r1;
 	private final ModelRenderer gun241_r3;
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer gun5_r1;
 	private final ModelRenderer gun5_r2;
 	private final ModelRenderer gun4_r1;
@@ -55,11 +55,11 @@ public class G3HandguardRailed extends ModelWithAttachments {
 	private final ModelRenderer gun4_r6;
 	private final ModelRenderer gun4_r7;
 	private final ModelRenderer gun3_r2;
-	private final QRenderer action;
+	private final ModelRenderer action;
 	private final ModelRenderer gun9_r5;
 	private final ModelRenderer gun9_r6;
 	private final ModelRenderer gun8_r6;
-	private final QRenderer barrel;
+	private final ModelRenderer barrel;
 	private final ModelRenderer gun7_r4;
 	private final ModelRenderer gun8_r7;
 	private final ModelRenderer gun9_r7;
@@ -85,12 +85,12 @@ public class G3HandguardRailed extends ModelWithAttachments {
 	private final ModelRenderer gun16_r3;
 	private final ModelRenderer gun16_r4;
 	private final ModelRenderer gun15_r4;
-	private final QRenderer charginghandle;
+	private final ModelRenderer charginghandle;
 	private final ModelRenderer gun8_r8;
 	private final ModelRenderer gun9_r9;
 	private final ModelRenderer gun9_r10;
 	private final ModelRenderer gun8_r9;
-	private final QRenderer handguard_a1;
+	private final ModelRenderer handguard_a1;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -108,7 +108,7 @@ public class G3HandguardRailed extends ModelWithAttachments {
 	private final ModelRenderer cube_r15;
 	private final ModelRenderer cube_r16;
 	private final ModelRenderer cube_r17;
-	private final QRenderer stock;
+	private final ModelRenderer stock;
 	private final ModelRenderer gun11_r3;
 	private final ModelRenderer gun10_r1;
 	private final ModelRenderer gun12_r5;
@@ -168,7 +168,7 @@ public class G3HandguardRailed extends ModelWithAttachments {
 	private final ModelRenderer gun10_r12;
 	private final ModelRenderer gun10_r13;
 	private final ModelRenderer gun9_r14;
-	private final QRenderer mag;
+	private final ModelRenderer mag;
 	private final ModelRenderer cube_r18;
 	private final ModelRenderer cube_r19;
 	private final ModelRenderer cube_r20;
@@ -204,7 +204,7 @@ public class G3HandguardRailed extends ModelWithAttachments {
 	private final ModelRenderer cube_r44;
 	private final ModelRenderer cube_r45;
 	private final ModelRenderer cube_r46;
-	private final QRenderer handguard_a3;
+	private final ModelRenderer handguard_a3;
 	private final ModelRenderer cube_r47;
 	private final ModelRenderer cube_r48;
 	private final ModelRenderer cube_r49;
@@ -224,7 +224,7 @@ public class G3HandguardRailed extends ModelWithAttachments {
 		textureWidth = 300;
 		textureHeight = 300;
 
-		grip = new QRenderer(this);
+		grip = new ModelRenderer(this);
 		grip.setRotationPoint(-0.25F, 23.0F, 0.0F);
 		grip.cubeList.add(new ModelBox(grip, 88, 83, -3.252F, -29.5F, -1.9F, 4, 3, 2, 0.0F, false));
 		grip.cubeList.add(new ModelBox(grip, 0, 29, -3.25F, -31.0F, -1.65F, 4, 1, 3, 0.0F, false));
@@ -278,7 +278,7 @@ public class G3HandguardRailed extends ModelWithAttachments {
 		setRotationAngle(gun241_r3, -1.0559F, 0.0F, 0.0F);
 		gun241_r3.cubeList.add(new ModelBox(gun241_r3, 100, 21, -0.998F, 0.0F, -1.0F, 4, 3, 1, 0.0F, false));
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, 24.0F, 0.0F);
 		gun.cubeList.add(new ModelBox(gun, 38, 37, -2.6F, -35.0F, -15.5F, 3, 5, 14, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 58, 25, -0.1F, -35.65F, -30.5F, 1, 1, 7, 0.0F, false));
@@ -557,7 +557,7 @@ public class G3HandguardRailed extends ModelWithAttachments {
 		setRotationAngle(gun3_r2, 0.1571F, 0.0F, 0.0F);
 		gun3_r2.cubeList.add(new ModelBox(gun3_r2, 66, 44, -2.0F, 0.0F, -1.0F, 2, 3, 1, 0.0F, false));
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(-3.0F, -14.65F, -24.5F);
 		action.cubeList.add(new ModelBox(action, 72, 122, 0.2F, 0.0F, 0.0F, 1, 1, 8, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 121, 70, 0.4F, 0.75F, 0.0F, 1, 1, 8, 0.0F, false));
@@ -580,7 +580,7 @@ public class G3HandguardRailed extends ModelWithAttachments {
 		setRotationAngle(gun8_r6, 0.0F, 0.0F, -0.7854F);
 		gun8_r6.cubeList.add(new ModelBox(gun8_r6, 122, 55, 0.0F, 0.0F, -1.0F, 1, 1, 8, 0.0F, false));
 
-		barrel = new QRenderer(this);
+		barrel = new ModelRenderer(this);
 		barrel.setRotationPoint(-1.0F, -14.5F, -62.5F);
 		barrel.cubeList.add(new ModelBox(barrel, 36, 112, -1.0F, -1.0F, 0.0F, 1, 1, 2, 0.0F, false));
 		barrel.cubeList.add(new ModelBox(barrel, 112, 35, -1.0F, -1.0F, -2.5F, 1, 1, 2, 0.0F, false));
@@ -792,7 +792,7 @@ public class G3HandguardRailed extends ModelWithAttachments {
 		setRotationAngle(gun15_r4, 0.0F, 0.0F, -0.7854F);
 		gun15_r4.cubeList.add(new ModelBox(gun15_r4, 0, 119, -1.0F, -1.0F, 0.0F, 1, 1, 8, -0.1F, false));
 
-		charginghandle = new QRenderer(this);
+		charginghandle = new ModelRenderer(this);
 		charginghandle.setRotationPoint(0.0F, -13.65F, -51.5F);
 		charginghandle.cubeList.add(new ModelBox(charginghandle, 0, 224, -1.2F, -1.0F, 3.0F, 1, 1, 17, 0.0F, false));
 
@@ -820,7 +820,7 @@ public class G3HandguardRailed extends ModelWithAttachments {
 		setRotationAngle(gun8_r9, 0.0F, 0.3142F, 0.0F);
 		gun8_r9.cubeList.add(new ModelBox(gun8_r9, 55, 60, -2.05F, -1.0F, 0.0F, 2, 1, 1, -0.2F, false));
 
-		handguard_a1 = new QRenderer(this);
+		handguard_a1 = new ModelRenderer(this);
 		handguard_a1.setRotationPoint(0.5F, -13.5F, -60.5F);
 		handguard_a1.cubeList.add(new ModelBox(handguard_a1, 224, 45, -1.0F, 0.0F, 16.0F, 1, 1, 19, 0.0F, false));
 		handguard_a1.cubeList.add(new ModelBox(handguard_a1, 85, 223, -4.0F, 0.0F, 16.0F, 1, 1, 19, 0.0F, false));
@@ -943,7 +943,7 @@ public class G3HandguardRailed extends ModelWithAttachments {
 		setRotationAngle(cube_r17, 0.0F, 0.0349F, 0.0F);
 		cube_r17.cubeList.add(new ModelBox(cube_r17, 36, 74, -1.0F, 0.0F, -16.0F, 1, 1, 16, 0.0F, false));
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(-1.55F, -14.85F, 3.5F);
 		stock.cubeList.add(new ModelBox(stock, 102, 58, -0.2F, -0.9F, -1.0F, 1, 1, 3, 0.0F, false));
 		stock.cubeList.add(new ModelBox(stock, 13, 89, -0.7F, -0.9F, -1.0F, 1, 1, 3, 0.0F, false));
@@ -1353,7 +1353,7 @@ public class G3HandguardRailed extends ModelWithAttachments {
 		gun9_r14.cubeList.add(new ModelBox(gun9_r14, 88, 78, -2.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 		gun9_r14.cubeList.add(new ModelBox(gun9_r14, 89, 21, -2.5F, 0.0F, 0.0F, 1, 1, 3, 0.0F, false));
 
-		mag = new QRenderer(this);
+		mag = new ModelRenderer(this);
 		mag.setRotationPoint(0.0F, -8.0F, -17.7F);
 		mag.cubeList.add(new ModelBox(mag, 88, 74, -0.848F, -1.7F, -7.45F, 1, 1, 8, 0.0F, false));
 		mag.cubeList.add(new ModelBox(mag, 58, 44, -0.748F, -1.6F, -6.45F, 1, 1, 6, 0.0F, false));
@@ -1629,7 +1629,7 @@ public class G3HandguardRailed extends ModelWithAttachments {
 		setRotationAngle(cube_r46, 0.0F, 1.1519F, 0.0F);
 		cube_r46.cubeList.add(new ModelBox(cube_r46, 76, 56, -1.0F, 0.0F, -1.0F, 1, 1, 1, 0.0F, false));
 
-		handguard_a3 = new QRenderer(this);
+		handguard_a3 = new ModelRenderer(this);
 		handguard_a3.setRotationPoint(1.0F, -11.2F, -31.5F);
 		
 
