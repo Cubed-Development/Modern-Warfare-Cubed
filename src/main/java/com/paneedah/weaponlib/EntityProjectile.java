@@ -1,9 +1,11 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.network.messages.BlockHitMessage;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
+import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -237,7 +239,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
                      if (context == null)
                          return;
 
-                     context.getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), rtr.hitVec.x, rtr.hitVec.y, rtr.hitVec.z, rtr.sideHit), new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
+                     context.getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), new Vector3F(rtr.hitVec), rtr.sideHit), new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
                  }
             }
         }

@@ -1,5 +1,6 @@
-package com.paneedah.weaponlib;
+package com.paneedah.mwc.network;
 
+import com.paneedah.mwc.network.messages.ExposureMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -11,15 +12,10 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ExposureMessageHandler implements IMessageHandler<ExposureMessage, IMessage> {
 
-    public ExposureMessageHandler() {
-    }
-
     @Override
     @SideOnly(Side.CLIENT)
-    public IMessage onMessage(ExposureMessage message, MessageContext messageContext) {
-        MC.addScheduledTask(() -> {
-            CompatibleExposureCapability.updateExposures(MC.player, message.getExposures());
-        });
+    public IMessage onMessage(ExposureMessage exposureMessage, MessageContext messageContext) {
+        CompatibleExposureCapability.updateExposures(MC.player, exposureMessage.getExposures());
 
         return null;
     }

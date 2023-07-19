@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
-import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.network.messages.BlockHitMessage;
 import com.paneedah.weaponlib.BulletHoleRenderer.BulletHole;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
@@ -15,6 +15,7 @@ import com.paneedah.weaponlib.model.Shell;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
+import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
@@ -918,7 +919,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                         //compatibility.addBlockHitEffect(position);
                         //compatibility.playSound(world, posX, posY, posZ, explosionSound, volume, pitch);
                         NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100);
-                        modContext.getChannel().sendToAllAround(new BlockHitMessage(position.getBlockPos(), position.hitVec.x, position.hitVec.y, position.hitVec.z, position.sideHit), point);
+                        modContext.getChannel().sendToAllAround(new BlockHitMessage(position.getBlockPos(), new Vector3F(position.hitVec), position.sideHit), point);
                         
                         MaterialImpactSound materialImpactSound = modContext.getMaterialImpactSound(iBlockState, entity);
                         if(materialImpactSound != null) {

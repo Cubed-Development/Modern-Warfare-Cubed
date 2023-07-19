@@ -2,13 +2,8 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.capabilities.EquipmentCapability;
-import com.paneedah.mwc.network.CraftingClientMessageHandler;
-import com.paneedah.mwc.network.CraftingServerMessageHandler;
-import com.paneedah.mwc.network.GrenadeMessageHandler;
-import com.paneedah.mwc.network.messages.CraftingClientMessage;
-import com.paneedah.mwc.network.messages.CraftingServerMessage;
-import com.paneedah.mwc.network.messages.GrenadeMessage;
-import com.paneedah.mwc.network.messages.WorkbenchMessage;
+import com.paneedah.mwc.network.*;
+import com.paneedah.mwc.network.messages.*;
 import com.paneedah.weaponlib.MagazineReloadAspect.LoadPermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.EnterAttachmentModePermit;
@@ -55,7 +50,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
-import com.paneedah.mwc.network.WorkbenchMessageHandler;
 
 import java.util.HashMap;
 import java.util.Map;
