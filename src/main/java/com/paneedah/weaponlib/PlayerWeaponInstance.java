@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.command.DebugCommand;

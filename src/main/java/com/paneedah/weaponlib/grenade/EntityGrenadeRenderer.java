@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.grenade;
 
-import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
@@ -15,11 +14,9 @@ public class EntityGrenadeRenderer extends Render<Entity> {
 
     //private ModelBase model = new CameraModel();
     //private ResourceLocation textureLocation;
-    //private static final String TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/gunmetaltexture.png";
 
     public EntityGrenadeRenderer() {
         super(MC.getRenderManager());
-        //textureLocation = new ResourceLocation(TEXTURE);
     }
 
     @Override
