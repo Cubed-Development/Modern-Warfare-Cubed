@@ -113,6 +113,10 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Desk Shelf
   - Desk Shelf (Alt2)
   - Impaled Body
+  - Hanging Body
+  - Office Chair
+  - Office Chair 2
+  - Home Chair
 
 ### Removed
 
