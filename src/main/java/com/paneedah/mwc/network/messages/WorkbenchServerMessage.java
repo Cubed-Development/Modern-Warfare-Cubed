@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 @NoArgsConstructor
-public final class WorkbenchMessage implements IMessage {
+public final class WorkbenchServerMessage implements IMessage {
 
     public static final int CRAFT = 1;
     public static final int DISMANTLE = 2;
@@ -25,7 +25,7 @@ public final class WorkbenchMessage implements IMessage {
     public int slotToMove;
     public int quantity = -1;
 
-    public WorkbenchMessage(int type, BlockPos location, String nameToCraft, CraftingGroup group, int quantity) {
+    public WorkbenchServerMessage(int type, BlockPos location, String nameToCraft, CraftingGroup group, int quantity) {
         this.opcode = type;
         this.teLocation = location;
         this.craftingName = nameToCraft;
@@ -33,7 +33,7 @@ public final class WorkbenchMessage implements IMessage {
         this.quantity = quantity;
     }
 
-    public WorkbenchMessage(int type, BlockPos location, int craftingTimer, int craftingDuration, CraftingGroup group, String nameToCraft) {
+    public WorkbenchServerMessage(int type, BlockPos location, int craftingTimer, int craftingDuration, CraftingGroup group, String nameToCraft) {
         this.opcode = type;
         this.teLocation = location;
         this.craftingTimer = craftingTimer;
@@ -42,7 +42,7 @@ public final class WorkbenchMessage implements IMessage {
         this.craftingName = nameToCraft;
     }
 
-    public WorkbenchMessage(int type, BlockPos location, int playerID, int slotToMove) {
+    public WorkbenchServerMessage(int type, BlockPos location, int playerID, int slotToMove) {
         this.opcode = type;
         this.teLocation = location;
         this.playerID = playerID;

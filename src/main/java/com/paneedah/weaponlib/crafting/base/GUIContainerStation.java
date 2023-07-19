@@ -7,7 +7,7 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
 import com.paneedah.weaponlib.crafting.workbench.CustomSearchTextField;
 import com.paneedah.weaponlib.crafting.workbench.GUIButtonCustom;
-import com.paneedah.mwc.network.messages.WorkbenchMessage;
+import com.paneedah.mwc.network.messages.WorkbenchServerMessage;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
@@ -156,7 +156,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		super.actionPerformed(button);
 		
 		if (button == dismantleButton) {
-			modContext.getChannel().sendToServer(new WorkbenchMessage(WorkbenchMessage.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
+			modContext.getChannel().sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
 
 		} else if (button == leftArrow) {
 			setPage(getPage() - 1);
@@ -380,7 +380,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		
 		if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 40, this.guiTop + 219, 176, 20)) {
 			int boxID = (mouseX - (this.guiLeft + 40))/20;
-			modContext.getChannel().sendToServer(new WorkbenchMessage(WorkbenchMessage.MOVE_OUTPUT,
+			modContext.getChannel().sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.MOVE_OUTPUT,
 					tileEntity.getPos(), MC.player.getEntityId(), boxID));
 		}
 		

@@ -234,7 +234,7 @@ public class CommonModContext implements ModContext {
 
 		channel.registerMessage(new ExplosionMessageHandler(this), ExplosionMessage.class, 21, Side.CLIENT);
 		
-		channel.registerMessage(new ArmorControlHandler(), ArmorControlMessage.class, 22, Side.SERVER);
+		channel.registerMessage(new NightVisionToggleMessageHandler(), NightVisionToggleMessage.class, 22, Side.SERVER);
 		
 //		channel.registerMessage(new SpreadableExposureMessageHandler(this),	SpreadableExposureMessage.class, 23, Side.CLIENT);
 		
@@ -268,7 +268,7 @@ public class CommonModContext implements ModContext {
         
         channel.registerMessage(new OpenDoorPacket.OpenDoorPacketHandler(), OpenDoorPacket.class, 42, Side.SERVER);
 
-        channel.registerMessage(new WorkbenchMessageHandler(this), WorkbenchMessage.class, 43, Side.SERVER);
+        channel.registerMessage(new WorkbenchServerMessageHandler(this), WorkbenchServerMessage.class, 43, Side.SERVER);
         
         channel.registerMessage(new StationClientPacket.WorkshopClientPacketHandler(), StationClientPacket.class, 44, Side.CLIENT);
         

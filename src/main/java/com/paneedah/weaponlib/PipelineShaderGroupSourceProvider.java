@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.network.NightVisionToggleMessageHandler;
 import com.paneedah.weaponlib.SpreadableExposure.Blackout;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
@@ -115,7 +116,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
         if(helmetStack != null) {
             NBTTagCompound tagCompound = helmetStack.getTagCompound();
             if(tagCompound != null) {
-                nightVisionEnabled = tagCompound.getBoolean("nv");
+                nightVisionEnabled = tagCompound.getBoolean(NightVisionToggleMessageHandler.TAG_NIGHT_VISION_STATE);
             } else {
                 nightVisionEnabled = false;
             }
