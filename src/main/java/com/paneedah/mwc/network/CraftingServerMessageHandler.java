@@ -13,12 +13,12 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class CraftingServerMessageHandler implements IMessageHandler<CraftingServerMessage, IMessage> {
+public final class CraftingServerMessageHandler implements IMessageHandler<CraftingServerMessage, IMessage> {
 
     private ModContext modContext;
 
     @Override
-    public IMessage onMessage(CraftingServerMessage craftingServerMessage, MessageContext messageContext) {
+    public IMessage onMessage(final CraftingServerMessage craftingServerMessage, final MessageContext messageContext) {
         final EntityPlayerMP target = (EntityPlayerMP) messageContext.getServerHandler().player.getEntityWorld().getEntityByID(craftingServerMessage.getPlayerId());
 
         // If the player doesn't exist or the Crafting Manager hasn't loaded properly, cancel.

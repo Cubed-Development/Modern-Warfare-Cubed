@@ -9,12 +9,12 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class NightVisionToggleMessageHandler implements IMessageHandler<NightVisionToggleMessage, IMessage> {
+public final class NightVisionToggleMessageHandler implements IMessageHandler<NightVisionToggleMessage, IMessage> {
 
     public static final String TAG_NIGHT_VISION_STATE = "nightVisionState";
 
     @Override
-    public IMessage onMessage(NightVisionToggleMessage nightVisionToggleMessage, MessageContext messageContext) {
+    public IMessage onMessage(final NightVisionToggleMessage nightVisionToggleMessage, final MessageContext messageContext) {
         final ItemStack helmetStack = messageContext.getServerHandler().player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 
         if(helmetStack.getItem() instanceof CustomArmor && ((CustomArmor) helmetStack.getItem()).hasNightVision()) {

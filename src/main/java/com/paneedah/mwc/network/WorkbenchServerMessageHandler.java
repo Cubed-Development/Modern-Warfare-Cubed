@@ -34,7 +34,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
     private ModContext modContext;
 
     @Override
-    public IMessage onMessage(WorkbenchServerMessage workbenchServerMessage, MessageContext messageContext) {
+    public IMessage onMessage(final WorkbenchServerMessage workbenchServerMessage, final MessageContext messageContext) {
         final World world = messageContext.getServerHandler().player.world;
 
         final TileEntity tileEntity = world.getTileEntity(workbenchServerMessage.teLocation);

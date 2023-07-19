@@ -17,13 +17,13 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExplosionMessageHandler implements IMessageHandler<ExplosionMessage, IMessage> {
+public final class ExplosionMessageHandler implements IMessageHandler<ExplosionMessage, IMessage> {
 
     private ModContext modContext;
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IMessage onMessage(ExplosionMessage explosionMessage, MessageContext messageContext) {
+    public IMessage onMessage(final ExplosionMessage explosionMessage, final MessageContext messageContext) {
         final EntityPlayer player = MC.player;
         final Vector3D position = explosionMessage.getPosition();
         final Vector3D motion = explosionMessage.getMotion();

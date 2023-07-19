@@ -10,11 +10,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
-public class ExposureMessageHandler implements IMessageHandler<ExposureMessage, IMessage> {
+public final class ExposureMessageHandler implements IMessageHandler<ExposureMessage, IMessage> {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IMessage onMessage(ExposureMessage exposureMessage, MessageContext messageContext) {
+    public IMessage onMessage(final ExposureMessage exposureMessage, final MessageContext messageContext) {
         CompatibleExposureCapability.updateExposures(MC.player, exposureMessage.getExposures());
 
         return null;

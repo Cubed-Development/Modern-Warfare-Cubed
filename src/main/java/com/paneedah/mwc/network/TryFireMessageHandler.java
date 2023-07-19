@@ -10,12 +10,12 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class TryFireMessageHandler implements IMessageHandler<TryFireMessage, IMessage> {
+public final class TryFireMessageHandler implements IMessageHandler<TryFireMessage, IMessage> {
 	
 	private WeaponFireAspect fireManager;
 
 	@Override
-	public IMessage onMessage(TryFireMessage tryFireMessage, MessageContext messageContext) {
+	public IMessage onMessage(final TryFireMessage tryFireMessage, final MessageContext messageContext) {
 		fireManager.serverFire(messageContext.getServerHandler().player, tryFireMessage.isBurst(), tryFireMessage.isAimed());
 
 		return tryFireMessage;

@@ -12,11 +12,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
-public class BlockHitMessageHandler implements IMessageHandler<BlockHitMessage, IMessage> {
+public final class BlockHitMessageHandler implements IMessageHandler<BlockHitMessage, IMessage> {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IMessage onMessage(BlockHitMessage blockHitMessage, MessageContext messageContext) {
+    public IMessage onMessage(final BlockHitMessage blockHitMessage, final MessageContext messageContext) {
         final Vector3F position = blockHitMessage.getPosition();
 
         for (int i = 0; i < MWC.bulletHitParticleMult; i++) {

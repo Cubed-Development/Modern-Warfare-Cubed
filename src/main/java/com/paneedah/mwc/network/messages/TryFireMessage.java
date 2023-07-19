@@ -9,17 +9,17 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TryFireMessage implements IMessage {
+public final class TryFireMessage implements IMessage {
 
 	private boolean isBurst;
 	private boolean isAimed;
 
-	public void fromBytes(ByteBuf byteBuf) {
+	public void fromBytes(final ByteBuf byteBuf) {
 		this.isBurst = byteBuf.readBoolean();
 		this.isAimed = byteBuf.readBoolean();
 	}
 
-	public void toBytes(ByteBuf byteBuf) {
+	public void toBytes(final ByteBuf byteBuf) {
 		byteBuf.writeBoolean(isBurst);
 		byteBuf.writeBoolean(isAimed);
 	}

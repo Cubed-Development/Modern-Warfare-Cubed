@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExplosionMessage implements IMessage {
+public final class ExplosionMessage implements IMessage {
 
     private Vector3D position;
     private float strength;
@@ -29,7 +29,7 @@ public class ExplosionMessage implements IMessage {
     private int smokeParticleTextureId;
 
     @Override
-    public void fromBytes(ByteBuf byteBuf) {
+    public void fromBytes(final ByteBuf byteBuf) {
         this.position.x = byteBuf.readDouble();
         this.position.y = byteBuf.readDouble();
         this.position.z = byteBuf.readDouble();
@@ -60,7 +60,7 @@ public class ExplosionMessage implements IMessage {
     }
 
     @Override
-    public void toBytes(ByteBuf byteBuf) {
+    public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeDouble(this.position.x);
         byteBuf.writeDouble(this.position.y);
         byteBuf.writeDouble(this.position.z);

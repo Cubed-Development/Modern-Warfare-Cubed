@@ -12,19 +12,19 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BlockHitMessage implements IMessage {
+public final class BlockHitMessage implements IMessage {
 
 	private BlockPos blockPos;
     private Vector3F position;
     private EnumFacing enumFacing;
 
-    public void fromBytes(ByteBuf byteBuf) {
+    public void fromBytes(final ByteBuf byteBuf) {
     	blockPos = BlockPos.fromLong(byteBuf.readLong());
         position = new Vector3F(byteBuf.readFloat(), byteBuf.readFloat(), byteBuf.readFloat());
         enumFacing = EnumFacing.byIndex(byteBuf.readInt());
     }
 
-    public void toBytes(ByteBuf buf) {
+    public void toBytes(final ByteBuf buf) {
     	buf.writeLong(this.blockPos.toLong());
     	buf.writeFloat(position.x);
     	buf.writeFloat(position.y);

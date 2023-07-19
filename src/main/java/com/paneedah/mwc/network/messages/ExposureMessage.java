@@ -13,18 +13,18 @@ import java.util.Collection;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExposureMessage implements IMessage {
+public final class ExposureMessage implements IMessage {
     
     private Collection<? extends Exposure> exposures;
 
-    public void fromBytes(ByteBuf byteBuf) {
+    public void fromBytes(final ByteBuf byteBuf) {
         final int size = byteBuf.readInt();
 
         for(int i = 0; i < size; i++)
             exposures.add(TypeRegistry.getInstance().fromBytes(byteBuf));
     }
 
-    public void toBytes(ByteBuf byteBuf) {
+    public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeInt(exposures.size());
 
         for(Exposure exposure: exposures)

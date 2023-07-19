@@ -25,14 +25,14 @@ public final class WorkbenchServerMessage implements IMessage {
     public int slotToMove;
     public int quantity = -1;
 
-    public WorkbenchServerMessage(int type, BlockPos location, int playerID, int slotToMove) {
+    public WorkbenchServerMessage(final int type, final BlockPos location, final int playerID, final int slotToMove) {
         this.opCode = type;
         this.teLocation = location;
         this.playerID = playerID;
         this.slotToMove = slotToMove;
     }
 
-    public WorkbenchServerMessage(int type, BlockPos location, String nameToCraft, CraftingGroup group, int quantity) {
+    public WorkbenchServerMessage(final int type, final BlockPos location, final String nameToCraft, final CraftingGroup group, final int quantity) {
         this.opCode = type;
         this.teLocation = location;
         this.craftingName = nameToCraft;
@@ -40,7 +40,7 @@ public final class WorkbenchServerMessage implements IMessage {
         this.quantity = quantity;
     }
 
-    public WorkbenchServerMessage(int type, BlockPos location, int craftingTimer, int craftingDuration, CraftingGroup group, String nameToCraft) {
+    public WorkbenchServerMessage(final int type, final BlockPos location, final int craftingTimer, final int craftingDuration, final CraftingGroup group, final String nameToCraft) {
         this.opCode = type;
         this.teLocation = location;
         this.craftingTimer = craftingTimer;
@@ -49,7 +49,7 @@ public final class WorkbenchServerMessage implements IMessage {
         this.craftingName = nameToCraft;
     }
 
-    public void fromBytes(ByteBuf byteBuf) {
+    public void fromBytes(final ByteBuf byteBuf) {
         this.opCode = byteBuf.readInt();
         this.teLocation = BlockPos.fromLong(byteBuf.readLong());
 
@@ -68,7 +68,7 @@ public final class WorkbenchServerMessage implements IMessage {
             this.craftingDuration = byteBuf.readInt();
     }
 
-    public void toBytes(ByteBuf byteBuf) {
+    public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeInt(this.opCode);
         byteBuf.writeLong(this.teLocation.toLong());
 

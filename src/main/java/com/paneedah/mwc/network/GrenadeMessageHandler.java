@@ -17,7 +17,7 @@ public final class GrenadeMessageHandler implements IMessageHandler<GrenadeMessa
     private GrenadeAttackAspect grenadeAttackAspect;
 
     @Override
-    public IMessage onMessage(GrenadeMessage grenadeMessage, MessageContext messageContext) {
+    public IMessage onMessage(final GrenadeMessage grenadeMessage, final MessageContext messageContext) {
         final EntityPlayer player = messageContext.getServerHandler().player;
 
         if (player.getHeldItemMainhand().getItem() instanceof ItemGrenade) {

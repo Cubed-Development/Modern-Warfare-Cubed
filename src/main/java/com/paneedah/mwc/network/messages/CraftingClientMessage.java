@@ -14,12 +14,12 @@ import static com.paneedah.mwc.utils.ModReference.RED_LOG;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CraftingClientMessage implements IMessage {
+public final class CraftingClientMessage implements IMessage {
 
     private int opCode;
     private ByteArrayOutputStream fileStream;
 
-    public void fromBytes(ByteBuf byteBuf) {
+    public void fromBytes(final ByteBuf byteBuf) {
         final int size = byteBuf.readInt();
         try {
             byteBuf.readBytes(fileStream, size);
@@ -28,7 +28,7 @@ public class CraftingClientMessage implements IMessage {
         }
     }
 
-    public void toBytes(ByteBuf byteBuf) {
+    public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeInt(opCode);
         byteBuf.writeBytes(fileStream.toByteArray());
     }

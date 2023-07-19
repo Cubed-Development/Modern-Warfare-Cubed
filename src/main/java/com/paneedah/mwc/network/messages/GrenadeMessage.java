@@ -16,12 +16,12 @@ public final class GrenadeMessage implements IMessage {
     private PlayerGrenadeInstance instance;
     private long activationTimestamp;
 
-    public void fromBytes(ByteBuf byteBuf) {
+    public void fromBytes(final ByteBuf byteBuf) {
         this.instance = TypeRegistry.getInstance().fromBytes(byteBuf);
         this.activationTimestamp = byteBuf.readLong();
     }
 
-    public void toBytes(ByteBuf byteBuf) {
+    public void toBytes(final ByteBuf byteBuf) {
         TypeRegistry.getInstance().toBytes(instance, byteBuf);
         byteBuf.writeLong(activationTimestamp);
     }

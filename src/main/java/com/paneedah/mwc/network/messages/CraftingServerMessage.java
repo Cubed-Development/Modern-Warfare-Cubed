@@ -9,15 +9,15 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CraftingServerMessage implements IMessage {
+public final class CraftingServerMessage implements IMessage {
 
     private int playerId;
 
-    public void fromBytes(ByteBuf byteBuf) {
+    public void fromBytes(final ByteBuf byteBuf) {
         this.playerId = byteBuf.readInt();
     }
 
-    public void toBytes(ByteBuf byteBuf) {
+    public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeInt(playerId);
     }
 }

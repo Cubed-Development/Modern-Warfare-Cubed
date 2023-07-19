@@ -18,7 +18,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class CraftingClientMessageHandler implements IMessageHandler<CraftingClientMessage, IMessage> {
+public final class CraftingClientMessageHandler implements IMessageHandler<CraftingClientMessage, IMessage> {
 
     // Our "op-codes," which reduce the need for additional messages and allow us to execute more functions from one.
     public static final int RECEIVE_HASH = 0;
@@ -28,7 +28,7 @@ public class CraftingClientMessageHandler implements IMessageHandler<CraftingCli
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IMessage onMessage(CraftingClientMessage craftingClientMessage, MessageContext messageContext) {
+    public IMessage onMessage(final CraftingClientMessage craftingClientMessage, final MessageContext messageContext) {
         final int opcode = craftingClientMessage.getOpCode();
         final ByteArrayOutputStream fileStream = craftingClientMessage.getFileStream();
 
