@@ -1557,16 +1557,16 @@ public class TileEntities {
         			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
         			switch(facing) {
         			case WEST:
-        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
         				break;
         			case EAST:
-        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
         				break;
         			case NORTH:
-        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
         				break;
         			case SOUTH:
-        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
         				break;
         			default:
         			}
