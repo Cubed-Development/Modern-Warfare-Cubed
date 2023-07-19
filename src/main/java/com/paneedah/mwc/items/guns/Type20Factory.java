@@ -293,10 +293,8 @@ public class Type20Factory implements GunFactory {
         .withCompatibleAttachment(Attachments.Bipod, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
             if(instance != null) {
-                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                        AttachmentCategory.GUARD, instance);
-                if(activeAttachment == Attachments.ACRPrecisionHandGuard 
-                		|| activeAttachment == Attachments.ACRPrecisionHandGuardTan) {
+                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.GUARD, instance);
+                if(activeAttachment == Attachments.ACRPrecisionHandGuardTan) {
                 	GL11.glTranslatef(-0.2F, -0.35F, -5F);
     	            GL11.glScaled(1F, 1F, 1F);
                 } else {
