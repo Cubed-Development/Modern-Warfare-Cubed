@@ -1,4 +1,4 @@
-package com.paneedah.mwc.network;
+package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.NightVisionToggleMessage;
 import com.paneedah.weaponlib.CustomArmor;

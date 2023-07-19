@@ -1,4 +1,4 @@
-package com.paneedah.mwc.network;
+package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.network.messages.BlockHitMessage;

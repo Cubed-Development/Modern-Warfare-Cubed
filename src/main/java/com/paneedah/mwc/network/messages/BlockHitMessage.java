@@ -1,5 +1,6 @@
 package com.paneedah.mwc.network.messages;
 
+import com.paneedah.mwc.network.NetworkUtil;
 import io.netty.buffer.ByteBuf;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
 import lombok.AllArgsConstructor;
@@ -20,15 +21,13 @@ public final class BlockHitMessage implements IMessage {
 
     public void fromBytes(final ByteBuf byteBuf) {
     	blockPos = BlockPos.fromLong(byteBuf.readLong());
-        position = new Vector3F(byteBuf.readFloat(), byteBuf.readFloat(), byteBuf.readFloat());
+        position = NetworkUtil.readVector3F(byteBuf);
         enumFacing = EnumFacing.byIndex(byteBuf.readInt());
     }
 
-    public void toBytes(final ByteBuf buf) {
-    	buf.writeLong(this.blockPos.toLong());
-    	buf.writeFloat(position.x);
-    	buf.writeFloat(position.y);
-    	buf.writeFloat(position.z);
-        buf.writeInt(enumFacing.getIndex());
+    public void toBytes(final ByteBuf byteBuf) {
+    	byteBuf.writeLong(this.blockPos.toLong());
+        NetworkUtil.writeVector3F(byteBuf, position);
+        byteBuf.writeInt(enumFacing.getIndex());
     }
 }

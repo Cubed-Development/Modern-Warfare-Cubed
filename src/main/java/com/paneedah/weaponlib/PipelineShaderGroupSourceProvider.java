@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.network.NightVisionToggleMessageHandler;
+import com.paneedah.mwc.network.handlers.NightVisionToggleMessageHandler;
 import com.paneedah.weaponlib.SpreadableExposure.Blackout;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;

@@ -4,7 +4,7 @@ import com.paneedah.mwc.network.messages.TryFireMessage;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.network.packets.BulletShellClient;
+import com.paneedah.mwc.network.messages.ShellMessageClient;
 import com.paneedah.weaponlib.network.packets.GunFXPacket;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import com.paneedah.weaponlib.state.Aspect;
@@ -475,7 +475,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	
         	Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
     		velocity = velocity.rotateYaw((float) Math.toRadians(-player.rotationYaw));
-        	modContext.getChannel().sendToAllAround(new BulletShellClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), pos.add(weaponDir), velocity), tp);
+        	modContext.getChannel().sendToAllAround(new ShellMessageClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), pos.add(weaponDir), velocity), tp);
         }
 
 

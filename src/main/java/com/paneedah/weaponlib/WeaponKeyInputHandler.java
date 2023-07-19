@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.network.NightVisionToggleMessageHandler;
+import com.paneedah.mwc.network.handlers.NightVisionToggleMessageHandler;
 import com.paneedah.mwc.network.messages.NightVisionToggleMessage;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;

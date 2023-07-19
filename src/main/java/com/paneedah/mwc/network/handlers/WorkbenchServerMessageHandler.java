@@ -1,4 +1,4 @@
-package com.paneedah.mwc.network;
+package com.paneedah.mwc.network.handlers;
 
 import akka.japi.Pair;
 import com.paneedah.mwc.network.messages.WorkbenchServerMessage;

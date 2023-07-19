@@ -1,5 +1,6 @@
 package com.paneedah.mwc.network.messages;
 
+import com.paneedah.mwc.network.NetworkUtil;
 import io.netty.buffer.ByteBuf;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
 import lombok.AllArgsConstructor;
@@ -30,9 +31,7 @@ public final class ExplosionMessage implements IMessage {
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-        this.position.x = byteBuf.readDouble();
-        this.position.y = byteBuf.readDouble();
-        this.position.z = byteBuf.readDouble();
+        this.position = NetworkUtil.readVector3D(byteBuf);
         this.strength = byteBuf.readFloat();
         this.explosionParticleAgeCoefficient = byteBuf.readFloat();
         this.smokeParticleAgeCoefficient = byteBuf.readFloat();
@@ -54,16 +53,12 @@ public final class ExplosionMessage implements IMessage {
             this.affectedBlockPositions.add(new BlockPos(j1, k1, l1));
         }
 
-        this.motion.x = byteBuf.readDouble();
-        this.motion.y = byteBuf.readDouble();
-        this.motion.z = byteBuf.readDouble();
+        this.motion = NetworkUtil.readVector3D(byteBuf);
     }
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        byteBuf.writeDouble(this.position.x);
-        byteBuf.writeDouble(this.position.y);
-        byteBuf.writeDouble(this.position.z);
+        NetworkUtil.writeVector3D(byteBuf, this.position);
         byteBuf.writeFloat(this.strength);
         byteBuf.writeFloat(this.explosionParticleAgeCoefficient);
         byteBuf.writeFloat(this.smokeParticleAgeCoefficient);
@@ -86,8 +81,6 @@ public final class ExplosionMessage implements IMessage {
             byteBuf.writeByte(j1);
         }
 
-        byteBuf.writeDouble(this.motion.x);
-        byteBuf.writeDouble(this.motion.y);
-        byteBuf.writeDouble(this.motion.z);
+        NetworkUtil.writeVector3D(byteBuf, this.motion);
     }
 }

@@ -2,7 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.capabilities.EquipmentCapability;
-import com.paneedah.mwc.network.*;
+import com.paneedah.mwc.network.handlers.*;
 import com.paneedah.mwc.network.messages.*;
 import com.paneedah.weaponlib.MagazineReloadAspect.LoadPermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
@@ -258,7 +258,7 @@ public class CommonModContext implements ModContext {
         
         channel.registerMessage(new GunFXPacket.GunFXPacketHandler(), GunFXPacket.class, 37, Side.CLIENT);
         
-        channel.registerMessage(new BulletShellClient.GunFXPacketHandler(), BulletShellClient.class, 38, Side.CLIENT);
+        channel.registerMessage(new ShellMessageHandler(), ShellMessageClient.class, 38, Side.CLIENT);
         
         channel.registerMessage(new BalancePackClient.BalancePacketHandler(), BalancePackClient.class, 39, Side.CLIENT);
 
