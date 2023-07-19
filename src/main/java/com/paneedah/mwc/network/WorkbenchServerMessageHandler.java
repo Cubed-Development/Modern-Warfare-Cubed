@@ -27,7 +27,6 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-// Todo: This is a mess.
 @NoArgsConstructor
 @AllArgsConstructor
 public final class WorkbenchServerMessageHandler implements IMessageHandler<WorkbenchServerMessage, IMessage> {
@@ -39,16 +38,15 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
         final World world = messageContext.getServerHandler().player.world;
 
         final TileEntity tileEntity = world.getTileEntity(workbenchServerMessage.teLocation);
+
         if (tileEntity instanceof TileEntityStation) {
             final TileEntityStation station = (TileEntityStation) tileEntity;
 
-            if (workbenchServerMessage.opcode == WorkbenchServerMessage.CRAFT) {
+            if (workbenchServerMessage.opCode == WorkbenchServerMessage.CRAFT) {
                 if (tileEntity instanceof TileEntityAmmoPress) {
-                    // Since it's based on a queue, you can add whatever you'd like and it
-                    // will merely refuse to craft it until you have the resources avaliable.
+                    // Since it's based on a queue, you can add whatever you'd like, and it will merely refuse to craft it until you have the resources available.
                     final TileEntityAmmoPress press = (TileEntityAmmoPress) station;
-                    final Item item = CraftingRegistry.getModernCrafting(workbenchServerMessage.craftingGroup, workbenchServerMessage.craftingName).getItem();
-                    final ItemStack newStack = new ItemStack(item, workbenchServerMessage.quantity);
+                    final ItemStack newStack = new ItemStack(CraftingRegistry.getModernCrafting(workbenchServerMessage.craftingGroup, workbenchServerMessage.craftingName).getItem(), workbenchServerMessage.quantity);
 
                     if (press.hasStack()) {
                         final ItemStack topQueue = press.getCraftingQueue().getLast();
@@ -63,6 +61,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
 
                     return workbenchServerMessage;
                 }
+
                 final CraftingEntry[] modernRecipe = CraftingRegistry.getModernCrafting(workbenchServerMessage.craftingGroup, workbenchServerMessage.craftingName).getModernRecipe();
                 if (modernRecipe == null)
                     return workbenchServerMessage;
@@ -89,7 +88,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                         for (ItemStack toTest : list) {
                             if (itemList.containsKey(toTest.getItem()) && stack.getCount() <= itemList.get(toTest.getItem()).getCount()) {
                                 hasAny = true;
-                                toConsume.add(new Pair<Item, Integer>(toTest.getItem(), stack.getCount()));
+                                toConsume.add(new Pair<>(toTest.getItem(), stack.getCount()));
                                 break;
                             }
                         }
@@ -112,7 +111,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                 station.sendUpdate();
 
                 modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), workbenchServerMessage.teLocation), new TargetPoint(0, workbenchServerMessage.teLocation.getX(), workbenchServerMessage.teLocation.getY(), workbenchServerMessage.teLocation.getZ(), 20));
-            } else if (workbenchServerMessage.opcode == WorkbenchServerMessage.DISMANTLE) {
+            } else if (workbenchServerMessage.opCode == WorkbenchServerMessage.DISMANTLE) {
                 for (int i = 9; i < 13; ++i) {
                     if (station.mainInventory.getStackInSlot(i).isEmpty())
                         continue;
@@ -125,9 +124,9 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                 }
 
                 modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), workbenchServerMessage.teLocation), new TargetPoint(0, workbenchServerMessage.teLocation.getX(), workbenchServerMessage.teLocation.getY(), workbenchServerMessage.teLocation.getZ(), 25));
-            } else if (workbenchServerMessage.opcode == WorkbenchServerMessage.MOVE_OUTPUT) {
+            } else if (workbenchServerMessage.opCode == WorkbenchServerMessage.MOVE_OUTPUT) {
                 ((EntityPlayer) world.getEntityByID(workbenchServerMessage.playerID)).addItemStackToInventory(station.mainInventory.getStackInSlot(workbenchServerMessage.slotToMove));
-            } else if (workbenchServerMessage.opcode == WorkbenchServerMessage.POP_FROM_QUEUE) {
+            } else if (workbenchServerMessage.opCode == WorkbenchServerMessage.POP_FROM_QUEUE) {
                 if (!(tileEntity instanceof TileEntityAmmoPress)) return workbenchServerMessage;
 
                 final TileEntityAmmoPress teAmmoPress = (TileEntityAmmoPress) tileEntity;

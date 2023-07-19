@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.network.messages.TryFireMessage;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -234,14 +235,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         Weapon weapon = (Weapon) weaponInstance.getItem();
         Random random = player.getRNG();
 
-        
-       
-        //System.out.println(weaponInstance.getWeapon().getName());
-        
-        
-        //if(true) return;
-        modContext.getChannel().sendToServer(new TryFireMessage(true, 
-                oneClickBurstEnabled.test(weaponInstance) && weaponInstance.getSeriesShotCount() ==  0, weaponInstance.isAimed()));
+        modContext.getChannel().sendToServer(new TryFireMessage(oneClickBurstEnabled.test(weaponInstance) && weaponInstance.getSeriesShotCount() ==  0, weaponInstance.isAimed()));
 
         
     	
@@ -395,8 +389,8 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
     }
 
     //(weapon, player) 
-    public void serverFire(EntityLivingBase player, ItemStack itemStack, boolean isBurst, boolean isAimed) {
-        serverFire(player, itemStack, null, isBurst, isAimed, 1.0f);
+    public void serverFire(EntityLivingBase player, boolean isBurst, boolean isAimed) {
+        serverFire(player, player.getHeldItemMainhand(), null, isBurst, isAimed, 1.0f);
     }
     
     public void serverFire(EntityLivingBase player, ItemStack itemStack, BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith, boolean isBurst, boolean isAimed, float damageMultiplier) {

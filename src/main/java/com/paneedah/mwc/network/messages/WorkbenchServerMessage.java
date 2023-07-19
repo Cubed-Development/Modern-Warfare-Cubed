@@ -15,7 +15,7 @@ public final class WorkbenchServerMessage implements IMessage {
     public static final int MOVE_OUTPUT = 3;
     public static final int POP_FROM_QUEUE = 5;
 
-    public int opcode;
+    public int opCode;
     public BlockPos teLocation;
     public int craftingTimer;
     public int craftingDuration;
@@ -25,8 +25,15 @@ public final class WorkbenchServerMessage implements IMessage {
     public int slotToMove;
     public int quantity = -1;
 
+    public WorkbenchServerMessage(int type, BlockPos location, int playerID, int slotToMove) {
+        this.opCode = type;
+        this.teLocation = location;
+        this.playerID = playerID;
+        this.slotToMove = slotToMove;
+    }
+
     public WorkbenchServerMessage(int type, BlockPos location, String nameToCraft, CraftingGroup group, int quantity) {
-        this.opcode = type;
+        this.opCode = type;
         this.teLocation = location;
         this.craftingName = nameToCraft;
         this.craftingGroup = group;
@@ -34,7 +41,7 @@ public final class WorkbenchServerMessage implements IMessage {
     }
 
     public WorkbenchServerMessage(int type, BlockPos location, int craftingTimer, int craftingDuration, CraftingGroup group, String nameToCraft) {
-        this.opcode = type;
+        this.opCode = type;
         this.teLocation = location;
         this.craftingTimer = craftingTimer;
         this.craftingDuration = craftingDuration;
@@ -42,17 +49,11 @@ public final class WorkbenchServerMessage implements IMessage {
         this.craftingName = nameToCraft;
     }
 
-    public WorkbenchServerMessage(int type, BlockPos location, int playerID, int slotToMove) {
-        this.opcode = type;
-        this.teLocation = location;
-        this.playerID = playerID;
-        this.slotToMove = slotToMove;
-    }
-
     public void fromBytes(ByteBuf byteBuf) {
-        this.opcode = byteBuf.readInt();
+        this.opCode = byteBuf.readInt();
         this.teLocation = BlockPos.fromLong(byteBuf.readLong());
-        if (this.opcode == CRAFT) {
+
+        if (this.opCode == CRAFT) {
             this.quantity = byteBuf.readInt();
             if (quantity == -1) {
                 this.craftingTimer = byteBuf.readInt();
@@ -60,18 +61,18 @@ public final class WorkbenchServerMessage implements IMessage {
             }
             this.craftingGroup = CraftingGroup.getValue(byteBuf.readInt());
             this.craftingName = ByteBufUtils.readUTF8String(byteBuf);
-        } else if (this.opcode == MOVE_OUTPUT || this.opcode == POP_FROM_QUEUE) {
+        } else if (this.opCode == MOVE_OUTPUT || this.opCode == POP_FROM_QUEUE) {
             this.playerID = byteBuf.readInt();
             this.slotToMove = byteBuf.readInt();
-        } else if (this.opcode == DISMANTLE) {
+        } else if (this.opCode == DISMANTLE)
             this.craftingDuration = byteBuf.readInt();
-        }
     }
 
     public void toBytes(ByteBuf byteBuf) {
-        byteBuf.writeInt(this.opcode);
+        byteBuf.writeInt(this.opCode);
         byteBuf.writeLong(this.teLocation.toLong());
-        if (this.opcode == CRAFT) {
+
+        if (this.opCode == CRAFT) {
             byteBuf.writeInt(this.quantity);
             if (this.quantity == -1) {
                 byteBuf.writeInt(this.craftingTimer);
@@ -79,11 +80,10 @@ public final class WorkbenchServerMessage implements IMessage {
             }
             byteBuf.writeInt(this.craftingGroup.getID());
             ByteBufUtils.writeUTF8String(byteBuf, this.craftingName);
-        } else if (this.opcode == MOVE_OUTPUT || this.opcode == POP_FROM_QUEUE) {
+        } else if (this.opCode == MOVE_OUTPUT || this.opCode == POP_FROM_QUEUE) {
             byteBuf.writeInt(this.playerID);
             byteBuf.writeInt(this.slotToMove);
-        } else if (this.opcode == DISMANTLE) {
+        } else if (this.opCode == DISMANTLE)
             byteBuf.writeInt(this.craftingDuration);
-        }
     }
 }
