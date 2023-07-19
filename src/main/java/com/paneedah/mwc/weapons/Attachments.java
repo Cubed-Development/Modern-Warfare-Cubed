@@ -5635,7 +5635,7 @@ public class Attachments {
 //                })
 //                .withName("Glock18CBody")
 //                .withRenderablePart().withTextureName("Dummy.png")
-//                .build(MWC.MOD_CONTEXT);
+//                .build(MWC.modContext);
         
         Glock19XBody = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -10527,7 +10527,7 @@ public class Attachments {
         SIGMCXStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRenderablePart()
-                .withModel(new com.paneedah.mwc.models.SIGMCXStock(), "sigmcx.png")
+                .withModel(new com.paneedah.mwc.models.SIGMCXStock(), "sigMCx.png")
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))

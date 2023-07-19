@@ -1,9 +1,7 @@
 package com.paneedah.weaponlib.animation;
 
-import com.paneedah.weaponlib.DefaultPart;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
-import com.paneedah.weaponlib.compatibility.Interceptors;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.GlStateManager;
@@ -20,7 +18,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 
@@ -191,8 +189,8 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 				if(targetState.sound != null) {
 					//System.out.println(targetState.sound.getResourceLocation());
 					
-					PositionedSoundRecord psr = new PositionedSoundRecord(targetState.sound, SoundCategory.PLAYERS, 1.0F, 1.0F, mc.player.getPosition().up(5));
-		        	mc.getSoundHandler().playSound(psr);
+					PositionedSoundRecord psr = new PositionedSoundRecord(targetState.sound, SoundCategory.PLAYERS, 1.0F, 1.0F, MC.player.getPosition().up(5));
+		        	MC.getSoundHandler().playSound(psr);
 				}
 			}
 			
@@ -270,7 +268,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 						
 						
 						
-						if(mc.gameSettings.thirdPersonView == 0 && part.toString().contains("MAIN_ITEM")
+						if(MC.gameSettings.thirdPersonView == 0 && part.toString().contains("MAIN_ITEM")
 								&& ((toState == RenderableState.ZOOMING && fromState == RenderableState.NORMAL) ||
 										(toState == RenderableState.NORMAL && fromState == RenderableState.ZOOMING))) {
 							
@@ -316,27 +314,19 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 					/*
 					 * try {
 						if(targetState.sound != null) {
-							mc.getSoundHandler().laySound(PositionedSoundRecord.getMasterRecord(targetState.sound, 1.0f));
+							MC.getSoundHandler().laySound(PositionedSoundRecord.getMasterRecord(targetState.sound, 1.0f));
 							
 						}
 					} catch(Exception e) {
 						e.printStackTrace();
 					}
 					 */
-				
-					//System.out.println(partData.matrices.get(currentIndex));
-					
-					if(part == DefaultPart.MAIN_ITEM) {
-						Interceptors.nc.addToMatrixStack(partData.matrices.get(currentIndex+1));
-						
-					}
-					
 					
 					boolean revertFlag = (toState == RenderableState.NORMAL && fromState == RenderableState.ZOOMING);
 					
 					boolean cancelBeizer = (context instanceof RenderContext<?>) && ((RenderContext<?>) context).getCancelBeizer();
 					
-					if(!cancelBeizer && mc.gameSettings.thirdPersonView == 0 && part.toString().contains("MAIN_ITEM")
+					if(!cancelBeizer && MC.gameSettings.thirdPersonView == 0 && part.toString().contains("MAIN_ITEM")
 							&& ((toState == RenderableState.ZOOMING && fromState == RenderableState.NORMAL) ||
 									(toState == RenderableState.NORMAL && fromState == RenderableState.ZOOMING))) {
 						

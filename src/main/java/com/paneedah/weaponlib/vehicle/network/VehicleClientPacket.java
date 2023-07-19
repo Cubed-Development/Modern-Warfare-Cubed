@@ -20,7 +20,7 @@ public class VehicleClientPacket implements IMessage {
 		try {
 			this.serializer = serializer.read(buf);
 			
-			//this.serializer.vehicle = (EntityVehicle) mc.player.world.getEntityByID(this.serializer.entityID);
+			//this.serializer.vehicle = (EntityVehicle) MC.player.world.getEntityByID(this.serializer.entityID);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

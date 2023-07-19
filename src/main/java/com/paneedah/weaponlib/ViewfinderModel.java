@@ -16,11 +16,12 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ViewfinderModel extends ModelBase {
 	
-	private static final ResourceLocation SCOPE_GRIME_TEXTURE = new ResourceLocation(ModReference.ID + ":textures/hud/scopedirt.png");
+	private static final ResourceLocation SCOPE_GRIME_TEXTURE = new ResourceLocation(ID + ":textures/hud/scopedirt.png");
 
 	private ModelRenderer surfaceRenderer;
 	private FlatSurfaceModelBox box;
@@ -70,7 +71,7 @@ public class ViewfinderModel extends ModelBase {
 		
 		GlStateManager.enableAlpha();
 		GlStateManager.enableBlend();
-		mc.getTextureManager().bindTexture(ret.getReticleTexture());
+		MC.getTextureManager().bindTexture(ret.getReticleTexture());
 		GlStateManager.pushMatrix();
 		
 		GlStateManager.pushMatrix();
@@ -122,22 +123,22 @@ public class ViewfinderModel extends ModelBase {
 		
 	
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 4);
-		mc.getTextureManager().bindTexture(ret.getReticleTexture());
+		MC.getTextureManager().bindTexture(ret.getReticleTexture());
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
     	GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
     	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
     	
     	
     	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 6);
-		mc.getTextureManager().bindTexture(SCOPE_GRIME_TEXTURE);
+		MC.getTextureManager().bindTexture(SCOPE_GRIME_TEXTURE);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
     	GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
     	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
     	
     	/* Code for a future hybrid scope
     	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+7);
-		ResourceLocation loc = new ResourceLocation(ModReference.id + ":textures/crosshairs/reflexret.png");
-		mc.getTextureManager().bindTexture(loc);
+		ResourceLocation loc = new ResourceLocation(ID + ":textures/crosshairs/reflexret.png");
+		MC.getTextureManager().bindTexture(loc);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
@@ -160,7 +161,7 @@ public class ViewfinderModel extends ModelBase {
     		scopeShader.uniform1i("depthTex", 3);
     		
     		float fogIntensity = 0.6f;
-    		fogIntensity *= mc.world.getRainStrength(mc.getRenderPartialTicks());
+    		fogIntensity *= MC.world.getRainStrength(MC.getRenderPartialTicks());
     		scopeShader.uniform1f("fogIntensity", fogIntensity);
     		scopeShader.uniform3f("baseFogColor", 0.6f, 0.6f, 0.6f);
 
@@ -174,7 +175,7 @@ public class ViewfinderModel extends ModelBase {
     	//scopeShader.uniform1i("holo", 7);
     	
     	//scopeShader.uniform2f("Velocity", (float) ClientValueRepo.scopeX.getLerpedFloat(), (float) ClientValueRepo.scopeY.getLerpedFloat());
-    	scopeShader.uniform2f("resolution", mc.displayWidth, mc.displayHeight);
+    	scopeShader.uniform2f("resolution", MC.displayWidth, MC.displayHeight);
     	scopeShader.boolean1b("isNightVisionOn", isNightVisionOn);
     	scopeShader.boolean1b("useWhitePhosphor", useWhitePhosphor);
     	scopeShader.uniform1f("time", ClientValueRepo.TICKER.getLerpedFloat());

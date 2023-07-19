@@ -207,7 +207,7 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	public ItemAttachment<ItemMelee> getAttachmentItemWithCategory(AttachmentCategory category) {
 		if(activeAttachmentIds == null || activeAttachmentIds.length <= category.ordinal()) {
 			return null;

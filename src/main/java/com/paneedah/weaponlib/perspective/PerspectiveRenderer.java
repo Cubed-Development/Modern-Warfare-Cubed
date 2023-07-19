@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.perspective;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.*;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.ITextureObject;
@@ -11,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.function.BiConsumer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 
@@ -27,8 +28,8 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
         	
             if(textureId == null) {
                 ResourceLocation textureResource = new ResourceLocation(WirelessCameraPerspective.DARK_SCREEN_TEXTURE);
-                mc.getTextureManager().bindTexture(textureResource);
-                ITextureObject textureObject = mc.getTextureManager().getTexture(textureResource);
+                MC.getTextureManager().bindTexture(textureResource);
+                ITextureObject textureObject = MC.getTextureManager().getTexture(textureResource);
                 if(textureObject != null) {
                     textureId = textureObject.getGlTextureId();
                 }
@@ -60,15 +61,10 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 			return;
 		}
 
-		if(renderContext.getModContext() == null) {
-		    return;
-		}
+		ClientModContext clientModContext = (ClientModContext) MWC.modContext;
 
-		ClientModContext clientModContext = (ClientModContext) renderContext.getModContext();
-
-		@SuppressWarnings("unchecked")
-        Perspective<RenderableState> perspective = (Perspective<RenderableState>) clientModContext.getViewManager()
-            .getPerspective(renderContext.getPlayerItemInstance(), false);
+		
+        Perspective<RenderableState> perspective = (Perspective<RenderableState>) clientModContext.getViewManager().getPerspective(renderContext.getPlayerItemInstance(), false);
 		if(perspective == null) {
 		    perspective = STATIC_TEXTURE_PERSPECTIVE;
 		}
@@ -86,7 +82,7 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 		
 		//GL11.glBindTexture(GL11.GL_TEXTURE_2D, framebuffer.framebufferTexture);
 		GL11.glBindTexture(GL11.GL_TEXTURE_2D, perspective.getTexture(renderContext));
-		mc.entityRenderer.disableLightmap();
+		MC.entityRenderer.disableLightmap();
 		GL11.glEnable(GL11.GL_DEPTH_TEST);
 		//GL11.glDepthMask(true);
 		GL11.glDisable(GL11.GL_LIGHTING);
@@ -110,7 +106,7 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 				renderContext.getScale());
 
 
-        mc.entityRenderer.enableLightmap();
+        MC.entityRenderer.enableLightmap();
 		GL11.glPopAttrib();
 		GL11.glPopMatrix();
 	}

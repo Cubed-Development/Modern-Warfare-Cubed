@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.network;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.PlayerContext;
+import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.weaponlib.state.ExtendedState;
 import com.paneedah.weaponlib.state.ManagedState;
 import com.paneedah.weaponlib.state.Permit;
@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class NetworkPermitManager implements PermitManager, IMessageHandler<PermitMessage, IMessage> {
@@ -61,10 +61,10 @@ public class NetworkPermitManager implements PermitManager, IMessageHandler<Perm
 		Permit<?> permit = permitMessage.getPermit();
 		Object extendedState = permitMessage.getContext();
 
-		if(extendedState instanceof PlayerContext) // TODO: think of something better than upcasting
-			((PlayerContext) extendedState).setPlayer(messageContext.getServerHandler().player);
+		if(extendedState instanceof PlayerItemInstance) // TODO: think of something better than upcasting
+			((PlayerItemInstance) extendedState).setPlayer(messageContext.getServerHandler().player);
 		//serverAction.accept(permit, context);
-		@SuppressWarnings("unchecked")
+		
 		BiConsumer<Permit<?>, Object> evaluator = (BiConsumer<Permit<?>, Object>) evaluators.get(permit.getClass());
 		if(evaluator != null)
 			evaluator.accept(permit, extendedState);
@@ -77,10 +77,10 @@ public class NetworkPermitManager implements PermitManager, IMessageHandler<Perm
 		Permit<?> permit = permitMessage.getPermit();
 		Object extendedState = permitMessage.getContext();
 
-		mc.addScheduledTask(() -> {
-			if(extendedState instanceof PlayerContext)
-				((PlayerContext) extendedState).setPlayer(mc.player);
-			@SuppressWarnings("unchecked")
+		MC.addScheduledTask(() -> {
+			if(extendedState instanceof PlayerItemInstance)
+				((PlayerItemInstance) extendedState).setPlayer(MC.player);
+			
 			BiConsumer<Permit<?>, Object> callback = (BiConsumer<Permit<?>, Object>) permitCallbacks.remove(permit.getUuid());
 			if(callback != null)
 				callback.accept(permit, extendedState);

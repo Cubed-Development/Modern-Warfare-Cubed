@@ -365,7 +365,7 @@ public class ScorpionFrontSight extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		sight_rear.render(f5);
+//		sight_rear.renderer(f5);
 		sight_front.render(f5);
 	}
 

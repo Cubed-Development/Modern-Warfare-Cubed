@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.grenade;
 
-import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
@@ -8,17 +7,16 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class EntityGrenadeRenderer extends Render<Entity> {
 
     //private ModelBase model = new CameraModel();
     //private ResourceLocation textureLocation;
-    //private static final String TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/gunmetaltexture.png";
 
     public EntityGrenadeRenderer() {
-        super(mc.getRenderManager());
-        //textureLocation = new ResourceLocation(TEXTURE);
+        super(MC.getRenderManager());
     }
 
     @Override
@@ -33,8 +31,8 @@ public class EntityGrenadeRenderer extends Render<Entity> {
 
         GrenadeRenderer renderer = itemGrenade.getRenderer();
 
-        mc.renderEngine.bindTexture(
-                new ResourceLocation(ModReference.ID, // TODO: init entity with mod context
+        MC.renderEngine.bindTexture(
+                new ResourceLocation(ID, // TODO: init entity with mod context
                 "textures/models/" + itemGrenade.getTextureName()));
 
         ModelBase model = renderer.getModel();

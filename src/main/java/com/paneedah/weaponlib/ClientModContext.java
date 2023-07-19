@@ -36,7 +36,7 @@ import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ClientModContext extends CommonModContext {
 
@@ -71,7 +71,7 @@ public class ClientModContext extends CommonModContext {
 
         currentContext = new ClientModContext();
 
-        aspectRatio = (float) mc.displayWidth / mc.displayHeight;
+        aspectRatio = (float) MC.displayWidth / MC.displayHeight;
 
         ClientCommandHandler.instance.registerCommand(new DebugCommand());
 
@@ -85,15 +85,15 @@ public class ClientModContext extends CommonModContext {
         rendererRegistry.preInit();
 
         List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(
-                Minecraft.class, mc, "defaultResourcePacks", "field_110449_ao");
+                Minecraft.class, MC, "defaultResourcePacks", "field_110449_ao");
         WeaponResourcePack weaponResourcePack = new WeaponResourcePack();
         defaultResourcePacks.add(weaponResourcePack);
-        IResourceManager resourceManager = mc.getResourceManager();
+        IResourceManager resourceManager = MC.getResourceManager();
         if (resourceManager instanceof IReloadableResourceManager) {
             ((SimpleReloadableResourceManager) resourceManager).reloadResourcePack(weaponResourcePack);
         }
 
-        MinecraftForge.EVENT_BUS.register(new CustomGui(mc, this, weaponAttachmentAspect));
+        MinecraftForge.EVENT_BUS.register(new CustomGui(MC, this, weaponAttachmentAspect));
         MinecraftForge.EVENT_BUS.register(new WeaponEventHandler(this, safeGlobals));
 
         KeyBindings.init();
@@ -178,7 +178,7 @@ public class ClientModContext extends CommonModContext {
 
     @Override
     protected EntityPlayer getPlayer(MessageContext ctx) {
-        return mc.player;
+        return MC.player;
     }
 
     @Override
@@ -202,7 +202,7 @@ public class ClientModContext extends CommonModContext {
 
     @Override
     public PlayerWeaponInstance getMainHeldWeapon() {
-        return getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player,
+        return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player,
                 PlayerWeaponInstance.class);
     }
 
@@ -212,7 +212,7 @@ public class ClientModContext extends CommonModContext {
     }
 
     public PlayerMeleeInstance getMainHeldMeleeWeapon() {
-        return getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player,
+        return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player,
                 PlayerMeleeInstance.class);
     }
 

@@ -47,7 +47,7 @@ public class FNFALFactory {
         .withFlashScale(() -> 0.5f)
         .withFlashOffsetX(() -> 0.09f)
         .withFlashOffsetY(() -> 0.11f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power

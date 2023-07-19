@@ -44,7 +44,7 @@ public class CustomTileEntityBlock extends BlockContainer {
 		this.customBoundingBox = customBoundingBox;
 	}
     
-    @SuppressWarnings("deprecation")
+    
 	@Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
     	return customBoundingBox != null ? customBoundingBox.apply(state) : super.getBoundingBox(state, source, pos);

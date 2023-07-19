@@ -217,7 +217,7 @@ public class PlayerRenderer {
         
         GL11.glPushMatrix();
         
-        RenderContext<RenderableState> renderContext = new RenderContext<>(clientModContext, player, null);
+        RenderContext<RenderableState> renderContext = new RenderContext<>(player, null);
         
         renderContext.setLimbSwing(limbSwing);
         renderContext.setFlimbSwingAmount(limbSwingAmount);
@@ -489,7 +489,7 @@ public class PlayerRenderer {
 
             GL11.glPushMatrix();
             
-            RenderContext<RenderableState> renderContext = new RenderContext<>(clientModContext, player, null);
+            RenderContext<RenderableState> renderContext = new RenderContext<>(player, null);
 
             renderContext.setAgeInTicks(ageInTicks);
             renderContext.setScale(scale);
@@ -533,7 +533,7 @@ public class PlayerRenderer {
             
             Positioner<Part, RenderContext<RenderableState>> positioner = descriptor.positioner;
 
-            RenderContext<RenderableState> renderContext = new RenderContext<>(clientModContext, player, null);
+            RenderContext<RenderableState> renderContext = new RenderContext<>(player, null);
 
             positioner.position(Part.MAIN, renderContext);
             // Gun position

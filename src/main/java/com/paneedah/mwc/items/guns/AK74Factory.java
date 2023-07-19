@@ -43,6 +43,7 @@ public class AK74Factory {
         .withReloadSound("ak_reload")
         .withUnloadSound("ak_unload")
         .withInspectSound("inspection")
+        .withEndOfShootSound("gun_click")
         .withDrawSound("ak_draw")
         .withReloadingTime(45)
         .withCrosshair("gun")
@@ -55,7 +56,7 @@ public class AK74Factory {
 //        .withSpawnEntityModel(ammoModel)
 //        .withSpawnEntityModelTexture(ammoModelTextureName)
         .withShellCasingVerticalOffset(-0.05f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power

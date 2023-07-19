@@ -39,7 +39,7 @@ public class EntityClassFactory implements Opcodes {
         
     private Map<Class<?>, EntityConfiguration> entityConfigurations = new HashMap<>();
     
-    @SuppressWarnings("unchecked")
+    
     public <T extends Entity> Class<? extends T> generateEntitySubclass(Class<T> baseEntityClass,
             int entityId,
             EntityConfiguration configuration) {

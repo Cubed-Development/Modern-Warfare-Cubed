@@ -18,7 +18,7 @@ entity.turretupgraded.name=自动炮台二代
 entity.turretsilenced.name=自动炮台二代 (消音)
 
 item.audis4.name=奥迪S4
-item.mclaren_senna.name=迈凯伦塞纳
+item.MClaren_senna.name=迈凯伦塞纳
 item.ae86trueno.name=丰田 AE86 Trueno
 item.atv_polaris_sportsman_850_2019.name=北极星运动家850 2019款
 
@@ -109,46 +109,21 @@ item.scar_helmet.name=空间站军直侦查连EVA头盔
 item.scar_chest.name=空间站军直侦查连EVA服装
 item.scar_boots.name=空间站军直侦查连EVA靴子
 
-item.mwc_tactical_push_backpack.name=战术随身腰包
-item.mwc_desert_tactical_push_backpack.name=战术随身腰包 (沙漠)
+item.mwc_combat_sustainment_backpack_tan.name=战斗持久背包（棕色）
+item.mwc_combat_sustainment_backpack_black.name=战斗持久背包（黑色）
+item.mwc_combat_sustainment_backpack_forest.name=战斗持久背包（森林色）
 
-item.mwc_combat_sustainment_backpack.name=战斗支援背包
-item.mwc_forest_combat_sustainment_backpack.name=战斗支援背包 (丛林)
+item.mwc_assault_backpack_tan.name=突击背包（棕色）
+item.mwc_assault_backpack_black.name=突击背包（黑色）
+item.mwc_assault_backpack_forest.name=突击背包（森林色）
 
-item.mwc_blackhawk_stealth_backpack.name=黑鹰诡影背包
-item.mwc_urban_blackhawk_stealth_backpack.name=黑鹰诡影背包 (城市)
-item.mwc_forest_blackhawk_stealth_backpack.name=黑鹰诡影背包 (丛林)
+item.mwc_tru_spec_cordura_backpack_tan.name=Tru-Spec科尔杜拉背包（棕色）
+item.mwc_tru_spec_cordura_backpack_black.name=Tru-Spec科尔杜拉背包（黑色）
+item.mwc_tru_spec_cordura_backpack_forest.name=Tru-Spec科尔杜拉背包（森林色）
 
-item.mwc_assault_backpack.name=突击背包
-item.mwc_urban_assault_backpack.name=突击背包 (城市)
-item.mwc_forest_assault_backpack.name=突击背包 (丛林)
+item.mwc_f5_switchblade_backpack.name=F5 Switchblade背包
 
-item.mwc_tru_spec_cordura_backpack.name=特战防水背包
-item.mwc_desert_tru_spec_cordura_backpack.name=特战防水背包 (沙漠)
-item.mwc_black_tru_spec_cordura_backpack.name=特战防水背包 (黑)
-
-item.mwc_mil_spec_alice_backpack.name=军用帆布背包
-item.mwc_desert_mil_spec_alice_backpack.name=军用帆布背包 (沙漠)
-item.mwc_urban_mil_spec_alice_backpack.name=军用帆布背包 (城市)
-
-item.mwc_duffle_bag.name=圆筒型旅行包
-
-item.mwc_tri_zip_backpack.name=3合1后背包
-
-item.mwc_pilgrim_backpack.name=旅行背包
-
-item.mwc_f4m_terminator_backpack.name=F4M 终结者 背包
-item.mwc_urban_f4m_terminator_backpack.name=F4M 终结者 背包 (城市)
-item.mwc_forest_f4m_terminator_backpack.name=F4M 终结者 背包 (丛林)
-
-item.mwc_bergen_backpack.name=卑尔根后背包
-item.mwc_forest_bergen_backpack.name=卑尔根后背包 (丛林)
-item.mwc_urban_bergen_backpack.name=卑尔根后背包 (城市)
-
-item.mwc_sso_attack_2.name=SSO Attack II 背包
-item.mwc_forest_sso_attack_2.name=SSO Attack II 背包 (丛林)
-
-item.mwc_g2_gunslinger2_backpack.name=G2 Gunslinger II 背包
+item.mwc_duffle_bag.name=行李袋
 
 item.mwc_flyye_field_compact_plate_carrier.name=翔野战术背心
 item.mwc_forest_flyye_field_compact_plate_carrier.name=翔野战术背心 (丛林)
@@ -174,7 +149,7 @@ item.mwc_marine_vest.name=美国海军陆战队战术背心
 item.mwc_swat_vest.name=特警队战术背心
 item.mwc_viper_sf.name=Viper SF战术背心 (黑)
 item.mwc_viper_sf_green.name=Viper SF战术背心 (丛林)
-item.mwc_usmc_vest.name=美国海军陆战队战术背心
+item.mwc_usMC_vest.name=美国海军陆战队战术背心
 item.mwc_wfi_task_force_vest.name=Wellness/Fitness特遣队战术背心
 item.mwc_scar_vest.name=Scar特种部队战术背心
 
@@ -189,9 +164,9 @@ item.mwc_m43a_chest_harness.name=M43A胸挂
 item.mwc_molle_black.name=翔野战术背心 (黑)
 item.mwc_molle_green.name=翔野战术背心 (绿)
 item.mwc_molle_urban.name=翔野战术背心 (城市)
-item.mwc_usmc_vest_black.name=美国海军陆战队战术背心 (黑)
-item.mwc_usmc_vest_green.name=美国海军陆战队战术背心 (绿)
-item.mwc_usmc_vest_urban.name=美国海军陆战队战术背心 (城市)
+item.mwc_usMC_vest_black.name=美国海军陆战队战术背心 (黑)
+item.mwc_usMC_vest_green.name=美国海军陆战队战术背心 (绿)
+item.mwc_usMC_vest_urban.name=美国海军陆战队战术背心 (城市)
 item.Urban_helmet.name=凯夫拉头盔 (城市)
 item.Urban_chest.name=战斗夹克 (城市)
 item.Urban_boots.name=战斗靴子 (城市)
@@ -361,7 +336,7 @@ item.g2_contender.name=G2竞争者 手枪
 item.beowulf_50_cal.name=贝奥武夫 射手步枪
 item.hk_417.name=HK417 射手步枪
 item.ar15.name=AR-15 突击步枪
-item.sig_mcx.name=SIG MCX 突击步枪
+item.sig_MCx.name=SIG MCX 突击步枪
 item.mas_21.name=MAS-21 手枪
 item.mp443.name=MP443 手枪
 item.ump_45.name=UMP45 冲锋枪
@@ -1174,28 +1149,13 @@ tile.mwc_ump45_gfl.name=UMP45手办
 tile.weapon_workbench.name=武器工作台
 tile.ammo_press.name=子弹压制器
 
-
-itemGroup.guns_tab=现代战争资源
-
-itemGroup.AssaultRifles_tab=MWC武器
-
-itemGroup.props_tab=MWC传染主题道具 (仅创造)
-
-itemGroup.AmmoTab=MWC弹药
-
-itemGroup.AttachmentsTab=MWC配件
-
-itemGroup.ArmorTab=MWC护具
-
-itemGroup.GrenadesTab=MWC手榴弹
-
-itemGroup.SpartanTab=MWC斯巴达护甲
-
-itemGroup.GadgetsTab=MWC小装置
-
-itemGroup.BlocksTab=MWC方块&锭
-
-itemGroup.CombatServer_tab=MWC街机武器
+itemGroup.weapons=武器
+itemGroup.props=传染主题道具 (仅创造)
+itemGroup.ammunitionAndMagazines=弹药与弹匣
+itemGroup.attachments=配件
+itemGroup.equipment=护具
+itemGroup.throwables=投掷物
+itemGroup.blocksAndIngots=方块&锭
 
 key.categories.weaponlib=现代战争立方体
 
@@ -1313,7 +1273,7 @@ config.gameplay.statusBarPosition.property.name=状态栏位置
 
 config.category.entities.name=实体设定
 config.entities.terroristHealth.property.name=土匪生命倍率
-config.entities.terroristsSpawn.property.name=土匪生成倍率
+config.entities.terroristSpawn.property.name=土匪生成倍率
 config.entities.terroristEquipmentConfiguration.property.name=土匪/士兵装备设定
 config.entities.solderSpawn.property.name=士兵生成倍率
 config.entities.soldierHealth.property.name=士兵生命倍率

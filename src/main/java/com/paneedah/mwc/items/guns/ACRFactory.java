@@ -43,6 +43,7 @@ public class ACRFactory implements GunFactory {
 		.withReloadSound("acr_reload") // Reload sound
 		.withUnloadSound("acr_unload") // Unload sound
 		.withDrawSound("acr_draw") // Draw sound
+        .withInspectSound("m4a1_inspection") // Inspect sound
 		.withReloadingTime(30) // Reloading time in ticks
 		.withCrosshair("gun") // Crosshair
 		.withCrosshairRunning("Running") // Running crosshair
@@ -51,7 +52,7 @@ public class ACRFactory implements GunFactory {
         .withFlashScale(() -> 0.6f) // Flash scale
         .withFlashOffsetX(() -> 0.14f) // Flash offset X
         .withFlashOffsetY(() -> 0.16f) // Flash offset Y
-		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB) // Creative tab
+		.withCreativeTab(MWC.WEAPONS_TAB) // Creative tab
 		.useNewSystem() // Use new system
 		.withRecoilParam(new RecoilParam( // Recoil param
 				// The weapon power
@@ -93,8 +94,8 @@ public class ACRFactory implements GunFactory {
         		CraftingEntry(MWCItems.carbonComposite, 8), new
         		CraftingEntry(MWCItems.gunmetalPlate, 12), new
         		CraftingEntry(MWCItems.steelIngot, 3))
-        
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)  // Creative tab
+
+        .withCreativeTab(MWC.WEAPONS_TAB)  // Creative tab
 
         // Unremovable attachment categories
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)

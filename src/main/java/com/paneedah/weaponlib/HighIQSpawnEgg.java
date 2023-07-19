@@ -23,6 +23,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.storage.AnvilChunkLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class HighIQSpawnEgg extends Item implements IModernCrafting {
 
 	private CraftingEntry[] modernRecipe;
@@ -64,7 +66,7 @@ public class HighIQSpawnEgg extends Item implements IModernCrafting {
 			egg.setEntitySpawnName(this.entitySpawnName);
 			egg.setCreativeTab(this.creativeTab);
 			egg.setTranslationKey(this.registryName);
-			egg.setRegistryName(ModReference.ID, this.registryName);
+			egg.setRegistryName(ID, this.registryName);
 			egg.setID(this.id);
 
 			SecondaryEntityRegistry.pickupMap.put(this.id, egg);
@@ -138,7 +140,7 @@ public class HighIQSpawnEgg extends Item implements IModernCrafting {
 					// SecondaryEntityRegistry.map.get(getEntitySpawnName()).getConstructor(World.class).newInstance(worldIn);
 
 					NBTTagCompound btc = new NBTTagCompound();
-					btc.setString("id", ModReference.ID + ":" + getEntitySpawnName());
+					btc.setString("id", ID + ":" + getEntitySpawnName());
 					Entity entity = AnvilChunkLoader.readWorldEntityPos(btc, worldIn, pos.getX() + 0.5, pos.up().getY(),
 							pos.getZ() + 0.5, true);
 

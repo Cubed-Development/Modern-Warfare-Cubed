@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class Dragunov98Handguard extends ModelBase {
-	private final QRenderer handguard;
+	private final ModelRenderer handguard;
 	private final ModelRenderer cube_r21;
 	private final ModelRenderer cube_r22;
 	private final ModelRenderer cube_r23;
@@ -35,7 +35,7 @@ public class Dragunov98Handguard extends ModelBase {
 		textureWidth = 370;
 		textureHeight = 370;
 
-		handguard = new QRenderer(this);
+		handguard = new ModelRenderer(this);
 		handguard.setRotationPoint(0.0F, -14.0F, -91.0F);
 		handguard.cubeList.add(new ModelBox(handguard, 65, 129, -2.5F, -2.0F, -4.0F, 2, 1, 52, 0.0F, false));
 		handguard.cubeList.add(new ModelBox(handguard, 94, 234, -2.0F, -1.4F, -6.0F, 1, 1, 35, 0.0F, false));

@@ -22,7 +22,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 /*
@@ -34,7 +34,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
 
     private static final long HEAVY_STUB_DURATION = 250;
 
-    @SuppressWarnings("unused")
+    
     private static final long ALERT_TIMEOUT = 300;
 
     private static Predicate<PlayerMeleeInstance> attackTimeoutExpired =
@@ -147,7 +147,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
         }
     }
 
-    @SuppressWarnings("unused")
+    
     private void cannotAttack(PlayerMeleeInstance meleeInstance) {
         modContext.getStatusMessageCenter().addAlertMessage(I18n.translateToLocalFormatted("gui.coolingDown"), 2, 200, 100);
         meleeInstance.getPlayer().playSound(modContext.getNoAmmoSound(), 1, 1);
@@ -160,10 +160,10 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
 
     @SideOnly(Side.CLIENT)
     private void attackClient(PlayerMeleeInstance meleeInstance, boolean isHeavyAttack) {
-        RayTraceResult objectMouseOver = mc.objectMouseOver;
+        RayTraceResult objectMouseOver = MC.objectMouseOver;
 
         if (objectMouseOver != null) {
-            EntityPlayer player = mc.player;
+            EntityPlayer player = MC.player;
             World world = player.world;
             player.playSound(isHeavyAttack ? meleeInstance.getWeapon().getHeavyAtackSound() : meleeInstance.getWeapon().getLightAtackSound(), 1, 1);
 
@@ -174,7 +174,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
                     break;
                 case BLOCK:
                     if (!world.isAirBlock(objectMouseOver.getBlockPos())) {
-                        mc.playerController.clickBlock(objectMouseOver.getBlockPos(), objectMouseOver.sideHit);
+                        MC.playerController.clickBlock(objectMouseOver.getBlockPos(), objectMouseOver.sideHit);
                     }
                 default:
                     break;

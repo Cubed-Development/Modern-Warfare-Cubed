@@ -3,15 +3,15 @@ package com.paneedah.weaponlib.vehicle.jimphysics;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class InterpolationKit {
 
 	
 	public static Vec3d interpolatedEntityPosition(Entity en) {
-		return new Vec3d(interpolateValue(en.prevPosX, en.posX, mc.getRenderPartialTicks()),
-				interpolateValue(en.prevPosY, en.posY, mc.getRenderPartialTicks()),
-				interpolateValue(en.prevPosZ, en.posZ, mc.getRenderPartialTicks())
+		return new Vec3d(interpolateValue(en.prevPosX, en.posX, MC.getRenderPartialTicks()),
+				interpolateValue(en.prevPosY, en.posY, MC.getRenderPartialTicks()),
+				interpolateValue(en.prevPosZ, en.posZ, MC.getRenderPartialTicks())
 				);
 		
 	}

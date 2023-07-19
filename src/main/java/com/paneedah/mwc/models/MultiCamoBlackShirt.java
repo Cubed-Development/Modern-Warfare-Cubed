@@ -62,19 +62,19 @@ public class MultiCamoBlackShirt extends ModelBiped {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		head.render(f5);
-//		body.render(f5);
-//		rightarm.render(f5);
-//		leftarm.render(f5);
-//		rightleg.render(f5);
-//		leftleg.render(f5);
-//		jacket.render(f5);
-//		leftleg_usmc.render(f5);
-//		rightleg_usmc.render(f5);
-//		leftarm_usmc.render(f5);
-//		rightarm_usmc.render(f5);
-//		helmet.render(f5);
-//		vest.render(f5);
+//		head.renderer(f5);
+//		body.renderer(f5);
+//		rightarm.renderer(f5);
+//		leftarm.renderer(f5);
+//		rightleg.renderer(f5);
+//		leftleg.renderer(f5);
+//		jacket.renderer(f5);
+//		leftleg_usMC.renderer(f5);
+//		rightleg_usMC.renderer(f5);
+//		leftarm_usMC.renderer(f5);
+//		rightarm_usMC.renderer(f5);
+//		helmet.renderer(f5);
+//		vest.renderer(f5);
 		
 		super.render(entity, f, f1, f2, f3, f4, f5);
 	    setRotationAngles(f, f1, f2, f3, f4, f5, entity);

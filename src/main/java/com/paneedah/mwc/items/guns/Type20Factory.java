@@ -46,7 +46,7 @@ public class Type20Factory implements GunFactory {
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.14f)
         .withFlashOffsetY(() -> 0.16f)
-		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
 		.withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -89,7 +89,7 @@ public class Type20Factory implements GunFactory {
         		CraftingEntry(MWCItems.gunmetalPlate, 12), new
         		CraftingEntry(MWCItems.steelIngot, 3))
         
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
         .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
@@ -295,7 +295,7 @@ public class Type20Factory implements GunFactory {
             if(instance != null) {
                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                         AttachmentCategory.GUARD, instance);
-                if(activeAttachment == Attachments.ACRPrecisionHandGuardTan
+                if(activeAttachment == Attachments.ACRPrecisionHandGuard 
                 		|| activeAttachment == Attachments.ACRPrecisionHandGuardTan) {
                 	GL11.glTranslatef(-0.2F, -0.35F, -5F);
     	            GL11.glScaled(1F, 1F, 1F);

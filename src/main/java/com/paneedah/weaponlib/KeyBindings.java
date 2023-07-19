@@ -13,11 +13,10 @@ public class KeyBindings {
 	public static KeyBinding unloadKey;
 	public static KeyBinding inspectKey;
 	public static KeyBinding attachmentKey;
-	/*
-	 * public static KeyBinding upArrowKey; public static KeyBinding downArrowKey;
-	 * public static KeyBinding leftArrowKey; public static KeyBinding
-	 * rightArrowKey;
-	 */
+
+	 public static KeyBinding leftArrowKey;
+	 public static KeyBinding rightArrowKey;
+
 	public static KeyBinding laserSwitchKey;
 	public static KeyBinding nightVisionSwitchKey;
 	public static KeyBinding proningSwitchKey;
@@ -84,19 +83,9 @@ public class KeyBindings {
 		
 		freecamRotate = new KeyBinding("debug.freecamRotate", Keyboard.KEY_LCONTROL, "key.categories.weaponlib");
 
-		/*
-		 * upArrowKey = new KeyBinding("key.scope", Keyboard.KEY_UP,
-		 * "key.categories.weaponlib");
-		 * 
-		 * downArrowKey = new KeyBinding("key.recoil_fitter", Keyboard.KEY_DOWN,
-		 * "key.categories.weaponlib");
-		 * 
-		 * leftArrowKey = new KeyBinding("key.silencer", Keyboard.KEY_LEFT,
-		 * "key.categories.weaponlib");
-		 * 
-		 * rightArrowKey = new KeyBinding("key.texture_change", Keyboard.KEY_RIGHT,
-		 * "key.categories.weaponlib");
-		 */
+		leftArrowKey = new KeyBinding("key.back_tablet", Keyboard.KEY_LEFT, "key.categories.weaponlib");
+
+		rightArrowKey = new KeyBinding("key.next_tablet", Keyboard.KEY_RIGHT, "key.categories.weaponlib");
 
 		addKey = new KeyBinding("key.add", Keyboard.KEY_I, "key.categories.weaponlib");
 
@@ -190,8 +179,7 @@ public class KeyBindings {
 
 		semicolonDebugKey = new KeyBinding("key.semicolonDebugKey", Keyboard.KEY_SEMICOLON, "key.categories.weaponlib");
 
-		apostropheDebugKey = new KeyBinding("key.apostropheDebugKey", Keyboard.KEY_APOSTROPHE,
-				"key.categories.weaponlib");
+		apostropheDebugKey = new KeyBinding("key.aposFtropheDebugKey", Keyboard.KEY_APOSTROPHE, "key.categories.weaponlib");
 
 		deleteDebugKey = new KeyBinding("key.deleteDebugKey", Keyboard.KEY_BACK, "key.categories.weaponlib");
 

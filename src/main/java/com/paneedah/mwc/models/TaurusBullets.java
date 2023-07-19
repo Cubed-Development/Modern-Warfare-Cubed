@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class TaurusBullets extends ModelWithAttachments {
-	private final QRenderer bullets;
+	private final ModelRenderer bullets;
 	private final ModelRenderer cube_r5;
 	private final ModelRenderer cube_r6;
 	private final ModelRenderer cube_r7;
@@ -22,7 +22,7 @@ public class TaurusBullets extends ModelWithAttachments {
 		textureWidth = 128;
 		textureHeight = 128;
 
-		bullets = new QRenderer(this);
+		bullets = new ModelRenderer(this);
 		bullets.setRotationPoint(-1.5F, -10.5F, -11.0F);
 		bullets.cubeList.add(new ModelBox(bullets, 76, 76, -0.5F, -3.101F, -4.303F, 1, 1, 4, 0.1F, false));
 		bullets.cubeList.add(new ModelBox(bullets, 26, 75, -0.5F, -3.101F, -5.303F, 1, 1, 1, 0.0F, false));

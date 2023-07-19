@@ -13,7 +13,9 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod.EventBusSubscriber(modid = ModReference.ID)
+import static com.paneedah.mwc.utils.ModReference.ID;
+
+@Mod.EventBusSubscriber(modid = ID)
 public class MWCBlocks {
 
     public static OreBase copperOre;

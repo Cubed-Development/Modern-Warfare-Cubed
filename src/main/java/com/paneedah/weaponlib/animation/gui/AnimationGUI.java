@@ -30,16 +30,17 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class AnimationGUI {
 	
 	private static AnimationGUI instance = new AnimationGUI();
 	
 	
-	public static final ResourceLocation TEXTURES = new ResourceLocation(ModReference.ID + ":textures/hud/animguio.png");
-	
-	
+	public static final ResourceLocation TEXTURES = new ResourceLocation(ID + ":textures/hud/animguio.png");
+
+
 
 	public ArrayList<Panel> panels = new ArrayList<>();
 
@@ -159,11 +160,11 @@ public class AnimationGUI {
 		
 		//if(1+1==2) return;
 		
-		 ScaledResolution scaledresolution = new ScaledResolution(mc);
+		 ScaledResolution scaledresolution = new ScaledResolution(MC);
          final int scaledWidth = scaledresolution.getScaledWidth();
          final int scaledHeight = scaledresolution.getScaledHeight();
-         int mouseX = Mouse.getX() * scaledWidth / mc.displayWidth;
-         int mouseY = scaledHeight - Mouse.getY() * scaledHeight / mc.displayHeight - 1;
+         int mouseX = Mouse.getX() * scaledWidth / MC.displayWidth;
+         int mouseY = scaledHeight - Mouse.getY() * scaledHeight / MC.displayHeight - 1;
          but = null;
 		update(mouseX, mouseY);
 		
@@ -183,7 +184,7 @@ public class AnimationGUI {
 		
 		if(but != null) {
 		
-			AnimationGUI.renderRect(new Color(0x222f3e).darker().darker().darker(), mouseX, mouseY, mc.fontRenderer.getStringWidth(but.tooltip)*0.8f, 10);
+			AnimationGUI.renderRect(new Color(0x222f3e).darker().darker().darker(), mouseX, mouseY, MC.fontRenderer.getStringWidth(but.tooltip)*0.8f, 10);
 			GlStateManager.enableTexture2D();
 			AnimationGUI.renderScaledString(but.tooltip, mouseX+2.5, mouseY+2, 0.9f);
 			GlStateManager.disableTexture2D();
@@ -201,7 +202,7 @@ public class AnimationGUI {
 		
 		
 		
-		ScaledResolution sr = new ScaledResolution(mc);
+		ScaledResolution sr = new ScaledResolution(MC);
 		position.x = (int) (sr.getScaledWidth_double()-100);
 		rotation.x = (int) (sr.getScaledWidth_double()-100);
 		
@@ -222,7 +223,7 @@ public class AnimationGUI {
 		GlStateManager.enableTexture2D();
 		String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("h:mm a"));
 		renderScaledString(time, sr.getScaledWidth_double()-40, 5, 1);
-		String fps = "FPS: " + mc.getDebugFPS();
+		String fps = "FPS: " + MC.getDebugFPS();
 		renderScaledString(fps, sr.getScaledWidth_double()-45, 15, 1);
 		
 		
@@ -384,7 +385,7 @@ public class AnimationGUI {
     		}
     		
 		} else if(id == switchScopes) {
-			PlayerWeaponInstance instance = ClientModContext.getContext().getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player, PlayerWeaponInstance.class);
+			PlayerWeaponInstance instance = ClientModContext.getContext().getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player, PlayerWeaponInstance.class);
 			ClientModContext.getContext().getAttachmentAspect().tryChange(new ChangeAttachmentPermit(AttachmentCategory.SCOPE), instance);
 			
 		} else if(id == editRotButton) {
@@ -401,7 +402,7 @@ public class AnimationGUI {
 		} else if(id == magEdit) {
 			DebugPositioner.setDebugMode(true);
 		} else if(id == forceADS) {
-			PlayerWeaponInstance instance = ClientModContext.getContext().getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player, PlayerWeaponInstance.class);
+			PlayerWeaponInstance instance = ClientModContext.getContext().getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player, PlayerWeaponInstance.class);
 			
 			if(id.isState()) {
 				instance.setAimed(true);
@@ -417,7 +418,7 @@ public class AnimationGUI {
 		Method f = ReflectionHelper.findMethod(AbstractClientPlayer.class, "getPlayerInfo", "getPlayerInfo", (Class<?>) null);
 
 		NetworkPlayerInfo npi = null;
-		try { npi = (NetworkPlayerInfo) f.invoke((AbstractClientPlayer) mc.player, (Object) null); }
+		try { npi = (NetworkPlayerInfo) f.invoke((AbstractClientPlayer) MC.player, (Object) null); }
 		catch (Exception e) { e.printStackTrace(); }
 
 		if(npi != null) {
@@ -437,7 +438,7 @@ public class AnimationGUI {
 		GlStateManager.translate(x, y, 0);
 		GlStateManager.scale(scale, scale, scale);
 		
-		mc.fontRenderer.drawStringWithShadow(str, 0, 0, 0xffffff);
+		MC.fontRenderer.drawStringWithShadow(str, 0, 0, 0xffffff);
 		
 		GlStateManager.popMatrix();
 	}
@@ -471,7 +472,7 @@ public class AnimationGUI {
 	}
 	
 	public static void renderTexturedRect(int id, double x, double y, double w, double h) {
-		mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.ID + ":textures/hud/animguio.png"));
+		MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/hud/animguio.png"));
 		
 		GlStateManager.enableAlpha();
 		GlStateManager.enableBlend();

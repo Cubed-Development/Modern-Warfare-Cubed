@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class DSR1 extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -82,7 +82,7 @@ public class DSR1 extends ModelWithAttachments {
 	private final ModelRenderer cube_r65;
 	private final ModelRenderer cube_r66;
 	private final ModelRenderer cube_r67;
-	private final QRenderer handguard;
+	private final ModelRenderer handguard;
 	private final ModelRenderer cube_r68;
 	private final ModelRenderer cube_r69;
 	private final ModelRenderer cube_r70;
@@ -110,7 +110,7 @@ public class DSR1 extends ModelWithAttachments {
 	private final ModelRenderer bone5;
 	private final ModelRenderer cube_r89;
 	private final ModelRenderer cube_r90;
-	private final QRenderer handguard_railed;
+	private final ModelRenderer handguard_railed;
 	private final ModelRenderer cube_r91;
 	private final ModelRenderer cube_r92;
 	private final ModelRenderer cube_r93;
@@ -136,34 +136,34 @@ public class DSR1 extends ModelWithAttachments {
 	private final ModelRenderer cube_r113;
 	private final ModelRenderer cube_r114;
 	private final ModelRenderer cube_r115;
-	private final QRenderer barrel;
+	private final ModelRenderer barrel;
 	private final ModelRenderer cube_r116;
 	private final ModelRenderer cube_r117;
 	private final ModelRenderer cube_r118;
 	private final ModelRenderer cube_r119;
-	private final QRenderer barrel_long;
+	private final ModelRenderer barrel_long;
 	private final ModelRenderer cube_r120;
 	private final ModelRenderer cube_r121;
 	private final ModelRenderer cube_r122;
 	private final ModelRenderer cube_r123;
-	private final QRenderer boltaction;
+	private final ModelRenderer boltaction;
 	private final ModelRenderer cube_r124;
 	private final ModelRenderer cube_r125;
-	private final QRenderer boltaction_main;
+	private final ModelRenderer boltaction_main;
 	private final ModelRenderer cube_r126;
 	private final ModelRenderer bone;
 	private final ModelRenderer cube_r127;
 	private final ModelRenderer cube_r128;
 	private final ModelRenderer cube_r129;
 	private final ModelRenderer cube_r130;
-	private final QRenderer magazine_actual;
+	private final ModelRenderer magazine_actual;
 	private final ModelRenderer cube_r131;
 	private final ModelRenderer cube_r132;
 	private final ModelRenderer cube_r133;
 	private final ModelRenderer cube_r134;
 	private final ModelRenderer cube_r135;
 	private final ModelRenderer cube_r136;
-	private final QRenderer magazine_ext;
+	private final ModelRenderer magazine_ext;
 	private final ModelRenderer cube_r137;
 	private final ModelRenderer cube_r138;
 	private final ModelRenderer cube_r139;
@@ -175,7 +175,7 @@ public class DSR1 extends ModelWithAttachments {
 		textureWidth = 400;
 		textureHeight = 400;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, -6.0F, -7.0F);
 		gun.cubeList.add(new ModelBox(gun, 271, 75, -3.5F, -2.5F, -19.0F, 3, 1, 34, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 40, 60, -3.5F, -3.5F, -19.0F, 4, 1, 1, 0.0F, false));
@@ -714,7 +714,7 @@ public class DSR1 extends ModelWithAttachments {
 		setRotationAngle(cube_r67, 0.0F, 0.0F, -0.0873F);
 		cube_r67.cubeList.add(new ModelBox(cube_r67, 103, 0, -1.0F, 0.999F, 3.0F, 1, 1, 2, 0.0F, false));
 
-		handguard = new QRenderer(this);
+		handguard = new ModelRenderer(this);
 		handguard.setRotationPoint(-3.35F, -11.5F, -56.1F);
 		handguard.cubeList.add(new ModelBox(handguard, 282, 168, 0.35F, 3.0F, -2.7F, 1, 1, 33, 0.0F, false));
 		handguard.cubeList.add(new ModelBox(handguard, 226, 280, 2.35F, 3.0F, -2.7F, 1, 1, 33, 0.0F, false));
@@ -1058,7 +1058,7 @@ public class DSR1 extends ModelWithAttachments {
 		cube_r90.cubeList.add(new ModelBox(cube_r90, 244, 196, -1.0F, 0.35F, -23.5F, 1, 1, 36, -0.002F, false));
 		cube_r90.cubeList.add(new ModelBox(cube_r90, 120, 28, -1.0F, 0.0F, -23.5F, 1, 1, 2, 0.0F, false));
 
-		handguard_railed = new QRenderer(this);
+		handguard_railed = new ModelRenderer(this);
 		handguard_railed.setRotationPoint(-3.35F, -11.5F, -56.1F);
 		handguard_railed.cubeList.add(new ModelBox(handguard_railed, 191, 279, 0.35F, 3.0F, -2.7F, 1, 1, 33, 0.0F, false));
 		handguard_railed.cubeList.add(new ModelBox(handguard_railed, 273, 134, 2.35F, 3.0F, -2.7F, 1, 1, 33, 0.0F, false));
@@ -1404,7 +1404,7 @@ public class DSR1 extends ModelWithAttachments {
 		setRotationAngle(cube_r115, -0.4538F, 0.0F, -0.384F);
 		cube_r115.cubeList.add(new ModelBox(cube_r115, 82, 28, -1.0F, -2.2F, 0.0F, 1, 2, 1, -0.001F, false));
 
-		barrel = new QRenderer(this);
+		barrel = new ModelRenderer(this);
 		barrel.setRotationPoint(0.0F, 24.0F, 0.0F);
 		barrel.cubeList.add(new ModelBox(barrel, 108, 224, -2.0F, -36.088F, -59.5F, 1, 2, 40, 0.0F, false));
 		barrel.cubeList.add(new ModelBox(barrel, 200, 201, -2.5F, -35.588F, -59.5F, 2, 1, 40, -0.001F, false));
@@ -1438,7 +1438,7 @@ public class DSR1 extends ModelWithAttachments {
 		setRotationAngle(cube_r119, 0.0F, 0.0F, -0.7854F);
 		cube_r119.cubeList.add(new ModelBox(cube_r119, 68, 145, -1.0F, -1.0F, 0.0F, 1, 1, 9, -0.002F, false));
 
-		barrel_long = new QRenderer(this);
+		barrel_long = new ModelRenderer(this);
 		barrel_long.setRotationPoint(0.0F, 24.0F, -19.0F);
 		barrel_long.cubeList.add(new ModelBox(barrel_long, 69, 124, -2.0F, -36.088F, -59.5F, 1, 2, 59, 0.0F, false));
 		barrel_long.cubeList.add(new ModelBox(barrel_long, 68, 0, -2.5F, -35.588F, -59.5F, 2, 1, 59, -0.001F, false));
@@ -1472,7 +1472,7 @@ public class DSR1 extends ModelWithAttachments {
 		setRotationAngle(cube_r123, 0.0F, 0.0F, -0.7854F);
 		cube_r123.cubeList.add(new ModelBox(cube_r123, 129, 112, -1.0F, -1.0F, 0.0F, 1, 1, 9, -0.002F, false));
 
-		boltaction = new QRenderer(this);
+		boltaction = new ModelRenderer(this);
 		boltaction.setRotationPoint(0.1F, 24.25F, -12.0F);
 		boltaction.cubeList.add(new ModelBox(boltaction, 0, 31, -3.3F, -35.6F, 18.5F, 1, 3, 13, -0.1F, false));
 
@@ -1488,7 +1488,7 @@ public class DSR1 extends ModelWithAttachments {
 		setRotationAngle(cube_r125, 0.0F, 0.0F, -1.0996F);
 		cube_r125.cubeList.add(new ModelBox(cube_r125, 32, 31, -0.1F, -0.1F, -0.15F, 1, 1, 13, -0.1F, false));
 
-		boltaction_main = new QRenderer(this);
+		boltaction_main = new ModelRenderer(this);
 		boltaction_main.setRotationPoint(0.0F, -15.35F, 6.5F);
 		
 
@@ -1527,7 +1527,7 @@ public class DSR1 extends ModelWithAttachments {
 		setRotationAngle(cube_r130, 0.1875F, 0.1405F, 0.6526F);
 		cube_r130.cubeList.add(new ModelBox(cube_r130, 0, 0, -0.1F, 0.0F, -0.15F, 1, 3, 1, -0.1F, false));
 
-		magazine_actual = new QRenderer(this);
+		magazine_actual = new ModelRenderer(this);
 		magazine_actual.setRotationPoint(0.0F, -3.0F, 7.1F);
 		magazine_actual.cubeList.add(new ModelBox(magazine_actual, 0, 92, -1.2F, -5.4F, 0.0F, 1, 5, 10, 0.0F, false));
 		magazine_actual.cubeList.add(new ModelBox(magazine_actual, 35, 0, -2.8F, -5.4F, 0.0F, 2, 5, 10, -0.001F, false));
@@ -1588,7 +1588,7 @@ public class DSR1 extends ModelWithAttachments {
 		setRotationAngle(cube_r136, 0.0F, 0.0F, -0.1222F);
 		cube_r136.cubeList.add(new ModelBox(cube_r136, 22, 47, -1.0F, -3.001F, 0.0F, 1, 3, 2, 0.0F, false));
 
-		magazine_ext = new QRenderer(this);
+		magazine_ext = new ModelRenderer(this);
 		magazine_ext.setRotationPoint(0.0F, -3.0F, 7.1F);
 		magazine_ext.cubeList.add(new ModelBox(magazine_ext, 66, 91, -1.2F, -5.4F, 0.0F, 1, 5, 10, 0.0F, false));
 		magazine_ext.cubeList.add(new ModelBox(magazine_ext, 0, 0, -2.8F, -5.4F, 0.0F, 2, 5, 10, -0.001F, false));
@@ -1653,14 +1653,14 @@ public class DSR1 extends ModelWithAttachments {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		gun.render(f5);
-//		handguard.render(f5);
-//		handguard_railed.render(f5);
-//		barrel.render(f5);
-//		barrel_long.render(f5);
-//		boltaction.render(f5);
-//		boltaction_main.render(f5);
-//		magazine_actual.render(f5);
-//		magazine_ext.render(f5);
+//		handguard.renderer(f5);
+//		handguard_railed.renderer(f5);
+//		barrel.renderer(f5);
+//		barrel_long.renderer(f5);
+//		boltaction.renderer(f5);
+//		boltaction_main.renderer(f5);
+//		magazine_actual.renderer(f5);
+//		magazine_ext.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

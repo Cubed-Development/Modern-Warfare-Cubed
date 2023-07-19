@@ -18,7 +18,7 @@ public class BlockBase extends Block {
         setHardness(6F);
         setResistance(15F);
         setHarvestLevel("pickaxe", 2);
-        setCreativeTab(MWC.BLOCKS_TAB);
+        setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
     }
 
     @Override

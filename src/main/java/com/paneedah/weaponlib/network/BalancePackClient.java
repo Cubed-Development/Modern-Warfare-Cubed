@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class BalancePackClient implements IMessage {
 
@@ -56,7 +56,7 @@ public class BalancePackClient implements IMessage {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public IMessage onMessage(BalancePackClient message, MessageContext messageContext) {
-			mc.addScheduledTask(() -> BalancePackManager.setCurrentBalancePack(message.pack));
+			MC.addScheduledTask(() -> BalancePackManager.setCurrentBalancePack(message.pack));
 			
 			return null;
 		}

@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class GlockRazorbackSlide extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer gun31_r1;
 	private final ModelRenderer gun110_r1;
 	private final ModelRenderer gun109_r1;
@@ -58,7 +58,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 	private final ModelRenderer gun145_r1;
 	private final ModelRenderer gun145_r2;
 	private final ModelRenderer gun144_r1;
-	private final QRenderer G19slide;
+	private final ModelRenderer G19slide;
 	private final ModelRenderer slide56_r1;
 	private final ModelRenderer slide54_r1;
 	private final ModelRenderer slide23_r1;
@@ -66,7 +66,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 	private final ModelRenderer slide21_r1;
 	private final ModelRenderer slide21_r2;
 	private final ModelRenderer slide20_r1;
-	private final QRenderer G19razorbackbody;
+	private final ModelRenderer G19razorbackbody;
 	private final ModelRenderer gun32_r1;
 	private final ModelRenderer gun111_r7;
 	private final ModelRenderer gun110_r6;
@@ -112,7 +112,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 	private final ModelRenderer gun146_r1;
 	private final ModelRenderer gun146_r2;
 	private final ModelRenderer gun145_r3;
-	private final QRenderer G19razorbackslide;
+	private final ModelRenderer G19razorbackslide;
 	private final ModelRenderer slide59_r1;
 	private final ModelRenderer slide70_r1;
 	private final ModelRenderer slide57_r1;
@@ -152,7 +152,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 	private final ModelRenderer slide29_r2;
 	private final ModelRenderer slide30_r1;
 	private final ModelRenderer slide28_r1;
-	private final QRenderer G19rockslide;
+	private final ModelRenderer G19rockslide;
 	private final ModelRenderer slide16_r3;
 	private final ModelRenderer slide17_r2;
 	private final ModelRenderer slide16_r4;
@@ -184,7 +184,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 	private final ModelRenderer slide19_r5;
 	private final ModelRenderer slide18_r3;
 	private final ModelRenderer slide17_r5;
-	private final QRenderer G19ghostprecisionslide;
+	private final ModelRenderer G19ghostprecisionslide;
 	private final ModelRenderer slide18_r4;
 	private final ModelRenderer slide17_r6;
 	private final ModelRenderer slide16_r6;
@@ -217,7 +217,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 	private final ModelRenderer slide23_r4;
 	private final ModelRenderer slide23_r5;
 	private final ModelRenderer slide22_r5;
-	private final QRenderer G19Xbody;
+	private final ModelRenderer G19Xbody;
 	private final ModelRenderer gun32_r2;
 	private final ModelRenderer gun111_r12;
 	private final ModelRenderer gun110_r7;
@@ -263,7 +263,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 	private final ModelRenderer gun146_r3;
 	private final ModelRenderer gun146_r4;
 	private final ModelRenderer gun145_r4;
-	private final QRenderer G19Xslide;
+	private final ModelRenderer G19Xslide;
 	private final ModelRenderer slide57_r5;
 	private final ModelRenderer slide55_r2;
 	private final ModelRenderer slide24_r5;
@@ -276,7 +276,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 		textureWidth = 200;
 		textureHeight = 200;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, 24.0F, 0.0F);
 		gun.cubeList.add(new ModelBox(gun, 0, 123, -3.0F, -31.0F, -6.8F, 4, 1, 4, -0.001F, false));
 		gun.cubeList.add(new ModelBox(gun, 56, 133, -2.5F, -17.5F, -4.8F, 3, 1, 2, 0.0F, false));
@@ -579,7 +579,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 		setRotationAngle(gun144_r1, 0.0F, 0.0F, 0.7854F);
 		gun144_r1.cubeList.add(new ModelBox(gun144_r1, 40, 131, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
-		G19slide = new QRenderer(this);
+		G19slide = new ModelRenderer(this);
 		G19slide.setRotationPoint(0.0F, 24.0F, 0.0F);
 		G19slide.cubeList.add(new ModelBox(G19slide, 120, 103, -2.5F, -37.5F, 0.9F, 3, 2, 1, 0.0F, false));
 		G19slide.cubeList.add(new ModelBox(G19slide, 16, 15, -2.3F, -37.5F, -28.499F, 2, 5, 1, 0.0F, false));
@@ -665,7 +665,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 		setRotationAngle(slide20_r1, -0.7854F, 0.0F, 0.0F);
 		slide20_r1.cubeList.add(new ModelBox(slide20_r1, 86, 130, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
 
-		G19razorbackbody = new QRenderer(this);
+		G19razorbackbody = new ModelRenderer(this);
 		G19razorbackbody.setRotationPoint(0.0F, 24.0F, 0.0F);
 		G19razorbackbody.cubeList.add(new ModelBox(G19razorbackbody, 112, 83, -2.999F, -31.0F, -6.8F, 4, 1, 4, 0.0F, false));
 		G19razorbackbody.cubeList.add(new ModelBox(G19razorbackbody, 111, 110, -2.5F, -17.5F, -4.8F, 3, 1, 2, 0.0F, false));
@@ -968,7 +968,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 		setRotationAngle(gun145_r3, 0.0F, 0.0F, 0.7854F);
 		gun145_r3.cubeList.add(new ModelBox(gun145_r3, 58, 125, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
-		G19razorbackslide = new QRenderer(this);
+		G19razorbackslide = new ModelRenderer(this);
 		G19razorbackslide.setRotationPoint(0.0F, 24.0F, 0.0F);
 		G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 117, 120, -2.5F, -37.5F, 0.9F, 3, 2, 1, 0.0F, false));
 		G19razorbackslide.cubeList.add(new ModelBox(G19razorbackslide, 24, 0, -2.3F, -37.5F, -28.499F, 2, 5, 1, 0.0F, false));
@@ -1398,7 +1398,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 		slide28_r1.cubeList.add(new ModelBox(slide28_r1, 63, 93, -1.0F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 		slide28_r1.cubeList.add(new ModelBox(slide28_r1, 101, 139, -4.2F, -2.0F, 0.0F, 1, 2, 1, 0.0F, false));
 
-		G19rockslide = new QRenderer(this);
+		G19rockslide = new ModelRenderer(this);
 		G19rockslide.setRotationPoint(0.0F, 24.0F, 0.0F);
 		G19rockslide.cubeList.add(new ModelBox(G19rockslide, 59, 119, -2.5F, -37.5F, 0.9F, 3, 2, 1, 0.0F, false));
 		G19rockslide.cubeList.add(new ModelBox(G19rockslide, 16, 0, -2.3F, -37.5F, -28.499F, 2, 5, 1, 0.0F, false));
@@ -1645,7 +1645,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 		setRotationAngle(slide17_r5, 0.0F, 0.9076F, 0.0F);
 		slide17_r5.cubeList.add(new ModelBox(slide17_r5, 90, 28, -1.0F, 0.0F, -2.0F, 1, 1, 2, 0.0F, false));
 
-		G19ghostprecisionslide = new QRenderer(this);
+		G19ghostprecisionslide = new ModelRenderer(this);
 		G19ghostprecisionslide.setRotationPoint(0.0F, 24.0F, 0.0F);
 		G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 97, 115, -2.5F, -37.5F, 0.9F, 3, 2, 1, 0.0F, false));
 		G19ghostprecisionslide.cubeList.add(new ModelBox(G19ghostprecisionslide, 8, 0, -2.3F, -37.5F, -28.499F, 2, 5, 1, 0.0F, false));
@@ -1910,7 +1910,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 		setRotationAngle(slide22_r5, -0.7854F, 0.0F, 0.0F);
 		slide22_r5.cubeList.add(new ModelBox(slide22_r5, 124, 3, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
 
-		G19Xbody = new QRenderer(this);
+		G19Xbody = new ModelRenderer(this);
 		G19Xbody.setRotationPoint(0.0F, 24.0F, 0.0F);
 		G19Xbody.cubeList.add(new ModelBox(G19Xbody, 112, 78, -2.999F, -31.0F, -6.8F, 4, 1, 4, 0.0F, false));
 		G19Xbody.cubeList.add(new ModelBox(G19Xbody, 100, 21, -2.5F, -17.5F, -4.8F, 3, 1, 2, 0.0F, false));
@@ -2213,7 +2213,7 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 		setRotationAngle(gun145_r4, 0.0F, 0.0F, 0.7854F);
 		gun145_r4.cubeList.add(new ModelBox(gun145_r4, 21, 121, 0.0F, 0.0F, 0.0F, 1, 1, 4, 0.0F, false));
 
-		G19Xslide = new QRenderer(this);
+		G19Xslide = new ModelRenderer(this);
 		G19Xslide.setRotationPoint(0.0F, 24.0F, 0.0F);
 		G19Xslide.cubeList.add(new ModelBox(G19Xslide, 89, 98, -2.5F, -37.5F, 0.9F, 3, 2, 1, 0.0F, false));
 		G19Xslide.cubeList.add(new ModelBox(G19Xslide, 0, 0, -2.3F, -37.5F, -28.499F, 2, 5, 1, 0.0F, false));
@@ -2302,14 +2302,14 @@ public class GlockRazorbackSlide extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		G19slide.render(f5);
-//		G19razorbackbody.render(f5);
+//		gun.renderer(f5);
+//		G19slide.renderer(f5);
+//		G19razorbackbody.renderer(f5);
 		G19razorbackslide.render(f5);
-//		G19rockslide.render(f5);
-//		G19ghostprecisionslide.render(f5);
-//		G19Xbody.render(f5);
-//		G19Xslide.render(f5);
+//		G19rockslide.renderer(f5);
+//		G19ghostprecisionslide.renderer(f5);
+//		G19Xbody.renderer(f5);
+//		G19Xslide.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

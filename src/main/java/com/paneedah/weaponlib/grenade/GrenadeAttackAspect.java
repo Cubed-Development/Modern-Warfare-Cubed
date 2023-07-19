@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
+import com.paneedah.mwc.network.messages.GrenadeMessage;
 import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
@@ -25,7 +26,7 @@ import static com.paneedah.mwc.utils.ModReference.LOG;
  */
 public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeInstance> {
 
-    @SuppressWarnings("unused")
+    
     private static final long ALERT_TIMEOUT = 300;
 
     private Predicate<PlayerGrenadeInstance> hasSafetyPin = instance -> instance.getWeapon().hasSafetyPin();

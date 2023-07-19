@@ -6,7 +6,7 @@ import com.paneedah.mwc.models.TaurusRagingHunter;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.wearables.Bullets;
+import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
@@ -44,7 +44,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
 		.withFlashOffsetY(() -> 0.15f)
         .withInaccuracy(2)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -91,7 +91,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
 //            GL11.glScaled(0.9F, 0.9F, 0.9F);
 //        })
         .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
-            GL11.glTranslatef(-0.19F, -1.40F, -1.7F);
+            GL11.glTranslatef(0.14F, -2.22F, -1.2F);
             GL11.glScaled(0.4F, 0.4F, 0.4F);
 	    },(model) -> {
 	        if(model instanceof Reflex2) {
@@ -100,7 +100,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
 	        }
 	    })
 	    .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
-	        GL11.glTranslatef(-0.05F, -1.15F, -2.1F);
+	        GL11.glTranslatef(0.27F, -1.95F, -1.4F);
 	        GL11.glScaled(0.6F, 0.6F, 0.6F);
 	    },(model) -> {
 	    if(model instanceof Reflex2) {

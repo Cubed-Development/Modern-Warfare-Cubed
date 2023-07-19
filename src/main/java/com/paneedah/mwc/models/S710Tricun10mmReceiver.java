@@ -1104,14 +1104,14 @@ public class S710Tricun10mmReceiver extends ModelWithAttachments {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		receiver_10mm.render(f5);
-//		gun.render(f5);
-//		barrel.render(f5);
-//		handguard.render(f5);
-//		rail.render(f5);
-//		grip.render(f5);
-//		magazine.render(f5);
-//		action_pully.render(f5);
-//		action_ejector.render(f5);
+//		gun.renderer(f5);
+//		barrel.renderer(f5);
+//		handguard.renderer(f5);
+//		rail.renderer(f5);
+//		grip.renderer(f5);
+//		magazine.renderer(f5);
+//		action_pully.renderer(f5);
+//		action_ejector.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

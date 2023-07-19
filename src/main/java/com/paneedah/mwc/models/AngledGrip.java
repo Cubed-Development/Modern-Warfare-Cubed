@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class AngledGrip extends ModelBase {
-	private final QRenderer grip;
+	private final ModelRenderer grip;
 	private final ModelRenderer gun16_r1;
 	private final ModelRenderer gun15_r1;
 	private final ModelRenderer gun14_r1;
@@ -24,7 +24,7 @@ public class AngledGrip extends ModelBase {
 		textureWidth = 64;
 		textureHeight = 64;
 
-		grip = new QRenderer(this);
+		grip = new ModelRenderer(this);
 		grip.setRotationPoint(2.5F, -6.5F, 9.5F);
 		setRotationAngle(grip, 0.0F, 3.1416F, 0.0F);
 		grip.cubeList.add(new ModelBox(grip, 17, 12, 0.0F, 0.0F, 0.0F, 3, 1, 8, 0.004F, false));

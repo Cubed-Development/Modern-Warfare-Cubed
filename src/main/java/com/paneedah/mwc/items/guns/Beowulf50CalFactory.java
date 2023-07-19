@@ -49,7 +49,7 @@ public class Beowulf50CalFactory implements GunFactory {
 		.withShellCasingForwardOffset(0.05f)
 		.withShellCasingVerticalOffset(-0.03f)
 //		.withShellCasingEjectEnabled(false)
-		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -185,7 +185,7 @@ public class Beowulf50CalFactory implements GunFactory {
                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                         AttachmentCategory.GUARD, instance);
                 if(activeAttachment == Attachments.Mk18HandGuard) {
-                    GL11.glTranslatef(0F, 0F, -0.4F);
+                    GL11.glTranslatef(-0.004F, -0.1F, 2.5F);
                     GL11.glScaled(1F, 1F, 1F);
                 } else {
                     GL11.glTranslatef(0F, 0F, 0F);

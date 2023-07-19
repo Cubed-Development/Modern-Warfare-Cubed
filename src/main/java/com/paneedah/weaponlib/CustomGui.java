@@ -45,7 +45,8 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType.*;
 
 public class CustomGui extends Gui {
@@ -61,14 +62,14 @@ public class CustomGui extends Gui {
 	
 	public static VehicleCustomGUI vehicleGUIOverlay = new VehicleCustomGUI();
 	
-	public static final ResourceLocation AMMO_COUNTER_TEXTURES = new ResourceLocation(ModReference.ID + ":textures/hud/ammoiconsheet.png");
+	public static final ResourceLocation AMMO_COUNTER_TEXTURES = new ResourceLocation(ID + ":textures/hud/ammoiconsheet.png");
 
 	private static FontRenderer FONT_RENDERER = null;
 	
 	
 	
 	
-	public CustomGui(Minecraft mc, ModContext modContext, WeaponAttachmentAspect attachmentAspect) {
+	public CustomGui(Minecraft MC, ModContext modContext, WeaponAttachmentAspect attachmentAspect) {
 		this.modContext = modContext;
 		this.attachmentAspect = attachmentAspect;
 		this.statusBarPosition = ModernConfigManager.statusBarPosition;
@@ -76,7 +77,7 @@ public class CustomGui extends Gui {
 	}
 	
 	public static FontRenderer getFontRenderer() {
-		if(FONT_RENDERER == null) FONT_RENDERER = ClientProxy.mc.fontRenderer;
+		if(FONT_RENDERER == null) FONT_RENDERER = MC.fontRenderer;
 		return FONT_RENDERER;
 	}
 
@@ -91,7 +92,7 @@ public class CustomGui extends Gui {
 		
 		
 		if(modContext.getMainHeldWeapon() != null) {
-			ScaledResolution scaledResolution = new ScaledResolution(mc);
+			ScaledResolution scaledResolution = new ScaledResolution(MC);
 			double width = scaledResolution.getScaledWidth_double();
 			double height = scaledResolution.getScaledHeight_double();
 			
@@ -118,7 +119,7 @@ public class CustomGui extends Gui {
 					
 					if(AnimationGUI.getInstance().titleSafe.isState()) {
 						DebugRenderer.setupBasicRender();
-						ScaledResolution sr = new ScaledResolution(mc);
+						ScaledResolution sr = new ScaledResolution(MC);
 						DebugRenderer.renderPoint(new Vec3d(sr.getScaledWidth_double()/2, sr.getScaledHeight_double()/2, 0), new Vec3d(1, 0, 0));
 						
 						DebugRenderer.destructBasicRender();
@@ -134,8 +135,8 @@ public class CustomGui extends Gui {
 		
 		
 
-		if(mc.player.isRiding() && mc.player.getRidingEntity() instanceof EntityVehicle) {
-			EntityVehicle v = (EntityVehicle) mc.player.getRidingEntity();
+		if(MC.player.isRiding() && MC.player.getRidingEntity() instanceof EntityVehicle) {
+			EntityVehicle v = (EntityVehicle) MC.player.getRidingEntity();
 			
 			
 			
@@ -154,11 +155,11 @@ public class CustomGui extends Gui {
 		}
 	    
 		
-		if(event.getType() == RenderGameOverlayEvent.ElementType.HELMET && mc.player.isRiding() && mc.player.getRidingEntity() instanceof EntityVehicle) {
+		if(event.getType() == RenderGameOverlayEvent.ElementType.HELMET && MC.player.isRiding() && MC.player.getRidingEntity() instanceof EntityVehicle) {
 			
 			
 			
-			EntityVehicle vehicle = (EntityVehicle) mc.player.getRidingEntity();
+			EntityVehicle vehicle = (EntityVehicle) MC.player.getRidingEntity();
 			vehicleGUIOverlay.renderGUI(vehicle);
 		}
 	}
@@ -166,8 +167,8 @@ public class CustomGui extends Gui {
 	public void handleHelmetHUD(RenderGameOverlayEvent.Pre event) {
 		if(event.getType() == RenderGameOverlayEvent.ElementType.HELMET) {
 	        
-			ItemStack helmetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-			if(helmetStack != null && mc.gameSettings.thirdPersonView == 0 && helmetStack.getItem() instanceof CustomArmor) {
+			ItemStack helmetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+			if(helmetStack != null && MC.gameSettings.thirdPersonView == 0 && helmetStack.getItem() instanceof CustomArmor) {
 			    	            
 				// Texture must be Width: 427, height: 240
 				String hudTexture = ((CustomArmor)helmetStack.getItem()).getHudTexture();
@@ -176,8 +177,8 @@ public class CustomGui extends Gui {
 	                int screenWidth = scaledResolution.getScaledWidth();
 	                int screenHeight = scaledResolution.getScaledHeight();
 
-	                ItemStack chestStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-	                ItemStack feetStack = mc.player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+	                ItemStack chestStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+	                ItemStack feetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 
 				    if (chestStack != null && helmetStack != null && feetStack != null
 	                        && chestStack.getItem() instanceof CustomArmor
@@ -203,7 +204,7 @@ public class CustomGui extends Gui {
 					GL11.glEnable(GL11.GL_BLEND);
 
 
-					mc.renderEngine.bindTexture(new ResourceLocation(hudTexture));
+					MC.renderEngine.bindTexture(new ResourceLocation(hudTexture));
 
 					drawTexturedQuadFit(0, 0, screenWidth, screenHeight, -100);
 
@@ -241,7 +242,7 @@ public class CustomGui extends Gui {
 	// Ammo counter spec
 	public static final int AMMO_COUNTER_WIDTH = 256;
 	public static final int AMMO_COUNTER_HEIGHT = 53;
-	//public static final double AMMO_COUNTER_SCALE = 0.50;
+	public static final double AMMO_COUNTER_SCALE = 0.50;
 	
 	// Weapon name
 	public static final int AMMO_COUNTER_WEAPON_NAME_DOWNSCALE_THRESHOLD = 13;
@@ -277,19 +278,16 @@ public class CustomGui extends Gui {
 	public static final double CURRENT_AMMO_WIDTH_MULTIPLIER = 2.0;
 	public static final double TOTAL_AMMO_STRING_SCALE = 6.625;
 	
-	public void handleAmmoCounter(RenderGameOverlayEvent.Pre event, PlayerWeaponInstance weaponInstance, double scaledWidth, double scaledHeight) {
-		//If moved up, the game needs to be restarted every time there is a change
-		final int AMMO_COUNTER_X_POS = 256 + ModernConfigManager.ammoCounterX;
-		final int AMMO_COUNTER_Y_POS = 128 + ModernConfigManager.ammoCounterY;
-		final double AMMO_COUNTER_SIZE = ModernConfigManager.ammoCounterSize;
-
+	public void handleAmmoCounter(RenderGameOverlayEvent.Pre event, PlayerWeaponInstance weaponInstance, double scaledWidth, double scaledHeight) {		final int AMMO_COUNTER_Y_POS = 128;
+		
 		
 		GlStateManager.enableBlend();
 		GlStateManager.pushMatrix();
 		
-		GlStateManager.translate((scaledWidth - AMMO_COUNTER_X_POS * AMMO_COUNTER_SIZE), (scaledHeight - AMMO_COUNTER_Y_POS * AMMO_COUNTER_SIZE), 0);
-		GlStateManager.scale(AMMO_COUNTER_SIZE, AMMO_COUNTER_SIZE, AMMO_COUNTER_SIZE);
-		mc.getTextureManager().bindTexture(AMMO_COUNTER_TEXTURES);
+		GlStateManager.translate((scaledWidth - AMMO_COUNTER_WIDTH * AMMO_COUNTER_SCALE), (scaledHeight - AMMO_COUNTER_Y_POS * AMMO_COUNTER_SCALE), 0);
+		GlStateManager.scale(AMMO_COUNTER_SCALE, AMMO_COUNTER_SCALE, AMMO_COUNTER_SCALE);
+		MC.getTextureManager().bindTexture(AMMO_COUNTER_TEXTURES);
+		
 		
 		// Figure out the firemode, and assign it an ID
 		int firemode = 0;
@@ -330,16 +328,9 @@ public class CustomGui extends Gui {
 		double keyNameOffset = getFontRenderer().getStringWidth(keyNameString);
 		
 		// Render main ammo counter body
-		if(ModernConfigManager.enableAmmoCounterBackground) {
-			if(ModernConfigManager.ammoCounterBackgroundReverse) {
-				GlStateManager.enableBlend();
-				GlStateManager.pushMatrix();
-				GlStateManager.scale(-1, 1, 1);
-				drawTexturedModalRect(-90, 0, 0, 0, -AMMO_COUNTER_WIDTH, AMMO_COUNTER_HEIGHT);
-				GlStateManager.popMatrix();
-			} else
-				drawTexturedModalRect(0, 0, 0, 0, AMMO_COUNTER_WIDTH, AMMO_COUNTER_HEIGHT);
-		}
+		if(ModernConfigManager.enableAmmoCounterBackground) drawTexturedModalRect(0, 0, 0, 0, AMMO_COUNTER_WIDTH, AMMO_COUNTER_HEIGHT);
+		
+		
 		
 		// Draw the firemode indicator
 
@@ -347,7 +338,7 @@ public class CustomGui extends Gui {
 		GlStateManager.translate(AMMO_COUNTER_WIDTH - FIREMODE_INDICATOR_X_OFFSET - (keyNameOffset * KEY_NAME_OFFSET_FIREMODE_INDICATOR_MULTIPLIER), FIREMODE_INDICATOR_Y_OFFSET, 0);
 		GlStateManager.scale(FIREMODE_INDICATOR_SCALE, FIREMODE_INDICATOR_SCALE, FIREMODE_INDICATOR_SCALE);
 		GlStateManager.enableBlend();
-		drawTexturedModalRect(0, 0,
+		drawTexturedModalRect(0, 0, 
 				FIREMODE_INDICATOR_U_OFFSET + FIREMODE_INDICATOR_U_WIDTH * (Weapon.FIREMODE_AUTO - firemode),
 				FIREMODE_INDICATOR_V_HEIGHT, FIREMODE_INDICATOR_U_WIDTH, FIREMODE_INDICATOR_U_WIDTH);
 		GlStateManager.popMatrix();
@@ -414,7 +405,7 @@ public class CustomGui extends Gui {
 	public void handleOpenDoorHUD(RenderGameOverlayEvent.Pre event, double scaledWidth, double scaledHeight) {
 
 		 if(ModernConfigManager.enableOpenDoorDisplay) {
-         	EntityPlayer player = mc.player;
+         	EntityPlayer player = MC.player;
 
          	if(shouldRenderDoorOverlay) {
          		int openDoorX = (int) (scaledWidth * OPEN_DOOR_PERCENT_WIDTH_POS);
@@ -459,7 +450,7 @@ public class CustomGui extends Gui {
 		
 		
 
-		ItemStack itemStack = mc.player.getHeldItemMainhand();
+		ItemStack itemStack = MC.player.getHeldItemMainhand();
 
 		if(itemStack == null) {
 			return;
@@ -468,7 +459,7 @@ public class CustomGui extends Gui {
 		ScaledResolution scaledResolution = event.getResolution();
         int width = scaledResolution.getScaledWidth();
         int height = scaledResolution.getScaledHeight();
-        FontRenderer fontRender = mc.fontRenderer;
+        FontRenderer fontRender = MC.fontRenderer;
 
 		PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
 
@@ -484,14 +475,14 @@ public class CustomGui extends Gui {
 				
 
 
-				mc.entityRenderer.setupOverlayRendering();
+				MC.entityRenderer.setupOverlayRendering();
 
 				GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 				GlStateManager.disableLighting();
 				GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
 				GlStateManager.disableBlend();
                 
-                mc.renderEngine.bindTexture(new ResourceLocation(crosshair));
+                MC.renderEngine.bindTexture(new ResourceLocation(crosshair));
 
                    
                 handleModificationHUD(event, modContext.getMainHeldWeapon(), width, height);
@@ -501,7 +492,7 @@ public class CustomGui extends Gui {
 			}
 		} else if(itemStack.getItem() instanceof ItemMagazine) {
 
-			mc.entityRenderer.setupOverlayRendering();
+			MC.entityRenderer.setupOverlayRendering();
 			int color = 0xFFFFFF;
 
 			Message message = modContext.getStatusMessageCenter().nextMessage();
@@ -521,7 +512,7 @@ public class CustomGui extends Gui {
 			fontRender.drawStringWithShadow(messageText, x, y, color);
 			event.setCanceled(true);
 		} else if(itemStack.getItem() instanceof ItemWirelessCamera) {
-            mc.entityRenderer.setupOverlayRendering();
+            MC.entityRenderer.setupOverlayRendering();
             int color = 0xFFFFFF;
 
             Message message = modContext.getStatusMessageCenter().nextMessage();
@@ -545,7 +536,7 @@ public class CustomGui extends Gui {
             }
 		} else if(itemStack.getItem() instanceof ItemGrenade) {
 		    
-            mc.entityRenderer.setupOverlayRendering();
+            MC.entityRenderer.setupOverlayRendering();
             int color = 0xFFFFFF;
 
             Message message = modContext.getStatusMessageCenter().nextMessage();
@@ -590,7 +581,7 @@ public class CustomGui extends Gui {
 	}
 
     private void drawShieldIndicator(CustomArmor armor, double capacity, double screenWidth, double screenHeight) {
-		Framebuffer framebuffer = mc.getFramebuffer();
+		Framebuffer framebuffer = MC.getFramebuffer();
         if(!framebuffer.isStencilEnabled()) {
 			framebuffer.enableStencil();
         }
@@ -612,7 +603,7 @@ public class CustomGui extends Gui {
         GL11.glDepthMask(false);
         GL11.glClear(GL11.GL_STENCIL_BUFFER_BIT); // Clear stencil buffer (0 by default)
         
-        mc.renderEngine.bindTexture(new ResourceLocation(armor.getShieldIndicatorMaskTextureName()));
+        MC.renderEngine.bindTexture(new ResourceLocation(armor.getShieldIndicatorMaskTextureName()));
         
         // 640:328 
         // 427:240
@@ -631,7 +622,7 @@ public class CustomGui extends Gui {
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         GL11.glEnable(GL11.GL_BLEND);
         
-        mc.renderEngine.bindTexture(new ResourceLocation(armor.getShieldIndicatorProgressBarTextureName()));
+        MC.renderEngine.bindTexture(new ResourceLocation(armor.getShieldIndicatorProgressBarTextureName()));
 
         drawTexturedQuadFit((armor.getShieldIndicatorPositionX() - 1) * (screenWidth / 640.0), armor.getShieldIndicatorPositionY() * (screenHeight / 328.0), 
                 ((armor.getShieldIndicatorWidth() + 2) * (screenWidth / 640.0)) * capacity, (armor.getShieldIndicatorHeight() + 1) * (screenHeight / 328.0), -101);
@@ -684,7 +675,6 @@ public class CustomGui extends Gui {
 
 
 	private String getDefaultWeaponMessage(PlayerWeaponInstance weaponInstance) {
-		@SuppressWarnings("static-access")
 		ItemMagazine magazine = (ItemMagazine) attachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
 		int totalCapacity;
 		if(magazine != null) {
@@ -698,7 +688,7 @@ public class CustomGui extends Gui {
 			text = I18n.translateToLocalFormatted("gui.noMagazine");
 		} else {
 			text = I18n.translateToLocalFormatted(
-	                "gui.ammoCounter", weaponInstance.getWeapon().getCurrentAmmo(mc.player) + "/" + totalCapacity);
+	                "gui.ammoCounter", weaponInstance.getWeapon().getCurrentAmmo(MC.player) + "/" + totalCapacity);
 		}
 		return text;
 	}

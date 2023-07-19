@@ -1295,13 +1295,13 @@ public class M16A1Handguard extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		carryhandle.render(f5);
-//		receiver.render(f5);
-//		barrel.render(f5);
-//		gun.render(f5);
+//		carryhandle.renderer(f5);
+//		receiver.renderer(f5);
+//		barrel.renderer(f5);
+//		gun.renderer(f5);
 		handguard.render(f5);
-//		scopemount.render(f5);
-//		handguardrail.render(f5);
+//		scopemount.renderer(f5);
+//		handguardrail.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

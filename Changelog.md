@@ -11,6 +11,10 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 **If you are upgrading from either Vic's Modern Warfare or Modern Warfare Cubed Version 0.1-Dev-6 or under all Modern Warfare related items, blocks weapons, etc... will disappear from your save either back up your world or start a new one.**
 
+**When updating to this version from an existing world all tan variants of every back as well as the F5 Switchblade will disappear, they aren't being removed then just changed internally**
+
+**When updating to this version from an existing world all equipment placed in the equipment inventory will disappear 
+
 ### Highlight
 
 ### Added
@@ -34,19 +38,20 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Weapon system version to weapon tooltips
 - Added the Workbench and the Ammo Press to the Creative Tab
 - Translations for Chinese, Spanish, and Turkish languages
-- GitHub URL in `mcmod.info`
+- GitHub URL in `MCmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
-- Shells life got increased to 1606 with no performance impact in extreme cases
-- Custom Death Messages when shot with a gun
+- Custom death Messages when shot with a gun
 
 ### Changed
 
 - Overhauled textures of AAC Honey Badger, Bushmaster ACR, Beowulf, HK 417, M16A1, 100rnd 5.56x45mm NATO STANAG Drum Magazine and the pink camo skin
-- Overhauled animations and sound effects of the M40A6 and Uzi
 - Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight, and Eotech Hybrid HHS™ II Sight
+- Overhauled animations and sound effects of the M40A6 and Uzi
+- Sidearms can now be carried in backpacks
+- Added keybindings to switching cameras on the tablet
 - Reworked the config system:
   - Old XML config has been removed, and all configs have been consolidated into a new JSON config. Issues with some non-functioning configs have been resolved
-  - Adjusted craftingmappings.json to now only override recipes, rather than removing all recipes
+  - Adjusted `craftingmappings.json` to now only override recipes, rather than removing all recipes
 - Temporarily nerfed all vests as a part of vest problem mitigation
 - Nerfed XP gains from smelting ores
 - Reloading now only stops once the gun is fully reloaded or no compatible ammunition remains in inventory
@@ -66,20 +71,30 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Redstone Repeaters
   - Cactus
   - Cake
-- Bullets collision has been enhanced to work compatibly with mods
-- Updated `mcmod.info` description and credits
+- Bullets collision has been enhanced to work better with mods
+- Updated `MCmod.info` description and credits
 - Migrated the config setting for bullets breaking glass into the new config file (ModernWarfareCubed.cfg)
 - Forge configuration `Emissive Item Rendering` is now forced to be off (This does not influence Optifine emissive item rendering)
 - OptiFine configuration `Fast Render` is now forced to be off
 - Changed categories of some weapons
 - Magazines are created empty
+- Shells life go increased 1606% no performance impact in extreme cases
 - The position of the bullet when shooting is now centered when aiming
-- Explosive projectiles are now linked to the player who launched them meaning that the kill message will say who killed whom
+- Explosive projectiles are now linked to the player who launched them, meaning that the kill message will say who killed whom
+- Renamed `Armor` creative tab to `Equipment`
+- Renamed `Ammunition` creative tab to `Ammunition & Magazines`
+- Renamed `Grenades` creative tab to `Throwables`
+- Renamed `MWC Camera` and `MWC Tablet` to `Camera` and `Tablet`
+- When a thrown camera hits the ground it now only drops the camera item if the thrower is not in creative mode
+- Merged the Gadget creative tab into the `Equipment` creative tab
+- Debug commands are now only accessible to oped players (Oped of level 4)
+- Rewritten the rendering system, items are now positions correctly everywhere
 
 ### Fixed
 
 - Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)
-- Fixed Minecraft armor making you invulnerable to bullets (less realistic but they aren't anyway lol)
+- Fixed Minecraft armor making you invulnerable to bullet (less realistic, but they aren't anyway lol)
+- Fixed soldiers and terrorists spawning with Minecraft armor
 - Fixed issue with config for bullets breaking glass being ignored
 - Fixed bullet's being able to penetrate:
   - Glass
@@ -97,7 +112,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
 - Fixed m249 accessories floating
 - Fixed P90 magazine with Terminator conversion
-- Fixed visual bugs for weapons like FN F2000 when aiming the gun, M4A1 with "M16 Stock", Malyuk and M40A6 with grip accessories, beowulf50Cal with m38 front sight, revolver-related accessories and general bipod adjustments on weapons
+- Fixed visual bugs for weapons like FN F2000 when aiming the gun, M4A1 with M16 Stock, Malyuk and M40A6 with grip accessories, beowulf50Cal with m38 front sight, revolver-related accessories and general bipod adjustments on weapons
 - Fixed the attachment of the Long Deagle
 - Fixed prop hitboxes not lining up with their models:
   - Fridge (open/closed)
@@ -118,6 +133,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Office Chair 2
   - Home Chair
   - White Desk Middle
+- Fixed position of the backpacks in inventory
 
 ### Removed
 
@@ -131,8 +147,10 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Optimization
 
-- As a result of a BIG code cleanup MWC as a whole should now be slightly faster, load slightly faster and use slightly less resources
-- Losslessly compressed assets as a result the jar size decreased (35.3MB -> 27.57MB)
+- As a result of a BIG code cleanup, MWC as a whole should now be slightly faster, load slightly faster and use slightly less resources
+- As a result of the equipment overhaul, MWC should use less ram and lag less when rendering equipment
+- As a result of networking improvements, MWC should use less bandwidth and consume less resources as well as have less latency
+- Losslessly compressed assets as a result, the jar size decreased (35.3MB -> 27.57MB)
 - Improved ShaderLoader
 - Reduced overhead due to the removal of most of the compatibility layer leading to increased performance
 

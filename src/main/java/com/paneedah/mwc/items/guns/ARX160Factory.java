@@ -48,7 +48,7 @@ public class ARX160Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.15f)
         .withShellCasingForwardOffset(0.05f)
         .withShellCasingVerticalOffset(-0.03f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
 		.withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -326,7 +326,7 @@ public class ARX160Factory implements GunFactory {
 			GL11.glScaled(1F, 1F, 1F);
 		})
 		.withCompatibleAttachment(Attachments.Bipod, (model) -> {
-			GL11.glTranslatef(-0.18F, -0.6F, -3.5F);
+			GL11.glTranslatef(-0.18F, -0.38F, -3.5F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
 		})
         .withCompatibleAttachment(Attachments.Laser2, (p, s) -> {

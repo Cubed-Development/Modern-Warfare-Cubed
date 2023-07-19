@@ -20,7 +20,7 @@ public class Vehicles {
 		AccessibleVehicleGUI.remotelySetModels(new VehicleKey(), new VehicleLock(),
 				QRL.quickLoc("gui", "vehiclekey"), QRL.quickLoc("gui", "keylock"));
 		
-		//new SampleVehicleFactory().createVehicle(MWC.MOD_CONTEXT);
+		//new SampleVehicleFactory().createVehicle(MWC.modContext);
 		new AudiS4Factory().createVehicle(MWC.modContext);
 		new McLarenSennaFactory().createVehicle(MWC.modContext);
 		new AE86TruenoFactory().createVehicle(MWC.modContext);

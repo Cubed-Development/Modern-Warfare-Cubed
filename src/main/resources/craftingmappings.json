@@ -1150,7 +1150,7 @@
       ]
     },
     {
-      "entryName": "mwc:sig_mcx",
+      "entryName": "mwc:sig_MCx",
       "craftingGroup": "GUN",
       "recipe": [
         {
@@ -7092,7 +7092,7 @@
       ]
     },
     {
-      "entryName": "mwc:usmc_vest",
+      "entryName": "mwc:usMC_vest",
       "craftingGroup": "GEAR",
       "recipe": [
         {
@@ -7113,7 +7113,7 @@
       ]
     },
     {
-      "entryName": "mwc:usmc_vest_green",
+      "entryName": "mwc:usMC_vest_green",
       "craftingGroup": "GEAR",
       "recipe": [
         {
@@ -7134,7 +7134,7 @@
       ]
     },
     {
-      "entryName": "mwc:usmc_vest_black",
+      "entryName": "mwc:usMC_vest_black",
       "craftingGroup": "GEAR",
       "recipe": [
         {
@@ -7155,7 +7155,7 @@
       ]
     },
     {
-      "entryName": "mwc:usmc_vest_urban",
+      "entryName": "mwc:usMC_vest_urban",
       "craftingGroup": "GEAR",
       "recipe": [
         {

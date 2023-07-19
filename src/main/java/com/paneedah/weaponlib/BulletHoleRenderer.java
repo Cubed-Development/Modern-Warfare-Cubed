@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class BulletHoleRenderer {
 	
@@ -46,12 +46,12 @@ public class BulletHoleRenderer {
 		
 		this.bulletHoles.removeIf((s) -> s.shouldDie);
 		
-		// Setup render beginnings
+		// Setup renderer beginnings
 		GlStateManager.pushMatrix();
-		EntityPlayer pla = mc.player;
-		double iPosX = pla.prevPosX + (pla.posX - pla.prevPosX)*mc.getRenderPartialTicks();
-		double iPosY = pla.prevPosY + (pla.posY - pla.prevPosY)*mc.getRenderPartialTicks();
-		double iPosZ = pla.prevPosZ + (pla.posZ - pla.prevPosZ)*mc.getRenderPartialTicks();
+		EntityPlayer pla = MC.player;
+		double iPosX = pla.prevPosX + (pla.posX - pla.prevPosX)*MC.getRenderPartialTicks();
+		double iPosY = pla.prevPosY + (pla.posY - pla.prevPosY)*MC.getRenderPartialTicks();
+		double iPosZ = pla.prevPosZ + (pla.posZ - pla.prevPosZ)*MC.getRenderPartialTicks();
 		GlStateManager.translate(-iPosX, -iPosY, -iPosZ);
 
 		Tessellator tes  = Tessellator.getInstance();
@@ -59,10 +59,10 @@ public class BulletHoleRenderer {
 		GlStateManager.enableTexture2D();
 		GlStateManager.disableCull();
 		
-		//ResourceLocation rl = new ResourceLocation(ModReference.id + ":textures/entity/bullethole.png");
+		//ResourceLocation rl = new ResourceLocation(ID + ":textures/entity/bullethole.png");
 
 		// TODO: Actually add the texture
-		// mc.getTextureManager().bindTexture(rl);
+		// MC.getTextureManager().bindTexture(rl);
 		
 	
 	//	GL14.glBlendEquation(GL14.GL_FUNC_ADD);

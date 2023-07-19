@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,12 +12,12 @@ import net.minecraft.entity.Entity;
 
 
 public class BulletSmall extends ModelBase {
-	private final QRenderer shell;
+	private final ModelRenderer shell;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
 	private final ModelRenderer cube_r4;
-	private final QRenderer bullet;
+	private final ModelRenderer bullet;
 	private final ModelRenderer bullet_r1;
 	private final ModelRenderer bullet_r2;
 	private final ModelRenderer bullet_r3;
@@ -31,7 +31,7 @@ public class BulletSmall extends ModelBase {
 		textureWidth = 32;
 		textureHeight = 32;
 
-		shell = new QRenderer(this);
+		shell = new ModelRenderer(this);
 		shell.setRotationPoint(0.0F, 24.0F, 0.0F);
 		shell.cubeList.add(new ModelBox(shell, 0, 10, -1.0F, -8.6F, -0.78F, 1, 4, 1, -0.099F, false));
 		shell.cubeList.add(new ModelBox(shell, 4, 5, -1.0F, -8.6F, 0.22F, 1, 4, 1, -0.099F, false));
@@ -66,7 +66,7 @@ public class BulletSmall extends ModelBase {
 		cube_r4.cubeList.add(new ModelBox(cube_r4, 15, 3, -0.95F, 1.05F, -0.07F, 1, 1, 1, -0.149F, false));
 		cube_r4.cubeList.add(new ModelBox(cube_r4, 4, 10, -0.95F, -2.05F, -0.07F, 1, 4, 1, -0.15F, false));
 
-		bullet = new QRenderer(this);
+		bullet = new ModelRenderer(this);
 		bullet.setRotationPoint(0.0F, 25.75F, 0.0F);
 		bullet.cubeList.add(new ModelBox(bullet, 11, 15, -1.0F, -11.4F, -0.7F, 1, 2, 1, -0.1F, false));
 		bullet.cubeList.add(new ModelBox(bullet, 0, 15, -1.0F, -11.4F, 0.1F, 1, 2, 1, -0.1F, false));

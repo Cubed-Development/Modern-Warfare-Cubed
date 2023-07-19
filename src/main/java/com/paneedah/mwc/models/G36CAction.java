@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,13 +12,13 @@ import net.minecraft.entity.Entity;
 
 
 public class G36CAction extends ModelWithAttachments {
-	private final QRenderer action;
+	private final ModelRenderer action;
 
 	public G36CAction() {
 		textureWidth = 220;
 		textureHeight = 220;
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(0.0F, 24.0F, 0.0F);
 		action.cubeList.add(new ModelBox(action, 71, 31, -2.5F, -40.5F, -36.5F, 2, 1, 5, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 110, 82, -2.5F, -40.3F, -31.5F, 2, 1, 2, 0.0F, false));

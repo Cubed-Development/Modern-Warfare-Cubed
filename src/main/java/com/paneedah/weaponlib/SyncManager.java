@@ -20,7 +20,7 @@ public class SyncManager<S extends ManagedState<S>> {
 	
 	private final long syncTimeout = 10000;
 	
-	@SuppressWarnings("unchecked")
+	
 	public SyncManager(PermitManager permitManager) {
 		this.permitManager = permitManager;
 		this.permitManager.registerEvaluator(Permit.class, PlayerItemInstance.class, this::syncOnServer);
@@ -54,7 +54,7 @@ public class SyncManager<S extends ManagedState<S>> {
 		instancesToUpdate.forEach(this::sync);
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	private void sync(PlayerItemInstance<?> watchable) {
 		LOG.debug("Syncing {} in state {} with update id {} to server", watchable, watchable.getState(), watchable.getUpdateId());
 		long updateId = watchable.getUpdateId(); // capturing update id

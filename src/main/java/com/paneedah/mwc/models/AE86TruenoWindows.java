@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class AE86TruenoWindows extends ModelBase {
-	private final QRenderer steering_wheel;
+	private final ModelRenderer steering_wheel;
 	private final ModelRenderer bone111;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer bone110;
@@ -26,7 +26,7 @@ public class AE86TruenoWindows extends ModelBase {
 	private final ModelRenderer bone113;
 	private final ModelRenderer bone109;
 	private final ModelRenderer cube_r3;
-	private final QRenderer body_AE86;
+	private final ModelRenderer body_AE86;
 	private final ModelRenderer cube_r4;
 	private final ModelRenderer cube_r5;
 	private final ModelRenderer cube_r6;
@@ -197,10 +197,10 @@ public class AE86TruenoWindows extends ModelBase {
 	private final ModelRenderer bone3;
 	private final ModelRenderer bone91;
 	private final ModelRenderer bone92;
-	private final QRenderer wheel;
+	private final ModelRenderer wheel;
 	private final ModelRenderer bone;
 	private final ModelRenderer bone2;
-	private final QRenderer windows;
+	private final ModelRenderer windows;
 	private final ModelRenderer cube_r108;
 	private final ModelRenderer cube_r109;
 	private final ModelRenderer cube_r110;
@@ -212,7 +212,7 @@ public class AE86TruenoWindows extends ModelBase {
 		textureWidth = 700;
 		textureHeight = 800;
 
-		steering_wheel = new QRenderer(this);
+		steering_wheel = new ModelRenderer(this);
 		steering_wheel.setRotationPoint(7.0F, 21.0F, -7.0F);
 		setRotationAngle(steering_wheel, -0.1309F, 0.0F, 0.0F);
 		
@@ -297,7 +297,7 @@ public class AE86TruenoWindows extends ModelBase {
 		cube_r3.cubeList.add(new ModelBox(cube_r3, 36, 658, -30.5F, -2.0F, 1.0F, 3, 4, 1, 0.0F, false));
 		cube_r3.cubeList.add(new ModelBox(cube_r3, 172, 642, -31.5F, -2.0F, -2.0F, 5, 3, 3, 0.0F, false));
 
-		body_AE86 = new QRenderer(this);
+		body_AE86 = new ModelRenderer(this);
 		body_AE86.setRotationPoint(31.0F, 24.0F, 0.0F);
 		body_AE86.cubeList.add(new ModelBox(body_AE86, 0, 0, -89.0F, -9.0F, 12.0F, 58, 4, 61, 0.0F, false));
 		body_AE86.cubeList.add(new ModelBox(body_AE86, 0, 385, -87.0F, -29.0F, 21.0F, 54, 3, 2, 0.0F, false));
@@ -1335,7 +1335,7 @@ public class AE86TruenoWindows extends ModelBase {
 		setRotationAngle(bone92, 0.0F, 0.0F, 1.1694F);
 		
 
-		wheel = new QRenderer(this);
+		wheel = new ModelRenderer(this);
 		wheel.setRotationPoint(32.0F, 24.0F, 0.0F);
 		wheel.cubeList.add(new ModelBox(wheel, 102, 565, -36.0F, -22.0F, -5.0F, 7, 4, 10, 0.0F, false));
 		wheel.cubeList.add(new ModelBox(wheel, 360, 493, -34.0F, -18.0F, -7.0F, 3, 14, 14, 0.0F, false));
@@ -1358,7 +1358,7 @@ public class AE86TruenoWindows extends ModelBase {
 		bone2.cubeList.add(new ModelBox(bone2, 282, 622, -35.99F, 0.0F, 0.0F, 7, 8, 4, 0.0F, false));
 		bone2.cubeList.add(new ModelBox(bone2, 90, 650, -35.5F, 2.1213F, 9.1924F, 6, 4, 4, 0.0F, false));
 
-		windows = new QRenderer(this);
+		windows = new ModelRenderer(this);
 		windows.setRotationPoint(0.0F, -9.0F, 0.0F);
 		
 
@@ -1401,9 +1401,9 @@ public class AE86TruenoWindows extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		steering_wheel.render(f5);
-//		body_AE86.render(f5);
-//		wheel.render(f5);
+//		steering_wheel.renderer(f5);
+//		body_AE86.renderer(f5);
+//		wheel.renderer(f5);
 		windows.render(f5);
 	}
 

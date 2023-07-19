@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class SIG556Grip extends ModelWithAttachments {
-	private final QRenderer grip;
+	private final ModelRenderer grip;
 	private final ModelRenderer grip5_r1;
 	private final ModelRenderer grip6_r1;
 	private final ModelRenderer grip4_r1;
@@ -27,7 +27,7 @@ public class SIG556Grip extends ModelWithAttachments {
 		textureWidth = 350;
 		textureHeight = 350;
 
-		grip = new QRenderer(this);
+		grip = new ModelRenderer(this);
 		grip.setRotationPoint(0.5F, -3.5F, -7.0F);
 		grip.cubeList.add(new ModelBox(grip, 0, 47, -3.27F, -4.0F, 3.0F, 3, 4, 6, 0.001F, false));
 		grip.cubeList.add(new ModelBox(grip, 46, 47, -3.73F, -4.0F, 3.0F, 1, 4, 6, 0.002F, false));

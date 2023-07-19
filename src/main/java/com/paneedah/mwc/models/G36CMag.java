@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class G36CMag extends ModelWithAttachments {
-	private final QRenderer mag;
+	private final ModelRenderer mag;
 	private final ModelRenderer cube_r43;
 	private final ModelRenderer cube_r44;
 	private final ModelRenderer cube_r45;
@@ -47,7 +47,7 @@ public class G36CMag extends ModelWithAttachments {
 		textureWidth = 220;
 		textureHeight = 220;
 		
-		mag = new QRenderer(this);
+		mag = new ModelRenderer(this);
 		mag.setRotationPoint(-0.8249F, -3.218F, -17.884F);
 		
 

@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class VehicleExhaustFlameParticle extends Particle {
 	
@@ -119,7 +119,7 @@ public class VehicleExhaustFlameParticle extends Particle {
 
         if (this.rand.nextFloat() > f)
         {
-        	mc.effectRenderer.addEffect(new ExhaustParticle( world, this.posX, this.posY, this.posZ, this.motionX, this.motionY, this.motionZ, 3));
+        	MC.effectRenderer.addEffect(new ExhaustParticle( world, this.posX, this.posY, this.posZ, this.motionX, this.motionY, this.motionZ, 3));
         }
 
         

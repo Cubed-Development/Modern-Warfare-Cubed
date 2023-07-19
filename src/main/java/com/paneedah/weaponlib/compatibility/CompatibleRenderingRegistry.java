@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
-import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.renderer.ModelSourceRenderer;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -26,9 +26,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 @Deprecated
+@SideOnly(Side.CLIENT)
 public class CompatibleRenderingRegistry implements ICustomModelLoader {
 
 	private List<ModelSourceRenderer> renderers = new ArrayList<>();
@@ -56,8 +58,8 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	        renderers.add((ModelSourceRenderer) renderer);
 	    }
 		
-		modelSourceLocations.add(ModReference.ID + ":models/item/" + name);
-		ModelResourceLocation modelID = new ModelResourceLocation(ModReference.ID + ":" + name, "inventory");
+		modelSourceLocations.add(ID + ":models/item/" + name);
+		ModelResourceLocation modelID = new ModelResourceLocation(ID + ":" + name, "inventory");
 		if(renderer != null) {
 		    ((ModelSourceRenderer) renderer).setResourceLocation(modelID);
 		}
@@ -72,7 +74,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	    // TODO: figure out what's going on with this name
         if(renderer != null) {
             renderers.add((ModelSourceRenderer) renderer);
-            modelSourceLocations.add(ModReference.ID + ":models/item/" + name);
+            modelSourceLocations.add(ID + ":models/item/" + name);
         }
         
         ModelResourceLocation modelID = new ModelResourceLocation(name, "inventory");
@@ -93,7 +95,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	@Override
 	public boolean accepts(ResourceLocation modelLocation) {
 		// Do not accept attachments
-		return ModReference.ID.equals(modelLocation.getNamespace()) && modelSourceLocations.contains(modelLocation.toString());
+		return ID.equals(modelLocation.getNamespace()) && modelSourceLocations.contains(modelLocation.toString());
 	}
 
 	@Override
@@ -101,14 +103,13 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 		return ModelLoaderRegistry.getMissingModel();
 	}
 
-	@SuppressWarnings({ "deprecation", "unchecked" })
 	public void registerEntityRenderingHandler(Class<? extends Entity> class1,
 	        Object spawnEntityRenderer) {
 		RenderingRegistry.registerEntityRenderingHandler(class1, (Render<? extends Entity>) spawnEntityRenderer);
 	}
 	
 	public void processDelayedRegistrations() {
-        RenderItem renderItem = mc.getRenderItem();
+        RenderItem renderItem = MC.getRenderItem();
         delayedRegistrations.forEach(r -> { r.accept(renderItem);});
         delayedRegistrations.clear();
     }

@@ -9,7 +9,7 @@ public class Transition<Context> {
 
     private static final Consumer<?> ANCHORED_POSITION = c -> {};
 
-    @SuppressWarnings("unchecked")
+    
     public static <T> Consumer<T> anchoredPosition() {
         return (Consumer<T>) ANCHORED_POSITION;
     }

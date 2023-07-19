@@ -1675,13 +1675,13 @@ public class P90Swordfish extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		rail.render(f5);
+//		gun.renderer(f5);
+//		rail.renderer(f5);
 		swordfish.render(f5);
-//		terminator.render(f5);
-//		defaultkit.render(f5);
-//		action.render(f5);
-//		mag.render(f5);
+//		terminator.renderer(f5);
+//		defaultkit.renderer(f5);
+//		action.renderer(f5);
+//		mag.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

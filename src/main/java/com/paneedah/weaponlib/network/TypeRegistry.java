@@ -58,7 +58,7 @@ public class TypeRegistry {
 		long leastSigBits = buf.readLong();
 		UUID typeUuid = new UUID(mostSigBits, leastSigBits);
 		
-		@SuppressWarnings("unchecked")
+		
 		Class<T> targetClass = (Class<T>) typeRegistry.get(typeUuid);
 		
 		if(targetClass == null) {

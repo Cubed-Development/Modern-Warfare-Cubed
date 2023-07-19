@@ -42,7 +42,7 @@ public class M60E4Factory {
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.16f)
         .withInaccuracy(1f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: General-Purpose Machine Gun",
         "Damage: 10", 

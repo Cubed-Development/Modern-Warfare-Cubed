@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class MPXMag extends ModelWithAttachments {
-	private final QRenderer magazine;
+	private final ModelRenderer magazine;
 	private final ModelRenderer magazine_r1;
 	private final ModelRenderer magazine_r2;
 	private final ModelRenderer magazine_r3;
@@ -26,7 +26,7 @@ public class MPXMag extends ModelWithAttachments {
 		textureWidth = 256;
 		textureHeight = 256;
 
-		magazine = new QRenderer(this);
+		magazine = new ModelRenderer(this);
 		magazine.setRotationPoint(-0.825F, 5.85F, -14.1F);
 		setRotationAngle(magazine, -0.1309F, 0.0F, 0.0F);
 		magazine.cubeList.add(new ModelBox(magazine, 75, 10, 0.225F, -12.6739F, -12.0983F, 1, 5, 5, 0.0F, false));

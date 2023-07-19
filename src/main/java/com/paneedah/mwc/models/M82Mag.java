@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class M82Mag extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer gun173_r1;
 	private final ModelRenderer gun169_r1;
 	private final ModelRenderer gun168_r1;
@@ -63,18 +63,18 @@ public class M82Mag extends ModelWithAttachments {
 	private final ModelRenderer gun18_r1;
 	private final ModelRenderer gun14_r1;
 	private final ModelRenderer gun13_r1;
-	private final QRenderer barrel;
+	private final ModelRenderer barrel;
 	private final ModelRenderer gun198_r1;
 	private final ModelRenderer gun198_r2;
 	private final ModelRenderer gun178_r1;
 	private final ModelRenderer gun178_r2;
 	private final ModelRenderer gun177_r1;
 	private final ModelRenderer gun177_r2;
-	private final QRenderer action;
+	private final ModelRenderer action;
 	private final ModelRenderer action10_r1;
 	private final ModelRenderer action2_r1;
 	private final ModelRenderer action14_r1;
-	private final QRenderer mag;
+	private final ModelRenderer mag;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -90,7 +90,7 @@ public class M82Mag extends ModelWithAttachments {
 		textureWidth = 410;
 		textureHeight = 410;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(-3.5F, -7.0F, -6.0F);
 		gun.cubeList.add(new ModelBox(gun, 0, 0, 1.0F, 0.0F, -0.5F, 2, 5, 1, 0.002F, false));
 		gun.cubeList.add(new ModelBox(gun, 30, 25, 1.0F, -0.5F, -7.5F, 2, 1, 8, 0.0F, false));
@@ -631,7 +631,7 @@ public class M82Mag extends ModelWithAttachments {
 		setRotationAngle(gun13_r1, -2.7884F, 0.0F, 0.0F);
 		gun13_r1.cubeList.add(new ModelBox(gun13_r1, 12, 19, 0.0F, 0.0F, 0.0F, 2, 1, 4, 0.0F, false));
 
-		barrel = new QRenderer(this);
+		barrel = new ModelRenderer(this);
 		barrel.setRotationPoint(-2.0F, -15.5F, -128.0F);
 		barrel.cubeList.add(new ModelBox(barrel, 30, 25, 0.0F, 0.0F, 0.0F, 1, 3, 3, 0.0F, false));
 		barrel.cubeList.add(new ModelBox(barrel, 84, 9, -1.0F, 1.0F, -0.1F, 3, 1, 3, 0.0F, false));
@@ -698,7 +698,7 @@ public class M82Mag extends ModelWithAttachments {
 		gun177_r2.cubeList.add(new ModelBox(gun177_r2, 275, 168, 0.4F, 0.0F, 0.0F, 1, 1, 50, 0.0F, false));
 		gun177_r2.cubeList.add(new ModelBox(gun177_r2, 0, 282, 0.0F, 0.0F, 0.0F, 1, 1, 50, 0.0F, false));
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(0.0F, 24.0F, 0.0F);
 		action.cubeList.add(new ModelBox(action, 0, 157, -4.8F, -38.5F, -33.0F, 1, 1, 32, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 59, 18, -4.9F, -38.5F, -8.0F, 1, 1, 1, 0.0F, false));
@@ -725,7 +725,7 @@ public class M82Mag extends ModelWithAttachments {
 		setRotationAngle(action14_r1, 1.9333F, 0.0F, 0.0F);
 		action14_r1.cubeList.add(new ModelBox(action14_r1, 43, 38, 0.0F, 0.0F, 0.0F, 3, 1, 1, 0.0F, false));
 
-		mag = new QRenderer(this);
+		mag = new ModelRenderer(this);
 		mag.setRotationPoint(0.5F, 5.0F, -31.0F);
 		mag.cubeList.add(new ModelBox(mag, 26, 0, -4.0F, -12.0F, 0.0F, 4, 12, 4, 0.0F, false));
 		mag.cubeList.add(new ModelBox(mag, 43, 84, -4.15F, -11.8F, 1.0F, 1, 12, 2, 0.0F, false));

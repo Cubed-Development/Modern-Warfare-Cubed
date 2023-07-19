@@ -49,7 +49,7 @@ public class M17Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.18f)
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -131,10 +131,9 @@ public class M17Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new M17())
-            .withActionPiece(
-                        AuxiliaryAttachments.M17_Slide,
-						Attachments.RMR)
-            .withActionTransform(new Transform().withPosition(0, 0, 0.6))
+            .withActionPiece(AuxiliaryAttachments.M17_Slide)
+            .withActionPiece(Attachments.RMR)
+            .withActionTransform(new Transform().withPosition(0, 0, 0.5))
             //.withTextureName("M9")
             //.withWeaponProximity(0.99F)
             //.withYOffsetZoom(5F)

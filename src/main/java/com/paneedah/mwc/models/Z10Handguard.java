@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -86,7 +86,7 @@ public class Z10Handguard extends ModelWithAttachments {
 	private final ModelRenderer receiver16_r3;
 	private final ModelRenderer receiver15_r2;
 	private final ModelRenderer receiver16_r4;
-	private final QRenderer handguard;
+	private final ModelRenderer handguard;
 	private final ModelRenderer gun54_r3;
 	private final ModelRenderer gun53_r1;
 	private final ModelRenderer gun53_r2;
@@ -802,7 +802,7 @@ public class Z10Handguard extends ModelWithAttachments {
 		receiver16_r4.cubeList.add(new ModelBox(receiver16_r4, 11, 77, -1.0F, -1.001F, 8.0015F, 2, 2, 7, -0.1F, false));
 		receiver16_r4.cubeList.add(new ModelBox(receiver16_r4, 48, 0, -1.0F, -1.001F, -0.7F, 2, 2, 15, -0.2F, false));
 
-		handguard = new QRenderer(this);
+		handguard = new ModelRenderer(this);
 		handguard.setRotationPoint(-0.412F, -12.1156F, -31.0F);
 		handguard.cubeList.add(new ModelBox(handguard, 78, 48, 0.11F, -1.8594F, 1.5F, 1, 2, 7, 0.0F, false));
 		handguard.cubeList.add(new ModelBox(handguard, 75, 80, 0.11F, -1.8594F, -5.5F, 1, 2, 1, 0.0F, false));
@@ -1960,11 +1960,11 @@ public class Z10Handguard extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
+//		gun.renderer(f5);
 		handguard.render(f5);
-//		stock.render(f5);
-//		mag.render(f5);
-//		action.render(f5);
+//		stock.renderer(f5);
+//		mag.renderer(f5);
+//		action.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

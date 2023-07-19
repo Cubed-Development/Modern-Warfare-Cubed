@@ -8,7 +8,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.awt.Color;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class Textbar {
 	
@@ -60,7 +60,7 @@ public class Textbar {
 		GlStateManager.enableTexture2D();
 		
 		AnimationGUI.renderScaledString(this.name, x, y-7, 0.6);
-		//mc.fontRenderer.drawStringWithShadow("Position", x, y-5, 0xffffff);
+		//MC.fontRenderer.drawStringWithShadow("Position", x, y-5, 0xffffff);
 		GlStateManager.disableTexture2D();
 		
 		int cS = 0;
@@ -101,10 +101,10 @@ public class Textbar {
 		GlStateManager.pushMatrix();
 		
 		double scale = 0.8;
-		GlStateManager.translate(x+w*scale-mc.fontRenderer.getStringWidth(str)*(scale)-2, y+h*scale-mc.fontRenderer.FONT_HEIGHT*(scale), 0);
+		GlStateManager.translate(x+w*scale-MC.fontRenderer.getStringWidth(str)*(scale)-2, y+h*scale-MC.fontRenderer.FONT_HEIGHT*(scale), 0);
 		GlStateManager.scale(scale, scale, scale);
 		
-		mc.fontRenderer.drawStringWithShadow(str, 0, 0, 0xffffff);
+		MC.fontRenderer.drawStringWithShadow(str, 0, 0, 0xffffff);
 		GlStateManager.popMatrix();
 		GlStateManager.disableTexture2D();
 	}

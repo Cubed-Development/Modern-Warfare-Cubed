@@ -46,7 +46,7 @@ implements PlayerItemInstanceFactory<PlayerHandheldInstance, HandheldState>, Upd
         }
     }
     
-    @SuppressWarnings("unused")
+    
     private ModContext modContext;
     private Builder<T> builder;
     

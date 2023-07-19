@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -183,7 +183,7 @@ public class VP70mag extends ModelWithAttachments {
 	private final ModelRenderer gun19_r6;
 	private final ModelRenderer gun18_r16;
 	private final ModelRenderer gun16_r17;
-	private final QRenderer mag;
+	private final ModelRenderer mag;
 	private final ModelRenderer gun5_r5;
 
 	public VP70mag() {
@@ -1366,7 +1366,7 @@ public class VP70mag extends ModelWithAttachments {
 		setRotationAngle(gun16_r17, 0.2618F, 0.0F, 0.0F);
 		gun16_r17.cubeList.add(new ModelBox(gun16_r17, 29, 13, -2.501F, -1.0F, -3.0F, 5, 1, 5, 0.0F, false));
 
-		mag = new QRenderer(this);
+		mag = new ModelRenderer(this);
 		mag.setRotationPoint(-1.4998F, 3.9326F, 0.9034F);
 		mag.cubeList.add(new ModelBox(mag, 0, 108, -1.4992F, 3.3174F, -6.9034F, 4, 1, 9, 0.0F, false));
 
@@ -1381,8 +1381,8 @@ public class VP70mag extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		slide.render(f5);
-//		stock.render(f5);
+//		slide.renderer(f5);
+//		stock.renderer(f5);
 		mag.render(f5);
 	}
 

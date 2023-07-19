@@ -19,7 +19,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
@@ -51,7 +51,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 //        this.watchablePlayer.setEntityLiving(null);
 //        if(true) return;
 
-        EntityPlayer entityPlayer = mc.player;
+        EntityPlayer entityPlayer = MC.player;
         PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
                 .getMainHandItemInstance(entityPlayer);
 
@@ -106,7 +106,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
 
         if(watchableEntity == null || watchableEntity instanceof EntityLivingBase) {
-            this.watchablePlayer = ((EntityPlayerSP) watchableEntity);
+            this.watchablePlayer.setEntityLiving((EntityLivingBase) watchableEntity);
         }
     }
 
@@ -119,10 +119,10 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         int maxDistance = 120;
         int displayCameraIndex = activeWatchIndex + 1;
         String message = "Cam " + displayCameraIndex + "/" + totalTrackableEntities + ": " + displayName;
-        EntityLivingBase watchableEntity = watchablePlayer;
+        EntityLivingBase watchableEntity = watchablePlayer.getEntityLiving();
         int color =  0xFFFF00;
         if(watchableEntity != null) {
-            EntityPlayer origPlayer = mc.player;
+            EntityPlayer origPlayer = MC.player;
             //origPlayer.getDistanceToEntity(watchableEntity);
             double distance = Math.pow(watchableEntity.posX - origPlayer.posX, 2)
                     + Math.pow(watchableEntity.posY - origPlayer.posY, 2)
@@ -145,7 +145,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         } else if(totalTrackableEntities == 0) {
             framebuffer.framebufferClear();
             framebuffer.bindFramebuffer(true);
-            mc.getTextureManager().bindTexture(new ResourceLocation(DARK_SCREEN_TEXTURE));
+            MC.getTextureManager().bindTexture(new ResourceLocation(DARK_SCREEN_TEXTURE));
             drawTexturedQuadFit(0, 0, width, height, 0);
             color =  0xFF0000;
             message = "No Cameras Available";
@@ -156,7 +156,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
             drawStatic();
         }
 
-        FontRenderer fontRender = mc.fontRenderer;
+        FontRenderer fontRender = MC.fontRenderer;
 
         float scale = 2f;
         GL11.glScalef(scale, scale, scale);
@@ -170,7 +170,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
     public void drawStatic() {
 
-        mc.getTextureManager().bindTexture(new ResourceLocation(STATIC_TEXTURE));
+        MC.getTextureManager().bindTexture(new ResourceLocation(STATIC_TEXTURE));
 
         imageIndex = random.nextInt(STATIC_IMAGES_PER_ROW);
 

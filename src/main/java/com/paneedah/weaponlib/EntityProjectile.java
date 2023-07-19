@@ -1,9 +1,11 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.network.messages.BlockHitMessage;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
+import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -69,9 +71,9 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 //        if(thrower != null) {
 //            RayTraceResult rayTraceResult = thrower.rayTrace(50, 0);
 //            if(rayTraceResult != null && rayTraceResult.hitVec != null) {
-//                double dx = mc.player.posX - rayTraceResult.hitVec.x;
-//                double dy = mc.player.posY - rayTraceResult.hitVec.y;
-//                double dz = mc.player.posZ - rayTraceResult.hitVec.z;
+//                double dx = MC.player.posX - rayTraceResult.hitVec.x;
+//                double dy = MC.player.posY - rayTraceResult.hitVec.y;
+//                double dz = MC.player.posZ - rayTraceResult.hitVec.z;
 //                double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
 //                this.aimTan = 0.4 / distance;
 //            }
@@ -237,7 +239,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
                      if (context == null)
                          return;
 
-                     context.getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), rtr.hitVec.x, rtr.hitVec.y, rtr.hitVec.z, rtr.sideHit), new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
+                     context.getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), new Vector3F(rtr.hitVec), rtr.sideHit), new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
                  }
             }
         }
@@ -432,7 +434,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
     }
 
     /**
-     * Checks if the entity is in range to render by using the past in distance
+     * Checks if the entity is in range to renderer by using the past in distance
      * and comparing it to its average edge length * 64 * renderDistanceWeight
      * Args: distance
      */

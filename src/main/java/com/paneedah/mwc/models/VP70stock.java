@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -144,7 +144,7 @@ public class VP70stock extends ModelWithAttachments {
 	private final ModelRenderer gun18_r4;
 	private final ModelRenderer gun19_r1;
 	private final ModelRenderer gun21_r2;
-	private final QRenderer stock;
+	private final ModelRenderer stock;
 	private final ModelRenderer gun19_r2;
 	private final ModelRenderer gun18_r5;
 	private final ModelRenderer gun18_r6;
@@ -1115,7 +1115,7 @@ public class VP70stock extends ModelWithAttachments {
 		setRotationAngle(gun21_r2, 0.0F, 0.0F, 0.7418F);
 		gun21_r2.cubeList.add(new ModelBox(gun21_r2, 39, 24, -0.5F, -1.0F, -2.0F, 1, 2, 4, 0.0F, false));
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(-1.498F, -11.75F, 15.0F);
 		stock.cubeList.add(new ModelBox(stock, 112, 47, -1.998F, 0.5F, -10.0F, 5, 4, 12, 0.0F, false));
 		stock.cubeList.add(new ModelBox(stock, 13, 91, -1.873F, 2.0F, -9.0F, 5, 1, 2, 0.0F, false));

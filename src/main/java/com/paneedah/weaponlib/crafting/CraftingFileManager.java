@@ -17,7 +17,8 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class CraftingFileManager extends JSONDatabaseManager {
@@ -75,7 +76,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 		// Entry json object
 		JsonObject obj = new JsonObject();
 		mainArray.add(obj);
-		obj.addProperty(NAME_KEY, ModReference.ID + ":bullet50ae");
+		obj.addProperty(NAME_KEY, ID + ":bullet50ae");
 		obj.addProperty(CRAFTING_GROUP_KEY, CraftingGroup.BULLET.toString());
 
 		CraftingEntry[] recipe = new CraftingEntry[] { new CraftingEntry(Blocks.ACACIA_FENCE, 4) };
@@ -217,7 +218,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
 			Item item = Item.getByNameOrId(recipeName);
 			if (item == null) {
-				ModReference.LOG.error("Could not find item with name: " + recipeName);
+				LOG.error("Could not find item with name: " + recipeName);
 				continue;
 			}
 
@@ -390,11 +391,11 @@ public class CraftingFileManager extends JSONDatabaseManager {
 	public void saveCacheAndLoad(ByteArrayOutputStream baos) {
 		// If we are in single player, cancel this.
 		// We have alternate loading mechanisms for this.
-		if(mc.isIntegratedServerRunning())
+		if(MC.isIntegratedServerRunning())
 			return;
 		
 		// Get the server IP
-		String serverIP = mc.getCurrentServerData().serverIP;
+		String serverIP = MC.getCurrentServerData().serverIP;
 		
 		// Create the cache directory if it doesn't exist
 		CACHE_DIR.mkdirs();

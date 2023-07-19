@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class SIG556Action extends ModelBase {
-	private final QRenderer action;
+	private final ModelRenderer action;
 	private final ModelRenderer cube_r17;
 	private final ModelRenderer cube_r18;
 
@@ -20,7 +20,7 @@ public class SIG556Action extends ModelBase {
 		textureWidth = 350;
 		textureHeight = 350;
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(-3.5F, -14.3F, -23.3F);
 		action.cubeList.add(new ModelBox(action, 92, 94, 0.0F, 0.3F, 0.0F, 1, 1, 9, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 35, 129, -0.5F, -1.4F, 0.4F, 1, 1, 1, 0.0F, false));

@@ -1,19 +1,18 @@
 package com.paneedah.mwc;
 
 import com.paneedah.mwc.creativetab.*;
+import com.paneedah.mwc.handlers.ClientEventHandler;
 import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.mwc.utils.OptiNotFine;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.command.BalancePackCommand;
 import com.paneedah.weaponlib.command.CraftingFileCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
+import io.redstudioragnarok.redcore.RedCore;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -22,6 +21,11 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.utils.ModReference.NAME;
+import static com.paneedah.mwc.utils.ModReference.VERSION;
 
 //   /$$      /$$                 /$$                                     /$$      /$$                      /$$$$$$                                     /$$$$$$            /$$                       /$$
 //  | $$$    /$$$                | $$                                    | $$  /$ | $$                     /$$__  $$                                   /$$__  $$          | $$                      | $$
@@ -31,19 +35,18 @@ import net.minecraftforge.fml.relauncher.Side;
 //  | $$\  $ | $$| $$  | $$| $$  | $$| $$_____/| $$      | $$  | $$      | $$$/ \  $$$ /$$__  $$| $$      | $$     /$$__  $$| $$      | $$_____/      | $$    $$| $$  | $$| $$  | $$| $$_____/| $$  | $$
 //  | $$ \/  | $$|  $$$$$$/|  $$$$$$$|  $$$$$$$| $$      | $$  | $$      | $$/   \  $$|  $$$$$$$| $$      | $$    |  $$$$$$$| $$      |  $$$$$$$      |  $$$$$$/|  $$$$$$/| $$$$$$$/|  $$$$$$$|  $$$$$$$
 //  |__/     |__/ \______/  \_______/ \_______/|__/      |__/  |__/      |__/     \__/ \_______/|__/      |__/     \_______/|__/       \_______/       \______/  \______/ |_______/  \_______/ \_______/
-@Mod(modid = ModReference.ID, name = ModReference.NAME, version = ModReference.VERSION, dependencies = "required-after:redcore@[0.2,);", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/master/update.json")
+@Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:redcore@[0.3.1,);", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/master/update.json")
 public final class MWC {
 
-    public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ModReference.ID);
+    public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
 
-    public static final CreativeTabs ARMOR_TAB = new ArmorTab(CreativeTabs.getNextID(), "ArmorTab");
-	public static final CreativeTabs ASSAULT_RIFLES_TAB = new AssaultRiflesTab(CreativeTabs.getNextID(), "AssaultRifles_tab");
-	public static final CreativeTabs AMMO_TAB = new AmmoTab(CreativeTabs.getNextID(), "AmmoTab");
-	public static final CreativeTabs ATTACHMENTS_TAB = new AttachmentsTab(CreativeTabs.getNextID(), "AttachmentsTab");
-	public static final CreativeTabs GRENADES_TAB = new GrenadesTab(CreativeTabs.getNextID(), "GrenadesTab");
-	public static final CreativeTabs GADGETS_TAB = new GadgetsTab(CreativeTabs.getNextID(), "GadgetsTab");
-	public static final CreativeTabs PROPS_TAB = new PropsTab(CreativeTabs.getNextID(), "props_tab");
-	public static final CreativeTabs BLOCKS_TAB = new BlocksTab(CreativeTabs.getNextID(), "BlocksTab");
+    public static final CreativeTabs EQUIPMENT_TAB = new ArmorTab(CreativeTabs.getNextID(), "equipment");
+	public static final CreativeTabs WEAPONS_TAB = new AssaultRiflesTab(CreativeTabs.getNextID(), "weapons");
+	public static final CreativeTabs AMMUNITION_AND_MAGAZINES_TAB = new AmmoTab(CreativeTabs.getNextID(), "ammunitionAndMagazines");
+	public static final CreativeTabs ATTACHMENTS_TAB = new AttachmentsTab(CreativeTabs.getNextID(), "attachments");
+	public static final CreativeTabs THROWABLES_TAB = new GrenadesTab(CreativeTabs.getNextID(), "throwables");
+	public static final CreativeTabs PROPS_TAB = new PropsTab(CreativeTabs.getNextID(), "props");
+	public static final CreativeTabs BLOCKS_AND_INGOTS_TAB = new BlocksTab(CreativeTabs.getNextID(), "blocksAndIngots");
 
     // Todo: Make this configurable via the future YAML config system from FBP, or Valkyrie integration, the later would be best.
     public static int bulletHitParticleMult = 6;
@@ -54,23 +57,32 @@ public final class MWC {
     @SidedProxy(serverSide = "com.paneedah.mwc.proxies.CommonProxy", clientSide = "com.paneedah.mwc.proxies.ClientProxy")
     public static CommonProxy commonProxy;
 
-    @EventHandler
+    @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent preInitializationEvent) {
+        if (preInitializationEvent.getSide().isClient())
+            MinecraftForge.EVENT_BUS.register(ClientEventHandler.class);
+
         commonProxy.preInit(this);
     }
 
-    @EventHandler
+    @Mod.EventHandler
     public void init(FMLInitializationEvent initializationEvent) {
         MWCRecipes.register();
         commonProxy.init(this);
     }
 
-    @EventHandler
+    @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent postInitializationEvent) {
         commonProxy.postInit(this, postInitializationEvent);
     }
-    
-    @EventHandler
+
+    @Mod.EventHandler
+    @SideOnly(Side.CLIENT)
+    public void postInitClient(FMLPostInitializationEvent postInitializationEvent) {
+        RedCore.forceOptiFineFastRenderOff();
+    }
+
+    @Mod.EventHandler
     public void serverStarting(FMLServerStartingEvent serverStartingEvent) {
         serverStartingEvent.registerServerCommand(new BalancePackCommand());
         serverStartingEvent.registerServerCommand(new CraftingFileCommand());

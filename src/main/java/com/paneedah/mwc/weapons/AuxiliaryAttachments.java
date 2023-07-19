@@ -233,7 +233,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinPanelUpper(), "ninthsin.png")
                 .withName("PanelUpper")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(MWC.MOD_CONTEXT);
+                .build(MWC.modContext);
     	
     	PanelLower = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
@@ -241,7 +241,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinPanelLower(), "ninthsin.png")
                 .withName("PanelLower")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(MWC.MOD_CONTEXT);
+                .build(MWC.modContext);
     	
     	RegulatorUpper = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -249,7 +249,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinRegulatorUpper(), "ninthsin.png")
                 .withName("RegulatorUpper")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(MWC.MOD_CONTEXT);
+                .build(MWC.modContext);
     	
     	RegulatorLower = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA4)
@@ -257,7 +257,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinRegulatorLower(), "ninthsin.png")
                 .withName("RegulatorLower")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(MWC.MOD_CONTEXT);
+                .build(MWC.modContext);
     	
     	RegulatorRotator = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA5)
@@ -265,7 +265,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinRegulatorRotator(), "ninthsin.png")
                 .withName("RegulatorRotator")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(MWC.MOD_CONTEXT);
+                .build(MWC.modContext);
     	
     	RegulatorActionUpper = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA6)
@@ -273,7 +273,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinRegulatorActionUpper(), "ninthsin.png")
                 .withName("RegulatorActionUpper")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(MWC.MOD_CONTEXT);
+                .build(MWC.modContext);
     	
     	RegulatorActionLower = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA7)
@@ -281,7 +281,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinRegulatorActionLower(), "ninthsin.png")
                 .withName("RegulatorActionLower")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(MWC.MOD_CONTEXT);
+                .build(MWC.modContext);
     	
     	RegulatorAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA8)
@@ -289,7 +289,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinRegulatorAction(), "ninthsin.png")
                 .withName("RegulatorAction")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(MWC.MOD_CONTEXT);
+                .build(MWC.modContext);
     	
     	CyclerFront = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA9)
@@ -297,7 +297,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinCycleFront(), "ninthsin.png")
                 .withName("CyclerFront")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(MWC.MOD_CONTEXT);
+                .build(MWC.modContext);
     	
     	CyclerBackLeft = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA10)
@@ -305,7 +305,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinCycleBackLeft(), "ninthsin.png")
                 .withName("CyclerBackLeft")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(MWC.MOD_CONTEXT);
+                .build(MWC.modContext);
     	
     	CyclerBackRight = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA11)
@@ -313,7 +313,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinCycleBackRight(), "ninthsin.png")
                 .withName("CyclerBackRight")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(MWC.MOD_CONTEXT);
+                .build(MWC.modContext);
     	
     	Cycler = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA12)
@@ -321,7 +321,7 @@ public class AuxiliaryAttachments {
                 .withModel(new com.paneedah.mwc.models.NinthSinCycle(), "ninthsin.png")
                 .withName("Cycler")
                 .withRenderablePart().withTextureName("Dummy.png")
-                .build(MWC.MOD_CONTEXT);
+                .build(MWC.modContext);
 */
         ChainB = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -500,7 +500,7 @@ public class AuxiliaryAttachments {
 //                .withModel(new com.paneedah.mwc.models.P226frontsight(), "p226frontsight.png")
 //                .withName("P226Slide")
 //                .withRenderablePart().withTextureName("Dummy.png")
-//                .build(MWC.MOD_CONTEXT);
+//                .build(MWC.modContext);
         
         PythonChamber = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
@@ -1587,7 +1587,7 @@ public class AuxiliaryAttachments {
                 .withTextureName("Dummy.png").build(MWC.modContext);
         
         SIGMCXAction = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA)
-                .withModel(new com.paneedah.mwc.models.SIGMCXAction(), "sigmcx.png")
+                .withModel(new com.paneedah.mwc.models.SIGMCXAction(), "sigMCx.png")
                 .withName("SIGMCXAction").withRenderablePart()
                 .withTextureName("Dummy.png").build(MWC.modContext);
         

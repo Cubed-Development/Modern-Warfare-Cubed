@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class TaurusRagingHunter extends ModelWithAttachments {
-	private final QRenderer barrel;
+	private final ModelRenderer barrel;
 	private final ModelRenderer gun160_r1;
 	private final ModelRenderer gun158_r1;
 	private final ModelRenderer gun243_r1;
@@ -24,7 +24,7 @@ public class TaurusRagingHunter extends ModelWithAttachments {
 	private final ModelRenderer gun263_r1;
 	private final ModelRenderer gun268_r1;
 	private final ModelRenderer gun267_r1;
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer gun126_r1;
 	private final ModelRenderer gun129_r1;
 	private final ModelRenderer gun25_r1;
@@ -76,7 +76,7 @@ public class TaurusRagingHunter extends ModelWithAttachments {
 	private final ModelRenderer gun220_r1;
 	private final ModelRenderer gun221_r1;
 	private final ModelRenderer gun236_r1;
-	private final QRenderer grip;
+	private final ModelRenderer grip;
 	private final ModelRenderer gun14_r1;
 	private final ModelRenderer gun192_r1;
 	private final ModelRenderer gun42_r1;
@@ -99,7 +99,7 @@ public class TaurusRagingHunter extends ModelWithAttachments {
 		textureWidth = 128;
 		textureHeight = 128;
 
-		barrel = new QRenderer(this);
+		barrel = new ModelRenderer(this);
 		barrel.setRotationPoint(0.0F, 24.0F, 0.0F);
 		barrel.cubeList.add(new ModelBox(barrel, 68, 55, -2.5F, -39.7F, -45.5F, 2, 3, 6, 0.0F, false));
 		barrel.cubeList.add(new ModelBox(barrel, 86, 11, -2.5F, -39.7F, -38.5F, 2, 1, 1, 0.0F, false));
@@ -230,7 +230,7 @@ public class TaurusRagingHunter extends ModelWithAttachments {
 		gun267_r1.cubeList.add(new ModelBox(gun267_r1, 75, 24, 7.6557F, -7.1756F, -10.0F, 1, 2, 6, 0.001F, false));
 		gun267_r1.cubeList.add(new ModelBox(gun267_r1, 33, 75, 7.6557F, -7.5756F, -10.0F, 1, 1, 1, 0.0F, false));
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(2.7F, -21.8F, -18.3F);
 		gun.cubeList.add(new ModelBox(gun, 0, 13, -6.0F, 14.3F, -0.2F, 1, 1, 10, 0.001F, false));
 		gun.cubeList.add(new ModelBox(gun, 0, 27, -3.4F, 14.3F, -0.2F, 1, 1, 10, 0.0F, false));
@@ -613,7 +613,7 @@ public class TaurusRagingHunter extends ModelWithAttachments {
 		setRotationAngle(gun236_r1, -0.7854F, 0.0F, 0.0F);
 		gun236_r1.cubeList.add(new ModelBox(gun236_r1, 97, 59, -4.0F, 14.1421F, 0.0F, 2, 1, 1, 0.0F, false));
 
-		grip = new QRenderer(this);
+		grip = new ModelRenderer(this);
 		grip.setRotationPoint(0.0F, -17.3F, 4.4F);
 		
 

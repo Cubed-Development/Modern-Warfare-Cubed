@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class FiveSevenMagazine extends ModelWithAttachments {
-	private final QRenderer magazine;
+	private final ModelRenderer magazine;
 	private final ModelRenderer cube_r30;
 	private final ModelRenderer cube_r31;
 	private final ModelRenderer cube_r32;
@@ -21,7 +21,7 @@ public class FiveSevenMagazine extends ModelWithAttachments {
 		textureWidth = 128;
 		textureHeight = 128;
 
-		magazine = new QRenderer(this);
+		magazine = new ModelRenderer(this);
 		magazine.setRotationPoint(0.0F, 8.0F, 3.0F);
 		magazine.cubeList.add(new ModelBox(magazine, 24, 36, -3.5F, -1.1F, -7.3F, 4, 1, 7, 0.001F, false));
 		magazine.cubeList.add(new ModelBox(magazine, 0, 54, -3.0F, -1.2F, -0.4F, 3, 1, 1, -0.101F, false));

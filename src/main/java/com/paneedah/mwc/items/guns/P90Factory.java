@@ -52,7 +52,7 @@ public class P90Factory {
         .withFlashOffsetY(() -> 0.27f)
         .withShellCasingEjectEnabled(false)
         .withInaccuracy(2f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -99,10 +99,10 @@ public class P90Factory {
         })
         .withCompatibleAttachment(Magazines.P90Mag, (model) -> {
         })
-        .withCompatibleAttachment(Magazines.P90TerminatorMag, (model) -> {
-            GL11.glTranslatef(0.1F, 0.5F, 1.63F);
-            GL11.glScaled(1.1F, 1.5F, 1.55F);
-        })
+//        .withCompatibleAttachment(Magazines.P90TerminatorMag, (model) -> {
+//            GL11.glTranslatef(0.1F, 0.5F, 1.55F);
+//            GL11.glScaled(1.1F, 1.5F, 1.55F);
+//        })
         .withCompatibleAttachment(Attachments.P90Swordfish, (model) -> {
             if(model instanceof AKRail) {
                 GL11.glTranslatef(0.25F, -2F, -2.8F);
@@ -346,6 +346,10 @@ public class P90Factory {
             GL11.glRotatef(-90F, 0f, 0f, 1f);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Bipod, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.15F, -3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
         .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
             GL11.glTranslatef(0.13F, -1.99F, -2F);
             GL11.glRotatef(-20F, 0f, 0f, 1f);
@@ -414,8 +418,7 @@ public class P90Factory {
                 
                 .setupModernAnimations("p90", AuxiliaryAttachments.P90Action)
                 .setupModernMagazineAnimations("p90", 
-                		Magazines.P90Mag,
-                        Magazines.P90TerminatorMag)
+                		Magazines.P90Mag)
             
             .withFirstPersonCustomPositioning(Magazines.P90TerminatorMag.getRenderablePart(), (renderContext) -> {
 //            	GL11.glTranslatef(-0.1F, -0.6F, 1.1F);

@@ -2441,12 +2441,12 @@ public class KBP9A91 extends ModelWithAttachments
 		MainGUN.render(f5);
 		Stock.render(f5);
 		GripArea.render(f5);
-//		Handguard.render(f5);
-//		Handguard_COMPACT.render(f5);
-//		Handguard_KulaTactical_railmount.render(f5);
-//		Suppressor.render(f5);
-//		Action.render(f5);
-//		mag.render(f5);
+//		Handguard.renderer(f5);
+//		Handguard_COMPACT.renderer(f5);
+//		Handguard_KulaTactical_railmount.renderer(f5);
+//		Suppressor.renderer(f5);
+//		Action.renderer(f5);
+//		mag.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

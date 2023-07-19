@@ -47,7 +47,7 @@ public class M40A6Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.08f)
         .withFlashOffsetY(() -> 0.10f)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -257,11 +257,11 @@ public class M40A6Factory implements GunFactory {
             GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
         .withCompatibleAttachment(Attachments.StubbyGrip, (model) -> {
-        	 GL11.glTranslatef(-0.05F, -0.8F, -3.5F);
+        	 GL11.glTranslatef(-0.05F, 0.8F, 2.2F);
              GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Attachments.VGrip, (model) -> {
-        	 GL11.glTranslatef(-0.05F, -0.8F, -3.5F);
+        	 GL11.glTranslatef(-0.05F, 0.8F, 2.2F);
              GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Attachments.Bipod, (model) -> {

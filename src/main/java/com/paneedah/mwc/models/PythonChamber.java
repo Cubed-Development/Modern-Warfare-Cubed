@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class PythonChamber extends ModelWithAttachments {
-	private final QRenderer chamber;
+	private final ModelRenderer chamber;
 	private final ModelRenderer gun100_r2;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
@@ -64,7 +64,7 @@ public class PythonChamber extends ModelWithAttachments {
 		textureWidth = 160;
 		textureHeight = 160;
 
-		chamber = new QRenderer(this);
+		chamber = new ModelRenderer(this);
 		chamber.setRotationPoint(0.0F, 24.0F, 0.0F);
 		chamber.cubeList.add(new ModelBox(chamber, 0, 40, -1.2F, -36.0F, -21.5F, 1, 4, 3, 0.0F, false));
 		chamber.cubeList.add(new ModelBox(chamber, 81, 0, -4.2F, -36.0F, -18.3F, 2, 2, 5, -0.002F, false));

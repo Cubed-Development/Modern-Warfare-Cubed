@@ -9,13 +9,13 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class StationClientPacket implements IMessage {
 
 	// THIS ONLY EXISTS ON THE SERVER END, THIS
 	// VARIABLE WILL BE NULL ON THE CLIENT END.
-	// USE mc INSTEAD.
+	// USE MC INSTEAD.
 	public World world;
 
 	public BlockPos pos;
@@ -63,8 +63,8 @@ public class StationClientPacket implements IMessage {
 
 		@Override
 		public IMessage onMessage(StationClientPacket message, MessageContext messageContext) {
-			mc.addScheduledTask(() -> {
-				TileEntity tileEntity = mc.world.getTileEntity(message.pos);
+			MC.addScheduledTask(() -> {
+				TileEntity tileEntity = MC.world.getTileEntity(message.pos);
 				if(tileEntity != null && tileEntity instanceof TileEntityStation)
 					((TileEntityStation) tileEntity).readBytesFromClientSync(message.copiedBuf);
 			});

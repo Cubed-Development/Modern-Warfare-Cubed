@@ -8,12 +8,12 @@ import net.minecraft.client.renderer.entity.layers.LayerHeldItem;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class RenderCustomMob<T extends EntityLiving> extends RenderBiped<T> {
 
     public RenderCustomMob(ModelBiped model) {
-        super(mc.getRenderManager(), model, 0.5F);
+        super(MC.getRenderManager(), model, 0.5F);
 
         this.addLayer(new LayerHeldItem(this));
         this.addLayer(new LayerBipedArmor(this) {

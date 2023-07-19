@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class Z10Mag extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer gun156_r1;
 	private final ModelRenderer gun154_r1;
 	private final ModelRenderer gun153_r1;
@@ -189,7 +189,7 @@ public class Z10Mag extends ModelWithAttachments {
 	private final ModelRenderer gun56_r2;
 	private final ModelRenderer bone10;
 	private final ModelRenderer gun50_r11;
-	private final QRenderer stock;
+	private final ModelRenderer stock;
 	private final ModelRenderer gun71_r1;
 	private final ModelRenderer gun70_r1;
 	private final ModelRenderer gun70_r2;
@@ -235,7 +235,7 @@ public class Z10Mag extends ModelWithAttachments {
 	private final ModelRenderer bone8;
 	private final ModelRenderer gun71_r7;
 	private final ModelRenderer gun70_r7;
-	private final QRenderer mag;
+	private final ModelRenderer mag;
 	private final ModelRenderer gun50_r12;
 	private final ModelRenderer gun52_r15;
 	private final ModelRenderer gun50_r13;
@@ -266,7 +266,7 @@ public class Z10Mag extends ModelWithAttachments {
 		textureWidth = 300;
 		textureHeight = 300;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(-1.4157F, -10.7703F, -9.8009F);
 		gun.cubeList.add(new ModelBox(gun, 5, 81, 1.3657F, -1.0797F, -2.9491F, 1, 2, 1, -0.2F, false));
 		gun.cubeList.add(new ModelBox(gun, 104, 99, 1.4157F, 0.4203F, -2.9501F, 1, 1, 1, -0.2F, false));
@@ -1488,7 +1488,7 @@ public class Z10Mag extends ModelWithAttachments {
 		gun50_r11.cubeList.add(new ModelBox(gun50_r11, 76, 11, -1.0F, -0.5007F, 6.0F, 2, 1, 2, -0.3F, false));
 		gun50_r11.cubeList.add(new ModelBox(gun50_r11, 96, 102, -1.0F, -0.5007F, -11.0F, 2, 1, 5, -0.3F, false));
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(0.0F, 23.3F, 4.5F);
 		stock.cubeList.add(new ModelBox(stock, 0, 60, -3.0F, -33.95F, -1.0F, 3, 1, 3, 0.0F, false));
 		stock.cubeList.add(new ModelBox(stock, 221, 176, -2.0F, -38.5F, 0.0F, 1, 1, 28, 0.0F, false));
@@ -1782,7 +1782,7 @@ public class Z10Mag extends ModelWithAttachments {
 		setRotationAngle(gun70_r7, 0.3491F, 0.0F, 0.0F);
 		gun70_r7.cubeList.add(new ModelBox(gun70_r7, 0, 77, -0.7588F, -1.4077F, -1.1696F, 1, 1, 3, -0.001F, false));
 
-		mag = new QRenderer(this);
+		mag = new ModelRenderer(this);
 		mag.setRotationPoint(-1.5F, -2.1972F, -16.9893F);
 		mag.cubeList.add(new ModelBox(mag, 22, 66, -1.75F, -5.8028F, -2.4607F, 3, 5, 7, 0.0F, false));
 		mag.cubeList.add(new ModelBox(mag, 23, 0, -1.0F, -5.8028F, -4.3607F, 2, 5, 2, 0.001F, false));
@@ -1960,11 +1960,11 @@ public class Z10Mag extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		handguard.render(f5);
-//		stock.render(f5);
+//		gun.renderer(f5);
+//		handguard.renderer(f5);
+//		stock.renderer(f5);
 		mag.render(f5);
-//		action.render(f5);
+//		action.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
