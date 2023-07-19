@@ -14134,7 +14134,7 @@ public class Attachments {
 //                    GL11.glRotatef(30F, 1f, 0f, 0f);
                 })
                 .withCreativeTab(MWC.ATTACHMENTS_TAB).withCrosshair("HP")
-                .withModel(new com.paneedah.mwc.models.F2000Scope(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.F2000Scope(), "f2000.png")
                 .withModel(new com.paneedah.mwc.models.F2000Scope2(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.F2000Reticle(), "black.png")
                 .withFirstPersonModelPositioning((model, itemStack) -> {
