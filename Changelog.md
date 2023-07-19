@@ -108,11 +108,16 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Duel Floodlight
   - Single Floodlight
   - Shelf Top
-  - Server Rack Top
+  - Server Rack Top (left/right)
   - Laptop
   - Desk Shelf
   - Desk Shelf (Alt2)
   - Impaled Body
+  - Hanging Body
+  - Office Chair
+  - Office Chair 2
+  - Home Chair
+  - White Desk Middle
 
 ### Removed
 
