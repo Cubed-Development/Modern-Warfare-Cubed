@@ -370,7 +370,7 @@ public class F2000Factory {
                 GL11.glScaled(0.6F, 0.7F, 0.9F);
             }
         })
-        .withTextureNames("gun")
+        .withTextureNames("f2000")
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new F2000())

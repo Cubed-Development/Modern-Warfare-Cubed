@@ -666,7 +666,7 @@ public class AuxiliaryAttachments {
         F2000Action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 // .withCreativeTab(MWC.gunsTab)
-                .withModel(new com.paneedah.mwc.models.F2000Action(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.F2000Action(), "f2000.png")
                 .withName("F2000Action")
                 .withRenderablePart()
         
