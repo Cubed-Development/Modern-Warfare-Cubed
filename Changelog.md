@@ -24,12 +24,15 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - penetratesGlass
   - explosionBreak
   - penetrableBlocks
-  - knockbackOnHi
-  - hipFireSpread
+  - knockbackOnHit
   - ammoCounterX 
   - ammoCounterY
   - ammoCounterSize
   - ammoCounterBackgroundReverse
+- New BalancePackage Configuration: (You need to regenerate a balance package and modify it again)
+  - inaccuracy
+  - hipFireSpread
+  - hipFireSpreadMultiplier
 - Durability to all vests as a temporary measure to resolve vest-related issues
 - Smelting of sulfur into gunpowder
 - .50 AE in the Ammo Press
