@@ -178,7 +178,7 @@ public class FamasF1Factory {
 		        }
 		    })
         
-        .withCompatibleAttachment(Attachments.MicroT1, (plsayer, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
         	GL11.glTranslatef(-0.177F, -2.22F, -1.2F);
             GL11.glScaled(0.36F, 0.36F, 0.36F);
         },(model) -> {
