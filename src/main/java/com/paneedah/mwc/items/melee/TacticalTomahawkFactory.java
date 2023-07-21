@@ -52,12 +52,6 @@ public class TacticalTomahawkFactory implements MeleeFactory {
                                     GL11.glRotatef(-55.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(5.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(-2.000000f, 0.400000f, 1.410000f);
-                                    
-//                                    GL11.glScalef(0.7f, 0.7f, 0.7f);
-//                                    GL11.glRotatef(-45.000000f, 1f, 0f, 0f);
-//                                    GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                                    GL11.glRotatef(5.000000f, 0f, 0f, 1f);
-//                                    GL11.glTranslatef(-1.400000f, -3.099999f, -0.075000f);
                                     })
 
                                 .withFirstPersonHandPositioning(
@@ -68,12 +62,6 @@ public class TacticalTomahawkFactory implements MeleeFactory {
                                         	GL11.glRotatef(-15.000000f, 0f, 1f, 0f);
                                         	GL11.glRotatef(65.000000f, 0f, 0f, 1f);
                                         	GL11.glTranslatef(0.225000f, -0.450000f, 0.025000f);
-                                        	
-//                                        	GL11.glScalef(5f, 5f, 5f);
-//                                        	GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
-//                                        	GL11.glRotatef(-5.000000f, 0f, 1f, 0f);
-//                                        	GL11.glRotatef(55.000000f, 0f, 0f, 1f);
-//                                        	GL11.glTranslatef(0.250000f, -0.475000f, 0.150000f);
                                         },
 
                                         context -> { // right hand
@@ -82,8 +70,6 @@ public class TacticalTomahawkFactory implements MeleeFactory {
                                         	GL11.glRotatef(10.000000f, 0f, 1f, 0f);
                                         	GL11.glRotatef(-10.000000f, 0f, 0f, 1f);
                                         	GL11.glTranslatef(0.170000f, -0.430000f, 0.200000f);
-                                        	
-//                                        	GL11.glScalef(5f, 5f, 5f);
                                         })
 
                                 .withFirstPersonPositioningHeavyAttacking(
