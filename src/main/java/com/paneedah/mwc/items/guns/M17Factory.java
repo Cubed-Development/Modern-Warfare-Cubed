@@ -131,7 +131,8 @@ public class M17Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new M17())
-            .withActionPiece(AuxiliaryAttachments.M17_Slide)
+            .withActionPiece(
+                        AuxiliaryAttachments.M17_Slide)
             .withActionPiece(Attachments.RMR)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5))
             //.withTextureName("M9")
