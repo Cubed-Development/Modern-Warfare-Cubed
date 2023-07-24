@@ -1,6 +1,5 @@
 package com.paneedah.mwc.network.messages;
 
-import com.paneedah.mwc.network.NetworkUtil;
 import io.netty.buffer.ByteBuf;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
 import lombok.AllArgsConstructor;
@@ -17,70 +16,76 @@ import java.util.List;
 @AllArgsConstructor
 public final class ExplosionMessage implements IMessage {
 
-    private Vector3D position;
+    private static final BlockPos.MutableBlockPos MUTABLE_BLOCK_POS = new BlockPos.MutableBlockPos();
+
+    private Vector3D position = new Vector3D();
+    private Vector3D velocity = new Vector3D();
     private float strength;
-    private List<BlockPos> affectedBlockPositions;
-    private Vector3D motion;
-    private boolean isDestroyingBlocks;
-    private float explosionParticleAgeCoefficient;
-    private float smokeParticleAgeCoefficient;
-    private float explosionParticleScaleCoefficient;
-    private float smokeParticleScaleCoefficient;
+    private boolean destroyBlocks;
+
     private int explosionParticleTextureId;
+    private float explosionParticleScaleCoefficient;
+    private float explosionParticleAgeCoefficient;
+
     private int smokeParticleTextureId;
+    private float smokeParticleScaleCoefficient;
+    private float smokeParticleAgeCoefficient;
+
+    private List<BlockPos> affectedBlockPositions;
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-        this.position = NetworkUtil.readVector3D(byteBuf);
-        this.strength = byteBuf.readFloat();
-        this.explosionParticleAgeCoefficient = byteBuf.readFloat();
-        this.smokeParticleAgeCoefficient = byteBuf.readFloat();
-        this.explosionParticleScaleCoefficient = byteBuf.readFloat();
-        this.smokeParticleScaleCoefficient = byteBuf.readFloat();
-        this.explosionParticleTextureId = byteBuf.readInt();
-        this.smokeParticleTextureId = byteBuf.readInt();
-        this.isDestroyingBlocks = byteBuf.readBoolean();
-        int i = byteBuf.readInt();
-        this.affectedBlockPositions = new ArrayList<>(i);
-        int j = (int) this.position.x;
-        int k = (int) this.position.y;
-        int l = (int) this.position.z;
+        position.read(byteBuf);
+        velocity.read(byteBuf);
+        strength = byteBuf.readFloat();
+        destroyBlocks = byteBuf.readBoolean();
 
-        for (int i1 = 0; i1 < i; ++i1) {
-            int j1 = byteBuf.readByte() + j;
-            int k1 = byteBuf.readByte() + k;
-            int l1 = byteBuf.readByte() + l;
-            this.affectedBlockPositions.add(new BlockPos(j1, k1, l1));
+        explosionParticleTextureId = byteBuf.readInt();
+        explosionParticleScaleCoefficient = byteBuf.readFloat();
+        explosionParticleAgeCoefficient = byteBuf.readFloat();
+
+        smokeParticleTextureId = byteBuf.readInt();
+        smokeParticleScaleCoefficient = byteBuf.readFloat();
+        smokeParticleAgeCoefficient = byteBuf.readFloat();
+
+        final int affectedBlockPositionsSize = byteBuf.readInt();
+
+        affectedBlockPositions = new ArrayList<>(affectedBlockPositionsSize);
+
+        for (int i1 = 0; i1 < affectedBlockPositionsSize; ++i1) {
+            final int x = byteBuf.readByte() + (int) position.x;
+            final int y = byteBuf.readByte() + (int) position.y;
+            final int z = byteBuf.readByte() + (int) position.z;
+
+            affectedBlockPositions.add(MUTABLE_BLOCK_POS.setPos(x, y, z).toImmutable());
         }
-
-        this.motion = NetworkUtil.readVector3D(byteBuf);
     }
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        NetworkUtil.writeVector3D(byteBuf, this.position);
-        byteBuf.writeFloat(this.strength);
-        byteBuf.writeFloat(this.explosionParticleAgeCoefficient);
-        byteBuf.writeFloat(this.smokeParticleAgeCoefficient);
-        byteBuf.writeFloat(this.explosionParticleScaleCoefficient);
-        byteBuf.writeFloat(this.smokeParticleScaleCoefficient);
-        byteBuf.writeInt(this.explosionParticleTextureId);
-        byteBuf.writeInt(this.smokeParticleTextureId);
-        byteBuf.writeBoolean(this.isDestroyingBlocks);
-        byteBuf.writeInt(this.affectedBlockPositions.size());
-        int i = (int) this.position.x;
-        int j = (int) this.position.y;
-        int k = (int) this.position.z;
+        position.write(byteBuf);
+        velocity.write(byteBuf);
+        byteBuf.writeFloat(strength);
+        byteBuf.writeBoolean(destroyBlocks);
 
-        for (BlockPos blockpos : this.affectedBlockPositions) {
-            int l = blockpos.getX() - i;
-            int i1 = blockpos.getY() - j;
-            int j1 = blockpos.getZ() - k;
-            byteBuf.writeByte(l);
-            byteBuf.writeByte(i1);
-            byteBuf.writeByte(j1);
+        byteBuf.writeInt(explosionParticleTextureId);
+        byteBuf.writeFloat(explosionParticleScaleCoefficient);
+        byteBuf.writeFloat(explosionParticleAgeCoefficient);
+
+        byteBuf.writeInt(smokeParticleTextureId);
+        byteBuf.writeFloat(smokeParticleScaleCoefficient);
+        byteBuf.writeFloat(smokeParticleAgeCoefficient);
+
+        byteBuf.writeInt(affectedBlockPositions.size());
+
+        for (BlockPos blockpos : affectedBlockPositions) {
+            final int x = blockpos.getX() - (int) position.x;
+            final int y = blockpos.getY() - (int) position.y;
+            final int z = blockpos.getZ() - (int) position.z;
+
+            byteBuf.writeByte(x);
+            byteBuf.writeByte(y);
+            byteBuf.writeByte(z);
         }
-
-        NetworkUtil.writeVector3D(byteBuf, this.motion);
     }
 }

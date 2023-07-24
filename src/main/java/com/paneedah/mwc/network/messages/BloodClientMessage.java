@@ -1,6 +1,5 @@
 package com.paneedah.mwc.network.messages;
 
-import com.paneedah.mwc.network.NetworkUtil;
 import io.netty.buffer.ByteBuf;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
 import lombok.AllArgsConstructor;
@@ -13,18 +12,18 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 @AllArgsConstructor
 public final class BloodClientMessage implements IMessage {
 
-    private Vector3F position;
-    private Vector3F velocity;
+    private Vector3F position = new Vector3F();
+    private Vector3F velocity = new Vector3F();
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-        position = NetworkUtil.readVector3F(byteBuf);
-        velocity = NetworkUtil.readVector3F(byteBuf);
+        position.read(byteBuf);
+        velocity.read(byteBuf);
     }
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        NetworkUtil.writeVector3F(byteBuf, position);
-        NetworkUtil.writeVector3F(byteBuf, velocity);
+        position.write(byteBuf);
+        velocity.write(byteBuf);
     }
 }

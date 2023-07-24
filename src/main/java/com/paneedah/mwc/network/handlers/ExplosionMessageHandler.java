@@ -26,7 +26,7 @@ public final class ExplosionMessageHandler implements IMessageHandler<ExplosionM
     public IMessage onMessage(final ExplosionMessage explosionMessage, final MessageContext messageContext) {
         final EntityPlayer player = MC.player;
         final Vector3D position = explosionMessage.getPosition();
-        final Vector3D motion = explosionMessage.getMotion();
+        final Vector3D motion = explosionMessage.getVelocity();
 
         final Explosion explosion = new Explosion(modContext,
                 player.world,
@@ -44,7 +44,7 @@ public final class ExplosionMessageHandler implements IMessageHandler<ExplosionM
                 modContext.getRegisteredTexture(explosionMessage.getSmokeParticleTextureId()),
                 null);
 
-        explosion.doExplosionB(true, explosionMessage.isDestroyingBlocks());
+        explosion.doExplosionB(true, explosionMessage.isDestroyBlocks());
 
         player.motionX += motion.x;
         player.motionY += motion.y;
