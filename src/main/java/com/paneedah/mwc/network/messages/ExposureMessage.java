@@ -17,6 +17,7 @@ public final class ExposureMessage implements IMessage {
     
     private Collection<? extends Exposure> exposures;
 
+    @Override
     public void fromBytes(final ByteBuf byteBuf) {
         final int size = byteBuf.readInt();
 
@@ -24,6 +25,7 @@ public final class ExposureMessage implements IMessage {
             exposures.add(TypeRegistry.getInstance().fromBytes(byteBuf));
     }
 
+    @Override
     public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeInt(exposures.size());
 

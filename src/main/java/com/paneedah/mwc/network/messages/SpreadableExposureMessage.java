@@ -19,6 +19,7 @@ public final class SpreadableExposureMessage implements IMessage {
         this.removed = spreadableExposure == null;
     }
 
+    @Override
     public void fromBytes(final ByteBuf byteBuf) {
         removed = byteBuf.readBoolean();
 
@@ -26,6 +27,7 @@ public final class SpreadableExposureMessage implements IMessage {
             spreadableExposure = TypeRegistry.getInstance().fromBytes(byteBuf);
     }
 
+    @Override
     public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeBoolean(removed);
 

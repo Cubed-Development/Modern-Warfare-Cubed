@@ -18,6 +18,7 @@ public final class ShellMessageClient implements IMessage {
 	public Vec3d position;
 	public Vec3d velocity;
 
+	@Override
 	public void fromBytes(final ByteBuf byteBuf) {
 		this.shooter = byteBuf.readInt();
 		this.type = Shell.Type.valueOf(ByteBufUtils.readUTF8String(byteBuf));
@@ -25,6 +26,7 @@ public final class ShellMessageClient implements IMessage {
 		this.velocity = NetworkUtil.readVec3d(byteBuf);
 	}
 
+	@Override
 	public void toBytes(final ByteBuf byteBuf) {
 		byteBuf.writeInt(this.shooter);
 		ByteBufUtils.writeUTF8String(byteBuf, type.toString());

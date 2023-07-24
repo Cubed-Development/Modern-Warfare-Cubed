@@ -13,10 +13,12 @@ public final class CraftingServerMessage implements IMessage {
 
     private int playerId;
 
+    @Override
     public void fromBytes(final ByteBuf byteBuf) {
         this.playerId = byteBuf.readInt();
     }
 
+    @Override
     public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeInt(playerId);
     }

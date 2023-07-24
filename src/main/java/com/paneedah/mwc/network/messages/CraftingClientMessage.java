@@ -19,6 +19,7 @@ public final class CraftingClientMessage implements IMessage {
     private int opCode;
     private ByteArrayOutputStream fileStream;
 
+    @Override
     public void fromBytes(final ByteBuf byteBuf) {
         final int size = byteBuf.readInt();
         try {
@@ -28,6 +29,7 @@ public final class CraftingClientMessage implements IMessage {
         }
     }
 
+    @Override
     public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeInt(opCode);
         byteBuf.writeBytes(fileStream.toByteArray());

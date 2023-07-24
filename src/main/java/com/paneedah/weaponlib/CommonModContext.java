@@ -264,7 +264,7 @@ public class CommonModContext implements ModContext {
 
         channel.registerMessage(new HeadshotSFXPacket.GunFXPacketHandler(), HeadshotSFXPacket.class, 40, Side.CLIENT);
 
-        channel.registerMessage(new BloodPacketClient.BalancePacketHandler(), BloodPacketClient.class, 41, Side.CLIENT);
+        channel.registerMessage(new BloodClientMessageHandler(), BloodClientMessage.class, 41, Side.CLIENT);
         
         channel.registerMessage(new OpenDoorPacket.OpenDoorPacketHandler(), OpenDoorPacket.class, 42, Side.SERVER);
 
@@ -276,7 +276,7 @@ public class CommonModContext implements ModContext {
         
         channel.registerMessage(new CraftingServerMessageHandler(this), CraftingServerMessage.class, 46, Side.SERVER);
         
-        channel.registerMessage(new HighIQPickupPacket.SimplePacketHandler(), HighIQPickupPacket.class, 47, Side.SERVER);
+        channel.registerMessage(new EntityPickupMessageHandler(), EntityPickupMessage.class, 47, Side.SERVER);
         
         
 		CommonEventHandler serverHandler = new CommonEventHandler(this);

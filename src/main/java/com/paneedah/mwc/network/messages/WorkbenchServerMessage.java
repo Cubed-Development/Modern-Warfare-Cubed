@@ -49,6 +49,7 @@ public final class WorkbenchServerMessage implements IMessage {
         this.craftingName = nameToCraft;
     }
 
+    @Override
     public void fromBytes(final ByteBuf byteBuf) {
         this.opCode = byteBuf.readInt();
         this.teLocation = BlockPos.fromLong(byteBuf.readLong());
@@ -68,6 +69,7 @@ public final class WorkbenchServerMessage implements IMessage {
             this.craftingDuration = byteBuf.readInt();
     }
 
+    @Override
     public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeInt(this.opCode);
         byteBuf.writeLong(this.teLocation.toLong());

@@ -6,30 +6,25 @@ import io.redstudioragnarok.redcore.vectors.Vector3F;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public final class BlockHitMessage implements IMessage {
+public final class BloodClientMessage implements IMessage {
 
-	private BlockPos blockPos;
     private Vector3F position;
-    private EnumFacing enumFacing;
+    private Vector3F velocity;
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-    	blockPos = BlockPos.fromLong(byteBuf.readLong());
         position = NetworkUtil.readVector3F(byteBuf);
-        enumFacing = EnumFacing.byIndex(byteBuf.readInt());
+        velocity = NetworkUtil.readVector3F(byteBuf);
     }
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-    	byteBuf.writeLong(this.blockPos.toLong());
         NetworkUtil.writeVector3F(byteBuf, position);
-        byteBuf.writeInt(enumFacing.getIndex());
+        NetworkUtil.writeVector3F(byteBuf, velocity);
     }
 }
