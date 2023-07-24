@@ -48,7 +48,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 ### Changed
 
 - Overhauled the textures of AAC Honey Badger, Bushmaster ACR, Beowulf, HK 417, M16A1, FN F2000, 100rnd 5.56x45mm NATO STANAG Drum Magazine and the pink camo skin
-- Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight, and Eotech Hybrid HHS™ II Sight
+- Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight, OKP-7 Sight, and Eotech Hybrid HHS™ II Sight
 - Overhauled animations and sound effects of the M40A6 and Uzi
 - Sidearms can now be carried in backpacks
 - Added keybindings to switching cameras on the tablet
