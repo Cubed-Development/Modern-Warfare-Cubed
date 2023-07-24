@@ -27,7 +27,7 @@ public class SVDDragunovFactory {
 
         .withName("svd_dragunov")
         .withFireRate(0.3f)
-        .withRecoil(5f)
+        .withRecoil(4f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.LONG_RANGE_RIFLES)
         .withMuzzlePosition(new Vec3d(-0.1480000044107437, -1.0880000026226049, -10.836000129222878))
