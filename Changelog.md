@@ -127,6 +127,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Fixed Bipod in ARX-160
   - Fixed Vector Stock Adapter
   - Adjusted slide recoil on m17
+  - Fixed muzzle flash for Dragunov
+  - Fixed texture bullet
 - Fixed prop hitboxes not lining up with their models:
   - Fridge (open/closed)
   - Locker
