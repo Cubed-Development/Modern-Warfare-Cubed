@@ -13,7 +13,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 **When updating to this version from an existing world all tan variants of every back as well as the F5 Switchblade will disappear, they aren't being removed then just changed internally**
 
-**When updating to this version from an existing world all equipment placed in the equipment inventory will disappear 
+**When updating to this version from an existing world all equipment placed in the equipment inventory will disappear**
 
 ### Highlight
 
