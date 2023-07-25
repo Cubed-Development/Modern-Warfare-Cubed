@@ -2,11 +2,13 @@ package com.paneedah.mwc.network.messages;
 
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
+@Getter
 @NoArgsConstructor
 public final class WorkbenchServerMessage implements IMessage {
 
@@ -15,15 +17,15 @@ public final class WorkbenchServerMessage implements IMessage {
     public static final int MOVE_OUTPUT = 3;
     public static final int POP_FROM_QUEUE = 5;
 
-    public int opCode;
-    public BlockPos teLocation;
-    public int craftingTimer;
-    public int craftingDuration;
-    public CraftingGroup craftingGroup;
-    public String craftingName = "";
-    public int playerID;
-    public int slotToMove;
-    public int quantity = -1;
+    private int opCode;
+    private BlockPos teLocation;
+    private int craftingTimer;
+    private int craftingDuration;
+    private CraftingGroup craftingGroup;
+    private String craftingName = "";
+    private int playerID;
+    private int slotToMove;
+    private int quantity = -1;
 
     public WorkbenchServerMessage(final int type, final BlockPos location, final int playerID, final int slotToMove) {
         this.opCode = type;

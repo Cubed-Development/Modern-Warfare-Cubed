@@ -4,19 +4,21 @@ import com.paneedah.mwc.network.NetworkUtil;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import io.netty.buffer.ByteBuf;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public final class ShellMessageClient implements IMessage {
 
-	public int shooter;
-	public Shell.Type type;
-	public Vec3d position;
-	public Vec3d velocity;
+	private int shooter;
+	private Shell.Type type;
+	private Vec3d position;
+	private Vec3d velocity;
 
 	@Override
 	public void fromBytes(final ByteBuf byteBuf) {

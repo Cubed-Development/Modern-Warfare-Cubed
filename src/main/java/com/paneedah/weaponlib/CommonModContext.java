@@ -27,8 +27,8 @@ import com.paneedah.weaponlib.network.NetworkPermitManager;
 import com.paneedah.weaponlib.network.PermitMessage;
 import com.paneedah.weaponlib.network.TypeRegistry;
 import com.paneedah.weaponlib.network.packets.*;
-import com.paneedah.weaponlib.particle.SpawnParticleMessage;
-import com.paneedah.weaponlib.particle.SpawnParticleMessageHandler;
+import com.paneedah.mwc.network.messages.SpawnParticleMessage;
+import com.paneedah.mwc.network.handlers.SpawnParticleMessageHandler;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.StateManager;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
@@ -222,7 +222,7 @@ public class CommonModContext implements ModContext {
 
 		channel.registerMessage(permitManager, PermitMessage.class, 15, Side.CLIENT);
 
-		channel.registerMessage(new TryAttackMessageHandler(meleeAttackAspect), TryAttackMessage.class, 16, Side.SERVER);
+		channel.registerMessage(new MeleeAttackMessageHandler(meleeAttackAspect), MeleeAttackMessage.class, 16, Side.SERVER);
 
 		channel.registerMessage(new SyncPlayerEntityTrackerMessageMessageHandler(this), SyncPlayerEntityTrackerMessage.class, 17, Side.CLIENT);
 
