@@ -598,27 +598,14 @@ public class ModificationGUI {
 
 		damage = Math.min(damage, 1.0f);
 
-
+		// Update chart
 		radarChart.uploadSet(new float[] { damage, recoil, inaccuracy, firerate, 0.14f });
 
 
 		// Render radar chart on screen
-		
 		GlStateManager.disableTexture2D();
 		radarChart.render(84, 275.5, mouseX, mouseY, SIDEBAR_SCALE);
 		GlStateManager.enableTexture2D();
-		
-		
-		/*
-		GLStateWrapper.run(() -> {
-			GlStateManager.disableTexture2D();
-		}, () -> {
-			GlStateManager.enableTexture2D();
-		}, () -> {
-			radarChart.renderer(84, 275.5, mouseX, mouseY, SIDEBAR_SCALE);
-		});
-		*/
-		
 		
 		// Write titles in
 		GUIRenderHelper.drawScaledString(
