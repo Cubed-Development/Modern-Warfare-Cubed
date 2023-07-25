@@ -14,10 +14,12 @@ public final class OpenDoorMessage implements IMessage {
 
     private BlockPos position;
 
+    @Override
     public void fromBytes(final ByteBuf byteBuf) {
         position = BlockPos.fromLong(byteBuf.readLong());
     }
 
+    @Override
     public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeLong(position.toLong());
     }

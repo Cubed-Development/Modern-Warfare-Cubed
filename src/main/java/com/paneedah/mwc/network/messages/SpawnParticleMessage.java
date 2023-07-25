@@ -22,6 +22,7 @@ public final class SpawnParticleMessage implements IMessage {
     private Vector3F position = new Vector3F();
     private Vector3F velocity = new Vector3F();
 
+    @Override
     public void fromBytes(final ByteBuf byteBuf) {
         type = ParticleType.values()[byteBuf.readInt()];
         count = byteBuf.readInt();
@@ -29,6 +30,7 @@ public final class SpawnParticleMessage implements IMessage {
         velocity.read(byteBuf);
     }
 
+    @Override
     public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeInt(type.ordinal());
         byteBuf.writeInt(count);

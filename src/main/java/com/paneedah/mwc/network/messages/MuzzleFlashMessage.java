@@ -13,10 +13,12 @@ public final class MuzzleFlashMessage implements IMessage {
 
     private int entityID;
 
+    @Override
     public void fromBytes(final ByteBuf byteBuf) {
         entityID = byteBuf.readInt();
     }
 
+    @Override
     public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeInt(entityID);
     }

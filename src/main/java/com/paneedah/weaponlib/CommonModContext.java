@@ -252,7 +252,7 @@ public class CommonModContext implements ModContext {
 		
         channel.registerMessage(new VehicleControlPacketHandler(this), VehicleControlPacket.class, 34, Side.SERVER);
 
-        channel.registerMessage(new VehicleClientPacketHandler(), VehicleClientPacket.class, 35, Side.CLIENT);
+        channel.registerMessage(new VehicleClientMessageHandler(), VehicleClientMessage.class, 35, Side.CLIENT);
         
         channel.registerMessage(new VehicleInteractPHandler(this), VehicleInteractPacket.class, 36, Side.SERVER);
         

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.vehicle.network;
 
+import com.paneedah.mwc.network.messages.VehicleClientMessage;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,7 +35,7 @@ public class VehicleControlPacketHandler implements IMessageHandler<VehicleContr
 				for(EntityPlayer p: messageContext.getServerHandler().player.world.playerEntities) {
 					boolean b = vehicle.getPassengers().isEmpty() || vehicle.getPassengers().get(0) == p;
 					if(!b)
-						context.getChannel().sendTo(new VehicleClientPacket(cont), (EntityPlayerMP) p);
+						context.getChannel().sendTo(new VehicleClientMessage(cont), (EntityPlayerMP) p);
 				}
 			});
 		}
