@@ -5,6 +5,7 @@ import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
 import com.paneedah.mwc.network.messages.CraftingClientMessage;
 import com.paneedah.mwc.network.messages.ExposureMessage;
+import com.paneedah.mwc.network.messages.HeadshotSFXMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
@@ -14,8 +15,7 @@ import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.weaponlib.inventory.EntityInventorySyncMessage;
 import com.paneedah.weaponlib.jim.util.ByteArrayUtils;
 import com.paneedah.weaponlib.jim.util.HitUtil;
-import com.paneedah.weaponlib.network.packets.BalancePackClient;
-import com.paneedah.weaponlib.network.packets.HeadshotSFXPacket;
+import com.paneedah.mwc.network.messages.BalancePackClientMessage;
 import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
 import net.minecraft.entity.Entity;
@@ -79,7 +79,7 @@ public class CommonEventHandler {
     @SubscribeEvent
     protected void onCompatibleLivingUpdateEvent(LivingEvent.LivingUpdateEvent livingUpdateEvent) {
         //if(!compatibility.world(livingUpdateEvent.getEntity()).isRemote && livingUpdateEvent.getEntityLiving() instanceof EntityPlayer) {
-        //	//modContext.getChannel().sendTo(new HeadshotSFXPacket(), (EntityPlayerMP) livingUpdateEvent.getEntityLiving());
+        //	//modContext.getChannel().sendTo(new HeadshotSFXMessage(), (EntityPlayerMP) livingUpdateEvent.getEntityLiving());
         //}
 
         if (!livingUpdateEvent.getEntity().world.isRemote) {
@@ -241,7 +241,7 @@ public class CommonEventHandler {
             if (hit != null && hit.hitVec.distanceTo(entityLiving.getPositionEyes(1.0f)) < 0.6f) {
                 event.setAmount((float) (event.getAmount() * BalancePackManager.getHeadshotMultiplier()));
                 if (source.getTrueSource() instanceof EntityPlayer)
-                    modContext.getChannel().sendTo(new HeadshotSFXPacket(), (EntityPlayerMP) source.getTrueSource());
+                    modContext.getChannel().sendTo(new HeadshotSFXMessage(), (EntityPlayerMP) source.getTrueSource());
             }
         }
     }
@@ -286,7 +286,7 @@ public class CommonEventHandler {
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
         // Todo: Can we cache balance packs similar to crafting files? Maybe they could use the same system? This could crash a server if a large amount of players join.
-        getModContext().getChannel().sendTo(new BalancePackClient(BalancePackManager.getActiveBalancePack()), (EntityPlayerMP) event.player);
+        getModContext().getChannel().sendTo(new BalancePackClientMessage(BalancePackManager.getActiveBalancePack()), (EntityPlayerMP) event.player);
     }
 
     @SubscribeEvent

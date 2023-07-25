@@ -1,7 +1,7 @@
 package com.paneedah.mwc.network.messages;
 
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,13 +16,15 @@ public final class GrenadeMessage implements IMessage {
     private PlayerGrenadeInstance instance;
     private long activationTimestamp;
 
+    @Override
     public void fromBytes(final ByteBuf byteBuf) {
-        this.instance = TypeRegistry.getInstance().fromBytes(byteBuf);
+        this.instance = TypeRegistry.getINSTANCE().fromBytes(byteBuf);
         this.activationTimestamp = byteBuf.readLong();
     }
 
+    @Override
     public void toBytes(final ByteBuf byteBuf) {
-        TypeRegistry.getInstance().toBytes(instance, byteBuf);
+        TypeRegistry.getINSTANCE().toBytes(instance, byteBuf);
         byteBuf.writeLong(activationTimestamp);
     }
 }

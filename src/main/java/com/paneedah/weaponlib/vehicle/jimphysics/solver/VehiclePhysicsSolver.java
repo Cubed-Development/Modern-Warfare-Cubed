@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.vehicle.jimphysics.solver;
 
-import com.paneedah.weaponlib.network.IEncodable;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.jimphysics.Engine;
 import com.paneedah.weaponlib.vehicle.jimphysics.PhysicsConfiguration;
@@ -9,7 +8,6 @@ import com.paneedah.weaponlib.vehicle.jimphysics.VehiclePhysUtil;
 import com.paneedah.weaponlib.vehicle.jimphysics.engines.FlywheelSolver;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.aero.IAeroComponent;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.components.EngineSolver;
-import io.netty.buffer.ByteBuf;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.MoverType;
 import net.minecraft.util.math.Vec3d;
@@ -19,7 +17,7 @@ import javax.vecmath.Matrix3f;
 import javax.vecmath.Vector2d;
 import java.util.ArrayList;
 
-public class VehiclePhysicsSolver implements IEncodable<VehiclePhysicsSolver> {
+public class VehiclePhysicsSolver {
 	
 
 	
@@ -836,22 +834,6 @@ public class VehiclePhysicsSolver implements IEncodable<VehiclePhysicsSolver> {
 		
 		
 		step();
-		
-		
-		
-	}
-
-	@Override
-	public VehiclePhysicsSolver readFromBuf(ByteBuf buf) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-	@Override
-	public void writeToBuf(ByteBuf buf) {
-		
-		
 		
 		
 		

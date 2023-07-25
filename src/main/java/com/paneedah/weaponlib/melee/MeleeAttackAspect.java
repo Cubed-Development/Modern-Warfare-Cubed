@@ -1,11 +1,13 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.network.NetworkPermitManager;
+import com.paneedah.mwc.network.messages.BloodClientMessage;
+import com.paneedah.mwc.network.messages.MeleeAttackMessage;
 import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.particle.SpawnParticleMessage;
 import com.paneedah.weaponlib.state.Aspect;
-import com.paneedah.weaponlib.state.PermitManager;
 import com.paneedah.weaponlib.state.StateManager;
+import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
@@ -79,7 +81,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
     }
 
     @Override
-    public void setPermitManager(PermitManager permitManager) {}
+    public void setPermitManager(NetworkPermitManager permitManager) {}
 
     @Override
     public void setStateManager(StateManager<MeleeState, ? super PlayerMeleeInstance> stateManager) {
@@ -183,9 +185,8 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
     }
 
     private void attackEntity(Entity entity, EntityPlayer player, PlayerMeleeInstance instance, boolean isHeavyAttack) {
-        modContext.getChannel().sendToServer(new TryAttackMessage(instance, entity, isHeavyAttack));
-        entity.attackEntityFrom(DamageSource.causePlayerDamage(player),
-                instance.getWeapon().getDamage(isHeavyAttack));
+        modContext.getChannel().sendToServer(new MeleeAttackMessage(instance, entity.getEntityId(), isHeavyAttack));
+        entity.attackEntityFrom(DamageSource.causePlayerDamage(player), instance.getWeapon().getDamage(isHeavyAttack));
     }
 
     public void serverAttack(EntityPlayer player, PlayerMeleeInstance instance, Entity entity, boolean isHeavyAttack) {
@@ -203,13 +204,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
         int count = getParticleCount (damage);
         LOG.debug("Generating {} particle(s) per damage {}", count, damage);
 
-        modContext.getChannel().sendToAllAround(new SpawnParticleMessage(
-                SpawnParticleMessage.ParticleType.BLOOD,
-                count,
-                entity.posX - motionX / 2,
-                entity.posY - motionY / 2,
-                entity.posZ - motionZ / 2),
-                point);
+        modContext.getChannel().sendToAllAround(new BloodClientMessage(new Vector3F((float) (entity.posX - motionX / 2), (float) (entity.posY - motionY / 2) + 1, (float) (entity.posZ - motionZ / 2)), new Vector3F((float) motionX / 16, (float) motionY / 16, (float) motionZ / 16)), point);
     }
 
     int getParticleCount(float damage) {

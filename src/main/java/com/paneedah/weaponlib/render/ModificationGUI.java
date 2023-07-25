@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.render;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.FlaggedAttachment;
 import com.paneedah.weaponlib.command.DebugCommand;
@@ -591,39 +590,22 @@ public class ModificationGUI {
 		GUIRenderHelper.drawColoredRectangle(140.5, 20, 7.5, 175, SIDEBAR_ALPHA, ColorPalette.BLACK);
 		GUIRenderHelper.drawColoredRectangle(20, 200, 128, 125, SIDEBAR_ALPHA, ColorPalette.BLACK);
 
-		
 
-		if (MC.player.ticksExisted % 50 == 0) {
+		float firerate = weaponInstance.getFireRate();
+		float inaccuracy = weaponInstance.getWeapon().getInaccuracy()/10f;
+		float damage = weaponInstance.getWeapon().getSpawnEntityDamage()/20;
+		float recoil = weaponInstance.getRecoil()/10f;
 
-			float firerate = weaponInstance.getFireRate();
-			float inaccuracy = weaponInstance.getWeapon().getInaccuracy()/10f;
-			float damage = weaponInstance.getWeapon().getSpawnEntityDamage()/20;
-			float recoil = weaponInstance.getRecoil()/10f;
-			
-			damage = Math.min(damage, 1.0f);
-			
-			
-			radarChart.uploadSet(new float[] { damage, recoil, inaccuracy, firerate, 0.14f });
-		}
+		damage = Math.min(damage, 1.0f);
 
-		
+		// Update chart
+		radarChart.uploadSet(new float[] { damage, recoil, inaccuracy, firerate, 0.14f });
+
+
 		// Render radar chart on screen
-		
 		GlStateManager.disableTexture2D();
 		radarChart.render(84, 275.5, mouseX, mouseY, SIDEBAR_SCALE);
 		GlStateManager.enableTexture2D();
-		
-		
-		/*
-		GLStateWrapper.run(() -> {
-			GlStateManager.disableTexture2D();
-		}, () -> {
-			GlStateManager.enableTexture2D();
-		}, () -> {
-			radarChart.renderer(84, 275.5, mouseX, mouseY, SIDEBAR_SCALE);
-		});
-		*/
-		
 		
 		// Write titles in
 		GUIRenderHelper.drawScaledString(

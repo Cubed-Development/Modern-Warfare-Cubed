@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.state;
 
+import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.weaponlib.state.Permit.Status;
 
 import java.util.*;
@@ -23,7 +24,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 		private BiPredicate<S, EE> predicate;
 		private BiFunction<S, EE, Permit<S>> permitProvider;
 		private BiFunction<S, EE, Boolean> stateUpdater;
-		private PermitManager permitManager;
+		private NetworkPermitManager permitManager;
 		private Predicate<EE> preparePredicate;
 		private long requestTimeout = DEFAULT_REQUEST_TIMEOUT;
 		private boolean isPermitRequired;
@@ -61,7 +62,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 		public RuleBuilder<EE> withPermit(
 				BiFunction<S, EE, Permit<S>> permitProvider,
 				BiFunction<S, EE, Boolean> stateUpdater,
-				PermitManager permitManager) {
+				NetworkPermitManager permitManager) {
 			this.isPermitRequired = true;
 			this.permitProvider = permitProvider;
 			this.stateUpdater = stateUpdater;

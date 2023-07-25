@@ -1,7 +1,7 @@
 package com.paneedah.mwc.network.messages;
 
 import com.paneedah.weaponlib.SpreadableExposure;
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,17 +19,19 @@ public final class SpreadableExposureMessage implements IMessage {
         this.removed = spreadableExposure == null;
     }
 
+    @Override
     public void fromBytes(final ByteBuf byteBuf) {
         removed = byteBuf.readBoolean();
 
         if(!removed)
-            spreadableExposure = TypeRegistry.getInstance().fromBytes(byteBuf);
+            spreadableExposure = TypeRegistry.getINSTANCE().fromBytes(byteBuf);
     }
 
+    @Override
     public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeBoolean(removed);
 
         if(!removed)
-            TypeRegistry.getInstance().toBytes(spreadableExposure, byteBuf);
+            TypeRegistry.getINSTANCE().toBytes(spreadableExposure, byteBuf);
     }
 }

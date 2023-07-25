@@ -14,11 +14,13 @@ public final class TryFireMessage implements IMessage {
 	private boolean isBurst;
 	private boolean isAimed;
 
+	@Override
 	public void fromBytes(final ByteBuf byteBuf) {
-		this.isBurst = byteBuf.readBoolean();
-		this.isAimed = byteBuf.readBoolean();
+		isBurst = byteBuf.readBoolean();
+		isAimed = byteBuf.readBoolean();
 	}
 
+	@Override
 	public void toBytes(final ByteBuf byteBuf) {
 		byteBuf.writeBoolean(isBurst);
 		byteBuf.writeBoolean(isAimed);

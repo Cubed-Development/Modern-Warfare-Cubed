@@ -117,7 +117,7 @@ public class WeaponKeyInputHandler {
 	 			if(state.getBlock() instanceof BlockDoor) {
 	 				
 	 				MC.playerController.processRightClickBlock(MC.player, MC.world, rtr.getBlockPos(), rtr.sideHit, rtr.hitVec, EnumHand.MAIN_HAND);
-	 				//modContext.getChannel().sendToServer(new OpenDoorPacket(rtr.getBlockPos()));
+	 				//modContext.getChannel().sendToServer(new OpenDoorMessage(rtr.getBlockPos()));
 	 				
 	 				
 	 				/*

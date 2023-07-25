@@ -112,9 +112,11 @@ public class ClientProxy extends CommonProxy {
         modelMesher.register(Armors.GasMaskM40, 0, new ModelResourceLocation(ID + ":m40gasmask_helmet", "inventory"));
 
         // Todo: Actually remove this once fixed.
-        
-        if (ForgeModContainer.allowEmissiveItems)
-            ForgeModContainer.allowEmissiveItems = false;
+
+        try {
+            if (ForgeModContainer.allowEmissiveItems)
+                ForgeModContainer.allowEmissiveItems = false;
+        } catch (NoSuchFieldError ignored) {}
 
         MC.getRenderManager().getSkinMap().forEach((model, playerRenderer) -> playerRenderer.addLayer(new EquipmentRenderer(playerRenderer)));
     }

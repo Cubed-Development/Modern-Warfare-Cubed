@@ -95,6 +95,7 @@ public class AK101Factory {
         
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
+
         .withCompatibleAttachment(Attachments.AK47Stock, (model) -> {
 //            GL11.glTranslatef(0f, 0f, 1f);
         })

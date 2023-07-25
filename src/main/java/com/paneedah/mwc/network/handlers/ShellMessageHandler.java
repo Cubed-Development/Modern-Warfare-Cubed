@@ -17,8 +17,8 @@ public final class ShellMessageHandler implements IMessageHandler<ShellMessageCl
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(final ShellMessageClient shellMessageClient, final MessageContext messageContext) {
-        if (MC.player.getEntityId() != shellMessageClient.shooter)
-            ClientEventHandler.SHELL_MANAGER.enqueueShell(new Shell(shellMessageClient.type, shellMessageClient.position, new Vec3d(-90, 0, 90), shellMessageClient.velocity));
+        if (MC.player.getEntityId() != shellMessageClient.getShooter())
+            ClientEventHandler.SHELL_MANAGER.enqueueShell(new Shell(shellMessageClient.getType(), shellMessageClient.getPosition(), new Vec3d(-90, 0, 90), shellMessageClient.getVelocity()));
 
         return null;
     }

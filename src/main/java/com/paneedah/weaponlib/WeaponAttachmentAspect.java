@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
-import com.paneedah.weaponlib.state.PermitManager;
 import com.paneedah.weaponlib.state.StateManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
@@ -27,9 +27,9 @@ import static com.paneedah.mwc.utils.ModReference.LOG;
 public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerWeaponInstance> {
 
 	static {
-		TypeRegistry.getInstance().register(EnterAttachmentModePermit.class);
-		TypeRegistry.getInstance().register(ExitAttachmentModePermit.class);
-		TypeRegistry.getInstance().register(ChangeAttachmentPermit.class);
+		TypeRegistry.getINSTANCE().register(EnterAttachmentModePermit.class);
+		TypeRegistry.getINSTANCE().register(ExitAttachmentModePermit.class);
+		TypeRegistry.getINSTANCE().register(ChangeAttachmentPermit.class);
 	}
 
 	private static class AttachmentLookupResult {
@@ -79,32 +79,32 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 		}
 
 		@Override
-		public void init(ByteBuf buf) {
-			super.init(buf);
-			attachmentCategory = AttachmentCategory.values()[buf.readInt()];
+		public void read(ByteBuf byteBuf) {
+			super.read(byteBuf);
+			attachmentCategory = AttachmentCategory.values()[byteBuf.readInt()];
 			// If it is forced read out the itemstack
-			if (buf.readBoolean())
-				attachment = ByteBufUtils.readItemStack(buf);
+			if (byteBuf.readBoolean())
+				attachment = ByteBufUtils.readItemStack(byteBuf);
 		}
 
 		@Override
-		public void serialize(ByteBuf buf) {
-			super.serialize(buf);
-			buf.writeInt(attachmentCategory.ordinal());
+		public void write(ByteBuf byteBuf) {
+			super.write(byteBuf);
+			byteBuf.writeInt(attachmentCategory.ordinal());
 
 			// Is the game forced to a certain attachment?
 			if (attachment == null) {
-				buf.writeBoolean(false);
+				byteBuf.writeBoolean(false);
 			} else {
-				buf.writeBoolean(true);
-				ByteBufUtils.writeItemStack(buf, attachment);
+				byteBuf.writeBoolean(true);
+				ByteBufUtils.writeItemStack(byteBuf, attachment);
 			}
 
 		}
 	}
 
 	private ModContext modContext;
-	private PermitManager permitManager;
+	private NetworkPermitManager permitManager;
 	private StateManager<WeaponState, ? super PlayerWeaponInstance> stateManager;
 
 	private long clickSpammingTimeout = 150;
@@ -149,10 +149,9 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 	}
 
 	@Override
-	public void setPermitManager(PermitManager permitManager) {
+	public void setPermitManager(NetworkPermitManager permitManager) {
 		this.permitManager = permitManager;
-		permitManager.registerEvaluator(EnterAttachmentModePermit.class, PlayerWeaponInstance.class,
-				this::enterAttachmentSelectionMode);
+		permitManager.registerEvaluator(EnterAttachmentModePermit.class, PlayerWeaponInstance.class, this::enterAttachmentSelectionMode);
 		permitManager.registerEvaluator(ExitAttachmentModePermit.class, PlayerWeaponInstance.class,
 				this::exitAttachmentSelectionMode);
 		permitManager.registerEvaluator(ChangeAttachmentPermit.class, PlayerWeaponInstance.class,
