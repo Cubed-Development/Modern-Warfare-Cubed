@@ -9,20 +9,15 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public final class EntityPickupMessage implements IMessage {
+public final class MuzzleFlashMessage implements IMessage {
 
-	private int playerID;
-	private int entityID;
+    private int entityID;
 
-	@Override
-	public void fromBytes(final ByteBuf byteBuf) {
-		playerID = byteBuf.readInt();
+    public void fromBytes(final ByteBuf byteBuf) {
         entityID = byteBuf.readInt();
-	}
+    }
 
-	@Override
-	public void toBytes(final ByteBuf byteBuf) {
-		byteBuf.writeInt(playerID);
+    public void toBytes(final ByteBuf byteBuf) {
         byteBuf.writeInt(entityID);
-	}
+    }
 }

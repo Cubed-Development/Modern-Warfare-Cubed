@@ -5,7 +5,7 @@ import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.mwc.network.messages.ShellMessageClient;
-import com.paneedah.weaponlib.network.packets.GunFXPacket;
+import com.paneedah.mwc.network.messages.MuzzleFlashMessage;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.PermitManager;
@@ -399,7 +399,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         }
         
         TargetPoint tp = new TargetPoint(player.dimension, player.posX, player.posY, player.posZ, 100);
-        modContext.getChannel().sendToAllAround(new GunFXPacket(player.getEntityId()), tp);
+        modContext.getChannel().sendToAllAround(new MuzzleFlashMessage(player.getEntityId()), tp);
         
 
         Weapon weapon = (Weapon) itemStack.getItem();

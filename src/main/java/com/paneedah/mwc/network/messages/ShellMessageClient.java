@@ -22,15 +22,15 @@ public final class ShellMessageClient implements IMessage {
 
 	@Override
 	public void fromBytes(final ByteBuf byteBuf) {
-		this.shooter = byteBuf.readInt();
-		this.type = Shell.Type.valueOf(ByteBufUtils.readUTF8String(byteBuf));
-		this.position = NetworkUtil.readVec3d(byteBuf);
-		this.velocity = NetworkUtil.readVec3d(byteBuf);
+		shooter = byteBuf.readInt();
+		type = Shell.Type.valueOf(ByteBufUtils.readUTF8String(byteBuf));
+		position = NetworkUtil.readVec3d(byteBuf);
+		velocity = NetworkUtil.readVec3d(byteBuf);
 	}
 
 	@Override
 	public void toBytes(final ByteBuf byteBuf) {
-		byteBuf.writeInt(this.shooter);
+		byteBuf.writeInt(shooter);
 		ByteBufUtils.writeUTF8String(byteBuf, type.toString());
 		NetworkUtil.writeVec3d(byteBuf, position);
 		NetworkUtil.writeVec3d(byteBuf, velocity);

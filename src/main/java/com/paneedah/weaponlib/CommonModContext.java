@@ -256,7 +256,7 @@ public class CommonModContext implements ModContext {
         
         channel.registerMessage(new VehicleInteractPHandler(this), VehicleInteractPacket.class, 36, Side.SERVER);
         
-        channel.registerMessage(new GunFXPacket.GunFXPacketHandler(), GunFXPacket.class, 37, Side.CLIENT);
+        channel.registerMessage(new MuzzleFlashMessageHandler(), MuzzleFlashMessage.class, 37, Side.CLIENT);
         
         channel.registerMessage(new ShellMessageHandler(), ShellMessageClient.class, 38, Side.CLIENT);
         
@@ -266,7 +266,7 @@ public class CommonModContext implements ModContext {
 
         channel.registerMessage(new BloodClientMessageHandler(), BloodClientMessage.class, 41, Side.CLIENT);
         
-        channel.registerMessage(new OpenDoorPacket.OpenDoorPacketHandler(), OpenDoorPacket.class, 42, Side.SERVER);
+        channel.registerMessage(new OpenDoorMessageHandler(), OpenDoorMessage.class, 42, Side.SERVER);
 
         channel.registerMessage(new WorkbenchServerMessageHandler(this), WorkbenchServerMessage.class, 43, Side.SERVER);
         
