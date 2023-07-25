@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.network.TypeRegistry;
-import com.paneedah.weaponlib.network.UniversalObject;
+import com.paneedah.mwc.network.TypeRegistry;
+import com.paneedah.mwc.network.UniversalObject;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.state.ExtendedState;
 import com.paneedah.weaponlib.state.ManagedState;
@@ -18,8 +18,8 @@ import static com.paneedah.mwc.utils.ModReference.LOG;
 public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObject implements ExtendedState<S> {
 
     static {
-        TypeRegistry.getInstance().register(PlayerItemInstance.class);
-        TypeRegistry.getInstance().register(PlayerWeaponInstance.class);
+        TypeRegistry.getINSTANCE().register(PlayerItemInstance.class);
+        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
     }
 
     protected S state;
@@ -70,25 +70,25 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     }
 
     @Override
-    public void init(ByteBuf buf) {
-        super.init(buf);
-        item = Item.getItemById(buf.readInt());
-        itemInventoryIndex = buf.readInt();
-        updateId = buf.readLong();
+    public void read(ByteBuf byteBuf) {
+        super.read(byteBuf);
+        item = Item.getItemById(byteBuf.readInt());
+        itemInventoryIndex = byteBuf.readInt();
+        updateId = byteBuf.readLong();
 
         //state = WeaponState.DRAWING;
-        state = TypeRegistry.getInstance().fromBytes(buf);
+        state = TypeRegistry.getINSTANCE().fromBytes(byteBuf);
 
 
     }
 
     @Override
-    public void serialize(ByteBuf buf) {
-        super.serialize(buf);
-        buf.writeInt(Item.getIdFromItem(item));
-        buf.writeInt(itemInventoryIndex);
-        buf.writeLong(updateId);
-        TypeRegistry.getInstance().toBytes(state, buf);
+    public void write(ByteBuf byteBuf) {
+        super.write(byteBuf);
+        byteBuf.writeInt(Item.getIdFromItem(item));
+        byteBuf.writeInt(itemInventoryIndex);
+        byteBuf.writeLong(updateId);
+        TypeRegistry.getINSTANCE().toBytes(state, byteBuf);
     }
 
     @Override

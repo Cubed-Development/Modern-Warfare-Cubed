@@ -7,7 +7,7 @@ import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.perspective.OpticalScopePerspective;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
@@ -41,7 +41,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     private static final int SERIAL_VERSION = 9;
 
     static {
-        TypeRegistry.getInstance().register(PlayerWeaponInstance.class);
+        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
     }
 
     private static final UUID NIGHT_VISION_SOURCE_UUID = UUID.randomUUID();
@@ -245,39 +245,39 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 	}
 
 	@Override
-	public void init(ByteBuf buf) {
-		super.init(buf);
-		activeAttachmentIds = initIntArray(buf);
-		selectedAttachmentIndexes = initByteArray(buf);
-		ammo = buf.readInt();
-		aimed = buf.readBoolean();
-		recoil = buf.readFloat();
-		maxShots = buf.readInt();
-		zoom = buf.readFloat();
-		activeTextureIndex = buf.readByte();
-		laserOn = buf.readBoolean();
-		nightVisionOn = buf.readBoolean();
-		loadIterationCount = buf.readInt();
-		loadAfterUnloadEnabled = buf.readBoolean();
-		altModificationModeEnabled = buf.readBoolean();
+	public void read(ByteBuf byteBuf) {
+		super.read(byteBuf);
+		activeAttachmentIds = initIntArray(byteBuf);
+		selectedAttachmentIndexes = initByteArray(byteBuf);
+		ammo = byteBuf.readInt();
+		aimed = byteBuf.readBoolean();
+		recoil = byteBuf.readFloat();
+		maxShots = byteBuf.readInt();
+		zoom = byteBuf.readFloat();
+		activeTextureIndex = byteBuf.readByte();
+		laserOn = byteBuf.readBoolean();
+		nightVisionOn = byteBuf.readBoolean();
+		loadIterationCount = byteBuf.readInt();
+		loadAfterUnloadEnabled = byteBuf.readBoolean();
+		altModificationModeEnabled = byteBuf.readBoolean();
 	}
 
 	@Override
-	public void serialize(ByteBuf buf) {
-		super.serialize(buf);
-		serializeIntArray(buf, activeAttachmentIds);
-		serializeByteArray(buf, selectedAttachmentIndexes);
-		buf.writeInt(ammo);
-		buf.writeBoolean(aimed);
-		buf.writeFloat(recoil);
-		buf.writeInt(maxShots);
-		buf.writeFloat(zoom);
-		buf.writeByte(activeTextureIndex);
-		buf.writeBoolean(laserOn);
-		buf.writeBoolean(nightVisionOn);
-		buf.writeInt(loadIterationCount);
-		buf.writeBoolean(loadAfterUnloadEnabled);
-		buf.writeBoolean(altModificationModeEnabled);
+	public void write(ByteBuf byteBuf) {
+		super.write(byteBuf);
+		serializeIntArray(byteBuf, activeAttachmentIds);
+		serializeByteArray(byteBuf, selectedAttachmentIndexes);
+		byteBuf.writeInt(ammo);
+		byteBuf.writeBoolean(aimed);
+		byteBuf.writeFloat(recoil);
+		byteBuf.writeInt(maxShots);
+		byteBuf.writeFloat(zoom);
+		byteBuf.writeByte(activeTextureIndex);
+		byteBuf.writeBoolean(laserOn);
+		byteBuf.writeBoolean(nightVisionOn);
+		byteBuf.writeInt(loadIterationCount);
+		byteBuf.writeBoolean(loadAfterUnloadEnabled);
+		byteBuf.writeBoolean(altModificationModeEnabled);
 	}
 
 	private static void serializeIntArray(ByteBuf buf, int a[]) {

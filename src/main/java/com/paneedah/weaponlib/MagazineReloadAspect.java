@@ -2,7 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.utils.MWCUtil;
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
@@ -19,8 +19,8 @@ import java.util.function.Predicate;
 public class MagazineReloadAspect implements Aspect<MagazineState, PlayerMagazineInstance> {
 
     static {
-        TypeRegistry.getInstance().register(LoadPermit.class);
-        TypeRegistry.getInstance().register(UnloadPermit.class);
+        TypeRegistry.getINSTANCE().register(LoadPermit.class);
+        TypeRegistry.getINSTANCE().register(UnloadPermit.class);
     }
 
     private static final Set<MagazineState> allowedUpdateFromStates = new HashSet<>(

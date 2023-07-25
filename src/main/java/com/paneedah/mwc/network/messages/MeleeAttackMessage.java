@@ -1,7 +1,7 @@
 package com.paneedah.mwc.network.messages;
 
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,14 +19,14 @@ public final class MeleeAttackMessage implements IMessage {
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-        instance = TypeRegistry.getInstance().fromBytes(byteBuf);
+        instance = TypeRegistry.getINSTANCE().fromBytes(byteBuf);
         entityId = byteBuf.readInt();
         isHeavyAttack = byteBuf.readBoolean();
     }
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        TypeRegistry.getInstance().toBytes(instance, byteBuf);
+        TypeRegistry.getINSTANCE().toBytes(instance, byteBuf);
         byteBuf.writeInt(entityId);
         byteBuf.writeBoolean(isHeavyAttack);
     }

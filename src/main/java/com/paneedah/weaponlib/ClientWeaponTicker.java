@@ -35,6 +35,8 @@ class ClientWeaponTicker extends Thread {
 	}
 
 	public void run() {
+		// Todo: Get rid of Multithreading
+
 		SafeGlobals safeGlobals = clientModContext.getSafeGlobals();
 		int currentItemIndex = safeGlobals.currentItemIndex.get();
 

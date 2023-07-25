@@ -1,13 +1,13 @@
 package com.paneedah.weaponlib.state;
 
-import com.paneedah.weaponlib.network.TypeRegistry;
-import com.paneedah.weaponlib.network.UniversalObject;
+import com.paneedah.mwc.network.TypeRegistry;
+import com.paneedah.mwc.network.UniversalObject;
 import io.netty.buffer.ByteBuf;
 
 public class Permit<S extends ManagedState<S>> extends UniversalObject {
 	
 	static {
-		TypeRegistry.getInstance().register(Permit.class);
+		TypeRegistry.getINSTANCE().register(Permit.class);
 	}
 	
 	public enum Status { REQUESTED, GRANTED, DENIED, UNKNOWN };
@@ -43,19 +43,19 @@ public class Permit<S extends ManagedState<S>> extends UniversalObject {
 	}
 
 	@Override
-	public void init(ByteBuf buf) {
-		super.init(buf);
-		timestamp = buf.readLong();
-		status = Status.values()[buf.readInt()];
-		state = TypeRegistry.getInstance().fromBytes(buf);
+	public void read(ByteBuf byteBuf) {
+		super.read(byteBuf);
+		timestamp = byteBuf.readLong();
+		status = Status.values()[byteBuf.readInt()];
+		state = TypeRegistry.getINSTANCE().fromBytes(byteBuf);
 	}
 	
 	@Override
-	public void serialize(ByteBuf buf) {
-		super.serialize(buf);
-		buf.writeLong(timestamp);
-		buf.writeInt(status.ordinal());
-		TypeRegistry.getInstance().toBytes(state, buf);
+	public void write(ByteBuf byteBuf) {
+		super.write(byteBuf);
+		byteBuf.writeLong(timestamp);
+		byteBuf.writeInt(status.ordinal());
+		TypeRegistry.getINSTANCE().toBytes(state, byteBuf);
 	}
 	
 }

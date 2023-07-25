@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.CompatibleAttachment;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.PlayerItemInstance;
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
@@ -20,7 +20,7 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 	private static final int SERIAL_VERSION = 7;
 
 	static {
-		TypeRegistry.getInstance().register(PlayerMeleeInstance.class);
+		TypeRegistry.getINSTANCE().register(PlayerMeleeInstance.class);
 	}
 
 	private int ammo;
@@ -103,21 +103,21 @@ public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 	}
 
 	@Override
-	public void init(ByteBuf buf) {
-		super.init(buf);
-		activeAttachmentIds = initIntArray(buf);
-		selectedAttachmentIndexes = initByteArray(buf);
-		ammo = buf.readInt();
-		activeTextureIndex = buf.readByte();
+	public void read(ByteBuf byteBuf) {
+		super.read(byteBuf);
+		activeAttachmentIds = initIntArray(byteBuf);
+		selectedAttachmentIndexes = initByteArray(byteBuf);
+		ammo = byteBuf.readInt();
+		activeTextureIndex = byteBuf.readByte();
 	}
 
 	@Override
-	public void serialize(ByteBuf buf) {
-		super.serialize(buf);
-		serializeIntArray(buf, activeAttachmentIds);
-		serializeByteArray(buf, selectedAttachmentIndexes);
-		buf.writeInt(ammo);
-		buf.writeByte(activeTextureIndex);
+	public void write(ByteBuf byteBuf) {
+		super.write(byteBuf);
+		serializeIntArray(byteBuf, activeAttachmentIds);
+		serializeByteArray(byteBuf, selectedAttachmentIndexes);
+		byteBuf.writeInt(ammo);
+		byteBuf.writeByte(activeTextureIndex);
 	}
 
 	private static void serializeIntArray(ByteBuf buf, int a[]) {

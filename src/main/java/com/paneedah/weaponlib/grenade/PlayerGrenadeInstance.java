@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
@@ -19,7 +19,7 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 	private static final int SERIAL_VERSION = 11;
 
 	static {
-		TypeRegistry.getInstance().register(PlayerGrenadeInstance.class);
+		TypeRegistry.getINSTANCE().register(PlayerGrenadeInstance.class);
 	}
 
 	private int ammo;
@@ -93,19 +93,19 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 	}
 
 	@Override
-	public void init(ByteBuf buf) {
-		super.init(buf);
-		throwingFar = buf.readBoolean();
-		activeAttachmentIds = initIntArray(buf);
-		selectedAttachmentIndexes = initByteArray(buf);
+	public void read(ByteBuf byteBuf) {
+		super.read(byteBuf);
+		throwingFar = byteBuf.readBoolean();
+		activeAttachmentIds = initIntArray(byteBuf);
+		selectedAttachmentIndexes = initByteArray(byteBuf);
 	}
 
 	@Override
-	public void serialize(ByteBuf buf) {
-		super.serialize(buf);
-		buf.writeBoolean(throwingFar);
-		serializeIntArray(buf, activeAttachmentIds);
-		serializeByteArray(buf, selectedAttachmentIndexes);
+	public void write(ByteBuf byteBuf) {
+		super.write(byteBuf);
+		byteBuf.writeBoolean(throwingFar);
+		serializeIntArray(byteBuf, activeAttachmentIds);
+		serializeByteArray(byteBuf, selectedAttachmentIndexes);
 	}
 
 	private static void serializeIntArray(ByteBuf buf, int a[]) {

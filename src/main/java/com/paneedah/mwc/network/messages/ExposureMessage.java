@@ -1,7 +1,7 @@
 package com.paneedah.mwc.network.messages;
 
 import com.paneedah.weaponlib.Exposure;
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,7 +22,7 @@ public final class ExposureMessage implements IMessage {
         final int size = byteBuf.readInt();
 
         for(int i = 0; i < size; i++)
-            exposures.add(TypeRegistry.getInstance().fromBytes(byteBuf));
+            exposures.add(TypeRegistry.getINSTANCE().fromBytes(byteBuf));
     }
 
     @Override
@@ -30,6 +30,6 @@ public final class ExposureMessage implements IMessage {
         byteBuf.writeInt(exposures.size());
 
         for(Exposure exposure: exposures)
-            TypeRegistry.getInstance().toBytes(exposure, byteBuf);
+            TypeRegistry.getINSTANCE().toBytes(exposure, byteBuf);
     }
 }

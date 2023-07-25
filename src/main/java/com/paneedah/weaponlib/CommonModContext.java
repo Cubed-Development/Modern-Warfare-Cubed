@@ -24,7 +24,7 @@ import com.paneedah.weaponlib.electronics.*;
 import com.paneedah.weaponlib.grenade.*;
 import com.paneedah.weaponlib.inventory.*;
 import com.paneedah.weaponlib.melee.*;
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.StateManager;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
@@ -61,30 +61,30 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 public class CommonModContext implements ModContext {
 
     static {
-        TypeRegistry.getInstance().register(LoadPermit.class);
-        TypeRegistry.getInstance().register(MagazineState.class);
-        TypeRegistry.getInstance().register(PlayerItemInstance.class);
-        TypeRegistry.getInstance().register(PlayerWeaponInstance.class);
-        TypeRegistry.getInstance().register(PlayerMagazineInstance.class);
-        TypeRegistry.getInstance().register(PlayerWeaponInstance.class);
-        TypeRegistry.getInstance().register(Permit.class);
-        TypeRegistry.getInstance().register(EnterAttachmentModePermit.class);
-        TypeRegistry.getInstance().register(ExitAttachmentModePermit.class);
-        TypeRegistry.getInstance().register(ChangeAttachmentPermit.class);
-        TypeRegistry.getInstance().register(CompoundPermit.class);
-        TypeRegistry.getInstance().register(UnloadPermit.class);
-        TypeRegistry.getInstance().register(LoadPermit.class);
-        TypeRegistry.getInstance().register(PlayerWeaponInstance.class);
-        TypeRegistry.getInstance().register(WeaponState.class);
-        TypeRegistry.getInstance().register(PlayerMeleeInstance.class);
-        TypeRegistry.getInstance().register(PlayerGrenadeInstance.class);
-        TypeRegistry.getInstance().register(PlayerTabletInstance.class);
-        TypeRegistry.getInstance().register(PlayerHandheldInstance.class);
-        TypeRegistry.getInstance().register(MeleeState.class);
-        TypeRegistry.getInstance().register(TabletState.class);
-        TypeRegistry.getInstance().register(HandheldState.class);
-        TypeRegistry.getInstance().register(SpreadableExposure.class);
-        TypeRegistry.getInstance().register(LightExposure.class);
+        TypeRegistry.getINSTANCE().register(LoadPermit.class);
+        TypeRegistry.getINSTANCE().register(MagazineState.class);
+        TypeRegistry.getINSTANCE().register(PlayerItemInstance.class);
+        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
+        TypeRegistry.getINSTANCE().register(PlayerMagazineInstance.class);
+        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
+        TypeRegistry.getINSTANCE().register(Permit.class);
+        TypeRegistry.getINSTANCE().register(EnterAttachmentModePermit.class);
+        TypeRegistry.getINSTANCE().register(ExitAttachmentModePermit.class);
+        TypeRegistry.getINSTANCE().register(ChangeAttachmentPermit.class);
+        TypeRegistry.getINSTANCE().register(CompoundPermit.class);
+        TypeRegistry.getINSTANCE().register(UnloadPermit.class);
+        TypeRegistry.getINSTANCE().register(LoadPermit.class);
+        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
+        TypeRegistry.getINSTANCE().register(WeaponState.class);
+        TypeRegistry.getINSTANCE().register(PlayerMeleeInstance.class);
+        TypeRegistry.getINSTANCE().register(PlayerGrenadeInstance.class);
+        TypeRegistry.getINSTANCE().register(PlayerTabletInstance.class);
+        TypeRegistry.getINSTANCE().register(PlayerHandheldInstance.class);
+        TypeRegistry.getINSTANCE().register(MeleeState.class);
+        TypeRegistry.getINSTANCE().register(TabletState.class);
+        TypeRegistry.getINSTANCE().register(HandheldState.class);
+        TypeRegistry.getINSTANCE().register(SpreadableExposure.class);
+        TypeRegistry.getINSTANCE().register(LightExposure.class);
     }
 
     static class BulletImpactSoundKey {
