@@ -97,9 +97,6 @@ public class AK101Factory {
         
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
-        .withCrafting(CraftingComplexity.MEDIUM,
-                MWCItems.gunmetalIngot,
-                MWCItems.gunmetalPlate)
 //        .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
         .withCompatibleAttachment(Attachments.AK47Stock, (model) -> {
 //            GL11.glTranslatef(0f, 0f, 1f);
