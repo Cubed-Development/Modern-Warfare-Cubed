@@ -4,7 +4,6 @@ import io.netty.buffer.ByteBuf;
 
 import java.util.UUID;
 
-import static com.paneedah.mwc.utils.ModReference.LOG;
 import static com.paneedah.mwc.utils.ModReference.RED_LOG;
 
 //Todo: Finish cleaning this up, maybe two separate uuid are not necessary. Pausing this to working on removing the multithreading
@@ -22,12 +21,9 @@ public abstract class UniversalObject implements ISerializable {
     }
 
     public UUID getUuid() {
-        if (readUUID == null) {
-            LOG.debug("Used original UUID");
+        if (readUUID == null)
             return uuid;
-        }
 
-        LOG.debug("Used new UUID");
         return readUUID;
     }
 
