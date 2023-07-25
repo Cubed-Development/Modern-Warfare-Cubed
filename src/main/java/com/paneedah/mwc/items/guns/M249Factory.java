@@ -23,7 +23,7 @@ public class M249Factory {
 
         .withName("m249")
         .withFireRate(0.7f)
-        .withRecoil(2f)
+        .withRecoil(2.1f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.HEAVY)
         .withMuzzlePosition(new Vec3d(-0.13600000405311594, -1.144000004291535, -8.012000045061113))
@@ -169,8 +169,8 @@ public class M249Factory {
                 GL11.glTranslatef(-0.22F, -1.94F, 0.13F);
                 GL11.glScaled(0F, 0F, 0F);
             } else if(model instanceof G36CIron2) {
-                GL11.glTranslatef(-0.005F, -0.9F, 0.08F);
-                GL11.glScaled(0.3F, 0.3F, 0.6F);
+                GL11.glTranslatef(-0.22F, -1.67F, -5.45F);
+                GL11.glScaled(0.5F, 0.5F, 0.8F);
             } else if(model instanceof ScarIron1) {
                     GL11.glTranslatef(0.165F, -1.65F, 1F);
                     GL11.glScaled(0F, 0F, 0F);
@@ -179,7 +179,7 @@ public class M249Factory {
                     GL11.glScaled(0F, 0F, 0F);
             } else if(model instanceof FALIron) {
                 GL11.glTranslatef(0.06F, -0.15F, -2.32F);
-                GL11.glScaled(0.15F, 0.3F, 0.8F);
+                GL11.glScaled(0F, 0F, 0F);
                 GL11.glRotatef(-180F, 0f, 0f, 1f);
             } else if(model instanceof M14Iron) {
                 GL11.glTranslatef(0.129F, -1.63F, -2.08F);
