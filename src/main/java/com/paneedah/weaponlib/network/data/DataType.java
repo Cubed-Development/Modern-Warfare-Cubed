@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.network.advanced.data;
+package com.paneedah.weaponlib.network.data;
 
 import io.netty.buffer.ByteBuf;
 

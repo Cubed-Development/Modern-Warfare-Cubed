@@ -9,7 +9,7 @@ import com.paneedah.weaponlib.crafting.IModernCrafting;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
-import com.paneedah.weaponlib.network.packets.StationClientPacket;
+import com.paneedah.mwc.network.messages.WorkbenchClientMessage;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
@@ -57,7 +57,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     } else
                         press.addStack(newStack);
 
-                    modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 20));
+                    modContext.getChannel().sendToAllAround(new WorkbenchClientMessage(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 20));
 
                     return workbenchServerMessage;
                 }
@@ -110,7 +110,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
 
                 station.sendUpdate();
 
-                modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 20));
+                modContext.getChannel().sendToAllAround(new WorkbenchClientMessage(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 20));
             } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.DISMANTLE) {
                 for (int i = 9; i < 13; ++i) {
                     if (station.mainInventory.getStackInSlot(i).isEmpty())
@@ -123,7 +123,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     }
                 }
 
-                modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 25));
+                modContext.getChannel().sendToAllAround(new WorkbenchClientMessage(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 25));
             } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.MOVE_OUTPUT) {
                 ((EntityPlayer) world.getEntityByID(workbenchServerMessage.getPlayerID())).addItemStackToInventory(station.mainInventory.getStackInSlot(workbenchServerMessage.getSlotToMove()));
             } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.POP_FROM_QUEUE) {
@@ -134,7 +134,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                 if (teAmmoPress.hasStack() && teAmmoPress.getCraftingQueue().size() > workbenchServerMessage.getSlotToMove())
                     teAmmoPress.getCraftingQueue().remove(workbenchServerMessage.getSlotToMove());
 
-                modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 25));
+                modContext.getChannel().sendToAllAround(new WorkbenchClientMessage(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 25));
             }
         }
 

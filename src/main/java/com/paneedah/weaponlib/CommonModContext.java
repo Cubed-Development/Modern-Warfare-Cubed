@@ -2,6 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.capabilities.EquipmentCapability;
+import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.network.handlers.*;
 import com.paneedah.mwc.network.messages.*;
 import com.paneedah.weaponlib.MagazineReloadAspect.LoadPermit;
@@ -23,17 +24,16 @@ import com.paneedah.weaponlib.electronics.*;
 import com.paneedah.weaponlib.grenade.*;
 import com.paneedah.weaponlib.inventory.*;
 import com.paneedah.weaponlib.melee.*;
-import com.paneedah.weaponlib.network.NetworkPermitManager;
-import com.paneedah.weaponlib.network.PermitMessage;
 import com.paneedah.weaponlib.network.TypeRegistry;
-import com.paneedah.weaponlib.network.packets.*;
-import com.paneedah.mwc.network.messages.SpawnParticleMessage;
-import com.paneedah.mwc.network.handlers.SpawnParticleMessageHandler;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.StateManager;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
 import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessageMessageHandler;
-import com.paneedah.weaponlib.vehicle.network.*;
+import com.paneedah.weaponlib.vehicle.network.VehicleControlPacket;
+import com.paneedah.weaponlib.vehicle.network.VehicleControlPacketHandler;
+import com.paneedah.weaponlib.vehicle.network.VehicleInteractPHandler;
+import com.paneedah.weaponlib.vehicle.network.VehicleInteractPacket;
+import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -133,7 +133,7 @@ public class CommonModContext implements ModContext {
 
 	protected MagazineReloadAspect magazineReloadAspect;
 
-	protected NetworkPermitManager permitManager;
+	@Getter protected NetworkPermitManager permitManager;
 
 	protected PlayerItemInstanceRegistry playerItemInstanceRegistry;
 
@@ -218,9 +218,9 @@ public class CommonModContext implements ModContext {
 		
 		channel.registerMessage(new TryFireMessageHandler(weaponFireAspect), TryFireMessage.class, 11, Side.SERVER);
 
-		channel.registerMessage(permitManager, PermitMessage.class, 14, Side.SERVER);
+		channel.registerMessage(new PermitMessageClientHandler(this), PermitMessage.class, 14, Side.CLIENT);
 
-		channel.registerMessage(permitManager, PermitMessage.class, 15, Side.CLIENT);
+		channel.registerMessage(new PermitMessageServerHandler(this), PermitMessage.class, 15, Side.SERVER);
 
 		channel.registerMessage(new MeleeAttackMessageHandler(meleeAttackAspect), MeleeAttackMessage.class, 16, Side.SERVER);
 
@@ -260,9 +260,9 @@ public class CommonModContext implements ModContext {
         
         channel.registerMessage(new ShellMessageHandler(), ShellMessageClient.class, 38, Side.CLIENT);
         
-        channel.registerMessage(new BalancePackClient.BalancePacketHandler(), BalancePackClient.class, 39, Side.CLIENT);
+        channel.registerMessage(new BalancePackClientMessageHandler(), BalancePackClientMessage.class, 39, Side.CLIENT);
 
-        channel.registerMessage(new HeadshotSFXPacket.GunFXPacketHandler(), HeadshotSFXPacket.class, 40, Side.CLIENT);
+        channel.registerMessage(new HeadshotSFXMessageHandler(), HeadshotSFXMessage.class, 40, Side.CLIENT);
 
         channel.registerMessage(new BloodClientMessageHandler(), BloodClientMessage.class, 41, Side.CLIENT);
         
@@ -270,7 +270,7 @@ public class CommonModContext implements ModContext {
 
         channel.registerMessage(new WorkbenchServerMessageHandler(this), WorkbenchServerMessage.class, 43, Side.SERVER);
         
-        channel.registerMessage(new StationClientPacket.WorkshopClientPacketHandler(), StationClientPacket.class, 44, Side.CLIENT);
+        channel.registerMessage(new WorkbenchClientMessageHandler(), WorkbenchClientMessage.class, 44, Side.CLIENT);
         
         channel.registerMessage(new CraftingClientMessageHandler(this), CraftingClientMessage.class, 45, Side.CLIENT);
         

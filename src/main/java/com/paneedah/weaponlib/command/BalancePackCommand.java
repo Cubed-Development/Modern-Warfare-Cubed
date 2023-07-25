@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.command;
 import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.BalancePackManager.BalancePack;
-import com.paneedah.weaponlib.network.packets.BalancePackClient;
+import com.paneedah.mwc.network.messages.BalancePackClientMessage;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
@@ -72,7 +72,7 @@ public class BalancePackCommand extends TidyCompatibleCommand {
 			}
 			BalancePackManager.unloadBalancePack();
 			sendFormattedMessage(sender, "Succesfully unloaded balance pack.");
-			CommonModContext.getContext().getChannel().sendToAll(new BalancePackClient(BalancePackManager.getActiveBalancePack()));
+			CommonModContext.getContext().getChannel().sendToAll(new BalancePackClientMessage(BalancePackManager.getActiveBalancePack()));
 			return;
 		case LOAD_KEY:
 			if(secondArgument.length() == 0) {
@@ -84,7 +84,7 @@ public class BalancePackCommand extends TidyCompatibleCommand {
 				if(f.getName().equals(secondArgument)) {
 					sender.sendMessage(new TextComponentString(getHeader() + " Loading balance pack " + TextFormatting.RED + f.getName()));
 					BalancePackManager.loadBalancePack(sender, f.getName());
-					CommonModContext.getContext().getChannel().sendToAll(new BalancePackClient(BalancePackManager.getActiveBalancePack()));
+					CommonModContext.getContext().getChannel().sendToAll(new BalancePackClientMessage(BalancePackManager.getActiveBalancePack()));
 					
 					return;
 				}
@@ -131,7 +131,7 @@ public class BalancePackCommand extends TidyCompatibleCommand {
 			 try {
 			   String result = IOUtils.toString(new URL(link), StandardCharsets.UTF_8);
 			   BalancePackManager.loadBalancePackFromString(sender, result);
-			   CommonModContext.getContext().getChannel().sendToAll(new BalancePackClient(BalancePackManager.getActiveBalancePack()));
+			   CommonModContext.getContext().getChannel().sendToAll(new BalancePackClientMessage(BalancePackManager.getActiveBalancePack()));
 				
 			 } catch (MalformedURLException e) {
 				sendFormattedMessage(sender, "Failed to open URL. Malformed URL exception.");

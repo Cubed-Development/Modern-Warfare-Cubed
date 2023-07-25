@@ -1,12 +1,12 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.network.TypeRegistry;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
-import com.paneedah.weaponlib.state.PermitManager;
 import com.paneedah.weaponlib.state.StateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -148,7 +148,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 
     private ModContext modContext;
 
-    private PermitManager permitManager;
+    private NetworkPermitManager permitManager;
 
     private StateManager<WeaponState, ? super PlayerWeaponInstance> stateManager;
 
@@ -360,7 +360,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
     public ItemAttachment<Weapon> previousMagazine;
 
     @Override
-    public void setPermitManager(PermitManager permitManager) {
+    public void setPermitManager(NetworkPermitManager permitManager) {
         this.permitManager = permitManager;
         
         permitManager.registerEvaluator(LoadPermit.class, PlayerWeaponInstance.class, this::processLoadPermit);

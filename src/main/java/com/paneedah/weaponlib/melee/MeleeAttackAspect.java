@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.mwc.network.messages.BloodClientMessage;
 import com.paneedah.mwc.network.messages.MeleeAttackMessage;
 import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.state.Aspect;
-import com.paneedah.weaponlib.state.PermitManager;
 import com.paneedah.weaponlib.state.StateManager;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.entity.Entity;
@@ -81,7 +81,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
     }
 
     @Override
-    public void setPermitManager(PermitManager permitManager) {}
+    public void setPermitManager(NetworkPermitManager permitManager) {}
 
     @Override
     public void setStateManager(StateManager<MeleeState, ? super PlayerMeleeInstance> stateManager) {

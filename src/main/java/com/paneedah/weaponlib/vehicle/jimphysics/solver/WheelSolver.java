@@ -2,13 +2,11 @@ package com.paneedah.weaponlib.vehicle.jimphysics.solver;
 
 
 import com.paneedah.weaponlib.KeyBindings;
-import com.paneedah.weaponlib.network.IEncodable;
 import com.paneedah.weaponlib.vehicle.collisions.InertiaKit;
 import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import com.paneedah.weaponlib.vehicle.jimphysics.TyreSize;
 import com.paneedah.weaponlib.vehicle.jimphysics.VehiclePhysUtil;
 import com.paneedah.weaponlib.vehicle.jimphysics.stability.numerical.vehicle.WheelSolutionVector;
-import io.netty.buffer.ByteBuf;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.math.Vec3d;
 
@@ -16,7 +14,7 @@ import javax.vecmath.Vector3d;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
-public class WheelSolver implements IEncodable<WheelSolver>{
+public class WheelSolver {
 	
 	
 	public double actualRideHeight = 0;
@@ -506,20 +504,4 @@ public WheelSolver(TyreSize tyreSize, double mass, boolean isDrive, double grass
 		return this;
 		
 	}
-	
-
-	@Override
-	public WheelSolver readFromBuf(ByteBuf buf) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public void writeToBuf(ByteBuf buf) {
-		
-	}
-	
-
-
 }

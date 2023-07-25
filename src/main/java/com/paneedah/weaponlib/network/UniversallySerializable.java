@@ -4,7 +4,7 @@ import io.netty.buffer.ByteBuf;
 
 public interface UniversallySerializable {
 
-	public void init(ByteBuf buf);
+	void init(ByteBuf buf);
 	
-	public void serialize(ByteBuf buf);
+	void serialize(ByteBuf buf);
 }

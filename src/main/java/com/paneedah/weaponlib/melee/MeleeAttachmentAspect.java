@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.melee;
 
+import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.network.TypeRegistry;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
-import com.paneedah.weaponlib.state.PermitManager;
 import com.paneedah.weaponlib.state.StateManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
@@ -79,7 +79,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 	}
 	
 	private ModContext modContext;
-	private PermitManager permitManager;
+	private NetworkPermitManager permitManager;
 	private StateManager<MeleeState, ? super PlayerMeleeInstance> stateManager;
 	
 	private long clickSpammingTimeout = 100;
@@ -132,7 +132,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 	}
 	
 	@Override
-	public void setPermitManager(PermitManager permitManager) {
+	public void setPermitManager(NetworkPermitManager permitManager) {
 		this.permitManager = permitManager;
 		permitManager.registerEvaluator(EnterAttachmentModePermit.class, PlayerMeleeInstance.class, 
 				this::enterAttachmentSelectionMode);

@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.weaponlib.state.ManagedState;
 import com.paneedah.weaponlib.state.Permit;
-import com.paneedah.weaponlib.state.PermitManager;
 import net.minecraft.item.ItemStack;
 
 import java.util.LinkedHashMap;
@@ -14,14 +14,14 @@ import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class SyncManager<S extends ManagedState<S>> {
 
-	private final PermitManager permitManager;
+	private final NetworkPermitManager permitManager;
 	
 	private final Map<PlayerItemInstance<?>, Long> watchables = new LinkedHashMap<>();
 	
 	private final long syncTimeout = 10000;
 	
 	
-	public SyncManager(PermitManager permitManager) {
+	public SyncManager(NetworkPermitManager permitManager) {
 		this.permitManager = permitManager;
 		this.permitManager.registerEvaluator(Permit.class, PlayerItemInstance.class, this::syncOnServer);
 	}

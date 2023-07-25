@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
 import com.paneedah.weaponlib.network.TypeRegistry;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
-import com.paneedah.weaponlib.state.PermitManager;
 import com.paneedah.weaponlib.state.StateManager;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
@@ -104,7 +104,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 	}
 
 	private ModContext modContext;
-	private PermitManager permitManager;
+	private NetworkPermitManager permitManager;
 	private StateManager<WeaponState, ? super PlayerWeaponInstance> stateManager;
 
 	private long clickSpammingTimeout = 150;
@@ -149,10 +149,9 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 	}
 
 	@Override
-	public void setPermitManager(PermitManager permitManager) {
+	public void setPermitManager(NetworkPermitManager permitManager) {
 		this.permitManager = permitManager;
-		permitManager.registerEvaluator(EnterAttachmentModePermit.class, PlayerWeaponInstance.class,
-				this::enterAttachmentSelectionMode);
+		permitManager.registerEvaluator(EnterAttachmentModePermit.class, PlayerWeaponInstance.class, this::enterAttachmentSelectionMode);
 		permitManager.registerEvaluator(ExitAttachmentModePermit.class, PlayerWeaponInstance.class,
 				this::exitAttachmentSelectionMode);
 		permitManager.registerEvaluator(ChangeAttachmentPermit.class, PlayerWeaponInstance.class,
