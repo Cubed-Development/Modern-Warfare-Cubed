@@ -23,7 +23,7 @@ public class M249Factory {
 
         .withName("m249")
         .withFireRate(0.7f)
-        .withRecoil(2.1f)
+        .withRecoil(2f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.HEAVY)
         .withMuzzlePosition(new Vec3d(-0.13600000405311594, -1.144000004291535, -8.012000045061113))
