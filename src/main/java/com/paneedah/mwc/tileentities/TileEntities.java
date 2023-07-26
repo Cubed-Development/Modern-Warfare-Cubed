@@ -1688,6 +1688,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.Camera")
         .withTextureName("textures/models/camera.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(0, 0, 0, 1, 0.8, 1)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0.05f, 0.6f);
