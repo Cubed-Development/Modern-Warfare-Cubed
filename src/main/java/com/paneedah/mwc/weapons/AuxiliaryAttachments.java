@@ -1546,7 +1546,7 @@ public class AuxiliaryAttachments {
         Bullet = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
                 // .withCreativeTab(MWC.gunsTab)
-                .withModel(new com.paneedah.mwc.models.BulletBig(), "Bullet")
+                .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig")
                 .withName("Bullet")
                 .withRenderablePart()
         
@@ -1556,7 +1556,7 @@ public class AuxiliaryAttachments {
         BulletSmall = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
                 // .withCreativeTab(MWC.gunsTab)
-                .withModel(new com.paneedah.mwc.models.Bullet44(), "Bullet")
+                .withModel(new com.paneedah.mwc.models.Bullet44(), "bulletsmall")
                 .withName("BulletSmall")
                 .withRenderablePart()
         

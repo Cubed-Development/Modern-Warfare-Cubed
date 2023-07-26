@@ -48,7 +48,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 ### Changed
 
 - Overhauled the textures of AAC Honey Badger, Bushmaster ACR, Beowulf, HK 417, M16A1, FN F2000, 100rnd 5.56x45mm NATO STANAG Drum Magazine and the pink camo skin
-- Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight, and Eotech Hybrid HHS™ II Sight
+- Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight, OKP-7 Sight, and Eotech Hybrid HHS™ II Sight
 - Overhauled animations and sound effects of the M40A6 and Uzi
 - Sidearms can now be carried in backpacks
 - Added keybindings to switching cameras on the tablet
@@ -113,11 +113,23 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed a problem where the carryable inventory tab was shifting the entire inventory to the left for no reasons
 - Fixed turrets spawning without weapons
 - Fixed 7.62x54mm SVD magazine using 7.62x39mm bullets
-- Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
-- Fixed m249 accessories floating
-- Fixed P90 magazine with Terminator conversion
-- Fixed visual bugs for weapons like FN F2000, M4A1 with "M16 Stock", Malyuk and M40A6 with grip accessories, beowulf50Cal with m38 front sight, revolver related accessories and general bipod adjustments on weapons
-- Fixed the attachment of the Long Deagle
+- Fixed visual bugs:
+  - Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
+  - Fixed m249 accessories floating
+  - The P90 is no longer compatible with the bipod and the magazine of the terminator conversion kit has been fixed
+  - Fixed the attachment of the Long Deagle
+  - Fixed m16 stock and m38 front sight on guns like M4A1, Beowulf .50Cal and AR-10
+  - Fixed visual bugs with grips on the m40a6 and Malyuk
+  - Fixed visual bugs with sight on the taurus
+  - Fixed Stock visual bugs on Origin-12
+  - Fixed sights like PSO-1 and OKP-7 on ak-74 and ak-101
+  - Fixed the visual bugs of the F2000
+  - Adjusted when aiming the HK-P12 with the accessories and re-added the USP Match Compensator accessory
+  - Fixed Bipod in ARX-160
+  - Fixed Vector Stock Adapter
+  - Adjusted slide recoil on m17
+  - Fixed muzzle flash for Dragunov
+  - Fixed texture bullet
 - Fixed prop hitboxes not lining up with their models:
   - Fridge (open/closed)
   - Locker
