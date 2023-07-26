@@ -150,6 +150,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Home Chair
   - White Desk Middle
 - Fixed position of the backpacks in inventory
+- Fixed melee attack and heavy melee attack being switched
 
 ### Removed
 
