@@ -2535,7 +2535,7 @@ public class Magazines {
         
         Magazines.MP40Mag = new ItemMagazine.Builder().withCapacity(32).withCompatibleBullet(Bullets.Bullet9x19mm).withName("MP40Mag_2")
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
-                .withModel(new com.paneedah.mwc.models.MP40MagACTUAL(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.MP40MagACTUAL(), "mp40.png")
 
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);

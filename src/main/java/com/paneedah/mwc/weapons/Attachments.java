@@ -14487,7 +14487,7 @@ public class Attachments {
         Remington870MagpulPump = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRenderablePart()
-                .withModel(new com.paneedah.mwc.models.Remington870MagpulPump(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870MagpulPump(), "remington870.png")
                 .withFirstPersonModelPositioning((model, itemStack) -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870MagpulPump) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
@@ -14561,7 +14561,7 @@ public class Attachments {
         Remington870FABDefensePump = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRenderablePart()
-                .withModel(new com.paneedah.mwc.models.Remington870FABDefensePump(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870FABDefensePump(), "remington870.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withFirstPersonModelPositioning((model, itemStack) -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870FABDefensePump) {
@@ -14642,7 +14642,7 @@ public class Attachments {
         
         Remington870PoliceMagnumStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "remington870.png")
                 .withFirstPersonModelPositioning((model, itemStack) -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
@@ -14678,7 +14678,7 @@ public class Attachments {
         
         Remington870MilspecStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "remington870.png")
                 .withModel(new com.paneedah.mwc.models.MilSpecStock(), "gun.png")
                 .withFirstPersonModelPositioning((model, itemStack) -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
@@ -14727,7 +14727,7 @@ public class Attachments {
         
         Remington870HK416Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "remington870.png")
                 .withModel(new com.paneedah.mwc.models.HK416Stock(), "gun.png")
                 .withFirstPersonModelPositioning((model, itemStack) -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
@@ -14812,7 +14812,7 @@ public class Attachments {
         
         Remington870Barrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.Remington870Barrel(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870Barrel(), "remington870.png")
                 .withModel(new com.paneedah.mwc.models.R870part(), "gun.png")
                 .withFirstPersonModelPositioning((model, itemStack) -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Barrel) {
@@ -14857,7 +14857,7 @@ public class Attachments {
         
         Remington870PoliceMagnumBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumBarrel(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumBarrel(), "remington870.png")
                 .withModel(new com.paneedah.mwc.models.M9A1frontsight(), "gun.png")
                 .withFirstPersonModelPositioning((model, itemStack) -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumBarrel) {
@@ -14902,7 +14902,7 @@ public class Attachments {
         
         Remington870SawedOffBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.Remington870SawedBarrel(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870SawedBarrel(), "remington870.png")
                 .withModel(new com.paneedah.mwc.models.M9A1frontsight(), "gun.png")
                 .withFirstPersonModelPositioning((model, itemStack) -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870SawedBarrel) {
