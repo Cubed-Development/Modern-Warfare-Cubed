@@ -1,9 +1,16 @@
+package com.paneedah.mwc.models;
+
+import com.paneedah.weaponlib.ModelWithAttachments;
+import net.minecraft.client.model.ModelBox;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.entity.Entity;
+
 // Made with Blockbench 4.7.4
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
 
-public class HKS20Grip extends ModelBase {
+public class HKS20Grip extends ModelWithAttachments {
 	private final ModelRenderer grip;
 	private final ModelRenderer grip33_r1;
 	private final ModelRenderer grip32_r1;
