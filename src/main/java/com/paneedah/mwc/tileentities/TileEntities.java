@@ -265,6 +265,28 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.MedicalCrate")
         .withTextureName("textures/models/medicalcrate.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.6f, 0.6f, 0.6f);
             GL11.glTranslatef(0.7f, 1.13f, 0.5f);
@@ -487,16 +509,16 @@ public class TileEntities {
         			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
         			switch(facing) {
         			case WEST:
-        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
         				break;
         			case EAST:
-        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
         				break;
         			case NORTH:
-        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
         				break;
         			case SOUTH:
-        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
         				break;
         			default:
         			}
@@ -1688,6 +1710,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.Camera")
         .withTextureName("textures/models/camera.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(0, 0, 0, 1, 0.8, 1)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0.05f, 0.6f);

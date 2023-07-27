@@ -97,7 +97,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 ### Fixed
 
 - Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)
-- Fixed Minecraft armor making you invulnerable to bullet (less realistic, but they aren't anyway lol)
+- Fixed Minecraft armor making you invulnerable to bullets (less realistic, but they aren't anyway lol)
 - Fixed soldiers and terrorists spawning with Minecraft armor
 - Fixed issue with config for bullets breaking glass being ignored
 - Fixed bullet's being able to penetrate:
@@ -149,6 +149,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Office Chair 2
   - Home Chair
   - White Desk Middle
+  - Medical Create
+  - Camera Rotated
 - Fixed position of the backpacks in inventory
 - Fixed the client corruption state
 - Fixed melee attack and heavy melee attack being switched
