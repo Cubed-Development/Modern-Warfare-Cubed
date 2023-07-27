@@ -49,7 +49,7 @@ public class APC9Factory implements GunFactory {
                 .withFlashOffsetX(() -> 0.12f)
                 .withFlashOffsetY(() -> 0.15f)
                 .withInaccuracy(1.1f)
-                .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+                .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
                         // The weapon power
