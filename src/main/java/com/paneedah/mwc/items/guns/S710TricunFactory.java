@@ -22,7 +22,6 @@ public class S710TricunFactory implements GunFactory {
         return new Weapon.Builder()
 
                 .withName("s7_10_tricun")
-                //.withAmmoCapacity(30)
                 .withFireRate(0.85f)
                 .withRecoil(2.3f)
                 .withZoom(0.9f)
@@ -65,10 +64,7 @@ public class S710TricunFactory implements GunFactory {
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
                 .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
                 .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
-//        .withCompatibleAttachment(Attachments.RailRiser, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glScaled(1F, 1F, 1F);
-//        })
+
                 .withCompatibleAttachment(AuxiliaryAttachments.M4Rail, true, (model) -> {
                     if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.205F, -1.45F, -2F);
@@ -85,8 +81,6 @@ public class S710TricunFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.S710Receiver, true, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(1.1F, 1.1F, 1.1F);
                 })
                 .withCompatibleAttachment(Attachments.CollapsableMOEStock, (model) -> {
                     GL11.glTranslatef(0.01f, -0.19f, -0.4f);
@@ -204,8 +198,6 @@ public class S710TricunFactory implements GunFactory {
                     }
                 }, false, false)
                 .withCompatibleAttachment(Attachments.S710Handguard, true, (model) -> {
-//          GL11.glTranslatef(0f, -0.28f, -0.55f);
-//          GL11.glScaled(1F, 1F, 0.85F);
                 })
                 .withCompatibleAttachment(Attachments.S710TricunGrip, true, (model) -> {
 //          GL11.glTranslatef(0f, 0f, 1f);
@@ -224,8 +216,6 @@ public class S710TricunFactory implements GunFactory {
                     GL11.glScaled(1F, 0.95F, 1F);
                 })
                 .withCompatibleAttachment(Magazines.S710TricunMag, (model) -> {
-//            GL11.glTranslatef(-0.33F, 0.5F, -1.3F);
-//            GL11.glScaled(1.05F, 1.2F, 1F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.S710TricunActionPully, true, (model) -> {
                 })
@@ -486,8 +476,6 @@ public class S710TricunFactory implements GunFactory {
                             GL11.glTranslatef(0f, 0f, 0.5f);
                         })
                         .withFirstPersonCustomPositioning(Magazines.S710TricunMag, (renderContext) -> {
-//            	 GL11.glTranslatef(0.2f, 0.35f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                         })
 
                         .withThirdPersonPositioningReloading(
