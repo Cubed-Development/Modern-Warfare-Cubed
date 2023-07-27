@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.ClientTicker;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.command.MainCommand;
@@ -45,7 +46,7 @@ public class ClientModContext extends CommonModContext {
     private Lock mainLoopLock = new ReentrantLock();
     private CompatibleRenderingRegistry rendererRegistry;
 
-    private SafeGlobals safeGlobals = new SafeGlobals();
+    private final SafeGlobals safeGlobals = new SafeGlobals();
 
     private StatusMessageCenter statusMessageCenter;
 
@@ -98,13 +99,10 @@ public class ClientModContext extends CommonModContext {
 
         KeyBindings.init();
 
-        ClientWeaponTicker clientWeaponTicker = new ClientWeaponTicker(this);
+        ClientTicker clientTicker = new ClientTicker(this);
+        Runtime.getRuntime().addShutdownHook(new Thread(clientTicker::stop));
+        clientTicker.start();
 
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            clientWeaponTicker.shutdown();
-        }));
-
-        clientWeaponTicker.start();
         clientEventHandler = new ClientEventHandler(this, mainLoopLock, safeGlobals);
         MinecraftForge.EVENT_BUS.register(clientEventHandler);
 

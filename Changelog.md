@@ -150,7 +150,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Home Chair
   - White Desk Middle
 - Fixed position of the backpacks in inventory
+- Fixed the client corruption state
 - Fixed melee attack and heavy melee attack being switched
+- Fixed inputs not updating if you switched to another hotbar slot while holding the input
 
 ### Removed
 
