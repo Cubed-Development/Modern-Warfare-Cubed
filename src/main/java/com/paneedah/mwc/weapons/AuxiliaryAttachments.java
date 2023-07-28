@@ -401,7 +401,7 @@ public class AuxiliaryAttachments {
         AUGAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
                 // .withCreativeTab(MWC.gunsTab)
-                .withModel(new com.paneedah.mwc.models.AUGaction(), "aug.png")
+                .withModel(new com.paneedah.mwc.models.AUGaction(), "gun.png")
                 .withName("AUGAction")
                 .withRenderablePart().withTextureName("Dummy.png")
                 .build(MWC.modContext);

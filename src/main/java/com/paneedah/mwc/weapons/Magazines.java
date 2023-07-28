@@ -418,7 +418,7 @@ public class Magazines {
         
         Magazines.AUG9mmMag = new ItemMagazine.Builder().withCapacity(30).withCompatibleBullet(Bullets.Bullet9x19mm).withName("AUG9mmMag")
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
-                .withModel(new com.paneedah.mwc.models.AUG9mmMag(), "aug.png")
+                .withModel(new com.paneedah.mwc.models.AUG9mmConvMAG(), "gun.png")
                 .withRequiredAttachments(Attachments.AUGParaConversion)
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
@@ -441,7 +441,6 @@ public class Magazines {
                           MWCItems.steelIngot,
                           MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
-
         
         Magazines.S710TricunMag = new ItemMagazine.Builder()
         		.withCapacity(30)
