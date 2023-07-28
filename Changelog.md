@@ -129,8 +129,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Fixed Bipod in ARX-160
   - Fixed Vector Stock Adapter
   - Adjusted slide recoil on m17
-  - Fixed muzzle flash for AK-101
-  - Fixed muzzle flash for Dragunov
+  - Fixed muzzle flash for Dragunov and AK-101
   - Fixed texture bullet
 - Fixed the attachment of the Long Deagle
 - Fixed prop hitboxes not lining up with their models:
