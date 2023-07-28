@@ -10,10 +10,10 @@ import net.minecraft.entity.Entity;
 // Paste this class into your mod and generate all required imports
 
 
-public class AUGA3M1 extends ModelWithAttachments {
-	private final ModelRenderer a3aug;
-	private final ModelRenderer a3aug10_r1;
-	private final ModelRenderer a3aug6_r1;
+public class AUGScopeRail extends ModelWithAttachments {
+	private final ModelRenderer scoperail;
+	private final ModelRenderer scoperail1_r1;
+	private final ModelRenderer scoperail2_r1;
 	private final ModelRenderer handguard;
 	private final ModelRenderer handguard28_r1;
 	private final ModelRenderer handguard27_r1;
@@ -27,31 +27,31 @@ public class AUGA3M1 extends ModelWithAttachments {
 	private final ModelRenderer handguard18_r1;
 	private final ModelRenderer handguard17_r1;
 
-	public AUGA3M1() {
+	public AUGScopeRail() {
 		textureWidth = 300;
 		textureHeight = 300;
 
-		a3aug = new ModelRenderer(this);
-		a3aug.setRotationPoint(-1.3889F, -13.7725F, -3.467F);
-		a3aug.cubeList.add(new ModelBox(a3aug, 118, 81, -1.6111F, 0.4725F, -18.533F, 3, 1, 33, 0.0F, false));
-		a3aug.cubeList.add(new ModelBox(a3aug, 41, 159, -1.6111F, -1.0275F, -16.533F, 3, 1, 30, 0.0F, false));
-		a3aug.cubeList.add(new ModelBox(a3aug, 157, 81, -1.5111F, -0.0275F, -17.033F, 2, 1, 31, 0.0F, false));
-		a3aug.cubeList.add(new ModelBox(a3aug, 159, 41, 0.2889F, -0.0275F, -17.033F, 1, 1, 31, 0.0F, false));
-		a3aug.cubeList.add(new ModelBox(a3aug, 77, 160, 0.1889F, -1.3275F, -16.533F, 1, 1, 30, 0.0F, false));
-		a3aug.cubeList.add(new ModelBox(a3aug, 132, 159, -1.4111F, -1.3275F, -16.533F, 2, 1, 30, 0.0F, false));
+		scoperail = new ModelRenderer(this);
+		scoperail.setRotationPoint(-1.5556F, -16.0863F, -8.9535F);
+		scoperail.cubeList.add(new ModelBox(scoperail, 89, 40, -0.9444F, 2.9863F, -12.5465F, 2, 1, 16, 0.0F, false));
+		scoperail.cubeList.add(new ModelBox(scoperail, 153, 0, -0.9444F, 1.9863F, -10.5465F, 2, 1, 13, 0.0F, false));
+		scoperail.cubeList.add(new ModelBox(scoperail, 82, 136, -0.9444F, -0.9137F, -7.5465F, 2, 1, 13, 0.0F, false));
+		scoperail.cubeList.add(new ModelBox(scoperail, 0, 27, -1.4444F, -1.9137F, -9.0465F, 3, 1, 26, 0.0F, false));
+		scoperail.cubeList.add(new ModelBox(scoperail, 0, 0, -1.4444F, -3.4137F, -9.0465F, 3, 1, 26, 0.0F, false));
+		scoperail.cubeList.add(new ModelBox(scoperail, 60, 60, -1.2444F, -2.4137F, -9.0465F, 1, 1, 26, 0.0F, false));
+		scoperail.cubeList.add(new ModelBox(scoperail, 0, 60, -0.6444F, -2.4137F, -9.0465F, 2, 1, 26, 0.0F, false));
 
-		a3aug10_r1 = new ModelRenderer(this);
-		a3aug10_r1.setRotationPoint(1.3889F, 12.7836F, -24.1454F);
-		a3aug.addChild(a3aug10_r1);
-		setRotationAngle(a3aug10_r1, -0.9666F, 0.0F, 0.0F);
-		a3aug10_r1.cubeList.add(new ModelBox(a3aug10_r1, 8, 80, -3.0F, -38.8F, 10.8F, 3, 1, 1, 0.0F, false));
-		a3aug10_r1.cubeList.add(new ModelBox(a3aug10_r1, 30, 82, -3.0F, -38.8F, 10.0F, 3, 1, 1, 0.0F, false));
+		scoperail1_r1 = new ModelRenderer(this);
+		scoperail1_r1.setRotationPoint(1.5556F, 15.7401F, 28.3925F);
+		scoperail.addChild(scoperail1_r1);
+		setRotationAngle(scoperail1_r1, 0.7436F, 0.0F, 0.0F);
+		scoperail1_r1.cubeList.add(new ModelBox(scoperail1_r1, 60, 96, -2.5F, -37.1F, -21.5F, 2, 2, 8, 0.0F, false));
 
-		a3aug6_r1 = new ModelRenderer(this);
-		a3aug6_r1.setRotationPoint(1.3889F, 38.2111F, -35.6582F);
-		a3aug.addChild(a3aug6_r1);
-		setRotationAngle(a3aug6_r1, -0.9295F, 0.0F, 0.0F);
-		a3aug6_r1.cubeList.add(new ModelBox(a3aug6_r1, 16, 54, -3.0F, -38.8F, -20.0F, 3, 3, 1, 0.0F, false));
+		scoperail2_r1 = new ModelRenderer(this);
+		scoperail2_r1.setRotationPoint(1.5556F, 18.3708F, 35.267F);
+		scoperail.addChild(scoperail2_r1);
+		setRotationAngle(scoperail2_r1, 0.9295F, 0.0F, 0.0F);
+		scoperail2_r1.cubeList.add(new ModelBox(scoperail2_r1, 45, 12, -2.5F, -37.1F, -8.5F, 2, 2, 5, 0.0F, false));
 
 		handguard = new ModelRenderer(this);
 		handguard.setRotationPoint(-1.4993F, -9.8948F, -27.5559F);
@@ -128,7 +128,7 @@ public class AUGA3M1 extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		a3aug.render(f5);
+		scoperail.render(f5);
 		handguard.render(f5);
 	}
 
