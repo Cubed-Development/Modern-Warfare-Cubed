@@ -111,7 +111,7 @@ public class Beowulf50CalFactory implements GunFactory {
             GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
         .withCompatibleAttachment(Attachments.M16Stock, (model) -> {
-            GL11.glTranslatef(0f, -0.28f, -0.55f);
+            GL11.glTranslatef(0f, -0f, -0.04f);
             GL11.glScaled(1F, 1F, 0.85F);
         })
         .withCompatibleAttachment(Attachments.MagpulCTRStockTan, (model) -> {
@@ -185,7 +185,7 @@ public class Beowulf50CalFactory implements GunFactory {
                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                         AttachmentCategory.GUARD, instance);
                 if(activeAttachment == Attachments.Mk18HandGuard) {
-                    GL11.glTranslatef(-0.004F, -0.1F, 2.5F);
+                    GL11.glTranslatef(0F, 0F, -0.4F);
                     GL11.glScaled(1F, 1F, 1F);
                 } else {
                     GL11.glTranslatef(0F, 0F, 0F);

@@ -98,7 +98,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 ### Fixed
 
 - Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)
-- Fixed Minecraft armor making you invulnerable to bullet (less realistic, but they aren't anyway lol)
+- Fixed Minecraft armor making you invulnerable to bullets (less realistic, but they aren't anyway lol)
 - Fixed soldiers and terrorists spawning with Minecraft armor
 - Fixed issue with config for bullets breaking glass being ignored
 - Fixed bullet's being able to penetrate:
@@ -113,6 +113,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed duplication issues related to copper, gunpowder, and ammo
 - Fixed a problem where the carryable inventory tab was shifting the entire inventory to the left for no reasons
 - Fixed turrets spawning without weapons
+- Fixed 7.62x54mm SVD magazine using 7.62x39mm bullets
 - Fixed visual bugs:
   - Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
   - Fixed m249 accessories floating
@@ -128,7 +129,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Fixed Bipod in ARX-160
   - Fixed Vector Stock Adapter
   - Adjusted slide recoil on m17
-  - Fixed muzzle for AK-101
+  - Fixed muzzle flash for AK-101
+  - Fixed muzzle flash for Dragunov
+  - Fixed texture bullet
 - Fixed the attachment of the Long Deagle
 - Fixed prop hitboxes not lining up with their models:
   - Fridge (open/closed)
@@ -149,7 +152,12 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Office Chair 2
   - Home Chair
   - White Desk Middle
+  - Medical Create
+  - Camera Rotated
 - Fixed position of the backpacks in inventory
+- Fixed the client corruption state
+- Fixed melee attack and heavy melee attack being switched
+- Fixed inputs not updating if you switched to another hotbar slot while holding the input
 
 ### Removed
 

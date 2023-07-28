@@ -916,10 +916,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                     if (ModernConfigManager.bulletBreakGlass && iBlockState.getMaterial() == Material.GLASS) {
                         world.destroyBlock(new BlockPos(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ())), true);
                     } else {
-                        //compatibility.addBlockHitEffect(position);
-                        //compatibility.playSound(world, posX, posY, posZ, explosionSound, volume, pitch);
-                        NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100);
-                        modContext.getChannel().sendToAllAround(new BlockHitMessage(position.getBlockPos(), new Vector3F(position.hitVec), position.sideHit), point);
+                        modContext.getChannel().sendToAllAround(new BlockHitMessage(position.getBlockPos(), new Vector3F(position.hitVec), position.sideHit), new NetworkRegistry.TargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100));
                         
                         MaterialImpactSound materialImpactSound = modContext.getMaterialImpactSound(iBlockState, entity);
                         if(materialImpactSound != null) {
@@ -1193,7 +1190,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return true;
     }
 
-    void toggleAiming() {
+    public void toggleAiming() {
 
         PlayerWeaponInstance mainHandHeldWeaponInstance = modContext.getMainHeldWeapon();
         

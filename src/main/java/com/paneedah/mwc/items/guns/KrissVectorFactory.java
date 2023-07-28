@@ -126,7 +126,7 @@ public class KrissVectorFactory {
         .withCompatibleAttachment(Attachments.VectorStockAdapter, (model) -> {
        	 if(model instanceof MilSpecStock) {
        		 GL11.glTranslatef(0.185f, 0.7f, 5.9f);
-                GL11.glScaled(1.2F, 1.2F, 1.2F);
+                GL11.glScaled(0F, 0F, 0F);
             } 
         })
         .withCompatibleAttachment(Magazines.VectorMag, (model) -> {

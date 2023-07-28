@@ -748,8 +748,20 @@ public class AK74Factory {
                     if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AK15ironsight)) {
                         //System.out.println("Position me for Acog");
                         GL11.glTranslatef(0F, 0.008f, 0f);
-                    } 
-                    
+                    }
+
+                    // ACOG Zoom
+                    if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7)) {
+                        //System.out.println("Position me for Acog");
+                        GL11.glTranslatef(0F, 0.15f, 0f);
+                    }
+
+                    // ACOG Zoom
+                    if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
+                        //System.out.println("Position me for Acog");
+                        GL11.glTranslatef(-0.02F, 0.16f, -0.45f);
+                    }
+
                     // Everything else
                     else {
                     }
