@@ -10,7 +10,7 @@ import net.minecraft.entity.Entity;
 // Paste this class into your mod and generate all required imports
 
 
-public class VP70stock extends ModelBase {
+public class VP70stock extends ModelWithAttachments {
 	private final ModelRenderer stock;
 	private final ModelRenderer gun19_r2;
 	private final ModelRenderer gun18_r5;
