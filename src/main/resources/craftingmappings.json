@@ -191,7 +191,7 @@
           "count": 6
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 6
@@ -221,7 +221,7 @@
           "count": 6
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 6
@@ -251,7 +251,7 @@
           "count": 3
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 1
@@ -1361,7 +1361,7 @@
           "count": 6
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 8
@@ -1463,7 +1463,7 @@
           "count": 5
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 3
@@ -3071,7 +3071,7 @@
           "count": 2
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 1
@@ -3089,7 +3089,7 @@
           "count": 3
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 2
@@ -3653,7 +3653,7 @@
           "count": 2
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 1
@@ -3821,7 +3821,7 @@
           "count": 3
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 2
@@ -3839,7 +3839,7 @@
           "count": 4
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 3
@@ -3875,7 +3875,7 @@
           "count": 3
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 2
@@ -3947,7 +3947,7 @@
           "count": 1
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 2
@@ -4181,7 +4181,7 @@
           "count": 3
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 3
@@ -4199,7 +4199,7 @@
           "count": 5
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 5
@@ -4445,7 +4445,7 @@
           "count": 3
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 3
@@ -4655,7 +4655,7 @@
           "count": 2
         },
         {
-          "entryName": "plankwood",
+          "entryName": "plankWood",
           "defaultItem": "minecraft:planks",
           "isOreDictionary": true,
           "count": 2
