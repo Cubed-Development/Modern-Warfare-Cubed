@@ -78,6 +78,9 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
     @Override
     protected void onImpact(final RayTraceResult position) {
+        if (position.typeOfHit == RayTraceResult.Type.BLOCK)
+            weapon.onSpawnEntityBlockImpact(world, null, this, position);
+
         if (world.isRemote || weapon == null)
             return;
 
@@ -114,8 +117,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
                 if (rayTraceResult != null && rayTraceResult.typeOfHit == Type.BLOCK)
                     weapon.getModContext().getChannel().sendToAllAround(new BloodClientMessage(new Vector3F(rayTraceResult.hitVec), new Vector3F((float) motionX, (float) motionY, (float) motionZ)), point);
             }
-        } else if (position.typeOfHit == RayTraceResult.Type.BLOCK)
-            weapon.onSpawnEntityBlockImpact(world, null, this, position);
+        }
 
         this.setDead();
     }

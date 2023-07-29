@@ -27,7 +27,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -1284,10 +1283,9 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
     void onSpawnEntityBlockImpact(World world, EntityPlayer player, WeaponSpawnEntity entity, RayTraceResult position) {
 
-        if(world.isRemote) {
-            EnumFacing facing = EnumFacing.valueOf(position.sideHit.toString());
-            ClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vector3D(position.hitVec.x, position.hitVec.y, position.hitVec.z), facing, 0.05));
-        }
+        // Todo: Add when bullets are actually bullet and not entities
+//        if(world.isRemote)
+//            ClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vector3D(position.hitVec.x, position.hitVec.y, position.hitVec.z), position.sideHit, 0.05));
 
         if(builder.blockImpactHandler != null) {
             builder.blockImpactHandler.onImpact(world, player, entity, position);
