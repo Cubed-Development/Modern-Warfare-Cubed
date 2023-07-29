@@ -155,6 +155,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed the client corruption state
 - Fixed melee attack and heavy melee attack being switched
 - Fixed inputs not updating if you switched to another hotbar slot while holding the input
+- Fixed oreDictionary not working properly under the craftmappings
+- Fixed the height of the Ammo Counter being 1 pixel too high
 
 ### Removed
 
