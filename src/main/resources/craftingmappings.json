@@ -7540,7 +7540,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 8
@@ -7552,7 +7552,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 6
@@ -7582,7 +7582,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 8
@@ -7594,7 +7594,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 6
@@ -7624,7 +7624,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 8
@@ -7636,7 +7636,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 6
@@ -7666,7 +7666,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 8
@@ -7678,7 +7678,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 6
@@ -7714,7 +7714,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 8
@@ -7732,7 +7732,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 6
@@ -7750,7 +7750,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 8
@@ -7762,7 +7762,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 8
@@ -7774,7 +7774,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 7
@@ -7786,7 +7786,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 7
@@ -7810,7 +7810,7 @@
           "count": 2
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 2
@@ -7834,7 +7834,7 @@
           "count": 2
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 3
@@ -7858,7 +7858,7 @@
           "count": 2
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 3
@@ -7882,7 +7882,7 @@
           "count": 2
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 3
@@ -7906,7 +7906,7 @@
           "count": 2
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 3
@@ -7930,7 +7930,7 @@
           "count": 2
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 3
@@ -7954,7 +7954,7 @@
           "count": 3
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 4
@@ -7978,7 +7978,7 @@
           "count": 3
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 4
@@ -8002,7 +8002,7 @@
           "count": 3
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 4
@@ -8026,7 +8026,7 @@
           "count": 3
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 4
@@ -8044,7 +8044,7 @@
           "count": 1
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 4
@@ -8062,7 +8062,7 @@
           "count": 1
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 4
@@ -8080,7 +8080,7 @@
           "count": 1
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 4
@@ -8098,7 +8098,7 @@
           "count": 1
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 6
@@ -8116,7 +8116,7 @@
           "count": 1
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 6
@@ -8134,7 +8134,7 @@
           "count": 1
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 6
@@ -8152,7 +8152,7 @@
           "count": 1
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 6
@@ -8170,7 +8170,7 @@
           "count": 2
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 7
@@ -8188,7 +8188,7 @@
           "count": 2
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 7
@@ -8206,7 +8206,7 @@
           "count": 2
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 7
@@ -8218,7 +8218,7 @@
       "craftingGroup": "GEAR",
       "recipe": [
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 6
@@ -8260,7 +8260,7 @@
           "count": 2
         },
         {
-          "entryName": "Plastic",
+          "entryName": "plastic",
           "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 9
