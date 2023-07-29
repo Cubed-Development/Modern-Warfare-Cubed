@@ -241,7 +241,7 @@ public class CustomGui extends Gui {
 	
 	// Ammo counter spec
 	public static final int AMMO_COUNTER_WIDTH = 256;
-	public static final int AMMO_COUNTER_HEIGHT = 53;
+	public static final int AMMO_COUNTER_HEIGHT = 52;
 	public static final double AMMO_COUNTER_SCALE = 0.50;
 	
 	// Weapon name
@@ -278,8 +278,8 @@ public class CustomGui extends Gui {
 	public static final double CURRENT_AMMO_WIDTH_MULTIPLIER = 2.0;
 	public static final double TOTAL_AMMO_STRING_SCALE = 6.625;
 	
-	public void handleAmmoCounter(RenderGameOverlayEvent.Pre event, PlayerWeaponInstance weaponInstance, double scaledWidth, double scaledHeight) {		final int AMMO_COUNTER_Y_POS = 128;
-		
+	public void handleAmmoCounter(RenderGameOverlayEvent.Pre event, PlayerWeaponInstance weaponInstance, double scaledWidth, double scaledHeight) {
+		final int AMMO_COUNTER_Y_POS = 128;
 		
 		GlStateManager.enableBlend();
 		GlStateManager.pushMatrix();
