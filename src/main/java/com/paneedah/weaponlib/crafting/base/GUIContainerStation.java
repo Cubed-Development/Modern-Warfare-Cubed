@@ -240,6 +240,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 				
 				if(!foundSomething) {
 					hasRequiredItems = false;
+					hasAvailiableMaterials.put(is.getItem(), false);
 				}
 			}
  			
