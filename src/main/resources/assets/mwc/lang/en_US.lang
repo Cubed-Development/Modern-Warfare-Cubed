@@ -1042,6 +1042,17 @@ key.categories.futuristicarsenal=Modern Warfare
 key.laser=Switch Laser
 key.add=Zoom In
 key.subtract=Zoom Out
+key.inspect=Inspect
+key.nightVision=Toggle Night Vision
+key.opendoor=Open Door
+key.proning=Prone
+key.unload=Unload
+
+keys.categories.vehicle
+vehicle.breake=Brake
+vehicle.clutch=Clutch
+vehicle.handbrake=Handbreake
+vehicle.throttle=Throttle
 
 gui.attachmentMode.changeScope=Press [%s] to change scope
 gui.attachmentMode.changeBarrelRig=Press [%s] to change barrel rig
