@@ -9,7 +9,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL14;
 
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -55,12 +54,11 @@ public class BulletHoleRenderer {
 
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder buffer = tessellator.getBuffer();
-        GlStateManager.enableTexture2D();
         GlStateManager.disableCull();
 
          MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/entity/bullethole.png"));
 
-        GL14.glBlendEquation(GL14.GL_FUNC_ADD);
+        //GL14.glBlendEquation(GL14.GL_FUNC_ADD);
         GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);
         GlStateManager.enableBlend();
         final double size = 0.05;
@@ -116,10 +114,9 @@ public class BulletHoleRenderer {
 
         tessellator.draw();
 
-        GlStateManager.popMatrix();
-
         GlStateManager.disableBlend();
         GlStateManager.enableCull();
-        GlStateManager.disableTexture2D();
+
+        GlStateManager.popMatrix();
     }
 }
