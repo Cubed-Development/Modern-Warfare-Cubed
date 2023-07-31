@@ -2,6 +2,7 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.NightVisionToggleMessage;
 import com.paneedah.weaponlib.CustomArmor;
+import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -15,17 +16,20 @@ public final class NightVisionToggleMessageHandler implements IMessageHandler<Ni
 
     @Override
     public IMessage onMessage(final NightVisionToggleMessage nightVisionToggleMessage, final MessageContext messageContext) {
-        final ItemStack helmetStack = messageContext.getServerHandler().player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+        NetworkUtil.processMessage(messageContext, () -> {
+            final ItemStack helmetStack = messageContext.getServerHandler().player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 
-        if(helmetStack.getItem() instanceof CustomArmor && ((CustomArmor) helmetStack.getItem()).hasNightVision()) {
-            if (helmetStack.getTagCompound() == null)
-                helmetStack.setTagCompound(new NBTTagCompound());
+            if (helmetStack.getItem() instanceof CustomArmor && ((CustomArmor) helmetStack.getItem()).hasNightVision()) {
+                if (helmetStack.getTagCompound() == null)
+                    helmetStack.setTagCompound(new NBTTagCompound());
 
-            final NBTTagCompound tagCompound = helmetStack.getTagCompound();
+                final NBTTagCompound tagCompound = helmetStack.getTagCompound();
 
-            tagCompound.setBoolean(TAG_NIGHT_VISION_STATE, !tagCompound.getBoolean(TAG_NIGHT_VISION_STATE));
-        }
+                tagCompound.setBoolean(TAG_NIGHT_VISION_STATE, !tagCompound.getBoolean(TAG_NIGHT_VISION_STATE));
+            }
+        });
 
-        return nightVisionToggleMessage;
+
+        return null;
     }
 }

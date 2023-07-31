@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.handlers.NightVisionToggleMessageHandler;
+import com.paneedah.mwc.network.messages.EntityControlServerMessage;
 import com.paneedah.mwc.network.messages.NightVisionToggleMessage;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
@@ -370,7 +371,7 @@ public class WeaponKeyInputHandler {
         }
 
         else if (MC.isSingleplayer() && KeyBindings.proningSwitchKey.isPressed()) {
-            modContext.getChannel().sendToServer(new EntityControlMessage(player, CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
+            modContext.getChannel().sendToServer(new EntityControlServerMessage(player, CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
         }
     }
 }

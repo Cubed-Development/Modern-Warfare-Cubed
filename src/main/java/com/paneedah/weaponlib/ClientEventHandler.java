@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.entities.PlayerUtils;
+import com.paneedah.mwc.utils.PlayerUtil;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
@@ -21,10 +21,10 @@ import com.paneedah.weaponlib.shader.DynamicShaderContext;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupManager;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
 import com.paneedah.weaponlib.shader.DynamicShaderPhase;
-import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
+import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.collisions.OreintedBB;
-import com.paneedah.weaponlib.vehicle.network.VehicleInteractPacket;
+import com.paneedah.mwc.network.messages.VehicleInteractPacket;
 import net.minecraft.block.Block;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -159,7 +159,7 @@ public class ClientEventHandler {
 			update();
 			modContext.getSyncManager().run();
 
-			PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(MC.player);
+			LivingEntityTracker tracker = LivingEntityTracker.getTracker(MC.player);
 			if(tracker != null)
 			    tracker.update();
 	        if (player instanceof EntityPlayerSP && player.getRidingEntity() instanceof EntityVehicle) {
@@ -241,23 +241,23 @@ public class ClientEventHandler {
 		modContext.getPlayerItemInstanceRegistry().update(player);
 		final PlayerWeaponInstance mainHandHeldWeaponInstance = modContext.getMainHeldWeapon();
 
-		if (PlayerUtils.isProning(player)) PlayerUtils.slowPlayerDown(player, SLOW_DOWN_WHILE_PRONING_ATTRIBUTE_MODIFIER);
-		else PlayerUtils.restorePlayerSpeed(player, SLOW_DOWN_WHILE_PRONING_ATTRIBUTE_MODIFIER);
+		if (PlayerUtil.isProning(player)) PlayerUtil.slowPlayerDown(player, SLOW_DOWN_WHILE_PRONING_ATTRIBUTE_MODIFIER);
+		else PlayerUtil.restorePlayerSpeed(player, SLOW_DOWN_WHILE_PRONING_ATTRIBUTE_MODIFIER);
 		
 		if (mainHandHeldWeaponInstance != null) {
 			if (player.isSprinting()) mainHandHeldWeaponInstance.setAimed(false);
-			if (mainHandHeldWeaponInstance.isAimed()) PlayerUtils.slowPlayerDown(player, SLOW_DOWN_WHILE_ZOOMING_ATTRIBUTE_MODIFIER);
-			else PlayerUtils.restorePlayerSpeed(player, SLOW_DOWN_WHILE_ZOOMING_ATTRIBUTE_MODIFIER);
+			if (mainHandHeldWeaponInstance.isAimed()) PlayerUtil.slowPlayerDown(player, SLOW_DOWN_WHILE_ZOOMING_ATTRIBUTE_MODIFIER);
+			else PlayerUtil.restorePlayerSpeed(player, SLOW_DOWN_WHILE_ZOOMING_ATTRIBUTE_MODIFIER);
 			
 			if (mainHandHeldWeaponInstance != null && mainHandHeldWeaponInstance.getState() == WeaponState.READY && mainHandHeldWeaponInstance.getStateUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis() && mainHandHeldWeaponInstance.getSyncStartTimestamp() == 0 && mainHandHeldWeaponInstance.getUpdateTimestamp() + DEFAULT_RECONCILE_TIMEOUT_MILLIS < System.currentTimeMillis())
 			    mainHandHeldWeaponInstance.reconcile();
 		} else {
-			PlayerUtils.restorePlayerSpeed(player, SLOW_DOWN_WHILE_ZOOMING_ATTRIBUTE_MODIFIER);
+			PlayerUtil.restorePlayerSpeed(player, SLOW_DOWN_WHILE_ZOOMING_ATTRIBUTE_MODIFIER);
 		}
 
 		final SpreadableExposure spreadableExposure = CompatibleExposureCapability.getExposure(MC.player, SpreadableExposure.class);
-		if (spreadableExposure != null && spreadableExposure.getTotalDose() > SLOW_DOWN_WHEN_POISONED_DOSE_THRESHOLD) PlayerUtils.slowPlayerDown(player, SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER);
-		else PlayerUtils.restorePlayerSpeed(player, SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER);
+		if (spreadableExposure != null && spreadableExposure.getTotalDose() > SLOW_DOWN_WHEN_POISONED_DOSE_THRESHOLD) PlayerUtil.slowPlayerDown(player, SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER);
+		else PlayerUtil.restorePlayerSpeed(player, SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER);
 
 		final LightExposure lightExposure = CompatibleExposureCapability.getExposure(MC.player, LightExposure.class);
 		if (lightExposure != null)

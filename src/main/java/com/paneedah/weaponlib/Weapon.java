@@ -30,6 +30,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -1413,15 +1414,16 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         instance.setMaxShots(result);
         String message;
         if(result == 1) {
-            message = net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode.semi");
+            message = I18n.format("gui.firearmMode.semi");
         } else if(result == Integer.MAX_VALUE) {
-            message = net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode.auto");
+            message = I18n.format("gui.firearmMode.auto");
         } else {
-            message = net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode.burst");
+            message = I18n.format("gui.firearmMode.burst");
         }
         LOG.debug("Changed fire mode of {} to {}", instance, result);
 
-        modContext.getStatusMessageCenter().addMessage(net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode", message), 1000);
+        if (instance.getPlayer() instanceof EntityPlayer)
+            ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.firearmMode", message)), true);
 
         instance.getPlayer().playSound(modContext.getChangeFireModeSound(), 1, 1);
     }
@@ -1488,7 +1490,9 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
 
-            modContext.getStatusMessageCenter().addMessage(net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.currentZoom", Math.round(ratio * 100)), 800);
+            if (instance.getPlayer() instanceof EntityPlayer)
+                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
             LOG.debug("Changed optical zoom to {}", instance.getZoom());
         } else {
@@ -1510,7 +1514,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             instance.setZoom(zoom);
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
-            modContext.getStatusMessageCenter().addMessage(net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.currentZoom", Math.round(ratio * 100)), 800);
+
+            if (instance.getPlayer() instanceof EntityPlayer)
+                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
             LOG.debug("Changed optical zoom to {}", zoom);
         } else {

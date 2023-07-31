@@ -1,9 +1,10 @@
 package com.paneedah.mwc.network.handlers;
 
-import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.mwc.network.messages.VehicleClientMessage;
+import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataContainer;
 import com.paneedah.weaponlib.vehicle.network.VehiclePacketLatencyTracker;
+import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -17,13 +18,15 @@ public final class VehicleClientMessageHandler implements IMessageHandler<Vehicl
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(final VehicleClientMessage vehicleClientMessage, final MessageContext messageContext) {
-        final VehicleDataContainer vehicleData = vehicleClientMessage.getVehicleData();
-        final EntityVehicle vehicle = (EntityVehicle) MC.player.world.getEntityByID(vehicleData.entityID);
+        NetworkUtil.processMessage(messageContext, () -> {
+            final VehicleDataContainer vehicleData = vehicleClientMessage.getVehicleData();
+            final EntityVehicle vehicle = (EntityVehicle) MC.player.world.getEntityByID(vehicleData.entityID);
 
-        VehiclePacketLatencyTracker.push(vehicle);
+            VehiclePacketLatencyTracker.push(vehicle);
 
-        if (vehicle != null)
-            vehicle.smoothShell.upload(vehicleData);
+            if (vehicle != null)
+                vehicle.smoothShell.upload(vehicleData);
+        });
 
         return null;
     }

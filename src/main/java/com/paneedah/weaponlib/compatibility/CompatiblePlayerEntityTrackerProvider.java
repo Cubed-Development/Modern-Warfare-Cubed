@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.compatibility;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
+import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagByteArray;
@@ -15,7 +15,6 @@ import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
 import java.util.function.Function;
 
-@Deprecated
 public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySerializable<NBTBase> {
 
     public static void register(ModContext modContext) {
@@ -27,17 +26,17 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
 
         public byte[] toByteArray();
 
-        public void setInitializer(Function<World, PlayerEntityTracker> initializer);
+        public void setInitializer(Function<World, LivingEntityTracker> initializer);
 
         public void setBytes(byte[] bytes);
 
-        public PlayerEntityTracker getTracker(World world);
+        public LivingEntityTracker getTracker(World world);
     }
 
     public static class PlayerEntityTrackerContainerImpl implements PlayerEntityTrackerContainer {
 
-        private Function<World, PlayerEntityTracker> initializer; // = w -> new PlayerEntityTracker(w);
-        private PlayerEntityTracker resolved;
+        private Function<World, LivingEntityTracker> initializer; // = w -> new LivingEntityTracker(w);
+        private LivingEntityTracker resolved;
         private byte[] bytes = new byte[0];
 
         @Override
@@ -51,15 +50,15 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
         }
 
         @Override
-        public void setInitializer(Function<World, PlayerEntityTracker> initializer) {
+        public void setInitializer(Function<World, LivingEntityTracker> initializer) {
            this.initializer = initializer;
            this.resolved = null;
         }
 
         @Override
-        public PlayerEntityTracker getTracker(World world) {
+        public LivingEntityTracker getTracker(World world) {
             if(resolved == null) {
-                resolved = initializer != null ? initializer.apply(world) : new PlayerEntityTracker(() -> world);
+                resolved = initializer != null ? initializer.apply(world) : new LivingEntityTracker(() -> world);
             }
             return resolved;
         }
@@ -81,7 +80,7 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
             byte[] bytes = content.getByteArray();
             if(bytes != null) {
                 instance.setBytes(bytes);
-                instance.setInitializer(w -> PlayerEntityTracker.fromByteArray(bytes, () -> w));
+                instance.setInitializer(w -> LivingEntityTracker.fromByteArray(bytes, () -> w));
             }
         }
     }
@@ -92,10 +91,10 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
     private PlayerEntityTrackerContainer instance = playerEntityTrackerContainer.getDefaultInstance(); // doesn't this trigger null pointer exception if capability is not registered?
 
 
-    public static PlayerEntityTracker getTracker(EntityLivingBase player) {
+    public static LivingEntityTracker getTracker(EntityLivingBase player) {
         if(player == null) return null;
         PlayerEntityTrackerContainer container = player.getCapability(playerEntityTrackerContainer, null);
-        PlayerEntityTracker result;
+        LivingEntityTracker result;
         if(container != null) {
             result = container.getTracker(player.world);
         } else {
@@ -105,7 +104,7 @@ public class CompatiblePlayerEntityTrackerProvider implements ICapabilitySeriali
     }
 
 
-    public static void setTracker(EntityLivingBase player, PlayerEntityTracker tracker) {
+    public static void setTracker(EntityLivingBase player, LivingEntityTracker tracker) {
         PlayerEntityTrackerContainer container = player.getCapability(playerEntityTrackerContainer, null);
         if(container != null) {
             container.setInitializer(w -> tracker);

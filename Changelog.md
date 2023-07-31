@@ -44,6 +44,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - GitHub URL in `MCmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
 - Custom death Messages when shot with a gun
+- Added status messages for `No ammunition`, `No magazine`, `Tracking`, `Firearm mode`, `Zoom` and `Explodes in`
 
 ### Changed
 

@@ -1,15 +1,10 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.proxies.ClientProxy;
-import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.StatusMessageCenter.Message;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.debug.DebugRenderer;
-import com.paneedah.weaponlib.electronics.ItemWirelessCamera;
-import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.jim.util.LangTools;
 import com.paneedah.weaponlib.jim.util.VectorTools;
 import com.paneedah.weaponlib.jim.util.color.FlatUIColors;
@@ -29,6 +24,7 @@ import net.minecraft.client.renderer.GlStateManager.DestFactor;
 import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -39,7 +35,6 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -504,72 +499,15 @@ public class CustomGui extends Gui {
 			MC.entityRenderer.setupOverlayRendering();
 			int color = 0xFFFFFF;
 
-			Message message = modContext.getStatusMessageCenter().nextMessage();
 			String messageText;
-			if(message != null) {
-				messageText = message.getMessage();
-				if(message.isAlert()) {
-					color = 0xFF0000;
-				}
-			} else {
-				messageText = getDefaultMagazineMessage(itemStack);
-			}
+			messageText = getDefaultMagazineMessage(itemStack);
 
 			int x = getStatusBarXPosition(width, messageText, fontRender);
 			int y = getStatusBarYPosition(height);
 
 			fontRender.drawStringWithShadow(messageText, x, y, color);
 			event.setCanceled(true);
-		} else if(itemStack.getItem() instanceof ItemWirelessCamera) {
-			MC.entityRenderer.setupOverlayRendering();
-            int color = 0xFFFFFF;
-
-            Message message = modContext.getStatusMessageCenter().nextMessage();
-            String messageText;
-            if(message != null) {
-                messageText = message.getMessage();
-                if(message.isAlert()) {
-                    color = 0xFF0000;
-                }
-
-                int x = getStatusBarXPosition(width, messageText, fontRender);
-                int y = getStatusBarYPosition(height);
-
-                int stringWidth = fontRender.getStringWidth(messageText);
-                if(stringWidth > 80 ) {
-                    x = width - stringWidth - 5;
-                }
-
-                fontRender.drawStringWithShadow(messageText, x, y, color);
-                event.setCanceled(true);
-            }
-		} else if(itemStack.getItem() instanceof ItemGrenade) {
-
-			MC.entityRenderer.setupOverlayRendering();
-            int color = 0xFFFFFF;
-
-            Message message = modContext.getStatusMessageCenter().nextMessage();
-            String messageText;
-            if(message != null) {
-                messageText = message.getMessage();
-                if(message.isAlert()) {
-                    color = 0xFFFF00;
-                }
-
-                int x = getStatusBarXPosition(width, messageText, fontRender);
-                int y = getStatusBarYPosition(height);
-
-                int stringWidth = fontRender.getStringWidth(messageText);
-                if(stringWidth > 80 ) {
-                    x = width - stringWidth - 5;
-                }
-
-                fontRender.drawStringWithShadow(messageText, x, y, color);
-                event.setCanceled(true);
-            }
 		}
-		
-		
 	}
 	
 	
@@ -678,7 +616,7 @@ public class CustomGui extends Gui {
 		
 		ItemMagazine magazine = (ItemMagazine) itemStack.getItem();
 
-		String ammoCounterMessage = I18n.translateToLocalFormatted("gui.ammoCounter", Tags.getAmmo(itemStack) + "/" + magazine.getCapacity());
+		String ammoCounterMessage = I18n.format("gui.ammoCounter", Tags.getAmmo(itemStack) + "/" + magazine.getCapacity());
 		return ammoCounterMessage;
 	}
 
@@ -694,9 +632,9 @@ public class CustomGui extends Gui {
 
 		String text;
 		if(weaponInstance.getWeapon().getAmmoCapacity() == 0 && totalCapacity == 0) {
-			text = I18n.translateToLocalFormatted("gui.noMagazine");
+			text = I18n.format("gui.noMagazine");
 		} else {
-			text = I18n.translateToLocalFormatted(
+			text = I18n.format(
 	                "gui.ammoCounter", weaponInstance.getWeapon().getCurrentAmmo(MC.player) + "/" + totalCapacity);
 		}
 		return text;

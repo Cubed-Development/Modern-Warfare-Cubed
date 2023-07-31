@@ -30,12 +30,7 @@ public final class ExplosionMessageHandler implements IMessageHandler<ExplosionM
             final Vector3D position = explosionMessage.getPosition();
             final Vector3D motion = explosionMessage.getVelocity();
 
-            final Explosion explosion = new Explosion(modContext,
-                    player.world,
-                    null,
-                    position.x,
-                    position.y,
-                    position.z,
+            final Explosion explosion = new Explosion(modContext, player.world, null, position.x, position.y, position.z,
                     explosionMessage.getStrength(),
                     explosionMessage.getAffectedBlockPositions(),
                     explosionMessage.getExplosionParticleAgeCoefficient(),

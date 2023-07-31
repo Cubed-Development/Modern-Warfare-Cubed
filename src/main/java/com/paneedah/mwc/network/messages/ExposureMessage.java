@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Getter
@@ -15,7 +16,7 @@ import java.util.Collection;
 @AllArgsConstructor
 public final class ExposureMessage implements IMessage {
     
-    private Collection<? extends Exposure> exposures;
+    private Collection<? extends Exposure> exposures = new ArrayList<>();
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {

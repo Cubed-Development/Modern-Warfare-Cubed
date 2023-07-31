@@ -3,9 +3,8 @@ package com.paneedah.weaponlib.perspective;
 import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.weaponlib.electronics.PlayerTabletInstance;
 import com.paneedah.weaponlib.electronics.SignalQuality;
-import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
+import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import com.paneedah.weaponlib.tracking.TrackableEntity;
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
@@ -61,7 +60,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
         PlayerTabletInstance tabletInstance = (PlayerTabletInstance) instance;
 
-        PlayerEntityTracker playerEntityTracker = PlayerEntityTracker.getTracker(entityPlayer);
+        LivingEntityTracker playerEntityTracker = LivingEntityTracker.getTracker(entityPlayer);
 
         if(playerEntityTracker == null) {
             return;

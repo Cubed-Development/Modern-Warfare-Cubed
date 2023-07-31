@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.electronics;
 
+import com.paneedah.mwc.network.messages.LivingEntityTrackerMessage;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
-import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
+import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import com.paneedah.weaponlib.tracking.TrackableEntity;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
@@ -81,14 +81,11 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
 
             if (!world.isRemote) {
                 LOG.debug("Server hit entity uuid {}", rayTraceResult.entityHit.getPersistentID());
-                PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) getThrower());
+                LivingEntityTracker tracker = LivingEntityTracker.getTracker((EntityPlayer) getThrower());
                 if(tracker != null) {
                     hit = true;
-                    tracker.addTrackableEntity(new TrackableEntity(entityHit, timestamp,
-                            duration));
-                    modContext.getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker,
-                            "Tracking " + displayName),
-                            (EntityPlayerMP)getThrower());
+                    tracker.addTrackableEntity(new TrackableEntity(entityHit, timestamp, duration));
+                    modContext.getChannel().sendTo(new LivingEntityTrackerMessage(tracker, "Tracking " + displayName), (EntityPlayerMP)getThrower());
                 }
                 entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, getThrower()), 0.001f);
             }
