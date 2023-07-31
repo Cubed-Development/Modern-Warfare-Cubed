@@ -2,6 +2,7 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.BalancePackClientMessage;
 import com.paneedah.weaponlib.config.BalancePackManager;
+import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -13,7 +14,7 @@ public final class BalancePackClientMessageHandler implements IMessageHandler<Ba
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(final BalancePackClientMessage balancePackClientMessage, final MessageContext messageContext) {
-        BalancePackManager.setCurrentBalancePack(balancePackClientMessage.getBalancePack());
+        NetworkUtil.processMessage(messageContext, () -> BalancePackManager.setCurrentBalancePack(balancePackClientMessage.getBalancePack()));
 
         return null;
     }

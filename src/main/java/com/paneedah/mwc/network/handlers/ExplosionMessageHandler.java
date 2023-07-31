@@ -3,6 +3,7 @@ package com.paneedah.mwc.network.handlers;
 import com.paneedah.mwc.network.messages.ExplosionMessage;
 import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
+import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -24,31 +25,33 @@ public final class ExplosionMessageHandler implements IMessageHandler<ExplosionM
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(final ExplosionMessage explosionMessage, final MessageContext messageContext) {
-        final EntityPlayer player = MC.player;
-        final Vector3D position = explosionMessage.getPosition();
-        final Vector3D motion = explosionMessage.getVelocity();
+        NetworkUtil.processMessage(messageContext, () -> {
+            final EntityPlayer player = MC.player;
+            final Vector3D position = explosionMessage.getPosition();
+            final Vector3D motion = explosionMessage.getVelocity();
 
-        final Explosion explosion = new Explosion(modContext,
-                player.world,
-                null,
-                position.x,
-                position.y,
-                position.z,
-                explosionMessage.getStrength(),
-                explosionMessage.getAffectedBlockPositions(),
-                explosionMessage.getExplosionParticleAgeCoefficient(),
-                explosionMessage.getSmokeParticleAgeCoefficient(),
-                explosionMessage.getExplosionParticleScaleCoefficient(),
-                explosionMessage.getSmokeParticleScaleCoefficient(),
-                modContext.getRegisteredTexture(explosionMessage.getExplosionParticleTextureId()),
-                modContext.getRegisteredTexture(explosionMessage.getSmokeParticleTextureId()),
-                null);
+            final Explosion explosion = new Explosion(modContext,
+                    player.world,
+                    null,
+                    position.x,
+                    position.y,
+                    position.z,
+                    explosionMessage.getStrength(),
+                    explosionMessage.getAffectedBlockPositions(),
+                    explosionMessage.getExplosionParticleAgeCoefficient(),
+                    explosionMessage.getSmokeParticleAgeCoefficient(),
+                    explosionMessage.getExplosionParticleScaleCoefficient(),
+                    explosionMessage.getSmokeParticleScaleCoefficient(),
+                    modContext.getRegisteredTexture(explosionMessage.getExplosionParticleTextureId()),
+                    modContext.getRegisteredTexture(explosionMessage.getSmokeParticleTextureId()),
+                    null);
 
-        explosion.doExplosionB(true, explosionMessage.isDestroyBlocks());
+            explosion.doExplosionB(true, explosionMessage.isDestroyBlocks());
 
-        player.motionX += motion.x;
-        player.motionY += motion.y;
-        player.motionZ += motion.z;
+            player.motionX += motion.x;
+            player.motionY += motion.y;
+            player.motionZ += motion.z;
+        });
 
         return null;
     }

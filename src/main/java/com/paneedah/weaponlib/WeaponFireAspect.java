@@ -10,6 +10,7 @@ import com.paneedah.mwc.network.messages.MuzzleFlashMessage;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.StateManager;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -475,7 +476,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	
         	Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
     		velocity = velocity.rotateYaw((float) Math.toRadians(-player.rotationYaw));
-        	modContext.getChannel().sendToAllAround(new ShellMessageClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), pos.add(weaponDir), velocity), tp);
+        	modContext.getChannel().sendToAllAround(new ShellMessageClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), new Vector3D(pos.add(weaponDir)), new Vector3D(velocity)), tp);
         }
 
 

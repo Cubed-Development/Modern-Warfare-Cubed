@@ -47,6 +47,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
+import static com.paneedah.mwc.network.handlers.CraftingClientMessageHandler.RECEIVE_HASH;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
@@ -345,6 +346,6 @@ public class CommonEventHandler {
         if (baos == null) return;
 
         // Send the player the hash
-        getModContext().getChannel().sendTo(new CraftingClientMessage(0, baos), (EntityPlayerMP) player);
+        getModContext().getChannel().sendTo(new CraftingClientMessage(RECEIVE_HASH, baos), (EntityPlayerMP) player);
     }
 }

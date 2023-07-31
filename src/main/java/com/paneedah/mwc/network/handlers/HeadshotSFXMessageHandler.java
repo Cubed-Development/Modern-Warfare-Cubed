@@ -2,6 +2,7 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.HeadshotSFXMessage;
 import com.paneedah.weaponlib.UniversalSoundLookup;
+import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -15,7 +16,7 @@ public final class HeadshotSFXMessageHandler implements IMessageHandler<Headshot
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(final HeadshotSFXMessage headshotSFXMessage, final MessageContext messageContext) {
-        MC.player.playSound(UniversalSoundLookup.lookupSound("headshotsfx"), 10, 1);
+        NetworkUtil.processMessage(messageContext, () -> MC.player.playSound(UniversalSoundLookup.lookupSound("bolt_press"), 10, 1));
 
         return null;
     }

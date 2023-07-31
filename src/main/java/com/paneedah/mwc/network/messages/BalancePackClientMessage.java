@@ -2,7 +2,7 @@ package com.paneedah.mwc.network.messages;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import com.paneedah.mwc.network.NetworkUtil;
+import com.paneedah.mwc.network.CompressionUtil;
 import com.paneedah.weaponlib.config.BalancePackManager.BalancePack;
 import io.netty.buffer.ByteBuf;
 import lombok.AllArgsConstructor;
@@ -26,7 +26,7 @@ public final class BalancePackClientMessage implements IMessage {
         for (int i = 0; i < bytes.length; ++i)
             bytes[i] = byteBuf.readByte();
 
-        balancePack = BalancePack.fromJSONObject(new GsonBuilder().create().fromJson(NetworkUtil.decompressString(bytes), JsonObject.class));
+        balancePack = BalancePack.fromJSONObject(new GsonBuilder().create().fromJson(CompressionUtil.decompressString(bytes), JsonObject.class));
     }
 
     @Override
@@ -35,7 +35,7 @@ public final class BalancePackClientMessage implements IMessage {
         if (balancePack == null)
             return;
 
-        final byte[] bytes = NetworkUtil.compressString(balancePack.toJSONObject().toString());
+        final byte[] bytes = CompressionUtil.compressString(balancePack.toJSONObject().toString());
         byteBuf.writeInt(bytes.length);
         byteBuf.writeBytes(bytes);
     }

@@ -3,6 +3,7 @@ package com.paneedah.mwc.network.handlers;
 import com.paneedah.mwc.network.messages.GrenadeMessage;
 import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
+import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,13 +19,15 @@ public final class GrenadeMessageHandler implements IMessageHandler<GrenadeMessa
 
     @Override
     public IMessage onMessage(final GrenadeMessage grenadeMessage, final MessageContext messageContext) {
-        final EntityPlayer player = messageContext.getServerHandler().player;
+        NetworkUtil.processMessage(messageContext, () -> {
+            final EntityPlayer player = messageContext.getServerHandler().player;
 
-        if (player.getHeldItemMainhand().getItem() instanceof ItemGrenade) {
-            grenadeMessage.getInstance().setPlayer(player);
-            grenadeAttackAspect.serverThrowGrenade(player, grenadeMessage.getInstance(), grenadeMessage.getActivationTimestamp());
-        }
+            if (player.getHeldItemMainhand().getItem() instanceof ItemGrenade) {
+                grenadeMessage.getInstance().setPlayer(player);
+                grenadeAttackAspect.serverThrowGrenade(player, grenadeMessage.getInstance(), grenadeMessage.getActivationTimestamp());
+            }
+        });
 
-        return grenadeMessage;
+        return null;
     }
 }

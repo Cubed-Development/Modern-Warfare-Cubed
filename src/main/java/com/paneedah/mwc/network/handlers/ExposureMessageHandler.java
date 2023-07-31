@@ -2,6 +2,7 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.ExposureMessage;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
+import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -15,7 +16,7 @@ public final class ExposureMessageHandler implements IMessageHandler<ExposureMes
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(final ExposureMessage exposureMessage, final MessageContext messageContext) {
-        CompatibleExposureCapability.updateExposures(MC.player, exposureMessage.getExposures());
+        NetworkUtil.processMessage(messageContext, () -> CompatibleExposureCapability.updateExposures(MC.player, exposureMessage.getExposures()));
 
         return null;
     }

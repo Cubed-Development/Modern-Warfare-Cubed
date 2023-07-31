@@ -2,6 +2,7 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.network.messages.BlockHitMessage;
+import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -17,13 +18,15 @@ public final class BlockHitMessageHandler implements IMessageHandler<BlockHitMes
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(final BlockHitMessage blockHitMessage, final MessageContext messageContext) {
-        final Vector3F position = blockHitMessage.getPosition();
+        NetworkUtil.processMessage(messageContext, () -> {
+            final Vector3F position = blockHitMessage.getPosition();
 
-        for (int i = 0; i < MWC.bulletHitParticleMult; i++) {
-            MC.effectRenderer.addBlockHitEffects(blockHitMessage.getBlockPos(), blockHitMessage.getEnumFacing());
-            MC.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, position.x, position.y, position.z, 0, 0, 0);
-        }
+            for (int i = 0; i < MWC.bulletHitParticleMult; i++) {
+                MC.effectRenderer.addBlockHitEffects(blockHitMessage.getBlockPos(), blockHitMessage.getEnumFacing());
+                MC.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, position.x, position.y, position.z, 0, 0, 0);
+            }
+        });
 
-        return blockHitMessage;
+        return null;
     }
 }
