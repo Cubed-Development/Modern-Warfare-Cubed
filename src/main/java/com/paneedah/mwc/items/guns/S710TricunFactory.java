@@ -9,6 +9,7 @@ import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
@@ -23,7 +24,7 @@ public class S710TricunFactory implements GunFactory {
 
                 .withName("s7_10_tricun")
                 .withFireRate(0.85f)
-                .withRecoil(2.3f)
+                .withRecoil(1.8f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.SMG)
                 .withMaxShots(1, Integer.MAX_VALUE)
@@ -47,6 +48,24 @@ public class S710TricunFactory implements GunFactory {
 //		.withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
+                .withRecoilParam(new RecoilParam(
+                        // The weapon power
+                        15.0,
+                        // Muzzle climb divisor
+                        15.75,
+                        // "Stock Length"
+                        50.0,
+                        // Recovery rate from initial shot
+                        0.4,
+                        // Recovery rate @ "stock"
+                        0.3125,
+                        // Recoil rotation (Y)
+                        0.0,
+                        // Recoil rotation (Z)
+                        0.0,
+                        // Ads similarity divisor
+                        1.0
+                ))
                 .withInformationProvider(stack -> Arrays.asList(
                         "Type: Submachine Gun",
                         "Damage: 5.4",
@@ -58,8 +77,8 @@ public class S710TricunFactory implements GunFactory {
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         2f, // x
-                        0.5f, // y
-                        2.5f) // z
+                        0.1f, // y
+                        3.0f) // z
 
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
                 .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
