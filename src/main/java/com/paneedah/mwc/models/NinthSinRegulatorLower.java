@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 
 
 public class NinthSinRegulatorLower extends ModelWithAttachments {
+  
 	private final ModelRenderer regulator_lower_EXTRA4;
 	private final ModelRenderer cube_r55;
 	private final ModelRenderer cube_r56;
@@ -20,7 +21,7 @@ public class NinthSinRegulatorLower extends ModelWithAttachments {
 	public NinthSinRegulatorLower() {
 		textureWidth = 128;
 		textureHeight = 128;
-
+    
 		regulator_lower_EXTRA4 = new ModelRenderer(this);
 		regulator_lower_EXTRA4.setRotationPoint(6.25F, 10.0F, -22.0F);
 		regulator_lower_EXTRA4.cubeList.add(new ModelBox(regulator_lower_EXTRA4, 9, 40, -1.001F, -0.75F, 1.5F, 1, 3, 3, 0.0F, false));

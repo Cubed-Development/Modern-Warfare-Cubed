@@ -11,12 +11,13 @@ import net.minecraft.entity.Entity;
 
 
 public class NinthSinRegulatorActionLower extends ModelWithAttachments {
+
 	private final ModelRenderer regulatorlower_lower_EXTRA7;
 
 	public NinthSinRegulatorActionLower() {
 		textureWidth = 128;
 		textureHeight = 128;
-
+    
 		regulatorlower_lower_EXTRA7 = new ModelRenderer(this);
 		regulatorlower_lower_EXTRA7.setRotationPoint(7.0F, 10.1F, -18.5F);
 		setRotationAngle(regulatorlower_lower_EXTRA7, 0.6632F, 0.0F, 0.0F);

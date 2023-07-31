@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 
 
 public class NinthSinPanelLower extends ModelWithAttachments {
+  
 	private final ModelRenderer panel_lower_EXTRA2;
 	private final ModelRenderer cube_r43;
 	private final ModelRenderer cube_r44;

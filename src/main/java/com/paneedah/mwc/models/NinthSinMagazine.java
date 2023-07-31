@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 
 
 public class NinthSinMagazine extends ModelWithAttachments {
+
 	private final ModelRenderer energy_cell_MAGAZINE;
 	private final ModelRenderer cube_r70;
 	private final ModelRenderer cube_r71;
@@ -47,4 +48,4 @@ public class NinthSinMagazine extends ModelWithAttachments {
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
 	}
-}
+]

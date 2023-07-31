@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 
 
 public class NinthSinCycleBackLeft extends ModelWithAttachments {
+  
 	private final ModelRenderer cycler_back_left_FRONTSIGHT;
 	private final ModelRenderer cube_r65;
 	private final ModelRenderer cube_r66;

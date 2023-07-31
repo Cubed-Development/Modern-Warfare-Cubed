@@ -52,6 +52,9 @@ public class M79Factory implements GunFactory {
         .withCompatibleAttachment(Bullets.Grenade40mm, (model) -> {})
         
         .withCompatibleAttachment(AuxiliaryAttachments.M79grenade, true, (model) -> {
+            GL11.glTranslatef(-1.76F, 0.6f, 0.5F);
+//            GL11.glScaled(1F, 1F, 1F);
+            GL11.glRotatef(90F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M79Cartridge, true, (model) -> {
         })

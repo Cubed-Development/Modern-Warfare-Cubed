@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 
 
 public class NinthSinRegulatorActionUpper extends ModelWithAttachments {
+  
 	private final ModelRenderer regulatorlower_upper_EXTRA6;
 
 	public NinthSinRegulatorActionUpper() {

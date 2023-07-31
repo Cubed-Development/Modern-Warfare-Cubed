@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 
 
 public class NinthSinRegulatorAction extends ModelWithAttachments {
+
 	private final ModelRenderer regulator_action_EXTRA8;
 	private final ModelRenderer cube_r61;
 	private final ModelRenderer cube_r62;

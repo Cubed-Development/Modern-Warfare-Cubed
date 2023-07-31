@@ -4,13 +4,13 @@ import com.paneedah.weaponlib.ModelWithAttachments;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-
 // Made with Blockbench 4.7.4
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
 
 public class NinthSinCycle extends ModelWithAttachments {
+  
 	private final ModelRenderer cycler_GUARD;
 	private final ModelRenderer cube_r69;
 
