@@ -7,7 +7,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ## [Unreleased] Modern Warfare Cubed Version 0.1 Changelog
 
-## Warning
+### Warning
 
 **If you are upgrading from either Vic's Modern Warfare or Modern Warfare Cubed Version 0.1-Dev-6 or under all Modern Warfare related items, blocks weapons, etc... will disappear from your save either back up your world or start a new one.**
 
