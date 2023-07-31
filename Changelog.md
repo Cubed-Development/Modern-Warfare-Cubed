@@ -7,7 +7,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ## [Unreleased] Modern Warfare Cubed Version 0.1 Changelog
 
-## Warning
+### Warning
 
 **If you are upgrading from either Vic's Modern Warfare or Modern Warfare Cubed Version 0.1-Dev-6 or under all Modern Warfare related items, blocks weapons, etc... will disappear from your save either back up your world or start a new one.**
 
@@ -47,8 +47,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Changed
 
-- Overhauled the textures of AAC Honey Badger, Bushmaster ACR, Beowulf, HK 417, M16A1, FN F2000, 100rnd 5.56x45mm NATO STANAG Drum Magazine and the pink camo skin
-- Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight, OKP-7 Sight, and Eotech Hybrid HHS™ II Sight
+- Overhauled the textures of the AAC Honey Badger, Bushmaster ACR, Beowulf, AUG, Remington 870, AS-50, S7-10, M79, HK 417, M16A1, FN F2000, 100rnd 5.56x45mm NATO STANAG Drum Magazine and the pink camo skin
+- Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight, and Eotech Hybrid HHS™ II Sight
 - Overhauled animations and sound effects of the M40A6 and Uzi
 - Sidearms can now be carried in backpacks
 - Added keybindings to switching cameras on the tablet
@@ -128,8 +128,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Fixed Bipod in ARX-160
   - Fixed Vector Stock Adapter
   - Adjusted slide recoil on m17
-  - Fixed muzzle flash for Dragunov
+  - Fixed muzzle flash for Dragunov and AK-101
   - Fixed texture bullet
+- Fixed the attachment of the Long Deagle
 - Fixed prop hitboxes not lining up with their models:
   - Fridge (open/closed)
   - Locker
@@ -176,6 +177,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Losslessly compressed assets as a result, the jar size decreased (35.3MB -> 27.57MB)
 - Improved ShaderLoader
 - Reduced overhead due to the removal of most of the compatibility layer leading to increased performance
+- Optimized a majority of the models as a result,the jar size decreased (27.57MB -> 21.55MB)
 
 ### Internal
 

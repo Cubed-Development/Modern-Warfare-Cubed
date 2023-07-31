@@ -1005,7 +1005,7 @@ tile.mwc_DuelFloodLight.name=Duel Flood Light
 tile.mwc_FloodLight.name=Flood Light
 tile.mwc_Radio_rotated.name=Radio (Rotated)
 tile.mwc_Radio.name=Radio
-tile.mwc_camera_rotated.name=Camera Rotated
+tile.mwc_camera_rotated.name=Camera (Rotated)
 tile.mwc_pc.name=PC
 tile.mwc_propanetank.name=Propane Tank
 tile.mwc_towablefloodlight.name=Towable Flood Light
@@ -1042,6 +1042,17 @@ key.categories.futuristicarsenal=Modern Warfare
 key.laser=Switch Laser
 key.add=Zoom In
 key.subtract=Zoom Out
+key.inspect=Inspect
+key.nightVision=Toggle Night Vision
+key.opendoor=Open Door
+key.proning=Prone
+key.unload=Unload
+
+keys.categories.vehicle=Modern Warfare Cubed (Vehicle)
+vehicle.breake=Brake
+vehicle.clutch=Clutch
+vehicle.handbrake=Handbreake
+vehicle.throttle=Throttle
 
 gui.attachmentMode.changeScope=Press [%s] to change scope
 gui.attachmentMode.changeBarrelRig=Press [%s] to change barrel rig
