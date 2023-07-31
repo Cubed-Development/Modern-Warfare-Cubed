@@ -538,6 +538,28 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.TV")
         .withTextureName("textures/models/tv.png")
         .withCreativeTab(MWC.PROPS_TAB)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
