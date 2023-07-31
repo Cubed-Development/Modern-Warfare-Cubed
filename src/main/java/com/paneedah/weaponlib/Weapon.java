@@ -2,7 +2,6 @@ package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
 import com.paneedah.mwc.network.messages.BlockHitMessage;
-import com.paneedah.weaponlib.BulletHoleRenderer.BulletHole;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
@@ -14,7 +13,6 @@ import com.paneedah.weaponlib.crafting.*;
 import com.paneedah.weaponlib.model.Shell;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -1287,9 +1285,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 //        if(world.isRemote)
 //            ClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vector3D(position.hitVec.x, position.hitVec.y, position.hitVec.z), position.sideHit, 0.05));
 
-        if(builder.blockImpactHandler != null) {
+        if (!world.isRemote && builder.blockImpactHandler != null)
             builder.blockImpactHandler.onImpact(world, player, entity, position);
-        }
     }
 
     @Override
