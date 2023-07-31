@@ -262,22 +262,19 @@ public class CommonModContext implements ModContext {
         
         channel.registerMessage(new BalancePackClientMessageHandler(), BalancePackClientMessage.class, 39, Side.CLIENT);
 
-        channel.registerMessage(new HeadshotSFXMessageHandler(), HeadshotSFXMessage.class, 40, Side.CLIENT);
+        channel.registerMessage(new BloodClientMessageHandler(), BloodClientMessage.class, 40, Side.CLIENT);
+        
+        channel.registerMessage(new OpenDoorMessageHandler(), OpenDoorMessage.class, 41, Side.SERVER);
 
-        channel.registerMessage(new BloodClientMessageHandler(), BloodClientMessage.class, 41, Side.CLIENT);
+        channel.registerMessage(new WorkbenchServerMessageHandler(this), WorkbenchServerMessage.class, 42, Side.SERVER);
         
-        channel.registerMessage(new OpenDoorMessageHandler(), OpenDoorMessage.class, 42, Side.SERVER);
-
-        channel.registerMessage(new WorkbenchServerMessageHandler(this), WorkbenchServerMessage.class, 43, Side.SERVER);
+        channel.registerMessage(new WorkbenchClientMessageHandler(), WorkbenchClientMessage.class, 43, Side.CLIENT);
         
-        channel.registerMessage(new WorkbenchClientMessageHandler(), WorkbenchClientMessage.class, 44, Side.CLIENT);
+        channel.registerMessage(new CraftingClientMessageHandler(this), CraftingClientMessage.class, 44, Side.CLIENT);
         
-        channel.registerMessage(new CraftingClientMessageHandler(this), CraftingClientMessage.class, 45, Side.CLIENT);
+        channel.registerMessage(new CraftingServerMessageHandler(this), CraftingServerMessage.class, 45, Side.SERVER);
         
-        channel.registerMessage(new CraftingServerMessageHandler(this), CraftingServerMessage.class, 46, Side.SERVER);
-        
-        channel.registerMessage(new EntityPickupMessageHandler(), EntityPickupMessage.class, 47, Side.SERVER);
-        
+        channel.registerMessage(new EntityPickupMessageHandler(), EntityPickupMessage.class, 46, Side.SERVER);
         
 		CommonEventHandler serverHandler = new CommonEventHandler(this);
         MinecraftForge.EVENT_BUS.register(serverHandler);
