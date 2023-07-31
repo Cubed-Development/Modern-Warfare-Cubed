@@ -6119,8 +6119,8 @@
       "craftingGroup": "BULLET",
       "recipe": [
         {
-          "entryName": "ingotCopper",
-          "defaultItem": "mwc:copper_ingot",
+          "entryName": "plastic",
+          "defaultItem": "mwc:synthetic_plastic",
           "isOreDictionary": true,
           "count": 6
         },
