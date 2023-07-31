@@ -2602,7 +2602,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.AUGScopeRail(), "aug.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withInventoryModelPositioning((model, s) -> {
-                    if (model instanceof com.paneedah.mwc.models.AUGA2) {
+                    if (model instanceof com.paneedah.mwc.models.AUGScopeRail) {
                         GL11.glTranslatef(-0.6F, 0.6F, 0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
@@ -2612,7 +2612,7 @@ public class Attachments {
                         GL11.glScalef(0f, 0f, 0f);
                     }
                 }).withFirstPersonModelPositioning((model, itemStack) -> {
-                    if (model instanceof com.paneedah.mwc.models.AUGA2) {
+                    if (model instanceof com.paneedah.mwc.models.AUGScopeRail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
@@ -2621,7 +2621,7 @@ public class Attachments {
                     }
 
                 }).withThirdPersonModelPositioning((model, itemStack) -> {
-                    if (model instanceof com.paneedah.mwc.models.AUGA2) {
+                    if (model instanceof com.paneedah.mwc.models.AUGScopeRail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
