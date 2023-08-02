@@ -334,7 +334,7 @@ public class Magazines {
         
         Magazines.NGSWRMag = new ItemMagazine.Builder()
         		.withCapacity(20)
-        		.withCompatibleBullet(Bullets.Bullet_277)
+        		.withCompatibleBullet(Bullets.bullet_277)
         		.withName("NGSWR_Mag")
         		.withRotationPoint(-0.16000000476837162, -0.44000001311302195, -1.4800000441074375)
 
