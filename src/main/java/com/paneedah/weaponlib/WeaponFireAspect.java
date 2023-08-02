@@ -1,24 +1,25 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.NetworkPermitManager;
+import com.paneedah.mwc.network.messages.MuzzleFlashMessage;
+import com.paneedah.mwc.network.messages.ShellMessageClient;
 import com.paneedah.mwc.network.messages.TryFireMessage;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.mwc.network.messages.ShellMessageClient;
-import com.paneedah.mwc.network.messages.MuzzleFlashMessage;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.StateManager;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.client.audio.PositionedSoundRecord;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraftforge.fml.relauncher.Side;
@@ -205,19 +206,19 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
     }
 
     private void cannotFire(PlayerWeaponInstance weaponInstance) {
-  
-        if(weaponInstance.getAmmo() == 0 || Tags.getAmmo(weaponInstance.getItemStack()) == 0) {
+        if (weaponInstance.getAmmo() == 0 || Tags.getAmmo(weaponInstance.getItemStack()) == 0) {
             String message;
-            if(weaponInstance.getWeapon().getAmmoCapacity() == 0
-                    && modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null) {
-                message = I18n.translateToLocalFormatted("gui.noMagazine");
-            } else {
-                message = I18n.translateToLocalFormatted("gui.noAmmo");
-            }
-            modContext.getStatusMessageCenter().addAlertMessage(message, 3, 250, 200);
-            if(weaponInstance.getPlayer() instanceof EntityPlayer) {
+
+            if (weaponInstance.getWeapon().getAmmoCapacity() == 0 && modContext.getAttachmentAspect().getActiveAttachment(weaponInstance, AttachmentCategory.MAGAZINE) == null)
+                message = I18n.format("gui.noMagazine");
+            else
+                message = I18n.format("gui.noAmmo");
+
+            if (weaponInstance.getPlayer() instanceof EntityPlayer)
+                ((EntityPlayer) weaponInstance.getPlayer()).sendStatusMessage(new TextComponentString(message), true);
+
+            if(weaponInstance.getPlayer() instanceof EntityPlayer)
                 weaponInstance.getPlayer().playSound(modContext.getNoAmmoSound(), 1, 1);
-            }
         }
     }
 

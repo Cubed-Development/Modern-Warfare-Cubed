@@ -16,6 +16,7 @@ import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
@@ -33,6 +34,7 @@ public class FMG9Factory implements GunFactory {
 		.withRecoil(1f)
 		.withZoom(0.9f)
 		.withConfigGroup(GunConfigurationGroup.SMG)
+        .withShellType(Type.PISTOL)
 		.hasFlashPedals()
 		.withMaxShots(1, 3, Integer.MAX_VALUE)
 		.withMuzzlePosition(new Vec3d(-0.06400000190734866, -0.8879999966621398, -3.099999898672101))

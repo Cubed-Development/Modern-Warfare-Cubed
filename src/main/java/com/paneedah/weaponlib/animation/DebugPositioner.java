@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.animation;
 
 import com.paneedah.weaponlib.KeyBindings;
-import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
+import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.text.TextComponentString;
 import org.lwjgl.opengl.GL11;
@@ -395,7 +395,7 @@ public class DebugPositioner {
 	}
 
 	public static void watch() {
-		PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(MC.player);
+		LivingEntityTracker tracker = LivingEntityTracker.getTracker(MC.player);
 		System.out.println("Trackable entities: " + tracker.getTrackableEntitites());
 	}
 

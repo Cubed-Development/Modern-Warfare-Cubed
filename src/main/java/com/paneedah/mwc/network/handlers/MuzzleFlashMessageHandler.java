@@ -2,6 +2,7 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.MuzzleFlashMessage;
 import com.paneedah.weaponlib.ClientEventHandler;
+import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -15,10 +16,12 @@ public final class MuzzleFlashMessageHandler implements IMessageHandler<MuzzleFl
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(final MuzzleFlashMessage muzzleFlashMessage, final MessageContext messageContext) {
-        if (MC.player.getEntityId() == muzzleFlashMessage.getEntityID())
-            return null;
+        NetworkUtil.processMessage(messageContext, () -> {
+            if (MC.player.getEntityId() == muzzleFlashMessage.getEntityID())
+                return;
 
-        ClientEventHandler.uploadFlash(muzzleFlashMessage.getEntityID());
+            ClientEventHandler.uploadFlash(muzzleFlashMessage.getEntityID());
+        });
 
         return null;
     }

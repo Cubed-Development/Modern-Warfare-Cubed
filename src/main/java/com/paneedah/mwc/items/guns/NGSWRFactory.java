@@ -72,11 +72,11 @@ public class NGSWRFactory implements GunFactory {
 		.withInformationProvider(stack -> Arrays.asList(
 		"Type: Assault Rifle", 
 		"Damage: 7", 
-		"Cartridge: 6.5mm",
+		"Cartridge: .277 FURY",
 		"Fire Rate: SEMI, AUTO",
 		"Rate of Fire: 75/100",
 		"Magazines:",
-        "20rnd 6.5mm Magazine"))
+        "20rnd .277 FURY Magazine"))
 		
 		.withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 8), new

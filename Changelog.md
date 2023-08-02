@@ -44,6 +44,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - GitHub URL in `MCmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
 - Custom death Messages when shot with a gun
+- Added status messages for `No ammunition`, `No magazine`, `Tracking`, `Firearm mode`, `Zoom` and `Explodes in`
+- Added the .277 FURY bullet for the NGSW-R
 
 ### Changed
 
@@ -92,10 +94,14 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Merged the Gadget creative tab into the `Equipment` creative tab
 - Debug commands are now only accessible to oped players (Oped of level 4)
 - Rewritten the rendering system, items are now positions correctly everywhere
-- The weapon stats in the modification GUI are now updated instantly 
+- The weapon stats in the modification GUI are now updated instantly
+- Terrorist spawns are now lower by default
 
 ### Fixed
 
+- Fixed some issues with incorrect weapon shell throwing
+- Fixed the perspective issue with MP7ironsightsstanding
+- Fixed F2000 flame position
 - Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)
 - Fixed Minecraft armor making you invulnerable to bullets (less realistic, but they aren't anyway lol)
 - Fixed soldiers and terrorists spawning with Minecraft armor
@@ -216,5 +222,5 @@ And the people who contributed to Modern Warfare Cubed:
 - [Braiam23](https://github.com/Braiam23) for revamping textures & Spanish translation ([#100](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/100), [#110](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/110))
 - [strubium](https://github.com/strubium) for adding recipes & nerfs & crafting improvements & revamping textures ([#117](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/117), [#109](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/109), [#116](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/116), [#92](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/92), [#115](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/115), [#97](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/97))
 - [Skyy](https://github.com/BurnhamR) for losslessly compressing assets & major refactors ([#53](https://github.com/Paneedah/paneedah-modern-warfare/pull/53), [#55](https://github.com/Paneedah/paneedah-modern-warfare/pull/55), [#59](https://github.com/Paneedah/paneedah-modern-warfare/pull/59), [#58](https://github.com/Paneedah/paneedah-modern-warfare/pull/58))
-- [notdeadpool456](https://github.com/notdeadpool456) for adding crafting recipes & nerfs ([#75](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/75), [#76](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/76))
+- [notdeadpool456](https://github.com/notdeadpool456) for adding the .277 FURY bullet, crafting recipes & nerfs ([#75](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/75), [#76](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/76))
 - [333mhz](https://github.com/333mhz) for corrections in the English translation & adding blocks to the creative tab & cleanup

@@ -1,17 +1,18 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.NetworkPermitManager;
+import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.Permit.Status;
 import com.paneedah.weaponlib.state.StateManager;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraft.util.text.TextComponentString;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -742,7 +743,8 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
     }
 
     public void inventoryFullAlert(PlayerWeaponInstance weaponInstance) {
-        modContext.getStatusMessageCenter().addAlertMessage(I18n.translateToLocalFormatted("gui.inventoryFull"), 3, 250, 200);
+        if (weaponInstance.getPlayer() instanceof EntityPlayer)
+            ((EntityPlayer) weaponInstance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.inventoryFull")), true);
     }
 
     public void inspect(PlayerWeaponInstance weaponInstance) {

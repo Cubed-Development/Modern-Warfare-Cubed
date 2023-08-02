@@ -29,7 +29,7 @@ public final class CraftingServerMessageHandler implements IMessageHandler<Craft
             if (target == null || CraftingFileManager.getInstance().getLoadingStatus() == -1)
                 return;
 
-            this.modContext.getChannel().sendTo(new CraftingClientMessage(RECEIVE_FILESTREAM, CraftingFileManager.getInstance().getCurrentFileBAOS()), target);
+            modContext.getChannel().sendTo(new CraftingClientMessage(RECEIVE_FILESTREAM, CraftingFileManager.getInstance().getCurrentFileBAOS()), target);
         });
 
         return null;

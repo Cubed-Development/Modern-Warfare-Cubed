@@ -48,8 +48,6 @@ public class ClientModContext extends CommonModContext {
 
     private final SafeGlobals safeGlobals = new SafeGlobals();
 
-    private StatusMessageCenter statusMessageCenter;
-
     private PerspectiveManager viewManager;
 
     private float aspectRatio;
@@ -78,15 +76,11 @@ public class ClientModContext extends CommonModContext {
 
         ClientCommandHandler.instance.registerCommand(new MainCommand(this));
 
-
-        this.statusMessageCenter = new StatusMessageCenter();
-
         rendererRegistry = new CompatibleRenderingRegistry();
 
         rendererRegistry.preInit();
 
-        List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(
-                Minecraft.class, MC, "defaultResourcePacks", "field_110449_ao");
+        List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(Minecraft.class, MC, "field_110449_ao");
         WeaponResourcePack weaponResourcePack = new WeaponResourcePack();
         defaultResourcePacks.add(weaponResourcePack);
         IResourceManager resourceManager = MC.getResourceManager();
@@ -202,11 +196,6 @@ public class ClientModContext extends CommonModContext {
     public PlayerWeaponInstance getMainHeldWeapon() {
         return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player,
                 PlayerWeaponInstance.class);
-    }
-
-    @Override
-    public StatusMessageCenter getStatusMessageCenter() {
-        return statusMessageCenter;
     }
 
     public PlayerMeleeInstance getMainHeldMeleeWeapon() {

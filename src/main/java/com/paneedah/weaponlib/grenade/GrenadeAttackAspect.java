@@ -8,10 +8,11 @@ import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.grenade.ItemGrenade.Type;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.StateManager;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraft.util.text.TextComponentString;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -181,11 +182,10 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                 if(remainingTimeUntilExplosion < 0) {
                     remainingTimeUntilExplosion = 0;
                 }
-                
-                
-                String message = I18n.translateToLocalFormatted("gui.grenadeExplodes",
-                        Math.round(remainingTimeUntilExplosion / 1000f));
-                modContext.getStatusMessageCenter().addAlertMessage(message, 1, 1000, 0);
+
+                if (grenadeInstance.getPlayer() instanceof EntityPlayer)
+                    ((EntityPlayer) grenadeInstance.getPlayer()).sendStatusMessage(new TextComponentString("§e" + I18n.format("gui.grenadeExplodes", Math.round(remainingTimeUntilExplosion / 1000F))), true);
+
                 grenadeInstance.setLastSafetyPinAlertTimestamp(System.currentTimeMillis());
             }
             stateManager.changeStateFromAnyOf(this, grenadeInstance, allowedUpdateFromStates);

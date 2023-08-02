@@ -8,11 +8,12 @@ import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.StateManager;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -151,7 +152,9 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
 
     
     private void cannotAttack(PlayerMeleeInstance meleeInstance) {
-        modContext.getStatusMessageCenter().addAlertMessage(I18n.translateToLocalFormatted("gui.coolingDown"), 2, 200, 100);
+        if (meleeInstance.getPlayer() instanceof EntityPlayer)
+            ((EntityPlayer) meleeInstance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.coolingDown")), true);
+
         meleeInstance.getPlayer().playSound(modContext.getNoAmmoSound(), 1, 1);
     }
 

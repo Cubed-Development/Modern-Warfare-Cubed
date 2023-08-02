@@ -13,20 +13,20 @@ import java.util.function.Supplier;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
-public class PlayerEntityTracker {
+public class LivingEntityTracker {
 
-    public static final PlayerEntityTracker getTracker(EntityLivingBase player) {
+    public static final LivingEntityTracker getTracker(EntityLivingBase player) {
         return CompatiblePlayerEntityTrackerProvider.getTracker(player);
     }
 
     private Supplier<World> world;
     private Map<UUID, TrackableEntity> trackableEntities = new LinkedHashMap<>();
 
-    public PlayerEntityTracker(Supplier<World> world) {
+    public LivingEntityTracker(Supplier<World> world) {
         this.world = world;
     }
 
-    public PlayerEntityTracker() {}
+    public LivingEntityTracker() {}
 
     void init(Supplier<World> world) {
         this.world = world;
@@ -75,7 +75,7 @@ public class PlayerEntityTracker {
         return result;
     }
 
-    public void serialize(ByteBuf buf) {
+    public void write(ByteBuf buf) {
         update();
         buf.writeInt(trackableEntities.size());
         for(TrackableEntity te: trackableEntities.values()) {
@@ -97,13 +97,13 @@ public class PlayerEntityTracker {
 
     public byte[] toByteArray() {
         ByteBuf buf = Unpooled.buffer();
-        serialize(buf);
+        write(buf);
         return buf.array();
     }
 
-    public static PlayerEntityTracker fromByteArray(byte[] bytes, Supplier<World> world) {
+    public static LivingEntityTracker fromByteArray(byte[] bytes, Supplier<World> world) {
         ByteBuf buf = Unpooled.wrappedBuffer(bytes);
-        PlayerEntityTracker tracker = new PlayerEntityTracker(world);
+        LivingEntityTracker tracker = new LivingEntityTracker(world);
         if(bytes != null && bytes.length > 0) {
             tracker.init(buf);
         } else {
@@ -112,8 +112,8 @@ public class PlayerEntityTracker {
         return tracker;
     }
 
-    public static PlayerEntityTracker fromBuf(ByteBuf buf /*, World world*/) {
-        PlayerEntityTracker tracker = new PlayerEntityTracker(() -> MC.player.world);
+    public static LivingEntityTracker read(ByteBuf buf /*, World world*/) {
+        LivingEntityTracker tracker = new LivingEntityTracker(() -> MC.player.world);
         tracker.init(buf);
         return tracker;
     }

@@ -48,8 +48,6 @@ public interface ModContext {
 
 	PlayerWeaponInstance getMainHeldWeapon();
 
-	StatusMessageCenter getStatusMessageCenter();
-
 	RecipeManager getRecipeManager();
 
 	SoundEvent getZoomSound();

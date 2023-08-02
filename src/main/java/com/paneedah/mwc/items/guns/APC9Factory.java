@@ -9,6 +9,7 @@ import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -25,6 +26,7 @@ public class APC9Factory implements GunFactory {
 		.withRecoil(2f)
 		.withZoom(0.9f)
 		.withConfigGroup(GunConfigurationGroup.SMG)
+		.withShellType(Type.PISTOL)
 		.withMaxShots(1, Integer.MAX_VALUE)
 		.withShootSound("apc9")
 		.withSilencedShootSound("mp5_silenced")
