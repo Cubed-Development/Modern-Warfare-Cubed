@@ -156,7 +156,7 @@ public class ModernConfigManager {
 	@RequiresMcRestart
 	@RangeDouble(min=0, max=2.0)
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should terrorists spawn?")
-	public static double terroristSpawn = 0.0;
+	public static double terroristSpawn = 0.1;
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=5.0)
