@@ -335,7 +335,7 @@ public class Bullets {
         Bullet277 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
-                .withName("Bullet_277")
+                .withName("bullet_277")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet277.png")
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
