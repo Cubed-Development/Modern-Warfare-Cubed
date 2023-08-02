@@ -93,7 +93,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Merged the Gadget creative tab into the `Equipment` creative tab
 - Debug commands are now only accessible to oped players (Oped of level 4)
 - Rewritten the rendering system, items are now positions correctly everywhere
-- The weapon stats in the modification GUI are now updated instantly 
+- The weapon stats in the modification GUI are now updated instantly
+- Terrorist spawns are now lower by default
 
 ### Fixed
 
