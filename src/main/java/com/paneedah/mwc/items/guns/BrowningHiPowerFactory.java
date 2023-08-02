@@ -15,6 +15,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -30,6 +31,7 @@ public class BrowningHiPowerFactory implements GunFactory {
         .withRecoil(4f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SIDEARM)
+        .withShellType(Type.PISTOL)
         .withMaxShots(1)
         .withShootSound("hi_power")
         .withSilencedShootSound("colt_m45a1_silenced")

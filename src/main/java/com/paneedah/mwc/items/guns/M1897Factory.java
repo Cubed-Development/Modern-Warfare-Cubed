@@ -23,7 +23,7 @@ public class M1897Factory implements GunFactory {
 		
 		.withName("M1897")
 //		.withCapacity(CommonProxy.Remington870Mag)
-		.withAmmoCapacity(4)
+		.withAmmoCapacity(5)
 		.withMaxBulletsPerReload(4)
 		.withFireRate(0.5f)
 		.withEjectRoundRequired()

@@ -11,6 +11,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -31,6 +32,7 @@ public class Spas12Factory implements GunFactory {
         .withRecoil(7f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SHOTGUN)
+        .withShellType(Type.SHOTGUN)
         .withMaxShots(1)
         .withShootSound("spas12")
         .withSilencedShootSound("ShotgunSilenced")

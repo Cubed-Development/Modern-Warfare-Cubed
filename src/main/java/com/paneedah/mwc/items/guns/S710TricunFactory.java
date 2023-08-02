@@ -9,6 +9,7 @@ import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -25,6 +26,7 @@ public class S710TricunFactory implements GunFactory {
 		.withRecoil(1.5f)
 		.withZoom(0.9f)
 		.withConfigGroup(GunConfigurationGroup.SMG)
+        .withShellType(Type.PISTOL)
 		.withMaxShots(1, Integer.MAX_VALUE)
 		.withShootSound("mpx")
 		.withSilencedShootSound("m110_silenced")
@@ -172,7 +174,7 @@ public class S710TricunFactory implements GunFactory {
             	GL11.glTranslatef(-0.16F, -1.5F, -3.3F);
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
               }
-        }, false, false)
+        }, true, false)
         
         .withCompatibleAttachment(Attachments.M38FrontSight, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
@@ -204,7 +206,7 @@ public class S710TricunFactory implements GunFactory {
 //          GL11.glTranslatef(0f, -0.28f, -0.55f);
 //          GL11.glScaled(1F, 1F, 0.85F);
         })
-        .withCompatibleAttachment(Attachments.S710TricunGrip, true, (model) -> {
+        .withCompatibleAttachment(Attachments.S710TricunGrip, (model) -> {
 //          GL11.glTranslatef(0f, 0f, 1f);
       })
         .withCompatibleAttachment(Attachments.M4Grip, (model) -> {
@@ -232,13 +234,13 @@ public class S710TricunFactory implements GunFactory {
 //          GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
 //          GL11.glScaled(0.7F, 0.4F, 0.7F);
 		})
-	   .withCompatibleAttachment(Attachments.TritiumRearSights, (model) -> {
+	   .withCompatibleAttachment(Attachments.TritiumRearSights, true, (model) -> {
            if(model instanceof TritiumRearSights) {
            	 GL11.glTranslatef(-0.16F, -1.5F, -0.3F);
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
            }
        })
-	   .withCompatibleAttachment(Attachments.HK416RearSights, true, (model) -> {
+	   .withCompatibleAttachment(Attachments.HK416RearSights, (model) -> {
            if(model instanceof G95_upright_rearsights) {
         	   GL11.glTranslatef(-0.158F, -1.53F, -0.2F);
                GL11.glScaled(0.32F, 0.32F, 0.32F);
