@@ -4,7 +4,6 @@ import com.paneedah.mwc.network.messages.EntityControlClientMessage;
 import com.paneedah.mwc.utils.PlayerUtil;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import io.redstudioragnarok.redcore.utils.NetworkUtil;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -18,9 +17,8 @@ public final class EntityControlClientMessageHandler implements IMessageHandler<
     public IMessage onMessage(final EntityControlClientMessage entityControlClientMessage, final MessageContext messageContext) {
         NetworkUtil.processMessage(messageContext, () -> {
             final EntityPlayer player = MC.player;
-            final Entity targetEntity = entityControlClientMessage.getEntity(player.world);
 
-            CompatibleExtraEntityFlags.setFlags(targetEntity, entityControlClientMessage.getFlags(), entityControlClientMessage.getValues());
+            CompatibleExtraEntityFlags.setFlags( entityControlClientMessage.getEntity(), entityControlClientMessage.getFlags(), entityControlClientMessage.getValues());
 
             final int updatedFlags = CompatibleExtraEntityFlags.getFlags(player);
 

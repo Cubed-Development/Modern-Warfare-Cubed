@@ -33,7 +33,7 @@ public final class EntityControlServerMessageHandler implements IMessageHandler<
             else
                 PlayerUtil.setSize(player, 1.8F);
 
-            modContext.getChannel().sendToAllAround(new EntityControlClientMessage(player, updatedFlags), point);
+            modContext.getChannel().sendToAllAround(new EntityControlClientMessage(player, 0xFFFFFFFF & ~CompatibleExtraEntityFlags.FLIP, updatedFlags), point);
         });
 
         return null;
