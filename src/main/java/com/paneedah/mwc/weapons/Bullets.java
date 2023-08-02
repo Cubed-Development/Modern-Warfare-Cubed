@@ -8,11 +8,12 @@ import net.minecraft.init.Items;
 import org.lwjgl.opengl.GL11;
 
 public class Bullets {
-
+    
     public static ItemBullet Bullet20x82mm;
     public static ItemBullet Bullet50BMG;
     public static ItemBullet Bullet408CT;
     public static ItemBullet Bullet308Winchester;
+    public static ItemBullet Bullet277;
     public static ItemBullet Bullet8x58;
     public static ItemBullet Bullet792x57;
     public static ItemBullet Bullet792x33Kurz;
