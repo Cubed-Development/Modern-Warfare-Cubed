@@ -413,8 +413,9 @@ public class P90Factory {
                 )
                 
                 .setupModernAnimations("p90", AuxiliaryAttachments.P90Action)
-                .setupModernMagazineAnimations("p90", 
-                		Magazines.P90Mag)
+                .setupModernMagazineAnimations("p90", Magazines.P90Mag)
+                //TODO: Need a new reload action for the Terminator mag
+                .setupModernMagazineAnimations("p90", Magazines.P90TerminatorMag)
             
             .withFirstPersonCustomPositioning(Magazines.P90TerminatorMag.getRenderablePart(), (renderContext) -> {
 //            	GL11.glTranslatef(-0.1F, -0.6F, 1.1F);

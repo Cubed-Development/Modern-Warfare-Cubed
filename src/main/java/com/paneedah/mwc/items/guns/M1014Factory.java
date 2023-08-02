@@ -12,6 +12,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -34,6 +35,7 @@ public class M1014Factory implements GunFactory {
         .withRecoil(8f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SHOTGUN)
+        .withShellType(Type.SHOTGUN)
         .withMaxShots(1)
         .withShootSound("m1014")
         .withSilencedShootSound("ShotgunSilenced")

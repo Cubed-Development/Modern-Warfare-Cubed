@@ -97,6 +97,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Fixed
 
+- Fixed some issues with incorrect weapon shell throwing
+- Fixed the perspective issue with MP7ironsightsstanding
+- Fixed F2000 flame position
 - Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)
 - Fixed Minecraft armor making you invulnerable to bullets (less realistic, but they aren't anyway lol)
 - Fixed soldiers and terrorists spawning with Minecraft armor
