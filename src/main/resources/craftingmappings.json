@@ -5953,6 +5953,24 @@
       ]
     },
     {
+      "entryName": "mwc:Bullet277",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "ingotCopper",
+          "defaultItem": "mwc:copper_ingot",
+          "isOreDictionary": true,
+          "count": 6
+        },
+        {
+          "entryName": "dustGunpowder",
+          "defaultItem": "minecraft:gunpowder",
+          "isOreDictionary": true,
+          "count": 6
+        }
+      ]
+    },
+    {
       "entryName": "mwc:Bullet8x58",
       "craftingGroup": "BULLET",
       "recipe": [
