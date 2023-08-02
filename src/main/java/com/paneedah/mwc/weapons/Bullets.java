@@ -331,6 +331,30 @@ public class Bullets {
                 .withTextureName("Dummy.png")
                 .build(MWC.modContext, ItemBullet.class);
         
+        Bullet277 = new ItemBullet.Builder()
+
+                .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
+                .withName("Bullet277")
+                .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet277.png")
+                .withFirstPersonPositioning((player, itemStack) -> {
+                    GL11.glTranslatef(0.2F, -1.9F, 0.5F);
+                    GL11.glRotatef(30F, 0f, 1f, 0f);
+                    GL11.glScaled(0.6F, 0.6F, 0.6F);
+                }).withThirdPersonPositioning((player, itemStack) -> {
+                    GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
+                    GL11.glRotatef(-50F, 0f, 1f, 0f);
+                    GL11.glRotatef(80F, 1f, 0f, 0f);
+                    GL11.glScaled(0.5F, 0.4F, 0.5F);
+                }).withInventoryPositioning((itemStack) -> {
+                    GL11.glTranslatef(-0.8F, -2.9F, 0.7F);
+                    GL11.glRotatef(10F, 0f, 1f, 0f);
+                    GL11.glRotatef(2F, 1f, 0f, 0f);
+                    GL11.glRotatef(0F, 0f, 0f, 1f);
+                    GL11.glScaled(1.6F, 1.5F, 1.6f);
+                })
+                .withTextureName("Dummy.png")
+                .build(MWC.modContext, ItemBullet.class);
+        
         Bullet792x57 = new ItemBullet.Builder()
 
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
