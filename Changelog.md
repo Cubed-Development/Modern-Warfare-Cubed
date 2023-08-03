@@ -46,6 +46,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Custom death Messages when shot with a gun
 - Added status messages for `No ammunition`, `No magazine`, `Tracking`, `Firearm mode`, `Zoom` and `Explodes in`
 - Added the .277 FURY bullet for the NGSW-R
+- Browning Auto 5 now ejects shotgun shells 
 
 ### Changed
 
@@ -162,7 +163,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed inputs not updating if you switched to another hotbar slot while holding the input
 - Fixed oreDictionary not working properly under the craftmappings
 - Fixed the height of the Ammo Counter being 1 pixel too high
-- Browning Auto 5 now ejects shotgun shells 
 
 ### Removed
 
