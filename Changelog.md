@@ -56,14 +56,13 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added keybindings to switching cameras on the tablet
 - Reworked the config system:
   - Old XML config has been removed, and all configs have been consolidated into a new JSON config. Issues with some non-functioning configs have been resolved
-  - Adjusted `craftingmappings.json` to now only override recipes, rather than removing all recipes
+  - Adjusted `craftingmappings.json` to now only override recipes rather than removing all recipes
 - Temporarily nerfed all vests as a part of vest problem mitigation
 - Nerfed XP gains from smelting ores
 - Reloading now only stops once the gun is fully reloaded or no compatible ammunition remains in inventory
-- Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines) this can be bypassed by sneaking
+- Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines). This can be bypassed by sneaking
 - Grenades in creative mode are now infinite 
-- Expanded crafting to accommodate any type of planks
-- Weapons are now rendered in 3D in the inventory, this means that there will be a small freeze when first opening the Creative Menu this will be improved over time as we optimize rendering
+- Weapons are now rendered in 3D in the inventory. This means there will be a small freeze when opening the Creative Menu. This will be improved over time as we optimize rendering.
 - Reduced the stack size of M202 rockets and RPG7 rockets to 4 and 2, respectively
 - Increased magazine capacity of bandits on Hard difficulty
 - Bullets are now able to penetrate:
@@ -93,7 +92,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - When a thrown camera hits the ground it now only drops the camera item if the thrower is not in creative mode
 - Merged the Gadget creative tab into the `Equipment` creative tab
 - Debug commands are now only accessible to oped players (Oped of level 4)
-- Rewritten the rendering system, items are now positions correctly everywhere
+- Rewritten the rendering system. Items are now positioned correctly everywhere
 - The weapon stats in the modification GUI are now updated instantly
 - Terrorist spawns are now lower by default
 
@@ -122,11 +121,11 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed visual bugs:
   - Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
   - Fixed m249 accessories floating
-  - The P90 is no longer compatible with the bipod and the magazine of the terminator conversion kit has been fixed
+  - The P90 is no longer compatible with the bipod, and the magazine of the terminator conversion kit has been fixed
   - Fixed the attachment of the Long Deagle
   - Fixed m16 stock and m38 front sight on guns like M4A1, Beowulf .50Cal and AR-10
   - Fixed visual bugs with grips on the m40a6 and Malyuk
-  - Fixed visual bugs with sight on the taurus
+  - Fixed visual bugs with sight on the Taurus
   - Fixed Stock visual bugs on Origin-12
   - Fixed sights like PSO-1 and OKP-7 on ak-74 and ak-101
   - Fixed the visual bugs of the F2000
@@ -166,7 +165,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Removed
 
-- Removed headshot mechanic, it was currently broken and will come back in the future
+- Removed headshot mechanic; it was currently broken and will come back in the future
 - Removed all arcade guns (These will be moved to a sister mod at a later time)
 - Removed the SA80
 - Removed the mission system
