@@ -48,4 +48,4 @@ public class NinthSinMagazine extends ModelWithAttachments {
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
 	}
-]
+}
