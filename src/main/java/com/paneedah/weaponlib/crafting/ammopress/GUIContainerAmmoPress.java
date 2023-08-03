@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static net.minecraft.util.text.TextFormatting.WHITE;
@@ -126,7 +127,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 		if (button == craftButton && !craftButton.isDisabled()) {
 			if (hasSelectedCraftingPiece() && quantityBox.getText().length() != 0) {
 				int quantity = Integer.parseInt(quantityBox.getText());
-				modContext.getChannel().sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), getSelectedCraftingPiece().getItem().getTranslationKey(), getSelectedCraftingPiece().getCraftingGroup(), quantity));
+				CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), getSelectedCraftingPiece().getItem().getTranslationKey(), getSelectedCraftingPiece().getCraftingGroup(), quantity));
 			}
 
 		}  else if (button == bulletSelector) {
@@ -257,7 +258,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			if (mouseY >= this.guiTop && mouseY <= this.guiTop + 20) {
 				int id = (mouseX - (this.guiLeft + 200))/20;
 				if(id >= 0 && tileEntity.getCraftingQueue().size() - 1 >= id)
-					modContext.getChannel().sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.POP_FROM_QUEUE, tileEntity.getPos(), MC.player.getEntityId(), id));
+					CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.POP_FROM_QUEUE, tileEntity.getPos(), MC.player.getEntityId(), id));
 			}
 		}
 	}

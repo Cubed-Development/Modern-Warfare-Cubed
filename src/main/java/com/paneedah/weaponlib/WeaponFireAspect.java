@@ -32,6 +32,7 @@ import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
@@ -237,7 +238,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         Weapon weapon = (Weapon) weaponInstance.getItem();
         Random random = player.getRNG();
 
-        modContext.getChannel().sendToServer(new TryFireMessage(oneClickBurstEnabled.test(weaponInstance) && weaponInstance.getSeriesShotCount() ==  0, weaponInstance.isAimed()));
+        CHANNEL.sendToServer(new TryFireMessage(oneClickBurstEnabled.test(weaponInstance) && weaponInstance.getSeriesShotCount() ==  0, weaponInstance.isAimed()));
 
         
     	
@@ -401,7 +402,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         }
         
         TargetPoint tp = new TargetPoint(player.dimension, player.posX, player.posY, player.posZ, 100);
-        modContext.getChannel().sendToAllAround(new MuzzleFlashMessage(player.getEntityId()), tp);
+        CHANNEL.sendToAllAround(new MuzzleFlashMessage(player.getEntityId()), tp);
         
 
         Weapon weapon = (Weapon) itemStack.getItem();
@@ -477,7 +478,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	
         	Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
     		velocity = velocity.rotateYaw((float) Math.toRadians(-player.rotationYaw));
-        	modContext.getChannel().sendToAllAround(new ShellMessageClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), new Vector3D(pos.add(weaponDir)), new Vector3D(velocity)), tp);
+        	CHANNEL.sendToAllAround(new ShellMessageClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), new Vector3D(pos.add(weaponDir)), new Vector3D(velocity)), tp);
         }
 
 

@@ -45,6 +45,7 @@ import java.util.Map.Entry;
 import java.util.function.*;
 import java.util.stream.Collectors;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
@@ -914,7 +915,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                     if (ModernConfigManager.bulletBreakGlass && iBlockState.getMaterial() == Material.GLASS) {
                         world.destroyBlock(new BlockPos(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ())), true);
                     } else {
-                        modContext.getChannel().sendToAllAround(new BlockHitMessage(position.getBlockPos(), new Vector3F(position.hitVec), position.sideHit), new NetworkRegistry.TargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100));
+                        CHANNEL.sendToAllAround(new BlockHitMessage(position.getBlockPos(), new Vector3F(position.hitVec), position.sideHit), new NetworkRegistry.TargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100));
                         
                         MaterialImpactSound materialImpactSound = modContext.getMaterialImpactSound(iBlockState, entity);
                         if(materialImpactSound != null) {

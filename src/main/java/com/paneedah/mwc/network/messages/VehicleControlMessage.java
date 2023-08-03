@@ -10,17 +10,17 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public final class VehicleClientMessage implements IMessage {
+public final class VehicleControlMessage implements IMessage {
 
-    private VehicleDataContainer vehicleData = new VehicleDataContainer();
+    private VehicleDataContainer serializer;
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-        vehicleData = VehicleDataContainer.read(byteBuf);
+        serializer = VehicleDataContainer.read(byteBuf);
     }
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        vehicleData.write(byteBuf, vehicleData);
+        serializer.write(byteBuf, serializer);
     }
 }

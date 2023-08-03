@@ -22,6 +22,8 @@ import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
 import java.util.List;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
+
 public abstract class EntityProjectile extends Entity implements IProjectile, IEntityAdditionalSpawnData {
 
     private static final String TAG_GRAVITY_VELOCITY = "gravityVelocity";
@@ -234,12 +236,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
                      if(ModernConfigManager.bulletBreakGlass)
                          this.world.destroyBlock(rtr.getBlockPos(), true);
 
-
-                     ModContext context = CommonModContext.getContext();
-                     if (context == null)
-                         return;
-
-                     context.getChannel().sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), new Vector3F(rtr.hitVec), rtr.sideHit), new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
+                     CHANNEL.sendToAllAround(new BlockHitMessage(rtr.getBlockPos(), new Vector3F(rtr.hitVec), rtr.sideHit), new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 20.0));
                  }
             }
         }

@@ -3,7 +3,10 @@ package com.paneedah.mwc;
 import com.paneedah.mwc.creativetab.*;
 import com.paneedah.mwc.handlers.ClientEventHandler;
 import com.paneedah.mwc.init.MWCRecipes;
+import com.paneedah.mwc.network.handlers.*;
+import com.paneedah.mwc.network.messages.*;
 import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.command.BalancePackCommand;
 import com.paneedah.weaponlib.command.CraftingFileCommand;
@@ -35,7 +38,7 @@ import static com.paneedah.mwc.utils.ModReference.VERSION;
 //  | $$\  $ | $$| $$  | $$| $$  | $$| $$_____/| $$      | $$  | $$      | $$$/ \  $$$ /$$__  $$| $$      | $$     /$$__  $$| $$      | $$_____/      | $$    $$| $$  | $$| $$  | $$| $$_____/| $$  | $$
 //  | $$ \/  | $$|  $$$$$$/|  $$$$$$$|  $$$$$$$| $$      | $$  | $$      | $$/   \  $$|  $$$$$$$| $$      | $$    |  $$$$$$$| $$      |  $$$$$$$      |  $$$$$$/|  $$$$$$/| $$$$$$$/|  $$$$$$$|  $$$$$$$
 //  |__/     |__/ \______/  \_______/ \_______/|__/      |__/  |__/      |__/     \__/ \_______/|__/      |__/     \_______/|__/       \_______/       \______/  \______/ |_______/  \_______/ \_______/
-@Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:redcore@[0.3.1,);", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/master/update.json")
+@Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:redcore@[0.4,);", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/master/update.json")
 public final class MWC {
 
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
@@ -69,6 +72,38 @@ public final class MWC {
     public void init(FMLInitializationEvent initializationEvent) {
         MWCRecipes.register();
         commonProxy.init(this);
+
+        CHANNEL.registerMessage(new PermitMessageClientHandler((CommonModContext) modContext), PermitMessage.class, -1, Side.CLIENT);
+        CHANNEL.registerMessage(new LivingEntityTrackerMessageMessageHandler(), LivingEntityTrackerMessage.class, -2, Side.CLIENT);
+        CHANNEL.registerMessage(new SpawnParticleMessageHandler(modContext), SpawnParticleMessage.class, -3, Side.CLIENT);
+        CHANNEL.registerMessage(new BlockHitMessageHandler(), BlockHitMessage.class, -4, Side.CLIENT);
+        CHANNEL.registerMessage(new ExplosionMessageHandler(modContext), ExplosionMessage.class, -5, Side.CLIENT);
+        CHANNEL.registerMessage(new SpreadableExposureMessageHandler(),	SpreadableExposureMessage.class, -6, Side.CLIENT);
+        CHANNEL.registerMessage(new WorkbenchClientMessageHandler(), WorkbenchClientMessage.class, -7, Side.CLIENT);
+        CHANNEL.registerMessage(new CraftingClientMessageHandler(), CraftingClientMessage.class, -8, Side.CLIENT);
+        CHANNEL.registerMessage(new MuzzleFlashMessageHandler(), MuzzleFlashMessage.class, -9, Side.CLIENT);
+        CHANNEL.registerMessage(new ShellMessageHandler(), ShellMessageClient.class, -10, Side.CLIENT);
+        CHANNEL.registerMessage(new BalancePackClientMessageHandler(), BalancePackClientMessage.class, -11, Side.CLIENT);
+        CHANNEL.registerMessage(new BloodClientMessageHandler(), BloodClientMessage.class, -12, Side.CLIENT);
+        CHANNEL.registerMessage(new VehicleClientMessageHandler(), VehicleClientMessage.class, -13, Side.CLIENT);
+        CHANNEL.registerMessage(new EntityInventorySyncMessageClientHandler(modContext), EntityInventorySyncMessage.class, -14, Side.CLIENT);
+        CHANNEL.registerMessage(new ExposureMessageHandler(), ExposureMessage.class, -15, Side.CLIENT);
+        CHANNEL.registerMessage(new EntityControlClientMessageHandler(), EntityControlClientMessage.class, -16, Side.CLIENT);
+
+        CHANNEL.registerMessage(new TryFireMessageHandler(modContext.getWeaponFireAspect()), TryFireMessage.class, 1, Side.SERVER);
+        CHANNEL.registerMessage(new PermitMessageServerHandler((CommonModContext) modContext), PermitMessage.class, 2, Side.SERVER);
+        CHANNEL.registerMessage(new MeleeAttackMessageHandler(modContext.getMeleeAttackAspect()), MeleeAttackMessage.class, 3, Side.SERVER);
+        CHANNEL.registerMessage(new GrenadeMessageHandler(modContext.getGrenadeAttackAspect()), GrenadeMessage.class, 4, Side.SERVER);
+        CHANNEL.registerMessage(new NightVisionToggleMessageHandler(), NightVisionToggleMessage.class, 5, Side.SERVER);
+        CHANNEL.registerMessage(new EntityControlServerMessageHandler(), EntityControlServerMessage.class, 6, Side.SERVER);
+        CHANNEL.registerMessage(new EntityInventorySyncMessageServerHandler(modContext), EntityInventorySyncMessage.class, 7, Side.SERVER);
+        CHANNEL.registerMessage(new OpenCustomPlayerInventoryGuiMessageHandler(this), OpenCustomPlayerInventoryGuiMessage.class, 8, Side.SERVER);
+        CHANNEL.registerMessage(new VehicleControlMessageHandler(), VehicleControlMessage.class, 9, Side.SERVER);
+        CHANNEL.registerMessage(new VehicleInteractMessageHandler(), VehicleInteractMessage.class, 10, Side.SERVER);
+        CHANNEL.registerMessage(new OpenDoorMessageHandler(), OpenDoorMessage.class, 11, Side.SERVER);
+        CHANNEL.registerMessage(new WorkbenchServerMessageHandler(), WorkbenchServerMessage.class, 12, Side.SERVER);
+        CHANNEL.registerMessage(new CraftingServerMessageHandler(), CraftingServerMessage.class, 13, Side.SERVER);
+        CHANNEL.registerMessage(new EntityPickupMessageHandler(), EntityPickupMessage.class, 14, Side.SERVER);
     }
 
     @Mod.EventHandler

@@ -1,6 +1,6 @@
 package com.paneedah.mwc.network.handlers;
 
-import com.paneedah.mwc.network.messages.VehicleInteractPacket;
+import com.paneedah.mwc.network.messages.VehicleInteractMessage;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,18 +8,18 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public final class VehicleInteractPHandler implements IMessageHandler<VehicleInteractPacket, IMessage> {
+public final class VehicleInteractMessageHandler implements IMessageHandler<VehicleInteractMessage, IMessage> {
 
     @Override
-    public IMessage onMessage(final VehicleInteractPacket vehicleInteractPacket, final MessageContext messageContext) {
+    public IMessage onMessage(final VehicleInteractMessage vehicleInteractMessage, final MessageContext messageContext) {
         NetworkUtil.processMessage(messageContext, () -> {
-            final EntityVehicle vehicle = (EntityVehicle) messageContext.getServerHandler().player.world.getEntityByID(vehicleInteractPacket.getVehicleID());
-            final EntityPlayer player = (EntityPlayer) messageContext.getServerHandler().player.world.getEntityByID(vehicleInteractPacket.getPlayerID());
+            final EntityVehicle vehicle = (EntityVehicle) messageContext.getServerHandler().player.world.getEntityByID(vehicleInteractMessage.getVehicleID());
+            final EntityPlayer player = (EntityPlayer) messageContext.getServerHandler().player.world.getEntityByID(vehicleInteractMessage.getPlayerID());
 
             if (vehicle == null || player == null)
                 return;
 
-            if (vehicleInteractPacket.isRight()) {
+            if (vehicleInteractMessage.isRight()) {
                 if (vehicle.canFitPassenger(player))
                     player.startRiding(vehicle);
             } else

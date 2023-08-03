@@ -6,8 +6,6 @@ import io.netty.buffer.ByteBuf;
 import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.util.math.Vec3d;
 
-import java.io.IOException;
-
 public class VehicleDataContainer {
 	
 	public int entityID;
@@ -157,7 +155,7 @@ public EntityVehicle vehicle;
 	}
 
 	
-	public static VehicleDataContainer read(ByteBuf buf) throws IOException {
+	public static VehicleDataContainer read(ByteBuf buf) {
 
 		VehicleDataContainer ds = new VehicleDataContainer();
 		

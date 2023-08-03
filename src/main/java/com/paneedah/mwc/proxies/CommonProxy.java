@@ -62,7 +62,7 @@ public class CommonProxy {
 
     // I cannot figure out for the life of me why moving the init classes to the init() instead of the preInit() makes the game die, but I have no choice but to leave it here for now.
     public void preInit(final MWC mod) {
-        MWC.modContext.preInit(mod, MWC.CHANNEL);
+        MWC.modContext.preInit(mod);
 
         // Sounds
         MWC.modContext.setChangeZoomSound("OpticZoom");
@@ -112,7 +112,7 @@ public class CommonProxy {
         new BaseballBatNailsFactory().createMelee(this);
         new NightStickFactory().createMelee(this);
 
-        MWC.modContext.preInitEnd(mod, MWC.modContext.getChannel());
+        MWC.modContext.preInitEnd(mod);
     }
 
     public void init(final MWC mod) {

@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
+
 
 /**
  * GUI class for the Workbench Block
@@ -108,11 +110,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 		super.actionPerformed(button);
 		if (button == craftButton) {
 			if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1) {
-				modContext.getChannel()
-						.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), 0, getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME,
-								CraftingGroup.getValue(getCraftingMode()),
-								getSelectedCraftingPiece().getItem().getTranslationKey()));
-
+				CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), 0, getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME, CraftingGroup.getValue(getCraftingMode()), getSelectedCraftingPiece().getItem().getTranslationKey()));
 			}
 
 		} else if (button == assaultSelector) {

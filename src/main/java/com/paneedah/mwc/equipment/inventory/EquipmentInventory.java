@@ -1,9 +1,8 @@
 package com.paneedah.mwc.equipment.inventory;
 
-import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
 import com.paneedah.weaponlib.Contextual;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.inventory.EntityInventorySyncMessage;
+import com.paneedah.mwc.network.messages.EntityInventorySyncMessage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
@@ -13,6 +12,8 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.text.ITextComponent;
 
 import javax.annotation.Nullable;
+
+import static com.paneedah.mwc.MWC.CHANNEL;
 
 public class EquipmentInventory implements IInventory, Contextual {
 
@@ -115,9 +116,9 @@ public class EquipmentInventory implements IInventory, Contextual {
         }
         
         if(modContext != null && owner != null && owner.world.isRemote) {
-            modContext.getChannel().sendToServer(new EntityInventorySyncMessage(owner,
-                    this, true));
-//            modContext.getChannel().sendToAll(
+            CHANNEL.sendToServer(new EntityInventorySyncMessage(owner,
+                    true, this));
+//            CHANNEL.sendToAll(
 //                    new EntityInventorySyncMessage(owner, this, true));
         }
     }

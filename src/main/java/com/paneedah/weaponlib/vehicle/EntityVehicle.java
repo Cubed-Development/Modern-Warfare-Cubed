@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.vehicle;
 
 import com.google.common.collect.Lists;
+import com.paneedah.mwc.network.messages.VehicleControlMessage;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Randomizer;
 import com.paneedah.weaponlib.compatibility.sound.EngineMovingSound;
@@ -49,6 +50,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 /*   __      __  _     _      _           
@@ -2671,8 +2673,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 					// oldHC();
 
 					// System.out.println("ID: " + getEntityId());
-					context.getChannel()
-							.sendToServer(new VehicleControlPacket(new VehicleDataContainer(this)));
+					CHANNEL.sendToServer(new VehicleControlMessage(new VehicleDataContainer(this)));
 					
 					// doNetworking(false);
 

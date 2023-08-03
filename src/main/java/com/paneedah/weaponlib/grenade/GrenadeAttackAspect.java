@@ -19,6 +19,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 
@@ -122,7 +123,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
 
     private void explode(PlayerGrenadeInstance instance) {
         LOG.debug("Exploding!");
-        modContext.getChannel().sendToServer(new GrenadeMessage(instance, 0));
+        CHANNEL.sendToServer(new GrenadeMessage(instance, 0));
     }
 
     private void throwIt(PlayerGrenadeInstance instance) {
@@ -136,7 +137,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
             activationTimestamp = ItemGrenade.EXPLODE_ON_IMPACT;
         }
         instance.getPlayer().playSound(instance.getWeapon().getThrowSound(), 1, 1);
-        modContext.getChannel().sendToServer(new GrenadeMessage(instance, activationTimestamp));
+        CHANNEL.sendToServer(new GrenadeMessage(instance, activationTimestamp));
     }
 
     private void reequip(PlayerGrenadeInstance instance) {

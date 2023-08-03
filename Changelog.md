@@ -183,10 +183,12 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Losslessly compressed assets as a result, the jar size decreased (35.3MB -> 27.57MB)
 - Improved ShaderLoader
 - Reduced overhead due to the removal of most of the compatibility layer leading to increased performance
+- Overhauled the networking, MWC as a whole should be more responsive and use less bandwidth
 
 ### Internal
 
 - Switched to [Raven](https://github.com/eigenraven) amazing [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle)
+- Now uses Red Core
 - Updated to Gradle 8.1.1
 - Cleaned up build.gradle & gradle.properties
 - Gradle now automatically updates the version and id in `ModReference.java`
@@ -198,6 +200,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - [WIP] Renamed unintelligible variables to more readable names
 - Overhauled the internal process of item and block creation
 - Changed name and mod id
+- Overhauled the networking
 
 ### Balance Pack
 

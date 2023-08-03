@@ -1,6 +1,5 @@
 package com.paneedah.mwc.network.messages;
 
-import com.paneedah.weaponlib.vehicle.network.VehicleDataContainer;
 import io.netty.buffer.ByteBuf;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,17 +9,23 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public final class VehicleClientMessage implements IMessage {
+public final class VehicleInteractMessage implements IMessage {
 
-    private VehicleDataContainer vehicleData = new VehicleDataContainer();
+    private boolean right;
+    private int vehicleID;
+    private int playerID;
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-        vehicleData = VehicleDataContainer.read(byteBuf);
+        right = byteBuf.readBoolean();
+        vehicleID = byteBuf.readInt();
+        playerID = byteBuf.readInt();
     }
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        vehicleData.write(byteBuf, vehicleData);
+        byteBuf.writeBoolean(right);
+        byteBuf.writeInt(vehicleID);
+        byteBuf.writeInt(playerID);
     }
 }

@@ -9,23 +9,17 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public final class VehicleInteractPacket implements IMessage {
+public final class OpenCustomPlayerInventoryGuiMessage implements IMessage {
 
-    private boolean right;
-    private int vehicleID;
-    private int playerID;
+    private int guiInventoryId;
 
     @Override
     public void fromBytes(final ByteBuf byteBuf) {
-        right = byteBuf.readBoolean();
-        vehicleID = byteBuf.readInt();
-        playerID = byteBuf.readInt();
+        guiInventoryId = byteBuf.readInt();
     }
 
     @Override
     public void toBytes(final ByteBuf byteBuf) {
-        byteBuf.writeBoolean(right);
-        byteBuf.writeInt(vehicleID);
-        byteBuf.writeInt(playerID);
+        byteBuf.writeInt(guiInventoryId);
     }
 }

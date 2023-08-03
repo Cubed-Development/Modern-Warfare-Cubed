@@ -24,7 +24,7 @@ import com.paneedah.weaponlib.shader.DynamicShaderPhase;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.collisions.OreintedBB;
-import com.paneedah.mwc.network.messages.VehicleInteractPacket;
+import com.paneedah.mwc.network.messages.VehicleInteractMessage;
 import net.minecraft.block.Block;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -52,6 +52,7 @@ import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.locks.Lock;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
@@ -453,7 +454,7 @@ public class ClientEventHandler {
 			boundingBox.updateInverse();
 
 			if (boundingBox.doRayTrace(start, endVec) != null) {
-				getModContext().getChannel().sendToServer(new VehicleInteractPacket(true, entityVehicle.getEntityId(), player.getEntityId()));
+				CHANNEL.sendToServer(new VehicleInteractMessage(true, entityVehicle.getEntityId(), player.getEntityId()));
 				return;
 			}
 		}
@@ -477,7 +478,7 @@ public class ClientEventHandler {
 			//boundingBox.updateInverse();
 
 			if (boundingBox.doRayTrace(start, endVec) != null) {
-				getModContext().getChannel().sendToServer(new VehicleInteractPacket(false, entityVehicle.getEntityId(), player.getEntityId()));
+				CHANNEL.sendToServer(new VehicleInteractMessage(false, entityVehicle.getEntityId(), player.getEntityId()));
 				//entityVehicle.onKillCommand();
 				//entityVehicle.setDead();
 				return;

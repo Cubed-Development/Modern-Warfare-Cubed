@@ -23,6 +23,7 @@ import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 
 import java.util.List;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class EntityWirelessCamera extends EntityThrowable implements IEntityAdditionalSpawnData {
@@ -85,7 +86,7 @@ public class EntityWirelessCamera extends EntityThrowable implements IEntityAddi
                 if(tracker != null) {
                     hit = true;
                     tracker.addTrackableEntity(new TrackableEntity(entityHit, timestamp, duration));
-                    modContext.getChannel().sendTo(new LivingEntityTrackerMessage(tracker, "Tracking " + displayName), (EntityPlayerMP)getThrower());
+                    CHANNEL.sendTo(new LivingEntityTrackerMessage(tracker, "Tracking " + displayName), (EntityPlayerMP)getThrower());
                 }
                 entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, getThrower()), 0.001f);
             }

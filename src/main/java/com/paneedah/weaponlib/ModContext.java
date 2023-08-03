@@ -14,19 +14,16 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 public interface ModContext {
 
 	boolean isClient();
 	
-	void preInitEnd(Object mod, SimpleNetworkWrapper channel);
+	void preInitEnd(Object mod);
 
-	void preInit(Object mod, SimpleNetworkWrapper channel);
+	void preInit(Object mod);
 
 	void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
-
-	SimpleNetworkWrapper getChannel();
 
 	void runSyncTick(Runnable runnable);
 

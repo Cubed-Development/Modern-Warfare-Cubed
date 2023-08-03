@@ -23,6 +23,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 import java.util.List;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class WeaponSpawnEntity extends EntityProjectile {
@@ -115,7 +116,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
                 final RayTraceResult rayTraceResult = HitUtil.traceProjectilehit(this, position.entityHit);
 
                 if (rayTraceResult != null && rayTraceResult.typeOfHit == Type.BLOCK)
-                    weapon.getModContext().getChannel().sendToAllAround(new BloodClientMessage(new Vector3F(rayTraceResult.hitVec), new Vector3F((float) motionX, (float) motionY, (float) motionZ)), point);
+                    CHANNEL.sendToAllAround(new BloodClientMessage(new Vector3F(rayTraceResult.hitVec), new Vector3F((float) motionX, (float) motionY, (float) motionZ)), point);
             }
         }
 

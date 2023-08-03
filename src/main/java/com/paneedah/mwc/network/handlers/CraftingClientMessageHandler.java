@@ -2,10 +2,8 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.CraftingClientMessage;
 import com.paneedah.mwc.network.messages.CraftingServerMessage;
-import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import io.redstudioragnarok.redcore.utils.NetworkUtil;
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -15,17 +13,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.io.ByteArrayOutputStream;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 @NoArgsConstructor
-@AllArgsConstructor
 public final class CraftingClientMessageHandler implements IMessageHandler<CraftingClientMessage, IMessage> {
 
     // Our "op-codes," which reduce the need for additional messages and allow us to execute more functions from one.
     public static final int RECEIVE_HASH = 0;
     public static final int RECEIVE_FILESTREAM = 1;
-
-    private ModContext context;
 
     @Override
     @SideOnly(Side.CLIENT)
@@ -39,7 +35,7 @@ public final class CraftingClientMessageHandler implements IMessageHandler<Craft
                 boolean check = CraftingFileManager.getInstance().checkFileHashAndLoad(fileStream.toByteArray());
                 if (!check) {
                     // Tell the server that we need the file data.
-                    context.getChannel().sendToServer(new CraftingServerMessage(MC.player.getEntityId()));
+                    CHANNEL.sendToServer(new CraftingServerMessage(MC.player.getEntityId()));
                 }
             } else if (opCode == RECEIVE_FILESTREAM) {
                 // We have gotten the file, save it to disk and load it.

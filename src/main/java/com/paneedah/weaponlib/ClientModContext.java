@@ -29,7 +29,6 @@ import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -65,8 +64,8 @@ public class ClientModContext extends CommonModContext {
     }
 
     @Override
-    public void preInit(Object mod, SimpleNetworkWrapper channel) {
-        super.preInit(mod, channel);
+    public void preInit(Object mod) {
+        super.preInit(mod);
 
         currentContext = new ClientModContext();
 
