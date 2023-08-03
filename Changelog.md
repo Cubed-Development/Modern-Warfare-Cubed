@@ -46,6 +46,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Custom death Messages when shot with a gun
 - Added status messages for `No ammunition`, `No magazine`, `Tracking`, `Firearm mode`, `Zoom` and `Explodes in`
 - Added the .277 FURY bullet for the NGSW-R
+- Browning Auto 5 now ejects shotgun shells 
 
 ### Changed
 
