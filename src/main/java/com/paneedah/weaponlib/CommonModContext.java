@@ -213,6 +213,8 @@ public class CommonModContext implements ModContext {
 
 		// Initiate config
 		ModernConfigManager.init();
+
+        // Todo: Order this, put all client channels under 0 and all server channels above 0
 		
 		channel.registerMessage(new TryFireMessageHandler(weaponFireAspect), TryFireMessage.class, 11, Side.SERVER);
 
