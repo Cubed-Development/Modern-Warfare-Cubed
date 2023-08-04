@@ -6,7 +6,6 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.jim.util.LangTools;
-import com.paneedah.weaponlib.jim.util.VectorTools;
 import com.paneedah.weaponlib.jim.util.color.FlatUIColors;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
@@ -419,9 +418,7 @@ public class CustomGui extends Gui {
                 drawCenteredString(FONT_RENDERER, LangTools.formatName(OPENDOOR_TEXT_LANG_KEY), openDoorX, openDoorY + OPEN_DOOR_KEY_Y_OFFSET, FlatUIColors.WHITE);
      		}
          	
-         	if(VectorTools.vectorsEqual(cachedPlayerPosition, player.getPositionVector())
-         			&& cachedPlayerEyeHeight == player.getEyeHeight()
-         			&& VectorTools.vectorsEqual(cachedLookVector, player.getLookVec())) {
+         	if(cachedPlayerPosition.equals(player.getPositionVector()) && cachedPlayerEyeHeight == player.getEyeHeight() && cachedLookVector.equals(player.getLookVec())) {
          		return;
          	}
          		

@@ -459,7 +459,7 @@ public class CommonModContext implements ModContext {
 	
 	@Override
 	public void setFlashExplosionSound(String sound) {
-	    this.flashExplosionSound = registerSound(sound.toLowerCase());
+	    this.flashExplosionSound = registerSound(sound);
 	}
 	
 	@Override

@@ -2,9 +2,9 @@ package com.paneedah.mwc.proxies;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.PlayerAnimations;
+import com.paneedah.mwc.equipment.Armors;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
-import com.paneedah.mwc.equipment.Armors;
 import com.paneedah.mwc.renderer.EquipmentRenderer;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.inventory.BackpackInventoryTab;
 import com.paneedah.weaponlib.inventory.CustomPlayerInventoryTab;
 import com.paneedah.weaponlib.inventory.InventoryTabs;
 import com.paneedah.weaponlib.inventory.StandardPlayerInventoryTab;
-import io.redstudioragnarok.redcore.RedCore;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -25,7 +24,6 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class ClientProxy extends CommonProxy {
@@ -35,11 +33,6 @@ public class ClientProxy extends CommonProxy {
      */
     @SideOnly(Side.CLIENT)
     public static final Minecraft MC = Minecraft.getMinecraft();
-
-    @Override
-    protected boolean isClient() {
-        return true;
-    }
 
     @Override
     public void preInit(final MWC mod) {

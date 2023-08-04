@@ -261,7 +261,7 @@ public class ClientEventHandler {
 		else PlayerUtil.restorePlayerSpeed(player, SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER);
 
 		final LightExposure lightExposure = CompatibleExposureCapability.getExposure(MC.player, LightExposure.class);
-		if (lightExposure != null)
+		if (lightExposure != null && !MC.isGamePaused())
 			lightExposure.update(MC.player);
 	}
 

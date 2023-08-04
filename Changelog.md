@@ -96,6 +96,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Rewritten the rendering system. Items are now positioned correctly everywhere
 - The weapon stats in the modification GUI are now updated instantly
 - Terrorist spawns are now lower by default
+- Flashbangs do not flash trough walls anymore
 
 ### Fixed
 
@@ -163,6 +164,11 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed inputs not updating if you switched to another hotbar slot while holding the input
 - Fixed oreDictionary not working properly under the craftmappings
 - Fixed the height of the Ammo Counter being 1 pixel too high
+- Fixed the flashbang missing sound
+- Fixed the flashbang missing knockback
+- Fixed the flashbang missing particles
+- Fixed flashbang not flashing in every direction
+- Fixed the exposure decreasing on the client side even when the game is paused
 
 ### Removed
 
@@ -173,7 +179,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Removed most of the compatibility layer
 - Removed FXAA
 - Removed Bloom
-- Deleted broken Hescobastion and UMP45GFL props  
+- Deleted broken Hescobastion and UMP45GFL props
+- Removed the vanilla ability to disable shaders with F4 (this allowed for flash to be disabled)
+- Removed the `WIP` status of the flashbang as it is fully usable and reliable
 
 ### Optimization
 

@@ -11,17 +11,11 @@ import com.paneedah.mwc.items.melee.TacticalTomahawkFactory;
 import com.paneedah.mwc.skins.GunSkins;
 import com.paneedah.mwc.tileentities.TileEntities;
 import com.paneedah.mwc.vehicle.Vehicles;
-import com.paneedah.mwc.weapons.Attachments;
-import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Guns;
-import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.mwc.weapons.Bullets;
+import com.paneedah.mwc.weapons.*;
 import com.paneedah.weaponlib.UniversalSoundLookup;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
 import com.paneedah.weaponlib.vehicle.network.VehiclePhysSerializer;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -51,35 +45,11 @@ public class CommonProxy {
     public static Item Backpack;
     */
 
-    public ModelBiped getArmorModel(int id) {
-        return null;
-    }
-
-    protected boolean isClient() {
-        return false;
-    }
-
 
     // I cannot figure out for the life of me why moving the init classes to the init() instead of the preInit() makes the game die, but I have no choice but to leave it here for now.
     public void preInit(final MWC mod) {
         MWC.modContext.preInit(mod);
 
-        // Sounds
-        MWC.modContext.setChangeZoomSound("OpticZoom");
-        MWC.modContext.setNightVisionOnSound("nightvision_on");
-        MWC.modContext.setNightVisionOffSound("nightvision_off");
-        MWC.modContext.setChangeFireModeSound("firerate_toggle");
-        MWC.modContext.setNoAmmoSound("dry_fire");
-        MWC.modContext.setExplosionSound("grenadeexplosion");
-        MWC.modContext.setFlashExplosionSound("flashbang");
-
-        MWC.modContext.setMaterialImpactSounds(Material.ROCK, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone");
-        MWC.modContext.setMaterialImpactSounds(Material.WOOD, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone", "bullet_10_snap");
-        MWC.modContext.setMaterialImpactSounds(Material.GRASS, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        MWC.modContext.setMaterialImpactSounds(Material.GROUND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        MWC.modContext.setMaterialImpactSounds(Material.SAND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        MWC.modContext.setMaterialImpactSounds(Material.SNOW, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        MWC.modContext.setMaterialImpactSounds(Material.IRON, 1.5f, "bullet_6_iron", "bullet_7_iron", "bullet_8_iron");
         UniversalSoundRegistry.init();
         UniversalSoundLookup.initialize(MWC.modContext);
 
