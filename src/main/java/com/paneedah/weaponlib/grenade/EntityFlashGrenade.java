@@ -26,7 +26,6 @@ import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class EntityFlashGrenade extends AbstractEntityGrenade {
 
-
     public static int MAX_EFFECTIVE_DISTANCE = 15;
     private long explosionTimeout;
     private float explosionStrength;
@@ -141,10 +140,8 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
 
     @Override
     public void onGrenadeUpdate() {
-        if (!world.isRemote && explosionTimeout > 0 && System.currentTimeMillis() > activationTimestamp + explosionTimeout) {
+        if (!world.isRemote && explosionTimeout > 0 && System.currentTimeMillis() > (activationTimestamp + explosionTimeout))
             explode();
-            return;
-        }
     }
 
     @Override

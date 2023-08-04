@@ -23,6 +23,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 
 import java.util.List;
 import java.util.Map;
@@ -297,7 +298,7 @@ public class Explosion {
                 }
             }
 
-            if (spawnParticles) {
+            if (spawnParticles && FMLCommonHandler.instance().getSide().isClient()) {
                 for (int i = 0; i < 15; i++) {
                     double pX = position.x + world.rand.nextGaussian() * 0.8 * smokeParticleScaleCoefficient;
                     double pY = position.y + world.rand.nextGaussian() * 0.9 * smokeParticleScaleCoefficient;

@@ -34,7 +34,7 @@ public class EquipmentInventory implements IInventory, Contextual {
     
     private EntityPlayer owner;
 
-    public EquipmentInventory(/*ModContext modContext*/) {
+    public EquipmentInventory() {
         inventory = new ItemStack[INV_SIZE];
         for(int i = 0; i < inventory.length; i++) {
             inventory[i] = new ItemStack(Items.AIR);
