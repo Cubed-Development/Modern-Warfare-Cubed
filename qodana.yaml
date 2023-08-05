@@ -32,6 +32,7 @@ include:
   - name: ManualMinMaxCalculation
   - name: FinalStaticMethod
 exclude:
+  - name: JavadocReference
   - name: All
     paths:
       - src/main/java/com/paneedah/mwc/models
