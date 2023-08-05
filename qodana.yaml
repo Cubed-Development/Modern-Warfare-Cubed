@@ -4,6 +4,7 @@ profile:
   name: qodana.recommended
 fixesStrategy: cleanup
 include:
+  - name: CheckDependencyLicenses
   - name: DuplicateBranchesInSwitch
   - name: CommentedOutCode
   - name: UnnecessaryModifier
