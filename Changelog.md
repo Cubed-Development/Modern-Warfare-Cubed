@@ -36,7 +36,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Durability to all vests as a temporary measure to resolve vest-related issues
 - Smelting of sulfur into gunpowder
 - .50 AE in the Ammo Press
-- Crafting recipes for the M1014, Supernova and tactical night vision goggles
+- Crafting recipes for the APC9, M1014, Supernova and tactical night vision goggles
 - Crafting of grenades (excluding gas grenade) in the ammo press (Once overhauled, they will be moved on the workbench)
 - Weapon system version to weapon tooltips
 - Added the Workbench and the Ammo Press to the Creative Tab
@@ -50,7 +50,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Changed
 
-- Overhauled the textures of AAC Honey Badger, Bushmaster ACR, Beowulf, HK 417, M16A1, FN F2000, 100rnd 5.56x45mm NATO STANAG Drum Magazine and the pink camo skin
+- Overhauled the textures of the AAC Honey Badger, Bushmaster ACR, Beowulf, AUG, Remington 870, AS-50, S7-10, M79, HK 417, M16A1, FN F2000, 100rnd 5.56x45mm NATO STANAG Drum Magazine and the pink camo skin
 - Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight, OKP-7 Sight, and Eotech Hybrid HHS™ II Sight
 - Overhauled animations and sound effects of the M40A6 and Uzi
 - Sidearms can now be carried in backpacks
@@ -102,7 +102,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 - Fixed some issues with incorrect weapon shell throwing
 - Fixed the perspective issue with MP7ironsightsstanding
-- Fixed F2000 flame position
+- Fixed F2000 muzzle flash position
 - Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)
 - Fixed Minecraft armor making you invulnerable to bullets (less realistic, but they aren't anyway lol)
 - Fixed soldiers and terrorists spawning with Minecraft armor
@@ -123,11 +123,11 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed visual bugs:
   - Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
   - Fixed m249 accessories floating
-  - The P90 is no longer compatible with the bipod, and the magazine of the terminator conversion kit has been fixed
+  - The P90 is no longer compatible with the bipod and the magazine of the terminator conversion kit has been fixed
   - Fixed the attachment of the Long Deagle
   - Fixed m16 stock and m38 front sight on guns like M4A1, Beowulf .50Cal and AR-10
   - Fixed visual bugs with grips on the m40a6 and Malyuk
-  - Fixed visual bugs with sight on the Taurus
+  - Fixed visual bugs with sight on the taurus
   - Fixed Stock visual bugs on Origin-12
   - Fixed sights like PSO-1 and OKP-7 on ak-74 and ak-101
   - Fixed the visual bugs of the F2000
@@ -135,8 +135,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Fixed Bipod in ARX-160
   - Fixed Vector Stock Adapter
   - Adjusted slide recoil on m17
-  - Fixed muzzle flash for Dragunov
+  - Fixed muzzle flash for Dragunov and AK-101
   - Fixed texture bullet
+- Fixed the attachment of the Long Deagle
 - Fixed prop hitboxes not lining up with their models:
   - Fridge (open/closed)
   - Locker
@@ -192,6 +193,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Improved ShaderLoader
 - Reduced overhead due to the removal of most of the compatibility layer leading to increased performance
 - Overhauled the networking, MWC as a whole should be more responsive and use less bandwidth
+- Optimized a majority of the models as a result,the jar size decreased (27.57MB -> 21.55MB)
 
 ### Internal
 
