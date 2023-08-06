@@ -17262,7 +17262,7 @@ public class Attachments {
         AUGgrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.AUGGrip(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.AUGGrip(), "aug.png")
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.6f);
                 }).withFirstPersonModelPositioning((model, itemStack) -> {

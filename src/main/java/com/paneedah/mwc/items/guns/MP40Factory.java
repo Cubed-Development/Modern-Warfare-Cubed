@@ -64,11 +64,6 @@ public class MP40Factory {
             GL11.glTranslatef(0F, 0F, 1F);
         })
         .withCompatibleAttachment(Magazines.MP40Mag, (model) -> {
-            GL11.glTranslatef(-0.365F, 0.42F, -1.52F);
-            GL11.glScaled(1.2F, 1F, 1F);
-            
-//            GL11.glTranslatef(-0.365F, 0.8F, -1.52F);
-//            GL11.glScaled(1.2F, 1F, 1F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {
@@ -117,9 +112,6 @@ public class MP40Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new MP40())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
