@@ -22,7 +22,6 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
-import static com.paneedah.mwc.utils.ModReference.RED_LOG;
 
 
 /**
@@ -56,9 +55,6 @@ public final class ClientTickerController {
     public static void stop() {
         if (scheduledFuture != null)
             scheduledFuture.cancel(true);
-
-        if (MC.world != null)
-            RED_LOG.printFramedError("Client Weapon Ticker Thread", "Client weapon ticker thread stopped", "This will probably cause a CTCS");
     }
 
     /**
