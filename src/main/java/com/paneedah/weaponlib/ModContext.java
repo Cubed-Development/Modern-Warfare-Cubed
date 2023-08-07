@@ -25,8 +25,6 @@ public interface ModContext {
 
 	void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer);
 
-	void runSyncTick(Runnable runnable);
-
 	void registerRenderableItem(String name, Item weapon, Object renderer);
 
 	void registerRenderableItem(ResourceLocation name, Item weapon, Object renderer);

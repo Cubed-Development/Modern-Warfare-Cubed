@@ -74,6 +74,9 @@ public final class MWC {
         MWCRecipes.register();
         commonProxy.init(this);
 
+        if (initializationEvent.getSide().isClient())
+            Runtime.getRuntime().addShutdownHook(new Thread(ClientTickerController::stop));
+
         // Set the sounds
         modContext.setChangeZoomSound("OpticZoom");
         modContext.setNightVisionOnSound("nightvision_on");

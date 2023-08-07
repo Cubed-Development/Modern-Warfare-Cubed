@@ -109,6 +109,7 @@ public class ClientEventHandler {
 
 	public static Stack<MuzzleFlash> muzzleFlashStack = new Stack<>();
 
+	// Todo: Try to get rid of this lock and safe globals
 	private final Lock mainLoopLock;
 	private final SafeGlobals safeGlobals;
 

@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.ClientTicker;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.command.MainCommand;
@@ -92,10 +91,6 @@ public class ClientModContext extends CommonModContext {
 
         KeyBindings.init();
 
-        ClientTicker clientTicker = new ClientTicker(this);
-        Runtime.getRuntime().addShutdownHook(new Thread(clientTicker::stop));
-        clientTicker.start();
-
         clientEventHandler = new ClientEventHandler(this, mainLoopLock, safeGlobals);
         MinecraftForge.EVENT_BUS.register(clientEventHandler);
 
@@ -170,16 +165,6 @@ public class ClientModContext extends CommonModContext {
     @Override
     protected EntityPlayer getPlayer(MessageContext ctx) {
         return MC.player;
-    }
-
-    @Override
-    public void runSyncTick(Runnable runnable) {
-        mainLoopLock.lock();
-        try {
-            runnable.run();
-        } finally {
-            mainLoopLock.unlock();
-        }
     }
 
     @Override
