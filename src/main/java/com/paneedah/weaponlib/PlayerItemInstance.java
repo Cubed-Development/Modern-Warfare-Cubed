@@ -112,7 +112,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     }
 
     protected void rollback() {
-        LOG.debug("Attempted rolling back, but this method is empty. State: {}, Prepared State: {}, Prepared State State: {}, Prepared State State Commit Phase: {}", state, preparedState, preparedState.getState(), preparedState.getState().commitPhase());
+        LOG.warn("Attempted rolling back, but this method is empty. State: {}, Prepared State: {}, Prepared State State: {}, Prepared State State Commit Phase: {}", state, preparedState, preparedState.getState(), preparedState.getState().commitPhase());
     }
 
     /**
@@ -178,7 +178,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
     }
 
     protected void reconcile() {
-        LOG.debug("Reconciling PlayerItemInstance: {}, but this method is empty", this);
+        LOG.warn("Reconciling PlayerItemInstance: {}, but this method is empty", this);
     }
 
 //    public View<?> createView() {
