@@ -107,7 +107,9 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
             }
 
             preparedState = null;
-        }
+        } else
+            LOG.warn("Prepared state is null for PlayerItemInstance: {}", this);
+
         return false;
     }
 
