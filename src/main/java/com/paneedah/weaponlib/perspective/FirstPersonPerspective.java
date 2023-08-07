@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.perspective;
 
+import com.paneedah.mwc.proxies.ClientProxy;
 import com.paneedah.weaponlib.RenderingPhase;
 import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
 import net.minecraft.client.renderer.EntityRenderer;
@@ -24,7 +25,7 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
 
     @Override
     public void update(TickEvent.RenderTickEvent event) {
-        modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.RENDER_PERSPECTIVE);
+        ClientProxy.renderingPhase = RenderingPhase.RENDER_PERSPECTIVE;
         long p_78471_2_ = this.renderEndNanoTime + (long)(1000000000 / 60);
         int origDisplayWidth = MC.displayWidth;
         int origDisplayHeight = MC.displayHeight;
@@ -109,10 +110,10 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
         MC.displayWidth = origDisplayWidth;
         MC.displayHeight = origDisplayHeight;
         this.renderEndNanoTime = System.nanoTime();
-        
-       
-        
-        modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.NORMAL);
+
+
+
+        ClientProxy.renderingPhase = RenderingPhase.NORMAL;
     }
 
     protected void prepareRenderWorld(TickEvent.RenderTickEvent event) {

@@ -2,6 +2,7 @@ package com.paneedah.mwc;
 
 import com.paneedah.mwc.creativetab.*;
 import com.paneedah.mwc.handlers.ClientEventHandler;
+import com.paneedah.mwc.handlers.CommonEventHandler;
 import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.network.handlers.*;
 import com.paneedah.mwc.network.messages.*;
@@ -71,8 +72,13 @@ public final class MWC {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent initializationEvent) {
+        MinecraftForge.EVENT_BUS.register(CommonEventHandler.class);
+
         MWCRecipes.register();
         commonProxy.init(this);
+
+        if (initializationEvent.getSide().isClient())
+            Runtime.getRuntime().addShutdownHook(new Thread(ClientTickerController::stop));
 
         // Set the sounds
         modContext.setChangeZoomSound("OpticZoom");

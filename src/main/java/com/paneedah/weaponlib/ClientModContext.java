@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.ClientTicker;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.command.MainCommand;
@@ -33,8 +32,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
@@ -42,10 +39,7 @@ public class ClientModContext extends CommonModContext {
 
     protected static ClientModContext currentContext;
     private ClientEventHandler clientEventHandler;
-    private Lock mainLoopLock = new ReentrantLock();
     private CompatibleRenderingRegistry rendererRegistry;
-
-    private final SafeGlobals safeGlobals = new SafeGlobals();
 
     private PerspectiveManager viewManager;
 
@@ -88,15 +82,11 @@ public class ClientModContext extends CommonModContext {
         }
 
         MinecraftForge.EVENT_BUS.register(new CustomGui(MC, this, weaponAttachmentAspect));
-        MinecraftForge.EVENT_BUS.register(new WeaponEventHandler(this, safeGlobals));
+        MinecraftForge.EVENT_BUS.register(new WeaponEventHandler(this));
 
         KeyBindings.init();
 
-        ClientTicker clientTicker = new ClientTicker(this);
-        Runtime.getRuntime().addShutdownHook(new Thread(clientTicker::stop));
-        clientTicker.start();
-
-        clientEventHandler = new ClientEventHandler(this, mainLoopLock, safeGlobals);
+        clientEventHandler = new ClientEventHandler(this);
         MinecraftForge.EVENT_BUS.register(clientEventHandler);
 
         MinecraftForge.EVENT_BUS.register(InventoryTabs.getInstance());
@@ -144,10 +134,6 @@ public class ClientModContext extends CommonModContext {
         return viewManager;
     }
 
-    public SafeGlobals getSafeGlobals() {
-        return safeGlobals;
-    }
-
     @Override
     public void registerWeapon(String name, Weapon weapon, WeaponRenderer renderer) {
         super.registerWeapon(name, weapon, renderer);
@@ -170,16 +156,6 @@ public class ClientModContext extends CommonModContext {
     @Override
     protected EntityPlayer getPlayer(MessageContext ctx) {
         return MC.player;
-    }
-
-    @Override
-    public void runSyncTick(Runnable runnable) {
-        mainLoopLock.lock();
-        try {
-            runnable.run();
-        } finally {
-            mainLoopLock.unlock();
-        }
     }
 
     @Override
