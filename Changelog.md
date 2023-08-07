@@ -47,6 +47,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added status messages for `No ammunition`, `No magazine`, `Tracking`, `Firearm mode`, `Zoom` and `Explodes in`
 - Added the .277 FURY bullet for the NGSW-R
 - Browning Auto 5 now ejects shotgun shells 
+- Added `reconcileAmmunition` & `reconcileAttachments` gamerules, they are true by default and should only be used for debugging purposes, for example, when you have weapons that appear to "desync" / glitch out
+- Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
 
 ### Changed
 
@@ -170,6 +172,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed the flashbang missing particles
 - Fixed flashbang not flashing in every direction
 - Fixed the exposure decreasing on the client side even when the game is paused
+- Fixed spectators being able to shoot weapons
 
 ### Removed
 
