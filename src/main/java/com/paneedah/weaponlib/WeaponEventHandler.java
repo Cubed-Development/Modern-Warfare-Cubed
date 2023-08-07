@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.proxies.ClientProxy;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
@@ -19,17 +20,10 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class WeaponEventHandler {
 
-	private SafeGlobals safeGlobals;
 	private ModContext modContext;
 
-	public WeaponEventHandler(ModContext modContext, SafeGlobals safeGlobals) {
+	public WeaponEventHandler(ModContext modContext) {
 		this.modContext = modContext;
-		this.safeGlobals = safeGlobals;
-	}
-
-	@SubscribeEvent
-	public void onGuiOpenEvent(GuiOpenEvent event) {
-		safeGlobals.guiOpen.set(event.getGui() != null);
 	}
 
 	@SubscribeEvent
@@ -59,7 +53,7 @@ public class WeaponEventHandler {
 		    float fov;
 		    if(instance.isAttachmentZoomEnabled()) {
 		    	fov = instance.getWeapon().getADSZoom();
-		    	 if(safeGlobals.renderingPhase.get() == RenderingPhase.RENDER_PERSPECTIVE) {
+		    	 if(ClientProxy.renderingPhase == RenderingPhase.RENDER_PERSPECTIVE) {
 		           
 		        	fov = instance.getZoom();
 		        } else {
@@ -72,7 +66,7 @@ public class WeaponEventHandler {
 		       // fov = compatibility.isFlying(MC.player) ? 1.1f : 1.0f; //instance.isAimed() ? instance.getZoom() : 1f;
 		    }
 
-		   RenderingPhase phase = (((ClientModContext) modContext).getSafeGlobals().renderingPhase).get();
+		   RenderingPhase phase = ClientProxy.renderingPhase;
 		 
 		     if(instance.isAimed() && phase == null) {
 		    	fov = 0.7f;

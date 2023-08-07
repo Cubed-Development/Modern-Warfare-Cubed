@@ -1,7 +1,9 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.utils.PlayerUtil;
+import com.paneedah.mwc.network.messages.VehicleInteractMessage;
+import com.paneedah.mwc.proxies.ClientProxy;
 import com.paneedah.mwc.utils.MWCUtil;
+import com.paneedah.mwc.utils.PlayerUtil;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
@@ -24,7 +26,6 @@ import com.paneedah.weaponlib.shader.DynamicShaderPhase;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.collisions.OreintedBB;
-import com.paneedah.mwc.network.messages.VehicleInteractMessage;
 import net.minecraft.block.Block;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -50,7 +51,6 @@ import org.lwjgl.input.Mouse;
 
 import java.lang.reflect.Field;
 import java.util.*;
-import java.util.concurrent.locks.Lock;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
@@ -109,10 +109,6 @@ public class ClientEventHandler {
 
 	public static Stack<MuzzleFlash> muzzleFlashStack = new Stack<>();
 
-	// Todo: Try to get rid of this lock and safe globals
-	private final Lock mainLoopLock;
-	private final SafeGlobals safeGlobals;
-
 	private final ClientModContext modContext;
     private final DynamicShaderGroupManager shaderGroupManager;
     private final PipelineShaderGroupSourceProvider pipelineShaderGroupSourceProvider = new PipelineShaderGroupSourceProvider();
@@ -123,10 +119,8 @@ public class ClientEventHandler {
 		return modContext;
 	}
 
-	public ClientEventHandler(ClientModContext modContext, Lock mainLoopLock, SafeGlobals safeGlobals /*, ReloadAspect reloadAspect*/) {
+	public ClientEventHandler(ClientModContext modContext /*, ReloadAspect reloadAspect*/) {
 		this.modContext = modContext;
-		this.mainLoopLock = mainLoopLock;
-		this.safeGlobals = safeGlobals;
         this.shaderGroupManager = new DynamicShaderGroupManager();
         //this.reloadAspect = reloadAspect;
 	}
@@ -153,11 +147,8 @@ public class ClientEventHandler {
 		final EntityPlayer player = MC.player;
 
 		if (event.phase == TickEvent.ClientTickEvent.Phase.START) {
-			mainLoopLock.lock();
 			updateOnStartTick();
-		}
-
-		else if (event.phase == TickEvent.ClientTickEvent.Phase.END) {
+		} else if (event.phase == TickEvent.ClientTickEvent.Phase.END) {
 			update();
 			modContext.getSyncManager().run();
 
@@ -169,11 +160,8 @@ public class ClientEventHandler {
 	            final EntityVehicle entityBoat = (EntityVehicle) clientPlayer.getRidingEntity();
 	            entityBoat.updateInputs(clientPlayer.movementInput.leftKeyDown, clientPlayer.movementInput.rightKeyDown, clientPlayer.movementInput.forwardKeyDown, clientPlayer.movementInput.backKeyDown);
 	        }
-	        
-			mainLoopLock.unlock();
-			safeGlobals.objectMouseOver.set(MC.objectMouseOver);
+
 			if(MC.player != null) {
-				safeGlobals.currentItemIndex.set(MC.player.inventory.currentItem);
 				//reloadAspect.updateMainHeldItem(MC.player);
 			}
 		}
@@ -284,7 +272,6 @@ public class ClientEventHandler {
         
         if (event.phase == TickEvent.RenderTickEvent.Phase.START) {
             ClientModContext.currentContext = modContext;
-            mainLoopLock.lock();
 
             if (clientPlayer != null) {
                 final PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry().getMainHandItemInstance(clientPlayer);
@@ -305,9 +292,8 @@ public class ClientEventHandler {
             }
 
         } else if (event.phase == TickEvent.RenderTickEvent.Phase.END) {
-            safeGlobals.renderingPhase.set(null);
+            ClientProxy.renderingPhase = null;
             shaderGroupManager.removeStaleShaders(shaderContext);
-            mainLoopLock.unlock();
         }
     }
 
@@ -356,9 +342,8 @@ public class ClientEventHandler {
 		if (getModContext() != null)
 			AnimationModeProcessor.getInstance().legacyMode = getModContext().getMainHeldWeapon() == null || !getModContext().getMainHeldWeapon().getWeapon().builder.isUsingNewSystem();
 
-		final RenderingPhase phase = ClientModContext.getContext().getSafeGlobals().renderingPhase.get();
+		final RenderingPhase phase = ClientProxy.renderingPhase;
 
-		// ClientModContext.getContext().getSafeGlobals().renderingPhase.get());
 		if (phase == RenderingPhase.RENDER_PERSPECTIVE) {
 			// PostProcessPipeline.blitDepth();
 			return;
@@ -389,7 +374,7 @@ public class ClientEventHandler {
 
 		final ClientModContext modContext = (ClientModContext) getModContext();
 
-		if (modContext.getSafeGlobals().renderingPhase.get() == RenderingPhase.RENDER_PERSPECTIVE && event.getEntityPlayer() instanceof EntityPlayerSP) {
+		if (ClientProxy.renderingPhase == RenderingPhase.RENDER_PERSPECTIVE && event.getEntityPlayer() instanceof EntityPlayerSP) {
 			/*
 			 * This is a hack to allow player to view themselves in remote perspective.
 			 * By default, EntityPlayerSP ("user" playing the game) cannot see himself unless player == renderViewEntity.
@@ -425,8 +410,7 @@ public class ClientEventHandler {
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
 	public final void onPostRenderPlayer(RenderPlayerEvent.Post event) {
-		final ClientModContext modContext = (ClientModContext) getModContext();
-		if (modContext.getSafeGlobals().renderingPhase.get() == RenderingPhase.RENDER_PERSPECTIVE && event.getEntityPlayer() instanceof EntityPlayerSP) {
+		if (ClientProxy.renderingPhase == RenderingPhase.RENDER_PERSPECTIVE && event.getEntityPlayer() instanceof EntityPlayerSP) {
 			/*
 			 * This is a hack to allow player to view themselves in remote perspective.
 			 * By default, EntityPlayerSP ("user" playing the game) cannot see himself unless player == renderViewEntity.

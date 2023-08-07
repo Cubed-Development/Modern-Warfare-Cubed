@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.perspective;
 
+import com.paneedah.mwc.proxies.ClientProxy;
 import com.paneedah.mwc.utils.PlayerCreatureWrapper;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.RenderingPhase;
@@ -64,14 +65,14 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
             MC.setRenderViewEntity(watchablePlayer.getEntityLiving());
             MC.player = watchablePlayer;
 
-            modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.RENDER_PERSPECTIVE);
+            ClientProxy.renderingPhase = RenderingPhase.RENDER_PERSPECTIVE;
 
             this.entityRenderer.setPrepareTerrain(true);
             this.entityRenderer.updateRenderer();
             long p_78471_2_ = this.renderEndNanoTime + (long) (1000000000 / 60);
             this.entityRenderer.renderWorld(event.renderTickTime, p_78471_2_);
 
-            modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.NORMAL);
+            ClientProxy.renderingPhase = RenderingPhase.NORMAL;
 
             MC.setRenderViewEntity(origRenderViewEntity);
             MC.player = origPlayer;

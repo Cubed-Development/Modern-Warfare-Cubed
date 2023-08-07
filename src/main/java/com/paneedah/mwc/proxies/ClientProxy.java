@@ -6,6 +6,7 @@ import com.paneedah.mwc.equipment.Armors;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.Workbench;
 import com.paneedah.mwc.renderer.EquipmentRenderer;
+import com.paneedah.weaponlib.RenderingPhase;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.model.AmmoPress;
@@ -33,6 +34,8 @@ public class ClientProxy extends CommonProxy {
      */
     @SideOnly(Side.CLIENT)
     public static final Minecraft MC = Minecraft.getMinecraft();
+
+    public static RenderingPhase renderingPhase;
 
     @Override
     public void preInit(final MWC mod) {
