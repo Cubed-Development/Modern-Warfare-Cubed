@@ -7291,10 +7291,10 @@ public class Attachments {
         HK417HandguardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Handguard(), "HK417tan.png")
-                .withModel(new com.paneedah.mwc.models.AKRail(), "guntandark.png")
-                .withModel(new com.paneedah.mwc.models.AKRail2(), "guntandark.png")
-                .withModel(new com.paneedah.mwc.models.AKRail3(), "guntandark.png")
-                .withModel(new com.paneedah.mwc.models.AKRail5(), "guntandark.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail2(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail3(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail5(), "guntandarkrail.png")
                 .withInventoryModelPositioning((model, s) -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Handguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
@@ -7800,7 +7800,7 @@ public class Attachments {
         HK417ReceiverTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Receiver(), "HK417tan.png")
-                .withModel(new com.paneedah.mwc.models.AKRail(), "guntan.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "guntanrail.png")
                 .withInventoryModelPositioning((model, s) -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Receiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);

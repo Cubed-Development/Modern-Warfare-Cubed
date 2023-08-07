@@ -10,6 +10,7 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.compatibility.RecoilParam;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
@@ -46,32 +47,38 @@ public class AUGFactory implements GunFactory {
         .withShellCasingVerticalOffset(-0.03f)
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Bullpup Assault Rifle", 
-        "Damage: 6", 
-        "Cartridge: 5.56x45mm NATO",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 80/100",
-        "Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-        "60rnd 5.56x45mm NATO STANAG Drum Magazine",
-        "100rnd 5.56x45mm NATO STANAG Drum Magazine",
-        "30rnd 9x19mm PARA Magazine (w/ PARA conversion kit)"))
-         
-         .withScreenShaking(RenderableState.SHOOTING, 
-                 -1f, // x 
-                 -2f, // y
-                 3f) // z
+        .withRecoilParam(new RecoilParam(
+             // The weapon power
+             15.0,
+             // Muzzle climb divisor
+             15.75,
+             // "Stock Length"
+             50.0,
+             // Recovery rate from initial shot
+             0.4,
+             // Recovery rate @ "stock"
+             0.3125,
+             // Recoil rotation (Y)
+             0.0,
+             // Recoil rotation (Z)
+             0.0,
+             // Ads similarity divisor
+             1.0
+        ))
+
+        .withScreenShaking(RenderableState.SHOOTING,
+        -1f, // x
+        -2f, // y
+        3f) // z
          
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
+        .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
         .withCompatibleAttachment(Attachments.AUGA1handguard, true, (model) -> {
         })
         .withCompatibleAttachment(Attachments.AUGDefaultKit, true, (model) -> {
-            GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.AUGParaConversion, (model) -> {
+            GL11.glTranslatef(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.AUGA2handguard, (model) -> {
             if(model instanceof AKRail) {
