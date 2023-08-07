@@ -1,6 +1,8 @@
 package com.paneedah.mwc;
 
-import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.PlayerWeaponInstance;
+import com.paneedah.weaponlib.Updatable;
+import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.BalancePackManager;
@@ -32,10 +34,7 @@ import static com.paneedah.mwc.utils.ModReference.RED_LOG;
  */
 @SideOnly(Side.CLIENT)
 public final class ClientTickerController {
-
-    /**
-     * @since 0.1
-     */
+    
     private static ScheduledFuture<?> scheduledFuture;
 
     /**
@@ -75,15 +74,17 @@ public final class ClientTickerController {
     @SideOnly(Side.CLIENT)
     private static final class ClientTicker {
 
-        /**
-         * @since 0.1
-         */
         private static boolean rightMouseButtonPressed;
 
+        private static final int LEFT_MOUSE_BUTTON = 0;
+        private static final int RIGHT_MOUSE_BUTTON = 1;
+
         /**
+         * This cooldown is used to prevent players from shooting when closing GUI's
+         *
          * @since 0.1
          */
-        private static final ClientModContext clientModContext = (ClientModContext) MWC.modContext;
+        private static int guiCooldown;
 
         /**
          * Executes the tick logic for the client ticker.
@@ -100,33 +101,48 @@ public final class ClientTickerController {
          * @since 0.1
          */
         private static void onTick() {
-            if (!Mouse.isCreated())
+            if (!Mouse.isCreated() || MC.player == null || MC.player.isSpectator())
                 return;
 
-            final SafeGlobals safeGlobals = clientModContext.getSafeGlobals();
+            scheduleTask(ClientTicker::tickHeldItem, false);
 
-            // Left mouse button
-            if (Mouse.isButtonDown(0)) {
-                if (!safeGlobals.guiOpen.get())
-                    MC.addScheduledTask(ClientTicker::onLeftMouseButtonDown);
-            } else
-                MC.addScheduledTask(ClientTicker::onLeftMouseButtonReleased);
+            if (MC.currentScreen != null) {
+                // Value... fresh from my ass:
+                guiCooldown = 30;
+                return;
+            } else if (guiCooldown > 0)
+                guiCooldown--;
 
-            // Right mouse button
-            if (Mouse.isButtonDown(1)) {
+            if (Mouse.isButtonDown(LEFT_MOUSE_BUTTON))
+                scheduleTask(ClientTicker::onLeftMouseButtonDown, true);
+            else
+                scheduleTask(ClientTicker::onLeftMouseButtonReleased, false);
+
+            if (Mouse.isButtonDown(RIGHT_MOUSE_BUTTON)) {
                 if (!rightMouseButtonPressed) {
                     rightMouseButtonPressed = true;
 
-                    if (!safeGlobals.guiOpen.get())
-                        MC.addScheduledTask(ClientTicker::onRightMouseButtonDown);
+                    scheduleTask(ClientTicker::onRightMouseButtonDown, true);
                 }
             } else {
                 rightMouseButtonPressed = false;
 
-                MC.addScheduledTask(ClientTicker::onRightMouseButtonReleased);
+                scheduleTask(ClientTicker::onRightMouseButtonReleased, false);
             }
+        }
 
-            MC.addScheduledTask(ClientTicker::tickHeldItem);
+        /**
+         * Schedules a task to be run, optionally respecting a GUI cooldown period.
+         *
+         * @param runnable The task to be scheduled.
+         * @param blockedByGUICooldown If true, the task will be blocked if the GUI cooldown is in effect; if false, the task will be scheduled regardless.
+         *
+         * @author Luna Lage (Desoroxxx)
+         * @since 0.1
+         */
+        private static void scheduleTask(final Runnable runnable, final boolean blockedByGUICooldown) {
+            if (!blockedByGUICooldown || guiCooldown == 0)
+                MC.addScheduledTask(runnable);
         }
 
         /**
@@ -216,7 +232,7 @@ public final class ClientTickerController {
             if ((item instanceof Weapon) && BalancePackManager.isWeaponDisabled((Weapon) item))
                 return;
 
-            final PlayerWeaponInstance mainHandHeldWeaponInstance = clientModContext.getMainHeldWeapon();
+            final PlayerWeaponInstance mainHandHeldWeaponInstance = MWC.modContext.getMainHeldWeapon();
             if (mainHandHeldWeaponInstance != null && (ModernConfigManager.holdToAim && (item instanceof Weapon && mainHandHeldWeaponInstance.isAimed()))) {
                 if (ClientValueRepo.shouldContinueRunning) {
                     player.setSprinting(true);
@@ -248,7 +264,9 @@ public final class ClientTickerController {
          * Retrieves the item held in the main hand of the specified player.
          *
          * @param player The player whose main hand item is to be returned
+         *
          * @return The item held in the main hand of the player
+         *
          * @author Luna Lage (Desoroxxx)
          * @since 0.1
          */
