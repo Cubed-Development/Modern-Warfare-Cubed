@@ -162,6 +162,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Medical Create
   - Camera Rotated
 - Fixed position of the backpacks in inventory
+- Fixed the client ticker "corruption" state
 - Fixed the client corruption state
 - Fixed melee attack and heavy melee attack being switched
 - Fixed inputs not updating if you switched to another hotbar slot while holding the input
@@ -202,7 +203,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 - Switched to [Raven](https://github.com/eigenraven) amazing [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle)
 - Now uses Red Core
-- Updated to Gradle 8.1.1
+- Updated to Gradle 8.2
 - Cleaned up build.gradle & gradle.properties
 - Gradle now automatically updates the version and id in `ModReference.java`
 - Updated Forge version
