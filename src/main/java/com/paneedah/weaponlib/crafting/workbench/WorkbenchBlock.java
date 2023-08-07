@@ -16,6 +16,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
+
 /**
  * Block class for the workbench block
  * 
@@ -60,7 +62,7 @@ public class WorkbenchBlock extends BlockStation {
 		if(hand == EnumHand.MAIN_HAND) {
 			playerIn.swingArm(hand);
 			if(!worldIn.isRemote) {
-				modContext.getChannel().sendTo(new WorkbenchClientMessage(worldIn, pos), (EntityPlayerMP) playerIn);
+				CHANNEL.sendTo(new WorkbenchClientMessage(worldIn, pos), (EntityPlayerMP) playerIn);
 			}
 			return true;
 		}

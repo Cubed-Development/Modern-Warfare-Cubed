@@ -2,6 +2,7 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.WorkbenchClientMessage;
 import com.paneedah.weaponlib.crafting.base.TileEntityStation;
+import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -16,10 +17,12 @@ public final class WorkbenchClientMessageHandler implements IMessageHandler<Work
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(final WorkbenchClientMessage workbenchClientMessage, final MessageContext messageContext) {
-        final TileEntity tileEntity = MC.world.getTileEntity(workbenchClientMessage.getPosition());
+        NetworkUtil.processMessage(messageContext, () -> {
+            final TileEntity tileEntity = MC.world.getTileEntity(workbenchClientMessage.getPosition());
 
-        if (tileEntity instanceof TileEntityStation)
-            ((TileEntityStation) tileEntity).readBytesFromClientSync(workbenchClientMessage.getBuffer());
+            if (tileEntity instanceof TileEntityStation)
+                ((TileEntityStation) tileEntity).readBytesFromClientSync(workbenchClientMessage.getBuffer());
+        });
 
         return null;
     }

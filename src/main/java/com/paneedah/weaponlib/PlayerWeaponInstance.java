@@ -1,13 +1,13 @@
 package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
+import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.perspective.OpticalScopePerspective;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
@@ -617,22 +617,33 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
    	
    	@Override
    	protected void reconcile() {
-        ItemStack itemStack = getItemStack();
+		if (!player.world.getGameRules().getBoolean("reconcileAmmunition") && !player.world.getGameRules().getBoolean("reconcileAttachment"))
+			return;
+
+        final ItemStack itemStack = getItemStack();
 
         if(itemStack != null) {
-            int expectedStackAmmo = Tags.getAmmo(itemStack);
-            if(this.ammo > expectedStackAmmo) {
-                LOG.debug("Reconciling. Expected ammo: {}, actual: {}", expectedStackAmmo, this.ammo);
-                this.ammo = expectedStackAmmo;
-            }
-            
-//            int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
-//            if(!Arrays.equals(expectedAttachmentIds, this.activeAttachmentIds)) {
-//                log.debug("Reconciling. Expected attachments: {}, actual: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(this.activeAttachmentIds));
-//                this.activeAttachmentIds = expectedAttachmentIds;
-//            }
+	        if (player.world.getGameRules().getBoolean("reconcileAmmunition")) {
+		        final int expectedStackAmmo = Tags.getAmmo(itemStack);
 
-            updateTimestamp = System.currentTimeMillis();
+		        if(ammo != expectedStackAmmo) {
+		            LOG.debug("Reconciling ammunition. Expected ammunition: {}, Current ammunition: {}", expectedStackAmmo, ammo);
+
+		            ammo = expectedStackAmmo;
+		        }
+	        }
+
+	        if (player.world.getGameRules().getBoolean("reconcileAttachments")) {
+		        final int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
+
+		        if(!Arrays.equals(expectedAttachmentIds, activeAttachmentIds)) {
+			        LOG.debug("Reconciling attachments. Expected attachments: {}, Current attachments: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(activeAttachmentIds));
+
+		            activeAttachmentIds = expectedAttachmentIds;
+		        }
+	        }
+
+	        updateTimestamp = System.currentTimeMillis();
         }
    	}
 

@@ -116,6 +116,10 @@ Anyone and everyone is welcome to contribute and help out with the project, in f
 - [SticksDev](https://github.com/SticksDeveloper) - Developer
 - [Azurae](https://github.com/azuraerae) - Developer
 
+Thanks to JetBrains for providing us a few licenses for all their products, as part of their [Open Source program](https://www.jetbrains.com/opensource/).
+
+[![JetBrains](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg)](https://www.jetbrains.com/opensource/)
+
 <br>
 
 **Want to join the Code Team?**

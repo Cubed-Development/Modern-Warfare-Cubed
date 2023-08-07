@@ -47,7 +47,7 @@ public class KS23Factory implements GunFactory {
         .withCrosshairRunning("Running")    
         .withShellCasingEjectEnabled(false)
         .withCrosshairZoomed("Sight")
-        .withInaccuracy(20)
+        .withInaccuracy(16)
         .withPellets(10)
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)

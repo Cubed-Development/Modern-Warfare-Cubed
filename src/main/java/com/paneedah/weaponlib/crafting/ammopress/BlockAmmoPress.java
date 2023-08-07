@@ -19,6 +19,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
+
 public class BlockAmmoPress extends BlockStation {
 	
 	// The actual bounding box for the ammo-press
@@ -49,7 +51,7 @@ public class BlockAmmoPress extends BlockStation {
 			playerIn.swingArm(hand);
 			
 			if(!worldIn.isRemote) {
-				modContext.getChannel().sendTo(new WorkbenchClientMessage(worldIn, pos), (EntityPlayerMP) playerIn);
+				CHANNEL.sendTo(new WorkbenchClientMessage(worldIn, pos), (EntityPlayerMP) playerIn);
 			}
 		}
 		

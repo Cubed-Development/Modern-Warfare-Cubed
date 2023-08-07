@@ -4,6 +4,7 @@ import com.paneedah.mwc.network.messages.PermitMessage;
 import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.weaponlib.state.Permit;
+import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -25,17 +26,19 @@ public final class PermitMessageClientHandler implements IMessageHandler<PermitM
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IMessage onMessage(final PermitMessage permitMessage, final MessageContext context) {
-        final Permit<?> permit = permitMessage.getPermit();
-        final PlayerItemInstance<?> playerItemInstance = permitMessage.getPlayerItemInstance();
+    public IMessage onMessage(final PermitMessage permitMessage, final MessageContext messageContext) {
+        NetworkUtil.processMessage(messageContext, () -> {
+            final Permit<?> permit = permitMessage.getPermit();
+            final PlayerItemInstance<?> playerItemInstance = permitMessage.getPlayerItemInstance();
 
-        playerItemInstance.setPlayer(MC.player);
+            playerItemInstance.setPlayer(MC.player);
 
-        final BiConsumer<Permit<?>, PlayerItemInstance<?>> callback = commonModContext.getPermitManager().getPermitCallbacks().remove(permit.getUuid());
-        if (callback != null)
-            callback.accept(permit, playerItemInstance);
-        else
-            LOG.warn("No callback registered for permit {}", permit);
+            final BiConsumer<Permit<?>, PlayerItemInstance<?>> callback = commonModContext.getPermitManager().getPermitCallbacks().remove(permit.getUuid());
+            if (callback != null)
+                callback.accept(permit, playerItemInstance);
+            else
+                LOG.warn("No callback registered for permit {}", permit);
+        });
 
         return null;
     }

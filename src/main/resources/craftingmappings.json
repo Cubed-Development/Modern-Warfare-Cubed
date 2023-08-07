@@ -5945,6 +5945,24 @@
           "count": 6
         },
         {
+          "entryName": "gunpowder",
+          "defaultItem": "minecraft:gunpowder",
+          "isOreDictionary": true,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "entryName": "mwc:bullet_277",
+      "craftingGroup": "BULLET",
+      "recipe": [
+        {
+          "entryName": "ingotCopper",
+          "defaultItem": "mwc:copper_ingot",
+          "isOreDictionary": true,
+          "count": 6
+        },
+        {
           "entryName": "dustGunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
@@ -5963,7 +5981,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -5981,7 +5999,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -5999,7 +6017,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6017,7 +6035,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6035,7 +6053,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6053,7 +6071,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6071,7 +6089,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6089,7 +6107,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6107,7 +6125,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6125,7 +6143,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6143,7 +6161,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6161,7 +6179,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6179,7 +6197,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6197,7 +6215,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6215,7 +6233,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6233,7 +6251,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6251,7 +6269,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6269,7 +6287,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6287,7 +6305,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6305,7 +6323,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6323,7 +6341,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6341,7 +6359,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6359,7 +6377,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6377,7 +6395,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6395,7 +6413,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6413,7 +6431,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6431,7 +6449,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6449,7 +6467,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6467,7 +6485,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6485,7 +6503,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6503,7 +6521,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6521,7 +6539,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6539,7 +6557,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6557,7 +6575,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -6575,7 +6593,7 @@
           "count": 6
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6
@@ -7427,7 +7445,7 @@
           "count": 2
         },
         {
-          "entryName": "dustGunpowder",
+          "entryName": "gunpowder",
           "defaultItem": "minecraft:gunpowder",
           "isOreDictionary": true,
           "count": 6

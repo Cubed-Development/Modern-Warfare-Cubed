@@ -17,6 +17,7 @@ import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import net.minecraft.item.Item;
+import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Arrays;
@@ -32,6 +33,7 @@ public class F2000Factory {
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.RIFLES)
         .hasFlashPedals()
+        .withMuzzlePosition(new Vec3d(0.0, -0.4239999917745591, -2.823999881505966))
         .withMaxShots(1, Integer.MAX_VALUE)
         //.withMaxShots(5)
         .withShootSound("f2000")
@@ -46,7 +48,7 @@ public class F2000Factory {
         .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.6f)
         .withFlashScale(() -> 0.5f)
-        .withFlashOffsetX(() -> 0.08f)
+        .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.16f)
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()

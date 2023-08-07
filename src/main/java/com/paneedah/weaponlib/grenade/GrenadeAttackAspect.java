@@ -8,16 +8,18 @@ import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.grenade.ItemGrenade.Type;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.StateManager;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraft.util.text.TextComponentString;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 
@@ -121,7 +123,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
 
     private void explode(PlayerGrenadeInstance instance) {
         LOG.debug("Exploding!");
-        modContext.getChannel().sendToServer(new GrenadeMessage(instance, 0));
+        CHANNEL.sendToServer(new GrenadeMessage(instance, 0));
     }
 
     private void throwIt(PlayerGrenadeInstance instance) {
@@ -135,7 +137,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
             activationTimestamp = ItemGrenade.EXPLODE_ON_IMPACT;
         }
         instance.getPlayer().playSound(instance.getWeapon().getThrowSound(), 1, 1);
-        modContext.getChannel().sendToServer(new GrenadeMessage(instance, activationTimestamp));
+        CHANNEL.sendToServer(new GrenadeMessage(instance, activationTimestamp));
     }
 
     private void reequip(PlayerGrenadeInstance instance) {
@@ -181,11 +183,10 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                 if(remainingTimeUntilExplosion < 0) {
                     remainingTimeUntilExplosion = 0;
                 }
-                
-                
-                String message = I18n.translateToLocalFormatted("gui.grenadeExplodes",
-                        Math.round(remainingTimeUntilExplosion / 1000f));
-                modContext.getStatusMessageCenter().addAlertMessage(message, 1, 1000, 0);
+
+                if (grenadeInstance.getPlayer() instanceof EntityPlayer)
+                    ((EntityPlayer) grenadeInstance.getPlayer()).sendStatusMessage(new TextComponentString("§e" + I18n.format("gui.grenadeExplodes", Math.round(remainingTimeUntilExplosion / 1000F))), true);
+
                 grenadeInstance.setLastSafetyPinAlertTimestamp(System.currentTimeMillis());
             }
             stateManager.changeStateFromAnyOf(this, grenadeInstance, allowedUpdateFromStates);
@@ -215,7 +216,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
         if(activationTimestamp == 0 && instance.getWeapon().getType() == Type.REGULAR) {
             // explode immediately
         	player.attackEntityFrom(DamageSource.causeExplosionDamage(player), 500f);
-            Explosion.createServerSideExplosion(modContext, player.world, player, null,
+            Explosion.createServerSideExplosion(player.world, player, null,
                     player.posX, player.posY, player.posZ, instance.getWeapon().getExplosionStrength(), false, true,
                     instance.getWeapon().isDestroyingBlocks(), 1f, 1f, 1.5f, 1f, null, null, modContext.getExplosionSound());
 

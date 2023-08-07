@@ -36,6 +36,8 @@ import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
+
 public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Contextual, Configurable<EntityConfiguration> {
 
     private static final float FLAT_WORLD_SPAWN_CHANCE = 0.01f;
@@ -604,7 +606,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
         
         	
     
-        	modContext.getChannel().sendToServer(new EntityPickupMessage(player.getEntityId(), getEntityId()));
+        	CHANNEL.sendToServer(new EntityPickupMessage(player.getEntityId(), getEntityId()));
         	
         	return true;
         }

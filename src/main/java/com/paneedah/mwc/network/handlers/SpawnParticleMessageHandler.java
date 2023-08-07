@@ -3,6 +3,7 @@ package com.paneedah.mwc.network.handlers;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
+import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -28,19 +29,21 @@ public final class SpawnParticleMessageHandler implements IMessageHandler<SpawnP
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(final SpawnParticleMessage spawnParticleMessage, final MessageContext messageContext) {
-        final Vector3F position = spawnParticleMessage.getPosition();
-        final Vector3F velocity = spawnParticleMessage.getVelocity();
+        NetworkUtil.processMessage(messageContext, () -> {
+            final Vector3F position = spawnParticleMessage.getPosition();
+            final Vector3F velocity = spawnParticleMessage.getVelocity();
 
-        for (int i = 0; i < spawnParticleMessage.getCount(); ++i) {
-            switch (spawnParticleMessage.getType()) {
-                case SMOKE_GRENADE_SMOKE:
-                    modContext.getEffectManager().spawnExplosionSmoke(position.x, position.y, position.z, velocity.x, velocity.y, velocity.z, 4 * RANDOM.nextFloat(), 500, ExplosionSmokeFX.Behavior.SMOKE_GRENADE, REGULAR_SMOKE_TEXTURE);
-                    break;
-                case SMOKE_GRENADE_YELLOW_SMOKE:
-                    modContext.getEffectManager().spawnExplosionSmoke(position.x, position.y, position.z, velocity.x, velocity.y, velocity.z, 0.3F * RANDOM.nextFloat(), 500, ExplosionSmokeFX.Behavior.SMOKE_GRENADE, YELLOW_SMOKE_TEXTURE);
-                    break;
+            for (int i = 0; i < spawnParticleMessage.getCount(); ++i) {
+                switch (spawnParticleMessage.getType()) {
+                    case SMOKE_GRENADE_SMOKE:
+                        modContext.getEffectManager().spawnExplosionSmoke(position.x, position.y, position.z, velocity.x, velocity.y, velocity.z, 4 * RANDOM.nextFloat(), 500, ExplosionSmokeFX.Behavior.SMOKE_GRENADE, REGULAR_SMOKE_TEXTURE);
+                        break;
+                    case SMOKE_GRENADE_YELLOW_SMOKE:
+                        modContext.getEffectManager().spawnExplosionSmoke(position.x, position.y, position.z, velocity.x, velocity.y, velocity.z, 0.3F * RANDOM.nextFloat(), 500, ExplosionSmokeFX.Behavior.SMOKE_GRENADE, YELLOW_SMOKE_TEXTURE);
+                        break;
+                }
             }
-        }
+        });
 
         return null;
     }

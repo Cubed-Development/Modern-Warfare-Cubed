@@ -1,14 +1,15 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.handlers.NightVisionToggleMessageHandler;
+import com.paneedah.mwc.network.messages.EntityControlServerMessage;
 import com.paneedah.mwc.network.messages.NightVisionToggleMessage;
+import com.paneedah.mwc.network.messages.OpenCustomPlayerInventoryGuiMessage;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.electronics.PlayerTabletInstance;
 import com.paneedah.weaponlib.inventory.GuiHandler;
-import com.paneedah.weaponlib.inventory.OpenCustomPlayerInventoryGuiMessage;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.state.IBlockState;
@@ -23,24 +24,21 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import org.lwjgl.input.Keyboard;
 
 import java.util.function.Function;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class WeaponKeyInputHandler {
 
-    
-    private SimpleNetworkWrapper channel;
     private Function<MessageContext, EntityPlayer> entityPlayerSupplier;
     private ModContext modContext;
 
-    public WeaponKeyInputHandler(ModContext modContext, Function<MessageContext, EntityPlayer> entityPlayerSupplier, WeaponAttachmentAspect attachmentAspect, SimpleNetworkWrapper channel) {
+    public WeaponKeyInputHandler(ModContext modContext, Function<MessageContext, EntityPlayer> entityPlayerSupplier, WeaponAttachmentAspect attachmentAspect) {
         this.modContext = modContext;
         this.entityPlayerSupplier = entityPlayerSupplier;
-        this.channel = channel;
     }
 
     @SubscribeEvent
@@ -117,7 +115,7 @@ public class WeaponKeyInputHandler {
 	 			if(state.getBlock() instanceof BlockDoor) {
 	 				
 	 				MC.playerController.processRightClickBlock(MC.player, MC.world, rtr.getBlockPos(), rtr.sideHit, rtr.hitVec, EnumHand.MAIN_HAND);
-	 				//modContext.getChannel().sendToServer(new OpenDoorMessage(rtr.getBlockPos()));
+	 				//CHANNEL.sendToServer(new OpenDoorMessage(rtr.getBlockPos()));
 	 				
 	 				
 	 				/*
@@ -233,7 +231,7 @@ public class WeaponKeyInputHandler {
             ItemStack helmetStack = MC.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
             if(helmetStack != null && helmetStack.getItem() instanceof CustomArmor 
                     && ((CustomArmor)helmetStack.getItem()).hasNightVision()){
-                modContext.getChannel().sendToServer(new NightVisionToggleMessage());
+                CHANNEL.sendToServer(new NightVisionToggleMessage());
                 NBTTagCompound tagCompound = helmetStack.getTagCompound();
                 boolean nightVisionOn = tagCompound != null && tagCompound.getBoolean(NightVisionToggleMessageHandler.TAG_NIGHT_VISION_STATE);
                 MC.player.playSound(nightVisionOn ? modContext.getNightVisionOffSound() : modContext.getNightVisionOnSound(), 1, 1);
@@ -267,7 +265,7 @@ public class WeaponKeyInputHandler {
         }
         
         else if(KeyBindings.customInventoryKey.isPressed()) {
-            modContext.getChannel().sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.CUSTOM_PLAYER_INVENTORY_GUI_ID));
+            CHANNEL.sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.CUSTOM_PLAYER_INVENTORY_GUI_ID));
         }
 
         /*
@@ -370,7 +368,7 @@ public class WeaponKeyInputHandler {
         }
 
         else if (MC.isSingleplayer() && KeyBindings.proningSwitchKey.isPressed()) {
-            modContext.getChannel().sendToServer(new EntityControlMessage(player, CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
+            CHANNEL.sendToServer(new EntityControlServerMessage(player, CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
         }
     }
 }

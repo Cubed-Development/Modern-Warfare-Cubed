@@ -15,6 +15,8 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
+
 public class EntityGasGrenade extends AbstractEntityGrenade {
 
     private long activationDelay;
@@ -154,7 +156,7 @@ public class EntityGasGrenade extends AbstractEntityGrenade {
                     if (player.getDistanceSq(posX, posY, posZ) < 4096.0D) {
                         ParticleType particleType = ParticleType.SMOKE_GRENADE_YELLOW_SMOKE;
                         double movement = bounceCount > 0 ? 0.007 : 0.001;
-                        modContext.getChannel().sendTo(new SpawnParticleMessage(particleType, 1, new Vector3F((float) (posX + rand.nextGaussian() / 7), (float) (posY + rand.nextGaussian() / 10), (float) (posZ + rand.nextGaussian() / 7)), new Vector3F((float) (rand.nextGaussian() * movement), (float) (rand.nextGaussian() * movement), (float) (rand.nextGaussian() * movement))), (EntityPlayerMP) player);
+                        CHANNEL.sendTo(new SpawnParticleMessage(particleType, 1, new Vector3F((float) (posX + rand.nextGaussian() / 7), (float) (posY + rand.nextGaussian() / 10), (float) (posZ + rand.nextGaussian() / 7)), new Vector3F((float) (rand.nextGaussian() * movement), (float) (rand.nextGaussian() * movement), (float) (rand.nextGaussian() * movement))), (EntityPlayerMP) player);
                     }
                 }
             }

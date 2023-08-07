@@ -3,8 +3,7 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.mwc.network.NetworkPermitManager;
-import com.paneedah.mwc.network.handlers.*;
-import com.paneedah.mwc.network.messages.*;
+import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.MagazineReloadAspect.LoadPermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.EnterAttachmentModePermit;
@@ -22,17 +21,10 @@ import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
 import com.paneedah.weaponlib.crafting.workbench.WorkbenchBlock;
 import com.paneedah.weaponlib.electronics.*;
 import com.paneedah.weaponlib.grenade.*;
-import com.paneedah.weaponlib.inventory.*;
+import com.paneedah.weaponlib.inventory.GuiHandler;
 import com.paneedah.weaponlib.melee.*;
-import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.StateManager;
-import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
-import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessageMessageHandler;
-import com.paneedah.weaponlib.vehicle.network.VehicleControlPacket;
-import com.paneedah.weaponlib.vehicle.network.VehicleControlPacketHandler;
-import com.paneedah.weaponlib.vehicle.network.VehicleInteractPHandler;
-import com.paneedah.weaponlib.vehicle.network.VehicleInteractPacket;
 import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -46,10 +38,8 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -119,10 +109,8 @@ public class CommonModContext implements ModContext {
     }
 
 	protected Object mod;
-	
-	protected SimpleNetworkWrapper channel;
 
-	protected WeaponReloadAspect weaponReloadAspect;
+    protected WeaponReloadAspect weaponReloadAspect;
 	protected WeaponAttachmentAspect weaponAttachmentAspect;
 	protected WeaponFireAspect weaponFireAspect;
 
@@ -169,11 +157,10 @@ public class CommonModContext implements ModContext {
 
 
 	@Override
-    public void preInit(Object mod, SimpleNetworkWrapper channel) {
+    public void preInit(Object mod) {
 		this.mod = mod;
-	    this.channel = channel;
 
-		this.weaponReloadAspect = new WeaponReloadAspect(this);
+        this.weaponReloadAspect = new WeaponReloadAspect(this);
 		this.magazineReloadAspect = new MagazineReloadAspect(this);
 		this.weaponFireAspect = new WeaponFireAspect(this);
 		this.weaponAttachmentAspect = new WeaponAttachmentAspect(this);
@@ -185,7 +172,7 @@ public class CommonModContext implements ModContext {
         StateManager<GrenadeState, PlayerGrenadeInstance> grenadeStateManager = new StateManager<>((s1, s2) -> s1 == s2);
         grenadeAttackAspect.setStateManager(grenadeStateManager);
 
-		this.permitManager = new NetworkPermitManager(this);
+		this.permitManager = new NetworkPermitManager();
 
 		this.syncManager = new SyncManager<>(permitManager);
 
@@ -215,73 +202,12 @@ public class CommonModContext implements ModContext {
 
 		// Initiate config
 		ModernConfigManager.init();
-		
-		channel.registerMessage(new TryFireMessageHandler(weaponFireAspect), TryFireMessage.class, 11, Side.SERVER);
 
-		channel.registerMessage(new PermitMessageClientHandler(this), PermitMessage.class, 14, Side.CLIENT);
-
-		channel.registerMessage(new PermitMessageServerHandler(this), PermitMessage.class, 15, Side.SERVER);
-
-		channel.registerMessage(new MeleeAttackMessageHandler(meleeAttackAspect), MeleeAttackMessage.class, 16, Side.SERVER);
-
-		channel.registerMessage(new SyncPlayerEntityTrackerMessageMessageHandler(this), SyncPlayerEntityTrackerMessage.class, 17, Side.CLIENT);
-
-		channel.registerMessage(new SpawnParticleMessageHandler(this), SpawnParticleMessage.class, 18, Side.CLIENT);
-
-		channel.registerMessage(new BlockHitMessageHandler(), BlockHitMessage.class, 19, Side.CLIENT);
-
-		channel.registerMessage(new GrenadeMessageHandler(grenadeAttackAspect), GrenadeMessage.class, 20, Side.SERVER);
-
-		channel.registerMessage(new ExplosionMessageHandler(this), ExplosionMessage.class, 21, Side.CLIENT);
-		
-		channel.registerMessage(new NightVisionToggleMessageHandler(), NightVisionToggleMessage.class, 22, Side.SERVER);
-		
-//		channel.registerMessage(new SpreadableExposureMessageHandler(this),	SpreadableExposureMessage.class, 23, Side.CLIENT);
-		
-	    channel.registerMessage(new ExposureMessageHandler(), ExposureMessage.class, 23, Side.CLIENT);
-		
-		channel.registerMessage(new EntityControlHandler(this), EntityControlMessage.class, 24, Side.CLIENT);
-		
-		channel.registerMessage(new EntityControlHandler(this), EntityControlMessage.class, 25, Side.SERVER);
-		
-		channel.registerMessage(new EntityInventorySyncHandler(this), EntityInventorySyncMessage.class, 26, Side.CLIENT);
-		
-		channel.registerMessage(new EntityInventorySyncHandler(this), EntityInventorySyncMessage.class, 27, Side.SERVER);
-
-		channel.registerMessage(new OpenCustomInventoryGuiHandler(this), OpenCustomPlayerInventoryGuiMessage.class, 28, Side.SERVER);
-		
-        channel.registerMessage(new VehicleControlPacketHandler(this), VehicleControlPacket.class, 34, Side.SERVER);
-
-        channel.registerMessage(new VehicleClientMessageHandler(), VehicleClientMessage.class, 35, Side.CLIENT);
-        
-        channel.registerMessage(new VehicleInteractPHandler(this), VehicleInteractPacket.class, 36, Side.SERVER);
-        
-        channel.registerMessage(new MuzzleFlashMessageHandler(), MuzzleFlashMessage.class, 37, Side.CLIENT);
-        
-        channel.registerMessage(new ShellMessageHandler(), ShellMessageClient.class, 38, Side.CLIENT);
-        
-        channel.registerMessage(new BalancePackClientMessageHandler(), BalancePackClientMessage.class, 39, Side.CLIENT);
-
-        channel.registerMessage(new BloodClientMessageHandler(), BloodClientMessage.class, 40, Side.CLIENT);
-        
-        channel.registerMessage(new OpenDoorMessageHandler(), OpenDoorMessage.class, 41, Side.SERVER);
-
-        channel.registerMessage(new WorkbenchServerMessageHandler(this), WorkbenchServerMessage.class, 42, Side.SERVER);
-        
-        channel.registerMessage(new WorkbenchClientMessageHandler(), WorkbenchClientMessage.class, 43, Side.CLIENT);
-        
-        channel.registerMessage(new CraftingClientMessageHandler(this), CraftingClientMessage.class, 44, Side.CLIENT);
-        
-        channel.registerMessage(new CraftingServerMessageHandler(this), CraftingServerMessage.class, 45, Side.SERVER);
-        
-        channel.registerMessage(new EntityPickupMessageHandler(), EntityPickupMessage.class, 46, Side.SERVER);
-        
 		CommonEventHandler serverHandler = new CommonEventHandler(this);
         MinecraftForge.EVENT_BUS.register(serverHandler);
         MinecraftForge.EVENT_BUS.register(serverHandler);
 
-		MinecraftForge.EVENT_BUS.register(new WeaponKeyInputHandler(this, (ctx) -> getPlayer(ctx),
-				weaponAttachmentAspect, channel));
+		MinecraftForge.EVENT_BUS.register(new WeaponKeyInputHandler(this, this::getPlayer, weaponAttachmentAspect));
 
 		CompatiblePlayerEntityTrackerProvider.register(this);
 		//CompatibleEntityPropertyProvider.register(this);
@@ -335,7 +261,7 @@ public class CommonModContext implements ModContext {
 	}
 	
 	@Override
-	public void preInitEnd(Object mod, SimpleNetworkWrapper channel) {
+	public void preInitEnd(Object mod) {
         // Workbench
 		GameRegistry.registerTileEntity(TileEntityWorkbench.class, ID + ":tileworkbench");
         Block workbenchblock = new WorkbenchBlock(this, "weapon_workbench", Material.WOOD).setCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB);
@@ -423,16 +349,6 @@ public class CommonModContext implements ModContext {
 		return getServerPlayer(ctx);
 	}
 
-	@Override
-	public SimpleNetworkWrapper getChannel() {
-		return channel;
-	}
-
-	@Override
-	public void runSyncTick(Runnable runnable) {
-		throw new UnsupportedOperationException();
-	}
-
     @Override
 	public void registerRenderableItem(String name, Item item, Object renderer) {
         item.setRegistryName(ID, name); // temporary hack
@@ -485,13 +401,8 @@ public class CommonModContext implements ModContext {
 		throw new IllegalStateException();
 	}
 
-	@Override
-	public StatusMessageCenter getStatusMessageCenter() {
-		throw new IllegalStateException();
-	}
 
-
-	@Override
+    @Override
 	public RecipeManager getRecipeManager() {
 		return recipeManager;
 	}
@@ -543,7 +454,7 @@ public class CommonModContext implements ModContext {
 	
 	@Override
 	public void setFlashExplosionSound(String sound) {
-	    this.flashExplosionSound = registerSound(sound.toLowerCase());
+	    this.flashExplosionSound = registerSound(sound);
 	}
 	
 	@Override

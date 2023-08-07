@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.ClientTicker;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.command.MainCommand;
@@ -29,7 +28,6 @@ import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -48,8 +46,6 @@ public class ClientModContext extends CommonModContext {
 
     private final SafeGlobals safeGlobals = new SafeGlobals();
 
-    private StatusMessageCenter statusMessageCenter;
-
     private PerspectiveManager viewManager;
 
     private float aspectRatio;
@@ -67,8 +63,8 @@ public class ClientModContext extends CommonModContext {
     }
 
     @Override
-    public void preInit(Object mod, SimpleNetworkWrapper channel) {
-        super.preInit(mod, channel);
+    public void preInit(Object mod) {
+        super.preInit(mod);
 
         currentContext = new ClientModContext();
 
@@ -78,15 +74,11 @@ public class ClientModContext extends CommonModContext {
 
         ClientCommandHandler.instance.registerCommand(new MainCommand(this));
 
-
-        this.statusMessageCenter = new StatusMessageCenter();
-
         rendererRegistry = new CompatibleRenderingRegistry();
 
         rendererRegistry.preInit();
 
-        List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(
-                Minecraft.class, MC, "defaultResourcePacks", "field_110449_ao");
+        List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(Minecraft.class, MC, "field_110449_ao");
         WeaponResourcePack weaponResourcePack = new WeaponResourcePack();
         defaultResourcePacks.add(weaponResourcePack);
         IResourceManager resourceManager = MC.getResourceManager();
@@ -98,10 +90,6 @@ public class ClientModContext extends CommonModContext {
         MinecraftForge.EVENT_BUS.register(new WeaponEventHandler(this, safeGlobals));
 
         KeyBindings.init();
-
-        ClientTicker clientTicker = new ClientTicker(this);
-        Runtime.getRuntime().addShutdownHook(new Thread(clientTicker::stop));
-        clientTicker.start();
 
         clientEventHandler = new ClientEventHandler(this, mainLoopLock, safeGlobals);
         MinecraftForge.EVENT_BUS.register(clientEventHandler);
@@ -180,16 +168,6 @@ public class ClientModContext extends CommonModContext {
     }
 
     @Override
-    public void runSyncTick(Runnable runnable) {
-        mainLoopLock.lock();
-        try {
-            runnable.run();
-        } finally {
-            mainLoopLock.unlock();
-        }
-    }
-
-    @Override
     public PlayerItemInstanceRegistry getPlayerItemInstanceRegistry() {
         return playerItemInstanceRegistry;
     }
@@ -202,11 +180,6 @@ public class ClientModContext extends CommonModContext {
     public PlayerWeaponInstance getMainHeldWeapon() {
         return getPlayerItemInstanceRegistry().getMainHandItemInstance(MC.player,
                 PlayerWeaponInstance.class);
-    }
-
-    @Override
-    public StatusMessageCenter getStatusMessageCenter() {
-        return statusMessageCenter;
     }
 
     public PlayerMeleeInstance getMainHeldMeleeWeapon() {

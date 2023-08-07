@@ -23,6 +23,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 import java.util.List;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class WeaponSpawnEntity extends EntityProjectile {
@@ -86,7 +87,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
         if (explosionRadius > 0) {
             //PostProcessPipeline.createDistortionPoint((float) position.hitVec.x,(float)  position.hitVec.y, (float) position.hitVec.z, 2f, 3000);
-            Explosion.createServerSideExplosion(weapon.getModContext(), world, this.getThrower(), this, position.hitVec.x, position.hitVec.y, position.hitVec.z, explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, weapon.getModContext().getRegisteredTexture(explosionParticleTextureId), weapon.getModContext().getRegisteredTexture(smokeParticleTextureId), weapon.getModContext().getExplosionSound());
+            Explosion.createServerSideExplosion(world, this.getThrower(), this, position.hitVec.x, position.hitVec.y, position.hitVec.z, explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, weapon.getModContext().getRegisteredTexture(explosionParticleTextureId), weapon.getModContext().getRegisteredTexture(smokeParticleTextureId), weapon.getModContext().getExplosionSound());
         } else if (position.entityHit != null) {
             position.entityHit.attackEntityFrom(new ProjectileDamageSource("gun", weapon.getName(), this, this.getThrower()), damage);
 
@@ -115,7 +116,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
                 final RayTraceResult rayTraceResult = HitUtil.traceProjectilehit(this, position.entityHit);
 
                 if (rayTraceResult != null && rayTraceResult.typeOfHit == Type.BLOCK)
-                    weapon.getModContext().getChannel().sendToAllAround(new BloodClientMessage(new Vector3F(rayTraceResult.hitVec), new Vector3F((float) motionX, (float) motionY, (float) motionZ)), point);
+                    CHANNEL.sendToAllAround(new BloodClientMessage(new Vector3F(rayTraceResult.hitVec), new Vector3F((float) motionX, (float) motionY, (float) motionZ)), point);
             }
         }
 

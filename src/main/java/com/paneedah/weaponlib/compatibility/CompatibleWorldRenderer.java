@@ -194,7 +194,6 @@ public class CompatibleWorldRenderer extends EntityRenderer
 
     public void switchUseShader()
     {
-        this.useShader = !this.useShader;
     }
 
     /**

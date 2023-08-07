@@ -44,6 +44,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - GitHub URL in `MCmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
 - Custom death Messages when shot with a gun
+- Added status messages for `No ammunition`, `No magazine`, `Tracking`, `Firearm mode`, `Zoom` and `Explodes in`
+- Added the .277 FURY bullet for the NGSW-R
+- Browning Auto 5 now ejects shotgun shells 
 
 ### Changed
 
@@ -54,14 +57,13 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added keybindings to switching cameras on the tablet
 - Reworked the config system:
   - Old XML config has been removed, and all configs have been consolidated into a new JSON config. Issues with some non-functioning configs have been resolved
-  - Adjusted `craftingmappings.json` to now only override recipes, rather than removing all recipes
+  - Adjusted `craftingmappings.json` to now only override recipes rather than removing all recipes
 - Temporarily nerfed all vests as a part of vest problem mitigation
 - Nerfed XP gains from smelting ores
 - Reloading now only stops once the gun is fully reloaded or no compatible ammunition remains in inventory
-- Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines) this can be bypassed by sneaking
+- Players in creative mode can now reload without the need for ammunition or magazine (The highest capacity magazine will be selected for weapons with multiple compatible magazines), this can be bypassed by sneaking
 - Grenades in creative mode are now infinite 
-- Expanded crafting to accommodate any type of planks
-- Weapons are now rendered in 3D in the inventory, this means that there will be a small freeze when first opening the Creative Menu this will be improved over time as we optimize rendering
+- Weapons are now rendered in 3D in the inventory. This means there will be a small freeze when opening the Creative Menu. This will be improved over time as we optimize rendering.
 - Reduced the stack size of M202 rockets and RPG7 rockets to 4 and 2, respectively
 - Increased magazine capacity of bandits on Hard difficulty
 - Bullets are now able to penetrate:
@@ -91,11 +93,17 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - When a thrown camera hits the ground it now only drops the camera item if the thrower is not in creative mode
 - Merged the Gadget creative tab into the `Equipment` creative tab
 - Debug commands are now only accessible to oped players (Oped of level 4)
-- Rewritten the rendering system, items are now positions correctly everywhere
-- The weapon stats in the modification GUI are now updated instantly 
+- Rewritten the rendering system. Items are now positioned correctly everywhere
+- The weapon stats in the modification GUI are now updated instantly
+- Terrorist spawns are now lower by default
+- Flashbangs do not flash trough walls anymore
+- Added `reconcileAmmunition` & `reconcileAttachments` gamerules, they are true by default and should only be used for debugging purposes, for example, when you have weapons that appear to "desync" / glitch out
 
 ### Fixed
 
+- Fixed some issues with incorrect weapon shell throwing
+- Fixed the perspective issue with MP7ironsightsstanding
+- Fixed F2000 flame position
 - Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)
 - Fixed Minecraft armor making you invulnerable to bullets (less realistic, but they aren't anyway lol)
 - Fixed soldiers and terrorists spawning with Minecraft armor
@@ -116,11 +124,11 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed visual bugs:
   - Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
   - Fixed m249 accessories floating
-  - The P90 is no longer compatible with the bipod and the magazine of the terminator conversion kit has been fixed
+  - The P90 is no longer compatible with the bipod, and the magazine of the terminator conversion kit has been fixed
   - Fixed the attachment of the Long Deagle
   - Fixed m16 stock and m38 front sight on guns like M4A1, Beowulf .50Cal and AR-10
   - Fixed visual bugs with grips on the m40a6 and Malyuk
-  - Fixed visual bugs with sight on the taurus
+  - Fixed visual bugs with sight on the Taurus
   - Fixed Stock visual bugs on Origin-12
   - Fixed sights like PSO-1 and OKP-7 on ak-74 and ak-101
   - Fixed the visual bugs of the F2000
@@ -152,22 +160,29 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Medical Create
   - Camera Rotated
 - Fixed position of the backpacks in inventory
-- Fixed the client corruption state
+- Fixed the client ticker "corruption" state
 - Fixed melee attack and heavy melee attack being switched
 - Fixed inputs not updating if you switched to another hotbar slot while holding the input
 - Fixed oreDictionary not working properly under the craftmappings
 - Fixed the height of the Ammo Counter being 1 pixel too high
+- Fixed the flashbang missing sound
+- Fixed the flashbang missing knockback
+- Fixed the flashbang missing particles
+- Fixed flashbang not flashing in every direction
+- Fixed the exposure decreasing on the client side even when the game is paused
 
 ### Removed
 
-- Removed headshot mechanic, it was currently broken and will come back in the future
+- Removed headshot mechanic; it was currently broken and will come back in the future
 - Removed all arcade guns (These will be moved to a sister mod at a later time)
 - Removed the SA80
 - Removed the mission system
 - Removed most of the compatibility layer
 - Removed FXAA
 - Removed Bloom
-- Deleted broken Hescobastion and UMP45GFL props  
+- Deleted broken Hescobastion and UMP45GFL props
+- Removed the vanilla ability to disable shaders with F4 (this allowed for flash to be disabled)
+- Removed the `WIP` status of the flashbang as it is fully usable and reliable
 
 ### Optimization
 
@@ -177,11 +192,13 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Losslessly compressed assets as a result, the jar size decreased (35.3MB -> 27.57MB)
 - Improved ShaderLoader
 - Reduced overhead due to the removal of most of the compatibility layer leading to increased performance
+- Overhauled the networking, MWC as a whole should be more responsive and use less bandwidth
 
 ### Internal
 
 - Switched to [Raven](https://github.com/eigenraven) amazing [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle)
-- Updated to Gradle 8.1.1
+- Now uses Red Core
+- Updated to Gradle 8.2
 - Cleaned up build.gradle & gradle.properties
 - Gradle now automatically updates the version and id in `ModReference.java`
 - Updated Forge version
@@ -192,6 +209,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - [WIP] Renamed unintelligible variables to more readable names
 - Overhauled the internal process of item and block creation
 - Changed name and mod id
+- Overhauled the networking
 
 ### Balance Pack
 
@@ -216,5 +234,5 @@ And the people who contributed to Modern Warfare Cubed:
 - [Braiam23](https://github.com/Braiam23) for revamping textures & Spanish translation ([#100](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/100), [#110](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/110))
 - [strubium](https://github.com/strubium) for adding recipes & nerfs & crafting improvements & revamping textures ([#117](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/117), [#109](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/109), [#116](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/116), [#92](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/92), [#115](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/115), [#97](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/97))
 - [Skyy](https://github.com/BurnhamR) for losslessly compressing assets & major refactors ([#53](https://github.com/Paneedah/paneedah-modern-warfare/pull/53), [#55](https://github.com/Paneedah/paneedah-modern-warfare/pull/55), [#59](https://github.com/Paneedah/paneedah-modern-warfare/pull/59), [#58](https://github.com/Paneedah/paneedah-modern-warfare/pull/58))
-- [notdeadpool456](https://github.com/notdeadpool456) for adding crafting recipes & nerfs ([#75](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/75), [#76](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/76))
+- [notdeadpool456](https://github.com/notdeadpool456) for adding the .277 FURY bullet, crafting recipes & nerfs ([#75](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/75), [#76](https://github.com/Cubed-Development/Modern-Warfare-Cubed/pull/76))
 - [333mhz](https://github.com/333mhz) for corrections in the English translation & adding blocks to the creative tab & cleanup

@@ -120,24 +120,16 @@ public class KrissVectorFactory {
 //          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.VectorStock, true, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.2f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Attachments.VectorStockAdapter, (model) -> {
        	 if(model instanceof MilSpecStock) {
-       		 GL11.glTranslatef(0.185f, 0.7f, 5.9f);
-                GL11.glScaled(0F, 0F, 0F);
+       		 GL11.glTranslatef(0.185f, 0.2f, 0.3f);
+                GL11.glScaled(1.2F, 1.2F, 1.2F);
             } 
         })
         .withCompatibleAttachment(Magazines.VectorMag, (model) -> {
-//            GL11.glTranslatef(-0.43F, 0.8F, 0.2F);
-//            GL11.glScaled(1.5F, 1.5F, 1.5F);
-//            GL11.glRotatef(17F, 1f, 0f, 0f);		
         })
         .withCompatibleAttachment(Magazines.VectorDrumMag, (model) -> {
-//          GL11.glTranslatef(-0.43F, 0.8F, 0.2F);
-//          GL11.glScaled(1.5F, 1.5F, 1.5F);
-//          GL11.glRotatef(17F, 1f, 0f, 0f);		
       })
         .withCompatibleAttachment(Magazines.FamasF1Mag, (model) -> {
         	GL11.glRotatef(20F, 1f, 0f, 0f);

@@ -3,19 +3,16 @@ package com.paneedah.weaponlib;
 import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.mwc.items.equipment.carryable.ItemBackpack;
-import com.paneedah.mwc.network.messages.BalancePackClientMessage;
-import com.paneedah.mwc.network.messages.CraftingClientMessage;
-import com.paneedah.mwc.network.messages.ExposureMessage;
+import com.paneedah.mwc.network.messages.*;
 import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
-import com.paneedah.weaponlib.inventory.EntityInventorySyncMessage;
+import com.paneedah.mwc.network.messages.EntityInventorySyncMessage;
 import com.paneedah.weaponlib.jim.util.ByteArrayUtils;
-import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
-import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
+import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -43,6 +40,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.network.handlers.CraftingClientMessageHandler.RECEIVE_HASH;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
@@ -75,10 +73,6 @@ public class CommonEventHandler {
 
     @SubscribeEvent
     protected void onCompatibleLivingUpdateEvent(LivingEvent.LivingUpdateEvent livingUpdateEvent) {
-        //if(!compatibility.world(livingUpdateEvent.getEntity()).isRemote && livingUpdateEvent.getEntityLiving() instanceof EntityPlayer) {
-        //	//modContext.getChannel().sendTo(new HeadshotSFXMessage(), (EntityPlayerMP) livingUpdateEvent.getEntityLiving());
-        //}
-
         if (!livingUpdateEvent.getEntity().world.isRemote) {
             final ItemStack itemStack = livingUpdateEvent.getEntityLiving().getHeldItemMainhand();
 
@@ -109,21 +103,20 @@ public class CommonEventHandler {
             if (effectiveUpdate)
                 CompatibleExposureCapability.updateExposures(livingUpdateEvent.getEntity(), exposures);
 
-            //long lastExposuresUpdateTimestamp = CompatibleExposureCapability.getLastUpdateTimestamp(livingUpdateEvent.getEntity());
+            //final long lastExposuresUpdateTimestamp = CompatibleExposureCapability.getLastUpdateTimestamp(livingUpdateEvent.getEntity());
             final long lastSyncTimestamp = CompatibleExposureCapability.getLastSyncTimestamp(livingUpdateEvent.getEntity());
             if (lastSyncTimestamp + 5 < livingUpdateEvent.getEntity().world.getTotalWorldTime() && livingUpdateEvent.getEntity() instanceof EntityPlayerMP /*&& lastExposuresUpdateTimestamp > lastSyncTimestamp */) {
-                modContext.getChannel().sendTo(new ExposureMessage(exposures), (EntityPlayerMP) livingUpdateEvent.getEntity());
+                CHANNEL.sendTo(new ExposureMessage(exposures), (EntityPlayerMP) livingUpdateEvent.getEntity());
                 CompatibleExposureCapability.setLastSyncTimestamp(livingUpdateEvent.getEntity(), livingUpdateEvent.getEntity().world.getTotalWorldTime());
             }
             
-            /*
             SpreadableExposure exposure = CompatibleExposureCapability.getExposure(livingUpdateEvent.getEntity(), SpreadableExposure.class);
             if(exposure != null) {
-                boolean stillEffective = exposure.isEffective(compatibility.world(livingUpdateEvent.getEntity()));
+                boolean stillEffective = exposure.isEffective(livingUpdateEvent.getEntity().world);
                 exposure.update(livingUpdateEvent.getEntity());
                 if(livingUpdateEvent.getEntity() instanceof EntityPlayerMP &&
                         System.currentTimeMillis() - exposure.getLastSyncTimestamp() > 500) {
-                    modContext.getChannel().sendTo(
+                    CHANNEL.sendTo(
                             new SpreadableExposureMessage(stillEffective ? exposure : null),
                             (EntityPlayerMP) livingUpdateEvent.getEntity());
                     exposure.setLastSyncTimestamp(System.currentTimeMillis());
@@ -132,15 +125,14 @@ public class CommonEventHandler {
                     CompatibleExposureCapability.removeExposure(livingUpdateEvent.getEntity(), SpreadableExposure.class);
                 }
 
-                ItemStack itemStack = compatibility.getHeldItemMainHand(livingUpdateEvent.getEntityLiving());
-                if(itemStack != null && itemStack.getItem() instanceof ItemHandheld) {
-                    if (itemStack.getTagCompound() == null)
-                        itemStack.setTagCompound(new NBTTagCompound());
-                    NBTTagCompound nbt = itemStack.getTagCompound();
+                ItemStack itemStack1 = livingUpdateEvent.getEntityLiving().getHeldItemMainhand();
+                if(itemStack1 != null && itemStack1.getItem() instanceof ItemHandheld) {
+                    if (itemStack1.getTagCompound() == null)
+                        itemStack1.setTagCompound(new NBTTagCompound());
+                    NBTTagCompound nbt = itemStack1.getTagCompound();
                     nbt.setFloat("dose", exposure.getLastDose());
                 }
             }
-            */
         }
     }
 
@@ -155,34 +147,34 @@ public class CommonEventHandler {
             LOG.debug("Player {} joined the world", event.getEntity());
 
             final EntityPlayer player = (EntityPlayer)entity;
-            final PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(player);
+            final LivingEntityTracker tracker = LivingEntityTracker.getTracker(player);
 
             if (tracker != null)
-                modContext.getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker), (EntityPlayerMP)entity);
+                CHANNEL.sendTo(new LivingEntityTrackerMessage(tracker, null), (EntityPlayerMP)entity);
 
-            modContext.getChannel().sendTo(new EntityControlMessage(player, CompatibleExtraEntityFlags.getFlags(player)), (EntityPlayerMP)entity);
-            modContext.getChannel().sendToAll(new EntityInventorySyncMessage(entity, EquipmentCapability.getInventory(player), false));
+            CHANNEL.sendTo(new EntityControlServerMessage(player, CompatibleExtraEntityFlags.getFlags(player)), (EntityPlayerMP)entity);
+            CHANNEL.sendToAll(new EntityInventorySyncMessage(entity, false, EquipmentCapability.getInventory(player)));
         }
     }
 
     @SubscribeEvent
     protected void onPlayerStartedTracking(PlayerEvent.StartTracking event) {
         if (event.getTarget() instanceof EntityPlayer && !event.getTarget().world.isRemote) {
-            modContext.getChannel().sendTo(new EntityInventorySyncMessage(event.getTarget(), EquipmentCapability.getInventory((EntityLivingBase) event.getTarget()), false), (EntityPlayerMP) event.getEntityPlayer());
+            CHANNEL.sendTo(new EntityInventorySyncMessage(event.getTarget(), false, EquipmentCapability.getInventory((EntityLivingBase) event.getTarget())), (EntityPlayerMP) event.getEntityPlayer());
             return;
         }
 
         if (event.getTarget() instanceof EntityProjectile || event.getTarget() instanceof EntityBounceable)
             return;
 
-        PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) event.getEntity());
+        LivingEntityTracker tracker = LivingEntityTracker.getTracker((EntityPlayer) event.getEntity());
         if (tracker != null && tracker.updateTrackableEntity(event.getTarget())) {
             LOG.debug("Player {} started tracking {} with uuid {}", event.getEntityPlayer(), event.getTarget(), event.getTarget().getUniqueID());
-            modContext.getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker), (EntityPlayerMP) event.getEntityPlayer());
+            CHANNEL.sendTo(new LivingEntityTrackerMessage(tracker, null), (EntityPlayerMP) event.getEntityPlayer());
 
             final EntityPlayer player = (EntityPlayer) event.getEntity();
 
-            modContext.getChannel().sendTo(new EntityControlMessage(player, CompatibleExtraEntityFlags.getFlags(player)), (EntityPlayerMP) event.getEntity());
+            CHANNEL.sendTo(new EntityControlServerMessage(player, CompatibleExtraEntityFlags.getFlags(player)), (EntityPlayerMP) event.getEntity());
         }
     }
 
@@ -191,15 +183,15 @@ public class CommonEventHandler {
         if(playerStopTrackingEvent.getTarget() instanceof EntityProjectile || playerStopTrackingEvent.getTarget() instanceof EntityBounceable) {
             return;
         }
-        PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) playerStopTrackingEvent.getEntity());
+        LivingEntityTracker tracker = LivingEntityTracker.getTracker((EntityPlayer) playerStopTrackingEvent.getEntity());
         if (tracker != null && tracker.updateTrackableEntity(playerStopTrackingEvent.getTarget())) {
             log.debug("Player {} stopped tracking {}", playerStopTrackingEvent.getEntityPlayer(), playerStopTrackingEvent.getTarget());
-            modContext.getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker),
+            CHANNEL.sendTo(new SyncPlayerEntityTrackerMessage(tracker),
                     (EntityPlayerMP)playerStopTrackingEvent.getEntityPlayer());
 
             EntityPlayer player = (EntityPlayer) playerStopTrackingEvent.getEntity();
-            modContext.getChannel().sendTo(
-                    new EntityControlMessage(player, CompatibleExtraEntityFlags.getFlags(player)),
+            CHANNEL.sendTo(
+                    new EntityControlServerMessage(player, CompatibleExtraEntityFlags.getFlags(player)),
                     (EntityPlayerMP)playerStopTrackingEvent.getEntity());
         }
     }*/
@@ -257,12 +249,12 @@ public class CommonEventHandler {
         EquipmentCapability.setInventory(event.getEntityPlayer(), originalInventory);
         originalInventory.setContext(modContext);
         originalInventory.setOwner(event.getEntityPlayer());
-        //modContext.getChannel().sendToAll(new EntityInventorySyncMessage(playerCloneEvent.getPlayer(), originalInventory, false));
+        //CHANNEL.sendToAll(new EntityInventorySyncMessage(playerCloneEvent.getPlayer(), originalInventory, false));
     }
 
     @SubscribeEvent
     protected void onPlayerRespawnEvent(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent event) {
-        modContext.getChannel().sendToAll(new EntityInventorySyncMessage(event.player, EquipmentCapability.getInventory(event.player), false));
+        CHANNEL.sendToAll(new EntityInventorySyncMessage(event.player, false, EquipmentCapability.getInventory(event.player)));
     }
 
     /*@SubscribeEvent
@@ -272,7 +264,7 @@ public class CommonEventHandler {
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
         // Todo: Can we cache balance packs similar to crafting files? Maybe they could use the same system? This could crash a server if a large amount of players join.
-        getModContext().getChannel().sendTo(new BalancePackClientMessage(BalancePackManager.getActiveBalancePack()), (EntityPlayerMP) event.player);
+        CHANNEL.sendTo(new BalancePackClientMessage(BalancePackManager.getActiveBalancePack()), (EntityPlayerMP) event.player);
     }
 
     @SubscribeEvent
@@ -331,6 +323,6 @@ public class CommonEventHandler {
         if (baos == null) return;
 
         // Send the player the hash
-        getModContext().getChannel().sendTo(new CraftingClientMessage(RECEIVE_HASH, baos), (EntityPlayerMP) player);
+        CHANNEL.sendTo(new CraftingClientMessage(RECEIVE_HASH, baos), (EntityPlayerMP) player);
     }
 }

@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -232,7 +231,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 
         public void build(boolean isClient) {
 
-//            if(isClient) {
+//            if(FMLCommonHandler.instance().getSide().isClient()) {
 //              try {
 //                  chestModel = (ModelBiped) Class.forName(modelClassName).newInstance();
 //              } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {

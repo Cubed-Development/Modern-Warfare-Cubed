@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.perspective.WirelessCameraPerspective;
-import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
+import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -67,7 +67,7 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 	}
 
     public void nextActiveWatchIndex() {
-        PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(player);
+        LivingEntityTracker tracker = LivingEntityTracker.getTracker(player);
         if(tracker != null) {
             if(activeWatchIndex >= tracker.getTrackableEntitites().size() - 1) {
                 setActiveWatchIndex(0);
@@ -79,7 +79,7 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
     
 
     public void previousActiveWatchIndex() {
-        PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(player);
+        LivingEntityTracker tracker = LivingEntityTracker.getTracker(player);
         if(tracker != null) {
             if(activeWatchIndex == 0) {
                 setActiveWatchIndex(tracker.getTrackableEntitites().size() - 1);
