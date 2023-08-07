@@ -115,7 +115,9 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 			if(action == null) {
 				action = (c, f, t, p) -> null;
 			}
-			
+
+			// Todo: What does this mean???
+
 			/*
 			 * Problem with updating state. Need to specify which update is required.
 			 * 
@@ -197,18 +199,16 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 
 		private void applyPermit(Permit<S> processedPermit, E updatedState) {
 			// This is a permit granted callback which sets state to the final toState
-			
-			
-			
 			S updateToState = processedPermit.getStatus() == Status.GRANTED ? toState : fromState;
-			LOG.debug("Applying permit with status {} to {}, changing state to {}",
-			        processedPermit.getStatus(), updatedState, toState);
+			LOG.debug("Applying permit with status {} to {}, changing state to {}", processedPermit.getStatus(), updatedState, toState);
 			
-			if(stateUpdater.apply(updateToState, safeCast(updatedState))) {
+			if(Boolean.TRUE.equals(stateUpdater.apply(updateToState, safeCast(updatedState))))
 				action.execute(safeCast(updatedState), fromState, toState, processedPermit);
-			}
 			
-			//TODO: changeState(aspect, updatedState);
+			// T O D O: changeState(aspect, updatedState);
+			// This was probably a T o d o from Jim, adding this code seems to just work, so I will leave it like that
+			// It might cause issues as just putting a t o d o with the exact code seems weird
+			changeState(aspect, updatedState);
 		}
 	}
 	
