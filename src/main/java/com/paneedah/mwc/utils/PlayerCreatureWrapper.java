@@ -1,20 +1,24 @@
 package com.paneedah.mwc.utils;
 
 import lombok.Getter;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.client.util.RecipeBookClient;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.stats.StatisticsManager;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 @Getter
+@SideOnly(Side.CLIENT)
 public class PlayerCreatureWrapper extends EntityPlayerSP {
 
     private EntityLivingBase entityLiving;
 
-    public PlayerCreatureWrapper(Minecraft mc, World world) {
-        super(mc, world, mc.getConnection(), new StatisticsManager(),/* TODO: recipe book */ null);
-
+    public PlayerCreatureWrapper (World world) {
+        super(MC, world, MC.getConnection(), new StatisticsManager(), new RecipeBookClient());
     }
 
     public void setEntityLiving(EntityLivingBase entityLiving) {

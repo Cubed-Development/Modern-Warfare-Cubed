@@ -9,9 +9,9 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.stats.StatisticsManager;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
@@ -21,12 +21,13 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
     protected PlayerCreatureWrapper watchablePlayer;
 
+    @SideOnly(Side.CLIENT)
     public RemoteFirstPersonPerspective() {
         this.renderEndNanoTime = System.nanoTime();
         this.width = 427; //MC.displayWidth >> 1;
         this.height = 240; //MC.displayHeight >> 1;
         WorldClient world = (WorldClient) MC.player.world;
-        this.watchablePlayer = new PlayerCreatureWrapper(MC, world);
+        this.watchablePlayer = new PlayerCreatureWrapper(world);
     }
 
     @Override
