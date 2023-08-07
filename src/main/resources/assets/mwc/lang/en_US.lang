@@ -1101,6 +1101,8 @@ config.gameplay.enableBleedingOnHit.property.name=Bleeding On Hit
 config.gameplay.enableBleedingOnHit.property.tooltip=Enable/Disable bleeding on hit
 config.gameplay.bulletBreakGlass.property.name=Bullet Break Glass
 config.gameplay.bulletBreakGlass.property.tooltip=Enable/Disable bullets breaking glass
+config.gameplay.penetrableBlocks.property.name=Penetrable Blocks
+config.gameplay.knockbackOnHit.property.name+Knockback On Hit
 config.gameplay.enableMuzzleEffects.property.name=Muzzle Effects
 config.gameplay.enableMuzzleEffects.property.tooltip=Enable/Disable the muzzle effects
 config.gameplay.enableBlurOnAim.property.name=Blur On Aim
