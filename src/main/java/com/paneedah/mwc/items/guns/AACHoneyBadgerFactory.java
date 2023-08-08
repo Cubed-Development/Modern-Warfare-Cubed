@@ -545,25 +545,21 @@ public class AACHoneyBadgerFactory implements GunFactory {
                     GL11.glScaled(1F, 1F, 1F);
                 })
 
-                // Compatible attachment honeybadger Bipod
                 .withCompatibleAttachment(Attachments.Bipod, (model) -> {
                     GL11.glTranslatef(-0.18F, -0.33F, -3.5F);
                     GL11.glScaled(0.8F, 0.8F, 0.8F);
                 })
 
-                // Compatible attachment honeybadger Laser2
                 .withCompatibleAttachment(Attachments.Laser2, (p, s) -> {
                     GL11.glTranslatef(0.05F, -1.18F, -3.6F);
                     GL11.glScaled(0.8F, 0.8F, 0.8F);
                 })
 
-                // Compatible attachment honeybadger Laser
                 .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
                     GL11.glTranslatef(0.05F, -1.18F, -3.6F);
                     GL11.glScaled(0.8F, 0.8F, 0.8F);
                 })
 
-                // Compatible attachment honeybadger Silencer
                 .withCompatibleAttachment(Attachments.HoneyBadgerSilencer, renderContext -> {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if(instance != null) {
