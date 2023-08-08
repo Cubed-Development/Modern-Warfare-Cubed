@@ -104,7 +104,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 - Fixed some issues with incorrect weapon shell throwing
 - Fixed the perspective issue with MP7ironsightsstanding
-- Fixed F2000 muzzle flash position
 - Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)
 - Fixed Minecraft armor making you invulnerable to bullets (less realistic, but they aren't anyway lol)
 - Fixed soldiers and terrorists spawning with Minecraft armor
@@ -129,7 +128,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Fixed the attachment of the Long Deagle
   - Fixed m16 stock and m38 front sight on guns like M4A1, Beowulf .50Cal and AR-10
   - Fixed visual bugs with grips on the m40a6 and Malyuk
-  - Fixed visual bugs with sight on the taurus
+  - Fixed visual bugs with sight on the Taurus
   - Fixed Stock visual bugs on Origin-12
   - Fixed sights like PSO-1 and OKP-7 on ak-74 and ak-101
   - Fixed the visual bugs of the F2000
@@ -137,7 +136,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Fixed Bipod in ARX-160
   - Fixed Vector Stock Adapter
   - Adjusted slide recoil on m17
-  - Fixed muzzle flash for Dragunov and AK-101
+  - Fixed muzzle flash for Dragunov, F2000 and AK-101
   - Fixed texture bullet
 - Fixed the attachment of the Long Deagle
 - Fixed prop hitboxes not lining up with their models:
