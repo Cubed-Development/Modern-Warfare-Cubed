@@ -6,7 +6,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public abstract class ModelSourceRenderer implements IBakedModel {
+public abstract class ModelSource implements IBakedModel {
 
 	private ModelResourceLocation resourceLocation;
 

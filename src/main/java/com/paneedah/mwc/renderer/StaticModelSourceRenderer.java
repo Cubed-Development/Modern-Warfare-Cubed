@@ -33,7 +33,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 @SideOnly(Side.CLIENT)
-public class StaticModelSourceRendererRenderer extends ModelSourceRenderer implements IBakedModel {
+public class StaticModelSourceRenderer extends ModelSource implements IBakedModel {
 
     protected ModelSourceTransforms transforms;
 
@@ -52,13 +52,13 @@ public class StaticModelSourceRendererRenderer extends ModelSourceRenderer imple
 
         @Override
         public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity) {
-            StaticModelSourceRendererRenderer.this.itemStack = stack;
-            StaticModelSourceRendererRenderer.this.owner = entity;
+            StaticModelSourceRenderer.this.itemStack = stack;
+            StaticModelSourceRenderer.this.owner = entity;
             return super.handleItemState(originalModel, stack, world, entity);
         }
     }
 
-    public StaticModelSourceRendererRenderer(ModelSourceTransforms transforms) {
+    public StaticModelSourceRenderer(ModelSourceTransforms transforms) {
         this.transforms = transforms;
     }
 

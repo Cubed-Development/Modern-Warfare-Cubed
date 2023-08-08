@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
-import com.paneedah.mwc.renderer.StaticModelSourceRendererRenderer;
+import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
 import com.paneedah.weaponlib.animation.Transform;
@@ -15,7 +15,6 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.ShapedOreRecipe;
-import org.lwjgl.opengl.GL11;
 
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -286,7 +285,7 @@ public class AttachmentBuilder<T> {
         compatibleAttachments.values().forEach(a -> attachment.addCompatibleAttachment(a));
 
         if ((getModel() != null || !texturedModels.isEmpty())) {
-            modContext.registerRenderableItem(name, attachment, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRendererRenderer(transforms) : null);
+            modContext.registerRenderableItem(name, attachment, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
         }
 
         if (craftingRecipe != null && craftingRecipe.length >= 2) {

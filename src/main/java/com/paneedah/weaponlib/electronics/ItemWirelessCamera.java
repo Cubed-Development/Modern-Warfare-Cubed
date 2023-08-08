@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
-import com.paneedah.mwc.renderer.StaticModelSourceRendererRenderer;
+import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
@@ -181,7 +181,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
             }
 
             if (model != null || !texturedModels.isEmpty()) {
-                modContext.registerRenderableItem(name, camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRendererRenderer(transforms) : null);
+                modContext.registerRenderableItem(name, camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
             }
 
             if (craftingComplexity != null) {

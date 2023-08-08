@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
-import com.paneedah.mwc.renderer.StaticModelSourceRendererRenderer;
+import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -232,7 +232,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
 
             // lientEventHandler.ITEM_REG.add(item);
 
-            modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRendererRenderer(transforms) : null);
+            modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
 
             return item;
         }
