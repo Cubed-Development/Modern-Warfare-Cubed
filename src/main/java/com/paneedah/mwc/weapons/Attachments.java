@@ -16460,7 +16460,7 @@ public class Attachments {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerSilencer) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
-                        GL11.glScaled(0.6F, 0.6F, 0.6F);
+                        GL11.glScaled(0F, 0F, 0F);
                     }
 
                 }).withThirdPersonModelPositioning((model, itemStack) -> {
@@ -16468,7 +16468,7 @@ public class Attachments {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
-                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                        GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning((model, itemStack) -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerSilencer) {
@@ -16476,7 +16476,7 @@ public class Attachments {
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(1F, 1F, 1f);
+                        GL11.glScaled(0F, 0F, 0f);
 
                     }
                 }).withEntityModelPositioning((model, itemStack) -> {
