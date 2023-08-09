@@ -659,7 +659,7 @@ public class Attachments {
         MAS21Mount = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.MAS21Mount(), "gun.png")
-                .withPostRender(new LaserBeamRenderer((p -> {
+                .withPostRender(new LaserBeamRenderer((p, s) -> {
                     GL11.glTranslatef(-0.62F, 1F, 0.5F);
                     // GL11.glRotatef(30F, 0f, 1f, 0f);
                     // GL11.glScaled(0.6F, 0.6F, 0.6F);
@@ -5709,7 +5709,7 @@ public class Attachments {
                 .withName("DesertEagleSlideBlack")
                 .withRenderablePart().withTextureName("Dummy.png")
                 .build(MWC.modContext);
-
+        
         Glock19Body = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
@@ -7402,10 +7402,10 @@ public class Attachments {
         HK417Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Handguard(), "HK417.png")
-                .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail3(), "akrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail5(), "akrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail2(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail3(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail5(), "guntandarkrail.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Handguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
@@ -7441,10 +7441,10 @@ public class Attachments {
         HK417HandguardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Handguard(), "HK417tan.png")
-                .withModel(new com.paneedah.mwc.models.AKRail(), "guntandarkrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail2(), "guntandarkrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail3(), "guntandarkrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail5(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "guntandark.png")
+                .withModel(new com.paneedah.mwc.models.AKRail2(), "guntandark.png")
+                .withModel(new com.paneedah.mwc.models.AKRail3(), "guntandark.png")
+                .withModel(new com.paneedah.mwc.models.AKRail5(), "guntandark.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Handguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
@@ -7914,7 +7914,7 @@ public class Attachments {
         HK417Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Receiver(), "HK417.png")
-                .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "guntanrail.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Receiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
@@ -7950,7 +7950,7 @@ public class Attachments {
         HK417ReceiverTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Receiver(), "HK417tan.png")
-                .withModel(new com.paneedah.mwc.models.AKRail(), "guntanrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "guntan.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Receiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
@@ -12679,7 +12679,7 @@ public class Attachments {
         LeupoldScope = new ItemScope.Builder()
         		.withOpticalZoom()
         		.withZoomRange(0.22f, 0.06f)
-        		.withViewfinderPositioning((p -> {
+        		.withViewfinderPositioning(() -> {
                     GL11.glScalef(2.3f, 2.3f, 2.3f);
                     GL11.glTranslatef(-0.085f, 0.33f, 1.75f);
                 })
@@ -12739,7 +12739,7 @@ public class Attachments {
         		.withSniperReticle(Reticles.RETICLE_PSO1)
         		.withOpticalZoom()
         		.withZoomRange(0.22f, 0.06f)
-                .withViewfinderPositioning((p -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.15f, 1.15f, 1.1f);
                     GL11.glTranslatef(-0.299f, 0.215f, 1.15f);
                 }).withCategory(AttachmentCategory.SCOPE).withCreativeTab(MWC.ATTACHMENTS_TAB).withCrosshair("LP")
@@ -12801,7 +12801,7 @@ public class Attachments {
         OKP7 = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.OKP)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.23, -4.4, -0.2);
         			GlStateManager.scale(2.05, 2.05, 2.05);
         		})
@@ -12906,7 +12906,7 @@ public class Attachments {
         
         Reflex = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.REFLEX)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.08, -3, 0);
         			GlStateManager.scale(1.4, 1.4, 1.4);
         		})
@@ -12975,7 +12975,7 @@ public class Attachments {
         
         BijiaReflex = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.BIJIA)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.08, -2.95, 0.1);
         			GlStateManager.scale(1.4, 1.4, 1.4);
         		})
@@ -13043,7 +13043,7 @@ public class Attachments {
         
         MicroReflex = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.MICROREFLEX)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.13, -1.62, -0.1);
         			GlStateManager.scale(1.6, 1.6, 1.6);
         		})
@@ -13056,7 +13056,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withPostRender(new LaserBeamRenderer((p -> {
+                .withPostRender(new LaserBeamRenderer((p, s) -> {
                     GL11.glTranslatef(-0F, 2.3F, 1.8F);
                     // GL11.glRotatef(30F, 0f, 1f, 0f);
                     // GL11.glScaled(0.6F, 0.6F, 0.6F);
@@ -13120,7 +13120,7 @@ public class Attachments {
         		.withSniperReticle(Reticles.RETICLE_ACOG)
         		.withOpticalZoom()
         		.withZoomRange(0.22f, 0.1f)
-                .withViewfinderPositioning((p -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.52f, 1.52f, 1.52f);
                     GL11.glTranslatef(0.038f, 0.485f, 0.37f);
                 })
@@ -13206,7 +13206,7 @@ public class Attachments {
         		.withSniperReticle(Reticles.RETICLE_SPECTRE)
         		.withOpticalZoom()
         		.withZoomRange(0.22f, 0.1f)
-                .withViewfinderPositioning((p -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(3.7f, 3.7f, 3.7f);
                     GL11.glTranslatef(-0.075f, 0.38f, 0.42f);
                 })
@@ -13275,7 +13275,7 @@ public class Attachments {
 
         Holographic = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.HOLO_ONE)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.1, -2.7, 0.3);
         			GlStateManager.scale(1.4, 1.4, 1.4);
         		})
@@ -13346,7 +13346,7 @@ public class Attachments {
         
         HolographicAlt = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.HOLO_ONE)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.1, -2.7, 0.3);
         			GlStateManager.scale(1.4, 1.4, 1.4);
         		})
@@ -13418,7 +13418,7 @@ public class Attachments {
         		.withSniperReticle(Reticles.RETICLE_HOLO)
         		.withOpticalZoom()
         		.withZoomRange(0.22f, 0.1f)
-                .withViewfinderPositioning((p -> {
+                .withViewfinderPositioning(() -> {
                 	GL11.glScalef(1.41f, 1.41f, 1.35f);
                     GL11.glTranslatef(-0.204f, 0.28f, 1.35f);
                 })
@@ -13494,7 +13494,7 @@ public class Attachments {
         
         VortexRedux = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.VORTEX)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.45, -3.15, 0.5);
         			GlStateManager.scale(1.73, 1.73, 1.4);
         		})
@@ -13564,7 +13564,7 @@ public class Attachments {
         MicroT1 = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.REFLEX)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.3, -6, -0.2);
         			GlStateManager.scale(3.5, 3.5, 1.4);
         		})
@@ -13634,7 +13634,7 @@ public class Attachments {
         AimpointCompM2 = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.REFLEX)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.06, -3.8, -0.4);
         			GlStateManager.scale(1.8, 1.8, 1.4);
         		})
@@ -13705,7 +13705,7 @@ public class Attachments {
         AimpointCompM5 = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.REFLEX)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.3, -6, -0.2);
         			GlStateManager.scale(3.5, 3.5, 1.4);
         		})
@@ -13774,7 +13774,7 @@ public class Attachments {
         
         RMR = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.RMR)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.22, -2.75, -0.53);
         			GlStateManager.scale(1.7, 1.6, 1.6);
         		})
@@ -13839,7 +13839,7 @@ public class Attachments {
         Kobra = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.KOBRA)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.05, -3.35, -0.8);
         			GlStateManager.scale(1.8, 1.8, 1.4);
         		})
@@ -13909,7 +13909,7 @@ public class Attachments {
         KobraGen3 = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.KOBRA)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.05, -3.35, -0.9);
         			GlStateManager.scale(1.8, 1.8, 1.4);
         		})
@@ -13979,7 +13979,7 @@ public class Attachments {
         KobraMount = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.KOBRA)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning(model -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.05, -3.35, -0.8);
         			GlStateManager.scale(1.8, 1.8, 1.4);
         		})
@@ -14036,7 +14036,7 @@ public class Attachments {
 //                .withNightVision()
                 .withOpticalZoom()
                 .withZoomRange(0.22f, 0.02f)
-                .withViewfinderPositioning((p -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.65f, 1.65f, 1.65f);
                     GL11.glTranslatef(0.0285f, 0.492f, 0.7f);
                 })
@@ -14089,7 +14089,7 @@ public class Attachments {
         		.withSniperReticle(Reticles.RETICLE_1)
         		.withOpticalZoom()
         		.withZoomRange(0.22f, 0.06f)
-        		.withViewfinderPositioning((p -> {
+        		.withViewfinderPositioning(() -> {
                     GL11.glScalef(2.9f, 2.9f, 2.9f);
                     GL11.glTranslatef(-0.09f, 0.405f, 1.43f);
                 })
@@ -14159,7 +14159,7 @@ public class Attachments {
                 .withOpticalZoom()
                 .withSniperReticle(Reticles.RETICLE_NIGHTRAIDER)
                 .withZoomRange(0.22f, 0.02f)
-                .withViewfinderPositioning((p -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.6f, 1.6f, 1.6f);
                     GL11.glTranslatef(-0.045f, 0.495f, 1.551f);
                 })
@@ -14225,7 +14225,7 @@ public class Attachments {
         M2A1sight = new ItemScope.Builder()
                 .withOpticalZoom()
                 .withZoomRange(0.22f, 0.2f)
-                .withViewfinderPositioning((p -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.54f, 1.54f, 1.54f);
                     GL11.glTranslatef(-0.09f, -0.265f, -0.7f);
                 })
@@ -14278,7 +14278,7 @@ public class Attachments {
         F2000Scope = new ItemScope.Builder()
                 .withOpticalZoom()
                 .withZoomRange(0.22f, 0.02f)
-                .withViewfinderPositioning((p -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(0.54f, 0.56f, 0.55f);
                     GL11.glTranslatef(-0.125f, -0.923f, 1.621f);
 //                    GL11.glRotatef(30F, 1f, 0f, 0f);
@@ -14340,7 +14340,7 @@ public class Attachments {
         M202scope = new ItemScope.Builder()
                 .withOpticalZoom()
                 .withZoomRange(0.22f, 0.02f)
-                .withViewfinderPositioning((p -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.7f, 1.7f, 1.7f);
                     GL11.glTranslatef(0.375f, 0.185f, 0.34f);
 //                    GL11.glRotatef(30F, 1f, 0f, 0f);
@@ -14379,7 +14379,7 @@ public class Attachments {
         AUGscope = new ItemScope.Builder()
                 .withOpticalZoom()
                 .withZoomRange(0.22f, 0.02f)
-                .withViewfinderPositioning((p -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.05f, 1.05f, 1.05f);
                     GL11.glTranslatef(-0.23f, -0.77f, 0.65f);
                 })
@@ -16700,7 +16700,7 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
                 .withModel(new com.paneedah.mwc.models.Laser(), "gun.png")
-                .withPostRender(new LaserBeamRenderer((p -> {
+                .withPostRender(new LaserBeamRenderer((p, s) -> {
                     GL11.glTranslatef(-0.2F, 1.4F, 1.8F);
                     // GL11.glRotatef(30F, 0f, 1f, 0f);
                     // GL11.glScaled(0.6F, 0.6F, 0.6F);
@@ -16765,7 +16765,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withPostRender(new LaserBeamRenderer((p -> {
+                .withPostRender(new LaserBeamRenderer((p, s) -> {
                     GL11.glTranslatef(-0.2F, 1.3F, 1.8F);
                     // GL11.glRotatef(30F, 0f, 1f, 0f);
                     // GL11.glScaled(0.6F, 0.6F, 0.6F);
@@ -16811,7 +16811,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withPostRender(new LaserBeamRenderer((p -> {
+                .withPostRender(new LaserBeamRenderer((p, s) -> {
                     GL11.glTranslatef(-0.62F, 0.82F, 0.5F);
                     // GL11.glRotatef(30F, 0f, 1f, 0f);
                     // GL11.glScaled(0.6F, 0.6F, 0.6F);
@@ -16858,7 +16858,7 @@ public class Attachments {
         DanWessonLaser = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.LASER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.DanWessonLaser(), "DanWessonLaser.png")
-                .withPostRender(new LaserBeamRenderer((p -> {
+                .withPostRender(new LaserBeamRenderer((p, s) -> {
                     GL11.glTranslatef(-0.2F, 1.4F, 1.8F);
                     // GL11.glRotatef(30F, 0f, 1f, 0f);
                     // GL11.glScaled(0.6F, 0.6F, 0.6F);
