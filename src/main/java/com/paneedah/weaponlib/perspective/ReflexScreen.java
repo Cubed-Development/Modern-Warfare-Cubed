@@ -4,7 +4,6 @@
 package com.paneedah.weaponlib.perspective;
 
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.CustomRenderer;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
@@ -23,16 +22,12 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
-
-import java.util.function.BiConsumer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
@@ -46,7 +41,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 
 	
 	// The positioning for the reticle screen
-	public BiConsumer<EntityLivingBase, ItemStack> positioning;
+	public Runnable positioning;
 	
 	// For scopes that are circular.
 	public float radius;
@@ -57,7 +52,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 	
 
 	
-	public ReflexScreen(BiConsumer<EntityLivingBase, ItemStack> pos, float radius, CyclicList<Reticle> reticles) {
+	public ReflexScreen(Runnable pos, float radius, CyclicList<Reticle> reticles) {
 		textureWidth = 16;
 		textureHeight = 16;
 		
@@ -173,7 +168,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		//glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D, gAlbedoSpec, 0);
 		
 		GlStateManager.pushMatrix();
-		positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
+		positioning.run();
 		bb_main.render(0.065f);
 		
 		
@@ -208,7 +203,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 			
 		
 		//	GlStateManager.translate(0, -3, 0);
-			positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
+			positioning.run();
 			
 
 			/*

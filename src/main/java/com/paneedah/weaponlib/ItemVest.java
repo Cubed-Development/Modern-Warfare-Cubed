@@ -26,7 +26,6 @@ import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
@@ -41,11 +40,11 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
         private ModelBase model;
         private String textureName;
         private ModelSourceTransforms transforms = ModelSourceTransforms.builder()
-                .entityPositioning(itemStack -> new Transform()
+                .entityPositioning(() -> new Transform()
                         .withPosition(-0.5F, -1.75F, 0.5F)
                         .withScale(1, 1, 1)
                         .doGLDirect())
-                .inventoryPositioning(itemStack -> new Transform()
+                .inventoryPositioning(() -> new Transform()
                         .withPosition(-0.15, -4.15, 0.35)
                         .withRotation(18, -50, 0)
                         .withScale(2.9, 2.9, 2.9)
@@ -114,52 +113,52 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
             return this;
         }
 
-        public Builder withEntityPositioning(Consumer<ItemStack> entityPositioning) {
+        public Builder withEntityPositioning(Runnable entityPositioning) {
             transforms.setEntityPositioning(entityPositioning);
             return this;
         }
 
-        public Builder withInventoryPositioning(Consumer<ItemStack> inventoryPositioning) {
+        public Builder withInventoryPositioning(Runnable inventoryPositioning) {
             transforms.setInventoryPositioning(inventoryPositioning);
             return this;
         }
 
-        public Builder withThirdPersonPositioning(BiConsumer<EntityPlayer, ItemStack> thirdPersonPositioning) {
+        public Builder withThirdPersonPositioning(Runnable thirdPersonPositioning) {
             transforms.setThirdPersonPositioning(thirdPersonPositioning);
             return this;
         }
 
-        public Builder withCustomEquippedPositioning(BiConsumer<EntityPlayer, ItemStack> customEquippedPositioning) {
+        public Builder withCustomEquippedPositioning(Runnable customEquippedPositioning) {
             transforms.setCustomEquippedPositioning(customEquippedPositioning);
             return this;
         }
 
-        public Builder withFirstPersonPositioning(BiConsumer<EntityPlayer, ItemStack> firstPersonPositioning) {
+        public Builder withFirstPersonPositioning(Runnable firstPersonPositioning) {
             transforms.setFirstPersonPositioning(firstPersonPositioning);
             return this;
         }
 
-        public Builder withFirstPersonModelPositioning(BiConsumer<ModelBase, ItemStack> firstPersonModelPositioning) {
+        public Builder withFirstPersonModelPositioning(Consumer<ModelBase> firstPersonModelPositioning) {
             transforms.setFirstPersonModelPositioning(firstPersonModelPositioning);
             return this;
         }
 
-        public Builder withEntityModelPositioning(BiConsumer<ModelBase, ItemStack> entityModelPositioning) {
+        public Builder withEntityModelPositioning(Consumer<ModelBase> entityModelPositioning) {
             transforms.setEntityModelPositioning(entityModelPositioning);
             return this;
         }
 
-        public Builder withInventoryModelPositioning(BiConsumer<ModelBase, ItemStack> inventoryModelPositioning) {
+        public Builder withInventoryModelPositioning(Consumer<ModelBase> inventoryModelPositioning) {
             transforms.setInventoryModelPositioning(inventoryModelPositioning);
             return this;
         }
 
-        public Builder withThirdPersonModelPositioning(BiConsumer<ModelBase, ItemStack> thirdPersonModelPositioning) {
+        public Builder withThirdPersonModelPositioning(Consumer<ModelBase> thirdPersonModelPositioning) {
             transforms.setThirdPersonModelPositioning(thirdPersonModelPositioning);
             return this;
         }
 
-        public Builder withFirstPersonHandPositioning(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
+        public Builder withFirstPersonHandPositioning(Runnable leftHand, Runnable rightHand) {
             transforms.setFirstPersonLeftHandPositioning(leftHand);
             transforms.setFirstPersonRightHandPositioning(rightHand);
             return this;

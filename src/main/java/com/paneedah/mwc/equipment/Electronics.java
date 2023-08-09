@@ -17,7 +17,7 @@ public class Electronics {
 
     public static void init() {
         Tablet = new ItemTablet.Builder<>()
-                .withViewfinderPositioning((p, s) -> {
+                .withViewfinderPositioning(() -> {
                     float scale = 5.9f;
                     GL11.glScalef(scale, scale / MWC.modContext.getAspectRatio(), scale);
                     GL11.glTranslatef(-0.12f, 0.56f, 0.01f);
@@ -26,21 +26,21 @@ public class Electronics {
                 .withCrosshair("HP")
                 .withModel(new TabletModel(), "IPad.png")
                 //.withModel(new com.paneedah.mwc.models.LPscope(), "HP2.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glRotatef(25.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(50.000000f, 0f, 1f, 0f);
                     GL11.glRotatef(-20.000000f, 0f, 0f, 1f);
                     GL11.glTranslatef(1.000000f, 0.100000f, -4.399998f);
                     GL11.glScaled(5F, 5F, 5F);
                 })
-                .withThirdPersonModelPositioning((model, itemStack) -> {
+                .withThirdPersonModelPositioning(model -> {
                     if (model instanceof TabletModel) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(1F, 1F, 1F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HP) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -50,7 +50,7 @@ public class Electronics {
                     } else if (model instanceof com.paneedah.mwc.models.LPscope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HP) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -60,14 +60,14 @@ public class Electronics {
                     }
                 })
                 .withFirstPersonHandPositioning(
-                        c -> {
+                        () -> {
                             GL11.glScaled(2F, 2F, 2F);
                             GL11.glRotatef(-145.000000f, 1f, 0f, 0f);
                             GL11.glRotatef(-35.000000f, 0f, 1f, 0f);
                             GL11.glRotatef(20.000000f, 0f, 0f, 1f);
                             GL11.glTranslatef(-0.025000f, -1.149999f, -0.100000f);
                         },
-                        c -> {
+                        () -> {
                             GL11.glScaled(2F, 2F, 2F);
                             GL11.glRotatef(-135.000000f, 1f, 0f, 0f);
                             GL11.glRotatef(40.000000f, 0f, 1f, 0f);
@@ -84,21 +84,21 @@ public class Electronics {
         .withName("wcam")
         .withCreativeTab(MWC.EQUIPMENT_TAB)
         .withModel(new CameraModel(), "gun")
-        .withFirstPersonPositioning((player, itemStack) -> {
+        .withFirstPersonPositioning(() -> {
             // GL11.glTranslatef(0.5F, -1.5F, -0.7F);
             GL11.glRotatef(55F, 0f, 1f, 0f);
             // GL11.glRotatef(2F, 1f, 0f, 0f);
             GL11.glTranslatef(-0.1F, -1.6F, 1F);
             GL11.glScaled(1F, 1F, 1F);
         })
-        .withThirdPersonModelPositioning((model, itemStack) -> {
+        .withThirdPersonModelPositioning(model -> {
             if (model instanceof CameraModel) {
                 GL11.glTranslatef(-0.9F, -0.8F, 0.5F);
                 GL11.glRotatef(-50F, 0f, 1f, 0f);
                 GL11.glRotatef(80F, 1f, 0f, 0f);
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
             }
-        }).withInventoryModelPositioning((model, itemStack) -> {
+        }).withInventoryModelPositioning(model -> {
             if (model instanceof com.paneedah.mwc.models.HP) {
                 GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
                 GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -108,7 +108,7 @@ public class Electronics {
             } else if (model instanceof com.paneedah.mwc.models.LPscope) {
                 GL11.glScaled(0F, 0F, 0F);
             }
-        }).withEntityModelPositioning((model, itemStack) -> {
+        }).withEntityModelPositioning(model -> {
             if (model instanceof com.paneedah.mwc.models.HP) {
                 GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                 GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -119,14 +119,14 @@ public class Electronics {
         })
 
         .withFirstPersonHandPositioning(
-                c -> {
+                () -> {
                     GL11.glScalef(0F, 0F, 0F);
                     // GL11.glRotatef(190F, 1f, 0f, 0f);
                     // GL11.glRotatef(10F, 0f, 1f, 0f);
                     // GL11.glRotatef(30F, 0f, 0f, 1f);
                     // GL11.glTranslatef(0.1F, -1.75F, 0F);
                 },
-                c -> {
+                () -> {
                     GL11.glScalef(0F, 0F, 0F);
                     // GL11.glRotatef(190F, 1f, 0f, 0f);
                     // GL11.glRotatef(0F, 0f, 1f, 0f);
@@ -140,7 +140,7 @@ public class Electronics {
 
         new ItemHandheld.Builder<>()
         .withScreenPerspectiveType(GasDetectorScreenPerspective.class)
-        .withScreenPositioning((p, s) -> {
+        .withScreenPositioning(() -> {
             float scale = 1.9f;
             GL11.glScalef(scale, scale / MWC.modContext.getAspectRatio(), scale);
             GL11.glTranslatef(0.017f, 0.16f, 0.17f);
@@ -148,7 +148,7 @@ public class Electronics {
         .withCreativeTab(MWC.EQUIPMENT_TAB)
         .withCrosshair("HP")
         .withModel(new GasDetector(), "gasdetector.png")
-        .withFirstPersonPositioning((player, itemStack) -> {
+        .withFirstPersonPositioning(() -> {
             GL11.glScalef(4f, 4f, 4f);
             GL11.glRotatef(0.000000f, 1f, 0f, 0f);
             GL11.glRotatef(70.000000f, 0f, 1f, 0f);
@@ -160,14 +160,14 @@ public class Electronics {
 //            GL11.glRotatef(-5.000000f, 0f, 0f, 1f);
 //            GL11.glTranslatef(-0.8f, 0.2f, -1.5f);
         })
-        .withThirdPersonModelPositioning((model, itemStack) -> {
+        .withThirdPersonModelPositioning(model -> {
             if (model instanceof TabletModel) {
                 GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(80F, 1f, 0f, 0f);
                 GL11.glScaled(0.6F, 0.6F, 0.6F);
             }
-        }).withInventoryModelPositioning((model, itemStack) -> {
+        }).withInventoryModelPositioning(model -> {
             if (model instanceof com.paneedah.mwc.models.HP) {
                 GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
                 GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -177,7 +177,7 @@ public class Electronics {
             } else if (model instanceof com.paneedah.mwc.models.LPscope) {
                 GL11.glScaled(0F, 0F, 0F);
             }
-        }).withEntityModelPositioning((model, itemStack) -> {
+        }).withEntityModelPositioning(model -> {
             if (model instanceof com.paneedah.mwc.models.HP) {
                 GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                 GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -187,11 +187,11 @@ public class Electronics {
             }
         })
         .withFirstPersonHandPositioning(
-                c -> {
+                () -> {
 
                     GL11.glScaled(0f, 0f, 0f);
                 },
-                c -> {
+                () -> {
                     GL11.glScalef(3.3f, 3.3f, 3.3f);
                     GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(5.000000f, 0f, 1f, 0f);

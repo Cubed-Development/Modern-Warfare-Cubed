@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.equipment.carryable;
 
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
-import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -9,7 +9,6 @@ import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -17,7 +16,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 import java.util.List;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -33,11 +31,11 @@ public class ItemCarryable extends Item implements IModernCrafting {
         protected String modelName;
         protected String textureName;
         protected ModelSourceTransforms transforms = ModelSourceTransforms.builder()
-                .entityPositioning(itemStack -> new Transform()
+                .entityPositioning(() -> new Transform()
                         .withPosition(-0.5, -1.75, 0.4)
                         .withScale(1, 1, 1)
                         .doGLDirect())
-                .inventoryPositioning(itemStack -> new Transform()
+                .inventoryPositioning(() -> new Transform()
                         .withPosition(-0.15, -4.15, 0.35)
                         .withRotation(18, -50, 0)
                         .withScale(2.9, 2.9, 2.9)
@@ -119,52 +117,52 @@ public class ItemCarryable extends Item implements IModernCrafting {
             return self();
         }
 
-        public T withEntityPositioning(Consumer<ItemStack> entityPositioning) {
+        public T withEntityPositioning(Runnable entityPositioning) {
             transforms.setEntityPositioning(entityPositioning);
             return self();
         }
 
-        public T withInventoryPositioning(Consumer<ItemStack> inventoryPositioning) {
+        public T withInventoryPositioning(Runnable inventoryPositioning) {
             transforms.setInventoryPositioning(inventoryPositioning);
             return self();
         }
 
-        public T withThirdPersonPositioning(BiConsumer<EntityPlayer, ItemStack> thirdPersonPositioning) {
+        public T withThirdPersonPositioning(Runnable thirdPersonPositioning) {
             transforms.setThirdPersonPositioning(thirdPersonPositioning);
             return self();
         }
 
-        public T withCustomEquippedPositioning(BiConsumer<EntityPlayer, ItemStack> customEquippedPositioning) {
+        public T withCustomEquippedPositioning(Runnable customEquippedPositioning) {
             transforms.setCustomEquippedPositioning(customEquippedPositioning);
             return self();
         }
 
-        public T withFirstPersonPositioning(BiConsumer<EntityPlayer, ItemStack> firstPersonPositioning) {
+        public T withFirstPersonPositioning(Runnable firstPersonPositioning) {
             transforms.setFirstPersonPositioning(firstPersonPositioning);
             return self();
         }
 
-        public T withFirstPersonModelPositioning(BiConsumer<ModelBase, ItemStack> firstPersonModelPositioning) {
+        public T withFirstPersonModelPositioning(Consumer<ModelBase> firstPersonModelPositioning) {
             transforms.setFirstPersonModelPositioning(firstPersonModelPositioning);
             return self();
         }
 
-        public T withEntityModelPositioning(BiConsumer<ModelBase, ItemStack> entityModelPositioning) {
+        public T withEntityModelPositioning(Consumer<ModelBase> entityModelPositioning) {
             transforms.setEntityModelPositioning(entityModelPositioning);
             return self();
         }
 
-        public T withInventoryModelPositioning(BiConsumer<ModelBase, ItemStack> inventoryModelPositioning) {
+        public T withInventoryModelPositioning(Consumer<ModelBase> inventoryModelPositioning) {
             transforms.setInventoryModelPositioning(inventoryModelPositioning);
             return self();
         }
 
-        public T withThirdPersonModelPositioning(BiConsumer<ModelBase, ItemStack> thirdPersonModelPositioning) {
+        public T withThirdPersonModelPositioning(Consumer<ModelBase> thirdPersonModelPositioning) {
             transforms.setThirdPersonModelPositioning(thirdPersonModelPositioning);
             return self();
         }
 
-        public T withFirstPersonHandPositioning(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
+        public T withFirstPersonHandPositioning(Runnable leftHand, Runnable rightHand) {
             transforms.setFirstPersonLeftHandPositioning(leftHand);
             transforms.setFirstPersonRightHandPositioning(rightHand);
             return self();
@@ -192,13 +190,13 @@ public class ItemCarryable extends Item implements IModernCrafting {
     protected int guiTextureWidth;
     protected Predicate<Item> validItemPredicate;
 
-    protected BiConsumer<EntityPlayer, ItemStack> customEquippedPositioning;
+    protected Runnable customEquippedPositioning;
 
     // Modern crafting setup
     protected CraftingEntry[] modernRecipe;
     protected CraftingGroup craftGroup;
 
-    public BiConsumer<EntityPlayer, ItemStack> getCustomEquippedPositioning() {
+    public Runnable getCustomEquippedPositioning() {
         return customEquippedPositioning;
     }
 

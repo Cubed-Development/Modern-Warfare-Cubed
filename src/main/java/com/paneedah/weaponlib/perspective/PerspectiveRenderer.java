@@ -4,13 +4,9 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.*;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.ITextureObject;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.opengl.GL11;
-
-import java.util.function.BiConsumer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
@@ -47,10 +43,10 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
     protected static Perspective<RenderableState> STATIC_TEXTURE_PERSPECTIVE = new StaticTexturePerspective();
 
 	protected ViewfinderModel model = new ViewfinderModel();
-	protected BiConsumer<EntityLivingBase, ItemStack> positioning;
+	protected Runnable positioning;
 
 
-	public PerspectiveRenderer(BiConsumer<EntityLivingBase, ItemStack> positioning) {
+	public PerspectiveRenderer(Runnable positioning) {
 		this.positioning = positioning;
 	}
 
@@ -76,7 +72,7 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 		
 
 		
-		positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
+		positioning.run();
 		
 		
 		

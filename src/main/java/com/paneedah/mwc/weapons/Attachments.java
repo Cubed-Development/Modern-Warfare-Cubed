@@ -546,7 +546,7 @@ public class Attachments {
     	G11HandguardK1 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.G11HandguardK1(), "g11.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G11HandguardK1) {
                         GL11.glTranslatef(-0.6F, -0.3F, 1.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -556,7 +556,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G11HandguardK1) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -565,7 +565,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G11HandguardK1) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -581,7 +581,7 @@ public class Attachments {
     	G11HandguardK2 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.G11HandguardK2(), "g11.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G11HandguardK2) {
                         GL11.glTranslatef(-0.6F, -0.3F, 1.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -591,7 +591,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G11HandguardK2) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -600,7 +600,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G11HandguardK2) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -620,7 +620,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FABDefenseMount) {
                         GL11.glTranslatef(-0.6F, -0.3F, 1.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -630,7 +630,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FABDefenseMount) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -639,7 +639,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FABDefenseMount) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -660,7 +660,7 @@ public class Attachments {
                     // GL11.glRotatef(30F, 0f, 1f, 0f);
                     // GL11.glScaled(0.6F, 0.6F, 0.6F);
                 }))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAS21Mount) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -670,7 +670,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAS21Mount) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -679,7 +679,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAS21Mount) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -703,7 +703,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P90Swordfish) {
                         GL11.glTranslatef(-0.6F, 0.1F, -0.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -713,7 +713,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P90Swordfish) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -722,7 +722,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P90Swordfish) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -738,7 +738,7 @@ public class Attachments {
         P90DefaultKit = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.P90DefaultKit(), "p90.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P90DefaultKit) {
                         GL11.glTranslatef(-0.6F, 0.5F, 0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -748,7 +748,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P90DefaultKit) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -757,7 +757,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P90DefaultKit) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -773,7 +773,7 @@ public class Attachments {
         P90Terminator = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.P90Terminator(), "p90.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P90Terminator) {
                         GL11.glTranslatef(-0.6F, 0.1F, 1.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -783,7 +783,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P90Terminator) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -792,7 +792,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P90Terminator) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -811,7 +811,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarLHandguard) {
                     	 GL11.glTranslatef(-0.6F, 0.1F, -1.6F);
                          GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -821,7 +821,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarLHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -830,7 +830,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarLHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -849,7 +849,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarHHandguard) {
                     	 GL11.glTranslatef(-0.6F, 0.1F, -1.6F);
                          GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -859,7 +859,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarHHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -868,7 +868,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarHHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -888,7 +888,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarMidWestIndustriesHandguard) {
                         GL11.glTranslatef(-0.6F, 0.1F, -1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -898,7 +898,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarMidWestIndustriesHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -907,7 +907,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarMidWestIndustriesHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -928,7 +928,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarMLOKHandguard) {
                     	 GL11.glTranslatef(-0.6F, 0.1F, -1.6F);
                          GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -938,7 +938,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarMLOKHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -947,7 +947,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarMLOKHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -969,7 +969,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIG556Handguard) {
                     	 GL11.glTranslatef(-0.6F, 0.1F, -1.6F);
                          GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -979,7 +979,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIG556Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -988,7 +988,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIG556Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1011,7 +1011,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIG556HandguardRailed) {
                     	 GL11.glTranslatef(-0.6F, 0.1F, -1.6F);
                          GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1021,7 +1021,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIG556HandguardRailed) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1030,7 +1030,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIG556HandguardRailed) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1053,7 +1053,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIG556HandguardKA) {
                     	 GL11.glTranslatef(-0.6F, 0.1F, -1.6F);
                          GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1063,7 +1063,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIG556HandguardKA) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1072,7 +1072,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIG556HandguardKA) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1094,7 +1094,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIG556Grip) {
                     	 GL11.glTranslatef(-0.6F, 0.1F, -1.6F);
                          GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1104,7 +1104,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIG556Grip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1113,7 +1113,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIG556Grip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1134,7 +1134,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarReceiver) {
                         GL11.glTranslatef(-0.6F, -0F, -0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1144,7 +1144,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarReceiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1153,7 +1153,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarReceiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1172,7 +1172,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorReceiver) {
                         GL11.glTranslatef(-0.6F, -0.5F, -1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1182,7 +1182,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorReceiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1191,7 +1191,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorReceiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1213,7 +1213,7 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.steelIngot, 5),
                     	new CraftingEntry(Items.STRING, 4),
                     	new CraftingEntry(Items.PAPER, 5))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorModified) {
                         GL11.glTranslatef(-0.6F, -0.5F, -1.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1223,7 +1223,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorModified) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1232,7 +1232,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorModified) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1252,7 +1252,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorMk1ModularGuard) {
                         GL11.glTranslatef(-0.6F, -0.5F, -1.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1262,7 +1262,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorMk1ModularGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1271,7 +1271,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorMk1ModularGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1291,7 +1291,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorCarbineGuard) {
                         GL11.glTranslatef(-0.6F, -0.5F, -1.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1301,7 +1301,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorCarbineGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1310,7 +1310,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorCarbineGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1331,7 +1331,7 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(Items.STRING, 2),
                     	new CraftingEntry(Items.PAPER, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorTapedGrip) {
                         GL11.glTranslatef(-0.6F, -0.5F, -1.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1341,7 +1341,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorTapedGrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1350,7 +1350,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorTapedGrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1372,7 +1372,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Origin12Handguard) {
                         GL11.glTranslatef(-0.6F, 0.2F, -1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1382,7 +1382,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Origin12Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1391,7 +1391,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Origin12Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1409,7 +1409,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.HKS20Handguard(), "hks20.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKS20Handguard) {
                         GL11.glTranslatef(-0.6F, 0.2F, -1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1419,7 +1419,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKS20Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1428,7 +1428,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKS20Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1444,7 +1444,7 @@ public class Attachments {
         Remington700Chassis = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Remington700Chassis(), "remington700.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington700Chassis) {
                         GL11.glTranslatef(-0.6F, -0.5F, 0.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1454,7 +1454,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington700Chassis) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1463,7 +1463,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington700Chassis) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1479,7 +1479,7 @@ public class Attachments {
         Remington700APACChassis = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Remington700ChassisAPAC(), "remington700.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington700ChassisAPAC) {
                         GL11.glTranslatef(-0.6F, -0.5F, 0.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1489,7 +1489,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington700ChassisAPAC) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1498,7 +1498,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington700ChassisAPAC) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1514,7 +1514,7 @@ public class Attachments {
         Remington700MDTXRSChassis = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Remington700ChassisMDTXRS(), "remington700.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington700ChassisMDTXRS) {
                         GL11.glTranslatef(-0.6F, -0.5F, 0.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1524,7 +1524,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington700ChassisMDTXRS) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1533,7 +1533,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington700ChassisMDTXRS) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1550,7 +1550,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.SSG08Chassis(), "SSG08_2.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SSG08Chassis) {
                         GL11.glTranslatef(-0.6F, -0.2F, -0.15F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1560,7 +1560,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SSG08Chassis) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1569,7 +1569,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SSG08Chassis) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1589,7 +1589,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 6),
                     	new CraftingEntry(MWCItems.steelIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ARX160) {
                         GL11.glTranslatef(-0.6F, -0.2F, -0.15F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1599,7 +1599,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ARX160) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1608,7 +1608,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ARX160) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1627,7 +1627,7 @@ public class Attachments {
                 .withModel(new AK47iron(), "gun.png")
                 .withModel(new FALIron(), "gun.png")
                 .withRenderablePart()
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G2ContenderBarrelShort) {
                         GL11.glTranslatef(-0.6F, -0.2F, -0.15F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1637,7 +1637,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G2ContenderBarrelShort) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1646,7 +1646,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G2ContenderBarrelShort) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1666,7 +1666,7 @@ public class Attachments {
                 .withModel(new AK47iron(), "gun.png")
                 .withModel(new FALIron(), "gun.png")
                 .withRenderablePart()
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G2ContenderBarrelLong) {
                         GL11.glTranslatef(-0.6F, -0.2F, -0.15F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1676,7 +1676,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G2ContenderBarrelLong) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1685,7 +1685,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G2ContenderBarrelLong) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1702,7 +1702,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.G2ContenderGrip(), "g2contender.png")
                 .withRenderablePart()
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G2ContenderGrip) {
                         GL11.glTranslatef(-0.6F, -0.2F, -0.15F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1712,7 +1712,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G2ContenderGrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1721,7 +1721,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G2ContenderGrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1738,7 +1738,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.G2ContenderStock(), "g2contender.png")
                 .withRenderablePart()
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G2ContenderStock) {
                         GL11.glTranslatef(-0.6F, -0.2F, -0.15F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1748,7 +1748,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G2ContenderStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1757,7 +1757,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G2ContenderStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1777,7 +1777,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Origin12Grip) {
                         GL11.glTranslatef(-0.6F, -0F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1787,7 +1787,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Origin12Grip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1796,7 +1796,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Origin12Grip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1812,7 +1812,7 @@ public class Attachments {
         HKS20Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HKS20Grip(), "HKS20.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKS20Grip) {
                         GL11.glTranslatef(-0.6F, -0F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1822,7 +1822,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKS20Grip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1831,7 +1831,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKS20Grip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1852,7 +1852,7 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
                 .withRequiredAttachments(Origin12Grip)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Origin12Stock) {
                         GL11.glTranslatef(-0.6F, 0.2F, 1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1862,7 +1862,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Origin12Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1871,7 +1871,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Origin12Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1888,7 +1888,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HKS20Stock(), "HKS20.png")
                 .withRequiredAttachments(HKS20Grip)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKS20Stock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1898,7 +1898,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKS20Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1907,7 +1907,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKS20Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1929,7 +1929,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRHandGuard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1939,7 +1939,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRHandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1948,7 +1948,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRHandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -1971,7 +1971,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRHandGuard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1981,7 +1981,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRHandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1990,7 +1990,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRHandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2010,7 +2010,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRWEMSKHandguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2020,7 +2020,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRWEMSKHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2029,7 +2029,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRWEMSKHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2048,7 +2048,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRPrecisionHandguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2058,7 +2058,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRPrecisionHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2067,7 +2067,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRPrecisionHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2086,7 +2086,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRSBRHandguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2096,7 +2096,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRSBRHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2105,7 +2105,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRSBRHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2124,7 +2124,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRPolymerHandguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2134,7 +2134,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRPolymerHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2143,7 +2143,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRPolymerHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2162,7 +2162,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRSquareDropHandguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2172,7 +2172,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRSquareDropHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2181,7 +2181,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRSquareDropHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2200,7 +2200,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Type20Handguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2210,7 +2210,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Type20Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2219,7 +2219,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Type20Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2238,7 +2238,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.AKRail(), "aacrail_gray.png")
 //                .withModel(new com.paneedah.mwc.models.AKRail2(), "acrrail.png")
 //                .withModel(new com.paneedah.mwc.models.AKRail3(), "acrrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerHandguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2248,7 +2248,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2257,7 +2257,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2276,7 +2276,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail3(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACMatrixArmsHandguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2286,7 +2286,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACMatrixArmsHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2295,7 +2295,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACMatrixArmsHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2311,7 +2311,7 @@ public class Attachments {
         M60HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M60HandGuard(), "m60.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M60HandGuard) {
                         GL11.glTranslatef(-0.6F, -1.6F, 0.9F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2321,7 +2321,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M60HandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2330,7 +2330,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M60HandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2349,7 +2349,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail3(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M60E4Guard) {
                         GL11.glTranslatef(-0.6F, -1.3F, 0.9F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2359,7 +2359,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M60E4Guard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2368,7 +2368,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M60E4Guard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2384,7 +2384,7 @@ public class Attachments {
         M249HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M249HandGuard(), "m249.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249HandGuard) {
                         GL11.glTranslatef(-0.6F, -0.6F, 1.8F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2394,7 +2394,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249HandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2403,7 +2403,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249HandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2420,7 +2420,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Mk48HandGuard(), "m249.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk48HandGuard) {
                         GL11.glTranslatef(-0.6F, -0.6F, 1.8F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2430,7 +2430,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk48HandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2439,7 +2439,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk48HandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2455,7 +2455,7 @@ public class Attachments {
         M249UpperHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M249UpperHandGuard(), "m249.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249UpperHandGuard) {
                         GL11.glTranslatef(-0.6F, -0.6F, 1.8F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2465,7 +2465,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249UpperHandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2474,7 +2474,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249UpperHandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2493,7 +2493,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail3(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk48UpperHandGuard) {
                         GL11.glTranslatef(-0.6F, -0.6F, 1.8F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2503,7 +2503,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk48UpperHandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2512,7 +2512,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk48UpperHandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2530,7 +2530,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.StonerHANDGUARD(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.StonerHANDGUARD) {
                         GL11.glTranslatef(-0.6F, -0.4F, 1.1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2540,7 +2540,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.StonerHANDGUARD) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2549,7 +2549,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.StonerHANDGUARD) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2565,7 +2565,7 @@ public class Attachments {
         AUGA1handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.AUGA1(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGA1) {
                         GL11.glTranslatef(-0.6F, 0.6F, 0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2575,7 +2575,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGA1) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2584,7 +2584,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGA1) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2601,7 +2601,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.AUGA2(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGA2) {
                         GL11.glTranslatef(-0.6F, 0.6F, 0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2611,7 +2611,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGA2) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2620,7 +2620,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGA2) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2637,7 +2637,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.AUGA3M1(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGA3M1) {
                         GL11.glTranslatef(-0.6F, 0.6F, 0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2647,7 +2647,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGA3M1) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2656,7 +2656,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGA3M1) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2673,7 +2673,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.EF88(), "aug.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.EF88) {
                         GL11.glTranslatef(-0.6F, -0.3F, 0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2683,7 +2683,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.EF88) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2692,7 +2692,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.EF88) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2708,7 +2708,7 @@ public class Attachments {
         AUGDefaultKit = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.AUG9mmCONVERSIONkit(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUG9mmCONVERSIONkit) {
                         GL11.glTranslatef(-0.6F, -0.6F, 1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2718,7 +2718,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUG9mmCONVERSIONkit) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2727,7 +2727,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUG9mmCONVERSIONkit) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2743,7 +2743,7 @@ public class Attachments {
         AUGParaConversion = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.AUG9mmCONVERSIONkit(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUG9mmCONVERSIONkit) {
                         GL11.glTranslatef(-0.6F, -0.6F, 1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2753,7 +2753,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUG9mmCONVERSIONkit) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2762,7 +2762,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUG9mmCONVERSIONkit) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2783,7 +2783,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.AKRail3(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail4(), "akrail.png")
                 .withRequiredAttachments(AUGA3handguard)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGA3M1_Ext) {
                         GL11.glTranslatef(-0.6F, 0.4F, -1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2793,7 +2793,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGA3M1_Ext) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2802,7 +2802,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGA3M1_Ext) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2818,7 +2818,7 @@ public class Attachments {
         M1CarbineBody = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M1CarbineBody(), "m1carbine.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1CarbineBody) {
                         GL11.glTranslatef(-0.6F, -0.2F, -0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2828,7 +2828,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1CarbineBody) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2837,7 +2837,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1CarbineBody) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2853,7 +2853,7 @@ public class Attachments {
         M1A1CarbineBody = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M1A1CarbineStock(), "m1carbine.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1A1CarbineStock) {
                         GL11.glTranslatef(-0.6F, -0.2F, -0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2863,7 +2863,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1A1CarbineStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2872,7 +2872,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1A1CarbineStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2888,7 +2888,7 @@ public class Attachments {
         M1CarbineHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M1CarbineHandguard(), "m1carbine.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1CarbineHandguard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2898,7 +2898,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1CarbineHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2907,7 +2907,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1CarbineHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2923,7 +2923,7 @@ public class Attachments {
         M1CarbineVentilatedHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M1CarbineVentilatedHandguard(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1CarbineVentilatedHandguard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2933,7 +2933,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1CarbineVentilatedHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2942,7 +2942,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1CarbineVentilatedHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2959,7 +2959,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M1ScoutCarbineHandguard(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1ScoutCarbineHandguard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -2969,7 +2969,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1ScoutCarbineHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -2978,7 +2978,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1ScoutCarbineHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -2998,7 +2998,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G3A1Handguard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3008,7 +3008,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G3A1Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3017,7 +3017,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G3A1Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3040,7 +3040,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G3HandguardRailed) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3050,7 +3050,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G3HandguardRailed) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3059,7 +3059,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G3HandguardRailed) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3075,7 +3075,7 @@ public class Attachments {
         DSR1Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.DSR1Handguard(), "dsr1.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DSR1Handguard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3085,7 +3085,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DSR1Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3094,7 +3094,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DSR1Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3110,7 +3110,7 @@ public class Attachments {
         DSR1HandguardRailed = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.DSR1HandguardRailed(), "dsr1.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DSR1HandguardRailed) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3120,7 +3120,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DSR1HandguardRailed) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3129,7 +3129,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DSR1HandguardRailed) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3145,7 +3145,7 @@ public class Attachments {
         DSR1Barrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.DSR1Barrel(), "dsr1.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DSR1Barrel) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3155,7 +3155,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DSR1Barrel) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3164,7 +3164,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DSR1Barrel) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3180,7 +3180,7 @@ public class Attachments {
         DSR1BarrelLong = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.DSR1BarrelLong(), "dsr1.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DSR1BarrelLong) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3190,7 +3190,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DSR1BarrelLong) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3199,7 +3199,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DSR1BarrelLong) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3220,7 +3220,7 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4),
                     	new CraftingEntry(MWCItems.steelIngot, 3))
                 .withModel(new FALIron(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14Body) {
                         GL11.glTranslatef(-0.6F, -0.2F, -0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3230,7 +3230,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14Body) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3239,7 +3239,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14Body) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3261,7 +3261,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4),
                     	new CraftingEntry(MWCItems.steelIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14DMRSocomChassis) {
                         GL11.glTranslatef(-0.6F, -0.2F, -0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3271,7 +3271,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14DMRSocomChassis) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3280,7 +3280,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14DMRSocomChassis) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3302,7 +3302,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4),
                     	new CraftingEntry(MWCItems.steelIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk14Body) {
                         GL11.glTranslatef(-0.6F, -0.2F, -0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3312,7 +3312,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk14Body) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3321,7 +3321,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk14Body) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3343,7 +3343,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4),
                     	new CraftingEntry(MWCItems.steelIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk14Body) {
                         GL11.glTranslatef(-0.6F, -0.2F, -0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3353,7 +3353,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk14Body) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3362,7 +3362,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk14Body) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3384,7 +3384,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4),
                     	new CraftingEntry(MWCItems.steelIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk14Body) {
                         GL11.glTranslatef(-0.6F, -0.2F, -0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3394,7 +3394,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk14Body) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3403,7 +3403,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk14Body) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3424,7 +3424,7 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
                 .withRequiredAttachments(M14Body, M14SOCOMChassis)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14Cover) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3434,7 +3434,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14Cover) {
                         GL11.glTranslatef(1.5F, -0.2F, 3F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3443,7 +3443,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14Cover) {
                         GL11.glTranslatef(-1.5F, -2F, 1.5F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3467,7 +3467,7 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
                 .withRequiredAttachments(M14Body, M14SOCOMChassis)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14TriRailCover) {
                     	 GL11.glTranslatef(-0.6F, 0.4F, -2.3F);
                          GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3477,7 +3477,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14TriRailCover) {
                     	GL11.glTranslatef(1.5F, -0.2F, 3F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3486,7 +3486,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14TriRailCover) {
                     	GL11.glTranslatef(-1.5F, -2F, 1.5F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3506,7 +3506,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14DMRRail) {
                         GL11.glTranslatef(-0.6F, -1F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3516,7 +3516,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14DMRRail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3525,7 +3525,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M14DMRRail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3544,7 +3544,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3554,7 +3554,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3563,7 +3563,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3582,7 +3582,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarShortStock) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0.8F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3592,7 +3592,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarShortStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3601,7 +3601,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarShortStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3622,7 +3622,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 5),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarAdapterStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3634,7 +3634,7 @@ public class Attachments {
                          GL11.glTranslatef(-0F, 0.6F, 0.4F);
                          GL11.glRotatef(-190F, 0f, 1f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarAdapterStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3643,7 +3643,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarAdapterStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3662,7 +3662,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.8F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3672,7 +3672,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3681,7 +3681,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScarStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3701,7 +3701,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorStock) {
                         GL11.glTranslatef(-0.6F, -0.5F, 1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3711,7 +3711,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3720,7 +3720,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3741,7 +3741,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 5),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorStockAdapter) {
                         GL11.glTranslatef(-0.6F, -0.5F, 1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3751,7 +3751,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorStockAdapter) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3760,7 +3760,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorStockAdapter) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3776,7 +3776,7 @@ public class Attachments {
         UMP45Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.UMP45Receiver(), "ump45.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UMP45Receiver) {
                         GL11.glTranslatef(-0.6F, 0.0F, -0.1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3786,7 +3786,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UMP45Receiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3795,7 +3795,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UMP45Receiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3811,7 +3811,7 @@ public class Attachments {
         UMP9Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.UMP45Receiver(), "ump45.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UMP45Receiver) {
                         GL11.glTranslatef(-0.6F, 0.0F, -0.1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3821,7 +3821,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UMP45Receiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3830,7 +3830,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UMP45Receiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3846,7 +3846,7 @@ public class Attachments {
         UMP45Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.UMP45Stock(), "ump45.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UMP45Stock) {
                         GL11.glTranslatef(-0.6F, -0.5F, 1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3856,7 +3856,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UMP45Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3865,7 +3865,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UMP45Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3884,7 +3884,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAC10Stock) {
                         GL11.glTranslatef(-0.6F, -0.5F, 1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3894,7 +3894,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAC10Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3903,7 +3903,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAC10Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3923,7 +3923,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mac10stockwithrail) {
                         GL11.glTranslatef(-0.6F, -0.5F, 1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3933,7 +3933,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mac10stockwithrail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3942,7 +3942,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mac10stockwithrail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3961,7 +3961,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRStock) {
                         GL11.glTranslatef(-0.6F, 0.3F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -3971,7 +3971,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -3980,7 +3980,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -3999,7 +3999,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRStock) {
                         GL11.glTranslatef(-0.6F, 0.3F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4009,7 +4009,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4018,7 +4018,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4037,7 +4037,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRFixedStock) {
                         GL11.glTranslatef(-0.6F, 0.3F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4047,7 +4047,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRFixedStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4056,7 +4056,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRFixedStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4075,7 +4075,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRPRSStock) {
                         GL11.glTranslatef(-0.6F, 0.3F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4085,7 +4085,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRPRSStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4094,7 +4094,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRPRSStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4114,7 +4114,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRLongRangeStock) {
                         GL11.glTranslatef(-0.6F, 0.3F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4124,7 +4124,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRLongRangeStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4133,7 +4133,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRLongRangeStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4152,7 +4152,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRPDWStock) {
                         GL11.glTranslatef(-0.6F, 0.3F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4162,7 +4162,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRPDWStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4171,7 +4171,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACRPDWStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4187,7 +4187,7 @@ public class Attachments {
         M1014Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M1014stock(), "m1014.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1014stock) {
                         GL11.glTranslatef(-0.6F, -0.5F, 2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4197,7 +4197,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1014stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4206,7 +4206,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1014stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4222,7 +4222,7 @@ public class Attachments {
         M1014Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M1014grip(), "m1014.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1014grip) {
                         GL11.glTranslatef(-0.6F, -0.5F, 2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4232,7 +4232,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1014grip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4241,7 +4241,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1014grip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4257,7 +4257,7 @@ public class Attachments {
         M4BenelliStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M4BenelliStock(), "supernova.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4BenelliStock) {
                         GL11.glTranslatef(-0.6F, -0.5F, 2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4267,7 +4267,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4BenelliStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4276,7 +4276,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4BenelliStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4292,7 +4292,7 @@ public class Attachments {
         Spas12Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Spas12Stock(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Spas12Stock) {
                         GL11.glTranslatef(-0.6F, 0F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4302,7 +4302,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Spas12Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4311,7 +4311,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Spas12Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4327,7 +4327,7 @@ public class Attachments {
         M249Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M249Stock(), "m249.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249Stock) {
                         GL11.glTranslatef(-0.6F, -0.7F, 5.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4337,7 +4337,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4346,7 +4346,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4362,7 +4362,7 @@ public class Attachments {
         M249ParaStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M249ParaStock(), "m249.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249ParaStock) {
                         GL11.glTranslatef(-0.6F, -0.7F, 5.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4372,7 +4372,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249ParaStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4381,7 +4381,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249ParaStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4398,7 +4398,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M249StockAdapter(), "m249.png")
                 .withModel(new com.paneedah.mwc.models.MilSpecStock(), "MilSpecStock.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249StockAdapter) {
                     	 GL11.glTranslatef(-0.6F, -0.7F, 5.5F);
                          GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4410,7 +4410,7 @@ public class Attachments {
                          GL11.glTranslatef(-0F, 0.6F, 0.4F);
                          GL11.glRotatef(-190F, 0f, 1f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249StockAdapter) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4419,7 +4419,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249StockAdapter) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4436,7 +4436,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M249StockAdapter(), "m249.png")
                 .withModel(new com.paneedah.mwc.models.HK416Stock(), "HK416Stock.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249StockAdapter) {
                         GL11.glTranslatef(-0.6F, -0.7F, 5.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4448,7 +4448,7 @@ public class Attachments {
                         GL11.glTranslatef(-0F, 0.6F, 0.4F);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249StockAdapter) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4457,7 +4457,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M249StockAdapter) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4480,7 +4480,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UTGTriRailHandGuard) {
                         GL11.glTranslatef(-0.6F, 0.2F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4490,7 +4490,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UTGTriRailHandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4499,7 +4499,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.UTGTriRailHandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4522,7 +4522,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5BMHandGuard) {
                         GL11.glTranslatef(-0.6F, 0.2F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4532,7 +4532,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5BMHandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4541,7 +4541,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5BMHandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4560,7 +4560,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MIMP5MHandGuard) {
                         GL11.glTranslatef(-0.6F, 0.2F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4570,7 +4570,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MIMP5MHandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4579,7 +4579,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MIMP5MHandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4602,7 +4602,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScorpionEVO3A1HandguardShort) {
                         GL11.glTranslatef(-0.6F, 0.2F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4612,7 +4612,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScorpionEVO3A1HandguardShort) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4621,7 +4621,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScorpionEVO3A1HandguardShort) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4641,7 +4641,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScorpionEVO3A1HandguardLong) {
                         GL11.glTranslatef(-0.6F, 0.2F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4651,7 +4651,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScorpionEVO3A1HandguardLong) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4660,7 +4660,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScorpionEVO3A1HandguardLong) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4680,7 +4680,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MIMP5TRRail) {
                         GL11.glTranslatef(-0.6F, 0.7F, -0.8F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4690,7 +4690,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MIMP5TRRail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4699,7 +4699,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MIMP5TRRail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4719,7 +4719,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MIMP5MRail) {
                         GL11.glTranslatef(-0.6F, 1.2F, -0.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4729,7 +4729,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MIMP5MRail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4738,7 +4738,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MIMP5MRail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4755,7 +4755,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.SupernovaRail(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SupernovaRail) {
                         GL11.glTranslatef(-0.6F, 0F, 0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4765,7 +4765,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SupernovaRail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4774,7 +4774,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SupernovaRail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4791,7 +4791,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Kar98Krail(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Kar98Krail) {
                         GL11.glTranslatef(-0.6F, 1.3F, -2.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4801,7 +4801,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Kar98Krail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4810,7 +4810,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Kar98Krail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4827,7 +4827,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRenderablePart()
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKRail) {
                         GL11.glTranslatef(-0.6F, -0.7F, 1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4837,7 +4837,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKRail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4846,7 +4846,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKRail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4867,7 +4867,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A1ScopeMount) {
                         GL11.glTranslatef(-0.6F, 3F, -1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4877,7 +4877,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A1ScopeMount) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4886,7 +4886,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A1ScopeMount) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4907,7 +4907,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FamasF1ScopeRail) {
                         GL11.glTranslatef(-0.6F, 1.3F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4917,7 +4917,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FamasF1ScopeRail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4926,7 +4926,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FamasF1ScopeRail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4947,7 +4947,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A1PicatinnyRail) {
                         GL11.glTranslatef(-0.6F, 1.3F, -5.1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4957,7 +4957,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A1PicatinnyRail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -4966,7 +4966,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A1PicatinnyRail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -4989,7 +4989,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FamasF1GripRail) {
                         GL11.glTranslatef(-0.6F, 0.4F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -4999,7 +4999,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FamasF1GripRail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5008,7 +5008,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FamasF1GripRail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5025,7 +5025,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRenderablePart()
                 .withModel(new com.paneedah.mwc.models.NGSWRRails(), "ngswr.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.NGSWRRails) {
                         GL11.glTranslatef(-0.6F, 0.4F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5035,7 +5035,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.NGSWRRails) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5044,7 +5044,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.NGSWRRails) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5062,7 +5062,7 @@ public class Attachments {
                 .withRenderablePart()
                 .withModel(new com.paneedah.mwc.models.KrissVectorRailRiser(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorRailRiser) {
                         GL11.glTranslatef(-0.6F, 0.3F, -0.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5072,7 +5072,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorRailRiser) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5081,7 +5081,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KrissVectorRailRiser) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5100,7 +5100,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.M1911Slide(), "m1911.png")
                 .withModel(new com.paneedah.mwc.models.M1911frontsight(), "gun")
                 .withModel(new com.paneedah.mwc.models.makarovrearsight(), "gun")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1911Slide) {
                         GL11.glTranslatef(-0.6F, 0.2F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5110,7 +5110,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1911Slide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5119,7 +5119,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1911Slide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5137,7 +5137,7 @@ public class Attachments {
                 .withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M1911Body(), "m1911.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1911Body) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5147,7 +5147,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1911Body) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5156,7 +5156,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1911Body) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5176,7 +5176,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.M191144MagSlide(), "M191144MagSlide.png")
                 .withModel(new com.paneedah.mwc.models.M1911frontsight(), "gun")
                 .withModel(new com.paneedah.mwc.models.makarovrearsight(), "gun")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M191144MagSlide) {
                         GL11.glTranslatef(-0.6F, 0.2F, -0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5186,7 +5186,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M191144MagSlide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5195,7 +5195,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M191144MagSlide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5213,7 +5213,7 @@ public class Attachments {
                 .withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M191144MagBody(), "M191144Mag.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M191144MagBody) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5223,7 +5223,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M191144MagBody) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5232,7 +5232,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M191144MagBody) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5255,7 +5255,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M9slide) {
                         GL11.glTranslatef(-0.6F, 0.2F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5265,7 +5265,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M9slide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5274,7 +5274,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M9slide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5295,7 +5295,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M9) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5305,7 +5305,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M9) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5314,7 +5314,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M9) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5338,7 +5338,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SamuraiEdgeSlide) {
                         GL11.glTranslatef(-0.6F, 0.2F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5348,7 +5348,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SamuraiEdgeSlide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5357,7 +5357,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SamuraiEdgeSlide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5379,7 +5379,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SamuraiEdge) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5389,7 +5389,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SamuraiEdge) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5398,7 +5398,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SamuraiEdge) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5417,7 +5417,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRequiredAttachments(SamuraiEdgeBody)
                 .withModel(new com.paneedah.mwc.models.SamuraiEdgeMount(), "samuraiedge.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SamuraiEdgeMount) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5427,7 +5427,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SamuraiEdgeMount) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5436,7 +5436,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SamuraiEdgeMount) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5453,7 +5453,7 @@ public class Attachments {
         DesertEagleSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new com.paneedah.mwc.models.DesertEagleSlide(), "deagle.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
                         GL11.glTranslatef(-0.6F, 0.2F, -0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5463,7 +5463,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5472,7 +5472,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5490,7 +5490,7 @@ public class Attachments {
                 .withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.DesertEagle(), "deagle.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DesertEagle) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5500,7 +5500,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DesertEagle) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5509,7 +5509,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DesertEagle) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5527,7 +5527,7 @@ public class Attachments {
                 .withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.DesertEagleLong(), "Deagle.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DesertEagleLong) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5537,7 +5537,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DesertEagleLong) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5546,7 +5546,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DesertEagleLong) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5567,7 +5567,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5577,7 +5577,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5586,7 +5586,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5604,7 +5604,7 @@ public class Attachments {
 //                .withCategory(AttachmentCategory.BACKGRIP)
 //                .withCreativeTab(MWC.AttachmentsTab)
 //                .withModel(new com.paneedah.mwc.models.Glock19(), "glock18c.png")
-//                .withInventoryModelPositioning((model, s) -> {
+//                .withInventoryModelPositioning(model -> {
 //                    if (model instanceof com.paneedah.mwc.models.Glock19) {
 //                        GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
 //                        GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5614,7 +5614,7 @@ public class Attachments {
 //                    } else {
 //                        GL11.glScalef(0f, 0f, 0f);
 //                    }
-//                }).withFirstPersonModelPositioning((model, itemStack) -> {
+//                }).withFirstPersonModelPositioning(model -> {
 //                    if (model instanceof com.paneedah.mwc.models.Glock19) {
 //                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
 //                        GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5623,7 +5623,7 @@ public class Attachments {
 //                        GL11.glScaled(0F, 0F, 0F);
 //                    }
 //
-//                }).withThirdPersonModelPositioning((model, itemStack) -> {
+//                }).withThirdPersonModelPositioning(model -> {
 //                    if (model instanceof com.paneedah.mwc.models.Glock19) {
 //                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
 //                        GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5644,7 +5644,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19XBody) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5654,7 +5654,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19XBody) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5663,7 +5663,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19XBody) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5684,7 +5684,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.GlockRazorback) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5694,7 +5694,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.GlockRazorback) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5703,7 +5703,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.GlockRazorback) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5726,7 +5726,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19Slide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5736,7 +5736,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19Slide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5745,7 +5745,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19Slide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5768,7 +5768,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock18Cslide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5778,7 +5778,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock18Cslide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5787,7 +5787,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock18Cslide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5810,7 +5810,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock18CCNCslide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5820,7 +5820,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock18CCNCslide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5829,7 +5829,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock18CCNCslide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5852,7 +5852,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19XSlide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5862,7 +5862,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19XSlide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5871,7 +5871,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19XSlide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5894,7 +5894,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.GlockRazorbackSlide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5904,7 +5904,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.GlockRazorbackSlide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5913,7 +5913,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.GlockRazorbackSlide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5936,7 +5936,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19Rockslide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5946,7 +5946,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19Rockslide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5955,7 +5955,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19Rockslide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -5978,7 +5978,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19GhostPrecisionSlide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -5988,7 +5988,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19GhostPrecisionSlide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -5997,7 +5997,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock19GhostPrecisionSlide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6018,7 +6018,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6028,7 +6028,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6037,7 +6037,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6058,7 +6058,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2BodyTan) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6068,7 +6068,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2BodyTan) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6077,7 +6077,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2BodyTan) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6099,7 +6099,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(Items.STRING, 4), 
                     	new CraftingEntry(Items.PAPER, 5))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2GripTape) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6109,7 +6109,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2GripTape) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6118,7 +6118,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2GripTape) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6141,7 +6141,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2Slide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6151,7 +6151,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2Slide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6160,7 +6160,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2Slide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6183,7 +6183,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2BSlide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6193,7 +6193,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2BSlide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6202,7 +6202,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2BSlide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6225,7 +6225,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P226Slide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6235,7 +6235,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P226Slide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6244,7 +6244,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P226Slide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6264,7 +6264,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.FiveSevenSlide(), "fiveseven.png")
                 .withModel(new com.paneedah.mwc.models.P226rearsight(), "p226rearsight.png")
                 .withModel(new com.paneedah.mwc.models.P226frontsight(), "p226frontsight.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P226Slide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6274,7 +6274,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P226Slide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6283,7 +6283,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.P226Slide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6304,7 +6304,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPM) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6314,7 +6314,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPM) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6323,7 +6323,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPM) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6346,7 +6346,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPMSlide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6356,7 +6356,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPMSlide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6365,7 +6365,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPMSlide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6388,7 +6388,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPBSSlide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6398,7 +6398,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPBSSlide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6407,7 +6407,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPBSSlide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6428,7 +6428,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP443Slide) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6438,7 +6438,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP443Slide) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6447,7 +6447,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP443Slide) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6471,7 +6471,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPBBody) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6481,7 +6481,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPBBody) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6490,7 +6490,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPBBody) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6510,7 +6510,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAC10Body) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6520,7 +6520,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAC10Body) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6529,7 +6529,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAC10Body) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6550,7 +6550,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
                 .withRequiredAttachments(MAC10Body)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAC10Action) {
                         GL11.glTranslatef(-0.6F, 0.2F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6560,7 +6560,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAC10Action) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6569,7 +6569,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAC10Action) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6589,7 +6589,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5NavyHandGuard) {
                         GL11.glTranslatef(-0.6F, 0.2F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6599,7 +6599,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5NavyHandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6608,7 +6608,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5NavyHandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6627,7 +6627,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5A5HandGuard) {
                         GL11.glTranslatef(-0.6F, 0.2F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6637,7 +6637,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5A5HandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6646,7 +6646,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5A5HandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6666,7 +6666,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5SDHandGuard) {
                         GL11.glTranslatef(-0.6F, 0.2F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6676,7 +6676,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5SDHandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6685,7 +6685,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5SDHandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6704,7 +6704,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5HOGUEGrip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6714,7 +6714,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5HOGUEGrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6723,7 +6723,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5HOGUEGrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6739,7 +6739,7 @@ public class Attachments {
         GlockHOGUEGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.GlockHogueGrip(), "gun2.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.GlockHogueGrip) {
                         GL11.glTranslatef(-0.6F, -0.4F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6749,7 +6749,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.GlockHogueGrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6758,7 +6758,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.GlockHogueGrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6777,7 +6777,7 @@ public class Attachments {
 //                .withModernRecipe(
 //                    	CraftingGroup.ATTACHMENT_MODIFICATION,
 //                    	new CraftingEntry(MwItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.GlockHogueGrip) {
                         GL11.glTranslatef(-0.6F, -0.4F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6787,7 +6787,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.GlockHogueGrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6796,7 +6796,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.GlockHogueGrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6816,7 +6816,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(Blocks.PLANKS, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.APSgrip) {
                         GL11.glTranslatef(-0.6F, -0.4F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6826,7 +6826,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.APSgrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6835,7 +6835,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.APSgrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6855,7 +6855,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(Blocks.PLANKS, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.APSstock) {
                         GL11.glTranslatef(-0.6F, -0.6F, 1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6865,7 +6865,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.APSstock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6874,7 +6874,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.APSstock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6893,7 +6893,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAC10Grip) {
                         GL11.glTranslatef(-0.6F, -0.4F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6903,7 +6903,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAC10Grip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6912,7 +6912,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MAC10Grip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6931,7 +6931,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5Stock) {
                         GL11.glTranslatef(-0.6F, 0.2F, 1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6941,7 +6941,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6950,7 +6950,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -6969,7 +6969,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5A3RetractableStock) {
                         GL11.glTranslatef(-0.6F, 0.2F, 1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -6979,7 +6979,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5A3RetractableStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -6988,7 +6988,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5A3RetractableStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7007,7 +7007,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5A4Stock) {
                         GL11.glTranslatef(-0.6F, 0.2F, 1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7017,7 +7017,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5A4Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7026,7 +7026,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5A4Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7047,7 +7047,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5StockAdapter) {
                         GL11.glTranslatef(-0.6F, 0.2F, 1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7061,7 +7061,7 @@ public class Attachments {
                          GL11.glRotatef(0F, 0f, 0f, 1f);
                          GL11.glScaled(0.9F, 0.9F, 0.9f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5StockAdapter) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7070,7 +7070,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP5StockAdapter) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7093,7 +7093,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.LVOAVHandGuard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7103,7 +7103,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.LVOAVHandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7112,7 +7112,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.LVOAVHandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7133,7 +7133,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AR15FN15Handguard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7143,7 +7143,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AR15FN15Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7152,7 +7152,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AR15FN15Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7175,7 +7175,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M38HandGuard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7185,7 +7185,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M38HandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7194,7 +7194,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M38HandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7217,7 +7217,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M38HandGuard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7227,7 +7227,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M38HandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7236,7 +7236,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M38HandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7256,7 +7256,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail3(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail5(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Handguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7266,7 +7266,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7275,7 +7275,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7295,7 +7295,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.AKRail2(), "guntandark.png")
                 .withModel(new com.paneedah.mwc.models.AKRail3(), "guntandark.png")
                 .withModel(new com.paneedah.mwc.models.AKRail5(), "guntandark.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Handguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7305,7 +7305,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7314,7 +7314,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7337,7 +7337,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk18HandGuard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7347,7 +7347,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk18HandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7356,7 +7356,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk18HandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7379,7 +7379,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk18HandGuard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7389,7 +7389,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk18HandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7398,7 +7398,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Mk18HandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7422,7 +7422,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Block2SOCOMHandguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7432,7 +7432,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Block2SOCOMHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7441,7 +7441,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Block2SOCOMHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7464,7 +7464,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FSSTacLiteHandguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7474,7 +7474,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FSSTacLiteHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7483,7 +7483,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FSSTacLiteHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7502,7 +7502,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4MagpulHandGuard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7512,7 +7512,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4MagpulHandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7521,7 +7521,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4MagpulHandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7540,7 +7540,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4MagpulHandGuard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7550,7 +7550,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4MagpulHandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7559,7 +7559,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4MagpulHandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7579,7 +7579,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7589,7 +7589,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7598,7 +7598,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7618,7 +7618,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7628,7 +7628,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7637,7 +7637,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7654,7 +7654,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "C8SFW_gun.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "C8SFW_gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7664,7 +7664,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7673,7 +7673,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7693,7 +7693,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VLTORReceiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7703,7 +7703,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VLTORReceiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7712,7 +7712,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VLTORReceiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7729,7 +7729,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.AR57Receiver(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AR57Receiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7739,7 +7739,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AR57Receiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7748,7 +7748,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AR57Receiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7765,7 +7765,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Receiver(), "HK417.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Receiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7775,7 +7775,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Receiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7784,7 +7784,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Receiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7801,7 +7801,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Receiver(), "HK417tan.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "guntan.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Receiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7811,7 +7811,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Receiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7820,7 +7820,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Receiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7840,7 +7840,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M110Receiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7850,7 +7850,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M110Receiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7859,7 +7859,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M110Receiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7878,7 +7878,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKRail) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7888,7 +7888,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKRail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7897,7 +7897,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKRail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7918,7 +7918,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Beowulf50CalReceiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7928,7 +7928,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Beowulf50CalReceiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7937,7 +7937,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Beowulf50CalReceiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7953,7 +7953,7 @@ public class Attachments {
         S710Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.S710Tricun10mmReceiver(), "s710tricun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.S710Tricun10mmReceiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -7963,7 +7963,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.S710Tricun10mmReceiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -7972,7 +7972,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.S710Tricun10mmReceiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -7991,7 +7991,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.CZ805BrenReceiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8001,7 +8001,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.CZ805BrenReceiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8010,7 +8010,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.CZ805BrenReceiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8027,7 +8027,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.AACHoneyBadgerReceiver(), "AACHoneyBadger.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "aacrail_main.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerReceiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8037,7 +8037,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerReceiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8046,7 +8046,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerReceiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8063,7 +8063,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.AACHoneyBadgerReceiver(), "AACHoneyBadgerBlack.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerReceiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8073,7 +8073,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerReceiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8082,7 +8082,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerReceiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8099,7 +8099,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.AACKnightsArmamentReceiver(), "AACKnightsArmamentReceiver.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "aacrail_knights.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACKnightsArmamentReceiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8109,7 +8109,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACKnightsArmamentReceiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8118,7 +8118,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACKnightsArmamentReceiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8135,7 +8135,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.AACKnightsArmamentReceiver(), "AACKnightsArmamentReceiverblack.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACKnightsArmamentReceiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8145,7 +8145,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACKnightsArmamentReceiver) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8154,7 +8154,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACKnightsArmamentReceiver) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8169,18 +8169,18 @@ public class Attachments {
         
         Placeholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
@@ -8191,18 +8191,18 @@ public class Attachments {
         
         FamasPlaceholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
@@ -8213,18 +8213,18 @@ public class Attachments {
         
         APC9Placeholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
@@ -8235,18 +8235,18 @@ public class Attachments {
         
         P90Placeholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
@@ -8257,18 +8257,18 @@ public class Attachments {
         
         PistolPlaceholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
@@ -8279,18 +8279,18 @@ public class Attachments {
         
         GripPlaceholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
@@ -8301,18 +8301,18 @@ public class Attachments {
         
         M40A6GripPlaceholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
@@ -8323,18 +8323,18 @@ public class Attachments {
         
         LaserPlaceholder = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new com.paneedah.mwc.models.M4Receiver(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Receiver) {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
@@ -8349,7 +8349,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4HandGuard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8359,7 +8359,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4HandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8368,7 +8368,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4HandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8388,7 +8388,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail3(), "akrail.png")
                 .withRequiredAttachments(AR57Receiver)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AR57Handguard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8398,7 +8398,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AR57Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8407,7 +8407,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AR57Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8424,7 +8424,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.NTW20Guard(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.NTW20Guard) {
                         GL11.glTranslatef(-0.6F, -0.4F, 0.9F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8434,7 +8434,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.NTW20Guard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8443,7 +8443,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.NTW20Guard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8462,7 +8462,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16HandGuard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8472,7 +8472,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16HandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8481,7 +8481,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16HandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8500,7 +8500,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A1Handguard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8510,7 +8510,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A1Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8519,7 +8519,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A1Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8542,7 +8542,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4CarbineHandGuard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8552,7 +8552,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4CarbineHandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8561,7 +8561,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4CarbineHandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8584,7 +8584,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A4Handguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.8F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8594,7 +8594,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A4Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8603,7 +8603,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A4Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8626,7 +8626,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M110Handguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.8F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8636,7 +8636,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M110Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8645,7 +8645,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M110Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8666,7 +8666,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Z10Handguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.8F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8676,7 +8676,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Z10Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8685,7 +8685,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Z10Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8708,7 +8708,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AR10SuperSASSHandguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.8F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8718,7 +8718,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AR10SuperSASSHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8727,7 +8727,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AR10SuperSASSHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8743,7 +8743,7 @@ public class Attachments {
         S710Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.S710TricunHandguard(), "s710tricun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.S710TricunHandguard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8753,7 +8753,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.S710TricunHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8762,7 +8762,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.S710TricunHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8783,7 +8783,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIGMCXHandguard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8793,7 +8793,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIGMCXHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8802,7 +8802,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIGMCXHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8821,7 +8821,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail3(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIGMCXHandguardShort) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8831,7 +8831,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIGMCXHandguardShort) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8840,7 +8840,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIGMCXHandguardShort) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8860,7 +8860,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MPXHandguard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8870,7 +8870,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MPXHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8879,7 +8879,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MPXHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8899,7 +8899,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MPXHandguardExtended) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8909,7 +8909,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MPXHandguardExtended) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8918,7 +8918,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MPXHandguardExtended) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8938,7 +8938,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MPXHandguardRailed) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8948,7 +8948,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MPXHandguardRailed) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8957,7 +8957,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MPXHandguardRailed) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -8978,7 +8978,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.K2C1Handguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.8F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -8988,7 +8988,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.K2C1Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -8997,7 +8997,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.K2C1Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9016,7 +9016,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HeraArmsGrip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9026,7 +9026,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HeraArmsGrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9035,7 +9035,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HeraArmsGrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9054,7 +9054,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Grip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9064,7 +9064,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Grip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9073,7 +9073,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Grip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9092,7 +9092,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4GripTan) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9102,7 +9102,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4GripTan) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9111,7 +9111,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4GripTan) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9127,7 +9127,7 @@ public class Attachments {
         SOCOM_Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
 //                .withCreativeTab(MWC.AttachmentsTab)
                 .withModel(new com.paneedah.mwc.models.M4Grip(), "socom_grip.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Grip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9137,7 +9137,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Grip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9146,7 +9146,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Grip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9165,7 +9165,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Grip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9175,7 +9175,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Grip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9184,7 +9184,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Grip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9203,7 +9203,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKgrip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9213,7 +9213,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKgrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9222,7 +9222,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKgrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9241,7 +9241,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKgrip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9251,7 +9251,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKgrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9260,7 +9260,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HKgrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9279,7 +9279,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M110Grip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9289,7 +9289,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M110Grip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9298,7 +9298,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M110Grip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9314,7 +9314,7 @@ public class Attachments {
         S710TricunGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.S710TricunGrip(), "S710Tricun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.S710TricunGrip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9324,7 +9324,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.S710TricunGrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9333,7 +9333,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.S710TricunGrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9352,7 +9352,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.K2C1Grip) {
                         GL11.glTranslatef(-0.6F, -0F, 0F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9362,7 +9362,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.K2C1Grip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9371,7 +9371,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.K2C1Grip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9391,7 +9391,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(Blocks.PLANKS, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKGrip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9401,7 +9401,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKGrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9410,7 +9410,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKGrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9429,7 +9429,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK101Grip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9439,7 +9439,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK101Grip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9448,7 +9448,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK101Grip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9467,7 +9467,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKErgoGrip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9477,7 +9477,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKErgoGrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9486,7 +9486,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKErgoGrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9505,7 +9505,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKErgoGrip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9515,7 +9515,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKErgoGrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9524,7 +9524,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKErgoGrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9543,7 +9543,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKErgoGrip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9553,7 +9553,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKErgoGrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9562,7 +9562,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKErgoGrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9581,7 +9581,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12Grip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9591,7 +9591,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12Grip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9600,7 +9600,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12Grip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9619,7 +9619,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12ErgoGrip) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9629,7 +9629,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12ErgoGrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9638,7 +9638,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12ErgoGrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9655,7 +9655,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRenderablePart()
                 .withModel(new com.paneedah.mwc.models.AACHoneyBadgerStock(), "AACHoneyBadger.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9665,7 +9665,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9674,7 +9674,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9691,7 +9691,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRenderablePart()
                 .withModel(new com.paneedah.mwc.models.AACHoneyBadgerStock(), "AACHoneyBadgerblack.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9701,7 +9701,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9710,7 +9710,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9731,7 +9731,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G3Stock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9741,7 +9741,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G3Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9750,7 +9750,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G3Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9771,7 +9771,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7Stock) {
                         GL11.glTranslatef(-0.6F, -0.0F, 1.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9781,7 +9781,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9790,7 +9790,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9812,7 +9812,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7MilSpecStock) {
                     	GL11.glTranslatef(-0.5F, 0.0F, 1.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9826,7 +9826,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7MilSpecStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9835,7 +9835,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7MilSpecStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9860,7 +9860,7 @@ public class Attachments {
 //                		ItemStack(MwItems.carbonComposite, 8), new
 //                		ItemStack(MwItems.gunmetalPlate, 12), new
 //                		ItemStack(Blocks.PLANKS, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47stock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9870,7 +9870,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9879,7 +9879,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9904,7 +9904,7 @@ public class Attachments {
 //                		ItemStack(MwItems.carbonComposite, 8), new
 //                		ItemStack(MwItems.gunmetalPlate, 12), new
 //                		ItemStack(Blocks.PLANKS, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DragunovStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9914,7 +9914,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DragunovStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9923,7 +9923,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DragunovStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9947,7 +9947,7 @@ public class Attachments {
 //                		ItemStack(MwItems.carbonComposite, 8), new
 //                		ItemStack(MwItems.gunmetalPlate, 12), new
 //                		ItemStack(Blocks.PLANKS, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Dragunov98Stock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9957,7 +9957,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Dragunov98Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -9966,7 +9966,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Dragunov98Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -9982,7 +9982,7 @@ public class Attachments {
         RPKStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.RPKstock(), "rpkstock.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RPKstock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -9992,7 +9992,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RPKstock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10001,7 +10001,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RPKstock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10020,7 +10020,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK101Stock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10030,7 +10030,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK101Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10039,7 +10039,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK101Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10058,7 +10058,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK74Stock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10068,7 +10068,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK74Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10077,7 +10077,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK74Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10096,7 +10096,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12Stock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10106,7 +10106,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10115,7 +10115,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10134,7 +10134,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12ZenitcoStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10144,7 +10144,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12ZenitcoStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10153,7 +10153,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12ZenitcoStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10173,7 +10173,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(Blocks.PLANKS, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezStock) {
                         GL11.glTranslatef(-0.6F, -0.6F, 1.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10183,7 +10183,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10192,7 +10192,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10212,7 +10212,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ASValStock) {
                     	GL11.glTranslatef(-0.6F, -0.6F, 1.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10222,7 +10222,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ASValStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10231,7 +10231,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ASValStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10252,7 +10252,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 5),
                     	new CraftingEntry(MWCItems.steelIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezKulaTacStock) {
                     	GL11.glTranslatef(-0.6F, -0.6F, 1.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10266,7 +10266,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.7F, 0.7F, 0.7f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezKulaTacStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10275,7 +10275,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezKulaTacStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10296,7 +10296,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.CollapsableMOEStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10306,7 +10306,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.CollapsableMOEStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10315,7 +10315,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.CollapsableMOEStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10336,7 +10336,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.CollapsableMOEStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10346,7 +10346,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.CollapsableMOEStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10355,7 +10355,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.CollapsableMOEStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10375,7 +10375,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MagpulCTRStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10385,7 +10385,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MagpulCTRStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10394,7 +10394,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MagpulCTRStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10414,7 +10414,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MagpulCTRStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10424,7 +10424,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MagpulCTRStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10433,7 +10433,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MagpulCTRStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10453,7 +10453,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10463,7 +10463,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10472,7 +10472,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10492,7 +10492,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.CZ805BrenStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10502,7 +10502,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.CZ805BrenStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10511,7 +10511,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.CZ805BrenStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10531,7 +10531,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIGMCXStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10541,7 +10541,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIGMCXStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10550,7 +10550,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SIGMCXStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10567,7 +10567,7 @@ public class Attachments {
 //                .withCreativeTab(MWC.AttachmentsTab)
                 .withRenderablePart()
                 .withModel(new com.paneedah.mwc.models.MilSpecStock(), "C8Stock.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10577,7 +10577,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10586,7 +10586,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10606,7 +10606,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10616,7 +10616,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10625,7 +10625,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10645,7 +10645,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
                 .withRequiredAttachments(HeraArmsGrip)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HeraArmsStock) {
                         GL11.glTranslatef(-0.6F, -0.5F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10655,7 +10655,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HeraArmsStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10664,7 +10664,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HeraArmsStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10684,7 +10684,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK416Stock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10694,7 +10694,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK416Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10703,7 +10703,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK416Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10720,7 +10720,7 @@ public class Attachments {
 //                .withCreativeTab(MWC.AttachmentsTab)
                 .withRenderablePart()
                 .withModel(new com.paneedah.mwc.models.SOCOM_Stock(), "Socom_stock.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SOCOM_Stock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10730,7 +10730,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SOCOM_Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10739,7 +10739,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SOCOM_Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10758,7 +10758,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16Stock) {
                         GL11.glTranslatef(-0.6F, -0.2F, 1.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10768,7 +10768,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10777,7 +10777,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10797,7 +10797,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK416Stock) {
                         GL11.glTranslatef(-0.6F, 0F, 1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10807,7 +10807,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK416Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10816,7 +10816,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK416Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10836,7 +10836,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4),
                     	new CraftingEntry(MWCItems.steelIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M110Stock) {
                         GL11.glTranslatef(-0.6F, -0.2F, 1.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10846,7 +10846,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M110Stock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10855,7 +10855,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M110Stock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10875,7 +10875,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4),
                     	new CraftingEntry(MWCItems.steelIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ARPRSPrecisionStock) {
                         GL11.glTranslatef(-0.6F, -0.2F, 1.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10885,7 +10885,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ARPRSPrecisionStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10894,7 +10894,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ARPRSPrecisionStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10914,7 +10914,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(Blocks.PLANKS, 2))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47HandleGuard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10924,7 +10924,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47HandleGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10933,7 +10933,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47HandleGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10955,7 +10955,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 5),
                     	new CraftingEntry(Blocks.PLANKS, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DragunovHandguard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -10965,7 +10965,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DragunovHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -10974,7 +10974,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DragunovHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -10994,7 +10994,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 6),
                     	new CraftingEntry(MWCItems.steelIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Dragunov98Handguard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11004,7 +11004,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Dragunov98Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11013,7 +11013,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Dragunov98Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11032,7 +11032,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK101HandGuard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11042,7 +11042,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK101HandGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11051,7 +11051,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK101HandGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11070,7 +11070,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK74Handguard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11080,7 +11080,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK74Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11089,7 +11089,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK74Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11108,7 +11108,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MagpulHandleGuard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11118,7 +11118,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MagpulHandleGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11127,7 +11127,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MagpulHandleGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11146,7 +11146,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MagpulHandleGuard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11156,7 +11156,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MagpulHandleGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11165,7 +11165,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MagpulHandleGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11186,7 +11186,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MLOKHandguard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11196,7 +11196,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MLOKHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11205,7 +11205,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MLOKHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11226,7 +11226,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 5))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MLOKExtendedHandguard) {
                         GL11.glTranslatef(-0.6F, 0.2F, -2.1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11236,7 +11236,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MLOKExtendedHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11245,7 +11245,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MLOKExtendedHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11265,7 +11265,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK15HandleGuard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11275,7 +11275,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK15HandleGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11284,7 +11284,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK15HandleGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11304,7 +11304,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK15HandleGuard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11314,7 +11314,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK15HandleGuard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11323,7 +11323,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK15HandleGuard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11343,7 +11343,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RPK16handguard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11353,7 +11353,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RPK16handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11362,7 +11362,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RPK16handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11381,7 +11381,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12Handguard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11391,7 +11391,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11400,7 +11400,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11419,7 +11419,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12BHandguard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11429,7 +11429,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12BHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11438,7 +11438,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12BHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11457,7 +11457,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KBP9A91Handguard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11467,7 +11467,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KBP9A91Handguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11476,7 +11476,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KBP9A91Handguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11495,7 +11495,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KBP9A91CompactHandguard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11505,7 +11505,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KBP9A91CompactHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11514,7 +11514,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KBP9A91CompactHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11533,7 +11533,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KBP9A91KulaTacHandguard) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11543,7 +11543,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KBP9A91KulaTacHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11552,7 +11552,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KBP9A91KulaTacHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11572,7 +11572,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(Blocks.PLANKS, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezHandguard) {
                         GL11.glTranslatef(-0.6F, 0.3F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11582,7 +11582,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11591,7 +11591,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11610,7 +11610,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ASValHandguard) {
                     	GL11.glTranslatef(-0.6F, 0.3F, -1.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11620,7 +11620,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ASValHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11629,7 +11629,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ASValHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11648,7 +11648,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezTriRailMount) {
                         GL11.glTranslatef(-0.6F, 0.4F, -2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11658,7 +11658,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezTriRailMount) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11667,7 +11667,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezTriRailMount) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11686,7 +11686,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47DustCover) {
                         GL11.glTranslatef(-0.6F, 0.4F, -0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11696,7 +11696,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47DustCover) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11705,7 +11705,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47DustCover) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11724,7 +11724,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 5))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DragunovDustCover) {
                         GL11.glTranslatef(-0.6F, 0.4F, -0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11734,7 +11734,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DragunovDustCover) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11743,7 +11743,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DragunovDustCover) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11762,7 +11762,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 5))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Dragunov98) {
                         GL11.glTranslatef(-0.6F, 0.4F, -0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11772,7 +11772,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Dragunov98) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11781,7 +11781,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Dragunov98) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11800,7 +11800,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKMDustCover) {
                         GL11.glTranslatef(-0.6F, 0.4F, -0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11810,7 +11810,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKMDustCover) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11819,7 +11819,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKMDustCover) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11838,7 +11838,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK101DustCover) {
                         GL11.glTranslatef(-0.6F, 0.4F, -0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11848,7 +11848,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK101DustCover) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11857,7 +11857,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK101DustCover) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11877,7 +11877,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VeprDustCover) {
                         GL11.glTranslatef(-0.6F, 0.4F, -0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11887,7 +11887,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VeprDustCover) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11896,7 +11896,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VeprDustCover) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11916,7 +11916,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK15DustCover) {
                         GL11.glTranslatef(-0.6F, 0.4F, -0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11926,7 +11926,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK15DustCover) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11935,7 +11935,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK15DustCover) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11954,7 +11954,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12DustCover) {
                         GL11.glTranslatef(-0.6F, 0.4F, -0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -11964,7 +11964,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12DustCover) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -11973,7 +11973,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12DustCover) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -11992,7 +11992,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12BDustCover) {
                         GL11.glTranslatef(-0.6F, 0.4F, -0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12002,7 +12002,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12BDustCover) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12011,7 +12011,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK12BDustCover) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12030,7 +12030,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezDustCover) {
                         GL11.glTranslatef(-0.6F, 0.4F, -0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12040,7 +12040,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezDustCover) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12049,7 +12049,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezDustCover) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12068,7 +12068,7 @@ public class Attachments {
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezVSSMDustCover) {
                         GL11.glTranslatef(-0.6F, 0.4F, -0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12078,7 +12078,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezVSSMDustCover) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12087,7 +12087,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VSSVintorezVSSMDustCover) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12103,7 +12103,7 @@ public class Attachments {
         FNFALDustCover = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.FNFALDustCover(), "fnfal.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALDustCover) {
                         GL11.glTranslatef(-0.6F, 0.6F, -0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12113,7 +12113,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALDustCover) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12122,7 +12122,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALDustCover) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12139,7 +12139,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.SA58DustCover(), "SA58DustCover.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SA58DustCover) {
                         GL11.glTranslatef(-0.6F, 0.4F, -0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12149,7 +12149,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SA58DustCover) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12158,7 +12158,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SA58DustCover) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12174,7 +12174,7 @@ public class Attachments {
         FNFALGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.FNFALGrip(), "fnfal.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALGrip) {
                         GL11.glTranslatef(-0.6F, -0.3F, 0.1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12184,7 +12184,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALGrip) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12193,7 +12193,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALGrip) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12209,7 +12209,7 @@ public class Attachments {
         FNFALStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.FNFALStock(), "fnfal.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALStock) {
                         GL11.glTranslatef(-0.6F, 0.1F, 1.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12219,7 +12219,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALStock) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12228,7 +12228,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALStock) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12244,7 +12244,7 @@ public class Attachments {
         FNFALHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.FNFALHandguard(), "fnfal.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALHandguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -2.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12254,7 +12254,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12263,7 +12263,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12280,7 +12280,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.FNFALPARAHandguard(), "fnfalparahandguard.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALPARAHandguard) {
                     	GL11.glTranslatef(-0.6F, 0.5F, -2.4F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12290,7 +12290,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALPARAHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12299,7 +12299,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALPARAHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12322,7 +12322,7 @@ public class Attachments {
                 .withRequiredAttachments(M4HandGuard, M4CarbineHandGuard, M4MagpulHandGuard, 
                         M4MagpulHandGuardTan, M16HandGuard, Mk18HandGuard, M16A4HandGuard, Block2SOCOMHandguard, 
                         Mk18HandGuardBlack)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Iron2) {
                         GL11.glTranslatef(-0.6F, -0.5F, 0.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12332,7 +12332,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Iron2) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12341,7 +12341,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M4Iron2) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12357,7 +12357,7 @@ public class Attachments {
         M60FrontSight = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.M60FrontSight(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M60FrontSight) {
                         GL11.glTranslatef(-0.6F, -0.7F, 3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12367,7 +12367,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M60FrontSight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12376,7 +12376,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M60FrontSight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12397,7 +12397,7 @@ public class Attachments {
                 .withRequiredAttachments(M38HandGuard, LVOAVHandGuard, Mk18HandGuard, 
                         StonerHANDGUARD, AR57Handguard, HK417Handguard, HK417HandguardTan, 
                         HK416HandGuardBlackAndTan)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47iron) {
                         GL11.glTranslatef(-0.6F, -1.5F, 1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12407,7 +12407,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47iron) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12416,7 +12416,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47iron) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12445,7 +12445,7 @@ public class Attachments {
                         Block2SOCOMHandguard, FSSTacLiteHandguard, Mk18HandGuardBlack, M110Handguard, 
                         HK416HandGuardBlackAndTan, SIGMCXHandguard, SIGMCXHandguardShort, AR15HandGuard, 
                         DSR1Handguard, DSR1HandguardRailed, Z10Handguard)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G95_upright_frontsights) {
                         GL11.glTranslatef(-0.6F, -1.2F, 0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12455,7 +12455,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G95_upright_frontsights) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12464,7 +12464,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G95_upright_frontsights) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12494,7 +12494,7 @@ public class Attachments {
                         Block2SOCOMHandguard, FSSTacLiteHandguard, Mk18HandGuardBlack, M110Handguard, Placeholder, 
                         HK416HandGuardBlackAndTan, SIGMCXHandguard, SIGMCXHandguardShort, AR15HandGuard, Z10Handguard,
                         Origin12Grip, HKS20Grip)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MBUSFrontSight) {
                     	 GL11.glTranslatef(-0.6F, -0.9F, 0.5F);
                          GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12504,7 +12504,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MBUSFrontSight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12513,7 +12513,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MBUSFrontSight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12529,7 +12529,7 @@ public class Attachments {
         LeupoldScope = new ItemScope.Builder()
         		.withOpticalZoom()
         		.withZoomRange(0.22f, 0.06f)
-        		.withViewfinderPositioning((p, s) -> {
+        		.withViewfinderPositioning(() -> {
                     GL11.glScalef(2.3f, 2.3f, 2.3f);
                     GL11.glTranslatef(-0.085f, 0.33f, 1.75f);
                 })
@@ -12544,7 +12544,7 @@ public class Attachments {
         		.withCrosshair("LP")
                 .withModel(new com.paneedah.mwc.models.Leupold(), "leupold.png")
                 .withModel(new com.paneedah.mwc.models.JPUreticle(), "black.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Leupold) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12553,7 +12553,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Leupold) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12563,7 +12563,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Leupold) {
                     	GL11.glTranslatef(-0.6F, -0.3F, 0.9F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12573,7 +12573,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Leupold) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -12589,7 +12589,7 @@ public class Attachments {
         		.withSniperReticle(Reticles.RETICLE_PSO1)
         		.withOpticalZoom()
         		.withZoomRange(0.22f, 0.06f)
-                .withViewfinderPositioning((p, s) -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.15f, 1.15f, 1.1f);
                     GL11.glTranslatef(-0.299f, 0.215f, 1.15f);
                 }).withCategory(AttachmentCategory.SCOPE).withCreativeTab(MWC.ATTACHMENTS_TAB).withCrosshair("LP")
@@ -12599,7 +12599,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4),
                     	new CraftingEntry(MWCItems.steelIngot, 5))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.PSO1) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12610,7 +12610,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.PSO1) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12622,7 +12622,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.PSO1) {
                         GL11.glTranslatef(-0.6F, -0.3F, 0.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12634,7 +12634,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.PSO12) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.PSO1) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -12651,7 +12651,7 @@ public class Attachments {
         OKP7 = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.OKP)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.23, -4.4, -0.2);
         			GlStateManager.scale(2.05, 2.05, 2.05);
         		})
@@ -12663,7 +12663,7 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 3))
 //                .withModel(new com.paneedah.mwc.models.OKP7reticle(), "green.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.OKP7) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12672,7 +12672,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.OKP7) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12681,7 +12681,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.OKP7reticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.OKP7) {
                         GL11.glTranslatef(-0.6F, -0.1F, 1.15F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12692,7 +12692,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.OKP7) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -12713,7 +12713,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FMG9Carryhandle) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12722,7 +12722,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FMG9Carryhandle) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12731,7 +12731,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FMG9Carryhandle) {
                         GL11.glTranslatef(-0.6F, 1.1F, -0.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12742,7 +12742,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FMG9Carryhandle) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -12756,7 +12756,7 @@ public class Attachments {
         
         Reflex = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.REFLEX)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.08, -3, 0);
         			GlStateManager.scale(1.4, 1.4, 1.4);
         		})
@@ -12782,7 +12782,7 @@ public class Attachments {
                         M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Reflex) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12791,7 +12791,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Reflex) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12800,7 +12800,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Reflex) {
                         GL11.glTranslatef(-0.6F, -0.1F, 1.15F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12811,7 +12811,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Reflex) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -12825,7 +12825,7 @@ public class Attachments {
         
         BijiaReflex = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.BIJIA)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.08, -2.95, 0.1);
         			GlStateManager.scale(1.4, 1.4, 1.4);
         		})
@@ -12850,7 +12850,7 @@ public class Attachments {
                         M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.BijiaReflex) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12859,7 +12859,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.BijiaReflex) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12868,7 +12868,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.BijiaReflex) {
                         GL11.glTranslatef(-0.6F, -0.1F, 0.95F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12879,7 +12879,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.BijiaReflex) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -12893,7 +12893,7 @@ public class Attachments {
         
         MicroReflex = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.MICROREFLEX)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.13, -1.62, -0.1);
         			GlStateManager.scale(1.6, 1.6, 1.6);
         		})
@@ -12925,7 +12925,7 @@ public class Attachments {
                         M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MicroReflexSight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -12934,7 +12934,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MicroReflexSight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -12943,7 +12943,7 @@ public class Attachments {
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MicroReflexSight) {
                         GL11.glTranslatef(-0.6F, -1.9F, 0.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -12954,7 +12954,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MicroReflexSight) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -12970,7 +12970,7 @@ public class Attachments {
         		.withSniperReticle(Reticles.RETICLE_ACOG)
         		.withOpticalZoom()
         		.withZoomRange(0.22f, 0.1f)
-                .withViewfinderPositioning((p, s) -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.52f, 1.52f, 1.52f);
                     GL11.glTranslatef(0.038f, 0.485f, 0.37f);
                 })
@@ -12996,7 +12996,7 @@ public class Attachments {
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, Origin12Grip, 
                         HKS20Grip, FABDefenseMount, MAC21Stock, VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACOG) {
                         GL11.glTranslatef(0.1F, -0.8F, 1.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13007,7 +13007,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACOG) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13018,7 +13018,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.AcogScope2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACOG) {
                         GL11.glTranslatef(-0.6F, -0.7F, 0.9F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13035,7 +13035,7 @@ public class Attachments {
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ACOG) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13056,7 +13056,7 @@ public class Attachments {
         		.withSniperReticle(Reticles.RETICLE_SPECTRE)
         		.withOpticalZoom()
         		.withZoomRange(0.22f, 0.1f)
-                .withViewfinderPositioning((p, s) -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(3.7f, 3.7f, 3.7f);
                     GL11.glTranslatef(-0.075f, 0.38f, 0.42f);
                 })
@@ -13081,7 +13081,7 @@ public class Attachments {
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SpecterSight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13090,7 +13090,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SpecterSight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13099,7 +13099,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Acog2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SpecterSight) {
                         GL11.glTranslatef(-0.6F, -0.1F, 0.95F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13110,7 +13110,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SpecterSight) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13125,7 +13125,7 @@ public class Attachments {
 
         Holographic = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.HOLO_ONE)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.1, -2.7, 0.3);
         			GlStateManager.scale(1.4, 1.4, 1.4);
         		})
@@ -13152,7 +13152,7 @@ public class Attachments {
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Holographic2) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13161,7 +13161,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Holographic2) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13170,7 +13170,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Holographic2) {
                         GL11.glTranslatef(-0.6F, -0.1F, 0.7F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13181,7 +13181,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Holographic2) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13196,7 +13196,7 @@ public class Attachments {
         
         HolographicAlt = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.HOLO_ONE)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.1, -2.7, 0.3);
         			GlStateManager.scale(1.4, 1.4, 1.4);
         		})
@@ -13223,7 +13223,7 @@ public class Attachments {
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Holographic) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13232,7 +13232,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Holographic) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13241,7 +13241,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Holographic) {
                         GL11.glTranslatef(-0.6F, -0.1F, 0.4F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13252,7 +13252,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Holographic) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13268,7 +13268,7 @@ public class Attachments {
         		.withSniperReticle(Reticles.RETICLE_HOLO)
         		.withOpticalZoom()
         		.withZoomRange(0.22f, 0.1f)
-                .withViewfinderPositioning((p, s) -> {
+                .withViewfinderPositioning(() -> {
                 	GL11.glScalef(1.41f, 1.41f, 1.35f);
                     GL11.glTranslatef(-0.204f, 0.28f, 1.35f);
                 })
@@ -13294,7 +13294,7 @@ public class Attachments {
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.EotechHybrid2) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13305,7 +13305,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.EotechHybrid2) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13316,7 +13316,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.EotechScopeRing) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.EotechHybrid2) {
                         GL11.glTranslatef(-0.6F, -0.1F, 1F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13328,7 +13328,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.EotechScopeRing) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.EotechHybrid2) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13344,7 +13344,7 @@ public class Attachments {
         
         VortexRedux = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.VORTEX)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.45, -3.15, 0.5);
         			GlStateManager.scale(1.73, 1.73, 1.4);
         		})
@@ -13370,7 +13370,7 @@ public class Attachments {
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VortexSight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13379,7 +13379,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VortexSight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13388,7 +13388,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Holo2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VortexSight) {
                         GL11.glTranslatef(-0.6F, -0.8F, 1.6F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13399,7 +13399,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VortexSight) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13414,7 +13414,7 @@ public class Attachments {
         MicroT1 = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.REFLEX)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.3, -6, -0.2);
         			GlStateManager.scale(3.5, 3.5, 1.4);
         		})
@@ -13440,7 +13440,7 @@ public class Attachments {
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MicroT1) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13449,7 +13449,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MicroT1) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13458,7 +13458,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MicroT1) {
                         GL11.glTranslatef(-0.6F, -0.5F, 0.6F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13469,7 +13469,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MicroT1) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13484,7 +13484,7 @@ public class Attachments {
         AimpointCompM2 = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.REFLEX)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.06, -3.8, -0.4);
         			GlStateManager.scale(1.8, 1.8, 1.4);
         		})
@@ -13510,7 +13510,7 @@ public class Attachments {
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AimpointCompM2) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13519,7 +13519,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AimpointCompM2) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13528,7 +13528,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AimpointCompM2) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13539,7 +13539,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AimpointCompM2) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13555,7 +13555,7 @@ public class Attachments {
         AimpointCompM5 = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.REFLEX)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.3, -6, -0.2);
         			GlStateManager.scale(3.5, 3.5, 1.4);
         		})
@@ -13581,7 +13581,7 @@ public class Attachments {
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AimpointCompM5) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13590,7 +13590,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AimpointCompM5) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13599,7 +13599,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AimpointCompM5) {
                         GL11.glTranslatef(-0.6F, -0.5F, 0.6F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13610,7 +13610,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AimpointCompM5) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13624,7 +13624,7 @@ public class Attachments {
         
         RMR = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.RMR)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(0.22, -2.75, -0.53);
         			GlStateManager.scale(1.7, 1.6, 1.6);
         		})
@@ -13645,7 +13645,7 @@ public class Attachments {
                         Vector556Handguard, DesertEagleSlide, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, MAS21Mount, APC9Placeholder, 
                         MAC21Stock, VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RMRsight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13654,7 +13654,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RMRsight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13663,7 +13663,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RMRsight) {
                         GL11.glTranslatef(-0.6F, -0.9F, 0.6F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13674,7 +13674,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RMRsight) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13689,7 +13689,7 @@ public class Attachments {
         Kobra = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.KOBRA)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.05, -3.35, -0.8);
         			GlStateManager.scale(1.8, 1.8, 1.4);
         		})
@@ -13715,7 +13715,7 @@ public class Attachments {
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
                 .withRenderablePart()
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Kobra) {
                         GL11.glTranslatef(0.4F, -0.8F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13724,7 +13724,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Kobra) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13733,7 +13733,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Kobra) {
                         GL11.glTranslatef(-0.6F, -0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13744,7 +13744,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Kobra) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13759,7 +13759,7 @@ public class Attachments {
         KobraGen3 = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.KOBRA)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.05, -3.35, -0.9);
         			GlStateManager.scale(1.8, 1.8, 1.4);
         		})
@@ -13785,7 +13785,7 @@ public class Attachments {
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
                 .withRenderablePart()
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KobraGen3) {
                         GL11.glTranslatef(0.4F, -0.8F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13794,7 +13794,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KobraGen3) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13803,7 +13803,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KobraGen3) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.1F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13814,7 +13814,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KobraGen3) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13829,7 +13829,7 @@ public class Attachments {
         KobraMount = new ItemScope.Builder()
         		.withHolographicReticles(Reticles.KOBRA)
         		.withRadialCut(0.1f)
-        		.withReticlePositioning((model, itemStack) -> {
+        		.withReticlePositioning(() -> {
         			GlStateManager.translate(-0.05, -3.35, -0.8);
         			GlStateManager.scale(1.8, 1.8, 1.4);
         		})
@@ -13841,7 +13841,7 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
                 .withRenderablePart()
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KobraMount) {
                         GL11.glTranslatef(0.4F, -0.8F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13850,7 +13850,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KobraMount) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13859,7 +13859,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.Reflex2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KobraMount) {
                         GL11.glTranslatef(-0.6F, -0.1F, -0.1F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13870,7 +13870,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KobraMount) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13886,7 +13886,7 @@ public class Attachments {
 //                .withNightVision()
                 .withOpticalZoom()
                 .withZoomRange(0.22f, 0.02f)
-                .withViewfinderPositioning((p, s) -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.65f, 1.65f, 1.65f);
                     GL11.glTranslatef(0.0285f, 0.492f, 0.7f);
                 })
@@ -13895,7 +13895,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.JPUreticle(), "black.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder, Kar98Krail, 
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HP) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13904,7 +13904,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HP) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13913,7 +13913,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HP) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13923,7 +13923,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HP) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -13939,7 +13939,7 @@ public class Attachments {
         		.withSniperReticle(Reticles.RETICLE_1)
         		.withOpticalZoom()
         		.withZoomRange(0.22f, 0.06f)
-        		.withViewfinderPositioning((p, s) -> {
+        		.withViewfinderPositioning(() -> {
                     GL11.glScalef(2.9f, 2.9f, 2.9f);
                     GL11.glTranslatef(-0.09f, 0.405f, 1.43f);
                 })
@@ -13962,7 +13962,7 @@ public class Attachments {
         		.withRenderablePart()
                 .withModel(new com.paneedah.mwc.models.LeupoldRail(), "leupold.png")
 //                .withModel(new com.paneedah.mwc.models.JPUreticle(), "black.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.LeupoldRail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -13971,7 +13971,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.LeupoldRail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -13981,7 +13981,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.LeupoldRail) {
                         GL11.glTranslatef(-0.6F, -0.3F, 0.9F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -13991,7 +13991,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.LeupoldRail) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14009,7 +14009,7 @@ public class Attachments {
                 .withOpticalZoom()
                 .withSniperReticle(Reticles.RETICLE_NIGHTRAIDER)
                 .withZoomRange(0.22f, 0.02f)
-                .withViewfinderPositioning((p, s) -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.6f, 1.6f, 1.6f);
                     GL11.glTranslatef(-0.045f, 0.495f, 1.551f);
                 })
@@ -14030,7 +14030,7 @@ public class Attachments {
                         Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock, 
                         VSSMDustCover, Dragunov98DustCover)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.NightRaiderScope) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -14039,7 +14039,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.NightRaiderScope) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -14048,7 +14048,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.NightRaiderScope) {
                         GL11.glTranslatef(-0.6F, -0.6F, 1.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14058,7 +14058,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.NightRaiderScope) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14075,7 +14075,7 @@ public class Attachments {
         M2A1sight = new ItemScope.Builder()
                 .withOpticalZoom()
                 .withZoomRange(0.22f, 0.2f)
-                .withViewfinderPositioning((p, s) -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.54f, 1.54f, 1.54f);
                     GL11.glTranslatef(-0.09f, -0.265f, -0.7f);
                 })
@@ -14085,7 +14085,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.M2A1(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.M2A1reticle(), "red.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder, MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M2A1) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.2F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -14094,7 +14094,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M2A1) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -14103,7 +14103,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.M2A1reticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M2A1) {
                         GL11.glTranslatef(-0.6F, -0.6F, 1.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14113,7 +14113,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.M2A1reticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M2A1) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14128,7 +14128,7 @@ public class Attachments {
         F2000Scope = new ItemScope.Builder()
                 .withOpticalZoom()
                 .withZoomRange(0.22f, 0.02f)
-                .withViewfinderPositioning((p, s) -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(0.54f, 0.56f, 0.55f);
                     GL11.glTranslatef(-0.125f, -0.923f, 1.621f);
 //                    GL11.glRotatef(30F, 1f, 0f, 0f);
@@ -14137,7 +14137,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.F2000Scope(), "f2000.png")
                 .withModel(new com.paneedah.mwc.models.F2000Scope2(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.F2000Reticle(), "black.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.F2000Scope) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -14148,7 +14148,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.F2000Scope) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -14159,7 +14159,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.F2000Scope2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.F2000Scope) {
                         GL11.glTranslatef(-0.6F, -0F, 0.45F);
                     GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14171,7 +14171,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.F2000Scope2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.F2000Scope) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14190,23 +14190,23 @@ public class Attachments {
         M202scope = new ItemScope.Builder()
                 .withOpticalZoom()
                 .withZoomRange(0.22f, 0.02f)
-                .withViewfinderPositioning((p, s) -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.7f, 1.7f, 1.7f);
                     GL11.glTranslatef(0.375f, 0.185f, 0.34f);
 //                    GL11.glRotatef(30F, 1f, 0f, 0f);
                 })
                 .withCrosshair("HP")
                 .withModel(new com.paneedah.mwc.models.JPUreticle(), "black.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
                     GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14214,7 +14214,7 @@ public class Attachments {
                     GL11.glRotatef(0F, 0f, 0f, 1f);
                     GL11.glScaled(0.65F, 0.65F, 0.65f);
                     } 
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.JPUreticle) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14229,7 +14229,7 @@ public class Attachments {
         AUGscope = new ItemScope.Builder()
                 .withOpticalZoom()
                 .withZoomRange(0.22f, 0.02f)
-                .withViewfinderPositioning((p, s) -> {
+                .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.05f, 1.05f, 1.05f);
                     GL11.glTranslatef(-0.23f, -0.77f, 0.65f);
                 })
@@ -14239,7 +14239,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.JPUreticle(), "black.png")
                 .withModel(new com.paneedah.mwc.models.AUGScope(), "gun.png")
                 .withRequiredAttachments(AUGA1handguard)
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGScope_scope) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -14250,7 +14250,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGScope_scope) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -14261,7 +14261,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.AUGScope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGScope_scope) {
                         GL11.glTranslatef(-0.6F, -0.5F, 1.3F);
                     GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14273,7 +14273,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.AUGScope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGScope_scope) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14297,21 +14297,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x45) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x45) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x45) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14320,7 +14320,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x45) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14337,21 +14337,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x39) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x39) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x39) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14360,7 +14360,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x39) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14377,21 +14377,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor762x39) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor762x39) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor762x39) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14400,7 +14400,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor762x39) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14413,21 +14413,21 @@ public class Attachments {
         M32Barrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Suppressor(), "gun.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14436,7 +14436,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14451,21 +14451,21 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRenderablePart()
                 .withModel(new com.paneedah.mwc.models.Remington870Pump(), "remington870.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Pump) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Pump) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Pump) {
                         GL11.glTranslatef(0.6F, 0.6F, -2F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14473,7 +14473,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.75F, 0.75F, 0.75f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Pump) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14488,21 +14488,21 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRenderablePart()
                 .withModel(new com.paneedah.mwc.models.Remington870MagpulPump(), "gun.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870MagpulPump) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870MagpulPump) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870MagpulPump) {
                         GL11.glTranslatef(0.6F, 0.6F, -2F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14510,7 +14510,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.75F, 0.75F, 0.75f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870MagpulPump) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14525,21 +14525,21 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRenderablePart()
                 .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumPump(), "remington870.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumPump) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumPump) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumPump) {
                         GL11.glTranslatef(0.6F, 0.6F, -2F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14547,7 +14547,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.75F, 0.75F, 0.75f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumPump) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14563,7 +14563,7 @@ public class Attachments {
                 .withRenderablePart()
                 .withModel(new com.paneedah.mwc.models.Remington870FABDefensePump(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870FABDefensePump) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -14572,7 +14572,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870FABDefensePump) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -14581,7 +14581,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.AKRail) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870FABDefensePump) {
                         GL11.glTranslatef(0.6F, 0.6F, -2F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14591,7 +14591,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.AKRail) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870FABDefensePump) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14607,21 +14607,21 @@ public class Attachments {
         Remington870Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Remington870Stock(), "remington870.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Stock) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Stock) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Stock) {
                         GL11.glTranslatef(0.6F, 0.5F, 1F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14629,7 +14629,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Stock) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14643,21 +14643,21 @@ public class Attachments {
         Remington870PoliceMagnumStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "gun.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(0.6F, 0.2F, 0.2F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14665,7 +14665,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14680,7 +14680,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.MilSpecStock(), "gun.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -14689,7 +14689,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -14698,7 +14698,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.MilSpecStock) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(0.6F, 0.3F, 0.7F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14712,7 +14712,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.9F, 0.9F, 0.9f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14729,7 +14729,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.HK416Stock(), "gun.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -14738,7 +14738,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -14747,7 +14747,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.HK416Stock) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(0.6F, 0.3F, 0.7F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14761,7 +14761,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.9F, 0.9F, 0.9f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14777,21 +14777,21 @@ public class Attachments {
         Remington870SawedGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Remington870SawedGrip(), "remington870.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870SawedGrip) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870SawedGrip) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870SawedGrip) {
                         GL11.glTranslatef(0.6F, 0.5F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14799,7 +14799,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870SawedGrip) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14814,7 +14814,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Remington870Barrel(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.R870part(), "gun.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Barrel) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -14823,7 +14823,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Barrel) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -14832,7 +14832,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.R870part) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Barrel) {
                         GL11.glTranslatef(0.6F, 0.8F, -2.8F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14842,7 +14842,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.R870part) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Barrel) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14859,7 +14859,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumBarrel(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.M9A1frontsight(), "gun.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumBarrel) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -14868,7 +14868,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumBarrel) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -14877,7 +14877,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.M9A1frontsight) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumBarrel) {
                         GL11.glTranslatef(0.6F, 0.8F, -2.8F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14887,7 +14887,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.M9A1frontsight) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumBarrel) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14904,7 +14904,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Remington870SawedBarrel(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.M9A1frontsight(), "gun.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870SawedBarrel) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -14913,7 +14913,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870SawedBarrel) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -14922,7 +14922,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.M9A1frontsight) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870SawedBarrel) {
                         GL11.glTranslatef(0.6F, 0.8F, -2.5F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14932,7 +14932,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.M9A1frontsight) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870SawedBarrel) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14948,21 +14948,21 @@ public class Attachments {
         KS23Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.KS23Stock(), "ks23.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23Stock) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23Stock) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23Stock) {
                         GL11.glTranslatef(0.6F, 0.5F, 1F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -14970,7 +14970,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23Stock) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -14984,21 +14984,21 @@ public class Attachments {
         KS23RaptorGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.KS23RaptorGrip(), "ks23.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23RaptorGrip) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23RaptorGrip) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23RaptorGrip) {
                         GL11.glTranslatef(0.6F, 0.5F, 1F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15006,7 +15006,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23RaptorGrip) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15020,21 +15020,21 @@ public class Attachments {
         KS23MStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.KS23Mstock(), "ks23.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23Mstock) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23Mstock) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23Mstock) {
                         GL11.glTranslatef(0.6F, 0.5F, 1F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15042,7 +15042,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23Mstock) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15057,21 +15057,21 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.KS23Barrel(), "ks23.png")
                 .withModel(new com.paneedah.mwc.models.FALIron(), "gun.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23Barrel) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23Barrel) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23Barrel) {
                         GL11.glTranslatef(0.6F, 0.8F, -2.8F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15079,7 +15079,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.7F, 0.7F, 0.7f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23Barrel) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15094,21 +15094,21 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.KS23ExtendedBarrel(), "ks23.png")
                 .withModel(new com.paneedah.mwc.models.FALIron(), "gun.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23ExtendedBarrel) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23ExtendedBarrel) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23ExtendedBarrel) {
                     	GL11.glTranslatef(0.6F, 0.8F, -3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15116,7 +15116,7 @@ public class Attachments {
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.6F, 0.6F, 0.6f);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KS23ExtendedBarrel) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15136,21 +15136,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_MODIFICATION,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 1),
                     	new CraftingEntry(MWCItems.steelIngot, 3))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RPKbarrel) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RPKbarrel) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RPKbarrel) {
                         GL11.glTranslatef(0.6F, 1F, -4.5F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15162,7 +15162,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.AKMiron2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.RPKbarrel) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15177,20 +15177,20 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.AKiron3(), "gun")
                 .withModel(new com.paneedah.mwc.models.AKMiron2(), "gun")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKiron3) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKiron3) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKiron3) {
                         GL11.glTranslatef(0.6F, 0.5F, -0.5F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15200,7 +15200,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.AKMiron2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKiron3) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15215,20 +15215,20 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.AKiron3(), "gun")
                 .withModel(new com.paneedah.mwc.models.AKMiron2(), "gun")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKiron3) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKiron3) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKiron3) {
                         GL11.glTranslatef(0.6F, 0.5F, -0.5F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15238,7 +15238,7 @@ public class Attachments {
                     } else if (model instanceof com.paneedah.mwc.models.AKMiron2) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AKiron3) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15257,21 +15257,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPBSSilencer) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPBSSilencer) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPBSSilencer) {
                         GL11.glTranslatef(0.6F, 1.4F, -3.8F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15280,7 +15280,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MakarovPBSSilencer) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15301,21 +15301,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15324,7 +15324,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15343,21 +15343,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SamuraiEdgeSuppressor) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SamuraiEdgeSuppressor) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SamuraiEdgeSuppressor) {
                         GL11.glTranslatef(0.6F, 1.2F, -4F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15366,7 +15366,7 @@ public class Attachments {
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SamuraiEdgeSuppressor) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15384,21 +15384,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15407,7 +15407,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15425,21 +15425,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KBP9A91Suppressor) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KBP9A91Suppressor) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KBP9A91Suppressor) {
                         GL11.glTranslatef(0.6F, 1.3F, -5.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15448,7 +15448,7 @@ public class Attachments {
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KBP9A91Suppressor) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15467,21 +15467,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor45ACP) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor45ACP) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor45ACP) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15490,7 +15490,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor45ACP) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15502,21 +15502,21 @@ public class Attachments {
         SilencerEABH = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Suppressor45ACP(), "gun.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor45ACP) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor45ACP) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor45ACP) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15525,7 +15525,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor45ACP) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15541,21 +15541,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15564,7 +15564,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15581,21 +15581,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor762x51) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor762x51) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor762x51) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15604,7 +15604,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor762x51) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15621,21 +15621,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 4),
                     	new CraftingEntry(MWCItems.steelIngot, 4))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15644,7 +15644,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15662,21 +15662,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x39) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x39) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x39) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15685,7 +15685,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x39) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -15714,7 +15714,7 @@ public class Attachments {
                         VLTORReceiver, AR57Receiver, Attachments.EF88Handguard, 
                         KrissVectorReceiver, Vector556Handguard, Origin12Grip, HKS20Grip,
                         ScarLReceiver)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M27rearsight) {
                         GL11.glTranslatef(-0.6F, -1F, 0.5F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15724,7 +15724,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M27rearsight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -15733,7 +15733,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M27rearsight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -15761,7 +15761,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.TritiumRearSights) {
                         GL11.glTranslatef(-0.6F, -0.9F, 0.45F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15771,7 +15771,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.TritiumRearSights) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -15780,7 +15780,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.TritiumRearSights) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -15809,7 +15809,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MBUSRearSight) {
                     	 GL11.glTranslatef(-0.6F, -0.9F, 0.45F);
                          GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15819,7 +15819,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MBUSRearSight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -15828,7 +15828,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MBUSRearSight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -15856,7 +15856,7 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G95_upright_rearsights) {
                     	 GL11.glTranslatef(-0.6F, -0.9F, 0.45F);
                          GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15866,7 +15866,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G95_upright_rearsights) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -15875,7 +15875,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.G95_upright_rearsights) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -15892,7 +15892,7 @@ public class Attachments {
         		.withCategory(AttachmentCategory.SCOPE)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.FNFALRearSight(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALRearSight) {
                         GL11.glTranslatef(-0.6F, -0.7F, 0.65F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15902,7 +15902,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALRearSight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -15911,7 +15911,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.FNFALRearSight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -15927,7 +15927,7 @@ public class Attachments {
         M16A1RearSights = new AttachmentBuilder<Weapon>()
         		.withCategory(AttachmentCategory.EXTRA)
                 .withModel(new com.paneedah.mwc.models.M16A1RearSight(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A1RearSight) {
                         GL11.glTranslatef(-0.6F, -0.7F, 0.65F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15937,7 +15937,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A1RearSight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -15946,7 +15946,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M16A1RearSight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -15965,7 +15965,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.K2C1RearSight(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.ScarIron2(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.FALIron(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.K2C1RearSight) {
                         GL11.glTranslatef(-0.6F, -0.7F, 0.3F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -15975,7 +15975,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.K2C1RearSight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -15984,7 +15984,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.K2C1RearSight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -16001,7 +16001,7 @@ public class Attachments {
         		.withCategory(AttachmentCategory.SCOPE)
         		.withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.ScorpionRearSight(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScorpionRearSight) {
                         GL11.glTranslatef(-0.6F, -0.7F, 0.65F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16011,7 +16011,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScorpionRearSight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -16020,7 +16020,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScorpionRearSight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -16037,7 +16037,7 @@ public class Attachments {
         		.withCategory(AttachmentCategory.FRONTSIGHT)
         		.withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.ScorpionFrontSight(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScorpionFrontSight) {
                         GL11.glTranslatef(-0.6F, -0.7F, 0.65F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16047,7 +16047,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScorpionFrontSight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -16056,7 +16056,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ScorpionFrontSight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -16074,7 +16074,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.MP7RearSights(), "MP7IronSights.png")
                 .withModel(new com.paneedah.mwc.models.MP7FrontSights(), "MP7IronSights.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7RearSights) {
                         GL11.glTranslatef(-0.6F, -0F, 0.95F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16085,7 +16085,7 @@ public class Attachments {
                         GL11.glScalef(0f, 0f, 0f);
                     }
                 })
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7RearSights) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -16094,7 +16094,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7RearSights) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -16113,7 +16113,7 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.MP7RearSightFlipped(), "MP7IronSights.png")
                 .withModel(new com.paneedah.mwc.models.MP7FrontSightFlipped(), "MP7IronSights.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7RearSightFlipped) {
                     	GL11.glTranslatef(-0.6F, 0.4F, 0.95F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16124,7 +16124,7 @@ public class Attachments {
                         GL11.glScalef(0f, 0f, 0f);
                     }
                 })
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7RearSightFlipped) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -16133,7 +16133,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.MP7RearSightFlipped) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -16150,7 +16150,7 @@ public class Attachments {
         Kar98Ksight = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new AK47iron(), "gun.png")
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47iron) {
                         GL11.glTranslatef(-0.6F, -1.6F, 0.95F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16160,7 +16160,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47iron) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -16169,7 +16169,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK47iron) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -16188,7 +16188,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.KA_AK12_Ironsight(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.AKMiron2(), "gun.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KA_AK12_Ironsight) {
                         GL11.glTranslatef(-0.6F, -1F, 0.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16198,7 +16198,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KA_AK12_Ironsight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -16207,7 +16207,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.KA_AK12_Ironsight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -16227,7 +16227,7 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.AK15ironsight(), "gun.png")
                 .withModel(new com.paneedah.mwc.models.AKMiron2(), "gun.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK15ironsight) {
                         GL11.glTranslatef(-0.6F, -1F, 0.7F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16237,7 +16237,7 @@ public class Attachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK15ironsight) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -16246,7 +16246,7 @@ public class Attachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AK15ironsight) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -16267,21 +16267,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16290,7 +16290,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16302,21 +16302,21 @@ public class Attachments {
         Silencer357 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.Suppressor(), "GunmetalTexture.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16325,7 +16325,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16341,21 +16341,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 1),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16364,7 +16364,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16381,21 +16381,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3),
                     	new CraftingEntry(MWCItems.steelIngot, 2))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor45ACP) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor45ACP) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor45ACP) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16404,7 +16404,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor45ACP) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16421,21 +16421,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor300AACBlackout) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor300AACBlackout) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor300AACBlackout) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16444,7 +16444,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor300AACBlackout) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16456,21 +16456,21 @@ public class Attachments {
 
         HoneyBadgerSilencer = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withModel(new com.paneedah.mwc.models.AACHoneyBadgerSilencer(), "gun.png")
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerSilencer) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerSilencer) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerSilencer) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16479,7 +16479,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor300AACBlackout) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16496,21 +16496,21 @@ public class Attachments {
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 1),
                     	new CraftingEntry(MWCItems.steelIngot, 1))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x39) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x39) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x39) {
                         GL11.glTranslatef(0.6F, 0.1F, 0.3F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16519,7 +16519,7 @@ public class Attachments {
                         GL11.glScaled(1F, 1F, 1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Suppressor556x39) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16555,28 +16555,28 @@ public class Attachments {
                     // GL11.glRotatef(30F, 0f, 1f, 0f);
                     // GL11.glScaled(0.6F, 0.6F, 0.6F);
                 }))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Laser) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Laser) {
 
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Laser) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Laser) {
                         GL11.glTranslatef(0.6F, -0.3F, 0.5F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16585,7 +16585,7 @@ public class Attachments {
                         GL11.glScaled(1.8F, 1.8F, 1.8f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Laser) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16619,21 +16619,21 @@ public class Attachments {
                     GL11.glTranslatef(-0.2F, 1.3F, 1.8F);
                     // GL11.glRotatef(30F, 0f, 1f, 0f);
                     // GL11.glScaled(0.6F, 0.6F, 0.6F);
-                })).withFirstPersonModelPositioning((model, itemStack) -> {
+                })).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Laser3) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Laser3) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Laser3) {
                         GL11.glTranslatef(0.6F, -0.3F, 0.4F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16642,7 +16642,7 @@ public class Attachments {
                         GL11.glScaled(1.8F, 1.8F, 1.8f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Laser3) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16666,7 +16666,7 @@ public class Attachments {
                     // GL11.glRotatef(30F, 0f, 1f, 0f);
                     // GL11.glScaled(0.6F, 0.6F, 0.6F);
                 }))
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2Laser) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -16674,7 +16674,7 @@ public class Attachments {
                     }
 
                 })
-                .withThirdPersonModelPositioning((model, itemStack) -> {
+                .withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2Laser) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
@@ -16682,7 +16682,7 @@ public class Attachments {
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
                 })
-                .withInventoryModelPositioning((model, itemStack) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2Laser) {
                         GL11.glTranslatef(0.6F, 1.4F, -3.6F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16692,7 +16692,7 @@ public class Attachments {
 
                     }
                 })
-                .withEntityModelPositioning((model, itemStack) -> {
+                .withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.SCCYCPX2Laser) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16712,28 +16712,28 @@ public class Attachments {
                     GL11.glTranslatef(-0.2F, 1.4F, 1.8F);
                     // GL11.glRotatef(30F, 0f, 1f, 0f);
                     // GL11.glScaled(0.6F, 0.6F, 0.6F);
-                })).withFirstPersonModelPositioning((model, itemStack) -> {
+                })).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DanWessonLaser) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DanWessonLaser) {
 
                     } else {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DanWessonLaser) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DanWessonLaser) {
                         GL11.glTranslatef(0.6F, -0F, 0.2F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16742,7 +16742,7 @@ public class Attachments {
                         GL11.glScaled(1.1F, 1.1F, 1.1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.DanWessonLaser) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16758,21 +16758,21 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB).withModel(new com.paneedah.mwc.models.M1928Grip(), "m1a1thompson.png")
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.6f);
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1928Grip) {
                         GL11.glTranslatef(0.7F, -1.2F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1928Grip) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1928Grip) {
                         GL11.glTranslatef(0.6F, 0.5F, -3.2F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16781,7 +16781,7 @@ public class Attachments {
                         GL11.glScaled(1.1F, 1.1F, 1.1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1928Grip) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16796,21 +16796,21 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB).withModel(new com.paneedah.mwc.models.M1A1Grip(), "m1a1thompson.png")
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 1.0f);
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1A1Grip) {
                         GL11.glTranslatef(0.7F, -1.2F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1A1Grip) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1A1Grip) {
                         GL11.glTranslatef(0.6F, 1.1F, -3.6F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16819,7 +16819,7 @@ public class Attachments {
                         GL11.glScaled(1.1F, 1.1F, 1.1f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.M1A1Grip) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16855,21 +16855,21 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.6f);
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Grip2) {
                         GL11.glTranslatef(0.7F, -1.2F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Grip2) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Grip2) {
                         GL11.glTranslatef(0.6F, 0.3F, -0.5F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16878,7 +16878,7 @@ public class Attachments {
                         GL11.glScaled(1.3F, 1.3F, 1.3f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Grip2) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16904,21 +16904,21 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.6f);
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.JunoGrip) {
                         GL11.glTranslatef(0.7F, -1.2F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.JunoGrip) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.JunoGrip) {
                         GL11.glTranslatef(0.6F, 0F, -0.1F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16927,7 +16927,7 @@ public class Attachments {
                         GL11.glScaled(0.8F, 0.8F, 0.8f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.JunoGrip) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16945,21 +16945,21 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.4f);
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock18Cstock) {
                         GL11.glTranslatef(0.7F, -1.2F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock18Cstock) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock18Cstock) {
                         GL11.glTranslatef(0.6F, 0.3F, 0.5F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -16968,7 +16968,7 @@ public class Attachments {
                         GL11.glScaled(0.7F, 0.7F, 0.7f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Glock18Cstock) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -16987,21 +16987,21 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.gunmetalIngot, 3))
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.6f);
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VP70stock) {
                         GL11.glTranslatef(0.7F, -1.2F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VP70stock) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VP70stock) {
                         GL11.glTranslatef(0.6F, 0.6F, 0.1F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -17010,7 +17010,7 @@ public class Attachments {
                         GL11.glScaled(0.4F, 0.4F, 0.4f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VP70stock) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -17044,21 +17044,21 @@ public class Attachments {
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.6f);
                 })
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AngledGrip) {
                         GL11.glTranslatef(0.7F, -1.1F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AngledGrip) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AngledGrip) {
                         GL11.glTranslatef(0.6F, 0.8F, -0.45F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -17067,7 +17067,7 @@ public class Attachments {
                         GL11.glScaled(1.2F, 1.2F, 1.2f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AngledGrip) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -17111,21 +17111,21 @@ public class Attachments {
                 // .withRemove((attachment, weapon, player) -> {
                 // weapon.changeRecoil(player, 1);
                 // })
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.StubbyGrip) {
                         GL11.glTranslatef(0.7F, -1.2F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.StubbyGrip) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.StubbyGrip) {
                         GL11.glTranslatef(0.6F, 0.5F, -0.5F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -17134,7 +17134,7 @@ public class Attachments {
                         GL11.glScaled(1.6F, 1.6F, 1.6f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.StubbyGrip) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -17171,21 +17171,21 @@ public class Attachments {
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.6f);
                 })
-                .withFirstPersonModelPositioning((model, itemStack) -> {
+                .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VGrip) {
                         GL11.glTranslatef(0.7F, -1.1F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VGrip) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VGrip) {
                         GL11.glTranslatef(0.6F, 0.3F, -0.5F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -17194,7 +17194,7 @@ public class Attachments {
                         GL11.glScaled(1.3F, 1.3F, 1.3f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.VGrip) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -17226,21 +17226,21 @@ public class Attachments {
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.4f);
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Bipod) {
                         GL11.glTranslatef(0.7F, -1.1F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Bipod) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Bipod) {
                         GL11.glTranslatef(0.6F, 0.05F, -0.85F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -17249,7 +17249,7 @@ public class Attachments {
                         GL11.glScaled(0.7F, 0.7F, 0.7f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Bipod) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -17265,21 +17265,21 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.AUGGrip(), "gun.png")
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.6f);
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGGrip) {
                         GL11.glTranslatef(0.7F, -1.1F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGGrip) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGGrip) {
                         GL11.glTranslatef(0.6F, 0.6F, -3.7F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -17288,7 +17288,7 @@ public class Attachments {
                         GL11.glScaled(1.3F, 1.3F, 1.3f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGGrip) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
@@ -17305,21 +17305,21 @@ public class Attachments {
                 .withModel(new com.paneedah.mwc.models.USPMatchCompensator(), "gun.png")
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.4f);
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.USPMatchCompensator) {
                         GL11.glTranslatef(0.7F, -1.1F, 0.5F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.USPMatchCompensator) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                     }
-                }).withInventoryModelPositioning((model, itemStack) -> {
+                }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.USPMatchCompensator) {
                         GL11.glTranslatef(0.6F, 0.6F, -3.7F);
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -17328,7 +17328,7 @@ public class Attachments {
                         GL11.glScaled(1.3F, 1.3F, 1.3f);
 
                     }
-                }).withEntityModelPositioning((model, itemStack) -> {
+                }).withEntityModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.USPMatchCompensator) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);

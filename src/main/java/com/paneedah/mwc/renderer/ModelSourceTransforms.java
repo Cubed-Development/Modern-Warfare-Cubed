@@ -1,39 +1,39 @@
 package com.paneedah.mwc.renderer;
 
-import com.paneedah.weaponlib.RenderContext;
-import com.paneedah.weaponlib.RenderableState;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+/**
+ * Represents transformations for different rendering positions of a model.
+ * <p>
+ * This class contains various positioning callbacks that can be configured to modify the positioning of a model in different scenarios like entity, inventory, third-person view, and more.
+ *
+ * @author Luna Lage (Desoroxxx)
+ * @since 0.1
+ */
 @Getter
 @Setter
 @Builder
 public final class ModelSourceTransforms {
 
-    @Builder.Default private Consumer<ItemStack> entityPositioning = itemStack -> {};
-    @Builder.Default private Consumer<ItemStack> inventoryPositioning = itemStack -> {};
-    @Builder.Default private BiConsumer<EntityPlayer, ItemStack> thirdPersonPositioning = (player, itemStack) -> {
-//        GL11.glTranslatef(-0.8F, 0.2F, 0.4F);
-//        GL11.glRotatef(-45F, 0f, 1f, 0f);
-//        GL11.glRotatef(70F, 1f, 0f, 0f);
-//        GL11.glScalef(4, 4, 4);
-    };
-    @Builder.Default private BiConsumer<EntityPlayer, ItemStack> firstPersonPositioning = (player, itemStack) -> {};
-    @Builder.Default private BiConsumer<EntityPlayer, ItemStack> customEquippedPositioning = (player, itemStack) -> {};
-    @Builder.Default private BiConsumer<ModelBase, ItemStack> firstPersonModelPositioning = (model, itemStack) -> {};
-    @Builder.Default private BiConsumer<ModelBase, ItemStack> thirdPersonModelPositioning = (model, itemStack) -> {};
-    @Builder.Default private BiConsumer<ModelBase, ItemStack> inventoryModelPositioning = (model, itemStack) -> {};
-    @Builder.Default private BiConsumer<ModelBase, ItemStack> entityModelPositioning = (model, itemStack) -> {};
-    @Builder.Default private Consumer<RenderContext<RenderableState>> firstPersonLeftHandPositioning = renderContext -> GL11.glScalef(0f, 0f, 0f);
-    @Builder.Default private Consumer<RenderContext<RenderableState>> firstPersonRightHandPositioning = renderContext -> GL11.glScalef(0f, 0f, 0f);
+    // We use empty defaults values to not have null pointers exceptions thrown
+    @Builder.Default private Runnable entityPositioning = () -> {};
+    @Builder.Default private Runnable inventoryPositioning = () -> {};
+    @Builder.Default private Runnable thirdPersonPositioning = () -> {};
+    @Builder.Default private Runnable firstPersonPositioning = () -> {};
+    @Builder.Default private Runnable customEquippedPositioning = () -> {};
+    @Builder.Default private Consumer<ModelBase> firstPersonModelPositioning = model -> {};
+    @Builder.Default private Consumer<ModelBase> thirdPersonModelPositioning = model -> {};
+    @Builder.Default private Consumer<ModelBase> inventoryModelPositioning = model -> {};
+    @Builder.Default private Consumer<ModelBase> entityModelPositioning = model -> {};
+
+    // Todo: Make this empty by making hand rendering a boolean somewhere than weapons and everything can call instead of spending time doing useless OGL calls
+    // Unlike the rest, these two aren't empty it's because by default hands shouldn't be rendered
+    @Builder.Default private Runnable firstPersonLeftHandPositioning = () -> GL11.glScalef(0, 0, 0);
+    @Builder.Default private Runnable firstPersonRightHandPositioning = () -> GL11.glScalef(0, 0, 0);
 }

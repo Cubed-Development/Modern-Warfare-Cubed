@@ -8,7 +8,6 @@ import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.crafting.*;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -17,7 +16,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.*;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -31,7 +29,7 @@ public class AttachmentBuilder<T> {
     protected ModelBase model;
     protected String textureName;
     protected ModelSourceTransforms transforms = ModelSourceTransforms.builder()
-            .entityPositioning(itemStack -> new Transform()
+            .entityPositioning(() -> new Transform()
                     .withScale(0.17, 0.17, 0.17)
                     .withPosition(-0.5, -0.5, 0.6)
                     .doGLDirect())
@@ -119,47 +117,47 @@ public class AttachmentBuilder<T> {
         return this;
     }
 
-    public AttachmentBuilder<T> withEntityPositioning(Consumer<ItemStack> entityPositioning) {
+    public AttachmentBuilder<T> withEntityPositioning(Runnable entityPositioning) {
         transforms.setEntityPositioning(entityPositioning);
         return this;
     }
 
-    public AttachmentBuilder<T> withInventoryPositioning(Consumer<ItemStack> inventoryPositioning) {
+    public AttachmentBuilder<T> withInventoryPositioning(Runnable inventoryPositioning) {
         transforms.setInventoryPositioning(inventoryPositioning);
         return this;
     }
 
-    public AttachmentBuilder<T> withThirdPersonPositioning(BiConsumer<EntityPlayer, ItemStack> thirdPersonPositioning) {
+    public AttachmentBuilder<T> withThirdPersonPositioning(Runnable thirdPersonPositioning) {
         transforms.setThirdPersonPositioning(thirdPersonPositioning);
         return this;
     }
 
-    public AttachmentBuilder<T> withFirstPersonPositioning(BiConsumer<EntityPlayer, ItemStack> firstPersonPositioning) {
+    public AttachmentBuilder<T> withFirstPersonPositioning(Runnable firstPersonPositioning) {
         transforms.setFirstPersonPositioning(firstPersonPositioning);
         return this;
     }
 
-    public AttachmentBuilder<T> withFirstPersonModelPositioning(BiConsumer<ModelBase, ItemStack> firstPersonModelPositioning) {
+    public AttachmentBuilder<T> withFirstPersonModelPositioning(Consumer<ModelBase> firstPersonModelPositioning) {
         transforms.setFirstPersonModelPositioning(firstPersonModelPositioning);
         return this;
     }
 
-    public AttachmentBuilder<T> withEntityModelPositioning(BiConsumer<ModelBase, ItemStack> entityModelPositioning) {
+    public AttachmentBuilder<T> withEntityModelPositioning(Consumer<ModelBase> entityModelPositioning) {
         transforms.setEntityModelPositioning(entityModelPositioning);
         return this;
     }
 
-    public AttachmentBuilder<T> withInventoryModelPositioning(BiConsumer<ModelBase, ItemStack> inventoryModelPositioning) {
+    public AttachmentBuilder<T> withInventoryModelPositioning(Consumer<ModelBase> inventoryModelPositioning) {
         transforms.setInventoryModelPositioning(inventoryModelPositioning);
         return this;
     }
 
-    public AttachmentBuilder<T> withThirdPersonModelPositioning(BiConsumer<ModelBase, ItemStack> thirdPersonModelPositioning) {
+    public AttachmentBuilder<T> withThirdPersonModelPositioning(Consumer<ModelBase> thirdPersonModelPositioning) {
         transforms.setThirdPersonModelPositioning(thirdPersonModelPositioning);
         return this;
     }
 
-    public AttachmentBuilder<T> withFirstPersonHandPositioning(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
+    public AttachmentBuilder<T> withFirstPersonHandPositioning(Runnable leftHand, Runnable rightHand) {
         transforms.setFirstPersonLeftHandPositioning(leftHand);
         transforms.setFirstPersonRightHandPositioning(rightHand);
         return this;

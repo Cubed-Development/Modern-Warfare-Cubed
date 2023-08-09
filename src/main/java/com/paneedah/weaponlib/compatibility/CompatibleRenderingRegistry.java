@@ -49,7 +49,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	@SubscribeEvent
 	public void bakeModel(ModelBakeEvent event) {
 		for(ModelSource model: renderers) {
-			event.getModelRegistry().putObject(model.getResourceLocation(), model);
+			event.getModelRegistry().putObject(model.getModelResourceLocation(), model);
 		}
 	}
 
@@ -61,7 +61,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 		modelSourceLocations.add(ID + ":models/item/" + name);
 		ModelResourceLocation modelID = new ModelResourceLocation(ID + ":" + name, "inventory");
 		if(renderer != null) {
-		    ((ModelSource) renderer).setResourceLocation(modelID);
+		    ((ModelSource) renderer).setModelResourceLocation(modelID);
 		}
 		
 		delayedRegistrations.add((renderItem) -> {
@@ -79,7 +79,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
         
         ModelResourceLocation modelID = new ModelResourceLocation(name, "inventory");
         if(renderer != null) {
-            ((ModelSource) renderer).setResourceLocation(modelID);
+            ((ModelSource) renderer).setModelResourceLocation(modelID);
         }
         
         delayedRegistrations.add((renderItem) -> {

@@ -27,7 +27,6 @@ import org.lwjgl.opengl.GL11;
 import javax.vecmath.Matrix4f;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.BiConsumer;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
@@ -79,12 +78,8 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
 
         GL11.glTranslatef(-0.5f, 0.5f, 0.5f);
 
-        BiConsumer<EntityPlayer, ItemStack> positioning = transforms.getCustomEquippedPositioning();
-
-        if (positioning != null) {
-            positioning.accept(player, itemStack);
-            renderModelSource(renderContext, itemStack, null, 0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
-        }
+        transforms.getCustomEquippedPositioning().run();
+        renderModelSource(renderContext, itemStack, null, 0.0F, 0.0f, -0.4f, 0.0f, 0.0f, 0.08f);
 
         GL11.glPopMatrix();
     }
@@ -173,7 +168,7 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
 
         switch (transformType) {
             case GROUND:
-                transforms.getEntityPositioning().accept(itemStack);
+                transforms.getEntityPositioning().run();
                 break;
             case GUI:
                 GL11.glScaled(0.6F, 0.6F, 0.6F);
@@ -181,7 +176,7 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
                 GL11.glRotatef(-30F, 1, 0, 0);
                 GL11.glRotatef(40F, 0, 1, 0);
                 GL11.glRotatef(0, 0, 0, 1);
-                transforms.getInventoryPositioning().accept(itemStack);
+                transforms.getInventoryPositioning().run();
                 break;
             case THIRD_PERSON_RIGHT_HAND:
             case THIRD_PERSON_LEFT_HAND:
@@ -190,16 +185,16 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
                 GL11.glRotatef(-100F, 1f, 0f, 0f);
                 GL11.glRotatef(50F, 0f, 1f, 0f);
                 GL11.glRotatef(0F, 0f, 0f, 1f);
-                transforms.getThirdPersonPositioning().accept(player, itemStack);
+                transforms.getThirdPersonPositioning().run();
                 break;
             case FIRST_PERSON_RIGHT_HAND:
             case FIRST_PERSON_LEFT_HAND:
                 GL11.glScaled(0.6F, 0.6F, 0.6F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glTranslatef(-0.3f, -0.855f, 0.5f);
-                transforms.getFirstPersonPositioning().accept(player, itemStack);
-                WeaponRenderer.renderLeftArm(player, renderContext, (part, renderContext1) -> transforms.getFirstPersonLeftHandPositioning().accept(renderContext1));
-                WeaponRenderer.renderRightArm(player, renderContext, (part, renderContext1) -> transforms.getFirstPersonRightHandPositioning().accept(renderContext1));
+                transforms.getFirstPersonPositioning().run();
+                WeaponRenderer.renderLeftArm(player, renderContext, (part, renderContext1) -> transforms.getFirstPersonLeftHandPositioning().run());
+                WeaponRenderer.renderRightArm(player, renderContext, (part, renderContext1) -> transforms.getFirstPersonRightHandPositioning().run());
                 break;
             default:
         }
@@ -237,18 +232,18 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
             if (transformType != null) {
                 switch (transformType) {
                     case GROUND:
-                        transforms.getEntityModelPositioning().accept(model, itemStack);
+                        transforms.getEntityModelPositioning().accept(model);
                         break;
                     case GUI:
-                        transforms.getInventoryModelPositioning().accept(model, itemStack);
+                        transforms.getInventoryModelPositioning().accept(model);
                         break;
                     case THIRD_PERSON_RIGHT_HAND:
                     case THIRD_PERSON_LEFT_HAND:
-                        transforms.getThirdPersonModelPositioning().accept(model, itemStack);
+                        transforms.getThirdPersonModelPositioning().accept(model);
                         break;
                     case FIRST_PERSON_RIGHT_HAND:
                     case FIRST_PERSON_LEFT_HAND:
-                        transforms.getFirstPersonModelPositioning().accept(model, itemStack);
+                        transforms.getFirstPersonModelPositioning().accept(model);
                         break;
                     default:
                 }
@@ -282,25 +277,25 @@ public class StaticModelSourceRenderer extends ModelSource implements IBakedMode
     protected void renderModelSourceCarryableItem(ItemStack itemStack, ItemCameraTransforms.TransformType transformType, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         ItemCarryable itemCarryable = (ItemCarryable) itemStack.getItem();
 
-        final ModelBiped model = EquipmentModelPool.get(itemCarryable.modelName);
+        final ModelBiped model = EquipmentModelPools.get(itemCarryable.modelName);
 
         MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/models/" + itemCarryable.textureName));
 
         if (transformType != null) {
             switch (transformType) {
                 case GROUND:
-                    transforms.getEntityModelPositioning().accept(model, itemStack);
+                    transforms.getEntityModelPositioning().accept(model);
                     break;
                 case GUI:
-                    transforms.getInventoryModelPositioning().accept(model, itemStack);
+                    transforms.getInventoryModelPositioning().accept(model);
                     break;
                 case THIRD_PERSON_RIGHT_HAND:
                 case THIRD_PERSON_LEFT_HAND:
-                    transforms.getThirdPersonModelPositioning().accept(model, itemStack);
+                    transforms.getThirdPersonModelPositioning().accept(model);
                     break;
                 case FIRST_PERSON_RIGHT_HAND:
                 case FIRST_PERSON_LEFT_HAND:
-                    transforms.getFirstPersonModelPositioning().accept(model, itemStack);
+                    transforms.getFirstPersonModelPositioning().accept(model);
                     break;
                 default:
             }
