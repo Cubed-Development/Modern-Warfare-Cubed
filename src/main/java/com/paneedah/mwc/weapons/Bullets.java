@@ -57,16 +57,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("Grenade40mm").withMaxStackSize(16)
                 .withModel(new com.paneedah.mwc.models.GL06Grenade(), "GL06.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", Items.GUNPOWDER)
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.1F, -1.2F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0F, 0F, 0F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.9F, -0.29F, 0.8F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0F, 0F, 0F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, 1F, 2.1F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -79,16 +79,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("m202rocket").withMaxStackSize(4)
                 .withModel(new com.paneedah.mwc.models.M202Rocket(), "gun.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", MWCItems.gunmetalPlate, MWCItems.gunmetalIngot)
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.1F, -1.2F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0F, 0F, 0F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.9F, -0.29F, 0.8F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0F, 0F, 0F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -0.8F, -0.2F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -101,16 +101,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("rpg7_rocket").withMaxStackSize(2)
                 .withModel(new com.paneedah.mwc.models.RPG7rocketPROJECTILE(), "rpg7.png")
                 .withCrafting(8, CraftingComplexity.MEDIUM, "ingotCopper", MWCItems.gunmetalPlate, MWCItems.gunmetalIngot)
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.1F, -1.2F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0F, 0F, 0F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.9F, -0.29F, 0.8F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0F, 0F, 0F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -1F, 0.5F);
                     GL11.glRotatef(-180F, 0f, 1f, 0f);
                     GL11.glRotatef(-90F, 1f, 0f, 0f);
@@ -124,16 +124,16 @@ public class Bullets {
                 .withModel(new com.paneedah.mwc.models.EnergyCase(), "gun.png")
                 .withMaxStackSize(64)
                 .withCrafting(8, CraftingComplexity.LOW, "ingotCopper", Items.GUNPOWDER)
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.1F, -1F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -1.1F, 0.6F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -146,16 +146,16 @@ public class Bullets {
                 .withModel(new com.paneedah.mwc.models.ChainsawFuel(), "PlasmaCapsule.png")
                 .withMaxStackSize(64)
                 //.withCrafting(8, CraftingComplexity.LOW, "ingotCopper", CompatibleItems.GUNPOWDER)
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.7F, 0.7F, 0.7F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.3F, 0.5F, 0.1F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(10F, 1f, 0f, 0f);
                     GL11.glScaled(0.7F, 0.7F, 0.7F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(0.3F, 0.5F, -0F);
                     GL11.glRotatef(-150F, 0f, 1f, 0f);
                     GL11.glRotatef(-6F, 1f, 0f, 0f);
@@ -169,16 +169,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet3006Springfield")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletspringfield.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.6F, 0.6F, 0.6F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -3F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -193,16 +193,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet8x58")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet8x58.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.6F, 0.55F, 0.6F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.45F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -2.75F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -217,16 +217,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet792x33Kurz")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.6F, 0.5F, 0.6F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.45F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -2.7F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -241,16 +241,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet50BMG")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.7F, 0.6F, 0.7F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.6F, 0.5F, 0.6F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -3F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -265,16 +265,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet20x82mm")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet20x82.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.7F, 0.6F, 0.7F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.6F, 0.5F, 0.6F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -3F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -289,16 +289,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet408CT")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.6F, 0.6F, 0.6F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -3F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -313,16 +313,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet308Winchester")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletspringfield.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.6F, 0.6F, 0.6F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.4F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -2.9F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -337,16 +337,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("bullet_277")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet277.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.6F, 0.6F, 0.6F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.4F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -2.9F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -361,16 +361,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet792x57")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet8x58.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.6F, 0.6F, 0.6F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -3F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -385,16 +385,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet762x54")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet762x54.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.6F, 0.6F, 0.6F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -3F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -408,16 +408,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet762x51")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.6F, 0.6F, 0.6F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -3F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -430,16 +430,16 @@ public class Bullets {
         Shotgun12Guage = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("Shotgun12Gauge")
                 .withModel(new com.paneedah.mwc.models.Shotgun12Gauge(), "Shotgun12Gauge.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.1F, -1F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -450,16 +450,16 @@ public class Bullets {
         Shotgun4G = new ItemBullet.Builder()
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB).withName("Shotgun4G")
                 .withModel(new com.paneedah.mwc.models.Shotgun12Gauge(), "Shotgun4Gauge.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.1F, -1F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.7F, -0.29F, 0.7F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -0.45F, 0.4F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -472,16 +472,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet762x35")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.6F, 0.5F, 0.6F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.4F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -2.75F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -496,16 +496,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet765x21")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet765x21.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.5F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.4F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -3.7F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -520,16 +520,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet762x39")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet762x39.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.6F, 0.55F, 0.6F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.5F, 0.45F, 0.5F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -2.84F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -544,16 +544,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet556x45")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.5F, 0.65F, 0.5F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.4F, 0.55F, 0.4F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -2.9F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -568,16 +568,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet65")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.5F, 0.65F, 0.5F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.4F, 0.55F, 0.4F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -2.9F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -592,16 +592,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet545x39")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bullet545x39.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.65F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.55F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -2.9F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -616,16 +616,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet4570")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet765x21.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.75F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.75F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4.8F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -640,16 +640,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet4440")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet765x21.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -664,16 +664,16 @@ public class Bullets {
             .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
             .withName("Bullet45ACP")
             .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
-            .withFirstPersonPositioning((player, itemStack) -> {
+            .withFirstPersonPositioning(() -> {
                 GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                 GL11.glRotatef(30F, 0f, 1f, 0f);
                 GL11.glScaled(0.55F, 0.55F, 0.55F);
-            }).withThirdPersonPositioning((player, itemStack) -> {
+            }).withThirdPersonPositioning(() -> {
                 GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                 GL11.glRotatef(-50F, 0f, 1f, 0f);
                 GL11.glRotatef(80F, 1f, 0f, 0f);
                 GL11.glScaled(0.45F, 0.45F, 0.45F);
-            }).withInventoryPositioning((itemStack) -> {
+            }).withInventoryPositioning(() -> {
                 GL11.glTranslatef(-0.8F, -4F, 0.7F);
                 GL11.glRotatef(10F, 0f, 1f, 0f);
                 GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -688,16 +688,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet357")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -2.1F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.45F, 0.85F, 0.45F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.35F, 0.75F, 0.35F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4.5F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -712,16 +712,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet44")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4.8F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -736,16 +736,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet40SW")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -760,16 +760,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet50AE")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet50ae.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4.8F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -784,16 +784,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet50Beowulf")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4.8F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -808,16 +808,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet500")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4.8F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -832,16 +832,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet380ACP")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -856,16 +856,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet763x25")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -879,16 +879,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet9x39mm")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet50ae.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -903,16 +903,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet9x19mm")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -927,16 +927,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet9x18mm")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bullet9x18.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -950,16 +950,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet57x28mm")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.5F, 0.45F, 0.5F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.4F, 0.35F, 0.4F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -2.45F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -974,16 +974,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet46x30mm")
                 .withModel(new com.paneedah.mwc.models.BulletBig(), "bulletbig.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.5F, 0.45F, 0.5F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.4F, 0.35F, 0.4F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -2.45F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -998,16 +998,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet10mm")
                 .withModel(new com.paneedah.mwc.models.BulletSmall(), "bulletsmall.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4.5F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);
@@ -1022,16 +1022,16 @@ public class Bullets {
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
                 .withName("Bullet473x33mm")
                 .withModel(new com.paneedah.mwc.models.Bulletcaseless(), "bulletcaseless.png")
-                .withFirstPersonPositioning((player, itemStack) -> {
+                .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.2F, -1.9F, 0.5F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
-                }).withThirdPersonPositioning((player, itemStack) -> {
+                }).withThirdPersonPositioning(() -> {
                     GL11.glTranslatef(-0.2F, -0.3F, 0.4F);
                     GL11.glRotatef(-50F, 0f, 1f, 0f);
                     GL11.glRotatef(80F, 1f, 0f, 0f);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
-                }).withInventoryPositioning((itemStack) -> {
+                }).withInventoryPositioning(() -> {
                     GL11.glTranslatef(-0.8F, -4.0F, 0.7F);
                     GL11.glRotatef(10F, 0f, 1f, 0f);
                     GL11.glRotatef(2F, 1f, 0f, 0f);

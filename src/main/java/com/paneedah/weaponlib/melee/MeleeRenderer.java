@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
-import com.paneedah.mwc.renderer.ModelSourceRenderer;
+import com.paneedah.mwc.renderer.ModelSource;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -37,7 +37,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
-public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
+public class MeleeRenderer extends ModelSource implements IBakedModel {
 
 	private static final float DEFAULT_RANDOMIZING_RATE = 0.33f;
 

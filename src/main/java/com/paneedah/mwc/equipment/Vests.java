@@ -15,12 +15,12 @@ public class Vests {
                 .withDurability(150)
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.M43AChestHarness", "m43achestharness.png")
-//        .withCustomEquippedPositioning((player, stack) -> {
+//        .withCustomEquippedPositioning(() -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
 //            GL11.glRotatef(0F, 0f, 0f, 1f);
 //        })
-                .withInventoryPositioning(stack -> {
+                .withInventoryPositioning(() -> {
                     new Transform()
                             .withPosition(-0.15, -4, -0.25)
                             .withRotation(-15, 150, 0)
@@ -35,12 +35,12 @@ public class Vests {
                 .withDurability(175)
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier.png")
-//        .withCustomEquippedPositioning((player, stack) -> {
+//        .withCustomEquippedPositioning(() -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
 //            GL11.glRotatef(0F, 0f, 0f, 1f);
 //        })
-                .withInventoryPositioning(stack -> {
+                .withInventoryPositioning(() -> {
                     new Transform()
                             .withPosition(-0.15, -3.9, -0.25)
                             .withRotation(-15, 150, 0)
@@ -55,12 +55,12 @@ public class Vests {
                 .withDurability(175)
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_black.png")
-//        .withCustomEquippedPositioning((player, stack) -> {
+//        .withCustomEquippedPositioning(() -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
 //            GL11.glRotatef(0F, 0f, 0f, 1f);
 //        })
-                .withInventoryPositioning(stack -> {
+                .withInventoryPositioning(() -> {
                     new Transform()
                             .withPosition(-0.15, -3.9, -0.25)
                             .withRotation(-15, 150, 0)
@@ -75,12 +75,12 @@ public class Vests {
                 .withDurability(175)
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_green.png")
-//        .withCustomEquippedPositioning((player, stack) -> {
+//        .withCustomEquippedPositioning(() -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
 //            GL11.glRotatef(0F, 0f, 0f, 1f);
 //        })
-                .withInventoryPositioning(stack -> {
+                .withInventoryPositioning(() -> {
                     new Transform()
                             .withPosition(-0.15, -3.9, -0.25)
                             .withRotation(-15, 150, 0)
@@ -95,12 +95,12 @@ public class Vests {
                 .withDurability(175)
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_urban.png")
-//        .withCustomEquippedPositioning((player, stack) -> {
+//        .withCustomEquippedPositioning(() -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
 //            GL11.glRotatef(0F, 0f, 0f, 1f);
 //        })
-                .withInventoryPositioning(stack -> {
+                .withInventoryPositioning(() -> {
                     new Transform()
                             .withPosition(-0.15, -3.9, -0.25)
                             .withRotation(-15, 150, 0)
@@ -115,12 +115,12 @@ public class Vests {
                 .withDurability(250)
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.UTG547Vest", "utg547vest.png")
-                .withCustomEquippedPositioning((player, stack) -> {
+                .withCustomEquippedPositioning(() -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0f, 0f, 0f);
                     GL11.glRotatef(0F, 0f, 0f, 1f);
                 })
-                .withInventoryPositioning(stack -> {
+                .withInventoryPositioning(() -> {
                     new Transform()
                             .withPosition(-0.15, -3.9, -0.25)
                             .withRotation(-15, 150, 0)
@@ -136,16 +136,16 @@ public class Vests {
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "usMC.png")
 //        .withModelTextureName("usMC.png")
-//        .withCustomEquippedPositioning((player, stack) -> {
+//        .withCustomEquippedPositioning(() -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
 //            GL11.glRotatef(0F, 0f, 0f, 1f);
 //        })
-		        .withEntityPositioning(itemStack -> new Transform()
+		        .withEntityPositioning(() -> new Transform()
 				        .withPosition(-0.5F, -1.9F, 0.5F)
 				        .withScale(1, 1, 1)
 				        .doGLDirect())
-                .withInventoryPositioning(stack -> {
+                .withInventoryPositioning(() -> {
                     new Transform()
                             .withPosition(-0.15, -3.6, -0.25)
                             .withRotation(-15, 150, 0)
@@ -162,16 +162,16 @@ public class Vests {
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "usMCvestblack.png")
 //        .withModelTextureName("usMC.png")
-//        .withCustomEquippedPositioning((player, stack) -> {
+//        .withCustomEquippedPositioning(() -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
 //            GL11.glRotatef(0F, 0f, 0f, 1f);
 //        })
-                .withEntityPositioning(itemStack -> new Transform()
+                .withEntityPositioning(() -> new Transform()
                         .withPosition(-0.5F, -1.9F, 0.5F)
                         .withScale(1, 1, 1)
                         .doGLDirect())
-                .withInventoryPositioning(stack -> {
+                .withInventoryPositioning(() -> {
                     new Transform()
                             .withPosition(-0.15, -3.6, -0.25)
                             .withRotation(-15, 150, 0)
@@ -188,16 +188,16 @@ public class Vests {
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "militaryuniformforest.png")
 //        .withModelTextureName("usMC.png")
-//        .withCustomEquippedPositioning((player, stack) -> {
+//        .withCustomEquippedPositioning(() -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
 //            GL11.glRotatef(0F, 0f, 0f, 1f);
 //        })
-                .withEntityPositioning(itemStack -> new Transform()
+                .withEntityPositioning(() -> new Transform()
                         .withPosition(-0.5F, -1.9F, 0.5F)
                         .withScale(1, 1, 1)
                         .doGLDirect())
-                .withInventoryPositioning(stack -> {
+                .withInventoryPositioning(() -> {
                     new Transform()
                             .withPosition(-0.15, -3.6, -0.25)
                             .withRotation(-15, 150, 0)
@@ -214,16 +214,16 @@ public class Vests {
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "militaryuniformurban.png")
 //        .withModelTextureName("usMC.png")
-//        .withCustomEquippedPositioning((player, stack) -> {
+//        .withCustomEquippedPositioning(() -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
 //            GL11.glRotatef(0F, 0f, 0f, 1f);
 //        })
-                .withEntityPositioning(itemStack -> new Transform()
+                .withEntityPositioning(() -> new Transform()
                         .withPosition(-0.5F, -1.9F, 0.5F)
                         .withScale(1, 1, 1)
                         .doGLDirect())
-                .withInventoryPositioning(stack -> {
+                .withInventoryPositioning(() -> {
                     new Transform()
                             .withPosition(-0.15, -3.6, -0.25)
                             .withRotation(-15, 150, 0)

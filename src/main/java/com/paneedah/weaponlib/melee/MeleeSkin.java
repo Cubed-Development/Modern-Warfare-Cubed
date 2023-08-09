@@ -39,7 +39,7 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
 				this.textureName = textureVariants.get(0);
 			}
 			if(transforms.getInventoryPositioning() == null) {
-				withInventoryPositioning((itemStack) -> {
+				withInventoryPositioning(() -> {
 					GL11.glRotatef(20F, 1f, 0f, 0f);
 					GL11.glRotatef(-45F, 0f, 1f, 0f);
 					GL11.glRotatef(0F, 0f, 0f, 1f);

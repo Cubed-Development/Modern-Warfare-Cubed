@@ -3,9 +3,8 @@ package com.paneedah.mwc.renderer;
 import com.paneedah.mwc.capabilities.EquipmentCapability;
 import com.paneedah.mwc.equipment.inventory.EquipmentInventory;
 import com.paneedah.mwc.items.equipment.carryable.ItemCarryable;
-import com.paneedah.weaponlib.ItemVest;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.entity.RenderLivingBase;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -21,26 +20,26 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 @SideOnly(Side.CLIENT)
 public final class EquipmentRenderer implements LayerRenderer<EntityPlayer> {
 
-    private final RenderLivingBase<?> renderer;
+    private final RenderPlayer renderer;
 
-    public EquipmentRenderer(RenderLivingBase<?> rendererIn) {
+    public EquipmentRenderer(RenderPlayer rendererIn) {
         this.renderer = rendererIn;
     }
 
     @Override
-    public void doRenderLayer(@Nonnull EntityPlayer player, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+    public void doRenderLayer(final @Nonnull EntityPlayer player, final float limbSwing, final float limbSwingAmount, final float partialTicks, final float ageInTicks, final float netHeadYaw, final float headPitch, final float scale) {
         EquipmentInventory equipmentInventory = EquipmentCapability.getInventory(player);
 
         if (equipmentInventory == null)
             return;
 
-        ItemStack backpackSlot = equipmentInventory.getStackInSlot(0);
-        ItemStack beltSlot = equipmentInventory.getStackInSlot(1);
-        ItemStack vestSlot = equipmentInventory.getStackInSlot(2);
+        final ItemStack backpackSlot = equipmentInventory.getStackInSlot(0);
+        final ItemStack beltSlot = equipmentInventory.getStackInSlot(1);
+        final ItemStack vestSlot = equipmentInventory.getStackInSlot(2);
 
         if (!backpackSlot.isEmpty()) {
             final ItemCarryable itemCarryable = (ItemCarryable) backpackSlot.getItem();
-            final ModelBiped model = EquipmentModelPool.get(itemCarryable.modelName);
+            final ModelBiped model = EquipmentModelPools.getEquipped(itemCarryable.modelName);
 
 
             doEquipmentRender(model, player, new ResourceLocation(ID + ":textures/models/" + itemCarryable.textureName), limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
@@ -48,16 +47,16 @@ public final class EquipmentRenderer implements LayerRenderer<EntityPlayer> {
 
         if (!beltSlot.isEmpty()) {
             /*final ItemBelt itemBelt = (ItemBelt) beltSlot.getItem();
-            final ModelBiped model = EquipmentModelPool.get(itemBelt.model.getClass().getName());
+            final ModelBiped model = EquipmentModelPools.get(itemBelt.modelName, true);
 
             doEquipmentRender(model, player, new ResourceLocation(ID + ":textures/models/" + itemBelt.textureName), limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);*/
         }
 
         if (!vestSlot.isEmpty()) {
-            final ItemVest itemVest = (ItemVest) vestSlot.getItem();
-            final ModelBiped model = EquipmentModelPool.get(itemVest.model.getClass().getName());
-
-            doEquipmentRender(model, player, new ResourceLocation(ID + ":textures/models/" + itemVest.textureName), limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
+//            final ItemVest itemVest = (ItemVest) vestSlot.getItem();
+//            final ModelBiped model = EquipmentModelPools.get(itemVest.modelName, true);
+//
+//            doEquipmentRender(model, player, new ResourceLocation(ID + ":textures/models/" + itemVest.textureName), limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
         }
     }
 

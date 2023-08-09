@@ -3,6 +3,7 @@ package com.paneedah.mwc;
 import com.paneedah.mwc.creativetab.*;
 import com.paneedah.mwc.handlers.ClientEventHandler;
 import com.paneedah.mwc.handlers.CommonEventHandler;
+import com.paneedah.mwc.handlers.DebugHandler;
 import com.paneedah.mwc.init.MWCRecipes;
 import com.paneedah.mwc.network.handlers.*;
 import com.paneedah.mwc.network.messages.*;
@@ -11,6 +12,7 @@ import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.command.BalancePackCommand;
 import com.paneedah.weaponlib.command.CraftingFileCommand;
+import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import io.redstudioragnarok.redcore.RedCore;
@@ -25,6 +27,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -77,8 +80,11 @@ public final class MWC {
         MWCRecipes.register();
         commonProxy.init(this);
 
-        if (initializationEvent.getSide().isClient())
+        if (initializationEvent.getSide().isClient()) {
             Runtime.getRuntime().addShutdownHook(new Thread(ClientTickerController::stop));
+
+            updateDebugHandler();
+        }
 
         // Set the sounds
         modContext.setChangeZoomSound("OpticZoom");
@@ -148,5 +154,12 @@ public final class MWC {
         serverStartingEvent.registerServerCommand(new CraftingFileCommand());
         BalancePackManager.loadDirectory();
         CraftingFileManager.getInstance().loadDirectory();
+    }
+
+    public static void updateDebugHandler() {
+        if (DebugCommand.debugF3 || FMLLaunchHandler.isDeobfuscatedEnvironment())
+            MinecraftForge.EVENT_BUS.register(DebugHandler.class);
+        else
+            MinecraftForge.EVENT_BUS.unregister(DebugHandler.class);
     }
 }

@@ -1,10 +1,9 @@
 package com.paneedah.mwc.items.equipment.carryable;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.renderer.StaticModelSourceRendererRenderer;
+import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
 import com.paneedah.mwc.utils.LangUtil;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -36,7 +35,7 @@ public class ItemBackpack extends ItemCarryable {
             // Register hook
             CraftingRegistry.registerHook(itemBackpack);
 
-            MWC.modContext.registerRenderableItem(name, itemBackpack, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRendererRenderer(transforms) : null);
+            MWC.modContext.registerRenderableItem(name, itemBackpack, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
 
             return itemBackpack;
         }

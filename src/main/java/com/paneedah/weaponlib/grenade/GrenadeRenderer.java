@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.grenade;
 
-import com.paneedah.mwc.renderer.ModelSourceRenderer;
+import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
@@ -36,7 +36,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
-public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel {
+public class GrenadeRenderer extends ModelSource implements IBakedModel {
 
 	private static final float DEFAULT_RANDOMIZING_RATE = 0.33f;
 

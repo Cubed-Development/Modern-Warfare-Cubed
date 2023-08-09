@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.renderer.ModelSourceTransforms;
-import com.paneedah.mwc.renderer.StaticModelSourceRendererRenderer;
+import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
@@ -23,7 +23,6 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
@@ -38,11 +37,11 @@ public class ItemWirelessCamera extends Item implements ModelSource {
         protected ModelBase model;
         protected String textureName;
         protected ModelSourceTransforms transforms = ModelSourceTransforms.builder()
-                .entityPositioning(itemStack -> new Transform()
+                .entityPositioning(() -> new Transform()
                         .withPosition(-0.5, -0.55, 0.5)
                         .withScale(0.5, 0.5, 0.5)
                         .doGLDirect())
-                .inventoryPositioning(itemStack -> new Transform()
+                .inventoryPositioning(() -> new Transform()
                         .withScale(2.25, 2.25, 2.25)
                         .withPosition(-0.80, -0.7, 0)
                         .doGLDirect())
@@ -85,47 +84,47 @@ public class ItemWirelessCamera extends Item implements ModelSource {
             return this;
         }
 
-        public Builder withEntityPositioning(Consumer<ItemStack> entityPositioning) {
+        public Builder withEntityPositioning(Runnable entityPositioning) {
             transforms.setEntityPositioning(entityPositioning);
             return this;
         }
 
-        public Builder withInventoryPositioning(Consumer<ItemStack> inventoryPositioning) {
+        public Builder withInventoryPositioning(Runnable inventoryPositioning) {
             transforms.setInventoryPositioning(inventoryPositioning);
             return this;
         }
 
-        public Builder withThirdPersonPositioning(BiConsumer<EntityPlayer, ItemStack> thirdPersonPositioning) {
+        public Builder withThirdPersonPositioning(Runnable thirdPersonPositioning) {
             transforms.setThirdPersonPositioning(thirdPersonPositioning);
             return this;
         }
 
-        public Builder withFirstPersonPositioning(BiConsumer<EntityPlayer, ItemStack> firstPersonPositioning) {
+        public Builder withFirstPersonPositioning(Runnable firstPersonPositioning) {
             transforms.setFirstPersonPositioning(firstPersonPositioning);
             return this;
         }
 
-        public Builder withFirstPersonModelPositioning(BiConsumer<ModelBase, ItemStack> firstPersonModelPositioning) {
+        public Builder withFirstPersonModelPositioning(Consumer<ModelBase> firstPersonModelPositioning) {
             transforms.setFirstPersonModelPositioning(firstPersonModelPositioning);
             return this;
         }
 
-        public Builder withEntityModelPositioning(BiConsumer<ModelBase, ItemStack> entityModelPositioning) {
+        public Builder withEntityModelPositioning(Consumer<ModelBase> entityModelPositioning) {
             transforms.setEntityModelPositioning(entityModelPositioning);
             return this;
         }
 
-        public Builder withInventoryModelPositioning(BiConsumer<ModelBase, ItemStack> inventoryModelPositioning) {
+        public Builder withInventoryModelPositioning(Consumer<ModelBase> inventoryModelPositioning) {
             transforms.setInventoryModelPositioning(inventoryModelPositioning);
             return this;
         }
 
-        public Builder withThirdPersonModelPositioning(BiConsumer<ModelBase, ItemStack> thirdPersonModelPositioning) {
+        public Builder withThirdPersonModelPositioning(Consumer<ModelBase> thirdPersonModelPositioning) {
             transforms.setThirdPersonModelPositioning(thirdPersonModelPositioning);
             return this;
         }
 
-        public Builder withFirstPersonHandPositioning(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
+        public Builder withFirstPersonHandPositioning(Runnable leftHand, Runnable rightHand) {
             transforms.setFirstPersonLeftHandPositioning(leftHand);
             transforms.setFirstPersonRightHandPositioning(rightHand);
             return this;
@@ -181,7 +180,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
             }
 
             if (model != null || !texturedModels.isEmpty()) {
-                modContext.registerRenderableItem(name, camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRendererRenderer(transforms) : null);
+                modContext.registerRenderableItem(name, camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
             }
 
             if (craftingComplexity != null) {

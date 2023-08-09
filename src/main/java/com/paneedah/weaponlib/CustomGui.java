@@ -445,7 +445,7 @@ public class CustomGui extends Gui {
 	@SubscribeEvent
 	public final void onRenderCrosshair(RenderGameOverlayEvent.Pre event) {
 		
-		if (event.getType() != RenderGameOverlayEvent.ElementType.CROSSHAIRS ) {
+		if (event.getType() != RenderGameOverlayEvent.ElementType.CROSSHAIRS || MC.player.isSpectator()) {
 			return;
 		}
 		

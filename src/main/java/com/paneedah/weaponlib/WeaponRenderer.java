@@ -2,6 +2,7 @@ package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
 import com.google.common.collect.Maps;
+import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.mwc.skins.CustomSkin;
 import com.paneedah.mwc.utils.MWCUtil;
 import com.paneedah.weaponlib.animation.*;
@@ -14,7 +15,6 @@ import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.animation.jim.SingleAnimation;
 import com.paneedah.weaponlib.animation.movement.WeaponRotationHandler;
 import com.paneedah.weaponlib.command.DebugCommand;
-import com.paneedah.mwc.renderer.ModelSourceRenderer;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.*;
@@ -80,7 +80,7 @@ import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
-public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
+public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 	private static final float DEFAULT_RANDOMIZING_RATE = 0.33f;
 	private static final float DEFAULT_RANDOMIZING_FIRING_RATE = 20;

@@ -9,8 +9,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 
-import java.util.function.BiConsumer;
-
 public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstanceFactory<PlayerTabletInstance, TabletState>, Updatable {
     
     private final int DEFAULT_MAX_STACK_SIZE = 1;
@@ -19,20 +17,20 @@ public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstan
 
         {
             transforms = ModelSourceTransforms.builder()
-                    .entityPositioning(itemStack -> new Transform()
+                    .entityPositioning(() -> new Transform()
                             .withScale(0.3, 0.3, 0.3)
                             .withPosition(-0.5, -0.5, 0.5)
                             .doGLDirect())
-                    .inventoryPositioning(itemStack -> new Transform()
+                    .inventoryPositioning(() -> new Transform()
                             .withScale(1, 1, 1)
                             .withPosition(-0.24, 0.24, 0)
                             .doGLDirect())
                     .build();
         }
         
-        private BiConsumer<EntityLivingBase, ItemStack> viewfinderPositioning;
+        private Runnable viewfinderPositioning;
         
-        public Builder<T> withViewfinderPositioning(BiConsumer<EntityLivingBase, ItemStack> viewfinderPositioning) {
+        public Builder<T> withViewfinderPositioning(Runnable viewfinderPositioning) {
             this.viewfinderPositioning = viewfinderPositioning;
             return this;
         }
@@ -40,7 +38,7 @@ public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstan
         @Override
         protected ItemAttachment<T> createAttachment(ModContext modContext) {
             if(viewfinderPositioning == null) {
-                viewfinderPositioning = (p, s) -> {
+                viewfinderPositioning = () -> {
                     GL11.glScalef(3f, 3f, 3f);
                     GL11.glTranslatef(0.1f, 0.5f, 0.1f);
                 };

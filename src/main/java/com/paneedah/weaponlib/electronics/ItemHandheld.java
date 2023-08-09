@@ -7,8 +7,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
-import java.util.function.BiConsumer;
-
 public class ItemHandheld<T> extends ItemAttachment<T>
 implements PlayerItemInstanceFactory<PlayerHandheldInstance, HandheldState>, Updatable {
     
@@ -16,10 +14,10 @@ implements PlayerItemInstanceFactory<PlayerHandheldInstance, HandheldState>, Upd
         
     public static final class Builder<T> extends AttachmentBuilder<T> {
         
-        private BiConsumer<EntityLivingBase, ItemStack> screenPositioning;
+        private Runnable screenPositioning;
         private Class<? extends Perspective<?>> perspectiveClass;
         
-        public Builder<T> withScreenPositioning(BiConsumer<EntityLivingBase, ItemStack> screenPositioning) {
+        public Builder<T> withScreenPositioning(Runnable screenPositioning) {
             this.screenPositioning = screenPositioning;
             return this;
         }

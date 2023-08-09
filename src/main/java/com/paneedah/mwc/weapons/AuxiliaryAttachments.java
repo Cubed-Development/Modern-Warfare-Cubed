@@ -1644,7 +1644,7 @@ public class AuxiliaryAttachments {
                 .withModel(new ARCarryHandle(), "arcarryhandle.png")
                 .withRequiredAttachments(Attachments.M4Receiver, Attachments.VLTORReceiver, Attachments.HoneyBadgerReceiver,
                 		Attachments.HoneyBadgerReceiverBlack)
-                .withInventoryModelPositioning((model, s) -> {
+                .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ARCarryHandle) {
                         GL11.glTranslatef(-0.6F, -0.7F, -0.25F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
@@ -1654,7 +1654,7 @@ public class AuxiliaryAttachments {
                     } else {
                         GL11.glScalef(0f, 0f, 0f);
                     }
-                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                }).withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ARCarryHandle) {
                         GL11.glTranslatef(0.1F, 0F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
@@ -1663,7 +1663,7 @@ public class AuxiliaryAttachments {
                         GL11.glScaled(0F, 0F, 0F);
                     }
 
-                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                }).withThirdPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.ARCarryHandle) {
                         GL11.glTranslatef(-1.6F, -0.5F, 1.2F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);

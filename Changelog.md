@@ -103,6 +103,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Fixed
 
+- Fixed modifying the number of bullets through memory
 - Fixed some issues with incorrect weapon shell throwing
 - Fixed the perspective issue with MP7ironsightsstanding
 - Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)

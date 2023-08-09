@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.command;
 
 import akka.japi.Pair;
+import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.ItemAttachment;
@@ -27,6 +28,8 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class DebugCommand extends CommandBase {
 
+    public static boolean debugF3;
+
     private static final String SHOW_OPTION_CODE = "code";
     private static final String COMMAND_DEBUG = "wdb";
     private static final String DEBUG_ARG_ON = "on";
@@ -41,6 +44,8 @@ public class DebugCommand extends CommandBase {
     private static final String DEBUG_ARG_AUTOROTATE = "ar";
     private static final String DEBUG_ANIM_MODE = "anim";
     private static final String DEBUG_WEAPON = "weapon";
+
+    private static final String DEBUG_F3 = "f3";
     
     private static final String DEBUG_FREECAM = "freecam";
     private static final String DEBUG_MUZZLE_POS = "muzzle";
@@ -154,6 +159,9 @@ public class DebugCommand extends CommandBase {
             case DEBUG_WEAPON:
             	processWeapon(args);
             	break;
+            case DEBUG_F3:
+                processF3();
+                break;
             default:
                 MC.player.sendMessage(new TextComponentString(getUsage(sender)));
             }
@@ -190,6 +198,14 @@ public class DebugCommand extends CommandBase {
     
     public static boolean isForceLiveRenderGUI() {
     	return isForceLiveRenderGUI;
+    }
+
+    private void processF3() {
+        debugF3 = !debugF3;
+
+        MWC.updateDebugHandler();
+
+        sendDebugMessage("F3 debugging is now " + (debugF3 ? "on" : "off"));
     }
     
     private void processWeapon(String[] args) {

@@ -34,7 +34,7 @@ public class ItemSkin extends ItemAttachment<Weapon> {
 				this.textureName = textureVariants.get(0);
 			}
 			if(transforms.getInventoryPositioning() == null) {
-				withInventoryPositioning((itemStack) -> {
+				withInventoryPositioning(() -> {
 					
 					/*
 					GlStateManager.scale(0.5, 0.5, 0.5);
