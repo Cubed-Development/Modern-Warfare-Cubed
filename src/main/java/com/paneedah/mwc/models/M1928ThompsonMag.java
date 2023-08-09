@@ -29,8 +29,8 @@ public class M1928ThompsonMag extends ModelWithAttachments {
 	private final ModelRenderer mag9_r1;
 
 	public M1928ThompsonMag() {
-		textureWidth = 256;
-		textureHeight = 128;
+		textureWidth = 512;
+		textureHeight = 256;
 
 		magazine = new ModelRenderer(this);
 		magazine.setRotationPoint(0.0F, 24.0F, 0.0F);

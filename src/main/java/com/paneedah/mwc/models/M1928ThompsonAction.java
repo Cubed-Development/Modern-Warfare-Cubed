@@ -18,8 +18,8 @@ public class M1928ThompsonAction extends ModelWithAttachments {
 	private final ModelRenderer action11_r1;
 
 	public M1928ThompsonAction() {
-		textureWidth = 256;
-		textureHeight = 128;
+		textureWidth = 512;
+		textureHeight = 256;
 
 		action = new ModelRenderer(this);
 		action.setRotationPoint(0.0F, 24.0F, 0.0F);

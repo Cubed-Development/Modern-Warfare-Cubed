@@ -99,8 +99,8 @@ public class M1928Thompson extends ModelWithAttachments {
 	private final ModelRenderer gun5_r1;
 
 	public M1928Thompson() {
-		textureWidth = 256;
-		textureHeight = 128;
+		textureWidth = 512;
+		textureHeight = 256;
 
 		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, 24.0F, 0.0F);
