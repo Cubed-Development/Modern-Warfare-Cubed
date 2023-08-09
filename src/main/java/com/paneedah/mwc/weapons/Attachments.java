@@ -483,6 +483,10 @@ public class Attachments {
     public static ItemAttachment<Weapon> DesertEagleBody;
     public static ItemAttachment<Weapon> DesertEagleSlide;
     public static ItemAttachment<Weapon> DesertEagleLongBody;
+    public static ItemAttachment<Weapon> DesertEagleBodyGolden;
+    public static ItemAttachment<Weapon> DesertEagleSlideGolden;
+    public static ItemAttachment<Weapon> DesertEagleBodyBlack;
+    public static ItemAttachment<Weapon> DesertEagleSlideBlack;
     public static ItemAttachment<Weapon> Glock19Body;
 //    public static ItemAttachment<Weapon> Glock18CBody;
     public static ItemAttachment<Weapon> Glock19XBody;
@@ -5559,7 +5563,153 @@ public class Attachments {
                 .withName("DesertEagleLongBody")
                 .withRenderablePart().withTextureName("Dummy.png")
                 .build(MWC.modContext);
-        
+
+        DesertEagleBodyGolden = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.BACKGRIP)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withModel(new com.paneedah.mwc.models.DesertEagle(), "deaglegolden.png")
+                .withInventoryModelPositioning((model, s) -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagle) {
+                        GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagle) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+
+                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagle) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("DesertEagleBodyGolden")
+                .withRenderablePart().withTextureName("Dummy.png")
+                .build(MWC.modContext);
+
+        DesertEagleSlideGolden = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.FRONTSIGHT)
+                .withModel(new com.paneedah.mwc.models.DesertEagleSlide(), "deaglegolden.png")
+                .withInventoryModelPositioning((model, s) -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
+                        GL11.glTranslatef(-0.6F, 0.2F, -0.4F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+
+                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("DesertEagleSlideGolden")
+                .withRenderablePart().withTextureName("Dummy.png")
+                .build(MWC.modContext);
+
+        DesertEagleBodyBlack = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.BACKGRIP)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withModel(new com.paneedah.mwc.models.DesertEagle(), "deagleblack.png")
+                .withInventoryModelPositioning((model, s) -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagle) {
+                        GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagle) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+
+                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagle) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("DesertEagleBodyBlack")
+                .withRenderablePart().withTextureName("Dummy.png")
+                .build(MWC.modContext);
+
+        DesertEagleSlideBlack = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.FRONTSIGHT)
+                .withModel(new com.paneedah.mwc.models.DesertEagleSlide(), "deagleblack.png")
+                .withInventoryModelPositioning((model, s) -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
+                        GL11.glTranslatef(-0.6F, 0.2F, -0.4F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+
+                }).withThirdPersonModelPositioning((model, itemStack) -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("DesertEagleSlideBlack")
+                .withRenderablePart().withTextureName("Dummy.png")
+                .build(MWC.modContext);
+
         Glock19Body = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
