@@ -52,8 +52,6 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 
     private double aimTan;
 
-    public Vec3d origin;
-
     protected long maxLifetime = DEFAULT_MAX_LIFETIME;
 
     public EntityProjectile(World world) {
@@ -82,52 +80,22 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
 //        }
     }
 
-    public void setPositionAndDirection(boolean isAim) {
-        this.setLocationAndAngles(thrower.posX, thrower.posY + (double) thrower.getEyeHeight(), thrower.posZ, thrower.rotationYaw, thrower.rotationPitch);
-        
-        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * (isAim ? 0F : 0.16F));
-        this.posY -= (isAim ? 0D : 0.10000000149011612D);
-        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * (isAim ? 0F : 0.16F));
-        this.setPosition(this.posX, this.posY, this.posZ);
+    public void setPositionAndDirection(boolean isAiming) {
+        double x = thrower.posX;
+        double y = thrower.posY + thrower.getEyeHeight();
+        double z = thrower.posZ;
 
+        x -= Math.cos(thrower.rotationYaw / 180 *  Math.PI) * (isAiming ? 0 : 0.16);
+        y -= (isAiming ? 0 : 0.1);
+        z -= Math.sin(thrower.rotationYaw / 180 *  Math.PI) * (isAiming ? 0 : 0.16);
 
-        this.origin = new Vec3d(this.posX, this.posY, this.posZ);
+        setPositionAndRotation(x, y, z, thrower.rotationYaw, thrower.rotationPitch);
 
-        //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
-        float f = velocity; //0.4F;
-        this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionY = (double) (-MathHelper.sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
-    }
+        motionX = -Math.sin(rotationYaw / 180 *  Math.PI) * Math.cos(rotationPitch / 180 *  Math.PI);
+        motionY = -Math.sin(rotationPitch / 180 *  Math.PI);
+        motionZ = Math.cos(rotationYaw / 180 *  Math.PI) * Math.cos(rotationPitch / 180 *  Math.PI);
 
-    public void setPositionAndDirection(double x, double y, double z, float rotationYaw, float rotationPitch) {
-
-        this.setLocationAndAngles(x, y + (double) thrower.getEyeHeight(), z, rotationYaw, rotationPitch);
-
-        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
-        this.posY -= 0.10000000149011612D;
-        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
-        this.setPosition(this.posX, this.posY, this.posZ);
-
-        //this.yOffset = 0.0F; TODO: verify how this works in 1.7.10
-        float f = velocity; //0.4F;
-        this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI) * f);
-        this.motionY = (double) (-MathHelper.sin((this.rotationPitch + this.getPitchOffset()) / 180.0F * (float) Math.PI) * f);
-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity, inaccuracy);
-    }
-
-    public EntityProjectile(World world, double posX, double posY, double posZ) {
-        super(world);
-        //this.ticksInGround = 0;
-        this.setSize(0.25F, 0.25F);
-        this.setPosition(posX, posY, posZ);
-        //this.yOffset = 0.0F; // TODO: verify how it works in 1.7.10
-    }
-
-    protected float getPitchOffset() {
-        return 0.0F;
+        setThrowableHeading(motionX, motionY, motionZ, velocity, inaccuracy);
     }
 
     /**

@@ -173,6 +173,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed flashbang not flashing in every direction
 - Fixed the exposure decreasing on the client side even when the game is paused
 - Fixed spectators being able to shoot weapons
+- Fixed the spawning position of the shells
+- Bullet spawning maths which was making the bullets spawn in inaccurate position
 
 ### Removed
 

@@ -472,8 +472,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         PlayerWeaponInstance playerWeaponInstance = Tags.getInstance(itemStack, PlayerWeaponInstance.class);
 
         if(playerWeaponInstance != null) {
-        	
-        	Vec3d pos = player.getPositionEyes(1.0f);
+            Vec3d pos = new Vec3d(player.posX, player.posY + player.getEyeHeight(), player.posZ);
         	Vec3d weaponDir = new Vec3d(0, -0.1, 1).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw));
         	
         	Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);

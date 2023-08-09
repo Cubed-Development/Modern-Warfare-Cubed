@@ -31,10 +31,5 @@ public final class PlayerUtil {
         AxisAlignedBB axisAlignedBB = entityPlayer.getEntityBoundingBox();
 
         entityPlayer.setEntityBoundingBox(new AxisAlignedBB(axisAlignedBB.minX, axisAlignedBB.minY, axisAlignedBB.minZ, axisAlignedBB.minX + entityPlayer.width, axisAlignedBB.minY + entityPlayer.height, axisAlignedBB.minZ + entityPlayer.width));
-
-        if (height < 1.5)
-            entityPlayer.eyeHeight = 0.6F;
-        else
-            entityPlayer.eyeHeight = entityPlayer.getDefaultEyeHeight();
     }
 }
