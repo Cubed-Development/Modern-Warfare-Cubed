@@ -61,7 +61,7 @@ public class DesertEagleFactory implements GunFactory {
         		// Recoil rotation (Y)
         		0.0,
         		// Recoil rotation (Z)
-        		1.0,
+        		0.0,
         		// Ads similarity divisor
         		1.0
         ))
