@@ -44,7 +44,6 @@ public class DesertEagleFactory implements GunFactory {
         .withFlashScale(() -> 0.7f)
         .withFlashOffsetX(() -> 0.13f)
         .withFlashOffsetY(() -> 0.14f)
-//      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
@@ -75,25 +74,21 @@ public class DesertEagleFactory implements GunFactory {
             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
             GL11.glScaled(0F, 0F, 0F);
         })
-//        .withCompatibleAttachment(Attachments.Placeholder, true, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
-//        })
         .withCompatibleAttachment(Attachments.DesertEagleBody, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.DesertEagleSlide, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
-        })
-        .withCompatibleAttachment(Attachments.DesertEagleLongBody, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Magazines.DesertEagleMag, (model) -> {
-//        	GL11.glTranslatef(0f, 3f, 1f);
-//        	GL11.glRotatef(20F, 1f, 0f, 0f);
+        })
+        .withCompatibleAttachment(Attachments.DesertEagleLongBody, (model) -> {
+        })
+        .withCompatibleAttachment(Attachments.DesertEagleBodyGolden, (model) -> {
+        })
+        .withCompatibleAttachment(Attachments.DesertEagleSlideGolden, (model) -> {
+        })
+        .withCompatibleAttachment(Attachments.DesertEagleBodyBlack, (model) -> {
+        })
+        .withCompatibleAttachment(Attachments.DesertEagleSlideBlack, (model) -> {
         })
         .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
             GL11.glTranslatef(0.01F, -0.76F, -2.1F);
@@ -117,18 +112,15 @@ public class DesertEagleFactory implements GunFactory {
             GL11.glTranslatef(-0.05F, -1F, -1.6F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
-        if(model instanceof Reflex2) {
-            GL11.glTranslatef(-0.125F, -0.68F, -0.4F);
-            GL11.glScaled(0.15F, 0.15F, 0.15F);
-        }
+            if(model instanceof Reflex2) {
+                GL11.glTranslatef(-0.125F, -0.68F, -0.4F);
+                GL11.glScaled(0.15F, 0.15F, 0.15F);
+            }
         })
         .withTextureNames("deagle")
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new Glock18C())
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);

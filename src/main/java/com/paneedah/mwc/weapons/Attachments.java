@@ -483,6 +483,10 @@ public class Attachments {
     public static ItemAttachment<Weapon> DesertEagleBody;
     public static ItemAttachment<Weapon> DesertEagleSlide;
     public static ItemAttachment<Weapon> DesertEagleLongBody;
+    public static ItemAttachment<Weapon> DesertEagleBodyGolden;
+    public static ItemAttachment<Weapon> DesertEagleSlideGolden;
+    public static ItemAttachment<Weapon> DesertEagleBodyBlack;
+    public static ItemAttachment<Weapon> DesertEagleSlideBlack;
     public static ItemAttachment<Weapon> Glock19Body;
 //    public static ItemAttachment<Weapon> Glock18CBody;
     public static ItemAttachment<Weapon> Glock19XBody;
@@ -2564,9 +2568,9 @@ public class Attachments {
         
         AUGA1handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.AUGA1(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.AUGHandguard(), "aug.png")
                 .withInventoryModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.AUGA1) {
+                    if (model instanceof com.paneedah.mwc.models.AUGHandguard) {
                         GL11.glTranslatef(-0.6F, 0.6F, 0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
@@ -2576,7 +2580,7 @@ public class Attachments {
                         GL11.glScalef(0f, 0f, 0f);
                     }
                 }).withFirstPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.AUGA1) {
+                    if (model instanceof com.paneedah.mwc.models.AUGHandguard) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
@@ -2585,7 +2589,7 @@ public class Attachments {
                     }
 
                 }).withThirdPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.AUGA1) {
+                    if (model instanceof com.paneedah.mwc.models.AUGHandguard) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
@@ -2599,10 +2603,10 @@ public class Attachments {
         
         AUGA2handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.AUGA2(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.AUGScopeRail(), "aug.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withInventoryModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.AUGA2) {
+                    if (model instanceof com.paneedah.mwc.models.AUGScopeRail) {
                         GL11.glTranslatef(-0.6F, 0.6F, 0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
@@ -2612,7 +2616,7 @@ public class Attachments {
                         GL11.glScalef(0f, 0f, 0f);
                     }
                 }).withFirstPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.AUGA2) {
+                    if (model instanceof com.paneedah.mwc.models.AUGScopeRail) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
@@ -2621,7 +2625,7 @@ public class Attachments {
                     }
 
                 }).withThirdPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.AUGA2) {
+                    if (model instanceof com.paneedah.mwc.models.AUGScopeRail) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
@@ -2635,7 +2639,7 @@ public class Attachments {
         
         AUGA3handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.AUGA3M1(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.AUGA3M1(), "aug.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AUGA3M1) {
@@ -2671,10 +2675,10 @@ public class Attachments {
         
         EF88Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.EF88(), "aug.png")
+                .withModel(new com.paneedah.mwc.models.AUGEF88(), "aug.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withInventoryModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.EF88) {
+                    if (model instanceof com.paneedah.mwc.models.AUGEF88) {
                         GL11.glTranslatef(-0.6F, -0.3F, 0.2F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
@@ -2684,7 +2688,7 @@ public class Attachments {
                         GL11.glScalef(0f, 0f, 0f);
                     }
                 }).withFirstPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.EF88) {
+                    if (model instanceof com.paneedah.mwc.models.AUGEF88) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
@@ -2693,7 +2697,7 @@ public class Attachments {
                     }
 
                 }).withThirdPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.EF88) {
+                    if (model instanceof com.paneedah.mwc.models.AUGEF88) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
@@ -2707,9 +2711,9 @@ public class Attachments {
         
         AUGDefaultKit = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.AUG9mmCONVERSIONkit(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.AUG9mmConversionkit(), "aug.png")
                 .withInventoryModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.AUG9mmCONVERSIONkit) {
+                    if (model instanceof com.paneedah.mwc.models.AUG9mmConversionkit) {
                         GL11.glTranslatef(-0.6F, -0.6F, 1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
@@ -2719,7 +2723,7 @@ public class Attachments {
                         GL11.glScalef(0f, 0f, 0f);
                     }
                 }).withFirstPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.AUG9mmCONVERSIONkit) {
+                    if (model instanceof com.paneedah.mwc.models.AUG9mmConversionkit) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
@@ -2728,7 +2732,7 @@ public class Attachments {
                     }
 
                 }).withThirdPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.AUG9mmCONVERSIONkit) {
+                    if (model instanceof com.paneedah.mwc.models.AUG9mmConversionkit) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
@@ -2742,9 +2746,9 @@ public class Attachments {
         
         AUGParaConversion = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.AUG9mmCONVERSIONkit(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.AUG9mmConversionkit(), "aug.png")
                 .withInventoryModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.AUG9mmCONVERSIONkit) {
+                    if (model instanceof com.paneedah.mwc.models.AUG9mmConversionkit) {
                         GL11.glTranslatef(-0.6F, -0.6F, 1F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
@@ -2754,7 +2758,7 @@ public class Attachments {
                         GL11.glScalef(0f, 0f, 0f);
                     }
                 }).withFirstPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.AUG9mmCONVERSIONkit) {
+                    if (model instanceof com.paneedah.mwc.models.AUG9mmConversionkit) {
                         GL11.glTranslatef(0.1F, -0.8F, 0.4F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.7F, 0.7F, 0.7F);
@@ -2763,7 +2767,7 @@ public class Attachments {
                     }
 
                 }).withThirdPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.AUG9mmCONVERSIONkit) {
+                    if (model instanceof com.paneedah.mwc.models.AUG9mmConversionkit) {
                         GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
@@ -2777,7 +2781,7 @@ public class Attachments {
         
         AUGA3extGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.AUGA3M1_Ext(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.AUGA3M1_Ext(), "aug.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
                 .withModel(new com.paneedah.mwc.models.AKRail3(), "akrail.png")
@@ -5559,6 +5563,152 @@ public class Attachments {
                 .withName("DesertEagleLongBody")
                 .withRenderablePart().withTextureName("Dummy.png")
                 .build(MWC.modContext);
+
+        DesertEagleBodyGolden = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.BACKGRIP)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withModel(new com.paneedah.mwc.models.DesertEagle(), "deaglegolden.png")
+                .withInventoryModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagle) {
+                        GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagle) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+
+                }).withThirdPersonModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagle) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("DesertEagleBodyGolden")
+                .withRenderablePart().withTextureName("Dummy.png")
+                .build(MWC.modContext);
+
+        DesertEagleSlideGolden = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.FRONTSIGHT)
+                .withModel(new com.paneedah.mwc.models.DesertEagleSlide(), "deaglegolden.png")
+                .withInventoryModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
+                        GL11.glTranslatef(-0.6F, 0.2F, -0.4F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+
+                }).withThirdPersonModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("DesertEagleSlideGolden")
+                .withRenderablePart().withTextureName("Dummy.png")
+                .build(MWC.modContext);
+
+        DesertEagleBodyBlack = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.BACKGRIP)
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withModel(new com.paneedah.mwc.models.DesertEagle(), "deagleblack.png")
+                .withInventoryModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagle) {
+                        GL11.glTranslatef(-0.6F, -0.1F, -0.3F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagle) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+
+                }).withThirdPersonModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagle) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("DesertEagleBodyBlack")
+                .withRenderablePart().withTextureName("Dummy.png")
+                .build(MWC.modContext);
+
+        DesertEagleSlideBlack = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.FRONTSIGHT)
+                .withModel(new com.paneedah.mwc.models.DesertEagleSlide(), "deagleblack.png")
+                .withInventoryModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
+                        GL11.glTranslatef(-0.6F, 0.2F, -0.4F);
+                        GL11.glRotatef(10F, 1f, 0f, 0f);
+                        GL11.glRotatef(-190F, 0f, 1f, 0f);
+                        GL11.glRotatef(0F, 0f, 0f, 1f);
+                        GL11.glScaled(0.9F, 0.9F, 0.9f);
+                    } else {
+                        GL11.glScalef(0f, 0f, 0f);
+                    }
+                }).withFirstPersonModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
+                        GL11.glTranslatef(0.1F, -0.8F, 0.4F);
+                        GL11.glRotatef(30F, 0f, 1f, 0f);
+                        GL11.glScaled(0.7F, 0.7F, 0.7F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+
+                }).withThirdPersonModelPositioning(model -> {
+                    if (model instanceof com.paneedah.mwc.models.DesertEagleSlide) {
+                        GL11.glTranslatef(-0.8F, -0.5F, 0.8F);
+                        GL11.glRotatef(-50F, 0f, 1f, 0f);
+                        GL11.glRotatef(80F, 1f, 0f, 0f);
+                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                    } else {
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                })
+                .withName("DesertEagleSlideBlack")
+                .withRenderablePart().withTextureName("Dummy.png")
+                .build(MWC.modContext);
         
         Glock19Body = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
@@ -7252,10 +7402,10 @@ public class Attachments {
         HK417Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Handguard(), "HK417.png")
-                .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail3(), "akrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail5(), "akrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail2(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail3(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail5(), "guntandarkrail.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Handguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
@@ -7764,7 +7914,7 @@ public class Attachments {
         HK417Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Receiver(), "HK417.png")
-                .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "guntanrail.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Receiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
@@ -14487,7 +14637,7 @@ public class Attachments {
         Remington870MagpulPump = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRenderablePart()
-                .withModel(new com.paneedah.mwc.models.Remington870MagpulPump(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870MagpulPump(), "remington870.png")
                 .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870MagpulPump) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
@@ -14561,7 +14711,7 @@ public class Attachments {
         Remington870FABDefensePump = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withRenderablePart()
-                .withModel(new com.paneedah.mwc.models.Remington870FABDefensePump(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870FABDefensePump(), "remington870.png")
                 .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870FABDefensePump) {
@@ -14642,7 +14792,7 @@ public class Attachments {
         
         Remington870PoliceMagnumStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "remington870.png")
                 .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
@@ -14678,7 +14828,7 @@ public class Attachments {
         
         Remington870MilspecStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "remington870.png")
                 .withModel(new com.paneedah.mwc.models.MilSpecStock(), "gun.png")
                 .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
@@ -14727,7 +14877,7 @@ public class Attachments {
         
         Remington870HK416Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumStock(), "remington870.png")
                 .withModel(new com.paneedah.mwc.models.HK416Stock(), "gun.png")
                 .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumStock) {
@@ -14812,7 +14962,7 @@ public class Attachments {
         
         Remington870Barrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.Remington870Barrel(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870Barrel(), "remington870.png")
                 .withModel(new com.paneedah.mwc.models.R870part(), "gun.png")
                 .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870Barrel) {
@@ -14857,7 +15007,7 @@ public class Attachments {
         
         Remington870PoliceMagnumBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumBarrel(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870PoliceMagnumBarrel(), "remington870.png")
                 .withModel(new com.paneedah.mwc.models.M9A1frontsight(), "gun.png")
                 .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870PoliceMagnumBarrel) {
@@ -14902,7 +15052,7 @@ public class Attachments {
         
         Remington870SawedOffBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.Remington870SawedBarrel(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.Remington870SawedBarrel(), "remington870.png")
                 .withModel(new com.paneedah.mwc.models.M9A1frontsight(), "gun.png")
                 .withFirstPersonModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.Remington870SawedBarrel) {
@@ -16460,7 +16610,7 @@ public class Attachments {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerSilencer) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
-                        GL11.glScaled(0.6F, 0.6F, 0.6F);
+                        GL11.glScaled(0F, 0F, 0F);
                     }
 
                 }).withThirdPersonModelPositioning(model -> {
@@ -16468,7 +16618,7 @@ public class Attachments {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
-                        GL11.glScaled(0.5F, 0.5F, 0.5F);
+                        GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.AACHoneyBadgerSilencer) {
@@ -16476,7 +16626,7 @@ public class Attachments {
                         // GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(1F, 1F, 1f);
+                        GL11.glScaled(0F, 0F, 0f);
 
                     }
                 }).withEntityModelPositioning(model -> {
@@ -17262,7 +17412,7 @@ public class Attachments {
         AUGgrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withModel(new com.paneedah.mwc.models.AUGGrip(), "gun.png")
+                .withModel(new com.paneedah.mwc.models.AUGGrip(), "aug.png")
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.6f);
                 }).withFirstPersonModelPositioning(model -> {
