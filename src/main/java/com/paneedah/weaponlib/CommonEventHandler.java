@@ -12,6 +12,7 @@ import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.mwc.network.messages.EntityInventorySyncMessage;
 import com.paneedah.weaponlib.jim.util.ByteArrayUtils;
+import com.paneedah.weaponlib.jim.util.HitUtil;
 import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,9 +21,11 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -221,6 +224,17 @@ public class CommonEventHandler {
             final ItemStack[] itemStacks = new ItemStack[]{equipmentInventory.getStackInSlot(1)};
             stackList.addAll(Arrays.asList(itemStacks));
             event.setAmount((float) (event.getAmount() * (1 - ((ItemVest) equipmentInventory.getStackInSlot(1).getItem()).getDamageBlocked())));
+        }
+
+        final DamageSource source = event.getSource();
+
+        if (source.getImmediateSource() instanceof EntityProjectile) {
+            final RayTraceResult hit = HitUtil.traceProjectilehit(source.getImmediateSource(), entityLiving);
+            if (hit != null && hit.hitVec.distanceTo(entityLiving.getPositionEyes(1.0f)) < 0.6f) {
+                event.setAmount((float) (event.getAmount() * BalancePackManager.getHeadshotMultiplier()));
+                if (source.getTrueSource() instanceof EntityPlayer)
+                    CHANNEL.sendTo(new HeadshotSFXMessage(), (EntityPlayerMP) source.getTrueSource());
+            }
         }
     }
 

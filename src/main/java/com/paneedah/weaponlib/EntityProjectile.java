@@ -13,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.*;
@@ -24,7 +25,7 @@ import java.util.List;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 
-public abstract class EntityProjectile extends Entity implements IProjectile, IEntityAdditionalSpawnData {
+public abstract class EntityProjectile extends EntityArrow implements IProjectile, IEntityAdditionalSpawnData {
 
     private static final String TAG_GRAVITY_VELOCITY = "gravityVelocity";
 
@@ -149,7 +150,6 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
         this.lastTickPosX = this.posX;
         this.lastTickPosY = this.posY;
         this.lastTickPosZ = this.posZ;
-        super.onUpdate();
 
         if (this.throwableShake > 0) {
             --this.throwableShake;

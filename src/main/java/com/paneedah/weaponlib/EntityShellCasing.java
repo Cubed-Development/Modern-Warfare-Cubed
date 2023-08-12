@@ -7,6 +7,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
@@ -184,6 +185,11 @@ public class EntityShellCasing extends EntityProjectile {
         if (item instanceof Weapon) {
             weapon = (Weapon) item;
         }
+    }
+
+    @Override
+    protected ItemStack getArrowStack() {
+        return null;
     }
 
     @Override

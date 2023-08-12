@@ -179,7 +179,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Removed
 
-- Removed headshot mechanic; it was currently broken and will come back in the future
 - Removed all arcade guns (These will be moved to a sister mod at a later time)
 - Removed the SA80
 - Removed the mission system
@@ -217,13 +216,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Overhauled the internal process of item and block creation
 - Changed name and mod id
 - Overhauled the networking
-
-### Balance Pack
-
-The new balance pack manager version is `1.3`. 
-
-- Added `inaccuracy`
-- Removed `headshotMultiplier`
 
 ##### Credits
 

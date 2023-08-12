@@ -120,6 +120,7 @@ public final class MWC {
         CHANNEL.registerMessage(new EntityInventorySyncMessageClientHandler(modContext), EntityInventorySyncMessage.class, -14, Side.CLIENT);
         CHANNEL.registerMessage(new ExposureMessageHandler(), ExposureMessage.class, -15, Side.CLIENT);
         CHANNEL.registerMessage(new EntityControlClientMessageHandler(), EntityControlClientMessage.class, -16, Side.CLIENT);
+        CHANNEL.registerMessage(new HeadshotSFXMessageHandler(), HeadshotSFXMessage.class, -17, Side.CLIENT);
 
         CHANNEL.registerMessage(new TryFireMessageHandler(modContext.getWeaponFireAspect()), TryFireMessage.class, 1, Side.SERVER);
         CHANNEL.registerMessage(new PermitMessageServerHandler((CommonModContext) modContext), PermitMessage.class, 2, Side.SERVER);

@@ -11,6 +11,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
@@ -89,7 +90,10 @@ public class WeaponSpawnEntity extends EntityProjectile {
             //PostProcessPipeline.createDistortionPoint((float) position.hitVec.x,(float)  position.hitVec.y, (float) position.hitVec.z, 2f, 3000);
             Explosion.createServerSideExplosion(world, this.getThrower(), this, position.hitVec.x, position.hitVec.y, position.hitVec.z, explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, weapon.getModContext().getRegisteredTexture(explosionParticleTextureId), weapon.getModContext().getRegisteredTexture(smokeParticleTextureId), weapon.getModContext().getExplosionSound());
         } else if (position.entityHit != null) {
-            position.entityHit.attackEntityFrom(new ProjectileDamageSource("gun", weapon.getName(), this, this.getThrower()), damage);
+            if (this.getThrower() != null)
+                position.entityHit.attackEntityFrom(DamageSource.causeArrowDamage(this, this.getThrower()), damage);
+            else
+                position.entityHit.attackEntityFrom(new DamageSource("arrow"), damage);
 
             // Todo: Actually fix this, currently we are reproducing the effect of not apply knockback.
             //  If you are standing still it's not a big deal everything seems fine.
@@ -156,6 +160,11 @@ public class WeaponSpawnEntity extends EntityProjectile {
     }
 
     @Override
+    protected ItemStack getArrowStack() {
+        return null;
+    }
+
+    @Override
     public void writeSpawnData(final ByteBuf buffer) {
         super.writeSpawnData(buffer);
 
@@ -200,6 +209,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
         return weapon;
     }
 
+    /*
     public static class ProjectileDamageSource extends DamageSource {
 
         private final String gunName;
@@ -231,4 +241,5 @@ public class WeaponSpawnEntity extends EntityProjectile {
             return new TextComponentTranslation("death.attack.gun", entityLivingBaseIn.getDisplayName(), this.shooter.getDisplayName(), this.gunName);
         }
     }
+     */
 }
