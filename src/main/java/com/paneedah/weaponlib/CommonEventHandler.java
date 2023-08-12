@@ -8,6 +8,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import com.paneedah.weaponlib.electronics.ItemHandheld;
 import com.paneedah.mwc.network.messages.EntityInventorySyncMessage;
@@ -31,6 +32,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -235,6 +237,13 @@ public class CommonEventHandler {
                 if (source.getTrueSource() instanceof EntityPlayer)
                     CHANNEL.sendTo(new HeadshotSFXMessage(), (EntityPlayerMP) source.getTrueSource());
             }
+        }
+    }
+
+    @SubscribeEvent
+    public void onLivingKnockBack(LivingKnockBackEvent event) {
+        if (!ModernConfigManager.knockbackOnHit && ((EntityLivingBase) event.getAttacker()).getHeldItemMainhand().getItem() instanceof Weapon) {
+            event.setCanceled(true);
         }
     }
 

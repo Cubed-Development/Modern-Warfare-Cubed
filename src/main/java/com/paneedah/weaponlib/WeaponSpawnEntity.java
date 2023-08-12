@@ -95,18 +95,6 @@ public class WeaponSpawnEntity extends EntityProjectile {
             else
                 position.entityHit.attackEntityFrom(new DamageSource("arrow"), damage);
 
-            // Todo: Actually fix this, currently we are reproducing the effect of not apply knockback.
-            //  If you are standing still it's not a big deal everything seems fine.
-            //  But if you are moving you will basically freeze/slowdown greatly (see CS:GO for example).
-            //  The correct fix to this would be to actually not apply knockback instead of "canceling it".
-            //  But I (Desoroxxx) was not able in time to find where is the knockback applied, so bandage fix it is.
-            if (!ModernConfigManager.knockbackOnHit && position.entityHit.hurtResistantTime > 0) {
-                position.entityHit.motionX = motionX / 1500;
-                position.entityHit.motionY = motionY / 1500;
-                position.entityHit.motionZ = motionZ / 1500;
-                position.entityHit.isAirBorne = true;
-            }
-
             position.entityHit.hurtResistantTime = 0;
             position.entityHit.prevRotationYaw -= 0.3;
 
