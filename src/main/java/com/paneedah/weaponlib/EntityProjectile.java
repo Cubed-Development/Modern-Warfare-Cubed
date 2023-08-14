@@ -291,7 +291,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile, IE
                 AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().expand((double) f1, (double) f1, (double) f1);
                 RayTraceResult movingobjectposition = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
                 AxisAlignedBB axisalignedbb1 = entity1.getEntityBoundingBox().expand((double) f2, (double) f2, (double) f2);
-                RayTraceResult movingobjectposition1 = axisalignedbb.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
+                RayTraceResult movingobjectposition1 = axisalignedbb1.calculateIntercept(vec3.toVec3d(), vec31.toVec3d());
 
                 if (movingobjectposition != null) {
                     double d1 = vec3.distanceTo(new Vector3D(movingobjectposition.hitVec));
