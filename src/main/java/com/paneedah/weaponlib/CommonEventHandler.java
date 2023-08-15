@@ -242,6 +242,7 @@ public class CommonEventHandler {
 
     @SubscribeEvent
     public void onLivingKnockBack(LivingKnockBackEvent event) {
+        // This event cannot obtain the original attack item (arrow)
         if (!ModernConfigManager.knockbackOnHit && ((EntityLivingBase) event.getAttacker()).getHeldItemMainhand().getItem() instanceof Weapon) {
             event.setCanceled(true);
         }
