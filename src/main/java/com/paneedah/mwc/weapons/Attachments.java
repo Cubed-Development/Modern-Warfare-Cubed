@@ -7402,10 +7402,10 @@ public class Attachments {
         HK417Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Handguard(), "HK417.png")
-                .withModel(new com.paneedah.mwc.models.AKRail(), "guntandarkrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail2(), "guntandarkrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail3(), "guntandarkrail.png")
-                .withModel(new com.paneedah.mwc.models.AKRail5(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail2(), "akrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail3(), "akrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail5(), "akrail.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Handguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
@@ -7441,10 +7441,10 @@ public class Attachments {
         HK417HandguardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Handguard(), "HK417tan.png")
-                .withModel(new com.paneedah.mwc.models.AKRail(), "guntandark.png")
-                .withModel(new com.paneedah.mwc.models.AKRail2(), "guntandark.png")
-                .withModel(new com.paneedah.mwc.models.AKRail3(), "guntandark.png")
-                .withModel(new com.paneedah.mwc.models.AKRail5(), "guntandark.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail2(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail3(), "guntandarkrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail5(), "guntandarkrail.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Handguard) {
                         GL11.glTranslatef(-0.6F, 0.5F, -1.4F);
@@ -7914,7 +7914,7 @@ public class Attachments {
         HK417Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Receiver(), "HK417.png")
-                .withModel(new com.paneedah.mwc.models.AKRail(), "guntanrail.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "akrail.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Receiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
@@ -7950,7 +7950,7 @@ public class Attachments {
         HK417ReceiverTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withModel(new com.paneedah.mwc.models.HK417Receiver(), "HK417tan.png")
-                .withModel(new com.paneedah.mwc.models.AKRail(), "guntan.png")
+                .withModel(new com.paneedah.mwc.models.AKRail(), "guntanrail.png")
                 .withInventoryModelPositioning(model -> {
                     if (model instanceof com.paneedah.mwc.models.HK417Receiver) {
                         GL11.glTranslatef(-0.6F, 0.3F, 0F);
@@ -12991,7 +12991,7 @@ public class Attachments {
                         MIMP5TRRail, MIMP5MRail, ShotgunRail, FABDefenseMount, 
                         Placeholder, Kar98Krail, M60Rail, P90Placeholder, AUGA2handguard, AUGA3handguard, 
                         Attachments.EF88Handguard, KrissVectorReceiver,
-                        Vector556Handguard, DesertEagleSlide, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
+                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideBlack, DesertEagleSlideGolden, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
                         HoneyBadgerKnightsReceiver, HoneyBadgerKnightsReceiverBlack, 
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, SSG08Chassis, SA58DustCover,
                         M16A1ScopeMount, UMP45Receiver, UMP9Receiver, G2ContenderBarrelLong, S710Receiver,
@@ -13792,7 +13792,7 @@ public class Attachments {
                         P90Placeholder, AUGA2handguard, AUGA3handguard, 
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
                         Attachments.EF88Handguard, KrissVectorReceiver, 
-                        Vector556Handguard, DesertEagleSlide, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
+                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideBlack, DesertEagleSlideGolden, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, MAS21Mount, APC9Placeholder, 
                         MAC21Stock, VSSMDustCover, Dragunov98DustCover)
                 .withFirstPersonModelPositioning(model -> {
@@ -17248,7 +17248,7 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan, 
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, DesertEagleLongBody)
                 .withModernRecipe(
                     	CraftingGroup.ATTACHMENT_NORMAL,
                     	new CraftingEntry(MWCItems.gunmetalIngot, 2))

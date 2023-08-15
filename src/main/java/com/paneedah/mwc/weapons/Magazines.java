@@ -1853,7 +1853,7 @@ public class Magazines {
         
         Magazines.AS50Mag = new ItemMagazine.Builder().withCapacity(10).withCompatibleBullet(Bullets.Bullet50BMG).withName("AS50Mag_2")
                 .withCreativeTab(MWC.AMMUNITION_AND_MAGAZINES_TAB)
-                .withModel(new com.paneedah.mwc.models.AS50mag(), "M4A1Mag.png")
+                .withModel(new com.paneedah.mwc.models.AS50mag(), "as50.png")
 
                 .withFirstPersonPositioning(() -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
