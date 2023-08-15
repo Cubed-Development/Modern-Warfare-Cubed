@@ -16,7 +16,10 @@ public final class HeadshotSFXMessageHandler implements IMessageHandler<Headshot
     @Override
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(final HeadshotSFXMessage headshotSFXMessage, final MessageContext messageContext) {
-        NetworkUtil.processMessage(messageContext, () -> MC.player.playSound(UniversalSoundLookup.lookupSound("bolt_slap"), 20, 1.2f));
+        NetworkUtil.processMessage(messageContext, () -> {
+            MC.player.playSound(UniversalSoundLookup.lookupSound("bolt_slap"), 20, 1.2f);
+            MC.player.playSound(UniversalSoundLookup.lookupSound("bolt_slap"), 20, 1.2f);
+        });
 
         return null;
     }
