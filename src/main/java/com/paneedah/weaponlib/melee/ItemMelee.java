@@ -2,6 +2,8 @@ package com.paneedah.weaponlib.melee;
 
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
+import com.paneedah.weaponlib.crafting.CraftingComplexity;
+import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -51,6 +53,8 @@ public class ItemMelee extends Item implements
         ImpactHandler blockImpactHandler;
 
         private Function<ItemStack, List<String>> informationProvider;
+
+        private CraftingComplexity craftingComplexity;
 
         private Object[] craftingMaterials;
         public float attackDamage = 1f;
@@ -163,6 +167,18 @@ public class ItemMelee extends Item implements
             return this;
         }
 
+        public Builder withCrafting(CraftingComplexity craftingComplexity, Object... craftingMaterials) {
+            if (craftingComplexity == null) {
+                throw new IllegalArgumentException("Crafting complexity not set");
+            }
+            if (craftingMaterials.length < 2) {
+                throw new IllegalArgumentException("2 or more materials required for crafting");
+            }
+            this.craftingComplexity = craftingComplexity;
+            this.craftingMaterials = craftingMaterials;
+            return this;
+        }
+
         public Builder withCraftingRecipe(Object... craftingRecipe) {
             this.craftingRecipe = craftingRecipe;
             return this;
@@ -202,6 +218,15 @@ public class ItemMelee extends Item implements
                 } else {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
+            } else if (craftingComplexity != null) {
+                OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
+                        .withSlotCount(9)
+                        .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
+
+                List<Object> shape = modContext.getRecipeManager().createShapedRecipe(itemMelee, itemMelee.getName(), optionsMetadata);
+
+                ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(itemMelee), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(itemMelee).getItem().getTranslationKey() + "_recipe"));
+
             } else {
                 //throw new IllegalStateException("No recipe defined for attachment " + name);
                 //System.err.println("!!!No recipe defined for melee weapon " + name);

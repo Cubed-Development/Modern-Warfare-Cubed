@@ -179,6 +179,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
         private Function<ItemStack, List<String>> informationProvider;
 
+        private CraftingComplexity craftingComplexity;
+
         private Object[] craftingMaterials;
         
         private String gunType = "LAUNCHER";
@@ -727,6 +729,22 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
+        
+        @Deprecated
+        public Builder withCrafting(CraftingComplexity craftingComplexity, Object...craftingMaterials) {
+            if(craftingComplexity == null) {
+                throw new IllegalArgumentException("Crafting complexity not set");
+            }
+            if(craftingMaterials.length < 2) {
+                throw new IllegalArgumentException("2 or more materials required for crafting");
+            }
+            this.craftingComplexity = craftingComplexity;
+            this.craftingMaterials = craftingMaterials;
+            return this;
+        }
+        
+        
+        
         public Builder withTest() {
             return this;
         }
@@ -965,6 +983,19 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
                 } else {
                     ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
+            } else if(craftingComplexity != null) {
+                OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
+                        .withSlotCount(9)
+                        .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
+
+                List<Object> shape = modContext.getRecipeManager().createShapedRecipe(weapon, weapon.getName(), optionsMetadata);
+
+                if(optionsMetadata.hasOres()) {
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
+                } else {
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
+                }
+
             } else {
                 noRecipe += 1;
                 //System.err.println("!!!No recipe defined for weapon " + name);

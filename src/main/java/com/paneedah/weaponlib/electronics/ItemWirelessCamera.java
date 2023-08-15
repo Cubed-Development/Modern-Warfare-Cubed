@@ -4,6 +4,7 @@ import com.paneedah.mwc.renderer.ModelSourceTransforms;
 import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
@@ -49,6 +50,8 @@ public class ItemWirelessCamera extends Item implements ModelSource {
         protected AttachmentCategory attachmentCategory;
         private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
         private int maxStackSize = 1;
+
+        private CraftingComplexity craftingComplexity;
 
         private Object[] craftingMaterials;
 
@@ -132,6 +135,26 @@ public class ItemWirelessCamera extends Item implements ModelSource {
             return this;
         }
 
+        public Builder withCrafting(CraftingComplexity craftingComplexity, Object... craftingMaterials) {
+            return withCrafting(1, craftingComplexity, craftingMaterials);
+        }
+
+        public Builder withCrafting(int craftingCount, CraftingComplexity craftingComplexity, Object... craftingMaterials) {
+            if (craftingComplexity == null) {
+                throw new IllegalArgumentException("Crafting complexity not set");
+            }
+            if (craftingMaterials.length < 2) {
+                throw new IllegalArgumentException("2 or more materials required for crafting");
+            }
+            if (craftingCount == 0) {
+                throw new IllegalArgumentException("Invalid item count");
+            }
+            this.craftingComplexity = craftingComplexity;
+            this.craftingMaterials = craftingMaterials;
+            this.craftingCount = craftingCount;
+            return this;
+        }
+
         public Builder withDuration(long duration) {
             this.duration = duration;
             return this;
@@ -158,6 +181,22 @@ public class ItemWirelessCamera extends Item implements ModelSource {
 
             if (model != null || !texturedModels.isEmpty()) {
                 modContext.registerRenderableItem(name, camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+            }
+
+            if (craftingComplexity != null) {
+                OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
+                        .withSlotCount(9)
+                        .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
+
+                List<Object> shape = modContext.getRecipeManager().createShapedRecipe(camera, name, optionsMetadata);
+
+                ItemStack itemStack = new ItemStack(camera);
+                itemStack.setCount(craftingCount);
+                if (optionsMetadata.hasOres()) {
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
+                } else {
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
+                }
             }
 
             return camera;

@@ -99,6 +99,8 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
         private float explosionStrength = DEFAULT_EXPLOSION_STRENTH;
 
         protected CreativeTabs tab;
+
+        private CraftingComplexity craftingComplexity;
         private Object[] craftingMaterials;
         private int craftingCount = 1;
 
@@ -265,6 +267,26 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
             return this;
         }
 
+        public Builder withCrafting(CraftingComplexity craftingComplexity, Object...craftingMaterials) {
+            return withCrafting(1, craftingComplexity, craftingMaterials);
+        }
+
+        public Builder withCrafting(int craftingCount, CraftingComplexity craftingComplexity, Object...craftingMaterials) {
+            if(craftingComplexity == null) {
+                throw new IllegalArgumentException("Crafting complexity not set");
+            }
+            if(craftingMaterials.length < 2) {
+                throw new IllegalArgumentException("2 or more materials required for crafting");
+            }
+            if(craftingCount == 0) {
+                throw new IllegalArgumentException("Invalid item count");
+            }
+            this.craftingComplexity = craftingComplexity;
+            this.craftingMaterials = craftingMaterials;
+            this.craftingCount = craftingCount;
+            return this;
+        }
+
         public Builder withCraftingRecipe(Object...craftingRecipe) {
             this.craftingRecipe = craftingRecipe;
             return this;
@@ -359,6 +381,20 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
 
             if(craftingRecipe != null && craftingRecipe.length >= 2) {
                 modContext.getRecipeManager().registerShapedRecipe(grenade, craftingRecipe);
+            } else if(craftingComplexity != null) {
+                OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
+                    .withSlotCount(9)
+                    .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
+
+                List<Object> shape = modContext.getRecipeManager().createShapedRecipe(grenade, name, optionsMetadata);
+
+                ItemStack itemStack = new ItemStack(grenade);
+                itemStack.setCount(craftingCount);
+                if(optionsMetadata.hasOres()) {
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
+                } else {
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
+                }
             } else {
                 //throw new IllegalStateException("No recipe defined for attachment " + name);
                 //System.err.println("!!!No recipe defined for grenade " + name);
