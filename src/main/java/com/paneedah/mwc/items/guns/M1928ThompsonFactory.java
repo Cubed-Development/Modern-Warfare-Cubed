@@ -75,10 +75,10 @@ public class M1928ThompsonFactory {
           GL11.glTranslatef(0.03F, 0F, 0F);
           GL11.glScaled(1.3F, 1F, 1F);
       })
-        .withCompatibleAttachment(Attachments.M1928Grip, (model) -> {
+        .withCompatibleAttachment(Attachments.M1928Grip, true, (model) -> {
 //          GL11.glTranslatef(0.45F, 1.9F, 0F);
         })
-        .withCompatibleAttachment(Attachments.M1A1Grip, true, (model) -> {
+        .withCompatibleAttachment(Attachments.M1A1Grip, (model) -> {
 //          GL11.glTranslatef(0.45F, 1.9F, 0F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {

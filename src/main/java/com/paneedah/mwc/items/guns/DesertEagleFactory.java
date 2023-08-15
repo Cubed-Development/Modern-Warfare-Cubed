@@ -6,9 +6,7 @@ import com.paneedah.mwc.models.Reflex2;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.WeaponRenderer;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -90,10 +88,30 @@ public class DesertEagleFactory implements GunFactory {
         })
         .withCompatibleAttachment(Attachments.DesertEagleSlideBlack, (model) -> {
         })
-        .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
-            GL11.glTranslatef(0.01F, -0.76F, -2.1F);
-            GL11.glScaled(1.1F, 1.1F, 1.1F);
-            GL11.glRotatef(-90F, 0f, 0f, -4f);
+        .withCompatibleAttachment(Attachments.Laser, renderContext -> {
+            PlayerWeaponInstance instance = renderContext.getWeaponInstance();
+            if(instance != null) {
+               ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
+                   AttachmentCategory.BACKGRIP, instance);
+            if(activeAttachment == Attachments.DesertEagleLongBody) {
+                GL11.glTranslatef(0.01F, -0.76F, -3.0F);
+                GL11.glScaled(1.1F, 1.1F, 1.1F);
+                GL11.glRotatef(-90F, 0f, 0f, -4f);
+            } else {
+                GL11.glTranslatef(0.01F, -0.76F, -2.1F);
+                GL11.glScaled(1.1F, 1.1F, 1.1F);
+                GL11.glRotatef(-90F, 0f, 0f, -4f);
+            }
+        }
+                },(model) -> {
+                    if(model instanceof Reflex2) {
+                        GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                }, false, false)
+        .withCompatibleAttachment(Attachments.StubbyGrip, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.38F, -1.45F);
+            GL11.glScaled(1F, 1F, 1F);
         })
 //        .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
 //            GL11.glTranslatef(-0.22F, -1.18F, -4.2F);
@@ -119,8 +137,13 @@ public class DesertEagleFactory implements GunFactory {
         })
         .withTextureNames("deagle")
         .withRenderer(new WeaponRenderer.Builder()
-    
+
             .withModel(new Glock18C())
+			.withActionPiece(
+                    Attachments.DesertEagleSlide,
+			        Attachments.DesertEagleSlideGolden,
+			        Attachments.DesertEagleSlideBlack)
+			.withActionTransform(new Transform().withPosition(0, 0, 0.6))
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -173,6 +196,16 @@ public class DesertEagleFactory implements GunFactory {
                     GL11.glTranslatef(0F, 0F, 0.5F);
                 }
             })
+            .withFirstPersonCustomPositioning(Attachments.DesertEagleSlideGolden.getRenderablePart(), (renderContext) -> {
+                if(renderContext.getWeaponInstance().getAmmo() == 0) {
+                    GL11.glTranslatef(0F, 0F, 0.5F);
+                }
+            })
+            .withFirstPersonCustomPositioning(Attachments.DesertEagleSlideBlack.getRenderablePart(), (renderContext) -> {
+                if(renderContext.getWeaponInstance().getAmmo() == 0) {
+                    GL11.glTranslatef(0F, 0F, 0.5F);
+                }
+            })			
                 
             .withFirstPersonPositioningZooming((renderContext) -> {
                 GL11.glScaled(3F, 3F, 3F);

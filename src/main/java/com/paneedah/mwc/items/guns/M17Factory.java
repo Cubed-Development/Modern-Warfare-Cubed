@@ -132,8 +132,8 @@ public class M17Factory implements GunFactory {
     
             .withModel(new M17())
             .withActionPiece(
-                        AuxiliaryAttachments.M17_Slide)
-            .withActionPiece(Attachments.RMR)
+                 AuxiliaryAttachments.M17_Slide,
+                 Attachments.RMR)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5))
             //.withTextureName("M9")
             //.withWeaponProximity(0.99F)
@@ -186,6 +186,11 @@ public class M17Factory implements GunFactory {
                 .setupModernMagazineAnimations("m17", Magazines.M17Mag)
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.M17_Slide.getRenderablePart(), (renderContext) -> {
+                if(renderContext.getWeaponInstance().getAmmo() == 0) {
+                    GL11.glTranslatef(0F, 0F, 0.5F);
+                }
+            })
+            .withFirstPersonCustomPositioning(Attachments.RMR.getRenderablePart(), (renderContext) -> {
                 if(renderContext.getWeaponInstance().getAmmo() == 0) {
                     GL11.glTranslatef(0F, 0F, 0.5F);
                 }
