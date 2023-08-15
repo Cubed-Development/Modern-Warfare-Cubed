@@ -5,7 +5,6 @@ import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.UMP45mag;
 import com.paneedah.mwc.models.UMP9Mag;
 import com.paneedah.weaponlib.ItemMagazine;
-import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import org.lwjgl.opengl.GL11;
 
 public class Magazines {
@@ -211,9 +210,6 @@ public class Magazines {
                     GL11.glScaled(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.JohnsonMAG = new ItemMagazine.Builder()
@@ -240,9 +236,6 @@ public class Magazines {
                     GL11.glScaled(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.VectorMag = new ItemMagazine.Builder()
@@ -437,9 +430,6 @@ public class Magazines {
                     GL11.glScaled(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.S710TricunMag = new ItemMagazine.Builder()
@@ -466,9 +456,6 @@ public class Magazines {
                     GL11.glScaled(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
 
         Magazines.M134Mag = new ItemMagazine.Builder().withCapacity(1000).withCompatibleBullet(Bullets.Bullet762x51).withName("M134Mag")
@@ -492,9 +479,6 @@ public class Magazines {
                     GL11.glScaled(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.M60Mag = new ItemMagazine.Builder().withCapacity(100).withCompatibleBullet(Bullets.Bullet762x51).withName("M60Mag")
@@ -518,9 +502,6 @@ public class Magazines {
                     GL11.glScaled(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.M249Mag = new ItemMagazine.Builder()
@@ -549,9 +530,6 @@ public class Magazines {
                     GL11.glScaled(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
 
         Magazines.StonerMag = new ItemMagazine.Builder().withCapacity(100).withCompatibleBullet(Bullets.Bullet556x45).withName("StonerMag")
@@ -575,9 +553,6 @@ public class Magazines {
                     GL11.glScaled(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.HoneyBadgerMag = new ItemMagazine.Builder()
@@ -1252,9 +1227,6 @@ public class Magazines {
                     GL11.glScaled(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.Origin12Mag = new ItemMagazine.Builder()
@@ -1472,9 +1444,6 @@ public class Magazines {
                     GL11.glScaled(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.M9Mag30 = new ItemMagazine.Builder().withCapacity(30).withCompatibleBullet(Bullets.Bullet9x19mm).withName("M9Mag30")
@@ -1571,9 +1540,6 @@ public class Magazines {
                     GL11.glScaled(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.M1911_44Mag = new ItemMagazine.Builder().withCapacity(7).withCompatibleBullet(Bullets.Bullet44).withName("M1911_44Mag")
@@ -1598,9 +1564,6 @@ public class Magazines {
                     GL11.glScaled(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.M45A1Mag14 = new ItemMagazine.Builder().withCapacity(14).withCompatibleBullet(Bullets.Bullet45ACP).withName("M45A1Mag14")
@@ -1624,9 +1587,6 @@ public class Magazines {
                     GL11.glScaled(0.75F, 0.75F, 0.75f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         
@@ -1724,9 +1684,6 @@ public class Magazines {
                     GL11.glScaled(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.FrommerStopMag = new ItemMagazine.Builder().withCapacity(8).withCompatibleBullet(Bullets.Bullet380ACP).withName("FrommerStopMag")
@@ -1750,9 +1707,6 @@ public class Magazines {
                     GL11.glScaled(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.APSMag = new ItemMagazine.Builder()
@@ -1872,9 +1826,6 @@ public class Magazines {
                     GL11.glScaled(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.M82Mag = new ItemMagazine.Builder()
@@ -1926,9 +1877,6 @@ public class Magazines {
                     GL11.glScaled(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.KBP9A91Mag = new ItemMagazine.Builder()
@@ -2002,9 +1950,6 @@ public class Magazines {
                     GL11.glScaled(1.4F, 1.4F, 1.4f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.DSR1Mag = new ItemMagazine.Builder()
@@ -2032,9 +1977,6 @@ public class Magazines {
                     GL11.glScaled(1.4F, 1.4F, 1.4f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.DSR1MagExt = new ItemMagazine.Builder()
@@ -2062,9 +2004,6 @@ public class Magazines {
                     GL11.glScaled(1.4F, 1.4F, 1.4f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.InterventionMag = new ItemMagazine.Builder()
@@ -2091,9 +2030,6 @@ public class Magazines {
                     GL11.glScaled(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.M40A6Mag = new ItemMagazine.Builder()
@@ -2121,9 +2057,6 @@ public class Magazines {
                     GL11.glScaled(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.R700Mag = new ItemMagazine.Builder().withCapacity(5).withCompatibleBullet(Bullets.Bullet762x54).withName("R700Mag")
@@ -2147,9 +2080,6 @@ public class Magazines {
                     GL11.glScaled(1.5F, 1.5F, 1.5f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.R700Mag10rnd = new ItemMagazine.Builder().withCapacity(10).withCompatibleBullet(Bullets.Bullet762x54).withName("R700Mag10rnd")
@@ -2173,9 +2103,6 @@ public class Magazines {
                     GL11.glScaled(1.5F, 1.5F, 1.5f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.SSG08Mag = new ItemMagazine.Builder()
@@ -2202,9 +2129,6 @@ public class Magazines {
                     GL11.glScaled(1.5F, 1.5F, 1.5f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
 
         Magazines.M110Mag = new ItemMagazine.Builder()
@@ -2281,9 +2205,6 @@ public class Magazines {
                     GL11.glScaled(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.M1A1Mag = new ItemMagazine.Builder().withCapacity(30).withCompatibleBullet(Bullets.Bullet45ACP)
@@ -2308,9 +2229,6 @@ public class Magazines {
                     GL11.glScaled(0.8F, 0.8F, 0.8f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.M712Mag = new ItemMagazine.Builder().withCapacity(20).withCompatibleBullet(Bullets.Bullet763x25).withName("M712mag_2")
@@ -2334,9 +2252,6 @@ public class Magazines {
                     GL11.glScaled(0.6F, 0.6F, 0.6f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.MG42Mag = new ItemMagazine.Builder().withCapacity(50).withCompatibleBullet(Bullets.Bullet792x57).withName("MG42Mag_2")
@@ -2360,9 +2275,6 @@ public class Magazines {
                     GL11.glScaled(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.DP28Mag = new ItemMagazine.Builder().withCapacity(47).withCompatibleBullet(Bullets.Bullet762x54).withName("DP28Mag")
@@ -2386,9 +2298,6 @@ public class Magazines {
                     GL11.glScaled(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.M1CarbineMag = new ItemMagazine.Builder()
@@ -2416,9 +2325,6 @@ public class Magazines {
                     GL11.glScaled(1F, 1F, 1f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.FNFALMag = new ItemMagazine.Builder()
@@ -2554,9 +2460,6 @@ public class Magazines {
                     GL11.glScaled(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.MP5A5Mag = new ItemMagazine.Builder()
@@ -2778,9 +2681,6 @@ public class Magazines {
                     GL11.glScaled(0.7F, 0.7F, 0.7f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.ScorpionMag = new ItemMagazine.Builder()
@@ -2861,9 +2761,6 @@ public class Magazines {
                     GL11.glScaled(1.1F, 1.1F, 1.1f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.MAC10Mag = new ItemMagazine.Builder()
@@ -2916,9 +2813,6 @@ public class Magazines {
                     GL11.glScaled(0.5F, 0.5F, 0.5f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.ScarHMag = new ItemMagazine.Builder()
@@ -3082,9 +2976,6 @@ public class Magazines {
                     GL11.glScaled(0.6F, 0.6F, 0.6f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.G43GewehrMag = new ItemMagazine.Builder().withCapacity(10).withCompatibleBullet(Bullets.Bullet792x57).withName("g43_gewehr_mag")
@@ -3108,9 +2999,6 @@ public class Magazines {
                     GL11.glScaled(1.4F, 1.4F, 1.4f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.SV98Mag = new ItemMagazine.Builder().withCapacity(10).withCompatibleBullet(Bullets.Bullet762x54).withName("SV98Mag_2")
@@ -3134,9 +3022,6 @@ public class Magazines {
                     GL11.glScaled(1.2F, 1.2F, 1.2f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.UziMag = new ItemMagazine.Builder()
@@ -3165,9 +3050,6 @@ public class Magazines {
                     GL11.glScaled(0.9F, 0.9F, 0.9f);
                 })
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                          MWCItems.steelIngot,
-                          MWCItems.gunmetalIngot)
                 .withTextureName("Dummy.png").build(MWC.modContext, ItemMagazine.class);
         
         Magazines.VP70Mag = new ItemMagazine.Builder()

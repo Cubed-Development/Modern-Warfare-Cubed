@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
-import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
@@ -98,9 +97,6 @@ public class AK74Factory {
         
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
-        .withCrafting(CraftingComplexity.MEDIUM,
-                MWCItems.gunmetalIngot,
-                MWCItems.gunmetalPlate)
 //        .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
         .withCompatibleAttachment(Attachments.AK47Stock, (model) -> {
 //            GL11.glTranslatef(0f, 0f, 1f);

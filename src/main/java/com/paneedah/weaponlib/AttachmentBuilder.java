@@ -50,8 +50,6 @@ public class AttachmentBuilder<T> {
     private int maxStackSize = 1;
     private Function<ItemStack, String> informationProvider;
 
-    private CraftingComplexity craftingComplexity;
-
     private Object[] craftingMaterials;
 
     Map<ItemAttachment<T>, CompatibleAttachment<T>> compatibleAttachments = new HashMap<>();
@@ -205,28 +203,8 @@ public class AttachmentBuilder<T> {
         return this;
     }
 
-    public AttachmentBuilder<T> withCrafting(CraftingComplexity craftingComplexity, Object... craftingMaterials) {
-        return withCrafting(1, craftingComplexity, craftingMaterials);
-    }
-
     public AttachmentBuilder<T> withInformationProvider(Function<ItemStack, String> informationProvider) {
         this.informationProvider = informationProvider;
-        return this;
-    }
-
-    public AttachmentBuilder<T> withCrafting(int craftingCount, CraftingComplexity craftingComplexity, Object... craftingMaterials) {
-        if (craftingComplexity == null)
-            throw new IllegalArgumentException("Crafting complexity not set");
-
-        if (craftingMaterials.length < 2)
-            throw new IllegalArgumentException("2 or more materials required for crafting");
-
-        if (craftingCount == 0)
-            throw new IllegalArgumentException("Invalid item count");
-
-        this.craftingComplexity = craftingComplexity;
-        this.craftingMaterials = craftingMaterials;
-        this.craftingCount = craftingCount;
         return this;
     }
 
@@ -295,20 +273,6 @@ public class AttachmentBuilder<T> {
 //            } else {
 //                compatibility.addShapedRecipe(itemStack, registeredRecipe.toArray());
 //            }
-        } else if (craftingComplexity != null) {
-            OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
-                    .withSlotCount(9)
-                    .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
-
-            List<Object> shape = modContext.getRecipeManager().createShapedRecipe(attachment, name, optionsMetadata);
-
-            ItemStack itemStack = new ItemStack(attachment);
-            itemStack.setCount(craftingCount);
-            if (optionsMetadata.hasOres()) {
-                ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
-            } else {
-                ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, shape.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
-            }
         } else if (attachment.getCategory() == AttachmentCategory.GRIP
                 || attachment.getCategory() == AttachmentCategory.SCOPE
                 || attachment.getCategory() == AttachmentCategory.MAGAZINE

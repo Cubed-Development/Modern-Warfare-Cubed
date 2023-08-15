@@ -11,7 +11,6 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
-import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
@@ -80,9 +79,6 @@ public class ARX160Factory implements GunFactory {
         "50rnd 5.56x45mm NATO STANAG Drum Magazine",
 		"60rnd 5.56x45mm NATO STANAG Drum Magazine",
 		"100rnd 5.56x45mm NATO STANAG Drum Magazine"))
-         .withCrafting(CraftingComplexity.MEDIUM,
-                 MWCItems.gunmetalIngot,
-                 MWCItems.gunmetalPlate)
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  0.5f, // x 
