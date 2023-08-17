@@ -179,7 +179,7 @@ public class UziFactory implements GunFactory {
 					.withPosition(-1.265000f, 4.225000f, -5.765000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -187,17 +187,17 @@ public class UziFactory implements GunFactory {
                         // Left hand
                         new Transform()
                         .withPosition(1.210000f, 0.505000f, 0.620000f)
-                        .withBBRotation(-7.2749, -30.8463, 56.4758)
-                        .withScale(2.6, 2.6, 4.0)
+                        .withBBRotation(-7.2749F, -30.8463F, 56.4758F)
+                        .withScale(2.6F, 2.6F, 4.0F)
                         .withRotationPoint(0, 0, 0),
                         
                         
                         
                         // Right hand
                         new Transform()
-                        .withPosition(-0.2, 0.1, 2)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3.5, 3.5, 3.5)
+                        .withPosition(-0.2F, 0.1F, 2)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.5F, 3.5F, 3.5F)
                         .withRotationPoint(0, 0, 0)
                 
                 )
@@ -341,15 +341,15 @@ public class UziFactory implements GunFactory {
                 	 new Transform()
                 	 .withPosition(2.770000f, 1.225000f, 0.140000f)
                 	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                     .withScale(2.6, 2.6, 4.0)
+                     .withScale(2.6F, 2.6F, 4.0F)
                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                      .doGLDirect();
                  }, 
                  (renderContext) -> {
                 	 new Transform()
                 	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                     .withBBRotation(10.0931, 10.9576, -10.0294)
-                     .withScale(3, 3, 3.5)
+                     .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                     .withScale(3, 3, 3.5F)
                      .withRotationPoint(0, 0, 0)
                      .doGLDirect();
                  })
@@ -359,15 +359,15 @@ public class UziFactory implements GunFactory {
                	 new Transform()
 	                   	 .withPosition(2.770000f, 1.225000f, 0.140000f)
 	                   	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                    .withScale(2.6, 2.6, 4.0)
+                    .withScale(2.6F, 2.6F, 4.0F)
                     .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                     .doGLDirect();
                 }, 
                 (renderContext) -> {
                	 new Transform()
                	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                    .withBBRotation(10.0931, 10.9576, -10.0294)
-                    .withScale(3, 3, 3.5)
+                    .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                    .withScale(3, 3, 3.5F)
                     .withRotationPoint(0, 0, 0)
                     .doGLDirect();
                 })

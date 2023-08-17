@@ -1941,10 +1941,10 @@ public class WeaponRenderer extends ModelSourceRenderer {
 
                 firstPersonPositioningRunning = (rc) -> {
                     if (rc.getWeaponInstance().getWeapon().builder.isUsingNewSystem()) {
-                        new Transform().withPosition(-0.5, 0, 0.5).withRotation(15, -5, 15).withScale(1, 1, 1).doGLDirect();
+                        new Transform().withPosition(-0.5F, 0, 0.5F).withRotation(15, -5, 15).withScale(1, 1, 1).doGLDirect();
 
                     } else {
-                        new Transform().withPosition(-0.5, 0, 0.5).withRotation(15, -5, 15).withScale(1, 1, 1).doGLDirect();
+                        new Transform().withPosition(-0.5F, 0, 0.5F).withRotation(15, -5, 15).withScale(1, 1, 1).doGLDirect();
 
                     }
 
@@ -3682,7 +3682,7 @@ public class WeaponRenderer extends ModelSourceRenderer {
             case GUI:
                 forceMSAA = true;
 
-                final double inventoryScale = 30;
+                final float inventoryScale = 30;
 
                 GL11.glScaled(1, -1, 1);
 

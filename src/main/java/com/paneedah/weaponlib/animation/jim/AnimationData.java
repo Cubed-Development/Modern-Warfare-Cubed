@@ -8,13 +8,12 @@ import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.UniversalSoundLookup;
-import com.paneedah.weaponlib.animation.MatrixHelper;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.EulerAngle;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.Format;
+import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
 import java.util.*;
@@ -28,8 +27,8 @@ public class AnimationData {
 
     public ArrayList<Float> timestamps = new ArrayList<>();
 
-    public TreeMap<Float, Vec3d> rotationKeyframes = new TreeMap<>();
-    public TreeMap<Float, Vec3d> translateKeyframes = new TreeMap<>();
+    public TreeMap<Float, Vector3F> rotationKeyframes = new TreeMap<>();
+    public TreeMap<Float, Vector3F> translateKeyframes = new TreeMap<>();
 
     private boolean isNull = false;
     private int fakeTransitions = 0;
@@ -68,17 +67,16 @@ public class AnimationData {
             for (Entry<String, JsonElement> i : rotation.entrySet()) {
                 JsonArray ar = i.getValue().getAsJsonArray();
                 float time = Float.parseFloat(i.getKey());
-                Vec3d rotationVector = new Vec3d(ar.get(0).getAsDouble(), ar.get(1).getAsDouble(), ar.get(2).getAsDouble());
+                Vector3F rotationVector = new Vector3F(ar.get(0).getAsFloat(), ar.get(1).getAsFloat(), ar.get(2).getAsFloat());
                 if (!timestamps.contains(time))
                     timestamps.add(time);
                 rotationKeyframes.put(time, rotationVector);
             }
         } else if (!obj.has("rotation")) {
-            rotationKeyframes.put(0f, Vec3d.ZERO);
+            rotationKeyframes.put(0f, new Vector3F());
         } else if (!obj.get("rotation").isJsonObject()) {
             JsonArray ar = obj.get("rotation").getAsJsonArray();
-            Vec3d translationVector = new Vec3d(ar.get(0).getAsDouble(), ar.get(1).getAsDouble(),
-                    ar.get(2).getAsDouble());
+            Vector3F translationVector = new Vector3F(ar.get(0).getAsFloat(), ar.get(1).getAsFloat(), ar.get(2).getAsFloat());
             rotationKeyframes.put(0f, translationVector);
         }
 
@@ -89,21 +87,19 @@ public class AnimationData {
             for (Entry<String, JsonElement> i : translate.entrySet()) {
                 JsonArray ar = i.getValue().getAsJsonArray();
                 float time = Float.parseFloat(i.getKey());
-                Vec3d translationVector = new Vec3d(ar.get(0).getAsDouble(), ar.get(1).getAsDouble(),
-                        ar.get(2).getAsDouble());
+                Vector3F translationVector = new Vector3F(ar.get(0).getAsFloat(), ar.get(1).getAsFloat(), ar.get(2).getAsFloat());
                 if (!timestamps.contains(time))
                     timestamps.add(time);
                 translateKeyframes.put(time, translationVector);
             }
         } else if (!obj.has("position")) {
 
-            translateKeyframes.put(0f, Vec3d.ZERO);
+            translateKeyframes.put(0f, new Vector3F());
 
         } else if (!obj.get("position").isJsonObject()) {
 
             JsonArray ar = obj.get("position").getAsJsonArray();
-            Vec3d translationVector = new Vec3d(ar.get(0).getAsDouble(), ar.get(1).getAsDouble(),
-                    ar.get(2).getAsDouble());
+            Vector3F translationVector = new Vector3F(ar.get(0).getAsFloat(), ar.get(1).getAsFloat(), ar.get(2).getAsFloat());
             translateKeyframes.put(0f, translationVector);
         }
 
@@ -117,8 +113,8 @@ public class AnimationData {
         // bake
         for (int i = 0; i < timestamps.size(); ++i) {
             float f = timestamps.get(i);
-            Vec3d rotationKey = null;
-            Vec3d translationKey = null;
+            Vector3F rotationKey = null;
+            Vector3F translationKey = null;
 
 
             float timeDelta = 0;
@@ -208,7 +204,7 @@ public class AnimationData {
         }
     }
 
-    public float getDelta(TreeMap<Float, Vec3d> map, float f) {
+    public float getDelta(TreeMap<Float, Vector3F> map, float f) {
 
 
         if (map.floorKey(f) != null) {
@@ -224,11 +220,11 @@ public class AnimationData {
 
     }
 
-    public Vec3d buildRotationKeyframe(TreeMap<Float, Vec3d> keyList, float timestamp) {
+    public Vector3F buildRotationKeyframe(TreeMap<Float, Vector3F> keyList, float timestamp) {
         // Keylist is empty, just return a zero vector
 
         if (keyList.isEmpty())
-            return Vec3d.ZERO;
+            return new Vector3F();
         if (keyList.ceilingKey(timestamp) == null) {
             // There is no keyframe ahead, so there's nothing to interpolate
             // between. Just grab the last keyframe and use that.
@@ -247,8 +243,8 @@ public class AnimationData {
             float toDeltaDelta = keyList.ceilingKey(timestamp);
             float alpha = (timestamp - fromDelta) / (toDeltaDelta - fromDelta);
 
-            Vec3d beforeKey = keyList.floorEntry(timestamp).getValue();
-            Vec3d afterKey = keyList.ceilingEntry(timestamp).getValue();
+            Vector3F beforeKey = keyList.floorEntry(timestamp).getValue();
+            Vector3F afterKey = keyList.ceilingEntry(timestamp).getValue();
             if (afterKey == null)
                 afterKey = beforeKey;
 					
@@ -264,7 +260,7 @@ public class AnimationData {
             EulerAngle beforeAngle = new EulerAngle(Format.DEGREES, beforeKey.x, beforeKey.y, beforeKey.z);
             EulerAngle afterAngle = new EulerAngle(Format.DEGREES, afterKey.x, afterKey.y, afterKey.z);
             EulerAngle resultant = beforeAngle.slerp(afterAngle, alpha);
-            return new Vec3d(resultant.getX(), resultant.getY(), resultant.getZ());
+            return new Vector3F((float) resultant.getX(), (float) resultant.getY(), (float) resultant.getZ());
 
 
             //return MatrixHelper.lerpVectors(beforeKey, afterKey, alpha);
@@ -272,11 +268,11 @@ public class AnimationData {
     }
 
 
-    public Vec3d buildKeyframe(TreeMap<Float, Vec3d> keyList, float timestamp) {
+    public Vector3F buildKeyframe(TreeMap<Float, Vector3F> keyList, float timestamp) {
         // Keylist is empty, just return a zero vector
 
         if (keyList.isEmpty())
-            return Vec3d.ZERO;
+            return new Vector3F();
         if (keyList.ceilingKey(timestamp) == null) {
             // There is no keyframe ahead, so there's nothing to interpolate
             // between. Just grab the last keyframe and use that.
@@ -295,19 +291,23 @@ public class AnimationData {
             float toDeltaDelta = keyList.ceilingKey(timestamp);
             float alpha = (timestamp - fromDelta) / (toDeltaDelta - fromDelta);
 
-            Vec3d beforeKey = keyList.floorEntry(timestamp).getValue();
-            Vec3d afterKey = keyList.ceilingEntry(timestamp).getValue();
+            Vector3F beforeKey = keyList.floorEntry(timestamp).getValue();
+            Vector3F afterKey = keyList.ceilingEntry(timestamp).getValue();
             if (afterKey == null)
                 afterKey = beforeKey;
-            return MatrixHelper.lerpVectors(beforeKey, afterKey, alpha);
+
+            Vector3F result = new Vector3F();
+            result.lerp(beforeKey, alpha, afterKey);
+
+            return result;
         }
     }
 
     public void bakeKeyframes(float timeStamp) {
 
         // Build keyframes
-        Vec3d rotation = buildRotationKeyframe(rotationKeyframes, timeStamp);
-        Vec3d translation = buildKeyframe(translateKeyframes, timeStamp);
+        Vector3F rotation = buildRotationKeyframe(rotationKeyframes, timeStamp);
+        Vector3F translation = buildKeyframe(translateKeyframes, timeStamp);
 
 
         float timeDelta = getDelta(rotationKeyframes, timeStamp);
@@ -329,8 +329,8 @@ public class AnimationData {
      *
      * GlStateManager.translate(0.2, 0.05, -0.1);
      *
-     * GL11.glRotated(57.7232f, 0, 0, 1); GL11.glRotated(26.1991f, 0, 1, 0);
-     * GL11.glRotated(0f, 1, 0, 0);
+     * GlStateManager.rotate(57.7232f, 0, 0, 1); GlStateManager.rotate(26.1991f, 0, 1, 0);
+     * GlStateManager.rotate(0f, 1, 0, 0);
      */
 
 
@@ -363,25 +363,25 @@ public class AnimationData {
      * Allows for ADS reloads, quite a simple copy of logic instructions, basically it'll provide transitions
      * depending on if the player is aiming, quite nice!
      *
-     * @param normal
-     * @param ads
+     * @param transform
+     * @param adsTransform
      * @param divisor
      *
      * @return
      */
-    public List<Transition<RenderContext<RenderableState>>> getTransitionListDual(Transform normal, Transform ads, double divisor) {
+    public List<Transition<RenderContext<RenderableState>>> getTransitionListDual(Transform transform, Transform adsTransform, double divisor) {
         List<Transition<RenderContext<RenderableState>>> transitionList = new ArrayList<>();
 
 
         if (!isNull) {
 
             for (Entry<Float, BlockbenchTransition> bb : this.bbTransition.entrySet()) {
-                transitionList.add((Transition<RenderContext<RenderableState>>) bb.getValue().createVMWTransitionWithADS(normal, ads, divisor));
+                transitionList.add((Transition<RenderContext<RenderableState>>) bb.getValue().createVMWTransitionWithADS(transform, adsTransform, divisor));
             }
         } else {
 
             for (int i = 0; i < this.fakeTransitions; ++i) {
-                transitionList.add(new Transition<>(renderContext -> normal.doGLDirect(), this.fTLength));
+                transitionList.add(new Transition<>(renderContext -> transform.doGLDirect(), this.fTLength));
             }
         }
 
@@ -389,7 +389,7 @@ public class AnimationData {
         // Swaps the last frame of the animation with
         // the initial position (much smoother lol)
         long curLength = transitionList.get(transitionList.size() - 1).getDuration();
-        transitionList.set(transitionList.size() - 1, new Transition<>(renderContext -> normal.doGLDirect(), curLength));
+        transitionList.set(transitionList.size() - 1, new Transition<>(renderContext -> transform.doGLDirect(), curLength));
         return transitionList;
     }
 
@@ -441,11 +441,11 @@ public class AnimationData {
     public static class BlockbenchTransition {
 
         private float timestamp;
-        private Vec3d rotation;
-        private Vec3d translation;
+        private Vector3F rotation;
+        private Vector3F translation;
         private SoundEvent sound;
 
-        public BlockbenchTransition(float timestamp, Vec3d rotation, Vec3d translation) {
+        public BlockbenchTransition(float timestamp, Vector3F rotation, Vector3F translation) {
             this.timestamp = timestamp;
             this.rotation = rotation;
             this.translation = translation;
@@ -460,10 +460,10 @@ public class AnimationData {
 
             // Z, Y, X
 
-            GL11.glRotated(rotation.x, 1, 0, 0);
+            GlStateManager.rotate(rotation.x, 1, 0, 0);
 
-            GL11.glRotated(rotation.y, 0, 1, 0);
-            GL11.glRotated(rotation.z, 0, 0, 1);
+            GlStateManager.rotate(rotation.y, 0, 1, 0);
+            GlStateManager.rotate(rotation.z, 0, 0, 1);
 
             GL11.glScaled(1, 1, 1);
         }
@@ -476,38 +476,35 @@ public class AnimationData {
 
                 // +Z, -Y, -X
 
-                GL11.glRotated(rotation.z, 0, 0, 1);
-                GL11.glRotated(rotation.y, 0, 1, 0);
-                GL11.glRotated(rotation.x, 1, 0, 0);
+                GlStateManager.rotate(rotation.z, 0, 0, 1);
+                GlStateManager.rotate(rotation.y, 0, 1, 0);
+                GlStateManager.rotate(rotation.x, 1, 0, 0);
             }, (int) timestamp);
 
         }
 
 
-        public Transition<?> createVMWTransitionWithADS(Transform normal, Transform ads, double divisor) {
-            Transition<?> trans = new Transition<>((rc) -> {
-
+        public Transition<?> createVMWTransitionWithADS(Transform transform, Transform adsTransform, double divisor) {
+            Transition<?> transition = new Transition<>(renderContext -> {
                 /*
                  * So you wanna mess with this code?
                  *
-                 * Warning: You will want to die. This code took like
-                 * 2 weeks for some reason. You'll put one thing out of
-                 * order and you'll be working on it for weeks, even though
-                 * it doesn't even seem like the problem.
+                 * Warning: You will want to die.
+                 * This code took like 2 weeks for some reason.
+                 * You'll put one thing out of order, and you'll be working on it for weeks, even though it doesn't even seem like the problem.
                  */
 
+                Transform t = transform;
 
-                Transform t = normal;
 
-
-                double rotXMult = 1.0;
-                double rotYMult = 1.0;
-                double rotZMult = 1.0;
+                float rotXMult = 1;
+                float rotYMult = 1;
+                float rotZMult = 1;
 
                 if (ClientModContext.getContext().getMainHeldWeapon().isAimed()) {
-                    rotXMult = 0.1;
-                    rotYMult = 0.1;
-                    rotZMult = 0.5;
+                    rotXMult = 0.1F;
+                    rotYMult = 0.1F;
+                    rotZMult = 0.5F;
                 }
 
                 double tesla = 0;
@@ -533,46 +530,40 @@ public class AnimationData {
                 GlStateManager.translate(t.rotationPoint.x, t.rotationPoint.y, t.rotationPoint.z);
 
                 // Original object rotation (+Z, -Y, -X)
-                GL11.glRotated(t.rotation.z, 0, 0, 1);
-                GL11.glRotated(rotation.z * rotZMult, 0, 0, 1);
+                GlStateManager.rotate(t.rotation.z, 0, 0, 1);
+                GlStateManager.rotate(rotation.z * rotZMult, 0, 0, 1);
 
-                GL11.glRotated(t.rotation.y, 0, 1, 0);
-                GL11.glRotated(rotation.y * rotYMult, 0, 1, 0);
+                GlStateManager.rotate(t.rotation.y, 0, 1, 0);
+                GlStateManager.rotate(rotation.y * rotYMult, 0, 1, 0);
 
-                GL11.glRotated(t.rotation.x, 1, 0, 0);
-                GL11.glRotated(rotation.x * rotXMult, 1, 0, 0);
+                GlStateManager.rotate(t.rotation.x, 1, 0, 0);
+                GlStateManager.rotate(rotation.x * rotXMult, 1, 0, 0);
 
+                // Revert rotation point offset
                 GlStateManager.translate(-t.rotationPoint.x, -t.rotationPoint.y, -t.rotationPoint.z);
+
+                // Original object scale
                 GlStateManager.scale(t.scale.x, t.scale.y, t.scale.z);
-
-
             }, (int) timestamp);
-            //	System.out.println("Hello?! Brother! " + sound);
-            trans.setSound(sound);
 
-            return trans;
+            transition.setSound(sound);
 
-
+            return transition;
         }
 
-        public Transition<?> createVMWTransition(Transform t, double divisor) {
-            Transition<?> trans = new Transition<>((rc) -> {
-
+        public Transition<?> createVMWTransition(Transform transform, double divisor) {
+            Transition<?> transition = new Transition<>(renderContext -> {
                 /*
                  * So you wanna mess with this code?
                  *
-                 * Warning: You will want to die. This code took like
-                 * 2 weeks for some reason. You'll put one thing out of
-                 * order and you'll be working on it for weeks, even though
-                 * it doesn't even seem like the problem.
+                 * Warning: You will want to die.
+                 * This code took like 2 weeks for some reason.
+                 * You'll put one thing out of order, and you'll be working on it for weeks, even though it doesn't even seem like the problem.
                  */
 
-                //System.out.println("hi " + " | " + timestamp + " | " + (int) timestamp);
-
-
-                double rotXMult = 1.0;
-                double rotYMult = 1.0;
-                double rotZMult = 1.0;
+                float rotXMult = 1;
+                float rotYMult = 1;
+                float rotZMult = 1;
 				
 				/*
 				if(ClientModContext.getContext().getMainHeldWeapon().isAimed()) {
@@ -590,63 +581,49 @@ public class AnimationData {
                 } else {
                     tesla = divisor;
                 }
-                //System.out.println(tesla);
 
                 // Transform Multiplier (12x as small)
                 double mul = 1 / tesla;
 
-
-                //System.out.println(tesla);
-
                 //if(divisor == 5) mul = 0.0000000;
 
                 // Original object positioning
-                GlStateManager.translate(t.position.x, t.position.y, t.position.z);
+                GlStateManager.translate(transform.position.x, transform.position.y, transform.position.z);
 
                 // Animation translation
-                GL11.glTranslated(translation.x * mul, -translation.y * mul, translation.z * mul);
+                GlStateManager.translate(translation.x * mul, -translation.y * mul, translation.z * mul);
 
                 // Offset rotation point
-                GlStateManager.translate(t.rotationPoint.x, t.rotationPoint.y, t.rotationPoint.z);
-
+                GlStateManager.translate(transform.rotationPoint.x, transform.rotationPoint.y, transform.rotationPoint.z);
 
                 // Original object rotation (+Z, -Y, -X)
-                GL11.glRotated(t.rotation.z, 0, 0, 1);
-                GL11.glRotated(rotation.z * rotZMult, 0, 0, 1);
+                GlStateManager.rotate(transform.rotation.z, 0, 0, 1);
+                GlStateManager.rotate(rotation.z * rotZMult, 0, 0, 1);
 
-                GL11.glRotated(t.rotation.y, 0, 1, 0);
-                GL11.glRotated(rotation.y * rotYMult, 0, 1, 0);
+                GlStateManager.rotate(transform.rotation.y, 0, 1, 0);
+                GlStateManager.rotate(rotation.y * rotYMult, 0, 1, 0);
 
-                GL11.glRotated(t.rotation.x, 1, 0, 0);
-                GL11.glRotated(rotation.x * rotXMult, 1, 0, 0);
-
-
-                // Animation rotation
-
+                GlStateManager.rotate(transform.rotation.x, 1, 0, 0);
+                GlStateManager.rotate(rotation.x * rotXMult, 1, 0, 0);
 
                 // Revert rotation point
-                GlStateManager.translate(-t.rotationPoint.x, -t.rotationPoint.y, -t.rotationPoint.z);
-
+                GlStateManager.translate(-transform.rotationPoint.x, -transform.rotationPoint.y, -transform.rotationPoint.z);
 
                 // Original object scale
-                GlStateManager.scale(t.scale.x, t.scale.y, t.scale.z);
-
-
+                GlStateManager.scale(transform.scale.x, transform.scale.y, transform.scale.z);
             }, (int) Math.round(timestamp));
 
+            transition.setSound(sound);
 
-            //System.out.println("Hello?! Brother! " + sound);
-            trans.setSound(sound);
-            return trans;
-
+            return transition;
         }
 
         public void showDebugCode() {
             System.out
                     .println("GL11.glTranslated(" + translation.x + ", " + translation.y + ", " + translation.z + ");");
-            System.out.println("GL11.glRotated(" + rotation.z + ", 0, 0, 1);");
-            System.out.println("GL11.glRotated(" + rotation.y + ", 0, 1, 0);");
-            System.out.println("GL11.glRotated(" + rotation.x + ", 1, 0, 0);");
+            System.out.println("GlStateManager.rotate(" + rotation.z + ", 0, 0, 1);");
+            System.out.println("GlStateManager.rotate(" + rotation.y + ", 0, 1, 0);");
+            System.out.println("GlStateManager.rotate(" + rotation.x + ", 1, 0, 0);");
             System.out.println("GL11.glScaled(1, 1, 1);");
         }
 
@@ -663,19 +640,19 @@ public class AnimationData {
             this.timestamp = timestamp;
         }
 
-        public Vec3d getRotation() {
+        public Vector3F getRotation() {
             return rotation;
         }
 
-        public void setRotation(Vec3d rotation) {
+        public void setRotation(Vector3F rotation) {
             this.rotation = rotation;
         }
 
-        public Vec3d getTranslation() {
+        public Vector3F getTranslation() {
             return translation;
         }
 
-        public void setTranslation(Vec3d translation) {
+        public void setTranslation(Vector3F translation) {
             this.translation = translation;
         }
 

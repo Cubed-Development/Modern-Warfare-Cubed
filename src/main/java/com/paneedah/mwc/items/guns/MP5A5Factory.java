@@ -417,7 +417,7 @@ public class MP5A5Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new MP5())
-            .withADSBeizer(new Vec3d(0.2, 1.7, 0.5))
+            .withADSBeizer(new Vec3d(0.2F, 1.7, 0.5F))
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)
             //.withYOffsetZoom(5F)
@@ -442,7 +442,7 @@ public class MP5A5Factory {
 					.withPosition(-1.425000f, 3.745000f, -3.325000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
 					.withRotationPoint(-0.350000f, -0.940000f, 0.060000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -450,8 +450,8 @@ public class MP5A5Factory {
                         // Left hand
                         new Transform()
                         .withPosition(1.210000f, 0.265000f, -0.260000f)
-                        .withBBRotation(-10.558, -28.6459, 58.5348)
-                        .withScale(2.6, 2.6, 4.0)
+                        .withBBRotation(-10.558F, -28.6459F, 58.5348F)
+                        .withScale(2.6F, 2.6F, 4.0F)
                         .withRotationPoint(0, 0, 0),
                         
                         
@@ -459,8 +459,8 @@ public class MP5A5Factory {
                         // Right hand
                         new Transform()
                         .withPosition(-0.200000f, 0.260000f, 1.680000f)
-                        .withRotation(-5.402700f, -4.780500f, -1.669400f)
-                        .withScale(3.0, 3.0, 3.0)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.0F, 3.0F, 3.0F)
                         .withRotationPoint(0, 0, 0)
                 
                 )
@@ -710,15 +710,15 @@ public class MP5A5Factory {
                   	 new Transform()
                   	 .withPosition(1.730000f, 0.065000f, -0.980000f)
                   	 .withRotation(93.414678f, 23.699100f, 15.553163f)
-                       .withScale(2.6, 2.6, 4.0)
+                       .withScale(2.6F, 2.6F, 4.0F)
                        .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                        .doGLDirect();
                    }, 
                    (renderContext) -> {
                   	 new Transform()
-                       .withPosition(-0.2, 0.1, 2)
-                       .withRotation(-5.4027, -4.7805, -1.6694)
-                       .withScale(3.5, 3.5, 3.5)
+                       .withPosition(-0.2F, 0.1F, 2)
+                       .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                       .withScale(3.5F, 3.5F, 3.5F)
                        .withRotationPoint(0, 0, 0)
                        .doGLDirect();
                    })
@@ -735,8 +735,8 @@ public class MP5A5Factory {
                   (renderContext) -> {
                  	 new Transform()
                  	 	.withPosition(-0.600000f, 0.340000f, 1.880000f)
-                 	 	.withRotation(-12.193518f, -4.780500f, 1.399459f)
-                      .withScale(3.5, 3.5, 3.5)
+                 	 	.withRotation(-12.193518f, -4.7805F, 1.399459f)
+                      .withScale(3.5F, 3.5F, 3.5F)
                       .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                       .doGLDirect();
                   })

@@ -57,8 +57,8 @@ public class BBLoader {
 	public static Transform test = new Transform()
 			.withPosition(-2, 3, -2)
 			.withRotation(0, 0, -0)
-			.withScale(3.0, 3.0, 3.0)
-			.withRotationPoint(-0.1, 1.0, 0.0);
+			.withScale(3, 3, 3)
+			.withRotationPoint(-0.1F, 1, 0);
 	
 	
 	private static String animationSuffix = ".animation.json";

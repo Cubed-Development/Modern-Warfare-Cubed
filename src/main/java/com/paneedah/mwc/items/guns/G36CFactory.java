@@ -338,16 +338,16 @@ public class G36CFactory implements GunFactory {
                                 // Left hand
                                 new Transform()
                                         .withPosition(1.090000f, 0.185000f, -0.340000f)
-                                        .withBBRotation(-8.1997, -23.6991, 57.7232)
-                                        .withScale(2.6, 2.6, 4.0)
+                                        .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
+                                        .withScale(2.6F, 2.6F, 4.0F)
                                         .withRotationPoint(0, 0, 0),
 
 
                                 // Right hand
                                 new Transform()
                                         .withPosition(-0.200000f, 0.300000f, 2.040000f)
-                                        .withRotation(-5.402700f, -4.780500f, -1.669400f)
-                                        .withScale(3.5, 3.5, 3.5)
+                                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                                        .withScale(3.5F, 3.5F, 3.5F)
                                         .withRotationPoint(0, 0, 0)
 
                         )
@@ -531,15 +531,15 @@ public class G36CFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(2.330000f, 0.065000f, 0.140000f)
                                             .withRotation(78.544055f, 23.699100f, 18.430633f)
-                                            .withScale(2.6, 2.6, 4.0)
+                                            .withScale(2.6F, 2.6F, 4.0F)
                                             .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                                             .doGLDirect();
                                 },
                                 (renderContext) -> {
                                     new Transform()
                                             .withPosition(-0.200000f, 0.300000f, 2.040000f)
-                                            .withRotation(-5.402700f, -4.780500f, -1.669400f)
-                                            .withScale(3.5, 3.5, 3.5)
+                                            .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                                            .withScale(3.5F, 3.5F, 3.5F)
                                             .withRotationPoint(0, 0, 0)
                                             .doGLDirect();
                                 })
@@ -556,8 +556,8 @@ public class G36CFactory implements GunFactory {
                                 (renderContext) -> {
                                     new Transform()
                                             .withPosition(-0.200000f, 0.300000f, 2.040000f)
-                                            .withRotation(-5.402700f, -4.780500f, -1.669400f)
-                                            .withScale(3.5, 3.5, 3.5)
+                                            .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                                            .withScale(3.5F, 3.5F, 3.5F)
                                             .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                                             .doGLDirect();
                                 })

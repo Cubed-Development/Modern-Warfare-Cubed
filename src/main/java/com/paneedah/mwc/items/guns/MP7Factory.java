@@ -318,7 +318,7 @@ public class MP7Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new MP7())
-            .withADSBeizer(new Vec3d(0.2, 1.7, -3))
+            .withADSBeizer(new Vec3d(0.2F, 1.7, -3))
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)
             //.withYOffsetZoom(5F)
@@ -343,7 +343,7 @@ public class MP7Factory {
 					.withPosition(-1.105000f, 2.785000f, -5.045000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
 					.withRotationPoint(-0.350000f, -0.900000f, 0.700000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -351,8 +351,8 @@ public class MP7Factory {
                         // Left hand
                         new Transform()
                         .withPosition(1.090000f, 0.865000f, 0.860000f)
-                        .withBBRotation(-18.3277, -19.993, 76.7174)
-                        .withScale(2.6, 2.6, 4.0)
+                        .withBBRotation(-18.3277F, -19.993F, 76.7174F)
+                        .withScale(2.6F, 2.6F, 4.0F)
                         .withRotationPoint(0, 0, 0),
                         
                         
@@ -360,8 +360,8 @@ public class MP7Factory {
                         // Right hand
                         new Transform()
                         .withPosition(-0.240000f, 0.380000f, 1.960000f)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3.2, 3.2, 3.2)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.2F, 3.2F, 3.2F)
                         .withRotationPoint(0, 0, 0)
                 
                 )
@@ -586,15 +586,15 @@ public class MP7Factory {
                   	 new Transform()
                   	.withPosition(3.690000f, 0.025000f, 0.860000f)
                   	.withRotation(82.522854f, 31.220711f, 8.301319f)
-                       .withScale(2.6, 2.6, 4.0)
+                       .withScale(2.6F, 2.6F, 4.0F)
                        .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                        .doGLDirect();
                    }, 
                    (renderContext) -> {
                   	 new Transform()
                   	 .withPosition(-0.240000f, 0.380000f, 1.960000f)
-                     .withRotation(-5.4027, -4.7805, -1.6694)
-                     .withScale(3.2, 3.2, 3.2)
+                     .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                     .withScale(3.2F, 3.2F, 3.2F)
                        .withRotationPoint(0, 0, 0)
                        .doGLDirect();
                    })
@@ -611,8 +611,8 @@ public class MP7Factory {
                   (renderContext) -> {
                  	 new Transform()
                  	 .withPosition(-0.240000f, 0.380000f, 1.960000f)
-                     .withRotation(-5.4027, -4.7805, -1.6694)
-                     .withScale(3.2, 3.2, 3.2)
+                     .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                     .withScale(3.2F, 3.2F, 3.2F)
                       .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                       .doGLDirect();
                   })

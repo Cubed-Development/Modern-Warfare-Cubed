@@ -384,7 +384,7 @@ public class ScorpionEVO3A1Factory implements GunFactory {
 					.withPosition(-1.465000f, 5.105000f, -3.685000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
 					.withRotationPoint(-0.350000f, -2.140000f, -0.700000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -392,8 +392,8 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                         // Left hand
                         new Transform()
                         .withPosition(1.090000f, 0.065000f, -0.620000f)
-                        .withBBRotation(-8.1997, -23.6991, 57.7232)
-                        .withScale(2.8, 2.8, 4.0)
+                        .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
+                        .withScale(2.8F, 2.8F, 4.0F)
                         .withRotationPoint(0, 0, 0),
                         
                         
@@ -401,8 +401,8 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                         // Right hand
                         new Transform()
                         .withPosition(-0.200000f, -0.140000f, 1.840000f)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3, 3, 3.5)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3, 3, 3.5F)
                         .withRotationPoint(0, 0, 0)
                 
                 )
@@ -591,15 +591,15 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                     	 new Transform()
                     	 .withPosition(3.090000f, 0.265000f, -0.620000f)
                     	 .withRotation(89.070002f, 33.851942f, 20.019402f)
-                         .withScale(2.6, 2.6, 4.0)
+                         .withScale(2.6F, 2.6F, 4.0F)
                          .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                          .doGLDirect();
                      }, 
                      (renderContext) -> {
                     	 new Transform()
                     	 .withPosition(-0.200000f, -0.140000f, 1.840000f)
-                         .withRotation(-5.4027, -4.7805, -1.6694)
-                         .withScale(3.5, 3.5, 3.5)
+                         .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                         .withScale(3.5F, 3.5F, 3.5F)
                          .withRotationPoint(0, 0, 0)
                          .doGLDirect();
                      })
@@ -616,8 +616,8 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                     (renderContext) -> {
                    	 new Transform()
 	                   	.withPosition(-0.200000f, -0.140000f, 1.840000f)
-	                    .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3.5, 3.5, 3.5)
+	                    .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.5F, 3.5F, 3.5F)
                         .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                         .doGLDirect();
                     })

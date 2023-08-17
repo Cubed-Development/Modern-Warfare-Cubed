@@ -135,8 +135,8 @@ public class VP70Factory implements GunFactory {
 					new Transform()
 					.withPosition(-0.945000f, 4.065000f, -7.845000f)
 					.withRotation(0.000000f, 1.000000f, 10.681469f)
-					.withRotationPoint(-0.12000000357627871, -0.36000001072883614, 0.040000001192092904)
-                    .withScale(3.0, 3.0, 3.0)
+					.withRotationPoint(-0.12000000357627871F, -0.36000001072883614F, 0.040000001192092904F)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -144,7 +144,7 @@ public class VP70Factory implements GunFactory {
                         // Left hand
                         new Transform()
                         .withPosition(1.410000f, 1.025000f, 1.980000f)
-                        .withBBRotation(-12.9672, -29.0825, 67.8433)
+                        .withBBRotation(-12.9672F, -29.0825F, 67.8433F)
                         .withScale(3, 3, 4)
                         .withRotationPoint(0, 0, 0),
                         
@@ -153,8 +153,8 @@ public class VP70Factory implements GunFactory {
                         // Right hand
                         new Transform()
                         .withPosition(-0.320000f, 0.260000f, 1.920000f)
-                        .withBBRotation(10.0931, 10.9576, -10.0294)
-                        .withScale(3, 3, 3.5)
+                        .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                        .withScale(3, 3, 3.5F)
                         .withRotationPoint(0, 0, 0)
                 
                 )
@@ -298,15 +298,15 @@ public class VP70Factory implements GunFactory {
                 	 new Transform()
                 	 .withPosition(2.770000f, 1.225000f, 0.140000f)
                 	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                     .withScale(2.6, 2.6, 4.0)
+                     .withScale(2.6F, 2.6F, 4.0F)
                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                      .doGLDirect();
                  }, 
                  (renderContext) -> {
                 	 new Transform()
                 	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                     .withBBRotation(10.0931, 10.9576, -10.0294)
-                     .withScale(3, 3, 3.5)
+                     .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                     .withScale(3, 3, 3.5F)
                      .withRotationPoint(0, 0, 0)
                      .doGLDirect();
                  })
@@ -316,15 +316,15 @@ public class VP70Factory implements GunFactory {
                	 new Transform()
 	                   	 .withPosition(2.770000f, 1.225000f, 0.140000f)
 	                   	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                    .withScale(2.6, 2.6, 4.0)
+                    .withScale(2.6F, 2.6F, 4.0F)
                     .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                     .doGLDirect();
                 }, 
                 (renderContext) -> {
                	 new Transform()
                	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                    .withBBRotation(10.0931, 10.9576, -10.0294)
-                    .withScale(3, 3, 3.5)
+                    .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                    .withScale(3, 3, 3.5F)
                     .withRotationPoint(0, 0, 0)
                     .doGLDirect();
                 })

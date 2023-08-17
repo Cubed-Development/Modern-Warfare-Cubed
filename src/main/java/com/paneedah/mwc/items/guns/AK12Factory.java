@@ -359,7 +359,7 @@ public class AK12Factory {
 					.withPosition(-1.225000f, 3.505000f, -2.165000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
                     .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -367,8 +367,8 @@ public class AK12Factory {
                         // Left hand
                         new Transform()
                         .withPosition(1.170000f, 0.225000f, -0.340000f)
-                        .withBBRotation(-7.1415, -27.3003, 52.6433)
-                        .withScale(2.4, 2.4, 4.0)
+                        .withBBRotation(-7.1415F, -27.3003F, 52.6433F)
+                        .withScale(2.4F, 2.4F, 4.0F)
                         .withRotationPoint(0, 0, 0),
                         
                         
@@ -376,8 +376,8 @@ public class AK12Factory {
                         // Right hand
                         new Transform()
                         .withPosition(-0.200000f, 0.180000f, 1.960000f)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3, 3, 3.5)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3, 3, 3.5F)
                         .withRotationPoint(0, 0, 0)
                 
                 )
@@ -619,15 +619,15 @@ public class AK12Factory {
                   	 new Transform()
                   	 .withPosition(1.730000f, 0.065000f, -0.980000f)
                   	 .withRotation(93.414678f, 23.699100f, 15.553163f)
-                       .withScale(2.6, 2.6, 4.0)
+                       .withScale(2.6F, 2.6F, 4.0F)
                        .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                        .doGLDirect();
                    }, 
                    (renderContext) -> {
                   	 new Transform()
-                       .withPosition(-0.2, 0.1, 2)
-                       .withRotation(-5.4027, -4.7805, -1.6694)
-                       .withScale(3.5, 3.5, 3.5)
+                       .withPosition(-0.2F, 0.1F, 2)
+                       .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                       .withScale(3.5F, 3.5F, 3.5F)
                        .withRotationPoint(0, 0, 0)
                        .doGLDirect();
                    })
@@ -644,8 +644,8 @@ public class AK12Factory {
                   (renderContext) -> {
                  	 new Transform()
                  	 	.withPosition(-0.600000f, 0.340000f, 1.880000f)
-                 	 	.withRotation(-12.193518f, -4.780500f, 1.399459f)
-                      .withScale(3.5, 3.5, 3.5)
+                 	 	.withRotation(-12.193518f, -4.7805F, 1.399459f)
+                      .withScale(3.5F, 3.5F, 3.5F)
                       .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                       .doGLDirect();
                   })

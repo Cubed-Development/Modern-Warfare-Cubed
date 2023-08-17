@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.WeaponRenderer.Builder;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.render.Shaders;
+import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -262,8 +263,8 @@ public class AnimationModeProcessor {
         }
 
 
-        double dx = Mouse.getDX();
-        double dy = Mouse.getDY();
+        float dx = Mouse.getDX();
+        float dy = Mouse.getDY();
         if (permissionToDrag && colorSelected == -1) {
 
             if (Mouse.isButtonDown(0)) {
@@ -286,19 +287,19 @@ public class AnimationModeProcessor {
                     m /= 10;
                 }
 
-                Vec3d vec = Vec3d.ZERO;
+                Vector3F vec = new Vector3F();
                 switch (colorSelected) {
                     case 1:
-                        vec = new Vec3d(-dx * m, 0, 0);
+                        vec = new Vector3F(-dx * m, 0, 0);
                         // DebugPositioner.incrementXPosition((float) -dx, false);
                         break;
                     case 2:
-                        vec = new Vec3d(0, -dy * m, 0);
+                        vec = new Vector3F(0, -dy * m, 0);
                         // DebugPositioner.incrementYPosition((float) -dy, false);
 
                         break;
                     case 3:
-                        vec = new Vec3d(0, 0, dx * m);
+                        vec = new Vector3F(0, 0, dx * m);
                         // DebugPositioner.incrementZPosition((float) dx, false);
 
                         break;
@@ -326,7 +327,7 @@ public class AnimationModeProcessor {
 
                         t.withPosition(t.position.x + vec.x * m, t.position.y + vec.y * m, t.position.z + vec.z * m);
 
-                        if (AnimationGUI.getInstance().leftDrag.isState()) t.withRotation(t.rotation.x, t.rotation.y - vec.x * 0.4, t.rotation.z);
+                        if (AnimationGUI.getInstance().leftDrag.isState()) t.withRotation(t.rotation.x, t.rotation.y - vec.x * 0.4F, t.rotation.z);
 
                     } else {
                         Transform t = getTransformFromSelected();
@@ -410,7 +411,7 @@ public class AnimationModeProcessor {
 
 
                     if (atGrab != null) {
-                        t.withRotation(atGrab.rotation.x + Math.toDegrees(quangles[0]) * vec.x, atGrab.rotation.y + Math.toDegrees(quangles[1]) * vec.y, atGrab.rotation.z + -Math.toDegrees(quangles[2]) * vec.z);
+                        t.withRotation((float) (atGrab.rotation.x + Math.toDegrees(quangles[0]) * vec.x), (float) (atGrab.rotation.y + Math.toDegrees(quangles[1]) * vec.y), (float) (atGrab.rotation.z + -Math.toDegrees(quangles[2]) * vec.z));
                     }
                     t.printTransformCreationCode();
                     //t.withRotation(t.rotation.x + vec.x*m*0.1, t.rotation.y + vec.y*m*0.1, t.rotation.z + vec.z*m*0.1);

@@ -113,7 +113,7 @@ public class MP443Factory implements GunFactory {
             .withModel(new MP443())
             .withActionPiece(
             		Attachments.MP443Slide)
-            .withActionTransform(new Transform().withPosition(0, 0, 0.5))
+            .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
             //.withTextureName("M9")
             //.withWeaponProximity(0.99F)
             //.withYOffsetZoom(5F)
@@ -138,7 +138,7 @@ public class MP443Factory implements GunFactory {
 					.withPosition(-0.865000f, 4.065000f, -7.845000f)
 					.withRotation(0.000000f, 1.000000f, 10.681469f)
 					.withRotationPoint(-0.400000f, -1.240000f, 0.040000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -146,7 +146,7 @@ public class MP443Factory implements GunFactory {
                         // Left hand
                         new Transform()
                         .withPosition(1.290000f, 0.945000f, 2.020000f)
-                        .withBBRotation(-12.9672, -29.0825, 67.8433)
+                        .withBBRotation(-12.9672F, -29.0825F, 67.8433F)
                         .withScale(3, 3, 4)
                         .withRotationPoint(0, 0, 0),
                         
@@ -155,8 +155,8 @@ public class MP443Factory implements GunFactory {
                         // Right hand
                         new Transform()
                         .withPosition(-0.400000f, 0.260000f, 2.040000f)
-                        .withBBRotation(10.0931, 10.9576, -10.0294)
-                        .withScale(3, 3, 3.5)
+                        .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                        .withScale(3, 3, 3.5F)
                         .withRotationPoint(0, 0, 0)
                 
                 )
@@ -298,15 +298,15 @@ public class MP443Factory implements GunFactory {
                  	 new Transform()
                  	 .withPosition(2.770000f, 1.225000f, 0.140000f)
                  	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                      .withScale(2.6, 2.6, 4.0)
+                      .withScale(2.6F, 2.6F, 4.0F)
                       .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                       .doGLDirect();
                   }, 
                   (renderContext) -> {
                  	 new Transform()
                  	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                      .withBBRotation(10.0931, 10.9576, -10.0294)
-                      .withScale(3, 3, 3.5)
+                      .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                      .withScale(3, 3, 3.5F)
                       .withRotationPoint(0, 0, 0)
                       .doGLDirect();
                   })
@@ -316,15 +316,15 @@ public class MP443Factory implements GunFactory {
                 	 new Transform()
 	                   	 .withPosition(2.770000f, 1.225000f, 0.140000f)
 	                   	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                     .withScale(2.6, 2.6, 4.0)
+                     .withScale(2.6F, 2.6F, 4.0F)
                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                      .doGLDirect();
                  }, 
                  (renderContext) -> {
                 	 new Transform()
                 	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                     .withBBRotation(10.0931, 10.9576, -10.0294)
-                     .withScale(3, 3, 3.5)
+                     .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                     .withScale(3, 3, 3.5F)
                      .withRotationPoint(0, 0, 0)
                      .doGLDirect();
                  })

@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.animation.jim;
 
-import com.paneedah.weaponlib.animation.MatrixHelper;
 import com.paneedah.weaponlib.animation.jim.AnimationData.BlockbenchTransition;
+import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
@@ -73,15 +73,15 @@ public class KeyedAnimation {
 
 
 		//System.out.println(time);
-		Vec3d prevTrans = bbMap.floorEntry(time).getValue().getTranslation();
-		Vec3d nextTrans = bbMap.ceilingEntry(time).getValue().getTranslation();
+		Vector3F prevTrans = bbMap.floorEntry(time).getValue().getTranslation();
+		Vector3F nextTrans = bbMap.ceilingEntry(time).getValue().getTranslation();
 		
 		// If by some weird bug this is null, copy them to eachother
 		if (nextTrans == null)
 			nextTrans = prevTrans;
 
-		Vec3d prevRot = bbMap.floorEntry(time).getValue().getRotation();
-		Vec3d nextRot = bbMap.ceilingEntry(time).getValue().getRotation();
+		Vector3F prevRot = bbMap.floorEntry(time).getValue().getRotation();
+		Vector3F nextRot = bbMap.ceilingEntry(time).getValue().getRotation();
 
 		if (nextRot == null)
 			nextRot = prevRot;
@@ -90,12 +90,15 @@ public class KeyedAnimation {
 		float leDelta = (time - bottomKey) / (topKey - bottomKey);
 		if (Double.isNaN(leDelta))
 			leDelta = 0.0f;
-		
-		
-		
-		Vec3d translation = MatrixHelper.lerpVectors(prevTrans, nextTrans, leDelta);
-		
-		Vec3d rotation = MatrixHelper.lerpVectors(prevRot, nextRot, leDelta);
+
+
+
+		Vector3F translation = new Vector3F();
+		translation.lerp(prevTrans, leDelta, nextTrans);
+
+		Vector3F rotation = new Vector3F();
+		rotation.lerp(prevRot, leDelta, nextRot);
+
 		/*
 		Vec3d rotation = Vec3d.ZERO;
 		
@@ -109,8 +112,8 @@ public class KeyedAnimation {
 		
 		//rotation = new Vec3d(MC.player.ticksExisted%45, 0, 0);
 				
-		translation = translation.scale(magnitude);
-		rotation = rotation.scale(magnitude);
+		translation.scale(magnitude);
+		rotation.scale(magnitude);
 		
 	
 		double mul = 1 / 17.0;

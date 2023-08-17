@@ -385,7 +385,7 @@ public class ARX160Factory implements GunFactory {
 					.withPosition(-1.425000f, 5.705000f, -3.005000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
 					.withRotationPoint(-0.350000f, -3.460000f, -0.580000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -393,8 +393,8 @@ public class ARX160Factory implements GunFactory {
                         // Left hand
                         new Transform()
                         .withPosition(1.090000f, -0.255000f, -0.500000f)
-                        .withBBRotation(-8.1997, -23.6991, 57.7232)
-                        .withScale(2.6, 2.6, 4.0)
+                        .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
+                        .withScale(2.6F, 2.6F, 4.0F)
                         .withRotationPoint(0, 0, 0),
                         
                         
@@ -402,8 +402,8 @@ public class ARX160Factory implements GunFactory {
                         // Right hand
                         new Transform()
                         .withPosition(-0.200000f, -0.180000f, 1.760000f)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3.5, 3.5, 3.5)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.5F, 3.5F, 3.5F)
                         .withRotationPoint(0, 0, 0)
                 
                 )
@@ -551,15 +551,15 @@ public class ARX160Factory implements GunFactory {
               	 new Transform()
               	.withPosition(2.330000f, 0.065000f, 0.140000f)
               	.withRotation(78.544055f, 23.699100f, 18.430633f)
-                   .withScale(2.6, 2.6, 4.0)
+                   .withScale(2.6F, 2.6F, 4.0F)
                    .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                    .doGLDirect();
                }, 
                (renderContext) -> {
               	 new Transform()
               	.withPosition(-0.200000f, -0.180000f, 1.760000f)
-                .withRotation(-5.4027, -4.7805, -1.6694)
-                   .withScale(3.5, 3.5, 3.5)
+                .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                   .withScale(3.5F, 3.5F, 3.5F)
                    .withRotationPoint(0, 0, 0)
                    .doGLDirect();
                })
@@ -576,8 +576,8 @@ public class ARX160Factory implements GunFactory {
               (renderContext) -> {
              	 new Transform()
              	.withPosition(-0.200000f, -0.180000f, 1.760000f)
-                .withRotation(-5.4027, -4.7805, -1.6694)
-                  .withScale(3.5, 3.5, 3.5)
+                .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                  .withScale(3.5F, 3.5F, 3.5F)
                   .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                   .doGLDirect();
               })

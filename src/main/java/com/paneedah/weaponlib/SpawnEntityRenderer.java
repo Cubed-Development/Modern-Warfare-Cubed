@@ -90,7 +90,7 @@ public class SpawnEntityRenderer extends Render<Entity> {
 				GlStateManager.pushMatrix();
 				new Transform()
 				.withRotation(90 - entity.rotationPitch, entity.rotationYaw, 0)
-				.withPosition(x, y, z)
+				.withPosition((float) x, (float) y, (float) z)
 				.withScale(1, 1, 1)
 				.doGLDirect();
 

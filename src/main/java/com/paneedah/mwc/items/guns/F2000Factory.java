@@ -400,7 +400,7 @@ public class F2000Factory {
 					.withPosition(-1.425000f, 1.905000f, -5.685000f)
 					.withRotation(0.000000f, 1.000000f, 3.924788f)
 					.withRotationPoint(0.050000f, -0.460000f, 1.780000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -408,8 +408,8 @@ public class F2000Factory {
                         // Left hand
                         new Transform()
                         .withPosition(1.170000f, 0.905000f, 0.980000f)
-                        .withBBRotation(-9.9086, -23.0693, 62.027)
-                        .withScale(2.6, 2.6, 4.0)
+                        .withBBRotation(-9.9086F, -23.0693F, 62.027F)
+                        .withScale(2.6F, 2.6F, 4.0F)
                         .withRotationPoint(0, 0, 0),
                         
                         
@@ -417,8 +417,8 @@ public class F2000Factory {
                         // Right hand
                         new Transform()
                         .withPosition(-0.080000f, 0.780000f, 2.720000f)
-                        .withRotation(-5.402700f, -4.780500f, -1.669400f)
-                        .withScale(3.5, 3.5, 3.5)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.5F, 3.5F, 3.5F)
                         .withRotationPoint(0, 0, 0)
                 
                 )
@@ -639,15 +639,15 @@ public class F2000Factory {
                  	 new Transform()
                  	.withPosition(2.610000f, 0.905000f, 1.700000f)
                  	.withRotation(99.332817f, 23.069300f, 22.719554f)
-                      .withScale(2.6, 2.6, 4.0)
+                      .withScale(2.6F, 2.6F, 4.0F)
                       .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                       .doGLDirect();
                   }, 
                   (renderContext) -> {
                  	 new Transform()
                  	.withPosition(-0.080000f, 0.780000f, 2.720000f)
-                    .withRotation(-5.402700f, -4.780500f, -1.669400f)
-                      .withScale(3.5, 3.5, 3.5)
+                    .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                      .withScale(3.5F, 3.5F, 3.5F)
                       .withRotationPoint(0, 0, 0)
                       .doGLDirect();
                   })
@@ -664,8 +664,8 @@ public class F2000Factory {
                  (renderContext) -> {
                 	 new Transform()
                 	 .withPosition(-0.480000f, 0.780000f, 2.720000f)
-                	 .withRotation(-5.402700f, -4.780500f, -1.669400f)
-                     .withScale(3.5, 3.5, 3.5)
+                	 .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                     .withScale(3.5F, 3.5F, 3.5F)
                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                      .doGLDirect();
                  })

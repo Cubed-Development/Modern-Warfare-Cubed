@@ -320,7 +320,7 @@ public class MAC10Factory {
 					.withPosition(-2.065000f, 5.145000f, -6.925000f)
 					.withRotation(0.000000f, 1.000000f, 10.681469f)
 					.withRotationPoint(-0.280000f, -1.600000f, 0.040000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -328,7 +328,7 @@ public class MAC10Factory {
                         // Left hand
                         new Transform()
                         .withPosition(1.290000f, 0.425000f, 0.620000f)
-                        .withBBRotation(-9.034, -30.4206, 59.9273)
+                        .withBBRotation(-9.034F, -30.4206F, 59.9273F)
                         .withScale(3, 3, 4)
                         .withRotationPoint(0, 0, 0),
                         
@@ -337,8 +337,8 @@ public class MAC10Factory {
                         // Right hand
                         new Transform()
                         .withPosition(-0.320000f, 0.260000f, 2.040000f)
-                        .withBBRotation(10.0931, 10.9576, -10.0294)
-                        .withScale(3, 3, 3.5)
+                        .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                        .withScale(3, 3, 3.5F)
                         .withRotationPoint(0, 0, 0)
                 
                 )
@@ -573,15 +573,15 @@ public class MAC10Factory {
                 	 new Transform()
                 	 .withPosition(2.770000f, 1.225000f, 0.140000f)
                 	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                     .withScale(2.6, 2.6, 4.0)
+                     .withScale(2.6F, 2.6F, 4.0F)
                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                      .doGLDirect();
                  }, 
                  (renderContext) -> {
                 	 new Transform()
                 	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                     .withBBRotation(10.0931, 10.9576, -10.0294)
-                     .withScale(3, 3, 3.5)
+                     .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                     .withScale(3, 3, 3.5F)
                      .withRotationPoint(0, 0, 0)
                      .doGLDirect();
                  })
@@ -591,15 +591,15 @@ public class MAC10Factory {
                	 new Transform()
 	                   	 .withPosition(2.770000f, 1.225000f, 0.140000f)
 	                   	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                    .withScale(2.6, 2.6, 4.0)
+                    .withScale(2.6F, 2.6F, 4.0F)
                     .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
                     .doGLDirect();
                 }, 
                 (renderContext) -> {
                	 new Transform()
                	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                    .withBBRotation(10.0931, 10.9576, -10.0294)
-                    .withScale(3, 3, 3.5)
+                    .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                    .withScale(3, 3, 3.5F)
                     .withRotationPoint(0, 0, 0)
                     .doGLDirect();
                 })

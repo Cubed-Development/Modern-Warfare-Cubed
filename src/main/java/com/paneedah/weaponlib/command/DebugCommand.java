@@ -220,9 +220,9 @@ public class DebugCommand extends CommandBase {
                     MC.player.sendMessage(new TextComponentString(getDebugPrefix() + " Slide editor mode is " + (isDebuggingActionPosition ? "on" : "off")));
 
                 } else if (args[2].equals("setpos")) {
-                    double x = Double.parseDouble(args[3]);
-                    double y = Double.parseDouble(args[4]);
-                    double z = Double.parseDouble(args[5]);
+                    float x = Float.parseFloat(args[3]);
+                    float y = Float.parseFloat(args[4]);
+                    float z = Float.parseFloat(args[5]);
                     debugSlideTransform.withPosition(x, y, z);
                 }
                 break;
@@ -292,9 +292,9 @@ public class DebugCommand extends CommandBase {
                 break;
 
             case "as":
-                final double x = Double.parseDouble(args[2]);
-                final double y = Double.parseDouble(args[3]);
-                final double z = Double.parseDouble(args[4]);
+                final float x = Float.parseFloat(args[2]);
+                final float y = Float.parseFloat(args[3]);
+                final float z = Float.parseFloat(args[4]);
                 ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder().firstPersonLeftHandTransform.withScale(x, y, z);
                 break;
         }

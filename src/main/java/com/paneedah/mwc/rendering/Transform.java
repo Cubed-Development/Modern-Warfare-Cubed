@@ -1,6 +1,6 @@
 package com.paneedah.mwc.rendering;
 
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import io.redstudioragnarok.redcore.vectors.Vector3F;
 import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.utils.ModReference.LOG;
@@ -9,17 +9,17 @@ public final class Transform {
 
     public static final Transform ZERO = new Transform().withPosition(0, 0, 0).withRotation(0, 0, 0).withRotationPoint(0, 0, 0).withScale(1, 1, 1);
 
-    public final Vector3D position = new Vector3D();
-    public final Vector3D rotationPoint = new Vector3D();
-    public final Vector3D rotation = new Vector3D();
-    public final Vector3D scale = new Vector3D();
+    public final Vector3F position = new Vector3F();
+    public final Vector3F rotationPoint = new Vector3F();
+    public final Vector3F rotation = new Vector3F();
+    public final Vector3F scale = new Vector3F();
 
-    public Transform withPosition(final double x, final double y, final double z) {
+    public Transform withPosition(final float x, final float y, final float z) {
         position.set(x, y, z);
         return this;
     }
 
-    public Transform withRotationPoint(final double x, final double y, final double z) {
+    public Transform withRotationPoint(final float x, final float y, final float z) {
         rotationPoint.set(x, y, z);
         return this;
     }
@@ -28,17 +28,17 @@ public final class Transform {
      * When going from Blockbench to the game, the X and Y rotations are inverted. Todo: Why?
      * This method will automatically convert it for you.
      */
-    public Transform withBBRotation(final double x, final double y, final double z) {
+    public Transform withBBRotation(final float x, final float y, final float z) {
         rotation.set(-x, -y, z);
         return this;
     }
 
-    public Transform withRotation(final double x, final double y, final double z) {
+    public Transform withRotation(final float x, final float y, final float z) {
         rotation.set(x, y, z);
         return this;
     }
 
-    public Transform withScale(final double x, final double y, final double z) {
+    public Transform withScale(final float x, final float y, final float z) {
         scale.set(x, y, z);
         return this;
     }
