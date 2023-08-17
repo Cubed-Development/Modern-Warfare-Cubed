@@ -543,7 +543,7 @@ public class AnimationData {
                 GL11.glRotated(rotation.x * rotXMult, 1, 0, 0);
 
                 GlStateManager.translate(-t.rotationPoint.x, -t.rotationPoint.y, -t.rotationPoint.z);
-                GlStateManager.scale(t.rotation.x, t.rotation.y, t.rotation.z);
+                GlStateManager.scale(t.scale.x, t.scale.y, t.scale.z);
 
 
             }, (int) timestamp);
@@ -557,7 +557,6 @@ public class AnimationData {
 
         public Transition<?> createVMWTransition(Transform t, double divisor) {
             Transition<?> trans = new Transition<>((rc) -> {
-
 
                 /*
                  * So you wanna mess with this code?
@@ -630,7 +629,7 @@ public class AnimationData {
 
 
                 // Original object scale
-                GlStateManager.scale(t.rotation.x, t.rotation.y, t.rotation.z);
+                GlStateManager.scale(t.scale.x, t.scale.y, t.scale.z);
 
 
             }, (int) Math.round(timestamp));
