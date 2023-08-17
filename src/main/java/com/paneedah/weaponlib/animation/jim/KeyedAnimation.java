@@ -29,7 +29,7 @@ public class KeyedAnimation {
 			bbMap.put(entry.getKey(), entry.getValue());
 		}
 		
-		this.max = data.getAppointedDuration();
+		this.max = data.appointedDuration;
 	}
 	
 	public void doPositioning(float speed) {

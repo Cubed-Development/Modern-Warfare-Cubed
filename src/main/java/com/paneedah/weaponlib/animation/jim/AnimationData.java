@@ -12,6 +12,7 @@ import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.EulerAngle;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.Format;
 import io.redstudioragnarok.redcore.vectors.Vector3F;
+import lombok.Getter;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.SoundEvent;
 import org.lwjgl.opengl.GL11;
@@ -19,11 +20,13 @@ import org.lwjgl.opengl.GL11;
 import java.util.*;
 import java.util.Map.Entry;
 
+import static com.paneedah.mwc.utils.ModReference.LOG;
+
 public class AnimationData {
 
-    public TreeMap<Float, BlockbenchTransition> bbTransition = new TreeMap<>();
-
     public static final float PACE = 833f;
+
+    public TreeMap<Float, BlockbenchTransition> bbTransition = new TreeMap<>();
 
     public ArrayList<Float> timestamps = new ArrayList<>();
 
@@ -36,21 +39,13 @@ public class AnimationData {
 
 
     // The **ACTUAL** duration of the animation as designated in the BlockBench file
-    private float appointedDuration;
+    public float appointedDuration;
 
 
     protected AnimationData(ArrayList<Float> arrayList) {
         this.isNull = true;
         this.fakeTransitions = arrayList.size();
         this.fTLength = (long) (arrayList.get(arrayList.size() - 1) / arrayList.size());
-    }
-
-    public void setAppointedDuration(float f) {
-        this.appointedDuration = f;
-    }
-
-    public float getAppointedDuration() {
-        return this.appointedDuration;
     }
 
     public AnimationData(JsonObject obj) {
@@ -319,7 +314,7 @@ public class AnimationData {
 
 
         // Build a new BlockBench transition
-        getBbTransition().put(timeStamp, new BlockbenchTransition(timeDelta, rotation, translation));
+        bbTransition.put(timeStamp, new BlockbenchTransition(timeDelta, rotation, translation));
 
 
     }
@@ -440,9 +435,9 @@ public class AnimationData {
 
     public static class BlockbenchTransition {
 
-        private float timestamp;
-        private Vector3F rotation;
-        private Vector3F translation;
+        public float timestamp;
+        @Getter private Vector3F rotation;
+        @Getter private Vector3F translation;
         private SoundEvent sound;
 
         public BlockbenchTransition(float timestamp, Vector3F rotation, Vector3F translation) {
@@ -619,12 +614,11 @@ public class AnimationData {
         }
 
         public void showDebugCode() {
-            System.out
-                    .println("GL11.glTranslated(" + translation.x + ", " + translation.y + ", " + translation.z + ");");
-            System.out.println("GlStateManager.rotate(" + rotation.z + ", 0, 0, 1);");
-            System.out.println("GlStateManager.rotate(" + rotation.y + ", 0, 1, 0);");
-            System.out.println("GlStateManager.rotate(" + rotation.x + ", 1, 0, 0);");
-            System.out.println("GL11.glScaled(1, 1, 1);");
+            LOG.debug("GlStateManager.translate({}, {}, {});", translation.x, translation.y, translation.z);
+            LOG.debug("GlStateManager.rotate({}, 0, 0, 1);", rotation.z);
+            LOG.debug("GlStateManager.rotate({}}, 0, 1, 0);", rotation.y);
+            LOG.debug("GlStateManager.rotate({}, 1, 0, 0);", rotation.x);
+            LOG.debug("GlStateManager.scale(1, 1, 1);");
         }
 
         @Override
@@ -632,24 +626,8 @@ public class AnimationData {
             return "[(" + this.timestamp + ") " + this.rotation + " > " + this.translation + "]";
         }
 
-        public float getTimestamp() {
-            return timestamp;
-        }
-
-        public void setTimestamp(float timestamp) {
-            this.timestamp = timestamp;
-        }
-
-        public Vector3F getRotation() {
-            return rotation;
-        }
-
         public void setRotation(Vector3F rotation) {
             this.rotation = rotation;
-        }
-
-        public Vector3F getTranslation() {
-            return translation;
         }
 
         public void setTranslation(Vector3F translation) {
@@ -657,21 +635,4 @@ public class AnimationData {
         }
 
     }
-
-    public TreeMap<Float, BlockbenchTransition> getBbTransition() {
-        return bbTransition;
-    }
-
-    public void setBbTransition(TreeMap<Float, BlockbenchTransition> bbTransition) {
-        this.bbTransition = bbTransition;
-    }
-
-    public ArrayList<Float> getTimestamps() {
-        return timestamps;
-    }
-
-    public void setTimestamps(ArrayList<Float> timestamps) {
-        this.timestamps = timestamps;
-    }
-
 }
