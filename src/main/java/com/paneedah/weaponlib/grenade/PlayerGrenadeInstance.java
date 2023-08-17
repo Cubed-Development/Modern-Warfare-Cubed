@@ -201,7 +201,7 @@ public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 		return (ItemAttachment<ItemGrenade>) scopeItem;
 	}
 
-    public List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(RenderContext<RenderableState> renderContext, boolean attached) {
+    public List<CompatibleAttachment<? extends AttachmentContainer>> getActiveAttachments(RenderContext<GrenadeRenderableState> renderContext, boolean attached) {
         int[] activeIds = getActiveAttachmentIds();
         List<CompatibleAttachment<? extends AttachmentContainer>> result = new ArrayList<>();
         for(int i = 0; i < activeIds.length; i++) {

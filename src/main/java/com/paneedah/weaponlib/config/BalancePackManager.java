@@ -393,7 +393,7 @@ public class BalancePackManager {
 			if (jsonObject.has(GUN_CONFIG_LIST)) {
 
 				JsonArray array = jsonObject.get(GUN_CONFIG_LIST).getAsJsonArray();
-				LOG.debug("Found weapon config list with {} entries.", array.size());
+				LOG.debug("Found weapons config list with {} entries.", array.size());
 				for (int i = 0; i < array.size(); ++i) {
 					GunBalanceConfiguration balanceConfig = GunBalanceConfiguration
 							.fromJSONObject(array.get(i).getAsJsonObject());
@@ -435,7 +435,7 @@ public class BalancePackManager {
 			globalParameters.addProperty(HIP_FIRE_SPREAD_KEY, this.globalHipFireSpread);
 			obj.add(GLOBAL_PARAMETERS_KEY, globalParameters);
 
-			// Write the individual weapon keys
+			// Write the individual weapons keys
 			JsonArray gunObj = new JsonArray();
 			for (Entry<String, GunBalanceConfiguration> gbc : this.gunConfigurations.entrySet())
 				gunObj.add(gbc.getValue().toJSONObject());

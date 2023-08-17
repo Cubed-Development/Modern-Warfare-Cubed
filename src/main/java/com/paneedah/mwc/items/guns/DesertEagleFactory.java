@@ -1,15 +1,15 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.Glock18C;
-import com.paneedah.mwc.models.Reflex2;
+import com.paneedah.mwc.models.weapons.Glock18C;
+import com.paneedah.mwc.models.weapons.Reflex2;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
@@ -48,7 +48,7 @@ public class DesertEagleFactory implements GunFactory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
-        		// The weapon power
+        		// The weapons power
         		45.0,
         		// Muzzle climb divisor
         		13.5,
@@ -90,7 +90,7 @@ public class DesertEagleFactory implements GunFactory {
         })
         .withCompatibleAttachment(Attachments.DesertEagleSlideBlack, (model) -> {
         })
-        .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+        .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(0.01F, -0.76F, -2.1F);
             GL11.glScaled(1.1F, 1.1F, 1.1F);
             GL11.glRotatef(-90F, 0f, 0f, -4f);
@@ -99,7 +99,7 @@ public class DesertEagleFactory implements GunFactory {
 //            GL11.glTranslatef(-0.22F, -1.18F, -4.2F);
 //            GL11.glScaled(1.3F, 1.3F, 1.3F);
 //        })
-        .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.RMR, () -> {
                 GL11.glTranslatef(-0.19F, -1.3F, -1.25F);
                 GL11.glScaled(0.46F, 0.46F, 0.46F);
         },(model) -> {
@@ -108,7 +108,7 @@ public class DesertEagleFactory implements GunFactory {
                 GL11.glScaled(0.2F, 0.2F, 0.2F);
             }
         })
-        .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
             GL11.glTranslatef(-0.05F, -1F, -1.6F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {

@@ -299,7 +299,7 @@ public class OBBCollider {
 				 *  - Chou
 				 */
 				
-				// set the result
+				// copy the result
 				result.status = GJKResult.Status.COLLIDING;
 				
 				

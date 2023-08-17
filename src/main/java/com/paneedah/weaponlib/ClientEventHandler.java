@@ -372,8 +372,6 @@ public class ClientEventHandler {
 		if (event.getEntityPlayer().isRiding() && event.getEntityPlayer().getRidingEntity() instanceof EntityVehicle && event.getEntityPlayer().limbSwing != 39)
 			event.setCanceled(true);
 
-		final ClientModContext modContext = (ClientModContext) getModContext();
-
 		if (ClientProxy.renderingPhase == RenderingPhase.RENDER_PERSPECTIVE && event.getEntityPlayer() instanceof EntityPlayerSP) {
 			/*
 			 * This is a hack to allow player to view themselves in remote perspective.
@@ -383,28 +381,6 @@ public class ClientEventHandler {
 			originalRenderViewEntity = event.getRenderer().getRenderManager().renderViewEntity;
 			event.getRenderer().getRenderManager().renderViewEntity = event.getEntityPlayer();
 		}
-		/*
-		EquipmentInventory capability = EquipmentCapability.getInventory(preRenderPlayerEvent.getPlayer());
-
-        if(capability != null) {
-            ItemStack vestStack = capability.getStackInSlot(1);
-            if(vestStack != null) {
-                compatibility.renderItem(preRenderPlayerEvent.getPlayer(), vestStack);
-                IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(vestStack, null);
-                if(customRenderer instanceof StaticModelSourceRenderer) {
-                    ((StaticModelSourceRenderer) customRenderer).renderCustomEquipped(preRenderPlayerEvent.getPlayer(), vestStack);
-                }
-            }
-            ItemStack backpackStack = capability.getStackInSlot(0); // TODO: replace 0 with constant for backpack slot
-            if(backpackStack != null) {
-                IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(backpackStack, null);
-                if(customRenderer instanceof StaticModelSourceRenderer) {
-                    ((StaticModelSourceRenderer) customRenderer).renderCustomEquipped(preRenderPlayerEvent.getPlayer(), backpackStack);
-                }
-                compatibility.renderItem(preRenderPlayerEvent.getPlayer(), backpackStack);
-            }
-        }
-        */
     }
 
 	@SubscribeEvent

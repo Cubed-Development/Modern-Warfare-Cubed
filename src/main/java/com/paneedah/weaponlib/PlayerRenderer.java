@@ -115,8 +115,8 @@ public class PlayerRenderer {
             
             if(heldStack != null && heldStack.getItem() instanceof Weapon) {
                 /*
-                 * if this player is not proning and holds a weapon, get a weapon state descriptor
-                 * holding weapon state manager, i.e. animate as defined per weapon
+                 * if this player is not proning and holds a weapons, get a weapons state descriptor
+                 * holding weapons state manager, i.e. animate as defined per weapons
                  */
                 return ((Weapon)heldStack.getItem()).getRenderer().getThirdPersonStateDescriptor(player, heldStack);
             }
@@ -233,7 +233,7 @@ public class PlayerRenderer {
         
         modelPlayer.setRotationAngles(renderContext.getLimbSwing(), renderContext.getFlimbSwingAmount(), 
                 renderContext.getAgeInTicks(), renderContext.getNetHeadYaw(), 
-                renderContext.getHeadPitch(), renderContext.getScale(), renderContext.getPlayer());
+                renderContext.getHeadPitch(), renderContext.getScale(), renderContext.getEntityLiving());
 
         renderBody(positioner, modelPlayer, renderContext);
         renderHead(positioner, modelPlayer, renderContext);
@@ -501,7 +501,7 @@ public class PlayerRenderer {
             
             modelPlayer.setRotationAngles(renderContext.getLimbSwing(), renderContext.getFlimbSwingAmount(), 
                     renderContext.getAgeInTicks(), renderContext.getNetHeadYaw(), 
-                    renderContext.getHeadPitch(), renderContext.getScale(), renderContext.getPlayer());
+                    renderContext.getHeadPitch(), renderContext.getScale(), renderContext.getEntityLiving());
 
             positioner.position(Part.MAIN, renderContext);
             

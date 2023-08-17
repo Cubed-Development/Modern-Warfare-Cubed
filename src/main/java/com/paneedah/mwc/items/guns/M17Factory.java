@@ -2,7 +2,7 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -11,7 +11,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -52,7 +52,7 @@ public class M17Factory implements GunFactory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
-        		// The weapon power
+        		// The weapons power
         		45.0,
         		// Muzzle climb divisor
         		13.5,
@@ -99,7 +99,7 @@ public class M17Factory implements GunFactory {
                 GL11.glTranslatef(-0.153F, -1.2F, -0.03F);
                 GL11.glScaled(0.28F, 0.2F, 0.7F);
             }
-            else if(model instanceof M1911frontsight) {
+            else if(model instanceof M1911FrontSight) {
                 GL11.glTranslatef(-0.142F, -1.2F, -2F);
                 GL11.glScaled(0.2F, 0.2F, 0.2F);
             }
@@ -109,7 +109,7 @@ public class M17Factory implements GunFactory {
 //            GL11.glTranslatef(0F, 0.8F, 0.2F);
         })
         
-        .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+        .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(0.01F, -0.72F, -2.1F);
             GL11.glScaled(1.1F, 1.1F, 1.1F);
             GL11.glRotatef(-90F, 0f, 0f, -4f);
@@ -118,7 +118,7 @@ public class M17Factory implements GunFactory {
             GL11.glTranslatef(-0.21F, -1.21F, -3.93F);
             GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
-        .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.RMR, () -> {
                 GL11.glTranslatef(-0.175F, -1.35F, -0.3F);
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
         },(model) -> {

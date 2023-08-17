@@ -116,7 +116,7 @@ public class CompatibleWorldRenderer extends EntityRenderer
     /** Colors computed in updateLightmap() and loaded into the lightmap emptyTexture */
     private final int[] lightmapColors;
     private final ResourceLocation locationLightMap;
-    /** Is set, updateCameraAndRender() calls updateLightmap(); set by updateTorchFlicker() */
+    /** Is copy, updateCameraAndRender() calls updateLightmap(); copy by updateTorchFlicker() */
     private boolean lightmapUpdateNeeded;
     /** Torch flicker X */
     private float torchFlickerX;

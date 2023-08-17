@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -101,7 +101,7 @@ public class G2ContenderFactory implements GunFactory {
         	GL11.glRotatef(90F, 1f, 0f, 0f);
           GL11.glScaled(0.5F, 0.5F, 0.5F);
         })
-        .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
         	GL11.glTranslatef(-0.115F, -0.57F, -2F);
             GL11.glScaled(0.48F, 0.48F, 0.48F);
 		},(model) -> {

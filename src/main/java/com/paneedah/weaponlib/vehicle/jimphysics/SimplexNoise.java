@@ -324,7 +324,7 @@ public class SimplexNoise { // Simplex noise in 2D, 3D and 4D
 		int i2, j2, k2, l2; // The integer offsets for the third simplex corner
 		int i3, j3, k3, l3; // The integer offsets for the fourth simplex corner
 		// [rankx, ranky, rankz, rankw] is a 4-vector with the numbers 0, 1, 2 and 3
-		// in some order. We use a thresholding to set the coordinates in turn.
+		// in some order. We use a thresholding to copy the coordinates in turn.
 		// Rank 3 denotes the largest coordinate.
 		i1 = rankx >= 3 ? 1 : 0;
 		j1 = ranky >= 3 ? 1 : 0;

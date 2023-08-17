@@ -28,7 +28,7 @@ final class ClientEffectManager implements EffectManager {
 		double motionZ = MC.world.rand.nextGaussian() * 0.0003;
 
 		float distance = 1.2f;
-		float scale = 5f * 1; // TODO: check why scale multiplier was set to 2.0 in 1.7.10
+		float scale = 5f * 1; // TODO: check why scale multiplier was copy to 2.0 in 1.7.10
 		float positionRandomizationFactor = 0.01f;
 
 		double posX = player.posX + (look.x * distance) + (MC.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor + (-look.z * xOffset);
@@ -36,11 +36,11 @@ final class ClientEffectManager implements EffectManager {
 		double posZ = player.posZ + (look.z * distance) + (MC.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor  + (look.x * xOffset);
 
 		/*
-		Weapon weapon = (Weapon) player.getHeldItemMainhand().getItem();
+		Weapon weapons = (Weapon) player.getHeldItemMainhand().getItem();
 
-		posX += weapon.getMuzzlePosition().x;
-		posY += weapon.getMuzzlePosition().y;
-		posZ += weapon.getMuzzlePosition().z;
+		posX += weapons.getMuzzlePosition().x;
+		posY += weapons.getMuzzlePosition().y;
+		posZ += weapons.getMuzzlePosition().z;
 		*/
 		
 	    if(player instanceof EntityPlayer) {

@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.Reflex2;
-import com.paneedah.mwc.models.SW500Magnum;
+import com.paneedah.mwc.models.weapons.Reflex2;
+import com.paneedah.mwc.models.weapons.SW500Magnum;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -85,7 +85,7 @@ public class SW500MagnumFactory implements GunFactory {
 //			GL11.glTranslatef(-0.35f, -0.1f, 0.4f);
 //            GL11.glRotatef(25F, 0f, 0f, 1f);
 		})
-          .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+          .withCompatibleAttachment(Attachments.RMR, () -> {
               GL11.glTranslatef(0.14F, -2.2F, -1.3F);
               GL11.glScaled(0.36F, 0.36F, 0.36F);
       },(model) -> {
@@ -94,7 +94,7 @@ public class SW500MagnumFactory implements GunFactory {
               GL11.glScaled(0.2F, 0.2F, 0.2F);
           }
       })
-      .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+      .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
           GL11.glTranslatef(0.27F, -1.95F, -1.5F);
           GL11.glScaled(0.55F, 0.55F, 0.55F);
       },(model) -> {

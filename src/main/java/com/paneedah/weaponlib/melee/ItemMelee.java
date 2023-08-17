@@ -19,7 +19,6 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.*;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -150,13 +149,13 @@ public class ItemMelee extends Item implements
             return this;
         }
 
-        public Builder withCompatibleAttachment(ItemAttachment<ItemMelee> attachment, BiConsumer<EntityLivingBase, ItemStack> positioning) {
+        public Builder withCompatibleAttachment(ItemAttachment<ItemMelee> attachment, Runnable positioning) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, null, false));
             return this;
         }
 
         public Builder withCompatibleAttachment(ItemAttachment<ItemMelee> attachment, boolean isDefault,
-                                                BiConsumer<EntityLivingBase, ItemStack> positioning, Consumer<ModelBase> modelPositioning) {
+                                                Runnable positioning, Consumer<ModelBase> modelPositioning) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, modelPositioning, isDefault));
             return this;
         }
@@ -169,7 +168,7 @@ public class ItemMelee extends Item implements
 
         public Builder withCrafting(CraftingComplexity craftingComplexity, Object... craftingMaterials) {
             if (craftingComplexity == null) {
-                throw new IllegalArgumentException("Crafting complexity not set");
+                throw new IllegalArgumentException("Crafting complexity not copy");
             }
             if (craftingMaterials.length < 2) {
                 throw new IllegalArgumentException("2 or more materials required for crafting");
@@ -229,7 +228,7 @@ public class ItemMelee extends Item implements
 
             } else {
                 //throw new IllegalStateException("No recipe defined for attachment " + name);
-                //System.err.println("!!!No recipe defined for melee weapon " + name);
+                //System.err.println("!!!No recipe defined for melee weapons " + name);
             }
             return itemMelee;
         }

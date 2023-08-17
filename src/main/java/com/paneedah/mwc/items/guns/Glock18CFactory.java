@@ -2,7 +2,7 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -10,7 +10,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -54,7 +54,7 @@ public class Glock18CFactory implements GunFactory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
-        		// The weapon power
+        		// The weapons power
         		45.0,
         		// Muzzle climb divisor
         		13.5,
@@ -123,7 +123,7 @@ public class Glock18CFactory implements GunFactory {
             	GL11.glTranslatef(-0.107F, -1.17F, 0F);
                 GL11.glScaled(0.22F, 0.15F, 0.4F);
             }
-            else if(model instanceof M1911frontsight) {
+            else if(model instanceof M1911FrontSight) {
             	GL11.glTranslatef(-0.107F, -1.155F, -2.05F);
                 GL11.glScaled(0.21F, 0.24F, 0.16F);
             }
@@ -137,7 +137,7 @@ public class Glock18CFactory implements GunFactory {
             	GL11.glTranslatef(-0.107F, -1.17F, 0F);
                 GL11.glScaled(0.22F, 0.15F, 0.4F);
             }
-            else if(model instanceof M1911frontsight) {
+            else if(model instanceof M1911FrontSight) {
             	GL11.glTranslatef(-0.107F, -1.155F, -2.05F);
                 GL11.glScaled(0.21F, 0.24F, 0.16F);
             }
@@ -149,7 +149,7 @@ public class Glock18CFactory implements GunFactory {
         .withCompatibleAttachment(Magazines.GlockMag50, (model) -> {
             GL11.glTranslatef(0F, 0F, -0.08F);
         })
-        .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+        .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(0.05F, -0.65F, -2.3F);
             GL11.glScaled(1.1F, 1.1F, 1.1F);
             GL11.glRotatef(-90F, 0f, 0f, -4f);
@@ -162,15 +162,15 @@ public class Glock18CFactory implements GunFactory {
             GL11.glTranslatef(-0.18F, -1.19F, -4.36F);
             GL11.glScaled(1.3F, 1.3F, 1.3F);
         })
-//        .withCompatibleAttachment(Attachments.GlockHOGUEGrip, (p, s) -> {
+//        .withCompatibleAttachment(Attachments.GlockHOGUEGrip, () -> {
 //        })
-//        .withCompatibleAttachment(Attachments.GlockHOGUEGripTan, (p, s) -> {
+//        .withCompatibleAttachment(Attachments.GlockHOGUEGripTan, () -> {
 //        })
         .withCompatibleAttachment(Attachments.FABDefenseMount, (model) -> {
             GL11.glTranslatef(-0.18f, -0.53f, -1.9f);
             GL11.glScaled(0.6F, 0.6F, 0.7F);
         })
-        .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.RMR, () -> {
                 GL11.glTranslatef(-0.14F, -1.35F, -1.1F);
                 GL11.glScaled(0.36F, 0.36F, 0.36F);
         },(model) -> {
@@ -179,7 +179,7 @@ public class Glock18CFactory implements GunFactory {
                 GL11.glScaled(0.2F, 0.2F, 0.2F);
             }
         })
-        .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
             GL11.glTranslatef(-0.015F, -1.1F, -1.4F);
             GL11.glScaled(0.55F, 0.55F, 0.55F);
         },(model) -> {

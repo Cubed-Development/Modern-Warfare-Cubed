@@ -211,7 +211,7 @@ public class CommonEventHandler {
     }
 
     @SubscribeEvent
-    // Todo: Fix this for the new equipment inventory
+    // Todo: Fix this for the new equipments inventory
     protected void onLivingHurtEvent(LivingHurtEvent event) {
         final EntityLivingBase entityLiving = event.getEntityLiving();
         final EquipmentInventory equipmentInventory = EquipmentCapability.getInventory(entityLiving);

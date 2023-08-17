@@ -8,7 +8,7 @@ import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.Part;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.render.ModificationGUI;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
@@ -43,7 +43,7 @@ public class DebugCommand extends CommandBase {
     private static final String DEBUG_ARG_STEP = "step";
     private static final String DEBUG_ARG_AUTOROTATE = "ar";
     private static final String DEBUG_ANIM_MODE = "anim";
-    private static final String DEBUG_WEAPON = "weapon";
+    private static final String DEBUG_WEAPON = "weapons";
 
     private static final String DEBUG_F3 = "f3";
     
@@ -230,7 +230,7 @@ public class DebugCommand extends CommandBase {
                 if (args[2].equals("edit")) {
                     isWorkingOnScreenShake = !isWorkingOnScreenShake;
                     MC.player.sendMessage(new TextComponentString(getDebugPrefix() + " Shake editor mode is " + (isWorkingOnScreenShake ? "on" : "off")));
-                } else if (args[2].equals("set")) {
+                } else if (args[2].equals("copy")) {
                     double intensity = Double.parseDouble(args[3]);
                     double lengthModifier = Double.parseDouble(args[4]);
                     screenShakeParam = new Pair<Double, Double>(intensity, lengthModifier);
@@ -283,12 +283,12 @@ public class DebugCommand extends CommandBase {
 
             case "dh":
                 BBLoader.HANDDIVISOR = Double.parseDouble(args[2]);
-                MC.player.sendMessage(new TextComponentString("Hand divisor set to " + BBLoader.HANDDIVISOR));
+                MC.player.sendMessage(new TextComponentString("Hand divisor copy to " + BBLoader.HANDDIVISOR));
                 break;
 
             case "dg":
                 BBLoader.GENDIVISOR = Double.parseDouble(args[2]);
-                MC.player.sendMessage(new TextComponentString("General divisor set to " + BBLoader.GENDIVISOR));
+                MC.player.sendMessage(new TextComponentString("General divisor copy to " + BBLoader.GENDIVISOR));
                 break;
 
             case "as":

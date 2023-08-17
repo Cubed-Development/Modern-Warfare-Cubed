@@ -4,8 +4,8 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.PlayerAnimations;
 import com.paneedah.mwc.equipment.Armors;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.Workbench;
-import com.paneedah.mwc.renderer.EquipmentRenderer;
+import com.paneedah.mwc.models.weapons.Workbench;
+import com.paneedah.mwc.rendering.renderer.EquipmentRenderer;
 import com.paneedah.weaponlib.RenderingPhase;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
@@ -20,7 +20,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -106,13 +105,6 @@ public class ClientProxy extends CommonProxy {
         modelMesher.register(Armors.JPNVG18helmet, 0, new ModelResourceLocation(ID + ":jpnvg18_helmet", "inventory"));
 
         modelMesher.register(Armors.GasMaskM40, 0, new ModelResourceLocation(ID + ":m40gasmask_helmet", "inventory"));
-
-        // Todo: Actually remove this once fixed.
-
-        try {
-            if (ForgeModContainer.allowEmissiveItems)
-                ForgeModContainer.allowEmissiveItems = false;
-        } catch (NoSuchFieldError ignored) {}
 
         MC.getRenderManager().getSkinMap().forEach((model, playerRenderer) -> playerRenderer.addLayer(new EquipmentRenderer(playerRenderer)));
     }

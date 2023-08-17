@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "mixins.mwc.refmap.json",
   "client": [
-    "EntityRendererMixin"
+    "EntityRendererMixin",
+    "RenderItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

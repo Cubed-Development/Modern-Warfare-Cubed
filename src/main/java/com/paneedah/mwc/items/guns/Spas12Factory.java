@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -43,7 +43,7 @@ public class Spas12Factory implements GunFactory {
         .withReloadingTime(15)
         .withCrosshair("gun")
         .withCrosshairRunning("Running")
-        .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
+        .withShellCasingModel(new Shotgun12Gauge())
         .withShellCasingModelTexture("shotgun12gauge")
         .withCrosshairZoomed("Sight")
         .withInaccuracy(8)
@@ -141,7 +141,7 @@ public class Spas12Factory implements GunFactory {
                 GL11.glScaled(0F, 0F, 0F);
             }
         })
-         .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.Reflex, () -> {
                  GL11.glTranslatef(-0.04F, -0.53F, -0.6F);
                  GL11.glScaled(0.35F, 0.35F, 0.35F);
          },(model) -> {
@@ -150,7 +150,7 @@ public class Spas12Factory implements GunFactory {
                  GL11.glScaled(0.15F, 0.15F, 0.15F);
              }
          })
-         .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.Holographic, () -> {
              GL11.glTranslatef(-0.013F, -0.57F, -0.6F);
              GL11.glScaled(0.55F, 0.55F, 0.55F);
          },(model) -> {
@@ -159,7 +159,7 @@ public class Spas12Factory implements GunFactory {
                  GL11.glScaled(0.1F, 0.1F, 0.1F);
              }
          })
-         .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
              GL11.glTranslatef(-0.013F, -0.57F, -0.6F);
              GL11.glScaled(0.55F, 0.55F, 0.55F);
          },(model) -> {
@@ -168,7 +168,7 @@ public class Spas12Factory implements GunFactory {
                  GL11.glScaled(0.1F, 0.1F, 0.1F);
              }
          })
-//         .withCompatibleAttachment(Attachments.Vortex, (player, stack) -> {
+//         .withCompatibleAttachment(Attachments.Vortex, () -> {
 //                 GL11.glTranslatef(-0.2F, -0.72F, -0.9F);
 //                 GL11.glScaled(0.3F, 0.3F, 0.4F);
 //             },(model) -> {
@@ -177,7 +177,7 @@ public class Spas12Factory implements GunFactory {
 //                     GL11.glScaled(0.15F, 0.15F, 0.15F);
 //                 }
 //             })
-         .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.Kobra, () -> {
                  GL11.glTranslatef(-0.025F, -0.58F, -0.4F);
                  GL11.glScaled(0.45F, 0.45F, 0.45F);
          },(model) -> {
@@ -186,7 +186,7 @@ public class Spas12Factory implements GunFactory {
                  GL11.glScaled(0.15F, 0.15F, 0.15F);
              }
          })
-         .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.MicroT1, () -> {
                  GL11.glTranslatef(-0.125F, -0.7F, -0.3F);
                  GL11.glScaled(0.28F, 0.28F, 0.28F);
              },(model) -> {
@@ -195,7 +195,7 @@ public class Spas12Factory implements GunFactory {
                      GL11.glScaled(0.15F, 0.15F, 0.15F);
                  }
              })
-         .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
              GL11.glTranslatef(-0.125F, -0.7F, -0.3F);
              GL11.glScaled(0.28F, 0.28F, 0.28F);
          },(model) -> {
@@ -204,7 +204,7 @@ public class Spas12Factory implements GunFactory {
                  GL11.glScaled(0.15F, 0.15F, 0.15F);
              }
          })
-         .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.RMR, () -> {
              GL11.glTranslatef(-0.12F, -0.7F, -0.4F);
              GL11.glScaled(0.26F, 0.26F, 0.26F);
          },(model) -> {

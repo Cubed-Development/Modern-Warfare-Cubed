@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.particle;
 
-import com.paneedah.mwc.renderer.ParticleRenderer;
+import com.paneedah.mwc.rendering.renderer.ParticleRenderer;
 import com.paneedah.weaponlib.particle.vehicle.TurbulentSmokeParticle;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.entity.Entity;

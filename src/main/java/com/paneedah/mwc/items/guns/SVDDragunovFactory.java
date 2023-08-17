@@ -2,13 +2,13 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -50,7 +50,7 @@ public class SVDDragunovFactory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
-        		// The weapon power
+        		// The weapons power
         		35.0,
         		// Muzzle climb divisor
         		25.0,
@@ -121,7 +121,7 @@ public class SVDDragunovFactory {
 //        	GL11.glTranslatef(0F, 2F, 0.2F);
 //            GL11.glRotatef(-10F, 1f, 0f, 0f);
         })
-        .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.21F, -1.4F, -2.65F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -130,7 +130,7 @@ public class SVDDragunovFactory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.32F, -1.4F, -1.5F);
             GL11.glScaled(0.83F, 0.83F, 0.83F);
         },(model) -> {
@@ -144,7 +144,7 @@ public class SVDDragunovFactory {
             }
         })
         
-        .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
 		            GL11.glTranslatef(-0.155F, -1.23F, -2.8F);
 		            GL11.glScaled(0.43F, 0.43F, 0.43F);
 		},(model) -> {
@@ -154,7 +154,7 @@ public class SVDDragunovFactory {
 		    }
 		})
         
-        .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Specter, () -> {
 		            GL11.glTranslatef(-0.195F, -1.05F, -1.9F);
 		            GL11.glScaled(0.47F, 0.47F, 0.47F);
 		},(model) -> {
@@ -164,7 +164,7 @@ public class SVDDragunovFactory {
 		    }
 		})
         
-		.withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.MicroReflex, () -> {
 		    GL11.glTranslatef(-0.15F, -1.91F, -1.9F);
 		    GL11.glScaled(0.35F, 0.35F, 0.35F);
 		    },(model) -> {
@@ -177,7 +177,7 @@ public class SVDDragunovFactory {
 		        }
 		    })
         
-        .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroT1, () -> {
                 GL11.glTranslatef(-0.185F, -1.41F, -1.7F);
                 GL11.glScaled(0.43F, 0.43F, 0.43F);
         },(model) -> {
@@ -186,7 +186,7 @@ public class SVDDragunovFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
         	GL11.glTranslatef(-0.185F, -1.41F, -1.7F);
             GL11.glScaled(0.43F, 0.43F, 0.43F);
 	    },(model) -> {
@@ -195,7 +195,7 @@ public class SVDDragunovFactory {
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Reflex, () -> {
             GL11.glTranslatef(-0.06F, -1.18F, -2.2F);
             GL11.glScaled(0.52F, 0.52F, 0.52F);
             },(model) -> {
@@ -204,7 +204,7 @@ public class SVDDragunovFactory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
             GL11.glTranslatef(-0.055F, -1.16F, -2.0F);
             GL11.glScaled(0.55F, 0.55F, 0.55F);
         },(model) -> {
@@ -213,7 +213,7 @@ public class SVDDragunovFactory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-        .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Holographic, () -> {
                 GL11.glTranslatef(-0.035F, -1.25F, -1.95F);
                 GL11.glScaled(0.73F, 0.73F, 0.73F);
             },(model) -> {
@@ -222,7 +222,7 @@ public class SVDDragunovFactory {
                     GL11.glScaled(0.1F, 0.1F, 0.1F);
                 }
             })
-        .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
         	GL11.glTranslatef(-0.035F, -1.25F, -1.95F);
             GL11.glScaled(0.73F, 0.73F, 0.73F);
         },(model) -> {
@@ -232,7 +232,7 @@ public class SVDDragunovFactory {
             }
         })
         
-        .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
         	GL11.glTranslatef(-0.035F, -1.25F, -2.3F);
             GL11.glScaled(0.73F, 0.73F, 0.73F);
 		},(model) -> {
@@ -246,7 +246,7 @@ public class SVDDragunovFactory {
 		    }
 		})
         
-        .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.VortexRedux, () -> {
             GL11.glTranslatef(-0.33F, -1.44F, -2.4F);
             GL11.glScaled(0.52F, 0.52F, 0.52F);
 	    },(model) -> {
@@ -255,7 +255,7 @@ public class SVDDragunovFactory {
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Kobra, () -> {
                 GL11.glTranslatef(-0.04F, -1.24F, -1.8F);
                 GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -264,7 +264,7 @@ public class SVDDragunovFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.KobraGen3, () -> {
         	GL11.glTranslatef(-0.04F, -1.24F, -1.8F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
 	    },(model) -> {
@@ -273,7 +273,7 @@ public class SVDDragunovFactory {
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.PSO1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.PSO1, () -> {
             GL11.glTranslatef(0.14F, -0.9F, -1.5F);
             GL11.glScaled(1.2F, 1.2F, 1.2F);
         },(model) -> {
@@ -286,7 +286,7 @@ public class SVDDragunovFactory {
                  GL11.glScaled(0.8F, 0.8F, 0.8F);
              }
         })
-        .withCompatibleAttachment(Attachments.OKP7, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.OKP7, () -> {
                 GL11.glTranslatef(-0.2F, -0.65F, -1F);
                 GL11.glScaled(0.7F, 0.7F, 0.7F);
             },(model) -> {
@@ -295,7 +295,7 @@ public class SVDDragunovFactory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.KobraMount, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.KobraMount, () -> {
         	GL11.glTranslatef(-0.035F, -1.23F, -0.6F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {

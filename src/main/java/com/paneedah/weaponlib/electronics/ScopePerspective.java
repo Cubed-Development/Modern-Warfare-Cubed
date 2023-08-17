@@ -56,7 +56,7 @@ public class ScopePerspective extends PerspectiveRenderer {
 		GlStateManager.enableAlpha();
 		GlStateManager.enableBlend();
 		GL11.glColor4f(brightness, brightness, brightness, 1f);
-		model.render(this.reticle, renderContext, renderContext.getPlayer(), renderContext.getScale());
+		model.render(this.reticle, renderContext, renderContext.getEntityLiving(), renderContext.getScale());
 
         MC.entityRenderer.enableLightmap();
 		GL11.glPopAttrib();

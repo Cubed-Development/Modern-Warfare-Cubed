@@ -2,7 +2,7 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -11,7 +11,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -54,7 +54,7 @@ public class KBP9A91Factory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
-				// The weapon power
+				// The weapons power
 				15.0,
 				// Muzzle climb divisor
 				15.75,
@@ -112,7 +112,7 @@ public class KBP9A91Factory {
 //          GL11.glTranslatef(-0.25F, -1.14F, -6.4F);
 //          GL11.glScaled(1.5F, 1.5F, 1.5F);
         })
-        .withCompatibleAttachment(Attachments.KobraMount, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.KobraMount, () -> {
         	GL11.glTranslatef(-0.035F, -1.23F, -0.4F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -121,7 +121,7 @@ public class KBP9A91Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.OKP7, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.OKP7, () -> {
                 GL11.glTranslatef(-0.18F, -0.65F, -1F);
                 GL11.glScaled(0.7F, 0.7F, 0.7F);
             },(model) -> {
@@ -130,7 +130,7 @@ public class KBP9A91Factory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.PSO1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.PSO1, () -> {
             
             GL11.glTranslatef(0.14F, -0.9F, -1.2F);
             GL11.glScaled(1.2F, 1.2F, 1.2F);

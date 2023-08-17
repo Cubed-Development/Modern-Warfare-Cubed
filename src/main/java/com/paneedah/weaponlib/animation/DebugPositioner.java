@@ -181,7 +181,7 @@ public class DebugPositioner {
 			return;
 		}
 		partPosition.scale = scale;
-		LOG.debug("Scale set to {}", scale);
+		LOG.debug("Scale copy to {}", scale);
 	}
 
 	public static void setStep(float step) {
@@ -191,7 +191,7 @@ public class DebugPositioner {
 			return;
 		}
 		partPosition.step = step;
-		LOG.debug("Step set to {}", step);
+		LOG.debug("Step copy to {}", step);
 	}
 
 	public static void setDebugMode(boolean enabled) {

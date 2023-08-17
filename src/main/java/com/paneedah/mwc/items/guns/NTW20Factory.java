@@ -1,9 +1,9 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.AKRail;
-import com.paneedah.mwc.models.JPUreticle;
-import com.paneedah.mwc.models.NTW20;
+import com.paneedah.mwc.models.weapons.AKRail;
+import com.paneedah.mwc.models.weapons.JPUreticle;
+import com.paneedah.mwc.models.weapons.NTW20;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -65,7 +65,7 @@ public class NTW20Factory implements GunFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
         .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
-        .withCompatibleAttachment(Attachments.NTW20HandguardRAIL, true, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.NTW20HandguardRAIL, true, () -> {
         },(model) -> {
             if(model instanceof AKRail) {
                 GL11.glTranslatef(-0.037F, -0.43F, 0.77F);
@@ -78,7 +78,7 @@ public class NTW20Factory implements GunFactory {
         })
         .withCompatibleAttachment(Magazines.NTW20Mag, (model) -> {
         })
-        .withCompatibleAttachment(Attachments.HP, true, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.HP, true, () -> {
             GL11.glTranslatef(-0.155F, -0.4F, 1.6F);
             GL11.glScaled(0.85F, 0.85F, 0.85F);
         },(model) -> {

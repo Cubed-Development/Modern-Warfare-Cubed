@@ -2213,7 +2213,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 		/*
 		 * if(1+1==2) return; Quat4d bruh = QuatUtil.rotate(Math.toRadians(rotationYaw),
 		 * Math.toRadians(rotationPitch), Math.toRadians(rotationRoll));
-		 * bruh.normalize(); Vec3d v = QuatUtil.set(bruh, 0.0, 0.0, 0.0);
+		 * bruh.normalize(); Vec3d v = QuatUtil.copy(bruh, 0.0, 0.0, 0.0);
 		 * 
 		 * rotationYaw = (float) Math.toDegrees(v.x); rotationPitch =
 		 * (float)Math.toDegrees(v.y); rotationRoll = (float) Math.toDegrees(v.z);

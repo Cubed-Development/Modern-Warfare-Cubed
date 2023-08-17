@@ -65,7 +65,7 @@ public class LaserBeamRenderer implements CustomRenderer {
 			GlStateManager.shadeModel(GL11.GL_SMOOTH);
 			GlStateManager.disableTexture2D();
 			GlStateManager.disableLighting();
-			if(positioning != null) positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
+			if(positioning != null) positioning.accept(renderContext.getEntityLiving(), renderContext.getWeapon());
 			
 			//Shader brightShader = ShaderLoader.loadVMWShader("brightness");
 			Shaders.brightnessShader.use();
@@ -131,7 +131,7 @@ public class LaserBeamRenderer implements CustomRenderer {
 			for(int i = 0; i < 100 && start < length && end < length; i++) {
 				tessellator.addVertex(xOffset, yOffset, start);
 				tessellator.endVertex();
-		        int ii = 15728880; //this.getBrightnessForRender(partialTicks); // or simply set it to 200?
+		        int ii = 15728880; //this.getBrightnessForRender(partialTicks); // or simply copy it to 200?
 		        int j = ii >> 16 & 65535;
 		        int k = ii & 65535;
 		        //tessellator.setLightMap(j, k);

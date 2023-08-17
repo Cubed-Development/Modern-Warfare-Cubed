@@ -1,7 +1,6 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.renderer.ModelSourceTransforms;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.MWC;
 import net.minecraft.client.model.ModelBase;
 
 import java.util.ArrayList;
@@ -12,12 +11,7 @@ public class ItemBullet extends ItemAttachment<Weapon> {
     public static final class Builder extends AttachmentBuilder<Weapon> {
 
         {
-            transforms = ModelSourceTransforms.builder()
-                    .entityPositioning(() -> new Transform()
-                            .withScale(0.17, 0.17, 0.17)
-                            .withPosition(-0.5, -0.7, 0.5)
-                            .doGLDirect())
-                    .build();
+            creativeTab = MWC.AMMUNITION_AND_MAGAZINES_TAB;
         }
 
         private List<ItemMagazine> compatibleMagazines = new ArrayList<>();
@@ -39,7 +33,7 @@ public class ItemBullet extends ItemAttachment<Weapon> {
         }
     }
 
-    
+
     private List<ItemMagazine> compatibleMagazines = new ArrayList<>();
 
     public ItemBullet(AttachmentCategory category, ModelBase model, String textureName, String crosshair,

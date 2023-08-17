@@ -168,7 +168,7 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should soldiers spawn?")
 	public static double soldierSpawn = 0.0;
 
-	@ConfigSync(category = CATEGORY_ENTITIES, comment = "What equipment should the terrorists have?")
+	@ConfigSync(category = CATEGORY_ENTITIES, comment = "What equipments should the terrorists have?")
 	public static String terroristEquipmentConfiguration = "m4a1:1.0:M4A1Mag_2, m16a1:1.0:M4A1Mag_2, Remington870:1.0";
 
 	private static Configuration config = null;
@@ -177,13 +177,13 @@ public class ModernConfigManager {
 	
 	public static void updateField(Field f, Object value) {
 		
-		// Try to set field
+		// Try to copy field
 		try {
 			// Instance is 'null' because all of these
 			// fields are static.
 			f.set(null, value);
 		} catch (IllegalArgumentException | IllegalAccessException e) {
-			LOG.error("Could not set field for field name: {}, please report this to developers.", f.getName());
+			LOG.error("Could not copy field for field name: {}, please report this to developers.", f.getName());
 			e.printStackTrace();
 		}
 

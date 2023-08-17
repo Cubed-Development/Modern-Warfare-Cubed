@@ -2,7 +2,7 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -11,7 +11,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -53,7 +53,7 @@ public class MalyukFactory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
-				// The weapon power
+				// The weapons power
 				15.0,
 				// Muzzle climb divisor
 				15.75,
@@ -125,7 +125,7 @@ public class MalyukFactory {
             GL11.glRotatef(-20.000000f, 1f, 0f, 0f);
             GL11.glTranslatef(0f, 0.35f, 3.0f);
         })
-        .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.21F, -1.4F, -1.2F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -134,7 +134,7 @@ public class MalyukFactory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.32F, -1.4F, -0.0F);
             GL11.glScaled(0.83F, 0.83F, 0.83F);
         },(model) -> {
@@ -148,7 +148,7 @@ public class MalyukFactory {
             }
         })
         
-        .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
 		            GL11.glTranslatef(-0.155F, -1.23F, -1.2F);
 		            GL11.glScaled(0.43F, 0.43F, 0.43F);
 		},(model) -> {
@@ -158,7 +158,7 @@ public class MalyukFactory {
 		    }
 		})
         
-        .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Specter, () -> {
 		            GL11.glTranslatef(-0.195F, -1.05F, -0.5F);
 		            GL11.glScaled(0.47F, 0.47F, 0.47F);
 		},(model) -> {
@@ -168,7 +168,7 @@ public class MalyukFactory {
 		    }
 		})
         
-		.withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.MicroReflex, () -> {
 		    GL11.glTranslatef(-0.15F, -1.91F, -0.5F);
 		    GL11.glScaled(0.35F, 0.35F, 0.35F);
 		    },(model) -> {
@@ -181,7 +181,7 @@ public class MalyukFactory {
 		        }
 		    })
         
-        .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroT1, () -> {
                 GL11.glTranslatef(-0.185F, -1.41F, -0.5F);
                 GL11.glScaled(0.43F, 0.43F, 0.43F);
         },(model) -> {
@@ -190,7 +190,7 @@ public class MalyukFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
         	GL11.glTranslatef(-0.185F, -1.41F, -0.5F);
             GL11.glScaled(0.43F, 0.43F, 0.43F);
 	    },(model) -> {
@@ -199,7 +199,7 @@ public class MalyukFactory {
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Reflex, () -> {
             GL11.glTranslatef(-0.06F, -1.18F, -1.0F);
             GL11.glScaled(0.52F, 0.52F, 0.52F);
             },(model) -> {
@@ -208,7 +208,7 @@ public class MalyukFactory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
             GL11.glTranslatef(-0.055F, -1.16F, -1.0F);
             GL11.glScaled(0.55F, 0.55F, 0.55F);
         },(model) -> {
@@ -217,7 +217,7 @@ public class MalyukFactory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-        .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Holographic, () -> {
                 GL11.glTranslatef(-0.035F, -1.25F, -1.0F);
                 GL11.glScaled(0.73F, 0.73F, 0.73F);
             },(model) -> {
@@ -226,7 +226,7 @@ public class MalyukFactory {
                     GL11.glScaled(0.1F, 0.1F, 0.1F);
                 }
             })
-        .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
         	GL11.glTranslatef(-0.035F, -1.25F, -1.0F);
             GL11.glScaled(0.73F, 0.73F, 0.73F);
         },(model) -> {
@@ -236,7 +236,7 @@ public class MalyukFactory {
             }
         })
         
-        .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
         	GL11.glTranslatef(-0.035F, -1.25F, -1.4F);
             GL11.glScaled(0.73F, 0.73F, 0.73F);
 		},(model) -> {
@@ -250,7 +250,7 @@ public class MalyukFactory {
 		    }
 		})
         
-        .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.VortexRedux, () -> {
             GL11.glTranslatef(-0.33F, -1.44F, -1.0F);
             GL11.glScaled(0.52F, 0.52F, 0.52F);
 	    },(model) -> {
@@ -259,7 +259,7 @@ public class MalyukFactory {
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Kobra, () -> {
                 GL11.glTranslatef(-0.04F, -1.24F, -0.5F);
                 GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -268,7 +268,7 @@ public class MalyukFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.KobraGen3, () -> {
         	GL11.glTranslatef(-0.04F, -1.24F, -0.5F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
 	    },(model) -> {

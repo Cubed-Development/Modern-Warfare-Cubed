@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.particle;
 
-import com.paneedah.mwc.renderer.ParticleRenderer;
+import com.paneedah.mwc.rendering.renderer.ParticleRenderer;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.RenderHelper;
@@ -95,7 +95,7 @@ public class FlashFX extends Particle {
 
         buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
 
-        int brightness = this.getBrightnessForRender(partialTicks); // or simply set it to 200?
+        int brightness = this.getBrightnessForRender(partialTicks); // or simply copy it to 200?
         int skyLight = brightness >> 16 & 65535;
         int blockLight = brightness & 65535;
 

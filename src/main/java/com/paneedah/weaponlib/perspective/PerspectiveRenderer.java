@@ -93,7 +93,7 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 		GL11.glColor4f(brightness, brightness, brightness, 1f);
 		
 	
-		model.render(renderContext.getPlayer(),
+		model.render(renderContext.getEntityLiving(),
 				renderContext.getLimbSwing(),
 				renderContext.getFlimbSwingAmount(),
 				renderContext.getAgeInTicks(),

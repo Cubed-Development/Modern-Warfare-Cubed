@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -145,7 +145,7 @@ public class M60E4Factory {
                 GL11.glScaled(0F, 0F, 0F);
             }
         })
-        .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.05F, -0.2F, 2.8F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -154,7 +154,7 @@ public class M60E4Factory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.16F, -0.24F, 4F);
             GL11.glScaled(0.83F, 0.83F, 0.83F);
         },(model) -> {
@@ -167,7 +167,7 @@ public class M60E4Factory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Specter, () -> {
             GL11.glTranslatef(-0.03F, 0.09F, 3.7F);
             GL11.glScaled(0.43F, 0.43F, 0.43F);
         },(model) -> {
@@ -176,7 +176,7 @@ public class M60E4Factory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Reflex, () -> {
             GL11.glTranslatef(0.095F, -0.015F, 3.3F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
         },(model) -> {
@@ -185,7 +185,7 @@ public class M60E4Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroReflex, () -> {
 		    GL11.glTranslatef(0.012F, -0.73F, 3.3F);
 		    GL11.glScaled(0.35F, 0.35F, 0.35F);
 		    },(model) -> {
@@ -197,7 +197,7 @@ public class M60E4Factory {
 		//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 		        }
 		    })
-        .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
             GL11.glTranslatef(0.1F, -0F, 3.3F);
             GL11.glScaled(0.5F, 0.5F, 0.5F);
         },(model) -> {
@@ -206,7 +206,7 @@ public class M60E4Factory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-        .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Holographic, () -> {
             GL11.glTranslatef(0.12F, -0.06F, 3.7F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
             },(model) -> {
@@ -215,7 +215,7 @@ public class M60E4Factory {
                     GL11.glScaled(0.1F, 0.1F, 0.1F);
                 }
             })
-        .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
             GL11.glTranslatef(0.12F, -0.06F, 3.7F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
@@ -224,7 +224,7 @@ public class M60E4Factory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
             GL11.glTranslatef(0.12F, -0.06F, 3.3F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
@@ -237,7 +237,7 @@ public class M60E4Factory {
                 GL11.glScaled(0.05F, 0.05F, 0.05F);
             }
         })
-        .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.VortexRedux, () -> {
             GL11.glTranslatef(-0.14F, -0.26F, 3.3F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
             },(model) -> {
@@ -246,7 +246,7 @@ public class M60E4Factory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Kobra, () -> {
             GL11.glTranslatef(0.118F, -0.06F, 3.8F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
@@ -255,7 +255,7 @@ public class M60E4Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.KobraGen3, () -> {
             GL11.glTranslatef(0.118F, -0.06F, 3.8F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
@@ -264,7 +264,7 @@ public class M60E4Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroT1, () -> {
             GL11.glTranslatef(-0.02F, -0.25F, 3.8F);
             GL11.glScaled(0.38F, 0.38F, 0.38F);
             },(model) -> {
@@ -273,7 +273,7 @@ public class M60E4Factory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
             GL11.glTranslatef(-0.02F, -0.25F, 3.8F);
             GL11.glScaled(0.38F, 0.38F, 0.38F);
             },(model) -> {
@@ -302,11 +302,11 @@ public class M60E4Factory {
 //            GL11.glTranslatef(-0.2F, -0.41F, -3.7F);
 //            GL11.glScaled(1F, 1F, 1F);
 //        })
-        .withCompatibleAttachment(Attachments.Laser2, (p, s) -> {
+        .withCompatibleAttachment(Attachments.Laser2, () -> {
             GL11.glTranslatef(0.2F, 0.45F, 0F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         })
-        .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+        .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(0.2F, 0.45F, 0F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         })

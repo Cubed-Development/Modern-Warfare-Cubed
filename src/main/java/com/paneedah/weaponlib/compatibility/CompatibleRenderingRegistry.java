@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
-import com.paneedah.mwc.renderer.ModelSource;
+import com.paneedah.mwc.rendering.renderer.ModelSourceRenderer;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -33,7 +33,7 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 @SideOnly(Side.CLIENT)
 public class CompatibleRenderingRegistry implements ICustomModelLoader {
 
-	private List<ModelSource> renderers = new ArrayList<>();
+	private List<ModelSourceRenderer> renderers = new ArrayList<>();
 	private Set<String> modelSourceLocations = new HashSet<>();
 	private List<Consumer<RenderItem>> delayedRegistrations = new ArrayList<>();
 
@@ -48,20 +48,20 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void bakeModel(ModelBakeEvent event) {
-		for(ModelSource model: renderers) {
-			event.getModelRegistry().putObject(model.getModelResourceLocation(), model);
+		for(ModelSourceRenderer model: renderers) {
+			event.getModelRegistry().putObject(model.modelResourceLocation, model);
 		}
 	}
 
 	public void register(Item item, String name, Object renderer) {
 	    if(renderer != null) {
-	        renderers.add((ModelSource) renderer);
+	        renderers.add((ModelSourceRenderer) renderer);
 	    }
 		
 		modelSourceLocations.add(ID + ":models/item/" + name);
 		ModelResourceLocation modelID = new ModelResourceLocation(ID + ":" + name, "inventory");
 		if(renderer != null) {
-		    ((ModelSource) renderer).setModelResourceLocation(modelID);
+		    ((ModelSourceRenderer) renderer).modelResourceLocation = modelID;
 		}
 		
 		delayedRegistrations.add((renderItem) -> {
@@ -73,13 +73,13 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	public void register(Item item, ResourceLocation name, Object renderer) {
 	    // TODO: figure out what's going on with this name
         if(renderer != null) {
-            renderers.add((ModelSource) renderer);
+            renderers.add((ModelSourceRenderer) renderer);
             modelSourceLocations.add(ID + ":models/item/" + name);
         }
         
         ModelResourceLocation modelID = new ModelResourceLocation(name, "inventory");
         if(renderer != null) {
-            ((ModelSource) renderer).setModelResourceLocation(modelID);
+            ((ModelSourceRenderer) renderer).modelResourceLocation = modelID;
         }
         
         delayedRegistrations.add((renderItem) -> {

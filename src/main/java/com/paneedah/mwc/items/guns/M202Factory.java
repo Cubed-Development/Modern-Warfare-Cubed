@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.M202;
-import com.paneedah.mwc.models.M202RocketPROJECTILE;
+import com.paneedah.mwc.models.weapons.M202;
+import com.paneedah.mwc.models.weapons.M202RocketPROJECTILE;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;

@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.Reflex2;
-import com.paneedah.mwc.models.TaurusRagingHunter;
+import com.paneedah.mwc.models.weapons.Reflex2;
+import com.paneedah.mwc.models.weapons.TaurusRagingHunter;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -10,7 +10,7 @@ import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
@@ -46,7 +46,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
-        		// The weapon power
+        		// The weapons power
         		85.0,
         		// Muzzle climb divisor
         		13.125,
@@ -85,11 +85,11 @@ public class TaurusRagingHunterFactory implements GunFactory {
 //			GL11.glTranslatef(-0.35f, -0.1f, 0.4f);
 //            GL11.glRotatef(25F, 0f, 0f, 1f);
 		})
-//        .withCompatibleAttachment(Attachments.DanWessonLaser, (p, s) -> {
+//        .withCompatibleAttachment(Attachments.DanWessonLaser, () -> {
 //            GL11.glTranslatef(0.01F, -1.45F, -2.6F);
 //            GL11.glScaled(0.9F, 0.9F, 0.9F);
 //        })
-        .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.RMR, () -> {
             GL11.glTranslatef(-0.19F, -1.40F, -1.7F);
             GL11.glScaled(0.4F, 0.4F, 0.4F);
 	    },(model) -> {
@@ -98,7 +98,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
 	            GL11.glScaled(0.2F, 0.2F, 0.2F);
 	        }
 	    })
-	    .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+	    .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
 	        GL11.glTranslatef(-0.05F, -1.15F, -2.1F);
 	        GL11.glScaled(0.6F, 0.6F, 0.6F);
 	    },(model) -> {

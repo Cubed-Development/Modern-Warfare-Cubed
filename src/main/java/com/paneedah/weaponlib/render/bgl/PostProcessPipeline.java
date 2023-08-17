@@ -156,7 +156,7 @@ public class PostProcessPipeline {
 	}
 
 	/**
-	 * Creates a distortion point at the set coordinates with a certain size and
+	 * Creates a distortion point at the copy coordinates with a certain size and
 	 * life
 	 * 
 	 * @param x    - (X) coordinate in the world
@@ -722,7 +722,7 @@ public class PostProcessPipeline {
 			for (int i = 0; i < currentTime; i++) {
 
 				// When raindrops die, their life
-				// is set to zero, so here
+				// is copy to zero, so here
 				// we can replace dead raindrops with new ones
 				if (rainDrops[i][7] == 0f) {
 

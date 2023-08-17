@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -69,10 +69,10 @@ public class HS12Factory implements GunFactory {
           } else if(model instanceof AKRail) {
               GL11.glTranslatef(-0.148F, -0.75F, -0.91f);
               GL11.glScaled(0.5F, 0.6F, 0.4F);
-          } else if(model instanceof M1911frontsight) {
+          } else if(model instanceof M1911FrontSight) {
               GL11.glTranslatef(-0.1F, -0.71F, -4.3f);
               GL11.glScaled(0.2F, 0.4F, 0.4F);
-          } else if(model instanceof AKRail2) {   
+          } else if(model instanceof AKRail2) {
               GL11.glTranslatef(-0.01F, -0.1F, -4.4f);
               GL11.glScaled(0.5F, 0.6F, 0.33F);
               GL11.glRotatef(180.000000f, 0f, 0f, 1f);
@@ -89,7 +89,7 @@ public class HS12Factory implements GunFactory {
               GL11.glScaled(0.47F, 0.47F, 0.47F);
               }
         })
-        .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.245F, -0.85F, -0.1F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -102,7 +102,7 @@ public class HS12Factory implements GunFactory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Reflex, () -> {
             GL11.glTranslatef(-0.035F, -0.66F, -0.6F);
             GL11.glScaled(0.35F, 0.35F, 0.35F);
     },(model) -> {
@@ -111,7 +111,7 @@ public class HS12Factory implements GunFactory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
     })
-    .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+    .withCompatibleAttachment(Attachments.Holographic, () -> {
         GL11.glTranslatef(-0.01F, -0.7F, -0.35F);
         GL11.glScaled(0.55F, 0.55F, 0.55F);
     },(model) -> {
@@ -120,7 +120,7 @@ public class HS12Factory implements GunFactory {
             GL11.glScaled(0.1F, 0.1F, 0.1F);
         }
     })
-    .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+    .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
         GL11.glTranslatef(-0.01F, -0.7F, -0.35F);
         GL11.glScaled(0.55F, 0.55F, 0.55F);
     },(model) -> {
@@ -129,7 +129,7 @@ public class HS12Factory implements GunFactory {
             GL11.glScaled(0.1F, 0.1F, 0.1F);
         }
     })
-//    .withCompatibleAttachment(Attachments.Vortex, (player, stack) -> {
+//    .withCompatibleAttachment(Attachments.Vortex, () -> {
 //            GL11.glTranslatef(-0.2F, -0.86F, -0.7F);
 //            GL11.glScaled(0.3F, 0.3F, 0.4F);
 //        },(model) -> {
@@ -138,7 +138,7 @@ public class HS12Factory implements GunFactory {
 //                GL11.glScaled(0.15F, 0.15F, 0.15F);
 //            }
 //        })
-    .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+    .withCompatibleAttachment(Attachments.Kobra, () -> {
             GL11.glTranslatef(-0.025F, -0.71F, -0.3F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
     },(model) -> {
@@ -147,7 +147,7 @@ public class HS12Factory implements GunFactory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
     })
-    .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+    .withCompatibleAttachment(Attachments.MicroT1, () -> {
             GL11.glTranslatef(-0.12F, -0.85F, -0.3F);
             GL11.glScaled(0.28F, 0.28F, 0.28F);
         },(model) -> {
@@ -156,7 +156,7 @@ public class HS12Factory implements GunFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-    .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+    .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
         GL11.glTranslatef(-0.12F, -0.85F, -0.3F);
         GL11.glScaled(0.28F, 0.28F, 0.28F);
     },(model) -> {
@@ -165,7 +165,7 @@ public class HS12Factory implements GunFactory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
     })
-    .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+    .withCompatibleAttachment(Attachments.RMR, () -> {
         GL11.glTranslatef(-0.12F, -0.82F, -0.4F);
         GL11.glScaled(0.26F, 0.26F, 0.26F);
     },(model) -> {

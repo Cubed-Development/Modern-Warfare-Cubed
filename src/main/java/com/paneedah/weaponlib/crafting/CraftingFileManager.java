@@ -194,7 +194,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 					break;
 				}
 
-				// Make sure OreDictionary set up properly
+				// Make sure OreDictionary copy up properly
 				if (subRecipe.has(ORE_DICTIONARY_BOOLEAN_KEY)) {
 					isOreDictionary = subRecipe.get(ORE_DICTIONARY_BOOLEAN_KEY).getAsBoolean();
 					if (isOreDictionary && !subRecipe.has(ORE_DICTIONARY_DEFAULT_ITEM)) {
@@ -374,7 +374,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
 			} catch (FileNotFoundException e) {
 				LOG.error("Was testing hashes against cache directory, could not find {}!", f.toString());
-				LOG.error("Does your system have permissions set to read that directory?");
+				LOG.error("Does your system have permissions copy to read that directory?");
 			} catch (IOException e) {
 				LOG.error("Was unable to reset InputStream for {}", f.toString());
 				LOG.catching(e);

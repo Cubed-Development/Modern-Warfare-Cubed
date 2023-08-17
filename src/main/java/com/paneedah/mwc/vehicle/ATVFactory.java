@@ -1,10 +1,10 @@
 package com.paneedah.mwc.vehicle;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.ATV;
-import com.paneedah.mwc.models.ATVSteering;
-import com.paneedah.mwc.models.ATVWheel;
-import com.paneedah.mwc.models.SampleVehicleControlArm;
+import com.paneedah.mwc.models.weapons.ATV;
+import com.paneedah.mwc.models.weapons.ATVSteering;
+import com.paneedah.mwc.models.weapons.ATVWheel;
+import com.paneedah.mwc.models.weapons.SampleVehicleControlArm;
 import com.paneedah.mwc.vehicle.engines.PolarisATVEngine;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.*;
@@ -97,7 +97,7 @@ public class ATVFactory implements VehicleFactory {
 //                		Transmission trans = entityVehicle.solver.transmission;
 //                		GearShiftPattern pattern = entityVehicle.getSolver().getPhysConf().getShiftPattern();
 //                		entityVehicle.smoothShift.updatePrev();
-//                		entityVehicle.smoothShift.set(pattern.quickDoAnimation(trans).scale(0.3));
+//                		entityVehicle.smoothShift.copy(pattern.quickDoAnimation(trans).scale(0.3));
 //                		Vec3d offset = entityVehicle.smoothShift.get();
 //                    	float xO = (float) -offset.z*0.5f;
 //                    	float zO = (float) -offset.x;

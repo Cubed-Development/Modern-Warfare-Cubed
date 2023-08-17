@@ -83,7 +83,7 @@ public class OptionsMetadata {
 
         public OptionsMetadata build() {
             if(slotCount == 0) {
-                throw new IllegalStateException("Slot count not set");
+                throw new IllegalStateException("Slot count not copy");
             }
             int totalMaxOccurs = 0;
             int totalMinOccurs = 0;

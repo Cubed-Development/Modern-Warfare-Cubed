@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.equipment.carryable;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
+import com.paneedah.mwc.rendering.renderer.StaticModelSourceRenderer;
 import com.paneedah.mwc.utils.LangUtil;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import net.minecraft.item.Item;
@@ -16,6 +16,10 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 public class ItemBackpack extends ItemCarryable {
 
     public static class Builder extends ItemCarryable.Builder<Builder> {
+
+        {
+            subPath = "backpacks.";
+        }
 
         @Override
         protected Builder self() {

@@ -2,7 +2,7 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -11,7 +11,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -54,7 +54,7 @@ public class G36CFactory implements GunFactory {
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
-                        // The weapon power
+                        // The weapons power
                         15.0,
                         // Muzzle climb divisor
                         15.75,
@@ -159,7 +159,7 @@ public class G36CFactory implements GunFactory {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.NightRaider, () -> {
                     GL11.glTranslatef(-0.218F, -1.75F, -2.4F);
                     GL11.glScaled(0.8F, 0.8F, 0.8F);
                 }, (model) -> {
@@ -168,7 +168,7 @@ public class G36CFactory implements GunFactory {
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.ACOG, () -> {
                     GL11.glTranslatef(-0.335F, -1.77F, -1F);
                     GL11.glScaled(0.9F, 0.9F, 0.9F);
                 }, (model) -> {
@@ -180,7 +180,7 @@ public class G36CFactory implements GunFactory {
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.Specter, () -> {
                     GL11.glTranslatef(-0.2F, -1.4F, -1.4F);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
                 }, (model) -> {
@@ -189,7 +189,7 @@ public class G36CFactory implements GunFactory {
                         GL11.glScaled(0.1F, 0.1F, 0.1F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.Reflex, () -> {
                     GL11.glTranslatef(-0.06F, -1.56F, -1.8F);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
                 }, (model) -> {
@@ -198,7 +198,7 @@ public class G36CFactory implements GunFactory {
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
                     GL11.glTranslatef(-0.06F, -1.55F, -1.4F);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
                 }, (model) -> {
@@ -207,7 +207,7 @@ public class G36CFactory implements GunFactory {
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.Holographic, () -> {
                     GL11.glTranslatef(-0.035F, -1.6F, -1.4F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
                 }, (model) -> {
@@ -216,7 +216,7 @@ public class G36CFactory implements GunFactory {
                         GL11.glScaled(0.1F, 0.1F, 0.1F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
                     GL11.glTranslatef(-0.035F, -1.6F, -1.4F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
                 }, (model) -> {
@@ -225,7 +225,7 @@ public class G36CFactory implements GunFactory {
                         GL11.glScaled(0.1F, 0.1F, 0.1F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.VortexRedux, () -> {
                     GL11.glTranslatef(-0.335F, -1.83F, -1.8F);
                     GL11.glScaled(0.54F, 0.54F, 0.54F);
                 }, (model) -> {
@@ -234,7 +234,7 @@ public class G36CFactory implements GunFactory {
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.Kobra, () -> {
                     GL11.glTranslatef(-0.024F, -1.61F, -1.4F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
                 }, (model) -> {
@@ -243,7 +243,7 @@ public class G36CFactory implements GunFactory {
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.KobraGen3, () -> {
                     GL11.glTranslatef(-0.024F, -1.61F, -1.4F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
                 }, (model) -> {
@@ -252,11 +252,11 @@ public class G36CFactory implements GunFactory {
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.MicroReflex, () -> {
                     GL11.glTranslatef(-0.154F, -2.38F, -1.4F);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
                 })
-                .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.MicroT1, () -> {
                     GL11.glTranslatef(-0.19F, -1.81F, -1.5F);
                     GL11.glScaled(0.47F, 0.47F, 0.47F);
                 }, (model) -> {
@@ -265,7 +265,7 @@ public class G36CFactory implements GunFactory {
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
                     GL11.glTranslatef(-0.19F, -1.81F, -1.5F);
                     GL11.glScaled(0.47F, 0.47F, 0.47F);
                 }, (model) -> {
@@ -290,11 +290,11 @@ public class G36CFactory implements GunFactory {
                     GL11.glTranslatef(-0.2F, -0.15F, -3.6F);
                     GL11.glScaled(1F, 1F, 1F);
                 })
-                .withCompatibleAttachment(Attachments.Laser2, (p, s) -> {
+                .withCompatibleAttachment(Attachments.Laser2, () -> {
                     GL11.glTranslatef(0.07F, -1.04F, -4.6F);
                     GL11.glScaled(1F, 1F, 1F);
                 })
-                .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+                .withCompatibleAttachment(Attachments.Laser, () -> {
                     GL11.glTranslatef(0.07F, -1.04F, -4.6F);
                     GL11.glScaled(1F, 1F, 1F);
                 })

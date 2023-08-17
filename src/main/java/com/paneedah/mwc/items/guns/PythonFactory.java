@@ -1,14 +1,14 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.Python;
+import com.paneedah.mwc.models.weapons.Python;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
@@ -44,7 +44,7 @@ public class PythonFactory implements GunFactory {
 		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
         .withRecoilParam(new RecoilParam(
-        		// The weapon power
+        		// The weapons power
         		85.0,
         		// Muzzle climb divisor
         		13.125,
@@ -78,7 +78,7 @@ public class PythonFactory implements GunFactory {
 //			GL11.glTranslatef(-0.35f, -0.1f, 0.4f);
 //            GL11.glRotatef(25F, 0f, 0f, 1f);
 		})
-		.withCompatibleAttachment(Attachments.DanWessonLaser, (p, s) -> {
+		.withCompatibleAttachment(Attachments.DanWessonLaser, () -> {
             GL11.glTranslatef(-0.3F, -0.8F, -3.0F);
             GL11.glScaled(0.9F, 0.9F, 0.9F);
 //            GL11.glRotatef(-90F, 0f, 0f, -4f);

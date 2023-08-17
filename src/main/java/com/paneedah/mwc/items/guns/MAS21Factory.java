@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -101,7 +101,7 @@ public class MAS21Factory implements GunFactory {
         	GL11.glTranslatef(-0.01F, 0F, -0.07F);
             GL11.glScaled(0.9F, 0.9F, 0.9F);
         })
-        .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+        .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(0.01F, -0.6F, -2.05F);
             GL11.glScaled(1.1F, 1.1F, 1.1F);
             GL11.glRotatef(-90F, 0f, 0f, -4f);
@@ -110,11 +110,11 @@ public class MAS21Factory implements GunFactory {
             GL11.glTranslatef(-0.22F, -1.2F, -4.35F);
             GL11.glScaled(1.3F, 1.3F, 1.3F);
         })
-        .withCompatibleAttachment(Attachments.MAS21Mount, (p, s) -> {
+        .withCompatibleAttachment(Attachments.MAS21Mount, () -> {
 //            GL11.glTranslatef(-0.23f, -0.53f, -1.9f);
 //            GL11.glScaled(0.7F, 0.6F, 0.7F);
         })
-        .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.RMR, () -> {
                 GL11.glTranslatef(-0.5F, -0.6F, -1.4F);
                 GL11.glScaled(0.36F, 0.36F, 0.36F);
                 GL11.glRotatef(-90F, 0f, 0f, 1f);
@@ -124,7 +124,7 @@ public class MAS21Factory implements GunFactory {
                 GL11.glScaled(0.2F, 0.2F, 0.2F);
             }
         })
-        .withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroReflex, () -> {
 		    GL11.glTranslatef(-0.155F, -1.83F, -1.2F);
 		    GL11.glScaled(0.48F, 0.48F, 0.48F);
 		    },(model) -> {

@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.electronics;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.perspective.PerspectiveRenderer;
@@ -13,6 +14,10 @@ implements PlayerItemInstanceFactory<PlayerHandheldInstance, HandheldState>, Upd
     private final int DEFAULT_MAX_STACK_SIZE = 1;
         
     public static final class Builder<T> extends AttachmentBuilder<T> {
+
+        {
+            creativeTab = MWC.EQUIPMENT_TAB;
+        }
         
         private Runnable screenPositioning;
         private Class<? extends Perspective<?>> perspectiveClass;
@@ -39,8 +44,8 @@ implements PlayerItemInstanceFactory<PlayerHandheldInstance, HandheldState>, Upd
         }
         
         @Override
-        public ItemAttachment<T> build(ModContext modContext) {
-            return super.build(modContext);
+        public ItemAttachment<T> build() {
+            return super.build();
         }
     }
     

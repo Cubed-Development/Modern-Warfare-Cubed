@@ -123,11 +123,11 @@ public class PlayerItemInstanceRegistry {
 			if(currentState != null && isSameItem(currentState, extendedStateToMerge)
 					/*&& isSameUpdateId(currentState, extendedStateToMerge)*/) {
 				/*
-				 * If input.managedState has a transactional component, set current.managedState = input.managedState only,
+				 * If input.managedState has a transactional component, copy current.managedState = input.managedState only,
 				 * do not update the entire state
 				 */
 				
-				extendedStateToMerge.setState(newManagedState); // why do we set it here?
+				extendedStateToMerge.setState(newManagedState); // why do we copy it here?
 				if(newManagedState.commitPhase() != null) {
 					currentState.prepareTransaction(extendedStateToMerge);
 				} else {

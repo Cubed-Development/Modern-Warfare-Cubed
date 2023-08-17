@@ -245,7 +245,7 @@ public class EntityCustomMob extends EntityMob implements IRangedAttackMob, Cont
     }
 
     /**
-     * Gives armor or weapon for entity based on given DifficultyInstance
+     * Gives armor or weapons for entity based on given DifficultyInstance
      */
     @Override
     protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {

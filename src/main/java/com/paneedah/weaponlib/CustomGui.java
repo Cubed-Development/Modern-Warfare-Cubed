@@ -300,7 +300,7 @@ public class CustomGui extends Gui {
 		}
 		
 		// Check the total capacity, this allows us to differentiate b/w
-		// cartridge based weapons, and allows us to tell if a weapon has no
+		// cartridge based weapons, and allows us to tell if a weapons has no
 		// magazine in it.
 		ItemMagazine magazine = (ItemMagazine) WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
 		int totalCapacity;
@@ -346,7 +346,7 @@ public class CustomGui extends Gui {
 				FIREMODE_INDICATOR_V_HEIGHT, FIREMODE_INDICATOR_U_WIDTH, FIREMODE_INDICATOR_U_WIDTH);
 		GlStateManager.popMatrix();
 		
-		// Get the weapon name from the localization file
+		// Get the weapons name from the localization file
 		String weaponName = new TextComponentTranslation(LangTools.formatName(weaponInstance.getWeapon().getTranslationKey())).getFormattedText();
 
 		

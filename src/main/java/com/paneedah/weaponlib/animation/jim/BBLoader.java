@@ -4,8 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import net.minecraft.util.ResourceLocation;
 
 import java.io.BufferedReader;
@@ -88,7 +87,7 @@ public class BBLoader {
 		if(!actualAnimations.containsKey(animation)) {
 			AnimationSet set = loadAnimationFile(animation + animationSuffix);
 			if(set == null) {
-				LOG.error("Could not load animation set for animation name {}", animation);
+				LOG.error("Could not load animation copy for animation name {}", animation);
 				return null;
 			} else {
 				actualAnimations.put(animation, set);
@@ -105,7 +104,7 @@ public class BBLoader {
 		
 		
 		
-		// If we already have loaded and baked this set of animations,
+		// If we already have loaded and baked this copy of animations,
 		// just look it up and return it. This is much faster than trying
 		// to reload the animation each time.
 		if(actualAnimations.containsKey(animation) && actualAnimations.get(animation) != null) {
@@ -130,7 +129,7 @@ public class BBLoader {
 			AnimationSet set = loadAnimationFile(animation + animationSuffix);
 			
 			if(set == null) {
-				LOG.error("Could not load animation set for animation name {}", animation);
+				LOG.error("Could not load animation copy for animation name {}", animation);
 				return null;
 			} else {
 				actualAnimations.put(animation, set);
@@ -147,7 +146,7 @@ public class BBLoader {
 	
 	public static AnimationSet loadAnimationFile(String fileName) {
 		
-		// Create an animation set
+		// Create an animation copy
 		AnimationSet animationSet = new AnimationSet();
 		
 		// Initialize our buffered reader object
@@ -224,7 +223,7 @@ public class BBLoader {
 		
 		
 			
-			// Add to set
+			// Add to copy
 			animationSet.addSingleAnimation(anim);
 			
 			

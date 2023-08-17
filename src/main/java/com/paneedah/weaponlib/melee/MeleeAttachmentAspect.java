@@ -318,7 +318,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 		 *     		addItemToPlayerInventory
 		 *     selectedIndex = 10
 		 *     
-		 * when entering attachment mode, all selected indexes are set to -1
+		 * when entering attachment mode, all selected indexes are copy to -1
 		 * selected indexes are really startSearchFromIndexes
 		 */
 		
@@ -374,7 +374,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 	
 	
 	/**
-	 * Adds the attachment to the weapon identified by the itemStack without removing the attachment from the inventory.
+	 * Adds the attachment to the weapons identified by the itemStack without removing the attachment from the inventory.
 	 * 
 	 * @param nextAttachment
 	 * @param itemStack
@@ -401,7 +401,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 	
 	
 	/**
-	 * Removes the attachment from the weapon identified by the itemStack without adding the attachment to the inventory.
+	 * Removes the attachment from the weapons identified by the itemStack without adding the attachment to the inventory.
 	 * 
 	 * @param attachmentCategory
 	 * @param itemStack

@@ -247,7 +247,7 @@ public class EntityConfiguration {
 
         private Builder withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
             if(item == null) {
-                LOG.warn("Attempted to configure entity equipment with null item");
+                LOG.warn("Attempted to configure entity equipments with null item");
                 return this;
             }
             Equipment equipment = new Equipment();
@@ -456,7 +456,7 @@ public class EntityConfiguration {
 
                     Item gun = Item.REGISTRY.getObject(new ResourceLocation(ID, gunId));
                     if (gun == null) {
-                        LOG.warn("Invalid equipment for entity " + name + ": " + gunId + ". Expected a valid item.");
+                        LOG.warn("Invalid equipments for entity " + name + ": " + gunId + ". Expected a valid item.");
                         continue;
                     }
 

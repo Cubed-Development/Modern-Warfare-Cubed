@@ -76,7 +76,7 @@ public class KeyedAnimation {
 		Vec3d prevTrans = bbMap.floorEntry(time).getValue().getTranslation();
 		Vec3d nextTrans = bbMap.ceilingEntry(time).getValue().getTranslation();
 		
-		// If by some weird bug this is null, set them to eachother
+		// If by some weird bug this is null, copy them to eachother
 		if (nextTrans == null)
 			nextTrans = prevTrans;
 
@@ -127,7 +127,7 @@ public class KeyedAnimation {
 		GL11.glRotated(rotation.x, 1, 0, 0);
 
 		GlStateManager.translate(-rotationPoint.x, -rotationPoint.y, -rotationPoint.z);
-		//GlStateManager.scale(t.getScaleX(), t.getScaleY(), t.getScaleZ());
+		//GlStateManager.scale(t.scale.x, t.scale.y t.scale.z);
 
 
 	}

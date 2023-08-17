@@ -7,7 +7,7 @@ import com.paneedah.weaponlib.model.Bullet556;
 public class SpecialAttachments {
 	public static ItemAttachment<Weapon> MagicMag;
 	
-	public static void init(Object mod, ModContext context) {
+	public static void init(Object mod) {
 		
 		MagicMag = new AttachmentBuilder<Weapon>()
 	            .withCategory(AttachmentCategory.MAGICMAG)
@@ -18,7 +18,7 @@ public class SpecialAttachments {
 	            
 	            .withName("magazine_extra")
 	            .withRenderablePart()
-	            .withTextureName("Dummy.png").build(context);
+	            .build();
 		
 		
 		
