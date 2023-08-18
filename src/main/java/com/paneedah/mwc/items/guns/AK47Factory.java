@@ -533,7 +533,7 @@ public class AK47Factory {
                         new Transform()
                         .withPosition(1.210000f, 0.265000f, -0.820000f)
                         .withBBRotation(-7.1415F, -27.3003F, 52.6433F)
-                        .withScale(-2.8F, 2.8F, 4.0F)
+                        .withScale(2.8F, 2.8F, 4.0F)
                         .withPivotPoint(0, 0, 0),
                         
                         
