@@ -13,6 +13,7 @@ public class Vehicles {
 	public static void init(CommonProxy commonProxy) {
 
 		// Panda: Is this still the case? I don't think so.
+		// Desoroxxx: It is not the case anymore, but the best way would be to remove the modContext system entirely, probably after the rendering rewrite.
 
 		// due to the fact that advanced warfare cannot be accessed from
 		// weaponlib, here are things that need to be set from this end.
