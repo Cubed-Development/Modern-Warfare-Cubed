@@ -147,7 +147,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
 		setPage(1);
 
-		// Fill the filtered list with the default copy of
+		// Fill the filtered list with the default set of
 		// options
 		fillFilteredList();
 

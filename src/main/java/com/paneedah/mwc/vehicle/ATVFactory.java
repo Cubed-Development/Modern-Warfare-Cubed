@@ -97,7 +97,7 @@ public class ATVFactory implements VehicleFactory {
 //                		Transmission trans = entityVehicle.solver.transmission;
 //                		GearShiftPattern pattern = entityVehicle.getSolver().getPhysConf().getShiftPattern();
 //                		entityVehicle.smoothShift.updatePrev();
-//                		entityVehicle.smoothShift.copy(pattern.quickDoAnimation(trans).scale(0.3));
+//                		entityVehicle.smoothShift.set(pattern.quickDoAnimation(trans).scale(0.3));
 //                		Vec3d offset = entityVehicle.smoothShift.get();
 //                    	float xO = (float) -offset.z*0.5f;
 //                    	float zO = (float) -offset.x;

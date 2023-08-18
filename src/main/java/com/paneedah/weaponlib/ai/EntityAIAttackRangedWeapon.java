@@ -168,10 +168,10 @@ public class EntityAIAttackRangedWeapon extends EntityAIBase
                     if(Math.abs((-(this.entity.posX - attackTarget.posX) / (this.entity.posZ - attackTarget.posZ)) - Math.tan(this.entity.renderYawOffset / 180f * Math.PI)) < 5.0) {
                         this.entity.resetActiveHand();
                         if(entity.getSecondaryEquipment() != null && entity.getRNG().nextFloat() < secondaryEquipmentUseChance) {
-                            this.entity.attackWithSecondaryEquipment(attackTarget, 0); // TODO: copy some distance factor
+                            this.entity.attackWithSecondaryEquipment(attackTarget, 0); // TODO: set some distance factor
                         } else {
                             this.entity.attackEntityWithRangedAttack(attackTarget, 0);
-                            // TODO: copy some distance factor
+                            // TODO: set some distance factor
                         }
                        this.attackTime = (this.attackCooldown >> 1) + this.entity.getRNG().nextInt(this.attackCooldown << 1);
                     }

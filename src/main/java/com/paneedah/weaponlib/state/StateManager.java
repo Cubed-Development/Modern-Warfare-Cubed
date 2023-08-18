@@ -125,7 +125,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 			 * 	cons: need to know the state transitioning details
 			 * 
 			 * Option 2: introduce auto-transitioned rules.
-			 * 	Auto-transitioned rule would apply when requestor does not copy a target state
+			 * 	Auto-transitioned rule would apply when requestor does not set a target state
 			 * 
 			 * for example
 			 * 	rule could be auto-transitioned state

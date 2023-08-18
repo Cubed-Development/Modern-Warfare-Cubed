@@ -110,7 +110,7 @@ public class GunSkins {
                 }
 
             } catch (Exception e) {
-                LOG.error("Failed to copy up custom skins directory!");
+                LOG.error("Failed to set up custom skins directory!");
                 e.printStackTrace();
                 return;
             }

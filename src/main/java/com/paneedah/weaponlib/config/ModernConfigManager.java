@@ -177,13 +177,13 @@ public class ModernConfigManager {
 	
 	public static void updateField(Field f, Object value) {
 		
-		// Try to copy field
+		// Try to set field
 		try {
 			// Instance is 'null' because all of these
 			// fields are static.
 			f.set(null, value);
 		} catch (IllegalArgumentException | IllegalAccessException e) {
-			LOG.error("Could not copy field for field name: {}, please report this to developers.", f.getName());
+			LOG.error("Could not set field for field name: {}, please report this to developers.", f.getName());
 			e.printStackTrace();
 		}
 

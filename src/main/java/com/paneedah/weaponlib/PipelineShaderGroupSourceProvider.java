@@ -98,7 +98,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
     }
 
     private void updateBlur() {
-        blurEnabled = spreadableExposureProgress > 0.01f; // TODO: copy min
+        blurEnabled = spreadableExposureProgress > 0.01f; // TODO: set min
     }
 
     private void updateVignette() {

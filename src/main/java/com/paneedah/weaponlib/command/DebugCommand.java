@@ -283,12 +283,12 @@ public class DebugCommand extends CommandBase {
 
             case "dh":
                 BBLoader.HANDDIVISOR = Double.parseDouble(args[2]);
-                MC.player.sendMessage(new TextComponentString("Hand divisor copy to " + BBLoader.HANDDIVISOR));
+                MC.player.sendMessage(new TextComponentString("Hand divisor set to " + BBLoader.HANDDIVISOR));
                 break;
 
             case "dg":
                 BBLoader.GENDIVISOR = Double.parseDouble(args[2]);
-                MC.player.sendMessage(new TextComponentString("General divisor copy to " + BBLoader.GENDIVISOR));
+                MC.player.sendMessage(new TextComponentString("General divisor set to " + BBLoader.GENDIVISOR));
                 break;
 
             case "as":

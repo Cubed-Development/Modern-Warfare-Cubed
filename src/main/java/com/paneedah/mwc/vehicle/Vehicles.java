@@ -15,10 +15,9 @@ public class Vehicles {
 		// Panda: Is this still the case? I don't think so.
 
 		// due to the fact that advanced warfare cannot be accessed from
-		// weaponlib, here are things that need to be copy from this end.
+		// weaponlib, here are things that need to be set from this end.
 		GeneralVehicleSounds.setup(MWC.modContext);
-		AccessibleVehicleGUI.remotelySetModels(new VehicleKey(), new VehicleLock(),
-				QRL.quickLoc("gui", "vehiclekey"), QRL.quickLoc("gui", "keylock"));
+		AccessibleVehicleGUI.remotelySetModels(new VehicleKey(), new VehicleLock(), QRL.quickLoc("gui", "vehiclekey"), QRL.quickLoc("gui", "keylock"));
 		
 		//new SampleVehicleFactory().createVehicle(MWC.modContext);
 		new AudiS4Factory().createVehicle(MWC.modContext);

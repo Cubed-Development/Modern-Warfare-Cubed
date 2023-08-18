@@ -222,7 +222,7 @@ public class RigidBody {
 	public void updateOrientation(){
 		Quat4f quat = new Quat4f();
 		float epsilon = 0.00001F;
-		//quat.copy(rotation);
+		//quat.set(rotation);
 		setFromMat(quat, rotation);
 		quat.normalize();
 		QuaternionTool.matrixFromQuat(rotation, quat);

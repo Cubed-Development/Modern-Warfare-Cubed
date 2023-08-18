@@ -391,7 +391,7 @@ public class MPXFactory implements GunFactory {
 					new Transform()
 					.withPosition(-1.585000f, 4.865000f, -3.685000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
-					.withRotationPoint(-0.350000f, -2.940000f, 0.020000f)
+					.withPivotPoint(-0.350000f, -2.940000f, 0.020000f)
                     .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
@@ -402,7 +402,7 @@ public class MPXFactory implements GunFactory {
                         .withPosition(1.170000f, 0.025000f, -0.380000f)
                         .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
                         .withScale(2.6F, 2.6F, 4.0F)
-                        .withRotationPoint(0, 0, 0),
+                        .withPivotPoint(0, 0, 0),
                         
                         
                         
@@ -411,7 +411,7 @@ public class MPXFactory implements GunFactory {
                         .withPosition(-0.200000f, 0.100000f, 1.480000f)
                         .withRotation(-5.4027F, -4.7805F, -1.6694F)
                         .withScale(3.0F, 3.0F, 3.0F)
-                        .withRotationPoint(0, 0, 0)
+                        .withPivotPoint(0, 0, 0)
                 
                 )
                 
@@ -578,17 +578,17 @@ public class MPXFactory implements GunFactory {
 				 new Transform()
 				 .withPosition(-1.625000f, 4.825000f, -5.805000f)
 				 .withRotation(0.000000f, -27.844225f, -13.566792f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
 				 new Transform()
 				 .withPosition(-1.625000f, 4.825000f, -6.965000f)
 				 .withRotation(1.439132f, -36.985926f, -13.566792f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 					 
 			.withFirstPersonHandPositioningModifying(
@@ -597,16 +597,16 @@ public class MPXFactory implements GunFactory {
                  	 .withPosition(1.730000f, 0.065000f, -0.980000f)
                  	 .withRotation(93.414678f, 23.699100f, 15.553163f)
                       .withScale(2.6F, 2.6F, 4.0F)
-                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                      .doGLDirect();
+                      .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                      .applyTransformations();
                   }, 
                   (renderContext) -> {
                  	 new Transform()
                       .withPosition(-0.2F, 0.1F, 2)
                       .withRotation(-5.4027F, -4.7805F, -1.6694F)
                       .withScale(3.5F, 3.5F, 3.5F)
-                      .withRotationPoint(0, 0, 0)
-                      .doGLDirect();
+                      .withPivotPoint(0, 0, 0)
+                      .applyTransformations();
                   })
                   
          .withFirstPersonHandPositioningModifyingAlt(
@@ -615,16 +615,16 @@ public class MPXFactory implements GunFactory {
                 	 	.withPosition(2.450000f, -0.335000f, -0.660000f)
                 	 	.withRotation(93.766422f, 50.841130f, 4.679372f)
                 	 	.withScale(2.600000f, 2.600000f, 4.000000f)
-                     .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                     .doGLDirect();
+                     .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                     .applyTransformations();
                  }, 
                  (renderContext) -> {
                 	 new Transform()
                 	 	.withPosition(-0.600000f, 0.340000f, 1.880000f)
                 	 	.withRotation(-12.193518f, -4.7805F, 1.399459f)
                      .withScale(3.5F, 3.5F, 3.5F)
-                     .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                     .doGLDirect();
+                     .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                     .applyTransformations();
                  })
                    
            .withThirdPersonLeftHandPositioningReloading(

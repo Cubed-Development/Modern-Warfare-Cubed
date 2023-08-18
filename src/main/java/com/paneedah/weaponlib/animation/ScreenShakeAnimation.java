@@ -156,7 +156,7 @@ public class ScreenShakeAnimation implements PlayerAnimation {
         
         PlayerAnimation build() {
             if(state == null) {
-                throw new IllegalStateException("State is not copy");
+                throw new IllegalStateException("State is not set");
             }
             
             ScreenShakeAnimation animation = new ScreenShakeAnimation(state);

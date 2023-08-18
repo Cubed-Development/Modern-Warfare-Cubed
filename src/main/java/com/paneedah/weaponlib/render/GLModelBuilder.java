@@ -55,7 +55,7 @@ public class GLModelBuilder {
 	
 	
 	/**
-	 * Builds a VBO from a copy of vertices.
+	 * Builds a VBO from a set of vertices.
 	 * This will flip the v (u, v) coordinate of the 
 	 * texture coordinates in order to make it work with Minecraft.
 	 * 

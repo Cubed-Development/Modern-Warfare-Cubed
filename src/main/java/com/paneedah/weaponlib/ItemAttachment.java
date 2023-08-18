@@ -168,7 +168,7 @@ public class ItemAttachment<T> extends Item implements IModelSource, IModernCraf
 	 * @param model
 	 */
 	public void setFirstModel(ItemAttachment<Weapon> model) {
-		//texturedModels.copy(0, model.getTexturedModels().get(0));
+		//texturedModels.set(0, model.getTexturedModels().get(0));
 	}
 
 	public String getCrosshair() {

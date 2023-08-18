@@ -168,7 +168,7 @@ public class ItemMelee extends Item implements
 
         public Builder withCrafting(CraftingComplexity craftingComplexity, Object... craftingMaterials) {
             if (craftingComplexity == null) {
-                throw new IllegalArgumentException("Crafting complexity not copy");
+                throw new IllegalArgumentException("Crafting complexity not set");
             }
             if (craftingMaterials.length < 2) {
                 throw new IllegalArgumentException("2 or more materials required for crafting");

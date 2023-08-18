@@ -208,12 +208,12 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
         if(movingobjectposition != null && (movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK || (movingobjectposition.typeOfHit == RayTraceResult.Type.ENTITY))) {
 
             //TODO: remove logging since it's creating wrapper objects
-            LOG.trace("Hit {}, vec copy to {}, {}, {}", movingobjectposition.typeOfHit,
+            LOG.trace("Hit {}, vec set to {}, {}, {}", movingobjectposition.typeOfHit,
                     movingobjectposition.hitVec.x,
                     movingobjectposition.hitVec.y,
                     movingobjectposition.hitVec.z);
 
-            LOG.trace("Before bouncing {}, side {}, motion copy to {}, {}, {}", bounceCount,
+            LOG.trace("Before bouncing {}, side {}, motion set to {}, {}, {}", bounceCount,
                     movingobjectposition.sideHit,
                     motionX, motionY, motionZ);
 
@@ -257,7 +257,7 @@ public class EntityBounceable extends Entity implements Contextual, IThrowableEn
                 avoidBlockCollisionAfterBounce(movingobjectposition);
             }
 
-            LOG.trace("After bouncing {}  motion copy to {}, {}, {}", bounceCount, motionX, motionY, motionZ);
+            LOG.trace("After bouncing {}  motion set to {}, {}, {}", bounceCount, motionX, motionY, motionZ);
             onBounce(movingobjectposition);
             bounceCount++;
             if(this.isDead) {

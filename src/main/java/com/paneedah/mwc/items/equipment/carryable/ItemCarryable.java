@@ -110,7 +110,7 @@ public class ItemCarryable extends Item implements IEquipmentModelSource, IModer
 
         protected void validateInput() {
             if (name == null) {
-                RED_LOG.printFramedError("Carryable Item", "Carryable Item has no name copy", "Non critical exception falling back to 'missing_name'", "At:" + new Throwable().getStackTrace()[3].toString());
+                RED_LOG.printFramedError("Carryable Item", "Carryable Item has no name set", "Non critical exception falling back to 'missing_name'", "At:" + new Throwable().getStackTrace()[3].toString());
                 name = "missing_name";
             }
 

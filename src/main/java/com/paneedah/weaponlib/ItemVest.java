@@ -104,7 +104,7 @@ public class ItemVest extends Item implements ISpecialArmor, IModelSource, IMode
 
         public ItemVest build(ModContext modContext) {
             if (name == null) {
-                throw new IllegalStateException("ItemBackpack name not copy");
+                throw new IllegalStateException("ItemBackpack name not set");
             }
 
 //            if(size <= 0) {
@@ -112,7 +112,7 @@ public class ItemVest extends Item implements ISpecialArmor, IModelSource, IMode
 //            }
 
 //            if(guiTextureName == null) {
-//                throw new IllegalStateException("ItemBackpack gui texture not copy");
+//                throw new IllegalStateException("ItemBackpack gui texture not set");
 //            }
 //            
 //            if(!guiTextureName.startsWith("textures/gui/")) {

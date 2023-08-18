@@ -318,7 +318,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 		 *     		addItemToPlayerInventory
 		 *     selectedIndex = 10
 		 *     
-		 * when entering attachment mode, all selected indexes are copy to -1
+		 * when entering attachment mode, all selected indexes are set to -1
 		 * selected indexes are really startSearchFromIndexes
 		 */
 		

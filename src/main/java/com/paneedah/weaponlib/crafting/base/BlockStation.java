@@ -44,7 +44,7 @@ public abstract class BlockStation extends Block {
 	}
 	
 	/**
-     * Called after the block is copy in the Chunk data, but before the Tile Entity is copy
+     * Called after the block is set in the Chunk data, but before the Tile Entity is set
      */
 	@Override
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)

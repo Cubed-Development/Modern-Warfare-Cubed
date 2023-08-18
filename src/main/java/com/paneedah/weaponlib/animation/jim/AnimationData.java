@@ -355,7 +355,7 @@ public class AnimationData {
 
 
     /**
-     * Allows for ADS reloads, quite a simple copy of logic instructions, basically it'll provide transitions
+     * Allows for ADS reloads, quite a simple set of logic instructions, basically it'll provide transitions
      * depending on if the player is aiming, quite nice!
      *
      * @param transform
@@ -376,7 +376,7 @@ public class AnimationData {
         } else {
 
             for (int i = 0; i < this.fakeTransitions; ++i) {
-                transitionList.add(new Transition<>(renderContext -> transform.doGLDirect(), this.fTLength));
+                transitionList.add(new Transition<>(renderContext -> transform.applyTransformations(), this.fTLength));
             }
         }
 
@@ -384,7 +384,7 @@ public class AnimationData {
         // Swaps the last frame of the animation with
         // the initial position (much smoother lol)
         long curLength = transitionList.get(transitionList.size() - 1).getDuration();
-        transitionList.set(transitionList.size() - 1, new Transition<>(renderContext -> transform.doGLDirect(), curLength));
+        transitionList.set(transitionList.size() - 1, new Transition<>(renderContext -> transform.applyTransformations(), curLength));
         return transitionList;
     }
 
@@ -397,7 +397,7 @@ public class AnimationData {
     public List<Transition<RenderContext<RenderableState>>> getTransitionList(Transform initial, double divisor, boolean applySwap) {
         List<Transition<RenderContext<RenderableState>>> transitionList = new ArrayList<>();
 
-        //transitionList.add(new Transition<>(renderContext -> new Transform().withScale(3, 3, 3).withPosition(-0.3f, 4.75f, -2f).withRotation(-10, 0, 0).doGLDirect(), 10));
+        //transitionList.add(new Transition<>(renderContext -> new Transform().withScale(3, 3, 3).withPosition(-0.3f, 4.75f, -2f).withRotation(-10, 0, 0).applyTransformations(), 10));
 
         if (!isNull) {
             int count = 0;
@@ -410,7 +410,7 @@ public class AnimationData {
         } else {
 
             for (int i = 0; i < this.fakeTransitions; ++i) {
-                transitionList.add(new Transition<>(renderContext -> initial.doGLDirect(), this.fTLength));
+                transitionList.add(new Transition<>(renderContext -> initial.applyTransformations(), this.fTLength));
             }
         }
 
@@ -419,7 +419,7 @@ public class AnimationData {
         // the initial position (much smoother lol)
         if (applySwap) {
             long curLength = transitionList.get(transitionList.size() - 1).getDuration();
-            transitionList.set(transitionList.size() - 1, new Transition<>(renderContext -> initial.doGLDirect(), curLength));
+            transitionList.set(transitionList.size() - 1, new Transition<>(renderContext -> initial.applyTransformations(), curLength));
         }
 
 
@@ -522,7 +522,7 @@ public class AnimationData {
                 GL11.glTranslated(translation.x * mul, -translation.y * mul, translation.z * mul);
 
                 // Offset rotation point
-                GlStateManager.translate(t.rotationPoint.x, t.rotationPoint.y, t.rotationPoint.z);
+                GlStateManager.translate(t.pivotPoint.x, t.pivotPoint.y, t.pivotPoint.z);
 
                 // Original object rotation (+Z, -Y, -X)
                 GlStateManager.rotate(t.rotation.z, 0, 0, 1);
@@ -535,7 +535,7 @@ public class AnimationData {
                 GlStateManager.rotate(rotation.x * rotXMult, 1, 0, 0);
 
                 // Revert rotation point offset
-                GlStateManager.translate(-t.rotationPoint.x, -t.rotationPoint.y, -t.rotationPoint.z);
+                GlStateManager.translate(-t.pivotPoint.x, -t.pivotPoint.y, -t.pivotPoint.z);
 
                 // Original object scale
                 GlStateManager.scale(t.scale.x, t.scale.y, t.scale.z);
@@ -589,7 +589,7 @@ public class AnimationData {
                 GlStateManager.translate(translation.x * mul, -translation.y * mul, translation.z * mul);
 
                 // Offset rotation point
-                GlStateManager.translate(transform.rotationPoint.x, transform.rotationPoint.y, transform.rotationPoint.z);
+                GlStateManager.translate(transform.pivotPoint.x, transform.pivotPoint.y, transform.pivotPoint.z);
 
                 // Original object rotation (+Z, -Y, -X)
                 GlStateManager.rotate(transform.rotation.z, 0, 0, 1);
@@ -602,7 +602,7 @@ public class AnimationData {
                 GlStateManager.rotate(rotation.x * rotXMult, 1, 0, 0);
 
                 // Revert rotation point
-                GlStateManager.translate(-transform.rotationPoint.x, -transform.rotationPoint.y, -transform.rotationPoint.z);
+                GlStateManager.translate(-transform.pivotPoint.x, -transform.pivotPoint.y, -transform.pivotPoint.z);
 
                 // Original object scale
                 GlStateManager.scale(transform.scale.x, transform.scale.y, transform.scale.z);

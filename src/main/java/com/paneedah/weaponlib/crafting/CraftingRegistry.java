@@ -134,7 +134,7 @@ public class CraftingRegistry {
 			return;
 		}
 		
-		// If it already exists, assume we are loading a new copy of recipes.
+		// If it already exists, assume we are loading a new set of recipes.
 		if(isRecipeRegistered(crafting))
 			deleteRecipeRegistry(crafting);
 		

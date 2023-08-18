@@ -76,7 +76,7 @@ public class KeyedAnimation {
 		Vector3F prevTrans = bbMap.floorEntry(time).getValue().getTranslation();
 		Vector3F nextTrans = bbMap.ceilingEntry(time).getValue().getTranslation();
 		
-		// If by some weird bug this is null, copy them to eachother
+		// If by some weird bug this is null, set them to eachother
 		if (nextTrans == null)
 			nextTrans = prevTrans;
 

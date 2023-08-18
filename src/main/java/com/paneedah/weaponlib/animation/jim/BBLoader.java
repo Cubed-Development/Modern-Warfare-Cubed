@@ -58,7 +58,7 @@ public class BBLoader {
 			.withPosition(-2, 3, -2)
 			.withRotation(0, 0, -0)
 			.withScale(3, 3, 3)
-			.withRotationPoint(-0.1F, 1, 0);
+			.withPivotPoint(-0.1F, 1, 0);
 	
 	
 	private static String animationSuffix = ".animation.json";
@@ -87,7 +87,7 @@ public class BBLoader {
 		if(!actualAnimations.containsKey(animation)) {
 			AnimationSet set = loadAnimationFile(animation + animationSuffix);
 			if(set == null) {
-				LOG.error("Could not load animation copy for animation name {}", animation);
+				LOG.error("Could not load animation set for animation name {}", animation);
 				return null;
 			} else {
 				actualAnimations.put(animation, set);
@@ -104,7 +104,7 @@ public class BBLoader {
 		
 		
 		
-		// If we already have loaded and baked this copy of animations,
+		// If we already have loaded and baked this set of animations,
 		// just look it up and return it. This is much faster than trying
 		// to reload the animation each time.
 		if(actualAnimations.containsKey(animation) && actualAnimations.get(animation) != null) {
@@ -129,7 +129,7 @@ public class BBLoader {
 			AnimationSet set = loadAnimationFile(animation + animationSuffix);
 			
 			if(set == null) {
-				LOG.error("Could not load animation copy for animation name {}", animation);
+				LOG.error("Could not load animation set for animation name {}", animation);
 				return null;
 			} else {
 				actualAnimations.put(animation, set);
@@ -146,7 +146,7 @@ public class BBLoader {
 	
 	public static AnimationSet loadAnimationFile(String fileName) {
 		
-		// Create an animation copy
+		// Create an animation set
 		AnimationSet animationSet = new AnimationSet();
 		
 		// Initialize our buffered reader object
@@ -223,7 +223,7 @@ public class BBLoader {
 		
 		
 			
-			// Add to copy
+			// Add to set
 			animationSet.addSingleAnimation(anim);
 			
 			

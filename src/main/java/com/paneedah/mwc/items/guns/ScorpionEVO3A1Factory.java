@@ -383,7 +383,7 @@ public class ScorpionEVO3A1Factory implements GunFactory {
 					new Transform()
 					.withPosition(-1.465000f, 5.105000f, -3.685000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
-					.withRotationPoint(-0.350000f, -2.140000f, -0.700000f)
+					.withPivotPoint(-0.350000f, -2.140000f, -0.700000f)
                     .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
@@ -394,7 +394,7 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                         .withPosition(1.090000f, 0.065000f, -0.620000f)
                         .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
                         .withScale(2.8F, 2.8F, 4.0F)
-                        .withRotationPoint(0, 0, 0),
+                        .withPivotPoint(0, 0, 0),
                         
                         
                         
@@ -403,7 +403,7 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                         .withPosition(-0.200000f, -0.140000f, 1.840000f)
                         .withRotation(-5.4027F, -4.7805F, -1.6694F)
                         .withScale(3, 3, 3.5F)
-                        .withRotationPoint(0, 0, 0)
+                        .withPivotPoint(0, 0, 0)
                 
                 )
                 
@@ -573,17 +573,17 @@ public class ScorpionEVO3A1Factory implements GunFactory {
  				 new Transform()
  				.withPosition(-1.465000f, 5.345000f, -5.205000f)
  				.withRotation(0.000000f, -28.959393f, -20.248323f)
- 				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+ 				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
  				 .withScale(3.000000f, 3.000000f, 3.000000f)
- 				 .doGLDirect();
+ 				 .applyTransformations();
  			 })
  			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
  				 new Transform()
  				.withPosition(-1.465000f, 5.345000f, -6.165000f)
  				.withRotation(0.000000f, -42.129878f, -20.248323f)
- 				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+ 				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
  				 .withScale(3.000000f, 3.000000f, 3.000000f)
- 				 .doGLDirect();
+ 				 .applyTransformations();
              })
  					 
  			.withFirstPersonHandPositioningModifying(
@@ -592,16 +592,16 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                     	 .withPosition(3.090000f, 0.265000f, -0.620000f)
                     	 .withRotation(89.070002f, 33.851942f, 20.019402f)
                          .withScale(2.6F, 2.6F, 4.0F)
-                         .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                         .doGLDirect();
+                         .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                         .applyTransformations();
                      }, 
                      (renderContext) -> {
                     	 new Transform()
                     	 .withPosition(-0.200000f, -0.140000f, 1.840000f)
                          .withRotation(-5.4027F, -4.7805F, -1.6694F)
                          .withScale(3.5F, 3.5F, 3.5F)
-                         .withRotationPoint(0, 0, 0)
-                         .doGLDirect();
+                         .withPivotPoint(0, 0, 0)
+                         .applyTransformations();
                      })
                      
             .withFirstPersonHandPositioningModifyingAlt(
@@ -610,16 +610,16 @@ public class ScorpionEVO3A1Factory implements GunFactory {
 	                   	.withPosition(3.090000f, 0.265000f, -0.620000f)
 	                   	.withRotation(89.070002f, 33.851942f, 20.019402f)
                    	 	.withScale(2.600000f, 2.600000f, 4.000000f)
-                        .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                        .doGLDirect();
+                        .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                        .applyTransformations();
                     }, 
                     (renderContext) -> {
                    	 new Transform()
 	                   	.withPosition(-0.200000f, -0.140000f, 1.840000f)
 	                    .withRotation(-5.4027F, -4.7805F, -1.6694F)
                         .withScale(3.5F, 3.5F, 3.5F)
-                        .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                        .doGLDirect();
+                        .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                        .applyTransformations();
                     })
                     
             .withThirdPersonLeftHandPositioningReloading(

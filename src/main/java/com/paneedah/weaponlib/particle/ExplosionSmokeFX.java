@@ -139,7 +139,7 @@ public class ExplosionSmokeFX extends Particle {
         float y = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) partialTicks - interpPosY);
         float z = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) partialTicks - interpPosZ);
 
-        int brightness = this.getBrightnessForRender(partialTicks); // or simply copy it to 200?
+        int brightness = this.getBrightnessForRender(partialTicks); // or simply set it to 200?
         int skyLight = brightness >> 16 & 65535;
         int blockLight = brightness & 65535;
 

@@ -140,7 +140,7 @@ public class AnimationModeProcessor {
             final int scaledHeight = scaledresolution.getScaledHeight();
             int mouseX = Mouse.getX() * scaledWidth / MC.displayWidth;
             int mouseY = scaledHeight - Mouse.getY() * scaledHeight / MC.displayHeight - 1;
-            atGrab = getTransformFromSelected().copy();
+            atGrab = getTransformFromSelected().duplicate();
             Arcball.grab(mouseX, mouseY);
         }
 
@@ -194,7 +194,7 @@ public class AnimationModeProcessor {
         return ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder();
     }
 
-    public Transform slideTransform = Transform.ZERO.copy();
+    public Transform slideTransform = Transform.ZERO.duplicate();
 
     public Transform getTransformFromSelected() {
         int i = OpenGLSelectionHelper.selectID;
@@ -227,9 +227,9 @@ public class AnimationModeProcessor {
                 Builder builder = getCurrentWeaponRenderBuilder();
                 pwi = ClientModContext.getContext().getMainHeldWeapon();
                 //System.out.println("BUILDER: " + builder + " | PWI: " + pwi);
-                backupFP = builder.firstPersonTransform.copy();
-                backupFPL = builder.firstPersonLeftHandTransform.copy();
-                backupFPR = builder.firstPersonRightHandTransform.copy();
+                backupFP = builder.firstPersonTransform.duplicate();
+                backupFPL = builder.firstPersonLeftHandTransform.duplicate();
+                backupFPR = builder.firstPersonRightHandTransform.duplicate();
             }
         }
 
@@ -333,7 +333,7 @@ public class AnimationModeProcessor {
                         Transform t = getTransformFromSelected();
 
 
-                        t.withRotationPoint(t.rotationPoint.x + vec.x * m, t.rotationPoint.y + vec.y * m, t.rotationPoint.z + vec.z * m);
+                        t.withPivotPoint(t.pivotPoint.x + vec.x * m, t.pivotPoint.y + vec.y * m, t.pivotPoint.z + vec.z * m);
 
                     }
 
@@ -559,7 +559,7 @@ public class AnimationModeProcessor {
 
 
                 GlStateManager.pushMatrix();
-                GlStateManager.translate(t.rotationPoint.x + t.position.x, t.rotationPoint.y + t.position.y, t.rotationPoint.z + t.position.z);
+                GlStateManager.translate(t.pivotPoint.x + t.position.x, t.pivotPoint.y + t.position.y, t.pivotPoint.z + t.position.z);
                 GlStateManager.scale(3, 3, 3);
                 renderAtlas(scalar * 5);
 

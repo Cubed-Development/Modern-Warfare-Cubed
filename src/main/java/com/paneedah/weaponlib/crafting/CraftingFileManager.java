@@ -4,7 +4,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.JSONDatabaseManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -194,7 +193,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 					break;
 				}
 
-				// Make sure OreDictionary copy up properly
+				// Make sure OreDictionary set up properly
 				if (subRecipe.has(ORE_DICTIONARY_BOOLEAN_KEY)) {
 					isOreDictionary = subRecipe.get(ORE_DICTIONARY_BOOLEAN_KEY).getAsBoolean();
 					if (isOreDictionary && !subRecipe.has(ORE_DICTIONARY_DEFAULT_ITEM)) {
@@ -236,10 +235,10 @@ public class CraftingFileManager extends JSONDatabaseManager {
 	private void initializeJSON(InputStream is) throws JsonIOException, JsonSyntaxException {
 		byte[] array;
 		try { array = IOUtils.toByteArray(is); }
-		catch (IOException e) { throw new JsonIOException("Failed to copy array into bytes!"); }
+		catch (IOException e) { throw new JsonIOException("Failed to set array into bytes!"); }
 		
 		if(array == null)
-			throw new JsonIOException("Failed to copy array into bytes!");
+			throw new JsonIOException("Failed to set array into bytes!");
 		
 		ByteArrayInputStream hashStream = new ByteArrayInputStream(array);
 		ByteArrayInputStream readStream = new ByteArrayInputStream(array);
@@ -374,7 +373,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
 			} catch (FileNotFoundException e) {
 				LOG.error("Was testing hashes against cache directory, could not find {}!", f.toString());
-				LOG.error("Does your system have permissions copy to read that directory?");
+				LOG.error("Does your system have permissions set to read that directory?");
 			} catch (IOException e) {
 				LOG.error("Was unable to reset InputStream for {}", f.toString());
 				LOG.catching(e);

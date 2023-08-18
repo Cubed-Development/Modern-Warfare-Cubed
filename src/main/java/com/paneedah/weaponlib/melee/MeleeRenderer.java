@@ -404,7 +404,7 @@ public class MeleeRenderer extends ModelSourceRenderer implements IBakedModel {
             }
 
 //			/*
-//			 * If custom positioning for recoil is not copy, default it to normal custom positioning
+//			 * If custom positioning for recoil is not set, default it to normal custom positioning
 //			 */
 //			if(!firstPersonCustomPositioning.isEmpty() && firstPersonCustomPositioningRecoiled.isEmpty()) {
 //				firstPersonCustomPositioning.forEach((part, pos) -> {
