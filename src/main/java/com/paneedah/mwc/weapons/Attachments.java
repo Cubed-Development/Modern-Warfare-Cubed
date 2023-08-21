@@ -2049,19 +2049,19 @@ public class Attachments {
 
         HK417Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new HK417Handguard(), "HK417.png")
-                .withOnWeaponModel(new AKRail(), "guntandarkrail.png")
-                .withOnWeaponModel(new AKRail2(), "guntandarkrail.png")
-                .withOnWeaponModel(new AKRail3(), "guntandarkrail.png")
-                .withOnWeaponModel(new AKRail5(), "guntandarkrail.png")
+                .withOnWeaponModel(new AKRail(), "akrail.png")
+                .withOnWeaponModel(new AKRail2(), "akrail.png")
+                .withOnWeaponModel(new AKRail3(), "akrail.png")
+                .withOnWeaponModel(new AKRail5(), "akrail.png")
                 .withName("HK417Handguard")
                 .build();
 
         HK417HandguardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new HK417Handguard(), "HK417tan.png")
-                .withOnWeaponModel(new AKRail(), "guntandark.png")
-                .withOnWeaponModel(new AKRail2(), "guntandark.png")
-                .withOnWeaponModel(new AKRail3(), "guntandark.png")
-                .withOnWeaponModel(new AKRail5(), "guntandark.png")
+                .withOnWeaponModel(new AKRail(), "guntandarkrail.png")
+                .withOnWeaponModel(new AKRail2(), "guntandarkrail.png")
+                .withOnWeaponModel(new AKRail3(), "guntandarkrail.png")
+                .withOnWeaponModel(new AKRail5(), "guntandarkrail.png")
                 .withName("HK417HandguardTan")
                 .build();
 
@@ -2171,13 +2171,13 @@ public class Attachments {
 
         HK417Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new HK417Receiver(), "HK417.png")
-                .withOnWeaponModel(new AKRail(), "guntanrail.png")
+                .withOnWeaponModel(new AKRail(), "akrail.png")
                 .withName("HK417Receiver")
                 .build();
 
         HK417ReceiverTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new HK417Receiver(), "HK417tan.png")
-                .withOnWeaponModel(new AKRail(), "guntan.png")
+                .withOnWeaponModel(new AKRail(), "guntanrail.png")
                 .withName("HK417ReceiverTan")
                 .build();
 
