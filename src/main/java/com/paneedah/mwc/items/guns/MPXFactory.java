@@ -104,20 +104,18 @@ public class MPXFactory implements GunFactory {
         .withCompatibleAttachment(Attachments.MPXHandguardExtended, (model) -> {
         })
         .withCompatibleAttachment(Attachments.HK416Grip, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
+            GL11.glTranslatef(0f, -0.15f, -0.12f);
         })
         .withCompatibleAttachment(Attachments.M4Grip, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
+            GL11.glTranslatef(0f, -0.15f, -0.12f);
         })
         .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
-        })//50
+            GL11.glTranslatef(0f, -0.15f, -0.12f);
+        })
         .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
+            GL11.glTranslatef(0f, -0.15f, -0.12f);
         })
 		.withCompatibleAttachment(Magazines.MPXMag, (model) -> {
-//		    GL11.glTranslatef(-0.35F, 0.5F, -1.25F);
-//            GL11.glScaled(1.15F, 1.2F, 1.15F);
         })
 		.withCompatibleAttachment(AuxiliaryAttachments.AR15Action, true, (model) -> {
             GL11.glTranslatef(-0.175F, -1.58F, -0.86F);

@@ -6,6 +6,7 @@ import com.paneedah.mwc.models.weapons.Reflex2;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
@@ -121,6 +122,11 @@ public class DesertEagleFactory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new Glock18C())
+			.withActionPiece(
+			    Attachments.DesertEagleSlide,
+				Attachments.DesertEagleSlideGolden,
+				Attachments.DesertEagleSlideBlack)
+		    .withActionTransform(new Transform().withPosition(0F, 0F, 0.6F))
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -170,7 +176,7 @@ public class DesertEagleFactory implements GunFactory {
                 
             .withFirstPersonCustomPositioning(Attachments.DesertEagleSlide.getRenderablePart(), (renderContext) -> {
                 if(renderContext.getWeaponInstance().getAmmo() == 0) {
-                    GL11.glTranslatef(0F, 0F, 0.5F);
+                    GL11.glTranslatef(0F, 0F, 0.6F);
                 }
             })
                 
