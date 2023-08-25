@@ -1155,7 +1155,7 @@ itemGroup.equipment=护具
 itemGroup.throwables=投掷物
 itemGroup.blocksAndIngots=方块&锭
 
-key.categories.weaponlib=现代战争方块化
+key.categories.weaponlib=现代战争立方体
 
 key.texture_change=更换枪械涂装
 
@@ -1171,7 +1171,7 @@ key.scope=瞄准镜类型
 
 key.silencer=枪管类型
 
-key.categories.futuristicarsenal=现代战争方块化
+key.categories.futuristicarsenal=现代战争立方体
 
 key.laser=开关镭射
 
@@ -1191,7 +1191,7 @@ key.nightVision=开关夜视镜
 
 key.unload=卸下弹匣
 
-key.categories.vehicle=现代战争方块化 载具
+key.categories.vehicle=现代战争立方体 载具
 
 vehicle.brake=刹车
 
