@@ -145,20 +145,24 @@ public class ModernConfigManager {
 
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Where should the status bar be located?")
 	public static String statusBarPosition = "TOP_RIGHT";
-	
-	@RangeDouble(min=0.0, max=1.0)
+
+	@RequiresMcRestart
+	@RangeDouble(min=0.1, max=1.0)
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "M43A Chest Harness damage reduction")
 	public static String M43aChestHarnessReduction = "0.1";
 
-	@RangeDouble(min=0.0, max=1.0)
+	@RequiresMcRestart
+	@RangeDouble(min=0.1, max=1.0)
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Molle Plate Carrier damage reduction")
 	public static String MollePlateCarrierReduction = "0.2";
 
-	@RangeDouble(min=0.0, max=1.0)
+	@RequiresMcRestart
+	@RangeDouble(min=0.1, max=1.0)
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "SWAT Vest damage reduction")
 	public static String SwatVestReduction = "0.3";
 
-	@RangeDouble(min=0.0, max=1.0)
+	@RequiresMcRestart
+	@RangeDouble(min=0.1, max=1.0)
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "USMC Vest damage reduction")
 	public static String UsmcVestReduction = "0.4";
 
