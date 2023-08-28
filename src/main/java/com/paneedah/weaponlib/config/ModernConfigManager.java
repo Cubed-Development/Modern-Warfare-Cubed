@@ -17,8 +17,7 @@ import static com.paneedah.mwc.utils.ModReference.LOG;
 public class ModernConfigManager {
 	
 	private static final HashMap<Field, Property> elementMappings = new HashMap<>();
-	
-	//private static final List<Field> MODERN_CONFIG_FIELDS = new ArrayList<>();
+
 	
 	public static final String CATEGORY_RENDERING = "rendering";
 	public static final String CATEGORY_RENDERING_SCREENSHADERS = "rendering.screenshaders";
@@ -146,7 +145,22 @@ public class ModernConfigManager {
 
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Where should the status bar be located?")
 	public static String statusBarPosition = "TOP_RIGHT";
+	
+	@RangeDouble(min=0.0, max=1.0)
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "M43A Chest Harness damage reduction")
+	public static String M43aChestHarnessReduction = "0.1";
 
+	@RangeDouble(min=0.0, max=1.0)
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Molle Plate Carrier damage reduction")
+	public static String MollePlateCarrierReduction = "0.2";
+
+	@RangeDouble(min=0.0, max=1.0)
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "SWAT Vest damage reduction")
+	public static String SwatVestReduction = "0.3";
+
+	@RangeDouble(min=0.0, max=1.0)
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "USMC Vest damage reduction")
+	public static String UsmcVestReduction = "0.4";
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=5.0)
