@@ -48,8 +48,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added the .277 FURY bullet for the NGSW-R
 - Browning Auto 5 now ejects shotgun shells 
 - Added `reconcileAmmunition` & `reconcileAttachments` gamerules, they are true by default and should only be used for debugging purposes, for example, when you have weapons that appear to "desync" / glitch out
-- Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
+- Added a small delay to inputs after closing a GUI to prevent accidentally shooting weapons
 - Added the gold and dark color variants of the Desert Eagle
+- Added a *temporary* config for the damage reduction of vests while the experience pack framework is made  
 
 ### Changed
 
