@@ -39,6 +39,10 @@ public class AttachmentBuilder<T> {
     protected ApplyHandler<T> remove;
     protected ApplyHandler2<T> apply2;
     protected ApplyHandler2<T> remove2;
+
+    private float recoil;
+    private float horizontalRecoil;
+
     private String crosshair;
     private List<CustomRenderer<?>> postRenderer = new ArrayList<>();
     protected List<TexturedModel> texturedModels = new ArrayList<>();
@@ -128,24 +132,33 @@ public class AttachmentBuilder<T> {
         return this;
     }
 
-
+    @Deprecated
     public AttachmentBuilder<T> withApply(ApplyHandler<T> apply) {
         this.apply = apply;
         return this;
     }
 
+    @Deprecated
     public AttachmentBuilder<T> withRemove(ApplyHandler<T> remove) {
         this.remove = remove;
         return this;
     }
 
+    @Deprecated
     public AttachmentBuilder<T> withApply(ApplyHandler2<T> apply) {
         this.apply2 = apply;
         return this;
     }
 
+    @Deprecated
     public AttachmentBuilder<T> withRemove(ApplyHandler2<T> remove) {
         this.remove2 = remove;
+        return this;
+    }
+
+    public AttachmentBuilder<T> withRecoil(float recoil, float horizontalRecoil) {
+        this.recoil = recoil;
+        this.horizontalRecoil = horizontalRecoil;
         return this;
     }
 
@@ -194,6 +207,8 @@ public class AttachmentBuilder<T> {
         attachment.apply2 = apply2;
 
 
+        attachment.setRecoil(recoil);
+        attachment.setHorizontalRecoil(horizontalRecoil);
         attachment.setCraftingGroup(craftingGroup);
         attachment.setModernRecipe(modernRecipe);
 

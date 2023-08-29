@@ -55,7 +55,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 //    }
 
     private static Predicate<PlayerWeaponInstance> readyToShootAccordingToFireRate = instance ->
-    System.currentTimeMillis() - instance.getLastFireTimestamp() >= 50f / BalancePackManager.getFirerate(instance.getWeapon());
+    System.currentTimeMillis() - instance.getLastFireTimestamp() >= 50f / BalancePackManager.getFireRate(instance.getWeapon());
         
     //System.currentTimeMillis() - instance.getLastFireTimestamp() >= 50f / instance.getWeapon().builder.fireRate;
         
@@ -308,16 +308,17 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         if(currentAmmo == 1)
         	 weaponInstance.setSlideLock(true);
 
-        float recoilAmount = weaponInstance.getRecoil();
+        float recoilAmount = weaponInstance.getRecoil(), horizontalRecoil = weaponInstance.getHorizontalRecoil();
+        float rotationYawFactor = -1.0f + random.nextFloat() * 2.0f;
         recoilAmount *= BalancePackManager.getGlobalRecoilMultiplier();
         recoilAmount *= BalancePackManager.getGroupRecoilMultiplier(weapon.getConfigurationGroup());
-        
-        player.rotationPitch = player.rotationPitch - recoilAmount * 0.7f;
-        float rotationYawFactor = -1.0f + random.nextFloat() * 2.0f;
-        
-        player.rotationYaw = player.rotationYaw + recoilAmount * rotationYawFactor * 0.4f;
-		
-        ClientValueRepo.recoilWoundY += recoilAmount * 0.7f;
+        horizontalRecoil *= BalancePackManager.getGlobalRecoilMultiplier();
+        horizontalRecoil *= BalancePackManager.getGroupRecoilMultiplier(weapon.getConfigurationGroup());
+
+
+        player.rotationPitch -= recoilAmount * 0.9f;
+        player.rotationYaw += horizontalRecoil * rotationYawFactor * 0.7f;
+        ClientValueRepo.recoilWoundY += recoilAmount * 0.9f;
         
 
         if(ModernConfigManager.enableMuzzleEffects && weapon.builder.flashIntensity > 0) {
@@ -442,7 +443,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         for(int i = 0; i < weapon.builder.pellets; i++) {
         	double damage = weapon.getSpawnEntityDamage(), hipFireSpread = 2.6;
             if(BalancePackManager.hasActiveBalancePack()) {
-            	if(BalancePackManager.shouldChangeWeaponDamage(weapon)) damage = BalancePackManager.getNewWeaponDamage(weapon);
+            	damage = BalancePackManager.getWeaponNewDamage(weapon);
             	damage *= BalancePackManager.getGroupDamageMultiplier(weapon.getConfigurationGroup());
             	damage *= BalancePackManager.getGlobalDamageMultiplier();
                 hipFireSpread = BalancePackManager.getGlobalHipFireSpread();

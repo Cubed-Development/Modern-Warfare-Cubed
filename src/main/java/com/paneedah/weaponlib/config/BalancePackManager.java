@@ -1,6 +1,8 @@
 package com.paneedah.weaponlib.config;
 
 import com.google.gson.*;
+import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.weaponlib.PlayerWeaponInstance;
 import com.paneedah.weaponlib.Weapon;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.text.TextComponentString;
@@ -158,6 +160,8 @@ public class BalancePackManager {
 		// Recoil as -1 means the recoil is not modified
 		private double recoil = -1;
 
+		private double horizontalRecoil = -1;
+
 		private float fireRate = -1;
 
 		private float inaccuracy = -1;
@@ -173,11 +177,12 @@ public class BalancePackManager {
 		private boolean fireModeAutoChanged = false;
 		private boolean autoFireEnabled = false;
 
-		public GunBalanceConfiguration(String weaponName, boolean enabled, double damage, double recoil, float firerate, float inaccuracy) {
+		public GunBalanceConfiguration(String weaponName, boolean enabled, double damage, double recoil, double horizontalRecoil, float firerate, float inaccuracy) {
 			this.weaponName = weaponName;
 			this.enabled = enabled;
 			this.damage = damage;
 			this.recoil = recoil;
+			this.horizontalRecoil = horizontalRecoil;
 			this.fireRate = firerate;
 			this.inaccuracy = inaccuracy;
 		}
@@ -261,6 +266,14 @@ public class BalancePackManager {
 			this.recoil = recoil;
 		}
 
+		public double getHorizontalRecoil() {
+			return horizontalRecoil;
+		}
+
+		public void setHorizontalRecoil(double horizontalRecoil) {
+			this.horizontalRecoil = horizontalRecoil;
+		}
+
 		public void setFirerate(float firerate) {
 			this.fireRate = firerate;
 		}
@@ -283,12 +296,12 @@ public class BalancePackManager {
 			weapon.addProperty("enabled", isEnabled());
 			weapon.addProperty("damage", getDamage());
 			weapon.addProperty("recoil", getRecoil());
+			weapon.addProperty("horizontalrecoil", getHorizontalRecoil());
 
 			if (getFirerate() != -1)
 				weapon.addProperty(FIRE_RATE_MODIFIER, getFirerate());
 
-			if (getInaccuracy() != -1)
-				weapon.addProperty(INACCURACY_MODIFIER, getInaccuracy());
+			weapon.addProperty(INACCURACY_MODIFIER, getInaccuracy());
 
 			if (wereFiremodePropertiesAltered()) {
 				weapon.addProperty(FIRE_MODE_AUTO, getFiremodeAuto());
@@ -305,10 +318,11 @@ public class BalancePackManager {
 			boolean enabled = obj.has("enabled") ? obj.get("enabled").getAsBoolean() : true;
 			double damage = obj.has("damage") ? obj.get("damage").getAsDouble() : -1;
 			double recoil = obj.has("recoil") ? obj.get("recoil").getAsDouble() : -1;
+			double horizontalRecoil = obj.has("horizontalrecoil") ? obj.get("horizontalrecoil").getAsDouble() : -1;
 			float fireRate = obj.has("firerate") ? obj.get("firerate").getAsFloat() : -1;
 			float inaccuracy = obj.has("inaccuracy") ? obj.get("inaccuracy").getAsFloat() : -1;
 
-			GunBalanceConfiguration gbc = new GunBalanceConfiguration(name, enabled, damage, recoil, fireRate, inaccuracy);
+			GunBalanceConfiguration gbc = new GunBalanceConfiguration(name, enabled, damage, recoil, horizontalRecoil, fireRate, inaccuracy);
 
 			if (obj.has(FIRE_RATE_MODIFIER)) {
 				gbc.setFirerate(obj.get(FIRE_RATE_MODIFIER).getAsFloat());
@@ -784,7 +798,7 @@ public class BalancePackManager {
 
 	public static void createDefaultBalancePack() {
 		BalancePack defaultPack = new BalancePack("default", "1.0", 1.0, 1.0, 7.5);
-		defaultPack.addWeaponConfig(new GunBalanceConfiguration("exampleWeapon", true, 8.0, 1.0, 0.5f, 0.0f));
+		defaultPack.addWeaponConfig(new GunBalanceConfiguration("exampleWeapon", true, 8.0, 1.0, 1.0, 0.5f, 0.0f));
 		for (GunConfigurationGroup i : GunConfigurationGroup.values()) {
 			defaultPack.addBalancingCategory(new GunCategoryBalanceConfiguration(i, 1.0, 1.0, 1.0));
 		}
@@ -809,11 +823,39 @@ public class BalancePackManager {
 		return getActiveBalancePack().containsWeapon(weapon.getName());
 	}
 
-	public static float getFirerate(Weapon weapon) {
+
+	public static double getWeaponNewRecoil(Weapon weapon) {
+		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon)
+				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getRecoil() < 0) {
+			return weapon.builder.getRecoil();
+		}
+
+		return getActiveBalancePack().getWeaponBalancing(weapon.getName()).getRecoil();
+	}
+
+	public static double getWeaponNewHorizontalRecoil(Weapon weapon) {
+		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon)
+				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getHorizontalRecoil() < 0) {
+			return weapon.builder.getHorizontalRecoil();
+		}
+
+		return getActiveBalancePack().getWeaponBalancing(weapon.getName()).getHorizontalRecoil();
+	}
+
+	public static double getWeaponNewDamage(Weapon weapon) {
+		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon)
+				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getDamage() < 0) {
+			return weapon.getSpawnEntityDamage();
+		}
+
+		return getActiveBalancePack().getWeaponBalancing(weapon.getName()).getDamage();
+	}
+
+	public static float getFireRate(Weapon weapon) {
 
 		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon)
 				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getFirerate() < 0) {
-			return weapon.builder.getFirerate();
+			return weapon.builder.getFireRate();
 		}
 
 		return (float) getActiveBalancePack().getWeaponBalancing(weapon.getName()).getFirerate();
@@ -835,23 +877,10 @@ public class BalancePackManager {
 		return getActiveBalancePack().containsCategory(group);
 	}
 
-	public static double getNewWeaponDamage(Weapon weapon) {
-		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon))
-			return weapon.getSpawnEntityDamage();
-		return getActiveBalancePack().getWeaponBalancing(weapon.getName()).getDamage();
-	}
-
 	public static boolean isWeaponDisabled(Weapon weapon) {
 		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon))
 			return false;
 		return !getActiveBalancePack().getWeaponBalancing(weapon.getName()).isEnabled();
-	}
-
-	public static boolean shouldChangeWeaponDamage(Weapon weapon) {
-		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon)
-				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getDamage() < 0)
-			return false;
-		return true;
 	}
 
 	public static boolean firemodePropertiesAltered(Weapon weapon) {
@@ -879,19 +908,6 @@ public class BalancePackManager {
 			shotsList.add(gbc.burstShots);
 
 		return shotsList;
-	}
-
-	public static boolean shouldChangeWeaponRecoil(Weapon weapon) {
-		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon)
-				|| getActiveBalancePack().getWeaponBalancing(weapon.getName()).getRecoil() < 0)
-			return false;
-		return true;
-	}
-
-	public static double getNewWeaponRecoil(Weapon weapon) {
-		if (!hasActiveBalancePack() || !balancePackAddressesWeapon(weapon))
-			return weapon.getRecoil();
-		return getActiveBalancePack().getWeaponBalancing(weapon.getName()).getRecoil();
 	}
 
 	public static double getGroupDamageMultiplier(GunConfigurationGroup group) {
@@ -929,13 +945,4 @@ public class BalancePackManager {
 			return 7.5;
 		return getActiveBalancePack().getGlobalHipFireSpread();
 	}
-
-	public static double getNetGunDamage(Weapon weapon) {
-		double dmg = weapon.getSpawnEntityDamage();
-		if (shouldChangeWeaponDamage(weapon))
-			dmg = getNewWeaponDamage(weapon);
-		dmg *= getGlobalDamageMultiplier();
-		return dmg;
-	}
-
 }

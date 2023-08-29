@@ -75,7 +75,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     private static final long AIM_CHANGE_DURATION = 1200;
 
 	private int ammo;
-	private float recoil;
 	private int seriesShotCount;
 	private long lastFireTimestamp;
 	private boolean aimed;
@@ -251,7 +250,8 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 		selectedAttachmentIndexes = initByteArray(byteBuf);
 		ammo = byteBuf.readInt();
 		aimed = byteBuf.readBoolean();
-		recoil = byteBuf.readFloat();
+		// Read recoil
+		//byteBuf.readFloat();
 		maxShots = byteBuf.readInt();
 		zoom = byteBuf.readFloat();
 		activeTextureIndex = byteBuf.readByte();
@@ -269,7 +269,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 		serializeByteArray(byteBuf, selectedAttachmentIndexes);
 		byteBuf.writeInt(ammo);
 		byteBuf.writeBoolean(aimed);
-		byteBuf.writeFloat(recoil);
 		byteBuf.writeInt(maxShots);
 		byteBuf.writeFloat(zoom);
 		byteBuf.writeByte(activeTextureIndex);
@@ -319,7 +318,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
 		setAmmo(otherWeaponInstance.ammo);
 		setZoom(otherWeaponInstance.zoom);
-		setRecoil(otherWeaponInstance.recoil);
 		setSelectedAttachmentIndexes(otherWeaponInstance.selectedAttachmentIndexes);
 		setActiveAttachmentIds(otherWeaponInstance.activeAttachmentIds);
 		setActiveTextureIndex(otherWeaponInstance.activeTextureIndex);
@@ -335,15 +333,25 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 	}
 
 	public float getRecoil() {
+		float recoil = getWeapon().getRecoil();
+		for(AttachmentCategory attachmentCategory: AttachmentCategory.values()) {
+			if(getAttachmentItemWithCategory(attachmentCategory) != null) {
+				recoil = recoil * (1 - getAttachmentItemWithCategory(attachmentCategory).getRecoil());
+			}
+		}
 		return recoil;
 	}
 
-	public void setRecoil(float recoil) {
-		if(recoil != this.recoil) {
-			this.recoil = recoil;
-			markDirty();
+	public float getHorizontalRecoil() {
+		float horizontalRecoil = getWeapon().getHorizontalRecoil();
+		for(AttachmentCategory attachmentCategory: AttachmentCategory.values()) {
+			if(getAttachmentItemWithCategory(attachmentCategory) != null) {
+				horizontalRecoil = horizontalRecoil * (1 - getAttachmentItemWithCategory(attachmentCategory).getHorizontalRecoil());
+			}
 		}
+		return horizontalRecoil;
 	}
+
 	
 	public boolean isDelayCompoundEnd() {
 		return isDelayCompoundEnd;
@@ -422,7 +430,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 //    }
 
 	public float getFireRate() {
-		return BalancePackManager.getFirerate(getWeapon());
+		return BalancePackManager.getFireRate(getWeapon());
 		//return getWeapon().builder.fireRate;
 	}
 

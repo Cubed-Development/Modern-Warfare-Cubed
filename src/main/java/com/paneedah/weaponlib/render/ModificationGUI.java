@@ -595,11 +595,12 @@ public class ModificationGUI {
 		float inaccuracy = weaponInstance.getWeapon().getInaccuracy()/10f;
 		float damage = weaponInstance.getWeapon().getSpawnEntityDamage()/20;
 		float recoil = weaponInstance.getRecoil()/10f;
+		float horizontalRecoil = weaponInstance.getHorizontalRecoil()/10f;
 
 		damage = Math.min(damage, 1.0f);
 
 		// Update chart
-		radarChart.uploadSet(new float[] { damage, recoil, inaccuracy, firerate, 0.14f });
+		radarChart.uploadSet(new float[] { damage, recoil, horizontalRecoil, inaccuracy, firerate, 0.14f });
 
 
 		// Render radar chart on screen
@@ -615,16 +616,10 @@ public class ModificationGUI {
 		GUIRenderHelper.drawScaledString(
 				TextFormatting.GOLD + translate(weapon.getTranslationKey()),
 				30, 30, 1.0, ColorPalette.WHITE);
-		GUIRenderHelper.drawScaledString(
-				"Damage :: " + TextFormatting.GOLD + String.format("%.2f" , (BalancePackManager.getNetGunDamage(weapon))),
-				30, 60, 1, ColorPalette.WHITE);
-		GUIRenderHelper.drawScaledString("Recoil :: " + TextFormatting.GOLD + String.format("%.2f" , (weaponInstance.getRecoil())),
-				30, 75, 1, ColorPalette.WHITE);
-		GUIRenderHelper.drawScaledString("Firerate :: " + TextFormatting.GOLD + weaponInstance.getFireRate(), 30, 90, 1,
-				ColorPalette.WHITE);
-		GUIRenderHelper.drawScaledString(
-				"Inaccuracy :: " + TextFormatting.GOLD + String.format("%.1f" , (weaponInstance.getInaccuracy())), 30,
-				105, 1, ColorPalette.WHITE);
+		GUIRenderHelper.drawScaledString("Damage :: " + TextFormatting.GOLD + String.format("%.2f" , (BalancePackManager.getWeaponNewDamage(weapon) * BalancePackManager.getGroupDamageMultiplier(weapon.getConfigurationGroup()) * BalancePackManager.getGlobalDamageMultiplier())), 30, 60, 1, ColorPalette.WHITE);
+		GUIRenderHelper.drawScaledString("FireRate :: " + TextFormatting.GOLD + String.format("%.2f" , (weaponInstance.getFireRate())), 30, 75, 1, ColorPalette.WHITE);
+		GUIRenderHelper.drawScaledString("V/H Recoil :: " + TextFormatting.GOLD + String.format("%.1f" , (weaponInstance.getRecoil() * BalancePackManager.getGlobalRecoilMultiplier() * BalancePackManager.getGroupRecoilMultiplier(weapon.getConfigurationGroup()))) + " / " + String.format("%.1f" , (weaponInstance.getHorizontalRecoil() * BalancePackManager.getGlobalRecoilMultiplier() * BalancePackManager.getGroupRecoilMultiplier(weapon.getConfigurationGroup()))), 30, 90, 1, ColorPalette.WHITE);
+		GUIRenderHelper.drawScaledString("Inaccuracy :: " + TextFormatting.GOLD + String.format("%.1f" , (weaponInstance.getInaccuracy())), 30, 105, 1, ColorPalette.WHITE);
 
 		GlStateManager.popMatrix();
 		

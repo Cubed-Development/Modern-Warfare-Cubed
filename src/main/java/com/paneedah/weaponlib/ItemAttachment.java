@@ -35,6 +35,8 @@ public class ItemAttachment<T> extends Item implements IModelSource, IModernCraf
 	protected MeleeWeaponApplyHandler<T> remove3;
 	public List<TexturedModel> texturedModels = new ArrayList<>();
 	public List<TexturedModel> onWeaponTexturedModels = new ArrayList<>();
+	private float recoil;
+	private float horizontalRecoil;
 	private List<CustomRenderer<?>> postRenderer = new ArrayList<>();
 	private CustomRenderer<?> preRenderer;
 	private Part renderablePart;
@@ -260,6 +262,22 @@ public class ItemAttachment<T> extends Item implements IModelSource, IModernCraf
     public MeleeWeaponApplyHandler<T> getRemove3() {
         return remove3;
     }
+
+	public float getRecoil() {
+		return recoil;
+	}
+
+	public void setRecoil(float recoil) {
+		this.recoil = recoil;
+	}
+
+	public float getHorizontalRecoil() {
+		return horizontalRecoil;
+	}
+
+	public void setHorizontalRecoil(float horizontalRecoil) {
+		this.horizontalRecoil = horizontalRecoil;
+	}
 
 	public void setPostRenderer(List<CustomRenderer<?>> postRenderer2) {
 		this.postRenderer = postRenderer2;

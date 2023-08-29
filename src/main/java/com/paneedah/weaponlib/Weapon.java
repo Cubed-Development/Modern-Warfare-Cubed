@@ -82,6 +82,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         List<String> textureNames = new ArrayList<>();
         int ammoCapacity = 0;
         float recoil = 1.0F;
+        float horizontalRecoil = 0.5F;
 
         private boolean hasFlashPedals = false;
         
@@ -263,8 +264,16 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         public int[][] getGUIPositions() {
             return this.guiPositions;
         }
+
+        public float getRecoil() {
+            return this.recoil;
+        }
+
+        public float getHorizontalRecoil() {
+            return this.horizontalRecoil;
+        }
         
-        public float getFirerate() {
+        public float getFireRate() {
             return this.fireRate;
         }
 
@@ -337,8 +346,16 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
+        @Deprecated
         public Builder withRecoil(float recoil) {
             this.recoil = recoil;
+            this.horizontalRecoil = recoil / 2;
+            return this;
+        }
+
+        public Builder withRecoil(float verticaRecoil, float horizontalRecoil) {
+            this.recoil = verticaRecoil;
+            this.horizontalRecoil = horizontalRecoil;
             return this;
         }
 
@@ -857,7 +874,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
                     double damage = spawnEntityDamage;
                      if(BalancePackManager.hasActiveBalancePack()) {
-                         if(BalancePackManager.shouldChangeWeaponDamage(weapon)) damage = BalancePackManager.getNewWeaponDamage(weapon);
+                         damage = BalancePackManager.getWeaponNewDamage(weapon);
                          damage *= BalancePackManager.getGroupDamageMultiplier(weapon.getConfigurationGroup());
                          damage *= BalancePackManager.getGlobalDamageMultiplier();
                      }
@@ -1011,8 +1028,8 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             	
             	
             	descriptionBuilder.add(plate + "Type: " + plain + this.gunType);
-            	descriptionBuilder.add(plate + "Damage: " + plain + String.format("%.1f" , (BalancePackManager.getNetGunDamage(weapon))));
-            	descriptionBuilder.add(plate + "Firerate: " + plain + Math.round(BalancePackManager.getFirerate(weapon)*100) + "/100");
+            	descriptionBuilder.add(plate + "Damage: " + plain + String.format("%.1f" , (BalancePackManager.getWeaponNewDamage(weapon) * BalancePackManager.getGroupDamageMultiplier(weapon.getConfigurationGroup()) * BalancePackManager.getGlobalDamageMultiplier())));
+            	descriptionBuilder.add(plate + "Firerate: " + plain + Math.round(BalancePackManager.getFireRate(weapon) * 100) + "/100");
             	
                 
             	boolean cartridgeDriven = false;
@@ -1206,12 +1223,15 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public void onUpdate(ItemStack itemStack, World world, Entity entity, int p_77663_4_, boolean active) {
     }
 
+    @Deprecated
     public void changeRecoil(EntityLivingBase player, float factor) {
         PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
         if(instance != null) {
             float recoil = instance.getWeapon().builder.recoil * factor;
+            float horizontalRecoil = instance.getWeapon().builder.horizontalRecoil * factor;
             LOG.debug("Changing recoil to {} for instance {}", recoil, instance);
-            instance.setRecoil(recoil);
+            //instance.setRecoil(recoil);
+            //instance.setHorizontalRecoil(horizontalRecoil);
         }
     }
 
@@ -1367,8 +1387,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         PlayerWeaponInstance instance = new PlayerWeaponInstance(slot, player, itemStack);
         //state.setAmmo(Tags.getAmmo(itemStack)); // TODO: get ammo properly
         instance.setState(WeaponState.READY);
-    
-        instance.setRecoil(BalancePackManager.shouldChangeWeaponRecoil(instance.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(instance.getWeapon()) : builder.recoil);
         instance.setMaxShots(builder.maxShots.get(0));
 
         for(CompatibleAttachment<Weapon> compatibleAttachment: ((Weapon) itemStack.getItem()).getCompatibleAttachments().values()) {
@@ -1535,9 +1553,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             //};
             break;
         case GRIP:
-            handler = (a, i) -> {
-                i.setRecoil(BalancePackManager.shouldChangeWeaponRecoil(i.getWeapon()) ? (float) BalancePackManager.getNewWeaponRecoil(i.getWeapon()) : builder.recoil);
-            };
+            //handler = (a, i) -> {
+            //    i.setRecoil((float) BalancePackManager.getWeaponNewRecoil(i.getWeapon()));
+            //    i.setHorizontalRecoil((float) BalancePackManager.getWeaponNewHorizontalRecoil(i.getWeapon()));
+            //};
             break;
         }
         return handler;
@@ -1548,7 +1567,11 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     public float getRecoil() {
-        return BalancePackManager.shouldChangeWeaponRecoil(this) ? (float) BalancePackManager.getNewWeaponRecoil(this) : builder.recoil;
+        return (float) BalancePackManager.getWeaponNewRecoil(this);
+    }
+
+    public float getHorizontalRecoil() {
+        return (float) BalancePackManager.getWeaponNewHorizontalRecoil(this);
     }
 
     public ModContext getModContext() {

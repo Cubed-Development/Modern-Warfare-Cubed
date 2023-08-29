@@ -4459,18 +4459,14 @@ public class Attachments {
         M1928Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
                 .withModel(new M1928Grip(), "m1a1thompson.png")
-                .withApply((a, i) -> {
-                    i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
-                })
+                .withRecoil(0.45F, 0.15F)
                 .withName("M1928Grip")
                 .build();
 
         M1A1Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
                 .withModel(new M1A1Grip(), "m1a1thompson.png")
-                .withApply((a, i) -> {
-                    i.setRecoil(i.getWeapon().getRecoil() * 1);
-                })
+                .withRecoil(0.3F, 0.2F)
                 .withName("M1A1Grip")
                 .build();
 
@@ -4498,9 +4494,7 @@ public class Attachments {
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withApply((a, i) -> {
-                    i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
-                })
+                .withRecoil(0.45F, 0.1F)
                 .withName("Grip2")
                 .build();
 
@@ -4518,9 +4512,7 @@ public class Attachments {
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withApply((a, i) -> {
-                    i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
-                })
+                .withRecoil(0.34F, 0.25F)
                 .withName("JunoGrip")
                 .build();
 
@@ -4530,9 +4522,7 @@ public class Attachments {
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withApply((a, i) -> {
-                    i.setRecoil(i.getWeapon().getRecoil() * 0.4f);
-                })
+                .withRecoil(0.6F, 0.25F)
                 .withName("Glock18Cstock")
                 .build();
 
@@ -4542,9 +4532,7 @@ public class Attachments {
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 3))
-                .withApply((a, i) -> {
-                    i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
-                })
+                .withRecoil(0.3F, 0.1F)
                 .withName("VP70Stock")
                 .build();
 
@@ -4568,9 +4556,7 @@ public class Attachments {
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withApply((a, i) -> {
-                    i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
-                })
+                .withRecoil(0.35F, 0.35F)
                 .withRenderablePart()
                 .withName("AngledGrip")
                 .build();
@@ -4598,15 +4584,7 @@ public class Attachments {
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withApply((a, i) -> {
-                    i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
-                })
-                // .withApply((a, weapons, player) ->
-                // weapons.changeRecoil(player, 1.3F);
-                // })
-                // .withRemove((attachment, weapons, player) -> {
-                // weapons.changeRecoil(player, 1);
-                // })
+                .withRecoil(0.45F, 0.1F)
                 .withName("StubbyGrip")
                 .build();
 
@@ -4634,9 +4612,7 @@ public class Attachments {
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withApply((a, i) -> {
-                    i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
-                })
+                .withRecoil(0.45F, 0.1F)
                 .withRenderablePart()
                 .withName("VGrip")
                 .build();
@@ -4660,9 +4636,7 @@ public class Attachments {
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withApply((a, i) -> {
-                    i.setRecoil(i.getWeapon().getRecoil() * 0.4f);
-                })
+                .withRecoil(0.6F, 0.0F)
                 .withName("Bipod")
                 .build();
 
@@ -4670,9 +4644,7 @@ public class Attachments {
                 .withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
                 .withModel(new AUGGrip(), "aug.png")
-                .withApply((a, i) -> {
-                    i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
-                })
+                .withRecoil(0.45F, 0.1F)
                 .withRenderablePart()
                 .withName("AUGgrip")
                 .build();
@@ -4681,9 +4653,7 @@ public class Attachments {
                 .withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
                 .withModel(new USPMatchCompensator(), "gun.png")
-                .withApply((a, i) -> {
-                    i.setRecoil(i.getWeapon().getRecoil() * 0.4f);
-                })
+                .withRecoil(0.35F, 0.35F)
                 .withRenderablePart()
                 .withName("USPMatchCompensator")
                 .build();
