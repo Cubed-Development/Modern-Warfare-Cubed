@@ -5,13 +5,18 @@ import com.paneedah.weaponlib.ItemVest;
 import com.paneedah.weaponlib.animation.Transform;
 import org.lwjgl.opengl.GL11;
 
+import static com.paneedah.weaponlib.config.ModernConfigManager.M43aChestHarnessReduction;
+import static com.paneedah.weaponlib.config.ModernConfigManager.MollePlateCarrierReduction;
+import static com.paneedah.weaponlib.config.ModernConfigManager.SwatVestReduction;
+import static com.paneedah.weaponlib.config.ModernConfigManager.UsmcVestReduction;
+
 public class Vests {
 
     public static void init(Object mod) {
 
         new ItemVest.Builder()
                 .withName("m43a_chest_harness")
-                .withPercentDamageBlocked(0.1)
+                .withPercentDamageBlocked(M43aChestHarnessReduction)
                 .withDurability(150)
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.M43AChestHarness", "m43achestharness.png")
@@ -31,7 +36,7 @@ public class Vests {
 
         new ItemVest.Builder()
                 .withName("flyye_field_compact_plate_carrier")
-                .withPercentDamageBlocked(0.2)
+                .withPercentDamageBlocked(MollePlateCarrierReduction)
                 .withDurability(175)
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier.png")
@@ -51,7 +56,7 @@ public class Vests {
 
         new ItemVest.Builder()
                 .withName("molle_black")
-                .withPercentDamageBlocked(0.2)
+                .withPercentDamageBlocked(MollePlateCarrierReduction)
                 .withDurability(175)
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_black.png")
@@ -71,7 +76,7 @@ public class Vests {
 
         new ItemVest.Builder()
                 .withName("molle_green")
-                .withPercentDamageBlocked(0.2)
+                .withPercentDamageBlocked(MollePlateCarrierReduction)
                 .withDurability(175)
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_green.png")
@@ -91,7 +96,7 @@ public class Vests {
 
         new ItemVest.Builder()
                 .withName("molle_urban")
-                .withPercentDamageBlocked(0.2)
+                .withPercentDamageBlocked(MollePlateCarrierReduction)
                 .withDurability(175)
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.MollePlateCarrier", "molleplatecarrier_urban.png")
@@ -111,7 +116,7 @@ public class Vests {
 
         new ItemVest.Builder()
                 .withName("swat_vest")
-                .withPercentDamageBlocked(0.3)
+                .withPercentDamageBlocked(SwatVestReduction)
                 .withDurability(250)
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.UTG547Vest", "utg547vest.png")
@@ -131,7 +136,7 @@ public class Vests {
 
         new ItemVest.Builder()
                 .withName("usMC_vest")
-                .withPercentDamageBlocked(0.4)
+                .withPercentDamageBlocked(UsmcVestReduction)
                 .withDurability(250)
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "usMC.png")
@@ -157,7 +162,7 @@ public class Vests {
         new ItemVest.Builder()
                 .withName("usMC_vest_black")
 //        .withDamageReduceAmount(8) // use numbers from 1 to 8
-                .withPercentDamageBlocked(0.4)
+                .withPercentDamageBlocked(UsmcVestReduction)
                 .withDurability(250) // works the same way as shield's max capacity
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "usMCvestblack.png")
@@ -183,7 +188,7 @@ public class Vests {
         new ItemVest.Builder()
                 .withName("usMC_vest_green")
 //        .withDamageReduceAmount(8) // use numbers from 1 to 8
-                .withPercentDamageBlocked(0.4)
+                .withPercentDamageBlocked(UsmcVestReduction)
                 .withDurability(250) // works the same way as shield's max capacity
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "militaryuniformforest.png")
@@ -209,7 +214,7 @@ public class Vests {
         new ItemVest.Builder()
                 .withName("usMC_vest_urban")
 //        .withDamageReduceAmount(8) // use numbers from 1 to 8
-                .withPercentDamageBlocked(0.4)
+                .withPercentDamageBlocked(UsmcVestReduction)
                 .withDurability(250) // works the same way as shield's max capacity
                 .withTab(MWC.EQUIPMENT_TAB)
                 .withProperModel("com.paneedah.mwc.models.USMCVest", "militaryuniformurban.png")
