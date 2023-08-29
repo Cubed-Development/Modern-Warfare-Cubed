@@ -24,6 +24,7 @@ public class ModernConfigManager {
 	public static final String CATEGORY_GAMEPLAY = "gameplay";
 	public static final String CATEGORY_ENTITIES = "entities";
 	public static final String CATEGORY_ORES = "ores";
+	public static final String CATEGORY_BALANCE = "balance";
 
 	@ConfigSync(category = CATEGORY_ORES, comment = "Spawns per chunk for sulfur ore.")
 	public static int sulfurSpawnsPerChunk = 13;
@@ -148,22 +149,22 @@ public class ModernConfigManager {
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=1.0)
-	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "M43A Chest Harness damage reduction")
+	@ConfigSync(category = CATEGORY_BALANCE, comment = "M43A Chest Harness damage reduction")
 	public static double M43aChestHarnessReduction = "0.1";
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=1.0)
-	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Molle Plate Carrier damage reduction")
+	@ConfigSync(category = CATEGORY_BALANCE, comment = "Molle Plate Carrier damage reduction")
 	public static double MollePlateCarrierReduction = "0.2";
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=1.0)
-	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "SWAT Vest damage reduction")
+	@ConfigSync(category = CATEGORY_BALANCE, comment = "SWAT Vest damage reduction")
 	public static double SwatVestReduction = "0.3";
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=1.0)
-	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "USMC Vest damage reduction")
+	@ConfigSync(category = CATEGORY_BALANCE, comment = "USMC Vest damage reduction")
 	public static double UsmcVestReduction = "0.4";
 
 	@RequiresMcRestart
