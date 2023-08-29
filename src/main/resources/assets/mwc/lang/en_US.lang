@@ -1117,6 +1117,12 @@ config.gameplay.statusBarPosition.property.tooltip=The screen position for the S
 
 config.category.entities.name=Entities Config
 
+config.balance.M43aChestHarnessReduction.property.name=M43A Chest Harness Reduction
+config.balance.MollePlateCarrierReduction.property.name=Molle Plate Carrier Reduction
+config.balance.SwatVestReductionReduction.property.name=SWAT Vest Reduction
+config.balance.UsmcVestReduction.property.name=USMC Vest Reduction
+
+
 config.category.rendering.name=Rendering
 config.category.rendering.tooltip=Rendering/Shaders
 config.category.screenshaders.name=Screen Shaders
