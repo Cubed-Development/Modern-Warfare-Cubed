@@ -1117,6 +1117,7 @@ config.gameplay.statusBarPosition.property.tooltip=The screen position for the S
 
 config.category.entities.name=Entities Config
 
+config.category.balance.name=Balance Config
 config.balance.M43aChestHarnessReduction.property.name=M43A Chest Harness Reduction
 config.balance.MollePlateCarrierReduction.property.name=Molle Plate Carrier Reduction
 config.balance.SwatVestReductionReduction.property.name=SWAT Vest Reduction
