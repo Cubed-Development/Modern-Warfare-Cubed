@@ -150,22 +150,22 @@ public class ModernConfigManager {
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=1.0)
 	@ConfigSync(category = CATEGORY_BALANCE, comment = "M43A Chest Harness damage reduction")
-	public static double M43aChestHarnessReduction = "0.1";
+	public static double M43aChestHarnessReduction = 0.1;
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=1.0)
 	@ConfigSync(category = CATEGORY_BALANCE, comment = "Molle Plate Carrier damage reduction")
-	public static double MollePlateCarrierReduction = "0.2";
+	public static double MollePlateCarrierReduction = 0.2;
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=1.0)
 	@ConfigSync(category = CATEGORY_BALANCE, comment = "SWAT Vest damage reduction")
-	public static double SwatVestReduction = "0.3";
+	public static double SwatVestReduction = 0.3;
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=1.0)
 	@ConfigSync(category = CATEGORY_BALANCE, comment = "USMC Vest damage reduction")
-	public static double UsmcVestReduction = "0.4";
+	public static double UsmcVestReduction = 0.4;
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=5.0)
