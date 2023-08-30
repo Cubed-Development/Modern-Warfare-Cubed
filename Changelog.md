@@ -192,6 +192,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Optimization
 
+- Improved the way weapons read recoil
 - As a result of a BIG code cleanup, MWC as a whole should now be slightly faster, load slightly faster and use slightly less resources
 - As a result of the equipment overhaul, MWC should use less ram and lag less when rendering equipment
 - As a result of networking improvements, MWC should use less bandwidth and consume less resources as well as have less latency
@@ -223,7 +224,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 The new balance pack manager version is `1.3`. 
 
 - Added `inaccuracy`
+- Added `horizontalrecoil`
 - Removed `headshotMultiplier`
+- Added `hipFireSpread`
 
 ##### Credits
 
