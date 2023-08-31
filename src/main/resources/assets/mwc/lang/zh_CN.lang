@@ -1,182 +1,99 @@
 //为方便使用平衡包, 一些武器类型可能与现实(百科)不符
 
-entity.bandit1.name=强盜
-entity.zombieBlistered.name=疱尸
-entity.zombieRipper.name=撕裂者
-entity.tornzombie.name=残尸
-entity.necromorph.name=尸变体
-entity.licker.name=舔食者
-entity.zombie.name=丧尸
-entity.hazmat_zombie.name=防化僵尸
-entity.Defiled Zombie.name=污损者
-entity.deathclaw.name=死亡爪
-entity.molded.name=菌兽
 entity.soldier.name=士兵
-entity.terrorist.name=土匪
+entity.terrorist.name=恐怖分子
 entity.turret.name=自动炮台
 entity.turretupgraded.name=自动炮台二代
 entity.turretsilenced.name=自动炮台二代 (消音)
 
 item.audis4.name=奥迪S4
-item.MClaren_senna.name=迈凯伦塞纳
-item.ae86trueno.name=丰田 AE86 Trueno
-item.atv_polaris_sportsman_850_2019.name=北极星运动家850 2019款
+item.MClaren_senna.name=迈凯伦 塞纳
+item.ae86trueno.name=丰田 AE86 雷霆
+item.atv_polaris_sportsman_850_2019.name=2019北极星运动家850
 
-item.mwc_gas-detector.name=气体检测仪
-item.mwc_GasGrenade.name=瓦斯手榴弹
+item.mwc_gas-detector.name=毒气检测仪
+item.mwc_GasGrenade.name=毒气弹
 
+item.Marine_helmet.name=海军陆战队 头盔
+item.Marine_chest.name=海军陆战队 衬衫
+item.Marine_boots.name=海军陆战队 靴子
+
+item.Spetznaz_helmet.name=阿尔法小组 头盔
+item.Spetznaz_chest.name=阿尔法小组 衬衫
+item.Spetznaz_boots.name=阿尔法小组 靴子
+
+item.Urban_helmet.name=凯夫拉 头盔
+item.Urban_chest.name=战斗 衬衫
+item.Urban_boots.name=战斗 靴子
+
+item.Swat_helmet.name=中国特种警察 头盔
+item.Swat_chest.name=中国特种警察 护甲
+item.Swat_boots.name=中国特种警察 靴子
+
+item.Tactical_helmet.name=战术夜视镜
 item.m40gasmask_helmet.name=M40防毒面具
 item.JPNVG18_helmet.name=GPNVG-18夜视头盔
 
-item.Marine_helmet.name=海军陆战队头盔
-item.Marine_chest.name=海军陆战队迷彩服
-item.Marine_boots.name=海军陆战队靴子
+item.Nazisanta_helmet.name=德国社会主义圣诞帽
+item.Nazisanta_chest.name=德国社会主义圣诞大衣
+item.Nazisanta_boots.name=德国社会主义圣诞靴子
 
-item.Spetznaz_helmet.name=阿尔法小组头盔
-item.Spetznaz_chest.name=阿尔法小组迷彩服
-item.Spetznaz_boots.name=阿尔法小组靴子
+item.Santa_helmet.name=圣诞帽
+item.Santa_chest.name=圣诞大衣
+item.Santa_boots.name=圣诞靴
 
-item.Swat_helmet.name=反恐特警头盔
-item.Swat_chest.name=反恐特警防弹衣
-item.Swat_boots.name=反恐特警靴子
+item.Spec_Ops_helmet.name=特种作战 头盔
+item.Spec_Ops_chest.name=特种作战 衬衫
+item.Spec_Ops_boots.name=特种作战 靴子
 
-item.GasSwat_helmet.name=特警防毒面具
-item.GasSwat_chest.name=特警重型背心
-item.GasSwat_boots.name=特警重型靴子
+item.Juggernaut_helmet.name=无畏战士 头盔
+item.Juggernaut_chest.name=无畏战士 衬衫
+item.Juggernaut_boots.name=无畏战士 靴子
 
-item.Tactical_helmet.name=战术夜视镜
-item.Tactical_chest.name=特种部队背心
-item.Tactical_boots.name=特种部队靴子
-
-item.Umbrella_helmet.name=单兵作战生化防护头盔
-item.Umbrella_chest.name=单兵作战生化防护服
-item.Umbrella_boots.name=单兵作战生化防护靴子
-
-item.KCPD_boots.name=堪萨斯警察靴子
-item.KCPD_chest.name=堪萨斯警察背心
-
-item.Nazisanta_helmet.name=德意志圣诞帽
-item.Nazisanta_chest.name=德意志圣诞上衣
-item.Nazisanta_boots.name=德意志圣诞靴子
-
-item.Santa_helmet.name=圣诞老人贝雷帽
-item.Santa_chest.name=圣诞老人上衣
-item.Santa_boots.name=圣诞老人靴子
-
-item.Spec_Ops_helmet.name=特种部队头盔
-item.Spec_Ops_chest.name=特种部队迷彩服
-item.Spec_Ops_boots.name=特种部队靴子
-
-item.merc_helmet.name=黑鹰部队佣兵头盔
-item.merc_chest.name=黑鹰部队佣兵迷彩服
-item.merc_boots.name=黑鹰部队佣兵靴子
-
-item.NCR_helmet.name=新加州共和国军头盔
-item.NCR_chest.name=新加州共和国军野战服
-item.NCR_boots.name=新加州共和国军靴子
-
-item.t60_helmet.name=苏联坦克部队T-60 头盔
-item.t60_chest.name=苏联坦克部队T-60 军用马甲 
-item.t60_boots.name=苏联坦克部队T-60 靴子
-
-item.Juggernaut_helmet.name=重装兵头盔
-item.Juggernaut_chest.name=重装兵上衣
-item.Juggernaut_boots.name=重装兵靴子
-
-item.Astronaut_helmet.name=宇航员头盔
-item.Astronaut_chest.name=宇航员护胸
-item.Astronaut_boots.name=宇航员靴子
-
-item.doom_helmet.name=末日头盔
-item.doom_chest.name=末日防弹衣
-item.doom_boots.name=末日靴子
-
-item.SCPGuard_helmet.name=SCP守卫头盔
-item.SCPGuard_chest.name=SCP守卫上衣
-item.SCPGuard_boots.name=SCP守卫靴子
-
-item.Dclass_chest.name=D级成员上衣
-item.Dclass_boots.name=D级成员靴子
-
-item.stars_chest.name=S·T·A·R·S特别行动小组迷彩野战服
-item.stars_boots.name=S·T·A·R·S特别行动小组靴子
-
-item.HECU_helmet.name=危险环境战斗部队头盔
-item.HECU_chest.name=危险环境战斗部队防弹迷彩野战服
-item.HECU_boots.name=危险环境战斗部队靴子
-
-item.scar_helmet.name=空间站军直侦查连EVA头盔
-item.scar_chest.name=空间站军直侦查连EVA服装
-item.scar_boots.name=空间站军直侦查连EVA靴子
-
-item.mwc_combat_sustainment_backpack_tan.name=战斗持久背包（棕色）
-item.mwc_combat_sustainment_backpack_black.name=战斗持久背包（黑色）
-item.mwc_combat_sustainment_backpack_forest.name=战斗持久背包（森林色）
-
-item.mwc_assault_backpack_tan.name=突击背包（棕色）
-item.mwc_assault_backpack_black.name=突击背包（黑色）
-item.mwc_assault_backpack_forest.name=突击背包（森林色）
-
-item.mwc_tru_spec_cordura_backpack_tan.name=Tru-Spec科尔杜拉背包（棕色）
-item.mwc_tru_spec_cordura_backpack_black.name=Tru-Spec科尔杜拉背包（黑色）
-item.mwc_tru_spec_cordura_backpack_forest.name=Tru-Spec科尔杜拉背包（森林色）
-
-item.mwc_f5_switchblade_backpack.name=F5 Switchblade背包
-
-item.mwc_duffle_bag.name=行李袋
-
-item.mwc_flyye_field_compact_plate_carrier.name=翔野战术背心
-item.mwc_forest_flyye_field_compact_plate_carrier.name=翔野战术背心 (丛林)
-item.mwc_black_flyye_field_compact_plate_carrier.name=翔野战术背心 (黑)
-
-item.mwc_flyye_molle_rrv.name=翔野RRV战术背心
-item.mwc_black_flyye_molle_rrv.name=翔野RRV战术背心 (黑)
-item.mwc_urban_flyye_molle_rrv.name=翔野RRV战术背心 (城市)
-
-item.mwc_force_recon_vest.name=战术装备背心式贴身袋
-item.mwc_forest_force_recon_vest.name=战术装备背心式贴身袋 (丛林)
-item.mwc_urban_force_recon_vest.name=战术装备背心式贴身袋 (城市)
-item.mwc_black_force_recon_vest.name=战术装备背心式贴身袋 (黑)
-
-item.mwc_fort_armor.name=6B43 6A身体护具
-item.mwc_viper_sf_desert.name=Viper SF战术背心 (沙漠)
-item.mwc_blackhawk_ballistic_vest.name=黑鹰防弹背心
-item.mwc_umbrella_corp_vest.name=保护伞公司战术背心
-item.mwc_hammer_down_vest.name=锤击战术背心
-item.mwc_hecu_vest.name=危险环境战斗部队战术背心
-item.mwc_juggernaut_body_armor.name=无畏战士身体护具
-item.mwc_marine_vest.name=美国海军陆战队战术背心
-item.mwc_swat_vest.name=特警队战术背心
-item.mwc_viper_sf.name=Viper SF战术背心 (黑)
-item.mwc_viper_sf_green.name=Viper SF战术背心 (丛林)
-item.mwc_usMC_vest.name=美国海军陆战队战术背心
-item.mwc_wfi_task_force_vest.name=Wellness/Fitness特遣队战术背心
-item.mwc_scar_vest.name=Scar特种部队战术背心
-
-item.mwc_combat_sustainment_backpack_black.name=战斗支援背包 (黑)
-item.mwc_combat_sustainment_backpack_forest.name=战斗支援背包 (丛林)
-item.mwc_assault_backpack_black.name=突击背包 (黑)
-item.mwc_assault_backpack_forest.name=突击背包 (丛林)
-item.mwc_f5switchbladebackpack.name=狩猎背包
-item.mwc_tru_spec_cordura_backpack_black.name=特战防水背包 (黑)
-item.mwc_tru_spec_cordura_backpack_forest.name=特战防水背包 (丛林)
-item.mwc_m43a_chest_harness.name=M43A胸挂
-item.mwc_molle_black.name=翔野战术背心 (黑)
-item.mwc_molle_green.name=翔野战术背心 (绿)
-item.mwc_molle_urban.name=翔野战术背心 (城市)
-item.mwc_usMC_vest_black.name=美国海军陆战队战术背心 (黑)
-item.mwc_usMC_vest_green.name=美国海军陆战队战术背心 (绿)
-item.mwc_usMC_vest_urban.name=美国海军陆战队战术背心 (城市)
-item.Urban_helmet.name=凯夫拉头盔 (城市)
-item.Urban_chest.name=战斗夹克 (城市)
-item.Urban_boots.name=战斗靴子 (城市)
-item.blackcamo_chest.name=多色迷彩衬衫
-item.forest_chest.name=军用迷彩衬衫
-item.blackjeans_boots.name=黑色牛仔裤下装
-item.khakijeans_boots.name=卡其牛仔裤下装
 item.ghillie_helmet.name=吉利服兜帽
 item.ghillie_chest.name=吉利服
 item.ghillie_boots.name=吉利服靴
+
+item.forest_chest.name=军用迷彩 衬衫
+item.blackcamo_chest.name=多色迷彩 衬衫
+item.blackjeans_boots.name=黑色牛仔裤 下装
+item.khakijeans_boots.name=卡其牛仔裤 下装
+
+
+item.mwc_f5_switchblade_backpack.name=狩猎背包
+
+item.mwc_combat_sustainment_backpack_tan.name=战斗支援背包
+item.mwc_combat_sustainment_backpack_black.name=战斗支援背包 (黑色)
+item.mwc_combat_sustainment_backpack_forest.name=战斗支援背包 (丛林)
+
+item.mwc_assault_backpack_tan.name=突击背包
+item.mwc_assault_backpack_black.name=突击背包 (黑色)
+item.mwc_assault_backpack_forest.name=突击背包 (丛林)
+
+item.mwc_tru_spec_cordura_backpack_tan.name=特战防水背包
+item.mwc_tru_spec_cordura_backpack_black.name=特战防水背包 (黑色)
+item.mwc_tru_spec_cordura_backpack_forest.name=特战防水背包 (丛林)
+
+item.mwc_duffle_bag.name=行李包
+
+item.mwc_m43a_chest_harness.name=M43A胸挂
+item.mwc_magazine_belt.name=弹药腰带
+
+
+item.mwc_flyye_field_compact_plate_carrier.name=翔野战术背心
+item.mwc_molle_black.name=翔野战术背心 (黑色)
+item.mwc_molle_green.name=翔野战术背心 (丛林)
+item.mwc_molle_urban.name=翔野战术背心 (城市)
+
+item.mwc_swat_vest.name=中国特种警察战术背心
+
+item.mwc_usMC_vest.name=美国海军陆战队战术背心
+item.mwc_usMC_vest_black.name=美国海军陆战队战术背心 (黑色)
+item.mwc_usMC_vest_green.name=美国海军陆战队战术背心 (丛林)
+item.mwc_usMC_vest_urban.name=美国海军陆战队战术背心 (城市)
+
+
+
 
 item.sv98.name=SV-98 狙击步枪
 item.mp5a5.name=HK MP5 冲锋枪
@@ -197,7 +114,7 @@ item.p10.name=P10 手枪
 item.ak101.name=AK-101 突击步枪
 item.Springfield.name=M1903 步枪
 item.mg42.name=MG-42 机枪
-item.stg44.name=StG-44 突击步枪
+item.stg44.name=STG-44 突击步枪
 item.mk14_ebr.name=M14 射手步枪
 item.glock_18c.name=Glock-18C 手枪
 item.glock_19.name=Glock-19 手枪
@@ -375,7 +292,7 @@ item.mwc_M4A1Mag_2.name=5.56x45mm 30发STANAG弹匣
 item.mwc_AK101Mag_2.name=5.56x45mm 30发弹匣
 item.mwc_AK60Mag.name=5.56x45mm 60发弹匣
 item.mwc_AK15Mag_2.name=7.62x39mm 30发PMAG弹匣
-item.mwc_AK47PMAGTan.name=7.62x39mm 30发PMAG弹匣 (棕黄色)
+item.mwc_AK47PMAGTan.name=7.62x39mm 30发PMAG弹匣 (棕黄)
 item.mwc_AK47Mag.name=7.62x39mm 30发弹匣
 item.mwc_AK50Mag.name=7.62x39mm 50发弹鼓
 item.mwc_AK75Mag.name=7.62x39mm 75发弹鼓
@@ -529,17 +446,17 @@ item.mwc_Bullet46x30mm.name=4.6x30mm子弹
 item.mwc_Bullet473x33mm.name=4.73x33mm子弹
 
 item.tactical_tomahawk.name=战术斧
-item.baseball_bat.name=球棒
-item.baseball_bat_nails.name=带钉球棒
-item.night_stick.name=防暴警棍
+item.baseball_bat.name=棒球棍
+item.baseball_bat_nails.name=狼牙棒
+item.night_stick.name=警棍
 
-item.gas_can.name=汽油桶 (道具)
-item.mwc_wcam.name=无线摄影机
+item.gas_can.name=汽油桶
+item.mwc_wcam.name=无线摄像头
 item.mwc_tablet.name=平板电脑
 
 
-item.mwc_M67Frag.name=M67破片手榴弹
-item.mwc_ImpactGrenade.name=冲击手榴弹
+item.mwc_M67Frag.name=M67破片手雷
+item.mwc_ImpactGrenade.name=触发式手雷
 item.mwc_M18White.name=M18烟雾弹 (白色)
 item.mwc_Flash.name=闪光弹
 
@@ -564,9 +481,9 @@ item.mwc_silencer_eabh.name=EABH 消音器
 item.mwc_Silencer545x39.name=5.45x39mm 消音器
 item.mwc_SilencerMP5.name=MP5 消音器
 item.mwc_SilencerPBS.name=PBS 消音器
-item.mwc_HoneyBadgerSilencer.name=AAC蜜獾消音器
-item.mwc_KBP9A91Suppressor.name=KBP 9A-91卡宾枪消音器
-item.mwc_SamuraiEdgeSuppressor.name=武士之刃消音器
+item.mwc_HoneyBadgerSilencer.name=AAC蜜獾 消音器
+item.mwc_KBP9A91Suppressor.name=KBP 9A-91 消音器
+item.mwc_SamuraiEdgeSuppressor.name=“武士之刃”消音器
 
 
 item.mwc_ScarHandGuard.name=Scar 护木
@@ -582,22 +499,22 @@ item.mwc_MP5SDHandGuard.name=MP5SD 护木
 item.mwc_LVOAVHandGuard.name=LVOAV 护木
 item.mwc_M38HandGuard.name=M38 护木
 item.mwc_Mk18HandGuard.name=Mk18 护木
-item.mwc_M4MagpulHandGuard.name=M4 麦格普 护木
-item.mwc_M4MagpulHandGuardTan.name=M4 麦格普 护木 (褐色)
+item.mwc_M4MagpulHandGuard.name=M4 麦格普护木
+item.mwc_M4MagpulHandGuardTan.name=M4 麦格普护木 (褐色)
 item.mwc_M4HandGuard.name=M4 护木
 item.mwc_M16HandGuard.name=M16 护木
-item.mwc_M4CarbineHandGuard.name=M4 卡宾 护木
+item.mwc_M4CarbineHandGuard.name=M4 卡宾护木
 item.mwc_AK47HandleGuard.name=AK-47 护木
 item.mwc_AK101HandGuard.name=AK-101 护木
-item.mwc_AKMagpulHandleGuard.name=AK 马盖普 护木
-item.mwc_AKMagpulHandleGuardTan.name=AK 马盖普 护木 (褐色)
+item.mwc_AKMagpulHandleGuard.name=AK 马盖普护木
+item.mwc_AKMagpulHandleGuardTan.name=AK 马盖普护木 (褐色)
 item.mwc_MLOKHandguard.name=MLOK 护木
-item.mwc_MLOKExtendedHandguard.name=MLOK 扩展 护木
+item.mwc_MLOKExtendedHandguard.name=MLOK 扩展护木
 item.mwc_AK15HandleGuard.name=AK-15 护木
 item.mwc_StonerHANDGUARD.name=Stoner A1 护木
 item.mwc_AUGA2handguard.name=AUG A2 护木
 item.mwc_AUGA3handguard.name=AUG A3 护木
-item.mwc_AUGA3extGuard.name=AUG A3 扩展 护木
+item.mwc_AUGA3extGuard.name=AUG A3 扩展护木
 item.mwc_MIMP5MHandGuard.name=MI MP5 护木
 item.mwc_NTW20Guard.name=NTW-20 护木
 item.mwc_AR57Handguard.name=AR-57 护木
@@ -608,17 +525,17 @@ item.mwc_HKS20Handguard.name=Origin-12 [HKS-20] 护木
 item.mwc_ACRHandGuardBlack.name=ACR 护木 (黑色)
 item.mwc_ACRWEMSKHandguard.name=ACR WE MSK 护木 (黑色)
 item.mwc_ACRWEMSKHandguardTan.name=ACR WE MSK 护木
-item.mwc_ACRPrecisionHandGuard.name=ACR 精准 护木 (黑色)
-item.mwc_ACRPrecisionHandGuardTan.name=ACR 精准 护木
+item.mwc_ACRPrecisionHandGuard.name=ACR 精准护木 (黑色)
+item.mwc_ACRPrecisionHandGuardTan.name=ACR 精准护木
 item.mwc_ACRSBRHandGuard.name=ACR SBR 护木 (黑色)
 item.mwc_ACRSBRHandGuardTan.name=ACR SBR 护木
-item.mwc_ACRPolymerHandguard.name=ACR 聚合物 护木 (黑色)
-item.mwc_ACRPolymerHandguardTan.name=ACR 聚合物 护木
+item.mwc_ACRPolymerHandguard.name=ACR 聚合物护木 (黑色)
+item.mwc_ACRPolymerHandguardTan.name=ACR 聚合物护木
 item.mwc_ACRSquareDropHandguard.name=ACR 方形下护木 (黑色)
 item.mwc_ACRSquareDropHandguardTan.name=ACR 方形下护木
 item.mwc_HoneyBadgerHandguard.name=AAC蜜獾 护木
 item.mwc_HoneyBadgerMatrixArmsHandguard.name=AAC蜜獾 矩阵护木
-item.mwc_M1CarbineHandguard.name=M1 卡宾 护木
+item.mwc_M1CarbineHandguard.name=M1 卡宾护木
 item.mwc_M1CarbineVentilatedHandguard.name=M1卡宾枪 通风式护木
 item.mwc_M1ScoutCarbineHandguard.name=M1 护木
 item.mwc_M16A4HandGuard.name=M16A4 四轨护木
@@ -628,7 +545,7 @@ item.mwc_FNFALPARAHandguard.name=FN FAL PARA 护木
 item.mwc_ScarMidWestIndustriesHandGuard.name=MI SCAR 护木
 item.mwc_ScarMLOKHandguard.name=MLOK SCAR 护木
 item.mwc_VectorMk1ModularHandguard.name=Vector Mk1 模块化护木
-item.mwc_VectorCarbineHandguard.name=Vector 卡宾 护木
+item.mwc_VectorCarbineHandguard.name=Vector 卡宾护木
 item.mwc_Mk48HandGuard.name=Mk48 护木
 item.mwc_M249UpperHandGuard.name=M249 上侧护木
 item.mwc_Mk48UpperHandGuard.name=Mk48 上侧护木
@@ -636,8 +553,8 @@ item.mwc_G3A1Handguard.name=G3 护木
 item.mwc_DSR1Handguard.name=DSR-1 护木
 item.mwc_DSR1HandguardRailed.name=DSR-1 导轨护木
 item.mwc_MP5BMHandGuard.name=MP5BM 护木
-item.mwc_ScorpionEVO3A1HandguardShort.name=EVO3A1 短蝎 护木
-item.mwc_ScorpionEVO3A1HandguardLong.name=EVO3A1 长蝎 护木
+item.mwc_ScorpionEVO3A1HandguardShort.name=EVO3A1 短蝎护木
+item.mwc_ScorpionEVO3A1HandguardLong.name=EVO3A1 长蝎护木
 item.mwc_MP5NavyHandGuard.name=MP5 海军护木
 item.mwc_AR15FN15Handguard.name=AR15/FN15 护木
 item.mwc_HK416HandGuardBlackAndTan.name=HK416 护木 (黑色/褐色)
@@ -674,57 +591,58 @@ item.mwc_DragunovHandguard.name=SVD Dragunov 护木
 item.mwc_G3HandguardRailed.name=HK G3 导轨护木
 item.mwc_G11HandguardK1.name=G11 K1 护木
 item.mwc_G11HandguardK2.name=G11 K2 护木
+item.mwc_M14Cover.name=M14 DMR 上侧护木
+item.mwc_M14TriRailCover.name=M14 DMR 三轨上侧护木
+item.mwc_VSSVintorezTriRailMount.name=VSS 三轨护木
 
-item.mwc_AKMIron.name=标准机械瞄准具
-item.mwc_M60FrontSight.name=M60E4 前机械瞄准具
-item.mwc_M4FrontSight.name=AR 前机械瞄准具
-item.mwc_Kar98Ksight.name=Karabiner 机械瞄准具
-item.mwc_AK15ironsight.name=AK-15 机械瞄准具
-item.mwc_HK416FrontSight.name=HK-416 前机械瞄准具
-item.mwc_MBUSFrontSight.name=MBUS 前机械瞄准具
-item.mwc_TritiumRearSights.name=Tritium 后机械瞄准具
-item.mwc_MBUSRearSights.name=MBUS 后机械瞄准具
-item.mwc_HK416RearSights.name=HK-416 后机械瞄准具
-item.mwc_FNFALRearSights.name=FN FAL 后机械瞄准具
-item.mwc_AK12ironsight.name=AK-12 后机械瞄准具
-item.mwc_M38FrontSight.name=M38 前瞄准具
-item.mwc_AKIron.name=AK 前瞄准具
-item.mwc_K2C1RearSight.name=K2C1 机械瞄准具
-item.mwc_ScorpionRearSight.name=蝎式后机械瞄准具
-item.mwc_ScorpionFrontSight.name=蝎式前机械瞄准具
-item.mwc_MP7IronSights.name=MP7 机械瞄准具
-item.mwc_MP7IronSightsStanding.name=MP7 长立式机械瞄准具
-item.mwc_AK12Iron.name=AK-12 Front 机械瞄准具
+item.mwc_AKMIron.name=标准机械瞄具
+item.mwc_M60FrontSight.name=M60E4 前准星
+item.mwc_M4FrontSight.name=AR 前准星
+item.mwc_Kar98Ksight.name=Karabiner 照门
+item.mwc_AK15ironsight.name=AK-15 照门
+item.mwc_HK416FrontSight.name=HK-416 前准星
+item.mwc_MBUSFrontSight.name=MBUS 前准星
+item.mwc_TritiumRearSights.name=Tritium 照门
+item.mwc_MBUSRearSights.name=MBUS 照门
+item.mwc_HK416RearSights.name=HK-416 照门
+item.mwc_FNFALRearSights.name=FN FAL 照门
+item.mwc_AK12ironsight.name=AK-12 照门
+item.mwc_M38FrontSight.name=M38 前准星
+item.mwc_AKIron.name=AK 前准星
+item.mwc_K2C1RearSight.name=K2C1 照门
+item.mwc_ScorpionRearSight.name=蝎式照门
+item.mwc_ScorpionFrontSight.name=蝎式前准星
+item.mwc_AK12Iron.name=AK-12 Front 前准星
+item.mwc_MP7IronSights.name=MP7 机械瞄具
+item.mwc_MP7IronSightsStanding.name=MP7 长立式机械瞄具
 
-item.mwc_Acog.name=Trigicon 先进战斗光学瞄准镜
+item.mwc_Acog.name=Trigicon 瞄准镜
 item.mwc_Specter.name=埃尔坎幽灵SFOV4-A1 瞄准镜
-item.mwc_Reflex.name=15 MOA红点瞄准镜
-item.mwc_Holographic.name=EOTech EXPS-3全息瞄准镜(褐色)
-item.mwc_HolographicAlt.name=EOTech 512 A65全息瞄准镜(黑色)
-item.mwc_Kobra.name=8-18 眼镜蛇红点瞄准镜
-item.mwc_KobraMount.name=非拆卸式8-18眼镜蛇红点瞄准镜
-item.mwc_Holographic2.name=EOTech EXPS3-0全息瞄准镜(褐色)
+item.mwc_Reflex.name=15 MOA 红点瞄准镜
+item.mwc_Holographic.name=EOTech EXPS-3 全息瞄准镜 (褐色)
+item.mwc_HolographicAlt.name=EOTech 512 A65 全息瞄准镜 (黑色)
+item.mwc_Kobra.name=8-18眼镜蛇 瞄准镜
+item.mwc_KobraMount.name=非拆卸式8-18眼镜蛇 瞄准镜
+item.mwc_Holographic2.name=EOTech EXPS3-0 全息瞄准镜 (褐色)
 item.mwc_okp7.name=OKP-7 瞄准镜
 item.mwc_MicroT1.name=Micro-T1 瞄准镜
 item.mwc_m2a1_sight.name=M2A1 瞄准镜
 item.mwc_RMRsight.name=RMR 瞄准镜
-item.mwc_BijiaReflex.name=Bijia 反射式瞄准镜
-item.mwc_AimpointCompM5.name=Aimpoint Comp M5 红点反射式瞄准镜
-item.mwc_AimpointCompM2.name=Aimpoint Comp M2 红点反射式瞄准镜
-item.mwc_EotechHybrid2.name=EOTech 混合式瞄准镜
-item.mwc_MicroReflex.name=微型反射式瞄准镜
-item.mwc_VortexSight.name=Vortex UH-1 反射式全像瞄准镜
+item.mwc_BijiaReflex.name=Bijia 瞄准镜
+item.mwc_AimpointCompM5.name=Aimpoint Comp M5 瞄准镜
+item.mwc_AimpointCompM2.name=Aimpoint Comp M2 瞄准镜
+item.mwc_EotechHybrid2.name=EOTech 瞄准镜
+item.mwc_MicroReflex.name=微型红点瞄准镜
+item.mwc_VortexSight.name=Vortex UH-1 全息瞄准镜
 item.mwc_KobraGen3.name=Kobra Gen-3 瞄准镜
-item.mwc_OSIPRSight.name=OSIPR 改进全息瞄准具
-item.mwc_OSIPRLaser.name=OSIPR 改进雷射瞄准具
 
-item.mwc_HPScope.name=JPU HP 3-9x40 光学瞄准镜
-item.mwc_Leupold.name=刘坡尔德VX-6 CDS TMOA 步枪瞄准镜
+item.mwc_HPScope.name=JPU HP 3-9x40 瞄准镜
+item.mwc_Leupold.name=刘坡尔德VX-6 CDS TMOA 瞄准镜
 item.mwc_PSO1.name=PSO-1 瞄准镜
 item.mwc_G36Scope.name=UFC G36 瞄准镜
 item.mwc_PUscope.name=PU 瞄准镜
 item.mwc_Unertl.name=Unertl 瞄准镜
-item.mwc_PriscopicScope.name=Priscopic 內红点瞄准镜
+item.mwc_PriscopicScope.name=Priscopic 红点瞄准镜
 item.mwc_Malcom3x=Malcolm 3倍瞄准镜
 item.mwc_DMRscope.name=M392-DHO-4M 瞄准镜
 item.mwc_BR55scope.name=BR-DEMROS 瞄准镜
@@ -732,8 +650,7 @@ item.mwc_F2000Scope.name=FNPM 1.6倍瞄准镜
 item.mwc_NightRaiderScope.name=夜袭者瞄准镜
 item.mwc_AUGscope.name=AUG 瞄准镜
 item.mwc_AX50Scope.name=AX-50 瞄准镜
-item.mwc_LeupoldRailScope.name=刘坡尔德VX-6 CDS TMOA 步枪瞄准镜(带导轨)
-item.mwc_OSIPRMiniScope.name=OSIPR 微型瞄准镜
+item.mwc_LeupoldRailScope.name=刘坡尔德VX-6 CDS TMOA 瞄准镜 (带导轨)
 
 item.mwc_Laser.name=UTG 战术镭射
 item.mwc_Laser2.name=LD19206-IR 战术镭射
@@ -743,7 +660,7 @@ item.mwc_SCCYCPX2Laser.name=CPX-2 镭射
 
 item.mwc_Glock18Cstock.name=G18C DRS-HS 枪托
 item.mwc_ScarStock.name=Scar 枪托
-item.mwc_ScarHStock.name=Scar H 枪托
+item.mwc_ScarHStock.name=Scar-H 枪托
 item.mwc_ACRStock.name=ACR 枪托
 item.mwc_M1014Stock.name=M1014 枪托
 item.mwc_M4BenelliStock.name=M4Benelli 枪托
@@ -755,33 +672,33 @@ item.mwc_AK47Stock.name=AK-47 枪托
 item.mwc_AK101Stock.name=AK-101 枪托
 item.mwc_CollapsableMOEStock.name=Collapsible MOE 枪托
 item.mwc_MagpulCTRStock.name=Magpul CTR 枪托
-item.mwc_MagpulCTRStockTan.name=Magpul CTR 枪托(褐色)
+item.mwc_MagpulCTRStockTan.name=Magpul CTR 枪托 (褐色)
 item.mwc_MilSpecStock.name=Mil-Spec 枪托
-item.mwc_MilSpecStockTan.name=Mil-Spec 枪托(褐色)
+item.mwc_MilSpecStockTan.name=Mil-Spec 枪托 (褐色)
 item.mwc_HeraArmsStock.name=Hera Arms 枪托
 item.mwc_HK416Stock.name=HK416 枪托
 item.mwc_M16Stock.name=M16 枪托
-item.mwc_HK416StockTan.name=HK416 枪托(褐色)
-item.mwc_M16StockTan.name=M16 枪托(褐色)
+item.mwc_HK416StockTan.name=HK416 枪托 (褐色)
+item.mwc_M16StockTan.name=M16 枪托 (褐色)
 item.mwc_AK47stock.name=AK-47 枪托
 item.mwc_RPKstock.name=RPK 枪托
 item.mwc_Remington870Stock.name=R870 木制枪托
 item.mwc_Remington870PoliceMagnumStock.name=R870 警用马格南枪托
 item.mwc_Remington870MilSpecStock.name=R870 Mil-Spec 枪托
 item.mwc_Remington870HK416StockStock.name=R870 HK-416 枪托
-item.mwc_Remington870SawedGrip.name=R870 截短握把(截短枪托)
+item.mwc_Remington870SawedGrip.name=R870 截短枪托
 item.mwc_Origin12Stock.name=Origin-12 枪托
 item.mwc_HKS20Stock.name=Origin-12 [HKS-20] 枪托
 item.mwc_VectorStock.name=Kriss Vector 枪托
 item.mwc_ACRStockBlack.name=ACR 枪托 (黑色)
 item.mwc_ACRFixedStock.name=ACR 固定枪托 (黑色)
 item.mwc_ACRFixedStockTan.name=ACR 固定枪托
-item.mwc_ACRPRSStock.name=ACR PRS 枪托(黑色)
+item.mwc_ACRPRSStock.name=ACR PRS 枪托 (黑色)
 item.mwc_ACRPRSStockTan.name=ACR PRS 枪托
 item.mwc_ACRLongRangeStock.name=ACR 精确枪托
 item.mwc_ACRPDWStock.name=ACR PDW 枪托
 item.mwc_HoneyBadgerStock.name=AAC 蜜獾枪托
-item.mwc_HoneyBadgerStockBlack.name=AAC 蜜獾枪托(黑色)
+item.mwc_HoneyBadgerStockBlack.name=AAC 蜜獾枪托 (黑色)
 item.mwc_FNFALStock.name=FN FAL 枪托
 item.mwc_VP70Stock.name=VP-70 枪托
 item.mwc_G2ContenderStock.name=G2 竞争者枪托
@@ -791,29 +708,29 @@ item.mwc_VectorStockAdapter.name=Vector 折叠式枪托
 item.mwc_UMP45Stock.name=UMP45 枪托
 item.mwc_MAC10Stock.name=MAC-10 枪托
 item.mwc_M249ParaStock.name=M249 Para 枪托
-item.mwc_M249MilspecStock.name=M249 军用规格枪托
+item.mwc_M249MilspecStock.name=M249 军用枪托
 item.mwc_M249Hk416Stock.name=M249 HK416 枪托
 item.mwc_APSStock.name=APS 枪托
 item.mwc_MP5Stock.name=MP5 枪托
 item.mwc_MP5StockAdapter.name=MP5 折叠式枪托
 item.mwc_G3Stock.name=G3 枪托
 item.mwc_MP7Stock.name=MP7 枪托
-item.mwc_MP7MilSpecStock.name=MP7 军用规格枪托
+item.mwc_MP7MilSpecStock.name=MP7 军用枪托
 item.mwc_AK12Stock.name=AK-12 枪托
 item.mwc_AK12ZenitcoStock.name=AK-12 泽宁特枪托
-item.mwc_VSSVintorezStock.name=VSS微声狙击步枪枪托
+item.mwc_VSSVintorezStock.name=VSS 枪托
 item.mwc_ASValStock.name=AS Val 枪托
-item.mwc_VSSVintorezMilspecStock.name=VSS微声狙击步枪军用规格枪托
+item.mwc_VSSVintorezMilspecStock.name=VSS 军用枪托
 item.mwc_CZ805BrenStock.name=CZ-805 Bren 枪托
 item.mwc_SIGMCXStock.name=SIG MCX 枪托
 item.mwc_M110Stock.name=M110 枪托
-item.mwc_ARPRSPrecisionStock.name=AR PRS 精确枪托
+item.mwc_ARPRSPrecisionStock.name=AR PRS 枪托
 item.mwc_KS23Stock.name=KS23 枪托
 item.mwc_KS23MStock.name=KS23M 枪托
 item.mwc_DragunovGripStock.name=SVD Dragunov 枪托
 item.mwc_AK74Stock.name=AK-74 枪托
 item.mwc_Dragunov98Stock.name=SVD Dragunov-98 枪托
-item.mwc_MAC21Stock.name=MAC-21冲锋枪枪托
+item.mwc_MAC21Stock.name=MAC-21 枪托
 
 
 item.mwc_AngledGrip.name=Angled 握把
@@ -823,11 +740,11 @@ item.mwc_VGrip.name=前握把
 item.mwc_StubbyGrip.name=Stubby 握把
 item.mwc_MP5HOGUEGrip.name=MP5 Hogue 握把
 item.mwc_GlockHogueGrip.name=Glock Hogue 握把
-item.mwc_GlockHogueGripTan.name=Glock Hogue 握把(褐色)
+item.mwc_GlockHogueGripTan.name=Glock Hogue 握把 (褐色)
 item.mwc_HeraArmsGrip.name=Hera Arms 握把
 item.mwc_M4Grip.name=M4 握把
-item.mwc_M4GripTan.name=M4 握把(褐色)
-item.mwc_M4GripGray.name=M4 握把(灰色)
+item.mwc_M4GripTan.name=M4 握把 (褐色)
+item.mwc_M4GripGray.name=M4 握把 (灰色)
 item.mwc_AK47Grip.name=AK-47 握把
 item.mwc_AK101Grip.name=AK-101 握把
 item.mwc_AKErgoGrip.name=AK 人体工学握把
@@ -838,19 +755,19 @@ item.mwc_Origin12Grip.name=Origin-12 握把
 item.mwc_HKS20Grip.name=Origin-12 [HKS-20] 握把
 item.mwc_FNFALGrip.name=FN FAL 握把
 item.mwc_VectorTapedGrip.name=Vector Taped 握把
-item.mwc_G2ContenderGrip.name=G2 竞争者握把
+item.mwc_G2ContenderGrip.name=G2竞争者 握把
 item.mwc_M1014Grip.name=M1014 握把
 item.mwc_SCCYCPX2GripTape.name=CPX-2 Taped 握把
 item.mwc_APSGrip.name=APS 握把
 item.mwc_MAC10Grip.name=MAC-10 握把
 item.mwc_HK416Grip.name=HK-416 握把
-item.mwc_HK416GripTan.name=HK-416 握把(褐色)
+item.mwc_HK416GripTan.name=HK-416 握把 (褐色)
 item.mwc_M110Grip.name=M110 握把
 item.mwc_S710TricunGrip.name=S7-10 Tricun 握把
 item.mwc_K2C1Grip.name=K2C1 握把
 item.mwc_AK12Grip.name=AK-12 握把
 item.mwc_AK12ErgoGrip.name=AK-12 人体工学握把
-item.mwc_AKErgoGripTan.name=AK 人体工学握把(褐色)
+item.mwc_AKErgoGripTan.name=AK 人体工学握把 (褐色)
 item.mwc_KS23RaptorGrip.name=KS-23 握把
 item.mwc_SIG556Grip.name=SIG-556 握把
 
@@ -866,7 +783,7 @@ item.mwc_SA58DustCover.name=SA-58 防尘罩
 item.mwc_AKMDustcover.name=AKM 防尘罩
 item.mwc_AK12DustCover.name=AK-12 防尘罩
 item.mwc_AK12BDustCover.name=AK-12 防尘罩
-item.mwc_VSSVintorezDustCover.name=VSS微声狙击步枪防尘罩
+item.mwc_VSSVintorezDustCover.name=VSS 防尘罩
 item.mwc_VSSMDustCover.name=VSSM 防尘罩
 item.mwc_DragunovDustCover.name=SVD Dragunov 防尘罩
 item.mwc_Dragunov98DustCover.name=SVD Dragunov-98 防尘罩
@@ -879,124 +796,124 @@ item.mwc_AUGParaConversion.name=AUG PARA 转换套件
 item.mwc_AUGDefaultKit.name=AUG 默认套件
 item.mwc_KrissVectorSwordfish.name=Kriss Vector 剑鱼套件
 
-
-item.mwc_Bipod.name=脚架
-item.mwc_RailRiser.name=导轨弓体
-item.mwc_FMGcarryhandle.name=FMG-9 提把
-item.mwc_AR15Iron.name=AR 提把
-item.mwc_FABDefenseMount.name=FAB 防务导轨
-item.mwc_MIMP5TRRail.name=MI MP5 TR 导轨
-item.mwc_MIMP5MRail.name=MI MP5 M 导轨
-item.mwc_ShotgunRail.name=霰弹枪导轨
-item.mwc_Kar98KRail.name=Kar98K 导轨
-item.mwc_M60Rail.name=M60 导轨
-item.mwc_NGSWRail.name=NGSW-R 导轨
-item.mwc_NGSWRRail.name=NGSW-R 导轨
-item.mwc_Remington700Chassis.name=Remington-700 枪机外壳
-item.mwc_SSG08Chassis.name=SSG-08 枪机外壳
 item.mwc_M4Receiver.name=M4 机匣
 item.mwc_VLTORReceiver.name=VLTOR 机匣
-item.mwc_Kar98Krail.name=Kar98K 导轨
-item.mwc_M32Barrel.name=M32 延长枪管
 item.mwc_AR57Receiver.name=AR-57 机匣
-item.mwc_RPKbarrel.name=RPK 枪管
-item.mwc_OSIPRMount.name=OSIPR 瞄具/镭射安装导轨
 item.mwc_C8SFWReceiver.name=C8-SFW 机匣
-item.mwc_Remington870Pump.name=R870 木质泵筒
-item.mwc_Remington870MagpulPump.name=R870 麦格农泵筒
-item.mwc_Remington870PoliceMagnumPump.name=R870 警用麦格农泵筒
-item.mwc_Remington870FABDefensePump.name=R870 FAB 防卫泵筒
-item.mwc_Remington870Barrel.name=R870 枪管
-item.mwc_Remington870PoliceMagnumBarrel.name=R870 警用麦格农枪管
-item.mwc_Remington870SawedBarrel.name=R870 截短枪管
-item.mwc_HoneyBadgerReceiver.name=AAC 蜜獾机匣
-item.mwc_HoneyBadgerReceiverBlack.name=AAC 蜜獾机匣(黑色)
-item.mwc_HoneyBadgerKnightsReceiver.name=AAC 蜜獾骑士机匣
-item.mwc_HoneyBadgerKnightsReceiverBlack.name=AAC 蜜獾骑士机匣(黑色)
-item.mwc_M1911Slide.name=M1911 套筒
+item.mwc_HoneyBadgerReceiver.name=AAC蜜獾 机匣
+item.mwc_HoneyBadgerReceiverBlack.name=AAC蜜獾 机匣 (黑色)
+item.mwc_HoneyBadgerKnightsReceiver.name=AAC蜜獾 骑士机匣
+item.mwc_HoneyBadgerKnightsReceiverBlack.name=AAC蜜獾 骑士机匣 (黑色)
+item.mwc_ScarLReceiver.name=Scar-L 机匣
+item.mwc_KrissVectorReceiver.name=Vector 机匣
+item.mwc_UMP45Receiver.name=UMP45 机匣
+item.mwc_UMP9Receiver.name=UMP9 机匣
+item.mwc_HK416Receiver.name=HK416 机匣
+item.mwc_HK417Receiver.name=HK417 机匣
+item.mwc_HK417ReceiverTan.name=HK417 机匣 (黄褐色)
+item.mwc_M110Receiver.name=M110 机匣
+item.mwc_Beowulf50CalReceiver.name=Beowulf .50 Cal 机匣
+item.mwc_S710Receiver.name=S7-10 机匣
+item.mwc_CZ805BrenReceiver.name=CZ-805 Bren 机匣
+
 item.mwc_M1911Body.name=M1911 枪身
-item.mwc_M191144MagSlide.name=M1911 .44 麦格农套筒
+item.mwc_Remington700Chassis.name=Remington-700 枪身
+item.mwc_SSG08Chassis.name=SSG-08 枪身
 item.mwc_M191144MagBody.name=M1911 .44 麦格农枪身
-item.mwc_M9A1Slide.name=M9A1 套筒
-item.mwc_M9A1Body.name=M9A1 枪身
-item.mwc_SamuraiEdgeSlide.name=M9A1 武士之刃套筒
-item.mwc_SamuraiEdgeBody.name=M9A1 武士之刃枪身
-item.mwc_SamuraiEdgeAWSlide.name=M9A1 武士之刃套筒(威斯克模型)
-item.mwc_SamuraiEdgeAWBody.name=M9A1 武士之刃枪身(威斯克模型)
-item.mwc_SamuraiEdgeAlbertExt.name=M9A1 武士之刃延长枪口
 item.mwc_DesertEagleBody.name=沙漠之鹰枪身
-item.mwc_DesertEagleLongBody.name=沙漠之鹰枪身(枪口加长)
+item.mwc_DesertEagleLongBody.name=沙漠之鹰加长枪身
 item.mwc_KrissVectorHandguard.name=Kriss Vector .45 ACP 枪身
 item.mwc_KrissVector556Handguard.name=Kriss Vector 5.56x45mm NATO 枪身
-item.mwc_M1CarbineBody.name=M1 卡宾步枪枪身
-item.mwc_M1A1CarbineBody.name=M1 [M1A1] 卡宾步枪枪身
+item.mwc_M1CarbineBody.name=M1 步枪枪身
+item.mwc_M1A1CarbineBody.name=M1 [M1A1] 步枪枪身
 item.mwc_M14Body.name=M14 DMR 枪身
-item.mwc_Mk14TanBody.name=Mk14 EBR 枪身(黄褐色)
-item.mwc_Mk14SnowBody.name=Mk14 EBR 枪身(北极)
+item.mwc_Mk14TanBody.name=Mk14 EBR 枪身 (黄褐色)
+item.mwc_Mk14SnowBody.name=Mk14 EBR 枪身 (北极)
 item.mwc_Mk14BlackBody.name=Mk14 EBR 枪身
-item.mwc_M14Cover.name=M14 DMR 上侧护木
-item.mwc_M14TriRailCover.name=M14 DMR 三轨上侧护木
-item.mwc_M14Rail.name=M14 DMR / Mk14 EBR 瞄准镜座
-item.mwc_MAS21Mount.name=MAS-21 瞄准镜座
-item.mwc_M16A1ScopeMount.name=M16A1 瞄准镜座
-item.mwc_FamasF1ScopeMount.name=Famas F1 瞄准镜座
-item.mwc_SamuraiEdgeMount.name=武士之刃瞄准镜座
-item.mwc_VSSVintorezTriRailMount.name=VSS微声狙击步枪瞄准镜座
-item.mwc_ScarLReceiver.name=SCAR-L 机匣
-item.mwc_KrissVectorReceiver.name=Vector 机匣
+item.mwc_SamuraiEdgeBody.name=M9A1 武士之刃枪身
+item.mwc_M9A1Body.name=M9A1 枪身
+item.mwc_Glock19Body.name=格洛克19枪身
+item.mwc_Glock19XBody.name=Glock-19X枪身
+item.mwc_GlockRazorbackBody.name=Glock-19 剃刀鲸枪身
 item.mwc_Remington700APACChassis.name=Remington-700 APAC 枪身
 item.mwc_Remington700MDTXRSChassis.name=Remington-700 MDTXRS 枪身
 item.mwc_ARX160Chassis.name=ARX-160 枪身
 item.mwc_ARX160ChassisOlive.name=ARX-160 枪身(黄绿色)
 item.mwc_ARX160ChassisTan.name=ARX-160 枪身(黄褐色)
-item.mwc_G2ContenderBarrelShort.name=G2 竞争者枪管
-item.mwc_G2ContenderBarrelLong.name=G2 竞争者延长枪管
 item.mwc_M14DMRSocomChassis.name=M14 DMR 特战枪身
-item.mwc_UMP45Receiver.name=UMP45 机匣
-item.mwc_UMP9Receiver.name=UMP9 机匣
-item.mwc_M16A1PicatinnyRail.name=M16A1 皮卡汀尼导轨
-item.mwc_FamasF1PicatinnyRail.name=Famas F1 皮卡汀尼导轨
-item.mwc_Glock19Body.name=格洛克19枪身
-item.mwc_Glock19XBody.name=Glock-19X枪身
-item.mwc_GlockRazorbackBody.name=Glock-19 剃刀鲸枪身
-item.mwc_Glock19Slide.name=Glock-19 套筒
-item.mwc_Glock18CSlide.name=Glock-18C 套筒
-item.mwc_Glock18CCNCslide.name=Glock-18CCNC 套筒
-item.mwc_Glock19XSlide.name=Glock-19X 套筒
-item.mwc_GlockRazorbackSlide.name=Glock 剃刀鲸套筒
-item.mwc_Glock19RockslideOlive.name=Glock-19 Rock 套筒(黄绿色)
-item.mwc_Glock19GhostPrecisionSlide.name=Glock-19 幽灵精准套筒
+item.mwc_MAC10Body.name=MAC-10 枪身
 item.mwc_SCCYCPX2Body.name=CPX-2 枪身
 item.mwc_SCCYCPX2BodyTan.name=CPX-2 枪身(黄褐色)
+item.mwc_MakarovPBBody.name=PB 枪身
+item.mwc_MakarovBody.name=PM 枪身
+item.mwc_MAC10Action.name=MAC-10 枪身
+
+item.mwc_M32Barrel.name=M32 延长枪管
+item.mwc_RPKbarrel.name=RPK 枪管
+item.mwc_Remington870Barrel.name=R870 枪管
+item.mwc_Remington870PoliceMagnumBarrel.name=R870 警用麦格农枪管
+item.mwc_Remington870SawedBarrel.name=R870 截短枪管
+item.mwc_G2ContenderBarrelShort.name=G2竞争者 枪管
+item.mwc_G2ContenderBarrelLong.name=G2竞争者 延长枪管
+item.mwc_DSR1Barrel.name=DSR1 枪管
+item.mwc_DSR1BarrelLong.name=DSR-1 延长枪管
+item.mwc_KS23Barrel.name=KS-23 枪管
+item.mwc_KS23ExtendedBarrel.name=KS-23 延长枪管
+
+item.mwc_M1911Slide.name=M1911 套筒
+item.mwc_M191144MagSlide.name=M1911 .44 麦格农套筒
+item.mwc_M9A1Slide.name=M9A1 套筒
+item.mwc_SamuraiEdgeSlide.name=M9A1 武士之刃套筒
+item.mwc_Glock19Slide.name=Glock-19 套筒
+item.mwc_Glock18CSlide.name=Glock-18C 套筒
+item.mwc_Glock18CCNCslide.name=Glock-18 CCNC 套筒
+item.mwc_Glock19XSlide.name=Glock-19X 套筒
+item.mwc_GlockRazorbackSlide.name=Glock 剃刀鲸套筒
+item.mwc_Glock19RockslideOlive.name=Glock-19 Rock 套筒 (黄绿色)
+item.mwc_Glock19GhostPrecisionSlide.name=Glock-19 幽灵套筒
 item.mwc_SCCYCPX2Slide.name=CPX-2 套筒
 item.mwc_SCCYCPX2BSlide.name=CPX-2 套筒
 item.mwc_P226Slide.name=P226 套筒
-item.mwc_MakarovBody.name=PM 枪身
 item.mwc_MakarovPMSlide.name=PM 套筒
-item.mwc_MakarovPBBody.name=PB 枪身
 item.mwc_MakarovPBSlide.name=PB 套筒
 item.mwc_MP443Slide.name=MP443 套筒
-item.mwc_MAC10Body.name=MAC-10 枪身
-item.mwc_MAC10Action.name=MAC-10 枪机
-item.mwc_HK416Receiver.name=HK416 机匣
-item.mwc_HK417Receiver.name=HK417 机匣
-item.mwc_HK417ReceiverTan.name=HK417 机匣(黄褐色)
-item.mwc_M110Receiver.name=M110 机匣
-item.mwc_Beowulf50CalReceiver.name=Beowulf .50 Cal 机匣
-item.mwc_S710Receiver.name=S7-10 机匣
-item.mwc_CZ805BrenReceiver.name=CZ-805 Bren 机匣
-item.mwc_KS23Barrel.name=KS-23 枪管
-item.mwc_KS23ExtendedBarrel.name=KS-23 延长枪管
+
+item.mwc_FMGcarryhandle.name=FMG-9 提把
+item.mwc_AR15Iron.name=AR 提把
+
+item.mwc_Bipod.name=脚架
+item.mwc_RailRiser.name=导轨弓体
+item.mwc_FABDefenseMount.name=FAB 防务导轨
+item.mwc_MIMP5TRRail.name=MI MP5 TR 导轨
+item.mwc_MIMP5MRail.name=MI MP5 M 导轨
+item.mwc_ShotgunRail.name=霰弹枪瞄具导轨
+item.mwc_Kar98KRail.name=Kar98K 导轨
+item.mwc_M60Rail.name=M60 导轨
+item.mwc_NGSWRail.name=NGSW-R 导轨
+item.mwc_NGSWRRail.name=NGSW-R 导轨
+item.mwc_Kar98Krail.name=Kar98K 导轨
+item.mwc_M16A1PicatinnyRail.name=M16A1 皮卡汀尼导轨
+item.mwc_FamasF1PicatinnyRail.name=Famas F1 皮卡汀尼导轨
+
+item.mwc_Remington870Pump.name=R870 木质泵筒
+item.mwc_Remington870MagpulPump.name=R870 麦格农泵筒
+item.mwc_Remington870PoliceMagnumPump.name=R870 警用麦格农泵筒
+item.mwc_Remington870FABDefensePump.name=R870 FAB 防卫泵筒
+
+item.mwc_FamasF1ScopeMount.name=Famas F1 瞄具桥
+item.mwc_M16A1ScopeMount.name=M16A1 瞄具桥
+item.mwc_M14Rail.name=M14 DMR / Mk14 EBR 瞄具桥
+item.mwc_MAS21Mount.name=MAS-21 瞄具桥
+
+item.mwc_SamuraiEdgeMount.name=“武士之刃”枪口拓展套件
 item.mwc_USPMatchCompensator.name=P12 补偿器
-item.mwc_DSR1Barrel.name=DSR1 枪管
-item.mwc_DSR1BarrelLong.name=DSR-1 延长枪管
 
 
 tile.tin_ore.name=锡矿石
 tile.graphite_ore.name=石墨矿石
 tile.lead_ore.name=铅矿石
 tile.copper_ore.name=铜矿石
-tile.sulfur_ore.name=硫矿石
+tile.sulfur_ore.name=硫磺矿石
 
 item.carbon_composite.name=碳复合材料
 item.steel_ingot.name=钢锭
@@ -1007,64 +924,42 @@ item.steel_dust.name=钢粉
 item.sulfur_dust.name=硫粉
 item.tin_ingot.name=锡锭
 item.synthetic_plastic.name=塑料板
-item.synthetic_polymer_composite.name=合成塑胶
+item.synthetic_polymer_composite.name=人造塑料
 item.lead_ingot.name=铅锭
-item.gunmetal_ingot.name=青铜锭
+item.gunmetal_ingot.name=炮铜合金锭
 item.copper_ingot.name=铜锭
-item.gunmetal_composite.name=青铜复合材料
+item.gunmetal_composite.name=枪械金属混合物
 
-//旧版本
-tile.mw:tinore.name=锡矿石
-tile.mw_GraphiteOre.name=石墨矿石
-tile.mw_LeadOre.name=铅矿石
-tile.mw_CopperOre.name=铜矿石
-tile.mw_SulfurOre.name=硫矿石
 
-item.mw_CarbonComposite.name=碳复合材料
-item.mw_SteelIngot.name=钢锭
-item.mw_CarbonFiber.name=碳纤维
-item.mw_GunmetalPlate.name=青铜板
-item.mw_GraphiteChunk.name=石墨块
-item.mw_SteelDust.name=钢粉
-item.mw_SulfurDust.name=硫粉
-item.mw_TinIngot.name=锡锭
-item.mw_PlasticPlate.name=塑料板
-item.mw_SyntheticPlastic.name=合成塑胶
-item.mw_SyntheticPolymerComposite.name=合成聚合物复合材料
-item.mw_LeadIngot.name=铅锭
-item.mw_GunmetalIngot.name=青铜锭
-item.mw_CopperIngot.name=铜锭
-item.mw_GunmetalComposite.name=青铜复合材料
-//
 
 tile.mwc_weapons_case.name=武器箱
 tile.mwc_weapons_case_small.name=小型武器箱
-tile.mwc_russian_weapons_case.name=俄罗斯武器箱
-tile.mwc_ammo_box.name=弹药盒
-tile.mwc_weapons_locker.name=武器柜
-tile.mwc_fridge_open.name=冰箱道具(打开)
-tile.mwc_fridge_closed.name=冰箱道具(关上)
-tile.mwc_artillery_PROP.name=火炮道具
-tile.mwc_supply_drop.name=空投物资
+tile.mwc_russian_weapons_case.name=俄系武器箱
+tile.mwc_ammo_box.name=弹药箱
+tile.mwc_weapons_locker.name=武器贮藏柜
+tile.mwc_fridge_open.name=冰箱 (开)
+tile.mwc_fridge_closed.name=冰箱 (关)
+tile.mwc_artillery_PROP.name=火炮
+tile.mwc_supply_drop.name=补给空投
 tile.mwc_medical_crate.name=医疗箱
-tile.mwc_locker.name=储物柜
-tile.mwc_scp_locker.name=SCP 储物柜
+tile.mwc_locker.name=贮藏柜
+tile.mwc_scp_locker.name=SCP 贮藏柜
 tile.mwc_barrel.name=桶
-tile.mwc_explosive_barrel.name=炸药桶
+tile.mwc_explosive_barrel.name=易爆物桶
 tile.mwc_PC.name=电脑
 tile.mwc_laptop.name=笔记本电脑
 tile.mwc_monitor.name=显示器
 tile.mwc_filingcabinet.name=文件柜
-tile.mwc_filingcabinet_opened.name=文件柜(打开)
-tile.mwc_shelf_right.name=档板(右)
-tile.mwc_shelf_left.name=档板(左)
-tile.mwc_shelf_top.name=档板(上)
+tile.mwc_filingcabinet_opened.name=文件柜 (开)
+tile.mwc_shelf_right.name=档板 (右)
+tile.mwc_shelf_left.name=档板 (左)
+tile.mwc_shelf_top.name=档板 (上)
 tile.mwc_tv.name=电视
-tile.mwc_ceiling_tv.name=天花板电视
-tile.mwc_ceiling_tv_rotated.name=天花板电视 (旋转的)
-tile.mwc_office_chair.name=办公椅道具
-tile.mwc_office_chair_2.name=办公椅 2 道具
-tile.mwc_desk_corner.name=办公桌角道具
+tile.mwc_ceiling_tv.name=吸顶式电视
+tile.mwc_ceiling_tv_rotated.name=吸顶式电视 (旋转)
+tile.mwc_office_chair.name=办公椅
+tile.mwc_office_chair_2.name=办公椅 2
+tile.mwc_desk_corner.name=办公桌角
 tile.mwc_desk_corner_alt1.name=办公桌角 (ALT1)
 tile.mwc_desk_left.name=办公桌左
 tile.mwc_desk_left_alt1.name=办公桌左 (ALT1)
@@ -1077,25 +972,25 @@ tile.mwc_desk_shelf_alt1.name=桌架 (A1)
 tile.mwc_desk_shelf_alt2.name=桌架 (A2)
 tile.mwc_desk_shelf_alt3.name=桌架 (A3)
 tile.mwc_barrier.name=障碍物
-tile.mwc_barrier_rotated.name=障碍物 (旋转的)
+tile.mwc_barrier_rotated.name=障碍物 (旋转)
 tile.mwc_body_bag.name=尸体袋
-tile.mwc_hanging_body.name=吊尸
+tile.mwc_hanging_body.name=缢死的尸体
 tile.mwc_impaled_body.name=刺穿的尸体
 tile.mwc_blank.name=空白方块
 tile.mwc_dumpster.name=垃圾箱
 tile.mwc_wooden_crate.name=木箱
-tile.mwc_wooden_crate_opened.name=木箱(打开)
+tile.mwc_wooden_crate_opened.name=木箱 (开)
 tile.mwc_operating_table.name=手术台
 tile.mwc_operating_table_alt.name=手术台 (ALT)
-tile.mwc_forklift.name=堆高机
-tile.mwc_forklift_alt.name=堆高机 (ALT)
+tile.mwc_forklift.name=叉车
+tile.mwc_forklift_alt.name=叉车 (ALT)
 tile.mwc_trusses.name=桁架
 tile.mwc_ceiling_lamp.name=吊灯
 tile.mwc_ceiling_lamp_alt.name=吊灯 (ALT)
 tile.mwc_vent.name=通风口
-tile.mwc_vent_rotated.name=通风口 (旋转的)
+tile.mwc_vent_rotated.name=通风口 (旋转)
 tile.mwc_vent_corner.name=通风口转角
-tile.mwc_vent_corner_rotated.name=通风口转角 (旋转的)
+tile.mwc_vent_corner_rotated.name=通风口转角 (旋转)
 tile.mwc_vent_corner_rotated_alt.name=通风口转角 (旋转 ALT)
 tile.mwc_vent_intersection.name=通风口交叉路口
 tile.mwc_vent_end.name=通风口出口
@@ -1105,11 +1000,11 @@ tile.mwc_white_desk_right.name=白色办公桌右
 tile.mwc_trash_bin.name=垃圾桶
 tile.mwc_caution_sign.name=警告标志
 tile.mwc_electric_box.name=电箱
-tile.mwc_electric_box_opened.name=电箱(打开)
+tile.mwc_electric_box_opened.name=电箱 (开)
 tile.mwc_home_chair.name=家用椅子
 tile.mwc_outdoor_chair.name=戶外椅
-tile.mwc_home_chair_rotated.name=家用椅子 (旋转的)
-tile.mwc_outdoor_chair_rotated.name=戶外椅 (旋转的)
+tile.mwc_home_chair_rotated.name=家用椅子 (旋转)
+tile.mwc_outdoor_chair_rotated.name=戶外椅 (旋转)
 tile.mwc_vending_machine.name=自动贩卖机
 tile.mwc_ServerRackLeft.name=服务器机柜 左
 tile.mwc_ServerRackEmptyLeft.name=服务器机柜架 左
@@ -1123,13 +1018,13 @@ tile.mwc_ServerRackTopLeft.name=服务器机柜 左上
 tile.mwc_ServerRackTopRight.name=服务器机柜 右上
 tile.mwc_DuelFloodLight.name=决斗泛光灯
 tile.mwc_FloodLight.name=泛光灯
-tile.mwc_Radio_rotated.name=无线电 (旋转的)
+tile.mwc_Radio_rotated.name=无线电 (旋转)
 tile.mwc_Radio.name=无线电
-tile.mwc_camera_rotated.name=旋转摄影机
+tile.mwc_camera_rotated.name=摄影机 (旋转)
 tile.mwc_pc.name=电脑
 tile.mwc_propanetank.name=丙烷罐
-tile.mwc_towablefloodlight.name=可牵引泛光灯
-tile.mwc_hescobastion.name=艾斯科防爆墙
+tile.mwc_towablefloodlight.name=摇曳泛光灯
+tile.mwc_hescobastion.name=防爆墙
 tile.mwc_sandbag.name=沙袋
 tile.mwc_sandbagwall.name=沙袋墙
 tile.mwc_crossgravestone.name=墓碑十字架 1
@@ -1148,84 +1043,52 @@ tile.weapon_workbench.name=武器工作台
 tile.ammo_press.name=子弹压制器
 
 itemGroup.weapons=武器
-itemGroup.props=传染主题道具 (仅创造)
+itemGroup.props=装饰道具 (创造)
 itemGroup.ammunitionAndMagazines=弹药与弹匣
 itemGroup.attachments=配件
-itemGroup.equipment=护具
+itemGroup.equipment=用具
 itemGroup.throwables=投掷物
-itemGroup.blocksAndIngots=方块&锭
+itemGroup.blocksAndIngots=矿物
 
-key.categories.weaponlib=现代战争立方体
-
-key.texture_change=更换枪械涂装
-
-key.fire_mode=选择射击模式
-
-key.reload=装填
-
+key.categories.weaponlib=现代战争方块化
+key.fire_mode=切换射击模式
+key.reload=重新装填
 key.attachment=配件模式
-
-key.recoil_fitter=握把类型
-
-key.scope=瞄准镜类型
-
-key.silencer=枪管类型
-
-key.categories.futuristicarsenal=现代战争立方体
-
-key.laser=开关镭射
-
+key.categories.futuristicarsenal=现代战争方块化
+key.laser=开关激光指示器
 key.add=瞄准镜放大
-
 key.subtract=瞄准镜缩小
-
-key.proning=俯卧
-
+key.proning=匍匐
 key.opendoor=开门
-
 key.custom_inventory=自定义物品栏
-
-key.inspect=查看枪械
-
+key.inspect=检视枪械
 key.nightVision=开关夜视镜
-
 key.unload=卸下弹匣
-
-key.categories.vehicle=现代战争立方体 载具
-
+key.categories.vehicle=现代战争方块化 载具
 vehicle.brake=刹车
-
 vehicle.clutch=离合器
-
 vehicle.handbrake=手刹车
-
-vehicle.throttle=节流阀(油门)
-
+vehicle.throttle=节流阀 (油门)
 vehicle.turnleft=左转
-
 vehicle.turnoff=钥匙插入/钥匙拔出
-
 vehicle.turnright=右转
 
-gui.attachmentMode.changeScope=按[%s]键更改瞄准器
-gui.attachmentMode.changeBarrelRig=按[%s]键安装枪管配件
-gui.attachmentMode.changeCamo=按[%s]键改变迷彩顏色
-gui.attachmentMode.changeUnderBarrelRig=按[%s]键更改枪管下方配件
-gui.attachmentMode.applyLaser=按[%s]啟用雷射配件
+
+
 gui.ammoCounter=弹药: %s
 gui.noMagazine=没有弹匣
 gui.noAmmo=没有弹药
 gui.firearmMode=枪支模式: %s
 gui.firearmMode.semi=半自动
 gui.firearmMode.auto=全自动
-gui.firearmMode.burst=三连发
+gui.firearmMode.burst=连发
 gui.inventoryFull=背包已满
 gui.currentZoom=缩放: %s%%
-gui.grenadeExplodes=%s秒后爆炸
-gui.coolingDown=冷却...
+gui.grenadeExplodes=将于%s秒后爆炸
+gui.coolingDown=冷却中...
 
 config.category.ores.name=矿物设定
-config.ores.sulfurSpawnsPerChunk.property.name=硫矿石单区块生成数量
+config.ores.sulfurSpawnsPerChunk.property.name=硫磺矿石单区块生成数量
 config.ores.copperSpawnsPerChunk.property.name=铜矿石单区块生成数量
 config.ores.tinSpawnsPerChunk.property.name=锡矿石单区块生成数量
 config.ores.leadSpawnsPerChunk.property.name=铅矿石单区块生成数量
@@ -1252,16 +1115,21 @@ config.rendering.screenshaders.bloomEffect.property.name=泛光
 config.rendering.screenshaders.filmGrain.property.name=胶片颗粒
 config.rendering.screenshaders.filmGrainIntensity.property.name=胶片颗粒强度
 config.rendering.screenshaders.bloomLayers.property.name=泛光层数量
-config.rendering.screenshaders.onScreenRainAndSnow.property.name=雨&雪屏幕残留
+config.rendering.screenshaders.onScreenRainAndSnow.property.name=雨雪天气屏幕效果
 
 config.category.gameplay.name=游戏习惯设定
-config.gameplay.enableAmmoCounter.property.name=子弹计数器
+config.gameplay.enableAmmoCounter.property.name=弹药计数器
+config.gameplay.ammoCounterX.property.name=弹药计数器X坐标
+config.gameplay.ammoCounterY.property.name=弹药计数器Y坐标
+config.gameplay.ammoCounterSize.property.name=弹药计数器大小
+config.gameplay.ammoCounterBackgroundReverse.property.name=弹药计数器背景反转
 config.gameplay.enableOpenDoorDisplay.property.name=开门提示
 config.gameplay.holdToAim.property.name=按住瞄准
 config.gameplay.enableAmmoCounterBackground.property.name=子弹计数器背景
 config.gameplay.enableBleedingOnHit.property.name=血液粒子大小
-config.gameplay.penetratesGlass.property.name=玻璃穿透
 config.gameplay.bulletBreakGlass.property.name=玻璃破坏
+config.gameplay.penetrableBlocks.property.name=子弹穿透
+config.gameplay.knockbackOnHit.property.name=子弹击退
 config.gameplay.enableMuzzleEffects.property.name=枪口火焰
 config.gameplay.enableBlurOnAim.property.name=瞄准模糊
 config.gameplay.explosionBreak.property.name=爆炸破坏
@@ -1270,10 +1138,10 @@ config.gameplay.explodedBlockDropChance.property.name=爆炸时方块掉落概�
 config.gameplay.statusBarPosition.property.name=状态栏位置
 
 config.category.entities.name=实体设定
-config.entities.terroristHealth.property.name=土匪生命倍率
-config.entities.terroristSpawn.property.name=土匪生成倍率
-config.entities.terroristEquipmentConfiguration.property.name=土匪/士兵装备设定
-config.entities.solderSpawn.property.name=士兵生成倍率
+config.entities.terroristHealth.property.name=恐怖分子生命倍率
+config.entities.terroristSpawn.property.name=恐怖分子生成倍率
+config.entities.terroristEquipmentConfiguration.property.name=恐怖分子/士兵装备设定
+config.entities.soldierSpawn.property.name=士兵生成倍率
 config.entities.soldierHealth.property.name=士兵生命倍率
 
 
