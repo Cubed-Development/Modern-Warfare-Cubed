@@ -7,165 +7,93 @@ entity.turretupgraded.name=自动炮台二代
 entity.turretsilenced.name=自动炮台二代 (消音)
 
 item.audis4.name=奥迪S4
-item.MClaren_senna.name=迈凯伦塞纳
-item.ae86trueno.name=丰田 AE86 Trueno
-item.atv_polaris_sportsman_850_2019.name=北极星运动家850 2019款
+item.MClaren_senna.name=迈凯伦 塞纳
+item.ae86trueno.name=丰田 AE86 雷霆
+item.atv_polaris_sportsman_850_2019.name=2019北极星运动家850
 
-item.mwc_gas-detector.name=气体检测仪
-item.mwc_GasGrenade.name=瓦斯手榴弹
+item.mwc_gas-detector.name=毒气检测仪
+item.mwc_GasGrenade.name=毒气弹
 
+item.Marine_helmet.name=海军陆战队 头盔
+item.Marine_chest.name=海军陆战队 衬衫
+item.Marine_boots.name=海军陆战队 靴子
+
+item.Spetznaz_helmet.name=阿尔法小组 头盔
+item.Spetznaz_chest.name=阿尔法小组 衬衫
+item.Spetznaz_boots.name=阿尔法小组 靴子
+
+item.Urban_helmet.name=凯夫拉 头盔
+item.Urban_chest.name=战斗 衬衫
+item.Urban_boots.name=战斗 靴子
+
+item.Swat_helmet.name=中国特种警察 头盔
+item.Swat_chest.name=中国特种警察 护甲
+item.Swat_boots.name=中国特种警察 靴子
+
+item.Tactical_helmet.name=战术夜视镜
 item.m40gasmask_helmet.name=M40防毒面具
 item.JPNVG18_helmet.name=GPNVG-18夜视头盔
 
-item.Marine_helmet.name=海军陆战队头盔
-item.Marine_chest.name=海军陆战队迷彩服
-item.Marine_boots.name=海军陆战队靴子
+item.Nazisanta_helmet.name=德国社会主义圣诞帽
+item.Nazisanta_chest.name=德国社会主义圣诞大衣
+item.Nazisanta_boots.name=德国社会主义圣诞靴子
 
-item.Spetznaz_helmet.name=阿尔法小组头盔
-item.Spetznaz_chest.name=阿尔法小组迷彩服
-item.Spetznaz_boots.name=阿尔法小组靴子
+item.Santa_helmet.name=圣诞帽
+item.Santa_chest.name=圣诞大衣
+item.Santa_boots.name=圣诞靴
 
-item.Swat_helmet.name=反恐特警头盔
-item.Swat_chest.name=反恐特警防弹衣
-item.Swat_boots.name=反恐特警靴子
+item.Spec_Ops_helmet.name=特种作战 头盔
+item.Spec_Ops_chest.name=特种作战 衬衫
+item.Spec_Ops_boots.name=特种作战 靴子
 
-item.GasSwat_helmet.name=特警防毒面具
-item.GasSwat_chest.name=特警重型背心
-item.GasSwat_boots.name=特警重型靴子
+item.Juggernaut_helmet.name=无畏战士 头盔
+item.Juggernaut_chest.name=无畏战士 衬衫
+item.Juggernaut_boots.name=无畏战士 靴子
 
-item.Tactical_helmet.name=战术夜视镜
-item.Tactical_chest.name=特种部队背心
-item.Tactical_boots.name=特种部队靴子
-
-item.Umbrella_helmet.name=单兵作战生化防护头盔
-item.Umbrella_chest.name=单兵作战生化防护服
-item.Umbrella_boots.name=单兵作战生化防护靴子
-
-item.KCPD_boots.name=堪萨斯警察靴子
-item.KCPD_chest.name=堪萨斯警察背心
-
-item.Nazisanta_helmet.name=德意志圣诞帽
-item.Nazisanta_chest.name=德意志圣诞上衣
-item.Nazisanta_boots.name=德意志圣诞靴子
-
-item.Santa_helmet.name=圣诞老人贝雷帽
-item.Santa_chest.name=圣诞老人上衣
-item.Santa_boots.name=圣诞老人靴子
-
-item.Spec_Ops_helmet.name=特种部队头盔
-item.Spec_Ops_chest.name=特种部队迷彩服
-item.Spec_Ops_boots.name=特种部队靴子
-
-item.merc_helmet.name=黑鹰部队佣兵头盔
-item.merc_chest.name=黑鹰部队佣兵迷彩服
-item.merc_boots.name=黑鹰部队佣兵靴子
-
-item.NCR_helmet.name=新加州共和国军头盔
-item.NCR_chest.name=新加州共和国军野战服
-item.NCR_boots.name=新加州共和国军靴子
-
-item.t60_helmet.name=苏联坦克部队T-60 头盔
-item.t60_chest.name=苏联坦克部队T-60 军用马甲 
-item.t60_boots.name=苏联坦克部队T-60 靴子
-
-item.Juggernaut_helmet.name=重装兵头盔
-item.Juggernaut_chest.name=重装兵上衣
-item.Juggernaut_boots.name=重装兵靴子
-
-item.Astronaut_helmet.name=宇航员头盔
-item.Astronaut_chest.name=宇航员护胸
-item.Astronaut_boots.name=宇航员靴子
-
-item.doom_helmet.name=末日头盔
-item.doom_chest.name=末日防弹衣
-item.doom_boots.name=末日靴子
-
-item.SCPGuard_helmet.name=SCP守卫头盔
-item.SCPGuard_chest.name=SCP守卫上衣
-item.SCPGuard_boots.name=SCP守卫靴子
-
-item.Dclass_chest.name=D级成员上衣
-item.Dclass_boots.name=D级成员靴子
-
-item.stars_chest.name=S·T·A·R·S特别行动小组迷彩野战服
-item.stars_boots.name=S·T·A·R·S特别行动小组靴子
-
-item.HECU_helmet.name=危险环境战斗部队头盔
-item.HECU_chest.name=危险环境战斗部队防弹迷彩野战服
-item.HECU_boots.name=危险环境战斗部队靴子
-
-item.scar_helmet.name=空间站军直侦查连EVA头盔
-item.scar_chest.name=空间站军直侦查连EVA服装
-item.scar_boots.name=空间站军直侦查连EVA靴子
-
-item.mwc_combat_sustainment_backpack_tan.name=战斗持久背包（棕色）
-item.mwc_combat_sustainment_backpack_black.name=战斗持久背包（黑色）
-item.mwc_combat_sustainment_backpack_forest.name=战斗持久背包（森林色）
-
-item.mwc_assault_backpack_tan.name=突击背包（棕色）
-item.mwc_assault_backpack_black.name=突击背包（黑色）
-item.mwc_assault_backpack_forest.name=突击背包（森林色）
-
-item.mwc_tru_spec_cordura_backpack_tan.name=Tru-Spec科尔杜拉背包（棕色）
-item.mwc_tru_spec_cordura_backpack_black.name=Tru-Spec科尔杜拉背包（黑色）
-item.mwc_tru_spec_cordura_backpack_forest.name=Tru-Spec科尔杜拉背包（森林色）
-
-item.mwc_f5_switchblade_backpack.name=F5 Switchblade背包
-
-item.mwc_duffle_bag.name=行李袋
-
-item.mwc_flyye_field_compact_plate_carrier.name=翔野战术背心
-item.mwc_forest_flyye_field_compact_plate_carrier.name=翔野战术背心 (丛林)
-item.mwc_black_flyye_field_compact_plate_carrier.name=翔野战术背心 (黑)
-
-item.mwc_flyye_molle_rrv.name=翔野RRV战术背心
-item.mwc_black_flyye_molle_rrv.name=翔野RRV战术背心 (黑)
-item.mwc_urban_flyye_molle_rrv.name=翔野RRV战术背心 (城市)
-
-item.mwc_force_recon_vest.name=战术装备背心式贴身袋
-item.mwc_forest_force_recon_vest.name=战术装备背心式贴身袋 (丛林)
-item.mwc_urban_force_recon_vest.name=战术装备背心式贴身袋 (城市)
-item.mwc_black_force_recon_vest.name=战术装备背心式贴身袋 (黑)
-
-item.mwc_fort_armor.name=6B43 6A身体护具
-item.mwc_viper_sf_desert.name=Viper SF战术背心 (沙漠)
-item.mwc_blackhawk_ballistic_vest.name=黑鹰防弹背心
-item.mwc_umbrella_corp_vest.name=保护伞公司战术背心
-item.mwc_hammer_down_vest.name=锤击战术背心
-item.mwc_hecu_vest.name=危险环境战斗部队战术背心
-item.mwc_juggernaut_body_armor.name=无畏战士身体护具
-item.mwc_marine_vest.name=美国海军陆战队战术背心
-item.mwc_swat_vest.name=特警队战术背心
-item.mwc_viper_sf.name=Viper SF战术背心 (黑)
-item.mwc_viper_sf_green.name=Viper SF战术背心 (丛林)
-item.mwc_usMC_vest.name=美国海军陆战队战术背心
-item.mwc_wfi_task_force_vest.name=Wellness/Fitness特遣队战术背心
-item.mwc_scar_vest.name=Scar特种部队战术背心
-
-item.mwc_combat_sustainment_backpack_black.name=战斗支援背包 (黑)
-item.mwc_combat_sustainment_backpack_forest.name=战斗支援背包 (丛林)
-item.mwc_assault_backpack_black.name=突击背包 (黑)
-item.mwc_assault_backpack_forest.name=突击背包 (丛林)
-item.mwc_f5switchbladebackpack.name=狩猎背包
-item.mwc_tru_spec_cordura_backpack_black.name=特战防水背包 (黑)
-item.mwc_tru_spec_cordura_backpack_forest.name=特战防水背包 (丛林)
-item.mwc_m43a_chest_harness.name=M43A胸挂
-item.mwc_molle_black.name=翔野战术背心 (黑)
-item.mwc_molle_green.name=翔野战术背心 (绿)
-item.mwc_molle_urban.name=翔野战术背心 (城市)
-item.mwc_usMC_vest_black.name=美国海军陆战队战术背心 (黑)
-item.mwc_usMC_vest_green.name=美国海军陆战队战术背心 (绿)
-item.mwc_usMC_vest_urban.name=美国海军陆战队战术背心 (城市)
-item.Urban_helmet.name=凯夫拉头盔 (城市)
-item.Urban_chest.name=战斗夹克 (城市)
-item.Urban_boots.name=战斗靴子 (城市)
-item.blackcamo_chest.name=多色迷彩衬衫
-item.forest_chest.name=军用迷彩衬衫
-item.blackjeans_boots.name=黑色牛仔裤下装
-item.khakijeans_boots.name=卡其牛仔裤下装
 item.ghillie_helmet.name=吉利服兜帽
 item.ghillie_chest.name=吉利服
 item.ghillie_boots.name=吉利服靴
+
+item.forest_chest.name=军用迷彩 衬衫
+item.blackcamo_chest.name=多色迷彩 衬衫
+item.blackjeans_boots.name=黑色牛仔裤 下装
+item.khakijeans_boots.name=卡其牛仔裤 下装
+
+
+item.mwc_f5_switchblade_backpack.name=狩猎背包
+
+item.mwc_combat_sustainment_backpack_tan.name=战斗支援背包
+item.mwc_combat_sustainment_backpack_black.name=战斗支援背包 (黑色)
+item.mwc_combat_sustainment_backpack_forest.name=战斗支援背包 (丛林)
+
+item.mwc_assault_backpack_tan.name=突击背包
+item.mwc_assault_backpack_black.name=突击背包 (黑色)
+item.mwc_assault_backpack_forest.name=突击背包 (丛林)
+
+item.mwc_tru_spec_cordura_backpack_tan.name=特战防水背包
+item.mwc_tru_spec_cordura_backpack_black.name=特战防水背包 (黑色)
+item.mwc_tru_spec_cordura_backpack_forest.name=特战防水背包 (丛林)
+
+item.mwc_duffle_bag.name=行李包
+
+item.mwc_m43a_chest_harness.name=M43A胸挂
+item.mwc_magazine_belt.name=弹药腰带
+
+
+item.mwc_flyye_field_compact_plate_carrier.name=翔野战术背心
+item.mwc_molle_black.name=翔野战术背心 (黑色)
+item.mwc_molle_green.name=翔野战术背心 (丛林)
+item.mwc_molle_urban.name=翔野战术背心 (城市)
+
+item.mwc_swat_vest.name=中国特种警察战术背心
+
+item.mwc_usMC_vest.name=美国海军陆战队战术背心
+item.mwc_usMC_vest_black.name=美国海军陆战队战术背心 (黑色)
+item.mwc_usMC_vest_green.name=美国海军陆战队战术背心 (丛林)
+item.mwc_usMC_vest_urban.name=美国海军陆战队战术背心 (城市)
+
+
+
 
 item.sv98.name=SV-98 狙击步枪
 item.mp5a5.name=HK MP5 冲锋枪
@@ -186,7 +114,7 @@ item.p10.name=P10 手枪
 item.ak101.name=AK-101 突击步枪
 item.Springfield.name=M1903 步枪
 item.mg42.name=MG-42 机枪
-item.stg44.name=StG-44 突击步枪
+item.stg44.name=STG-44 突击步枪
 item.mk14_ebr.name=M14 射手步枪
 item.glock_18c.name=Glock-18C 手枪
 item.glock_19.name=Glock-19 手枪
@@ -364,7 +292,7 @@ item.mwc_M4A1Mag_2.name=5.56x45mm 30发STANAG弹匣
 item.mwc_AK101Mag_2.name=5.56x45mm 30发弹匣
 item.mwc_AK60Mag.name=5.56x45mm 60发弹匣
 item.mwc_AK15Mag_2.name=7.62x39mm 30发PMAG弹匣
-item.mwc_AK47PMAGTan.name=7.62x39mm 30发PMAG弹匣 (棕黄色)
+item.mwc_AK47PMAGTan.name=7.62x39mm 30发PMAG弹匣 (棕黄)
 item.mwc_AK47Mag.name=7.62x39mm 30发弹匣
 item.mwc_AK50Mag.name=7.62x39mm 50发弹鼓
 item.mwc_AK75Mag.name=7.62x39mm 75发弹鼓
@@ -496,7 +424,6 @@ item.mwc_Bullet8x58.name=8x58mm子弹
 item.mwc_Bullet763x25.name=7.63x25mm子弹
 item.mwc_Bullet380ACP.name=.380 ACP子弹
 item.mwc_Bullet762x35.name=7.62x35mm子弹
-item.mwc_EnergyCase.name=EC 3rd.D能量容器
 item.mwc_Bullet4440.name=44-40 Winchester子弹
 item.mwc_Grenade40mm.name=40mm榴弹
 item.mwc_m202rocket.name=M202火箭弹
@@ -505,7 +432,6 @@ item.mwc_Bullet500.name=.500 Magnum子弹
 item.mwc_Bullet44.name=.44 Magnum子弹
 item.mwc_Bullet357.name=.357子弹
 item.mwc_BFGammo.name=银等离子容器
-item.mwc_PlasmaCapsule.name=二型等离子容器
 item.mwc_Bullet20x82mm.name=20x82mm子弹
 item.mwc_Bullet50AE.name=.50 AE子弹
 item.mwc_Bullet40.name=.40 S&W子弹
@@ -520,18 +446,18 @@ item.mwc_Bullet46x30mm.name=4.6x30mm子弹
 item.mwc_Bullet473x33mm.name=4.73x33mm子弹
 
 item.tactical_tomahawk.name=战术斧
-item.baseball_bat.name=球棒
-item.baseball_bat_nails.name=带钉球棒
-item.night_stick.name=防暴警棍
+item.baseball_bat.name=棒球棍
+item.baseball_bat_nails.name=狼牙棒
+item.night_stick.name=警棍
 
-item.gas_can.name=汽油桶 (道具)
-item.mwc_wcam.name=无线摄影机
+item.gas_can.name=汽油桶
+item.mwc_wcam.name=无线摄像头
 item.mwc_tablet.name=平板电脑
 
 
-item.mwc_M67Frag.name=M67 破片手榴弹
-item.mwc_ImpactGrenade.name=冲击手榴弹
-item.mwc_M18White.name=M18 烟雾弹 (白色)
+item.mwc_M67Frag.name=M67破片手雷
+item.mwc_ImpactGrenade.name=触发式手雷
+item.mwc_M18White.name=M18烟雾弹 (白色)
 item.mwc_Flash.name=闪光弹
 
 item.mwc_ShotgunShell.name=12 Gauge Shotgun Shell
@@ -987,7 +913,7 @@ tile.tin_ore.name=锡矿石
 tile.graphite_ore.name=石墨矿石
 tile.lead_ore.name=铅矿石
 tile.copper_ore.name=铜矿石
-tile.sulfur_ore.name=硫矿石
+tile.sulfur_ore.name=硫磺矿石
 
 item.carbon_composite.name=碳复合材料
 item.steel_ingot.name=钢锭
@@ -998,64 +924,42 @@ item.steel_dust.name=钢粉
 item.sulfur_dust.name=硫粉
 item.tin_ingot.name=锡锭
 item.synthetic_plastic.name=塑料板
-item.synthetic_polymer_composite.name=合成塑胶
+item.synthetic_polymer_composite.name=人造塑料
 item.lead_ingot.name=铅锭
-item.gunmetal_ingot.name=青铜锭
+item.gunmetal_ingot.name=炮铜合金锭
 item.copper_ingot.name=铜锭
-item.gunmetal_composite.name=青铜复合材料
+item.gunmetal_composite.name=枪械金属混合物
 
-//旧版本
-tile.mw:tinore.name=锡矿石
-tile.mw_GraphiteOre.name=石墨矿石
-tile.mw_LeadOre.name=铅矿石
-tile.mw_CopperOre.name=铜矿石
-tile.mw_SulfurOre.name=硫矿石
 
-item.mw_CarbonComposite.name=碳复合材料
-item.mw_SteelIngot.name=钢锭
-item.mw_CarbonFiber.name=碳纤维
-item.mw_GunmetalPlate.name=青铜板
-item.mw_GraphiteChunk.name=石墨块
-item.mw_SteelDust.name=钢粉
-item.mw_SulfurDust.name=硫粉
-item.mw_TinIngot.name=锡锭
-item.mw_PlasticPlate.name=塑料板
-item.mw_SyntheticPlastic.name=合成塑胶
-item.mw_SyntheticPolymerComposite.name=合成聚合物复合材料
-item.mw_LeadIngot.name=铅锭
-item.mw_GunmetalIngot.name=青铜锭
-item.mw_CopperIngot.name=铜锭
-item.mw_GunmetalComposite.name=青铜复合材料
-//
 
 tile.mwc_weapons_case.name=武器箱
 tile.mwc_weapons_case_small.name=小型武器箱
-tile.mwc_russian_weapons_case.name=俄罗斯武器箱
-tile.mwc_ammo_box.name=弹药盒
-tile.mwc_weapons_locker.name=武器柜
-tile.mwc_fridge_open.name=冰箱道具(打开)
-tile.mwc_fridge_closed.name=冰箱道具(关上)
-tile.mwc_artillery_PROP.name=火炮道具
-tile.mwc_supply_drop.name=空投物资
+tile.mwc_russian_weapons_case.name=俄系武器箱
+tile.mwc_ammo_box.name=弹药箱
+tile.mwc_weapons_locker.name=武器贮藏柜
+tile.mwc_fridge_open.name=冰箱 (开)
+tile.mwc_fridge_closed.name=冰箱 (关)
+tile.mwc_artillery_PROP.name=火炮
+tile.mwc_supply_drop.name=补给空投
 tile.mwc_medical_crate.name=医疗箱
-tile.mwc_locker.name=储物柜
-tile.mwc_scp_locker.name=SCP 储物柜
+tile.mwc_locker.name=贮藏柜
+tile.mwc_scp_locker.name=SCP 贮藏柜
 tile.mwc_barrel.name=桶
-tile.mwc_explosive_barrel.name=炸药桶
+tile.mwc_explosive_barrel.name=易爆物桶
 tile.mwc_PC.name=电脑
 tile.mwc_laptop.name=笔记本电脑
 tile.mwc_monitor.name=显示器
 tile.mwc_filingcabinet.name=文件柜
-tile.mwc_filingcabinet_opened.name=文件柜(打开)
-tile.mwc_shelf_right.name=档板(右)
-tile.mwc_shelf_left.name=档板(左)
-tile.mwc_shelf_top.name=档板(上)
+tile.mwc_filingcabinet_opened.name=文件柜 (开)
+tile.mwc_shelf_right.name=档板 (右)
+tile.mwc_shelf_left.name=档板 (左)
+tile.mwc_shelf_top.name=档板 (上)
 tile.mwc_tv.name=电视
-tile.mwc_ceiling_tv.name=天花板电视
-tile.mwc_ceiling_tv_rotated.name=天花板电视 (旋转的)
-tile.mwc_office_chair.name=办公椅道具
-tile.mwc_office_chair_2.name=办公椅 2 道具
-tile.mwc_desk_corner.name=办公桌角道具
+tile.mwc_ceiling_tv.name=吸顶式电视
+tile.mwc_ceiling_tv_rotated.name=吸顶式电视 (旋转)
+tile.mwc_office_chair.name=办公椅
+tile.mwc_office_chair_2.name=办公椅 2
+tile.mwc_desk_corner.name=办公桌角
 tile.mwc_desk_corner_alt1.name=办公桌角 (ALT1)
 tile.mwc_desk_left.name=办公桌左
 tile.mwc_desk_left_alt1.name=办公桌左 (ALT1)
@@ -1068,25 +972,25 @@ tile.mwc_desk_shelf_alt1.name=桌架 (A1)
 tile.mwc_desk_shelf_alt2.name=桌架 (A2)
 tile.mwc_desk_shelf_alt3.name=桌架 (A3)
 tile.mwc_barrier.name=障碍物
-tile.mwc_barrier_rotated.name=障碍物 (旋转的)
+tile.mwc_barrier_rotated.name=障碍物 (旋转)
 tile.mwc_body_bag.name=尸体袋
-tile.mwc_hanging_body.name=吊尸
+tile.mwc_hanging_body.name=缢死的尸体
 tile.mwc_impaled_body.name=刺穿的尸体
 tile.mwc_blank.name=空白方块
 tile.mwc_dumpster.name=垃圾箱
 tile.mwc_wooden_crate.name=木箱
-tile.mwc_wooden_crate_opened.name=木箱(打开)
+tile.mwc_wooden_crate_opened.name=木箱 (开)
 tile.mwc_operating_table.name=手术台
 tile.mwc_operating_table_alt.name=手术台 (ALT)
-tile.mwc_forklift.name=堆高机
-tile.mwc_forklift_alt.name=堆高机 (ALT)
+tile.mwc_forklift.name=叉车
+tile.mwc_forklift_alt.name=叉车 (ALT)
 tile.mwc_trusses.name=桁架
 tile.mwc_ceiling_lamp.name=吊灯
 tile.mwc_ceiling_lamp_alt.name=吊灯 (ALT)
 tile.mwc_vent.name=通风口
-tile.mwc_vent_rotated.name=通风口 (旋转的)
+tile.mwc_vent_rotated.name=通风口 (旋转)
 tile.mwc_vent_corner.name=通风口转角
-tile.mwc_vent_corner_rotated.name=通风口转角 (旋转的)
+tile.mwc_vent_corner_rotated.name=通风口转角 (旋转)
 tile.mwc_vent_corner_rotated_alt.name=通风口转角 (旋转 ALT)
 tile.mwc_vent_intersection.name=通风口交叉路口
 tile.mwc_vent_end.name=通风口出口
@@ -1096,11 +1000,11 @@ tile.mwc_white_desk_right.name=白色办公桌右
 tile.mwc_trash_bin.name=垃圾桶
 tile.mwc_caution_sign.name=警告标志
 tile.mwc_electric_box.name=电箱
-tile.mwc_electric_box_opened.name=电箱(打开)
+tile.mwc_electric_box_opened.name=电箱 (开)
 tile.mwc_home_chair.name=家用椅子
 tile.mwc_outdoor_chair.name=戶外椅
-tile.mwc_home_chair_rotated.name=家用椅子 (旋转的)
-tile.mwc_outdoor_chair_rotated.name=戶外椅 (旋转的)
+tile.mwc_home_chair_rotated.name=家用椅子 (旋转)
+tile.mwc_outdoor_chair_rotated.name=戶外椅 (旋转)
 tile.mwc_vending_machine.name=自动贩卖机
 tile.mwc_ServerRackLeft.name=服务器机柜 左
 tile.mwc_ServerRackEmptyLeft.name=服务器机柜架 左
@@ -1114,13 +1018,13 @@ tile.mwc_ServerRackTopLeft.name=服务器机柜 左上
 tile.mwc_ServerRackTopRight.name=服务器机柜 右上
 tile.mwc_DuelFloodLight.name=决斗泛光灯
 tile.mwc_FloodLight.name=泛光灯
-tile.mwc_Radio_rotated.name=无线电 (旋转的)
+tile.mwc_Radio_rotated.name=无线电 (旋转)
 tile.mwc_Radio.name=无线电
-tile.mwc_camera_rotated.name=旋转摄影机
+tile.mwc_camera_rotated.name=摄影机 (旋转)
 tile.mwc_pc.name=电脑
 tile.mwc_propanetank.name=丙烷罐
-tile.mwc_towablefloodlight.name=可牵引泛光灯
-tile.mwc_hescobastion.name=艾斯科防爆墙
+tile.mwc_towablefloodlight.name=摇曳泛光灯
+tile.mwc_hescobastion.name=防爆墙
 tile.mwc_sandbag.name=沙袋
 tile.mwc_sandbagwall.name=沙袋墙
 tile.mwc_crossgravestone.name=墓碑十字架 1
@@ -1139,84 +1043,52 @@ tile.weapon_workbench.name=武器工作台
 tile.ammo_press.name=子弹压制器
 
 itemGroup.weapons=武器
-itemGroup.props=传染主题道具 (仅创造)
+itemGroup.props=装饰道具 (创造)
 itemGroup.ammunitionAndMagazines=弹药与弹匣
 itemGroup.attachments=配件
-itemGroup.equipment=护具
+itemGroup.equipment=用具
 itemGroup.throwables=投掷物
-itemGroup.blocksAndIngots=方块&锭
+itemGroup.blocksAndIngots=矿物
 
 key.categories.weaponlib=现代战争方块化
-
-key.texture_change=更换枪械涂装
-
-key.fire_mode=选择射击模式
-
-key.reload=装填
-
+key.fire_mode=切换射击模式
+key.reload=重新装填
 key.attachment=配件模式
-
-key.recoil_fitter=握把类型
-
-key.scope=瞄准镜类型
-
-key.silencer=枪管类型
-
 key.categories.futuristicarsenal=现代战争方块化
-
-key.laser=开关镭射
-
+key.laser=开关激光指示器
 key.add=瞄准镜放大
-
 key.subtract=瞄准镜缩小
-
-key.proning=俯卧
-
+key.proning=匍匐
 key.opendoor=开门
-
 key.custom_inventory=自定义物品栏
-
-key.inspect=查看枪械
-
+key.inspect=检视枪械
 key.nightVision=开关夜视镜
-
 key.unload=卸下弹匣
-
 key.categories.vehicle=现代战争方块化 载具
-
 vehicle.brake=刹车
-
 vehicle.clutch=离合器
-
 vehicle.handbrake=手刹车
-
-vehicle.throttle=节流阀(油门)
-
+vehicle.throttle=节流阀 (油门)
 vehicle.turnleft=左转
-
 vehicle.turnoff=钥匙插入/钥匙拔出
-
 vehicle.turnright=右转
 
-gui.attachmentMode.changeScope=按[%s]键更改瞄准器
-gui.attachmentMode.changeBarrelRig=按[%s]键安装枪管配件
-gui.attachmentMode.changeCamo=按[%s]键改变迷彩顏色
-gui.attachmentMode.changeUnderBarrelRig=按[%s]键更改枪管下方配件
-gui.attachmentMode.applyLaser=按[%s]啟用雷射配件
+
+
 gui.ammoCounter=弹药: %s
 gui.noMagazine=没有弹匣
 gui.noAmmo=没有弹药
 gui.firearmMode=枪支模式: %s
 gui.firearmMode.semi=半自动
 gui.firearmMode.auto=全自动
-gui.firearmMode.burst=三连发
+gui.firearmMode.burst=连发
 gui.inventoryFull=背包已满
 gui.currentZoom=缩放: %s%%
-gui.grenadeExplodes=%s秒后爆炸
-gui.coolingDown=冷却...
+gui.grenadeExplodes=将于%s秒后爆炸
+gui.coolingDown=冷却中...
 
 config.category.ores.name=矿物设定
-config.ores.sulfurSpawnsPerChunk.property.name=硫矿石单区块生成数量
+config.ores.sulfurSpawnsPerChunk.property.name=硫磺矿石单区块生成数量
 config.ores.copperSpawnsPerChunk.property.name=铜矿石单区块生成数量
 config.ores.tinSpawnsPerChunk.property.name=锡矿石单区块生成数量
 config.ores.leadSpawnsPerChunk.property.name=铅矿石单区块生成数量
@@ -1243,7 +1115,7 @@ config.rendering.screenshaders.bloomEffect.property.name=泛光
 config.rendering.screenshaders.filmGrain.property.name=胶片颗粒
 config.rendering.screenshaders.filmGrainIntensity.property.name=胶片颗粒强度
 config.rendering.screenshaders.bloomLayers.property.name=泛光层数量
-config.rendering.screenshaders.onScreenRainAndSnow.property.name=雨雪屏幕残留
+config.rendering.screenshaders.onScreenRainAndSnow.property.name=雨雪天气屏幕效果
 
 config.category.gameplay.name=游戏习惯设定
 config.gameplay.enableAmmoCounter.property.name=弹药计数器
