@@ -11,9 +11,9 @@ public class Vests {
 
         new ItemVest.Builder()
                 .withName("m43a_chest_harness")
-                .withPercentDamageBlocked(0.1)
-                .withDurability(150)
-                .withTab(MWC.EQUIPMENT_TAB)
+                .withPercentDamageBlocked(0.1)  // Amount of damage that won't be dealt to the player 0.1 = 10%
+                .withDurability(150)  // Doesn't work atm - Durability doesn't decrease with damage, nor is it shown with advanced tooltips    
+                .withTab(MWC.EQUIPMENT_TAB)  // Creative Tab
                 .withProperModel("com.paneedah.mwc.models.M43AChestHarness", "m43achestharness.png")
                 .withInventoryPositioning(() -> {
                     new Transform()
