@@ -3340,7 +3340,7 @@ public class Attachments {
                         Placeholder, Kar98Krail, M60Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
                         Attachments.EF88Handguard, KrissVectorReceiver,
                         Vector556Handguard, DesertEagleSlide, DesertEagleSlideBlack, DesertEagleSlideGolden, M1CarbineScoutHandguard,
-						Origin12Grip, HKS20Grip, HoneyBadgerKnightsReceiver, HoneyBadgerKnightsReceiverBlack,
+			Origin12Grip, HKS20Grip, HoneyBadgerKnightsReceiver, HoneyBadgerKnightsReceiverBlack,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, SSG08Chassis, SA58DustCover,
                         M16A1ScopeMount, UMP45Receiver, UMP9Receiver, G2ContenderBarrelLong, S710Receiver,
                         Beowulf50CalReceiver, FamasF1ScopeMount,
