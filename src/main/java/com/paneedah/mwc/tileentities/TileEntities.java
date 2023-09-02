@@ -987,7 +987,7 @@ public class TileEntities {
         				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1, 2);
         				break;
         			case EAST:
-        				boundingBox = new AxisAlignedBB(0, 0, -1, 1, 1, 1)
+        				boundingBox = new AxisAlignedBB(0, 0, -1, 1, 1, 1);
         				break;
         			case NORTH:
         				boundingBox = new AxisAlignedBB(-1, 0, 0, 1, 1, 1);
