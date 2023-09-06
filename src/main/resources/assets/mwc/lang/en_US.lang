@@ -1049,11 +1049,14 @@ key.opendoor=Open Door
 key.proning=Prone
 key.unload=Unload
 
-keys.categories.vehicle=Modern Warfare Cubed (Vehicle)
-vehicle.breake=Brake
+key.categories.vehicle=Modern Warfare Cubed (Vehicle)
+vehicle.brake=Brake
 vehicle.clutch=Clutch
 vehicle.handbrake=Handbreake
 vehicle.throttle=Throttle
+vehicle.turnleft=Turn Left
+vehicle.turnright=Turn Right
+vehicle.turnoff=Turn Off
 
 gui.attachmentMode.changeScope=Press [%s] to change scope
 gui.attachmentMode.changeBarrelRig=Press [%s] to change barrel rig
