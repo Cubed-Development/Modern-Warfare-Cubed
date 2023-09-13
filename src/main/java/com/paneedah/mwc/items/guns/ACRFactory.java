@@ -108,38 +108,26 @@ public class ACRFactory implements GunFactory {
 
         // Compatible ACR attachment ACRStock
         .withCompatibleAttachment(Attachments.ACRStock, true, (model) -> {
-//            GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment ACRStockBlack
         .withCompatibleAttachment(Attachments.ACRStockBlack, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
       })
 
         // Compatible ACR attachment ACRPRSStockTan
         .withCompatibleAttachment(Attachments.ACRPRSStockTan, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment ACRFixedStockTan
         .withCompatibleAttachment(Attachments.ACRFixedStockTan, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment ACRLongRangeStock
         .withCompatibleAttachment(Attachments.ACRLongRangeStock, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment ACRPDWStock
         .withCompatibleAttachment(Attachments.ACRPDWStock, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment CollapseableMOEStock
@@ -211,26 +199,19 @@ public class ACRFactory implements GunFactory {
 
         // Compatible ACR attachment ACRPrecisionHandGuardTan
         .withCompatibleAttachment(Attachments.ACRPrecisionHandGuardTan, (model) -> {
-//        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
-//            GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
 
         // Compatible ACR attachment ACRPolymerHandGuardTan
         .withCompatibleAttachment(Attachments.ACRPolymerHandGuardTan, (model) -> {
-//        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
-//            GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
 
         // Compatible ACR attachment ACRSBRHandGuardTan
         .withCompatibleAttachment(Attachments.ACRSBRHandGuardTan, (model) -> {
-//        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
-//            GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
 
         // Compatible ACR attachment ACRSquareDropHandguardTan
         .withCompatibleAttachment(Attachments.ACRSquareDropHandguardTan, (model) -> {
         	GL11.glTranslatef(0.001f, -0f, 0f);
-//            GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
 
         // Compatible ACR attachment M4A1Mag
@@ -248,14 +229,12 @@ public class ACRFactory implements GunFactory {
         // Compatible ACR attachment Stanag50
         .withCompatibleAttachment(Magazines.Stanag50, (model) -> {
             GL11.glTranslatef(0F, -0.15F, -0.1F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment Stanag60
         .withCompatibleAttachment(Magazines.Stanag60, (model) -> {
             GL11.glRotatef(-10F, 1f, 0f, 0f);
             GL11.glTranslatef(0F, 0.08F, -0.15F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment Stanag100
@@ -641,9 +620,6 @@ public class ACRFactory implements GunFactory {
             .withModel(new BushmasterACR())
             .withActionPiece(AuxiliaryAttachments.ACRAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))
-            //.withTextureName("M4A1")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -768,119 +744,99 @@ public class ACRFactory implements GunFactory {
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MBUSRearSights)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.07f, 0f);
                 }
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.055f, 0f);
                 }
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.05f, 0f);
                 }
 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.08f, 0.25f);
                 }
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(-0F, 0.11f, 0.7f);
                 }
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.05f, 0.3f);
                 }
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.06f, 0.05f);
                 }
                 
              // Reflex Zoom
                 else if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                    //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(-0F, 0.055f, 0.6f);
                 }
 
                 // Reflex Zoom
                 else if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(-0F, 0.055f, 0.6f);
                 }
                 
              // Reflex Zoom
                 else if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                    //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(-0F, 0.045f, 0.6f);
                 }
 
                 // Holo Zoom
                 else if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(-0F, 0.09f, 0.6f);
                 }
                 
              // Holo Zoom
                 else if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                    //System.out.println("Position me for Holo");
                 	 GL11.glTranslatef(-0F, 0.09f, 0.6f);
                 }
                 
                 // Holo Zoom
                 else if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                    //System.out.println("Position me for Holo");
                 	 GL11.glTranslatef(-0F, 0.1f, 0.3f);
                 }
                 
              // Holo Zoom
                 else if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(-0F, 0.08f, 0.8f);
                 }
 
                 // Holo Zoom
                 else if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0F, 0.05f, 0.6f);
                 }
                 
              // Holo Zoom
                 else if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0F, 0.05f, 0.6f);
                 }
                 
              // Holo Zoom
                 else if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(-0.001F, 0.08f, 0.9f);
                 }
                 
              // Holo Zoom
                 else if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(-0.001F, 0.08f, 0.9f);
                 }
                 
              // Holo Zoom
                 else if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AKMIron)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0F, 0.039f, 0.2f);
                 }
 
-                // Everything else
                 {
                 }
 

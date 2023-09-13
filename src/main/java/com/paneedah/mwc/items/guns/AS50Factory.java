@@ -15,8 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class AS50Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -44,15 +42,7 @@ public class AS50Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.08f)
         .withFlashOffsetY(() -> 0.11f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Anti-Materiel Sniper Rifle",
-        "Damage: 25", 
-        "Cartridge: .50 BMG",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 10/100",
-        "Magazines:",
-        "10rnd .50 BMG Magazine (AS50)"))
-        
+
         .withScreenShaking(RenderableState.SHOOTING, 
                 6f, // x 
                 -5f, // y
@@ -69,15 +59,8 @@ public class AS50Factory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.AS50Action, true, (model) -> {
-//        	GL11.glTranslatef(0f, 0f, 1.5f);
-//            GL11.glTranslatef(0F, 0F, 1.5F);
         })
        .withCompatibleAttachment(Magazines.AS50Mag, (model) -> {
-//    	   GL11.glTranslatef(0f, 0.9f, -0.7f);
-//        	 GL11.glRotatef(-20F, 1f, 0f, 0f);
-    	   
-//    	   GL11.glTranslatef(0f, 4f, 2f);
-//      	 GL11.glRotatef(50F, 1f, 0f, 0f);
         })
        .withCompatibleAttachment(Attachments.HK416FrontSight, true, (model) -> {
            if(model instanceof G95_upright_frontsights) {
@@ -130,8 +113,6 @@ public class AS50Factory implements GunFactory {
 		            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 		            GL11.glScaled(0.15F, 0.15F, 0.15F);
 		        } else if (model instanceof SightMount) {
-		//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-		//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 		        }
 		    })
         .withCompatibleAttachment(Attachments.Reflex, () -> {
@@ -269,9 +250,6 @@ public class AS50Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
 
             .withModel(new AS50())
-            //.withTextureName("AWP")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -293,18 +271,6 @@ public class AS50Factory implements GunFactory {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glRotatef(5f, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.600000f, 2.500000f, -0.725000f);
-                
-//                GL11.glScalef(2.5f, 2.5f, 2.5f);
-//                GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(25.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(15.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-1.399999f, 2.975002f, 0.675000f);
-                
-//                GL11.glScalef(2.5f, 2.5f, 2.5f);
-//                GL11.glRotatef(-3.500000f, 1f, 0f, 0f);
-//                GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(34.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(0.025000f, 2.874999f, -0.125000f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -327,7 +293,6 @@ public class AS50Factory implements GunFactory {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glRotatef(12f, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.6f, 2.2f, -1f);
-//                GL11.glRotatef(-0.7F, 1f, 0f, 0f);
                 })
                 
              .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.AS50Action.getRenderablePart(), (renderContext) -> {
@@ -342,7 +307,7 @@ public class AS50Factory implements GunFactory {
            		 
             		// mag touches gun
                      
-                     new Transition((renderContext) -> { // Reload position
+                     new Transition((renderContext) -> { 
                     	 GL11.glScalef(2.5f, 2.5f, 2.5f);
                          GL11.glRotatef(-61.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(25.000000f, 0f, 1f, 0f);
@@ -352,7 +317,7 @@ public class AS50Factory implements GunFactory {
             		 
             		 // mag touches gun
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(2.5f, 2.5f, 2.5f);
                         GL11.glRotatef(-64.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(25.000000f, 0f, 1f, 0f);
@@ -362,7 +327,7 @@ public class AS50Factory implements GunFactory {
                     
                     // jiggle
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(2.5f, 2.5f, 2.5f);
                         GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(25.000000f, 0f, 1f, 0f);
@@ -372,7 +337,7 @@ public class AS50Factory implements GunFactory {
                     
                     // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-64.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(25.000000f, 0f, 1f, 0f);
@@ -382,7 +347,7 @@ public class AS50Factory implements GunFactory {
                 
                 // mag inserts
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-67.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(25.000000f, 0f, 1f, 0f);
@@ -392,7 +357,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-68.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(25.000000f, 0f, 1f, 0f);
@@ -402,7 +367,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-68.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(25.000000f, 0f, 1f, 0f);
@@ -412,7 +377,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-67.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(25.000000f, 0f, 1f, 0f);
@@ -422,7 +387,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-67.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(25.000000f, 0f, 1f, 0f);
@@ -432,7 +397,7 @@ public class AS50Factory implements GunFactory {
                 
                 // gun rotates left - right hand grabs action
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-5.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(30.000000f, 0f, 1f, 0f);
@@ -442,7 +407,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-4.800000f, 1f, 0f, 0f);
                     GL11.glRotatef(31.000000f, 0f, 1f, 0f);
@@ -452,7 +417,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-5.100000f, 1f, 0f, 0f);
                     GL11.glRotatef(30.100000f, 0f, 1f, 0f);
@@ -462,7 +427,7 @@ public class AS50Factory implements GunFactory {
                 
                 // right hand pulls action half way
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-7.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(30.000000f, 0f, 1f, 0f);
@@ -472,7 +437,7 @@ public class AS50Factory implements GunFactory {
                 
                 // right hand finishes pulling
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(30.000000f, 0f, 1f, 0f);
@@ -482,7 +447,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-9.200000f, 1f, 0f, 0f);
                     GL11.glRotatef(30.000000f, 0f, 1f, 0f);
@@ -492,7 +457,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-8.800000f, 1f, 0f, 0f);
                     GL11.glRotatef(30.000000f, 0f, 1f, 0f);
@@ -502,7 +467,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-8.500000f, 1f, 0f, 0f);
                     GL11.glRotatef(30.000000f, 0f, 1f, 0f);
@@ -512,7 +477,7 @@ public class AS50Factory implements GunFactory {
                 
                 // right hand lets go of action
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-2.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(30.000000f, 0f, 1f, 0f);
@@ -522,7 +487,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-4.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(30.000000f, 0f, 1f, 0f);
@@ -532,7 +497,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(2.5f, 2.5f, 2.5f);
                     GL11.glRotatef(-3.500000f, 1f, 0f, 0f);
                     GL11.glRotatef(30.000000f, 0f, 1f, 0f);
@@ -545,7 +510,7 @@ public class AS50Factory implements GunFactory {
             		
             		// left hand moves to lever
             		
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(2.5f, 2.5f, 2.5f);
                         GL11.glRotatef(-27.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(40.000000f, 0f, 1f, 0f);
@@ -555,7 +520,7 @@ public class AS50Factory implements GunFactory {
                     
                     // left hand pushes lever
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(2.5f, 2.5f, 2.5f);
                         GL11.glRotatef(-24.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(40.000000f, 0f, 1f, 0f);
@@ -565,7 +530,7 @@ public class AS50Factory implements GunFactory {
                     
                     // left hand grabs mag
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(2.5f, 2.5f, 2.5f);
                         GL11.glRotatef(-25.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(40.000000f, 0f, 1f, 0f);
@@ -575,7 +540,7 @@ public class AS50Factory implements GunFactory {
                     
                     // left hand drops mag
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(2.5f, 2.5f, 2.5f);
                         GL11.glRotatef(-25.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(40.000000f, 0f, 1f, 0f);
@@ -585,7 +550,7 @@ public class AS50Factory implements GunFactory {
                     
                     // left hand drops mag
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(2.5f, 2.5f, 2.5f);
                         GL11.glRotatef(-25.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(40.000000f, 0f, 1f, 0f);
@@ -597,107 +562,107 @@ public class AS50Factory implements GunFactory {
             .withFirstPersonCustomPositioningReloading(AuxiliaryAttachments.AS50Action.getRenderablePart(),
             		// mag touches gun
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     }, 400, 150),
             		
             		// mag touches gun
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     }, 400, 150),
                     
                     // jiggle
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     }, 300, 60),
                     
                     // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 100, 170),
                 
                 // mag inserts
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 350, 100),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 220, 200),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 220, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // gun rotates left - right hand grabs action
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // right hand pulls action half way
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                     GL11.glTranslatef(0f, 0f, 0.8f);
                 }, 450, 0),
                 
                 // right hand finishes pulling
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glTranslatef(0f, 0f, 1.5f);
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glTranslatef(0f, 0f, 1.5f);
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glTranslatef(0f, 0f, 1.5f);
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glTranslatef(0f, 0f, 1.5f);
                 }, 450, 0),
                 
                 // right hand lets go of action
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0)
             )
                         
@@ -717,110 +682,110 @@ public class AS50Factory implements GunFactory {
             .withFirstPersonCustomPositioningReloading(Magazines.AS50Mag,
             		// left hand goes down
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glTranslatef(0f, 2.5f, 2.5f);
                      	 GL11.glRotatef(50F, 1f, 0f, 0f);
                     }, 400, 150),
             		
             		// mag touches gun
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glTranslatef(0f, 0.9f, -0.7f);
                    	 GL11.glRotatef(-20F, 1f, 0f, 0f);
                     }, 400, 150),
                     
                     // jiggle
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glTranslatef(0f, 0.9f, -0.7f);
                    	 GL11.glRotatef(-20F, 1f, 0f, 0f);
                     }, 300, 60),
                     
                     // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glTranslatef(0f, 0.9f, -0.7f);
                	 GL11.glRotatef(-20F, 1f, 0f, 0f);
                 }, 100, 170),
                 
                 // mag inserts
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 350, 100),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 220, 200),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 220, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // gun rotates left - right hand grabs action
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // right hand pulls action half way
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // right hand finishes pulling
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // right hand lets go of action
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0),
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 }, 450, 0)
             )
                     
@@ -863,68 +828,61 @@ public class AS50Factory implements GunFactory {
                     )
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.47F, 0.47F, 0.47F);
                         GL11.glTranslatef(-3.5F, -1.8F, 3.4F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 250, 100),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.47F, 0.47F, 0.47F);
                         GL11.glTranslatef(-3.5F, -1.8F, 3.4F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 150, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.47F, 0.47F, 0.47F);
                         GL11.glTranslatef(-3.5F, -1.8F, 3.4F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 260, 0),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.47F, 0.47F, 0.47F);
                         GL11.glTranslatef(-3.5F, -1.8F, 3.4F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 400, 150),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.47F, 0.47F, 0.47F);
                         GL11.glTranslatef(-3.5F, -1.8F, 3.4F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 300, 60),
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                     GL11.glScaled(0.47F, 0.47F, 0.47F);
                     GL11.glTranslatef(-3.5F, -1.8F, 3.4F);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 }, 100, 170),
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                     GL11.glScaled(0.47F, 0.47F, 0.47F);
                     GL11.glTranslatef(-3.8F, -2F, 4F);
                     GL11.glRotatef(-60F, 0f, 1f, 0f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 }, 350, 100),
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                     GL11.glScaled(0.47F, 0.47F, 0.47F);
                     GL11.glTranslatef(-3.8F, -2F, 4F);
                     GL11.glRotatef(-60F, 0f, 1f, 0f);
                     GL11.glRotatef(100F, 1f, 0f, 0f);
                 }, 220, 200),
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                     GL11.glScaled(0.47F, 0.47F, 0.47F);
                     GL11.glTranslatef(-3.8F, -2F, 4F);
                     GL11.glRotatef(-60F, 0f, 1f, 0f);
@@ -934,8 +892,6 @@ public class AS50Factory implements GunFactory {
             )
             
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.AS50Action.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                     new Transition((renderContext) -> {
                     }, 500, 1000),
                     new Transition((renderContext) -> {
@@ -959,34 +915,34 @@ public class AS50Factory implements GunFactory {
                         
                     
             .withFirstPersonPositioningDrawing(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(2.5f, 2.5f, 2.5f);
                         GL11.glRotatef(32F, 0f, 1f, 0f);
                         GL11.glRotatef(15f, 0f, 0f, 1f);
                         GL11.glRotatef(8f, 1f, 0f, 0f);
                         GL11.glTranslatef(-0.4f, 2.8f, -0.4f);
                     }, 210, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(2.5f, 2.5f, 2.5f);
                         GL11.glRotatef(34F, 0f, 1f, 0f);
                         GL11.glRotatef(15f, 0f, 0f, 1f);
                         GL11.glRotatef(4f, 1f, 0f, 0f);
                         GL11.glTranslatef(-0.4f, 2.6f, -0.3f);
                     }, 210, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(2.5f, 2.5f, 2.5f);
                         GL11.glRotatef(37F, 0f, 1f, 0f);
                         GL11.glRotatef(15f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.5f, 2.500000f, -0.3f);
                     }, 390, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(2.5f, 2.5f, 2.5f);
                         GL11.glRotatef(38F, 0f, 1f, 0f);
                         GL11.glRotatef(10f, 0f, 0f, 1f);
                         GL11.glRotatef(-2f, 1f, 0f, 0f);
                         GL11.glTranslatef(-0.5f, 2.500000f, -0.1f);
                     }, 280, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(2.5f, 2.5f, 2.5f);
                         GL11.glRotatef(40F, 0f, 1f, 0f);
                         GL11.glRotatef(14f, 0f, 0f, 1f);
@@ -995,23 +951,20 @@ public class AS50Factory implements GunFactory {
                     )
                     
             .withFirstPersonCustomPositioningDrawing(AuxiliaryAttachments.AS50Action.getRenderablePart(),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     }, 150, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     }, 130, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     }, 200, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glTranslatef(0f, 0f, 1.3f);
                     }, 130, 60),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     }, 110, 0)
                     )
               
             .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glTranslatef(0.07f, 2.3f, -0.5f);
                 
                 GL11.glScalef(2.5f, 2.5f, 2.5f);
                 GL11.glRotatef(45F, 0f, 1f, 0f);
@@ -1107,7 +1060,6 @@ public class AS50Factory implements GunFactory {
                     GL11.glTranslatef(0F, 0.17f, 0.5f);
                 } 
                 
-                // Everything else
                 else {
                 }
                 
@@ -1115,10 +1067,6 @@ public class AS50Factory implements GunFactory {
                 })
                 
             .withFirstPersonPositioningZoomingRecoiled((renderContext) -> {
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glTranslatef(-0.2f, 2.3f, -0.45f);
-//                GL11.glRotatef(5F, 0f, 0f, 1f);
                 
             	GL11.glScalef(2.5f, 2.5f, 2.5f);
                 GL11.glRotatef(45F, 0f, 1f, 0f);
@@ -1337,7 +1285,7 @@ public class AS50Factory implements GunFactory {
             		
             		// left hand goes down
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-30.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-80.000000f, 0f, 1f, 0f);
@@ -1347,7 +1295,7 @@ public class AS50Factory implements GunFactory {
             		
             		// mag touches gun
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     	GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
                     	GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
@@ -1357,7 +1305,7 @@ public class AS50Factory implements GunFactory {
                     
                     // jiggle
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     	GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
                     	GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
@@ -1367,7 +1315,7 @@ public class AS50Factory implements GunFactory {
                     
                     // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                 	GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
                 	GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
@@ -1377,7 +1325,7 @@ public class AS50Factory implements GunFactory {
                 
                 // mag inserts
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
@@ -1387,7 +1335,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
@@ -1397,7 +1345,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
@@ -1407,7 +1355,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
@@ -1417,7 +1365,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
@@ -1427,7 +1375,7 @@ public class AS50Factory implements GunFactory {
                 
                 // gun rotates left - right hand grabs action
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
@@ -1437,7 +1385,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
@@ -1447,7 +1395,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
@@ -1457,7 +1405,7 @@ public class AS50Factory implements GunFactory {
                 
                 // right hand pulls action half way
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
@@ -1467,7 +1415,7 @@ public class AS50Factory implements GunFactory {
                 
                 // right hand finishes pulling
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
@@ -1477,7 +1425,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
@@ -1487,7 +1435,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
@@ -1497,7 +1445,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
@@ -1507,7 +1455,7 @@ public class AS50Factory implements GunFactory {
                 
                 // right hand lets go of action
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
@@ -1517,7 +1465,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
@@ -1527,7 +1475,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
@@ -1540,7 +1488,7 @@ public class AS50Factory implements GunFactory {
             		
             		// left hand goes down
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                          GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -1550,7 +1498,7 @@ public class AS50Factory implements GunFactory {
             		
             		// mag touches gun
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                          GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -1560,7 +1508,7 @@ public class AS50Factory implements GunFactory {
                     
                     // jiggle
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                          GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -1570,7 +1518,7 @@ public class AS50Factory implements GunFactory {
                     
                     // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                      GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                      GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -1580,7 +1528,7 @@ public class AS50Factory implements GunFactory {
                 
                 // mag inserts
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                      GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                      GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -1590,7 +1538,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                      GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                      GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -1600,7 +1548,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                      GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                      GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -1610,7 +1558,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                      GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                      GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -1620,7 +1568,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                      GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                      GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -1630,7 +1578,7 @@ public class AS50Factory implements GunFactory {
                 
                 // gun rotates left - right hand grabs action
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(60.000000f, 0f, 1f, 0f);
@@ -1640,7 +1588,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(60.000000f, 0f, 1f, 0f);
@@ -1650,7 +1598,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(60.000000f, 0f, 1f, 0f);
@@ -1660,7 +1608,7 @@ public class AS50Factory implements GunFactory {
                 
                 // right hand pulls action half way
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                 	GL11.glRotatef(-110.000000f, 1f, 0f, 0f);
                 	GL11.glRotatef(60.000000f, 0f, 1f, 0f);
@@ -1670,7 +1618,7 @@ public class AS50Factory implements GunFactory {
                 
                 // right hand finishes pulling
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                 	GL11.glRotatef(-125.000000f, 1f, 0f, 0f);
                 	GL11.glRotatef(60.000000f, 0f, 1f, 0f);
@@ -1680,7 +1628,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                 	GL11.glRotatef(-125.000000f, 1f, 0f, 0f);
                 	GL11.glRotatef(60.000000f, 0f, 1f, 0f);
@@ -1690,7 +1638,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                 	GL11.glRotatef(-125.000000f, 1f, 0f, 0f);
                 	GL11.glRotatef(60.000000f, 0f, 1f, 0f);
@@ -1700,7 +1648,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                 	GL11.glRotatef(-125.000000f, 1f, 0f, 0f);
                 	GL11.glRotatef(60.000000f, 0f, 1f, 0f);
@@ -1710,7 +1658,7 @@ public class AS50Factory implements GunFactory {
                 
                 // right hand lets go of action
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                 	GL11.glRotatef(-135.000000f, 1f, 0f, 0f);
                 	GL11.glRotatef(60.000000f, 0f, 1f, 0f);
@@ -1720,7 +1668,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                 	GL11.glRotatef(-135.000000f, 1f, 0f, 0f);
                 	GL11.glRotatef(60.000000f, 0f, 1f, 0f);
@@ -1730,7 +1678,7 @@ public class AS50Factory implements GunFactory {
                 
                 // jiggle
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	GL11.glScalef(4.5f, 4.5f, 4.5f);
                 	GL11.glRotatef(-135.000000f, 1f, 0f, 0f);
                 	GL11.glRotatef(60.000000f, 0f, 1f, 0f);
@@ -1740,7 +1688,7 @@ public class AS50Factory implements GunFactory {
             )
                     
             .withFirstPersonLeftHandPositioningUnloading(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
@@ -1748,7 +1696,7 @@ public class AS50Factory implements GunFactory {
                         GL11.glTranslatef(-0.200000f, -0.300000f, -0.100000f);
                     }, 50, 200),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     	GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
                     	GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
@@ -1756,7 +1704,7 @@ public class AS50Factory implements GunFactory {
                     	GL11.glTranslatef(-0.025000f, -0.275000f, -0.025000f);
                     }, 50, 200),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4.5f, 4.5f, 4.5f);
                     	GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
                     	GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
@@ -1764,7 +1712,7 @@ public class AS50Factory implements GunFactory {
                     	GL11.glTranslatef(-0.025000f, -0.275000f, -0.025000f);
                     }, 50, 200),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-30.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-80.000000f, 0f, 1f, 0f);
@@ -1772,7 +1720,7 @@ public class AS50Factory implements GunFactory {
                         GL11.glTranslatef(0.500000f, -0.175000f, -0.125000f);
                     }, 50, 200),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-30.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-80.000000f, 0f, 1f, 0f);
@@ -1781,14 +1729,14 @@ public class AS50Factory implements GunFactory {
                     }, 50, 200))
                     
             .withFirstPersonRightHandPositioningUnloading(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                          GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(10.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.525000f, -0.525000f, 0.050000f);
                     }, 250, 1000),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                          GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -1796,14 +1744,14 @@ public class AS50Factory implements GunFactory {
                          GL11.glTranslatef(0.525000f, -0.525000f, 0.050000f);
                     }, 250, 1000),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                          GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(10.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.525000f, -0.525000f, 0.050000f);
                     }, 250, 50),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                          GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -1811,7 +1759,7 @@ public class AS50Factory implements GunFactory {
                          GL11.glTranslatef(0.525000f, -0.525000f, 0.050000f);
                     }, 250, 50),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4.5f, 4.5f, 4.5f);
                          GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -1820,14 +1768,14 @@ public class AS50Factory implements GunFactory {
                     }, 250, 50))
                     
             .withFirstPersonLeftHandPositioningInspecting(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(5f, 5f, 5f);
                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0f, -0.15f, 0f);
                     }, 250, 50),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(5f, 5f, 5f);
                         GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(5.000000f, 0f, 1f, 0f);
@@ -1836,14 +1784,14 @@ public class AS50Factory implements GunFactory {
                     }, 250, 50))
                     
             .withFirstPersonRightHandPositioningInspecting(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.525000f, -0.525000f, 0.050000f);
                     }, 250, 50),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -1852,66 +1800,59 @@ public class AS50Factory implements GunFactory {
                     }, 250, 50))
                     
             .withThirdPersonLeftHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                    }, 50, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.150000f, 0.050000f, 0.175000f);
                     }, 50, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.150000f, 0.050000f, 0.175000f);
                     }, 50, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-30.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-5.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.150000f, 0.050000f, 0.050000f);
                     }, 50, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-30.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-5.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.150000f, 0.050000f, 0.050000f);
                     }, 50, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.150000f, 0.050000f, 0.175000f);
                     }, 50, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.150000f, 0.050000f, 0.175000f);
                     }, 250, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-25.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.150000f, 0.150000f, 0.100000f);
                     }, 250, 100),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-25.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.150000f, 0.150000f, 0.100000f);
                     }, 280, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -1920,14 +1861,7 @@ public class AS50Factory implements GunFactory {
                     }, 280, 0))
                     
             .withThirdPersonRightHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(4f, 4f, 5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                    }, 250, 1000),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-60.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-20.000000f, 0f, 1f, 0f);
@@ -1935,21 +1869,21 @@ public class AS50Factory implements GunFactory {
                         GL11.glTranslatef(0.100000f, -0.100000f, 0.125000f);
                     }, 250, 1000),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-58.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-23.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-40.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.100000f, -0.100000f, 0.125000f);
                     }, 250, 50),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-59.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-21.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-40.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.100000f, -0.100000f, 0.125000f);
                     }, 250, 50),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-60.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-20.000000f, 0f, 1f, 0f);
@@ -1957,7 +1891,7 @@ public class AS50Factory implements GunFactory {
                         GL11.glTranslatef(0.100000f, -0.100000f, 0.125000f);
                     }, 250, 1000),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-60.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-25.000000f, 0f, 1f, 0f);
@@ -1965,28 +1899,28 @@ public class AS50Factory implements GunFactory {
                         GL11.glTranslatef(0.100000f, -0.100000f, 0.125000f);
                     }, 250, 50),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-60.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-20.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-40.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.100000f, -0.100000f, 0.125000f);
                     }, 260, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-130.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-35.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.325000f, -0.100000f, 0.275000f);
                     }, 250, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-135.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-30.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-65.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.325000f, -0.175000f, 0.275000f);
                     }, 250, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-130.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-35.000000f, 0f, 1f, 0f);
@@ -1995,35 +1929,35 @@ public class AS50Factory implements GunFactory {
                     }, 300, 0))
                     
             .withFirstPersonLeftHandPositioningDrawing(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.125000f, 0.075000f, 0.025000f);
                     }, 150, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.125000f, 0.075000f, 0.025000f);
                     }, 130, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.125000f, 0.075000f, 0.025000f);
                     }, 200, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.125000f, 0.075000f, 0.025000f);
                     }, 130, 60),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
@@ -2033,35 +1967,35 @@ public class AS50Factory implements GunFactory {
                     )
                     
             .withFirstPersonRightHandPositioningDrawing(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.525000f, -0.525000f, 0.050000f);
                     }, 150, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.525000f, -0.525000f, 0.050000f);
                     }, 130, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(15.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.075000f, 0.000000f, -0.225000f);
                     }, 280, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(15.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.125000f, -0.250000f, -0.100000f);
                     }, 280, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(4.5f, 4.5f, 4.5f);
                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(15.000000f, 0f, 1f, 0f);

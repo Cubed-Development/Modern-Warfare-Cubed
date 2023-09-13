@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class BrenMkIIFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -27,7 +25,6 @@ public class BrenMkIIFactory {
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.HEAVY)
         .withMaxShots(1, Integer.MAX_VALUE)
-        //.withMaxShots(5)
         .withShootSound("bren")
         .withSilencedShootSound("ak15_silenced")
         .withReloadSound("ak15_reload")
@@ -57,9 +54,6 @@ public class BrenMkIIFactory {
                 2f, // y
                 5f) // z
         
-//        .withCompatibleAttachment(AuxiliaryAttachments.AKaction, true, (model) -> {
-////            GL11.glTranslatef(0f, 0f, 1f);
-//        })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {
                 GL11.glTranslatef(0.125F, -1.8F, -0.5F);
@@ -113,9 +107,6 @@ public class BrenMkIIFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new BrenMkII())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -171,7 +162,7 @@ public class BrenMkIIFactory {
             
             .withFirstPersonPositioningReloading(
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glRotatef(45F, 0f, 1f, 0f);
                         GL11.glScalef(2f, 2f, 2f);
                         GL11.glRotatef(10.000000f, 0f, 0f, 1f);
@@ -179,7 +170,7 @@ public class BrenMkIIFactory {
                         GL11.glTranslatef(-0.675000f, 0.125000f, -2.300001f);
                     }, 400, 0),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glRotatef(45F, 0f, 1f, 0f);
                          GL11.glScalef(2f, 2f, 2f);
                          GL11.glRotatef(3.000000f, 0f, 0f, 1f);
@@ -187,7 +178,7 @@ public class BrenMkIIFactory {
                          GL11.glTranslatef(-0.675000f, 0.125000f, -2.400001f);
                     }, 300, 50),
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	 GL11.glRotatef(45F, 0f, 1f, 0f);
                      GL11.glScalef(2f, 2f, 2f);
                      GL11.glRotatef(5.000000f, 0f, 0f, 1f);
@@ -195,7 +186,7 @@ public class BrenMkIIFactory {
                      GL11.glTranslatef(-0.675000f, 0.125000f, -2.500001f);
                 }, 100, 150),
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	 GL11.glRotatef(45F, 0f, 1f, 0f);
                      GL11.glScalef(2f, 2f, 2f);
                      GL11.glRotatef(6.000000f, 0f, 0f, 1f);
@@ -203,14 +194,14 @@ public class BrenMkIIFactory {
                      GL11.glTranslatef(-0.675000f, 0.125000f, -2.600001f);
                 }, 350, 0),
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	 GL11.glRotatef(45F, 0f, 1f, 0f);
                      GL11.glScalef(2f, 2f, 2f);
                      GL11.glRotatef(9.000000f, 0f, 0f, 1f);
                      GL11.glTranslatef(-0.675000f, 0.125000f, -2.300001f);
                 }, 160, 100),
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                 	 GL11.glRotatef(45F, 0f, 1f, 0f);
                      GL11.glScalef(2f, 2f, 2f);
                      GL11.glRotatef(5.000000f, 0f, 0f, 1f);
@@ -219,28 +210,28 @@ public class BrenMkIIFactory {
             )
             
             .withFirstPersonPositioningUnloading(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glRotatef(45F, 0f, 1f, 0f);
                          GL11.glScalef(2f, 2f, 2f);
                          GL11.glRotatef(10.000000f, 0f, 0f, 1f);
                          GL11.glRotatef(4.000000f, 1f, 0f, 0f);
                          GL11.glTranslatef(-0.675000f, 0.075000f, -2.500001f);
                     }, 240, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glRotatef(45F, 0f, 1f, 0f);
                          GL11.glScalef(2f, 2f, 2f);
                          GL11.glRotatef(11.000000f, 0f, 0f, 1f);
                          GL11.glRotatef(5.000000f, 1f, 0f, 0f);
                          GL11.glTranslatef(-0.675000f, 0.125000f, -2.400001f);
                     }, 200, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glRotatef(45F, 0f, 1f, 0f);
                          GL11.glScalef(2f, 2f, 2f);
                          GL11.glRotatef(13.000000f, 0f, 0f, 1f);
                          GL11.glRotatef(8.000000f, 1f, 0f, 0f);
                          GL11.glTranslatef(-0.675000f, 0.125000f, -2.300001f);
                     }, 200, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glRotatef(45F, 0f, 1f, 0f);
                          GL11.glScalef(2f, 2f, 2f);
                          GL11.glRotatef(12.000000f, 0f, 0f, 1f);
@@ -333,54 +324,47 @@ public class BrenMkIIFactory {
                     )
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 210, 100),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 130, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 240, 0),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 400, 150),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 300, 60),
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
                     GL11.glTranslatef(-2.2F, -2F, 2.7F);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 }, 120, 190),
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
                     GL11.glTranslatef(-2.2F, -2.7F, 3.6F);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
@@ -388,7 +372,7 @@ public class BrenMkIIFactory {
                     GL11.glRotatef(12F, 0f, 0f, 1f);
                 }, 300, 100),
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
                     GL11.glTranslatef(-2.2F, -2F, 3.6F);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
@@ -396,7 +380,7 @@ public class BrenMkIIFactory {
                     GL11.glRotatef(12F, 0f, 0f, 1f);
                 }, 120, 100),
                 
-                new Transition((renderContext) -> { // Reload position
+                new Transition((renderContext) -> { 
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
                     GL11.glTranslatef(-2.2F, -2.7F, 3.6F);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
@@ -407,35 +391,35 @@ public class BrenMkIIFactory {
             )
                         
             .withFirstPersonPositioningDrawing(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glRotatef(45F, 0f, 1f, 0f);
                         GL11.glScalef(2f, 2f, 2f);
                         GL11.glRotatef(7.000000f, 0f, 0f, 1f);
                         GL11.glRotatef(25.000000f, 1f, 0f, 0f);
                         GL11.glTranslatef(-0.675000f, 0.375000f, -2.400001f);
                     }, 120, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glRotatef(45F, 0f, 1f, 0f);
                         GL11.glScalef(2f, 2f, 2f);
                         GL11.glRotatef(7.000000f, 0f, 0f, 1f);
                         GL11.glRotatef(20.000000f, 1f, 0f, 0f);
                         GL11.glTranslatef(-0.675000f, 0.275000f, -2.500001f);
                     }, 120, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glRotatef(45F, 0f, 1f, 0f);
                         GL11.glScalef(2f, 2f, 2f);
                         GL11.glRotatef(7.000000f, 0f, 0f, 1f);
                         GL11.glRotatef(10.000000f, 1f, 0f, 0f);
                         GL11.glTranslatef(-0.675000f, 0.175000f, -2.600001f);
                     }, 270, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glRotatef(45F, 0f, 1f, 0f);
                         GL11.glScalef(2f, 2f, 2f);
                         GL11.glRotatef(7.000000f, 0f, 0f, 1f);
                         GL11.glRotatef(5.000000f, 1f, 0f, 0f);
                         GL11.glTranslatef(-0.675000f, 0.075000f, -2.700001f);
                     }, 190, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glRotatef(45F, 0f, 1f, 0f);
                         GL11.glScalef(2f, 2f, 2f);
                         GL11.glRotatef(7.000000f, 0f, 0f, 1f);
@@ -455,7 +439,6 @@ public class BrenMkIIFactory {
                     GL11.glTranslatef(0F, 0.24f, 0f);
                 } 
                 
-                // Everything else
                 else {
                 }
                 
@@ -475,7 +458,6 @@ public class BrenMkIIFactory {
                     GL11.glTranslatef(0F, 0.24f, -0.05f);
                 } 
                 
-                // Everything else
                 else {
                 }
                 
@@ -513,8 +495,6 @@ public class BrenMkIIFactory {
                          GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.125000f, -0.700000f, 0.325000f);
-                         
-//                         GL11.glScalef(4f, 4f, 4f);
                      }, 
                      (renderContext) -> {
                     	 GL11.glScalef(4f, 4f, 4f);
@@ -590,7 +570,7 @@ public class BrenMkIIFactory {
                      
             .withFirstPersonLeftHandPositioningReloading(
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                     	GL11.glRotatef(-135.000000f, 1f, 0f, 0f);
                     	GL11.glRotatef(5.000000f, 0f, 1f, 0f);
@@ -598,7 +578,7 @@ public class BrenMkIIFactory {
                     	GL11.glTranslatef(-0.125000f, -0.925000f, -0.100000f);
                     }, 50, 200),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                     	GL11.glRotatef(-130.000000f, 1f, 0f, 0f);
                     	GL11.glRotatef(5.000000f, 0f, 1f, 0f);
@@ -606,7 +586,7 @@ public class BrenMkIIFactory {
                     	GL11.glTranslatef(-0.350000f, -0.825000f, -0.175000f);
                     }, 50, 200),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                         GL11.glRotatef(-135.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -614,7 +594,7 @@ public class BrenMkIIFactory {
                         GL11.glTranslatef(-0.375000f, -0.875000f, -0.150000f);
                     }, 250, 0),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 5f);
                         GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -622,7 +602,7 @@ public class BrenMkIIFactory {
                         GL11.glTranslatef(0.125000f, -0.700000f, 0.325000f);
                     }, 250, 0),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 5f);
                         GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -630,7 +610,7 @@ public class BrenMkIIFactory {
                         GL11.glTranslatef(0.125000f, -0.700000f, 0.325000f);
                     }, 250, 0),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 5f);
                         GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -640,7 +620,7 @@ public class BrenMkIIFactory {
                     
             .withFirstPersonRightHandPositioningReloading(
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 	GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 	GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -648,7 +628,7 @@ public class BrenMkIIFactory {
                    	 	GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                     }, 250, 1000),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 	GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 	GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -656,28 +636,28 @@ public class BrenMkIIFactory {
                    	 	GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                     }, 250, 50),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 	GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 	GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                    	 	GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                    	 	GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                     }, 260, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 	GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 	GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                    	 	GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                    	 	GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                     }, 250, 100),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 	GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 	GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                    	 	GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                    	 	GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                     }, 280, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 	GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 	GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -686,7 +666,7 @@ public class BrenMkIIFactory {
                     }, 280, 0))
                     
             .withFirstPersonLeftHandPositioningUnloading(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                         GL11.glRotatef(-135.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -694,7 +674,7 @@ public class BrenMkIIFactory {
                         GL11.glTranslatef(-0.375000f, -0.875000f, -0.150000f);
                     }, 50, 200),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                     	GL11.glRotatef(-130.000000f, 1f, 0f, 0f);
                     	GL11.glRotatef(5.000000f, 0f, 1f, 0f);
@@ -702,14 +682,14 @@ public class BrenMkIIFactory {
                     	GL11.glTranslatef(-0.350000f, -0.825000f, -0.175000f);
                     }, 50, 200),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                     	GL11.glRotatef(-135.000000f, 1f, 0f, 0f);
                     	GL11.glRotatef(5.000000f, 0f, 1f, 0f);
                     	GL11.glRotatef(35.000000f, 0f, 0f, 1f);
                     	GL11.glTranslatef(-0.125000f, -0.925000f, -0.100000f);
                     }, 50, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                     	GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
                     	GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
@@ -718,7 +698,7 @@ public class BrenMkIIFactory {
                     }, 50, 200))
                     
             .withFirstPersonRightHandPositioningUnloading(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 	GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 	GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -726,21 +706,21 @@ public class BrenMkIIFactory {
                    	 	GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                     }, 250, 1000),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 	GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 	GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                    	 	GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                    	 	GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                     }, 250, 50),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 	GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 	GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                    	 	GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                    	 	GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                     }, 250, 50),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 	GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 	GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -749,14 +729,14 @@ public class BrenMkIIFactory {
                     }, 250, 50))
                     
             .withFirstPersonLeftHandPositioningInspecting(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4f, 4f, 4f);
                          GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(40.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(-0.000000f, -0.900000f, 0.175000f);
                     }, 250, 50),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                         GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
@@ -765,14 +745,14 @@ public class BrenMkIIFactory {
                     }, 250, 50))
                     
             .withFirstPersonRightHandPositioningInspecting(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4f, 4f, 4f);
                     	 GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                     	 GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                     	 GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                     	 GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                     }, 250, 50),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4f, 4f, 4f);
                     	 GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                     	 GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -781,70 +761,63 @@ public class BrenMkIIFactory {
                     }, 250, 50))
                     
             .withThirdPersonLeftHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                    }, 50, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(40.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.100000f, -0.025000f, 0.000000f);
                     }, 50, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(40.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.100000f, -0.025000f, 0.000000f);
                     }, 50, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-20.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(20.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.025000f, -0.075000f, -0.075000f);
                     }, 50, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-20.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(20.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.025000f, -0.075000f, -0.075000f);
                     }, 50, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(40.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.100000f, -0.025000f, 0.000000f);
                     }, 50, 200),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(40.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.100000f, -0.025000f, 0.000000f);
                     }, 250, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(40.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.100000f, -0.025000f, 0.000000f);
                     }, 250, 100),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(40.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.100000f, -0.025000f, 0.000000f);
                     }, 280, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
@@ -853,14 +826,7 @@ public class BrenMkIIFactory {
                     }, 280, 0))
                     
             .withThirdPersonRightHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(4f, 4f, 5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                    }, 250, 1000),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -868,21 +834,21 @@ public class BrenMkIIFactory {
                         GL11.glTranslatef(0.000000f, -0.125000f, 0.100000f);
                     }, 250, 1000),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-49.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-1.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.000000f, -0.125000f, 0.100000f);
                     }, 250, 50),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(3.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.000000f, -0.125000f, 0.100000f);
                     }, 250, 50),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -890,7 +856,7 @@ public class BrenMkIIFactory {
                         GL11.glTranslatef(0.000000f, -0.125000f, 0.100000f);
                     }, 250, 1000),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -898,28 +864,28 @@ public class BrenMkIIFactory {
                         GL11.glTranslatef(0.000000f, -0.125000f, 0.100000f);
                     }, 250, 50),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-55.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(14.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(0.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.000000f, -0.125000f, 0.100000f);
                     }, 260, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-60.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(15.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(10.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.050000f, 0.050000f, 0.000000f);
                     }, 250, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-60.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(15.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(15.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.075000f, -0.075000f, 0.025000f);
                     }, 250, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-60.000000f, 1f, 0f, 0f);
                         GL11.glRotatef(15.000000f, 0f, 1f, 0f);
@@ -928,35 +894,35 @@ public class BrenMkIIFactory {
                     }, 300, 0))
                     
             .withFirstPersonLeftHandPositioningDrawing(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4f, 4f, 5f);
                          GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.125000f, -0.700000f, 0.325000f);
                     }, 150, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4f, 4f, 5f);
                          GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.125000f, -0.700000f, 0.325000f);
                     }, 130, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4f, 4f, 5f);
                          GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.125000f, -0.700000f, 0.325000f);
                     }, 200, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4f, 4f, 5f);
                          GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.125000f, -0.700000f, 0.325000f);
                     }, 130, 60),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	 GL11.glScalef(4f, 4f, 5f);
                          GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -966,35 +932,35 @@ public class BrenMkIIFactory {
                     )
                     
             .withFirstPersonRightHandPositioningDrawing(
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                    	 GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                    	 GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                     }, 150, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                    	 GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                    	 GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                     }, 130, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                    	 GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                    	 GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                     }, 250, 100),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                    	 GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                    	 GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                     }, 280, 0),
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                     	GL11.glScalef(4f, 4f, 4f);
                    	 GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                    	 GL11.glRotatef(0.000000f, 0f, 1f, 0f);
