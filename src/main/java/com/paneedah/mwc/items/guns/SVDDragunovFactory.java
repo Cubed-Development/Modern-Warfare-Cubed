@@ -366,7 +366,7 @@ public class SVDDragunovFactory {
                 GL11.glTranslatef(0f, 0f, 1f);
                 })
                     
-            .withThirdPersonPositioningReloading(,
+            .withThirdPersonPositioningReloading(
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
