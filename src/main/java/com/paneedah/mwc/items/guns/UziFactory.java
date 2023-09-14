@@ -18,8 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class UziFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -47,7 +45,6 @@ public class UziFactory implements GunFactory {
         .withFlashScale(() -> 1f)
         .withFlashOffsetX(() -> 0.17f)
         .withFlashOffsetY(() -> 0.23f)
-//      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
@@ -69,15 +66,7 @@ public class UziFactory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Submachine Gun", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 70/100",
-        "Magazines:",
-        "32rnd 9x19mm Magazine"))
-         
+
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
                  0.1f, // y
@@ -87,12 +76,8 @@ public class UziFactory implements GunFactory {
         	 GL11.glTranslatef(0F, 0F, 0F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.UziAction, true, (model) -> {
-//            GL11.glTranslatef(0F, 0.2F, 0.12F);
-//            GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//            GL11.glTranslatef(0F, 1F, 0.4F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.UziRelease, true, (model) -> {
-//        	 GL11.glTranslatef(0F, 0F, 0.6F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.UziIronSight, true, (model) -> {
             if(model instanceof UziRearSight) {
@@ -155,9 +140,6 @@ public class UziFactory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new Uzi())
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -208,56 +190,56 @@ public class UziFactory implements GunFactory {
                     
             .withThirdPersonPositioningReloading(
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.3F, -1F, 3F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 200, 0),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.3F, -1F, 3F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 250, 0),
                 
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.3F, -1F, 3F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 130, 10),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.3F, -1F, 3F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 300, 100),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.3F, -1F, 3F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 200, 0),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.3F, -1F, 3F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 200, 0),
                 
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.3F, -1F, 3F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 270, 50),
                     
-                    new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { 
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.3F, -1F, 3F);
                         GL11.glRotatef(-45F, 0f, 1f, 0f);
@@ -373,7 +355,7 @@ public class UziFactory implements GunFactory {
                 })
                    
            .withThirdPersonLeftHandPositioningReloading(
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -381,7 +363,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(-0.100000f, -0.100000f, 0.100000f);
                    }, 330, 200),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(5.000000f, 0f, 1f, 0f);
@@ -389,7 +371,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(-0.125000f, -0.100000f, 0.125000f);
                    }, 50, 200),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-15.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -397,7 +379,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(-0.075000f, -0.050000f, 0.025000f);
                    }, 250, 0),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-15.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -405,7 +387,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(-0.075000f, -0.050000f, 0.025000f);
                    }, 250, 0),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(5.000000f, 0f, 1f, 0f);
@@ -413,7 +395,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(-0.125000f, -0.100000f, 0.125000f);
                    }, 50, 200),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -421,7 +403,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(-0.100000f, -0.100000f, 0.100000f);
                    }, 50, 200),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -429,7 +411,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(-0.100000f, -0.100000f, 0.100000f);
                    }, 250, 0),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-48.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -438,7 +420,7 @@ public class UziFactory implements GunFactory {
                    }, 250, 0))
                    
            .withThirdPersonRightHandPositioningReloading(
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -446,7 +428,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                    }, 250, 1000),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-67.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -454,7 +436,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                    }, 250, 50),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-67.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -462,7 +444,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                    }, 250, 0),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-66.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -470,7 +452,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                    }, 250, 0),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -478,7 +460,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                    }, 250, 1000),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-62.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -486,7 +468,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                    }, 250, 50),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-62.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -494,7 +476,7 @@ public class UziFactory implements GunFactory {
                        GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                    }, 250, 0),
                    
-                   new Transition((renderContext) -> { // Reload position
+                   new Transition((renderContext) -> { 
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-57.000000f, 1f, 0f, 0f);
                        GL11.glRotatef(5.000000f, 0f, 1f, 0f);

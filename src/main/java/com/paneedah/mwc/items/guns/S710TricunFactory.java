@@ -15,7 +15,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class S710TricunFactory implements GunFactory {
 
@@ -45,7 +44,6 @@ public class S710TricunFactory implements GunFactory {
                 .withFlashOffsetY(() -> 0.16f)
                 .withShellCasingForwardOffset(0.05f)
                 .withShellCasingVerticalOffset(-0.03f)
-//		.withShellCasingEjectEnabled(false)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -66,14 +64,6 @@ public class S710TricunFactory implements GunFactory {
                         // Ads similarity divisor
                         1.0
                 ))
-                .withInformationProvider(stack -> Arrays.asList(
-                        "Type: Submachine Gun",
-                        "Damage: 5.4",
-                        "Cartridge: 10mm",
-                        "Fire Rate: SEMI, AUTO",
-                        "Rate of Fire: 80/100",
-                        "Magazines:",
-                        "30rnd 10mm Magazine"))
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         2f, // x
@@ -219,16 +209,12 @@ public class S710TricunFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.S710Handguard, true, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.S710TricunGrip, true, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.M4Grip, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.HeraArmsGrip, (model) -> {
                     GL11.glTranslatef(0F, -0.05F, 0F);
@@ -310,8 +296,6 @@ public class S710TricunFactory implements GunFactory {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     } else if (model instanceof SightMount) {
-                        //        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-                        //            GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
 
@@ -563,8 +547,6 @@ public class S710TricunFactory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(0.18f, -0.028f, 0.6f);
 
 

@@ -18,8 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class HK_P12Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -47,7 +45,6 @@ public class HK_P12Factory implements GunFactory {
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.17f)
-//      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
@@ -69,15 +66,7 @@ public class HK_P12Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Service Pistol", 
-        "Damage: 5.3", 
-        "Cartridge: .45 ACP",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 30/100",
-        "Magazines:",
-        "8rnd .45 ACP HK Magazine"))
-        
+
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 
                 0.1f, // y
@@ -113,7 +102,6 @@ public class HK_P12Factory implements GunFactory {
         .withCompatibleAttachment(AuxiliaryAttachments.P12_Slide, true, (model) -> {
             if(model instanceof USP45Slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof P2000rearsight) {
                 GL11.glTranslatef(-0.153F, -1.185F, -0.03F);
@@ -125,12 +113,8 @@ public class HK_P12Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Magazines.USP45Mag, (model) -> {
-//        	GL11.glTranslatef(0.05f, 2.5f, 0.2f);
-//        	 GL11.glRotatef(-20F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.USP45hammer, true, (model) -> {
-//          GL11.glTranslatef(-0F, -0.17F, 0.53F);
-//        	GL11.glRotatef(45F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(0.01F, -0.65F, -2.3F);
@@ -156,8 +140,6 @@ public class HK_P12Factory implements GunFactory {
         }
         })
         .withCompatibleAttachment(Attachments.USPMatchCompensator, (model) -> {
-////            GL11.glTranslatef(-0.23F, -1.14F, -4.92F);
-////            GL11.glScaled(1.5F, 1.5F, 1.5F);
         })
         .withCompatibleAttachment(Attachments.Silencer45ACP, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
@@ -185,9 +167,6 @@ public class HK_P12Factory implements GunFactory {
             .withActionPiece(
             		AuxiliaryAttachments.P12_Slide)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);

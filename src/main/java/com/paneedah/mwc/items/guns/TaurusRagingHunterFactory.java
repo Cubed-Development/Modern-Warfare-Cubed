@@ -70,25 +70,11 @@ public class TaurusRagingHunterFactory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MagnumChamber, true, (model) -> {
-//          GL11.glTranslatef(-0.35f, -0.1f, 0f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoader, true, (model) -> {
-//			GL11.glTranslatef(-0f, -0.1f, 0.7f);
-//			GL11.glRotatef(30F, 0f, 1f, 0f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
             })
 		.withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoaderBullets, true, (model) -> {
-//			GL11.glTranslatef(0f, 0f, 0.001f);
-			
-//			GL11.glTranslatef(-0.35f, -0.1f, 0.4f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
 		})
-//        .withCompatibleAttachment(Attachments.DanWessonLaser, () -> {
-//            GL11.glTranslatef(0.01F, -1.45F, -2.6F);
-//            GL11.glScaled(0.9F, 0.9F, 0.9F);
-//        })
         .withCompatibleAttachment(Attachments.RMR, () -> {
             GL11.glTranslatef(-0.19F, -1.40F, -1.7F);
             GL11.glScaled(0.4F, 0.4F, 0.4F);
@@ -112,9 +98,6 @@ public class TaurusRagingHunterFactory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new TaurusRagingHunter())
-            //.withTextureName("XEagle")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
