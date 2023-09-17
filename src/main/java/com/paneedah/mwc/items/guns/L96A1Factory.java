@@ -12,8 +12,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class L96A1Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -44,15 +42,6 @@ public class L96A1Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.08f)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Sniper Rifle",
-        "Damage: 14", 
-        "Cartridge: 7.62x54mm",
-        "Fire Rate: BOLT ACTION",
-        "Rate of Fire: 16/100",
-        "Magazines:",
-        "10rnd 7.62x54mm LAPUA Magazine"))
-        
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 
                 2f, // y
@@ -241,12 +230,6 @@ public class L96A1Factory implements GunFactory {
                 GL11.glScaled(0.6F, 0.6F, 0.8F);
                 GL11.glTranslatef(-0.3F, -1.6F, -2.2F);
                 GL11.glRotatef(90f, 1f, 0f, 0f);
-                
-                
-//                GL11.glScaled(0.4F, 0.4F, 0.6F);
-//                GL11.glTranslatef(-0.95F, -3.1F, -3.5F);
-//                GL11.glRotatef(70f, 1f, 0f, 0f);
-//                GL11.glRotatef(5f, 0f, 1f, 0f);
             }
         })
 //        .withCompatibleAttachment(Attachments.Silencer762x54, (model) -> {
@@ -257,9 +240,6 @@ public class L96A1Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new L96())
-            //.withTextureName("AWP")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -281,12 +261,6 @@ public class L96A1Factory implements GunFactory {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glRotatef(7f, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.350000f, 1.274999f, -0.525000f);
-                
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glRotatef(42F, 0f, 1f, 0f);
-//                GL11.glRotatef(-2f, 0f, 0f, 1f);
-//                GL11.glRotatef(2f, 1f, 0f, 0f);
-//                GL11.glTranslatef(-0.40000f, 1.274999f, -0.525000f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -313,12 +287,9 @@ public class L96A1Factory implements GunFactory {
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.L115Bolt1.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(0F, 0F, 1.05F);
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.L115Bolt2.getRenderablePart(), (renderContext) -> {
-//            	GL11.glRotatef(50F, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.85F, 0.5F, 1.05F);
                 })
                 
             .withFirstPersonPositioningEjectSpentRound(
@@ -1341,11 +1312,6 @@ public class L96A1Factory implements GunFactory {
                          
                      }, 
                      (renderContext) -> {
-//                         GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                         GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(25.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.375000f, -0.475000f, 0.250000f);
                      })
                      
             .withFirstPersonHandPositioningProning(

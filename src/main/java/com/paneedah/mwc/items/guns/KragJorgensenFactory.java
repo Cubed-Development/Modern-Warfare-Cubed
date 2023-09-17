@@ -14,15 +14,12 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class KragJorgensenFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
 
         .withName("Krag_Jorgensen")
-//      .ModelRenderer(CommonProxy.XWPMag)
         .withAmmoCapacity(5)
         .withFireRate(0.16f)
         .withIteratedLoad()
@@ -34,7 +31,6 @@ public class KragJorgensenFactory implements GunFactory {
         .withMaxShots(1)
         .withShootSound("kragjorgensen")
         .withPumpTimeout(950)
-        //.withSilencedShootSound("AR15silenced")
         .withReloadSound("krag_chamberopen")
         .withAllReloadIterationsCompletedSound("krag_chamberclosed")
         .withReloadIterationSound("loadbullet")
@@ -57,28 +53,16 @@ public class KragJorgensenFactory implements GunFactory {
                 7f) // z
         
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Repeating Bolt-action rifle",
-        "Damage: 13.8",
-        "Cartridge: 8x58mmR", 
-        "Fire Rate: Bolt Action",
-        "Rate of Fire: 16/100"))
         .withCompatibleAttachment(AuxiliaryAttachments.KragAction1, true, (model) -> {
             if(model instanceof KragJorgensenAction1) {
-//                GL11.glTranslatef(-1.38F, -1.05F, 0.59F);
-//                GL11.glRotatef(90f, 0f, 0f, 1f);
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.KragAction2, true, (model) -> {
             if(model instanceof KragJorgensenAction2) {
-//                GL11.glTranslatef(1F, -0.4F, 0F);
-//                GL11.glRotatef(-45F, 0f, 0f, 1f);
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.KragChamber, true, (model) -> {
             if(model instanceof KragJorgensenChamber) {
-//              GL11.glTranslatef(0.5F, -1F, 0F);
-//              GL11.glRotatef(-70F, 0f, 0f, 1f);
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Bullet, true, (model) -> {
@@ -86,12 +70,6 @@ public class KragJorgensenFactory implements GunFactory {
                 GL11.glScaled(0.4F, 0.4F, 0.6F);
                 GL11.glTranslatef(-0.52F, -2.9F, -3.5F);
                 GL11.glRotatef(90f, 1f, 0f, 0f);
-                
-                
-//                GL11.glScaled(0.4F, 0.4F, 0.6F);
-//                GL11.glTranslatef(-0.95F, -3.1F, -3.5F);
-//                GL11.glRotatef(70f, 1f, 0f, 0f);
-//                GL11.glRotatef(5f, 0f, 1f, 0f);
             }
         })
         .withCompatibleBullet(Bullets.Bullet8x58, (model) -> {})
@@ -144,9 +122,6 @@ public class KragJorgensenFactory implements GunFactory {
             .withModel(new KragJorgensen())
             .withPrepareFirstLoadIterationAnimationDuration(1000)
             .withAllLoadIterationAnimationsCompletedDuration(400)
-            //.withTextureName("AWP")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -183,13 +158,6 @@ public class KragJorgensenFactory implements GunFactory {
                 GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
                 GL11.glRotatef(15F, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.1f, 0.7f, 0.6f);
-                
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-//                GL11.glRotatef(0.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(-5.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(15.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.100000f, 0.900000f, 0.850000f);
                 })
                 
             .withFirstPersonPositioningProningRecoiled((renderContext) -> {
@@ -846,27 +814,6 @@ public class KragJorgensenFactory implements GunFactory {
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 210, 0)
             )
-                    
-//            .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.KS23pump.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
-//                    new Transition((renderContext) -> {
-//                    }, 250, 1000),
-//                    new Transition((renderContext) -> {
-//                    }, 250, 1000),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
-//                    new Transition((renderContext) -> {
-//                        GL11.glTranslatef(0f, 0f, 0.8f);
-//                    }, 250, 1000),
-//                    new Transition((renderContext) -> {
-//                    }, 250, 1000)
-//                        )
-            
             .withFirstPersonPositioningDrawing(
                     new Transition((renderContext) -> { // Reload position
                         GL11.glRotatef(25F, 0f, 1f, 0f);
@@ -907,7 +854,6 @@ public class KragJorgensenFactory implements GunFactory {
                     //System.out.println("Position me for Scope");
                 }   
 
-                // Everything else
                 else {
                 }   
             
@@ -924,7 +870,6 @@ public class KragJorgensenFactory implements GunFactory {
                     //System.out.println("Position me for Scope");
                 }   
 
-                // Everything else
                 else {
                 }   
             
@@ -958,12 +903,6 @@ public class KragJorgensenFactory implements GunFactory {
                          GL11.glRotatef(30.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(-70.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.250000f, -0.350000f, 0.025000f);
-                         
-//                         GL11.glScalef(3f, 3f, 3f);
-//                         GL11.glRotatef(-75.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-40.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.000000f, -0.250000f, 0.000000f);
                      })
                      
             .withFirstPersonHandPositioningProning(
@@ -980,12 +919,6 @@ public class KragJorgensenFactory implements GunFactory {
                          GL11.glRotatef(30.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(-70.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.250000f, -0.350000f, 0.025000f);
-                         
-//                         GL11.glScalef(3f, 3f, 3f);
-//                         GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.03f, -0.07f, -0.03f);
                      })
                      
             .withFirstPersonHandPositioningZooming(
