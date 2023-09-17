@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class G43GewehrFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -27,7 +25,6 @@ public class G43GewehrFactory {
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.RIFLES)
         .withMaxShots(1)
-        //.withMaxShots(5)
         .withShootSound("g43_gewehr")
         .withReloadSound("g43_gewehr_reload")
         .withUnloadSound("g43_gewehr_unload")
@@ -43,21 +40,11 @@ public class G43GewehrFactory {
         .withFlashOffsetY(() -> 0.13f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Rifle",
-        "Damage: 13.5", 
-        "Cartridge: 7.92x57mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 25/100",
-        "Magazines:",
-        "10rnd 7.92x57mm Gewehr Magazine"))
-         
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 
                  2f, // y
                  6f) // z
          
-//        .withCompatibleBullet(Bullets.Bullet792x57, (model) -> {})
         .withCompatibleAttachment(AuxiliaryAttachments.G43GewehrAction, true, (model) -> {
             
         })
@@ -109,9 +96,6 @@ public class G43GewehrFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new G43Gewehr())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -821,13 +805,6 @@ public class G43GewehrFactory {
                     }, 280, 0))
                     
             .withThirdPersonRightHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(4f, 4f, 5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                    }, 250, 1000),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -979,4 +956,3 @@ public class G43GewehrFactory {
         .build(MWC.modContext);
     }
 }
-

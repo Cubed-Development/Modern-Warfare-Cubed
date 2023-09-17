@@ -15,8 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-public class G11Factory {
-
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
 
@@ -26,7 +24,6 @@ public class G11Factory {
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.RIFLES)
         .withMaxShots(1, 3, Integer.MAX_VALUE)
-        //.withMaxShots(5)
         .withShootSound("g11")
         .withSilencedShootSound("mp5_silenced")
         .withReloadSound("g11_reload")
@@ -69,22 +66,12 @@ public class G11Factory {
              GL11.glScaled(0F, 0F, 0F);
          })
          .withCompatibleAttachment(Attachments.G11HandguardK1, (model) -> {
-//             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//             GL11.glScaled(0F, 0F, 0F);
          })
          .withCompatibleAttachment(Attachments.G11HandguardK2, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
          })
         .withCompatibleAttachment(Magazines.G11Mag, (model) -> {
-//            GL11.glTranslatef(0F, -0.12F, 2F);
-//            GL11.glRotatef(5F, 1f, 0f, 0f);
-//            GL11.glRotatef(-10F, 0f, 1f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.G11Action, true, (model) -> {
-//          GL11.glTranslatef(0F, -0.12F, 2F);
-//          GL11.glRotatef(5F, 1f, 0f, 0f);
-//          GL11.glRotatef(-10F, 0f, 1f, 0f);
         })
         .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
             GL11.glTranslatef(-0.16F, -1.67F, -1.55F);
@@ -228,10 +215,7 @@ public class G11Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new G11())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
-            
+			
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -280,11 +264,6 @@ public class G11Factory {
                 .setupModernMagazineAnimations("g11", 
                 		Magazines.G11Mag)
                 
-//                .withFirstPersonCustomPositioning(AuxiliaryAttachments.G11Action.getRenderablePart(), (renderContext) -> {
-//                    if(renderContext.getWeaponInstance().getAmmo() == 0) {
-//                        GL11.glTranslatef(0F, 0F, 1F);
-//                    }
-//                })
             
             .withFirstPersonPositioningZooming((renderContext) -> {
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
@@ -440,4 +419,3 @@ public class G11Factory {
         .build(MWC.modContext);
     }
 }
-

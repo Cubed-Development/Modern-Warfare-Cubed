@@ -15,8 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class HS12Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -51,13 +49,7 @@ public class HS12Factory implements GunFactory {
                  10f) // z
          
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Double-Barrel Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: SEMI ACTION",
-        "Rate of Fire: 30/100"))
+
         .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
         .withCompatibleAttachment(Attachments.Placeholder, true, (model) -> {
             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
@@ -65,7 +57,6 @@ public class HS12Factory implements GunFactory {
         })
         .withCompatibleAttachment(AuxiliaryAttachments.HS12Barrels, true, (model) -> {
             if(model instanceof HS12Barrels) {
-//              GL11.glScaled(1F, 0.98F, 1);
           } else if(model instanceof AKRail) {
               GL11.glTranslatef(-0.148F, -0.75F, -0.91f);
               GL11.glScaled(0.5F, 0.6F, 0.4F);
@@ -129,15 +120,6 @@ public class HS12Factory implements GunFactory {
             GL11.glScaled(0.1F, 0.1F, 0.1F);
         }
     })
-//    .withCompatibleAttachment(Attachments.Vortex, () -> {
-//            GL11.glTranslatef(-0.2F, -0.86F, -0.7F);
-//            GL11.glScaled(0.3F, 0.3F, 0.4F);
-//        },(model) -> {
-//            if(model instanceof Holo2) {
-//                GL11.glTranslatef(0.395F, -0.33F, -0.1F);
-//                GL11.glScaled(0.15F, 0.15F, 0.15F);
-//            }
-//        })
     .withCompatibleAttachment(Attachments.Kobra, () -> {
             GL11.glTranslatef(-0.025F, -0.71F, -0.3F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
@@ -183,9 +165,6 @@ public class HS12Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new HS12())
-            //.withTextureName("Remington900")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -856,12 +835,6 @@ public class HS12Factory implements GunFactory {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.255f, 0.3f);
                 } 
-                
-//             // Holo Zoom
-//                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Vortex)) {
-//                    //System.out.println("Position me for Holo");
-//                    GL11.glTranslatef(0f, 0.235f, 0.7f);
-//                } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {

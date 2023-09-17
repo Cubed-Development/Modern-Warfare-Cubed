@@ -20,8 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class Glock18CFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -49,7 +47,6 @@ public class Glock18CFactory implements GunFactory {
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.14f)
         .withFlashOffsetY(() -> 0.14f)
-//      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
@@ -71,17 +68,6 @@ public class Glock18CFactory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Machine Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 95/100",
-        "Magazines:",
-        "13rnd 9x19mm Glock Magazine",
-        "20rnd 9x19mm Magazine",
-        "50rnd 9x19mm Drum Magazine"))
-        
         .withScreenShaking(RenderableState.SHOOTING, 
                 2.5f, // x 
                 0.1f, // y
@@ -98,26 +84,17 @@ public class Glock18CFactory implements GunFactory {
             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
             GL11.glScaled(0F, 0F, 0F);
         })
-//        .withCompatibleAttachment(Attachments.Glock18CBody, true, (model) -> {
-////          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-////          GL11.glScaled(0F, 0F, 0F);
-//        })
-        .withCompatibleAttachment(Attachments.Glock19Body, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
+        .withCompatibleAttachment(Attachments.Glock18CBody, true, (model) -> {
         })
-        .withCompatibleAttachment(Attachments.Glock19XBody, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
+        .withCompatibleAttachment(Attachments.Glock19Body, (model) -> {
+        })
+        .withCompatibleAttachment(Attachments.Glock19XBody, (model) -> {
         })
         .withCompatibleAttachment(Attachments.Glock19RazorbackBody, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.Glock18CSlide, true, (model) -> {
             if(model instanceof Glock19Slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof GlockRearSight) {
             	GL11.glTranslatef(-0.107F, -1.17F, 0F);
@@ -131,7 +108,6 @@ public class Glock18CFactory implements GunFactory {
         .withCompatibleAttachment(Attachments.Glock18CCNCSlide, (model) -> {
             if(model instanceof Glock19Slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof GlockRearSight) {
             	GL11.glTranslatef(-0.107F, -1.17F, 0F);
@@ -162,10 +138,10 @@ public class Glock18CFactory implements GunFactory {
             GL11.glTranslatef(-0.18F, -1.19F, -4.36F);
             GL11.glScaled(1.3F, 1.3F, 1.3F);
         })
-//        .withCompatibleAttachment(Attachments.GlockHOGUEGrip, () -> {
-//        })
-//        .withCompatibleAttachment(Attachments.GlockHOGUEGripTan, () -> {
-//        })
+        .withCompatibleAttachment(Attachments.GlockHOGUEGrip, () -> {
+        })
+       .withCompatibleAttachment(Attachments.GlockHOGUEGripTan, () -> {
+        })
         .withCompatibleAttachment(Attachments.FABDefenseMount, (model) -> {
             GL11.glTranslatef(-0.18f, -0.53f, -1.9f);
             GL11.glScaled(0.6F, 0.6F, 0.7F);
@@ -196,9 +172,6 @@ public class Glock18CFactory implements GunFactory {
             		Attachments.Glock18CCNCSlide,
             		Attachments.Glock18CSlide)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);

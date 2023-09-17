@@ -14,15 +14,12 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class Kar98KFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
 
         .withName("Kar98K")
-//      .withCapacity(CommonProxy.XWPMag)
         .withAmmoCapacity(5)
         .withFireRate(0.16f)
         .withIteratedLoad()
@@ -34,7 +31,6 @@ public class Kar98KFactory implements GunFactory {
         .withMaxShots(1)
         .withShootSound("kar98k")
         .withPumpTimeout(950)
-        //.withSilencedShootSound("AR15silenced")
         .withReloadSound("kar98k_boltback")
         .withAllReloadIterationsCompletedSound("kar98k_boltforward")
         .withReloadIterationSound("loadbullet")
@@ -51,13 +47,6 @@ public class Kar98KFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.16f)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Bolt-action rifle",
-        "Damage: 13.5",
-        "Cartridge: 7.92x57mm", 
-        "Fire Rate: Bolt Action",
-        "Rate of Fire: 16/100"))
-        
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 
                 2f, // y
@@ -72,8 +61,6 @@ public class Kar98KFactory implements GunFactory {
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Kar98Kaction, true, (model) -> {
             if(model instanceof Kar98Kboltaction) {
-//                GL11.glTranslatef(-1.38F, -1.05F, 0.59F);
-//                GL11.glRotatef(90f, 0f, 0f, 1f);
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Bullet, true, (model) -> {
@@ -81,12 +68,6 @@ public class Kar98KFactory implements GunFactory {
                 GL11.glScaled(0.4F, 0.4F, 0.6F);
                 GL11.glTranslatef(-0.52F, -2.9F, -3.5F);
                 GL11.glRotatef(90f, 1f, 0f, 0f);
-                
-                
-//                GL11.glScaled(0.4F, 0.4F, 0.6F);
-//                GL11.glTranslatef(-0.95F, -3.1F, -3.5F);
-//                GL11.glRotatef(70f, 1f, 0f, 0f);
-//                GL11.glRotatef(5f, 0f, 1f, 0f);
             }
         })
         .withCompatibleAttachment(Attachments.NightRaider, () -> {
@@ -178,15 +159,6 @@ public class Kar98KFactory implements GunFactory {
                 GL11.glScaled(0.05F, 0.05F, 0.05F);
             }
         })
-//        .withCompatibleAttachment(Attachments.Vortex, () -> {
-//                GL11.glTranslatef(-0.28F, -1.58F, -2.5F);
-//                GL11.glScaled(0.3F, 0.3F, 0.4F);
-//            },(model) -> {
-//                if(model instanceof Holo2) {
-//                    GL11.glTranslatef(0.395F, -0.33F, -0.1F);
-//                    GL11.glScaled(0.15F, 0.15F, 0.15F);
-//                }
-//            })
         .withCompatibleAttachment(Attachments.Kobra, () -> {
                 GL11.glTranslatef(-0.1F, -1.43F, -2F);
                 GL11.glScaled(0.45F, 0.45F, 0.45F);
@@ -278,9 +250,6 @@ public class Kar98KFactory implements GunFactory {
             .withModel(new Kar98K())
             .withPrepareFirstLoadIterationAnimationDuration(1100)
             .withAllLoadIterationAnimationsCompletedDuration(800)
-            //.withTextureName("AWP")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);

@@ -19,8 +19,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class G3Factory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -67,15 +65,6 @@ public class G3Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Battle Rifle",
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "20rnd 7.62x51mm HK G3 Magazine"))
-        
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 
                  2f, // y
@@ -92,8 +81,6 @@ public class G3Factory {
         })
         .withCompatibleAttachment(Attachments.G3HandguardRailed, (model) -> {
         	if(model instanceof G3HandguardRailed) {
-//                GL11.glTranslatef(0F, -0F, 0F);
-//                GL11.glScaled(1F, 1F, 1F);
               } else if(model instanceof AKRail) {
                   GL11.glTranslatef(0.12F, -1.02F, -4.7f);
                   GL11.glScaled(0.6F, 0.6F, 0.9F);
@@ -112,8 +99,6 @@ public class G3Factory {
         })
         .withCompatibleAttachment(Attachments.MIMP5TRRail, (model) -> {
             if(model instanceof M4Iron2) {
-//                GL11.glTranslatef(0F, 0F, 0F);
-//                GL11.glScaled(1F, 1F, 1F);
           } else if(model instanceof AKRail) {
               GL11.glTranslatef(-0.22F, -1.36F, -2.07f);
               GL11.glScaled(0.7F, 0.75F, 0.57F);
@@ -121,24 +106,16 @@ public class G3Factory {
         })
         .withCompatibleAttachment(Attachments.MIMP5MRail, (model) -> {
             if(model instanceof M4Iron2) {
-//                GL11.glTranslatef(0F, 0F, 0F);
-//                GL11.glScaled(1F, 1F, 1F);
           } else if(model instanceof AKRail) {
               GL11.glTranslatef(-0.22F, -1.36F, -1.93f);
               GL11.glScaled(0.7F, 0.75F, 0.52F);
               }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.G3Bolt, true, (model) -> {
-//            GL11.glTranslatef(0.82F, -0.48F, 1.15F);
-//            GL11.glRotatef(-50F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.G3Action, true, (model) -> {
-//          GL11.glTranslatef(0.45F, -0.15F, 0.65F);
-//          GL11.glRotatef(-25F, 0f, 0f, 1f);
       })
         .withCompatibleAttachment(Magazines.G3Mag, (model) -> {
-//        	GL11.glTranslatef(0F, 0.85F, -0.55F);
-//        	GL11.glRotatef(-25F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {
@@ -268,8 +245,6 @@ public class G3Factory {
 		            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 		            GL11.glScaled(0.15F, 0.15F, 0.15F);
 		        } else if (model instanceof SightMount) {
-		//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-		//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 		        }
 		    })
         .withCompatibleAttachment(Attachments.Holographic, () -> {
@@ -366,9 +341,6 @@ public class G3Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new G3())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -419,19 +391,9 @@ public class G3Factory {
             
             .withFirstPersonCustomPositioning(Magazines.G3Mag, (renderContext) -> {
             	
-//            	GL11.glTranslatef(0f, 0.4f, 0f);
-//           	 GL11.glRotatef(-20F, 0f, 1f, 0f);
-//           	 GL11.glRotatef(-10F, 1f, 0f, 0f);
             })
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -492,12 +454,9 @@ public class G3Factory {
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.G3Bolt.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                     new Transition((renderContext) -> {
                     }, 500, 1000),
                     new Transition((renderContext) -> {
@@ -614,7 +573,6 @@ public class G3Factory {
                     GL11.glTranslatef(0F, 0.245f, 0.8f);
                 } 
                 
-                // Everything else
                 else {
                 }
             
@@ -674,13 +632,6 @@ public class G3Factory {
                   })
                    
            .withThirdPersonLeftHandPositioningReloading(
-//                   new Transition((renderContext) -> { // Reload position
-//                       GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                       GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                       GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                       GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                       GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                   }, 50, 200),
                    new Transition((renderContext) -> { // Reload position
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -746,13 +697,6 @@ public class G3Factory {
                    }, 280, 0))
                    
            .withThirdPersonRightHandPositioningReloading(
-//                   new Transition((renderContext) -> { // Reload position
-//                       GL11.glScalef(4f, 4f, 5f);
-//                       GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                       GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                       GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                       GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                   }, 250, 1000),
                    new Transition((renderContext) -> { // Reload position
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -827,4 +771,3 @@ public class G3Factory {
         .build(MWC.modContext);
     }
 }
-

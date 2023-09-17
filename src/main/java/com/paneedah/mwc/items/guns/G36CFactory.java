@@ -20,8 +20,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class G36CFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -71,15 +69,6 @@ public class G36CFactory implements GunFactory {
                         // Ads similarity divisor
                         1.0
                 ))
-                .withInformationProvider(stack -> Arrays.asList(
-                        "Type: Assault Rifle",
-                        "Damage: 6",
-                        "Cartridge: 5.56x45mm NATO",
-                        "Fire Rate: SEMI, AUTO",
-                        "Rate of Fire: 75/100",
-                        "Magazines:",
-                        "30rnd 5.56x45mm NATO HK Magazine",
-                        "100rnd 5.56x45mm NATO STANAG Drum Magazine"))
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.gunmetalIngot,
                         MWCItems.gunmetalPlate)
@@ -111,11 +100,8 @@ public class G36CFactory implements GunFactory {
                     GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Magazines.G36CMag, (model) -> {
-//            GL11.glTranslatef(-0.37F, 0.8F, -1.7F);
-//            GL11.glScaled(1.25F, 1.7F, 1.7F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.G36CAction, true, (model) -> {
-//            GL11.glTranslatef(0F, 0F, 0.75F);
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
                     if (model instanceof AKMiron1) {
@@ -282,10 +268,6 @@ public class G36CFactory implements GunFactory {
                     GL11.glTranslatef(-0.2F, -0.15F, -3.6F);
                     GL11.glScaled(1F, 1F, 1F);
                 })
-//      .withCompatibleAttachment(CommonProxy.Grip, (model) -> {
-//          GL11.glTranslatef(.135F, -0.5F, -1.2F);
-//          GL11.glScaled(0.6F, 0.6F, 0.6F);
-//      })
                 .withCompatibleAttachment(Attachments.VGrip, (model) -> {
                     GL11.glTranslatef(-0.2F, -0.15F, -3.6F);
                     GL11.glScaled(1F, 1F, 1F);
