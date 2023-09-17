@@ -13,8 +13,6 @@ import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class NinthSinFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -42,84 +40,40 @@ public class NinthSinFactory implements GunFactory {
         .withFlashOffsetY(() -> 0.2f)
         .withShellCasingForwardOffset(-0.02f)
         .withShellCasingVerticalOffset(-0.05f)
-//        .withBleedingCoefficient(10f)
         .withShellCasingEjectEnabled(false)
         .withPellets(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Vacuum Combat Sidearm", 
-        "Damage: 4", 
-        "Cartridge: Unknown",
-        "Fire Rate: AUTO",
-        "Rate of Fire: 9999",
-        "Mode of Fire: 3 shots per trigger-pull",
-        "Ammunition Intake:",
-        "XI-57809 VCS Battery"))
-         
+
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
                  2f, // y
                  2f) // z
          
         .withCompatibleAttachment(Magazines.NinthSinMag, (model) -> {
-//          GL11.glTranslatef(-0.3F, -1.3F, 0.4F);
-//          GL11.glRotatef(-11F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.PanelUpper, true, (model) -> {
-//            GL11.glTranslatef(0F, -0.25F, 0.6F);
-//            GL11.glRotatef(-11F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.PanelLower, true, (model) -> {
-//          GL11.glTranslatef(0F, 0.35F, 0.3F);
-//          GL11.glRotatef(8F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RegulatorUpper, true, (model) -> {
-//        	GL11.glTranslatef(0.2F, 0F, 0F);
-        	
-//          GL11.glTranslatef(0.2F, -0.7F, 1.1F);
-//          GL11.glRotatef(27F, 1f, 0f, 0);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RegulatorLower, true, (model) -> {
-//        	 GL11.glTranslatef(0.2F, 0.65F, 1.4F);
-//        	 GL11.glRotatef(-12F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RegulatorRotator, true, (model) -> {
-//        	 GL11.glTranslatef(0.2F, 0F, 1.5F);
-//          GL11.glTranslatef(0.4F, 0.4F, 0F);
-//          GL11.glRotatef(90F, 0f, 0f, 1);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RegulatorActionUpper, true, (model) -> {
-//        	GL11.glTranslatef(0.2F, 0.55F, 1.6F);
-//       	 GL11.glRotatef(-12F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RegulatorActionLower, true, (model) -> {
-//        	GL11.glTranslatef(0.2F, 0.75F, 1.2F);
-//       	 GL11.glRotatef(-12F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RegulatorAction, true, (model) -> {
-//        	GL11.glTranslatef(0.2F, 0.775F, 1.15F);
-//       	 GL11.glRotatef(-12F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.CyclerFront, true, (model) -> {
-//          GL11.glTranslatef(0F, -0.35F, -0.2F);
-//          GL11.glRotatef(9F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.CyclerBackLeft, true, (model) -> {
-//        	 GL11.glTranslatef(0.15F, -0.15F, 0F);
-//          GL11.glTranslatef(0F, 0F, 2.4F);
-//          GL11.glTranslatef(0.4F, 0.4F, 0F);
-//          GL11.glRotatef(90F, 0f, 0f, 1);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.CyclerBackRight, true, (model) -> {
-//        	 GL11.glTranslatef(-0.15F, -0.15F, 0F);
-//          GL11.glTranslatef(0F, 0F, 2.4F);
-//          GL11.glTranslatef(0.4F, 0.4F, 0F);
-//          GL11.glRotatef(90F, 0f, 0f, 1);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Cycler, true, (model) -> {
-//          GL11.glTranslatef(0F, -0.17F, 0.3F);
-//          GL11.glTranslatef(0.4F, 0.4F, 0F);
-//          GL11.glRotatef(90F, 0f, 0f, 1);
         })
         .withTextureNames("ninthsin")
         .withRenderer(new WeaponRenderer.Builder()
@@ -148,12 +102,6 @@ public class NinthSinFactory implements GunFactory {
                 GL11.glRotatef(8.000000f, 0f, 0f, 1f);
                 GL11.glRotatef(-5.000000f, 1f, 0f, 0f);
                 GL11.glTranslatef(-0.700000f, -0.505000f, -1.649999f);
-                
-//                GL11.glScaled(1F, 1F, 1F);
-//                GL11.glRotatef(-20.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(90.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(0.050000f, -0.225000f, -1.549999f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -211,9 +159,6 @@ public class NinthSinFactory implements GunFactory {
             
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.RegulatorRotator.getRenderablePart(), (renderContext) -> {
             	GL11.glTranslatef(0.2F, 0F, 1.5F);
-            	
-//            	GL11.glTranslatef(0.2F, 1.25F, -0.6F);
-//            	GL11.glRotatef(-180F, 1f, 0f, 0f);
                 })
             
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.RegulatorActionUpper.getRenderablePart(), (renderContext) -> {
@@ -249,9 +194,6 @@ public class NinthSinFactory implements GunFactory {
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.RegulatorAction.getRenderablePart(), (renderContext) -> {
             	GL11.glTranslatef(0.2F, 0.775F, 1.15F);
              	 GL11.glRotatef(-12F, 1f, 0f, 0f);
-             	 
-//             	GL11.glTranslatef(0.2F, 0.55F, 1.6F);
-//            	 GL11.glRotatef(-12F, 1f, 0f, 0f);
                 })
         
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.CyclerFront.getRenderablePart(), (renderContext) -> {
@@ -302,7 +244,6 @@ public class NinthSinFactory implements GunFactory {
             .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.Cycler.getRenderablePart(), (renderContext) -> {
             	GL11.glTranslatef(0F, -0.17F, 0.3F);
                 })
-//            
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.RegulatorAction.getRenderablePart(), (renderContext) -> {
             	GL11.glTranslatef(0.2F, 0.55F, 1.6F);
            	 GL11.glRotatef(-12F, 1f, 0f, 0f);
@@ -478,10 +419,7 @@ public class NinthSinFactory implements GunFactory {
                         GL11.glRotatef(50.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.050000f, -0.050000f, -1.599999f);
                     }, 220, 0),
-                    
-                    // upper panel shifts completely
-                    // lower panel moves down and rotates
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glScaled(1F, 1F, 1F);
                         GL11.glRotatef(-20.000000f, 1f, 0f, 0f);
@@ -598,10 +536,7 @@ public class NinthSinFactory implements GunFactory {
                     
                     new Transition((renderContext) -> { // Reload position
                     }, 120, 0),
-                    
-                    // upper panel undoes its position and rotation
-                    // lower panel undoes
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     }, 120, 0)
                     )
@@ -611,10 +546,7 @@ public class NinthSinFactory implements GunFactory {
                     
                     new Transition((renderContext) -> { // Reload position
                     }, 220, 0),
-                    
-                    // upper panel shifts completely
-                    // lower panel moves down and rotates
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     }, 260, 0),
                     
@@ -717,10 +649,7 @@ public class NinthSinFactory implements GunFactory {
                     	GL11.glTranslatef(0F, -0.25F, 0.6F);
                         GL11.glRotatef(-11F, 1f, 0f, 0f);
                     }, 120, 0),
-                    
-                    // upper panel undoes its position and rotation
-                    // lower panel undoes
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     }, 120, 0)
                     )
@@ -811,10 +740,7 @@ public class NinthSinFactory implements GunFactory {
                     	GL11.glTranslatef(0F, 0.3F, 0F);
                         GL11.glRotatef(-8F, 1f, 0f, 0f);
                     }, 120, 0),
-                    
-                    // upper panel undoes its position and rotation
-                    // lower panel undoes
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     }, 120, 0)
                     )
@@ -824,10 +750,7 @@ public class NinthSinFactory implements GunFactory {
                     
                     new Transition((renderContext) -> { // Reload position
                     }, 220, 0),
-                    
-                    // upper panel shifts completely
-                    // lower panel moves down and rotates
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0F, -0.25F, 0.6F);
                         GL11.glRotatef(-11F, 1f, 0f, 0f);
@@ -853,10 +776,7 @@ public class NinthSinFactory implements GunFactory {
                     
                     new Transition((renderContext) -> { // Reload position
                     }, 220, 0),
-                    
-                    // upper panel shifts completely
-                    // lower panel moves down and rotates
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0F, 0.3F, 0F);
                         GL11.glRotatef(-8F, 1f, 0f, 0f);
@@ -947,13 +867,7 @@ public class NinthSinFactory implements GunFactory {
                         GL11.glRotatef(17.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.875000f, -0.600000f, -0.880000f);
                     }, 200, 0),
-                    
-                    // regulator moves left 
-                    // regulator upper rotates up a little bit
-                    // regulator lower moves down a little bit
-                    
-                    // cycler parts move up
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glScaled(1F, 1F, 1F);
                         GL11.glRotatef(-35.000000f, 1f, 0f, 0f);
@@ -961,14 +875,7 @@ public class NinthSinFactory implements GunFactory {
                         GL11.glRotatef(-9.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.875000f, -0.650000f, -1.249999f);
                     }, 200, 0),
-                    
-                    // regulator parts move backwards
-                    // regulator upper rotates more and moves forward a bit
-                    // regulator lower rotates down a little bit
-                    
-                    // cycler front moves forward half way and rotates slightly
-                    // cycler back parts beging moving horizontally
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glScaled(1F, 1F, 1F);
                         GL11.glRotatef(-35.000000f, 1f, 0f, 0f);
@@ -976,13 +883,7 @@ public class NinthSinFactory implements GunFactory {
                         GL11.glRotatef(-11.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.875000f, -0.650000f, -1.249999f);
                     }, 200, 0),
-                    
-                    // regulator upper rotates more, moves forward
-                    // regulator lower moves down and rotates
-                    
-                    // cycler front rotates more and moves forward 
-                    // cycler back parts move horizontally more
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glScaled(1F, 1F, 1F);
                         GL11.glRotatef(-35.000000f, 1f, 0f, 0f);
@@ -1017,36 +918,17 @@ public class NinthSinFactory implements GunFactory {
                     
                     new Transition((renderContext) -> { // Reload position
                     }, 250, 0),
-                    
-                    // regulator moves left 
-                    // regulator upper rotates up a little bit
-                    // regulator lower moves down a little bit
-                    
-                    // cycler parts move up
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, -0.2F, 0F);
                         GL11.glRotatef(8F, 1f, 0f, 0);
                     }, 170, 0),
-                    
-                    // regulator parts move backwards
-                    // regulator upper rotates more and moves forward a bit
-                    // regulator lower rotates down a little bit
-                    
-                    // cycler front moves forward half way and rotates slightly
-                    // cycler back parts beging moving horizontally
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	 GL11.glTranslatef(0.2F, -0.45F, 1.4F);
                          GL11.glRotatef(16F, 1f, 0f, 0);
                     }, 170, 0),
-                    
-                    // regulator upper rotates more, moves forward
-                    // regulator lower moves down and rotates
-                    
-                    // cycler front rotates more and moves forward 
-                    // cycler back parts move horizontally more
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, -0.7F, 1.1F);
                         GL11.glRotatef(27F, 1f, 0f, 0);
@@ -1075,35 +957,16 @@ public class NinthSinFactory implements GunFactory {
                     
                     new Transition((renderContext) -> { // Reload position
                     }, 250, 0),
-                    
-                    // regulator moves left 
-                    // regulator upper rotates up a little bit
-                    // regulator lower moves down a little bit
-                    
-                    // cycler parts move up
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.1F, 0F);
                     }, 170, 0),
-                    
-                    // regulator parts move backwards
-                    // regulator upper rotates more and moves forward a bit
-                    // regulator lower rotates down a little bit
-                    
-                    // cycler front moves forward half way and rotates slightly
-                    // cycler back parts beging moving horizontally
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.25F, 1.5F);
                    	 GL11.glRotatef(-4F, 1f, 0f, 0f);
                     }, 170, 0),
-                    
-                    // regulator upper rotates more, moves forward
-                    // regulator lower moves down and rotates
-                    
-                    // cycler front rotates more and moves forward 
-                    // cycler back parts move horizontally more
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.65F, 1.4F);
                    	 GL11.glRotatef(-12F, 1f, 0f, 0f);
@@ -1118,7 +981,6 @@ public class NinthSinFactory implements GunFactory {
                     )
             
             .withFirstPersonCustomPositioningDrawing(AuxiliaryAttachments.RegulatorRotator.getRenderablePart(),
-            		//left hand grabs gauntlet
             		
                     new Transition((renderContext) -> { // Reload position
                     }, 100, 0),
@@ -1132,40 +994,19 @@ public class NinthSinFactory implements GunFactory {
                     
                     new Transition((renderContext) -> { // Reload position
                     }, 250, 0),
-                    
-                    // regulator moves left 
-                    // regulator upper rotates up a little bit
-                    // regulator lower moves down a little bit
-                    
-                    // cycler parts move up
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0F, 0F);
                     }, 170, 0),
-                    
-                    // regulator parts move backwards
-                    // regulator upper rotates more and moves forward a bit
-                    // regulator lower rotates down a little bit
-                    
-                    // cycler front moves forward half way and rotates slightly
-                    // cycler back parts beging moving horizontally
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0F, 1.5F);
                     }, 170, 0),
                     
-                    // regulator upper rotates more, moves forward
-                    // regulator lower moves down and rotates
-                    
-                    // cycler front rotates more and moves forward 
-                    // cycler back parts move horizontally more
-                    
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0F, 1.5F);
                     }, 170, 0),
-                    
-                    // cycler emerges
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0F, 1.5F);
                     }, 170, 0)
@@ -1187,41 +1028,20 @@ public class NinthSinFactory implements GunFactory {
                     new Transition((renderContext) -> { // Reload position
                     }, 250, 0),
                     
-                    // regulator moves left 
-                    // regulator upper rotates up a little bit
-                    // regulator lower moves down a little bit
-                    
-                    // cycler parts move up
-                    
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.1F, 0F);
                     }, 170, 0),
-                    
-                    // regulator parts move backwards
-                    // regulator upper rotates more and moves forward a bit
-                    // regulator lower rotates down a little bit
-                    
-                    // cycler front moves forward half way and rotates slightly
-                    // cycler back parts beging moving horizontally
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.25F, 1.5F);
                    	 GL11.glRotatef(-4F, 1f, 0f, 0f);
                     }, 170, 0),
-                    
-                    // regulator upper rotates more, moves forward
-                    // regulator lower moves down and rotates
-                    
-                    // cycler front rotates more and moves forward 
-                    // cycler back parts move horizontally more
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.65F, 1.4F);
                    	 GL11.glRotatef(-12F, 1f, 0f, 0f);
                     }, 170, 0),
-                    
-                    // cycler emerges
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.55F, 1.6F);
                       	 GL11.glRotatef(-12F, 1f, 0f, 0f);
@@ -1238,47 +1058,24 @@ public class NinthSinFactory implements GunFactory {
                     
                     new Transition((renderContext) -> { // Reload position
                     }, 100, 0),
-                    
-                    // right hand inserts into gauntlet
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     }, 250, 0),
-                    
-                    // regulator moves left 
-                    // regulator upper rotates up a little bit
-                    // regulator lower moves down a little bit
-                    
-                    // cycler parts move up
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.1F, 0F);
                     }, 170, 0),
-                    
-                    // regulator parts move backwards
-                    // regulator upper rotates more and moves forward a bit
-                    // regulator lower rotates down a little bit
-                    
-                    // cycler front moves forward half way and rotates slightly
-                    // cycler back parts beging moving horizontally
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.25F, 1.5F);
                    	 GL11.glRotatef(-4F, 1f, 0f, 0f);
                     }, 170, 0),
-                    
-                    // regulator upper rotates more, moves forward
-                    // regulator lower moves down and rotates
-                    
-                    // cycler front rotates more and moves forward 
-                    // cycler back parts move horizontally more
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.65F, 1.4F);
                    	 GL11.glRotatef(-12F, 1f, 0f, 0f);
                     }, 170, 0),
-                    
-                    // cycler emerges
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.75F, 1.2F);
                       	 GL11.glRotatef(-12F, 1f, 0f, 0f);
@@ -1301,34 +1098,15 @@ public class NinthSinFactory implements GunFactory {
                     new Transition((renderContext) -> { // Reload position
                     }, 250, 0),
                     
-                    // regulator moves left 
-                    // regulator upper rotates up a little bit
-                    // regulator lower moves down a little bit
-                    
-                    // cycler parts move up
-                    
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.1F, 0F);
                     }, 170, 0),
-                    
-                    // regulator parts move backwards
-                    // regulator upper rotates more and moves forward a bit
-                    // regulator lower rotates down a little bit
-                    
-                    // cycler front moves forward half way and rotates slightly
-                    // cycler back parts beging moving horizontally
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.25F, 1.5F);
                    	 GL11.glRotatef(-4F, 1f, 0f, 0f);
                     }, 170, 0),
-                    
-                    // regulator upper rotates more, moves forward
-                    // regulator lower moves down and rotates
-                    
-                    // cycler front rotates more and moves forward 
-                    // cycler back parts move horizontally more
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.2F, 0.775F, 1.15F);
                      	 GL11.glRotatef(-12F, 1f, 0f, 0f);
@@ -1357,35 +1135,16 @@ public class NinthSinFactory implements GunFactory {
                     
                     new Transition((renderContext) -> { // Reload position
                     }, 250, 0),
-                    
-                    // regulator moves left 
-                    // regulator upper rotates up a little bit
-                    // regulator lower moves down a little bit
-                    
-                    // cycler parts move up
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	 GL11.glTranslatef(0F, -0.1F, 0F);
                     }, 170, 0),
-                    
-                    // regulator parts move backwards
-                    // regulator upper rotates more and moves forward a bit
-                    // regulator lower rotates down a little bit
-                    
-                    // cycler front moves forward half way and rotates slightly
-                    // cycler back parts beging moving horizontally
                     
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0F, -0.35F, -0.2F);
                         GL11.glRotatef(9F, 1f, 0f, 0f);
                     }, 170, 0),
-                    
-                    // regulator upper rotates more, moves forward
-                    // regulator lower moves down and rotates
-                    
-                    // cycler front rotates more and moves forward 
-                    // cycler back parts move horizontally more
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0F, -0.35F, -0.2F);
                         GL11.glRotatef(9F, 1f, 0f, 0f);
@@ -1414,34 +1173,15 @@ public class NinthSinFactory implements GunFactory {
                     
                     new Transition((renderContext) -> { // Reload position
                     }, 250, 0),
-                    
-                    // regulator moves left 
-                    // regulator upper rotates up a little bit
-                    // regulator lower moves down a little bit
-                    
-                    // cycler parts move up
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	 GL11.glTranslatef(0F, -0.1F, 0F);
                     }, 170, 0),
                     
-                    // regulator parts move backwards
-                    // regulator upper rotates more and moves forward a bit
-                    // regulator lower rotates down a little bit
-                    
-                    // cycler front moves forward half way and rotates slightly
-                    // cycler back parts beging moving horizontally
-                    
                     new Transition((renderContext) -> { // Reload position
                     	 GL11.glTranslatef(0.05F, -0.15F, 0F);
                     }, 170, 0),
-                    
-                    // regulator upper rotates more, moves forward
-                    // regulator lower moves down and rotates
-                    
-                    // cycler front rotates more and moves forward 
-                    // cycler back parts move horizontally more
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(0.15F, -0.15F, 0F);
                     }, 170, 0),
@@ -1469,32 +1209,13 @@ public class NinthSinFactory implements GunFactory {
                     new Transition((renderContext) -> { // Reload position
                     }, 250, 0),
                     
-                    // regulator moves left 
-                    // regulator upper rotates up a little bit
-                    // regulator lower moves down a little bit
-                    
-                    // cycler parts move up
-                    
                     new Transition((renderContext) -> { // Reload position
                     	 GL11.glTranslatef(0F, -0.1F, 0F);
                     }, 170, 0),
-                    
-                    // regulator parts move backwards
-                    // regulator upper rotates more and moves forward a bit
-                    // regulator lower rotates down a little bit
-                    
-                    // cycler front moves forward half way and rotates slightly
-                    // cycler back parts beging moving horizontally
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     	 GL11.glTranslatef(-0.05F, -0.15F, 0F);
                     }, 170, 0),
-                    
-                    // regulator upper rotates more, moves forward
-                    // regulator lower moves down and rotates
-                    
-                    // cycler front rotates more and moves forward 
-                    // cycler back parts move horizontally more
                     
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glTranslatef(-0.15F, -0.15F, 0F);
@@ -1522,32 +1243,13 @@ public class NinthSinFactory implements GunFactory {
                     
                     new Transition((renderContext) -> { // Reload position
                     }, 250, 0),
-                    
-                    // regulator moves left 
-                    // regulator upper rotates up a little bit
-                    // regulator lower moves down a little bit
-                    
-                    // cycler parts move up
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     }, 170, 0),
-                    
-                    // regulator parts move backwards
-                    // regulator upper rotates more and moves forward a bit
-                    // regulator lower rotates down a little bit
-                    
-                    // cycler front moves forward half way and rotates slightly
-                    // cycler back parts beging moving horizontally
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     }, 170, 0),
-                    
-                    // regulator upper rotates more, moves forward
-                    // regulator lower moves down and rotates
-                    
-                    // cycler front rotates more and moves forward 
-                    // cycler back parts move horizontally more
-                    
+
                     new Transition((renderContext) -> { // Reload position
                     }, 170, 0),
                     
@@ -2312,13 +2014,7 @@ public class NinthSinFactory implements GunFactory {
                    	 GL11.glRotatef(70.000000f, 0f, 0f, 1f);
                    	 GL11.glTranslatef(0.075000f, -0.775000f, 0.275000f);
                     }, 250, 0),
-                    
-                    // regulator moves left 
-                    // regulator upper rotates up a little bit
-                    // regulator lower moves down a little bit
-                    
-                    // cycler parts move up
-                    
+					
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glScalef(3.8f, 3.8f, 3.8f);
                    	 GL11.glRotatef(0.000000f, 1f, 0f, 0f);
@@ -2327,13 +2023,6 @@ public class NinthSinFactory implements GunFactory {
                    	 GL11.glTranslatef(0.500000f, 0.075000f, 0.725000f);
                     }, 170, 0),
                     
-                    // regulator parts move backwards
-                    // regulator upper rotates more and moves forward a bit
-                    // regulator lower rotates down a little bit
-                    
-                    // cycler front moves forward half way and rotates slightly
-                    // cycler back parts beging moving horizontally
-                    
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glScalef(3.8f, 3.8f, 3.8f);
                    	 GL11.glRotatef(0.000000f, 1f, 0f, 0f);
@@ -2341,12 +2030,6 @@ public class NinthSinFactory implements GunFactory {
                    	 GL11.glRotatef(-10.000000f, 0f, 0f, 1f);
                    	 GL11.glTranslatef(0.500000f, 0.075000f, 0.725000f);
                     }, 170, 0),
-                    
-                    // regulator upper rotates more, moves forward
-                    // regulator lower moves down and rotates
-                    
-                    // cycler front rotates more and moves forward 
-                    // cycler back parts move horizontally more
                     
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glScalef(3.8f, 3.8f, 3.8f);
@@ -2398,12 +2081,6 @@ public class NinthSinFactory implements GunFactory {
                         GL11.glTranslatef(0.473000f, -0.430000f, 0.270000f);
                     }, 250, 0),
                     
-                    // regulator moves left 
-                    // regulator upper rotates up a little bit
-                    // regulator lower moves down a little bit
-                    
-                    // cycler parts move up
-                    
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glScalef(3.8f, 3.8f, 3.8f);
                         GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
@@ -2412,13 +2089,6 @@ public class NinthSinFactory implements GunFactory {
                         GL11.glTranslatef(0.473000f, -0.430000f, 0.270000f);
                     }, 170, 0),
                     
-                    // regulator parts move backwards
-                    // regulator upper rotates more and moves forward a bit
-                    // regulator lower rotates down a little bit
-                    
-                    // cycler front moves forward half way and rotates slightly
-                    // cycler back parts beging moving horizontally
-                    
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glScalef(3.8f, 3.8f, 3.8f);
                         GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
@@ -2426,12 +2096,6 @@ public class NinthSinFactory implements GunFactory {
                         GL11.glRotatef(-30.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.473000f, -0.430000f, 0.270000f);
                     }, 170, 0),
-                    
-                    // regulator upper rotates more, moves forward
-                    // regulator lower moves down and rotates
-                    
-                    // cycler front rotates more and moves forward 
-                    // cycler back parts move horizontally more
                     
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glScalef(3.8f, 3.8f, 3.8f);
