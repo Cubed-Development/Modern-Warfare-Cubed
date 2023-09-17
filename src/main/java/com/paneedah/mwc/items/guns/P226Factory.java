@@ -21,8 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class P226Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -50,7 +48,6 @@ public class P226Factory implements GunFactory {
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.13f)
-//      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
@@ -72,16 +69,6 @@ public class P226Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Double-Single Action Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "15rnd 9x19mm Magazine",
-        "30rnd 9x19mm Magazine",
-        "65rnd 9x19mm Drum Magazine"))
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 
                  0.1f, // y
@@ -101,7 +88,6 @@ public class P226Factory implements GunFactory {
         .withCompatibleAttachment(Attachments.P226Slide, true, (model) -> {
             if(model instanceof P226Slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof P226rearsight) {
                 GL11.glTranslatef(-0.15F, -1.175F, -0.15F);
@@ -113,8 +99,6 @@ public class P226Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.P226hammer, true, (model) -> {
-//          GL11.glTranslatef(-0F, -0.17F, 0.53F);
-//        	GL11.glRotatef(45F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(Magazines.M9A1Mag, (model) -> {
            GL11.glTranslatef(0F, 0.02F, 0.02F);
@@ -163,9 +147,6 @@ public class P226Factory implements GunFactory {
             .withActionPiece(
             		Attachments.P226Slide)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -313,12 +294,10 @@ public class P226Factory implements GunFactory {
                 GL11.glTranslatef(0.145f, 0.66f, -1.9f);
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.22f, 0f);
                 } 
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.32f, 0f);
                 } 
                 

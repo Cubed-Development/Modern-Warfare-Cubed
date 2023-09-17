@@ -17,15 +17,12 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class ScorpionEVO3A1Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
 		
 		.withName("scorpion_evo3_a1")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.999f)
 		.withRecoil(1.5f)
 		.withZoom(0.9f)
@@ -49,7 +46,6 @@ public class ScorpionEVO3A1Factory implements GunFactory {
 		.withFlashOffsetY(() -> 0.15f)
 		.withShellCasingForwardOffset(0.05f)
 		.withShellCasingVerticalOffset(-0.03f)
-//		.withShellCasingEjectEnabled(false)
 		.withInaccuracy(2f)
 		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
@@ -71,15 +67,6 @@ public class ScorpionEVO3A1Factory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Pistol Caliber Carbine/ Submachine Gun", 
-		"Damage: 5", 
-		"Cartridge: 9x19mm",
-		"Fire Rate: SEMI, AUTO",
-		"Rate of Fire: 99/100",
-		"Magazines:",
-        "30rnd 9x19mm EVO Magazine"))
-		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
                  0.1f, // y
@@ -121,17 +108,9 @@ public class ScorpionEVO3A1Factory implements GunFactory {
               }
         }, true, false)
 		.withCompatibleAttachment(Magazines.ScorpionMag, (model) -> {
-//		    GL11.glTranslatef(-0.35F, 0.5F, -1.25F);
-//            GL11.glScaled(1.15F, 1.2F, 1.15F);
         })
 		.withCompatibleAttachment(AuxiliaryAttachments.ScorpionAction, true, (model) -> {
-//            GL11.glTranslatef(-0.175F, -1.58F, -0.86F);
-//            GL11.glScaled(0.75F, 0.43F, 0.75F);
         })
-//		.withCompatibleAttachment(AuxiliaryAttachments.AR15Action, true, (model) -> {
-//            GL11.glTranslatef(-0.175F, -1.58F, -0.86F);
-//            GL11.glScaled(0.75F, 0.43F, 0.75F);
-//        })
 		.withCompatibleAttachment(Attachments.ScorpionHandguardShort, true, (model) -> {
             if(model instanceof AKRail) {
             	GL11.glTranslatef(-0.215F, -1.645F, -3f);
@@ -212,8 +191,6 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
 		
@@ -412,12 +389,9 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                 		Magazines.ScorpionMag)
 		
 			.withFirstPersonCustomPositioning(AuxiliaryAttachments.ScorpionAction.getRenderablePart(), (renderContext) -> {
-//			    GL11.glTranslatef(0f, 0f, 0.7f);
                 })
                 
             .withFirstPersonCustomPositioning(Magazines.ScorpionMag, (renderContext) -> {
-//            	 GL11.glTranslatef(0f, 0.5f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
                     
             .withThirdPersonPositioningReloading(
@@ -564,7 +538,6 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                 		GL11.glTranslatef(0F, 0.0555f, 0.1f);
                 } 
 				
-				// Everything else
 				else {
 				}
 				})

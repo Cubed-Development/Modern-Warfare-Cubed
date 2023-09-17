@@ -14,15 +14,12 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M1873Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
 
         .withName("M1873")
-//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(7)
         .withMaxBulletsPerReload(7)
         .withFireRate(0.5f)
@@ -50,13 +47,7 @@ public class M1873Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.06f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Lever Action Rifle",
-        "Damage: 5.5",
-        "Cartridge: 44-40 Winchester",
-        "Fire Rate: LEVER ACTION",
-        "Rate of Fire: 50/100"))
-        
+
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 
                 0.1f, // y
@@ -106,17 +97,12 @@ public class M1873Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M1873action, true, (model) -> {
-//            GL11.glRotatef(-50f, 1f, 0f, 0f);
-//            GL11.glTranslatef(0f, -0.43f, -0.5f);
         })
         .withCompatibleBullet(Bullets.Bullet4440, (model) -> {})
         .withTextureNames("M1873")
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new M1873Talon())
-            //.withTextureName("Remington900")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -164,7 +150,6 @@ public class M1873Factory implements GunFactory {
                 
 //              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                    //System.out.println("Position me for Holo");
                 } 
                 
                 // Everything else
@@ -440,7 +425,6 @@ public class M1873Factory implements GunFactory {
                 
 //              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                    //System.out.println("Position me for Holo");
                 } 
                 
                 // Everything else
@@ -477,8 +461,6 @@ public class M1873Factory implements GunFactory {
                          GL11.glRotatef(25.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(-65.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.575000f, -0.900000f, 0.150000f);
-                         
-//                         GL11.glScalef(3f, 3f, 3f);
                      })
                      
             .withFirstPersonHandPositioningLoadIterationCompleted(

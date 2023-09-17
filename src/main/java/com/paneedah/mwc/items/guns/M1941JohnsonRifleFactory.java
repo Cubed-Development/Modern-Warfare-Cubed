@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M1941JohnsonRifleFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -28,7 +26,6 @@ public class M1941JohnsonRifleFactory {
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.RIFLES)
         .withMaxShots(1)
-        //.withMaxShots(5)
         .withShootSound("m1941")
         .withSilencedShootSound("ak15_silenced")
         .withReloadSound("m1941_rifle_reload")
@@ -43,18 +40,9 @@ public class M1941JohnsonRifleFactory {
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.12f)
         .withFlashOffsetY(() -> 0.12f)
-//        .withShellCasingSideOffset(0f)
         .withShellCasingVerticalOffset(-0.1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Rifle",
-        "Damage: 15", 
-        "Cartridge: .30-06 Springfield",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 50/100",
-        "Cartridge:",
-        ".30-06 Springfield"))
-        
+
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 
                 2f, // y
@@ -120,9 +108,6 @@ public class M1941JohnsonRifleFactory {
         .withRenderer(new WeaponRenderer.Builder()
 
             .withModel(new JohnsonRifle())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -169,14 +154,6 @@ public class M1941JohnsonRifleFactory {
                 })
             
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.StripperClipBullets.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(-0.7F, -0F, 0F);
-//                GL11.glRotatef(-30.000000f, 0f, 0f, 1f);
-                
-//                GL11.glTranslatef(-0.9F, -0.1F, 0F);
-//                GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-//                
-//                GL11.glTranslatef(-0.6F, -0F, 0F);
-//                GL11.glRotatef(-66.000000f, 0f, 0f, 1f);
                 })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.JohnsonRifleACTION.getRenderablePart(), (renderContext) -> {
@@ -355,13 +332,6 @@ public class M1941JohnsonRifleFactory {
                     )
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -425,7 +395,6 @@ public class M1941JohnsonRifleFactory {
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                     GL11.glRotatef(12F, 0f, 0f, 1f);
                 }, 120, 0)
-//                }, 100, 0)
             )
                         
             .withFirstPersonPositioningDrawing(
@@ -473,7 +442,6 @@ public class M1941JohnsonRifleFactory {
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.24f, 0f);
                 } 
                 
@@ -535,8 +503,6 @@ public class M1941JohnsonRifleFactory {
                          GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(-0.050000f, -0.975000f, 0.225000f);
-                         
-//                         GL11.glScalef(4f, 4f, 4f);
                      }, 
                      (renderContext) -> {
                          GL11.glScalef(4f, 4f, 4f);
@@ -544,8 +510,6 @@ public class M1941JohnsonRifleFactory {
                          GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.680000f, -1.140000f, 0.510000f);
-                         
-//                         GL11.glScalef(4f, 4f, 4f);
                      })
                      
             .withFirstPersonHandPositioningProning(
@@ -555,8 +519,6 @@ public class M1941JohnsonRifleFactory {
                         GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.050000f, -0.975000f, 0.225000f);
-                        
-//                        GL11.glScalef(4f, 4f, 4f);
                     }, 
                     (renderContext) -> {
                         GL11.glScalef(4f, 4f, 4f);
@@ -564,8 +526,6 @@ public class M1941JohnsonRifleFactory {
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.680000f, -1.140000f, 0.510000f);
-                        
-//                        GL11.glScalef(4f, 4f, 4f);
                     })
                      
             .withFirstPersonHandPositioningZooming(
@@ -575,8 +535,6 @@ public class M1941JohnsonRifleFactory {
                         GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.050000f, -0.975000f, 0.225000f);
-                        
-//                        GL11.glScalef(4f, 4f, 4f);
                     }, 
                     (renderContext) -> {
                         GL11.glScalef(4f, 4f, 4f);
@@ -584,8 +542,6 @@ public class M1941JohnsonRifleFactory {
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.680000f, -1.140000f, 0.510000f);
-                        
-//                        GL11.glScalef(4f, 4f, 4f);
                     })
                      
             .withFirstPersonHandPositioningModifying(
@@ -595,8 +551,6 @@ public class M1941JohnsonRifleFactory {
                         GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.050000f, -0.975000f, 0.225000f);
-                        
-//                        GL11.glScalef(4f, 4f, 4f);
                     }, 
                     (renderContext) -> {
                         GL11.glScalef(4f, 4f, 4f);
@@ -604,8 +558,6 @@ public class M1941JohnsonRifleFactory {
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.680000f, -1.140000f, 0.510000f);
-                        
-//                        GL11.glScalef(4f, 4f, 4f);
                     })
                      
             .withFirstPersonHandPositioningModifyingAlt(
@@ -615,8 +567,6 @@ public class M1941JohnsonRifleFactory {
                         GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.050000f, -0.975000f, 0.225000f);
-                        
-//                        GL11.glScalef(4f, 4f, 4f);
                     }, 
                     (renderContext) -> {
                         GL11.glScalef(4f, 4f, 4f);
@@ -624,8 +574,6 @@ public class M1941JohnsonRifleFactory {
                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.680000f, -1.140000f, 0.510000f);
-                        
-//                        GL11.glScalef(4f, 4f, 4f);
                     })
                      
             .withFirstPersonLeftHandPositioningReloading(
@@ -811,13 +759,6 @@ public class M1941JohnsonRifleFactory {
                     }, 250, 50))
                     
             .withThirdPersonLeftHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                    }, 50, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -1040,4 +981,3 @@ public class M1941JohnsonRifleFactory {
         .build(MWC.modContext);
     }
 }
-
