@@ -13,21 +13,17 @@ import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M79Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
 
         .withName("m79")
-//      .withCapacity(CommonProxy.AR15Mag)
         .withAmmoCapacity(1)
         .withFireRate(0.7f)
         .withRecoil(5f)
         .withZoom(0.9f)
         .withMaxShots(1)
-        //.withMaxShots(5)
         .withShootSound("m79")
         .withReloadSound("m79_reload")
         .withReloadingTime(50)
@@ -46,9 +42,7 @@ public class M79Factory implements GunFactory {
                 4f, // x 
                 3f, // y
                 2f) // z
-        
-        .withInformationProvider(stack -> Arrays.asList("Type: Grenade Launcher", "Damage: 70", 
-        "Cartridge: 40mm Grenade", "Fire Rate: Semi"))
+
         .withCompatibleAttachment(Bullets.Grenade40mm, (model) -> {})
         
         .withCompatibleAttachment(AuxiliaryAttachments.M79grenade, true, (model) -> {
@@ -57,7 +51,6 @@ public class M79Factory implements GunFactory {
         })
         .withTextureNames("m79")
         .withRenderer(new WeaponRenderer.Builder()
-
             .withModel(new M79())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
@@ -303,7 +296,6 @@ public class M79Factory implements GunFactory {
                     //System.out.println("Position me for Acog");
                 } 
                 
-                // Everything else
                 else {
                 }
                 
@@ -318,7 +310,6 @@ public class M79Factory implements GunFactory {
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Acog");
                 } 
                 
                 // Everything else

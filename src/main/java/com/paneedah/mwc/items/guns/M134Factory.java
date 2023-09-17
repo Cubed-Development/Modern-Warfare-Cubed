@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M134Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -46,28 +44,16 @@ public class M134Factory implements GunFactory {
         .withShellCasingVerticalOffset(-0.05f)
         .withBleedingCoefficient(7f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Minigun", 
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm NATO",
-        "Fire Rate: AUTO",
-        "Rate of Fire: Excuse me?",
-        "Magazines:",
-        "1000rnd 7.62x51mm Box Magazine"))
-         
+
          .withScreenShaking(RenderableState.SHOOTING, 
                  1f, // x 
                  1f, // y
                  2f) // z
          
         .withCompatibleAttachment(Magazines.M134Mag, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.5F, -1.25F);
-//            GL11.glScaled(1.15F, 1.2F, 1.15F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M134Barrels, true, (model) -> {
             GL11.glTranslatef(0F, 0F, 2.4F);
-//            GL11.glTranslatef(0.4F, 0.4F, 0F);
-//            GL11.glRotatef(90F, 0f, 0f, 1);
         })
         .withTextureNames("gun")
         .withRenderer(new WeaponRenderer.Builder()
@@ -267,15 +253,10 @@ public class M134Factory implements GunFactory {
                       }, 250, 1000),
                       new Transition((renderContext) -> {
                           GL11.glTranslatef(-0.01F, 0F, 0F);
-//                      GL11.glRotatef(0F, 0f, 1f, 0f);
-//                      GL11.glScaled(0.55F, 0.55F, 0.55F);
-//                      GL11.glTranslatef(-0.4F, -0.8F, 0.9F);
                     }, 250, 1000),
                     new Transition((renderContext) -> {
                         GL11.glTranslatef(0.3F, 1.7F, 0.1F);
                         GL11.glRotatef(-30F, 0f, 0f, 1f);
-//                  GL11.glScaled(0.55F, 0.55F, 0.55F);
-                        //GL11.glTranslatef(-0.4F, -0.8F, 0.9F);
                   }, 250, 1000)
                     )
                     
@@ -458,8 +439,7 @@ public class M134Factory implements GunFactory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
                     //System.out.println("Position me for Acog");
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -475,7 +455,6 @@ public class M134Factory implements GunFactory {
                 
              // Standard Iron Sight Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                    //System.out.println("Position me for Acog");
                 } 
                 
                 // Everything else

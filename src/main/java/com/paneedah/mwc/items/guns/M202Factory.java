@@ -15,21 +15,17 @@ import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M202Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
 
         .withName("m202")
-//      .withCapacity(CommonProxy.AR15Mag)
         .withAmmoCapacity(4)
         .withFireRate(0.1f)
         .withRecoil(5f)
         .withZoom(0.9f)
         .withMaxShots(1)
-        //.withMaxShots(5)
         .withShootSound("m202")
         .withReloadSound("rpg7_reload")
         .withReloadingTime(50)
@@ -50,8 +46,6 @@ public class M202Factory implements GunFactory {
                 8f) // z
         
         .withUnremovableAttachmentCategories(AttachmentCategory.SCOPE)
-        .withInformationProvider(stack -> Arrays.asList("Type: Rocket Launcher", 
-                "Cartridge: M202 Rocket", "Fire Rate: Semi"))
         .withCompatibleAttachment(Bullets.M202Rocket, (model) -> {})
         .withCompatibleAttachment(AuxiliaryAttachments.M202rockets, true, (model) -> {
         })
@@ -63,9 +57,6 @@ public class M202Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new M202())
-            //.withTextureName("M4A1")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -87,12 +78,6 @@ public class M202Factory implements GunFactory {
                 GL11.glRotatef(-2F, 0f, 0f, 1f);
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 GL11.glTranslatef(-1.125000f, 0.225000f, -1.800000f);
-                
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glRotatef(-2F, 0f, 0f, 1f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glTranslatef(-1.125000f, 1.825000f, -4.800000f);
-//                GL11.glRotatef(35F, 1f, 0f, 0f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -110,7 +95,6 @@ public class M202Factory implements GunFactory {
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Acog");
                 } 
                 // Everything else
                 else {
@@ -126,7 +110,6 @@ public class M202Factory implements GunFactory {
             })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M202rockets.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0F, 0F, -50F);
                 })
                 
             .withFirstPersonPositioningReloading(
@@ -321,7 +304,6 @@ public class M202Factory implements GunFactory {
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Acog");
                 } 
                 // Everything else
                 else {

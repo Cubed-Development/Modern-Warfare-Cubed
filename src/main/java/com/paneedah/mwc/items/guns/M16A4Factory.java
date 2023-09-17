@@ -17,15 +17,12 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M16A4Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
 		
 		.withName("m16a4")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.8f)
 		.withRecoil(3f)
 		.withZoom(0.9f)
@@ -49,7 +46,6 @@ public class M16A4Factory implements GunFactory {
 		.withFlashOffsetY(() -> 0.16f)
 		.withShellCasingForwardOffset(0.05f)
 		.withShellCasingVerticalOffset(-0.03f)
-//		.withShellCasingEjectEnabled(false)
 		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
 		.withRecoilParam(new RecoilParam(
@@ -70,19 +66,6 @@ public class M16A4Factory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Assault Rifle", 
-		"Damage: 6", 
-		"Cartridge: 5.56x45mm NATO",
-		"Fire Rate: SEMI, BURST",
-		"Rate of Fire: 80/100",
-		"Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"60rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"100rnd 5.56x45mm NATO STANAG Drum Magazine"))
-		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                1f, // x 
 	                2f, // y
@@ -96,10 +79,6 @@ public class M16A4Factory implements GunFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
-//        .withCompatibleAttachment(Attachments.RailRiser, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glScaled(1F, 1F, 1F);
-//        })
         .withCompatibleAttachment(Attachments.CollapsableMOEStock, (model) -> {
         	GL11.glTranslatef(0f, -0.28f, -0f);
             GL11.glScaled(1F, 1F, 1F);
@@ -637,25 +616,15 @@ public class M16A4Factory implements GunFactory {
             }
         })
 		
-		.withCompatibleAttachment(Attachments.KobraGen3, renderContext -> {
-		    PlayerWeaponInstance instance = renderContext.getWeaponInstance();
-            if(instance != null) {
-                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                        AttachmentCategory.GUARD, instance);
-                if(activeAttachment == Attachments.AR57Handguard) {
-                    GL11.glTranslatef(-0.041F, -1.37F, -0.7F);
-                    GL11.glScaled(0.65F, 0.65F, 0.65F);
-                } else {
+		.withCompatibleAttachment(Attachments.KobraGen3, () -> {
                     GL11.glTranslatef(-0.041F, -1.26F, -0.7F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
-                    }
-                }
-		},(model) -> {
+            },(model) -> {
             if(model instanceof Reflex2) {
                 GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
-            }
-        }, false, false)
+                }
+            })
 		
 		.withCompatibleAttachment(Attachments.MicroT1, () -> {
                     GL11.glTranslatef(-0.18F, -1.45F, -1F);
@@ -773,7 +742,6 @@ public class M16A4Factory implements GunFactory {
                 		Magazines.SOCOM_Mag)
 		
 			.withFirstPersonCustomPositioning(AuxiliaryAttachments.AR15Action.getRenderablePart(), (renderContext) -> {
-//			    GL11.glTranslatef(0f, 0f, 0.5f);
                 })
 			
 			.withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M4EjectorAction.getRenderablePart(), (renderContext) -> {
@@ -785,8 +753,6 @@ public class M16A4Factory implements GunFactory {
                 })
                 
             .withFirstPersonCustomPositioning(Magazines.M4A1Mag, (renderContext) -> {
-//            	 GL11.glTranslatef(0.2f, 0.35f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
                     
             .withThirdPersonPositioningReloading(
@@ -952,7 +918,6 @@ public class M16A4Factory implements GunFactory {
                         GL11.glTranslatef(0F, 0.055f, 0.3f);
                 } 
 				
-				// Everything else
 				else {
 				}
 				

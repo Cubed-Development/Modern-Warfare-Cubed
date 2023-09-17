@@ -47,7 +47,6 @@ public class M17Factory implements GunFactory {
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.08f)
         .withFlashOffsetY(() -> 0.18f)
-//      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
@@ -79,7 +78,6 @@ public class M17Factory implements GunFactory {
         		CraftingEntry(MWCItems.carbonComposite, 7), new
         		CraftingEntry(MWCItems.gunmetalPlate, 3), new
         		CraftingEntry(MWCItems.steelIngot, 3))
-        
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
         .withCompatibleAttachment(Attachments.PistolPlaceholder, true, (model) -> {
@@ -93,7 +91,6 @@ public class M17Factory implements GunFactory {
         .withCompatibleAttachment(AuxiliaryAttachments.M17_Slide, true, (model) -> {
             if(model instanceof M17Slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof M9A1rearsight) {
                 GL11.glTranslatef(-0.153F, -1.2F, -0.03F);
@@ -105,10 +102,7 @@ public class M17Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Magazines.M17Mag, (model) -> {
-//            GL11.glRotatef(-5F, 1f, 0f, 0f);
-//            GL11.glTranslatef(0F, 0.8F, 0.2F);
         })
-        
         .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(0.01F, -0.72F, -2.1F);
             GL11.glScaled(1.1F, 1.1F, 1.1F);
@@ -129,15 +123,11 @@ public class M17Factory implements GunFactory {
         })
         .withTextureNames("m17")
         .withRenderer(new WeaponRenderer.Builder()
-    
             .withModel(new M17())
             .withActionPiece(
                         AuxiliaryAttachments.M17_Slide)
             .withActionPiece(Attachments.RMR)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -192,7 +182,6 @@ public class M17Factory implements GunFactory {
             })
             
             .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScaled(3F, 3F, 3F);
                 GL11.glTranslatef(0.14f, 0.7f, -2.3f);
                 
@@ -201,7 +190,6 @@ public class M17Factory implements GunFactory {
                     GL11.glTranslatef(0f, 0.23f, 0f);
                 } 
                 
-                // Everything else
                 else {
                 }
                 

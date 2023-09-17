@@ -17,15 +17,12 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M38Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
 		
 		.withName("m38_dmr")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.75f)
 		.withRecoil(3f)
 		.withZoom(0.9f)
@@ -49,7 +46,6 @@ public class M38Factory implements GunFactory {
 		.withFlashOffsetY(() -> 0.16f)
 		.withShellCasingForwardOffset(0.05f)
 		.withShellCasingVerticalOffset(-0.03f)
-//		.withShellCasingEjectEnabled(false)
 		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
 		.withRecoilParam(new RecoilParam(
@@ -70,36 +66,20 @@ public class M38Factory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Carbine", 
-		"Damage: 6", 
-		"Cartridge: 5.56x45mm NATO",
-		"Fire Rate: SEMI, AUTO",
-		"Rate of Fire: 75/100",
-		"Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"60rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"100rnd 5.56x45mm NATO STANAG Drum Magazine"))
-		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                1f, // x 
 	                1f, // y
 	                3f) // z
-		 
+
 		 .withModernRecipe( new
 	        		CraftingEntry(MWCItems.carbonComposite, 8), new
 	        		CraftingEntry(MWCItems.gunmetalPlate, 12), new
 	        		CraftingEntry(MWCItems.steelIngot, 3))
-		 
+
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
-//        .withCompatibleAttachment(Attachments.RailRiser, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glScaled(1F, 1F, 1F);
-//        })
+
         .withCompatibleAttachment(Attachments.CollapsableMOEStock, (model) -> {
         	GL11.glTranslatef(0f, -0.28f, -0f);
             GL11.glScaled(1F, 1F, 1F);
@@ -246,8 +226,6 @@ public class M38Factory implements GunFactory {
         .withCompatibleAttachment(Magazines.M4A1Mag, (model) -> {
 		    GL11.glTranslatef(-0.335F, 0.4F, -1.25F);
             GL11.glScaled(1.05F, 1.2F, 1.15F);
-            
-//            GL11.glTranslatef(0F, 0.35F, 0F);
         })
 		.withCompatibleAttachment(Magazines.SOCOM_Mag, (model) -> {
 		    GL11.glTranslatef(-0.335F, 0.4F, -1.25F);
@@ -259,12 +237,10 @@ public class M38Factory implements GunFactory {
         })
         .withCompatibleAttachment(Magazines.Stanag50, (model) -> {
             GL11.glTranslatef(0F, 0.05F, 0F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag60, (model) -> {
             GL11.glRotatef(-10F, 1f, 0f, 0f);
             GL11.glTranslatef(0F, 0.25F, -0F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag100, (model) -> {
             GL11.glTranslatef(-0.35F, 0.69F, -1.25F);
@@ -275,8 +251,6 @@ public class M38Factory implements GunFactory {
             GL11.glScaled(0.7F, 0.4F, 0.7F);
         })
 		.withCompatibleAttachment(AuxiliaryAttachments.M4EjectorAction, true, (model) -> {
-//          GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-//          GL11.glScaled(0.7F, 0.4F, 0.7F);
       })
 	   .withCompatibleAttachment(AuxiliaryAttachments.AR15Iron, (model) -> {
             if(model instanceof M4Iron1) {
@@ -367,8 +341,6 @@ public class M38Factory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
 		
@@ -513,7 +485,6 @@ public class M38Factory implements GunFactory {
 		})
 		.withTextureNames("hk416")
 		.withRenderer(new WeaponRenderer.Builder()
-			
 			.withModel(new HK416())
 			.withADSBeizer(new Vec3d(0.2F, 1.7, 0.5F))
 			.withEntityPositioning(itemStack -> {
@@ -595,8 +566,6 @@ public class M38Factory implements GunFactory {
                 })
                 
             .withFirstPersonCustomPositioning(Magazines.M4A1Mag, (renderContext) -> {
-//            	 GL11.glTranslatef(0.2f, 0.35f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
                     
             .withThirdPersonPositioningReloading(
@@ -665,8 +634,6 @@ public class M38Factory implements GunFactory {
                     )
 			
             .withFirstPersonPositioningZooming((renderContext) -> {
-//				GL11.glRotatef(45F, 0f, 1f, 0f);
-//				GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
 				GL11.glTranslatef(0.18f, 0.03f, 0.3f);
 				
 				// Standard Iron Sight Zoom
@@ -759,7 +726,6 @@ public class M38Factory implements GunFactory {
                         GL11.glTranslatef(0F, 0.055f, 0.3f);
                 } 
 				
-				// Everything else
 				else {
 				}
 				
@@ -962,7 +928,7 @@ public class M38Factory implements GunFactory {
                         GL11.glRotatef(-26.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                     }, 250, 0))
-					
+
 			.build())
 		.withSpawnEntityDamage(6f)
 		.withSpawnEntityGravityVelocity(0.0118f)

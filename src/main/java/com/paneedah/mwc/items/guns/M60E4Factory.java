@@ -12,8 +12,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class M60E4Factory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -25,14 +23,12 @@ public class M60E4Factory {
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.HEAVY)
         .withMaxShots(Integer.MAX_VALUE)
-        //.withMaxShots(5)
         .withShootSound("m60")
         .withSilencedShootSound("ak15_silenced")
         .withReloadSound("m60_reload")
         .withUnloadSound("m60_unload")
         .withInspectSound("inspection")
         .withDrawSound("mg42_draw")
-//        .withDrawSound("mg42_reload")
         .withReloadingTime(45)
         .withCrosshair("gun")
         .withCrosshairRunning("Running")
@@ -43,15 +39,7 @@ public class M60E4Factory {
         .withFlashOffsetY(() -> 0.16f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: General-Purpose Machine Gun",
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "100rnd 7.62x51mm Magazine"))
-         
+
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
                  1f, // y
@@ -59,8 +47,6 @@ public class M60E4Factory {
          
          .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
          .withCompatibleAttachment(Attachments.M60HandGuard, true, (model) -> {
-//             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//             GL11.glScaled(0F, 0F, 0F);
          })
          .withCompatibleAttachment(Attachments.M60E4HandGuard, true, (model) -> {
              if(model instanceof AKRail) {
@@ -78,8 +64,6 @@ public class M60E4Factory {
              } 
        })
          .withCompatibleAttachment(Attachments.M60FrontSight, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
        })
          .withCompatibleAttachment(Attachments.M60Rail, (model) -> {
            GL11.glTranslatef(-0.073f, -0.12f, 2.9f);
@@ -89,18 +73,10 @@ public class M60E4Factory {
 ////            GL11.glTranslatef(0F, 0F, 1F); 
 //        })
         .withCompatibleAttachment(AuxiliaryAttachments.M60Hatch, true, (model) -> {
-//            GL11.glTranslatef(0F, 2.9F, 1.6F);
-//            GL11.glRotatef(70F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M60Belt, true, (model) -> {
-//            GL11.glTranslatef(-0.5F, 0.4F, 0F);
         })
         .withCompatibleAttachment(Magazines.M60Mag, (model) -> {
-//            GL11.glTranslatef(0.3F, 0.1F, 0F);
-//            GL11.glRotatef(-15F, 0f, 0f, 1f);
-        	
-//        	GL11.glTranslatef(0.12F, -0.4F, 0F);
-//        	GL11.glRotatef(-2F, 0f, 1f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {
@@ -193,8 +169,6 @@ public class M60E4Factory {
 		            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 		            GL11.glScaled(0.15F, 0.15F, 0.15F);
 		        } else if (model instanceof SightMount) {
-		//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-		//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 		        }
 		    })
         .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
@@ -314,9 +288,6 @@ public class M60E4Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new M60())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -338,8 +309,6 @@ public class M60E4Factory {
                 GL11.glScalef(2f, 2f, 2f);
                 GL11.glRotatef(8.000000f, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.500000f, -0.200000f, -5.074998f);
-            	 
-//                GL11.glScalef(2f, 2f, 2f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -3561,234 +3530,6 @@ public class M60E4Factory {
                         }
                     }, 250, 1000))
                     
-//            .withThirdPersonPositioningReloading(
-//                    //hand goes to action
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                        GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                        GL11.glTranslatef(-2F, 0F, 3F);
-//                        GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 430, 50),
-//                    //hand pulls action back
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                        GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                        GL11.glTranslatef(-2.4F, 0.5F, 3F);
-//                        GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                        GL11.glRotatef(100F, 1f, 0f, 0f);
-//                    }, 200, 100),
-//                    //hand pushes action
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                        GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                        GL11.glTranslatef(-2F, 0F, 3F);
-//                        GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 260, 10),
-//                    //hand grabs latch
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                        GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                        GL11.glTranslatef(-2.5F, 0F, 2.5F);
-//                        GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 330, 0),
-//                    //hand opens latch
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                        GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                        GL11.glTranslatef(-2.5F, 0F, 2.5F);
-//                        GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 280, 0),
-//                    //left hand begins grabs magazine out
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                        GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                        GL11.glTranslatef(-2.5F, 0F, 2.5F);
-//                        GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 300, 100),
-//                    //left hand drops magazine
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                        GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                        GL11.glTranslatef(-2.5F, 0F, 2.5F);
-//                        GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 340, 0),
-//                    //gun movement to indicate character grabbing new magazine
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                        GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                        GL11.glTranslatef(-2.5F, 0F, 2.5F);
-//                        GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 530, 0),
-//                //left hand moves magazine to position
-//                new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                    GL11.glTranslatef(-2.5F, 0F, 2.5F);
-//                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                    GL11.glRotatef(90F, 1f, 0f, 0f);
-//                }, 440, 10),
-//                //left hand pushes magazine in
-//                new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                    GL11.glTranslatef(-2.5F, 0F, 2.5F);
-//                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                    GL11.glRotatef(90F, 1f, 0f, 0f);
-//                }, 240, 50),
-//                //left hand grabs belt
-//                new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                    GL11.glTranslatef(-2.5F, 0F, 2.5F);
-//                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                    GL11.glRotatef(90F, 1f, 0f, 0f);
-//                }, 330, 0),
-//                //left hand drags belt
-//                new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                    GL11.glTranslatef(-2.5F, 0F, 2.5F);
-//                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                    GL11.glRotatef(90F, 1f, 0f, 0f);
-//                }, 300, 0),
-//              //left hand grabs latch
-//                new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                    GL11.glTranslatef(-2.5F, 0F, 2.5F);
-//                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                    GL11.glRotatef(90F, 1f, 0f, 0f);
-//                }, 350, 0),
-//              //left hand closes latch
-//                new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                    GL11.glTranslatef(-2.5F, 0F, 2.5F);
-//                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                    GL11.glRotatef(90F, 1f, 0f, 0f);
-//                }, 300, 0),
-//              //hand goes to action
-//                new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                    GL11.glTranslatef(-2F, 0F, 3F);
-//                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                    GL11.glRotatef(90F, 1f, 0f, 0f);
-//                }, 340, 0),
-//                //hand pulls action back
-//                new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                    GL11.glTranslatef(-2.4F, 0.5F, 3F);
-//                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                    GL11.glRotatef(100F, 1f, 0f, 0f);
-//                }, 260, 100),
-//                //hand pushes action
-//                new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
-//                    GL11.glScaled(0.5F, 0.5F, 0.5F);
-//                    GL11.glTranslatef(-2F, 0F, 3F);
-//                    GL11.glRotatef(-45F, 0f, 1f, 0f);
-//                    GL11.glRotatef(90F, 1f, 0f, 0f);
-//                }, 280, 0)
-//            )
-                        
-//            .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.M60Hatch.getRenderablePart(),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 500, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 500, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 500, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0F, -2F, 0.1F);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0F, -2F, 0.1F);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0F, -2F, 0.1F);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0F, -2F, 0.1F);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0F, -2F, 0.1F);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0F, -2F, 0.1F);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0F, -2F, 0.1F);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0F, -2F, 0.1F);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0F, -2F, 0.1F);
-//                        GL11.glRotatef(90F, 1f, 0f, 0f);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 250, 1000)
-//                        )
-//                        
-//            .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.M60Belt.getRenderablePart(),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0.45F, 0F, 0F);
-//                    }, 500, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0.45F, 0F, 0F);
-//                    }, 500, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0.45F, 0F, 0F);
-//                    }, 500, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0.45F, 0F, 0F);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0.45F, 0F, 0F);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0.45F, 0F, 0F);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(1.6F, 3.5F, 0.5F);
-//                        GL11.glRotatef(10F, 0f, 0f, 1f);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(1.6F, 3.5F, 0.5F);
-//                        GL11.glRotatef(10F, 0f, 0f, 1f);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0.7F, 0F, 0F);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0.7F, 0F, 0F);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                        GL11.glTranslatef(0.7F, 0F, 0F);
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 250, 1000),
-//                    new Transition<RenderContext<RenderableState>>((renderContext) -> {
-//                    }, 250, 1000)
-//                        )
-                    
-                    
             .withFirstPersonPositioningDrawing(
                     new Transition<RenderContext<RenderableState>>((renderContext) -> { // Reload position
                         GL11.glRotatef(45F, 0f, 1f, 0f);
@@ -5293,4 +5034,3 @@ public class M60E4Factory {
         .build(MWC.modContext);
     }
 }
-
