@@ -31,7 +31,6 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                 .withType(Type.SMOKE)
                 .withExplosionTimeout(1000)
                 .withActiveDuration(20000)
-                //.withExplosionSound("grenadeexplosion")
                 .withBounceSoftSound("grenade-soft-bounce")
                 .withBounceHardSound("grenade-hard-bounce")
                 .withThrowSound("grenadethrow")
@@ -82,11 +81,6 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
 
                         .withFirstPersonCustomPositioning(Grenades.GrenadeSafetyPin.getRenderablePart(), null,
                                 context -> {
-//                                    //context.attachTo(Part.MAIN_ITEM);
-//                                    GL11.glScalef(1f, 1f, 1f);
-//                                    GL11.glRotatef(25.000000f, 0f, 1f, 0f);
-//                                    GL11.glRotatef(10.000000f, 0f, 0f, 1f);
-//                                    GL11.glTranslatef(f, -0.6f, -2.2f);
                                 })
 
                         .withFirstPersonHandPositioning(
@@ -253,11 +247,6 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                 }, 70, 0),
 
                                 new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
-                                    //                                    GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                                    //                                    GL11.glRotatef(-30.000000f, 1f, 0f, 0f);
-                                    //                                    GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-                                    //                                    GL11.glRotatef(15.000000f, 0f, 0f, 1f);
-                                    //                                    GL11.glTranslatef(0.275000f, -0.400000f, 0.200000f);
                                 }, 70, 0))
 
                         .withFirstPersonCustomPositioningThrowing(Grenades.GrenadeSafetyPin.getRenderablePart(),
@@ -341,11 +330,6 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                 },
 
                                 context -> { // right hand
-                                    //                                  GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                                    //                                  GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
-                                    //                                  GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
-                                    //                                  GL11.glRotatef(15.000000f, 0f, 0f, 1f);
-//                                                                      GL11.glTranslatef(0f, 0.8f, 0.7f);
                                 })
 
                         .build())
