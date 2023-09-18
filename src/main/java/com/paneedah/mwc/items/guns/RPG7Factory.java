@@ -22,13 +22,11 @@ public class RPG7Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("rpg7")
-//      .withCapacity(CommonProxy.AR15Mag)
         .withAmmoCapacity(1)
         .withFireRate(0.7f)
         .withRecoil(10f)
         .withZoom(0.9f)
         .withMaxShots(1)
-        //.withMaxShots(5)
         .withShootSound("rpg7")
         .withReloadSound("rpg7_reload")
         .withReloadingTime(50)
@@ -57,9 +55,6 @@ public class RPG7Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
 
             .withModel(new RPG7())
-            //.withTextureName("M4A1")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -81,12 +76,6 @@ public class RPG7Factory implements GunFactory {
                 GL11.glRotatef(-3F, 0f, 0f, 1f);
                 GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                 GL11.glTranslatef(-0.425000f, 0.825000f, -2.500000f);
-                
-//                GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
-//                GL11.glRotatef(-25.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(-10.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-1.200000f, 1.200000f, 0.5f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -103,41 +92,34 @@ public class RPG7Factory implements GunFactory {
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.26f, 1.6f);
                 } 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.13f, 1.3f);
                 } 
                 
                 // Reflex Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(0F, 0.125f, 1f);
                 } 
                 
                 // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0F, 0.16f, 1f);
                 } 
                 
                 // Reflex Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                    //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(0F, 0.16f, 1f);
                 } 
                 
              // Reflex Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                    //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(0F, 0.125f, 1f);
                 } 
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                    //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(0F, 0.06f, 1.5f);
                 } 
                 
@@ -155,7 +137,6 @@ public class RPG7Factory implements GunFactory {
             })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.RPG7rocket.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0F, 0F, -50F);
                 })
                 
             .withFirstPersonPositioningReloading(
@@ -631,41 +612,34 @@ public class RPG7Factory implements GunFactory {
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.26f, 1.6f);
                 } 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.13f, 1.3f);
                 } 
                 
                 // Reflex Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(0F, 0.125f, 1f);
                 } 
                 
                 // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0F, 0.16f, 1f);
                 } 
                 
                 // Reflex Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                    //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(0F, 0.16f, 1f);
                 } 
                 
              // Reflex Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                    //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(0F, 0.125f, 1f);
                 } 
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                    //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(0F, 0.06f, 1.5f);
                 } 
                 
@@ -696,12 +670,6 @@ public class RPG7Factory implements GunFactory {
                          GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(-0.225000f, -0.875000f, 0.150000f);
-                         
-//                         GL11.glScalef(4f, 4f, 4f);
-//                         GL11.glRotatef(-115.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(-165.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-10.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(-0.425000f, 0.075000f, -0.625000f);
                      }, 
                      (renderContext) -> {
                          GL11.glScalef(3f, 3f, 3f);

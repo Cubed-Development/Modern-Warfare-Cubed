@@ -15,8 +15,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class Saiga12Factory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -29,7 +27,6 @@ public class Saiga12Factory {
         .withConfigGroup(GunConfigurationGroup.SHOTGUN)
         .withShellType(Type.SHOTGUN)
         .withMaxShots(1)
-        //.withMaxShots(5)
         .withShootSound("saiga12")
         .withSilencedShootSound("ak15_silenced")
         .withReloadSound("ak15_reload")
@@ -56,20 +53,9 @@ public class Saiga12Factory {
                  10f) // z
          
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Carbine/Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 40/100",
-        "Magazines:",
-        "5rnd 12G Magazine"))
         .withCompatibleAttachment(AuxiliaryAttachments.Saiga12action, true, (model) -> {
         })
         .withCompatibleAttachment(Magazines.SaigaMag, (model) -> {
-//            GL11.glTranslatef(0F, 0.45F, -0.15F);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(Attachments.Silencer762x39, (model) -> {
           GL11.glTranslatef(-0.2F, -1.06F, -7.55F);
@@ -115,9 +101,6 @@ public class Saiga12Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new Saiga12())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -445,13 +428,6 @@ public class Saiga12Factory {
                     )
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -515,12 +491,9 @@ public class Saiga12Factory {
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                     GL11.glRotatef(12F, 0f, 0f, 1f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.Saiga12action.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                     new Transition((renderContext) -> {
                     }, 500, 1000),
                     new Transition((renderContext) -> {
@@ -602,13 +575,11 @@ public class Saiga12Factory {
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(-0.013F, 0.15f, 0.2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(-0.05F, 0.11f, 0f);
                 } 
                 
@@ -628,13 +599,11 @@ public class Saiga12Factory {
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(-0.013F, 0.15f, 0.15f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(-0.05F, 0.11f, 0f);
                 } 
                 
@@ -1063,13 +1032,6 @@ public class Saiga12Factory {
                     }, 250, 50))
                     
             .withThirdPersonLeftHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                    }, 50, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -1135,13 +1097,6 @@ public class Saiga12Factory {
                     }, 280, 0))
                     
             .withThirdPersonRightHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(4f, 4f, 5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                    }, 250, 1000),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -1292,4 +1247,3 @@ public class Saiga12Factory {
         .build(MWC.modContext);
     }
 }
-

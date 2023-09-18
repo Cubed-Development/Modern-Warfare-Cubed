@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class MG34Factory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -27,14 +25,12 @@ public class MG34Factory {
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.HEAVY)
         .withMaxShots(Integer.MAX_VALUE)
-        //.withMaxShots(5)
         .withShootSound("mg42")
         .withSilencedShootSound("ak15_silenced")
         .withReloadSound("mg42_reload")
         .withUnloadSound("mg42_unload")
         .withInspectSound("inspection")
         .withDrawSound("mg42_draw")
-//        .withDrawSound("mg42_reload")
         .withReloadingTime(45)
         .withCrosshair("gun")
         .withCrosshairRunning("Running")
@@ -45,29 +41,17 @@ public class MG34Factory {
         .withFlashOffsetY(() -> 0.14f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: General-Purpose Machine Gun",
-        "Damage: 13.5", 
-        "Cartridge: 7.92x57mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "50rnd 7.92x57mm MG Magazine"))
-         
+
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 
                  2f, // y
                  6f) // z
          
         .withCompatibleAttachment(AuxiliaryAttachments.MG42action, true, (model) -> {
-//            GL11.glTranslatef(0F, 0F, 1F); 
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MG34latch, true, (model) -> {
-//            GL11.glTranslatef(0F, -2F, 0F);
-//            GL11.glRotatef(90F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MG42Belt, true, (model) -> {
-//            GL11.glTranslatef(0.45F, 0F, 0F);
         })
         .withCompatibleAttachment(Magazines.MG42Mag, (model) -> {
         })
@@ -118,9 +102,6 @@ public class MG34Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new MG34())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -168,11 +149,9 @@ public class MG34Factory {
                 })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.MG42action.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0f, 0f, 1f);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.MG42action.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0f, 0f, 1f);
                 })
             
             .withFirstPersonPositioningReloading(
@@ -301,9 +280,7 @@ public class MG34Factory {
             )
                     
             .withFirstPersonCustomPositioningReloading(AuxiliaryAttachments.MG42action.getRenderablePart(),
-                    
-                    
-                    
+
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
@@ -894,12 +871,6 @@ public class MG34Factory {
                     GL11.glTranslatef(0F, 0.25f, 0.9f);
                 } 
                 
-//             // ACOG Zoom
-//                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Vortex)) {
-//                    //System.out.println("Position me for Acog");
-//                    GL11.glTranslatef(0F, 0.27f, 0.9f);
-//                } 
-                
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
                     //System.out.println("Position me for Acog");
@@ -954,12 +925,6 @@ public class MG34Factory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.25f, 0.9f);
                 } 
-                
-//             // ACOG Zoom
-//                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Vortex)) {
-//                    //System.out.println("Position me for Acog");
-//                    GL11.glTranslatef(0F, 0.27f, 0.9f);
-//                } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
@@ -1707,4 +1672,3 @@ public class MG34Factory {
         .build(MWC.modContext);
     }
 }
-

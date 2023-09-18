@@ -14,8 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class MG42Factory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -27,14 +25,12 @@ public class MG42Factory {
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.HEAVY)
         .withMaxShots(Integer.MAX_VALUE)
-        //.withMaxShots(5)
         .withShootSound("mg42")
         .withSilencedShootSound("ak15_silenced")
         .withReloadSound("mg42_reload")
         .withUnloadSound("mg42_unload")
         .withInspectSound("inspection")
         .withDrawSound("mg42_draw")
-//        .withDrawSound("mg42_reload")
         .withReloadingTime(45)
         .withCrosshair("gun")
         .withCrosshairRunning("Running")
@@ -45,29 +41,17 @@ public class MG42Factory {
         .withFlashOffsetY(() -> 0.15f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: General-Purpose Machine Gun",
-        "Damage: 13.5", 
-        "Cartridge: 7.92x57mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 95/100",
-        "Magazines:",
-        "50rnd 7.92x57mm MG Magazine"))
-         
+
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 
                  2f, // y
                  6f) // z
          
         .withCompatibleAttachment(AuxiliaryAttachments.MG42action, true, (model) -> {
-//            GL11.glTranslatef(0F, 0F, 1F); 
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MG42latch, true, (model) -> {
-//            GL11.glTranslatef(0F, -2F, 0F);
-//            GL11.glRotatef(90F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MG42Belt, true, (model) -> {
-//            GL11.glTranslatef(0.45F, 0F, 0F);
         })
         .withCompatibleAttachment(Magazines.MG42Mag, (model) -> {
         })
@@ -116,11 +100,7 @@ public class MG42Factory {
         })
         .withTextureNames("mg42")
         .withRenderer(new WeaponRenderer.Builder()
-    
             .withModel(new MG42())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -168,11 +148,9 @@ public class MG42Factory {
                 })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.MG42action.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0f, 0f, 1f);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.MG42action.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0f, 0f, 1f);
                 })
             
             .withFirstPersonPositioningReloading(
@@ -298,12 +276,8 @@ public class MG42Factory {
                         GL11.glTranslatef(-0.55f, 1.13f, -0.85f);
                         GL11.glRotatef(0.5F, 1f, 0f, 0f);
                     }, 340, 0)
-            )
-                    
+            )  
             .withFirstPersonCustomPositioningReloading(AuxiliaryAttachments.MG42action.getRenderablePart(),
-                    
-                    
-                    
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
@@ -330,10 +304,7 @@ public class MG42Factory {
                     new Transition((renderContext) -> {
                     }, 500, 1000)
                         )
-                        
             .withFirstPersonCustomPositioningUnloading(AuxiliaryAttachments.MG42action.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
@@ -343,8 +314,6 @@ public class MG42Factory {
                         )
                         
             .withFirstPersonCustomPositioningReloading(AuxiliaryAttachments.MG42latch.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
@@ -387,8 +356,6 @@ public class MG42Factory {
                         )
                         
             .withFirstPersonCustomPositioningUnloading(AuxiliaryAttachments.MG42latch.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
@@ -398,8 +365,6 @@ public class MG42Factory {
                         )
                         
             .withFirstPersonCustomPositioningReloading(AuxiliaryAttachments.MG42Belt.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                         GL11.glTranslatef(0.7F, 0.95F, 0F);
                     }, 250, 1000),
@@ -434,8 +399,6 @@ public class MG42Factory {
                         )
                         
             .withFirstPersonCustomPositioningUnloading(AuxiliaryAttachments.MG42Belt.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                         GL11.glTranslatef(0.45F, 0F, 0F);
                     }, 250, 1000),
@@ -448,8 +411,6 @@ public class MG42Factory {
                         )
                     
             .withFirstPersonCustomPositioningReloading(Magazines.MG42Mag,
-                    
-                    
                     new Transition((renderContext) -> {
                         GL11.glTranslatef(0.15F, 0.9F, 0F);
                         GL11.glRotatef(10F, 0f, 0f, 1f);
@@ -486,7 +447,6 @@ public class MG42Factory {
                     )
                     
             .withFirstPersonCustomPositioningUnloading(Magazines.MG42Mag,
-                    
                     new Transition((renderContext) -> {
                         
                     }, 250, 1000),
@@ -860,49 +820,35 @@ public class MG42Factory {
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.24f, 0.85f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.23f, 1.2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HP)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.19f, 0.75f);
                 } 
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.17f, 0.85f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.195f, 1.2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.25f, 0.9f);
                 } 
-                
-//             // ACOG Zoom
-//                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Vortex)) {
-//                    //System.out.println("Position me for Acog");
-//                    GL11.glTranslatef(0F, 0.27f, 0.9f);
-//                } 
-                
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.26f, 0.8f);
                 } 
                 
@@ -923,49 +869,36 @@ public class MG42Factory {
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.24f, 0.75f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.23f, 1.2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HP)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.19f, 0.75f);
                 } 
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.17f, 0.85f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.195f, 1.2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.25f, 0.9f);
                 } 
                 
-//             // ACOG Zoom
-//                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Vortex)) {
-//                    //System.out.println("Position me for Acog");
-//                    GL11.glTranslatef(0F, 0.27f, 0.9f);
-//                } 
-                
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.26f, 0.8f);
                 } 
                 
@@ -1103,7 +1036,7 @@ public class MG42Factory {
                         GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.025000f, -0.775000f, -0.125000f);
                     }, 250, 1000),
-                    //hand grabs belt
+ 
                     new Transition((renderContext) -> {
                         GL11.glScalef(4f, 4f, 4f);
                         GL11.glRotatef(-115.000000f, 1f, 0f, 0f);
@@ -1416,7 +1349,7 @@ public class MG42Factory {
                         GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(-0.125000f, -0.075000f, 0.100000f);
                     }, 250, 1000),
-                    //hand grabs belt
+ 
                     new Transition((renderContext) -> {
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
@@ -1711,4 +1644,3 @@ public class MG42Factory {
         .build(MWC.modContext);
     }
 }
-
