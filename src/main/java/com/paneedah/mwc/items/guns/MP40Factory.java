@@ -15,8 +15,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class MP40Factory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -29,7 +27,6 @@ public class MP40Factory {
         .withConfigGroup(GunConfigurationGroup.SMG)
         .withShellType(Type.PISTOL)
         .withMaxShots(1, Integer.MAX_VALUE)
-        //.withMaxShots(5)
         .withShootSound("mp40")
         .withSilencedShootSound("ak15_silenced")
         .withReloadSound("mp40_reload")
@@ -46,15 +43,6 @@ public class MP40Factory {
         .withFlashOffsetY(() -> 0.13f)
         .withInaccuracy(2f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Sub Machine Gun",
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "32rnd 9x19mm MP Magazine"))
-         
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
                  0.1f, // y
@@ -133,14 +121,6 @@ public class MP40Factory {
                 GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
                 GL11.glRotatef(6.000000f, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.175000f, 0.800000f, -0.575000f);
-                
-//                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-//                GL11.glRotatef(-30.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(-20.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.950000f, 1.025000f, -0.175000f);
-                
-//                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -177,11 +157,6 @@ public class MP40Factory {
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.MP40action.getRenderablePart(), (renderContext) -> {
                 if(renderContext.getWeaponInstance().getAmmo() == 0) {
                     GL11.glTranslatef(0F, 0F, -1F);
-                    
-//                    GL11.glTranslatef(0F, 0F, 0.5F);
-                    
-//                    GL11.glTranslatef(0.65F, -0.4F, 0.4F);
-//                    GL11.glRotatef(-45F, 0f, 0f, 1f);
                 }
             })
             
@@ -546,13 +521,6 @@ public class MP40Factory {
                     )
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -613,13 +581,10 @@ public class MP40Factory {
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
                     
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.MP40action.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                     new Transition((renderContext) -> {
                     }, 500, 1000),
                     new Transition((renderContext) -> {
@@ -700,49 +665,36 @@ public class MP40Factory {
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.19f, 0.5f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.21f, 0.8f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HP)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.19f, 0.75f);
                 } 
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.17f, 0.6f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.18f, 0.2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.22f, 0.2f);
                 } 
                 
-//             // ACOG Zoom
-//                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Vortex)) {
-//                    //System.out.println("Position me for Acog");
-//                    GL11.glTranslatef(0F, 0.215f, 0.6f);
-//                } 
-                
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.22f, 0.2f);
                 } 
                 
@@ -762,42 +714,30 @@ public class MP40Factory {
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.19f, 0.45f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.21f, 0.8f);
                 } 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.17f, 0.55f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.18f, 0.2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.22f, 0.2f);
                 } 
                 
-//             // ACOG Zoom
-//                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Vortex)) {
-//                    //System.out.println("Position me for Acog");
-//                    GL11.glTranslatef(0F, 0.215f, 0.6f);
-//                } 
-                
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.22f, 0.2f);
                 } 
                 
@@ -1288,13 +1228,6 @@ public class MP40Factory {
                     }, 250, 50))
                     
             .withThirdPersonLeftHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                    }, 50, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -1360,13 +1293,6 @@ public class MP40Factory {
                     }, 300, 0))
                     
             .withThirdPersonRightHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(4f, 4f, 5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                    }, 250, 1000),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -1519,4 +1445,3 @@ public class MP40Factory {
         .build(MWC.modContext);
     }
 }
-

@@ -16,15 +16,12 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class NGSWRFactory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
 		
 		.withName("ngsw_r")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.75f)
 		.withRecoil(3f)
 		.withZoom(0.9f)
@@ -48,7 +45,6 @@ public class NGSWRFactory implements GunFactory {
 		.withFlashOffsetY(() -> 0.16f)
 		.withShellCasingForwardOffset(0.05f)
 		.withShellCasingVerticalOffset(-0.03f)
-//		.withShellCasingEjectEnabled(false)
 		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
 		.withRecoilParam(new RecoilParam(
@@ -69,15 +65,6 @@ public class NGSWRFactory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Assault Rifle", 
-		"Damage: 7", 
-		"Cartridge: .277 FURY",
-		"Fire Rate: SEMI, AUTO",
-		"Rate of Fire: 75/100",
-		"Magazines:",
-        "20rnd .277 FURY Magazine"))
-		
 		.withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 8), new
         		CraftingEntry(MWCItems.gunmetalPlate, 13), new
@@ -96,8 +83,6 @@ public class NGSWRFactory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.NGSWRRail, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.HK416FrontSight, renderContext -> {
         	PlayerWeaponInstance instance = renderContext.getWeaponInstance();
@@ -181,8 +166,6 @@ public class NGSWRFactory implements GunFactory {
             GL11.glScaled(0.85F, 0.85F, 0.85F);
         })
         .withCompatibleAttachment(Magazines.NGSWRMag, (model) -> {
-//		    GL11.glTranslatef(-0.333F, 0.45F, -1.4F);
-//            GL11.glScaled(1.02F, 1.35F, 1.33F);
         })
 		.withCompatibleAttachment(AuxiliaryAttachments.AR15Action, true, (model) -> {
             GL11.glTranslatef(-0.175F, -1.535F, -0.6F);
@@ -263,8 +246,6 @@ public class NGSWRFactory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
 		

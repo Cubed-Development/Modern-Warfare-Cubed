@@ -20,8 +20,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class MP443Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -48,7 +46,6 @@ public class MP443Factory implements GunFactory {
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.13f)
-//      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
@@ -70,14 +67,6 @@ public class MP443Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Military Service Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "18rnd 9x19mm 443 Magazine"))
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 
                  0.1f, // y
@@ -97,8 +86,6 @@ public class MP443Factory implements GunFactory {
         .withCompatibleAttachment(Attachments.MP443Slide, true, (model) -> {
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MP443hammer, true, (model) -> {
-//            GL11.glTranslatef(0.08F, -1.97F, -4.15F);
-//            GL11.glScaled(1.5F, 1.5F, 1.5F);
         })
         .withCompatibleAttachment(Magazines.MP443Mag, (model) -> {
             GL11.glTranslatef(0F, 0F, 0.12F);
@@ -114,9 +101,6 @@ public class MP443Factory implements GunFactory {
             .withActionPiece(
             		Attachments.MP443Slide)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);

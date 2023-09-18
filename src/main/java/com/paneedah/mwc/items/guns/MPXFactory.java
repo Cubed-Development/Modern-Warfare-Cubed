@@ -17,15 +17,12 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class MPXFactory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
 		
 		.withName("sig_mpx")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.85f)
 		.withRecoil(1.5f)
 		.withZoom(0.9f)
@@ -49,7 +46,6 @@ public class MPXFactory implements GunFactory {
 		.withFlashOffsetY(() -> 0.15f)
 		.withShellCasingForwardOffset(0.05f)
 		.withShellCasingVerticalOffset(-0.03f)
-//		.withShellCasingEjectEnabled(false)
 		.withInaccuracy(1f)
 		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
@@ -71,15 +67,6 @@ public class MPXFactory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Submachine Gun", 
-		"Damage: 5", 
-		"Cartridge: 9x19mm",
-		"Fire Rate: SEMI, AUTO",
-		"Rate of Fire: 85/100",
-		"Magazines:",
-        "30rnd 9x19mm MPX Magazine"))
-		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
                  0.1f, // y
@@ -104,20 +91,14 @@ public class MPXFactory implements GunFactory {
         .withCompatibleAttachment(Attachments.MPXHandguardExtended, (model) -> {
         })
         .withCompatibleAttachment(Attachments.HK416Grip, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4Grip, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
-        })//50
+        })
         .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
 		.withCompatibleAttachment(Magazines.MPXMag, (model) -> {
-//		    GL11.glTranslatef(-0.35F, 0.5F, -1.25F);
-//            GL11.glScaled(1.15F, 1.2F, 1.15F);
         })
 		.withCompatibleAttachment(AuxiliaryAttachments.AR15Action, true, (model) -> {
             GL11.glTranslatef(-0.175F, -1.58F, -0.86F);
@@ -205,8 +186,6 @@ public class MPXFactory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
 		
@@ -420,8 +399,6 @@ public class MPXFactory implements GunFactory {
                 		Magazines.MPXMag)
                 
             .withFirstPersonCustomPositioning(Magazines.MPXMag, (renderContext) -> {
-//            	 GL11.glTranslatef(0f, 0.5f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
                     
             .withThirdPersonPositioningReloading(
@@ -700,13 +677,6 @@ public class MPXFactory implements GunFactory {
                    }, 300, 0))
                    
            .withThirdPersonRightHandPositioningReloading(
-//                   new Transition((renderContext) -> { // Reload position
-//                       GL11.glScalef(4f, 4f, 5f);
-//                       GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                       GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                       GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                       GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                   }, 250, 1000),
                    new Transition((renderContext) -> { // Reload position
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-50.000000f, 1f, 0f, 0f);

@@ -12,15 +12,12 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class SupernovaFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
 
         .withName("supernova")
-//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(7)
         .withMaxBulletsPerReload(7)
         .withFireRate(0.5f)
@@ -52,14 +49,6 @@ public class SupernovaFactory implements GunFactory {
         .withFlashOffsetX(() -> 0.05f)
         .withFlashOffsetY(() -> 0.12f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: PUMP ACTION",
-        "Rate of Fire: 30/100"))
-        
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 
                 1f, // y
@@ -69,15 +58,12 @@ public class SupernovaFactory implements GunFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         
         .withCompatibleAttachment(Attachments.M1014Grip, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
           GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.M1014Stock, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.M4BenelliStock, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
           GL11.glScaled(1F, 1F, 1F);
       })
         .withCompatibleAttachment(Attachments.ShotgunRail, (model) -> {
@@ -93,10 +79,7 @@ public class SupernovaFactory implements GunFactory {
         })
         .withCompatibleAttachment(AuxiliaryAttachments.SupernovaPump, true, (model) -> {
             GL11.glTranslatef(0.017F, 0F, 0F);
-//            GL11.glRotatef(90F, 1f, 0f, 0f);
             GL11.glScaled(1.15F, 1F, 1F);
-            
-//            GL11.glTranslatef(0f, 0f, 0.9f);
         })
         .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.17F, -0.73F, -1.3F);
@@ -146,8 +129,6 @@ public class SupernovaFactory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
         .withCompatibleAttachment(Attachments.Holographic, () -> {
@@ -235,9 +216,6 @@ public class SupernovaFactory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
 
             .withModel(new Supernova())
-            //.withTextureName("Remington900")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -293,8 +271,6 @@ public class SupernovaFactory implements GunFactory {
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0.07F, 1.15F, -0.3F);
-//                GL11.glRotatef(-70F, 1f, 0f, 0f);
                 })
                 
             .withFirstPersonCustomPositioningLoadIterationCompleted(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
@@ -866,91 +842,76 @@ public class SupernovaFactory implements GunFactory {
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.4f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.245f, 0.5f);
                 } 
                 
-//              // Holo Zoom
+             // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.245f, 0.8f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.235f, 0.8f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HP)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.275f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.265f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.29f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.45f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.275f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
                 
@@ -969,85 +930,71 @@ public class SupernovaFactory implements GunFactory {
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.3f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.245f, 0.4f);
                 } 
                 
-//              // Holo Zoom
+             // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.245f, 0.7f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.235f, 0.7f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.265f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.29f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.35f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.275f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
                 
