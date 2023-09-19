@@ -9,11 +9,13 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ## Warning
 
-**If you are upgrading from either Vic's Modern Warfare or Modern Warfare Cubed Version 0.1-Dev-6 or under all Modern Warfare related items, blocks weapons, etc... will disappear from your save either back up your world or start a new one.**
+**If you are upgrading from either Vic's Modern Warfare or Modern Warfare Cubed Version 0.1-Dev-6 and under, all Modern Warfare related items, blocks weapons, etc... will disappear from your save. Either back up your world or start a new one.**
 
 **When updating to this version from an existing world all tan variants of every back as well as the F5 Switchblade will disappear, they aren't being removed then just changed internally**
 
 **When updating to this version from an existing world all equipment placed in the equipment inventory will disappear**
+
+**When updating to this version from Dev-14 and under, all copys of the Tan Molle Plate Carrier will be deleted. There item ID has been changed**
 
 ### Highlight
 
@@ -175,7 +177,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed the exposure decreasing on the client side even when the game is paused
 - Fixed spectators being able to shoot weapons
 - Fixed the spawning position of the shells
-- Bullet spawning maths which was making the bullets spawn in inaccurate position
+- Fixed Bullet spawning maths which was making the bullets spawn in inaccurate position
+- Fixed the Tan Molle Plate Carrier having a inconstant item ID to other Molle Plate Carrier colors.
 
 ### Removed
 
