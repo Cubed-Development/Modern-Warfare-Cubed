@@ -319,7 +319,6 @@ public class Glock18CFactory implements GunFactory {
                     )
                 
             .withFirstPersonPositioningZooming((renderContext) -> {
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
             	GL11.glScaled(3F, 3F, 3F);
             	GL11.glTranslatef(0.105f, 0.67f, -1.9f);
               
