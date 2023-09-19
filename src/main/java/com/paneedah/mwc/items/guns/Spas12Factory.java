@@ -50,7 +50,6 @@ public class Spas12Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.12f)
         .withFlashOffsetY(() -> 0.12f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 
                 4f, // y

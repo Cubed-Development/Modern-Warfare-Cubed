@@ -84,9 +84,7 @@ public class Glock18CFactory implements GunFactory {
             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
             GL11.glScaled(0F, 0F, 0F);
         })
-        .withCompatibleAttachment(Attachments.Glock18CBody, true, (model) -> {
-        })
-        .withCompatibleAttachment(Attachments.Glock19Body, (model) -> {
+        .withCompatibleAttachment(Attachments.Glock19Body, true, (model) -> {
         })
         .withCompatibleAttachment(Attachments.Glock19XBody, (model) -> {
         })
