@@ -1,7 +1,7 @@
 package com.paneedah.mwc.rendering;
 
-import io.redstudioragnarok.redcore.utils.MathUtil;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.utils.MathUtil;
+import dev.redstudio.redcore.vectors.Vector3F;
 import net.minecraft.client.renderer.GlStateManager;
 
 import static com.paneedah.mwc.utils.ModReference.LOG;

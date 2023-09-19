@@ -2,7 +2,7 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.WorkbenchClientMessage;
 import com.paneedah.weaponlib.crafting.base.TileEntityStation;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;

@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.command;
 
 import com.paneedah.weaponlib.*;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.vectors.Vector3F;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 

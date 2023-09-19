@@ -8,7 +8,7 @@ import com.paneedah.weaponlib.crafting.IModernCrafting;
 import com.paneedah.weaponlib.grenade.GrenadeRenderableState;
 import com.paneedah.weaponlib.melee.MeleeRenderableState;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.vectors.Vector3F;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;

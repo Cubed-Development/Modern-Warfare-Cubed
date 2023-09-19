@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.compatibility.sound;
 
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.vectors.Vector3D;
 import net.minecraft.util.SoundEvent;
 
 import java.util.function.Supplier;

@@ -20,7 +20,7 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.*;
 import com.paneedah.weaponlib.shader.jim.Shader;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.vectors.Vector3F;
 import lombok.AllArgsConstructor;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;

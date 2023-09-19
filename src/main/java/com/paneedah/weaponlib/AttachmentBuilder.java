@@ -7,7 +7,7 @@ import com.paneedah.mwc.rendering.TexturedModel;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
 import com.paneedah.weaponlib.crafting.*;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.vectors.Vector3F;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;

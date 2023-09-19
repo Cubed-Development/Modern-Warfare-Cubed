@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.ModContext;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage;
 import com.paneedah.mwc.network.messages.SpawnParticleMessage.ParticleType;
 import io.netty.buffer.ByteBuf;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.vectors.Vector3F;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;

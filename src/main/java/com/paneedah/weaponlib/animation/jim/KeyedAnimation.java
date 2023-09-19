@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.animation.jim;
 
 import com.paneedah.weaponlib.animation.jim.AnimationData.BlockbenchTransition;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.vectors.Vector3F;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;

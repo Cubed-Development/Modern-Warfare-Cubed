@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.compatibility.sound;
 
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.vectors.Vector3D;
 import net.minecraft.client.audio.MovingSound;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;

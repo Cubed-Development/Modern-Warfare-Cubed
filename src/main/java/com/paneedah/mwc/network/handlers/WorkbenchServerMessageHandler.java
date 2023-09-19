@@ -9,7 +9,7 @@ import com.paneedah.weaponlib.crafting.IModernCrafting;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

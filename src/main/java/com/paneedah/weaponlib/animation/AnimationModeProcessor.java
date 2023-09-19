@@ -6,7 +6,7 @@ import com.paneedah.weaponlib.WeaponRenderer.Builder;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.debug.DebugRenderer;
 import com.paneedah.weaponlib.render.Shaders;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.vectors.Vector3F;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;

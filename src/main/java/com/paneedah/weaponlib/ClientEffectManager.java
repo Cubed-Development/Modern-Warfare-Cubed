@@ -5,7 +5,7 @@ import com.paneedah.weaponlib.ClientEventHandler.MuzzleFlash;
 import com.paneedah.weaponlib.particle.BetterMuzzleSmoke;
 import com.paneedah.weaponlib.particle.ExplosionParticleFX;
 import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.vectors.Vector3D;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.Vec3d;

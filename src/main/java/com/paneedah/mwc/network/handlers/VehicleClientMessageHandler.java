@@ -4,7 +4,7 @@ import com.paneedah.mwc.network.messages.VehicleClientMessage;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataContainer;
 import com.paneedah.weaponlib.vehicle.network.VehiclePacketLatencyTracker;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;

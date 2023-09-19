@@ -2,7 +2,7 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.NightVisionToggleMessage;
 import com.paneedah.weaponlib.CustomArmor;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
