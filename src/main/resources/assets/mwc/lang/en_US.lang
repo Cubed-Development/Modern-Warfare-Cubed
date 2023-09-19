@@ -436,7 +436,6 @@ item.baseball_bat.name=Baseball Bat
 item.baseball_bat_nails.name=Baseball Bat w/ Nails
 item.night_stick.name=Night Stick
 
-item.gas_can.name=Gas Can (PROP)
 item.mwc_wcam.name=Camera
 item.mwc_tablet.name=Tablet
 
@@ -954,9 +953,9 @@ tile.mwc_desk_middle_alt1.name=Desk Middle (ALT1)
 tile.mwc_desk_right.name=Desk Right
 tile.mwc_desk_right_alt1.name=Desk Right (ALT1)
 tile.mwc_desk_shelf.name=Desk Shelf
-tile.mwc_desk_shelf_alt1.name=Desk Shelf (A1)
-tile.mwc_desk_shelf_alt2.name=Desk Shelf (A2)
-tile.mwc_desk_shelf_alt3.name=Desk Shelf (A3)
+tile.mwc_desk_shelf_alt1.name=Desk Shelf (ALT1)
+tile.mwc_desk_shelf_alt2.name=Desk Shelf (ALT2)
+tile.mwc_desk_shelf_alt3.name=Desk Shelf (ALT3)
 tile.mwc_barrier.name=Barrier
 tile.mwc_barrier_rotated.name=Barrier (Rotated)
 tile.mwc_body_bag.name=Body Bag
