@@ -1927,13 +1927,13 @@ public class Attachments {
                 .withName("MP5HOGUEGrip")
                 .build();
 
-        GlockHOGUEGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
+        GlockHOGUEGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new GlockHogueGrip(), "gun2.png")
                 .withName("GlockHogueGrip")
                 .build();
 
         // Todo: Why is the recipe commented out
-        GlockHOGUEGripTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
+        GlockHOGUEGripTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new GlockHogueGrip(), "tan.png")
 //                .withModernRecipe(
 //                    	CraftingGroup.ATTACHMENT_MODIFICATION,
