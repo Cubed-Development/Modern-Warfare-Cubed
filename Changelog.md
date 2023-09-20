@@ -13,7 +13,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 **When updating to this version from Modern Warfare Cubed Dev-14 and under with an existing world, all tan variants of every backpack as well as the F5 Switchblade will disappear**
 
-**When updating to the version from Modern Warfare Cubed Dev-14 with an existing world, any items stored in the equipment inventory will disappear**
+**When updating to this version from Modern Warfare Cubed Dev-14 with an existing world, any items stored in the equipment inventory will disappear**
 
 **When updating to this version from Modern Warfare Cubed Dev-14 and under, all copys of the Tan Molle Plate Carrier will be deleted. There item ID has been changed**
 
