@@ -9,13 +9,13 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ## Warning
 
-**If you are upgrading from either Vic's Modern Warfare or Modern Warfare Cubed Version 0.1-Dev-6 and under, all Modern Warfare related items, blocks weapons, etc... will disappear from your save. Either back up your world or start a new one.**
+**If you are upgrading from either Vic's Modern Warfare or Modern Warfare Cubed Dev-6 and under, all Modern Warfare related items, blocks, and weapons will disappear from your save. Either back up your world or start a new one.**
 
-**When updating to this version from an existing world all tan variants of every back as well as the F5 Switchblade will disappear, they aren't being removed then just changed internally**
+**When updating to this version from Modern Warfare Cubed Dev-14 and under with an existing world, all tan variants of every backpack as well as the F5 Switchblade will disappear**
 
-**When updating to this version from an existing world all equipment placed in the equipment inventory will disappear**
+**When updating to the version from Modern Warfare Cubed Dev-14 with an existing world, any items stored in the equipment inventory will disappear**
 
-**When updating to this version from Dev-14 and under, all copys of the Tan Molle Plate Carrier will be deleted. There item ID has been changed**
+**When updating to this version from Modern Warfare Cubed Dev-14 and under, all copys of the Tan Molle Plate Carrier will be deleted. There item ID has been changed**
 
 ### Highlight
 
@@ -52,6 +52,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added `reconcileAmmunition` & `reconcileAttachments` gamerules, they are true by default and should only be used for debugging purposes, for example, when you have weapons that appear to "desync" / glitch out
 - Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
 - Added the gold and dark color variants of the Desert Eagle
+- Re-added the USP Match Compensator accessory.
 
 ### Changed
 
@@ -101,7 +102,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Rewritten the rendering system. Items are now positioned correctly everywhere
 - The weapon stats in the modification GUI are now updated instantly
 - Terrorist spawns are now lower by default
-- Flashbangs do not flash trough walls anymore
 
 ### Fixed
 
@@ -109,7 +109,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed some issues with incorrect weapon shell throwing
 - Fixed the perspective issue with MP7ironsightsstanding
 - Fixed entity generation issue (now modifying the entity's health and generation rate requires restarting the game)
-- Fixed Minecraft armor making you invulnerable to bullets (less realistic, but they aren't anyway lol)
+- Fixed Minecraft armor making you invulnerable to bullets.
 - Fixed soldiers and terrorists spawning with Minecraft armor
 - Fixed issue with config for bullets breaking glass being ignored
 - Fixed bullet's being able to penetrate:
@@ -127,16 +127,17 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed 7.62x54mm SVD magazine using 7.62x39mm bullets
 - Fixed visual bugs:
   - Fixed 3rd person hovering weapons such as the MP7, CZ-805 Bren, and Python and Taurus revolvers
-  - Fixed m249 accessories floating
-  - The P90 is no longer compatible with the bipod and the magazine of the terminator conversion kit has been fixed
+  - Fixed M249 accessories floating
+  - Fixed the P90 being compatible with the bipod
+  - Fixed the magazine of the terminator conversion kit.
   - Fixed the attachment of the Long Deagle
-  - Fixed m16 stock and m38 front sight on guns like M4A1, Beowulf .50Cal and AR-10
+  - Fixed M16 stock and m38 front sight on guns like M4A1, Beowulf .50Cal and AR-10
   - Fixed visual bugs with grips on the m40a6 and Malyuk
   - Fixed visual bugs with sight on the Taurus
-  - Fixed Stock visual bugs on Origin-12
-  - Fixed sights like PSO-1 and OKP-7 on ak-74 and ak-101
+  - Fixed visual bugs on Origin-12 stock.
+  - Fixed sights like PSO-1 and OKP-7 on AK-74 and AK-101
   - Fixed the visual bugs of the F2000
-  - Adjusted when aiming the HK-P12 with the accessories and re-added the USP Match Compensator accessory
+  - Adjusted when aiming the HK-P12 with accessories.  
   - Fixed Bipod in ARX-160
   - Fixed Vector Stock Adapter
   - Adjusted slide recoil on m17
@@ -177,8 +178,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed the exposure decreasing on the client side even when the game is paused
 - Fixed spectators being able to shoot weapons
 - Fixed the spawning position of the shells
-- Fixed Bullet spawning maths which was making the bullets spawn in inaccurate position
+- Fixed Bullet spawning math making the bullets spawn in inaccurate position
 - Fixed the Tan Molle Plate Carrier having a inconstant item ID to other Molle Plate Carrier colors.
+- Fixed Flashbangs flashing through walls 
 
 ### Removed
 
@@ -198,11 +200,11 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - As a result of a BIG code cleanup, MWC as a whole should now be slightly faster, load slightly faster and use slightly less resources
 - As a result of the equipment overhaul, MWC should use less ram and lag less when rendering equipment
 - As a result of networking improvements, MWC should use less bandwidth and consume less resources as well as have less latency
-- Losslessly compressed assets as a result, the jar size decreased (35.3MB -> 27.57MB)
+- Losslessly compressed assets, as a result, the jar size has decreased (35.3MB -> 27.57MB)
 - Improved ShaderLoader
 - Reduced overhead due to the removal of most of the compatibility layer leading to increased performance
 - Overhauled the networking, MWC as a whole should be more responsive and use less bandwidth
-- Optimized a majority of the models as a result,the jar size decreased (27.57MB -> 21.55MB)
+- Optimized a majority of the models, as a result, the jar size has decreased (27.57MB -> 21.55MB)
 
 ### Internal
 
