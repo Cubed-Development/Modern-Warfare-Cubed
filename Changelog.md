@@ -7,15 +7,13 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ## [Unreleased] Modern Warfare Cubed Version 0.1 Changelog
 
-## Warning
+## Warnings
 
 **If you are upgrading from either Vic's Modern Warfare or Modern Warfare Cubed Dev-6 and under, all Modern Warfare related items, blocks, and weapons will disappear from your save. Either back up your world or start a new one.**
 
-**When updating to this version from Modern Warfare Cubed Dev-14 and under with an existing world, all tan variants of every backpack as well as the F5 Switchblade will disappear**
+**When updating to this version from Modern Warfare Cubed Dev-14 and under with an existing world, all tan variants of every backpack, the Tan Molle Plate Carrier, as well as the F5 Switchblade will disappear**
 
-**When updating to this version from Modern Warfare Cubed Dev-14 with an existing world, any items stored in the equipment inventory will disappear**
-
-**When updating to this version from Modern Warfare Cubed Dev-14 and under, all copys of the Tan Molle Plate Carrier will be deleted. There item ID has been changed**
+**When updating to this version from Modern Warfare Cubed Dev-14 and under with an existing world, any items stored in the equipment inventory will disappear**
 
 ### Highlight
 
@@ -130,7 +128,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Fixed M249 accessories floating
   - Fixed the P90 being compatible with the bipod
   - Fixed the magazine of the terminator conversion kit.
-  - Fixed the attachment of the Long Deagle
+  - Fixed the Long Deagle attachment.
   - Fixed M16 stock and m38 front sight on guns like M4A1, Beowulf .50Cal and AR-10
   - Fixed visual bugs with grips on the m40a6 and Malyuk
   - Fixed visual bugs with sight on the Taurus
@@ -140,9 +138,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Adjusted when aiming the HK-P12 with accessories.  
   - Fixed Bipod in ARX-160
   - Fixed Vector Stock Adapter
-  - Adjusted slide recoil on m17
+  - Adjusted slide recoil on M17
   - Fixed muzzle flash for Dragunov, F2000 and AK-101
-  - Fixed texture bullet
+  - Fixed bullet texture
 - Fixed the attachment of the Long Deagle
 - Fixed prop hitboxes not lining up with their models:
   - Fridge (open/closed)
@@ -153,17 +151,15 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Duel Floodlight
   - Single Floodlight
   - Shelf Top
-  - Server Rack Top (left/right)
+  - Server Rack Top (Left / Right)
   - Laptop
-  - Desk Shelf
-  - Desk Shelf (Alt2)
+  - Desk Shelf / Desk Shelf (ALT2)
   - Impaled Body
   - Hanging Body
-  - Office Chair
-  - Office Chair 2
+  - Office Chair / Office Chair 2
   - Home Chair
   - White Desk Middle
-  - Medical Create
+  - Medical Crate
   - Camera Rotated
 - Fixed position of the backpacks in inventory
 - Fixed the client ticker "corruption" state
@@ -171,10 +167,10 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed inputs not updating if you switched to another hotbar slot while holding the input
 - Fixed oreDictionary not working properly under the craftmappings
 - Fixed the height of the Ammo Counter being 1 pixel too high
-- Fixed the flashbang missing sound
-- Fixed the flashbang missing knockback
-- Fixed the flashbang missing particles
-- Fixed flashbang not flashing in every direction
+- Fixed the Flashbang missing sound
+- Fixed the Flashbang missing knockback
+- Fixed the Flashbang missing particles
+- Fixed Flashbang not flashing in every direction
 - Fixed the exposure decreasing on the client side even when the game is paused
 - Fixed spectators being able to shoot weapons
 - Fixed the spawning position of the shells
@@ -191,9 +187,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Removed most of the compatibility layer
 - Removed FXAA
 - Removed Bloom
-- Deleted broken Hescobastion and UMP45GFL props
-- Removed the vanilla ability to disable shaders with F4 (this allowed for flash to be disabled)
-- Removed the `WIP` status of the flashbang as it is fully usable and reliable
+- Removed broken Hescobastion and UMP45GFL props
+- Removed the vanilla ability to disable shaders with F4 (Allowed for the flash effects of a Flashbang to be disabled)
+- Removed the `WIP` status of the Flashbang as it is fully usable and reliable
 
 ### Optimization
 
