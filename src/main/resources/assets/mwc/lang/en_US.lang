@@ -433,12 +433,11 @@ item.mwc_Bullet473x33mm.name=4.73x33mm Bullet
 
 item.tactical_tomahawk.name=Tactical Tomahawk
 item.baseball_bat.name=Baseball Bat
-item.baseball_bat_nails.name=Baseball Bat w/ Nails
+item.baseball_bat_nails.name=Nailed Baseball Bat
 item.night_stick.name=Night Stick
 
 item.mwc_wcam.name=Camera
 item.mwc_tablet.name=Tablet
-
 
 item.mwc_M67Frag.name=M67 Frag Grenade
 item.mwc_ImpactGrenade.name=Impact Grenade
@@ -1030,7 +1029,7 @@ itemGroup.equipment=Equipment
 itemGroup.throwables=Throwables
 itemGroup.blocksAndIngots=Blocks & Ingots
 
-key.categories.weaponlib=Modern Warfare
+key.categories.weaponlib=Modern Warfare Cubed
 key.texture_change=Change Gun Skin
 key.fire_mode=Selective Fire
 key.reload=Reload Gun
@@ -1038,7 +1037,6 @@ key.attachment=Attachment Mode
 key.recoil_fitter=Grip Catagory
 key.scope=Scope Catagory
 key.silencer=Barrel Catagory
-key.categories.futuristicarsenal=Modern Warfare
 key.laser=Switch Laser
 key.add=Zoom In
 key.subtract=Zoom Out
@@ -1118,10 +1116,9 @@ config.gameplay.statusBarPosition.property.name=Status Bar Position
 config.gameplay.statusBarPosition.property.tooltip=The screen position for the Status Bar
 
 config.category.entities.name=Entities Config
-
-config.category.rendering.name=Rendering
+config.category.rendering.name=Rendering Config
 config.category.rendering.tooltip=Rendering/Shaders
-config.category.screenshaders.name=Screen Shaders
+config.category.screenshaders.name=Screen Shaders Config
 config.category.screenshaders.tooltip=Screen Shaders
 config.rendering.enableAllShaders.property.name=Enable All Shaders
 config.rendering.enableAllShaders.property.tooltip=Enable All Shaders
