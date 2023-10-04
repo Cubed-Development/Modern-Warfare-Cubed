@@ -4,13 +4,10 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.weapons.Glock18C;
 import com.paneedah.mwc.models.weapons.Reflex2;
 import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.mwc.models.weapons.*;
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
@@ -94,8 +91,7 @@ public class DesertEagleFactory implements GunFactory {
         .withCompatibleAttachment(Attachments.Laser, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
             if(instance != null) {
-               ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                   AttachmentCategory.BACKGRIP, instance);
+               ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.BACKGRIP, instance);
             if(activeAttachment == Attachments.DesertEagleLongBody) {
                 GL11.glTranslatef(0.01F, -0.76F, -3.0F);
                 GL11.glScaled(1.1F, 1.1F, 1.1F);
