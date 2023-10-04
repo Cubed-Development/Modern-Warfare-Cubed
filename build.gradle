@@ -1,33 +1,18 @@
 import org.jetbrains.gradle.ext.Gradle
 
+// Todo: Port this to the Kotlin DSL
+// Todo: Use buildconfig instead of rfg tags
+
 plugins {
-    id 'java'
-    id 'java-library'
     id 'org.jetbrains.gradle.plugin.idea-ext' version '1.1.7'
     id 'com.gtnewhorizons.retrofuturagradle' version '1.+'
     id 'com.matthewprenger.cursegradle' version '1.4.0'
-    id 'me.champeau.jmh' version '0.7.1'
     id 'io.freefair.lombok' version '8.2.2'
 }
 
 // Add version to the jar name
-version project.version
-
-// Set the toolchain version to decouple the Java we run Gradle with from the Java used to compile and run the mod
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(8))
-        vendor.set(JvmVendorSpec.ADOPTIUM)
-    }
-    // Generate sources jar when building and publishing
-    withSourcesJar()
-}
-
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
-    options.fork = true
-    options.forkOptions.jvmArgs += '-Xmx4G'
-}
+group = 'com.paneedah'
+version = project.version
 
 minecraft {
     mcVersion = '1.12.2'
@@ -70,21 +55,33 @@ dependencies {
     implementation 'Red-Studio-Ragnarok:Red-Core:0.5-Dev-1'
     sources 'Red-Studio-Ragnarok:Red-Core:0.5-Dev-1:sources@jar'
 
-    jmh 'org.openjdk.jmh:jmh-core:1.36'
-    jmh 'org.openjdk.jmh:jmh-generator-annprocess:1.36'
-
-    final String mixin = modUtils.enableMixins('zone.rong:mixinbooter:8.4', "mixins.${project.id}.refmap.json")
-    api (mixin) { transitive = false }
     annotationProcessor 'org.ow2.asm:asm-debug-all:5.2'
-    annotationProcessor 'com.google.guava:guava:24.1.1-jre'
-    annotationProcessor 'com.google.code.gson:gson:2.8.6'
-    annotationProcessor (mixin) { transitive = false }
+    annotationProcessor 'com.google.guava:guava:32.1.2-jre'
+    annotationProcessor 'com.google.code.gson:gson:2.8.9'
+
+    final String mixinBooter = modUtils.enableMixins('zone.rong:mixinbooter:8.6')
+    api(mixinBooter) {
+        transitive = false
+    }
+    annotationProcessor(mixinBooter) {
+        transitive = false
+    }
 }
 
-jmh {
-    warmupIterations = 5
-    iterations = 10
-    fork = 1
+// Set the toolchain version to decouple the Java we run Gradle with from the Java used to compile and run the mod
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+        vendor.set(JvmVendorSpec.ADOPTIUM)
+    }
+    // Generate sources jar when building and publishing
+    withSourcesJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.fork = true
+    options.forkOptions.jvmArgs += '-Xmx4G'
 }
 
 def at = project.files("src/main/resources/META-INF/${project.id}_at.cfg")
@@ -98,7 +95,7 @@ processResources {
     inputs.property 'version', project.version
     filesMatching('mcmod.info') { fcd ->
         include 'mcmod.info'
-        fcd.expand (
+        fcd.expand(
                 'id': project.id,
                 'version': project.version
         )
@@ -117,49 +114,64 @@ processResources {
 
 jar {
     manifest.attributes([
-            'ModSide': 'BOTH',
-            'FMLAT': "${project.id}_at.cfg",
-            'FMLCorePlugin': "com.paneedah.mwc.asm.MWCPlugin",
+            'ModSide'                    : 'BOTH',
+            'FMLAT'                      : "${project.id}_at.cfg",
+            'FMLCorePlugin'              : "com.paneedah.mwc.asm.MWCPlugin",
             'FMLCorePluginContainsFMLMod': 'true',
-            'ForceLoadAsMod': 'true'
+            'ForceLoadAsMod'             : 'true'
     ])
 }
 
 
 idea {
-    module { inheritOutputDirs = true }
+    module {
+        inheritOutputDirs = true
+        excludeDirs = [
+                file('.settings'),
+                file('.github'),
+                file('.gradle'),
+                file('gradle'),
+                file('.idea'),
+                file('build'),
+                file('run'),
+                file('bin')
+        ]
+    }
 
-    module { excludeDirs = [file('.github'), file('.gradle'), file('.idea'), file('build'), file('gradle'), file('run')] }
+    project {
+        jdkName = '1.8'
+        languageLevel = '1.8'
 
-    project { settings {
-        runConfigurations {
-            'Client'(Gradle) {
-                taskNames = ['runClient']
+        settings {
+            runConfigurations {
+                'Client'(Gradle) {
+                    taskNames = ['runClient']
+                }
+                'Server'(Gradle) {
+                    taskNames = ['runServer']
+                }
+                'Obfuscated Client'(Gradle) {
+                    taskNames = ['runObfClient']
+                }
+                'Obfuscated Server'(Gradle) {
+                    taskNames = ['runObfServer']
+                }
+                'Vanilla Client'(Gradle) {
+                    taskNames = ['runVanillaClient']
+                }
+                'Vanilla Server'(Gradle) {
+                    taskNames = ['runVanillaServer']
+                }
             }
-            'Server'(Gradle) {
-                taskNames = ['runServer']
-            }
-            'Obfuscated Client'(Gradle) {
-                taskNames = ['runObfClient']
-            }
-            'Obfuscated Server'(Gradle) {
-                taskNames = ['runObfServer']
-            }
-            'Vanilla Client'(Gradle) {
-                taskNames = ['runVanillaClient']
-            }
-            'Vanilla Server'(Gradle) {
-                taskNames = ['runVanillaServer']
+
+            compiler.javac {
+                afterEvaluate {
+                    javacAdditionalOptions = '-encoding utf8'
+                    moduleJavacAdditionalOptions = [(project.id + '.main'): tasks.compileJava.options.compilerArgs.collect { ''' + it + ''' }.join(' ')]
+                }
             }
         }
-
-        compiler.javac {
-            afterEvaluate {
-                javacAdditionalOptions = '-encoding utf8'
-                moduleJavacAdditionalOptions = [ (project.id + '.main'): tasks.compileJava.options.compilerArgs.collect { ''' + it + ''' }.join(' ') ]
-            }
-        }
-    }}
+    }
 }
 
 tasks.named('processIdeaSettings').configure {

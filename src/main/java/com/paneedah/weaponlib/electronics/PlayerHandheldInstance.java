@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.electronics;
 
-import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.mwc.network.TypeRegistry;
-import com.paneedah.weaponlib.perspective.Perspective;
+import com.paneedah.mwc.rendering.perspective.Perspective;
+import com.paneedah.weaponlib.PlayerItemInstance;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -28,7 +28,7 @@ public class PlayerHandheldInstance extends PlayerItemInstance<HandheldState> {
 	}
 	
 	@Override
-	public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
+	public Perspective getRequiredPerspectiveType() {
 	    ItemHandheld<?> item = (ItemHandheld<?>)getItem();
 	    return item != null ? item.getRequiredPespectiveType() : null;
 	}

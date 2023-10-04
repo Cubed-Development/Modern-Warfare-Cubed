@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.rendering.perspective.Perspective;
+import com.paneedah.mwc.rendering.perspective.PerspectiveRenderer;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.perspective.Perspective;
-import com.paneedah.weaponlib.perspective.PerspectiveRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -20,14 +20,14 @@ implements PlayerItemInstanceFactory<PlayerHandheldInstance, HandheldState>, Upd
         }
         
         private Runnable screenPositioning;
-        private Class<? extends Perspective<?>> perspectiveClass;
+        private Perspective perspectiveClass;
         
         public Builder<T> withScreenPositioning(Runnable screenPositioning) {
             this.screenPositioning = screenPositioning;
             return this;
         }
         
-        public Builder<T> withScreenPerspectiveType(Class<? extends Perspective<?>> perspectiveClass) {
+        public Builder<T> withScreenPerspectiveType(Perspective perspectiveClass) {
             this.perspectiveClass = perspectiveClass;
             return this;
         } 
@@ -72,7 +72,7 @@ implements PlayerItemInstanceFactory<PlayerHandheldInstance, HandheldState>, Upd
         return instance;
     }
 
-    public Class<? extends Perspective<?>> getRequiredPespectiveType() {
+    public Perspective getRequiredPespectiveType() {
         return builder.perspectiveClass;
     }
 }

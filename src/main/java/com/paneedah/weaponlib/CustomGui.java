@@ -442,7 +442,11 @@ public class CustomGui extends Gui {
 	}
 
 
+	/**
+	 * Todo: This is dumb on so many level redo this entire mess in {@link ClientEventHandler}
+	 */
 	@SubscribeEvent
+	@Deprecated // Todo: This is dumb we are replacing the crosshair with a blank texture instead of just hiding it
 	public final void onRenderCrosshair(RenderGameOverlayEvent.Pre event) {
 		
 		if (event.getType() != RenderGameOverlayEvent.ElementType.CROSSHAIRS || MC.player.isSpectator()) {

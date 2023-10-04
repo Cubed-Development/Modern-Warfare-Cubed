@@ -8,7 +8,7 @@ import com.paneedah.weaponlib.electronics.ItemTablet;
 import com.paneedah.weaponlib.electronics.ItemWirelessCamera;
 import com.paneedah.weaponlib.model.CameraModel;
 import com.paneedah.weaponlib.model.TabletModel;
-import com.paneedah.weaponlib.perspective.GasDetectorScreenPerspective;
+import com.paneedah.mwc.rendering.perspective.GasDetectorScreenPerspective;
 import org.lwjgl.opengl.GL11;
 
 public class Electronics {
@@ -35,7 +35,7 @@ public class Electronics {
                 .build(MWC.modContext);
 
         new ItemHandheld.Builder<>()
-                .withScreenPerspectiveType(GasDetectorScreenPerspective.class)
+                .withScreenPerspectiveType(new GasDetectorScreenPerspective())
                 .withScreenPositioning(() -> {
                     float scale = 1.9f;
                     GL11.glScalef(scale, scale / MWC.modContext.getAspectRatio(), scale);

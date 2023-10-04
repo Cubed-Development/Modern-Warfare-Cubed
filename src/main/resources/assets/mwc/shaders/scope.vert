@@ -20,7 +20,7 @@ void main(){
     texCoord = gl_MultiTexCoord0.st;
     gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
 
-  //  oneTexel = 1.0 / InSize;
+    //oneTexel = 1.0 / InSize;
 
     //pnet = gl_Position.z;
 

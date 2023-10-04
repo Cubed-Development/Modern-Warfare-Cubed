@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.perspective.PerspectiveRenderer;
+import com.paneedah.mwc.rendering.perspective.PerspectiveRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

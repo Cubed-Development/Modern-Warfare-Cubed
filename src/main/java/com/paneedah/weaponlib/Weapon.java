@@ -110,8 +110,11 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private WeaponRenderer renderer;
         //float zoom = Weapon.DEFAULT_ZOOM;
         List<Integer> maxShots = new ArrayList<>();
+        @Deprecated // Todo: This is dumb we are replacing the crosshair with a blank texture instead of just hiding it
         String crosshair;
+        @Deprecated // Todo: This is dumb we are replacing the crosshair with a blank texture instead of just hiding it
         String crosshairRunning;
+        @Deprecated // Todo: This is dumb we are replacing the crosshair with a blank texture instead of just hiding it
         String crosshairZoomed;
         BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith;
         BiFunction<PlayerWeaponInstance, EntityLivingBase, ? extends EntityShellCasing> spawnShellWith;
@@ -127,10 +130,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         public long reloadingTimeout = Weapon.DEFAULT_RELOADING_TIMEOUT_TICKS;
         long loadIterationTimeout = Weapon.DEFAULT_LOAD_ITERATION_TIMEOUT_TICKS;
 
-        
 
-
-        boolean crosshairFullScreen = false;
         boolean crosshairZoomedFullScreen = false;
 
         
@@ -388,29 +388,21 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
+        @Deprecated // Todo: This is dumb we are replacing the crosshair with a blank texture instead of just hiding it
         public Builder withCrosshair(String crosshair) {
-            this.crosshair = ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
+            this.crosshair = ID + ":textures/reticles/" + crosshair.toLowerCase() + ".png";
             return this;
         }
 
-        public Builder withCrosshair(String crosshair, boolean fullScreen) {
-            this.crosshair = ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
-            this.crosshairFullScreen = fullScreen;
-            return this;
-        }
-
+        @Deprecated // Todo: This is dumb we are replacing the crosshair with a blank texture instead of just hiding it
         public Builder withCrosshairRunning(String crosshairRunning) {
-            this.crosshairRunning = ID + ":textures/crosshairs/" + crosshairRunning.toLowerCase() + ".png";
+            this.crosshairRunning = ID + ":textures/reticles/" + crosshair.toLowerCase() + ".png";
             return this;
         }
 
+        @Deprecated // Todo: This is dumb we are replacing the crosshair with a blank texture instead of just hiding it
         public Builder withCrosshairZoomed(String crosshairZoomed) {
-            return withCrosshairZoomed(crosshairZoomed, true);
-        }
-
-        public Builder withCrosshairZoomed(String crosshairZoomed, boolean fullScreen) {
-            this.crosshairZoomed = ID + ":textures/crosshairs/" + crosshairZoomed.toLowerCase() + ".png";
-            this.crosshairZoomedFullScreen = fullScreen;
+            this.crosshairZoomed = ID + ":textures/reticles/" + crosshairZoomed.toLowerCase() + ".png";
             return this;
         }
         
@@ -1225,6 +1217,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return c.stream().filter(e -> inputCategoryList.contains(e.getAttachment().getCategory())).collect(Collectors.toList());
     }
 
+    @Deprecated // Todo: This is dumb we are replacing the crosshair with a blank texture instead of just hiding it
     String getCrosshair(PlayerWeaponInstance weaponInstance) {
         if(weaponInstance.isAimed()) {
             String crosshair = null;

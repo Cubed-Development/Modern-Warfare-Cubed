@@ -3352,7 +3352,7 @@ public class Attachments {
                 .build();
 
         MicroReflex = new ItemScope.Builder()
-                .withHolographicReticles(Reticles.MICROREFLEX)
+                .withHolographicReticles(Reticles.MICRO_REFLEX)
                 .withReticlePositioning(() -> {
                     GlStateManager.translate(0.13F, -1.62F, -0.1F);
                     GlStateManager.scale(1.6F, 1.6F, 1.6F);
@@ -3517,7 +3517,7 @@ public class Attachments {
                 .build();
 
         EotechHybrid2 = new ItemScope.Builder()
-                .withSniperReticle(Reticles.RETICLE_HOLO)
+                .withSniperReticle(Reticles.HOLO_HYBRID)
                 .withOpticalZoom()
                 .withZoomRange(0.22F, 0.1F)
                 .withViewfinderPositioning(() -> {
@@ -3792,7 +3792,7 @@ public class Attachments {
                 .build();
 
         LeupoldRailScope = new ItemScope.Builder()
-                .withSniperReticle(Reticles.RETICLE_1)
+                .withSniperReticle(Reticles.RETICLE)
                 .withOpticalZoom()
                 .withZoomRange(0.22F, 0.06F)
                 .withViewfinderPositioning(() -> {
@@ -3824,7 +3824,7 @@ public class Attachments {
         NightRaider = new ItemScope.Builder()
                 .withNightVision()
                 .withOpticalZoom()
-                .withSniperReticle(Reticles.RETICLE_NIGHTRAIDER)
+                .withSniperReticle(Reticles.RETICLE_NIGHT_RAIDER)
                 .withZoomRange(0.22F, 0.02F)
                 .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.6F, 1.6F, 1.6F);
