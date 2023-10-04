@@ -180,7 +180,7 @@ public class AttachmentBuilder<T> {
     }
 
     protected ItemAttachment<T> createAttachment(ModContext modContext) {
-        return new ItemAttachment<T>(attachmentCategory, crosshair, apply, remove);
+        return new ItemAttachment<T>(attachmentCategory, apply, remove);
     }
 
     public ItemAttachment<T> build() {

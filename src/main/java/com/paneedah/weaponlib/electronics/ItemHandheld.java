@@ -54,7 +54,7 @@ implements PlayerItemInstanceFactory<PlayerHandheldInstance, HandheldState>, Upd
     private Builder<T> builder;
     
     private ItemHandheld(Builder<T> builder) {
-        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null,
+        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(),
                 null, null);
         this.builder = builder;
         

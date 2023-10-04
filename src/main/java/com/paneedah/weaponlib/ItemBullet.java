@@ -39,6 +39,6 @@ public class ItemBullet extends ItemAttachment<Weapon> {
     public ItemBullet(AttachmentCategory category, ModelBase model, String textureName, String crosshair,
                       com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
                       com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
-        super(category, model, textureName, crosshair, apply, remove);
+        super(category, model, textureName, apply, remove);
     }
 }

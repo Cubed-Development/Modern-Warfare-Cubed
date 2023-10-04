@@ -21,12 +21,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
-import static com.paneedah.mwc.utils.ModReference.ID;
-
 public class ItemAttachment<T> extends Item implements IModelSource, IModernCrafting {
 
 	private AttachmentCategory category;
-	private String crosshair;
 	private ApplyHandler<T> apply;
 	private ApplyHandler<T> remove;
 	protected ApplyHandler2<T> apply2;
@@ -68,20 +65,18 @@ public class ItemAttachment<T> extends Item implements IModelSource, IModernCraf
         public void apply(ItemAttachment<T> itemAttachment, PlayerMeleeInstance instance);
     }
 
-	protected ItemAttachment(AttachmentCategory category, ModelBase model, String textureName, String crosshair, ApplyHandler<T> apply, ApplyHandler<T> remove) {
+	protected ItemAttachment(AttachmentCategory category, ModelBase model, String textureName, ApplyHandler<T> apply, ApplyHandler<T> remove) {
 		this.category = category;
 //		if(model != null) {
 //			this.texturedModels.add(new Pair<ModelBase, String>(model, textureName));
 //		}
 		this.textureName = textureName;
-		this.crosshair = crosshair != null ? ID + ":" + "textures/reticles/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;
 	}
 
-	protected ItemAttachment(AttachmentCategory category, String crosshair, ApplyHandler<T> apply, ApplyHandler<T> remove) {
+	protected ItemAttachment(AttachmentCategory category, ApplyHandler<T> apply, ApplyHandler<T> remove) {
 		this.category = category;
-		this.crosshair = crosshair != null ? ID + ":" + "textures/reticles/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;
 	}
@@ -140,15 +135,12 @@ public class ItemAttachment<T> extends Item implements IModelSource, IModernCraf
 		return this;
 	}
 
-	public ItemAttachment(AttachmentCategory category, String crosshair) {
-		this(category, crosshair, (a, w, p) -> {}, (a, w, p) -> {});
-	}
 	public ItemAttachment(AttachmentCategory category) {
-		this(category, null);
+		this(category, (a, w, p) -> {}, (a, w, p) -> {});
 	}
 
-	public ItemAttachment(AttachmentCategory category, ModelBase attachment, String textureName, String crosshair) {
-		this(category, attachment, textureName, crosshair, (a, w, p) -> {}, (a, w ,p) -> {});
+	public ItemAttachment(AttachmentCategory category, ModelBase attachment, String textureName) {
+		this(category, attachment, textureName, (a, w, p) -> {}, (a, w , p) -> {});
 	}
 
 	public AttachmentCategory getCategory() {
@@ -169,10 +161,6 @@ public class ItemAttachment<T> extends Item implements IModelSource, IModernCraf
 	 */
 	public void setFirstModel(ItemAttachment<Weapon> model) {
 		//texturedModels.set(0, model.getTexturedModels().get(0));
-	}
-
-	public String getCrosshair() {
-		return crosshair;
 	}
 
 	public ApplyHandler<T> getApply() {

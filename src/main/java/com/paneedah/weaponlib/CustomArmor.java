@@ -195,7 +195,7 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 
         public Builder withCompatibleAttachment(AttachmentCategory category, ModelBase attachmentModel, String textureName,
                 Consumer<ModelBase> positioner) {
-            ItemAttachment<CustomArmor> item = new ItemAttachment<CustomArmor>(category, attachmentModel, textureName, null);
+            ItemAttachment<CustomArmor> item = new ItemAttachment<CustomArmor>(category, attachmentModel, textureName);
             compatibleAttachments.put(item, new CompatibleAttachment<CustomArmor>(item, positioner));
             return this;
         }

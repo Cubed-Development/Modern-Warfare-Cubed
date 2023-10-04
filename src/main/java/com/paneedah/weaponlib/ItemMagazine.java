@@ -78,7 +78,7 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
 	}
 
 	ItemMagazine(ModelBase model, String textureName, int capacity, ApplyHandler<Weapon> apply, ApplyHandler<Weapon> remove) {
-		super(AttachmentCategory.MAGAZINE, model, textureName, null, apply, remove);
+		super(AttachmentCategory.MAGAZINE, model, textureName, apply, remove);
 		this.capacity = capacity;
 		setMaxStackSize(1);
 	}
