@@ -142,7 +142,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
     private Builder builder;
 
     private ItemScope(Builder builder) {
-        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null,
+        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(),
                 null, null);
         this.builder = builder;
 

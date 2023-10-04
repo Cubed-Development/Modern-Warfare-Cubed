@@ -45,9 +45,6 @@ public class ACRFactory implements GunFactory {
 		.withDrawSound("acr_draw") // Draw sound
         .withInspectSound("m4a1_inspection") // Inspect sound
 		.withReloadingTime(30) // Reloading time in ticks
-		.withCrosshair("gun") // Crosshair
-		.withCrosshairRunning("Running") // Running crosshair
-		.withCrosshairZoomed("Sight") // Zoomed crosshair
 		.withFlashIntensity(0.5f) // Flash intensity
         .withFlashScale(() -> 0.6f) // Flash scale
         .withFlashOffsetX(() -> 0.14f) // Flash offset X
