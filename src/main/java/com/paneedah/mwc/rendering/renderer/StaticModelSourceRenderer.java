@@ -22,7 +22,7 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 @SideOnly(Side.CLIENT)
 public final class StaticModelSourceRenderer extends ModelSourceRenderer {
 
-    public StaticModelSourceRenderer(ModelSourceTransforms transforms) {
+    public StaticModelSourceRenderer(final ModelSourceTransforms transforms) {
         this.transforms = transforms;
     }
 

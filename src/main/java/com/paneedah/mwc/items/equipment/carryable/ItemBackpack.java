@@ -17,7 +17,7 @@ public class ItemBackpack extends ItemCarryable {
 
     public static class Builder extends ItemCarryable.Builder<Builder> {
 
-        {
+        static {
             subPath = "backpacks.";
         }
 
@@ -39,7 +39,7 @@ public class ItemBackpack extends ItemCarryable {
             // Register hook
             CraftingRegistry.registerHook(itemBackpack);
 
-            MWC.modContext.registerRenderableItem(name, itemBackpack, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+            MWC.modContext.registerRenderableItem(name, itemBackpack, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms.build()) : null);
 
             return itemBackpack;
         }

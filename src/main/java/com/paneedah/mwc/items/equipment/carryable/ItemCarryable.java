@@ -30,7 +30,7 @@ public class ItemCarryable extends Item implements IEquipmentModelSource, IModer
         protected String name;
         protected String modelName;
         protected String textureName;
-        protected ModelSourceTransforms transforms = ModelSourceTransforms.builder().build();
+        protected ModelSourceTransforms.ModelSourceTransformsBuilder transforms = ModelSourceTransforms.builder();
 
         protected int size;
         protected int guiTextureWidth = DEFAULT_GUI_TEXTURE_WIDTH;

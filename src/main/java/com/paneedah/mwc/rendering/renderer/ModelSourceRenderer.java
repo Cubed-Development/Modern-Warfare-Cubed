@@ -6,6 +6,7 @@ import com.paneedah.weaponlib.RenderableState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.*;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -14,7 +15,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.lang3.tuple.Pair;
-import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 
 import javax.vecmath.Matrix4f;
 import java.util.ArrayList;
@@ -50,11 +50,9 @@ public abstract class ModelSourceRenderer implements IBakedModel {
         if (itemStack == null || excludedTransformType.contains(transformType))
             return;
 
-        GlStateManager.pushMatrix();
+        GlStateManager.translate(0.5F, 0.5F, 0.5F); // We Mixin and "hijack" the rendering of the item from Minecraft which already translated it to (-0.5F, -0.5F, -0.5F), so we just invert that
 
         doRender();
-
-        GlStateManager.popMatrix();
 
         // Reset the dynamic values.
         this.owner = null;

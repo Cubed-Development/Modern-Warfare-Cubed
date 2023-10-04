@@ -105,6 +105,8 @@ public class WeaponRenderer extends ModelSourceRenderer {
 
     @Override
     public void doRender() {
+        GlStateManager.translate(-0.5F, -0.5F, -0.5F); // Todo: This renderer isn't rewritten to have less amount of transformations, so we just invert the invert
+
         if (owner != null && transformType == ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND && owner.isSneaking() && (getClientModContext() != null && getClientModContext().getMainHeldWeapon() != null && getClientModContext().getMainHeldWeapon().isAimed()))
             GlStateManager.translate(0, 0.2F, 0);
 

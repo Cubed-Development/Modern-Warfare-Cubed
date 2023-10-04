@@ -29,7 +29,7 @@ public class AttachmentBuilder<T> {
     protected String name;
     protected ModelBase model;
     protected String textureName;
-    protected ModelSourceTransforms transforms = ModelSourceTransforms.builder().build();
+    protected ModelSourceTransforms.ModelSourceTransformsBuilder transforms = ModelSourceTransforms.builder();
 
     protected Vector3F rotationPoint;
 
@@ -230,7 +230,7 @@ public class AttachmentBuilder<T> {
         compatibleAttachments.values().forEach(attachment::addCompatibleAttachment);
 
         if ((getModel() != null || !texturedModels.isEmpty() || !onWeaponTexturedModels.isEmpty()))
-            modContext.registerRenderableItem(name, attachment, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+            modContext.registerRenderableItem(name, attachment, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms.build()) : null);
 
         if (craftingRecipe != null && craftingRecipe.length >= 2) {
 //		    ItemStack itemStack = new ItemStack(attachment);
