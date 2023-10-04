@@ -50,7 +50,7 @@ public enum MagazineState implements ManagedState<MagazineState> {
 		this.permitRequestedPhase = permitRequestedState;
 		this.commitPhase = transactionFinalState;
 		this.isTransient = false; //isTransient; // TODO: make states non-transient, remove flag from constructor
-		//this is required to have up-to-date state on server, e.g. preparing, requested; 
+		// this is required to have up-to-date state on server, e.g. preparing, requested;
 		// otherwise issus arise, e.g. item toss would not work correctly
 	}
 	

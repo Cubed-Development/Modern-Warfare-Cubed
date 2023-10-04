@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import static com.paneedah.mwc.utils.ModReference.RED_LOG;
 
-//Todo: Finish cleaning this up, maybe two separate uuid are not necessary. Pausing this to working on removing the multithreading
+// Todo: Finish cleaning this up, maybe two separate uuid are not necessary.
 public abstract class UniversalObject implements ISerializable {
 
     private final UUID uuid;
