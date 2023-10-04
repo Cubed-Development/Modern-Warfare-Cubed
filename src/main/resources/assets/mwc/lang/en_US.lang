@@ -433,13 +433,11 @@ item.mwc_Bullet473x33mm.name=4.73x33mm Bullet
 
 item.tactical_tomahawk.name=Tactical Tomahawk
 item.baseball_bat.name=Baseball Bat
-item.baseball_bat_nails.name=Baseball Bat w/ Nails
+item.baseball_bat_nails.name=Nailed Baseball Bat
 item.night_stick.name=Night Stick
 
-item.gas_can.name=Gas Can (PROP)
 item.mwc_wcam.name=Camera
 item.mwc_tablet.name=Tablet
-
 
 item.mwc_M67Frag.name=M67 Frag Grenade
 item.mwc_ImpactGrenade.name=Impact Grenade
@@ -954,9 +952,9 @@ tile.mwc_desk_middle_alt1.name=Desk Middle (ALT1)
 tile.mwc_desk_right.name=Desk Right
 tile.mwc_desk_right_alt1.name=Desk Right (ALT1)
 tile.mwc_desk_shelf.name=Desk Shelf
-tile.mwc_desk_shelf_alt1.name=Desk Shelf (A1)
-tile.mwc_desk_shelf_alt2.name=Desk Shelf (A2)
-tile.mwc_desk_shelf_alt3.name=Desk Shelf (A3)
+tile.mwc_desk_shelf_alt1.name=Desk Shelf (ALT1)
+tile.mwc_desk_shelf_alt2.name=Desk Shelf (ALT2)
+tile.mwc_desk_shelf_alt3.name=Desk Shelf (ALT3)
 tile.mwc_barrier.name=Barrier
 tile.mwc_barrier_rotated.name=Barrier (Rotated)
 tile.mwc_body_bag.name=Body Bag
@@ -1031,7 +1029,7 @@ itemGroup.equipment=Equipment
 itemGroup.throwables=Throwables
 itemGroup.blocksAndIngots=Blocks & Ingots
 
-key.categories.weaponlib=Modern Warfare
+key.categories.weaponlib=Modern Warfare Cubed
 key.texture_change=Change Gun Skin
 key.fire_mode=Selective Fire
 key.reload=Reload Gun
@@ -1039,7 +1037,6 @@ key.attachment=Attachment Mode
 key.recoil_fitter=Grip Catagory
 key.scope=Scope Catagory
 key.silencer=Barrel Catagory
-key.categories.futuristicarsenal=Modern Warfare
 key.laser=Switch Laser
 key.add=Zoom In
 key.subtract=Zoom Out
@@ -1075,7 +1072,7 @@ gui.currentZoom=Zoom: %s%%
 gui.grenadeExplodes=Explodes in %s sec
 gui.coolingDown=Cooling down...
 
-config.category.ores.name=Ores Config
+config.category.ores.name=Ores
 config.ores.sulfurSpawnsPerChunk.property.name=Sulfur Ore Per Chunk
 config.ores.sulfurSpawnsPerChunk.property.tooltip=The amount of Sulfur Ore spawned per chunk.
 config.ores.copperSpawnsPerChunk.property.name=Copper Ore Per Chunk
@@ -1087,7 +1084,7 @@ config.ores.leadSpawnsPerChunk.property.tooltip=The amount of Lead Ore spawned p
 config.ores.graphiteSpawnsPerChunk.property.name=Graphite Ore Per Chunk
 config.ores.graphiteSpawnsPerChunk.property.tooltip=The amount of Graphite Ore spawned per chunk.
 
-config.category.gameplay.name=Gameplay Config
+config.category.gameplay.name=Gameplay
 config.gameplay.enableAmmoCounter.property.name=Ammo Counter
 config.gameplay.enableAmmoCounter.property.tooltip=Enable/Disable the Ammo Counter
 config.gameplay.ammoCounterX.property.name=Ammo Counter X
@@ -1118,8 +1115,7 @@ config.gameplay.explodedBlockDropChance.property.tooltip=The chance for blocks t
 config.gameplay.statusBarPosition.property.name=Status Bar Position
 config.gameplay.statusBarPosition.property.tooltip=The screen position for the Status Bar
 
-config.category.entities.name=Entities Config
-
+config.category.entities.name=Entities
 config.category.rendering.name=Rendering
 config.category.rendering.tooltip=Rendering/Shaders
 config.category.screenshaders.name=Screen Shaders
