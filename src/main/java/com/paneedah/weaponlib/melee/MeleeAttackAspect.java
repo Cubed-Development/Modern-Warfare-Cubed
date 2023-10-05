@@ -7,7 +7,7 @@ import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.StateManager;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.vectors.Vector3F;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

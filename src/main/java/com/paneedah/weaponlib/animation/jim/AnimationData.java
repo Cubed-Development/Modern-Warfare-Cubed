@@ -11,7 +11,7 @@ import com.paneedah.weaponlib.UniversalSoundLookup;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.EulerAngle;
 import com.paneedah.weaponlib.render.bgl.math.AngleKit.Format;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.vectors.Vector3F;
 import lombok.Getter;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.SoundEvent;

@@ -2,7 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.mwc.network.UniversalObject;
-import com.paneedah.weaponlib.perspective.Perspective;
+import com.paneedah.mwc.rendering.perspective.Perspective;
 import com.paneedah.weaponlib.state.ExtendedState;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
@@ -175,7 +175,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
         this.syncStartTimestamp = syncStartTimestamp;
     }
 
-    public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
+    public Perspective getRequiredPerspectiveType() {
         return null;
     }
 

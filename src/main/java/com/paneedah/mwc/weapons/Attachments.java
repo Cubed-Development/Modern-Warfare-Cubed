@@ -2049,19 +2049,19 @@ public class Attachments {
 
         HK417Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new HK417Handguard(), "HK417.png")
-                .withOnWeaponModel(new AKRail(), "guntandarkrail.png")
-                .withOnWeaponModel(new AKRail2(), "guntandarkrail.png")
-                .withOnWeaponModel(new AKRail3(), "guntandarkrail.png")
-                .withOnWeaponModel(new AKRail5(), "guntandarkrail.png")
+                .withOnWeaponModel(new AKRail(), "akrail.png")
+                .withOnWeaponModel(new AKRail2(), "akrail.png")
+                .withOnWeaponModel(new AKRail3(), "akrail.png")
+                .withOnWeaponModel(new AKRail5(), "akrail.png")
                 .withName("HK417Handguard")
                 .build();
 
         HK417HandguardTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new HK417Handguard(), "HK417tan.png")
-                .withOnWeaponModel(new AKRail(), "guntandark.png")
-                .withOnWeaponModel(new AKRail2(), "guntandark.png")
-                .withOnWeaponModel(new AKRail3(), "guntandark.png")
-                .withOnWeaponModel(new AKRail5(), "guntandark.png")
+                .withOnWeaponModel(new AKRail(), "guntandarkrail.png")
+                .withOnWeaponModel(new AKRail2(), "guntandarkrail.png")
+                .withOnWeaponModel(new AKRail3(), "guntandarkrail.png")
+                .withOnWeaponModel(new AKRail5(), "guntandarkrail.png")
                 .withName("HK417HandguardTan")
                 .build();
 
@@ -2171,13 +2171,13 @@ public class Attachments {
 
         HK417Receiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new HK417Receiver(), "HK417.png")
-                .withOnWeaponModel(new AKRail(), "guntanrail.png")
+                .withOnWeaponModel(new AKRail(), "akrail.png")
                 .withName("HK417Receiver")
                 .build();
 
         HK417ReceiverTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new HK417Receiver(), "HK417tan.png")
-                .withOnWeaponModel(new AKRail(), "guntan.png")
+                .withOnWeaponModel(new AKRail(), "guntanrail.png")
                 .withName("HK417ReceiverTan")
                 .build();
 
@@ -3339,8 +3339,8 @@ public class Attachments {
                         MIMP5TRRail, MIMP5MRail, ShotgunRail, FABDefenseMount,
                         Placeholder, Kar98Krail, M60Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
                         Attachments.EF88Handguard, KrissVectorReceiver,
-                        Vector556Handguard, DesertEagleSlide, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
-                        HoneyBadgerKnightsReceiver, HoneyBadgerKnightsReceiverBlack,
+                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideBlack, DesertEagleSlideGolden, M1CarbineScoutHandguard,
+			Origin12Grip, HKS20Grip, HoneyBadgerKnightsReceiver, HoneyBadgerKnightsReceiverBlack,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, SSG08Chassis, SA58DustCover,
                         M16A1ScopeMount, UMP45Receiver, UMP9Receiver, G2ContenderBarrelLong, S710Receiver,
                         Beowulf50CalReceiver, FamasF1ScopeMount,
@@ -3352,7 +3352,7 @@ public class Attachments {
                 .build();
 
         MicroReflex = new ItemScope.Builder()
-                .withHolographicReticles(Reticles.MICROREFLEX)
+                .withHolographicReticles(Reticles.MICRO_REFLEX)
                 .withReticlePositioning(() -> {
                     GlStateManager.translate(0.13F, -1.62F, -0.1F);
                     GlStateManager.scale(1.6F, 1.6F, 1.6F);
@@ -3517,7 +3517,7 @@ public class Attachments {
                 .build();
 
         EotechHybrid2 = new ItemScope.Builder()
-                .withSniperReticle(Reticles.RETICLE_HOLO)
+                .withSniperReticle(Reticles.HOLO_HYBRID)
                 .withOpticalZoom()
                 .withZoomRange(0.22F, 0.1F)
                 .withViewfinderPositioning(() -> {
@@ -3691,7 +3691,7 @@ public class Attachments {
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
                         Attachments.EF88Handguard, KrissVectorReceiver,
-                        Vector556Handguard, DesertEagleSlide, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
+                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideBlack, DesertEagleSlideGolden, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, MAS21Mount, APC9Placeholder,
                         MAC21Stock, VSSMDustCover, Dragunov98DustCover)
                 .withName("RMRsight")
@@ -3792,7 +3792,7 @@ public class Attachments {
                 .build();
 
         LeupoldRailScope = new ItemScope.Builder()
-                .withSniperReticle(Reticles.RETICLE_1)
+                .withSniperReticle(Reticles.RETICLE)
                 .withOpticalZoom()
                 .withZoomRange(0.22F, 0.06F)
                 .withViewfinderPositioning(() -> {
@@ -3824,7 +3824,7 @@ public class Attachments {
         NightRaider = new ItemScope.Builder()
                 .withNightVision()
                 .withOpticalZoom()
-                .withSniperReticle(Reticles.RETICLE_NIGHTRAIDER)
+                .withSniperReticle(Reticles.RETICLE_NIGHT_RAIDER)
                 .withZoomRange(0.22F, 0.02F)
                 .withViewfinderPositioning(() -> {
                     GL11.glScalef(1.6F, 1.6F, 1.6F);
@@ -4594,7 +4594,7 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, DesertEagleLongBody)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))

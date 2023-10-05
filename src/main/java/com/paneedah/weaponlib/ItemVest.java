@@ -39,7 +39,7 @@ public class ItemVest extends Item implements ISpecialArmor, IModelSource, IMode
         private CreativeTabs tab;
         private ModelBase model;
         private String textureName;
-        private ModelSourceTransforms transforms = ModelSourceTransforms.builder().build();
+        private ModelSourceTransforms.ModelSourceTransformsBuilder transforms = ModelSourceTransforms.builder();
         private String modelFileString;
         private String properTextureName;
 
@@ -151,7 +151,7 @@ public class ItemVest extends Item implements ISpecialArmor, IModelSource, IMode
 
             // lientEventHandler.ITEM_REG.add(item);
 
-            modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+            modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms.build()) : null);
 
             return item;
         }

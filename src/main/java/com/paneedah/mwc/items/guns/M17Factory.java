@@ -40,9 +40,6 @@ public class M17Factory implements GunFactory {
         .withInspectSound("inspection")
         .withDrawSound("m17_draw")
         .withReloadingTime(50)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.08f)
@@ -125,8 +122,8 @@ public class M17Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
             .withModel(new M17())
             .withActionPiece(
-                        AuxiliaryAttachments.M17_Slide)
-            .withActionPiece(Attachments.RMR)
+                 AuxiliaryAttachments.M17_Slide,
+                 Attachments.RMR)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);

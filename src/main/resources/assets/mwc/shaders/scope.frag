@@ -11,6 +11,8 @@ CHANGES:
 - Changed texScale to constant, made it inverse to avoid divison
 - Changed getNoise to vec2 as 3rd dimension was never used
 - Reduced divison operators
+
+// Todo: Support hip
 */
 
 // General constants
@@ -23,7 +25,7 @@ uniform sampler2D tex0;
 uniform sampler2D dirt;
 uniform sampler2D depthTex;
 
-// TO-DO: Add hybrid reticles
+// Todo: Add hybrid reticles
 // uniform sampler2D holo;
 
 // Tex-coord data

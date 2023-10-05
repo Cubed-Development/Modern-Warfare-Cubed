@@ -1,6 +1,5 @@
-package com.paneedah.weaponlib.perspective;
+package com.paneedah.mwc.rendering.perspective;
 
-import com.paneedah.weaponlib.RenderableState;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -9,7 +8,7 @@ import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
-public abstract class ScreenPerspective extends Perspective<RenderableState> {
+public abstract class ScreenPerspective extends Perspective {
 
     public ScreenPerspective() {
         this.width = 427; //MC.displayWidth >> 1;
@@ -17,8 +16,7 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
     }
 
     @Override
-    public void update(TickEvent.RenderTickEvent event) {
-    	//if(true) return;
+    public void update(final TickEvent.RenderTickEvent renderTickEvent) {
         int originalFramebufferId = GlStateManager.glGetInteger(ARBFramebufferObject.GL_FRAMEBUFFER_BINDING);
         
         GL11.glPushMatrix();

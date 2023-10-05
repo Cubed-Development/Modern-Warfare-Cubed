@@ -37,9 +37,6 @@ public class MPXFactory implements GunFactory {
 		.withInspectSound("inspection")
 		.withDrawSound("noaction_draw")
 		.withReloadingTime(50)
-		.withCrosshair("gun")
-		.withCrosshairRunning("Running")
-		.withCrosshairZoomed("Sight")
 		.withFlashIntensity(0.5f)
 		.withFlashScale(() -> 0.6f)
 		.withFlashOffsetX(() -> 0.12f)
@@ -91,12 +88,16 @@ public class MPXFactory implements GunFactory {
         .withCompatibleAttachment(Attachments.MPXHandguardExtended, (model) -> {
         })
         .withCompatibleAttachment(Attachments.HK416Grip, (model) -> {
+            GL11.glTranslatef(0f, -0.15f, -0.12f);
         })
         .withCompatibleAttachment(Attachments.M4Grip, true, (model) -> {
+            GL11.glTranslatef(0f, -0.15f, -0.12f);
         })
         .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
+            GL11.glTranslatef(0f, -0.15f, -0.12f);
         })
         .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
+            GL11.glTranslatef(0f, -0.15f, -0.12f);
         })
 		.withCompatibleAttachment(Magazines.MPXMag, (model) -> {
         })

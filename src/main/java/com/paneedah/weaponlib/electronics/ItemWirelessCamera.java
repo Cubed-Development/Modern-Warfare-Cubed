@@ -40,7 +40,7 @@ public class ItemWirelessCamera extends Item implements IModelSource {
         protected String name;
         protected ModelBase model;
         protected String textureName;
-        protected ModelSourceTransforms transforms = ModelSourceTransforms.builder().build();
+        protected ModelSourceTransforms.ModelSourceTransformsBuilder transforms = ModelSourceTransforms.builder();
         protected CreativeTabs creativeTabs = MWC.EQUIPMENT_TAB;
         protected AttachmentCategory attachmentCategory;
         protected List<TexturedModel> texturedModels = new ArrayList<>();
@@ -124,7 +124,7 @@ public class ItemWirelessCamera extends Item implements IModelSource {
             }
 
             if (model != null || !texturedModels.isEmpty()) {
-                modContext.registerRenderableItem(name, camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+                modContext.registerRenderableItem(name, camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms.build()) : null);
             }
 
             if (craftingComplexity != null) {

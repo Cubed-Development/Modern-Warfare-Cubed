@@ -3,7 +3,7 @@ package com.paneedah.mwc.utils;
 import com.paneedah.weaponlib.ItemMagazine;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.vectors.Vector3D;
 import net.jafama.FastMath;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

@@ -41,6 +41,8 @@ public class GrenadeRenderer extends ModelSourceRenderer implements IBakedModel 
 
     @Override
     public void doRender() {
+        GlStateManager.translate(-0.5F, -0.5F, -0.5F); // Todo: This renderer isn't rewritten to have less amount of transformations, so we just invert the invert
+
         if (owner != null && transformType == ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND && owner.isSneaking())
             GlStateManager.translate(0, -0.2F, 0);
 

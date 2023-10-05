@@ -2,7 +2,7 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.LivingEntityTrackerMessage;
 import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import lombok.NoArgsConstructor;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

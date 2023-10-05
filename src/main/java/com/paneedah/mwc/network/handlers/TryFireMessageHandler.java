@@ -2,7 +2,7 @@ package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.TryFireMessage;
 import com.paneedah.weaponlib.WeaponFireAspect;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

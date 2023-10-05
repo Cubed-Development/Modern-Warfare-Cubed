@@ -1,7 +1,7 @@
 package com.paneedah.mwc.rendering;
 
-import io.redstudioragnarok.redcore.utils.MathUtil;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.utils.MathUtil;
+import dev.redstudio.redcore.vectors.Vector3F;
 import net.minecraft.client.renderer.GlStateManager;
 
 import static com.paneedah.mwc.utils.ModReference.LOG;
@@ -47,6 +47,8 @@ public final class Transform {
      * Sets the position of the transform in the 3D space.
      * <p>
      * This method updates the x, y, and z coordinates for the position.
+     * <p>
+     * Remember that Y is flipped.
      *
      * @param x The X-coordinate of the position.
      * @param y The Y-coordinate of the position.
@@ -80,9 +82,9 @@ public final class Transform {
      * <p>
      * Ensures rotation values are within the range of -360 to 360 degrees.
      *
-     * @param x X rotation in degrees.
-     * @param y Y rotation in degrees.
-     * @param z Z rotation in degrees.
+     * @param x -X rotation in degrees (tilt clockwise when looking straight at the screen).
+     * @param y -Y rotation in degrees (turn to the right).
+     * @param z +Z rotation in degrees (tilt head downwards).
      *
      * @return The updated transform with the specified rotation.
      */

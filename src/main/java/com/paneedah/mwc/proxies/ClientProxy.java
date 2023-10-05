@@ -5,6 +5,7 @@ import com.paneedah.mwc.PlayerAnimations;
 import com.paneedah.mwc.equipment.Armors;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.weapons.Workbench;
+import com.paneedah.mwc.rendering.perspective.PerspectiveManager;
 import com.paneedah.mwc.rendering.renderer.EquipmentRenderer;
 import com.paneedah.weaponlib.RenderingPhase;
 import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
@@ -26,12 +27,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 
+@SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
 
     /**
      * Static final reference to the Minecraft Client instance.
      */
-    @SideOnly(Side.CLIENT)
     public static final Minecraft MC = Minecraft.getMinecraft();
 
     public static RenderingPhase renderingPhase;
@@ -107,5 +108,7 @@ public class ClientProxy extends CommonProxy {
         modelMesher.register(Armors.GasMaskM40, 0, new ModelResourceLocation(ID + ":m40gasmask_helmet", "inventory"));
 
         MC.getRenderManager().getSkinMap().forEach((model, playerRenderer) -> playerRenderer.addLayer(new EquipmentRenderer(playerRenderer)));
+
+        PerspectiveManager.init();
     }
 }

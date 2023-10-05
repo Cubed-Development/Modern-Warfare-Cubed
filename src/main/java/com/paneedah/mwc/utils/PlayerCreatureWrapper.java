@@ -69,10 +69,10 @@ public class PlayerCreatureWrapper extends EntityPlayerSP {
 
     @Override
     public float getFovModifier() {
-        return 0.5f;
+        return 0.5F;
     }
 
     public boolean isUser() {
-        return false; // Ugly huck to allow user self rendering in remote perspective
+        return false; // Ugly hack to allow user self rendering in remote perspective
     }
 }

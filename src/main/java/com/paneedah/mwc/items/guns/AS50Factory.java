@@ -34,15 +34,11 @@ public class AS50Factory implements GunFactory {
         .withInspectSound("inspection")
         .withDrawSound("as50_draw")
         .withReloadingTime(40)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.08f)
         .withFlashOffsetY(() -> 0.11f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-
         .withScreenShaking(RenderableState.SHOOTING, 
                 6f, // x 
                 -5f, // y

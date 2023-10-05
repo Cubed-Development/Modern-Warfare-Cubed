@@ -709,7 +709,7 @@ public class Magazines {
                 .build(ItemMagazine.class);
 
         Magazines.AS50Mag = new ItemMagazine.Builder().withCapacity(10).withCompatibleBullet(Bullets.Bullet50BMG).withName("AS50Mag_2")
-                .withModel(new AS50mag(), "M4A1Mag.png")
+                .withModel(new AS50mag(), "as50.png")
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,

@@ -20,7 +20,7 @@ import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.render.*;
 import com.paneedah.weaponlib.shader.jim.Shader;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.vectors.Vector3F;
 import lombok.AllArgsConstructor;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -105,6 +105,8 @@ public class WeaponRenderer extends ModelSourceRenderer {
 
     @Override
     public void doRender() {
+        GlStateManager.translate(-0.5F, -0.5F, -0.5F); // Todo: This renderer isn't rewritten to have less amount of transformations, so we just invert the invert
+
         if (owner != null && transformType == ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND && owner.isSneaking() && (getClientModContext() != null && getClientModContext().getMainHeldWeapon() != null && getClientModContext().getMainHeldWeapon().isAimed()))
             GlStateManager.translate(0, 0.2F, 0);
 

@@ -41,9 +41,6 @@ public class F2000Factory {
         .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
         .withReloadingTime(45)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.6f)
         .withFlashScale(() -> 0.5f)
         .withFlashOffsetX(() -> 0.11f)
@@ -379,6 +376,7 @@ public class F2000Factory {
                 .setupModernAnimations("f2000", AuxiliaryAttachments.F2000Action)
                 .setupModernMagazineAnimations("f2000", 
                 		Magazines.M4A1Mag)
+
                     
             .withThirdPersonPositioningReloading(
                     new Transition((renderContext) -> { 

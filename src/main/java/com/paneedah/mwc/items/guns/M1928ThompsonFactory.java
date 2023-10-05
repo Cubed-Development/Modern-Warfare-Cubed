@@ -32,9 +32,6 @@ public class M1928ThompsonFactory {
         .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
         .withReloadingTime(45)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.6f)
         .withFlashScale(() -> 0.5f)
         .withFlashOffsetX(() -> 0.11f)
@@ -59,7 +56,7 @@ public class M1928ThompsonFactory {
         .withCompatibleAttachment(Magazines.M1A1Mag, (model) -> {
           GL11.glTranslatef(0.03F, 0F, 0F);
           GL11.glScaled(1.3F, 1F, 1F);
-      })
+        })
         .withCompatibleAttachment(Attachments.M1928Grip, (model) -> {
         })
         .withCompatibleAttachment(Attachments.M1A1Grip, true, (model) -> {

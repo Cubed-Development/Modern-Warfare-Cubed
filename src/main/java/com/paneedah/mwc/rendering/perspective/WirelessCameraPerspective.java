@@ -1,5 +1,6 @@
-package com.paneedah.weaponlib.perspective;
+package com.paneedah.mwc.rendering.perspective;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.weaponlib.electronics.PlayerTabletInstance;
 import com.paneedah.weaponlib.electronics.SignalQuality;
@@ -21,7 +22,7 @@ import java.util.Random;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
-public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
+public class WirelessCameraPerspective extends FirstPersonPerspective {
 
     private static final String STATIC_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/static.png";
     public static final String DARK_SCREEN_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/dark-screen.png";
@@ -51,7 +52,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 //        if(true) return;
 
         EntityPlayer entityPlayer = MC.player;
-        PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
+        PlayerItemInstance<?> instance = MWC.modContext.getPlayerItemInstanceRegistry()
                 .getMainHandItemInstance(entityPlayer);
 
         if(!(instance instanceof PlayerTabletInstance)) {
@@ -226,4 +227,5 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
         tessellator.draw();
     }
+
 }

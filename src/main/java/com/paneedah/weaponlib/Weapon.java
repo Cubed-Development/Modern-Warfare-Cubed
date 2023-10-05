@@ -13,7 +13,7 @@ import com.paneedah.weaponlib.crafting.*;
 import com.paneedah.weaponlib.model.Shell;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
-import io.redstudioragnarok.redcore.vectors.Vector3F;
+import dev.redstudio.redcore.vectors.Vector3F;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
@@ -110,9 +110,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         private WeaponRenderer renderer;
         //float zoom = Weapon.DEFAULT_ZOOM;
         List<Integer> maxShots = new ArrayList<>();
-        String crosshair;
-        String crosshairRunning;
-        String crosshairZoomed;
+
         BiFunction<Weapon, EntityLivingBase, ? extends WeaponSpawnEntity> spawnEntityWith;
         BiFunction<PlayerWeaponInstance, EntityLivingBase, ? extends EntityShellCasing> spawnShellWith;
         private float spawnEntityDamage;
@@ -127,14 +125,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         public long reloadingTimeout = Weapon.DEFAULT_RELOADING_TIMEOUT_TICKS;
         long loadIterationTimeout = Weapon.DEFAULT_LOAD_ITERATION_TIMEOUT_TICKS;
 
-        
-
-
-        boolean crosshairFullScreen = false;
-        boolean crosshairZoomedFullScreen = false;
-
-        
-        
         Map<ItemAttachment<Weapon>, CompatibleAttachment<Weapon>> compatibleAttachments = new HashMap<>();
         ModelBase ammoModel;
         String ammoModelTextureName;
@@ -352,10 +342,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             this.ammo = ammo;
             return this;
         }
-        
 
-
- 
         public Builder withMaxShots(int... maxShots) {
             for(int m: maxShots) {
                 this.maxShots.add(m);
@@ -388,32 +375,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
             return this;
         }
 
-        public Builder withCrosshair(String crosshair) {
-            this.crosshair = ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
-            return this;
-        }
-
-        public Builder withCrosshair(String crosshair, boolean fullScreen) {
-            this.crosshair = ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
-            this.crosshairFullScreen = fullScreen;
-            return this;
-        }
-
-        public Builder withCrosshairRunning(String crosshairRunning) {
-            this.crosshairRunning = ID + ":textures/crosshairs/" + crosshairRunning.toLowerCase() + ".png";
-            return this;
-        }
-
-        public Builder withCrosshairZoomed(String crosshairZoomed) {
-            return withCrosshairZoomed(crosshairZoomed, true);
-        }
-
-        public Builder withCrosshairZoomed(String crosshairZoomed, boolean fullScreen) {
-            this.crosshairZoomed = ID + ":textures/crosshairs/" + crosshairZoomed.toLowerCase() + ".png";
-            this.crosshairZoomedFullScreen = fullScreen;
-            return this;
-        }
-        
         public Builder withMuzzlePosition(Vec3d pos) {
             this.muzzlePosition = pos;
             return this;
@@ -568,9 +529,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         }
         
         public Builder withUnremovableAttachmentCategories(AttachmentCategory...categories) {
-            for(AttachmentCategory category: categories) {
-                unremovableAttachmentCategories.add(category);
-            }
+            Collections.addAll(unremovableAttachmentCategories, categories);
             return this;
         }
 
@@ -732,10 +691,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         
         @Deprecated
         public Builder withCrafting(CraftingComplexity craftingComplexity, Object...craftingMaterials) {
-            if(craftingComplexity == null) {
+            if (craftingComplexity == null) {
                 throw new IllegalArgumentException("Crafting complexity not set");
             }
-            if(craftingMaterials.length < 2) {
+            if (craftingMaterials.length < 2) {
                 throw new IllegalArgumentException("2 or more materials required for crafting");
             }
             this.craftingComplexity = craftingComplexity;
@@ -893,19 +852,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
 
             if(spawnShellWith == null) {
                 spawnShellWith = (weaponInstance, player) -> {
-                    EntityShellCasing shell = new EntityShellCasing(weaponInstance, player.world, player,
-                            DEFAULT_SHELL_CASING_VELOCITY, DEFAULT_SHELL_CASING_GRAVITY_VELOCITY, DEFAULT_SHELL_CASING_INACCURACY);
+                    EntityShellCasing shell = new EntityShellCasing(weaponInstance, player.world, player, DEFAULT_SHELL_CASING_VELOCITY, DEFAULT_SHELL_CASING_GRAVITY_VELOCITY, DEFAULT_SHELL_CASING_INACCURACY);
                     shell.setPositionAndDirection(true);
                     return shell;
                 };
-            }
-
-            if (crosshairRunning == null) {
-                crosshairRunning = crosshair;
-            }
-
-            if (crosshairZoomed == null) {
-                crosshairZoomed = crosshair;
             }
 
             if (blockImpactHandler == null) {
@@ -1225,22 +1175,6 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         return c.stream().filter(e -> inputCategoryList.contains(e.getAttachment().getCategory())).collect(Collectors.toList());
     }
 
-    String getCrosshair(PlayerWeaponInstance weaponInstance) {
-        if(weaponInstance.isAimed()) {
-            String crosshair = null;
-            ItemAttachment<Weapon> scopeAttachment = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.SCOPE, weaponInstance);
-            if(scopeAttachment != null) {
-                crosshair = scopeAttachment.getCrosshair();
-            }
-            if(crosshair == null) {
-                crosshair = builder.crosshairZoomed;
-            }
-            return crosshair;
-        } else if(weaponInstance.getPlayer().isSprinting()){
-            return builder.crosshairRunning;
-        }
-        return builder.crosshair;
-    }
 
     public static boolean isActiveAttachment(PlayerWeaponInstance weaponInstance, ItemAttachment<Weapon> attachment) {
         return weaponInstance != null ? WeaponAttachmentAspect.isActiveAttachment(attachment, weaponInstance) : false;

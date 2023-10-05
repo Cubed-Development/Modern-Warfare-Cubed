@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.perspective.PerspectiveRenderer;
+import com.paneedah.mwc.rendering.perspective.PerspectiveRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -52,7 +52,7 @@ public class ItemTablet<T> extends ItemAttachment<T> implements PlayerItemInstan
     private Builder<T> builder;
 
     private ItemTablet(Builder<T> builder) {
-        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null, null, null);
+        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null, null);
         this.builder = builder;
 
         setMaxStackSize(DEFAULT_MAX_STACK_SIZE);

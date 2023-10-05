@@ -46,7 +46,7 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
 	public MeleeSkin(AttachmentCategory category, ModelBase model, String textureName, String crosshair,
 			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<ItemMelee> apply,
 			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<ItemMelee> remove) {
-		super(category, model, textureName, crosshair, apply, remove);
+		super(category, model, textureName, apply, remove);
 	}
 
 	public String getTextureName() {
