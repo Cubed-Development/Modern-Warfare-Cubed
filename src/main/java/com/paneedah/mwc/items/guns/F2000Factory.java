@@ -100,23 +100,6 @@ public class F2000Factory {
             GL11.glTranslatef(-0.15F, 1.1F, 1.7F);
             GL11.glScaled(0.75F, 1F, 1F);
         })
-        .withCompatibleAttachment(Magazines.M38Mag, (model) -> {
-            GL11.glTranslatef(-0.15F, 1.1F, 1.7F);
-            GL11.glScaled(0.75F, 1F, 1F);
-        })
-        .withCompatibleAttachment(Magazines.Stanag50, (model) -> {
-            GL11.glTranslatef(0F, 1F, 2.9F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
-        })
-        .withCompatibleAttachment(Magazines.Stanag60, (model) -> {
-            GL11.glRotatef(-10F, 1f, 0f, 0f);
-            GL11.glTranslatef(0F, 0.75F, 3.1F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
-        })
-        .withCompatibleAttachment(Magazines.Stanag100, (model) -> {
-            GL11.glTranslatef(-0.15F, 1.1F, 1.7F);
-            GL11.glScaled(0.75F, 1F, 1F);
-        })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {
                 GL11.glTranslatef(0.125F, -1.8F, -0.5F);
@@ -395,12 +378,7 @@ public class F2000Factory {
                 
                 .setupModernAnimations("f2000", AuxiliaryAttachments.F2000Action)
                 .setupModernMagazineAnimations("f2000", 
-                		Magazines.M4A1Mag, 
-                		Magazines.M38Mag, 
-                		Magazines.Stanag100,
-                		Magazines.Stanag50,
-                		Magazines.Stanag60,
-                		Magazines.SOCOM_Mag)
+                		Magazines.M4A1Mag)
                     
             .withThirdPersonPositioningReloading(
                     new Transition((renderContext) -> { 
@@ -563,7 +541,6 @@ public class F2000Factory {
                     GL11.glTranslatef(0F, 0.22f, 0.2f);
                 } 
                 
-                // Everything else
                 else {
                 }
             
@@ -762,4 +739,3 @@ public class F2000Factory {
         .build(MWC.modContext);
     }
 }
-
