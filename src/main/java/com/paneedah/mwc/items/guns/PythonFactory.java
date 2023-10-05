@@ -60,7 +60,7 @@ public class PythonFactory implements GunFactory {
         ))
 		
 		.withCompatibleAttachment(AuxiliaryAttachments.PythonChamber, true, (model) -> {
-//			GL11.glTranslatef(-0.35f, -0.1f, 0f);
+			GL11.glTranslatef(-0.1f, -0.9f, 0f);
 //            GL11.glRotatef(25F, 0f, 0f, 1f);
 		})
 		.withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoader, true, (model) -> {
@@ -70,7 +70,7 @@ public class PythonFactory implements GunFactory {
 //            GL11.glRotatef(-10F, 1f, 0f, 0f);
             })
 		.withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoaderBullets, true, (model) -> {
-//			GL11.glTranslatef(0f, 0f, 0.001f);
+			GL11.glTranslatef(-0.1f, -0.9f, 0f);
 			
 //			GL11.glTranslatef(-0.35f, -0.1f, 0.4f);
 //            GL11.glRotatef(25F, 0f, 0f, 1f);
@@ -83,7 +83,14 @@ public class PythonFactory implements GunFactory {
 		.withCompatibleBullet(Bullets.Bullet357, (model) -> {})
 		.withTextureNames("Python")
 		.withRenderer(new WeaponRenderer.Builder()
-			
+			.withActionPiece(
+					AuxiliaryAttachments.PythonChamber,
+					AuxiliaryAttachments.RevolverSpeedLoaderBullets)
+			.withActionTransform(
+					new Transform()
+							.withPivotPoint(0.1F, 0.9F, 0.0F)
+							.withRotation(0f, 0f, 120f)
+			)
 			.withModel(new Python())
 			//.withTextureName("XEagle")
 			//.withWeaponProximity(0.99F)
