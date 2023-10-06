@@ -89,7 +89,7 @@ public class PythonFactory implements GunFactory {
 			.withActionTransform(
 					new Transform()
 							.withPivotPoint(0.1F, 0.9F, 0.0F)
-							.withRotation(0f, 0f, 120f)
+							.withRotation(0f, 0f, 90f)
 			)
 			.withModel(new Python())
 			//.withTextureName("XEagle")

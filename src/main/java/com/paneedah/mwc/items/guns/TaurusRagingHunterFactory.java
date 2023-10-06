@@ -113,7 +113,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
 			.withActionTransform(
 					new Transform()
 							.withPivotPoint(0.13F, 0.87F, 0.0F)
-							.withRotation(0f, 0f, 60f)
+							.withRotation(0f, 0f, 90f)
 			)
             .withModel(new TaurusRagingHunter())
             //.withTextureName("XEagle")
