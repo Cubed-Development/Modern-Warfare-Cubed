@@ -34,9 +34,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withInspectSound("m4a1_inspection")
                 .withDrawSound("m4_draw")
                 .withReloadingTime(50)
-                .withCrosshair("gun")
-                .withCrosshairRunning("Running")
-                .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.13f)
@@ -105,60 +102,49 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 .withCompatibleAttachment(Attachments.HoneyBadgerStock, true, (model) -> {
                 })
-
                 .withCompatibleAttachment(Attachments.HoneyBadgerStockBlack, (model) -> {
                 })
-
                 .withCompatibleAttachment(Attachments.HoneyBadgerReceiver, true, (model) -> {
                     if(model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.32F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.78F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.HoneyBadgerReceiverBlack, (model) -> {
                     if(model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.32F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.78F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.HoneyBadgerKnightsReceiver, (model) -> {
                     if(model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.32F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.78F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.HoneyBadgerKnightsReceiverBlack, (model) -> {
                     if(model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.32F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.78F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.M4Grip, true, (model) -> {
                     GL11.glTranslatef(0.001f, 0f, 0f);
                 })
-
                 .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
                     GL11.glTranslatef(0.001f, 0f, 0f);
                 })
-
                 .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
                     GL11.glTranslatef(0.001f, 0f, 0f);
                 })
-
                 .withCompatibleAttachment(Magazines.HoneyBadgerMag, (model) -> {
                     GL11.glTranslatef(-0.35F, 0.5F, -1.25F);
                     GL11.glScaled(1.05F, 1.2F, 1.15F);
                 })
-
                 .withCompatibleAttachment(AuxiliaryAttachments.AR15Action, true, (model) -> {
                     GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
                     GL11.glScaled(0.7F, 0.4F, 0.7F);
                 })
-
                 .withCompatibleAttachment(Attachments.HK416FrontSight, renderContext -> {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if(instance != null) {
@@ -268,7 +254,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
-
                 .withCompatibleAttachment(AuxiliaryAttachments.AR15Iron, (model) -> {
                     if(model instanceof M4Iron1) {
                         GL11.glTranslatef(-0.145F, -1.55F, -0.35F);
@@ -287,7 +272,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.NightRaider, () -> {
                     GL11.glTranslatef(-0.21F, -1.4F, -1.8F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
@@ -297,7 +281,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.ACOG, () -> {
                     GL11.glTranslatef(-0.28F, -1.41F, -0.5F);
                     GL11.glScaled(0.7F, 0.7F, 0.7F);
@@ -311,7 +294,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.Specter, () -> {
                     GL11.glTranslatef(-0.18F, -1.1F, -0.7F);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
@@ -321,7 +303,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glScaled(0.1F, 0.1F, 0.1F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
                     GL11.glTranslatef(-0.151F, -1.25F, -1.2F);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
@@ -331,7 +312,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glScaled(0.04F, 0.04F, 0.04F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.MicroReflex, () -> {
                     GL11.glTranslatef(-0.15F, -1.93F, -1F);
                     GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -340,11 +320,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     } else if (model instanceof SightMount) {
-//                 	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                     GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.Reflex, () -> {
                     GL11.glTranslatef(-0.066F, -1.21F, -0.9F);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
@@ -354,7 +331,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
                     GL11.glTranslatef(-0.062F, -1.2F, -1F);
                     GL11.glScaled(0.48F, 0.48F, 0.48F);
@@ -364,7 +340,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.Holographic, () -> {
                     GL11.glTranslatef(-0.041F, -1.25F, -0.7F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
@@ -374,7 +349,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glScaled(0.1F, 0.1F, 0.1F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
                     GL11.glTranslatef(-0.041F, -1.25F, -0.7F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
@@ -384,7 +358,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glScaled(0.1F, 0.1F, 0.1F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
                     GL11.glTranslatef(-0.041F, -1.25F, -1.3F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
@@ -398,7 +371,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glScaled(0.05F, 0.05F, 0.05F);
                     }
                 })
-				
+
                 .withCompatibleAttachment(Attachments.VortexRedux, () -> {
                     GL11.glTranslatef(-0.3F, -1.45F, -1.1F);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
@@ -418,7 +391,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-
                 .withCompatibleAttachment(Attachments.KobraGen3, renderContext -> {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if(instance != null) {
@@ -519,7 +491,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 .withTextureNames("aachoneybadger")
                 .withRenderer(new WeaponRenderer.Builder()
-                
                         .withModel(new AACHoneyBadger())
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.5F, 0.5F, 0.5F);

@@ -297,8 +297,6 @@ public class ACRFactory implements GunFactory {
 	            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        } else if (model instanceof SightMount) {
-	//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-	//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 	        }
 	    })
 

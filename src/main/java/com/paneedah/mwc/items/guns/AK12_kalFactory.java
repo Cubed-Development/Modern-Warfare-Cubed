@@ -179,7 +179,6 @@ public class AK12_kalFactory implements GunFactory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        
         .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
 		            GL11.glTranslatef(-0.155F, -1.23F, -1.9F);
 		            GL11.glScaled(0.43F, 0.43F, 0.43F);
@@ -189,7 +188,6 @@ public class AK12_kalFactory implements GunFactory {
 		        GL11.glScaled(0.04F, 0.04F, 0.04F);
 		    }
 		})
-        
         .withCompatibleAttachment(Attachments.Specter, () -> {
 		            GL11.glTranslatef(-0.195F, -1.05F, -1.3F);
 		            GL11.glScaled(0.47F, 0.47F, 0.47F);
@@ -199,7 +197,6 @@ public class AK12_kalFactory implements GunFactory {
 		        GL11.glScaled(0.1F, 0.1F, 0.1F);
 		    }
 		})
-        
 		.withCompatibleAttachment(Attachments.MicroReflex, () -> {
 		    GL11.glTranslatef(-0.15F, -1.91F, -1F);
 		    GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -265,7 +262,6 @@ public class AK12_kalFactory implements GunFactory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        
         .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
         	GL11.glTranslatef(-0.035F, -1.25F, -1.8F);
             GL11.glScaled(0.73F, 0.73F, 0.73F);
@@ -279,7 +275,6 @@ public class AK12_kalFactory implements GunFactory {
 		        GL11.glScaled(0.05F, 0.05F, 0.05F);
 		    }
 		})
-        
         .withCompatibleAttachment(Attachments.VortexRedux, () -> {
             GL11.glTranslatef(-0.33F, -1.44F, -1.6F);
             GL11.glScaled(0.52F, 0.52F, 0.52F);
@@ -505,8 +500,7 @@ public class AK12_kalFactory implements GunFactory {
                         GL11.glRotatef(12F, 0f, 0f, 1f);
                     }, 120, 0)
                 )
-                
-                        
+                     
                 .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.AK15action.getRenderablePart(),
                         new Transition((renderContext) -> {
                         }, 500, 1000),

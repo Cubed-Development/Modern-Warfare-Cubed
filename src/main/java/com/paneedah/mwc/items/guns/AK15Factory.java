@@ -503,13 +503,10 @@ public class AK15Factory {
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                         GL11.glRotatef(12F, 0f, 0f, 1f);
                     }, 120, 0)
-//                    }, 100, 0)
                 )
                 
                         
                 .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.AK15action.getRenderablePart(),
-//                        new Transition((renderContext) -> {
-//                        }, 500, 1000),
                         new Transition((renderContext) -> {
                         }, 500, 1000),
                         new Transition((renderContext) -> {
