@@ -6,10 +6,9 @@ import com.paneedah.mwc.common.CommonConfig;
 import com.paneedah.mwc.common.CommonProxy;
 import com.paneedah.mwc.content.ContentPackHandler;
 import com.paneedah.mwc.client.ModRegistry;
-import com.paneedah.mwc.client.CTRegistry;
 import com.paneedah.mwc.content.types.PackFile;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -85,8 +84,8 @@ public class ModernWarfareCubed {
         ContentPackHandler.loadContent();
     }
 
-    private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if(event.getTab() == CTRegistry.ResourcesTab) {
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTab() == ModRegistry.Resources.get()) {
             // INGOTS
             event.accept(ModRegistry.GUNMETAL_INGOT);
             event.accept(ModRegistry.STEEL_INGOT);

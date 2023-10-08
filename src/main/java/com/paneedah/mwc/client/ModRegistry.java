@@ -1,18 +1,18 @@
 package com.paneedah.mwc.client;
 
 import com.paneedah.mwc.ModernWarfareCubed;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
@@ -26,6 +26,7 @@ import java.util.function.Supplier;
 public class ModRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ModernWarfareCubed.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ModernWarfareCubed.MOD_ID);
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ModernWarfareCubed.MOD_ID);
     public static ArrayList<RegistryObject<Item>> items = new ArrayList<RegistryObject<Item>>();
 
     // -------------------------------------------INGOTS-------------------------------------------
@@ -81,29 +82,42 @@ public class ModRegistry {
 
     // -------------------------------------------ORES-------------------------------------------
     public static final RegistryObject<Block> SULFUR_ORE = registerBlock("sulfur_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.COAL_ORE)
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> NITER_ORE = registerBlock("niter_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.COAL_ORE)
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> LEAD_ORE = registerBlock("lead_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
                     .strength(5f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> ALUMINUM_ORE = registerBlock("aluminum_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
                     .strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> GRAPHITE_ORE = registerBlock("graphite_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
                     .strength(3f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> TUNGSTEN_ORE = registerBlock("tungsten_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
                     .strength(7f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> TITANIUM_ORE = registerBlock("titanium_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
                     .strength(8f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
     public static final RegistryObject<Block> URANIUM_ORE = registerBlock("uranium_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.m_60939_(Material.f_76270_)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
                     .strength(5f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));
+
+    // ---------------------------------------CreativeTabs---------------------------------------
+
+
+    public static final RegistryObject<CreativeModeTab> Resources = CREATIVE_MODE_TABS.register("basetab", () -> CreativeModeTab.builder()
+            // Set name of tab to display
+            .title(Component.translatable("itemGroup." + ModernWarfareCubed.MOD_ID + ".basetab"))
+            .withSearchBar()
+            // Set icon of creative tab
+            .icon(() -> new ItemStack(STEEL_INGOT.get()))
+            .build()
+    );
+
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
@@ -119,6 +133,7 @@ public class ModRegistry {
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
         ITEMS.register(eventBus);
+        CREATIVE_MODE_TABS.register(eventBus);
     }
 
     public static class SyringeBase extends Item {
@@ -126,10 +141,11 @@ public class ModRegistry {
             super(properties);
             properties.stacksTo(16);
         }
+
         @Override
         public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-            if(this == ModRegistry.STIMPAK.get()) {
-                if(hand == InteractionHand.MAIN_HAND) {
+            if (this == ModRegistry.STIMPAK.get()) {
+                if (hand == InteractionHand.MAIN_HAND) {
                     player.heal(5);
                     player.getCooldowns().addCooldown(this, 15);
                     player.getMainHandItem().shrink(1);
@@ -138,7 +154,7 @@ public class ModRegistry {
                     }
                 }
             }
-            return super.use(level,player,hand);
+            return super.use(level, player, hand);
         }
     }
 }
