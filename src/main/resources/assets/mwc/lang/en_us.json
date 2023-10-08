@@ -47,7 +47,6 @@
   "item.mwc.empty_syringe": "Empty Syringe",
   "item.mwc.stimpak": "Stimpak",
   "itemGroup.mwc.basetab": "MWC",
-
-  "key.mwc.openconfig": "Opening Config",
-  "key.mwc.closeconfig": "Closing Config",
+  "key.mwc.openconfig": "Open Configuration GUI",
+  "key.mwc.closeconfig": "Close Configuration GUI"
 }
