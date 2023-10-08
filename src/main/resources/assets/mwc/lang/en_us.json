@@ -47,6 +47,11 @@
   "item.mwc.empty_syringe": "Empty Syringe",
   "item.mwc.stimpak": "Stimpak",
   "itemGroup.mwc.basetab": "MWC",
+<<<<<<< Updated upstream
   "key.mwc.openconfig": "Open Configuration GUI",
   "key.mwc.closeconfig": "Close Configuration GUI"
+=======
+  "key.category.mwc": "Modern Warfare Cubed",
+  "key.mwc.openconfig": "Open Configuration GUI"
+>>>>>>> Stashed changes
 }

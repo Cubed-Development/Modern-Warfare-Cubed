@@ -1,7 +1,6 @@
 package com.paneedah.mwc.client;
 
 import com.paneedah.mwc.ModernWarfareCubed;
-import com.paneedah.mwc.utils.KeyBinding;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
@@ -18,9 +17,6 @@ public class ClientEvents {
             if(KeyBinding.OPEN_CONFIG_KEY.consumeClick()) {
                 Minecraft.getInstance().player.sendSystemMessage(Component.literal("Opened Configuration Menu"));
             }
-            if(KeyBinding.CLOSE_CONFIG_KEY.consumeClick()) {
-                Minecraft.getInstance().player.sendSystemMessage(Component.literal("Closed Configuration Menu"));
-            }
         }
     }
 
@@ -29,7 +25,6 @@ public class ClientEvents {
         @SubscribeEvent
         public static void onKeyRegister(RegisterKeyMappingsEvent event) {
             event.register(KeyBinding.OPEN_CONFIG_KEY);
-            event.register(KeyBinding.CLOSE_CONFIG_KEY);
         }
     }
 }

@@ -7,6 +7,7 @@ import com.paneedah.mwc.common.CommonProxy;
 import com.paneedah.mwc.content.ContentPackHandler;
 import com.paneedah.mwc.client.ModRegistry;
 import com.paneedah.mwc.content.types.PackFile;
+import com.paneedah.mwc.utils.Log;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -23,13 +24,15 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Mod(ModernWarfareCubed.MOD_ID)
 public class ModernWarfareCubed {
     public static HashMap<String, PackFile> packs = new HashMap<String, PackFile>();
     public static PackFile contentFolder;
-    public static File logFile;
     public static final String MOD_ID = "mwc";
     public static final Logger logger = LogManager.getLogger("MWC");
 
@@ -78,8 +81,7 @@ public class ModernWarfareCubed {
             CommonConfig.LOAD_DEFAULT_CP.set(false);
         }
 
-        logFile = new File(FMLPaths.GAMEDIR.get().toString(), "log.txt");
-        if(logFile.mkdirs()) logger.info("Log file not found, creating new one.");
+        log("Initialized logging", Log.INFO);
 
         ContentPackHandler.loadContent();
     }
@@ -146,6 +148,20 @@ public class ModernWarfareCubed {
             event.accept(ModRegistry.TITANIUM_ORE);
             event.accept(ModRegistry.URANIUM_ORE);
             event.accept(ModRegistry.TUNGSTEN_ORE);
+        }
+    }
+
+    public static void log(String content, Log type) {
+        try {
+            FileWriter logWriter = new FileWriter(FMLPaths.GAMEDIR.get().toString() + File.separator + "MWC" + File.separator + "mwc.log", true);
+            BufferedWriter bufLogWriter = new BufferedWriter(logWriter);
+            bufLogWriter.write("[" + LocalDate.now().format(DateTimeFormatter.ofPattern("dd:MMMM:yyyy")) + "][" + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")) + "][" + type.name + "] " + content);
+            bufLogWriter.newLine();
+            bufLogWriter.close();
+            logWriter.close();
+        } catch (Exception e) {
+            logger.error("Couldn't handle logging:");
+            e.printStackTrace();
         }
     }
 }
