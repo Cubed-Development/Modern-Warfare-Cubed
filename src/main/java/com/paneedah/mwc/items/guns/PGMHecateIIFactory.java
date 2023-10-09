@@ -82,14 +82,6 @@ public class PGMHecateIIFactory implements GunFactory {
             GL11.glScaled(1F, 1F, 1F);
         })
 
-        .withCompatibleAttachment(AuxiliaryAttachments.Bullet, false, (model) -> {
-            if(model instanceof BulletBig) {
-            GL11.glScaled(0.5F, 0.5F, 1F);
-            GL11.glTranslatef(0.15F, -3F, -2.2F);
-            GL11.glRotatef(90f, 1f, 0f, 0f);
-            }
-        })
-
         .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.22F, -1.38F, -2.5F);
             GL11.glScaled(0.9F, 0.9F, 0.9F);
