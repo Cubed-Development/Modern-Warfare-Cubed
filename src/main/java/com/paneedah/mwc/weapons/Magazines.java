@@ -254,7 +254,7 @@ public class Magazines {
                 .build(ItemMagazine.class);
 
         Magazines.M134Mag = new ItemMagazine.Builder().withCapacity(1000).withCompatibleBullet(Bullets.Bullet762x51).withName("M134Mag")
-                .withModel(new M134Mag(), "gun.png")
+                .withModel(new M134Mag(), "m134.png")
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
