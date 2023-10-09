@@ -828,6 +828,17 @@ public class Magazines {
                         MWCItems.gunmetalIngot)
                 .build(ItemMagazine.class);
 
+		 Magazines.HecateIIMag = new ItemMagazine.Builder()
+                .withCapacity(7)
+                .withCompatibleBullet(Bullets.Bullet50BMG)
+                .withName("HecateIIMag")
+                .withModel(new HecateIIMag(), "pgmhecateii.png")
+                .withMaxStackSize(6)
+                .withCrafting(CraftingComplexity.MEDIUM,
+                        MWCItems.steelIngot,
+                        MWCItems.gunmetalIngot)
+                .build(ItemMagazine.class);
+
         Magazines.M110Mag = new ItemMagazine.Builder()
                 .withCapacity(10)
                 .withCompatibleBullet(Bullets.Bullet762x51)

@@ -124,6 +124,7 @@ public class Guns {
     public static Item M200Intervention;
     public static Item AS50;
     public static Item M82;
+	public static Item PGMHecateII;
 //    public static Item NTW20;
     public static Item GL06;
     public static Item M79;
@@ -225,6 +226,7 @@ public class Guns {
 
         //SR2
         M82 = new M82Factory().createGun(proxy);
+        PGMHecateII = new PGMHecateIIFactory().createGun(proxy);
         M40A6 = new M40A6Factory().createGun(proxy);
         SVDDragunov = new SVDDragunovFactory().createGun(proxy);
         VSSVintorez = new VSSVintorezFactory().createGun(proxy);

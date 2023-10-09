@@ -39,8 +39,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> AX50BoltAction2;
     public static ItemAttachment<Weapon> SSG08BoltAction1;
     public static ItemAttachment<Weapon> SSG08BoltAction2;
-    public static ItemAttachment<Weapon> HecateIIBoltAction1;
-    public static ItemAttachment<Weapon> HecateIIBoltAction2;
+    public static ItemAttachment<Weapon> PGMHecateIIBoltAction;
     public static ItemAttachment<Weapon> Remington700BoltAction;
     public static ItemAttachment<Weapon> Remington700BoltActionMain;
     public static ItemAttachment<Weapon> M500A2pump;
@@ -1397,6 +1396,15 @@ public class AuxiliaryAttachments {
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new SSG08BoltAction2(), "SSG08")
                 .withName("SSG08")
+                .withRenderablePart()
+                .build();
+				
+		PGMHecateIIBoltAction = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA2)
+                .withRotationPoint(0.2791999875187876F, -1.7068000399291512F, 0.3259999854266646F)
+                // .withCreativeTab(MWC.gunsTab)
+                .withModel(new PGMHecateIIBoltAction(), "pgmhecateii.png")
+                .withName("PGMHecateIIBoltAction")
                 .withRenderablePart()
                 .build();
 
