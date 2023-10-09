@@ -61,7 +61,6 @@ public class M134Factory implements GunFactory {
         .withCompatibleAttachment(Magazines.M134Mag, (model) -> {
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M134Barrels, true, (model) -> {
-            GL11.glTranslatef(0f, 0.4f, 0f);
         })
         .withTextureNames("m134")
         .withRenderer(new WeaponRenderer.Builder()

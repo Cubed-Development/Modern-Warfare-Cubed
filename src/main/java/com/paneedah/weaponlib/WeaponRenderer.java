@@ -3523,6 +3523,8 @@ public class WeaponRenderer extends ModelSourceRenderer {
                             final float position = debug ? 1 : Math.min(ClientValueRepo.slidePumpValue.getLerpedFloat(), 1);
 
                             GlStateManager.translate(transform.position.x * position, transform.position.y * position, transform.position.z * position);
+                            
+                            GlStateManager.translate(-transform.pivotPoint.x, -transform.pivotPoint.y, -transform.pivotPoint.z);
                             GlStateManager.rotate(transform.rotation.z * ClientValueRepo.slidePumpValue.getLerpedFloat(), 0, 0, 1);
                             GlStateManager.translate(transform.pivotPoint.x, transform.pivotPoint.y, transform.pivotPoint.z);
                         }
