@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -10,7 +10,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -82,7 +82,7 @@ public class PGMHecateIIFactory implements GunFactory {
             GL11.glScaled(1F, 1F, 1F);
         })
 
-        .withCompatibleAttachment(AuxiliaryAttachments.Bullet, true, (model) -> {
+        .withCompatibleAttachment(AuxiliaryAttachments.Bullet, false, (model) -> {
             if(model instanceof BulletBig) {
             GL11.glScaled(0.5F, 0.5F, 1F);
             GL11.glTranslatef(0.15F, -3F, -2.2F);
@@ -162,7 +162,7 @@ public class PGMHecateIIFactory implements GunFactory {
         .withTextureNames("pgmhecateii")
         .withRenderer(new WeaponRenderer.Builder()
             .withModel(new PGMHecateII())
-            .withADSBeizer(new Vec3d(-0.2, 5.0, -1.0))
+            .withADSBeizer(new Vec3d(-0.2, 0.0, -1.0))
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -183,8 +183,7 @@ public class PGMHecateIIFactory implements GunFactory {
 					new Transform()
 					.withPosition(-2.265000f, 4.505000f, -5.005000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
-					.withRotationPoint(0.610000f, -2.780000f, 3.300000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withScale(3.0f, 3.0f, 3.0f)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -192,19 +191,16 @@ public class PGMHecateIIFactory implements GunFactory {
                         // Left hand
                         new Transform()
                         .withPosition(1.250000f, 0.465000f, -0.980000f)
-                        .withBBRotation(-6.645, -32.8876, 56.8877)
-                        .withScale(2.6, 2.6, 4.0)
-                        .withRotationPoint(0, 0, 0),
+                        .withBBRotation(-6.645f, -32.8876f, 56.8877f)
+                        .withScale(2.6f, 2.6f, 4.0f),
                         
                         
                         
                         // Right hand
                         new Transform()
                         .withPosition(0.080000f, -0.180000f, 3.120000f)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3.5, 3.5, 3.5)
-                        .withRotationPoint(0, 0, 0)
-                
+                        .withRotation(-5.4027f, -4.7805f, -1.6694f)
+                        .withScale(3.5f, 3.5f, 3.5f)
                 )
                 
                 .setupModernAnimations("M40A6", AuxiliaryAttachments.PGMHecateIIBoltAction)
@@ -215,7 +211,7 @@ public class PGMHecateIIFactory implements GunFactory {
 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.Bullet.getRenderablePart(), (renderContext) -> {
             })
-            .withFirstPersonCustomPositioning(AuxiliaryAttachments.HecateIIBoltAction.getRenderablePart(), (renderContext) -> {
+            .withFirstPersonCustomPositioning(AuxiliaryAttachments.PGMHecateIIBoltAction.getRenderablePart(), (renderContext) -> {
             })
 			
             .withFirstPersonPositioningZooming((renderContext) -> {
@@ -252,27 +248,19 @@ public class PGMHecateIIFactory implements GunFactory {
                     GL11.glTranslatef(0f, -0.09f, 0.9f);
                 }
 
-                else {
-                }
-                
-            
-                })
+            })
 
             .withFirstPersonPositioningModifying((renderContext) -> {
 				 new Transform()
 				 .withPosition(-1.905000f, 4.065000f, -3.645000f)
 				 .withRotation(0.000000f, -30.514396f, -26.062789f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
-				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .withScale(3.000000f, 3.000000f, 3.000000f);
 			 })
 			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
 				 new Transform()
 				 .withPosition(-1.425000f, 3.545000f, -5.685000f)
 				 .withRotation(-0.187566f, -46.164037f, -11.869230f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
-				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .withScale(3.000000f, 3.000000f, 3.000000f);
            })
 					 
 			.withFirstPersonHandPositioningModifying(
@@ -280,17 +268,13 @@ public class PGMHecateIIFactory implements GunFactory {
                   	 new Transform()
                   	 .withPosition(1.730000f, 0.065000f, -0.980000f)
                   	 .withRotation(93.414678f, 23.699100f, 15.553163f)
-                       .withScale(2.6, 2.6, 4.0)
-                       .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                       .doGLDirect();
+                       .withScale(2.6f, 2.6f, 4.0f);
                    }, 
                    (renderContext) -> {
                   	 new Transform()
-                       .withPosition(-0.2, 0.1, 2)
-                       .withRotation(-5.4027, -4.7805, -1.6694)
-                       .withScale(3.5, 3.5, 3.5)
-                       .withRotationPoint(0, 0, 0)
-                       .doGLDirect();
+                       .withPosition(-0.2f, 0.1f, 2f)
+                       .withRotation(-5.4027f, -4.7805f, -1.6694f)
+                       .withScale(3.5f, 3.5f, 3.5f);
                    })
                    
           .withFirstPersonHandPositioningModifyingAlt(
@@ -298,17 +282,13 @@ public class PGMHecateIIFactory implements GunFactory {
                  	 new Transform()
                  	 	.withPosition(2.450000f, -0.335000f, -0.660000f)
                  	 	.withRotation(93.766422f, 50.841130f, 4.679372f)
-                 	 	.withScale(2.600000f, 2.600000f, 4.000000f)
-                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                      .doGLDirect();
+                 	 	.withScale(2.600000f, 2.600000f, 4.000000f);
                   }, 
                   (renderContext) -> {
                  	 new Transform()
                  	 	.withPosition(-0.600000f, 0.340000f, 1.880000f)
                  	 	.withRotation(-12.193518f, -4.780500f, 1.399459f)
-                      .withScale(3.5, 3.5, 3.5)
-                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                      .doGLDirect();
+                      .withScale(3.5f, 3.5f, 3.5f);
                   })
 
             .build())

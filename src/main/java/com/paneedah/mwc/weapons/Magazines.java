@@ -832,7 +832,7 @@ public class Magazines {
                 .withCapacity(7)
                 .withCompatibleBullet(Bullets.Bullet50BMG)
                 .withName("HecateIIMag")
-                .withModel(new HecateIIMag(), "pgmhecateii.png")
+                .withModel(new PGMHecateIIMag(), "pgmhecateii.png")
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
