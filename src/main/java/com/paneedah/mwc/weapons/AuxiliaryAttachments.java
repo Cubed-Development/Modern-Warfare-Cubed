@@ -448,7 +448,7 @@ public class AuxiliaryAttachments {
         M134Barrels = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
                 // .withCreativeTab(MWC.gunsTab)
-                .withModel(new M134Barrels(), "gun.png")
+                .withModel(new M134Barrels(), "m134.png")
                 .withName("M134Barrels")
                 .withRenderablePart()
                 .build();
