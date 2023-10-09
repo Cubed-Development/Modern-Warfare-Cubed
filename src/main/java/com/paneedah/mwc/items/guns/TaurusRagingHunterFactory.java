@@ -67,8 +67,6 @@ public class TaurusRagingHunterFactory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MagnumChamber, true, (model) -> {
-          	GL11.glTranslatef(-0.13f, -0.87f, 0f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoader, true, (model) -> {
 //			GL11.glTranslatef(-0f, -0.1f, 0.7f);
@@ -77,7 +75,6 @@ public class TaurusRagingHunterFactory implements GunFactory {
 //            GL11.glRotatef(-10F, 1f, 0f, 0f);
             })
 		.withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoaderBullets, true, (model) -> {
-			GL11.glTranslatef(-0.13f, -0.87f, 0f);
 			
 //			GL11.glTranslatef(-0.35f, -0.1f, 0.4f);
 //            GL11.glRotatef(25F, 0f, 0f, 1f);
