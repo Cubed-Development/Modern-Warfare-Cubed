@@ -1,5 +1,5 @@
 version: "1.0"
-linter: jetbrains/qodana-jvm:2023.2
+linter: jetbrains/qodana-jvm-community:2023.2
 profile:
   name: qodana.recommended
 fixesStrategy: cleanup
