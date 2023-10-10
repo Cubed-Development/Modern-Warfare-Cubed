@@ -35,8 +35,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> Albert01Rslide;
     public static ItemAttachment<Weapon> M40A6BoltAction;
     public static ItemAttachment<Weapon> M40A6BoltActionPrime;
-    public static ItemAttachment<Weapon> AX50BoltAction1;
-    public static ItemAttachment<Weapon> AX50BoltAction2;
+	public static ItemAttachment<Weapon> AX50BoltAction;
     public static ItemAttachment<Weapon> SSG08BoltAction1;
     public static ItemAttachment<Weapon> SSG08BoltAction2;
     public static ItemAttachment<Weapon> PGMHecateIIBoltAction;
@@ -1383,6 +1382,14 @@ public class AuxiliaryAttachments {
                 .withRenderablePart()
                 .build();
 
+        AX50BoltAction = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA)
+                .withRotationPoint(0.2791999875187876F, -1.7068000399291512F, 0.3259999854266646F)
+                .withModel(new AX50BoltAction(), "ax50.png")
+                .withName("AX50BoltAction")
+                .withRenderablePart()
+                .build();
+
         SSG08BoltAction1 = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 // .withCreativeTab(MWC.gunsTab)
@@ -1399,8 +1406,9 @@ public class AuxiliaryAttachments {
                 .withRenderablePart()
                 .build();
 				
-	PGMHecateIIBoltAction = new AttachmentBuilder<Weapon>()
+		PGMHecateIIBoltAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
+                .withRotationPoint(0.2791999875187876F, -1.7068000399291512F, 0.3259999854266646F)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new PGMHecateIIBoltAction(), "pgmhecateii.png")
                 .withName("PGMHecateIIBoltAction")

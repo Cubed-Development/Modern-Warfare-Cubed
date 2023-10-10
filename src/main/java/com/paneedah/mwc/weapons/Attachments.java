@@ -32,7 +32,7 @@ public class Attachments {
     public static ItemAttachment<Weapon> Specter;
     public static ItemAttachment<Weapon> HP;
     public static ItemAttachment<Weapon> LeupoldRailScope;
-    public static ItemAttachment<Weapon> AX50Scope;
+    public static ItemAttachment<Weapon> PMII525x56P4FLScope;
     public static ItemAttachment<Weapon> NightRaider;
     public static ItemAttachment<Weapon> M2A1sight;
     public static ItemAttachment<Weapon> F2000Scope;
@@ -3818,6 +3818,35 @@ public class Attachments {
                 .withModel(new LeupoldRail(), "leupold.png")
 //                .withOnWeaponModel(new JPUreticle(), "black.png")
                 .withName("LeupoldRailScope")
+                .withRotationPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
+                .build();
+				
+        PMII525x56P4FLScope = new ItemScope.Builder()
+                .withSniperReticle(Reticles.RETICLE_1)
+                .withOpticalZoom()
+                .withZoomRange(0.23F, 0.07F)
+                .withViewfinderPositioning(() -> {
+                    GL11.glScalef(2.7F, 2.7F, 2.7F);
+                    GL11.glTranslatef(-0.09F, 0.6F, 0.50F);
+                })
+                .withCategory(AttachmentCategory.SCOPE)
+                .withRequiredAttachments(Placeholder, Kar98Krail,
+                        M4Receiver, VLTORReceiver, NTW20HandguardRAIL,
+                        M14Rail,
+                        SSG08Chassis, G2ContenderBarrelLong,
+                        Beowulf50CalReceiver,
+                        HK417Receiver, HK417ReceiverTan,
+                        HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
+                        Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver,
+                        VSSMDustCover, Dragunov98DustCover)
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_NORMAL,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 7),
+                        new CraftingEntry(MWCItems.steelIngot, 6))
+                .withCrosshair("LP")
+                .withRenderablePart()
+                .withModel(new PMII525x56P4FLScope(), "s&bpmii525x56.png")
+                .withName("S&BPMII5-25x56P4FLScope")
                 .withRotationPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
                 .build();
 

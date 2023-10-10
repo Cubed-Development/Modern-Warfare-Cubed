@@ -122,6 +122,7 @@ public class Guns {
     public static Item DSR1;
     public static Item L96A1;
     public static Item M200Intervention;
+	public static Item AX50;
     public static Item AS50;
     public static Item M82;
 	public static Item PGMHecateII;
@@ -233,6 +234,7 @@ public class Guns {
 
         //SR1
         AS50 = new AS50Factory().createGun(proxy);
+        AX50 = new AX50Factory().createGun(proxy);
         SSG08 = new SSG08Factory().createGun(proxy);
         M200Intervention = new M200InterventionFactory().createGun(proxy);
         DSR1 = new DSR1Factory().createGun(proxy);

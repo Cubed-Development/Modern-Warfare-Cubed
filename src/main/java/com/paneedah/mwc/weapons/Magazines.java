@@ -801,6 +801,15 @@ public class Magazines {
                         MWCItems.gunmetalIngot)
                 .build(ItemMagazine.class);
 
+        Magazines.AX50Mag = new ItemMagazine.Builder()
+                .withCapacity(5)
+                .withCompatibleBullet(Bullets.Bullet50BMG)
+                .withName("AX50Mag")
+                .withRotationPoint(-0.12000000357627871F, 0.40000001192092904F, -2.4800000739097605F)
+                .withModel(new AX50Mag(), "ax50.png")
+                .withMaxStackSize(6)
+                .build(ItemMagazine.class);
+
         Magazines.R700Mag = new ItemMagazine.Builder().withCapacity(5).withCompatibleBullet(Bullets.Bullet762x54).withName("R700Mag")
                 .withModel(new Remington700Mag(), "remington700.png")
                 .withMaxStackSize(6)
