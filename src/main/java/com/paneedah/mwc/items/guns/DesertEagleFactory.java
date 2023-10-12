@@ -44,7 +44,7 @@ public class DesertEagleFactory implements GunFactory {
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapons power
-        		45.0,
+        		75.0,
         		// Muzzle climb divisor
         		13.5,
         		// "Stock Length"
@@ -54,9 +54,9 @@ public class DesertEagleFactory implements GunFactory {
         		// Recovery rate @ "stock"
         		0.2125,
         		// Recoil rotation (Y)
-        		0.0,
+        		-0.030,
         		// Recoil rotation (Z)
-        		0.0,
+        		-0.010,
         		// Ads similarity divisor
         		1.0
         ))
