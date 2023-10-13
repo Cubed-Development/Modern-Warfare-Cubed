@@ -560,6 +560,10 @@ public class Attachments {
     public static ItemAttachment<Weapon> InterventionCarryHandle;
     public static ItemAttachment<Weapon> InterventionKeystoneHandle;
 
+	public static ItemAttachment<Weapon> Saiga12Handguard;
+	public static ItemAttachment<Weapon> Saiga12Stock;
+	public static ItemAttachment<Weapon> Saiga12Grip;
+
     public static void init() {
         G11HandguardK1 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new G11HandguardK1(), "g11.png")
@@ -4835,5 +4839,20 @@ public class Attachments {
                 .withName("InterventionKiloTaCStock")
                 .build();
 		
+        Saiga12Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new Saiga12Handguard(), "gun.png")
+                .withName("Saiga12Handguard")
+                .build();
+				
+        Saiga12Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withModel(new Saiga12Stock(), "gun.png")
+                .withName("Saiga12Stock")
+                .build();
+				
+        Saiga12Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
+                .withModel(new Saiga12Grip(), "gun.png")
+                .withName("Saiga12Grip")
+                .withRenderablePart()
+                .build();
     }
 }

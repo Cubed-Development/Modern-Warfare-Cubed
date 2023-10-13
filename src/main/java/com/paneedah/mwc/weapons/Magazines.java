@@ -101,6 +101,7 @@ public class Magazines {
     public static ItemMagazine P90TerminatorMag;
     public static ItemMagazine G11Mag;
     public static ItemMagazine SaigaMag;
+	public static ItemMagazine SaigaMagExtended;
     public static ItemMagazine Origin12Mag;
     public static ItemMagazine Origin12DrumMag;
     public static ItemMagazine ScarHMag;
@@ -520,12 +521,18 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
-        Magazines.SaigaMag = new ItemMagazine.Builder().withCapacity(5).withCompatibleBullet(Bullets.Shotgun12Guage).withName("SaigaMag_2")
+        Magazines.SaigaMag = new ItemMagazine.Builder()
+		        .withCapacity(5).withCompatibleBullet(Bullets.Shotgun12Guage)
+				.withName("SaigaMag_2")
                 .withModel(new Saiga12mag(), "gun.png")
+                .withMaxStackSize(5)
+                .build(ItemMagazine.class);
+				
+        Magazines.SaigaMagExtended = new ItemMagazine.Builder()
+		        .withCapacity(12).withCompatibleBullet(Bullets.Shotgun12Guage)
+		        .withName("SaigaMag_3")
+                .withModel(new SaigaMagExtended(), "saiga12.png")
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.steelIngot,
-                        MWCItems.gunmetalIngot)
                 .build(ItemMagazine.class);
 
         Magazines.Origin12Mag = new ItemMagazine.Builder()
