@@ -13,6 +13,7 @@ import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
+import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
@@ -67,7 +68,13 @@ public class PGMHecateIIFactory implements GunFactory {
                 6f, // x
                 -5f, // y
                 12f) // z
-
+         
+         .withModernRecipe( new
+	        		CraftingEntry(MWCItems.carbonComposite, 12), new
+	        		CraftingEntry(MWCItems.gunmetalPlate, 10), new
+	        		CraftingEntry(MWCItems.steelIngot, 7)
+        		    CraftingEntry(Blocks.PLANKS, 5))
+         
         .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)	
         .withCompatibleAttachment(Attachments.Placeholder, true, (model) -> {
             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
@@ -284,7 +291,7 @@ public class PGMHecateIIFactory implements GunFactory {
                   })
 
             .build())
-        .withSpawnEntityDamage(18f)
+        .withSpawnEntityDamage(20f)
         .withSpawnEntityGravityVelocity(0f)
         
          
