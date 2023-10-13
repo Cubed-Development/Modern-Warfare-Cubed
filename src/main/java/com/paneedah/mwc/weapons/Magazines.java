@@ -113,6 +113,8 @@ public class Magazines {
     public static ItemMagazine JohnsonMAG;
     public static ItemMagazine SV98Mag;
     public static ItemMagazine UziMag;
+    public static ItemMagazine UziMag45;
+    public static ItemMagazine UziDrumMag;
     public static ItemMagazine VP70Mag;
     public static ItemMagazine HoneyBadgerMag;
     public static ItemMagazine VectorMag;
@@ -1161,12 +1163,37 @@ public class Magazines {
                 .withCompatibleBullet(Bullets.Bullet9x19mm)
                 .withName("UziMag_2")
                 .withRotationPoint(-0.040000001192092904F, 0.7200000214576723F, -0.40000001192092904F)
-                .withModel(new UziMag(), "gun.png")
+                .withModel(new UziMag(), "uzi.png")
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
                         MWCItems.gunmetalIngot)
                 .build(ItemMagazine.class);
+
+        Magazines.UziMag45 = new ItemMagazine.Builder()
+                .withCapacity(45)
+                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withName("UziMag_3")
+                .withRotationPoint(-0.040000001192092904F, 0.7200000214576723F, -0.40000001192092904F)
+                .withModel(new UziMag45(), "uzi.png")
+                .withMaxStackSize(4)
+                .withCrafting(CraftingComplexity.MEDIUM,
+                        MWCItems.steelIngot,
+                        MWCItems.gunmetalIngot)
+                .build(ItemMagazine.class);
+
+        Magazines.UziDrumMag = new ItemMagazine.Builder()
+                .withCapacity(60)
+                .withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withName("UziMag_4")
+                .withRotationPoint(-0.040000001192092904F, 0.7200000214576723F, -0.40000001192092904F)
+                .withModel(new UziDrumMag(), "uzi.png")
+                .withMaxStackSize(3)
+                .withCrafting(CraftingComplexity.MEDIUM,
+                        MWCItems.steelIngot,
+                        MWCItems.gunmetalIngot)
+                .build(ItemMagazine.class);
+
 
         Magazines.VP70Mag = new ItemMagazine.Builder()
                 .withCapacity(18)

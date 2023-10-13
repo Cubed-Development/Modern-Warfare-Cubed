@@ -1334,7 +1334,7 @@ public class AuxiliaryAttachments {
         UziAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
                 // .withCreativeTab(MWC.gunsTab)
-                .withModel(new UziAction(), "gun.png")
+                .withModel(new UziAction(), "uzi.png")
                 .withName("UziAction")
                 .withRenderablePart()
                 .build();
@@ -1342,7 +1342,7 @@ public class AuxiliaryAttachments {
         UziRelease = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
                 // .withCreativeTab(MWC.gunsTab)
-                .withModel(new UziRelease(), "gun.png")
+                .withModel(new UziRelease(), "uzi.png")
                 .withName("UziRelease")
                 .withRenderablePart()
                 .build();

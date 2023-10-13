@@ -545,6 +545,11 @@ public class Attachments {
     public static ItemAttachment<Weapon> LaserPlaceholder;
 
     public static ItemAttachment<Weapon> MAC10Action;
+    public static ItemAttachment<Weapon> UziWoodStock;
+    public static ItemAttachment<Weapon> UziFoldingStockOpened;
+    public static ItemAttachment<Weapon> UziMLOKHandguard;
+    public static ItemAttachment<Weapon> UziSightRail;
+    public static ItemAttachment<Weapon> UziFoldingStockClosed;
 
     public static void init() {
         G11HandguardK1 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
@@ -3318,7 +3323,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver, HK416Receiver,
                         M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
-                        VSSMDustCover, Dragunov98DustCover)
+                        VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withName("Reflex")
                 .build();
 
@@ -3347,7 +3352,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver, HK416Receiver,
                         M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
-                        VSSMDustCover, Dragunov98DustCover)
+                        VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withName("BijiaReflex")
                 .build();
 
@@ -3383,7 +3388,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver, HK416Receiver,
                         M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
-                        VSSMDustCover, Dragunov98DustCover)
+                        VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withName("MicroReflex")
                 .build();
 
@@ -3416,7 +3421,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver,
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, Origin12Grip,
-                        HKS20Grip, FABDefenseMount, MAC21Stock, VSSMDustCover, Dragunov98DustCover)
+                        HKS20Grip, FABDefenseMount, MAC21Stock, VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withName("Acog")
                 .withRotationPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
                 .build();
@@ -3480,7 +3485,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver,
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
-                        VSSMDustCover, Dragunov98DustCover)
+                        VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withName("Holographic2")
                 .withRotationPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
                 .build();
@@ -3512,7 +3517,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver,
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
-                        VSSMDustCover, Dragunov98DustCover)
+                        VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withName("HolographicAlt")
                 .build();
 
@@ -3544,7 +3549,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver,
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
-                        VSSMDustCover, Dragunov98DustCover)
+                        VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withName("EotechHybrid2")
                 .build();
 
@@ -3723,7 +3728,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver,
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
-                        VSSMDustCover, Dragunov98DustCover)
+                        VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withRenderablePart()
                 .withName("Kobra")
                 .build();
@@ -3754,7 +3759,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver,
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
-                        VSSMDustCover, Dragunov98DustCover)
+                        VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withRenderablePart()
                 .withName("KobraGen3")
                 .build();
@@ -4523,7 +4528,7 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, UziMLOKHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4623,7 +4628,7 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, DesertEagleLongBody)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, UziMLOKHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4716,5 +4721,53 @@ public class Attachments {
                 .withRenderablePart()
                 .withName("USPMatchCompensator")
                 .build();
+
+       UziWoodStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withModel(new UziWoodStock(), "uzi.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2),
+                        new CraftingEntry(MWCItems.steelIngot, 1))
+                        new CraftingEntry(Blocks.PLANKS, 3))
+                .withName("UziWoodStock")
+                .build();
+
+        UziFoldingStockOpened = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withModel(new UziFoldingStockOpened(), "uzi.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 3),
+                        new CraftingEntry(MWCItems.steelIngot, 2))
+                .withName("UziFoldingStockOpened")
+                .build();
+
+        UziFoldingStockClosed = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withModel(new UziFoldingStockClosed(), "uzi.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2),
+                        new CraftingEntry(MWCItems.steelIngot, 1))
+                .withName("UziFoldingStockClosed")
+                .build();
+
+        UziMLOKHandguard =  new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new UziMLOKHandguard(), "uzi.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 4),
+                        new CraftingEntry(MWCItems.steelIngot, 3))
+                .withName("UziMLOKHandguard")
+                .build();
+
+        UziSightRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
+                .withModel(new UziSightRail(), "uzi.png")
+                .withOnWeaponModel(new AKRail(), "akrail.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
+                .withName("UziSightRail")
+                .build();
+		
+		
     }
 }
