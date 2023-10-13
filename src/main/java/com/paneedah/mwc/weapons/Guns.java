@@ -32,7 +32,7 @@ public class Guns {
     public static Item turretgunsilenced;
     
     public static Item MP443;
-    //public static Item AK12_kal;
+    public static Item AK12_kal;
     public static Item AK15;
     public static Item KBP9A91;
     public static Item Kedr;
@@ -182,7 +182,7 @@ public class Guns {
         AK47 = new AK47Factory().createGun(proxy);
         AK15 = new AK15Factory().createGun(proxy);
         Malyuk = new MalyukFactory().createGun(proxy);
-        AK12 = new AK12_kalFactory().createGun(proxy);
+        AK12_kal = new AK12_kalFactory().createGun(proxy);
         AK12 = new AK12Factory().createGun(proxy);
         AK101 = new AK101Factory().createGun(proxy);
         AK74 = new AK74Factory().createGun(proxy);
