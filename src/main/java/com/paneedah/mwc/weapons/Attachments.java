@@ -551,6 +551,15 @@ public class Attachments {
     public static ItemAttachment<Weapon> UziSightRail;
     public static ItemAttachment<Weapon> UziFoldingStockClosed;
 
+    public static ItemAttachment<Weapon> InterventionStock;
+    public static ItemAttachment<Weapon> InterventionFJXLUX7Stock;
+    public static ItemAttachment<Weapon> InterventionKiloTaCStock;
+    public static ItemAttachment<Weapon> InterventionHandguard;
+    public static ItemAttachment<Weapon> InterventionQTDRifleHandguard;
+    public static ItemAttachment<Weapon> InterventionRailSystemHandguard;
+    public static ItemAttachment<Weapon> InterventionCarryHandle;
+    public static ItemAttachment<Weapon> InterventionKeystoneHandle;
+
     public static void init() {
         G11HandguardK1 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new G11HandguardK1(), "g11.png")
@@ -4768,6 +4777,63 @@ public class Attachments {
                 .withName("UziSightRail")
                 .build();
 		
+        InterventionCarryHandle = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
+                .withModel(new InterventionCarryHandle(), "intervention.png")
+				.withRequiredAttachments(InterventionQTDRifleHandguard, InterventionHandguard)
+                .withName("InterventionCarryHandle")
+                .build();
+
+        InterventionKeystoneHandle = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
+                .withModel(new InterventionKeystoneHandle(), "intervention.png")
+				.withRequiredAttachments(InterventionRailSystemHandguard)
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 1),
+                        new CraftingEntry(MWCItems.steelIngot, 1))
+                .withName("InterventionKeystoneHandle")
+                .build();
+
+        InterventionQTDRifleHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new InterventionQTDRifleHandguard(), "intervention.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2),
+                        new CraftingEntry(MWCItems.steelIngot, 3))
+                .withName("InterventionQTDRifleHandguard")
+                .build();
+
+        InterventionRailSystemHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new InterventionRailSystemHandguard(), "intervention.png")
+                .withOnWeaponModel(new AKRail(), "akrail.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 3),
+                        new CraftingEntry(MWCItems.steelIngot, 4))
+                .withName("InterventionRailSystemHandguard")
+                .build();
+
+        InterventionStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withModel(new InterventionStock(), "intervention.png")
+                .withName("InterventionStock")
+                .build();
+
+        InterventionFJXLUX7Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withModel(new InterventionFJXLUX7Stock(), "intervention.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 3),
+                        new CraftingEntry(MWCItems.steelIngot, 3))
+                .withName("InterventionFJXLUX7Stock")
+                .build();
+
+        InterventionKiloTaCStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withModel(new InterventionKiloTaCStock(), "intervention.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 1),
+                        new CraftingEntry(MWCItems.steelIngot, 2))
+                .withName("InterventionKiloTaCStock")
+                .build();
 		
     }
 }

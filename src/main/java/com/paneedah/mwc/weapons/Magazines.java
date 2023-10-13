@@ -66,7 +66,8 @@ public class Magazines {
     public static ItemMagazine L96A1Mag;
     public static ItemMagazine DSR1Mag;
     public static ItemMagazine DSR1MagExt;
-    public static ItemMagazine InterventionMag;
+	public static ItemMagazine InterventionMag;
+	public static ItemMagazine InterventionMagExtend;
     public static ItemMagazine M110Mag;
     public static ItemMagazine Z10Mag;
     public static ItemMagazine M1928Mag;
@@ -785,12 +786,18 @@ public class Magazines {
                 .withCapacity(7)
                 .withCompatibleBullet(Bullets.Bullet408CT)
                 .withName("InterventionMag")
-                .withModel(new InterventionMag(), "Intervention.png")
-                .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.steelIngot,
-                        MWCItems.gunmetalIngot)
+                .withModel(new InterventionMag(), "intervention.png")
+                .withMaxStackSize(4)
                 .build(ItemMagazine.class);
+
+		 Magazines.InterventionMagExtend = new ItemMagazine.Builder()
+                .withCapacity(10)
+                .withCompatibleBullet(Bullets.Bullet408CT)
+                .withName("InterventionMagExtend")
+                .withModel(new InterventionMagExtend(), "intervention.png")
+                .withMaxStackSize(2)
+                .build(ItemMagazine.class);
+
 
         Magazines.M40A6Mag = new ItemMagazine.Builder()
                 .withCapacity(7)

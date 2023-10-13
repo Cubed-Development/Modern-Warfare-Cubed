@@ -10,7 +10,7 @@ import net.minecraft.entity.Entity;
 // Paste this class into your mod and generate all required imports
 
 
-public class InterventionBoltAction extends ModelWithAttachments {
+public class InterventionBoltActionPrime extends ModelWithAttachments {
 	private final ModelRenderer boltaction;
 	private final ModelRenderer BoltAction30_r1;
 	private final ModelRenderer BoltAction28_r1;
@@ -21,7 +21,7 @@ public class InterventionBoltAction extends ModelWithAttachments {
 	private final ModelRenderer boltprime;
 	private final ModelRenderer BoltAction39_r1;
 
-	public InterventionBoltAction() {
+	public InterventionBoltActionPrime() {
 		textureWidth = 512;
 		textureHeight = 512;
 

@@ -55,6 +55,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> SV98BoltAction;
     public static ItemAttachment<Weapon> L96A1BoltAction;
     public static ItemAttachment<Weapon> InterventionBoltAction;
+	public static ItemAttachment<Weapon> InterventionBoltActionPrime;
     public static ItemAttachment<Weapon> VSSVintorezAction;
     public static ItemAttachment<Weapon> AS50Action;
     public static ItemAttachment<Weapon> P10Slide;
@@ -1469,11 +1470,19 @@ public class AuxiliaryAttachments {
                 .withRenderablePart()
                 .build();
 
-        InterventionBoltAction = new AttachmentBuilder<Weapon>()
+		InterventionBoltAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
-                // .withCreativeTab(MWC.gunsTab)
+                .withRotationPoint(0.2791999875187876F, -1.7068000399291512F, 0.3259999854266646F)
                 .withModel(new InterventionBoltAction(), "intervention.png")
                 .withName("InterventionBoltAction")
+                .withRenderablePart()
+                .build();
+				
+		InterventionBoltActionPrime = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA3)
+                .withRotationPoint(0.12159999456405646F, -1.5596000435292718F, 0.8224000258207329F)
+                .withModel(new InterventionBoltActionPrime(), "intervention.png")
+                .withName("InterventionBoltActionPrime")
                 .withRenderablePart()
                 .build();
 
