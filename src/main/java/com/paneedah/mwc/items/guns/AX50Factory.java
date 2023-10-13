@@ -1,6 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
@@ -14,6 +15,7 @@ import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
@@ -67,6 +69,11 @@ public class AX50Factory implements GunFactory {
                         2f, // y
                         16f) // z
 
+         .withModernRecipe( new
+	        		CraftingEntry(MWCItems.carbonComposite, 18), new
+	        		CraftingEntry(MWCItems.gunmetalPlate, 16), new
+	        		CraftingEntry(MWCItems.steelIngot, 12))
+					
                 .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
                 .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
                 .withCompatibleAttachment(Attachments.Placeholder, true, (model) -> {
