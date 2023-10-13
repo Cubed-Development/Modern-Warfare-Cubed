@@ -26,7 +26,6 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> AACRail;
     public static ItemAttachment<Weapon> M110Rail;
     public static ItemAttachment<Weapon> MagnumRail;
-    public static ItemAttachment<Weapon> M45A1slide;
     public static ItemAttachment<Weapon> M17_Slide;
     public static ItemAttachment<Weapon> Makarov_Slide;
     public static ItemAttachment<Weapon> P12_Slide;
@@ -1165,16 +1164,6 @@ public class AuxiliaryAttachments {
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new M712action(), "m712.png")
                 .withName("M712action")
-                .withRenderablePart()
-                .build();
-
-        M45A1slide = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.EXTRA)
-                // .withCreativeTab(MWC.gunsTab)
-                .withModel(new Emp1911Slide(), "Emp1911.png")
-                .withModel(new M1911FrontSight(), "m1911frontsight")
-                .withModel(new M1911rearsight(), "m1911rearsight")
-                .withName("M45A1slide")
                 .withRenderablePart()
                 .build();
 

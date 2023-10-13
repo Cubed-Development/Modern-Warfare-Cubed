@@ -43,9 +43,8 @@ public class Magazines {
     public static ItemMagazine M9Mag30;
     public static ItemMagazine M9DrumMag;
     public static ItemMagazine MP443Mag;
-    public static ItemMagazine M45A1Mag;
-    public static ItemMagazine M45A1Mag14;
-    public static ItemMagazine M1911_44Mag;
+    public static ItemMagazine M1911Mag;
+    public static ItemMagazine M1911Mag15;
     public static ItemMagazine M17Mag;
     public static ItemMagazine MakarovMag;
     public static ItemMagazine USP45Mag;
@@ -628,33 +627,17 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
-        Magazines.M45A1Mag = new ItemMagazine.Builder().withCapacity(7).withCompatibleBullet(Bullets.Bullet45ACP).withName("M45A1Mag_2")
-                .withModel(new GlockMagazine(), "gun.png")
-                .withRequiredAttachments(Attachments.M1911Body)
+        Magazines.M1911Mag = new ItemMagazine.Builder().withCapacity(7).withCompatibleBullet(Bullets.Bullet45ACP).withName("M1911Mag")
+                .withModel(new M1911Mag(), "m1911mag.png")
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.steelIngot,
-                        MWCItems.gunmetalIngot)
+                .withRotationPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
                 .build(ItemMagazine.class);
 
-        Magazines.M1911_44Mag = new ItemMagazine.Builder().withCapacity(7).withCompatibleBullet(Bullets.Bullet44).withName("M1911_44Mag")
-                .withRequiredAttachments(Attachments.M191144MagBody)
-                .withModel(new GlockMagazine(), "gun.png")
+        Magazines.M1911Mag15 = new ItemMagazine.Builder().withCapacity(15).withCompatibleBullet(Bullets.Bullet45ACP).withName("M1911Mag_2")
+                .withModel(new M1911Mag15(), "m1911mag.png")
                 .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.steelIngot,
-                        MWCItems.gunmetalIngot)
+                .withRotationPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
                 .build(ItemMagazine.class);
-
-        Magazines.M45A1Mag14 = new ItemMagazine.Builder().withCapacity(14).withCompatibleBullet(Bullets.Bullet45ACP).withName("M45A1Mag14")
-                .withModel(new M9Mag30(), "gun.png")
-                .withRequiredAttachments(Attachments.M1911Body)
-                .withMaxStackSize(6)
-                .withCrafting(CraftingComplexity.MEDIUM,
-                        MWCItems.steelIngot,
-                        MWCItems.gunmetalIngot)
-                .build(ItemMagazine.class);
-
 
         Magazines.M17Mag = new ItemMagazine.Builder()
                 .withCapacity(17)

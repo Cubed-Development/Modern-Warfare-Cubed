@@ -474,8 +474,10 @@ public class Attachments {
     public static ItemAttachment<Weapon> RailRiser;
     public static ItemAttachment<Weapon> M1911Slide;
     public static ItemAttachment<Weapon> M1911Body;
-    public static ItemAttachment<Weapon> M191144MagSlide;
-    public static ItemAttachment<Weapon> M191144MagBody;
+    public static ItemAttachment<Weapon> HardballerBody;
+    public static ItemAttachment<Weapon> HardballerSlide;
+    public static ItemAttachment<Weapon> M45A1CQBPBody;
+    public static ItemAttachment<Weapon> M45A1CQBPSlide;
     public static ItemAttachment<Weapon> M9A1Slide;
     public static ItemAttachment<Weapon> M9A1Body;
     public static ItemAttachment<Weapon> SamuraiEdgeSlide;
@@ -1501,7 +1503,7 @@ public class Attachments {
                 .withName("RailRiser")
                 .build();
 
-        M1911Slide = new AttachmentBuilder<Weapon>()
+       M1911Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new M1911Slide(), "m1911.png")
                 .withOnWeaponModel(new M1911FrontSight(), "gun")
@@ -1512,24 +1514,38 @@ public class Attachments {
 
         M1911Body = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
-                .withModel(new M1911Body(), "m1911.png")
+                .withModel(new M1911(), "m1911.png")
                 .withName("M1911Body")
                 .withRenderablePart()
                 .build();
 
-        M191144MagSlide = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.FRONTSIGHT)
-                .withModel(new M191144MagSlide(), "M191144MagSlide.png")
-                .withOnWeaponModel(new M1911FrontSight(), "gun")
-                .withOnWeaponModel(new makarovrearsight(), "gun")
-                .withName("M191144MagSlide")
+        HardballerBody = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.BACKGRIP)
+                .withModel(new M1911HardBaller(), "m1911.png")
+                .withName("HardballerBody")
                 .withRenderablePart()
                 .build();
 
-        M191144MagBody = new AttachmentBuilder<Weapon>()
+        HardballerSlide = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.FRONTSIGHT)
+                .withModel(new M1911HardBallerSlide(), "m1911.png")
+                .withOnWeaponModel(new HardballerIron(), "gun")
+                .withName("HardballerSlide")
+                .withRenderablePart()
+                .build();
+
+        M45A1CQBPBody = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
-                .withModel(new M191144MagBody(), "M191144Mag.png")
-                .withName("M191144MagBody")
+                .withModel(new M45A1(), "m1911.png")
+                .withName("M45A1CQBPBody")
+                .withRenderablePart()
+                .build();
+
+        M45A1CQBPSlide = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.FRONTSIGHT)
+                .withModel(new M45A1Slide(), "m1911.png")
+                .withOnWeaponModel(new m45a1Iron(), "gun")
+                .withName("M45A1CQBPSlide")
                 .withRenderablePart()
                 .build();
 
