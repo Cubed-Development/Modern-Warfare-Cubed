@@ -34,7 +34,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> Albert01Rslide;
     public static ItemAttachment<Weapon> M40A6BoltAction;
     public static ItemAttachment<Weapon> M40A6BoltActionPrime;
-	public static ItemAttachment<Weapon> AX50BoltAction;
+    public static ItemAttachment<Weapon> AX50BoltAction;
     public static ItemAttachment<Weapon> SSG08BoltAction1;
     public static ItemAttachment<Weapon> SSG08BoltAction2;
     public static ItemAttachment<Weapon> PGMHecateIIBoltAction;
