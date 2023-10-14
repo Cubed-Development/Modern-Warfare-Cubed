@@ -530,7 +530,7 @@ public class Magazines {
         Magazines.SaigaMagExtended = new ItemMagazine.Builder()
 		        .withCapacity(12).withCompatibleBullet(Bullets.Shotgun12Guage)
 		        .withName("SaigaMag_3")
-                .withModel(new SaigaMagExtended(), "saiga12.png")
+                .withModel(new Saiga12ExtenMag(), "saiga12.png")
                 .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
