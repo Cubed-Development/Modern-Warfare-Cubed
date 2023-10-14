@@ -2,16 +2,18 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
@@ -42,13 +44,13 @@ public class Saiga12Factory {
         .withFlashScale(() -> 1f)
         .withFlashOffsetX(() -> 0.05f)
         .withFlashOffsetY(() -> 0.15f)
-        .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
+        .withShellCasingModel(new Shotgun12Gauge())
         .withShellCasingModelTexture("shotgun12gauge")
         .withShellCasingForwardOffset(0.01f)
         .withShellCasingVerticalOffset(-0.03f)
         .withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
-		.withRecoilParam(new RecoilParam(
+        .withRecoilParam(new RecoilParam(
 				// The weapon power
 				40.0,
 				// Muzzle climb divisor
@@ -204,25 +206,6 @@ public class Saiga12Factory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(-0.013F, 0.15f, 0.2f);
-                } 
-                
-             // ACOG Zoom
-                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7)) {
-                    //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(-0.05F, 0.11f, 0f);
-                } 
-                
-                // Everything else
-                else {
-                }
-                
-            
-                })
-                
-             // ACOG Zoom
-                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                    //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(-0.013F, 0.15f, 0.15f);
                 } 
                 
              // ACOG Zoom

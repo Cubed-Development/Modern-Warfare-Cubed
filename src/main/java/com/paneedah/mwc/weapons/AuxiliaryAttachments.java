@@ -1290,7 +1290,7 @@ public class AuxiliaryAttachments {
         Saiga12action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
                 // .withCreativeTab(MWC.gunsTab)
-                .withModel(new Saiga12action(), "gun.png").withName("Saiga12action")
+                .withModel(new Saiga12Action(), "gun.png").withName("Saiga12action")
                 .withRenderablePart()
                 .build();
 

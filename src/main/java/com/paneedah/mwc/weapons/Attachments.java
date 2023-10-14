@@ -3856,7 +3856,7 @@ public class Attachments {
                 .build();
 				
         PMII525x56P4FLScope = new ItemScope.Builder()
-                .withSniperReticle(Reticles.RETICLE_1)
+                .withSniperReticle(Reticles.RETICLE)
                 .withOpticalZoom()
                 .withZoomRange(0.23F, 0.07F)
                 .withViewfinderPositioning(() -> {
@@ -4753,11 +4753,10 @@ public class Attachments {
 
        UziWoodStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withModel(new UziWoodStock(), "uzi.png")
-                .withModernRecipe(
-                        CraftingGroup.ATTACHMENT_MODIFICATION,
-                        new CraftingEntry(MWCItems.gunmetalIngot, 2),
-                        new CraftingEntry(MWCItems.steelIngot, 1))
-                        new CraftingEntry(Blocks.PLANKS, 3))
+               .withModernRecipe(
+                       CraftingGroup.ATTACHMENT_MODIFICATION,
+                       new CraftingEntry(MWCItems.gunmetalIngot, 1),
+                       new CraftingEntry(Blocks.PLANKS, 4))
                 .withName("UziWoodStock")
                 .build();
 

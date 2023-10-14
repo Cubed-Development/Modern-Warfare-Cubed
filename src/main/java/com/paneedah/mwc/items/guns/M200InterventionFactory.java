@@ -1,6 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.proxies.CommonProxy;
@@ -34,8 +35,6 @@ public class M200InterventionFactory implements GunFactory {
         .withShootSound("m200_intervention")
         .withPumpTimeout(1000)
         .withSilencedShootSound("as50_silenced")
-        .withReloadSound("pgmhecateii_reload")
-        .withUnloadSound("pgmhecateii_unload")
         .withReloadingTime(40)
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
@@ -66,6 +65,11 @@ public class M200InterventionFactory implements GunFactory {
                 7f, // x
                 -10f, // y
                 12f) // z
+
+        .withModernRecipe( new
+                CraftingEntry(MWCItems.carbonComposite, 8), new
+                CraftingEntry(MWCItems.gunmetalPlate, 12), new
+                 CraftingEntry(MWCItems.steelIngot, 5))
 
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
