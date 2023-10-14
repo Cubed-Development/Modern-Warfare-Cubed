@@ -4753,7 +4753,7 @@ public class Attachments {
 
        UziWoodStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withModel(new UziWoodStock(), "uzi.png")
-               .withModernRecipe(
+                .withModernRecipe(
                        CraftingGroup.ATTACHMENT_MODIFICATION,
                        new CraftingEntry(MWCItems.gunmetalIngot, 1),
                        new CraftingEntry(Blocks.PLANKS, 4))

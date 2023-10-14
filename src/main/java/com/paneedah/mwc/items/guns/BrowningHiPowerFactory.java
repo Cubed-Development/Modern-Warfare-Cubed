@@ -1,10 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.weapons.BrowningHiPower;
-import com.paneedah.mwc.models.weapons.Emp1911Slide;
-import com.paneedah.mwc.models.weapons.M1911FrontSight;
-import com.paneedah.mwc.models.weapons.makarovrearsight;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -67,15 +64,14 @@ public class BrowningHiPowerFactory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.BrowningHiPowerSlide, true, (model) -> {
-            if(model instanceof Emp1911Slide) {
-                GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
-            }
-            else if(model instanceof makarovrearsight) {
+            //if(model instanceof Emp1911Slide) {
+            //    GL11.glScaled(1F, 1F, 1F);
+            //}
+            //else
+            if(model instanceof makarovrearsight) {
                 GL11.glTranslatef(-0.155F, -1.155F, -0.15F);
                 GL11.glScaled(0.3F, 0.3F, 0.3F);
-            }
-            else if(model instanceof M1911FrontSight) {
+            } else if(model instanceof M1911FrontSight) {
                 GL11.glTranslatef(-0.15F, -1.145F, -2.45F);
                 GL11.glScaled(0.25F, 0.25F, 0.25F);
             }

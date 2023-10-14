@@ -523,16 +523,16 @@ public class Magazines {
         Magazines.SaigaMag = new ItemMagazine.Builder()
 		        .withCapacity(5).withCompatibleBullet(Bullets.Shotgun12Guage)
 				.withName("SaigaMag_2")
-                .withModel(new Saiga12mag(), "gun.png")
+                .withModel(new Saiga12Mag(), "gun.png")
                 .withMaxStackSize(5)
                 .build(ItemMagazine.class);
 				
-        Magazines.SaigaMagExtended = new ItemMagazine.Builder()
-		        .withCapacity(12).withCompatibleBullet(Bullets.Shotgun12Guage)
-		        .withName("SaigaMag_3")
-                .withModel(new SaigaMagExtended(), "saiga12.png")
-                .withMaxStackSize(6)
-                .build(ItemMagazine.class);
+        //Magazines.SaigaMagExtended = new ItemMagazine.Builder()
+		//        .withCapacity(12).withCompatibleBullet(Bullets.Shotgun12Guage)
+		//        .withName("SaigaMag_3")
+        //        .withModel(new SaigaMagExtended(), "saiga12.png")
+        //        .withMaxStackSize(6)
+        //        .build(ItemMagazine.class);
 
         Magazines.Origin12Mag = new ItemMagazine.Builder()
                 .withCapacity(5)
@@ -780,13 +780,13 @@ public class Magazines {
                 .withMaxStackSize(4)
                 .build(ItemMagazine.class);
 
-		 Magazines.InterventionMagExtend = new ItemMagazine.Builder()
-                .withCapacity(10)
-                .withCompatibleBullet(Bullets.Bullet408CT)
-                .withName("InterventionMagExtend")
-                .withModel(new InterventionMagExtend(), "intervention.png")
-                .withMaxStackSize(2)
-                .build(ItemMagazine.class);
+		Magazines.InterventionMagExtend = new ItemMagazine.Builder()
+               .withCapacity(10)
+               .withCompatibleBullet(Bullets.Bullet408CT)
+               .withName("InterventionMagExtend")
+               .withModel(new InterventionMagExtend(), "intervention.png")
+               .withMaxStackSize(2)
+               .build(ItemMagazine.class);
 
 
         Magazines.M40A6Mag = new ItemMagazine.Builder()

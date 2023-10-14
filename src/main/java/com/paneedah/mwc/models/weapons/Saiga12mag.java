@@ -33,7 +33,7 @@ public class Saiga12mag extends ModelWithAttachments {
 	private final ModelRenderer Mag3_r2;
 	private final ModelRenderer Mag2_r1;
 
-	public Saiga12mag() {
+	public Saiga12Mag() {
 		textureWidth = 150;
 		textureHeight = 150;
 
