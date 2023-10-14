@@ -527,12 +527,12 @@ public class Magazines {
                 .withMaxStackSize(5)
                 .build(ItemMagazine.class);
 				
-        //Magazines.SaigaMagExtended = new ItemMagazine.Builder()
-		//        .withCapacity(12).withCompatibleBullet(Bullets.Shotgun12Guage)
-		//        .withName("SaigaMag_3")
-        //        .withModel(new SaigaMagExtended(), "saiga12.png")
-        //        .withMaxStackSize(6)
-        //        .build(ItemMagazine.class);
+        Magazines.SaigaMagExtended = new ItemMagazine.Builder()
+		        .withCapacity(12).withCompatibleBullet(Bullets.Shotgun12Guage)
+		        .withName("SaigaMag_3")
+                .withModel(new Saiga12ExtenMag(), "saiga12.png")
+                .withMaxStackSize(3)
+                .build(ItemMagazine.class);
 
         Magazines.Origin12Mag = new ItemMagazine.Builder()
                 .withCapacity(5)

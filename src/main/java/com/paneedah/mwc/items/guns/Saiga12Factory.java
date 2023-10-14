@@ -210,16 +210,7 @@ public class Saiga12Factory {
                     GL11.glTranslatef(-0.05F, 0.11f, 0f);
                 }
 
-                // ACOG Zoom
-                if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                    //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(-0.013F, 0.15f, 0.15f);
-                }
 
-                // ACOG Zoom
-                if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7)) {
-                    //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(-0.05F, 0.11f, 0f);
                 }
             })
              
