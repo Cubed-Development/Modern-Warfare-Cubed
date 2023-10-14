@@ -4812,6 +4812,11 @@ public class Attachments {
                 .withName("InterventionKeystoneHandle")
                 .build();
 
+        InterventionHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new InterventionHandguard(), "intervention.png")
+                .withName("InterventionHandguard")
+                .build();
+
         InterventionQTDRifleHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new InterventionQTDRifleHandguard(), "intervention.png")
                 .withModernRecipe(

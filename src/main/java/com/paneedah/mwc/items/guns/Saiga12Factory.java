@@ -210,8 +210,6 @@ public class Saiga12Factory {
                     GL11.glTranslatef(-0.05F, 0.11f, 0f);
                 }
 
-
-                }
             })
              
             .withFirstPersonPositioningModifying((renderContext) -> {
