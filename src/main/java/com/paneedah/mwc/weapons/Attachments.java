@@ -4174,7 +4174,7 @@ public class Attachments {
                 .build();
 
         Silencer45ACP = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
-                .withRequiredAttachments(KrissVectorReceiver, M1911Body)
+                .withRequiredAttachments(KrissVectorReceiver, M1911Slide, M45A1CQBPSlide)
                 .withModel(new Suppressor45ACP(), "gun.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,

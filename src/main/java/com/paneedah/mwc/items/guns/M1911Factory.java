@@ -11,7 +11,9 @@ import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
@@ -110,11 +112,11 @@ public class M1911Factory implements GunFactory {
                 .withCompatibleAttachment(Magazines.M1911Mag15, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.Silencer45ACP, (model) -> {
-                    GL11.glTranslatef(-0.27F, -1.3F, -5.1F);
+                    GL11.glTranslatef(-0.275F, -1.3F, -5.1F);
                     GL11.glScaled(1.5F, 1.5F, 1.5F);
                 })
                 .withCompatibleAttachment(Attachments.Laser, () -> {
-                    GL11.glTranslatef(0.01F, -0.65F, -2.3F);
+                    GL11.glTranslatef(0.01F, -0.85F, -2.3F);
                     GL11.glScaled(1.2F, 1.2F, 1.2F);
                     GL11.glRotatef(-90F, 0f, 0f, -4f);
                 })
@@ -146,9 +148,9 @@ public class M1911Factory implements GunFactory {
                         .withFirstPersonPositioning(
                                 new Transform()
                                         .withPosition(-0.945000f, 4.065000f, -7.845000f)
-                                        .withRotation(0.000000f, 1.000000f, 11.681469f)
+                                        .withRotation(0.000000f, 1.000000f, 10.681469f)
                                         .withPivotPoint(-0.12000000357627871F, -0.36000001072883614F, 0.040000001192092904F)
-                                        .withScale(2.8F, 2.8F, 2.8F)
+                                        .withScale(3.0F, 3.0F, 3.0F)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -159,6 +161,7 @@ public class M1911Factory implements GunFactory {
                                         .withBBRotation(-12.9672F, -29.0825F, 67.8433F)
                                         .withScale(3, 3, 4)
                                         .withPivotPoint(0, 0, 0),
+
 
 
                                 // Right hand
@@ -174,6 +177,8 @@ public class M1911Factory implements GunFactory {
                         .setupModernMagazineAnimations("m9",
                                 Magazines.M1911Mag,
                                 Magazines.M1911Mag15)
+                        .setupCustomKeyedPart(Attachments.HardballerSlide, "m9", BBLoader.KEY_ACTION)
+                        .setupCustomKeyedPart(Attachments.M45A1CQBPSlide, "m9", BBLoader.KEY_ACTION)
 
                         .withFirstPersonCustomPositioning(Attachments.M1911Slide.getRenderablePart(), (renderContext) -> {
                             if (renderContext.getWeaponInstance().getAmmo() == 0) {
@@ -193,15 +198,7 @@ public class M1911Factory implements GunFactory {
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glScaled(2F, 2F, 2);
-                            GL11.glTranslatef(0.168f, 0.67f, -2f);
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                                //System.out.println("Position me for Holo");
-                                GL11.glTranslatef(0f, 0.22f, 0f);
-                            } else {
-                            }
-
-
+                            GL11.glTranslatef(0.185f, 0.615f, -2f);
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {

@@ -147,6 +147,32 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Where should the status bar be located?")
 	public static String statusBarPosition = "TOP_RIGHT";
 
+	// It is temporary and should be deleted
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posX = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posY = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posZ = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posX1 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posY1 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posZ1 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posX2 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posY2 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posZ2 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posX3 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posY3 = 0.0;
+	@ConfigSync(category = "DEBUG", comment = "")
+	public static double posZ3 = 0.0;
+
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=5.0)
