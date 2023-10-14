@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models.weapons;
 
-import com.paneedah.weaponlib.ModelWithAttachments;
+import com.paneedah.weaponlib.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -10,7 +10,7 @@ import net.minecraft.entity.Entity;
 // Paste this class into your mod and generate all required imports
 
 
-public class InterventionMag extends ModelWithAttachments {
+public class InterventionMag extends ModelBase {
 	private final ModelRenderer maganize;
 	private final ModelRenderer Mag18_r1;
 	private final ModelRenderer Mag18_r2;
