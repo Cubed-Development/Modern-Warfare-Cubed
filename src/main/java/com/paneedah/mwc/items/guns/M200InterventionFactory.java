@@ -109,16 +109,16 @@ public class M200InterventionFactory implements GunFactory {
         .withCompatibleAttachment(Attachments.HK416FrontSight, renderContext -> {
               PlayerWeaponInstance instance = renderContext.getWeaponInstance();
               if(instance != null) {
-              ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                  AttachmentCategory.GUARD, instance);
-              if(activeAttachment == Attachments.InterventionHandguard) {
-                 GL11.glTranslatef(0.23F, -0.18F, -0.63F);
-                 GL11.glScaled(1F, 1F, 1F);
-              } else {
-              GL11.glTranslatef(0.23F, -0.18F, -2.23F);
-              GL11.glScaled(1F, 1F, 1F);
-             }
-        }
+                  ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
+                          AttachmentCategory.GUARD, instance);
+                  if (activeAttachment == Attachments.InterventionHandguard) {
+                      GL11.glTranslatef(0.23F, -0.18F, -0.63F);
+                      GL11.glScaled(1F, 1F, 1F);
+                  } else {
+                      GL11.glTranslatef(0.23F, -0.18F, -2.23F);
+                      GL11.glScaled(1F, 1F, 1F);
+                  }
+              }
         },(model) -> {
             if(model instanceof G95_upright_frontsights) {
               GL11.glTranslatef(-0.155F, -1.95F, -0.5F);
@@ -184,20 +184,20 @@ public class M200InterventionFactory implements GunFactory {
         	GL11.glTranslatef(0.18F, -1.8F, -0.5F);
             GL11.glScaled(0.5F, 0.5F, 0.5F);
         },(model) -> {
-        if(model instanceof Reflex2) {
-            GL11.glTranslatef(-0.125F, -0.68F, -0.4F);
-            GL11.glScaled(0.15F, 0.15F, 0.15F);
-        }
+            if (model instanceof Reflex2) {
+                GL11.glTranslatef(-0.125F, -0.68F, -0.4F);
+                GL11.glScaled(0.15F, 0.15F, 0.15F);
+            }
         })
         .withCompatibleAttachment(Attachments.Holographic, () -> {
-        	GL11.glTranslatef(0.21F, -1.85F, -0.5F);
+            GL11.glTranslatef(0.21F, -1.85F, -0.5F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
-            },(model) -> {
-                if(model instanceof Holo2) {
-                    GL11.glTranslatef(-0.125F, -0.5F, -0.1F);
-                    GL11.glScaled(0.1F, 0.1F, 0.1F);
-                }
-            })
+        },(model) -> {
+            if (model instanceof Holo2) {
+                GL11.glTranslatef(-0.125F, -0.5F, -0.1F);
+                GL11.glScaled(0.1F, 0.1F, 0.1F);
+            }
+        })
         .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
         	GL11.glTranslatef(0.21F, -1.85F, -0.5F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
@@ -239,8 +239,8 @@ public class M200InterventionFactory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
-        	GL11.glTranslatef(0.05F, -2.05F, -0.2F);
-            GL11.glScaled(0.45F, 0.45F, 0.45F);
+        	    GL11.glTranslatef(0.05F, -2.05F, -0.2F);
+                GL11.glScaled(0.45F, 0.45F, 0.45F);
             },(model) -> {
                 if(model instanceof Reflex2) {
                     GL11.glTranslatef(0.155F, -0.4F, -0.5F);
@@ -258,14 +258,15 @@ public class M200InterventionFactory implements GunFactory {
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Bullet, true, (model) -> {
             if(model instanceof BulletBig) {
-            GL11.glScaled(0.5F, 0.5F, 1F);
-            GL11.glTranslatef(0.15F, -3F, -2.2F);
-            GL11.glRotatef(90f, 1f, 0f, 0f);
+                GL11.glScaled(0.5F, 0.5F, 1F);
+                GL11.glTranslatef(0.15F, -3F, -2.2F);
+                GL11.glRotatef(90f, 1f, 0f, 0f);
             }
         })
         .withTextureNames("intervention")
         .withRenderer(new WeaponRenderer.Builder()
             .withModel(new Intervention())
+            .withADSBeizer(new Vec3d(-0.2F, 5.0, -1.0))
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
@@ -280,7 +281,7 @@ public class M200InterventionFactory implements GunFactory {
                 GL11.glTranslatef(-2.3F, -0.5F, 2.2F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
-                })
+            })
 
             .withFirstPersonPositioning(
                     new Transform()
@@ -288,42 +289,42 @@ public class M200InterventionFactory implements GunFactory {
                     .withRotation(0.000000f, 1.000000f, 6.300000f)
                     .withPivotPoint(0.610000f, -2.780000f, 3.300000f)
                     .withScale(3.0f, 3.0f, 3.0f)
-                )
+            )
 
-                .withFirstPersonHandPositioning(
+            .withFirstPersonHandPositioning(
 
-                        // Left hand
-                        new Transform()
-                                .withPosition(1.410000f, -0.175000f, 0.580000f)
-                                .withBBRotation(-8.1997f, -23.6991f, 57.7232f)
-                                .withScale(2.6f, 2.6f, 4.0f)
-                                .withPivotPoint(0, 0, 0),
+                    // Left hand
+                    new Transform()
+                            .withPosition(1.410000f, -0.175000f, 0.580000f)
+                            .withBBRotation(-8.1997f, -23.6991f, 57.7232f)
+                            .withScale(2.6f, 2.6f, 4.0f)
+                            .withPivotPoint(0, 0, 0),
 
 
 
-                        // Right hand
-                        new Transform()
-                                .withPosition(0.080000f, -0.180000f, 3.020000f)
-                                .withRotation(-5.4027f, -4.7805f, -1.6694f)
-                                .withScale(3.5f, 3.5f, 3.5f)
-                                .withPivotPoint(0, 0, 0)
+                    // Right hand
+                    new Transform()
+                            .withPosition(0.080000f, -0.180000f, 3.020000f)
+                            .withRotation(-5.4027f, -4.7805f, -1.6694f)
+                            .withScale(3.5f, 3.5f, 3.5f)
+                            .withPivotPoint(0, 0, 0)
 
-                )
+            )
 
-                .setupModernAnimations("m40a6", AuxiliaryAttachments.InterventionBoltAction)
-                .setupCustomKeyedPart(AuxiliaryAttachments.InterventionBoltAction, "m40a6", BBLoader.KEY_BOLT_ACTION)
-                .setupCustomKeyedPart(AuxiliaryAttachments.InterventionBoltActionPrime, "m40a6", "boltprime")
-                .setupModernMagazineAnimations("m40a6",
-                        Magazines.InterventionMag,
-						Magazines.InterventionMagExtend)
+            .setupModernAnimations("m40a6", AuxiliaryAttachments.InterventionBoltAction)
+            .setupCustomKeyedPart(AuxiliaryAttachments.InterventionBoltAction, "m40a6", BBLoader.KEY_BOLT_ACTION)
+            .setupCustomKeyedPart(AuxiliaryAttachments.InterventionBoltActionPrime, "m40a6", "boltprime")
+            .setupModernMagazineAnimations("m40a6",
+                    Magazines.InterventionMag,
+					Magazines.InterventionMagExtend)
 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.InterventionBoltAction.getRenderablePart(), (renderContext) -> {
             })
-                .withFirstPersonCustomPositioning(AuxiliaryAttachments.Bullet.getRenderablePart(), (renderContext) -> {
-                    if(renderContext.getWeaponInstance().getAmmo() == 0) {
-                            GL11.glScaled(0F, 0F, 0F);
-                    }
-                })
+            .withFirstPersonCustomPositioning(AuxiliaryAttachments.Bullet.getRenderablePart(), (renderContext) -> {
+                if(renderContext.getWeaponInstance().getAmmo() == 0) {
+                        GL11.glScaled(0F, 0F, 0F);
+                }
+            })
 
             .withFirstPersonPositioningZooming((renderContext) -> {
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
@@ -395,11 +396,8 @@ public class M200InterventionFactory implements GunFactory {
                 }
 
 
-                else {
-            }
-
-
             })
+
 
             .withFirstPersonCustomPositioningEjectSpentRound(AuxiliaryAttachments.Bullet.getRenderablePart(),
             		new Transition((renderContext) -> { // Reload position
@@ -436,9 +434,9 @@ public class M200InterventionFactory implements GunFactory {
                           GL11.glRotatef(0f, 1f, 0f, 0f);
                           GL11.glRotatef(0f, 0f, 1f, 0f);
                       }, 250, 50)
-                    
+
                     )
-            
+
             .withFirstPersonCustomPositioningEjectSpentRoundAimed(AuxiliaryAttachments.Bullet.getRenderablePart(),
             		new Transition((renderContext) -> { // Reload position
                     }, 250, 50),
@@ -448,37 +446,36 @@ public class M200InterventionFactory implements GunFactory {
                       }, 250, 300),
                     new Transition((renderContext) -> { // Reload position
                       }, 250, 300),
-                      new Transition((renderContext) -> { // Reload position
+                    new Transition((renderContext) -> { // Reload position
                     	  GL11.glTranslatef(-0.4F, -0.5F, -0F);
-                          GL11.glRotatef(10f, 1f, 0f, 0f);
-                          GL11.glRotatef(25f, 0f, 1f, 0f);
-                      }, 250, 50),
-                      new Transition((renderContext) -> { // Reload position
+                        GL11.glRotatef(10f, 1f, 0f, 0f);
+                        GL11.glRotatef(25f, 0f, 1f, 0f);
+                    }, 250, 50),
+                    new Transition((renderContext) -> { // Reload position
                     	  GL11.glTranslatef(-1F, -0.3F, -0F);
-                          GL11.glRotatef(30f, 1f, 0f, 0f);
-                          GL11.glRotatef(35f, 0f, 1f, 0f);
-                      }, 250, 50),
-                      new Transition((renderContext) -> { // Reload position
+                        GL11.glRotatef(30f, 1f, 0f, 0f);
+                        GL11.glRotatef(35f, 0f, 1f, 0f);
+                    }, 250, 50),
+                    new Transition((renderContext) -> { // Reload position
                     	  GL11.glTranslatef(-1.4F, -0F, 0.3F);
-                          GL11.glRotatef(35f, 1f, 0f, 0f);
-                          GL11.glRotatef(40f, 0f, 1f, 0f);
-                      }, 250, 50),
-                      new Transition((renderContext) -> { // Reload position
+                        GL11.glRotatef(35f, 1f, 0f, 0f);
+                        GL11.glRotatef(40f, 0f, 1f, 0f);
+                    }, 250, 50),
+                    new Transition((renderContext) -> { // Reload position
                     	  GL11.glTranslatef(-2F, 1F, 1F);
-                          GL11.glRotatef(45f, 1f, 0f, 0f);
-                          GL11.glRotatef(50f, 0f, 1f, 0f);
+                        GL11.glRotatef(45f, 1f, 0f, 0f);
+                        GL11.glRotatef(50f, 0f, 1f, 0f);
 
-                      }, 250, 50),
-                      new Transition((renderContext) -> { // Reload position
+                    }, 250, 50),
+                    new Transition((renderContext) -> { // Reload position
                     	  GL11.glTranslatef(-2F, 3F, 1F);
-                          GL11.glRotatef(0f, 1f, 0f, 0f);
-                          GL11.glRotatef(0f, 0f, 1f, 0f);
-                      }, 250, 50)
-                    
-                    )
+                        GL11.glRotatef(0f, 1f, 0f, 0f);
+                        GL11.glRotatef(0f, 0f, 1f, 0f);
+                    }, 250, 50)
 
-            .withFirstPersonPositioningModifying(
-                    (renderContext) -> {
+            )
+
+            .withFirstPersonPositioningModifying((renderContext) -> {
 				 new Transform()
 				 .withPosition(-1.905000f, 4.065000f, -3.645000f)
 				 .withRotation(0.000000f, -30.514396f, -26.062789f)
@@ -486,8 +483,7 @@ public class M200InterventionFactory implements GunFactory {
 				 .withScale(2.300000f, 2.300000f, 2.300000f)
 				 .applyTransformations();
 			})
-            .withFirstPersonPositioningModifyingAlt(
-            (renderContext) -> {
+            .withFirstPersonPositioningModifyingAlt((renderContext) -> {
 				new Transform()
 				 .withPosition(-1.425000f, 3.545000f, -5.685000f)
 				 .withRotation(-0.187566f, -46.164037f, -11.869230f)
@@ -495,16 +491,14 @@ public class M200InterventionFactory implements GunFactory {
 				 .withScale(2.300000f, 2.300000f, 2.300000f)
 				 .applyTransformations();
             })
-			.withFirstPersonHandPositioningModifying(
-                    (renderContext) -> {
+			.withFirstPersonHandPositioningModifying((renderContext) -> {
                   	new Transform()
                   	   .withPosition(1.730000f, 0.065000f, -0.980000f)
                   	   .withRotation(93.414678f, 23.699100f, 15.553163f)
                        .withScale(2.6f, 2.6f, 4.0f)
                        .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
                        .applyTransformations();
-                   },
-                   (renderContext) -> {
+                   }, (renderContext) -> {
                   	new Transform()
                        .withPosition(-0.2f, 0.1f, 2f)
                        .withRotation(-5.4027f, -4.7805f, -1.6694f)
@@ -514,22 +508,22 @@ public class M200InterventionFactory implements GunFactory {
             })
 
             .withFirstPersonHandPositioningModifyingAlt(
-          		(renderContext) -> {
-                 	new Transform()
-                 	 	.withPosition(2.450000f, -0.335000f, -0.660000f)
-                 	 	.withRotation(93.766422f, 50.841130f, 4.679372f)
-                 	 	.withScale(2.600000f, 2.600000f, 4.000000f)
-                        .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
-                        .applyTransformations();
-                  },
-                  (renderContext) -> {
-                 	new Transform()
-                 	 	.withPosition(-0.600000f, 0.340000f, 1.880000f)
-                 	 	.withRotation(-12.193518f, -4.780500f, 1.399459f)
-                        .withScale(3.5f, 3.5f, 3.5f)
-                        .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
-                        .applyTransformations();
-            })
+                    (renderContext) -> {
+                        new Transform()
+                                .withPosition(2.450000f, -0.335000f, -0.660000f)
+                                .withRotation(93.766422f, 50.841130f, 4.679372f)
+                                .withScale(2.600000f, 2.600000f, 4.000000f)
+                                .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                                .applyTransformations();
+                    }, (renderContext) -> {
+                        new Transform()
+                                .withPosition(-0.600000f, 0.340000f, 1.880000f)
+                                .withRotation(-12.193518f, -4.780500f, 1.399459f)
+                                .withScale(3.5f, 3.5f, 3.5f)
+                                .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                                .applyTransformations();
+                    }
+            )
 
 
         .build())

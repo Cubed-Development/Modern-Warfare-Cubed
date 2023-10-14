@@ -10,7 +10,7 @@ import net.minecraft.entity.Entity;
 // Paste this class into your mod and generate all required imports
 
 
-public class Saiga12mag extends ModelWithAttachments {
+public class Saiga12Mag extends ModelWithAttachments {
 	private final ModelRenderer mag;
 	private final ModelRenderer Mag25_r1;
 	private final ModelRenderer Mag24_r1;
@@ -33,7 +33,7 @@ public class Saiga12mag extends ModelWithAttachments {
 	private final ModelRenderer Mag3_r2;
 	private final ModelRenderer Mag2_r1;
 
-	public Saiga12mag() {
+	public Saiga12Mag() {
 		textureWidth = 150;
 		textureHeight = 150;
 
