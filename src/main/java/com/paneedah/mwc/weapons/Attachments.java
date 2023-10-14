@@ -4821,6 +4821,15 @@ public class Attachments {
                 .withName("InterventionQTDRifleHandguard")
                 .build();
 
+        InterventionHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new InterventionHandguard(), "intervention.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2),
+                        new CraftingEntry(MWCItems.steelIngot, 2))
+                .withName("InterventionHandguard")
+                .build();
+
         InterventionRailSystemHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new InterventionRailSystemHandguard(), "intervention.png")
                 .withOnWeaponModel(new AKRail(), "akrail.png")
