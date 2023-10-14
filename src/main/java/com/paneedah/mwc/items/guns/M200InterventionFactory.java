@@ -328,7 +328,7 @@ public class M200InterventionFactory implements GunFactory {
 
             .withFirstPersonPositioningZooming((renderContext) -> {
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                GL11.glTranslatef(-0.105f, 1.58f, -1.225000f);
+                GL11.glTranslatef(-0.105f, 1.57f, -1.225000f);
 
              // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
