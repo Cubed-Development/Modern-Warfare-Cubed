@@ -76,29 +76,13 @@ public class Saiga12Factory {
 		
         .withCompatibleAttachment(AuxiliaryAttachments.Saiga12action, true, (model) -> {
         })
-		.withCompatibleAttachment(Attachments.Saiga12Handguard, true, (model) -> {
-		})
-		.withCompatibleAttachment(Attachments.Saiga12Stock, true, (model) -> {
-		})		
+	.withCompatibleAttachment(Attachments.Saiga12Handguard, true, (model) -> {
+	})
+	.withCompatibleAttachment(Attachments.Saiga12Stock, true, (model) -> {
+	})		
         .withCompatibleAttachment(Magazines.SaigaMag, (model) -> {
         })
-		.withCompatibleAttachment(Magazines.SaigaMagExtended, (model) -> {
-        })
-        .withCompatibleAttachment(Attachments.AK47Grip, true, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
-        })
-        .withCompatibleAttachment(Attachments.AK101Grip, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
-        })
-        .withCompatibleAttachment(Attachments.AKErgoGrip, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
-        })
-        .withCompatibleAttachment(Attachments.AKErgoGripTan, (model) -> {
-//          GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//          GL11.glScaled(1.2F, 1.2F, 1.2F);
+	.withCompatibleAttachment(Magazines.SaigaMagExtended, (model) -> {
         })
         .withCompatibleAttachment(Attachments.Silencer12Gauge, (model) -> {
           GL11.glTranslatef(-0.2F, -1.1F, -9.35F);
