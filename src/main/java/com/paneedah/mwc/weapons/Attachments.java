@@ -565,6 +565,12 @@ public class Attachments {
     public static ItemAttachment<Weapon> Saiga12Handguard;
     public static ItemAttachment<Weapon> Saiga12Stock;
     public static ItemAttachment<Weapon> Saiga12Grip;
+	
+    public static ItemAttachment<Weapon> G36CHandguard;
+    public static ItemAttachment<Weapon> G36KHandguard;
+    public static ItemAttachment<Weapon> G36CStock;
+    public static ItemAttachment<Weapon> G36CMGStock;
+    public static ItemAttachment<Weapon> G36KVStock;
 
     public static void init() {
         G11HandguardK1 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
@@ -4877,6 +4883,51 @@ public class Attachments {
                 .withModel(new Saiga12Grip(), "gunmetaltexture.png")
                 .withName("Saiga12Grip")
                 .withRenderablePart()
+                .build();
+				
+        G36CHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new G36CHandguard(), "g36c.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 3),
+                        new CraftingEntry(MWCItems.steelIngot, 1))
+                .withName("G36CHandguard")
+                .build();
+				
+        G36KHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new G36KHandguard(), "g36c.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 3),
+                        new CraftingEntry(MWCItems.steelIngot, 1))
+                .withName("G36KHandguard")
+                .build();
+				
+        G36CStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withModel(new G36CStock(), "g36c.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 3),
+                        new CraftingEntry(MWCItems.steelIngot, 1))
+                .withName("G36CStock")
+                .build();
+				
+        G36KVStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withModel(new G36KVStock(), "g36c.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 3),
+                        new CraftingEntry(MWCItems.steelIngot, 1))
+                .withName("G36KVStock")
+                .build();
+				
+        G36CMGStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withModel(new G36CMGStock(), "g36c.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 3),
+                        new CraftingEntry(MWCItems.steelIngot, 1))
+                .withName("G36CMGStock")
                 .build();
     }
 }
