@@ -1701,7 +1701,7 @@ public class Attachments {
         Glock19Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new Glock19Slide(), "glock19.png")
-                .withOnWeaponModel(new M1911FrontSight(), "m1911rontsight")
+                .withOnWeaponModel(new M1911FrontSight(), "m1911frontsight")
                 .withOnWeaponModel(new GlockRearSight(), "glockrearsight")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
@@ -1713,7 +1713,7 @@ public class Attachments {
         Glock18CSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new Glock18Cslide(), "glock18c.png")
-                .withOnWeaponModel(new M1911FrontSight(), "m1911rontsight")
+                .withOnWeaponModel(new M1911FrontSight(), "m1911frontsight")
                 .withOnWeaponModel(new GlockRearSight(), "glockrearsight")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
@@ -1725,7 +1725,7 @@ public class Attachments {
         Glock18CCNCSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new Glock18CCNCslide(), "glock18c.png")
-                .withOnWeaponModel(new M1911FrontSight(), "m1911rontsight")
+                .withOnWeaponModel(new M1911FrontSight(), "m1911frontsight")
                 .withOnWeaponModel(new GlockRearSight(), "glockrearsight")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
@@ -1737,7 +1737,7 @@ public class Attachments {
         Glock19XSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new Glock19XSlide(), "glock19.png")
-                .withOnWeaponModel(new M1911FrontSight(), "m1911rontsight")
+                .withOnWeaponModel(new M1911FrontSight(), "m1911frontsight")
                 .withOnWeaponModel(new GlockRearSight(), "glockrearsight")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
@@ -1749,7 +1749,7 @@ public class Attachments {
         Glock19RazorbackSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new GlockRazorbackSlide(), "glock19.png")
-                .withOnWeaponModel(new M1911FrontSight(), "m1911rontsight")
+                .withOnWeaponModel(new M1911FrontSight(), "m1911frontsight")
                 .withOnWeaponModel(new GlockRearSight(), "glockrearsight")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
@@ -1761,7 +1761,7 @@ public class Attachments {
         Glock19RockSlideOlive = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new Glock19Rockslide(), "glock19.png")
-                .withOnWeaponModel(new M1911FrontSight(), "m1911rontsight")
+                .withOnWeaponModel(new M1911FrontSight(), "m1911frontsight")
                 .withOnWeaponModel(new GlockRearSight(), "glockrearsight")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
@@ -1773,7 +1773,7 @@ public class Attachments {
         Glock19GhostPrecisionSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new Glock19GhostPrecisionSlide(), "glock19.png")
-                .withOnWeaponModel(new M1911FrontSight(), "m1911rontsight")
+                .withOnWeaponModel(new M1911FrontSight(), "m1911frontsight")
                 .withOnWeaponModel(new GlockRearSight(), "glockrearsight")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
