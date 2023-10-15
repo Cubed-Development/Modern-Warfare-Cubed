@@ -34,15 +34,7 @@ public class G36CFactory implements GunFactory {
                 .withMaxShots(1, 3, Integer.MAX_VALUE)
                 .withShootSound("g36c")
                 .withSilencedShootSound("m4a1_silenced")
-                .withReloadSound("g36c_reload")
-                .withUnloadSound("g36c_unload")
-                .withEndOfShootSound("gun_click")
-                .withInspectSound("inspection")
-                .withDrawSound("noaction_draw")
                 .withReloadingTime(50)
-                .withCrosshair("gun")
-                .withCrosshairRunning("Running")
-                .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.1f)
@@ -85,7 +77,7 @@ public class G36CFactory implements GunFactory {
 
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
                 .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
-				.withUnremovableAttachmentCategories(AttachmentCategory.STOCK)
+		.withUnremovableAttachmentCategories(AttachmentCategory.STOCK)
 				
                 .withCompatibleAttachment(Attachments.G36CHandguard, true, (model) -> {
                 })
