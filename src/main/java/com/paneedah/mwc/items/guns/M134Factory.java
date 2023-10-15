@@ -40,7 +40,7 @@ public class M134Factory implements GunFactory {
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
             // The weapons power
-            25.0,
+            10.0,
             // Muzzle climb divisor
             25.75,
             // "Stock Length"
@@ -52,7 +52,7 @@ public class M134Factory implements GunFactory {
             // Recoil rotation (Y)
             0.01,
             // Recoil rotation (Z)
-            0.1,
+            0.0,
             // Ads similarity divisor
             1.0
         ))
