@@ -13,7 +13,6 @@ import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
@@ -198,7 +197,7 @@ public class M1911Factory implements GunFactory {
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glScaled(2F, 2F, 2);
-                            GL11.glTranslatef(0.185f, 0.615f, -2f);
+                            GL11.glTranslatef(0.186f, 0.615f, -2f);
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {

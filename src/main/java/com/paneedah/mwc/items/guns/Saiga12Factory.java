@@ -84,13 +84,25 @@ public class Saiga12Factory {
         })
 		.withCompatibleAttachment(Magazines.SaigaMagExtended, (model) -> {
         })
-        .withCompatibleAttachment(Attachments.Silencer12Gauge, (model) -> {
-          GL11.glTranslatef(-0.2F, -1.06F, -7.55F);
-          GL11.glScaled(1F, 1F, 1F);
+        .withCompatibleAttachment(Attachments.AK47Grip, true, (model) -> {
+//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
+//            GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
-        .withCompatibleAttachment(Attachments.Bipod, (model) -> {
-            GL11.glTranslatef(-0.185F, -0.3F, -5.7F);
-            GL11.glScaled(1F, 1F, 1F);
+        .withCompatibleAttachment(Attachments.AK101Grip, (model) -> {
+//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
+//            GL11.glScaled(1.2F, 1.2F, 1.2F);
+        })
+        .withCompatibleAttachment(Attachments.AKErgoGrip, (model) -> {
+//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
+//            GL11.glScaled(1.2F, 1.2F, 1.2F);
+        })
+        .withCompatibleAttachment(Attachments.AKErgoGripTan, (model) -> {
+//          GL11.glTranslatef(0.02f, 0.2f, -0.4f);
+//          GL11.glScaled(1.2F, 1.2F, 1.2F);
+        })
+        .withCompatibleAttachment(Attachments.Silencer12Gauge, (model) -> {
+          GL11.glTranslatef(-0.2F, -1.1F, -9.35F);
+          GL11.glScaled(1.5F, 1.5F, 1.5F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Saiga12sights, true, (model) -> {
             if(model instanceof makarovrearsight) {
@@ -103,8 +115,8 @@ public class Saiga12Factory {
             }
         })
         .withCompatibleAttachment(Attachments.PSO1, () -> {
-            GL11.glTranslatef(0.14F, -0.9F, -1.1F);
-            GL11.glScaled(1.2F, 1.2F, 1.2F);
+            GL11.glTranslatef(0.118F, -1.0F, -1.1F);
+            GL11.glScaled(1.1F, 1.1F, 1.1F);
         },(model) -> {
             if(model instanceof PSO1reticle) {
                 GL11.glTranslatef(-0.212F, -0.486F, 1.27F);
@@ -115,12 +127,12 @@ public class Saiga12Factory {
                  GL11.glScaled(0.8F, 0.8F, 0.8F);
              }
         })
-        .withCompatibleAttachment(Attachments.OKP7, (model) -> {
-            if(model instanceof OKP7) {
-                GL11.glTranslatef(-0.18F, -0.65F, -1.15F);
-                GL11.glScaled(0.7F, 0.7F, 0.7F);
-            } else if(model instanceof OKP7reticle) {
-                GL11.glTranslatef(0.17F, -1.15F, -0.6F);
+        .withCompatibleAttachment(Attachments.OKP7, () -> {
+            GL11.glTranslatef(-0.2F, -0.65F, -1F);
+            GL11.glScaled(0.7F, 0.7F, 0.7F);
+        },(model) -> {
+            if(model instanceof OKP7reticle) {
+                GL11.glTranslatef(0.2F, -1.15F, -0.6F);
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
@@ -195,19 +207,19 @@ public class Saiga12Factory {
                 })
                     
             .withFirstPersonPositioningZooming((renderContext) -> {
-                GL11.glTranslatef(0.350000f, 0.8f, -0.4f);
+                GL11.glTranslatef(0.18f, -0.25f, 0.7f);
 
 
                 // ACOG Zoom
                 if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
                     //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(-0.013F, 0.15f, 0.2f);
+                    GL11.glTranslatef(-0.014f, 0.217f, -0.3f);
                 }
 
                 // ACOG Zoom
                 if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7)) {
                     //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(-0.05F, 0.11f, 0f);
+                    GL11.glTranslatef(-0.01f, 0.12f, -0.2f);
                 }
 
             })
