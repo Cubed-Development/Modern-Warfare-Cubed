@@ -1373,8 +1373,7 @@ public class AuxiliaryAttachments {
                 .build();
 
         AX50BoltAction = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.EXTRA)
-                .withRotationPoint(0.2791999875187876F, -1.7068000399291512F, 0.3259999854266646F)
+                .withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new AX50BoltAction(), "ax50.png")
                 .withName("AX50BoltAction")
                 .withRenderablePart()
@@ -1460,8 +1459,7 @@ public class AuxiliaryAttachments {
                 .build();
 
 		InterventionBoltAction = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.EXTRA3)
-                .withRotationPoint(0.2791999875187876F, -1.7068000399291512F, 0.3259999854266646F)
+                .withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new InterventionBoltAction(), "intervention.png")
                 .withName("InterventionBoltAction")
                 .withRenderablePart()

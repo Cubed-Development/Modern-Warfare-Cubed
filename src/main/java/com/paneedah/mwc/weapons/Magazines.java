@@ -524,14 +524,14 @@ public class Magazines {
 		        .withCapacity(5).withCompatibleBullet(Bullets.Shotgun12Guage)
 				.withName("SaigaMag_2")
                 .withModel(new Saiga12Mag(), "gun.png")
-                .withMaxStackSize(5)
+                .withMaxStackSize(4)
                 .build(ItemMagazine.class);
 				
         Magazines.SaigaMagExtended = new ItemMagazine.Builder()
 		        .withCapacity(12).withCompatibleBullet(Bullets.Shotgun12Guage)
 		        .withName("SaigaMag_3")
-                .withModel(new Saiga12ExtenMag(), "saiga12.png")
-                .withMaxStackSize(3)
+                .withModel(new Saiga12ExtenMag(), "gun.png")
+                .withMaxStackSize(2)
                 .build(ItemMagazine.class);
 
         Magazines.Origin12Mag = new ItemMagazine.Builder()
