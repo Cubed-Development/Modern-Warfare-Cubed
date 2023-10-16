@@ -33,6 +33,7 @@ public class M1911Factory implements GunFactory {
                 .withMaxShots(1)
                 .withShootSound("colt_m45a1")
                 .withSilencedShootSound("colt_m45a1_silenced")
+                .withDrawSound("handgun_draw")
                 .withReloadingTime(70)
                 .withFlashIntensity(0.5f)
                 .withFlashScale(() -> 0.6f)

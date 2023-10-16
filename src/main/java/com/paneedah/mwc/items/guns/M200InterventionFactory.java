@@ -35,6 +35,7 @@ public class M200InterventionFactory implements GunFactory {
         .withShootSound("m200_intervention")
         .withPumpTimeout(1000)
         .withSilencedShootSound("as50_silenced")
+        .withDrawSound("noaction_draw")
         .withReloadingTime(40)
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
