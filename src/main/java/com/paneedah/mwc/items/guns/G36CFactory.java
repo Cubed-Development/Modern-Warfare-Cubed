@@ -34,6 +34,7 @@ public class G36CFactory implements GunFactory {
                 .withMaxShots(1, 3, Integer.MAX_VALUE)
                 .withShootSound("g36c")
                 .withSilencedShootSound("m4a1_silenced")
+                .withDrawSound("noaction_draw")
                 .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
                 .withFlashScale(() -> 0.6f)
