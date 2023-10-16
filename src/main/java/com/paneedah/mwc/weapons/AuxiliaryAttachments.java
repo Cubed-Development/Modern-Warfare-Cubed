@@ -1397,7 +1397,7 @@ public class AuxiliaryAttachments {
 				
 		PGMHecateIIBoltAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
-                .withRotationPoint(0.2791999875187876F, -1.7068000399291512F, 0.3259999854266646F)
+                //.withRotationPoint(0.2791999875187876F, -1.7068000399291512F, 0.3259999854266646F)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new PGMHecateIIBoltAction(), "pgmhecateii.png")
                 .withName("PGMHecateIIBoltAction")

@@ -178,36 +178,36 @@ public class PGMHecateIIFactory implements GunFactory {
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
                 })
-                
+
             .withFirstPersonPositioning(
 					new Transform()
-					.withPosition(-2.265000f, 4.505000f, -5.005000f)
+					.withPosition(-2.265000f, 5.505000f, -5.005000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
-                    .withScale(3.0f, 3.0f, 3.0f)
+                    .withScale(4.0f, 4.0f, 4.0f)
                 )
+
+            .withFirstPersonHandPositioning(
+
+                    // Left hand
+                    new Transform()
+                    .withPosition(1.250000f, 0.465000f, -0.980000f)
+                    .withBBRotation(-6.645f, -32.8876f, 56.8877f)
+                    .withScale(2.6f, 2.6f, 4.0f),
+
+
+
+                    // Right hand
+                    new Transform()
+                    .withPosition(0.080000f, -0.180000f, 3.120000f)
+                    .withRotation(-5.4027f, -4.7805f, -1.6694f)
+                    .withScale(3.5f, 3.5f, 3.5f)
+            )
                 
-                .withFirstPersonHandPositioning(
-                        
-                        // Left hand
-                        new Transform()
-                        .withPosition(1.250000f, 0.465000f, -0.980000f)
-                        .withBBRotation(-6.645f, -32.8876f, 56.8877f)
-                        .withScale(2.6f, 2.6f, 4.0f),
-                        
-                        
-                        
-                        // Right hand
-                        new Transform()
-                        .withPosition(0.080000f, -0.180000f, 3.120000f)
-                        .withRotation(-5.4027f, -4.7805f, -1.6694f)
-                        .withScale(3.5f, 3.5f, 3.5f)
-                )
-                
-                .setupModernAnimations("M40A6", AuxiliaryAttachments.PGMHecateIIBoltAction)
-                .setupCustomKeyedPart(AuxiliaryAttachments.PGMHecateIIBoltAction, "M40A6", BBLoader.KEY_BOLT_ACTION)
-                .setupCustomKeyedPart(AuxiliaryAttachments.PGMHecateIIBoltAction, "m40a6", "boltprime")
-                .setupModernMagazineAnimations("M40A6", 
-                		Magazines.HecateIIMag)
+            .setupModernAnimations("M40A6", AuxiliaryAttachments.PGMHecateIIBoltAction)
+            .setupCustomKeyedPart(AuxiliaryAttachments.PGMHecateIIBoltAction, "M40A6", BBLoader.KEY_BOLT_ACTION)
+            .setupCustomKeyedPart(AuxiliaryAttachments.PGMHecateIIBoltAction, "m40a6", "boltprime")
+            .setupModernMagazineAnimations("M40A6",
+            		Magazines.HecateIIMag)
 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.Bullet.getRenderablePart(), (renderContext) -> {
             })
