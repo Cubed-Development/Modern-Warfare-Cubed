@@ -382,7 +382,7 @@ public class Magazines {
                         Attachments.AUGDefaultKit, Attachments.Vector556Handguard,
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
                         Attachments.ScarLReceiver, Attachments.SIG556Grip)
-                .withMaxStackSize(6)
+                .withMaxStackSize(3)
                 .build(ItemMagazine.class);
 
         Magazines.G36CMag = new ItemMagazine.Builder()
@@ -508,7 +508,7 @@ public class Magazines {
                 .withName("AK100Mag")
                 .withRotationPoint(-0.12000000357627871F, 0.28000000834465033F, -1.8800000560283665F)
                 .withModel(new AKDrum100(), "gun.png")
-                .withMaxStackSize(6)
+                .withMaxStackSize(3)
                 .build(ItemMagazine.class);
 
         Magazines.DragunovMag = new ItemMagazine.Builder()
@@ -549,7 +549,7 @@ public class Magazines {
                 .withName("Origin12DrumMag")
                 .withRotationPoint(-0.12000000357627871F, 1.0000000298023226F, -1.9200000572204607F)
                 .withModel(new Origin12DrumMag(), "Origin12DrumMag.png")
-                .withMaxStackSize(6)
+                .withMaxStackSize(3)
                 .build(ItemMagazine.class);
 
         Magazines.M9A1Mag = new ItemMagazine.Builder()
