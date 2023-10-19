@@ -595,7 +595,7 @@ public class AuxiliaryAttachments {
 
         M79grenade = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA6)
-                .withModel(new M79grenade(), "gun.png")
+                .withModel(new M79grenade(), "m79.png")
                 .withRenderablePart()
                 .withName("M79grenade")
                 .build();
@@ -609,6 +609,7 @@ public class AuxiliaryAttachments {
 
         M79Cartridge = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
+                .withRotationPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
                 .withModel(new M79Cartridge(), "m79.png")
                 .withRenderablePart()
                 .withName("M79Cartridge")
