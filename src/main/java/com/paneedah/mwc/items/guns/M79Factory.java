@@ -73,20 +73,20 @@ public class M79Factory implements GunFactory {
 
             .withModel(new M79())
             .withEntityPositioning(itemStack -> {
-                GL11.glScaled(0.33F, 0.33F, 0.33F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                    GL11.glScaled(0.35F, 0.35F, 0.35F);
+                    GL11.glRotatef(-90F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
-                GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glTranslatef(1, -2f, -1.2f);
-                GL11.glRotatef(-120F, -0.5f, 7f, 3f);
+                    GL11.glScaled(0.4F, 0.4F, 0.4F);
+                    GL11.glTranslatef(1, 2f, -1.2f);
+                    GL11.glRotatef(-120F, -0.5f, 7f, 3f);
             })
             .withThirdPersonPositioning((renderContext) -> {
-                GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glTranslatef(-0.7F, -0.8F, 0.7F);
-                GL11.glRotatef(-45F, 0f, 1f, 0f);
-                GL11.glRotatef(70F, 1f, 0f, 0f);
-                })
+                    GL11.glScaled(0.6F, 0.6F, 0.6F);
+                    GL11.glTranslatef(-1.7F, -0.8F, 1.9F);
+                    GL11.glRotatef(-45F, 0f, 1f, 0f);
+                    GL11.glRotatef(70F, 1f, 0f, 0f);
+            })
 
             .withFirstPersonPositioning(
 					new Transform()
@@ -94,7 +94,7 @@ public class M79Factory implements GunFactory {
 					.withRotation(-2.000000f, 1.000000f, 7.300000f)
                     .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0F, 3.0F, 3.0F)
-                )
+            )
                 
                 .withFirstPersonHandPositioning(
                         
@@ -118,13 +118,7 @@ public class M79Factory implements GunFactory {
                 
                 .setupModernAnimations("taurus", AuxiliaryAttachments.AKaction)
                 .setupCustomKeyedPart(AuxiliaryAttachments.M79Cartridge, "taurus", "chamber")
-                .setupCustomKeyedPart(AuxiliaryAttachments.RevolverSpeedLoader, "taurus", "loader")
-				
-            .withFirstPersonCustomPositioning(AuxiliaryAttachments.M79grenade.getRenderablePart(), (renderContext) -> {
-                if(renderContext.getWeaponInstance().getAmmo() == 0) {
-                    GL11.glScalef(0F, 0F, 0F);
-                }
-            })
+                .setupCustomKeyedPart(AuxiliaryAttachments.M79grenade, "taurus", "loader")
 
             .withFirstPersonPositioningZooming((renderContext) -> {
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);

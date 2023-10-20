@@ -287,8 +287,8 @@ public class AS50Factory implements GunFactory {
 
             .withFirstPersonPositioning(
                      new Transform()
-                     .withPosition(-2.605000f, 6.050000f, -3.945000f)
-                     .withRotation(0.000000f, -3.000000f, 3.300000f)
+                     .withPosition(-2.505000f, 6.180000f, -2.845000f)
+                     .withRotation(0.000000f, -1.000000f, 3.300000f)
                      .withPivotPoint(-0.230000f, -1.740000f, 0.140000f)
                      .withScale(2.5F, 2.5F, 2.5F)
                  )
@@ -324,13 +324,13 @@ public class AS50Factory implements GunFactory {
                 // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
                     //System.out.println("Position me for Scope");
-                    GL11.glTranslatef(0F, 0.23f, 0.7f);
+                    GL11.glTranslatef(0F, 0.23f, 0.4f);
                 } 
                 
                 // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
                     //System.out.println("Position me for Scope");
-                    GL11.glTranslatef(-0.007F, 0.27f, 1.1f);
+                    GL11.glTranslatef(-0.007F, 0.3f, 0.78f);
                 } 
                 
              // HP Zoom
@@ -384,7 +384,7 @@ public class AS50Factory implements GunFactory {
              // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
                     //System.out.println("Position me for Scope");
-                    GL11.glTranslatef(0F, 0.225f, 0.7f);
+                    GL11.glTranslatef(0F, 0.2f, 0.47f);
                 } 
                 
              // HP Zoom
@@ -423,7 +423,7 @@ public class AS50Factory implements GunFactory {
 				 .withPosition(-1.905000f, 4.065000f, -3.645000f)
 				 .withRotation(0.000000f, -30.514396f, -26.062789f)
 				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-				 .withScale(3.000000f, 3.000000f, 3.000000f)
+				 .withScale(2.300000f, 2.300000f, 2.300000f)
 				 .applyTransformations();
 			 })
 			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
@@ -431,7 +431,7 @@ public class AS50Factory implements GunFactory {
 				 .withPosition(-1.425000f, 3.545000f, -5.685000f)
 				 .withRotation(-0.187566f, -46.164037f, -11.869230f)
 				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-				 .withScale(3.000000f, 3.000000f, 3.000000f)
+				 .withScale(2.300000f, 2.300000f, 2.300000f)
 				 .applyTransformations();
            })
 					 
