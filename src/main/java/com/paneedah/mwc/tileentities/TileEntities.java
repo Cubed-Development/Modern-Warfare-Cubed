@@ -1244,6 +1244,19 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
             GL11.glScalef(1.5f, 1.5f, 1.5f);
             GL11.glTranslatef(0.5f, -0.5f, 0.5f);
+            GL11.glRotatef(-90F, 0f, 1f, 0f);
+        })
+        .build(MWC.modContext);
+
+        new LootBoxConfiguration()
+        .withMaterial(Material.IRON)
+        .withName("forklift_rotated")
+        .withModelClassName("com.paneedah.mwc.models.Forklift")
+        .withTextureName("textures/models/forklift.png")
+        .withCreativeTab(MWC.PROPS_TAB)
+        .withPositioning(tileEntity -> {
+            GL11.glScalef(1.5f, 1.5f, 1.5f);
+            GL11.glTranslatef(0.5f, -0.5f, 0.5f);
             GL11.glRotatef(-45F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
@@ -1251,6 +1264,19 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("forklift_alt")
+        .withModelClassName("com.paneedah.mwc.models.ForkLiftAlt")
+        .withTextureName("textures/models/forkliftalt.png")
+        .withCreativeTab(MWC.PROPS_TAB)
+        .withPositioning(tileEntity -> {
+            GL11.glScalef(1f, 1f, 1f);
+            GL11.glTranslatef(0.5f, 0f, 0.5f);
+            GL11.glRotatef(-90F, 0f, 1f, 0f);
+        })
+        .build(MWC.modContext);
+
+        new LootBoxConfiguration()
+        .withMaterial(Material.IRON)
+        .withName("forklift_alt_rotated")
         .withModelClassName("com.paneedah.mwc.models.ForkLiftAlt")
         .withTextureName("textures/models/forkliftalt.png")
         .withCreativeTab(MWC.PROPS_TAB)
@@ -2021,6 +2047,42 @@ public class TileEntities {
             GL11.glRotatef(90F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
+
+        new LootBoxConfiguration()
+        .withMaterial(Material.SAND)
+        .withName("sandbag_rotated")
+        .withModelClassName("com.paneedah.mwc.models.Sandbag")
+        .withTextureName("textures/models/sandbag.png")
+        .withCreativeTab(MWC.PROPS_TAB)
+        .withHardness(1)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.4, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.4, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.4, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.4, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
+        .withPositioning(tileEntity -> {
+            GL11.glScalef(1f, 1f, 1f);
+            GL11.glTranslatef(0.5f, 0f, 0.5f);
+            GL11.glRotatef(-45F, 0f, 1f, 0f);
+        })
+        .build(MWC.modContext);
         
         new LootBoxConfiguration()
         .withMaterial(Material.SAND)
@@ -2033,6 +2095,20 @@ public class TileEntities {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
             GL11.glRotatef(90F, 0f, 1f, 0f);
+        })
+        .build(MWC.modContext);
+        
+        new LootBoxConfiguration()
+        .withMaterial(Material.SAND)
+        .withName("sandbagwall_rotated")
+        .withModelClassName("com.paneedah.mwc.models.SandbagWall")
+        .withTextureName("textures/models/sandbag.png")
+        .withCreativeTab(MWC.PROPS_TAB)
+        .withHardness(1)
+        .withPositioning(tileEntity -> {
+            GL11.glScalef(1f, 1f, 1f);
+            GL11.glTranslatef(0.5f, 0f, 0.5f);
+            GL11.glRotatef(-45F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
