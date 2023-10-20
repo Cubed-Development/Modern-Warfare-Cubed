@@ -427,6 +427,20 @@ public class TileEntities {
             GL11.glTranslatef(0.7f, 0.25f, 0.6f);
         })
         .build(MWC.modContext);
+
+        new LootBoxConfiguration()
+        .withMaterial(Material.ROCK)
+        .withName("pc_rotated")
+        .withModelClassName("com.paneedah.mwc.models.PC")
+        .withTextureName("textures/models/pc.png")
+        .withCreativeTab(MWC.PROPS_TAB)
+        .withHardness(5)
+        .withPositioning(tileEntity -> {
+            GL11.glScalef(0.9f, 0.9f, 0.9f);
+            GL11.glTranslatef(0.7f, 0.25f, 0.6f);
+            GL11.glRotatef(-45F, 0f, 1f, 0f);
+        })
+        .build(MWC.modContext);
         
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
@@ -460,6 +474,42 @@ public class TileEntities {
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.7f, 0.7f, 0.7f);
             GL11.glTranslatef(0.5f, 0.71f, 0.6f);
+        })
+        .build(MWC.modContext);
+
+        new LootBoxConfiguration()
+        .withMaterial(Material.ROCK)
+        .withName("laptop_rotated")
+        .withModelClassName("com.paneedah.mwc.models.Laptop")
+        .withTextureName("textures/models/pc.png")
+        .withCreativeTab(MWC.PROPS_TAB)
+        .withHardness(5)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
+        .withPositioning(tileEntity -> {
+            GL11.glScalef(0.7f, 0.7f, 0.7f);
+            GL11.glTranslatef(0.5f, 0.71f, 0.6f);
+            GL11.glRotatef(-45F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
