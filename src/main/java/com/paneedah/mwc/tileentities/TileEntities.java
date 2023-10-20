@@ -242,7 +242,7 @@ public class TileEntities {
         
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
-        .withName("artillery_PROP")
+        .withName("artillery_prop")
         .withModelClassName("com.paneedah.mwc.models.ArtilleryProp20")
         .withTextureName("textures/models/artilleryprop.png")
         .withCreativeTab(MWC.PROPS_TAB)
@@ -251,6 +251,20 @@ public class TileEntities {
             GL11.glScalef(0.8f, 0.8f, 0.8f);
             GL11.glTranslatef(0.55f, 0.6f, 0.55f);
             GL11.glRotatef(90F, 0f, 1f, 0f);
+        })
+        .build(MWC.modContext);
+
+        new LootBoxConfiguration()
+        .withMaterial(Material.IRON)
+        .withName("artillery_prop_rotated")
+        .withModelClassName("com.paneedah.mwc.models.ArtilleryProp20")
+        .withTextureName("textures/models/artilleryprop.png")
+        .withCreativeTab(MWC.PROPS_TAB)
+        .withHardness(22.5)
+        .withPositioning(tileEntity -> {
+            GL11.glScalef(0.8f, 0.8f, 0.8f);
+            GL11.glTranslatef(0.55f, 0.6f, 0.55f);
+            GL11.glRotatef(-45F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
         
@@ -475,6 +489,20 @@ public class TileEntities {
             GL11.glRotatef(-90F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
+
+        new LootBoxConfiguration()
+        .withMaterial(Material.IRON)
+        .withName("filingcabinet_rotated")
+        .withModelClassName("com.paneedah.mwc.models.FilingCabinet")
+        .withTextureName("textures/models/filingcabinetopened.png")
+        .withCreativeTab(MWC.PROPS_TAB)
+        .withHardness(22.5)
+        .withPositioning(tileEntity -> {
+            GL11.glScalef(1f, 1f, 1f);
+            GL11.glTranslatef(0.5f, 0f, 0.5f);
+            GL11.glRotatef(-45F, 0f, 1f, 0f);
+        })
+        .build(MWC.modContext);
         
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
@@ -655,6 +683,42 @@ public class TileEntities {
         
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
+        .withName("office_chair_rotated")
+        .withModelClassName("com.paneedah.mwc.models.OfficeChair2")
+        .withTextureName("textures/models/officechair.png")
+        .withCreativeTab(MWC.PROPS_TAB)
+        .withHardness(2)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
+        .withPositioning(tileEntity -> {
+            GL11.glScalef(1f, 1f, 1f);
+            GL11.glTranslatef(0.5f, 0f, 0.5f);
+            GL11.glRotatef(-45F, 0f, 1f, 0f); 
+        })
+        .build(MWC.modContext);
+        
+        new LootBoxConfiguration()
+        .withMaterial(Material.ROCK)
         .withName("office_chair_2")
         .withModelClassName("com.paneedah.mwc.models.OfficeChair")
         .withTextureName("textures/models/officechair.png")
@@ -688,7 +752,43 @@ public class TileEntities {
             GL11.glRotatef(-90F, 0f, 1f, 0f);
         })
         .build(MWC.modContext);
-        
+
+        new LootBoxConfiguration()
+        .withMaterial(Material.ROCK)
+        .withName("office_chair_2_rotated")
+        .withModelClassName("com.paneedah.mwc.models.OfficeChair")
+        .withTextureName("textures/models/officechair.png")
+        .withCreativeTab(MWC.PROPS_TAB)
+        .withHardness(2)
+        .withBoundingBox(
+        		blockState -> {
+        			AxisAlignedBB boundingBox = null;
+        			EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+        			switch(facing) {
+        			case WEST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
+        				break;
+        			case EAST:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
+        				break;
+        			case NORTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
+        				break;
+        			case SOUTH:
+        				boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
+        				break;
+        			default:
+        			}
+        			return boundingBox;
+        		}
+        )
+        .withPositioning(tileEntity -> {
+            GL11.glScalef(1f, 1f, 1f);
+            GL11.glTranslatef(0.5f, 0f, 0.5f);
+            GL11.glRotatef(-45F, 0f, 1f, 0f);
+        })
+        .build(MWC.modContext);
+
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_corner")
