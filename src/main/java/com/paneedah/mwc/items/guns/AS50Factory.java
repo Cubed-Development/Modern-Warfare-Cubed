@@ -227,11 +227,11 @@ public class AS50Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.Bipod, (model) -> {
-          GL11.glTranslatef(0.04F, -0.95F, -3.6F);
-          GL11.glScaled(1.5F, 1.5F, 1.5F);
+          GL11.glTranslatef(-0.25F, -0.25F, -3.6F);
+          GL11.glScaled(1.2F, 1.2F, 1.2F);
       })
         .withCompatibleAttachment(Attachments.Silencer50BMG, (model) -> {
-            GL11.glTranslatef(-0F, -2.4F, -13.5F);
+            GL11.glTranslatef(-0.25F, -1.5F, -13.5F);
             GL11.glScaled(2F, 2F, 2F);
         })
         .withCompatibleAttachment(Attachments.Laser2, () -> {
@@ -256,10 +256,10 @@ public class AS50Factory implements GunFactory {
                 GL11.glScaled(0F, 0F, 0F);
                 GL11.glRotatef(180F, 0f, 0f, 1f);
             } else if(model instanceof AKRail4) {
-                GL11.glTranslatef(0.044F, -2.75F, -3.47f);
+                GL11.glTranslatef(-0.216F, -1.81F, -3.47f);
                 GL11.glScaled(0.85F, 0.85F, 1.3F);
             } else if(model instanceof AKRail5) {
-                GL11.glTranslatef(0.044F, -2.75F, -5.3f);
+                GL11.glTranslatef(-0.216F, -1.81F, -5.3f);
                 GL11.glScaled(0.85F, 0.85F, 1.3F);
             }
         })
@@ -271,7 +271,7 @@ public class AS50Factory implements GunFactory {
             .withActionTransform(new Transform().withPosition(0, 0, 1.5F))
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -287,17 +287,17 @@ public class AS50Factory implements GunFactory {
 
             .withFirstPersonPositioning(
                      new Transform()
-                     .withPosition(-2.505000f, 6.180000f, -2.845000f)
-                     .withRotation(0.000000f, -1.000000f, 3.300000f)
+                     .withPosition(-1.705000f, 4.705000f, -3.445000f)
+                     .withRotation(0.000000f, 1.000000f, 6.300000f)
                      .withPivotPoint(-0.230000f, -1.740000f, 0.140000f)
-                     .withScale(2.5F, 2.5F, 2.5F)
+                     .withScale(3.0F, 3.0F, 3.0F)
                  )
 
                  .withFirstPersonHandPositioning(
 
                         // Left hand
                         new Transform()
-                                .withPosition(1.250000f, -1.065000f, -0.980000f)
+                                .withPosition(1.150000f, 0.065000f, -0.980000f)
                                 .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
                                 .withScale(2.6F, 2.6F, 4.0F)
                                 .withPivotPoint(0, 0, 0),
@@ -306,7 +306,7 @@ public class AS50Factory implements GunFactory {
 
                         // Right hand
                         new Transform()
-                                .withPosition(-0.200000f, -1.260000f, 1.680000f)
+                                .withPosition(-0.160000f, 0.060000f, 1.640000f)
                                 .withRotation(-5.4027F, -6.7805F, -1.6694F)
                                 .withScale(3.0F, 3.0F, 3.0F)
                                 .withPivotPoint(0, 0, 0)
@@ -319,7 +319,7 @@ public class AS50Factory implements GunFactory {
  
             .withFirstPersonPositioningZooming((renderContext) -> {
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                GL11.glTranslatef(-0.14f, 2.375f, -0.525000f);
+                GL11.glTranslatef(0.14f, 1.18f, -0.525000f);
                 
                 // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
