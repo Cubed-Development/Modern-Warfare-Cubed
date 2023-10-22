@@ -21,7 +21,7 @@ public class DesertEagleFactory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("desert_eagle")
-        .withFireRate(0.2f)
+        .withFireRate(0.1f)
         .withRecoil(5f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SIDEARM)
@@ -30,9 +30,6 @@ public class DesertEagleFactory implements GunFactory {
         .withMaxShots(1)
         .withShootSound("desert_eagle")
         .withSilencedShootSound("m9a1_silenced")
-        .withReloadSound("deagle_reload")
-        .withUnloadSound("pistol_unload")
-        .withInspectSound("inspection")
         .withDrawSound("handgun_draw")
         .withReloadingTime(50)
         .withFlashIntensity(0.5f)
@@ -48,17 +45,17 @@ public class DesertEagleFactory implements GunFactory {
         		// Muzzle climb divisor
         		13.5,
         		// "Stock Length"
-        		37.5,
+        		10.5,
         		// Recovery rate from initial shot
         		0.425,
         		// Recovery rate @ "stock"
-        		0.2125,
+        		0.5125,
         		// Recoil rotation (Y)
         		-0.030,
         		// Recoil rotation (Z)
         		-0.010,
         		// Ads similarity divisor
-        		1.0
+        		2.0
         ))
          
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
@@ -106,10 +103,6 @@ public class DesertEagleFactory implements GunFactory {
                     }
                 }, false, false)
 		
-        .withCompatibleAttachment(Attachments.StubbyGrip, (model) -> {
-            GL11.glTranslatef(-0.2F, -0.38F, -1.45F);
-            GL11.glScaled(1F, 1F, 1F);
-        })
 //        .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
 //            GL11.glTranslatef(-0.22F, -1.18F, -4.2F);
 //            GL11.glScaled(1.3F, 1.3F, 1.3F);
