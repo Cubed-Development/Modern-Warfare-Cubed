@@ -52,7 +52,7 @@ public class M79Factory implements GunFactory {
             // Recoil rotation (Y)
             0.01,
             // Recoil rotation (Z)
-            0.0,
+            -0.025,
             // Ads similarity divisor
             1.0
         ))
@@ -73,7 +73,7 @@ public class M79Factory implements GunFactory {
 
             .withModel(new M79())
             .withEntityPositioning(itemStack -> {
-                    GL11.glScaled(0.3F, 0.3F, 0.3F);
+                    GL11.glScaled(0.35F, 0.35F, 0.35F);
                     GL11.glRotatef(-90F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
@@ -82,7 +82,7 @@ public class M79Factory implements GunFactory {
                     GL11.glRotatef(-120F, -0.5f, 7f, 3f);
             })
             .withThirdPersonPositioning((renderContext) -> {
-                    GL11.glScaled(0.3F, 0.3F, 0.3F);
+                    GL11.glScaled(0.45F, 0.45F, 0.45F);
                     GL11.glTranslatef(-1.7F, -0.8F, 1.9F);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                     GL11.glRotatef(70F, 1f, 0f, 0f);
@@ -123,7 +123,6 @@ public class M79Factory implements GunFactory {
             .withFirstPersonPositioningZooming((renderContext) -> {
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 GL11.glTranslatef(-0.07f, 0.96f, 0.3f);
-
 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
                 }
