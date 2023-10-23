@@ -11,9 +11,9 @@ import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
-import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
@@ -81,17 +81,17 @@ public class AS50Factory implements GunFactory {
         })
        .withCompatibleAttachment(Attachments.HK416FrontSight, true, (model) -> {
            if(model instanceof G95_upright_frontsights) {
-           	GL11.glTranslatef(-0.155F, -1.95F, -4.4F);
+               GL11.glTranslatef(-0.199F, -2.03F, -4.4F);
                GL11.glScaled(0.35F, 0.35F, 0.35F);
              }
        })
        .withCompatibleAttachment(Attachments.HK416RearSights, true, (model) -> {
            if(model instanceof G95_upright_rearsights) {
-        	   GL11.glTranslatef(-0.155F, -1.93F, -0.7F);
+               GL11.glTranslatef(-0.199F, -2.01F, -0.7F);
                GL11.glScaled(0.35F, 0.34F, 0.35F);
            }
        })
-         .withCompatibleAttachment(Attachments.ACOG, () -> {
+       .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.38F, -1.88F, -1F);
             GL11.glScaled(0.93F, 0.93F, 0.93F);
         },(model) -> {
@@ -114,7 +114,7 @@ public class AS50Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
-            GL11.glTranslatef(-0.175F, -1.65F, -2.5F);
+            GL11.glTranslatef(-0.205F, -1.68F, -2.5F);
             GL11.glScaled(0.6F, 0.6F, 0.6F);
 		},(model) -> {
 		     if(model instanceof JPUreticle) {
@@ -151,7 +151,7 @@ public class AS50Factory implements GunFactory {
         }
         })
         .withCompatibleAttachment(Attachments.Holographic, () -> {
-            GL11.glTranslatef(0.165F, -1.75F, -1.5F);
+            GL11.glTranslatef(-0.07F, -1.75F, -1.5F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
             },(model) -> {
                 if(model instanceof Holo2) {
@@ -160,7 +160,7 @@ public class AS50Factory implements GunFactory {
                 }
             })
         .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
-        	GL11.glTranslatef(-0.115F, -1.75F, -1.5F);
+            GL11.glTranslatef(-0.07F, -1.75F, -1.5F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
             },(model) -> {
                 if(model instanceof Holo2) {
@@ -169,7 +169,7 @@ public class AS50Factory implements GunFactory {
                 }
             })
         .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
-        	GL11.glTranslatef(-0.095F, -1.75F, -1.5F);
+            GL11.glTranslatef(-0.07F, -1.75F, -1.5F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
     		},(model) -> {
     		    if(model instanceof EotechScopeRing) {
@@ -182,7 +182,7 @@ public class AS50Factory implements GunFactory {
     		    }
     		})
         .withCompatibleAttachment(Attachments.VortexRedux, () -> {
-                GL11.glTranslatef(-0.340F, -1.95F, -1.5F);
+                GL11.glTranslatef(-0.350F, -1.95F, -1.5F);
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
     	    },(model) -> {
     	        if(model instanceof Holo2) {
@@ -191,7 +191,7 @@ public class AS50Factory implements GunFactory {
     	        }
     	    })
         .withCompatibleAttachment(Attachments.Kobra, () -> {
-                GL11.glTranslatef(-0.0565F, -1.68F, -1F);
+                GL11.glTranslatef(-0.075F, -1.7F, -1.1F);
                 GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
             if(model instanceof Reflex2) {
@@ -200,8 +200,8 @@ public class AS50Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.KobraGen3, () -> {
-        	GL11.glTranslatef(-0.0565F, -1.68F, -1F);
-            GL11.glScaled(0.75F, 0.75F, 0.75F);
+                GL11.glTranslatef(-0.075F, -1.7F, -1.1F);
+                GL11.glScaled(0.75F, 0.75F, 0.75F);
 	    },(model) -> {
 	        if(model instanceof Reflex2) {
 	            GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
@@ -209,7 +209,7 @@ public class AS50Factory implements GunFactory {
 	        }
 	    })
         .withCompatibleAttachment(Attachments.MicroT1, () -> {
-                GL11.glTranslatef(0.085F, -2.0F, -1.3F);
+                GL11.glTranslatef(-0.24F, -1.95F, -1.3F);
                 GL11.glScaled(0.48F, 0.48F, 0.48F);
             },(model) -> {
                 if(model instanceof Reflex2) {
@@ -218,7 +218,7 @@ public class AS50Factory implements GunFactory {
                 }
             })
         .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
-        	GL11.glTranslatef(0.085F, -2.0F, -1.3F);
+            GL11.glTranslatef(-0.24F, -1.95F, -1.3F);
             GL11.glScaled(0.48F, 0.48F, 0.48F);
         },(model) -> {
             if(model instanceof Reflex2) {
@@ -235,20 +235,20 @@ public class AS50Factory implements GunFactory {
             GL11.glScaled(2F, 2F, 2F);
         })
         .withCompatibleAttachment(Attachments.Laser2, () -> {
-		    GL11.glTranslatef(0.4F, -2.25F, -5F);
+            GL11.glTranslatef(0.1F, -1.3F, -5.0F);
             GL11.glScaled(1.1F, 1.1F, 1.1F);
 		})
 		.withCompatibleAttachment(Attachments.Laser, () -> {
-			GL11.glTranslatef(0.4F, -2.25F, -5F);
+            GL11.glTranslatef(0.1F, -1.3F, -5.0F);
             GL11.glScaled(1.1F, 1.1F, 1.1F);
 		})
         .withCompatibleAttachment(AuxiliaryAttachments.M4Rail, true, (model) -> {
             if(model instanceof AKRail) {
-                GL11.glTranslatef(0.55F, -2.05F, -5.5F);
+                GL11.glTranslatef(0.24F, -1.3F, -5.4F);
                 GL11.glScaled(1F, 1F, 0.5F);
                 GL11.glRotatef(90F, 0f, 0f, 1f);
             } else if(model instanceof AKRail2) {
-                GL11.glTranslatef(-0.21F, -1.95F, -5.45F);
+                GL11.glTranslatef(-0.52F, -1.0F, -5.4F);
                 GL11.glScaled(1F, 1F, 0.5F);
                 GL11.glRotatef(-90F, 0f, 0f, 1f);
             } else if(model instanceof AKRail3) {
@@ -319,30 +319,30 @@ public class AS50Factory implements GunFactory {
  
             .withFirstPersonPositioningZooming((renderContext) -> {
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                GL11.glTranslatef(0.19f, 1.26f, -0.525000f);
+                GL11.glTranslatef(0.19f, 1.38f, -0.745f);
                 
                 // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
                     //System.out.println("Position me for Scope");
-                    GL11.glTranslatef(0F, 0.23f, 0.4f);
+                    GL11.glTranslatef(-0.012F, 0.23f, 0.55f);
                 } 
                 
                 // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
                     //System.out.println("Position me for Scope");
-                    GL11.glTranslatef(0F, 0.3f, 0.78f);
+                    GL11.glTranslatef(-0.01F, 0.24f, 1.0f);
                 } 
                 
              // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
                     //System.out.println("Position me for Scope");
-                    GL11.glTranslatef(0F, 0.135f, 1.1f);
+                    GL11.glTranslatef(-0.025F, 0.126f, 1.1f);
                 } 
                 
              // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
                     //System.out.println("Position me for Scope");
-                    GL11.glTranslatef(0F, 0.25f, 0.8f);
+                    GL11.glTranslatef(-0.03F, 0.235f, 0.7f);
                 } 
                 
              // HP Zoom
@@ -384,7 +384,7 @@ public class AS50Factory implements GunFactory {
              // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
                     //System.out.println("Position me for Scope");
-                    GL11.glTranslatef(0F, 0.2f, 0.47f);
+                    GL11.glTranslatef(-0.01F, 0.25f, 0.75f);
                 } 
                 
              // HP Zoom
@@ -408,7 +408,7 @@ public class AS50Factory implements GunFactory {
              // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
                     //System.out.println("Position me for Scope");
-                    GL11.glTranslatef(0F, 0.17f, 0.5f);
+                    GL11.glTranslatef(0F, 0.18f, 0.5f);
                 } 
                 
                 // Everything else
