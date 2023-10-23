@@ -39,6 +39,7 @@ public class PGMHecateIIFactory implements GunFactory {
         .withShootSound("ax50")
         .withPumpTimeout(1000)
         .withSilencedShootSound("as50_silenced")
+        .withDrawSound("noaction_draw")
         .withReloadingTime(40)
         .withFlashIntensity(0.4f)
         .withFlashScale(() -> 0.6f)
@@ -86,8 +87,6 @@ public class PGMHecateIIFactory implements GunFactory {
         })
 		
         .withCompatibleAttachment(AuxiliaryAttachments.PGMHecateIIBoltAction, true, (model) -> {
-            GL11.glTranslatef(0.0f, 0.0f, 0.0f);
-            GL11.glScaled(1F, 1F, 1F);
         })
 
         .withCompatibleAttachment(Attachments.NightRaider, () -> {
@@ -179,35 +178,39 @@ public class PGMHecateIIFactory implements GunFactory {
                 GL11.glRotatef(70F, 1f, 0f, 0f);
                 })
 
-            .withFirstPersonPositioning(
-					new Transform()
-					.withPosition(-2.265000f, 5.505000f, -5.005000f)
-					.withRotation(0.000000f, 1.000000f, 6.300000f)
-                    .withScale(4.0f, 4.0f, 4.0f)
+                .withFirstPersonPositioning(
+                        new Transform()
+                                .withPosition(-1.705000f, 4.705000f, -3.445000f)
+                                .withRotation(0.000000f, 1.000000f, 6.300000f)
+                                .withPivotPoint(-0.230000f, -1.740000f, 0.140000f)
+                                .withScale(3.0F, 3.0F, 3.0F)
                 )
 
-            .withFirstPersonHandPositioning(
+                .withFirstPersonHandPositioning(
 
-                    // Left hand
-                    new Transform()
-                    .withPosition(1.250000f, 0.465000f, -0.980000f)
-                    .withBBRotation(-6.645f, -32.8876f, 56.8877f)
-                    .withScale(2.6f, 2.6f, 4.0f),
+                        // Left hand
+                        new Transform()
+                                .withPosition(1.250000f, 0.265000f, -0.980000f)
+                                .withBBRotation(-6.645F, -32.8876F, 56.8877F)
+                                .withScale(2.6F, 2.6F, 4.0F)
+                                .withPivotPoint(0, 0, 0),
 
 
 
-                    // Right hand
-                    new Transform()
-                    .withPosition(0.080000f, -0.180000f, 3.120000f)
-                    .withRotation(-5.4027f, -4.7805f, -1.6694f)
-                    .withScale(3.5f, 3.5f, 3.5f)
-            )
+                        // Right hand
+                        new Transform()
+                                .withPosition(-0.160000f, 0.060000f, 1.640000f)
+                                .withBBRotation(5.4027F, 4.7805F, -1.6694F)
+                                .withScale(3.0F, 3.0F, 3.0F)
+                                .withPivotPoint(0, 0, 0)
+
+                )
                 
-            .setupModernAnimations("M40A6", AuxiliaryAttachments.PGMHecateIIBoltAction)
-            .setupCustomKeyedPart(AuxiliaryAttachments.PGMHecateIIBoltAction, "M40A6", BBLoader.KEY_BOLT_ACTION)
-            .setupCustomKeyedPart(AuxiliaryAttachments.PGMHecateIIBoltAction, "m40a6", "boltprime")
-            .setupModernMagazineAnimations("M40A6",
-            		Magazines.HecateIIMag)
+                .setupModernAnimations("M40A6", AuxiliaryAttachments.PGMHecateIIBoltAction)
+                .setupCustomKeyedPart(AuxiliaryAttachments.PGMHecateIIBoltAction, "M40A6", BBLoader.KEY_BOLT_ACTION)
+                .setupCustomKeyedPart(AuxiliaryAttachments.PGMHecateIIBoltAction, "m40a6", "boltprime")
+                .setupModernMagazineAnimations("M40A6", 
+                		Magazines.HecateIIMag)
 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.Bullet.getRenderablePart(), (renderContext) -> {
             })
@@ -216,7 +219,7 @@ public class PGMHecateIIFactory implements GunFactory {
 			
             .withFirstPersonPositioningZooming((renderContext) -> {
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                GL11.glTranslatef(0.13f, 1.18f, -0.7f);
+                GL11.glTranslatef(0.13f, 1.18f, -0.5f);
 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
@@ -251,45 +254,54 @@ public class PGMHecateIIFactory implements GunFactory {
             })
 
             .withFirstPersonPositioningModifying((renderContext) -> {
-				 new Transform()
-				 .withPosition(-1.905000f, 4.065000f, -3.645000f)
-				 .withRotation(0.000000f, -30.514396f, -26.062789f)
-				 .withScale(3.000000f, 3.000000f, 3.000000f);
-			 })
-			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
-				 new Transform()
-				 .withPosition(-1.425000f, 3.545000f, -5.685000f)
-				 .withRotation(-0.187566f, -46.164037f, -11.869230f)
-				 .withScale(3.000000f, 3.000000f, 3.000000f);
-           })
-					 
-			.withFirstPersonHandPositioningModifying(
-                   (renderContext) -> {
-                  	 new Transform()
-                  	 .withPosition(1.730000f, 0.065000f, -0.980000f)
-                  	 .withRotation(93.414678f, 23.699100f, 15.553163f)
-                       .withScale(2.6f, 2.6f, 4.0f);
-                   }, 
-                   (renderContext) -> {
-                  	 new Transform()
-                       .withPosition(-0.2f, 0.1f, 2f)
-                       .withRotation(-5.4027f, -4.7805f, -1.6694f)
-                       .withScale(3.5f, 3.5f, 3.5f);
-                   })
-                   
-          .withFirstPersonHandPositioningModifyingAlt(
-          		(renderContext) -> {
-                 	 new Transform()
-                 	 	.withPosition(2.450000f, -0.335000f, -0.660000f)
-                 	 	.withRotation(93.766422f, 50.841130f, 4.679372f)
-                 	 	.withScale(2.600000f, 2.600000f, 4.000000f);
-                  }, 
-                  (renderContext) -> {
-                 	 new Transform()
-                 	 	.withPosition(-0.600000f, 0.340000f, 1.880000f)
-                 	 	.withRotation(-12.193518f, -4.780500f, 1.399459f)
-                      .withScale(3.5f, 3.5f, 3.5f);
-                  })
+                new Transform()
+                            .withPosition(-1.905000f, 4.065000f, -3.645000f)
+                            .withRotation(0.000000f, -30.514396f, -26.062789f)
+                            .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                            .withScale(2.300000f, 2.300000f, 2.300000f)
+                            .applyTransformations();
+                })
+            .withFirstPersonPositioningModifyingAlt((renderContext) -> {
+                    new Transform()
+                            .withPosition(-1.425000f, 3.545000f, -5.685000f)
+                            .withRotation(-0.187566f, -46.164037f, -11.869230f)
+                            .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                            .withScale(2.300000f, 2.300000f, 2.300000f)
+                            .applyTransformations();
+                })
+            .withFirstPersonHandPositioningModifying((renderContext) -> {
+                    new Transform()
+                            .withPosition(1.730000f, 0.065000f, -0.980000f)
+                            .withRotation(93.414678f, 23.699100f, 15.553163f)
+                            .withScale(2.6f, 2.6f, 4.0f)
+                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                            .applyTransformations();
+                }, (renderContext) -> {
+                    new Transform()
+                            .withPosition(-0.2f, 0.1f, 2f)
+                            .withRotation(-5.4027f, -4.7805f, -1.6694f)
+                            .withScale(3.5f, 3.5f, 3.5f)
+                            .withPivotPoint(0f, 0f, 0f)
+                            .applyTransformations();
+                })
+
+            .withFirstPersonHandPositioningModifyingAlt(
+                        (renderContext) -> {
+                            new Transform()
+                                    .withPosition(2.450000f, -0.335000f, -0.660000f)
+                                    .withRotation(93.766422f, 50.841130f, 4.679372f)
+                                    .withScale(2.600000f, 2.600000f, 4.000000f)
+                                    .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                                    .applyTransformations();
+                        }, (renderContext) -> {
+                            new Transform()
+                                    .withPosition(-0.600000f, 0.340000f, 1.880000f)
+                                    .withRotation(-12.193518f, -4.780500f, 1.399459f)
+                                    .withScale(3.5f, 3.5f, 3.5f)
+                                    .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                                    .applyTransformations();
+                }
+            )
 
             .build())
         .withSpawnEntityDamage(20f)
