@@ -260,7 +260,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.ArtilleryProp20")
         .withTextureName("textures/models/artilleryprop.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(22.5)
+        .withHardness(22.5f)
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.8f, 0.8f, 0.8f);
             GL11.glTranslatef(0.55f, 0.6f, 0.55f);
@@ -421,7 +421,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.PC")
         .withTextureName("textures/models/pc.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(5)
+        .withHardness(5f)
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.9f, 0.9f, 0.9f);
             GL11.glTranslatef(0.7f, 0.25f, 0.6f);
@@ -434,7 +434,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.PC")
         .withTextureName("textures/models/pc.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(5)
+        .withHardness(5f)
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.9f, 0.9f, 0.9f);
             GL11.glTranslatef(0.7f, 0.25f, 0.6f);
@@ -448,7 +448,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.Laptop")
         .withTextureName("textures/models/pc.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(5)
+        .withHardness(5f)
         .withBoundingBox(
         		blockState -> {
         			AxisAlignedBB boundingBox = null;
@@ -483,7 +483,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.Laptop")
         .withTextureName("textures/models/pc.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(5)
+        .withHardness(5f)
         .withBoundingBox(
         		blockState -> {
         			AxisAlignedBB boundingBox = null;
@@ -519,7 +519,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.Monitor")
         .withTextureName("textures/models/pc.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(5)
+        .withHardness(5f)
         .withPositioning(tileEntity -> {
             GL11.glScalef(0.9f, 0.9f, 0.9f);
             GL11.glTranslatef(0.7f, 0.25f, 0.6f);
@@ -546,7 +546,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.FilingCabinet")
         .withTextureName("textures/models/filingcabinetopened.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(22.5)
+        .withHardness(22.5f)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -574,7 +574,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.ShelfRight")
         .withTextureName("textures/models/shelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(2)
+        .withHardness(2f)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -588,7 +588,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.ShelfLeft")
         .withTextureName("textures/models/shelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(2)
+        .withHardness(2f)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -602,7 +602,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.ShelfTop")
         .withTextureName("textures/models/shelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(2)
+        .withHardness(2f)
         .withBoundingBox(
         		blockState -> {
         			AxisAlignedBB boundingBox = null;
@@ -638,7 +638,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.TV")
         .withTextureName("textures/models/tv.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(5)
+        .withHardness(5f)
         .withBoundingBox(
         		blockState -> {
         			AxisAlignedBB boundingBox = null;
@@ -674,7 +674,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.CeilingTV")
         .withTextureName("textures/models/ceilingtv.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(5)
+        .withHardness(5f)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0.4f, 0.5f);
@@ -701,7 +701,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.OfficeChair2")
         .withTextureName("textures/models/officechair.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(2)
+        .withHardness(2f)
         .withBoundingBox(
         		blockState -> {
         			AxisAlignedBB boundingBox = null;
@@ -737,7 +737,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.OfficeChair2")
         .withTextureName("textures/models/officechair.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(2)
+        .withHardness(2f)
         .withBoundingBox(
         		blockState -> {
         			AxisAlignedBB boundingBox = null;
@@ -773,7 +773,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.OfficeChair")
         .withTextureName("textures/models/officechair.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(2)
+        .withHardness(2f)
         .withBoundingBox(
         		blockState -> {
         			AxisAlignedBB boundingBox = null;
@@ -809,7 +809,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.OfficeChair")
         .withTextureName("textures/models/officechair.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(2)
+        .withHardness(2f)
         .withBoundingBox(
         		blockState -> {
         			AxisAlignedBB boundingBox = null;
@@ -2018,7 +2018,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.Sandbag")
         .withTextureName("textures/models/sandbag.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(1)
+        .withHardness(1f)
         .withBoundingBox(
         		blockState -> {
         			AxisAlignedBB boundingBox = null;
@@ -2054,7 +2054,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.Sandbag")
         .withTextureName("textures/models/sandbag.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(1)
+        .withHardness(1f)
         .withBoundingBox(
         		blockState -> {
         			AxisAlignedBB boundingBox = null;
@@ -2090,7 +2090,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.SandbagWall")
         .withTextureName("textures/models/sandbag.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(1)
+        .withHardness(1f)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -2104,7 +2104,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.SandbagWall")
         .withTextureName("textures/models/sandbag.png")
         .withCreativeTab(MWC.PROPS_TAB)
-        .withHardness(1)
+        .withHardness(1f)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
