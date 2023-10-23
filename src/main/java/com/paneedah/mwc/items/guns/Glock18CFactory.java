@@ -12,6 +12,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -245,6 +246,7 @@ public class Glock18CFactory implements GunFactory {
                 		Magazines.GlockMag13,
                 		Magazines.Glock18CMag,
                 		Magazines.GlockMag50)
+                .setupCustomKeyedPart(Attachments.Glock18CCNCSlide, "glock", BBLoader.KEY_ACTION)
                 
             .withFirstPersonCustomPositioning(Attachments.Glock18CSlide.getRenderablePart(), (renderContext) -> {
                 if(renderContext.getWeaponInstance().getAmmo() == 0) {

@@ -13,6 +13,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -251,6 +252,7 @@ public class M9A1Factory implements GunFactory {
                 
                 .setupModernAnimations("m9", Attachments.M9A1Slide)
                 .setupModernMagazineAnimations("m9", Magazines.M9A1Mag)
+                .setupCustomKeyedPart(Attachments.SamuraiEdgeSlide, "m9", BBLoader.KEY_ACTION)
                 
             .withFirstPersonPositioningCustomRecoiled(Attachments.M9A1Slide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.6F);

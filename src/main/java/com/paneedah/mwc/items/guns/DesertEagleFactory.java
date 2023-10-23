@@ -8,6 +8,7 @@ import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
@@ -180,8 +181,20 @@ public class DesertEagleFactory implements GunFactory {
                 
                 .setupModernAnimations("deagle", Attachments.DesertEagleSlide)
                 .setupModernMagazineAnimations("deagle", Magazines.DesertEagleMag)
+                .setupCustomKeyedPart(Attachments.DesertEagleSlideGolden, "deagle", BBLoader.KEY_ACTION)
+                .setupCustomKeyedPart(Attachments.DesertEagleSlideBlack, "deagle", BBLoader.KEY_ACTION)
                 
             .withFirstPersonCustomPositioning(Attachments.DesertEagleSlide.getRenderablePart(), (renderContext) -> {
+                if(renderContext.getWeaponInstance().getAmmo() == 0) {
+                    GL11.glTranslatef(0F, 0F, 0.6F);
+                }
+            })
+            .withFirstPersonCustomPositioning(Attachments.DesertEagleSlideGolden.getRenderablePart(), (renderContext) -> {
+                if(renderContext.getWeaponInstance().getAmmo() == 0) {
+                    GL11.glTranslatef(0F, 0F, 0.6F);
+                }
+            })
+            .withFirstPersonCustomPositioning(Attachments.DesertEagleSlideBlack.getRenderablePart(), (renderContext) -> {
                 if(renderContext.getWeaponInstance().getAmmo() == 0) {
                     GL11.glTranslatef(0F, 0F, 0.6F);
                 }

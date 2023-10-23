@@ -12,6 +12,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -291,6 +292,11 @@ public class Glock19Factory implements GunFactory {
                 		Magazines.GlockMag13,
                 		Magazines.Glock18CMag,
                 		Magazines.GlockMag50)
+                .setupCustomKeyedPart(Attachments.Glock19RazorbackSlide, "glock", BBLoader.KEY_ACTION)
+                .setupCustomKeyedPart(Attachments.Glock19GhostPrecisionSlide, "glock", BBLoader.KEY_ACTION)
+                .setupCustomKeyedPart(Attachments.Glock19RockSlideOlive, "glock", BBLoader.KEY_ACTION)
+                .setupCustomKeyedPart(Attachments.Glock19XSlide, "glock", BBLoader.KEY_ACTION)
+
                 
             .withFirstPersonPositioningCustomRecoiled(Attachments.Glock19Slide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.7F);
