@@ -5,7 +5,7 @@ import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-// Made with Blockbench 4.7.4
+// Made with Blockbench 4.8.1
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
@@ -36,7 +36,7 @@ public class PGMHecateIIBoltAction extends ModelWithAttachments {
 		textureHeight = 360;
 
 		boltaction = new ModelRenderer(this);
-		boltaction.setRotationPoint(-1.0F, 30.0F, 53.5F);
+		boltaction.setRotationPoint(-1.0F, 27.0F, 53.5F);
 		boltaction.cubeList.add(new ModelBox(boltaction, 56, 75, -1.25F, -43.75F, -61.499F, 1, 2, 1, 0.0F, false));
 		boltaction.cubeList.add(new ModelBox(boltaction, 74, 36, -0.75F, -43.75F, -61.5F, 1, 2, 1, 0.0F, false));
 		boltaction.cubeList.add(new ModelBox(boltaction, 44, 14, -1.0F, -44.0F, -61.501F, 1, 3, 1, 0.0F, false));
@@ -139,7 +139,7 @@ public class PGMHecateIIBoltAction extends ModelWithAttachments {
 		bone107.cubeList.add(new ModelBox(bone107, 82, 62, -1.0F, -1.0F, 0.0F, 1, 1, 1, 0.0F, false));
 
 		boltprime = new ModelRenderer(this);
-		boltprime.setRotationPoint(-3.5F, -11.25F, -13.0F);
+		boltprime.setRotationPoint(-3.5F, -14.25F, -13.0F);
 		setRotationAngle(boltprime, 0.0F, 0.0F, -0.48F);
 		boltprime.cubeList.add(new ModelBox(boltprime, 74, 59, -0.463F, -1.4429F, -0.75F, 2, 1, 1, 0.0F, false));
 		boltprime.cubeList.add(new ModelBox(boltprime, 80, 26, -0.464F, -0.943F, -0.751F, 2, 1, 1, 0.0F, false));
