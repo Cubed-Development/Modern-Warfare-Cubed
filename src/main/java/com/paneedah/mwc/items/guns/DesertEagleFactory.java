@@ -55,7 +55,7 @@ public class DesertEagleFactory implements GunFactory {
         		// Recoil rotation (Z)
         		-0.010,
         		// Ads similarity divisor
-        		2.3
+        		1.975
         ))
          
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
