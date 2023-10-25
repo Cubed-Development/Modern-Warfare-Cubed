@@ -128,6 +128,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> M79grenade;
     public static ItemAttachment<Weapon> GL06Cartridge;
     public static ItemAttachment<Weapon> M79Cartridge;
+    public static ItemAttachment<Weapon> M79Sight;
     public static ItemAttachment<Weapon> M32Cartridge;
     public static ItemAttachment<Weapon> SSG42Barrels;
     public static ItemAttachment<Weapon> HAR27Belt;
@@ -613,6 +614,13 @@ public class AuxiliaryAttachments {
                 .withModel(new M79Cartridge(), "m79.png")
                 .withRenderablePart()
                 .withName("M79Cartridge")
+                .build();
+
+        M79Sight = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA2)
+                .withModel(new M79Sight(), "m79.png")
+                .withRenderablePart()
+                .withName("M79Sight")
                 .build();
 
         M32Cartridge = new AttachmentBuilder<Weapon>()
