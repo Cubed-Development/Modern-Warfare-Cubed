@@ -66,6 +66,8 @@ public class M79Factory implements GunFactory {
         
         .withCompatibleAttachment(AuxiliaryAttachments.M79grenade, true, (model) -> {
         })
+        .withCompatibleAttachment(AuxiliaryAttachments.M79Sight, true, (model) -> {
+        })
         .withCompatibleAttachment(AuxiliaryAttachments.M79Cartridge, true, (model) -> {
         })
         .withTextureNames("m79")
@@ -89,9 +91,9 @@ public class M79Factory implements GunFactory {
             })
 
             .withFirstPersonPositioning(
-					new Transform()
-					.withPosition(-2.425000f, 3.825000f, -3.425000f)
-					.withRotation(-2.000000f, 1.000000f, 7.300000f)
+		     new Transform()
+		    .withPosition(-2.425000f, 3.825000f, -3.425000f)
+		    .withRotation(-2.000000f, 1.000000f, 7.300000f)
                     .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
                     .withScale(3.0F, 3.0F, 3.0F)
             )
