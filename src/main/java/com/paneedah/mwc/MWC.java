@@ -86,7 +86,7 @@ public final class MWC {
             updateDebugHandler();
         }
 
-        // Set the sounds
+        // init the weaponlib sounds
         modContext.setChangeZoomSound("OpticZoom");
         modContext.setNightVisionOnSound("nightvision_on");
         modContext.setNightVisionOffSound("nightvision_off");
@@ -95,6 +95,7 @@ public final class MWC {
         modContext.setExplosionSound("grenadeexplosion");
         modContext.setFlashExplosionSound("flashbang");
 
+	// init the bullet impact sounds
         modContext.setMaterialImpactSounds(Material.ROCK, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone");
         modContext.setMaterialImpactSounds(Material.WOOD, 1.5f, "bullet_3_rock", "bullet_2_rock", "bullet_4_rock", "bullet_12_stone", "bullet_10_snap");
         modContext.setMaterialImpactSounds(Material.GRASS, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
