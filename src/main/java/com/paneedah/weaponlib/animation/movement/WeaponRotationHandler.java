@@ -16,7 +16,7 @@ import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
 /**
- * Class that handles weapon rotations, handles recoil animations, walking
+ * Class that handles weapons rotations, handles recoil animations, walking
  * animations, and any other procedural animation involving weapons in the mod.
  * 
  * [October 25th, 2022] Refactored code.
@@ -46,7 +46,7 @@ public class WeaponRotationHandler {
 	// are multiplied by this and added together
 	private static final float WALKING_SWAY_COMPONENT_DIVISOR = 0.033f;
 	
-	// Recoil is multiplied by this before the weapon is translated.
+	// Recoil is multiplied by this before the weapons is translated.
 	private static final double RECOIL_ANIMATION_AMPLITUDE = 0.008;
 	
 	
@@ -101,7 +101,7 @@ public class WeaponRotationHandler {
 	 * 1. Do movement animations (walk, strafe, and run)
 	 * 2. Do the walk sway animations (translation then rotation)
 	 * 3. Apply inertia translations
-	 * 4. Apply weapon recovery animations
+	 * 4. Apply weapons recovery animations
 	 * 5. Apply recoil animations + stress vector
 	 * 
 	 * @param renderContext
@@ -207,7 +207,7 @@ public class WeaponRotationHandler {
 		GlStateManager.rotate((float) ClientValueRepo.xInertia.getLerpedPosition(), 0, 1, 0);
 		GlStateManager.rotate((float) ClientValueRepo.yInertia.getLerpedPosition(), 1, 0, 0);
 
-		// Apply weapon recovery animation
+		// Apply weapons recovery animation
 		GlStateManager.translate(0, weaponRecoveryAmplitude / 5f, weaponRecoveryAmplitude);
 		GlStateManager.rotate(weaponRecoveryAmplitude * 5f, 1, 0, 0);
 

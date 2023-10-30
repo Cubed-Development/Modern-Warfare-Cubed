@@ -83,7 +83,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Bullets collision has been enhanced to work better with mods
 - Updated `MCmod.info` description and credits
 - Migrated the config setting for bullets breaking glass into the new config file (ModernWarfareCubed.cfg)
-- Forge configuration `Emissive Item Rendering` is now forced to be off (This does not influence Optifine emissive item rendering)
 - OptiFine configuration `Fast Render` is now forced to be off
 - Changed categories of some weapons
 - Magazines are created empty
@@ -177,6 +176,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed spectators being able to shoot weapons
 - Fixed the spawning position of the shells
 - Bullet spawning maths which was making the bullets spawn in inaccurate position
+- Fixed compatibility with Forge `Emissive Item Rendering`
 
 ### Removed
 

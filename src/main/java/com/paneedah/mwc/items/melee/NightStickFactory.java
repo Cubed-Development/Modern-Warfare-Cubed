@@ -1,12 +1,13 @@
 package com.paneedah.mwc.items.melee;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.models.weapons.PoliceBaton;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.melee.ItemMelee;
 import com.paneedah.weaponlib.melee.MeleeRenderer;
-import com.paneedah.weaponlib.melee.RenderableState;
+import com.paneedah.weaponlib.melee.MeleeRenderableState;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -30,7 +31,7 @@ public class NightStickFactory implements MeleeFactory {
                 .withRenderer(
                         new MeleeRenderer.Builder()
                         
-                                .withModel(new com.paneedah.mwc.models.PoliceBaton())
+                                .withModel(new PoliceBaton())
                                 .withAnimationDuration(200)
                                 .withInventoryPositioning(itemStack -> {
                                     GL11.glScaled(0.5F, 0.5F, 0.5F);
@@ -83,7 +84,7 @@ public class NightStickFactory implements MeleeFactory {
                                         })
 
                                 .withFirstPersonPositioningHeavyAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<RenderContext<MeleeRenderableState>>(renderContext -> {
                                             GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                             GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -92,7 +93,7 @@ public class NightStickFactory implements MeleeFactory {
                                         }, 60, 0))
 
                                 .withFirstPersonLeftHandPositioningHeavyAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<RenderContext<MeleeRenderableState>>(renderContext -> {
                                             GL11.glScalef(0f, 0f, 0f);
                                             GL11.glRotatef(-60.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(-35.000000f, 0f, 1f, 0f);
@@ -102,7 +103,7 @@ public class NightStickFactory implements MeleeFactory {
                                         )
 
                                 .withFirstPersonRightHandPositioningHeavyAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<RenderContext<MeleeRenderableState>>(renderContext -> {
                                             GL11.glScalef(4.5f, 4.5f, 4.5f);
                                             GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(5.000000f, 0f, 1f, 0f);
@@ -112,14 +113,14 @@ public class NightStickFactory implements MeleeFactory {
                                         )
 
                                 .withFirstPersonPositioningAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<RenderContext<MeleeRenderableState>>(renderContext -> {
                                             GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                             GL11.glRotatef(-35.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(40.000000f, 0f, 1f, 0f);
                                             GL11.glRotatef(-90.000000f, 0f, 0f, 1f);
                                             GL11.glTranslatef(-0.700000f, 1.700000f, -2.000000f);
                                         }, 120, 0),
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<RenderContext<MeleeRenderableState>>(renderContext -> {
                                             GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                             GL11.glRotatef(-35.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(40.000000f, 0f, 1f, 0f);
@@ -128,14 +129,14 @@ public class NightStickFactory implements MeleeFactory {
                                         }, 50, 0))
 
                                 .withFirstPersonLeftHandPositioningAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<RenderContext<MeleeRenderableState>>(renderContext -> {
                                             GL11.glScalef(0f, 0f, 0f);
                                             GL11.glRotatef(-125.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(-30.000000f, 0f, 1f, 0f);
                                             GL11.glRotatef(50.000000f, 0f, 0f, 1f);
                                             GL11.glTranslatef(0.175000f, -0.525000f, 0.175000f);
                                             }, 70, 0),
-                                            new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                            new Transition<RenderContext<MeleeRenderableState>>(renderContext -> {
                                                 GL11.glScalef(0f, 0f, 0f);
                                                 GL11.glRotatef(-120.000000f, 1f, 0f, 0f);
                                                 GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
@@ -144,14 +145,14 @@ public class NightStickFactory implements MeleeFactory {
                                                 }, 70, 0))
 
                                 .withFirstPersonRightHandPositioningAttacking(
-                                        new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                        new Transition<RenderContext<MeleeRenderableState>>(renderContext -> {
                                             GL11.glScalef(4.5f, 4.5f, 4.5f);
                                             GL11.glRotatef(-235.000000f, 1f, 0f, 0f);
                                             GL11.glRotatef(125.000000f, 0f, 1f, 0f);
                                             GL11.glRotatef(70.000000f, 0f, 0f, 1f);
                                             GL11.glTranslatef(0.125000f, -0.100000f, 0.025000f);
                                             }, 70, 0),
-                                            new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                            new Transition<RenderContext<MeleeRenderableState>>(renderContext -> {
                                                 GL11.glScalef(4.5f, 4.5f, 4.5f);
                                                 GL11.glRotatef(-235.000000f, 1f, 0f, 0f);
                                                 GL11.glRotatef(125.000000f, 0f, 1f, 0f);

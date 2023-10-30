@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -31,9 +31,6 @@ public class GL06Factory implements GunFactory {
         .withShootSound("m79")
         .withReloadSound("m79_reload")
         .withReloadingTime(50)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0f)
         .withFlashScale(() -> 0f)
         .withFlashOffsetX(() -> 0.1f)
@@ -61,7 +58,7 @@ public class GL06Factory implements GunFactory {
 //            GL11.glScaled(1F, 1F, 1F);
 //            GL11.glRotatef(8F, 1f, 0f, 0f);
         })
-        .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.31F, -1.41F, -0.7F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         },(model) -> {
@@ -74,7 +71,7 @@ public class GL06Factory implements GunFactory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Specter, () -> {
             GL11.glTranslatef(-0.17F, -1.14F, -0.45F);
             GL11.glScaled(0.35F, 0.35F, 0.35F);
         },(model) -> {
@@ -144,11 +141,11 @@ public class GL06Factory implements GunFactory {
             GL11.glTranslatef(-0.2F, -0F, -2.1F);
             GL11.glScaled(1F, 1F, 1F);
         })
-        .withCompatibleAttachment(Attachments.Laser2, (p, s) -> {
+        .withCompatibleAttachment(Attachments.Laser2, () -> {
             GL11.glTranslatef(0.05F, -0.8F, -2.85F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         })
-        .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+        .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(0.05F, -0.8F, -2.85F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         })

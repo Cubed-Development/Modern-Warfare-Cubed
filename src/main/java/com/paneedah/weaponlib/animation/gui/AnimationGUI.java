@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.animation.gui;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
 import com.paneedah.weaponlib.WeaponRenderer.Builder;
@@ -308,11 +307,11 @@ public class AnimationGUI {
 		} else if(id == resetTransforms) {
 			AnimationModeProcessor amp = AnimationModeProcessor.getInstance();
 			Builder b = amp.getCurrentWeaponRenderBuilder();
-			b.firstPersonTransform.set(amp.backupFP);
-			b.firstPersonLeftHandTransform.set(amp.backupFPL);
-			b.firstPersonRightHandTransform.set(amp.backupFPR);
+			b.firstPersonTransform.copy(amp.backupFP);
+			b.firstPersonLeftHandTransform.copy(amp.backupFPL);
+			b.firstPersonRightHandTransform.copy(amp.backupFPR);
 			
-			AnimationModeProcessor.getInstance().slideTransform.withPosition(0, 0, 0).withRotation(0, 0, 0).withRotationPoint(0, 0, 0);
+			AnimationModeProcessor.getInstance().slideTransform.withPosition(0, 0, 0).withRotation(0, 0, 0).withPivotPoint(0, 0, 0);
 			
 			DebugPositioner.reset();
 		} else if(id == forceSteveArms) {
@@ -344,16 +343,16 @@ public class AnimationGUI {
     		Builder i = ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder();
     		switch(selectID) {
     		case 1:
-    			i.firstPersonLeftHandTransform.printTransform();
+    			i.firstPersonLeftHandTransform.printTransformCreationCode();
     			break;
     		case 2:
-    			i.firstPersonRightHandTransform.printTransform();
+    			i.firstPersonRightHandTransform.printTransformCreationCode();
     			break;
     		case 3:
-    			i.firstPersonTransform.printTransform();
+    			i.firstPersonTransform.printTransformCreationCode();
     			break;
     		case 4:
-    			AnimationModeProcessor.getInstance().slideTransform.printTransform();
+    			AnimationModeProcessor.getInstance().slideTransform.printTransformCreationCode();
     			break;
     			
     		}
@@ -364,7 +363,7 @@ public class AnimationGUI {
     		if(!isPanelClosed("Recoil")) {
     			StringBuilder builder = new StringBuilder();
     			builder.append("\n.withRecoilParam(new RecoilParam(\n");
-    			builder.append("\t\t// The weapon power\n");
+    			builder.append("\t\t// The weapons power\n");
     			builder.append("\t\t" + weaponPower.getValue() + ",\n");
     			builder.append("\t\t// Muzzle climb divisor\n");
     			builder.append("\t\t" +muzzleClimbDivisor.getValue() + ",\n");

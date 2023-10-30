@@ -2,7 +2,7 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -11,7 +11,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -43,9 +43,6 @@ public class M9A1Factory implements GunFactory {
         .withInspectSound("inspection")
         .withDrawSound("handgun_draw")
         .withReloadingTime(50)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.13f)
@@ -55,7 +52,7 @@ public class M9A1Factory implements GunFactory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
-        		// The weapon power
+        		// The weapons power
         		45.0,
         		// Muzzle climb divisor
         		13.5,
@@ -150,7 +147,7 @@ public class M9A1Factory implements GunFactory {
         })
         .withCompatibleAttachment(Magazines.M9DrumMag, (model) -> {
         })
-        .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+        .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(0.01F, -0.65F, -2.3F);
             GL11.glScaled(1.2F, 1.2F, 1.2F);
             GL11.glRotatef(-90F, 0f, 0f, -4f);
@@ -167,7 +164,7 @@ public class M9A1Factory implements GunFactory {
             GL11.glTranslatef(-0.23f, -0.53f, -1.9f);
             GL11.glScaled(0.7F, 0.6F, 0.7F);
         })
-        .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.RMR, () -> {
                 GL11.glTranslatef(-0.175F, -1.35F, -1.1F);
                 GL11.glScaled(0.36F, 0.36F, 0.36F);
         },(model) -> {
@@ -176,7 +173,7 @@ public class M9A1Factory implements GunFactory {
                 GL11.glScaled(0.2F, 0.2F, 0.2F);
             }
         })
-        .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
             GL11.glTranslatef(-0.05F, -1.1F, -1.4F);
             GL11.glScaled(0.55F, 0.55F, 0.55F);
         },(model) -> {
@@ -185,7 +182,7 @@ public class M9A1Factory implements GunFactory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-        .withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroReflex, () -> {
 		    GL11.glTranslatef(-0.155F, -1.83F, -1.2F);
 		    GL11.glScaled(0.48F, 0.48F, 0.48F);
 		    },(model) -> {
@@ -204,7 +201,7 @@ public class M9A1Factory implements GunFactory {
             .withActionPiece(
             		Attachments.M9A1Slide,
             		Attachments.SamuraiEdgeSlide)
-            .withActionTransform(new Transform().withPosition(0, 0, 0.5))
+            .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
             //.withTextureName("M9")
             //.withWeaponProximity(0.99F)
             //.withYOffsetZoom(5F)
@@ -228,8 +225,8 @@ public class M9A1Factory implements GunFactory {
 					new Transform()
 					.withPosition(-0.945000f, 4.065000f, -7.845000f)
 					.withRotation(0.000000f, 1.000000f, 10.681469f)
-					.withRotationPoint(-0.12000000357627871, -0.36000001072883614, 0.040000001192092904)
-                    .withScale(3.0, 3.0, 3.0)
+					.withPivotPoint(-0.12000000357627871F, -0.36000001072883614F, 0.040000001192092904F)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -237,18 +234,18 @@ public class M9A1Factory implements GunFactory {
                         // Left hand
                         new Transform()
                         .withPosition(1.370000f, 0.865000f, 2.020000f)
-                        .withBBRotation(-12.9672, -29.0825, 67.8433)
+                        .withBBRotation(-12.9672F, -29.0825F, 67.8433F)
                         .withScale(3, 3, 4)
-                        .withRotationPoint(0, 0, 0),
+                        .withPivotPoint(0, 0, 0),
                         
                         
                         
                         // Right hand
                         new Transform()
                         .withPosition(-0.320000f, 0.220000f, 2.040000f)
-                        .withBBRotation(10.0931, 10.9576, -10.0294)
-                        .withScale(3, 3, 3.5)
-                        .withRotationPoint(0, 0, 0)
+                        .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                        .withScale(3, 3, 3.5F)
+                        .withPivotPoint(0, 0, 0)
                 
                 )
                 
@@ -422,17 +419,17 @@ public class M9A1Factory implements GunFactory {
 				 new Transform()
 				 .withPosition(-0.945000f, 3.625000f, -7.165000f)
 				 .withRotation(-4.041486f, -30.854630f, -19.420376f)
-				 .withRotationPoint(-0.120000f, -0.360000f, 0.040000f)
+				 .withPivotPoint(-0.120000f, -0.360000f, 0.040000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
 				 new Transform()
 				 .withPosition(-0.945000f, 3.625000f, -7.885000f)
 				 .withRotation(-4.041486f, -45.595835f, -21.768277f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
           
 			 .withFirstPersonHandPositioningModifying(
@@ -440,17 +437,17 @@ public class M9A1Factory implements GunFactory {
                   	 new Transform()
                   	 .withPosition(2.770000f, 1.225000f, 0.140000f)
                   	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                       .withScale(2.6, 2.6, 4.0)
-                       .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                       .doGLDirect();
+                       .withScale(2.6F, 2.6F, 4.0F)
+                       .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                       .applyTransformations();
                    }, 
                    (renderContext) -> {
                   	 new Transform()
                   	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                       .withBBRotation(10.0931, 10.9576, -10.0294)
-                       .withScale(3, 3, 3.5)
-                       .withRotationPoint(0, 0, 0)
-                       .doGLDirect();
+                       .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                       .withScale(3, 3, 3.5F)
+                       .withPivotPoint(0, 0, 0)
+                       .applyTransformations();
                    })
                    
           .withFirstPersonHandPositioningModifyingAlt(
@@ -458,17 +455,17 @@ public class M9A1Factory implements GunFactory {
                  	 new Transform()
 	                   	 .withPosition(2.770000f, 1.225000f, 0.140000f)
 	                   	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                      .withScale(2.6, 2.6, 4.0)
-                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                      .doGLDirect();
+                      .withScale(2.6F, 2.6F, 4.0F)
+                      .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                      .applyTransformations();
                   }, 
                   (renderContext) -> {
                  	 new Transform()
                  	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                      .withBBRotation(10.0931, 10.9576, -10.0294)
-                      .withScale(3, 3, 3.5)
-                      .withRotationPoint(0, 0, 0)
-                      .doGLDirect();
+                      .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                      .withScale(3, 3, 3.5F)
+                      .withPivotPoint(0, 0, 0)
+                      .applyTransformations();
                   })
                     
             .withThirdPersonLeftHandPositioningReloading(

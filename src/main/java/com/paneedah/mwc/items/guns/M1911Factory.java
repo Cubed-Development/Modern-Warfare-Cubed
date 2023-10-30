@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
@@ -36,9 +36,6 @@ public class M1911Factory implements GunFactory {
         .withInspectSound("inspection")
         .withDrawSound("handgun_draw")
         .withReloadingTime(50)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.13f)
@@ -86,7 +83,7 @@ public class M1911Factory implements GunFactory {
                 GL11.glTranslatef(-0.155F, -1.155F, -0.15F);
                 GL11.glScaled(0.3F, 0.3F, 0.3F);
             }
-            else if(model instanceof M1911frontsight) {
+            else if(model instanceof M1911FrontSight) {
                 GL11.glTranslatef(-0.15F, -1.145F, -2.35F);
                 GL11.glScaled(0.25F, 0.25F, 0.25F);
             }
@@ -100,7 +97,7 @@ public class M1911Factory implements GunFactory {
                 GL11.glTranslatef(-0.155F, -1.155F, -0.15F);
                 GL11.glScaled(0.3F, 0.3F, 0.3F);
             }
-            else if(model instanceof M1911frontsight) {
+            else if(model instanceof M1911FrontSight) {
                 GL11.glTranslatef(-0.15F, -1.145F, -2.8F);
                 GL11.glScaled(0.25F, 0.25F, 0.25F);
             }

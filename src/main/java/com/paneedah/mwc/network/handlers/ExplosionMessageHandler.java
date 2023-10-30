@@ -1,8 +1,8 @@
 package com.paneedah.mwc.network.handlers;
 
 import com.paneedah.mwc.network.messages.ExplosionMessage;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.vectors.Vector3D;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

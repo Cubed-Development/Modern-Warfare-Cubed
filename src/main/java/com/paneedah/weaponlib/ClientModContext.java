@@ -13,7 +13,6 @@ import com.paneedah.weaponlib.inventory.InventoryTabs;
 import com.paneedah.weaponlib.melee.ItemMelee;
 import com.paneedah.weaponlib.melee.MeleeRenderer;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
-import com.paneedah.weaponlib.perspective.PerspectiveManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;
@@ -40,8 +39,6 @@ public class ClientModContext extends CommonModContext {
     protected static ClientModContext currentContext;
     private ClientEventHandler clientEventHandler;
     private CompatibleRenderingRegistry rendererRegistry;
-
-    private PerspectiveManager viewManager;
 
     private float aspectRatio;
     private Framebuffer inventoryFramebuffer;
@@ -93,7 +90,6 @@ public class ClientModContext extends CommonModContext {
 
         MinecraftForge.EVENT_BUS.register(clientEventHandler); // TODO: what are the implications of registering the same class with 2 buses
 
-        this.viewManager = new PerspectiveManager(this);
         this.inventoryTextureMap = new HashMap<>();
 
         this.effectManager = new ClientEffectManager();
@@ -128,10 +124,6 @@ public class ClientModContext extends CommonModContext {
 
     @Override
     public void registerServerSideOnly() {
-    }
-
-    public PerspectiveManager getViewManager() {
-        return viewManager;
     }
 
     @Override

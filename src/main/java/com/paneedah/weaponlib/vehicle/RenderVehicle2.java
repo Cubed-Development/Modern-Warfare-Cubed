@@ -690,9 +690,9 @@ public class RenderVehicle2 extends Render<Entity> {
 //	        GL11.glColor4f(0.0F, 0.0F, 0.0F, 0.4F);
 //	        GL11.glLineWidth(2.0F);
 //	        
-//	        //AxisAlignedBB fbb = entityVehicle.getFrontBoundingBox().copy();
+//	        //AxisAlignedBB fbb = entityVehicle.getFrontBoundingBox().set();
 //
-////	        AxisAlignedBB cbb = entityVehicle.getBoundingBox().copy();
+////	        AxisAlignedBB cbb = entityVehicle.getBoundingBox().set();
 ////	        cbb.offset(-entityVehicle.posX, -entityVehicle.posY, -entityVehicle.posZ);
 ////	        RenderGlobal.drawOutlinedBoundingBox(cbb, 16777215);
 //	        

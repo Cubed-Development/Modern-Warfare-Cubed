@@ -1,8 +1,9 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.renderer.ModelSourceTransforms;
-import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.IModelSource;
+import com.paneedah.mwc.rendering.ModelSourceTransforms;
+import com.paneedah.mwc.rendering.renderer.StaticModelSourceRenderer;
+import com.paneedah.mwc.rendering.TexturedModel;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -26,11 +27,10 @@ import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 
-public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModernCrafting, IHasModel {
+public class ItemVest extends Item implements ISpecialArmor, IModelSource, IModernCrafting, IHasModel {
 
 
     public static class Builder {
@@ -39,18 +39,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
         private CreativeTabs tab;
         private ModelBase model;
         private String textureName;
-        private ModelSourceTransforms transforms = ModelSourceTransforms.builder()
-                .entityPositioning(() -> new Transform()
-                        .withPosition(-0.5F, -1.75F, 0.5F)
-                        .withScale(1, 1, 1)
-                        .doGLDirect())
-                .inventoryPositioning(() -> new Transform()
-                        .withPosition(-0.15, -4.15, 0.35)
-                        .withRotation(18, -50, 0)
-                        .withScale(2.9, 2.9, 2.9)
-                        .doGLDirect())
-                .build();
-
+        private ModelSourceTransforms.ModelSourceTransformsBuilder transforms = ModelSourceTransforms.builder();
         private String modelFileString;
         private String properTextureName;
 
@@ -113,57 +102,6 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
             return this;
         }
 
-        public Builder withEntityPositioning(Runnable entityPositioning) {
-            transforms.setEntityPositioning(entityPositioning);
-            return this;
-        }
-
-        public Builder withInventoryPositioning(Runnable inventoryPositioning) {
-            transforms.setInventoryPositioning(inventoryPositioning);
-            return this;
-        }
-
-        public Builder withThirdPersonPositioning(Runnable thirdPersonPositioning) {
-            transforms.setThirdPersonPositioning(thirdPersonPositioning);
-            return this;
-        }
-
-        public Builder withCustomEquippedPositioning(Runnable customEquippedPositioning) {
-            transforms.setCustomEquippedPositioning(customEquippedPositioning);
-            return this;
-        }
-
-        public Builder withFirstPersonPositioning(Runnable firstPersonPositioning) {
-            transforms.setFirstPersonPositioning(firstPersonPositioning);
-            return this;
-        }
-
-        public Builder withFirstPersonModelPositioning(Consumer<ModelBase> firstPersonModelPositioning) {
-            transforms.setFirstPersonModelPositioning(firstPersonModelPositioning);
-            return this;
-        }
-
-        public Builder withEntityModelPositioning(Consumer<ModelBase> entityModelPositioning) {
-            transforms.setEntityModelPositioning(entityModelPositioning);
-            return this;
-        }
-
-        public Builder withInventoryModelPositioning(Consumer<ModelBase> inventoryModelPositioning) {
-            transforms.setInventoryModelPositioning(inventoryModelPositioning);
-            return this;
-        }
-
-        public Builder withThirdPersonModelPositioning(Consumer<ModelBase> thirdPersonModelPositioning) {
-            transforms.setThirdPersonModelPositioning(thirdPersonModelPositioning);
-            return this;
-        }
-
-        public Builder withFirstPersonHandPositioning(Runnable leftHand, Runnable rightHand) {
-            transforms.setFirstPersonLeftHandPositioning(leftHand);
-            transforms.setFirstPersonRightHandPositioning(rightHand);
-            return this;
-        }
-
         public ItemVest build(ModContext modContext) {
             if (name == null) {
                 throw new IllegalStateException("ItemBackpack name not set");
@@ -197,48 +135,30 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
 
 
             if (this.modelFileString != null && !FMLCommonHandler.instance().getSide().isServer()) {
-
                 try {
-                    //System.out.println("FOR ITEM: " + item.getRegistryName() + " | ");
                     ModelBase base = (ModelBase) Class.forName(this.modelFileString).newInstance();
-                    item.texturedModels.add(new Tuple<>(base, addFileExtension(this.properTextureName, ".png")));
-
-
-                } catch (InstantiationException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    item.texturedModels.add(new TexturedModel(base, addFileExtension(this.properTextureName, ".png")));
+                } catch (InstantiationException | IllegalAccessException | ClassNotFoundException exception) {
+                    exception.printStackTrace();
                 }
-
-
             }
 
-            if (model != null) {
-                item.texturedModels.add(new Tuple<>(model, addFileExtension(textureName, ".png")));
-            }
+            if (model != null)
+                item.texturedModels.add(new TexturedModel(model, addFileExtension(textureName, ".png")));
 
-
-            if (tab != null) {
+            if (tab != null)
                 item.setCreativeTab(tab);
-
-
-            }
 
             // lientEventHandler.ITEM_REG.add(item);
 
-            modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+            modContext.registerRenderableItem(name, item, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms.build()) : null);
 
             return item;
         }
     }
 
 
-    private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+    private List<TexturedModel> texturedModels = new ArrayList<>();
     private int size;
     private final int damageReduceAmount;
 
@@ -283,12 +203,12 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
     }
 
     @Override
-    public List<Tuple<ModelBase, String>> getTexturedModels() {
+    public List<TexturedModel> getTexturedModels() {
         return texturedModels;
     }
 
     @Override
-    public CustomRenderer<?> getPostRenderer() {
+    public CustomRenderer<RenderableState> getPostRenderer() {
         return null;
     }
 

@@ -14,7 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Qodana Composite
-        uses: Red-Studio-Ragnarok/Qodana-Composite@main
-        with:
-          qodana_token: ${{ secrets.QODANA_TOKEN }}
+      - name: Code Checkout
+        uses: actions/checkout@v3.6.0
+
+      - name: 'Qodana Scan'
+        uses: JetBrains/qodana-action@v2023.2.1
+        env:
+          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}

@@ -66,7 +66,7 @@ public class ClientValueRepo {
 	// the shoulder.
 	private static final float GUN_POWER_PAST_STOCK_DIVISOR = 0.4f;
 	
-	// Divides power to add it to weapon recovery velocity
+	// Divides power to add it to weapons recovery velocity
 	private static final double WEAPON_RECOVERY_VELOCITY_POWER = 0.25;
 
 

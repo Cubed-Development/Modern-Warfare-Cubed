@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -9,7 +9,7 @@ import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
@@ -34,9 +34,6 @@ public class G11Factory {
         .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
         .withReloadingTime(45)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.14f)
@@ -45,7 +42,7 @@ public class G11Factory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
 		.withRecoilParam(new RecoilParam(
-				// The weapon power
+				// The weapons power
 				15.0,
 				// Muzzle climb divisor
 				15.75,
@@ -86,7 +83,7 @@ public class G11Factory {
 //          GL11.glRotatef(5F, 1f, 0f, 0f);
 //          GL11.glRotatef(-10F, 0f, 1f, 0f);
         })
-        .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
             GL11.glTranslatef(-0.16F, -1.67F, -1.55F);
             GL11.glScaled(0.55F, 0.55F, 0.55F);
 		},(model) -> {
@@ -95,7 +92,7 @@ public class G11Factory {
 		        GL11.glScaled(0.04F, 0.04F, 0.04F);
 		    }
 		})
-        .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.24F, -1.9F, -1.6F);
             GL11.glScaled(1F, 1F, 1F);
         },(model) -> {
@@ -104,7 +101,7 @@ public class G11Factory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.362F, -1.85F, 0.15F);
             GL11.glScaled(1F, 1F, 1F);
         },(model) -> {
@@ -117,7 +114,7 @@ public class G11Factory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroT1, () -> {
                 GL11.glTranslatef(-0.2F, -1.9F, -0.3F);
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
         },(model) -> {
@@ -126,7 +123,7 @@ public class G11Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
         	GL11.glTranslatef(-0.2F, -1.9F, -0.3F);
             GL11.glScaled(0.5F, 0.5F, 0.5F);
         },(model) -> {
@@ -135,7 +132,7 @@ public class G11Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Specter, () -> {
             GL11.glTranslatef(-0.21F, -1.47F, -0.35F);
             GL11.glScaled(0.55F, 0.55F, 0.55F);
         },(model) -> {
@@ -144,7 +141,7 @@ public class G11Factory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Reflex, () -> {
             GL11.glTranslatef(-0.05F, -1.63F, -0.8F);
             GL11.glScaled(0.6F, 0.6F, 0.6F);
             },(model) -> {
@@ -153,7 +150,7 @@ public class G11Factory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
             GL11.glTranslatef(-0.05F, -1.61F, -0.8F);
             GL11.glScaled(0.6F, 0.6F, 0.6F);
             },(model) -> {
@@ -162,7 +159,7 @@ public class G11Factory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Holographic, () -> {
             GL11.glTranslatef(-0.018F, -1.7F, -0.4F);
             GL11.glScaled(0.85F, 0.85F, 0.85F);
             },(model) -> {
@@ -171,7 +168,7 @@ public class G11Factory {
                     GL11.glScaled(0.1F, 0.1F, 0.1F);
                 }
             })
-        .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
                 GL11.glTranslatef(-0.018F, -1.7F, -0.4F);
                 GL11.glScaled(0.85F, 0.85F, 0.85F);
         },(model) -> {
@@ -180,7 +177,7 @@ public class G11Factory {
                     GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
         	GL11.glTranslatef(-0.018F, -1.7F, -0.7F);
             GL11.glScaled(0.85F, 0.85F, 0.85F);
         },(model) -> {
@@ -193,7 +190,7 @@ public class G11Factory {
                 GL11.glScaled(0.05F, 0.05F, 0.05F);
             }
         })
-        .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Kobra, () -> {
                 GL11.glTranslatef(-0.01F, -1.68F, -0.3F);
                 GL11.glScaled(0.85F, 0.85F, 0.85F);
         },(model) -> {
@@ -202,7 +199,7 @@ public class G11Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.KobraGen3, () -> {
             GL11.glTranslatef(-0.01F, -1.68F, -0.3F);
             GL11.glScaled(0.85F, 0.85F, 0.85F);
 	    },(model) -> {
@@ -211,7 +208,7 @@ public class G11Factory {
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.RMR, () -> {
                 GL11.glTranslatef(-0.194F, -1.9F, -0.3F);
                 GL11.glScaled(0.45F, 0.45F, 0.45F);
         },(model) -> {
@@ -252,8 +249,8 @@ public class G11Factory {
 					new Transform()
 					.withPosition(-1.425000f, 5.545000f, -5.765000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
-					.withRotationPoint(-0.350000f, -3.460000f, -0.580000f)
-                    .withScale(3.0, 3.0, 3.0)
+					.withPivotPoint(-0.350000f, -3.460000f, -0.580000f)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -261,18 +258,18 @@ public class G11Factory {
                         // Left hand
                         new Transform()
                         .withPosition(1.090000f, 0.185000f, 0.180000f)
-                        .withBBRotation(-8.1997, -23.6991, 57.7232)
-                        .withScale(2.6, 2.6, 4.0)
-                        .withRotationPoint(0, 0, 0),
+                        .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
+                        .withScale(2.6F, 2.6F, 4.0F)
+                        .withPivotPoint(0, 0, 0),
                         
                         
                         
                         // Right hand
                         new Transform()
                         .withPosition(-0.200000f, 0.340000f, 2.000000f)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3.5, 3.5, 3.5)
-                        .withRotationPoint(0, 0, 0)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.5F, 3.5F, 3.5F)
+                        .withPivotPoint(0, 0, 0)
                 
                 )
                 
@@ -384,17 +381,17 @@ public class G11Factory {
 				 new Transform()
 				 .withPosition(-1.985000f, 5.145000f, -5.245000f)
 				 .withRotation(0.000000f, -30.514396f, -26.062789f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
 				 new Transform()
 				 .withPosition(-1.265000f, 4.745000f, -8.285000f)
 				 .withRotation(2.793742f, -46.352252f, -19.231070f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 					 
 			.withFirstPersonHandPositioningModifying(
@@ -402,17 +399,17 @@ public class G11Factory {
              	 new Transform()
              	.withPosition(2.330000f, 0.065000f, 0.140000f)
              	.withRotation(78.544055f, 23.699100f, 18.430633f)
-                  .withScale(2.6, 2.6, 4.0)
-                  .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                  .doGLDirect();
+                  .withScale(2.6F, 2.6F, 4.0F)
+                  .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                  .applyTransformations();
               }, 
               (renderContext) -> {
              	 new Transform()
              	.withPosition(-0.200000f, -0.180000f, 1.760000f)
-               .withRotation(-5.4027, -4.7805, -1.6694)
-                  .withScale(3.5, 3.5, 3.5)
-                  .withRotationPoint(0, 0, 0)
-                  .doGLDirect();
+               .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                  .withScale(3.5F, 3.5F, 3.5F)
+                  .withPivotPoint(0, 0, 0)
+                  .applyTransformations();
               })
               
 		     .withFirstPersonHandPositioningModifyingAlt(
@@ -421,16 +418,16 @@ public class G11Factory {
 		            	 .withPosition(2.330000f, 0.065000f, 0.140000f)
 		              	.withRotation(78.544055f, 23.699100f, 18.430633f)
 		            	 	.withScale(2.600000f, 2.600000f, 4.000000f)
-		                 .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-		                 .doGLDirect();
+		                 .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+		                 .applyTransformations();
 		             }, 
 		             (renderContext) -> {
 		            	 new Transform()
 		            	.withPosition(-0.200000f, -0.180000f, 1.760000f)
-		               .withRotation(-5.4027, -4.7805, -1.6694)
-		                 .withScale(3.5, 3.5, 3.5)
-		                 .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-		                 .doGLDirect();
+		               .withRotation(-5.4027F, -4.7805F, -1.6694F)
+		                 .withScale(3.5F, 3.5F, 3.5F)
+		                 .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+		                 .applyTransformations();
 		             })
              
             .build())

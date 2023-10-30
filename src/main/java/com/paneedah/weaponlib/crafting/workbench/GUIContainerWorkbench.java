@@ -33,7 +33,7 @@ import static com.paneedah.mwc.MWC.CHANNEL;
  * Features (plus the features of it's parent class {@link GUIContainerStation})
  * 1. Player has three categories to choose from weapons, attachments, and modification attachments
  * 2. If the player has the materials to craft an item, they can craft it
- * 3. 3D weapon rendering into the GUI
+ * 3. 3D weapons rendering into the GUI
  * 
  * @author Homer Riva-Cambrin, 2022
  * @version September 23rd, 2022
@@ -167,7 +167,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	}
 	
 	/**
-	 * Since weapon crafting is not queued, we need to block
+	 * Since weapons crafting is not queued, we need to block
 	 * the player from initiating a craft should they not have
 	 * the materials.
 	 */
@@ -196,7 +196,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	public void doCraftingModeOneRender(float partialTicks, int mouseX, int mouseY) {
 		
 		// This is just a backup check. This should only ever run if we are dealing
-		// with crafting mode one, so it will always be a weapon.
+		// with crafting mode one, so it will always be a weapons.
 		if(!(getSelectedCraftingPiece().getItem() instanceof Weapon)) return;
 	
 		Weapon weapon = (Weapon) getSelectedCraftingPiece().getItem();

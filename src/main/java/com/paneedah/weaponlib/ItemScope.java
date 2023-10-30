@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.weaponlib.electronics.ScopePerspective;
-import com.paneedah.weaponlib.perspective.ReflexScreen;
+import com.paneedah.mwc.rendering.perspective.ScopePerspectiveRenderer;
+import com.paneedah.mwc.models.ReflexScreen;
 import com.paneedah.weaponlib.render.scopes.CyclicList;
 import com.paneedah.weaponlib.render.scopes.Reticle;
 import org.lwjgl.opengl.GL11;
@@ -110,7 +110,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
                         GL11.glTranslatef(0.1f, 0.4f, 0.6f);
                     };
                 }
-                withPostRender(new ScopePerspective(viewfinderPositioning, sniperReticle));
+                withPostRender(new ScopePerspectiveRenderer(viewfinderPositioning, sniperReticle));
             }
             
             if(!reticles.isEmpty()) {
@@ -125,7 +125,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
         }
 
         @Override
-        public ItemAttachment<Weapon> build(ModContext modContext) {
+        public ItemAttachment<Weapon> build() {
             this.apply2 = (a, instance) -> {
                 float zoom = minZoom + (maxZoom - minZoom) / 2f;
                 instance.setZoom(zoom);
@@ -133,7 +133,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
             this.remove2 = (a, instance) -> {
                 instance.setZoom(1);
             };
-            return super.build(modContext);
+            return super.build();
         }
     }
 
@@ -142,7 +142,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
     private Builder builder;
 
     private ItemScope(Builder builder) {
-        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(), null,
+        super(AttachmentCategory.SCOPE, builder.getModel(), builder.getTextureName(),
                 null, null);
         this.builder = builder;
 

@@ -1,8 +1,8 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.RPG7;
-import com.paneedah.mwc.models.RPG7rocketPROJECTILE;
+import com.paneedah.mwc.models.weapons.RPG7;
+import com.paneedah.mwc.models.weapons.RPG7rocketPROJECTILE;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -32,9 +32,6 @@ public class RPG7Factory implements GunFactory {
         .withShootSound("rpg7")
         .withReloadSound("rpg7_reload")
         .withReloadingTime(50)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.7f)
         .withFlashScale(() -> 2f)
         .withFlashOffsetX(() -> 0.1f)

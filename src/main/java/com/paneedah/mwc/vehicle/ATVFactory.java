@@ -1,10 +1,10 @@
 package com.paneedah.mwc.vehicle;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.ATV;
-import com.paneedah.mwc.models.ATVSteering;
-import com.paneedah.mwc.models.ATVWheel;
-import com.paneedah.mwc.models.SampleVehicleControlArm;
+import com.paneedah.mwc.models.weapons.ATV;
+import com.paneedah.mwc.models.weapons.ATVSteering;
+import com.paneedah.mwc.models.weapons.ATVWheel;
+import com.paneedah.mwc.models.weapons.SampleVehicleControlArm;
 import com.paneedah.mwc.vehicle.engines.PolarisATVEngine;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.*;

@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.BrowningAuto5;
+import com.paneedah.mwc.models.weapons.BrowningAuto5;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -39,9 +39,6 @@ public class BrowningAuto5Factory implements GunFactory {
         .withInspectSound("inspection")
         .withReloadIterationSound("load_shell")
         .withReloadingTime(15)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")    
-        .withCrosshairZoomed("Sight")
         .withInaccuracy(20)
         .withPellets(10)
         .withFlashIntensity(0.5f)

@@ -65,7 +65,7 @@ public class LaserBeamRenderer implements CustomRenderer {
 			GlStateManager.shadeModel(GL11.GL_SMOOTH);
 			GlStateManager.disableTexture2D();
 			GlStateManager.disableLighting();
-			if(positioning != null) positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
+			if(positioning != null) positioning.accept(renderContext.getEntityLiving(), renderContext.getWeapon());
 			
 			//Shader brightShader = ShaderLoader.loadVMWShader("brightness");
 			Shaders.brightnessShader.use();

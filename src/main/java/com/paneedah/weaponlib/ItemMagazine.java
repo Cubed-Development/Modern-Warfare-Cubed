@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,6 +16,11 @@ import java.util.List;
 public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemInstanceFactory<PlayerMagazineInstance, MagazineState>, Reloadable, Updatable, Part {
 	
 	public static final class Builder extends AttachmentBuilder<Weapon> {
+
+		{
+			creativeTab = MWC.AMMUNITION_AND_MAGAZINES_TAB;
+		}
+
 		private int capacity;
 		private final List<ItemBullet> compatibleBullets = new ArrayList<>();
 		private String reloadSound;
@@ -72,7 +78,7 @@ public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemIn
 	}
 
 	ItemMagazine(ModelBase model, String textureName, int capacity, ApplyHandler<Weapon> apply, ApplyHandler<Weapon> remove) {
-		super(AttachmentCategory.MAGAZINE, model, textureName, null, apply, remove);
+		super(AttachmentCategory.MAGAZINE, model, textureName, apply, remove);
 		this.capacity = capacity;
 		setMaxStackSize(1);
 	}

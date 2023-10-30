@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -9,7 +9,7 @@ import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -40,9 +40,6 @@ public class UziFactory implements GunFactory {
         .withInspectSound("inspection")
         .withDrawSound("uzi_draw")
         .withReloadingTime(50)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.4f)
         .withFlashScale(() -> 1f)
         .withFlashOffsetX(() -> 0.17f)
@@ -52,7 +49,7 @@ public class UziFactory implements GunFactory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
 		.withRecoilParam(new RecoilParam(
-				// The weapon power
+				// The weapons power
 				15.0,
 				// Muzzle climb divisor
 				15.75,
@@ -178,8 +175,8 @@ public class UziFactory implements GunFactory {
 					new Transform()
 					.withPosition(-1.265000f, 4.225000f, -5.765000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
-                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -187,18 +184,18 @@ public class UziFactory implements GunFactory {
                         // Left hand
                         new Transform()
                         .withPosition(1.210000f, 0.505000f, 0.620000f)
-                        .withBBRotation(-7.2749, -30.8463, 56.4758)
-                        .withScale(2.6, 2.6, 4.0)
-                        .withRotationPoint(0, 0, 0),
+                        .withBBRotation(-7.2749F, -30.8463F, 56.4758F)
+                        .withScale(2.6F, 2.6F, 4.0F)
+                        .withPivotPoint(0, 0, 0),
                         
                         
                         
                         // Right hand
                         new Transform()
-                        .withPosition(-0.2, 0.1, 2)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3.5, 3.5, 3.5)
-                        .withRotationPoint(0, 0, 0)
+                        .withPosition(-0.2F, 0.1F, 2)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.5F, 3.5F, 3.5F)
+                        .withPivotPoint(0, 0, 0)
                 
                 )
                 
@@ -323,17 +320,17 @@ public class UziFactory implements GunFactory {
 				 new Transform()
 				 .withPosition(-0.945000f, 3.625000f, -7.165000f)
 				 .withRotation(-4.041486f, -30.854630f, -19.420376f)
-				 .withRotationPoint(-0.120000f, -0.360000f, 0.040000f)
+				 .withPivotPoint(-0.120000f, -0.360000f, 0.040000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
 				 new Transform()
 				 .withPosition(-0.945000f, 3.625000f, -7.885000f)
 				 .withRotation(-4.041486f, -45.595835f, -21.768277f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
         
 			 .withFirstPersonHandPositioningModifying(
@@ -341,17 +338,17 @@ public class UziFactory implements GunFactory {
                 	 new Transform()
                 	 .withPosition(2.770000f, 1.225000f, 0.140000f)
                 	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                     .withScale(2.6, 2.6, 4.0)
-                     .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                     .doGLDirect();
+                     .withScale(2.6F, 2.6F, 4.0F)
+                     .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                     .applyTransformations();
                  }, 
                  (renderContext) -> {
                 	 new Transform()
                 	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                     .withBBRotation(10.0931, 10.9576, -10.0294)
-                     .withScale(3, 3, 3.5)
-                     .withRotationPoint(0, 0, 0)
-                     .doGLDirect();
+                     .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                     .withScale(3, 3, 3.5F)
+                     .withPivotPoint(0, 0, 0)
+                     .applyTransformations();
                  })
                  
         .withFirstPersonHandPositioningModifyingAlt(
@@ -359,17 +356,17 @@ public class UziFactory implements GunFactory {
                	 new Transform()
 	                   	 .withPosition(2.770000f, 1.225000f, 0.140000f)
 	                   	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                    .withScale(2.6, 2.6, 4.0)
-                    .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                    .doGLDirect();
+                    .withScale(2.6F, 2.6F, 4.0F)
+                    .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                    .applyTransformations();
                 }, 
                 (renderContext) -> {
                	 new Transform()
                	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                    .withBBRotation(10.0931, 10.9576, -10.0294)
-                    .withScale(3, 3, 3.5)
-                    .withRotationPoint(0, 0, 0)
-                    .doGLDirect();
+                    .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                    .withScale(3, 3, 3.5F)
+                    .withPivotPoint(0, 0, 0)
+                    .applyTransformations();
                 })
                    
            .withThirdPersonLeftHandPositioningReloading(

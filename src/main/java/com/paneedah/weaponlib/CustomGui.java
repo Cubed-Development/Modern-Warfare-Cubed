@@ -209,8 +209,7 @@ public class CustomGui extends Gui {
 	}
 
 	
-	public void handleModificationHUD(RenderGameOverlayEvent.Pre event, PlayerWeaponInstance weaponInstance, double scaledWidth,
-			double scaledHeight) {
+	public void handleModificationHUD(PlayerWeaponInstance weaponInstance, double scaledWidth, double scaledHeight) {
 		if (isInAltModifyingState(weaponInstance) || isInModifyingState(weaponInstance)) {
 			//GlStateManager.alphaFunc(GL11.GL_GREATER, 0);
 			ModificationGUI.getInstance().render(modContext);
@@ -227,9 +226,8 @@ public class CustomGui extends Gui {
 			}
 
 			if(ModernConfigManager.enableAmmoCounter) {
-				handleAmmoCounter(event, weaponInstance, scaledWidth, scaledHeight);
+				handleAmmoCounter(weaponInstance, scaledWidth, scaledHeight);
 			}
-			event.setCanceled(true);
 		}
 	}
 	
@@ -272,7 +270,7 @@ public class CustomGui extends Gui {
 	public static final double CURRENT_AMMO_WIDTH_MULTIPLIER = 2.0;
 	public static final double TOTAL_AMMO_STRING_SCALE = 6.625;
 	
-	public void handleAmmoCounter(RenderGameOverlayEvent.Pre event, PlayerWeaponInstance weaponInstance, double scaledWidth, double scaledHeight) {
+	public void handleAmmoCounter(PlayerWeaponInstance weaponInstance, double scaledWidth, double scaledHeight) {
 		final int AMMO_COUNTER_X_POS = 256 + ModernConfigManager.ammoCounterX;
 		final int AMMO_COUNTER_Y_POS = 128 + ModernConfigManager.ammoCounterY;
 		final double AMMO_COUNTER_SIZE = ModernConfigManager.ammoCounterSize;
@@ -300,7 +298,7 @@ public class CustomGui extends Gui {
 		}
 		
 		// Check the total capacity, this allows us to differentiate b/w
-		// cartridge based weapons, and allows us to tell if a weapon has no
+		// cartridge based weapons, and allows us to tell if a weapons has no
 		// magazine in it.
 		ItemMagazine magazine = (ItemMagazine) WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, weaponInstance);
 		int totalCapacity;
@@ -346,7 +344,7 @@ public class CustomGui extends Gui {
 				FIREMODE_INDICATOR_V_HEIGHT, FIREMODE_INDICATOR_U_WIDTH, FIREMODE_INDICATOR_U_WIDTH);
 		GlStateManager.popMatrix();
 		
-		// Get the weapon name from the localization file
+		// Get the weapons name from the localization file
 		String weaponName = new TextComponentTranslation(LangTools.formatName(weaponInstance.getWeapon().getTranslationKey())).getFormattedText();
 
 		
@@ -405,7 +403,7 @@ public class CustomGui extends Gui {
 	public static  final String BRACKET_FORMATTER = "[%s]";
 	
 	
-	public void handleOpenDoorHUD(RenderGameOverlayEvent.Pre event, double scaledWidth, double scaledHeight) {
+	public void handleOpenDoorHUD(double scaledWidth, double scaledHeight) {
 
 		 if(ModernConfigManager.enableOpenDoorDisplay) {
          	EntityPlayer player = MC.player;
@@ -441,76 +439,47 @@ public class CustomGui extends Gui {
          }
 	}
 
+	@SubscribeEvent
+	public final void onRenderCrosshair(RenderGameOverlayEvent.Pre renderGameOverlayEvent) {
+		if (renderGameOverlayEvent.getType() != CROSSHAIRS || MC.player.isSpectator())
+			return;
+
+		if (modContext.getMainHeldWeapon() != null)
+			renderGameOverlayEvent.setCanceled(true);
+	}
 
 	@SubscribeEvent
-	public final void onRenderCrosshair(RenderGameOverlayEvent.Pre event) {
-		
-		if (event.getType() != RenderGameOverlayEvent.ElementType.CROSSHAIRS || MC.player.isSpectator()) {
+	public final void onRenderHotbar(final RenderGameOverlayEvent.Pre renderGameOverlayEvent) {
+		if (renderGameOverlayEvent.getType() != HOTBAR || MC.player.isSpectator())
 			return;
-		}
-		
-		
 
-		ItemStack itemStack = MC.player.getHeldItemMainhand();
+		final ScaledResolution scaledResolution = renderGameOverlayEvent.getResolution();
+		final int width = scaledResolution.getScaledWidth();
+		final int height = scaledResolution.getScaledHeight();
 
-		if(itemStack == null) {
-			return;
-		}
-		
-		ScaledResolution scaledResolution = event.getResolution();
-        int width = scaledResolution.getScaledWidth();
-        int height = scaledResolution.getScaledHeight();
-        FontRenderer fontRender = MC.fontRenderer;
-
-		PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
-
-		
-		
-		
-		if(weaponInstance != null) {
-		    
-			Weapon weaponItem = (Weapon) itemStack.getItem();
-
-			String crosshair = weaponItem != null ? weaponItem.getCrosshair(weaponInstance) : null;
-			if(crosshair != null) {
-
-
-
-				MC.entityRenderer.setupOverlayRendering();
-
-				GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-				GlStateManager.disableLighting();
-				GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
-				GlStateManager.disableBlend();
-
-				MC.renderEngine.bindTexture(new ResourceLocation(crosshair));
-
-                   
-                handleModificationHUD(event, modContext.getMainHeldWeapon(), width, height);
-                handleOpenDoorHUD(event, width, height);
-
-					
-			}
-		} else if(itemStack.getItem() instanceof ItemMagazine) {
-
+		if (modContext.getMainHeldWeapon() != null) {
 			MC.entityRenderer.setupOverlayRendering();
-			int color = 0xFFFFFF;
 
-			String messageText;
-			messageText = getDefaultMagazineMessage(itemStack);
+			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GlStateManager.disableLighting();
+			GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
+			GlStateManager.disableBlend();
 
-			int x = getStatusBarXPosition(width, messageText, fontRender);
-			int y = getStatusBarYPosition(height);
+			handleModificationHUD(modContext.getMainHeldWeapon(), width, height);
+			handleOpenDoorHUD(width, height);
+		} else if (MC.player.getHeldItemMainhand().getItem() instanceof ItemMagazine) {
+			MC.entityRenderer.setupOverlayRendering();
 
-			fontRender.drawStringWithShadow(messageText, x, y, color);
-			event.setCanceled(true);
+			final FontRenderer fontRenderer = MC.fontRenderer;
+
+			final String messageText = getDefaultMagazineMessage(MC.player.getHeldItemMainhand());
+
+			fontRenderer.drawStringWithShadow(messageText, getStatusBarXPosition(width, messageText, fontRenderer), getStatusBarYPosition(height), 0xFFFFFF);
 		}
 	}
-	
-	
 
 	public void drawScaledString(FontRenderer fr, String str, double x, double y, double scale, int color) {
-		
+
 		GlStateManager.pushMatrix();
 		
 		GlStateManager.translate(x, y, 0);

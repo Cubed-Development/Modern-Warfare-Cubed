@@ -61,15 +61,15 @@ public class CommonProxy {
         DataSerializers.registerSerializer(VehiclePhysSerializer.SERIALIZER);
 
         // Special object initialization
-        SpecialAttachments.init(mod, MWC.modContext);
+        SpecialAttachments.init(mod);
         Backpacks.init();
         Belts.init();
         Vests.init(mod);
         Armors.init(mod, MWC.modContext);
-        Attachments.init(mod);
-        AuxiliaryAttachments.init(mod);
-        GunSkins.init(mod);
-        Bullets.init(mod);
+        Attachments.init();
+        AuxiliaryAttachments.init();
+        GunSkins.init();
+        Bullets.init();
         Magazines.init(mod);
         Guns.init(mod, this);
         Electronics.init();

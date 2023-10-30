@@ -1,6 +1,5 @@
 package com.paneedah.mwc.skins;
 
-import com.paneedah.mwc.utils.ModReference;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.util.ResourceLocation;
 
@@ -16,16 +15,18 @@ public class CustomSkin {
 
     public CustomSkin(String name, File file) {
         try {
-            resourceLocation = new ResourceLocation(ID, "customskin_"+name.toLowerCase());
+            resourceLocation = new ResourceLocation(ID, "customskin_" + name.toLowerCase());
             MC.getTextureManager().loadTexture(resourceLocation, new DynamicTexture(ImageIO.read(file)));
             MC.getTextureManager().bindTexture(resourceLocation);
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static ResourceLocation getCustomSkinResource(String skinName) {
-        File image = new File("./config/mwc/skins/"+skinName+".png");
+        File image = new File("./config/mwc/skins/" + skinName + ".png");
         if (!image.exists())
-            return new ResourceLocation(ID +":textures/models/"+GunSkins.WoodlandCamo.getTextureName()+".png");
+            return new ResourceLocation(ID + ":textures/models/" + GunSkins.WoodlandCamo.getTexturedModels().get(0).getTextureName() + ".png");
 
         if (!GunSkins.customSkins.containsKey(skinName))
             GunSkins.customSkins.put(skinName, new CustomSkin(skinName, image));

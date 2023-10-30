@@ -2,14 +2,14 @@ package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
 import com.paneedah.mwc.network.TypeRegistry;
+import com.paneedah.mwc.rendering.perspective.OpticalScopePerspective;
+import com.paneedah.mwc.rendering.perspective.Perspective;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.perspective.OpticalScopePerspective;
-import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSourceProvider;
 import com.paneedah.weaponlib.shader.DynamicShaderPhase;
@@ -65,7 +65,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
             .withUniform("Reticle", context -> {
             	
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-            	MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/hud/reticle1.png"));
+            	MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/hud/reticle.png"));
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
             	
             	return 4;
@@ -554,15 +554,13 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 	}
 
 	@Override
-	public Class<? extends Perspective<?>> getRequiredPerspectiveType() {
-	    Class<? extends Perspective<?>> result = null;
-	    if(isAimed() || !isAimed()) {
-	        ItemAttachment<Weapon> scope = getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
-	        if(scope instanceof ItemScope && ((ItemScope) scope).isOptical()) {
-	            result = OpticalScopePerspective.class;
-	        }
-	    }
-	    return result;
+	public Perspective getRequiredPerspectiveType() {
+		final ItemAttachment<Weapon> scope = getAttachmentItemWithCategory(AttachmentCategory.SCOPE);
+
+		if(scope instanceof ItemScope && ((ItemScope) scope).isOptical())
+			return new OpticalScopePerspective();
+
+		return null;
 	}
 
     private boolean hasOpticScope() {

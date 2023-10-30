@@ -2,13 +2,13 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -17,8 +17,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
-
-import java.util.Arrays;
 
 public class APC9Factory implements GunFactory {
 
@@ -41,9 +39,6 @@ public class APC9Factory implements GunFactory {
                 .withInspectSound("inspection")
                 .withDrawSound("noaction_draw")
                 .withReloadingTime(50)
-                .withCrosshair("gun")
-                .withCrosshairRunning("Running")
-                .withCrosshairZoomed("Sight")
                 .withFlashIntensity(0.5f)
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.12f)
@@ -52,7 +47,7 @@ public class APC9Factory implements GunFactory {
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
-                        // The weapon power
+                        // The weapons power
                         15.0,
                         // Muzzle climb divisor
                         15.75,
@@ -141,7 +136,7 @@ public class APC9Factory implements GunFactory {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.NightRaider, () -> {
                     GL11.glTranslatef(-0.215F, -1.68F, -2.1F);
                     GL11.glScaled(0.85F, 0.85F, 0.85F);
                 }, (model) -> {
@@ -151,7 +146,7 @@ public class APC9Factory implements GunFactory {
                     }
                 })
 
-                .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.ACOG, () -> {
                     GL11.glTranslatef(-0.31F, -1.73F, -0.7F);
                     GL11.glScaled(0.8F, 0.8F, 0.8F);
                 }, (model) -> {
@@ -164,7 +159,7 @@ public class APC9Factory implements GunFactory {
                     }
                 })
 
-                .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.Specter, () -> {
                     GL11.glTranslatef(-0.195F, -1.35F, -1F);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
                 }, (model) -> {
@@ -174,7 +169,7 @@ public class APC9Factory implements GunFactory {
                     }
                 })
 
-                .withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.MicroReflex, () -> {
                     GL11.glTranslatef(-0.15F, -2.3F, -1F);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }, (model) -> {
@@ -185,7 +180,7 @@ public class APC9Factory implements GunFactory {
                     }
                 })
 
-                .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.Reflex, () -> {
                     GL11.glTranslatef(-0.056F, -1.5F, -1.3F);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
                 }, (model) -> {
@@ -194,7 +189,7 @@ public class APC9Factory implements GunFactory {
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
                     GL11.glTranslatef(-0.05F, -1.47F, -1.3F);
                     GL11.glScaled(0.53F, 0.53F, 0.53F);
                 }, (model) -> {
@@ -204,7 +199,7 @@ public class APC9Factory implements GunFactory {
                     }
                 })
 
-                .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.Holographic, () -> {
                     GL11.glTranslatef(-0.025F, -1.54F, -1.2F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
                 }, (model) -> {
@@ -214,7 +209,7 @@ public class APC9Factory implements GunFactory {
                     }
                 })
 
-                .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
                     GL11.glTranslatef(-0.025F, -1.54F, -1.2F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
                 }, (model) -> {
@@ -224,7 +219,7 @@ public class APC9Factory implements GunFactory {
                     }
                 })
 
-                .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
                     GL11.glTranslatef(-0.025F, -1.54F, -1.6F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
                 }, (model) -> {
@@ -238,7 +233,7 @@ public class APC9Factory implements GunFactory {
                     }
                 })
 
-                .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.VortexRedux, () -> {
                     GL11.glTranslatef(-0.335F, -1.76F, -1.4F);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
                 }, (model) -> {
@@ -248,7 +243,7 @@ public class APC9Factory implements GunFactory {
                     }
                 })
 
-                .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.Kobra, () -> {
                     GL11.glTranslatef(-0.026F, -1.54F, -1F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
                 }, (model) -> {
@@ -258,7 +253,7 @@ public class APC9Factory implements GunFactory {
                     }
                 })
 
-                .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.KobraGen3, () -> {
                     GL11.glTranslatef(-0.026F, -1.54F, -1F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
                 }, (model) -> {
@@ -268,7 +263,7 @@ public class APC9Factory implements GunFactory {
                     }
                 })
 
-                .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.MicroT1, () -> {
                     GL11.glTranslatef(-0.183F, -1.74F, -1F);
                     GL11.glScaled(0.43F, 0.43F, 0.43F);
                 }, (model) -> {
@@ -278,7 +273,7 @@ public class APC9Factory implements GunFactory {
                     }
                 })
 
-                .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
                     GL11.glTranslatef(-0.183F, -1.74F, -1F);
                     GL11.glScaled(0.43F, 0.43F, 0.43F);
                 }, (model) -> {
@@ -287,11 +282,11 @@ public class APC9Factory implements GunFactory {
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.Laser2, (p, s) -> {
+                .withCompatibleAttachment(Attachments.Laser2, () -> {
                     GL11.glTranslatef(-0.04F, -1.2F, -3.2F);
                     GL11.glScaled(1F, 1F, 1F);
                 })
-                .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+                .withCompatibleAttachment(Attachments.Laser, () -> {
                     GL11.glTranslatef(-0.04F, -1.2F, -3.2F);
                     GL11.glScaled(1F, 1F, 1F);
                 })
@@ -316,8 +311,8 @@ public class APC9Factory implements GunFactory {
 
                         .withModel(new APC9())
                         .withActionPiece(AuxiliaryAttachments.APC9Action)
-                        .withActionTransform(new Transform().withPosition(0, 0, 0.6))
-                        .withADSBeizer(new Vec3d(0.2, 1.7, 0.5))
+                        .withActionTransform(new Transform().withPosition(0, 0, 0.6F))
+                        .withADSBeizer(new Vec3d(0.2F, 1.7, 0.5F))
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.5F, 0.5F, 0.5F);
                             GL11.glTranslatef(0, 0f, 3f);
@@ -339,8 +334,8 @@ public class APC9Factory implements GunFactory {
                                 new Transform()
                                         .withPosition(-1.425000f, 4.545000f, -3.725000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
-                                        .withRotationPoint(-0.350000f, -0.940000f, 0.060000f)
-                                        .withScale(3.0, 3.0, 3.0)
+                                        .withPivotPoint(-0.350000f, -0.940000f, 0.060000f)
+                                        .withScale(3.0F, 3.0F, 3.0F)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -348,18 +343,18 @@ public class APC9Factory implements GunFactory {
                                 // Left hand
                                 new Transform()
                                         .withPosition(1.210000f, 0.265000f, -0.260000f)
-                                        .withBBRotation(-10.558, -28.6459, 58.5348)
-                                        .withScale(2.6, 2.6, 4.0)
-                                        .withRotationPoint(0, 0, 0),
+                                        .withBBRotation(-10.558F, -28.6459F, 58.5348F)
+                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withPivotPoint(0, 0, 0),
 
 
                                 // Right hand
                                 new Transform()
                                         .withPosition(-0.200000f, 0.260000f, 1.680000f)
-                                        .withRotation(-5.402700f, -4.780500f, -1.669400f)
-                                        .withScale(3.0, 3.0, 3.0)
-                                        .withScale(3.0, 3.0, 3.0)
-                                        .withRotationPoint(0, 0, 0)
+                                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withScale(3.0F, 3.0F, 3.0F)
+                                        .withPivotPoint(0, 0, 0)
 
                         )
 
@@ -570,17 +565,17 @@ public class APC9Factory implements GunFactory {
                             new Transform()
                                     .withPosition(-1.905000f, 4.065000f, -3.645000f)
                                     .withRotation(0.000000f, -30.514396f, -26.062789f)
-                                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+                                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
                                     .withScale(3.000000f, 3.000000f, 3.000000f)
-                                    .doGLDirect();
+                                    .applyTransformations();
                         })
                         .withFirstPersonPositioningModifyingAlt((renderContext) -> {
                             new Transform()
                                     .withPosition(-1.425000f, 3.545000f, -5.685000f)
                                     .withRotation(-0.187566f, -46.164037f, -11.869230f)
-                                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+                                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
                                     .withScale(3.000000f, 3.000000f, 3.000000f)
-                                    .doGLDirect();
+                                    .applyTransformations();
                         })
 
                         .withFirstPersonHandPositioningModifying(
@@ -588,17 +583,17 @@ public class APC9Factory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6, 2.6, 4.0)
-                                            .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                                            .doGLDirect();
+                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                                            .applyTransformations();
                                 },
                                 (renderContext) -> {
                                     new Transform()
-                                            .withPosition(-0.2, 0.1, 2)
-                                            .withRotation(-5.4027, -4.7805, -1.6694)
-                                            .withScale(3.5, 3.5, 3.5)
-                                            .withRotationPoint(0, 0, 0)
-                                            .doGLDirect();
+                                            .withPosition(-0.2F, 0.1F, 2)
+                                            .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                                            .withScale(3.5F, 3.5F, 3.5F)
+                                            .withPivotPoint(0, 0, 0)
+                                            .applyTransformations();
                                 })
 
                         .withFirstPersonHandPositioningModifyingAlt(
@@ -607,16 +602,16 @@ public class APC9Factory implements GunFactory {
                                             .withPosition(2.450000f, -0.335000f, -0.660000f)
                                             .withRotation(93.766422f, 50.841130f, 4.679372f)
                                             .withScale(2.600000f, 2.600000f, 4.000000f)
-                                            .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                                            .doGLDirect();
+                                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                                            .applyTransformations();
                                 },
                                 (renderContext) -> {
                                     new Transform()
                                             .withPosition(-0.600000f, 0.340000f, 1.880000f)
-                                            .withRotation(-12.193518f, -4.780500f, 1.399459f)
-                                            .withScale(3.5, 3.5, 3.5)
-                                            .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                                            .doGLDirect();
+                                            .withRotation(-12.193518f, -4.7805F, 1.399459f)
+                                            .withScale(3.5F, 3.5F, 3.5F)
+                                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                                            .applyTransformations();
                                 })
 
                         .withThirdPersonLeftHandPositioningReloading(

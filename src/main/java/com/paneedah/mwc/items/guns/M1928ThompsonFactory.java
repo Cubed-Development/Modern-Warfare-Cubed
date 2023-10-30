@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -36,9 +36,6 @@ public class M1928ThompsonFactory {
         .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
         .withReloadingTime(45)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.6f)
         .withFlashScale(() -> 0.5f)
         .withFlashOffsetX(() -> 0.11f)
@@ -75,11 +72,9 @@ public class M1928ThompsonFactory {
           GL11.glTranslatef(0.03F, 0F, 0F);
           GL11.glScaled(1.3F, 1F, 1F);
       })
-        .withCompatibleAttachment(Attachments.M1928Grip, (model) -> {
-//          GL11.glTranslatef(0.45F, 1.9F, 0F);
+        .withCompatibleAttachment(Attachments.M1928Grip, true, (model) -> {
         })
-        .withCompatibleAttachment(Attachments.M1A1Grip, true, (model) -> {
-//          GL11.glTranslatef(0.45F, 1.9F, 0F);
+        .withCompatibleAttachment(Attachments.M1A1Grip, (model) -> {
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {

@@ -2,13 +2,13 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -39,9 +39,6 @@ public class Type20Factory implements GunFactory {
 		.withUnloadSound("acr_unload")
 		.withDrawSound("acr_draw")
 		.withReloadingTime(30)
-		.withCrosshair("gun")
-		.withCrosshairRunning("Running")
-		.withCrosshairZoomed("Sight")
 		.withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.14f)
@@ -49,7 +46,7 @@ public class Type20Factory implements GunFactory {
 		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
 		.withRecoilParam(new RecoilParam(
-				// The weapon power
+				// The weapons power
 				15.0,
 				// Muzzle climb divisor
 				15.75,
@@ -132,7 +129,7 @@ public class Type20Factory implements GunFactory {
             GL11.glTranslatef(-0.36F, 0.5F, -1.31F);
             GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
-        .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.22F, -1.52F, -2F);
             GL11.glScaled(0.82F, 0.82F, 0.82F);
         },(model) -> {
@@ -141,7 +138,7 @@ public class Type20Factory implements GunFactory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.32F, -1.53F, -0.9F);
             GL11.glScaled(0.83F, 0.83F, 0.83F);
         },(model) -> {
@@ -154,7 +151,7 @@ public class Type20Factory implements GunFactory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Specter, () -> {
             GL11.glTranslatef(-0.19F, -1.2F, -1F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
         },(model) -> {
@@ -163,7 +160,7 @@ public class Type20Factory implements GunFactory {
                  GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
 		            GL11.glTranslatef(-0.154F, -1.36F, -1.7F);
 		            GL11.glScaled(0.46F, 0.46F, 0.46F);
 		},(model) -> {
@@ -172,7 +169,7 @@ public class Type20Factory implements GunFactory {
 		        GL11.glScaled(0.04F, 0.04F, 0.04F);
 		    }
 		})
-	.withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+	.withCompatibleAttachment(Attachments.MicroReflex, () -> {
 			    GL11.glTranslatef(-0.148F, -2.05F, -1F);
 			    GL11.glScaled(0.35F, 0.35F, 0.35F);
 	    },(model) -> {
@@ -184,7 +181,7 @@ public class Type20Factory implements GunFactory {
 	//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Reflex, () -> {
             GL11.glTranslatef(-0.0555F, -1.32F, -1.5F);
             GL11.glScaled(0.52F, 0.52F, 0.52F);
             },(model) -> {
@@ -193,7 +190,7 @@ public class Type20Factory implements GunFactory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Holographic, () -> {
                 GL11.glTranslatef(-0.034F, -1.38F, -1.4F);
                 GL11.glScaled(0.7F, 0.7F, 0.7F);
             },(model) -> {
@@ -202,7 +199,7 @@ public class Type20Factory implements GunFactory {
                     GL11.glScaled(0.1F, 0.1F, 0.1F);
                 }
             })
-        .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
         	GL11.glTranslatef(-0.034F, -1.38F, -1.4F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -211,7 +208,7 @@ public class Type20Factory implements GunFactory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
         	GL11.glTranslatef(-0.034F, -1.38F, -1.4F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -224,7 +221,7 @@ public class Type20Factory implements GunFactory {
                 GL11.glScaled(0.05F, 0.05F, 0.05F);
             }
         })
-        .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
             GL11.glTranslatef(-0.054F, -1.3F, -1.3F);
             GL11.glScaled(0.55F, 0.55F, 0.55F);
         },(model) -> {
@@ -233,7 +230,7 @@ public class Type20Factory implements GunFactory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-        .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.VortexRedux, () -> {
             GL11.glTranslatef(-0.3F, -1.56F, -1.4F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
 	    },(model) -> {
@@ -242,7 +239,7 @@ public class Type20Factory implements GunFactory {
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Kobra, () -> {
                 GL11.glTranslatef(-0.04F, -1.38F, -0.99F);
                 GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
@@ -251,7 +248,7 @@ public class Type20Factory implements GunFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.KobraGen3, () -> {
         	GL11.glTranslatef(-0.04F, -1.38F, -0.99F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
 	    },(model) -> {
@@ -260,7 +257,7 @@ public class Type20Factory implements GunFactory {
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroT1, () -> {
                 GL11.glTranslatef(-0.18F, -1.57F, -1F);
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
         },(model) -> {
@@ -269,7 +266,7 @@ public class Type20Factory implements GunFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
         	GL11.glTranslatef(-0.18F, -1.57F, -1F);
             GL11.glScaled(0.4F, 0.4F, 0.4F);
     },(model) -> {
@@ -308,11 +305,11 @@ public class Type20Factory implements GunFactory {
                 GL11.glScaled(0F, 0F, 0F);
             }
         }, false, false)
-        .withCompatibleAttachment(Attachments.Laser2, (p, s) -> {
+        .withCompatibleAttachment(Attachments.Laser2, () -> {
         	GL11.glTranslatef(0.03F, -1.15F, -2.6F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
 		})
-        .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+        .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(0.03F, -1.15F, -2.6F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         })
@@ -361,8 +358,8 @@ public class Type20Factory implements GunFactory {
 					new Transform()
 					.withPosition(-1.425000f, 4.265000f, -3.085000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
-                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -370,18 +367,18 @@ public class Type20Factory implements GunFactory {
                 		// Left hand
                         new Transform()
                         .withPosition(1.130000f, 0.105000f, -0.580000f)
-                        .withBBRotation(-8.1997, -23.6991, 57.7232)
-                        .withScale(2.6, 2.6, 4.0)
-                        .withRotationPoint(0, 0, 0),
+                        .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
+                        .withScale(2.6F, 2.6F, 4.0F)
+                        .withPivotPoint(0, 0, 0),
                         
                         
                         
                         // Right hand
                         new Transform()
-                        .withPosition(-0.2, 0.1, 2)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3.5, 3.5, 3.5)
-                        .withRotationPoint(0, 0, 0)
+                        .withPosition(-0.2F, 0.1F, 2)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.5F, 3.5F, 3.5F)
+                        .withPivotPoint(0, 0, 0)
                 
                 )
                 
@@ -575,17 +572,17 @@ public class Type20Factory implements GunFactory {
 				 new Transform()
 				 .withPosition(-1.905000f, 4.065000f, -3.645000f)
 				 .withRotation(0.000000f, -30.514396f, -26.062789f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
 				 new Transform()
 				 .withPosition(-1.425000f, 3.545000f, -5.685000f)
 				 .withRotation(-0.187566f, -46.164037f, -11.869230f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
           })
 					 
 			.withFirstPersonHandPositioningModifying(
@@ -593,17 +590,17 @@ public class Type20Factory implements GunFactory {
                  	 new Transform()
                  	 .withPosition(1.730000f, 0.065000f, -0.980000f)
                  	 .withRotation(93.414678f, 23.699100f, 15.553163f)
-                      .withScale(2.6, 2.6, 4.0)
-                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                      .doGLDirect();
+                      .withScale(2.6F, 2.6F, 4.0F)
+                      .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                      .applyTransformations();
                   }, 
                   (renderContext) -> {
                  	 new Transform()
-                      .withPosition(-0.2, 0.1, 2)
-                      .withRotation(-5.4027, -4.7805, -1.6694)
-                      .withScale(3.5, 3.5, 3.5)
-                      .withRotationPoint(0, 0, 0)
-                      .doGLDirect();
+                      .withPosition(-0.2F, 0.1F, 2)
+                      .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                      .withScale(3.5F, 3.5F, 3.5F)
+                      .withPivotPoint(0, 0, 0)
+                      .applyTransformations();
                   })
                   
          .withFirstPersonHandPositioningModifyingAlt(
@@ -612,16 +609,16 @@ public class Type20Factory implements GunFactory {
                 	 	.withPosition(2.450000f, -0.335000f, -0.660000f)
                 	 	.withRotation(93.766422f, 50.841130f, 4.679372f)
                 	 	.withScale(2.600000f, 2.600000f, 4.000000f)
-                     .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                     .doGLDirect();
+                     .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                     .applyTransformations();
                  }, 
                  (renderContext) -> {
                 	 new Transform()
                 	 	.withPosition(-0.600000f, 0.340000f, 1.880000f)
-                	 	.withRotation(-12.193518f, -4.780500f, 1.399459f)
-                     .withScale(3.5, 3.5, 3.5)
-                     .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                     .doGLDirect();
+                	 	.withRotation(-12.193518f, -4.7805F, 1.399459f)
+                     .withScale(3.5F, 3.5F, 3.5F)
+                     .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                     .applyTransformations();
                  })
                   
           .withThirdPersonLeftHandPositioningReloading(

@@ -5,7 +5,7 @@ import com.paneedah.weaponlib.Explosion;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.config.ModernConfigManager;
 import io.netty.buffer.ByteBuf;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.vectors.Vector3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -176,7 +176,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
             double k2 = 0.1;
             final Vector3D cvec1 = new Vector3D(this.posX + x * k2, this.posY + y * k2, this.posZ + z * k2);
 
-            // Vectors are mutable, need to create a copy to preserve the original
+            // Vectors are mutable, need to create a set to preserve the original
             final Vector3D cvec10 = new Vector3D(this.posX + x * k2, this.posY + y * k2, this.posZ + z * k2);
 
             Vector3D cvec2 = new Vector3D(this.posX + x * k, this.posY + y * k, this.posZ + z * k);

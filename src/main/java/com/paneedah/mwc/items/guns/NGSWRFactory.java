@@ -2,13 +2,13 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -39,9 +39,6 @@ public class NGSWRFactory implements GunFactory {
 		.withInspectSound("m4a1_inspection")
 		.withDrawSound("m4_draw")
 		.withReloadingTime(50)
-		.withCrosshair("gun")
-		.withCrosshairRunning("Running")
-		.withCrosshairZoomed("Sight")
 		.withFlashIntensity(0.5f)
 		.withFlashScale(() -> 0.6f)
 		.withFlashOffsetX(() -> 0.11f)
@@ -52,7 +49,7 @@ public class NGSWRFactory implements GunFactory {
 		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
 		.withRecoilParam(new RecoilParam(
-				// The weapon power
+				// The weapons power
 				15.0,
 				// Muzzle climb divisor
 				15.75,
@@ -211,7 +208,7 @@ public class NGSWRFactory implements GunFactory {
            }
        })
         
-        .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.NightRaider, () -> {
                     GL11.glTranslatef(-0.21F, -1.67F, -1.9F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -221,7 +218,7 @@ public class NGSWRFactory implements GunFactory {
             }
         })
         
-		.withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.ACOG, () -> {
                     GL11.glTranslatef(-0.28F, -1.7F, -0.5F);
                     GL11.glScaled(0.7F, 0.7F, 0.7F);
 		},(model) -> {
@@ -235,7 +232,7 @@ public class NGSWRFactory implements GunFactory {
             }
         })
 		
-		.withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.Specter, () -> {
                     GL11.glTranslatef(-0.192F, -1.38F, -1F);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
         },(model) -> {
@@ -245,7 +242,7 @@ public class NGSWRFactory implements GunFactory {
             }
         })
 		
-		.withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
 		            GL11.glTranslatef(-0.16F, -1.53F, -1.8F);
 		            GL11.glScaled(0.46F, 0.46F, 0.46F);
         },(model) -> {
@@ -255,7 +252,7 @@ public class NGSWRFactory implements GunFactory {
             }
         })
 		
-		.withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.MicroReflex, () -> {
             GL11.glTranslatef(-0.15F, -2.2F, -1F);
             GL11.glScaled(0.35F, 0.35F, 0.35F);
             },(model) -> {
@@ -268,7 +265,7 @@ public class NGSWRFactory implements GunFactory {
                 }
             })
 		
-		.withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.Reflex, () -> {
                     GL11.glTranslatef(-0.06F, -1.5F, -1.2F);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
 		},(model) -> {
@@ -277,7 +274,7 @@ public class NGSWRFactory implements GunFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
 			}
 		})
-		.withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.BijiaReflex, () -> {
                     GL11.glTranslatef(-0.055F, -1.46F, -1.1F);
                     GL11.glScaled(0.54F, 0.54F, 0.54F);
 		},(model) -> {
@@ -287,7 +284,7 @@ public class NGSWRFactory implements GunFactory {
         }
 		})
 		
-		.withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.Holographic, () -> {
                     GL11.glTranslatef(-0.0265F, -1.52F, -1.1F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
 			},(model) -> {
@@ -297,7 +294,7 @@ public class NGSWRFactory implements GunFactory {
 	            }
 	        })
 		
-		.withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.HolographicAlt, () -> {
 			GL11.glTranslatef(-0.0265F, -1.52F, -1.1F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -307,7 +304,7 @@ public class NGSWRFactory implements GunFactory {
             }
         })
 		
-		.withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
 			GL11.glTranslatef(-0.0265F, -1.52F, -1.5F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -321,7 +318,7 @@ public class NGSWRFactory implements GunFactory {
             }
         })
 		
-		.withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.VortexRedux, () -> {
             GL11.glTranslatef(-0.32F, -1.73F, -1.3F);
             GL11.glScaled(0.5F, 0.5F, 0.5F);
 	    },(model) -> {
@@ -331,7 +328,7 @@ public class NGSWRFactory implements GunFactory {
 	        }
 	    })
 	    
-		.withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.Kobra, () -> {
                     GL11.glTranslatef(-0.032F, -1.53F, -0.9F);
                     GL11.glScaled(0.73F, 0.73F, 0.73F);
 		},(model) -> {
@@ -341,7 +338,7 @@ public class NGSWRFactory implements GunFactory {
             }
         })
 		
-		.withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.KobraGen3, () -> {
 					GL11.glTranslatef(-0.032F, -1.53F, -0.9F);
 		            GL11.glScaled(0.73F, 0.73F, 0.73F);
 		},(model) -> {
@@ -351,7 +348,7 @@ public class NGSWRFactory implements GunFactory {
             }
         })
 		
-		.withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.MicroT1, () -> {
                     GL11.glTranslatef(-0.187F, -1.75F, -1F);
                     GL11.glScaled(0.43F, 0.43F, 0.43F);
             },(model) -> {
@@ -361,7 +358,7 @@ public class NGSWRFactory implements GunFactory {
                 }
             })
 		
-		.withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
 			 GL11.glTranslatef(-0.187F, -1.75F, -1F);
              GL11.glScaled(0.43F, 0.43F, 0.43F);
         },(model) -> {
@@ -370,7 +367,7 @@ public class NGSWRFactory implements GunFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-		.withCompatibleAttachment(Attachments.AimpointCompM2, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.AimpointCompM2, () -> {
             GL11.glTranslatef(-0.12F, -1.1F, -0.5F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         },(model) -> {
@@ -403,11 +400,11 @@ public class NGSWRFactory implements GunFactory {
 			GL11.glTranslatef(-0.2F, -0.27F, -3.6F);
 			GL11.glScaled(1F, 1F, 1F);
 		})
-		.withCompatibleAttachment(Attachments.Laser2, (p, s) -> {
+		.withCompatibleAttachment(Attachments.Laser2, () -> {
 		    GL11.glTranslatef(0.03F, -1.27F, -3F);
             GL11.glScaled(0.9F, 0.9F, 0.9F);
 		})
-		.withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+		.withCompatibleAttachment(Attachments.Laser, () -> {
 			 GL11.glTranslatef(0.03F, -1.27F, -3F);
 	            GL11.glScaled(0.9F, 0.9F, 0.9F);
 		})
@@ -440,8 +437,8 @@ public class NGSWRFactory implements GunFactory {
 					new Transform()
 					.withPosition(-1.505000f, 4.865000f, -3.485000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
-                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -449,18 +446,18 @@ public class NGSWRFactory implements GunFactory {
                         // Left hand
                         new Transform()
                         .withPosition(1.090000f, -0.015000f, -0.620000f)
-                        .withBBRotation(-8.1997, -23.6991, 57.7232)
-                        .withScale(2.6, 2.6, 4.0)
-                        .withRotationPoint(0, 0, 0),
+                        .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
+                        .withScale(2.6F, 2.6F, 4.0F)
+                        .withPivotPoint(0, 0, 0),
                         
                         
                         
                         // Right hand
                         new Transform()
-                        .withPosition(-0.2, 0.1, 2)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3.5, 3.5, 3.5)
-                        .withRotationPoint(0, 0, 0)
+                        .withPosition(-0.2F, 0.1F, 2)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.5F, 3.5F, 3.5F)
+                        .withPivotPoint(0, 0, 0)
                 
                 )
                 
@@ -637,17 +634,17 @@ public class NGSWRFactory implements GunFactory {
 				 new Transform()
 				 .withPosition(-1.985000f, 5.145000f, -5.245000f)
 				 .withRotation(0.000000f, -30.514396f, -26.062789f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
 				 new Transform()
 				 .withPosition(-1.265000f, 4.745000f, -8.285000f)
 				 .withRotation(2.793742f, -46.352252f, -19.231070f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 					 
 			.withFirstPersonHandPositioningModifying(
@@ -655,17 +652,17 @@ public class NGSWRFactory implements GunFactory {
                	 new Transform()
                	.withPosition(2.330000f, 0.065000f, 0.140000f)
                	.withRotation(78.544055f, 23.699100f, 18.430633f)
-                    .withScale(2.6, 2.6, 4.0)
-                    .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                    .doGLDirect();
+                    .withScale(2.6F, 2.6F, 4.0F)
+                    .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                    .applyTransformations();
                 }, 
                 (renderContext) -> {
                	 new Transform()
-                    .withPosition(-0.2, 0.1, 2)
-                    .withRotation(-5.4027, -4.7805, -1.6694)
-                    .withScale(3.5, 3.5, 3.5)
-                    .withRotationPoint(0, 0, 0)
-                    .doGLDirect();
+                    .withPosition(-0.2F, 0.1F, 2)
+                    .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                    .withScale(3.5F, 3.5F, 3.5F)
+                    .withPivotPoint(0, 0, 0)
+                    .applyTransformations();
                 })
                 
        .withFirstPersonHandPositioningModifyingAlt(
@@ -674,16 +671,16 @@ public class NGSWRFactory implements GunFactory {
               	 .withPosition(2.330000f, 0.065000f, 0.140000f)
                 	.withRotation(78.544055f, 23.699100f, 18.430633f)
               	 	.withScale(2.600000f, 2.600000f, 4.000000f)
-                   .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                   .doGLDirect();
+                   .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                   .applyTransformations();
                }, 
                (renderContext) -> {
               	 new Transform()
               	 	.withPosition(-0.600000f, 0.340000f, 1.880000f)
-              	 	.withRotation(-12.193518f, -4.780500f, 1.399459f)
-                   .withScale(3.5, 3.5, 3.5)
-                   .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                   .doGLDirect();
+              	 	.withRotation(-12.193518f, -4.7805F, 1.399459f)
+                   .withScale(3.5F, 3.5F, 3.5F)
+                   .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                   .applyTransformations();
                })
                     
             .withThirdPersonLeftHandPositioningReloading(

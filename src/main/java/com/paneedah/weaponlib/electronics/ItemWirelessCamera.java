@@ -1,9 +1,14 @@
 package com.paneedah.weaponlib.electronics;
 
-import com.paneedah.mwc.renderer.ModelSourceTransforms;
-import com.paneedah.mwc.renderer.StaticModelSourceRenderer;
-import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.rendering.IModelSource;
+import com.paneedah.mwc.rendering.ModelSourceTransforms;
+import com.paneedah.mwc.rendering.renderer.StaticModelSourceRenderer;
+import com.paneedah.mwc.rendering.TexturedModel;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.CustomRenderer;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
 import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
@@ -23,11 +28,10 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 
-public class ItemWirelessCamera extends Item implements ModelSource {
+public class ItemWirelessCamera extends Item implements IModelSource {
 
     public static final long DEFAULT_DURATION = 300 * 1000;
 
@@ -36,19 +40,10 @@ public class ItemWirelessCamera extends Item implements ModelSource {
         protected String name;
         protected ModelBase model;
         protected String textureName;
-        protected ModelSourceTransforms transforms = ModelSourceTransforms.builder()
-                .entityPositioning(() -> new Transform()
-                        .withPosition(-0.5, -0.55, 0.5)
-                        .withScale(0.5, 0.5, 0.5)
-                        .doGLDirect())
-                .inventoryPositioning(() -> new Transform()
-                        .withScale(2.25, 2.25, 2.25)
-                        .withPosition(-0.80, -0.7, 0)
-                        .doGLDirect())
-                .build();
-        protected CreativeTabs tab;
+        protected ModelSourceTransforms.ModelSourceTransformsBuilder transforms = ModelSourceTransforms.builder();
+        protected CreativeTabs creativeTabs = MWC.EQUIPMENT_TAB;
         protected AttachmentCategory attachmentCategory;
-        private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+        protected List<TexturedModel> texturedModels = new ArrayList<>();
         private int maxStackSize = 1;
 
         private CraftingComplexity craftingComplexity;
@@ -61,11 +56,6 @@ public class ItemWirelessCamera extends Item implements ModelSource {
 
         public Builder withName(String name) {
             this.name = name;
-            return this;
-        }
-
-        public Builder withCreativeTab(CreativeTabs tab) {
-            this.tab = tab;
             return this;
         }
 
@@ -84,54 +74,8 @@ public class ItemWirelessCamera extends Item implements ModelSource {
             return this;
         }
 
-        public Builder withEntityPositioning(Runnable entityPositioning) {
-            transforms.setEntityPositioning(entityPositioning);
-            return this;
-        }
-
-        public Builder withInventoryPositioning(Runnable inventoryPositioning) {
-            transforms.setInventoryPositioning(inventoryPositioning);
-            return this;
-        }
-
-        public Builder withThirdPersonPositioning(Runnable thirdPersonPositioning) {
-            transforms.setThirdPersonPositioning(thirdPersonPositioning);
-            return this;
-        }
-
-        public Builder withFirstPersonPositioning(Runnable firstPersonPositioning) {
-            transforms.setFirstPersonPositioning(firstPersonPositioning);
-            return this;
-        }
-
-        public Builder withFirstPersonModelPositioning(Consumer<ModelBase> firstPersonModelPositioning) {
-            transforms.setFirstPersonModelPositioning(firstPersonModelPositioning);
-            return this;
-        }
-
-        public Builder withEntityModelPositioning(Consumer<ModelBase> entityModelPositioning) {
-            transforms.setEntityModelPositioning(entityModelPositioning);
-            return this;
-        }
-
-        public Builder withInventoryModelPositioning(Consumer<ModelBase> inventoryModelPositioning) {
-            transforms.setInventoryModelPositioning(inventoryModelPositioning);
-            return this;
-        }
-
-        public Builder withThirdPersonModelPositioning(Consumer<ModelBase> thirdPersonModelPositioning) {
-            transforms.setThirdPersonModelPositioning(thirdPersonModelPositioning);
-            return this;
-        }
-
-        public Builder withFirstPersonHandPositioning(Runnable leftHand, Runnable rightHand) {
-            transforms.setFirstPersonLeftHandPositioning(leftHand);
-            transforms.setFirstPersonRightHandPositioning(rightHand);
-            return this;
-        }
-
         public Builder withModel(ModelBase model, String textureName) {
-            this.texturedModels.add(new Tuple<>(model, textureName.toLowerCase()));
+            this.texturedModels.add(new TexturedModel(model, addFileExtension(textureName.toLowerCase(), ".png")));
             return this;
         }
 
@@ -164,7 +108,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
 
             ItemWirelessCamera camera = new ItemWirelessCamera(this, modContext);
             camera.setTranslationKey(ID + "_" + name);
-            camera.setCreativeTab(tab);
+            camera.setCreativeTab(creativeTabs);
 //            camera.setPostRenderer(postRenderer);
 //            camera.setName(name);
             camera.maxStackSize = maxStackSize;
@@ -173,14 +117,14 @@ public class ItemWirelessCamera extends Item implements ModelSource {
 //                camera.textureName = ID + ":" + stripFileExtension(textureName, ".png");
 //            }
 
-            texturedModels.forEach(tm -> camera.texturedModels.add(new Tuple<>(tm.getU(), addFileExtension(tm.getV(), ".png"))));
+            camera.texturedModels = texturedModels;
 
             if (model != null) {
-                texturedModels.add(new Tuple<>(model, addFileExtension(textureName, ".png")));
+                texturedModels.add(new TexturedModel(model, addFileExtension(textureName, ".png")));
             }
 
             if (model != null || !texturedModels.isEmpty()) {
-                modContext.registerRenderableItem(name, camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms) : null);
+                modContext.registerRenderableItem(name, camera, FMLCommonHandler.instance().getSide() == Side.CLIENT ? new StaticModelSourceRenderer(transforms.build()) : null);
             }
 
             if (craftingComplexity != null) {
@@ -214,7 +158,7 @@ public class ItemWirelessCamera extends Item implements ModelSource {
 
     private Builder builder;
     private ModContext modContext;
-    private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+    protected List<TexturedModel> texturedModels = new ArrayList<>();
 
     public ItemWirelessCamera(Builder builder, ModContext modContext) {
         this.builder = builder;
@@ -237,20 +181,20 @@ public class ItemWirelessCamera extends Item implements ModelSource {
     }
 
     @Override
-    public List<Tuple<ModelBase, String>> getTexturedModels() {
+    public List<TexturedModel> getTexturedModels() {
         return texturedModels;
     }
 
     @Override
-    public CustomRenderer<?> getPostRenderer() {
+    public CustomRenderer<RenderableState> getPostRenderer() {
         return null;
     }
 
     public ModelBase getModel() {
-        return texturedModels.get(0).getU();
+        return texturedModels.get(0).getModel();
     }
 
     public String getTextureName() {
-        return texturedModels.get(0).getV();
+        return texturedModels.get(0).getTextureName();
     }
 }

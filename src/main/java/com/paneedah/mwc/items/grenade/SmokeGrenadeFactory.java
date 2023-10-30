@@ -3,7 +3,7 @@ package com.paneedah.mwc.items.grenade;
 import com.paneedah.mwc.Grenades;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.M18;
+import com.paneedah.mwc.models.weapons.M18;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.weaponlib.Part;
 import com.paneedah.weaponlib.RenderContext;
@@ -13,7 +13,7 @@ import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.grenade.GrenadeRenderer;
 import com.paneedah.weaponlib.grenade.ItemGrenade;
 import com.paneedah.weaponlib.grenade.ItemGrenade.Type;
-import com.paneedah.weaponlib.grenade.RenderableState;
+import com.paneedah.weaponlib.grenade.GrenadeRenderableState;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import org.lwjgl.opengl.GL11;
@@ -36,7 +36,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                 .withBounceHardSound("grenade-hard-bounce")
                 .withThrowSound("grenadethrow")
                 .withSafetyPinOffSound("safetypinoff")
-                .withCompatibleAttachment(Grenades.GrenadeSafetyPin, (p, s) -> {})
+                .withCompatibleAttachment(Grenades.GrenadeSafetyPin, () -> {})
                 .withVelocity(() -> 0.8f)
                 .withFarVelocity(() -> 1.3f)
                 .withGravityVelocity(() -> 0.06f)
@@ -107,7 +107,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                 })
 
                         .withFirstPersonPositioningSafetyPinOff(
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(0.33f, 0.33f, 0.33f);
                                     GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(000000f, 0f, 1f, 0f);
@@ -115,7 +115,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                     GL11.glTranslatef(-1.5f, -2.15f, -2.3f);
                                 }, 200, 50 ),
 
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(0.33f, 0.33f, 0.33f);
                                     GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(000000f, 0f, 1f, 0f);
@@ -126,7 +126,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                 )
 
                         .withFirstPersonLeftHandPositioningSafetyPinOff(
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(-5.000000f, 0f, 1f, 0f);
@@ -134,7 +134,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                     GL11.glTranslatef(-0.200000f, -0.775000f, 0.100000f);
 
                                 }, 70, 0),
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -144,14 +144,14 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                 )
 
                         .withFirstPersonRightHandPositioningSafetyPinOff(
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(-15.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.325000f, -0.375000f, -0.125000f);
                                 }, 70, 0),
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(-10.000000f, 0f, 1f, 0f);
@@ -161,14 +161,14 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                 )
 
                         .withFirstPersonCustomPositioningSafetyPinOff(Grenades.GrenadeSafetyPin.getRenderablePart(),
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(0.200000f, 0.200000f, 0.200000f);
                                     GL11.glRotatef(80.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(-90.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(-3.899998f, 1.400002f, -2.400000f);
                                 }, 70, 0, Part.LEFT_HAND),
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(0.200000f, 0.200000f, 0.200000f);
                                     GL11.glRotatef(80.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(-90.000000f, 0f, 1f, 0f);
@@ -178,7 +178,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                 )
 
                         .withFirstPersonPositioningThrowing(
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     GL11.glScalef(0.100000f, 0.100000f, 0.100000f);
                                     GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -187,7 +187,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                     GL11.glTranslatef(0f, -6.849998f, -2.400000f);
                                 }, 260, 120),
 
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     GL11.glRotatef(85.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(15.000000f, 0f, 1f, 0f);
@@ -198,7 +198,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                     GL11.glScalef(0.000000f, 0.000000f, 0.000000f);
                                 }, 80, 80),
 
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     GL11.glRotatef(155.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
@@ -207,7 +207,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                 }, 80, 80))
 
                         .withFirstPersonLeftHandPositioningThrowing(
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -215,7 +215,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                     GL11.glTranslatef(0.175000f, -1.025000f, 0.225000f);
                                 }, 70, 0),
 
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
@@ -224,7 +224,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
 
                                 }, 70, 0),
 
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(30.000000f, 0f, 1f, 0f);
@@ -235,7 +235,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                 )
 
                         .withFirstPersonRightHandPositioningThrowing(
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     GL11.glRotatef(-150.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -243,7 +243,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                     GL11.glTranslatef(0.5f, -0.200000f, -0.300000f);
                                 }, 70, 0),
 
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(-5.000000f, 0f, 1f, 0f);
@@ -252,7 +252,7 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
 
                                 }, 70, 0),
 
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     //                                    GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                                     //                                    GL11.glRotatef(-30.000000f, 1f, 0f, 0f);
                                     //                                    GL11.glRotatef(10.000000f, 0f, 1f, 0f);
@@ -261,21 +261,21 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
                                 }, 70, 0))
 
                         .withFirstPersonCustomPositioningThrowing(Grenades.GrenadeSafetyPin.getRenderablePart(),
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(0.200000f, 0.200000f, 0.200000f);
                                     GL11.glRotatef(80.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(-90.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(-3.899998f, 1.400002f, -2.400000f);
                                 }, 70, 0, Part.LEFT_HAND),
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(0.200000f, 0.200000f, 0.200000f);
                                     GL11.glRotatef(80.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(-90.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(-3.899998f, 1.400002f, -2.400000f);
                                 }, 70, 0, Part.LEFT_HAND),
-                                new Transition<RenderContext<RenderableState>>(renderContext -> {
+                                new Transition<RenderContext<GrenadeRenderableState>>(renderContext -> {
                                     GL11.glScalef(0.200000f, 0.200000f, 0.200000f);
                                     GL11.glRotatef(80.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(-90.000000f, 0f, 1f, 0f);

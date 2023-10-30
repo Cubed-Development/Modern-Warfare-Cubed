@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.command;
 
 import com.paneedah.weaponlib.*;
+import dev.redstudio.redcore.vectors.Vector3F;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.math.Vec3d;
 
 import java.util.Arrays;
 
@@ -14,8 +14,8 @@ public class WeaponDebugCommand extends TidyCompatibleCommand {
 	public WeaponDebugCommand() {
 		super("wdc", "Weapon Debug Command");
 
-		addMainOption(NAME, "Gets the name of the weapon");
-		addMainOption("rotpoint", "Gets the name of the weapon");
+		addMainOption(NAME, "Gets the name of the weapons");
+		addMainOption("rotpoint", "Gets the name of the weapons");
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class WeaponDebugCommand extends TidyCompatibleCommand {
 			if (sender instanceof EntityPlayer && CommonModContext.getContext() != null) {
 				PlayerWeaponInstance pwi = CommonModContext.getContext().getMainHeldWeapon();
 				if(pwi == null) return;
- 				sendFormattedMessage(sender, "The weapon name is: " + getSecondaryColor() + pwi.getWeapon().getName());
+ 				sendFormattedMessage(sender, "The weapons name is: " + getSecondaryColor() + pwi.getWeapon().getName());
 
 			}
 
@@ -45,8 +45,8 @@ public class WeaponDebugCommand extends TidyCompatibleCommand {
 				double y = Double.parseDouble(args[1]);
 				double z = Double.parseDouble(args[2]);
 				System.out.println("Oye cabron");
-				i.rotationPoint = new Vec3d(x, y, z);
- 				sendFormattedMessage(sender, "The weapon name is: " + getSecondaryColor() + pwi.getWeapon().getName());
+				i.rotationPoint = new Vector3F((float) x, (float) y, (float) z);
+ 				sendFormattedMessage(sender, "The weapons name is: " + getSecondaryColor() + pwi.getWeapon().getName());
  				System.out.println("yo");
 			}
 

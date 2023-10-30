@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -42,9 +42,6 @@ public class SpringfieldFactory implements GunFactory {
 //       .withReloadSound("drawweapon")
 //        .withReloadIterationSound("loadshell")
         .withReloadingTime(500)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.4f)
         .withFlashScale(() -> 1f)
         .withFlashOffsetX(() -> 0.08f)

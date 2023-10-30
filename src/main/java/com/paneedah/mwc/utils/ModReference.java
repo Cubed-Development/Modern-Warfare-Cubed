@@ -1,7 +1,7 @@
 package com.paneedah.mwc.utils;
 
 import com.paneedah.mwc.Tags;
-import io.redstudioragnarok.redcore.logging.RedLogger;
+import dev.redstudio.redcore.logging.RedLogger;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

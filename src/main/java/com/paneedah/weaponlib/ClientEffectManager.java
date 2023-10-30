@@ -5,7 +5,7 @@ import com.paneedah.weaponlib.ClientEventHandler.MuzzleFlash;
 import com.paneedah.weaponlib.particle.BetterMuzzleSmoke;
 import com.paneedah.weaponlib.particle.ExplosionParticleFX;
 import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.vectors.Vector3D;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.Vec3d;
@@ -36,11 +36,11 @@ final class ClientEffectManager implements EffectManager {
 		double posZ = player.posZ + (look.z * distance) + (MC.world.rand.nextFloat() * 2.0f - 1) * positionRandomizationFactor  + (look.x * xOffset);
 
 		/*
-		Weapon weapon = (Weapon) player.getHeldItemMainhand().getItem();
+		Weapon weapons = (Weapon) player.getHeldItemMainhand().getItem();
 
-		posX += weapon.getMuzzlePosition().x;
-		posY += weapon.getMuzzlePosition().y;
-		posZ += weapon.getMuzzlePosition().z;
+		posX += weapons.getMuzzlePosition().x;
+		posY += weapons.getMuzzlePosition().y;
+		posZ += weapons.getMuzzlePosition().z;
 		*/
 		
 	    if(player instanceof EntityPlayer) {

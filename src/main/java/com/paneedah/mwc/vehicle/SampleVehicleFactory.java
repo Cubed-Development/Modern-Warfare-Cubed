@@ -1,10 +1,10 @@
 package com.paneedah.mwc.vehicle;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.ATV;
-import com.paneedah.mwc.models.SampleVehicleControlArm;
-import com.paneedah.mwc.models.SampleVehicleSteeringWheel;
-import com.paneedah.mwc.models.Wheel;
+import com.paneedah.mwc.models.weapons.ATV;
+import com.paneedah.mwc.models.weapons.SampleVehicleControlArm;
+import com.paneedah.mwc.models.weapons.SampleVehicleSteeringWheel;
+import com.paneedah.mwc.models.weapons.Wheel;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.*;
 

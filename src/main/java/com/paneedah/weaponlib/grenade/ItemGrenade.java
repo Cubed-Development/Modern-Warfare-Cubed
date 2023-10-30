@@ -1,7 +1,5 @@
 package com.paneedah.weaponlib.grenade;
 
-import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.crafting.*;
 import net.minecraft.client.model.ModelBase;
@@ -203,7 +201,7 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
             return this;
         }
 
-        public Builder withCompatibleAttachment(ItemAttachment<ItemGrenade> attachment, BiConsumer<EntityLivingBase, ItemStack> positioning) {
+        public Builder withCompatibleAttachment(ItemAttachment<ItemGrenade> attachment, Runnable positioning) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, null, true));
             return this;
         }

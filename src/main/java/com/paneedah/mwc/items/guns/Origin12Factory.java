@@ -2,13 +2,13 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -30,7 +30,7 @@ public class Origin12Factory {
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SHOTGUN)
         .withShellType(Type.SHOTGUN)
-        .withModernScreenShaking(100.0, 0.7)
+        .withModernScreenShaking(100.0, 0.7F)
         .hasFlashPedals()
         .withMaxShots(1)
         .withShootSound("origin12")
@@ -40,21 +40,18 @@ public class Origin12Factory {
         .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
         .withReloadingTime(45)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.6f)
         .withFlashScale(() -> 0.8f)
         .withFlashOffsetX(() -> 0.12f)
         .withFlashOffsetY(() -> 0.16f)
-        .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
+        .withShellCasingModel(new Shotgun12Gauge())
         .withShellCasingModelTexture("shotgun12gauge")
         .withInaccuracy(12f)
         .withPellets(10)
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
-        		// The weapon power
+        		// The weapons power
         		32.5,
         		// Muzzle climb divisor
         		24.0,
@@ -135,7 +132,7 @@ public class Origin12Factory {
             } else if(model instanceof AKRail) {
                 GL11.glTranslatef(-0.222F, -1.5F, -4.4f);
                 GL11.glScaled(0.72F, 0.72F, 0.8F);
-            } else if(model instanceof AKRail2) {   
+            } else if(model instanceof AKRail2) {
                 GL11.glTranslatef(-0.02F, -0.54F, -4.4f);
                 GL11.glScaled(0.72F, 0.72F, 0.8F);
                 GL11.glRotatef(180.000000f, 0f, 0f, 1f);
@@ -202,7 +199,7 @@ public class Origin12Factory {
 	        	GL11.glTranslatef(-0.16F, -1.7F, -3.6F);
 	            GL11.glScaled(0.35F, 0.35F, 0.35F);
         })
-        .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroT1, () -> {
                 GL11.glTranslatef(-0.176F, -1.61F, -1.2F);
                 GL11.glScaled(0.36F, 0.36F, 0.36F);
         },(model) -> {
@@ -211,7 +208,7 @@ public class Origin12Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
             GL11.glTranslatef(-0.176F, -1.61F, -1.2F);
             GL11.glScaled(0.36F, 0.36F, 0.36F);
         },(model) -> {
@@ -220,7 +217,7 @@ public class Origin12Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.AimpointCompM2, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM2, () -> {
             GL11.glTranslatef(-0.12F, -0.93F, -1F);
             GL11.glScaled(0.9F, 0.9F, 0.9F);
         },(model) -> {
@@ -229,7 +226,7 @@ public class Origin12Factory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-        .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Specter, () -> {
             GL11.glTranslatef(-0.19F, -1.25F, -1.2F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
         },(model) -> {
@@ -238,7 +235,7 @@ public class Origin12Factory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.315F, -1.6F, -1F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         },(model) -> {
@@ -251,7 +248,7 @@ public class Origin12Factory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Reflex, () -> {
             GL11.glTranslatef(-0.06F, -1.4F, -1.8F);
             GL11.glScaled(0.5F, 0.5F, 0.5F);
             },(model) -> {
@@ -260,7 +257,7 @@ public class Origin12Factory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
         	GL11.glTranslatef(-0.055F, -1.37F, -1.8F);
             GL11.glScaled(0.55F, 0.55F, 0.55F);
         },(model) -> {
@@ -269,7 +266,7 @@ public class Origin12Factory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-        .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Holographic, () -> {
                 GL11.glTranslatef(-0.035F, -1.43F, -1.4F);
                 GL11.glScaled(0.75F, 0.75F, 0.75F);
             },(model) -> {
@@ -278,7 +275,7 @@ public class Origin12Factory {
                     GL11.glScaled(0.1F, 0.1F, 0.1F);
                 }
             })
-        .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
         	GL11.glTranslatef(-0.035F, -1.43F, -1.4F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -287,7 +284,7 @@ public class Origin12Factory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
         	GL11.glTranslatef(-0.035F, -1.43F, -1.8F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -300,7 +297,7 @@ public class Origin12Factory {
                 GL11.glScaled(0.05F, 0.05F, 0.05F);
             }
         })
-        .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.VortexRedux, () -> {
             GL11.glTranslatef(-0.32F, -1.66F, -1.5F);
             GL11.glScaled(0.5F, 0.5F, 0.5F);
         },(model) -> {
@@ -309,7 +306,7 @@ public class Origin12Factory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Kobra, () -> {
                 GL11.glTranslatef(-0.027F, -1.44F, -1.3F);
                 GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -318,7 +315,7 @@ public class Origin12Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.KobraGen3, () -> {
         	GL11.glTranslatef(-0.027F, -1.44F, -1.3F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
 	    },(model) -> {
@@ -327,7 +324,7 @@ public class Origin12Factory {
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.RMR, () -> {
             GL11.glTranslatef(-0.18F, -1.6F, -1.1F);
             GL11.glScaled(0.35F, 0.35F, 0.35F);
         },(model) -> {
@@ -399,8 +396,8 @@ public class Origin12Factory {
 					new Transform()
 					.withPosition(-1.545000f, 4.665000f, -2.605000f)
 					.withRotation(0.000000f, 1.000000f, 9.911787f)
-					.withRotationPoint(-0.470000f, -1.260000f, 0.220000f)
-                    .withScale(3.0, 3.0, 3.0)
+					.withPivotPoint(-0.470000f, -1.260000f, 0.220000f)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -408,18 +405,18 @@ public class Origin12Factory {
                         // Left hand
                         new Transform()
                         .withPosition(1.370000f, 0.705000f, -0.980000f)
-                        .withBBRotation(-9.3558, -36.5488, 60.0121)
-                        .withScale(2.6, 2.6, 4.0)
-                        .withRotationPoint(0, 0, 0),
+                        .withBBRotation(-9.3558F, -36.5488F, 60.0121F)
+                        .withScale(2.6F, 2.6F, 4.0F)
+                        .withPivotPoint(0, 0, 0),
                         
                         
                         
                         // Right hand
                         new Transform()
-                        .withPosition(-0.2, 0.1, 2)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3.5, 3.5, 3.5)
-                        .withRotationPoint(0, 0, 0)
+                        .withPosition(-0.2F, 0.1F, 2)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.5F, 3.5F, 3.5F)
+                        .withPivotPoint(0, 0, 0)
                 
                 )
                 
@@ -635,17 +632,17 @@ public class Origin12Factory {
 				 new Transform()
 				 .withPosition(-1.545000f, 5.305000f, -5.205000f)
 				 .withRotation(-3.220844f, -26.042916f, -15.848692f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
 				 new Transform()
 				 .withPosition(-1.545000f, 5.305000f, -6.765000f)
 				 .withRotation(-3.220844f, -42.465731f, -15.848692f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
            })
 					 
 			.withFirstPersonHandPositioningModifying(
@@ -653,17 +650,17 @@ public class Origin12Factory {
                   	 new Transform()
                   	.withPosition(4.370000f, 0.705000f, 2.100000f)
                   	.withRotation(77.474485f, 36.548800f, 14.076018f)
-                       .withScale(2.6, 2.6, 4.0)
-                       .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                       .doGLDirect();
+                       .withScale(2.6F, 2.6F, 4.0F)
+                       .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                       .applyTransformations();
                    }, 
                    (renderContext) -> {
                   	 new Transform()
-                       .withPosition(-0.2, 0.1, 2)
-                       .withRotation(-5.4027, -4.7805, -1.6694)
-                       .withScale(3.5, 3.5, 3.5)
-                       .withRotationPoint(0, 0, 0)
-                       .doGLDirect();
+                       .withPosition(-0.2F, 0.1F, 2)
+                       .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                       .withScale(3.5F, 3.5F, 3.5F)
+                       .withPivotPoint(0, 0, 0)
+                       .applyTransformations();
                    })
                    
           .withFirstPersonHandPositioningModifyingAlt(
@@ -672,16 +669,16 @@ public class Origin12Factory {
                  	.withPosition(4.370000f, 0.705000f, 2.100000f)
                  	.withRotation(77.474485f, 36.548800f, 14.076018f)
                  	 	.withScale(2.600000f, 2.600000f, 4.000000f)
-                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                      .doGLDirect();
+                      .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                      .applyTransformations();
                   }, 
                   (renderContext) -> {
                  	 new Transform()
                  	 	.withPosition(-0.600000f, 0.340000f, 1.880000f)
-                 	 	.withRotation(-12.193518f, -4.780500f, 1.399459f)
-                      .withScale(3.5, 3.5, 3.5)
-                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                      .doGLDirect();
+                 	 	.withRotation(-12.193518f, -4.7805F, 1.399459f)
+                      .withScale(3.5F, 3.5F, 3.5F)
+                      .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                      .applyTransformations();
                   })
                     
             .withThirdPersonLeftHandPositioningReloading(

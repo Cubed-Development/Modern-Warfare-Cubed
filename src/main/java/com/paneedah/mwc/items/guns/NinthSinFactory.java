@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.NinthSin;
+import com.paneedah.mwc.models.weapons.NinthSin;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -33,9 +33,6 @@ public class NinthSinFactory implements GunFactory {
         .withInspectSound("m4a1_inspection")
         .withDrawSound("m4_draw")
         .withReloadingTime(50)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.6f)
         .withFlashScale(() -> 0.7f)
         .withFlashOffsetX(() -> 0.18f)

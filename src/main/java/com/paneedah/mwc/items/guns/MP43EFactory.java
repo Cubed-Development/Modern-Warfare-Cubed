@@ -1,9 +1,9 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.MP43E;
-import com.paneedah.mwc.models.Shotgun12Gauge;
-import com.paneedah.mwc.models.Shotgun12Gauge2;
+import com.paneedah.mwc.models.weapons.MP43E;
+import com.paneedah.mwc.models.weapons.Shotgun12Gauge;
+import com.paneedah.mwc.models.weapons.Shotgun12Gauge2;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -37,10 +37,7 @@ public class MP43EFactory implements GunFactory {
         .withDrawSound("noaction_draw")
         .withAllReloadIterationsCompletedSound("mp43ereloadfin")
         .withReloadingTime(15)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")    
         .withShellCasingEjectEnabled(false)
-        .withCrosshairZoomed("Sight")
         .withInaccuracy(10)
         .withPellets(10)
         .withFlashIntensity(0.5f)

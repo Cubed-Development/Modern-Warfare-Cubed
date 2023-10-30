@@ -1,16 +1,19 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.rendering.IModelSource;
+import com.paneedah.mwc.rendering.TexturedModel;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.grenade.GrenadeRenderableState;
+import com.paneedah.weaponlib.melee.MeleeRenderableState;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
+import dev.redstudio.redcore.vectors.Vector3F;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -18,19 +21,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
-import static com.paneedah.mwc.utils.ModReference.ID;
-
-public class ItemAttachment<T> extends Item implements ModelSource, IModernCrafting {
+public class ItemAttachment<T> extends Item implements IModelSource, IModernCrafting {
 
 	private AttachmentCategory category;
-	private String crosshair;
 	private ApplyHandler<T> apply;
 	private ApplyHandler<T> remove;
 	protected ApplyHandler2<T> apply2;
 	protected ApplyHandler2<T> remove2;
 	protected MeleeWeaponApplyHandler<T> apply3;
 	protected MeleeWeaponApplyHandler<T> remove3;
-	private List<Tuple<ModelBase, String>> texturedModels = new ArrayList<>();
+	public List<TexturedModel> texturedModels = new ArrayList<>();
+	public List<TexturedModel> onWeaponTexturedModels = new ArrayList<>();
 	private List<CustomRenderer<?>> postRenderer = new ArrayList<>();
 	private CustomRenderer<?> preRenderer;
 	private Part renderablePart;
@@ -49,7 +50,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 
 	protected String textureName;
 	
-	public Vec3d rotationPoint = Vec3d.ZERO;
+	public Vector3F rotationPoint = new Vector3F(0, 0, 0);
 	
 
 	public static interface ApplyHandler<T> {
@@ -64,22 +65,18 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
         public void apply(ItemAttachment<T> itemAttachment, PlayerMeleeInstance instance);
     }
 
-	protected ItemAttachment(AttachmentCategory category, ModelBase model, String textureName, String crosshair,
-			ApplyHandler<T> apply, ApplyHandler<T> remove) {
+	protected ItemAttachment(AttachmentCategory category, ModelBase model, String textureName, ApplyHandler<T> apply, ApplyHandler<T> remove) {
 		this.category = category;
 //		if(model != null) {
-//			this.texturedModels.add(new Tuple<ModelBase, String>(model, textureName));
+//			this.texturedModels.add(new Pair<ModelBase, String>(model, textureName));
 //		}
-		this.textureName = textureName.toLowerCase();
-		this.crosshair = crosshair != null ? ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
+		this.textureName = textureName;
 		this.apply = apply;
 		this.remove = remove;
 	}
 
-	protected ItemAttachment(AttachmentCategory category, String crosshair,
-			ApplyHandler<T> apply, ApplyHandler<T> remove) {
+	protected ItemAttachment(AttachmentCategory category, ApplyHandler<T> apply, ApplyHandler<T> remove) {
 		this.category = category;
-		this.crosshair = crosshair != null ? ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;
 	}
@@ -132,38 +129,38 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
         return requiredAttachments;
     }
 
-	@Deprecated
-	public ItemAttachment<T> addModel(ModelBase model, String textureName) {
-		texturedModels.add(new Tuple<>(model, textureName));
+	@Deprecated // Todo: Figure out why?
+	public ItemAttachment<T> addModel(final TexturedModel texturedModel) {
+		texturedModels.add(texturedModel);
 		return this;
 	}
 
-	public ItemAttachment(AttachmentCategory category, String crosshair) {
-		this(category, crosshair, (a, w, p) -> {}, (a, w, p) -> {});
+	public ItemAttachment(AttachmentCategory category) {
+		this(category, (a, w, p) -> {}, (a, w, p) -> {});
 	}
 
-	public ItemAttachment(AttachmentCategory category, ModelBase attachment, String textureName, String crosshair) {
-		this(category, attachment, textureName, crosshair, (a, w, p) -> {}, (a, w ,p) -> {});
+	public ItemAttachment(AttachmentCategory category, ModelBase attachment, String textureName) {
+		this(category, attachment, textureName, (a, w, p) -> {}, (a, w , p) -> {});
 	}
 
 	public AttachmentCategory getCategory() {
 		return category;
 	}
 
-	public List<Tuple<ModelBase, String>> getTexturedModels() {
+	public List<TexturedModel> getTexturedModels() {
 		return texturedModels;
 	}
-	
+
+	public List<TexturedModel> getOnWeaponTexturedModels() {
+        return onWeaponTexturedModels;
+    }
+
 	/**
 	 * For use with the "magic mag"
 	 * @param model
 	 */
 	public void setFirstModel(ItemAttachment<Weapon> model) {
-		texturedModels.set(0, model.getTexturedModels().get(0));
-	}
-
-	public String getCrosshair() {
-		return crosshair;
+		//texturedModels.set(0, model.getTexturedModels().get(0));
 	}
 
 	public ApplyHandler<T> getApply() {
@@ -199,8 +196,16 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 
 
 	@Override
-	public CustomRenderer<?> getPostRenderer() {
-		return postRenderer.isEmpty() ? null : postRenderer.get(0);
+	public CustomRenderer<RenderableState> getPostRenderer() {
+		return postRenderer.isEmpty() ? null : (CustomRenderer<RenderableState>) postRenderer.get(0);
+	}
+
+	public CustomRenderer<MeleeRenderableState> getMeleePostRenderer() {
+		return postRenderer.isEmpty() ? null : (CustomRenderer<MeleeRenderableState>) postRenderer.get(0);
+	}
+
+	public CustomRenderer<GrenadeRenderableState> getGrenadePostRenderer() {
+		return postRenderer.isEmpty() ? null : (CustomRenderer<GrenadeRenderableState>) postRenderer.get(0);
 	}
 	
 	public List<CustomRenderer<?>> getAllPostRenderers() {
@@ -246,7 +251,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 
 	public void setPostRenderer(List<CustomRenderer<?>> postRenderer2) {
 		this.postRenderer = postRenderer2;
-		
+
 	}
 	
 	@Override

@@ -2,7 +2,7 @@ package com.paneedah.weaponlib;
 
 import com.paneedah.mwc.utils.MWCUtil;
 import io.netty.buffer.ByteBuf;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import dev.redstudio.redcore.vectors.Vector3D;
 import net.jafama.FastMath;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

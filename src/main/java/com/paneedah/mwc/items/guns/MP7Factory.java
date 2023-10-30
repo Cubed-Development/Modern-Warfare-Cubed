@@ -2,7 +2,7 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -11,7 +11,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -45,9 +45,6 @@ public class MP7Factory {
         .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
         .withReloadingTime(45)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.16f)
@@ -56,7 +53,7 @@ public class MP7Factory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
-				// The weapon power
+				// The weapons power
 				15.0,
 				// Muzzle climb divisor
 				15.75,
@@ -146,7 +143,7 @@ public class MP7Factory {
                 GL11.glScaled(0.2F, 0.2F, 0.2F); 
             } 
         })
-        .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.203F, -1.07F, -1.18F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -155,7 +152,7 @@ public class MP7Factory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.288F, -1.07F, 0F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -168,7 +165,7 @@ public class MP7Factory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroT1, () -> {
                 GL11.glTranslatef(-0.175F, -1.1F, 0F);
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
         },(model) -> {
@@ -177,7 +174,7 @@ public class MP7Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
         	GL11.glTranslatef(-0.175F, -1.1F, 0F);
             GL11.glScaled(0.35F, 0.35F, 0.35F);
         },(model) -> {
@@ -186,7 +183,7 @@ public class MP7Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.AimpointCompM2, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM2, () -> {
             GL11.glTranslatef(-0.12F, -0.55F, 0.2F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -195,7 +192,7 @@ public class MP7Factory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-        .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Specter, () -> {
             GL11.glTranslatef(-0.18F, -0.8F, -0.3F);
             GL11.glScaled(0.4F, 0.4F, 0.4F);
         },(model) -> {
@@ -204,7 +201,7 @@ public class MP7Factory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Reflex, () -> {
             GL11.glTranslatef(-0.07F, -0.92F, -0.5F);
             GL11.glScaled(0.4F, 0.4F, 0.4F);
             },(model) -> {
@@ -213,7 +210,7 @@ public class MP7Factory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
         	GL11.glTranslatef(-0.065F, -0.90F, -0.5F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
         },(model) -> {
@@ -222,7 +219,7 @@ public class MP7Factory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-        .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Holographic, () -> {
                 GL11.glTranslatef(-0.035F, -0.94F, -0.4F);
                 GL11.glScaled(0.7F, 0.7F, 0.7F);
             },(model) -> {
@@ -231,7 +228,7 @@ public class MP7Factory {
                     GL11.glScaled(0.1F, 0.1F, 0.1F);
                 }
             })
-        .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
         	GL11.glTranslatef(-0.035F, -0.94F, -0.4F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -240,7 +237,7 @@ public class MP7Factory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
         	GL11.glTranslatef(-0.035F, -0.94F, -0.7F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -253,7 +250,7 @@ public class MP7Factory {
                 GL11.glScaled(0.05F, 0.05F, 0.05F);
             }
         })
-        .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.VortexRedux, () -> {
                 GL11.glTranslatef(-0.3F, -1.12F, -0.5F);
                 GL11.glScaled(0.45F, 0.45F, 0.45F);
             },(model) -> {
@@ -262,7 +259,7 @@ public class MP7Factory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Kobra, () -> {
                 GL11.glTranslatef(-0.043F, -0.95F, 0F);
                 GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
@@ -271,7 +268,7 @@ public class MP7Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.KobraGen3, () -> {
         	GL11.glTranslatef(-0.043F, -0.95F, 0F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
 	    },(model) -> {
@@ -280,7 +277,7 @@ public class MP7Factory {
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroReflex, () -> {
             GL11.glTranslatef(-0.15F, -1.6F, -0.5F);
             GL11.glScaled(0.35F, 0.35F, 0.35F);
             },(model) -> {
@@ -292,7 +289,7 @@ public class MP7Factory {
 //                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
-        .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.RMR, () -> {
             GL11.glTranslatef(-0.165F, -1.1F, -0.3F);
             GL11.glScaled(0.3F, 0.3F, 0.3F);
 	    },(model) -> {
@@ -301,12 +298,12 @@ public class MP7Factory {
 	            GL11.glScaled(0.2F, 0.2F, 0.2F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+        .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(-0.0F, -0.55F, -2F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
 //            GL11.glRotatef(-180F, 0f, 0f, 1f);
         })
-        .withCompatibleAttachment(Attachments.Laser2, (p, s) -> {
+        .withCompatibleAttachment(Attachments.Laser2, () -> {
         	GL11.glTranslatef(-0.0F, -0.55F, -2F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         })
@@ -318,7 +315,7 @@ public class MP7Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new MP7())
-            .withADSBeizer(new Vec3d(0.2, 1.7, -3))
+            .withADSBeizer(new Vec3d(0.2F, 1.7, -3))
             //.withTextureName("AK47")
             //.withWeaponProximity(0.99F)
             //.withYOffsetZoom(5F)
@@ -342,8 +339,8 @@ public class MP7Factory {
 					new Transform()
 					.withPosition(-1.105000f, 2.785000f, -5.045000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
-					.withRotationPoint(-0.350000f, -0.900000f, 0.700000f)
-                    .withScale(3.0, 3.0, 3.0)
+					.withPivotPoint(-0.350000f, -0.900000f, 0.700000f)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -351,18 +348,18 @@ public class MP7Factory {
                         // Left hand
                         new Transform()
                         .withPosition(1.090000f, 0.865000f, 0.860000f)
-                        .withBBRotation(-18.3277, -19.993, 76.7174)
-                        .withScale(2.6, 2.6, 4.0)
-                        .withRotationPoint(0, 0, 0),
+                        .withBBRotation(-18.3277F, -19.993F, 76.7174F)
+                        .withScale(2.6F, 2.6F, 4.0F)
+                        .withPivotPoint(0, 0, 0),
                         
                         
                         
                         // Right hand
                         new Transform()
                         .withPosition(-0.240000f, 0.380000f, 1.960000f)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3.2, 3.2, 3.2)
-                        .withRotationPoint(0, 0, 0)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.2F, 3.2F, 3.2F)
+                        .withPivotPoint(0, 0, 0)
                 
                 )
                 
@@ -568,17 +565,17 @@ public class MP7Factory {
 				 new Transform()
 				 .withPosition(-1.105000f, 3.025000f, -6.445000f)
 				 .withRotation(0.000000f, -30.514396f, -26.062789f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
 				 new Transform()
 				 .withPosition(-1.105000f, 3.025000f, -7.485000f)
 				 .withRotation(-0.187566f, -46.164037f, -11.869230f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
            })
 					 
 			.withFirstPersonHandPositioningModifying(
@@ -586,17 +583,17 @@ public class MP7Factory {
                   	 new Transform()
                   	.withPosition(3.690000f, 0.025000f, 0.860000f)
                   	.withRotation(82.522854f, 31.220711f, 8.301319f)
-                       .withScale(2.6, 2.6, 4.0)
-                       .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                       .doGLDirect();
+                       .withScale(2.6F, 2.6F, 4.0F)
+                       .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                       .applyTransformations();
                    }, 
                    (renderContext) -> {
                   	 new Transform()
                   	 .withPosition(-0.240000f, 0.380000f, 1.960000f)
-                     .withRotation(-5.4027, -4.7805, -1.6694)
-                     .withScale(3.2, 3.2, 3.2)
-                       .withRotationPoint(0, 0, 0)
-                       .doGLDirect();
+                     .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                     .withScale(3.2F, 3.2F, 3.2F)
+                       .withPivotPoint(0, 0, 0)
+                       .applyTransformations();
                    })
                    
           .withFirstPersonHandPositioningModifyingAlt(
@@ -605,16 +602,16 @@ public class MP7Factory {
                  	.withPosition(3.690000f, 0.025000f, 0.860000f)
                   	.withRotation(82.522854f, 31.220711f, 8.301319f)
                  	 	.withScale(2.600000f, 2.600000f, 4.000000f)
-                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                      .doGLDirect();
+                      .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                      .applyTransformations();
                   }, 
                   (renderContext) -> {
                  	 new Transform()
                  	 .withPosition(-0.240000f, 0.380000f, 1.960000f)
-                     .withRotation(-5.4027, -4.7805, -1.6694)
-                     .withScale(3.2, 3.2, 3.2)
-                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                      .doGLDirect();
+                     .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                     .withScale(3.2F, 3.2F, 3.2F)
+                      .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                      .applyTransformations();
                   })
                     
             .withThirdPersonLeftHandPositioningReloading(

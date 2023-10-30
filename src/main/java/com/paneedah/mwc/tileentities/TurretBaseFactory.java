@@ -15,7 +15,7 @@ public class TurretBaseFactory implements TileEntityFactory {
     	new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("turret_base")
-        .withModelClassName("com.paneedah.mwc.models.TurretBase")
+        .withModelClassName("com.paneedah.mwc.models.weapons.TurretBase")
         .withTextureName("textures/models/turretbase.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(0.0, 0, 0.0, 1, 0.2, 1)

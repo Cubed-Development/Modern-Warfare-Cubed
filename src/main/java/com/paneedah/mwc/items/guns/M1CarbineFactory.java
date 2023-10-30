@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -32,9 +32,6 @@ public class M1CarbineFactory {
         .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
         .withReloadingTime(45)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.1f)
@@ -129,7 +126,7 @@ public class M1CarbineFactory {
                 GL11.glScaled(0F, 0F, 0F);
             }
         })
-         .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.NightRaider, () -> {
              GL11.glTranslatef(-0.21F, -1.25F, -3.5F);
              GL11.glScaled(0.75F, 0.75F, 0.75F);
          },(model) -> {
@@ -138,7 +135,7 @@ public class M1CarbineFactory {
                  GL11.glScaled(0.03F, 0.03F, 0.03F);
              }
          })
-         .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.ACOG, () -> {
              GL11.glTranslatef(-0.29F, -1.25F, -2.2F);
              GL11.glScaled(0.7F, 0.7F, 0.7F);
          },(model) -> {
@@ -151,7 +148,7 @@ public class M1CarbineFactory {
                  GL11.glScaled(0.03F, 0.03F, 0.03F);
              }
          })
-         .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.Specter, () -> {
              GL11.glTranslatef(-0.18F, -0.95F, -2.5F);
              GL11.glScaled(0.4F, 0.4F, 0.4F);
          },(model) -> {
@@ -160,7 +157,7 @@ public class M1CarbineFactory {
                  GL11.glScaled(0.1F, 0.1F, 0.1F);
              }
          })
-         .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.Reflex, () -> {
                  GL11.glTranslatef(-0.066F, -1.05F, -3F);
                  GL11.glScaled(0.45F, 0.45F, 0.45F);
          },(model) -> {
@@ -169,7 +166,7 @@ public class M1CarbineFactory {
                  GL11.glScaled(0.15F, 0.15F, 0.15F);
              }
          })
-         .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
              GL11.glTranslatef(-0.055F, -1F, -3F);
              GL11.glScaled(0.55F, 0.55F, 0.55F);
          },(model) -> {
@@ -178,7 +175,7 @@ public class M1CarbineFactory {
              GL11.glScaled(0.15F, 0.15F, 0.15F);
          }
          })
-         .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.RMR, () -> {
              GL11.glTranslatef(-0.171F, -1.25F, -2.5F);
              GL11.glScaled(0.33F, 0.33F, 0.33F);
          },(model) -> {
@@ -187,7 +184,7 @@ public class M1CarbineFactory {
              GL11.glScaled(0.2F, 0.2F, 0.2F);
          }
          })
-         .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.Holographic, () -> {
                  GL11.glTranslatef(-0.041F, -1.1F, -2.8F);
                  GL11.glScaled(0.65F, 0.65F, 0.65F);
              },(model) -> {
@@ -196,7 +193,7 @@ public class M1CarbineFactory {
                      GL11.glScaled(0.1F, 0.1F, 0.1F);
                  }
              })
-         .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
              GL11.glTranslatef(-0.041F, -1.1F, -2.8F);
              GL11.glScaled(0.65F, 0.65F, 0.65F);
          },(model) -> {
@@ -205,7 +202,7 @@ public class M1CarbineFactory {
                  GL11.glScaled(0.1F, 0.1F, 0.1F);
              }
          })
-         .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
              GL11.glTranslatef(-0.041F, -1.1F, -2.8F);
              GL11.glScaled(0.65F, 0.65F, 0.65F);
          },(model) -> {
@@ -218,7 +215,7 @@ public class M1CarbineFactory {
                  GL11.glScaled(0.05F, 0.05F, 0.05F);
              }
          })
-//         .withCompatibleAttachment(Attachments.Vortex, (player, stack) -> {
+//         .withCompatibleAttachment(Attachments.Vortex, () -> {
 //                 GL11.glTranslatef(-0.28F, -1.3F, -3F);
 //                 GL11.glScaled(0.4F, 0.4F, 0.5F);
 //             },(model) -> {
@@ -227,7 +224,7 @@ public class M1CarbineFactory {
 //                     GL11.glScaled(0.15F, 0.15F, 0.15F);
 //                 }
 //             })
-         .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.Kobra, () -> {
                  GL11.glTranslatef(-0.041F, -1.08F, -2.8F);
                  GL11.glScaled(0.65F, 0.65F, 0.65F);
          },(model) -> {
@@ -236,7 +233,7 @@ public class M1CarbineFactory {
                  GL11.glScaled(0.15F, 0.15F, 0.15F);
              }
          })
-         .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.MicroT1, () -> {
                  GL11.glTranslatef(-0.18F, -1.25F, -2.5F);
                  GL11.glScaled(0.4F, 0.4F, 0.4F);
              },(model) -> {
@@ -245,7 +242,7 @@ public class M1CarbineFactory {
                      GL11.glScaled(0.15F, 0.15F, 0.15F);
                  }
              })
-         .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+         .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
              GL11.glTranslatef(-0.18F, -1.25F, -2.5F);
              GL11.glScaled(0.4F, 0.4F, 0.4F);
          },(model) -> {

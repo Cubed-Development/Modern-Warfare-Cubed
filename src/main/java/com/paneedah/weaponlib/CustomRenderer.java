@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib;
 
-public interface CustomRenderer<RS> {
+public interface CustomRenderer<RenderableStateS> {
 
-	public void render(RenderContext<RS> renderContext);
+	public void render(RenderContext<RenderableStateS> renderContext);
 }

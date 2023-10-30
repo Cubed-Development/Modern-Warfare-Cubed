@@ -4,7 +4,7 @@ import com.paneedah.mwc.network.messages.PermitMessage;
 import com.paneedah.weaponlib.CommonModContext;
 import com.paneedah.weaponlib.PlayerItemInstance;
 import com.paneedah.weaponlib.state.Permit;
-import io.redstudioragnarok.redcore.utils.NetworkUtil;
+import dev.redstudio.redcore.utils.NetworkUtil;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

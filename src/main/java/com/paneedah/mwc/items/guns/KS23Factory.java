@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -43,10 +43,7 @@ public class KS23Factory implements GunFactory {
         .withReloadIterationSound("load_shell")
         .withAllReloadIterationsCompletedSound("ks23_pump_action")
         .withReloadingTime(15)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")    
         .withShellCasingEjectEnabled(false)
-        .withCrosshairZoomed("Sight")
         .withInaccuracy(16)
         .withPellets(10)
         .withFlashIntensity(0.5f)

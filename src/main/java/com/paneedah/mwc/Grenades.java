@@ -1,6 +1,7 @@
 package com.paneedah.mwc;
 
 import com.paneedah.mwc.items.grenade.*;
+import com.paneedah.mwc.models.weapons.Pin;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.weaponlib.AttachmentBuilder;
 import com.paneedah.weaponlib.AttachmentCategory;
@@ -19,7 +20,7 @@ public class Grenades {
 
 
     public static void init(Object mod, CommonProxy commonProxy) {
-        GrenadeSafetyPin = new AttachmentBuilder<ItemGrenade>().withCategory(AttachmentCategory.EXTRA).withModel(new com.paneedah.mwc.models.Pin(), "gun.png").withName("GrenadeSafetyPin").withRenderablePart().withTextureName("Dummy.png").build(MWC.modContext);
+        GrenadeSafetyPin = new AttachmentBuilder<ItemGrenade>().withCategory(AttachmentCategory.EXTRA).withModel(new Pin(), "gun.png").withName("GrenadeSafetyPin").withRenderablePart().build();
 
         FuseGrenade = new FuseGrenadeFactory().createGrenade(commonProxy);
         ImpactGrenade = new ImpactGrenadeFactory().createGrenade(commonProxy);

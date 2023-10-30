@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -36,16 +36,13 @@ public class Saiga12Factory {
         .withInspectSound("inspection")
         .withDrawSound("ak_draw")
         .withReloadingTime(45)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withInaccuracy(10)
         .withPellets(10)
         .withFlashIntensity(0.4f)
         .withFlashScale(() -> 1f)
         .withFlashOffsetX(() -> 0.05f)
         .withFlashOffsetY(() -> 0.15f)
-        .withShellCasingModel(new com.paneedah.mwc.models.Shotgun12Gauge())
+        .withShellCasingModel(new Shotgun12Gauge())
         .withShellCasingModelTexture("shotgun12gauge")
         .withShellCasingForwardOffset(0.01f)
         .withShellCasingVerticalOffset(-0.03f)
@@ -89,7 +86,7 @@ public class Saiga12Factory {
                 GL11.glScaled(0.1F, 0.1F, 0.05F);
             }
         })
-        .withCompatibleAttachment(Attachments.PSO1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.PSO1, () -> {
             GL11.glTranslatef(0.14F, -0.9F, -1.1F);
             GL11.glScaled(1.2F, 1.2F, 1.2F);
         },(model) -> {

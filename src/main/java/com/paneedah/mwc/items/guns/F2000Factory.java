@@ -2,7 +2,7 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -11,7 +11,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -43,9 +43,6 @@ public class F2000Factory {
         .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
         .withReloadingTime(45)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.6f)
         .withFlashScale(() -> 0.5f)
         .withFlashOffsetX(() -> 0.11f)
@@ -53,7 +50,7 @@ public class F2000Factory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
 		.withRecoilParam(new RecoilParam(
-				// The weapon power
+				// The weapons power
 				15.0,
 				// Muzzle climb divisor
 				15.75,
@@ -117,19 +114,6 @@ public class F2000Factory {
             GL11.glScaled(0.75F, 1F, 1F);
         })
         .withCompatibleAttachment(Magazines.M38Mag, (model) -> {
-            GL11.glTranslatef(-0.15F, 1.1F, 1.7F);
-            GL11.glScaled(0.75F, 1F, 1F);
-        })
-        .withCompatibleAttachment(Magazines.Stanag50, (model) -> {
-            GL11.glTranslatef(0F, 1F, 2.9F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
-        })
-        .withCompatibleAttachment(Magazines.Stanag60, (model) -> {
-            GL11.glRotatef(-10F, 1f, 0f, 0f);
-            GL11.glTranslatef(0F, 0.75F, 3.1F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
-        })
-        .withCompatibleAttachment(Magazines.Stanag100, (model) -> {
             GL11.glTranslatef(-0.15F, 1.1F, 1.7F);
             GL11.glScaled(0.75F, 1F, 1F);
         })
@@ -224,7 +208,7 @@ public class F2000Factory {
                 GL11.glScaled(0F, 0F, 0F); 
             }
         })
-        .withCompatibleAttachment(Attachments.F2000Scope, true, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.F2000Scope, true, () -> {
 //            GL11.glTranslatef(-0.09F, -0.75F, -1.2F);
 //            GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -236,7 +220,7 @@ public class F2000Factory {
                 GL11.glScaled(0.2F, 0.2F, 0.6F);
             }
         })
-        .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.09F, -0.75F, -1.2F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -245,7 +229,7 @@ public class F2000Factory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.HP, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.HP, () -> {
             GL11.glTranslatef(-0.18F, -0.75F, -0F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
@@ -254,7 +238,7 @@ public class F2000Factory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.17F, -0.77F, 0.2F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
         },(model) -> {
@@ -267,7 +251,7 @@ public class F2000Factory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroT1, () -> {
                 GL11.glTranslatef(-0.06F, -0.8F, -0.2F);
                 GL11.glScaled(0.36F, 0.36F, 0.36F);
         },(model) -> {
@@ -276,7 +260,7 @@ public class F2000Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
             GL11.glTranslatef(-0.06F, -0.8F, -0.2F);
             GL11.glScaled(0.36F, 0.36F, 0.36F);
     },(model) -> {
@@ -285,7 +269,7 @@ public class F2000Factory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
     })
-        .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Specter, () -> {
             GL11.glTranslatef(-0.07F, -0.5F, -0.2F);
             GL11.glScaled(0.4F, 0.4F, 0.4F);
         },(model) -> {
@@ -294,7 +278,7 @@ public class F2000Factory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-        .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Reflex, () -> {
             GL11.glTranslatef(0.055F, -0.6F, -0.3F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
             },(model) -> {
@@ -303,7 +287,7 @@ public class F2000Factory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
             GL11.glTranslatef(0.055F, -0.57F, -0.3F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
         },(model) -> {
@@ -312,7 +296,7 @@ public class F2000Factory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-        .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Holographic, () -> {
                 GL11.glTranslatef(0.08F, -0.65F, -0.1F);
                 GL11.glScaled(0.65F, 0.65F, 0.65F);
             },(model) -> {
@@ -321,7 +305,7 @@ public class F2000Factory {
                     GL11.glScaled(0.1F, 0.1F, 0.1F);
                 }
             })
-        .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
             GL11.glTranslatef(0.08F, -0.65F, -0.1F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
@@ -330,7 +314,7 @@ public class F2000Factory {
                 GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-//        .withCompatibleAttachment(Attachments.Vortex, (player, stack) -> {
+//        .withCompatibleAttachment(Attachments.Vortex, () -> {
 //                GL11.glTranslatef(-0.16F, -0.84F, -0.5F);
 //                GL11.glScaled(0.38F, 0.38F, 0.48F);
 //            },(model) -> {
@@ -339,7 +323,7 @@ public class F2000Factory {
 //                    GL11.glScaled(0.15F, 0.15F, 0.15F);
 //                }
 //            })
-        .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Kobra, () -> {
                 GL11.glTranslatef(0.07F, -0.65F, 0F);
                 GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
@@ -399,8 +383,8 @@ public class F2000Factory {
 					new Transform()
 					.withPosition(-1.425000f, 1.905000f, -5.685000f)
 					.withRotation(0.000000f, 1.000000f, 3.924788f)
-					.withRotationPoint(0.050000f, -0.460000f, 1.780000f)
-                    .withScale(3.0, 3.0, 3.0)
+					.withPivotPoint(0.050000f, -0.460000f, 1.780000f)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -408,18 +392,18 @@ public class F2000Factory {
                         // Left hand
                         new Transform()
                         .withPosition(1.170000f, 0.905000f, 0.980000f)
-                        .withBBRotation(-9.9086, -23.0693, 62.027)
-                        .withScale(2.6, 2.6, 4.0)
-                        .withRotationPoint(0, 0, 0),
+                        .withBBRotation(-9.9086F, -23.0693F, 62.027F)
+                        .withScale(2.6F, 2.6F, 4.0F)
+                        .withPivotPoint(0, 0, 0),
                         
                         
                         
                         // Right hand
                         new Transform()
                         .withPosition(-0.080000f, 0.780000f, 2.720000f)
-                        .withRotation(-5.402700f, -4.780500f, -1.669400f)
-                        .withScale(3.5, 3.5, 3.5)
-                        .withRotationPoint(0, 0, 0)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.5F, 3.5F, 3.5F)
+                        .withPivotPoint(0, 0, 0)
                 
                 )
                 
@@ -427,9 +411,6 @@ public class F2000Factory {
                 .setupModernMagazineAnimations("f2000", 
                 		Magazines.M4A1Mag, 
                 		Magazines.M38Mag, 
-                		Magazines.Stanag100,
-                		Magazines.Stanag50,
-                		Magazines.Stanag60,
                 		Magazines.SOCOM_Mag)
                     
             .withThirdPersonPositioningReloading(
@@ -621,17 +602,17 @@ public class F2000Factory {
 				 new Transform()
 				 .withPosition(-1.425000f, 2.065000f, -7.485000f)
 				 .withRotation(-8.456960f, -25.965575f, -20.702321f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
 				 new Transform()
 				 .withPosition(-1.425000f, 2.065000f, -8.325000f)
 				 .withRotation(3.311202f, -37.988147f, -20.702321f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
           })
 					 
 			.withFirstPersonHandPositioningModifying(
@@ -639,17 +620,17 @@ public class F2000Factory {
                  	 new Transform()
                  	.withPosition(2.610000f, 0.905000f, 1.700000f)
                  	.withRotation(99.332817f, 23.069300f, 22.719554f)
-                      .withScale(2.6, 2.6, 4.0)
-                      .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                      .doGLDirect();
+                      .withScale(2.6F, 2.6F, 4.0F)
+                      .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                      .applyTransformations();
                   }, 
                   (renderContext) -> {
                  	 new Transform()
                  	.withPosition(-0.080000f, 0.780000f, 2.720000f)
-                    .withRotation(-5.402700f, -4.780500f, -1.669400f)
-                      .withScale(3.5, 3.5, 3.5)
-                      .withRotationPoint(0, 0, 0)
-                      .doGLDirect();
+                    .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                      .withScale(3.5F, 3.5F, 3.5F)
+                      .withPivotPoint(0, 0, 0)
+                      .applyTransformations();
                   })
                   
          .withFirstPersonHandPositioningModifyingAlt(
@@ -658,16 +639,16 @@ public class F2000Factory {
                 	 .withPosition(2.610000f, 0.905000f, 1.700000f)
                 	 .withRotation(99.332817f, 23.069300f, 22.719554f)
                 	 	.withScale(2.600000f, 2.600000f, 4.000000f)
-                     .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                     .doGLDirect();
+                     .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                     .applyTransformations();
                  }, 
                  (renderContext) -> {
                 	 new Transform()
                 	 .withPosition(-0.480000f, 0.780000f, 2.720000f)
-                	 .withRotation(-5.402700f, -4.780500f, -1.669400f)
-                     .withScale(3.5, 3.5, 3.5)
-                     .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                     .doGLDirect();
+                	 .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                     .withScale(3.5F, 3.5F, 3.5F)
+                     .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                     .applyTransformations();
                  })
                     
             .withThirdPersonLeftHandPositioningReloading(

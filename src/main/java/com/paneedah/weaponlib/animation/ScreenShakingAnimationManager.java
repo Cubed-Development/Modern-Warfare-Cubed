@@ -175,7 +175,7 @@ public class ScreenShakingAnimationManager {
             break;
         case SHOOTING:
             Builder builder = weapon.getScreenShakeAnimationBuilder(RenderableState.SHOOTING);
-//            ScreenShaking weaponScreenShaking = weapon.getScreenShaking(RenderableState.SHOOTING);
+//            ScreenShaking weaponScreenShaking = weapons.getScreenShaking(RenderableState.SHOOTING);
 //            animation = new ScreenShakeAnimation.Builder()
 //                    .withState(managedState)
 //                    .withRotationAttenuation(0.5f)

@@ -1,9 +1,9 @@
 package com.paneedah.mwc.vehicle;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.JLTVM1280;
-import com.paneedah.mwc.models.JLTVM1280wheel;
-import com.paneedah.mwc.models.SampleVehicleControlArm;
+import com.paneedah.mwc.models.weapons.JLTVM1280;
+import com.paneedah.mwc.models.weapons.JLTVM1280wheel;
+import com.paneedah.mwc.models.weapons.SampleVehicleControlArm;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.vehicle.*;
 

@@ -4,13 +4,13 @@ package com.paneedah.mwc.items.guns;
 // IMPORT LIST START
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -40,9 +40,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withInspectSound("m4a1_inspection") // Inspection sound
                 .withDrawSound("m4_draw") // Draw sound
                 .withReloadingTime(50)  // Reloading time in ticks
-                .withCrosshair("gun") // Crosshair
-                .withCrosshairRunning("Running") // Crosshair when running
-                .withCrosshairZoomed("Sight") // Crosshair when zoomed
                 .withFlashIntensity(0.5f) // Flash intensity
                 .withFlashScale(() -> 0.6f) // Flash scale
                 .withFlashOffsetX(() -> 0.13f) // Flash offset X
@@ -53,7 +50,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withCreativeTab(MWC.WEAPONS_TAB) // Creative tab
                 .useNewSystem() // Use new system
                 .withRecoilParam(new RecoilParam( // Recoil param
-                        // The weapon power
+                        // The weapons power
                         15.0,
                         // Muzzle climb divisor
                         15.75,
@@ -329,10 +326,10 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 })
 
                 // Compatible attachment honeybadger NightRaider
-                .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.NightRaider, () -> {
                     GL11.glTranslatef(-0.21F, -1.4F, -1.8F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
-                },(model) -> {
+                }, (model) -> {
                     if(model instanceof JPUreticle) {
                         GL11.glTranslatef(0.12F, -0.2F, 2.49F);
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
@@ -340,7 +337,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 })
 
                 // Compatible attachment honeybadger ACOG
-                .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.ACOG, () -> {
                     GL11.glTranslatef(-0.28F, -1.41F, -0.5F);
                     GL11.glScaled(0.7F, 0.7F, 0.7F);
                 },(model) -> {
@@ -355,7 +352,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 })
 
                 // Compatible attachment honeybadger Specter
-                .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.Specter, () -> {
                     GL11.glTranslatef(-0.18F, -1.1F, -0.7F);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
                 },(model) -> {
@@ -366,7 +363,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 })
 
                 // Compatible attachment honeybadger Leupold Rail Scope
-                .withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
                     GL11.glTranslatef(-0.151F, -1.25F, -1.2F);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
                 },(model) -> {
@@ -377,7 +374,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 })
 
                 // Compatible attachment honeybadger MicroReflex
-                .withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.MicroReflex, () -> {
                     GL11.glTranslatef(-0.15F, -1.93F, -1F);
                     GL11.glScaled(0.35F, 0.35F, 0.35F);
                 },(model) -> {
@@ -391,7 +388,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 })
 
                 // Compatible attachment honeybadger Reflex
-                .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.Reflex, () -> {
                     GL11.glTranslatef(-0.066F, -1.21F, -0.9F);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
                 },(model) -> {
@@ -402,7 +399,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 })
 
                 // Compatible attachment honeybadger BijiaReflex
-                .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
                     GL11.glTranslatef(-0.062F, -1.2F, -1F);
                     GL11.glScaled(0.48F, 0.48F, 0.48F);
                 },(model) -> {
@@ -413,7 +410,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 })
 
                 // Compatible attachment honeybadger Holographic
-                .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.Holographic, () -> {
                     GL11.glTranslatef(-0.041F, -1.25F, -0.7F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 },(model) -> {
@@ -425,7 +422,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
 
                 // Compatible attachment honeybadger HolographicAlt
-                .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
                     GL11.glTranslatef(-0.041F, -1.25F, -0.7F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 },(model) -> {
@@ -436,7 +433,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 })
 
                 // Compatible attachment honeybadger EotechHybrid
-                .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
                     GL11.glTranslatef(-0.041F, -1.25F, -1.3F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 },(model) -> {
@@ -451,7 +448,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 })
 
                 // Compatible attachment honeybadger VortexRedux
-                .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.VortexRedux, () -> {
                     GL11.glTranslatef(-0.3F, -1.45F, -1.1F);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
                 },(model) -> {
@@ -462,7 +459,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 })
 
                 // Compatible attachment honeybadger Kobra
-                .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.Kobra, () -> {
                     GL11.glTranslatef(-0.041F, -1.26F, -0.7F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 },(model) -> {
@@ -494,7 +491,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 }, false, false)
 
                 // Compatible attachment honeybadger MicroT1
-                .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.MicroT1, () -> {
                     GL11.glTranslatef(-0.18F, -1.45F, -1F);
                     GL11.glScaled(0.38F, 0.38F, 0.38F);
                 },(model) -> {
@@ -505,7 +502,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 })
 
                 // Compatible attachment honeybadger AimpointCompM5
-                .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+                .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
                     GL11.glTranslatef(-0.18F, -1.45F, -1F);
                     GL11.glScaled(0.38F, 0.38F, 0.38F);
                 },(model) -> {
@@ -550,12 +547,12 @@ public class AACHoneyBadgerFactory implements GunFactory {
                     GL11.glScaled(0.8F, 0.8F, 0.8F);
                 })
 
-                .withCompatibleAttachment(Attachments.Laser2, (p, s) -> {
+                .withCompatibleAttachment(Attachments.Laser2, () -> {
                     GL11.glTranslatef(0.05F, -1.18F, -3.6F);
                     GL11.glScaled(0.8F, 0.8F, 0.8F);
                 })
 
-                .withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+                .withCompatibleAttachment(Attachments.Laser, () -> {
                     GL11.glTranslatef(0.05F, -1.18F, -3.6F);
                     GL11.glScaled(0.8F, 0.8F, 0.8F);
                 })
@@ -606,8 +603,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                                 new Transform()
                                         .withPosition(-1.265000f, 4.065000f, -3.085000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
-                                        .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
-                                        .withScale(3.0, 3.0, 3.0)
+                                        .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                                        .withScale(3.0F, 3.0F, 3.0F)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -615,18 +612,18 @@ public class AACHoneyBadgerFactory implements GunFactory {
                                 // Left hand
                                 new Transform()
                                         .withPosition(1.050000f, 0.065000f, -0.500000f)
-                                        .withBBRotation(-8.1997, -23.6991, 57.7232)
-                                        .withScale(2.6, 2.6, 4.0)
-                                        .withRotationPoint(0, 0, 0),
+                                        .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
+                                        .withScale(2.6F, 2.6F, 4.0F)
+                                        .withPivotPoint(0, 0, 0),
 
 
 
                                 // Right hand
                                 new Transform()
-                                        .withPosition(-0.2, 0.1, 2)
-                                        .withRotation(-5.4027, -4.7805, -1.6694)
-                                        .withScale(3.5, 3.5, 3.5)
-                                        .withRotationPoint(0, 0, 0)
+                                        .withPosition(-0.2F, 0.1F, 2)
+                                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                                        .withScale(3.5F, 3.5F, 3.5F)
+                                        .withPivotPoint(0, 0, 0)
 
                         )
 
@@ -810,17 +807,17 @@ public class AACHoneyBadgerFactory implements GunFactory {
                             new Transform()
                                     .withPosition(-1.905000f, 4.065000f, -3.645000f)
                                     .withRotation(0.000000f, -30.514396f, -26.062789f)
-                                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+                                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
                                     .withScale(3.000000f, 3.000000f, 3.000000f)
-                                    .doGLDirect();
+                                    .applyTransformations();
                         })
                         .withFirstPersonPositioningModifyingAlt((renderContext) -> {
                             new Transform()
                                     .withPosition(-1.425000f, 3.545000f, -5.685000f)
                                     .withRotation(-0.187566f, -46.164037f, -11.869230f)
-                                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+                                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
                                     .withScale(3.000000f, 3.000000f, 3.000000f)
-                                    .doGLDirect();
+                                    .applyTransformations();
                         })
 
                         .withFirstPersonHandPositioningModifying(
@@ -828,17 +825,17 @@ public class AACHoneyBadgerFactory implements GunFactory {
                                     new Transform()
                                             .withPosition(1.730000f, 0.065000f, -0.980000f)
                                             .withRotation(93.414678f, 23.699100f, 15.553163f)
-                                            .withScale(2.6, 2.6, 4.0)
-                                            .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                                            .doGLDirect();
+                                            .withScale(2.6F, 2.6F, 4.0F)
+                                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                                            .applyTransformations();
                                 },
                                 (renderContext) -> {
                                     new Transform()
-                                            .withPosition(-0.2, 0.1, 2)
-                                            .withRotation(-5.4027, -4.7805, -1.6694)
-                                            .withScale(3.5, 3.5, 3.5)
-                                            .withRotationPoint(0, 0, 0)
-                                            .doGLDirect();
+                                            .withPosition(-0.2F, 0.1F, 2)
+                                            .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                                            .withScale(3.5F, 3.5F, 3.5F)
+                                            .withPivotPoint(0, 0, 0)
+                                            .applyTransformations();
                                 })
 
                         .withFirstPersonHandPositioningModifyingAlt(
@@ -847,16 +844,16 @@ public class AACHoneyBadgerFactory implements GunFactory {
                                             .withPosition(2.450000f, -0.335000f, -0.660000f)
                                             .withRotation(93.766422f, 50.841130f, 4.679372f)
                                             .withScale(2.600000f, 2.600000f, 4.000000f)
-                                            .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                                            .doGLDirect();
+                                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                                            .applyTransformations();
                                 },
                                 (renderContext) -> {
                                     new Transform()
                                             .withPosition(-0.600000f, 0.340000f, 1.880000f)
-                                            .withRotation(-12.193518f, -4.780500f, 1.399459f)
-                                            .withScale(3.5, 3.5, 3.5)
-                                            .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                                            .doGLDirect();
+                                            .withRotation(-12.193518f, -4.7805F, 1.399459f)
+                                            .withScale(3.5F, 3.5F, 3.5F)
+                                            .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                                            .applyTransformations();
                                 })
 
                         .withThirdPersonLeftHandPositioningReloading(

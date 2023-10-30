@@ -124,7 +124,7 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
     private LootBoxConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, 
             EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
 //        if(item == null) {
-//            log.warn("Attempted to configure entity equipment with null item");
+//            log.warn("Attempted to configure entity equipments with null item");
 //            return this;
 //        }
         Equipment equipment = new Equipment();
@@ -141,7 +141,7 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
     private LootBoxConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, 
             EnumDifficulty difficultyLevel, float weight, int stackSize) {
 //        if(item == null) {
-//            log.warn("Attempted to configure entity equipment with null item");
+//            log.warn("Attempted to configure entity equipments with null item");
 //            return this;
 //        }
         Equipment equipment = new Equipment();

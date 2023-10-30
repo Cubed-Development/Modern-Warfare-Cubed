@@ -4,7 +4,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.JSONDatabaseManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -236,10 +235,10 @@ public class CraftingFileManager extends JSONDatabaseManager {
 	private void initializeJSON(InputStream is) throws JsonIOException, JsonSyntaxException {
 		byte[] array;
 		try { array = IOUtils.toByteArray(is); }
-		catch (IOException e) { throw new JsonIOException("Failed to copy array into bytes!"); }
+		catch (IOException e) { throw new JsonIOException("Failed to set array into bytes!"); }
 		
 		if(array == null)
-			throw new JsonIOException("Failed to copy array into bytes!");
+			throw new JsonIOException("Failed to set array into bytes!");
 		
 		ByteArrayInputStream hashStream = new ByteArrayInputStream(array);
 		ByteArrayInputStream readStream = new ByteArrayInputStream(array);

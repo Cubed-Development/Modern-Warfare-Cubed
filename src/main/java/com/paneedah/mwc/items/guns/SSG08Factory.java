@@ -1,7 +1,7 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -36,9 +36,6 @@ public class SSG08Factory implements GunFactory {
         .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
         .withReloadingTime(40)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.1f)
@@ -80,7 +77,7 @@ public class SSG08Factory implements GunFactory {
                   GL11.glScaled(0.55F, 0.55F, 0.7F);
               }
         })
-        .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.195F, -1.45F, -2.7F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
 		},(model) -> {
@@ -90,7 +87,7 @@ public class SSG08Factory implements GunFactory {
 		    }
 		})
 		
-		.withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.ACOG, () -> {
 		            GL11.glTranslatef(-0.273F, -1.47F, -1.3F);
 		            GL11.glScaled(0.63F, 0.63F, 0.63F);
 		},(model) -> {
@@ -104,7 +101,7 @@ public class SSG08Factory implements GunFactory {
 		    }
 		})
 		
-		.withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.Specter, () -> {
 		            GL11.glTranslatef(-0.175F, -1.22F, -1.7F);
 		            GL11.glScaled(0.35F, 0.35F, 0.35F);
 		},(model) -> {
@@ -114,7 +111,7 @@ public class SSG08Factory implements GunFactory {
 		    }
 		})
 		
-		.withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
 		            GL11.glTranslatef(-0.153F, -1.33F, -2.6F);
 		            GL11.glScaled(0.44F, 0.44F, 0.44F);
 		},(model) -> {
@@ -123,7 +120,7 @@ public class SSG08Factory implements GunFactory {
 		        GL11.glScaled(0.04F, 0.04F, 0.04F);
 		    }
 		})
-		.withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.MicroReflex, () -> {
             GL11.glTranslatef(-0.145F, -1.92F, -2F);
             GL11.glScaled(0.3F, 0.3F, 0.3F);
             },(model) -> {
@@ -136,7 +133,7 @@ public class SSG08Factory implements GunFactory {
                 }
             })
 		
-		.withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.Reflex, () -> {
                     GL11.glTranslatef(-0.071F, -1.29F, -2F);
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
 		},(model) -> {
@@ -145,7 +142,7 @@ public class SSG08Factory implements GunFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
 			}
 		})
-		.withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.BijiaReflex, () -> {
 	                    GL11.glTranslatef(-0.07F, -1.28F, -1.7F);
 	                    GL11.glScaled(0.4F, 0.4F, 0.4F);
 			},(model) -> {
@@ -155,7 +152,7 @@ public class SSG08Factory implements GunFactory {
 	        }
 			})
 		
-		.withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.Holographic, () -> {
 					GL11.glTranslatef(-0.052F, -1.35F, -1.7F);
 		            GL11.glScaled(0.55F, 0.55F, 0.55F);
 			},(model) -> {
@@ -165,7 +162,7 @@ public class SSG08Factory implements GunFactory {
 	            }
 	        })
 		
-		.withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.HolographicAlt, () -> {
                     GL11.glTranslatef(-0.052F, -1.35F, -1.7F);
                     GL11.glScaled(0.55F, 0.55F, 0.55F);
         },(model) -> {
@@ -175,7 +172,7 @@ public class SSG08Factory implements GunFactory {
             }
         })
 		
-		.withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
 			GL11.glTranslatef(-0.052F, -1.35F, -1.9F);
             GL11.glScaled(0.55F, 0.55F, 0.55F);
         },(model) -> {
@@ -189,7 +186,7 @@ public class SSG08Factory implements GunFactory {
             }
         })
 		
-		.withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.VortexRedux, () -> {
             GL11.glTranslatef(-0.3F, -1.45F, -1.1F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
 	    },(model) -> {
@@ -199,7 +196,7 @@ public class SSG08Factory implements GunFactory {
 	        }
 	    })
 	    
-		.withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.Kobra, () -> {
                     GL11.glTranslatef(-0.045F, -1.34F, -1.6F);
                     GL11.glScaled(0.6F, 0.6F, 0.6F);
 		},(model) -> {
@@ -209,7 +206,7 @@ public class SSG08Factory implements GunFactory {
             }
         })
 		
-		.withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.KobraGen3, () -> {
 					GL11.glTranslatef(-0.045F, -1.34F, -1.6F);
 		            GL11.glScaled(0.6F, 0.6F, 0.6F);
 		},(model) -> {
@@ -219,7 +216,7 @@ public class SSG08Factory implements GunFactory {
 		    }
 		})
 		
-		.withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.MicroT1, () -> {
                     GL11.glTranslatef(-0.171F, -1.5F, -1.5F);
                     GL11.glScaled(0.33F, 0.33F, 0.33F);
             },(model) -> {
@@ -229,7 +226,7 @@ public class SSG08Factory implements GunFactory {
                 }
             })
 		
-		.withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
 					GL11.glTranslatef(-0.171F, -1.5F, -1.5F);
 		            GL11.glScaled(0.33F, 0.33F, 0.33F);
         },(model) -> {

@@ -2,13 +2,13 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -38,9 +38,6 @@ public class M4A1Factory implements GunFactory {
 		.withInspectSound("m4a1_inspection")
 		.withDrawSound("m4_draw")
 		.withReloadingTime(50)
-		.withCrosshair("gun")
-		.withCrosshairRunning("Running")
-		.withCrosshairZoomed("Sight")
 		.withFlashIntensity(0.5f)
 		.withFlashScale(() -> 0.6f)
 		.withFlashOffsetX(() -> 0.11f)
@@ -51,7 +48,7 @@ public class M4A1Factory implements GunFactory {
 		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
 		.withRecoilParam(new RecoilParam(
-				// The weapon power
+				// The weapons power
 				15.0,
 				// Muzzle climb divisor
 				15.75,
@@ -911,12 +908,12 @@ public class M4A1Factory implements GunFactory {
 			GL11.glTranslatef(-0.18F, -0.38F, -3.5F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
 		})
-		.withCompatibleAttachment(Attachments.Laser2, (p, s) -> {
+		.withCompatibleAttachment(Attachments.Laser2, () -> {
 		    GL11.glTranslatef(-0.22F, -1.18F, -3F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
             GL11.glRotatef(-90F, 0f, 0f, 1f);
 		})
-		.withCompatibleAttachment(Attachments.Laser, (p, s) -> {
+		.withCompatibleAttachment(Attachments.Laser, () -> {
 			GL11.glTranslatef(0.05F, -1.18F, -3.9F);
 			GL11.glScaled(0.8F, 0.8F, 0.8F);
 		})
@@ -928,7 +925,7 @@ public class M4A1Factory implements GunFactory {
 		.withRenderer(new WeaponRenderer.Builder()
 			
 			.withModel(new M4A1())
-			.withADSBeizer(new Vec3d(0.2, 1.7, 0.5))
+			.withADSBeizer(new Vec3d(0.2F, 1.7, 0.5F))
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);
 				GL11.glTranslatef(0, 0f, 3f);
@@ -943,8 +940,8 @@ public class M4A1Factory implements GunFactory {
 					new Transform()
 					.withPosition(-1.425000f, 3.825000f, -2.525000f)
 					.withRotation(0.000000f, 1.000000f, 6.300000f)
-                    .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
-                    .withScale(3.0, 3.0, 3.0)
+                    .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -952,18 +949,18 @@ public class M4A1Factory implements GunFactory {
                         // Left hand
                         new Transform()
                         .withPosition(1.050000f, 0.025000f, -0.500000f)
-                        .withBBRotation(-8.1997, -23.6991, 57.7232)
-                        .withScale(2.6, 2.6, 4.0)
-                        .withRotationPoint(0, 0, 0),
+                        .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
+                        .withScale(2.6F, 2.6F, 4.0F)
+                        .withPivotPoint(0, 0, 0),
                         
                         
                         
                         // Right hand
                         new Transform()
-                        .withPosition(-0.2, 0.1, 2)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3.5, 3.5, 3.5)
-                        .withRotationPoint(0, 0, 0)
+                        .withPosition(-0.2F, 0.1F, 2)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.5F, 3.5F, 3.5F)
+                        .withPivotPoint(0, 0, 0)
                 
                 )
                 
@@ -1324,17 +1321,17 @@ public class M4A1Factory implements GunFactory {
 				 new Transform()
 				 .withPosition(-1.905000f, 4.065000f, -3.645000f)
 				 .withRotation(0.000000f, -30.514396f, -26.062789f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
 				 new Transform()
 				 .withPosition(-1.425000f, 3.545000f, -5.685000f)
 				 .withRotation(-0.187566f, -46.164037f, -11.869230f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
             })
 					 
 			.withFirstPersonHandPositioningModifying(
@@ -1342,17 +1339,17 @@ public class M4A1Factory implements GunFactory {
                    	 new Transform()
                    	 .withPosition(1.730000f, 0.065000f, -0.980000f)
                    	 .withRotation(93.414678f, 23.699100f, 15.553163f)
-                        .withScale(2.6, 2.6, 4.0)
-                        .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                        .doGLDirect();
+                        .withScale(2.6F, 2.6F, 4.0F)
+                        .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                        .applyTransformations();
                     }, 
                     (renderContext) -> {
                    	 new Transform()
-                        .withPosition(-0.2, 0.1, 2)
-                        .withRotation(-5.4027, -4.7805, -1.6694)
-                        .withScale(3.5, 3.5, 3.5)
-                        .withRotationPoint(0, 0, 0)
-                        .doGLDirect();
+                        .withPosition(-0.2F, 0.1F, 2)
+                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                        .withScale(3.5F, 3.5F, 3.5F)
+                        .withPivotPoint(0, 0, 0)
+                        .applyTransformations();
                     })
                     
            .withFirstPersonHandPositioningModifyingAlt(
@@ -1361,16 +1358,16 @@ public class M4A1Factory implements GunFactory {
                   	 	.withPosition(2.450000f, -0.335000f, -0.660000f)
                   	 	.withRotation(93.766422f, 50.841130f, 4.679372f)
                   	 	.withScale(2.600000f, 2.600000f, 4.000000f)
-                       .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                       .doGLDirect();
+                       .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                       .applyTransformations();
                    }, 
                    (renderContext) -> {
                   	 new Transform()
                   	 	.withPosition(-0.600000f, 0.340000f, 1.880000f)
-                  	 	.withRotation(-12.193518f, -4.780500f, 1.399459f)
-                       .withScale(3.5, 3.5, 3.5)
-                       .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                       .doGLDirect();
+                  	 	.withRotation(-12.193518f, -4.7805F, 1.399459f)
+                       .withScale(3.5F, 3.5F, 3.5F)
+                       .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                       .applyTransformations();
                    })
                     
             .withThirdPersonLeftHandPositioningReloading(

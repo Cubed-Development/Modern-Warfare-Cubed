@@ -2,7 +2,7 @@ package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
-import com.paneedah.mwc.models.*;
+import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
@@ -11,7 +11,7 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
-import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
@@ -44,9 +44,6 @@ public class MAC10Factory {
         .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
         .withReloadingTime(45)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.16f)
@@ -55,7 +52,7 @@ public class MAC10Factory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
-				// The weapon power
+				// The weapons power
 				15.0,
 				// Muzzle climb divisor
 				15.75,
@@ -114,7 +111,7 @@ public class MAC10Factory {
 //            GL11.glRotatef(-10F, 1f, 0f, 0f);
         })
         
-        .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.235F, -1.65F, -1.0F);
             GL11.glScaled(0.95F, 0.95F, 0.95F);
         },(model) -> {
@@ -123,7 +120,7 @@ public class MAC10Factory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.35F, -1.65F, 0.7F);
             GL11.glScaled(0.96F, 0.96F, 0.96F);
         },(model) -> {
@@ -136,7 +133,7 @@ public class MAC10Factory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-        .withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Specter, () -> {
 		            GL11.glTranslatef(-0.22F, -1.28F, -0.0F);
 		            GL11.glScaled(0.6F, 0.6F, 0.6F);
 		},(model) -> {
@@ -146,7 +143,7 @@ public class MAC10Factory {
 		    }
 		})
         
-		.withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
+		.withCompatibleAttachment(Attachments.MicroReflex, () -> {
 		    GL11.glTranslatef(-0.16F, -2.45F, -0.1F);
 		    GL11.glScaled(0.5F, 0.5F, 0.5F);
 		    },(model) -> {
@@ -159,7 +156,7 @@ public class MAC10Factory {
 		        }
 		    })
         
-        .withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.MicroT1, () -> {
         	GL11.glTranslatef(-0.2F, -1.74F, 0.3F);
             GL11.glScaled(0.5F, 0.5F, 0.5F);
         },(model) -> {
@@ -168,7 +165,7 @@ public class MAC10Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
         	GL11.glTranslatef(-0.2F, -1.74F, 0.3F);
             GL11.glScaled(0.5F, 0.5F, 0.5F);
 	    },(model) -> {
@@ -177,7 +174,7 @@ public class MAC10Factory {
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.AimpointCompM2, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.AimpointCompM2, () -> {
             GL11.glTranslatef(-0.12F, -0.86F, 0.5F);
             GL11.glScaled(1.1F, 1.1F, 1.1F);
         },(model) -> {
@@ -186,7 +183,7 @@ public class MAC10Factory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-        .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.RMR, () -> {
             GL11.glTranslatef(-0.19F, -1.73F, 0.2F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
 	    },(model) -> {
@@ -195,7 +192,7 @@ public class MAC10Factory {
 	            GL11.glScaled(0.2F, 0.2F, 0.2F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Reflex, () -> {
         	GL11.glTranslatef(-0.045F, -1.42F, -0.1F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
             },(model) -> {
@@ -204,7 +201,7 @@ public class MAC10Factory {
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 }
             })
-        .withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
             GL11.glTranslatef(-0.045F, -1.42F, -0.05F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
@@ -213,7 +210,7 @@ public class MAC10Factory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-        .withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Holographic, () -> {
                 GL11.glTranslatef(-0.025F, -1.5F, -0.1F);
                 GL11.glScaled(0.8F, 0.8F, 0.8F);
             },(model) -> {
@@ -222,7 +219,7 @@ public class MAC10Factory {
                     GL11.glScaled(0.1F, 0.1F, 0.1F);
                 }
             })
-        .withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
         	GL11.glTranslatef(-0.025F, -1.5F, -0.1F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         },(model) -> {
@@ -232,7 +229,7 @@ public class MAC10Factory {
             }
         })
         
-        .withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
         	GL11.glTranslatef(-0.025F, -1.5F, -0.1F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
 		},(model) -> {
@@ -246,7 +243,7 @@ public class MAC10Factory {
 		    }
 		})
         
-        .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.VortexRedux, () -> {
             GL11.glTranslatef(-0.36F, -1.75F, -0.4F);
             GL11.glScaled(0.6F, 0.6F, 0.6F);
 	    },(model) -> {
@@ -255,7 +252,7 @@ public class MAC10Factory {
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        }
 	    })
-        .withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.Kobra, () -> {
                 GL11.glTranslatef(-0.02F, -1.5F, 0.3F);
                 GL11.glScaled(0.85F, 0.85F, 0.85F);
         },(model) -> {
@@ -264,7 +261,7 @@ public class MAC10Factory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-        .withCompatibleAttachment(Attachments.KobraGen3, (player, stack) -> {
+        .withCompatibleAttachment(Attachments.KobraGen3, () -> {
 	        	GL11.glTranslatef(-0.02F, -1.5F, 0.3F);
 	            GL11.glScaled(0.85F, 0.85F, 0.85F);
 	    },(model) -> {
@@ -319,8 +316,8 @@ public class MAC10Factory {
 					new Transform()
 					.withPosition(-2.065000f, 5.145000f, -6.925000f)
 					.withRotation(0.000000f, 1.000000f, 10.681469f)
-					.withRotationPoint(-0.280000f, -1.600000f, 0.040000f)
-                    .withScale(3.0, 3.0, 3.0)
+					.withPivotPoint(-0.280000f, -1.600000f, 0.040000f)
+                    .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
                 .withFirstPersonHandPositioning(
@@ -328,18 +325,18 @@ public class MAC10Factory {
                         // Left hand
                         new Transform()
                         .withPosition(1.290000f, 0.425000f, 0.620000f)
-                        .withBBRotation(-9.034, -30.4206, 59.9273)
+                        .withBBRotation(-9.034F, -30.4206F, 59.9273F)
                         .withScale(3, 3, 4)
-                        .withRotationPoint(0, 0, 0),
+                        .withPivotPoint(0, 0, 0),
                         
                         
                         
                         // Right hand
                         new Transform()
                         .withPosition(-0.320000f, 0.260000f, 2.040000f)
-                        .withBBRotation(10.0931, 10.9576, -10.0294)
-                        .withScale(3, 3, 3.5)
-                        .withRotationPoint(0, 0, 0)
+                        .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                        .withScale(3, 3, 3.5F)
+                        .withPivotPoint(0, 0, 0)
                 
                 )
                 
@@ -555,17 +552,17 @@ public class MAC10Factory {
 				 new Transform()
 				 .withPosition(-0.945000f, 3.625000f, -7.165000f)
 				 .withRotation(-4.041486f, -30.854630f, -19.420376f)
-				 .withRotationPoint(-0.120000f, -0.360000f, 0.040000f)
+				 .withPivotPoint(-0.120000f, -0.360000f, 0.040000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
 			 .withFirstPersonPositioningModifyingAlt((renderContext) -> {
 				 new Transform()
 				 .withPosition(-0.945000f, 3.625000f, -7.885000f)
 				 .withRotation(-4.041486f, -45.595835f, -21.768277f)
-				 .withRotationPoint(-0.350000f, -2.900000f, -0.100000f)
+				 .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
 				 .withScale(3.000000f, 3.000000f, 3.000000f)
-				 .doGLDirect();
+				 .applyTransformations();
 			 })
         
 			 .withFirstPersonHandPositioningModifying(
@@ -573,17 +570,17 @@ public class MAC10Factory {
                 	 new Transform()
                 	 .withPosition(2.770000f, 1.225000f, 0.140000f)
                 	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                     .withScale(2.6, 2.6, 4.0)
-                     .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                     .doGLDirect();
+                     .withScale(2.6F, 2.6F, 4.0F)
+                     .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                     .applyTransformations();
                  }, 
                  (renderContext) -> {
                 	 new Transform()
                 	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                     .withBBRotation(10.0931, 10.9576, -10.0294)
-                     .withScale(3, 3, 3.5)
-                     .withRotationPoint(0, 0, 0)
-                     .doGLDirect();
+                     .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                     .withScale(3, 3, 3.5F)
+                     .withPivotPoint(0, 0, 0)
+                     .applyTransformations();
                  })
                  
         .withFirstPersonHandPositioningModifyingAlt(
@@ -591,17 +588,17 @@ public class MAC10Factory {
                	 new Transform()
 	                   	 .withPosition(2.770000f, 1.225000f, 0.140000f)
 	                   	 .withRotation(73.670132f, -70.659155f, 41.991085f)
-                    .withScale(2.6, 2.6, 4.0)
-                    .withRotationPoint(0.000000f, 0.000000f, 0.000000f)
-                    .doGLDirect();
+                    .withScale(2.6F, 2.6F, 4.0F)
+                    .withPivotPoint(0.000000f, 0.000000f, 0.000000f)
+                    .applyTransformations();
                 }, 
                 (renderContext) -> {
                	 new Transform()
                	 .withPosition(-0.320000f, 0.140000f, 2.040000f)
-                    .withBBRotation(10.0931, 10.9576, -10.0294)
-                    .withScale(3, 3, 3.5)
-                    .withRotationPoint(0, 0, 0)
-                    .doGLDirect();
+                    .withBBRotation(10.0931F, 10.9576F, -10.0294F)
+                    .withScale(3, 3, 3.5F)
+                    .withPivotPoint(0, 0, 0)
+                    .applyTransformations();
                 })
                    
            .withThirdPersonLeftHandPositioningReloading(
