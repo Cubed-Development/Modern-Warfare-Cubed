@@ -1,28 +1,19 @@
-package com.vicmatskiv.mw;
+package com.paneedah.mwc.entities;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-import com.vicmatskiv.weaponlib.ai.EntityConfiguration;
-import com.vicmatskiv.weaponlib.ai.EntityCustomMob;
-import com.vicmatskiv.weaponlib.ai.InfectionAttack;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBiomeType;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityAIAttackOnCollide;
-import com.vicmatskiv.weaponlib.mission.GoToLocationAction;
-import com.vicmatskiv.weaponlib.mission.KillEntityAction;
-import com.vicmatskiv.weaponlib.mission.MissionOffering;
-import com.vicmatskiv.weaponlib.mission.MissionOffering.Level;
-import com.vicmatskiv.weaponlib.mission.ObtainItemAction;
-
+import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.proxies.CommonProxy;
+import com.paneedah.mwc.weapons.Guns;
+import com.paneedah.mwc.weapons.Magazines;
+import com.paneedah.weaponlib.ai.*;
 import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.ai.*;
+import net.minecraft.entity.boss.EntityDragon;
+import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.world.EnumDifficulty;
+import net.minecraftforge.common.BiomeDictionary;
 
 public class Entities {
 
@@ -33,12 +24,6 @@ public class Entities {
             .withBaseClass(EntityCustomMob.class)
             .withMaxHealth(250)
             .withEntityIdSupplier(() -> 10001)
-//          .withEquipmentOption(Guns.MakarovPM, EnumDifficulty.EASY, 4f, Magazines.Magazine9mm)
-//          .withEquipmentOption(Guns.MakarovPM, EnumDifficulty.EASY, 3.8f, Magazines.Magazine9mm, Attachments.Silencer9mm)
-//          .withEquipmentOption(Guns.AK74U, EnumDifficulty.EASY, 0.1f, Magazines.AKS74UMag) //, Attachments.Silencer9mm)
-//          .withEquipmentOption(Guns.VSSVintorez, EnumDifficulty.EASY, 0.1f, Magazines.VSSVintorezMag)
-//           .withEquipmentOption(Guns.VSSVintorez, EnumDifficulty.EASY, 0.1f, Magazines.VSSVintorezMag, Attachments.PSO1)
-//          .withEquipmentOption(Guns.Remington870, EnumDifficulty.EASY, 0.07f)
             .withPrimaryEquipmentDropChance(1f)
             .withSpawn(1, 1, 1, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
             .withSpawnEgg(0xA0A000, 0xA0A010)
@@ -50,8 +35,6 @@ public class Entities {
             .withMaxSpeed(0.45F) // 0.1-0.3 is normal speed
             .withCollisionAttackDamage(15.0)
             .withAiTask(1, e -> new EntityAISwimming(e))
-//          .withAiTask(3, e -> compatibility.createAiAvoidEntity((EntityCreature)e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
-//           .withAiTask(4, e -> new EntityAIAttackRangedWeapon((EntityCustomMob)e, 1.0D, 10, 30.0F))
             .withAiTask(3, e -> new CompatibleEntityAIAttackOnCollide((EntityCustomMob)e, EntityPlayer.class, 1.0D, false))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature)e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -59,8 +42,6 @@ public class Entities {
             .withAiTargetTask(1, e -> new EntityAIHurtByTarget((EntityCreature)e, false))
             .withAiTargetTask(2, e -> compatibility.createAINearestAttackableTarget(e, EntityPlayer.class, true))
             .withAiTargetTask(3, e -> compatibility.createAINearestAttackableTarget(e, EntityVillager.class, true))
-//           .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
-//          .withDelayedAttack(new ExplosionAttack(2f, true, 30))
             .register(ModernWarfareMod.MOD_CONTEXT);
         
         new EntityConfiguration.Builder()
@@ -68,12 +49,6 @@ public class Entities {
             .withBaseClass(EntityCustomMob.class)
             .withMaxHealth(150)
             .withEntityIdSupplier(() -> 10002)
-    //      .withEquipmentOption(Guns.MakarovPM, EnumDifficulty.EASY, 4f, Magazines.Magazine9mm)
-    //      .withEquipmentOption(Guns.MakarovPM, EnumDifficulty.EASY, 3.8f, Magazines.Magazine9mm, Attachments.Silencer9mm)
-    //      .withEquipmentOption(Guns.AK74U, EnumDifficulty.EASY, 0.1f, Magazines.AKS74UMag) //, Attachments.Silencer9mm)
-    //      .withEquipmentOption(Guns.VSSVintorez, EnumDifficulty.EASY, 0.1f, Magazines.VSSVintorezMag)
-    //       .withEquipmentOption(Guns.VSSVintorez, EnumDifficulty.EASY, 0.1f, Magazines.VSSVintorezMag, Attachments.PSO1)
-    //      .withEquipmentOption(Guns.Remington870, EnumDifficulty.EASY, 0.07f)
             .withPrimaryEquipmentDropChance(1f)
             .withSpawn(1, 1, 1, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
             .withSpawnEgg(0xA0A000, 0xA0A010)
@@ -85,8 +60,6 @@ public class Entities {
             .withMaxSpeed(0.3F) // 0.1-0.3 is normal speed
             .withCollisionAttackDamage(10.0)
             .withAiTask(1, e -> new EntityAISwimming(e))
-    //      .withAiTask(3, e -> compatibility.createAiAvoidEntity((EntityCreature)e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
-    //       .withAiTask(4, e -> new EntityAIAttackRangedWeapon((EntityCustomMob)e, 1.0D, 10, 30.0F))
             .withAiTask(3, e -> new CompatibleEntityAIAttackOnCollide((EntityCustomMob)e, EntityPlayer.class, 1.0D, false))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature)e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -94,8 +67,6 @@ public class Entities {
             .withAiTargetTask(1, e -> new EntityAIHurtByTarget((EntityCreature)e, false))
             .withAiTargetTask(2, e -> compatibility.createAINearestAttackableTarget(e, EntityPlayer.class, true))
             .withAiTargetTask(3, e -> compatibility.createAINearestAttackableTarget(e, EntityVillager.class, true))
-    //       .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
-    //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
             .register(ModernWarfareMod.MOD_CONTEXT);
         
         new EntityConfiguration.Builder()
