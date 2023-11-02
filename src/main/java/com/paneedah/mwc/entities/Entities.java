@@ -646,6 +646,7 @@ public class Entities {
             .withAiTask(3, e -> new EntityAIWander((EntityCreature)e, 1.0D))
             .withAiTask(4, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 100.0F))
             .withAiTask(5, e -> new EntityAILookIdle(e))
+            .withAiTask(6, e -> new EntityAIEatGrass(e))
             .withAiTargetTask(1, e -> new EntityAIHurtByTarget((EntityCreature)e, false))
             .withAiTargetTask(2, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityPlayer.class, true))
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityVillager.class, true))
