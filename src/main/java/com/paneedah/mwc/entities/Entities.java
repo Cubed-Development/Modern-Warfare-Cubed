@@ -93,7 +93,9 @@ public class Entities {
                 .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
                 .withAiTask(4, e -> new EntityAIAttackRangedWeapon((EntityCustomMob) e, 1.0D, 10, 30.0F))
                 .withAiTask(5, e -> new EntityAIPatrol((EntityCreature) e, 1.0D))
+                .withAiTask(5, e -> new EntityAIDefendVillage(e))
                 .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
+                .withAiTask(6, e -> new EntityAILookAtVillager(e))
                 .withAiTask(6, e -> new EntityAILookIdle(e))
                 .withAiTask(7, e -> new EntityAIOpenDoor(e, false))
 
