@@ -101,8 +101,8 @@ public final class MWC {
         modContext.setMaterialImpactSounds(Material.GRASS, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
         modContext.setMaterialImpactSounds(Material.GROUND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
         modContext.setMaterialImpactSounds(Material.SAND, 1.5f, "bullet_5_grass", "bullet_9_grass", "bullet_11_grass", "bullet_10_snap", "bullet_13_snap");
-        modContext.setMaterialImpactSounds(Material.SNOW, 1.5f, "bullet_14_snow", "bullet_9_grass", "bullet_10_snap", "bullet_13_snap");
-	modContext.setMaterialImpactSounds(Material.CRAFTED_SNOW, 1.5f, "bullet_14_snow", "bullet_9_grass", "bullet_10_snap", "bullet_13_snap");
+        modContext.setMaterialImpactSounds(Material.SNOW, 1.5f, "bullet_14_snow", "bullet_10_snap", "bullet_13_snap");
+	modContext.setMaterialImpactSounds(Material.CRAFTED_SNOW, 1.5f, "bullet_14_snow", "bullet_10_snap", "bullet_13_snap");
         modContext.setMaterialImpactSounds(Material.IRON, 1.5f, "bullet_6_iron", "bullet_7_iron", "bullet_8_iron");
 
         // Register channels for networking
