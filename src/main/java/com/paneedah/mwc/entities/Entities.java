@@ -51,6 +51,7 @@ public class Entities {
                 .withAiTargetTask(2, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityPlayer.class, true))
                 .withAiTargetTask(2, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombie.class, true))
+                .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityVillager.class, true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityHusk.class, true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntitySkeleton.class, true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntitySpider.class, true))
