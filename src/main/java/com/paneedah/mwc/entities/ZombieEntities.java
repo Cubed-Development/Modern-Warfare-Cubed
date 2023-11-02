@@ -258,9 +258,8 @@ public class Entities {
             .withAiTask(1, e -> new EntityAISwimming(e))
             .withCollisionAttackDamage(30.0)
             .withMaxSpeed(0.45F) // 0.1-0.3 is normal speed
-    //      .withAiTask(3, e -> compatibility.createAiAvoidEntity((EntityCreature)e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
-    //       .withAiTask(4, e -> new EntityAIAttackRangedWeapon((EntityCustomMob)e, 1.0D, 10, 30.0F))
             .withAiTask(3, e -> new CompatibleEntityAIAttackOnCollide((EntityCustomMob)e, EntityPlayer.class, 1.0D, false))
+    //       .withAiTask(3, e -> new EntityAIAttackMelee(this, this.getBaseSprintModifier(getType()), false);
             .withAiTask(5, e -> new EntityAIWander((EntityCreature)e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 100.0F))
             .withAiTask(6, e -> new EntityAILookIdle(e))
