@@ -73,7 +73,7 @@ dependencies {
     jmh 'org.openjdk.jmh:jmh-core:1.36'
     jmh 'org.openjdk.jmh:jmh-generator-annprocess:1.36'
 
-    final String mixin = modUtils.enableMixins('zone.rong:mixinbooter:8.4', "mixins.${project.id}.refmap.json")
+    final String mixin = modUtils.enableMixins('zone.rong:mixinbooter:8.9', "mixins.${project.id}.refmap.json")
     api (mixin) { transitive = false }
     annotationProcessor 'org.ow2.asm:asm-debug-all:5.2'
     annotationProcessor 'com.google.guava:guava:24.1.1-jre'
