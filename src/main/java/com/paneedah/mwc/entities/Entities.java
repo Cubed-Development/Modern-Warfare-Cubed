@@ -51,7 +51,6 @@ public class Entities {
                 .withAiTargetTask(1, e -> new EntityAIHurtByTarget((EntityCreature) e, false))
                 .withAiTargetTask(2, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityPlayer.class, true))
                 .withAiTargetTask(2, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
-                .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityVillager.class, true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombie.class, true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityHusk.class, true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntitySkeleton.class, true))
@@ -101,7 +100,6 @@ public class Entities {
 
                 .withAiTargetTask(1, e -> new EntityAIHurtByTarget((EntityCreature) e, false))
                 .withAiTargetTask(2, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityPlayer.class, true))
-                .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityVillager.class, true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombie.class, true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityHusk.class, true))
                 .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntitySkeleton.class, true))
@@ -642,7 +640,7 @@ public class Entities {
             .withStepSound("deathclaw_step")
             .withDeathSound("deathclaw_death")
             .withCollisionAttackDamage(30.0)
-            .withMaxSpeed(0.45F) // 0.1-0.3 is normal speed
+            .withMaxSpeed(0.3F) // 0.1-0.3 is normal speed
             .withAiTask(1, e -> new EntityAISwimming(e))
             .withAiTask(2, e -> new EntityAIAttackMelee(this, this.getBaseSprintModifier(getType()), false);
             .withAiTask(3, e -> new EntityAIWander((EntityCreature)e, 1.0D))
