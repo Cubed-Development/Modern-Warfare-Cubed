@@ -20,7 +20,7 @@ public class Entities {
     public static void init(CommonProxy commonProxy) {
         
         new EntityConfiguration.Builder()
-            .withName("zombieBlistered")
+            .withName("zombie_blistered")
             .withBaseClass(EntityCustomMob.class)
             .withMaxHealth(250)
             .withEntityIdSupplier(() -> 10001)
@@ -45,7 +45,7 @@ public class Entities {
             .register(ModernWarfareMod.MOD_CONTEXT);
         
         new EntityConfiguration.Builder()
-            .withName("zombieRipper")
+            .withName("zombie_ripper")
             .withBaseClass(EntityCustomMob.class)
             .withMaxHealth(150)
             .withEntityIdSupplier(() -> 10002)
@@ -70,7 +70,7 @@ public class Entities {
             .register(ModernWarfareMod.MOD_CONTEXT);
         
         new EntityConfiguration.Builder()
-            .withName("tornzombie")
+            .withName("zombie_torn")
             .withBaseClass(EntityCustomMob.class)
             .withMaxHealth(30)
             .withEntityIdSupplier(() -> 10003)
@@ -187,7 +187,7 @@ public class Entities {
             .register(ModernWarfareMod.MOD_CONTEXT);
         
         new EntityConfiguration.Builder()
-            .withName("hazmat_zombie")
+            .withName("zombie_hazmat")
             .withBaseClass(EntityCustomMob.class)
             .withMaxHealth(40)
             .withEntityIdSupplier(() -> 10007)
@@ -217,7 +217,7 @@ public class Entities {
             .register(ModernWarfareMod.MOD_CONTEXT);
         
         new EntityConfiguration.Builder()
-            .withName("Defiled Zombie")
+            .withName("zombie_defiled")
             .withBaseClass(EntityCustomMob.class)
             .withMaxHealth(300)
             .withEntityIdSupplier(() -> 10008)
