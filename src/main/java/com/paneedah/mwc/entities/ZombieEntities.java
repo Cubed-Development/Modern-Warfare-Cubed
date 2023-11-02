@@ -15,7 +15,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraftforge.common.BiomeDictionary;
 
-public class Entities {
+public class ZombieEntities {
 
     public static void init(CommonProxy commonProxy) {
         
@@ -43,7 +43,7 @@ public class Entities {
             .withAiTargetTask(1, e -> new EntityAIHurtByTarget((EntityCreature)e, false))
             .withAiTargetTask(2, e -> compatibility.createAINearestAttackableTarget(e, EntityPlayer.class, true))
             .withAiTargetTask(3, e -> compatibility.createAINearestAttackableTarget(e, EntityVillager.class, true))
-            .register(ModernWarfareMod.MOD_CONTEXT);
+            .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
             .withName("zombie_ripper")
@@ -69,7 +69,7 @@ public class Entities {
             .withAiTargetTask(1, e -> new EntityAIHurtByTarget((EntityCreature)e, false))
             .withAiTargetTask(2, e -> compatibility.createAINearestAttackableTarget(e, EntityPlayer.class, true))
             .withAiTargetTask(3, e -> compatibility.createAINearestAttackableTarget(e, EntityVillager.class, true))
-            .register(ModernWarfareMod.MOD_CONTEXT);
+            .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
             .withName("zombie_torn")
@@ -96,7 +96,7 @@ public class Entities {
 
             .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
-            .register(ModernWarfareMod.MOD_CONTEXT);
+            .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
             .withName("necromorph")
@@ -124,7 +124,7 @@ public class Entities {
             .withAiTargetTask(3, e -> compatibility.createAINearestAttackableTarget(e, EntityVillager.class, true))
     //       .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
-            .register(ModernWarfareMod.MOD_CONTEXT);
+            .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
             .withName("licker")
@@ -152,7 +152,7 @@ public class Entities {
             .withAiTargetTask(3, e -> compatibility.createAINearestAttackableTarget(e, EntityVillager.class, true))
     //       .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
-            .register(ModernWarfareMod.MOD_CONTEXT);
+            .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
             .withName("zombie")
@@ -183,7 +183,7 @@ public class Entities {
     
     //       .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
-            .register(ModernWarfareMod.MOD_CONTEXT);
+            .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
             .withName("zombie_hazmat")
@@ -213,7 +213,7 @@ public class Entities {
     
     //       .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
-            .register(ModernWarfareMod.MOD_CONTEXT);
+            .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
             .withName("zombie_defiled")
@@ -240,7 +240,7 @@ public class Entities {
     
 //           .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
-            .register(ModernWarfareMod.MOD_CONTEXT);
+            .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
             .withName("deathclaw")
@@ -269,7 +269,7 @@ public class Entities {
     
     //       .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
-            .register(ModernWarfareMod.MOD_CONTEXT);
+            .register(MWC.modContext);
         }
 
 }
