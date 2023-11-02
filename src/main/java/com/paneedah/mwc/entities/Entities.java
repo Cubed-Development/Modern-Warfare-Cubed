@@ -316,6 +316,7 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
+            .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
             .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
@@ -360,6 +361,7 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
+            .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
             .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
@@ -403,6 +405,7 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
+            .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
             .register(MWC.modContext);
         
@@ -449,6 +452,7 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
+            .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
 
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
             .register(MWC.modContext);
@@ -495,6 +499,7 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
+            .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
             .register(MWC.modContext);
         
@@ -542,6 +547,7 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
+            .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
     
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
             .register(MWC.modContext);
@@ -589,6 +595,7 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
+            .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
             .register(MWC.modContext);
         
@@ -632,6 +639,7 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
+            .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
             .register(MWC.modContext);
         
@@ -677,6 +685,7 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
+            .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
     //      .withDelayedAttack(new ExplosionAttack(2f, true, 30))
             .register(MWC.modContext);
     }
