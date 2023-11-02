@@ -410,7 +410,6 @@ public class ZombieEntities {
             .withAiTask(1, e -> new EntityAISwimming(e))
             .withCollisionAttackDamage(30.0)
             .withMaxSpeed(0.45F) // 0.1-0.3 is normal speed
-            .withAiTask(3, e -> new CompatibleEntityAIAttackOnCollide((EntityCustomMob)e, EntityPlayer.class, 1.0D, false))
     //       .withAiTask(3, e -> new EntityAIAttackMelee(this, this.getBaseSprintModifier(getType()), false);
             .withAiTask(5, e -> new EntityAIWander((EntityCreature)e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 100.0F))
