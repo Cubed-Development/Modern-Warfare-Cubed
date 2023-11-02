@@ -460,7 +460,7 @@ public class Entities {
             .withEntityIdSupplier(() -> 10005)
             .withSpawn(1, 1, 1, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS)
             .withSpawnEgg(0xA0A000, 0xA0A010)
-            .withTexturedModelVariant("com.paneedah.mwc.models.Licker", "licker.png")
+            .withTexturedModelVariant("resources.assets.mwc.textures.entity.Licker", "licker.png")
             .withHurtSound("hurt")
             .withAmbientSound("drawweapon")
             .withStepSound("zombie_step")
