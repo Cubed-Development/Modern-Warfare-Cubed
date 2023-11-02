@@ -25,7 +25,7 @@ public class Entities {
             .withMaxHealth(250)
             .withEntityIdSupplier(() -> 10001)
             .withPrimaryEquipmentDropChance(1f)
-            .withSpawn(1, 1, 1, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type..HILLS)
+            .withSpawn(1, 1, 1, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS)
             .withSpawnEgg(0xA0A000, 0xA0A010)
             .withTexturedModelVariant("com.paneedah.mwc.models.ZombieBlistered", "zombieblistered.png")
             .withHurtSound("zombie_hurt")
