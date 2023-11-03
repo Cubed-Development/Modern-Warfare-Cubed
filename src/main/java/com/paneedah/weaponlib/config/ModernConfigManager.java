@@ -189,7 +189,7 @@ public class ModernConfigManager {
 	public static double deathclawSpawn = 0.0;
 
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "What equipment should the terrorists have?")
-	public static String terroristEquipmentConfiguration = "m4a1:1.0:M4A1Mag_2, m16a1:1.0:M4A1Mag_2, Remington870:1.0";
+	public static String terroristEquipmentConfiguration = "";
 
 	private static Configuration config = null;
 
