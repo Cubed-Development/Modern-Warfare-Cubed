@@ -310,7 +310,6 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityZombieVillager.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
-            .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
             .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
@@ -328,6 +327,7 @@ public class Entities {
             .withMaxSpeed(0.3F) // 0.1-0.3 is normal speed
             .withCollisionAttackDamage(10.0)
             .withAiTask(1, e -> new EntityAISwimming(e))
+            .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -355,7 +355,6 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
-            .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
             .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
@@ -372,6 +371,7 @@ public class Entities {
             .withStepSound("zombie_step")
             .withDeathSound("zombie_death")
             .withAiTask(1, e -> new EntityAISwimming(e))
+            .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -398,7 +398,6 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
-            .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
             .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
@@ -417,6 +416,7 @@ public class Entities {
             .withMaxSpeed(0.35F) // 0.1-0.3 is normal speed
             .withCollisionAttackDamage(5.0)
             .withAiTask(1, e -> new EntityAISwimming(e))
+            .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -443,7 +443,6 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
-            .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
             .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
@@ -461,6 +460,7 @@ public class Entities {
             .withMaxSpeed(0.35F) // 0.1-0.3 is normal speed
             .withCollisionAttackDamage(10.0)
             .withAiTask(1, e -> new EntityAISwimming(e))
+            .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -487,7 +487,6 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
-            .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
             .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
@@ -504,8 +503,9 @@ public class Entities {
             .withAmbientSound("zombie_ambient")
             .withStepSound("zombie_step")
             .withDeathSound("zombie_death")
-            .withAiTask(1, e -> new EntityAISwimming(e))
             .withMaxSpeed(0.3F) // 0.1-0.3 is normal speed
+            .withAiTask(1, e -> new EntityAISwimming(e))
+            .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -532,7 +532,6 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
-            .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
             .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
@@ -547,8 +546,9 @@ public class Entities {
             .withAmbientSound("hazmatzombie_ambient")
             .withStepSound("zombie_step")
             .withDeathSound("hazmatzombie_death")
-            .withAiTask(1, e -> new EntityAISwimming(e))
             .withMaxSpeed(0.3F) // 0.1-0.3 is normal speed
+            .withAiTask(1, e -> new EntityAISwimming(e))
+            .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -575,7 +575,6 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
-            .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
             .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
@@ -591,6 +590,7 @@ public class Entities {
             .withStepSound("zombie_step")
             .withDeathSound("zombie_death")
             .withAiTask(1, e -> new EntityAISwimming(e))
+            .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -617,7 +617,6 @@ public class Entities {
             .withAiTargetTask(3, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityWitch.class, true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "terrorist", true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "soldier", true))
-            .withCollisionAttack(new InfectionAttack(0.1f, 20000, 1.2f, 1.0f, 1.8f))
             .register(MWC.modContext);
         
         new EntityConfiguration.Builder()
@@ -635,6 +634,7 @@ public class Entities {
             .withCollisionAttackDamage(30.0)
             .withMaxSpeed(0.3F) // 0.1-0.3 is normal speed
             .withAiTask(1, e -> new EntityAISwimming(e))
+            .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, false))
             .withAiTask(3, e -> new EntityAIWander((EntityCreature)e, 1.0D))
             .withAiTask(4, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 100.0F))
             .withAiTask(5, e -> new EntityAILookIdle(e))
