@@ -543,7 +543,6 @@ public class EntityConfiguration {
 
             for(Spawn spawn: spawns) {
                 int weightedProb = spawn.weightedProb;
-                //int weightedProb = (int)(entityConfig.getSpawn());
 
                 if(entityName.equals("terrorist")) {
                     weightedProb = (int) (spawn.weightedProb * ModernConfigManager.terroristSpawn);
