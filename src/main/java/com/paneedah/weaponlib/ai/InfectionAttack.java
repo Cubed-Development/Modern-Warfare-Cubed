@@ -8,6 +8,7 @@ import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.world.World
 
 public class InfectionAttack implements CustomMobAttack, Spreadable {
     
@@ -33,7 +34,7 @@ public class InfectionAttack implements CustomMobAttack, Spreadable {
         if(target instanceof EntityLivingBase) {
             SpreadableExposure exposure = CompatibleExposureCapability.getExposure(target, SpreadableExposure.class);
             if(exposure == null) {
-                exposure = new SpreadableExposure(firstExposureImpactDelay, 1)
+                exposure = new SpreadableExposure(firstExposureImpactDelay, .getWorldTime())
                         .withColorImpairment(colorImpairmentR, colorImpairmentG, colorImpairmentB);
                 CompatibleExposureCapability.updateExposure((EntityLivingBase) target, exposure);
             }
