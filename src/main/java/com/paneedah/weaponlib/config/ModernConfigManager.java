@@ -168,6 +168,26 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should soldiers spawn?")
 	public static double soldierSpawn = 0.0;
 
+	@RequiresMcRestart
+	@RangeDouble(min=0.1, max=5.0)
+	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should zombies have?")
+	public static double zombieHealth = 2.0;
+	
+	@RequiresMcRestart
+	@RangeDouble(min=0, max=2.0)
+	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should zombies spawn?")
+	public static double zombieSpawn = 0.0;
+
+	@RequiresMcRestart
+	@RangeDouble(min=0.1, max=5.0)
+	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should deathclaws have?")
+	public static double deathclawHealth = 1.0;
+	
+	@RequiresMcRestart
+	@RangeDouble(min=0, max=2.0)
+	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should deathclaws spawn?")
+	public static double deathclawSpawn = 0.0;
+
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "What equipment should the terrorists have?")
 	public static String terroristEquipmentConfiguration = "m4a1:1.0:M4A1Mag_2, m16a1:1.0:M4A1Mag_2, Remington870:1.0";
 
