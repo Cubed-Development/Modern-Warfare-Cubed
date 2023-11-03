@@ -51,6 +51,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
 - Added the gold and dark color variants of the Desert Eagle
 - Added Hardness values to props
+- Re-added the VMW NPC's using the new system 
 
 ### Changed
 
@@ -177,6 +178,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed spectators being able to shoot weapons
 - Fixed the spawning position of the shells
 - Bullet spawning maths which was making the bullets spawn in inaccurate position
+- Fixed NPC sounds playing under "master" sound category 
 
 ### Removed
 
