@@ -1,6 +1,6 @@
 {
   "hurt": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:hurt",
@@ -1593,7 +1593,7 @@
     ]
   },
   "necromorph_hurt": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:necromorph_hurt",
@@ -1629,7 +1629,7 @@
     ]
   },
   "deathclaw_step": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:deathclaw_step",
@@ -1647,7 +1647,7 @@
     ]
   },
   "deathclaw_hurt": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:deathclaw_hurt",
@@ -1656,7 +1656,7 @@
     ]
   },
   "deathclaw_death": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:deathclaw_death",
@@ -1665,7 +1665,7 @@
     ]
   },
   "zombie_hurt": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:zombie_hurt",
@@ -1674,7 +1674,7 @@
     ]
   },
   "zombie_death": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:zombie_death",
@@ -1683,7 +1683,7 @@
     ]
   },
   "zombie_step": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:zombie_step",
@@ -1701,7 +1701,7 @@
     ]
   },
   "hazmatzombie_death": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:hazmatzombie_death",
@@ -1719,7 +1719,7 @@
     ]
   },
   "hazmatzombie_hurt": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:hazmatzombie_hurt",
@@ -1872,7 +1872,7 @@
     ]
   },
   "molded_hurt": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:molded_hurt",
@@ -1881,7 +1881,7 @@
     ]
   },
   "molded_death": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:molded_death",
@@ -2484,7 +2484,7 @@
     ]
   },
   "tyke_hurt": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:tyke_hurt",
@@ -2502,7 +2502,7 @@
     ]
   },
   "tyke_step": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:tyke_step",
@@ -2511,7 +2511,7 @@
     ]
   },
   "tyke_death": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:tyke_death",
