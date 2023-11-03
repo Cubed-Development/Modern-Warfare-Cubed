@@ -42,7 +42,7 @@ public class EntityConfiguration {
 
     private static class AiTask {
         int priority;
-        Function<EntityLiving, EntityAIBase> taskSupplier;
+        Function<EntityCreature, EntityAIBase> taskSupplier;
     }
 
     public static class Equipment {
@@ -294,7 +294,7 @@ public class EntityConfiguration {
             return this;
         }
 
-        public Builder withAiTask(int priority, Function<EntityLiving, EntityAIBase> taskSupplier) {
+        public Builder withAiTask(int priority, Function<EntityCreature, EntityAIBase> taskSupplier) {
             AiTask task = new AiTask();
             task.priority = priority;
             task.taskSupplier = taskSupplier;
@@ -302,7 +302,7 @@ public class EntityConfiguration {
             return this;
         }
 
-        public Builder withAiTargetTask(int priority, Function<EntityLiving, EntityAIBase> taskSupplier) {
+        public Builder withAiTargetTask(int priority, Function<EntityCreature, EntityAIBase> taskSupplier) {
             AiTask task = new AiTask();
             task.priority = priority;
             task.taskSupplier = taskSupplier;
@@ -596,8 +596,8 @@ public class EntityConfiguration {
         }
 
         
-        private Class<? extends EntityLiving> safeCast(Class<? extends Entity> entityClass) {
-            return (Class<? extends EntityLiving>) entityClass;
+        private Class<? extends EntityCreature> safeCast(Class<? extends Entity> entityClass) {
+            return (Class<? extends EntityCreature>) entityClass;
         }
     }
 
@@ -670,11 +670,11 @@ public class EntityConfiguration {
         return this.pickupItemID;
     }
 
-    public void addAiTasks(EntityLiving e, EntityAITasks tasks) {
+    public void addAiTasks(EntityCreature e, EntityAITasks tasks) {
         aiTasks.stream().forEach(t -> tasks.addTask(t.priority, t.taskSupplier.apply(e)));
     }
 
-    public void addAiTargetTasks(EntityLiving e, EntityAITasks tasks) {
+    public void addAiTargetTasks(EntityCreature e, EntityAITasks tasks) {
         aiTargetTasks.stream().forEach(t -> tasks.addTask(t.priority, t.taskSupplier.apply(e)));
     }
 
