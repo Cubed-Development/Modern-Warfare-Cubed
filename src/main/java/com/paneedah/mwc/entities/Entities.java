@@ -43,7 +43,7 @@ public class Entities {
                 .withAiTask(1, e -> new EntityAISwimming(e))
                 .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
                 .withAiTask(4, e -> new EntityAIAttackRangedWeapon((EntityCustomMob) e, 1.0D, 10, 30.0F))
-                .withAiTask(5, e -> new EntityAIPatrol((EntityCreature) e, 1.0D))
+                .withAiTask(5, e -> new EntityAIPatrol((EntityCreature) e, 1, 1))
                 .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
                 .withAiTask(6, e -> new EntityAILookIdle(e))
 
@@ -93,10 +93,8 @@ public class Entities {
                 .withAiTask(1, e -> new EntityAISwimming(e))
                 .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
                 .withAiTask(4, e -> new EntityAIAttackRangedWeapon((EntityCustomMob) e, 1.0D, 10, 30.0F))
-                .withAiTask(5, e -> new EntityAIPatrol((EntityCreature) e, 1.0D))
-                .withAiTask(5, e -> new EntityAIDefendVillage(e))
+                .withAiTask(5, e -> new EntityAIPatrol((EntityCreature) e, 1, 1))
                 .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
-                .withAiTask(6, e -> new EntityAILookAtVillager(e))
                 .withAiTask(6, e -> new EntityAILookIdle(e))
                 .withAiTask(7, e -> new EntityAIOpenDoor(e, false))
 
@@ -284,8 +282,6 @@ public class Entities {
             .withMaxSpeed(0.45F) // 0.1-0.3 is normal speed
             .withCollisionAttackDamage(15.0)
             .withAiTask(1, e -> new EntityAISwimming(e))
-            .withAiTask(2, e -> new EntityAIAttackMelee(this, this.getBaseSprintModifier(getType()), false))
-            .withAiTask(3, e -> new EntityAIFleeSun(e, this.getBaseSprintModifier(getType())))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -331,8 +327,6 @@ public class Entities {
             .withMaxSpeed(0.3F) // 0.1-0.3 is normal speed
             .withCollisionAttackDamage(10.0)
             .withAiTask(1, e -> new EntityAISwimming(e))
-            .withAiTask(2, e -> new EntityAIAttackMelee(this, this.getBaseSprintModifier(getType()), false))
-            .withAiTask(3, e -> new EntityAIFleeSun(e, this.getBaseSprintModifier(getType())))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -377,7 +371,6 @@ public class Entities {
             .withStepSound("zombie_step")
             .withDeathSound("zombie_death")
             .withAiTask(1, e -> new EntityAISwimming(e))
-            .withAiTask(2, e -> new EntityAIAttackMelee(this, this.getBaseSprintModifier(getType()), false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -423,7 +416,6 @@ public class Entities {
             .withMaxSpeed(0.35F) // 0.1-0.3 is normal speed
             .withCollisionAttackDamage(5.0)
             .withAiTask(1, e -> new EntityAISwimming(e))
-            .withAiTask(2, e -> new EntityAIAttackMelee(this, this.getBaseSprintModifier(getType()), false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -468,7 +460,6 @@ public class Entities {
             .withMaxSpeed(0.35F) // 0.1-0.3 is normal speed
             .withCollisionAttackDamage(10.0)
             .withAiTask(1, e -> new EntityAISwimming(e))
-            .withAiTask(2, e -> new EntityAIAttackMelee(this, this.getBaseSprintModifier(getType()), false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -514,8 +505,6 @@ public class Entities {
             .withDeathSound("zombie_death")
             .withAiTask(1, e -> new EntityAISwimming(e))
             .withMaxSpeed(0.3F) // 0.1-0.3 is normal speed
-            .withAiTask(1, e -> new EntityAISwimming(e))
-            .withAiTask(2, e -> new EntityAIAttackMelee(this, this.getBaseSprintModifier(getType()), false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -559,8 +548,6 @@ public class Entities {
             .withDeathSound("hazmatzombie_death")
             .withAiTask(1, e -> new EntityAISwimming(e))
             .withMaxSpeed(0.3F) // 0.1-0.3 is normal speed
-            .withAiTask(1, e -> new EntityAISwimming(e))
-            .withAiTask(2, e -> new EntityAIAttackMelee(this, this.getBaseSprintModifier(getType()), false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -603,7 +590,6 @@ public class Entities {
             .withStepSound("zombie_step")
             .withDeathSound("zombie_death")
             .withAiTask(1, e -> new EntityAISwimming(e))
-            .withAiTask(2, e -> new EntityAIAttackMelee(this, this.getBaseSprintModifier(getType()), false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
@@ -648,7 +634,6 @@ public class Entities {
             .withCollisionAttackDamage(30.0)
             .withMaxSpeed(0.3F) // 0.1-0.3 is normal speed
             .withAiTask(1, e -> new EntityAISwimming(e))
-            .withAiTask(2, e -> new EntityAIAttackMelee(this, this.getBaseSprintModifier(getType()), true))
             .withAiTask(3, e -> new EntityAIWander((EntityCreature)e, 1.0D))
             .withAiTask(4, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 100.0F))
             .withAiTask(5, e -> new EntityAILookIdle(e))

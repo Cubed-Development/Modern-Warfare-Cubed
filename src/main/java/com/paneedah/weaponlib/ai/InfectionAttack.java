@@ -1,7 +1,5 @@
 package com.paneedah.weaponlib.ai;
 
-import static com.paneedah.weaponlib.compatibility.*;
-
 import java.util.UUID;
 
 import com.paneedah.weaponlib.Spreadable;
