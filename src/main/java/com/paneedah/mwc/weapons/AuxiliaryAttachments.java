@@ -71,6 +71,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> MG42action;
     public static ItemAttachment<Weapon> M60Hatch;
     public static ItemAttachment<Weapon> M60Belt;
+    public static ItemAttachment<Weapon> M60Action;
     public static ItemAttachment<Weapon> STG44action;
     public static ItemAttachment<Weapon> STG44actionCover;
     public static ItemAttachment<Weapon> G43GewehrAction;
@@ -962,10 +963,20 @@ public class AuxiliaryAttachments {
 
                 .build();
 
+        M60Action = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA)
+                // .withCreativeTab(MWC.gunsTab)
+                .withModel(new M60Action(), "m60.png")
+                .withName("M60Action")
+                .withRenderablePart()
+
+                .build();
+
         M60Hatch = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new M60Hatch(), "m60.png")
+                .withRotationPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
                 .withName("M60Hatch")
                 .withRenderablePart()
 
