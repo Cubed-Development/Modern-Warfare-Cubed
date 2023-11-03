@@ -93,10 +93,10 @@ public class Entities {
                 .withAiTask(1, e -> new EntityAISwimming(e))
                 .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
                 .withAiTask(4, e -> new EntityAIAttackRangedWeapon((EntityCustomMob) e, 1.0D, 10, 30.0F))
-                .withAiTask(5, e -> new EntityAIPatrol((EntityCreature) e, 1, 1))
-                .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
+                .withAiTask(5, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
                 .withAiTask(6, e -> new EntityAILookIdle(e))
                 .withAiTask(7, e -> new EntityAIOpenDoor(e, false))
+                .withAiTask(8, e -> new EntityAIPatrol((EntityCreature) e, 1, 1))
 
                 .withAiTargetTask(1, e -> new EntityAIHurtByTarget((EntityCreature) e, false))
                 .withAiTargetTask(2, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityPlayer.class, true))
@@ -282,12 +282,14 @@ public class Entities {
             .withMaxSpeed(0.45F) // 0.1-0.3 is normal speed
             .withCollisionAttackDamage(15.0)
             .withAiTask(1, e -> new EntityAISwimming(e))
+            .withAiTask(1, e -> new EntityAIFleeSun(e, 1D))
             .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
             .withAiTask(5, e -> new EntityAIWander((EntityCreature) e, 1.0D))
             .withAiTask(6, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 50.0F))
-            .withAiTask(6, e -> new EntityAILookIdle(e))
-            .withAiTask(7, e -> new EntityAIBreakDoor(e))
+            .withAiTask(6, e -> new EntityAIBreakDoor(e))
+            .withAiTask(7, e -> new EntityAILookIdle(e))
+
             
             .withAiTargetTask(1, e -> new EntityAIHurtByTarget((EntityCreature)e, false))
             .withAiTargetTask(2, e -> new EntityAINearestAttackableTarget<>((EntityCreature) e, EntityPlayer.class, true))
@@ -634,7 +636,7 @@ public class Entities {
             .withCollisionAttackDamage(30.0)
             .withMaxSpeed(0.3F) // 0.1-0.3 is normal speed
             .withAiTask(1, e -> new EntityAISwimming(e))
-            .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, false))
+            .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, true))
             .withAiTask(3, e -> new EntityAIWander((EntityCreature)e, 1.0D))
             .withAiTask(4, e -> new EntityAIWatchClosest(e, EntityPlayer.class, 100.0F))
             .withAiTask(5, e -> new EntityAILookIdle(e))
