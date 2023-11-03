@@ -171,7 +171,7 @@ public class ModernConfigManager {
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=5.0)
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should zombies have?")
-	public static double zombieHealth = 2.0;
+	public static double zombieHealth = 1.0;
 	
 	@RequiresMcRestart
 	@RangeDouble(min=0, max=2.0)
