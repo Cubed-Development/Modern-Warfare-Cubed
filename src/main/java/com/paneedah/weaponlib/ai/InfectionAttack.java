@@ -8,7 +8,6 @@ import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.client.multiplayer.WorldClient;
 
 public class InfectionAttack implements CustomMobAttack, Spreadable {
     
