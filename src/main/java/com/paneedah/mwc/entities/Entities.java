@@ -152,7 +152,6 @@ public class Entities {
                 .withSpawnEgg(0x5A674F, 0x464039)
                 .withTexturedModelVariant("com.paneedah.mwc.models.Turret", "turret.png")
                 .withAmbientSound("turret_turn")
-//        .withStepSound("step")
                 .withMaxSpeed(0.0F) // 0.1-0.3 is normal speed
                 .withAiTask(1, e -> new EntityAIAttackRangedWeapon((EntityCustomMob) e, 1.0D, 1, 50.0F))
                 .withAiTask(2, e -> new EntityAILookIdle(e))
@@ -209,7 +208,6 @@ public class Entities {
                 .withSpawnEgg(0x5A674F, 0x464039)
                 .withTexturedModelVariant("com.paneedah.mwc.models.TurretBuff", "turretbuff.png")
                 .withAmbientSound("turret_turn")
-//        .withStepSound("step")
                 .withMaxSpeed(0.0F) // 0.1-0.3 is normal speed
                 .withAiTask(1, e -> new EntityAIAttackRangedWeapon((EntityCustomMob) e, 1.0D, 1, 50.0F))
                 .withAiTask(2, e -> new EntityAILookIdle(e))
@@ -266,7 +264,6 @@ public class Entities {
                 .withSpawnEgg(0x5A674F, 0x464039)
                 .withTexturedModelVariant("com.paneedah.mwc.models.turretsilenced", "turretsilenced.png")
                 .withAmbientSound("turret_turn")
-//        .withStepSound("step")
                 .withMaxSpeed(0.0F) // 0.1-0.3 is normal speed
                 .withAiTask(1, e -> new EntityAIAttackRangedWeapon((EntityCustomMob) e, 1.0D, 1, 50.0F))
                 .withAiTask(2, e -> new EntityAILookIdle(e))
