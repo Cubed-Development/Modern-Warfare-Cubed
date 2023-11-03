@@ -1584,7 +1584,7 @@
     ]
   },
   "necromorph_ambient": {
-    "category": "master",
+    "category": "ambient",
     "sounds": [
       {
        "name": "mwc:necromorph_ambient",
@@ -1638,7 +1638,7 @@
     ]
   },
   "deathclaw_ambient": {
-    "category": "master",
+    "category": "ambient",
     "sounds": [
       {
        "name": "mwc:deathclaw_ambient",
@@ -1692,7 +1692,7 @@
     ]
   },
   "zombie_ambient": {
-    "category": "master",
+    "category": "ambient",
     "sounds": [
       {
        "name": "mwc:zombie_ambient",
@@ -1710,7 +1710,7 @@
     ]
   },
   "hazmatzombie_ambient": {
-    "category": "master",
+    "category": "ambient",
     "sounds": [
       {
        "name": "mwc:hazmatzombie_ambient",
@@ -1863,7 +1863,7 @@
     ]
   },
   "molded_ambient": {
-    "category": "master",
+    "category": "ambient",
     "sounds": [
       {
        "name": "mwc:molded_ambient",
@@ -2493,7 +2493,7 @@
     ]
   },
   "tyke_ambient": {
-    "category": "master",
+    "category": "ambient",
     "sounds": [
       {
        "name": "mwc:tyke_ambient",
