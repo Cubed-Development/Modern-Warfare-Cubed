@@ -2448,7 +2448,7 @@
     ]
   },
   "turret_turn": {
-    "category": "master",
+    "category": "ambient",
     "sounds": [
       {
        "name": "mwc:turret_turn",
@@ -2457,7 +2457,7 @@
     ]
   },
   "turret_shoot": {
-    "category": "master",
+    "category": "hostile",
     "sounds": [
       {
        "name": "mwc:turret_shoot",
@@ -2466,7 +2466,7 @@
     ]
   },
   "attachmenton": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:attachmenton",
@@ -2475,7 +2475,7 @@
     ]
   },
   "attachmentoff": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:attachmentoff",
