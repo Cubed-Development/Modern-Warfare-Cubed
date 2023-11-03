@@ -9,7 +9,7 @@
     ]
   },
   "firerate_toggle": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:firerate_toggle",
@@ -18,7 +18,7 @@
     ]
   },
   "dry_fire": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:dry_fire",
@@ -27,7 +27,7 @@
     ]
   },
   "nightvision_on": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:nightvision_on",
@@ -36,7 +36,7 @@
     ]
   },
   "nightvision_off": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:nightvision_off",
@@ -45,7 +45,7 @@
     ]
   },
   "gun_click": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:gun_click",
@@ -54,7 +54,7 @@
     ]
   },
   "bolt_press": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:bolt_press",
@@ -63,7 +63,7 @@
     ]
   },
   "bolt_slap": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:bolt_slap",
@@ -72,7 +72,7 @@
     ]
   },
   "chargehandle_back": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:chargehandle_back",
@@ -81,7 +81,7 @@
     ]
   },
   "chargehandle_forward": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:chargehandle_forward",
@@ -108,7 +108,7 @@
     ]
   },
   "gun_rest": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:gun_rest",
@@ -117,7 +117,7 @@
     ]
   },
   "gun_unrest": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:gun_unrest",
@@ -126,7 +126,7 @@
     ]
   },
   "mag_insert": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:mag_insert",
@@ -135,7 +135,7 @@
     ]
   },
   "mag_smack": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:mag_smack",
@@ -144,7 +144,7 @@
     ]
   },
   "mag_unload": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:mag_unload",
@@ -153,7 +153,7 @@
     ]
   },
   "action_back": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:action_back",
@@ -162,7 +162,7 @@
     ]
   },
   "action_release": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:action_release",
@@ -171,7 +171,7 @@
     ]
   },
   "action3_back": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:action3_back",
@@ -180,7 +180,7 @@
     ]
   },
   "action3_forward": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:action3_forward",
@@ -189,7 +189,7 @@
     ]
   },
   "akaction_back": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:akaction_back",
@@ -198,7 +198,7 @@
     ]
   },
   "akaction_forward": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:akaction_forward",
@@ -207,7 +207,7 @@
     ]
   },
   "akmag_insert": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:akmag_insert",
@@ -216,7 +216,7 @@
     ]
   },
   "akmag_touchgun": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:akmag_touchgun",
@@ -225,7 +225,7 @@
     ]
   },
   "akmag_unload": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:akmag_unload",
@@ -234,7 +234,7 @@
     ]
   },
   "pistolmag_insert": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:pistolmag_insert",
@@ -243,7 +243,7 @@
     ]
   },
   "pistolmag_touchgun": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:pistolmag_touchgun",
@@ -252,7 +252,7 @@
     ]
   },
   "pistolmag_unload": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:pistolmag_unload",
@@ -261,7 +261,7 @@
     ]
   },
   "slide_back": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:slide_back",
@@ -270,7 +270,7 @@
     ]
   },
   "slide_release": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:slide_release",
@@ -279,7 +279,7 @@
     ]
   },
   "slide_release2": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:slide_release2",
@@ -288,7 +288,7 @@
     ]
   },
   "mp5bolt_back": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:mp5bolt_back",
@@ -297,7 +297,7 @@
     ]
   },
   "mp5bolt_back2": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:mp5bolt_back2",
@@ -306,7 +306,7 @@
     ]
   },
   "mp5bolt_release": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:mp5bolt_release",
@@ -315,7 +315,7 @@
     ]
   },
   "mp5bolt_smack": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:mp5bolt_smack",
@@ -324,7 +324,7 @@
     ]
   },
   "smallmag_insert": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:smallmag_insert",
@@ -333,7 +333,7 @@
     ]
   },
   "smallmag_unload": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
        "name": "mwc:smallmag_unload",
