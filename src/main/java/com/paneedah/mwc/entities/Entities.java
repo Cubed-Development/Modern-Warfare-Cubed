@@ -670,7 +670,7 @@ public class Entities {
             .withMaxHealth(5000)
             .withEntityIdSupplier(() -> 10009)
             .withSpawn(1, 1, 1, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS)
-            .withSpawnEgg(0xA0A000, 0xA0A010)
+            .withSpawnEgg(0x551616, 0xB0BA72)
             .withTexturedModelVariant("com.paneedah.mwc.models.Deathclaw", "deathclaw.png")
             .withHurtSound("deathclaw_hurt")
             .withAmbientSound("deathclaw_ambient")
