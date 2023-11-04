@@ -8,6 +8,13 @@ item.atv_polaris_sportsman_850_2019.name=2019 Polaris Sportsman 850
 
 entity.terrorist.name=Terrorist
 entity.soldier.name=Soldier
+entity.zombie_blistered.name=Blistered Zombie
+entity.zombie_ripper.name=Ripper Zombie
+entity.zombie_torn.name=Torn Zombie
+entity.necromorph.name=Necromorph
+entity.zombie.name=Zombie
+entity.zombie_hazmat.name=Hazmat Zombie
+entity.zombie_defiled.name=Defiled Zombie
 
 item.mwc_gas-detector.name=Gas Detector
 item.mwc_GasGrenade.name=Gas Grenade
