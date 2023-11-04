@@ -1123,6 +1123,15 @@ config.gameplay.statusBarPosition.property.name=Status Bar Position
 config.gameplay.statusBarPosition.property.tooltip=The screen position for the Status Bar
 
 config.category.entities.name=Entities
+config.entities.terroristHealth.property.name=Terrorist Health
+config.entities.terroristSpawn.property.name=Terrorist Spawn
+config.entities.soldierHealth.property.name=Soldier Health
+config.entities.soldierSpawn.property.name=Soldier Spawn
+config.entities.zombieHealth.property.name=Zombie Health
+config.entities.zombieSpawn.property.name=Zombie Health
+config.entities.deathclawHealth.property.name=Deathclaw Health
+config.entities.deathclawSpawn.property.name=Deathclaw Spawn
+
 config.category.rendering.name=Rendering
 config.category.rendering.tooltip=Rendering/Shaders
 config.category.screenshaders.name=Screen Shaders
