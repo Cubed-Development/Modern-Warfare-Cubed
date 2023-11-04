@@ -718,6 +718,7 @@ public class Entities {
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "zombie_hazmat", true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "zombie_defiled", true))
             .withAiTargetTask(4, e -> new BetterAINearestAttackableTarget<>((EntityCreature) e, EntityCustomMob.class, "deathclaw", true))
+            .withSize(3f, 3f)
             .register(MWC.modContext);
     }
 }
