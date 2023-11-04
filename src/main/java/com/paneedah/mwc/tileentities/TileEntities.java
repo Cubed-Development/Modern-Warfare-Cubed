@@ -1240,6 +1240,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.weapons.Forklift")
         .withTextureName("textures/models/forklift.png")
         .withCreativeTab(MWC.PROPS_TAB)
+		.withBoundingBox(0, 0, -1, 1, 3, 1)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1.5f, 1.5f, 1.5f);
             GL11.glTranslatef(0.5f, -0.5f, 0.5f);
@@ -1266,6 +1267,7 @@ public class TileEntities {
         .withModelClassName("com.paneedah.mwc.models.weapons.ForkLiftAlt")
         .withTextureName("textures/models/forkliftalt.png")
         .withCreativeTab(MWC.PROPS_TAB)
+		.withBoundingBox(0, 0, -1, 1, 3, 1)
         .withPositioning(tileEntity -> {
             GL11.glScalef(1f, 1f, 1f);
             GL11.glTranslatef(0.5f, 0f, 0.5f);
