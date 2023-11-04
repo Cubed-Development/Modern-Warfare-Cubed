@@ -239,7 +239,7 @@ public class M60E4Factory {
                 }
             })
         .withCompatibleAttachment(Attachments.Kobra, () -> {
-            GL11.glTranslatef(0F + (float)ModernConfigManager.posX, 0F + (float)ModernConfigManager.posY, 0F + (float)ModernConfigManager.posZ);
+            GL11.glTranslatef(0.04f, -1.755f, -0.6f);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
             if(model instanceof Reflex2) {
@@ -248,7 +248,7 @@ public class M60E4Factory {
             }
         })
         .withCompatibleAttachment(Attachments.KobraGen3, () -> {
-            GL11.glTranslatef(0.118F, -0.06F, 3.8F);
+            GL11.glTranslatef(0.04f, -1.755f, -0.6f);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
             if(model instanceof Reflex2) {
