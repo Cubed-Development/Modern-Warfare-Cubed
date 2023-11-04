@@ -679,6 +679,7 @@ public class Entities {
             .withDeathSound("deathclaw_death")
             .withCollisionAttackDamage(30.0)
             .withMaxSpeed(0.3F) // 0.1-0.3 is normal speed
+            .withPushability(false)
             .withAiTask(1, e -> new EntityAISwimming(e))
             .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, true))
             .withAiTask(3, e -> new EntityAIWander((EntityCreature)e, 1.0D))
