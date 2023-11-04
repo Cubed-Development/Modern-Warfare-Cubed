@@ -321,7 +321,7 @@ public class Entities {
             .withAmbientSound("zombie_ambient")
             .withStepSound("zombie_step")
             .withDeathSound("zombie_death")
-            .withMaxSpeed(0.45F) // 0.1-0.3 is normal speed
+            .withMaxSpeed(0.3F) // 0.1-0.3 is normal speed
             .withCollisionAttackDamage(15.0)
             .withAiTask(1, e -> new EntityAISwimming(e))
             .withAiTask(1, e -> new EntityAIFleeSun(e, 1D))
@@ -414,6 +414,7 @@ public class Entities {
             .withAmbientSound("zombie_ambient")
             .withStepSound("zombie_step")
             .withDeathSound("zombie_death")
+            .withMaxSpeed(0.3F)
             .withAiTask(1, e -> new EntityAISwimming(e))
             .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))
@@ -633,6 +634,7 @@ public class Entities {
             .withAmbientSound("zombie_ambient")
             .withStepSound("zombie_step")
             .withDeathSound("zombie_death")
+            .withMaxSpeed(0.3F)
             .withAiTask(1, e -> new EntityAISwimming(e))
             .withAiTask(2, e -> new EntityAIAttackMelee(e, 1D, false))
             .withAiTask(3, e -> new EntityAIAvoidEntity<>((EntityCreature) e, EntityWolf.class, 6.0F, 1.0D, 1.2D))

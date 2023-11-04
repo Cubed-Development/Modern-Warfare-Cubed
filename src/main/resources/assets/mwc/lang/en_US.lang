@@ -15,6 +15,7 @@ entity.necromorph.name=Necromorph
 entity.zombie.name=Zombie
 entity.zombie_hazmat.name=Hazmat Zombie
 entity.zombie_defiled.name=Defiled Zombie
+entity.deathclaw.name=Deathclaw
 
 item.mwc_gas-detector.name=Gas Detector
 item.mwc_GasGrenade.name=Gas Grenade
