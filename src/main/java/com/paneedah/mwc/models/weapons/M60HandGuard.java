@@ -29,15 +29,15 @@ public class M60HandGuard extends ModelWithAttachments {
 	private final ModelRenderer Guard3_r1;
 
 	public M60HandGuard() {
-		textureWidth = 340;
-		textureHeight = 340;
+		textureWidth = 330;
+		textureHeight = 330;
 
 		m60guard = new ModelRenderer(this);
 		m60guard.setRotationPoint(-1.0F, -6.9311F, -53.1969F);
-		m60guard.cubeList.add(new ModelBox(m60guard, 260, 0, -2.0F, -4.5689F, 0.1969F, 5, 5, 24, 0.0F, false));
+		m60guard.cubeList.add(new ModelBox(m60guard, 108, 221, -2.0F, -4.5689F, 0.1969F, 5, 5, 24, 0.0F, false));
 		m60guard.cubeList.add(new ModelBox(m60guard, 0, 0, -1.0333F, -0.0689F, 0.1969F, 3, 1, 24, 0.0F, false));
 		m60guard.cubeList.add(new ModelBox(m60guard, 20, 190, -2.5F, -9.5689F, 2.1969F, 1, 4, 16, 0.0F, false));
-		m60guard.cubeList.add(new ModelBox(m60guard, 0, 81, -2.5F, -5.5689F, 0.1969F, 1, 1, 24, 0.0F, false));
+		m60guard.cubeList.add(new ModelBox(m60guard, 0, 79, -2.5F, -5.5689F, 0.1969F, 1, 1, 24, 0.0F, false));
 		m60guard.cubeList.add(new ModelBox(m60guard, 56, 189, 2.5F, -9.5689F, 2.1969F, 1, 4, 16, 0.0F, false));
 		m60guard.cubeList.add(new ModelBox(m60guard, 60, 25, 2.5F, -5.5689F, 0.1969F, 1, 1, 24, 0.0F, false));
 		m60guard.cubeList.add(new ModelBox(m60guard, 168, 55, -2.2F, -1.5689F, 1.1969F, 1, 1, 22, 0.0F, false));
@@ -45,7 +45,7 @@ public class M60HandGuard extends ModelWithAttachments {
 		m60guard.cubeList.add(new ModelBox(m60guard, 166, 188, 2.8F, -9.7689F, 1.6969F, 1, 1, 17, 0.0F, false));
 		m60guard.cubeList.add(new ModelBox(m60guard, 0, 188, -2.8F, -9.7689F, 1.6969F, 1, 1, 17, 0.0F, false));
 		m60guard.cubeList.add(new ModelBox(m60guard, 96, 56, -2.5F, -6.8689F, 18.1969F, 1, 2, 6, 0.0F, false));
-		m60guard.cubeList.add(new ModelBox(m60guard, 40, 81, 2.5F, -6.8689F, 18.1969F, 1, 2, 6, 0.0F, false));
+		m60guard.cubeList.add(new ModelBox(m60guard, 40, 79, 2.5F, -6.8689F, 18.1969F, 1, 2, 6, 0.0F, false));
 		m60guard.cubeList.add(new ModelBox(m60guard, 0, 18, -2.0F, -1.0689F, -3.8031F, 5, 2, 4, 0.0F, false));
 		m60guard.cubeList.add(new ModelBox(m60guard, 14, 18, -1.5F, 0.9311F, 4.1969F, 4, 3, 1, 0.0F, false));
 
@@ -53,7 +53,7 @@ public class M60HandGuard extends ModelWithAttachments {
 		Guard33_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
 		m60guard.addChild(Guard33_r1);
 		setRotationAngle(Guard33_r1, -1.2641F, 0.0F, 0.0F);
-		Guard33_r1.cubeList.add(new ModelBox(Guard33_r1, 56, 70, -1.5F, -4.6F, 6.0F, 4, 1, 7, 0.0F, false));
+		Guard33_r1.cubeList.add(new ModelBox(Guard33_r1, 60, 39, -1.5F, -4.6F, 6.0F, 4, 1, 7, 0.0F, false));
 
 		Guard32_r1 = new ModelRenderer(this);
 		Guard32_r1.setRotationPoint(0.0F, 6.7731F, -1.2779F);
@@ -65,35 +65,35 @@ public class M60HandGuard extends ModelWithAttachments {
 		Guard30_r1.setRotationPoint(0.0F, 8.2867F, 2.4975F);
 		m60guard.addChild(Guard30_r1);
 		setRotationAngle(Guard30_r1, 0.2974F, 0.0F, 0.0F);
-		Guard30_r1.cubeList.add(new ModelBox(Guard30_r1, 60, 25, -1.5F, -8.0F, -1.0F, 4, 13, 5, 0.0F, false));
+		Guard30_r1.cubeList.add(new ModelBox(Guard30_r1, 56, 56, -1.5F, -8.0F, -1.0F, 4, 13, 5, 0.0F, false));
 
 		Guard28_r1 = new ModelRenderer(this);
 		Guard28_r1.setRotationPoint(0.0F, 0.809F, 13.2189F);
 		m60guard.addChild(Guard28_r1);
 		setRotationAngle(Guard28_r1, 1.1154F, 0.0F, 0.0F);
-		Guard28_r1.cubeList.add(new ModelBox(Guard28_r1, 0, 25, 2.5F, -14.5F, 0.0F, 1, 2, 4, 0.0F, false));
-		Guard28_r1.cubeList.add(new ModelBox(Guard28_r1, 56, 56, -2.5F, -14.5F, 0.0F, 1, 2, 4, 0.0F, false));
+		Guard28_r1.cubeList.add(new ModelBox(Guard28_r1, 44, 13, 2.5F, -14.5F, 0.0F, 1, 2, 4, 0.0F, false));
+		Guard28_r1.cubeList.add(new ModelBox(Guard28_r1, 0, 55, -2.5F, -14.5F, 0.0F, 1, 2, 4, 0.0F, false));
 
 		Guard26_r1 = new ModelRenderer(this);
 		Guard26_r1.setRotationPoint(0.0F, -1.553F, -6.3387F);
 		m60guard.addChild(Guard26_r1);
 		setRotationAngle(Guard26_r1, -0.4833F, 0.0F, 0.0F);
-		Guard26_r1.cubeList.add(new ModelBox(Guard26_r1, 40, 0, 2.5F, -18.5F, 18.0F, 1, 2, 6, 0.0F, false));
+		Guard26_r1.cubeList.add(new ModelBox(Guard26_r1, 10, 25, 2.5F, -18.5F, 18.0F, 1, 2, 6, 0.0F, false));
 		Guard26_r1.cubeList.add(new ModelBox(Guard26_r1, 100, 25, -2.5F, -18.5F, 18.0F, 1, 2, 6, 0.0F, false));
 
 		Guard22_r1 = new ModelRenderer(this);
 		Guard22_r1.setRotationPoint(0.0F, -1.8083F, -6.3743F);
 		m60guard.addChild(Guard22_r1);
 		setRotationAngle(Guard22_r1, -0.4833F, 0.0F, 0.0F);
-		Guard22_r1.cubeList.add(new ModelBox(Guard22_r1, 136, 143, -2.8F, -18.7F, 18.5F, 1, 1, 6, 0.0F, false));
-		Guard22_r1.cubeList.add(new ModelBox(Guard22_r1, 8, 144, 2.8F, -18.7F, 18.5F, 1, 1, 6, 0.0F, false));
+		Guard22_r1.cubeList.add(new ModelBox(Guard22_r1, 136, 136, -2.8F, -18.7F, 18.5F, 1, 1, 6, 0.0F, false));
+		Guard22_r1.cubeList.add(new ModelBox(Guard22_r1, 39, 142, 2.8F, -18.7F, 18.5F, 1, 1, 6, 0.0F, false));
 
 		Guard20_r1 = new ModelRenderer(this);
 		Guard20_r1.setRotationPoint(0.0F, 7.1086F, -6.4939F);
 		m60guard.addChild(Guard20_r1);
 		setRotationAngle(Guard20_r1, -0.3718F, 0.0F, 0.0F);
-		Guard20_r1.cubeList.add(new ModelBox(Guard20_r1, 12, 0, -2.8F, -18.7F, 1.5F, 1, 4, 1, 0.0F, false));
-		Guard20_r1.cubeList.add(new ModelBox(Guard20_r1, 19, 0, 2.8F, -18.7F, 1.5F, 1, 4, 1, 0.0F, false));
+		Guard20_r1.cubeList.add(new ModelBox(Guard20_r1, 26, 25, -2.8F, -18.7F, 1.5F, 1, 4, 1, 0.0F, false));
+		Guard20_r1.cubeList.add(new ModelBox(Guard20_r1, 30, 0, 2.8F, -18.7F, 1.5F, 1, 4, 1, 0.0F, false));
 
 		Guard16_r1 = new ModelRenderer(this);
 		Guard16_r1.setRotationPoint(-2.3368F, 7.7877F, 0.1969F);
