@@ -54,7 +54,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> SV98BoltAction;
     public static ItemAttachment<Weapon> L96A1BoltAction;
     public static ItemAttachment<Weapon> InterventionBoltAction;
-	public static ItemAttachment<Weapon> InterventionBoltActionPrime;
+    public static ItemAttachment<Weapon> InterventionBoltActionPrime;
     public static ItemAttachment<Weapon> VSSVintorezAction;
     public static ItemAttachment<Weapon> AS50Action;
     public static ItemAttachment<Weapon> P10Slide;
@@ -1417,7 +1417,6 @@ public class AuxiliaryAttachments {
 				
 		PGMHecateIIBoltAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
-                //.withRotationPoint(0.2791999875187876F, -1.7068000399291512F, 0.3259999854266646F)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new PGMHecateIIBoltAction(), "pgmhecateii.png")
                 .withName("PGMHecateIIBoltAction")
@@ -1695,11 +1694,6 @@ public class AuxiliaryAttachments {
                 .withModel(new AKRail4(), "akrail.png")
                 .withModel(new AKRail5(), "akrail.png")
                 .withName("M4Rail").withRenderablePart()
-                .build();
-
-        M4AsiimovRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA5)
-                .withModel(new AKRail(), "m4asiimovrail.png")
-                .withName("M4AsiimovRail").withRenderablePart()
                 .build();
 
         MagnumRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA5)
