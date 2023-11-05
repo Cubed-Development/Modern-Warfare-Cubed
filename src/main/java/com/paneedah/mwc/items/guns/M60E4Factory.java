@@ -10,8 +10,6 @@ import com.paneedah.weaponlib.AttachmentCategory;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
-import com.paneedah.weaponlib.animation.Transition;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
@@ -71,15 +69,15 @@ public class M60E4Factory {
          })
         .withCompatibleAttachment(Attachments.M60E4HandGuard, true, (model) -> {
              if(model instanceof AKRail) {
-                 GL11.glTranslatef(0.33F, 0.45F, 0.1F);
+                 GL11.glTranslatef(0.295F, -1.28F, -4.2F);
                  GL11.glScaled(0.6F, 0.6F, 0.7F);
                  GL11.glRotatef(90F, 0f, 0f, 1f);
              } else if(model instanceof AKRail2) {
-                 GL11.glTranslatef(-0.25F, 0.63F, 0.1F);
+                 GL11.glTranslatef(-0.35F, -1.1F, -4.2F);
                  GL11.glScaled(0.6F, 0.6F, 0.7F);
                  GL11.glRotatef(-90F, 0f, 0f, 1f);
              } else if(model instanceof AKRail3) {
-                 GL11.glTranslatef(0.12F, 1.35F, -0.7F);
+                 GL11.glTranslatef(0.12F, -0.44F, -4.85F);
                  GL11.glScaled(0.6F, 0.6F, 1.05F);
                  GL11.glRotatef(180F, 0f, 0f, 1f);
              } 
@@ -128,7 +126,7 @@ public class M60E4Factory {
                     GL11.glTranslatef(0.25F, -1.55F, -2F);
                     GL11.glScaled(0F, 0F, 0F);
             } else if(model instanceof FALIron) {
-                GL11.glTranslatef(0.06F, -0.15F, -2.32F);
+                GL11.glTranslatef(-0.019F, -1.935F, -6.55F);
                 GL11.glScaled(0.15F, 0.3F, 0.8F);
                 GL11.glRotatef(-180F, 0f, 0f, 1f);
             } else if(model instanceof M14Iron) {
@@ -140,7 +138,7 @@ public class M60E4Factory {
             }
         })
         .withCompatibleAttachment(Attachments.NightRaider, () -> {
-            GL11.glTranslatef(-0.05F, -0.2F, 2.8F);
+            GL11.glTranslatef(-0.13F, -1.97F, -1.71F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
             if(model instanceof JPUreticle) {
@@ -149,7 +147,7 @@ public class M60E4Factory {
             }
         })
         .withCompatibleAttachment(Attachments.ACOG, () -> {
-            GL11.glTranslatef(-0.16F, -0.24F, 4F);
+            GL11.glTranslatef(-0.24F, -2.0F, -0.455F);
             GL11.glScaled(0.83F, 0.83F, 0.83F);
         },(model) -> {
             if(model instanceof AcogScope2) {
@@ -162,7 +160,7 @@ public class M60E4Factory {
             }
         })
         .withCompatibleAttachment(Attachments.Specter, () -> {
-            GL11.glTranslatef(-0.03F, 0.09F, 3.7F);
+            GL11.glTranslatef(-0.1F, -1.65F, -0.755F);
             GL11.glScaled(0.43F, 0.43F, 0.43F);
         },(model) -> {
              if(model instanceof Acog2) {
@@ -171,7 +169,7 @@ public class M60E4Factory {
             }
         })
         .withCompatibleAttachment(Attachments.Reflex, () -> {
-            GL11.glTranslatef(0.095F, -0.015F, 3.3F);
+            GL11.glTranslatef(0.01F, -1.8F, -0.63F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
         },(model) -> {
             if(model instanceof Reflex2) {
@@ -180,7 +178,7 @@ public class M60E4Factory {
             }
         })
         .withCompatibleAttachment(Attachments.MicroReflex, () -> {
-		    GL11.glTranslatef(0.012F, -0.73F, 3.3F);
+            GL11.glTranslatef(-0.07F, -2.49F, -0.63F);
 		    GL11.glScaled(0.35F, 0.35F, 0.35F);
 		    },(model) -> {
 		        if(model instanceof Reflex2) {
@@ -190,7 +188,7 @@ public class M60E4Factory {
 		        }
 		    })
         .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
-            GL11.glTranslatef(0.1F, -0F, 3.3F);
+            GL11.glTranslatef(0.01F, -1.8F, -0.83F);
             GL11.glScaled(0.5F, 0.5F, 0.5F);
         },(model) -> {
         if(model instanceof Reflex2) {
@@ -199,7 +197,7 @@ public class M60E4Factory {
         }
         })
         .withCompatibleAttachment(Attachments.Holographic, () -> {
-            GL11.glTranslatef(0.02F, -1.85F, -1.05F);
+            GL11.glTranslatef(0.03F, -1.85F, -0.67F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
             },(model) -> {
                 if(model instanceof Holo2) {
@@ -208,7 +206,7 @@ public class M60E4Factory {
                 }
             })
         .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
-            GL11.glTranslatef(0.02F, -1.85F, -1.05F);
+            GL11.glTranslatef(0.03F, -1.85F, -0.67F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
             if(model instanceof Holo2) {
@@ -217,7 +215,7 @@ public class M60E4Factory {
             }
         })
         .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
-            GL11.glTranslatef(0.02F, -1.85F, -0.65F);
+            GL11.glTranslatef(0.03F, -1.85F, -0.67F);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
             if(model instanceof EotechScopeRing) {
@@ -230,7 +228,7 @@ public class M60E4Factory {
             }
         })
         .withCompatibleAttachment(Attachments.VortexRedux, () -> {
-            GL11.glTranslatef(-0.14F, -0.26F, 3.3F);
+            GL11.glTranslatef(-0.215F, -2.05F, -0.93F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
             },(model) -> {
                 if(model instanceof Holo2) {
@@ -239,7 +237,7 @@ public class M60E4Factory {
                 }
             })
         .withCompatibleAttachment(Attachments.Kobra, () -> {
-            GL11.glTranslatef(0.04f, -1.755f, -0.6f);
+            GL11.glTranslatef(0.04f, -1.8f, -0.57f);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
             if(model instanceof Reflex2) {
@@ -248,7 +246,7 @@ public class M60E4Factory {
             }
         })
         .withCompatibleAttachment(Attachments.KobraGen3, () -> {
-            GL11.glTranslatef(0.04f, -1.755f, -0.6f);
+            GL11.glTranslatef(0.04f, -1.8f, -0.57f);
             GL11.glScaled(0.65F, 0.65F, 0.65F);
         },(model) -> {
             if(model instanceof Reflex2) {
@@ -257,7 +255,7 @@ public class M60E4Factory {
             }
         })
         .withCompatibleAttachment(Attachments.MicroT1, () -> {
-            GL11.glTranslatef(-0.02F, -0.25F, 3.8F);
+            GL11.glTranslatef(-0.1F, -2.0F, -0.6F);
             GL11.glScaled(0.38F, 0.38F, 0.38F);
             },(model) -> {
                 if(model instanceof Reflex2) {
@@ -266,7 +264,7 @@ public class M60E4Factory {
                 }
             })
         .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
-            GL11.glTranslatef(-0.02F, -0.25F, 3.8F);
+            GL11.glTranslatef(-0.1F, -2.0F, -0.6F);
             GL11.glScaled(0.38F, 0.38F, 0.38F);
             },(model) -> {
                 if(model instanceof Reflex2) {
@@ -275,31 +273,31 @@ public class M60E4Factory {
                 }
             })
         .withCompatibleAttachment(Attachments.Grip2, (model) -> {
-            GL11.glTranslatef(-0.05F, 1.75F, 0.4F);
+            GL11.glTranslatef(-0.1F, -0.01F, -3.8F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.StubbyGrip, (model) -> {
-            GL11.glTranslatef(-0.05F, 1.75F, 0.4F);
+            GL11.glTranslatef(-0.1F, -0.01F, -3.8F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.AngledGrip, (model) -> {
-            GL11.glTranslatef(-0.05F, 1.85F, 0.4F);
+            GL11.glTranslatef(-0.1F, 0.11F, -3.8F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.VGrip, (model) -> {
-            GL11.glTranslatef(-0.05F, 1.75F, 0.4F);
+            GL11.glTranslatef(-0.1F, -0.01F, -3.8F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.Bipod, (model) -> {
-            GL11.glTranslatef(-0.2F, -0.41F, -3.7F);
+            GL11.glTranslatef(-0.1F, -0.41F, -5.4F);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.Laser2, () -> {
-            GL11.glTranslatef(0.2F, 0.45F, 0F);
+            GL11.glTranslatef(0.125F, -1.38F, -3.86F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         })
         .withCompatibleAttachment(Attachments.Laser, () -> {
-            GL11.glTranslatef(0.2F, 0.45F, 0F);
+            GL11.glTranslatef(0.125F, -1.38F, -3.86F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         })
         .withTextureNames("m60")
@@ -378,7 +376,7 @@ public class M60E4Factory {
 
             .withFirstPersonPositioningZooming((renderContext) -> {
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                GL11.glTranslatef(0.05f, 1.64f, -0.05f);
+                GL11.glTranslatef(0.06f, 1.59f, -0.17f);
 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
@@ -387,7 +385,7 @@ public class M60E4Factory {
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    GL11.glTranslatef(0F, 0.14f, 0.2f);
+                    GL11.glTranslatef(0F, 0.12f, 0.2f);
                 } 
                 
              // ACOG Zoom
@@ -397,12 +395,12 @@ public class M60E4Factory {
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                    GL11.glTranslatef(0F, 0.1f, 0.2f);
+                    GL11.glTranslatef(0F, 0.05f, 0.2f);
                 } 
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    GL11.glTranslatef(0F, 0.015f, 0.4f);
+                    GL11.glTranslatef(0F, 0.015f, 0.2f);
                 } 
                 
              // ACOG Zoom
@@ -432,7 +430,7 @@ public class M60E4Factory {
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                    GL11.glTranslatef(0F, 0.07f, 0.2f);
+                    GL11.glTranslatef(0F, 0.07f, 0.1f);
                 } 
                 
              // ACOG Zoom
