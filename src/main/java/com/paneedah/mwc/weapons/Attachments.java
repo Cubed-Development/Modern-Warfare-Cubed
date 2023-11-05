@@ -75,6 +75,7 @@ public class Attachments {
     public static ItemAttachment<Weapon> AimpointCompM2;
     public static ItemAttachment<Weapon> AimpointCompM5;
     public static ItemAttachment<Weapon> RMR;
+    public static ItemAttachment<Weapon> LeupoldDeltapointPro;
     public static ItemAttachment<Weapon> AK15ironsight;
     public static ItemAttachment<Weapon> AK12ironsight;
     public static ItemAttachment<Weapon> M202scope;
@@ -3729,12 +3730,36 @@ public class Attachments {
                 .withRequiredAttachments(FABDefenseMount, VeprDustCover, AK15DustCover,
                         Placeholder, MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail,
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
-                        M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
+                        M4Receiver, VLTORReceiver, AR57Receiver,
                         Attachments.EF88Handguard, KrissVectorReceiver,
                         Vector556Handguard, DesertEagleSlide, DesertEagleSlideBlack, DesertEagleSlideGolden, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, MAS21Mount, APC9Placeholder,
                         MAC21Stock, VSSMDustCover, Dragunov98DustCover)
                 .withName("RMRsight")
+                .build();
+
+        LeupoldDeltapointPro = new ItemScope.Builder()
+                .withHolographicReticles(Reticles.RMR)
+                .withReticlePositioning(() -> {
+                    GlStateManager.translate(0.22F, -2.75F, -0.53F);
+                    GlStateManager.scale(1.7F, 1.6F, 1.6F);
+                })
+                .withCategory(AttachmentCategory.SCOPE)
+                .withRenderablePart()
+                .withModel(new DeltapointPro(), "leulpolddeltapointpro.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_NORMAL,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 1),
+                        new CraftingEntry(MWCItems.steelIngot, 2))
+                .withRequiredAttachments(FABDefenseMount, VeprDustCover, AK15DustCover,
+                        Placeholder, MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail,
+                        P90Placeholder, AUGA2handguard, AUGA3handguard,
+                        M4Receiver, VLTORReceiver, AR57Receiver,
+                        Attachments.EF88Handguard, KrissVectorReceiver,
+                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideBlack, DesertEagleSlideGolden, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
+                        M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, MAS21Mount, APC9Placeholder,
+                        MAC21Stock, VSSMDustCover, Dragunov98DustCover)
+                .withName("LeupoldDeltapointPro")
                 .build();
 
         Kobra = new ItemScope.Builder()
