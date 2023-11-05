@@ -84,14 +84,12 @@ public class AUGFactory implements GunFactory {
             if(model instanceof AKRail) {
               GL11.glTranslatef(-0.23F, -1.27F, -1.53F);
               GL11.glScaled(0.8F, 0.8F, 0.95F);
-//              GL11.glRotatef(90F, 0f, 0f, 1f);
           }
         })
         .withCompatibleAttachment(Attachments.EF88Handguard, (model) -> {
             if(model instanceof AKRail) {
               GL11.glTranslatef(-0.23F, -1.27F, -2.25F);
               GL11.glScaled(0.8F, 0.8F, 1.2F);
-//              GL11.glRotatef(90F, 0f, 0f, 1f);
           }
         })
         .withCompatibleAttachment(Attachments.AUGA3extGuard, (model) -> {
@@ -498,8 +496,6 @@ public class AUGFactory implements GunFactory {
         })
         .withTextureNames("aug")
         .withRenderer(new WeaponRenderer.Builder()
-        .withActionPiece(AuxiliaryAttachments.AUGAction)
-        .withActionTransform(new Transform().withPosition(0, 0, 0.7F))
 
             .withModel(new AUG())
             .withEntityPositioning(itemStack -> {
@@ -520,7 +516,7 @@ public class AUGFactory implements GunFactory {
                 })
                 
            .withFirstPersonPositioning(
-					new Transform()
+		new Transform()
                     .withPosition(-1.425000f, 3.325000f, -4.725000f)
                     .withRotation(0.000000f, 1.000000f, 6.300000f)
                     .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
