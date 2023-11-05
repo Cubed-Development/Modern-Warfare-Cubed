@@ -3739,10 +3739,10 @@ public class Attachments {
                 .build();
 
         LeupoldDeltapointPro = new ItemScope.Builder()
-                .withHolographicReticles(Reticles.RMR)
+                .withHolographicReticles(Reticles.REFLEX)
                 .withReticlePositioning(() -> {
                     GlStateManager.translate(0.22F, -2.75F, -0.53F);
-                    GlStateManager.scale(1.7F, 1.6F, 1.6F);
+                    GlStateManager.scale(2.0F, 1.6F, 1.6F);
                 })
                 .withCategory(AttachmentCategory.SCOPE)
                 .withRenderablePart()

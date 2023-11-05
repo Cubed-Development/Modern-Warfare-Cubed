@@ -42,7 +42,7 @@ public class DesertEagleFactory implements GunFactory {
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapons power
-        		80.0,
+        		86.0,
         		// Muzzle climb divisor
         		13.5,
         		// "Stock Length"

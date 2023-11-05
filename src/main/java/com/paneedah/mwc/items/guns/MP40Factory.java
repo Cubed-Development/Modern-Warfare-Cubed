@@ -166,12 +166,6 @@ public class MP40Factory {
                 .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.MP40action.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, -1f);
                 })
-                
-            .withFirstPersonCustomPositioning(AuxiliaryAttachments.MP40action.getRenderablePart(), (renderContext) -> {
-                if(renderContext.getWeaponInstance().getAmmo() == 0) {
-                    GL11.glTranslatef(0F, 0F, -1F);
-                }
-            })
 
             .withFirstPersonPositioningZooming((renderContext) -> {
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
