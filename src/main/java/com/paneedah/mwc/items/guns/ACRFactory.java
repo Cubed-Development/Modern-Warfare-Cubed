@@ -172,7 +172,7 @@ public class ACRFactory implements GunFactory {
             } else if(model instanceof AKRail2) {
                 GL11.glTranslatef(-0.43F, -0.93F, -3.92F);
                 GL11.glScaled(0.85F, 0.85F, 0.8F);
-                GL11.glRotatef(-90F, 0f, 0f, 1f);
+                GL11.glRotatef(0F, 0f, 0f, 1f);
             } else if(model instanceof AKRail3) {
             	GL11.glTranslatef(-0.03F, -0.77F, -3.94F);
                 GL11.glScaled(0.85F, 0.85F, 0.75F);

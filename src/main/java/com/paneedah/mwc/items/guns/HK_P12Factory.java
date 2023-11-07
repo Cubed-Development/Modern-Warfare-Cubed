@@ -122,12 +122,8 @@ public class HK_P12Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Magazines.USP45Mag, (model) -> {
-//        	GL11.glTranslatef(0.05f, 2.5f, 0.2f);
-//        	 GL11.glRotatef(-20F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.USP45hammer, true, (model) -> {
-//          GL11.glTranslatef(-0F, -0.17F, 0.53F);
-//        	GL11.glRotatef(45F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(0.01F, -0.65F, -2.3F);
@@ -187,7 +183,7 @@ public class HK_P12Factory implements GunFactory {
             //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);

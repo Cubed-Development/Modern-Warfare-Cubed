@@ -76,7 +76,7 @@ public class M79Factory implements GunFactory {
             .withModel(new M79())
             .withEntityPositioning(itemStack -> {
                     GL11.glScaled(0.35F, 0.35F, 0.35F);
-                    GL11.glRotatef(-90F, 0f, 0f, 4f);
+                    GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                     GL11.glScaled(0.4F, 0.4F, 0.4F);
