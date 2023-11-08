@@ -59,64 +59,30 @@ public class NinthSinFactory implements GunFactory {
                  2f) // z
          
         .withCompatibleAttachment(Magazines.NinthSinMag, (model) -> {
-//          GL11.glTranslatef(-0.3F, -1.3F, 0.4F);
-//          GL11.glRotatef(-11F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.PanelUpper, true, (model) -> {
-//            GL11.glTranslatef(0F, -0.25F, 0.6F);
-//            GL11.glRotatef(-11F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.PanelLower, true, (model) -> {
-//          GL11.glTranslatef(0F, 0.35F, 0.3F);
-//          GL11.glRotatef(8F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RegulatorUpper, true, (model) -> {
-//        	GL11.glTranslatef(0.2F, 0F, 0F);
-        	
-//          GL11.glTranslatef(0.2F, -0.7F, 1.1F);
-//          GL11.glRotatef(27F, 1f, 0f, 0);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RegulatorLower, true, (model) -> {
-//        	 GL11.glTranslatef(0.2F, 0.65F, 1.4F);
-//        	 GL11.glRotatef(-12F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RegulatorRotator, true, (model) -> {
-//        	 GL11.glTranslatef(0.2F, 0F, 1.5F);
-//          GL11.glTranslatef(0.4F, 0.4F, 0F);
-//          GL11.glRotatef(90F, 0f, 0f, 1);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RegulatorActionUpper, true, (model) -> {
-//        	GL11.glTranslatef(0.2F, 0.55F, 1.6F);
-//       	 GL11.glRotatef(-12F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RegulatorActionLower, true, (model) -> {
-//        	GL11.glTranslatef(0.2F, 0.75F, 1.2F);
-//       	 GL11.glRotatef(-12F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RegulatorAction, true, (model) -> {
-//        	GL11.glTranslatef(0.2F, 0.775F, 1.15F);
-//       	 GL11.glRotatef(-12F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.CyclerFront, true, (model) -> {
-//          GL11.glTranslatef(0F, -0.35F, -0.2F);
-//          GL11.glRotatef(9F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.CyclerBackLeft, true, (model) -> {
-//        	 GL11.glTranslatef(0.15F, -0.15F, 0F);
-//          GL11.glTranslatef(0F, 0F, 2.4F);
-//          GL11.glTranslatef(0.4F, 0.4F, 0F);
-//          GL11.glRotatef(90F, 0f, 0f, 1);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.CyclerBackRight, true, (model) -> {
-//        	 GL11.glTranslatef(-0.15F, -0.15F, 0F);
-//          GL11.glTranslatef(0F, 0F, 2.4F);
-//          GL11.glTranslatef(0.4F, 0.4F, 0F);
-//          GL11.glRotatef(90F, 0f, 0f, 1);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Cycler, true, (model) -> {
-//          GL11.glTranslatef(0F, -0.17F, 0.3F);
-//          GL11.glTranslatef(0.4F, 0.4F, 0F);
-//          GL11.glRotatef(90F, 0f, 0f, 1);
         })
         .withTextureNames("ninthsin")
         .withRenderer(new WeaponRenderer.Builder()

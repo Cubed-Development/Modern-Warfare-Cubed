@@ -270,6 +270,7 @@ public class M200InterventionFactory implements GunFactory {
             .withADSBeizer(new Vec3d(-0.2F, 5.0, -1.0))
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
+                GL11.glTranslatef(0, 0f, 3f);
                 GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {

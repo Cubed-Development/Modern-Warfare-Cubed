@@ -117,11 +117,10 @@ public class DP28Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new DP28())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
+
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
+                GL11.glTranslatef(0, 0f, 3f);
                 GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {

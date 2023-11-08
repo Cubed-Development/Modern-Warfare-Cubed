@@ -18,7 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class AK47Factory {
 
@@ -66,19 +65,6 @@ public class AK47Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Assault rifle",
-        "Damage: 6.6", 
-        "Cartridge: 7.62x39mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "30rnd 7.62x39mm Magazine",
-        "30rnd 7.62x39mm PMAG Magazine",
-        "30rnd 7.62x39mm PMAG Magazine (Tan)",
-        "50rnd 7.62x39mm Drum Magazine",
-        "75rnd 7.62x39mm Drum Magazine",
-        "100rnd 7.62x39mm Drum Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 1.5f, // x 
@@ -94,41 +80,29 @@ public class AK47Factory {
         		CraftingEntry(Blocks.PLANKS, 4))
         
         .withCompatibleAttachment(Attachments.AK47Stock, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.RPKStock, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AK101Stock, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AK74Stock, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AK47DustCover, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AKMDustCover, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AK47HandleGuard, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AK101HandGuard, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AK74Handguard, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AKMagpulHandleGuard, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AKMagpulHandleGuardTan, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.MLOKHandguard, (model) -> {
             if(model instanceof MLOKHandguard) {
-//                GL11.glScaled(1F, 0.98F, 1);
             } else if(model instanceof AKRail) {
                 GL11.glTranslatef(-0.22F, -1.3F, -4.3f);
                 GL11.glScaled(0.7F, 0.8F, 0.4F);
@@ -140,7 +114,6 @@ public class AK47Factory {
         })
         .withCompatibleAttachment(Attachments.MLOKExtendedHandguard, (model) -> {
             if(model instanceof MLOKExtendedHandguard) {
-//                GL11.glScaled(1F, 0.98F, 1);
             } else if(model instanceof AKRail) {
                 GL11.glTranslatef(-0.22F, -1.3F, -5.6f);
                 GL11.glScaled(0.7F, 0.8F, 1F);
@@ -151,7 +124,6 @@ public class AK47Factory {
             }
         })
         .withCompatibleAttachment(Attachments.AK101DustCover, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.VeprDustCover, (model) -> {
             if(model instanceof VeprDustCover) {
@@ -190,23 +162,14 @@ public class AK47Factory {
             GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Attachments.AK47Grip, true, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Attachments.AK101Grip, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Attachments.AKErgoGrip, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Attachments.AKErgoGripTan, (model) -> {
-//          GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//          GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.AKaction, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.AKpart, true, (model) -> {
             GL11.glTranslatef(-0.14F, -0.81F, -5.96F);
@@ -237,8 +200,6 @@ public class AK47Factory {
         .withCompatibleAttachment(Magazines.AK47PMAGTan, (model) -> {
         })
         .withCompatibleAttachment(Magazines.AK47Mag, (model) -> {
-//        	GL11.glTranslatef(0F, 2F, 0.2F);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(Magazines.AK50Mag, (model) -> {
             GL11.glRotatef(-20.000000f, 1f, 0f, 0f);
@@ -304,8 +265,6 @@ public class AK47Factory {
 		            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 		            GL11.glScaled(0.15F, 0.15F, 0.15F);
 		        } else if (model instanceof SightMount) {
-		//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-		//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 		        }
 		    })
         
@@ -497,11 +456,10 @@ public class AK47Factory {
             .withActionPiece(AuxiliaryAttachments.AKaction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))
             .withADSBeizer(new Vec3d(0.2F, 1.7, 0.5F))
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
+
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
+                GL11.glTranslatef(0, 0f, 3f);
                 GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
@@ -632,13 +590,10 @@ public class AK47Factory {
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                     GL11.glRotatef(12F, 0f, 0f, 1f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
                     
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.AKaction.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                     new Transition((renderContext) -> {
                     }, 500, 1000),
                     new Transition((renderContext) -> {
@@ -661,8 +616,6 @@ public class AK47Factory {
                         )
             
             .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 GL11.glTranslatef(0.18f, -0.23f, 0.7f);
 
                 
@@ -761,8 +714,7 @@ public class AK47Factory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.008f, 0f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -976,4 +928,3 @@ public class AK47Factory {
         .build(MWC.modContext);
     }
 }
-

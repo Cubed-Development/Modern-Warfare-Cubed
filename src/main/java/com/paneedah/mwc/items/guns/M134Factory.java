@@ -72,7 +72,7 @@ public class M134Factory implements GunFactory {
             .withModel(new M134())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
-                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glTranslatef(0, 0f, 35f);
                 GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {

@@ -271,6 +271,7 @@ public class AS50Factory implements GunFactory {
             .withActionTransform(new Transform().withPosition(0, 0, 1.5F))
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
+                GL11.glTranslatef(0, 0f, 3f);
                 GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {

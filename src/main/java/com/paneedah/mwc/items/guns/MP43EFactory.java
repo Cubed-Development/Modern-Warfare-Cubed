@@ -81,11 +81,9 @@ public class MP43EFactory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new MP43E())
-            //.withTextureName("Remington900")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
+                GL11.glTranslatef(0, 0f, 3f);
                 GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {

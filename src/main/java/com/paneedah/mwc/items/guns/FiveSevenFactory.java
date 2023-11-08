@@ -147,6 +147,7 @@ public class FiveSevenFactory implements GunFactory {
             //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
+                GL11.glTranslatef(0, 0f, 3f);
                 GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {

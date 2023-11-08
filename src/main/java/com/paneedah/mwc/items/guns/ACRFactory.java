@@ -20,7 +20,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
+
 // IMPORT LIST END
 
 
@@ -40,10 +40,7 @@ public class ACRFactory implements GunFactory {
 		//.withMaxShots(5)
 		.withShootSound("acr") // Shoot sound
 		.withSilencedShootSound("m4a1_silenced") // Silenced shoot sound
-		.withReloadSound("acr_reload") // Reload sound
-		.withUnloadSound("acr_unload") // Unload sound
 		.withDrawSound("acr_draw") // Draw sound
-        .withInspectSound("m4a1_inspection") // Inspect sound
 		.withReloadingTime(30) // Reloading time in ticks
 		.withFlashIntensity(0.5f) // Flash intensity
         .withFlashScale(() -> 0.6f) // Flash scale
@@ -69,18 +66,6 @@ public class ACRFactory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList( // Information provider
-        "Type: Modular Assault Rifle", // Information
-        "Damage: 6", // Damage in Item Description
-        "Cartridge: 5.56x45mm NATO", // Cartridge in Item Description
-        "Fire Rate: SEMI, BURST, AUTO", // Fire Rate in Item Description
-        "Rate of Fire: 65/100",// Rate of Fire in Item Description
-        "Magazines:", // Magazines in Item Description
-        "30rnd 5.56x45mm NATO STANAG Magazine",  // Magazines Tyoes in Item Description
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"60rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"100rnd 5.56x45mm NATO STANAG Drum Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING,  // Screen shaking 
                 1f, // x 
@@ -105,38 +90,26 @@ public class ACRFactory implements GunFactory {
 
         // Compatible ACR attachment ACRStock
         .withCompatibleAttachment(Attachments.ACRStock, true, (model) -> {
-//            GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment ACRStockBlack
         .withCompatibleAttachment(Attachments.ACRStockBlack, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
-      })
+        })
 
         // Compatible ACR attachment ACRPRSStockTan
         .withCompatibleAttachment(Attachments.ACRPRSStockTan, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment ACRFixedStockTan
         .withCompatibleAttachment(Attachments.ACRFixedStockTan, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment ACRLongRangeStock
         .withCompatibleAttachment(Attachments.ACRLongRangeStock, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment ACRPDWStock
         .withCompatibleAttachment(Attachments.ACRPDWStock, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment CollapseableMOEStock
@@ -208,26 +181,19 @@ public class ACRFactory implements GunFactory {
 
         // Compatible ACR attachment ACRPrecisionHandGuardTan
         .withCompatibleAttachment(Attachments.ACRPrecisionHandGuardTan, (model) -> {
-//        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
-//            GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
 
         // Compatible ACR attachment ACRPolymerHandGuardTan
         .withCompatibleAttachment(Attachments.ACRPolymerHandGuardTan, (model) -> {
-//        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
-//            GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
 
         // Compatible ACR attachment ACRSBRHandGuardTan
         .withCompatibleAttachment(Attachments.ACRSBRHandGuardTan, (model) -> {
-//        	GL11.glTranslatef(0.01f, -0.35f, -0.15f);
-//            GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
 
         // Compatible ACR attachment ACRSquareDropHandguardTan
         .withCompatibleAttachment(Attachments.ACRSquareDropHandguardTan, (model) -> {
         	GL11.glTranslatef(0.001f, -0f, 0f);
-//            GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
 
         // Compatible ACR attachment M4A1Mag
@@ -245,14 +211,12 @@ public class ACRFactory implements GunFactory {
         // Compatible ACR attachment Stanag50
         .withCompatibleAttachment(Magazines.Stanag50, (model) -> {
             GL11.glTranslatef(0F, -0.15F, -0.1F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment Stanag60
         .withCompatibleAttachment(Magazines.Stanag60, (model) -> {
             GL11.glRotatef(-10F, 1f, 0f, 0f);
             GL11.glTranslatef(0F, 0.08F, -0.15F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 
         // Compatible ACR attachment Stanag100
@@ -318,8 +282,6 @@ public class ACRFactory implements GunFactory {
 	            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        } else if (model instanceof SightMount) {
-	//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-	//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 	        }
 	    })
 
@@ -625,7 +587,6 @@ public class ACRFactory implements GunFactory {
             if(model instanceof ACRAction) {
                 GL11.glTranslatef(-0.06F, -1.4F, -2.9F);
                 GL11.glScaled(0.6F, 0.6F, 0.5F);
-//                GL11.glRotatef(20F, 0f, 0f, 1f);
             }
             else if(model instanceof ACRAction2) {
             }
@@ -638,11 +599,10 @@ public class ACRFactory implements GunFactory {
             .withModel(new BushmasterACR())
             .withActionPiece(AuxiliaryAttachments.ACRAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))
-            //.withTextureName("M4A1")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
+
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
+                GL11.glTranslatef(0, 0f, 3f);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {

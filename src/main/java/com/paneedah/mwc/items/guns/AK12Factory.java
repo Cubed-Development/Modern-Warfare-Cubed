@@ -19,7 +19,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class AK12Factory {
 
@@ -69,14 +68,7 @@ public class AK12Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Assault Rifle",
-        "Damage: 6.3", 
-        "Cartridge: 5.45x39mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "31rnd 5.45x39mm Magazine"))
+
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2.5f, // x 
@@ -94,36 +86,20 @@ public class AK12Factory {
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         
         .withCompatibleAttachment(Attachments.AK12DustCover, true, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.AK12BDustCover, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.AK12Handguard, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.AK12BHandguard, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.AK12Stock, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.AK12ZenitcoStock, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.AK12Grip, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.AK12ErgoGrip, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.AK12Iron, true, (model) -> {
             if(model instanceof AKiron3) {
@@ -135,7 +111,6 @@ public class AK12Factory {
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.AK12action, true, (model) -> {
-//            GL11.glTranslatef(0F, 0F, 1F);
         })
         .withCompatibleAttachment(Magazines.AK12Mag, (model) -> {
         })
@@ -182,8 +157,6 @@ public class AK12Factory {
 		            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 		            GL11.glScaled(0.15F, 0.15F, 0.15F);
 		        } else if (model instanceof SightMount) {
-		//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-		//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 		        }
 		    })
         .withCompatibleAttachment(Attachments.MicroT1, () -> {
@@ -332,11 +305,10 @@ public class AK12Factory {
             .withModel(new AK12())
             .withActionPiece(AuxiliaryAttachments.AK12action)
             .withActionTransform(new Transform().withPosition(0, 0, 1))
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
+
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
+                GL11.glTranslatef(0, 0f, 3f);
                 GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
@@ -459,7 +431,6 @@ public class AK12Factory {
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.AK12action.getRenderablePart(),
@@ -487,7 +458,6 @@ public class AK12Factory {
                         )
             
             .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 GL11.glTranslatef(0.14f, 0.8f, -0.4f);
 
@@ -586,8 +556,8 @@ public class AK12Factory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.195f, 0.4f);
                 } 
-                
-                // Everything else
+
+
                 else {
                 }
                 
@@ -802,4 +772,3 @@ public class AK12Factory {
     }
 
 }
-

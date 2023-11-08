@@ -415,8 +415,6 @@ public class MPXFactory implements GunFactory {
                 		Magazines.MPXMag)
                 
             .withFirstPersonCustomPositioning(Magazines.MPXMag, (renderContext) -> {
-//            	 GL11.glTranslatef(0f, 0.5f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
                     
             .withThirdPersonPositioningReloading(
