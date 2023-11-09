@@ -63,6 +63,7 @@ public class Attachments {
     public static ItemAttachment<Weapon> DanWessonLaser;
     public static ItemAttachment<Weapon> OSIPRLaser;
     public static ItemAttachment<Weapon> Grip2;
+    public static ItemAttachment<Weapon> Grip2Tan;
     public static ItemAttachment<Weapon> AngledGrip;
     public static ItemAttachment<Weapon> AngledGripTan;
     public static ItemAttachment<Weapon> JunoGrip;
