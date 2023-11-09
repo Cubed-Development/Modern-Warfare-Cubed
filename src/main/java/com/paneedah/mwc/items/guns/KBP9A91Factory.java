@@ -21,7 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class KBP9A91Factory {
 
@@ -68,14 +67,6 @@ public class KBP9A91Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Carbine",
-        "Damage: 7", 
-        "Cartridge: 9x39mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 70/100",
-        "Magazines:",
-        "20rnd 9x39mm KBP Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2f, // x 
@@ -90,24 +81,16 @@ public class KBP9A91Factory {
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         
         .withCompatibleAttachment(AuxiliaryAttachments.KBP9A91action, true, (model) -> {
-//            GL11.glTranslatef(0F, 0F, 1F);
         })
         .withCompatibleAttachment(Attachments.KBP9A91Handguard, true, (model) -> {
-//            GL11.glTranslatef(0F, 0F, 0.33F);
         })
         .withCompatibleAttachment(Attachments.KBP9A91CompactHandguard, (model) -> {
-//          GL11.glTranslatef(0F, 0F, 0.33F);
         })
         .withCompatibleAttachment(Attachments.KBP9A91KulaTacHandguard, (model) -> {
-//          GL11.glTranslatef(0F, 0F, 0.33F);
         })
        .withCompatibleAttachment(Magazines.KBP9A91Mag, (model) -> {
-//    	   GL11.glTranslatef(-0.4F, 1.5F, 0.2F);
-//           GL11.glRotatef(-15F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(Attachments.SuppressorKBP9A91, (model) -> {
-//          GL11.glTranslatef(-0.25F, -1.14F, -6.4F);
-//          GL11.glScaled(1.5F, 1.5F, 1.5F);
         })
         .withCompatibleAttachment(Attachments.KobraMount, () -> {
         	GL11.glTranslatef(-0.035F, -1.23F, -0.4F);
@@ -128,7 +111,6 @@ public class KBP9A91Factory {
             }
         })
         .withCompatibleAttachment(Attachments.PSO1, () -> {
-            
             GL11.glTranslatef(0.14F, -0.9F, -1.2F);
             GL11.glScaled(1.2F, 1.2F, 1.2F);
         },(model) -> {
@@ -160,9 +142,6 @@ public class KBP9A91Factory {
             .withActionPiece(AuxiliaryAttachments.KBP9A91action)
             .withActionTransform(new Transform().withPosition(0, 0, 0.8F))
             .withADSBeizer(new Vec3d(0.2F, 1.7, 0.5F))
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glTranslatef(0, 0f, 3f);
@@ -213,13 +192,6 @@ public class KBP9A91Factory {
                 		Magazines.KBP9A91Mag)
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -280,12 +252,9 @@ public class KBP9A91Factory {
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.KBP9A91action.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                     new Transition((renderContext) -> {
                     }, 500, 1000),
                     new Transition((renderContext) -> {
@@ -328,8 +297,7 @@ public class KBP9A91Factory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(-0.015F, 0.2f, 0.0f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
             
@@ -389,13 +357,6 @@ public class KBP9A91Factory {
                      })
                     
             .withThirdPersonLeftHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                    }, 50, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -461,13 +422,6 @@ public class KBP9A91Factory {
                     }, 300, 0))
                     
             .withThirdPersonRightHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(4f, 4f, 5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                    }, 250, 1000),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -542,4 +496,3 @@ public class KBP9A91Factory {
         .build(MWC.modContext);
     }
 }
-

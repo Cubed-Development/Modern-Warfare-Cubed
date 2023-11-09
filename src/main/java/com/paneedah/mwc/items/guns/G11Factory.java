@@ -66,22 +66,12 @@ public class G11Factory {
              GL11.glScaled(0F, 0F, 0F);
          })
          .withCompatibleAttachment(Attachments.G11HandguardK1, (model) -> {
-//             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//             GL11.glScaled(0F, 0F, 0F);
          })
          .withCompatibleAttachment(Attachments.G11HandguardK2, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
          })
         .withCompatibleAttachment(Magazines.G11Mag, (model) -> {
-//            GL11.glTranslatef(0F, -0.12F, 2F);
-//            GL11.glRotatef(5F, 1f, 0f, 0f);
-//            GL11.glRotatef(-10F, 0f, 1f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.G11Action, true, (model) -> {
-//          GL11.glTranslatef(0F, -0.12F, 2F);
-//          GL11.glRotatef(5F, 1f, 0f, 0f);
-//          GL11.glRotatef(-10F, 0f, 1f, 0f);
         })
         .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
             GL11.glTranslatef(-0.16F, -1.67F, -1.55F);
@@ -223,6 +213,9 @@ public class G11Factory {
 //        })
         .withTextureNames("g11")
         .withRenderer(new WeaponRenderer.Builder()
+        .withActionPiece(
+                Magazines.G11Mag)
+        .withActionTransform(new Transform().withPosition(0, 0, 0.2F))
     
             .withModel(new G11())
             .withEntityPositioning(itemStack -> {
@@ -279,7 +272,6 @@ public class G11Factory {
 //                        GL11.glTranslatef(0F, 0F, 1F);
 //                    }
 //                })
-            
             .withFirstPersonPositioningZooming((renderContext) -> {
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 GL11.glTranslatef(0.13f, 1.65f, -1f);
@@ -434,4 +426,3 @@ public class G11Factory {
         .build(MWC.modContext);
     }
 }
-

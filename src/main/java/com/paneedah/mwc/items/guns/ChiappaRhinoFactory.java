@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class ChiappaRhinoFactory implements GunFactory {
 
@@ -44,13 +43,7 @@ public class ChiappaRhinoFactory implements GunFactory {
         .withInaccuracy(3)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        
-        .withInformationProvider(stack -> Arrays.asList(
-                "Type: Revolver",
-                "Damage: 5.4",
-                "Cartridge: .357 Bullet", 
-                "Fire Rate: Semi",
-                "Rate of Fire: 20/100"))
+
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 4f, // x 
@@ -58,29 +51,17 @@ public class ChiappaRhinoFactory implements GunFactory {
                 3.5f) // z
         
         .withCompatibleAttachment(AuxiliaryAttachments.RhinoChamber, true, (model) -> {
-//          GL11.glTranslatef(-0.35f, -0.1f, 0f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoader, true, (model) -> {
-//			GL11.glTranslatef(-0f, -0.1f, 0.7f);
-//			GL11.glRotatef(30F, 0f, 1f, 0f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
             })
 		.withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoaderBullets, true, (model) -> {
 			GL11.glTranslatef(0f, 0f, 0.001f);
-			
-//			GL11.glTranslatef(-0.35f, -0.1f, 0.4f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
 		})
         .withCompatibleBullet(Bullets.Bullet357, (model) -> {})
         .withTextureNames("chiapparhino")
         .withRenderer(new WeaponRenderer.Builder()
     
-            .withModel(new ChiappaRhino()) 
-            //.withTextureName("XEagle")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
+            .withModel(new ChiappaRhino())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glTranslatef(0, 0f, 3f);
@@ -122,8 +103,6 @@ public class ChiappaRhinoFactory implements GunFactory {
                 })
             
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.RhinoChamber.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(-0.35f, -0.1f, 0f);
-//                GL11.glRotatef(25F, 0f, 0f, 1f);
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.RevolverSpeedLoader.getRenderablePart(), (renderContext) -> {
@@ -134,10 +113,6 @@ public class ChiappaRhinoFactory implements GunFactory {
 				})
             
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.RevolverSpeedLoaderBullets.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(0.1f, 1.4f, 1.4f);
-//                GL11.glRotatef(25F, 0f, 0f, 1f);
-//                GL11.glRotatef(25F, 0f, 1f, 0f);
-//                GL11.glRotatef(-15F, 1f, 0f, 0f);
 				})
                 
             .withFirstPersonPositioningZoomingRecoiled((renderContext) -> {
@@ -156,8 +131,7 @@ public class ChiappaRhinoFactory implements GunFactory {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.2f, 0f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
 
@@ -958,8 +932,7 @@ public class ChiappaRhinoFactory implements GunFactory {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.2f, 0f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -986,8 +959,6 @@ public class ChiappaRhinoFactory implements GunFactory {
                     	 GL11.glRotatef(-40.000000f, 0f, 1f, 0f);
                     	 GL11.glRotatef(35.000000f, 0f, 0f, 1f);
                     	 GL11.glTranslatef(-0.250000f, -0.900000f, -0.050000f);
-                    	 
-//                    	 GL11.glScalef(4f, 4f, 4f);
                      }, 
                      (renderContext) -> {
                          GL11.glScalef(4f, 4f, 4f);

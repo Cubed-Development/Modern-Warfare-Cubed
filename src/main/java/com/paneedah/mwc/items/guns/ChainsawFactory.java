@@ -13,7 +13,6 @@ import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class ChainsawFactory implements GunFactory {
 
@@ -51,9 +50,7 @@ public class ChainsawFactory implements GunFactory {
                 1f, // x 
                 1f, // y
                 2f) // z
-        
-        .withInformationProvider(stack -> Arrays.asList(
-                "Intake: (Chainsaw) Fuel Capsule"))
+
          .withCompatibleAttachment(Magazines.FuelCell, (model) -> {
              GL11.glScaled(0F, 0F, 0F);
          })
@@ -61,8 +58,6 @@ public class ChainsawFactory implements GunFactory {
              GL11.glScaled(1F, 1F, 1F);
          })
          .withCompatibleAttachment(AuxiliaryAttachments.ChainA, true, (model) -> {
-//             GL11.glTranslatef(0F, -1.9F, -0.9F);
-//             GL11.glRotatef(45F, 1f, 0f, 0f);
          })
          .withCompatibleAttachment(AuxiliaryAttachments.ChainB, true, (model) -> {
              GL11.glScaled(1F, 1F, 1F);
@@ -122,14 +117,10 @@ public class ChainsawFactory implements GunFactory {
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.Chain.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, -0.3F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.Chain.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, -0.3F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })    
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.ChainA.getRenderablePart(), (renderContext) -> {
@@ -264,8 +255,7 @@ public class ChainsawFactory implements GunFactory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
                     //System.out.println("Position me for Acog");
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 

@@ -37,7 +37,6 @@ public class MakarovPMFactory implements GunFactory {
         .withSilencedShootSound("colt_m45a1_silenced")
         .withReloadSound("makarovreload")
         .withUnloadSound("makarovunload")
-        .withInspectSound("inspection")
         .withDrawSound("handgun_draw")
         .withReloadingTime(50)
         .withFlashIntensity(0.5f)
@@ -66,14 +65,6 @@ public class MakarovPMFactory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Soviet Semi-Automatic Pistol", 
-        "Damage: 4.5", 
-        "Cartridge: 9x18mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 30/100",
-        "Magazines:",
-        "8rnd 9x18mm PM Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2.5f, // x 
@@ -87,10 +78,7 @@ public class MakarovPMFactory implements GunFactory {
         
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
-//        .withCompatibleAttachment(Attachments.PistolPlaceholder, true, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
-//        })
+
         .withCompatibleAttachment(Attachments.MakarovPBBody, (model) -> {
             if(model instanceof MakarovPBBody) {
             	GL11.glScaled(1F, 1F, 1F);
@@ -101,8 +89,6 @@ public class MakarovPMFactory implements GunFactory {
           } 
         })
         .withCompatibleAttachment(Attachments.MakarovBody, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.MakarovSlide, true, (model) -> {
         	if(model instanceof MakarovPMSlide) {
@@ -127,12 +113,9 @@ public class MakarovPMFactory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Magazines.MakarovMag, (model) -> {
-//            GL11.glRotatef(-5F, 1f, 0f, 0f);
             GL11.glTranslatef(0F, 0F, 0.1F);
         })
         .withCompatibleAttachment(Attachments.SilencerPBS, (model) -> {
-//            GL11.glTranslatef(-0.23F, -1.14F, -4.92F);
-//            GL11.glScaled(1.5F, 1.5F, 1.5F);
         })
         .withTextureNames("makarovpm")
         .withRenderer(new WeaponRenderer.Builder()
@@ -141,9 +124,6 @@ public class MakarovPMFactory implements GunFactory {
             .withActionPiece(
             		Attachments.MakarovSlide)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glTranslatef(0, 0f, 3f);
@@ -206,7 +186,6 @@ public class MakarovPMFactory implements GunFactory {
             })
                     
             .withThirdPersonPositioningReloading(
-                    
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.3F, -1F, 3F);
@@ -295,7 +274,6 @@ public class MakarovPMFactory implements GunFactory {
                 GL11.glTranslatef(0.14f, 0.56f, -2f);
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MakarovPBSlide)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.02f, 0f);
                 } 
                 

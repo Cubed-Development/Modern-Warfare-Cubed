@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class DP28Factory {
 
@@ -28,7 +27,6 @@ public class DP28Factory {
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.HEAVY)
         .withMaxShots(1, Integer.MAX_VALUE)
-        //.withMaxShots(5)
         .withShootSound("dp28")
         .withSilencedShootSound("ak15_silenced")
         .withReloadSound("dp28_reload")
@@ -42,14 +40,6 @@ public class DP28Factory {
         .withFlashOffsetY(() -> 0.14f)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Light Machine Gun",
-        "Damage: 14", 
-        "Cartridge: 7.62x54mmR",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "47rnd 7.62x54mmR Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 
@@ -62,8 +52,6 @@ public class DP28Factory {
              GL11.glScaled(0F, 0F, 0F);
          })
         .withCompatibleAttachment(Magazines.DP28Mag, (model) -> {
-//            GL11.glTranslatef(-0.365F, 0.4F, -1.52F);
-//            GL11.glScaled(1.2F, 1F, 1F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {
@@ -117,7 +105,6 @@ public class DP28Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new DP28())
-
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glTranslatef(0, 0f, 3f);
@@ -301,13 +288,6 @@ public class DP28Factory {
                     )
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -368,7 +348,6 @@ public class DP28Factory {
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 }, 120, 0)
-//                }, 100, 0)
             )
                         
             .withFirstPersonPositioningDrawing(
@@ -420,8 +399,7 @@ public class DP28Factory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.19f, 0.5f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -440,8 +418,7 @@ public class DP28Factory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.19f, 0.45f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -721,13 +698,6 @@ public class DP28Factory {
                     }, 250, 50))
                     
             .withThirdPersonLeftHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                    }, 50, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -793,13 +763,6 @@ public class DP28Factory {
                     }, 300, 0))
                     
             .withThirdPersonRightHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(4f, 4f, 5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                    }, 250, 1000),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -952,4 +915,3 @@ public class DP28Factory {
         .build(MWC.modContext);
     }
 }
-

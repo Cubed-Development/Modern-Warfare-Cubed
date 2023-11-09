@@ -20,7 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class F2000Factory {
 
@@ -67,18 +66,6 @@ public class F2000Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Assault Rifle",
-        "Damage: 6", 
-        "Cartridge: 5.56x45mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 85/100",
-        "Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-        "60rnd 5.56x45mm NATO STANAG Drum Magazine",
-        "100rnd 5.56x45mm NATO STANAG Drum Magazine"))
          .withCrafting(CraftingComplexity.MEDIUM,
                  MWCItems.gunmetalIngot,
                  MWCItems.gunmetalPlate)
@@ -105,9 +92,6 @@ public class F2000Factory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.F2000Action, true, (model) -> {
-//        	GL11.glTranslatef(-0.55F, 0.5F, 0.1F);
-//            GL11.glRotatef(-70F, 0f, 1f, 0f);
-//            GL11.glRotatef(-35F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(Magazines.M4A1Mag, (model) -> {
             GL11.glTranslatef(-0.15F, 1.1F, 1.7F);
@@ -209,8 +193,6 @@ public class F2000Factory {
             }
         })
         .withCompatibleAttachment(Attachments.F2000Scope, true, () -> {
-//            GL11.glTranslatef(-0.09F, -0.75F, -1.2F);
-//            GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
             if(model instanceof F2000Reticle) {
                 GL11.glTranslatef(-0.002F, -0.856F, 0.895F);
@@ -412,13 +394,6 @@ public class F2000Factory {
                 		Magazines.SOCOM_Mag)
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -479,12 +454,9 @@ public class F2000Factory {
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.F2000Action.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                     new Transition((renderContext) -> {
                     }, 500, 1000),
                     new Transition((renderContext) -> {
@@ -507,15 +479,13 @@ public class F2000Factory {
                         )
             
             .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 GL11.glTranslatef(0.059f,-0.81f,-0.5f);
 
 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.F2000Scope)) {
                     //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(0F, 0.09f, 0.5f);
+                    GL11.glTranslatef(0F, 0.09f, 0.55f);
                 } 
                 
              // ACOG Zoom
@@ -589,8 +559,7 @@ public class F2000Factory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.22f, 0.2f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
             
@@ -650,13 +619,6 @@ public class F2000Factory {
                  })
                     
             .withThirdPersonLeftHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                    }, 50, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -722,13 +684,6 @@ public class F2000Factory {
                     }, 300, 0))
                     
             .withThirdPersonRightHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(4f, 4f, 5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                    }, 250, 1000),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -803,4 +758,3 @@ public class F2000Factory {
         .build(MWC.modContext);
     }
 }
-

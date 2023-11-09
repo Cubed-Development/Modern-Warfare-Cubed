@@ -584,8 +584,7 @@ public class AK47Factory {
                     GL11.glRotatef(12F, 0f, 0f, 1f);
                 }, 120, 0)
             )
-            
-                    
+
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.AKaction.getRenderablePart(),
                     new Transition((renderContext) -> {
                     }, 500, 1000),

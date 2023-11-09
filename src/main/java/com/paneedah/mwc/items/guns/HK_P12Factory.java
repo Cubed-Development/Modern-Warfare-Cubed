@@ -18,7 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class HK_P12Factory implements GunFactory {
 
@@ -66,14 +65,6 @@ public class HK_P12Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Service Pistol", 
-        "Damage: 5.3", 
-        "Cartridge: .45 ACP",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 30/100",
-        "Magazines:",
-        "8rnd .45 ACP HK Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 3f, // x 
@@ -110,7 +101,6 @@ public class HK_P12Factory implements GunFactory {
         .withCompatibleAttachment(AuxiliaryAttachments.P12_Slide, true, (model) -> {
             if(model instanceof USP45Slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof P2000rearsight) {
                 GL11.glTranslatef(-0.153F, -1.185F, -0.03F);
@@ -149,8 +139,6 @@ public class HK_P12Factory implements GunFactory {
         }
         })
         .withCompatibleAttachment(Attachments.USPMatchCompensator, (model) -> {
-////            GL11.glTranslatef(-0.23F, -1.14F, -4.92F);
-////            GL11.glScaled(1.5F, 1.5F, 1.5F);
         })
         .withCompatibleAttachment(Attachments.Silencer45ACP, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
@@ -337,7 +325,7 @@ public class HK_P12Factory implements GunFactory {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(-0.04f, 0.35f, 0f);
                 }
-                // Everything else
+
                 else {
                 }
                 

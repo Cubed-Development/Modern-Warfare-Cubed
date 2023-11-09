@@ -18,7 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class FNFALFactory {
 
@@ -64,14 +63,6 @@ public class FNFALFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Battle rifle",
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "20rnd 7.62x51mm Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2f, // x 
@@ -83,22 +74,18 @@ public class FNFALFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
         
         .withCompatibleAttachment(Attachments.FNFALDustCover, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.SA58DustCover, (model) -> {
             if(model instanceof SA58DustCover) {
-//                GL11.glScaled(1F, 0.98F, 1);
             } else if(model instanceof AKRail) {
                 GL11.glTranslatef(-0.21F, -1.43F, -2.43f);
                 GL11.glScaled(0.65F, 0.8F, 1F);
             }
         })
         .withCompatibleAttachment(Attachments.FNFALHandguard, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.FNFALPARAHandguard, (model) -> {
             if(model instanceof FNFALPARAHandguard) {
-//                GL11.glScaled(1F, 0.98F, 1);
             } else if(model instanceof AKRail) {
                 GL11.glTranslatef(-0.03F, -0.75F, -4.8f);
                 GL11.glScaled(0.65F, 0.8F, 0.8F);
@@ -106,12 +93,8 @@ public class FNFALFactory {
             }
         })
         .withCompatibleAttachment(Attachments.FNFALStock, true, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.2f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Attachments.FNFALGrip, true, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {
@@ -156,15 +139,10 @@ public class FNFALFactory {
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.FNFALAction, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.FNFALActionLever, true, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
       })
         .withCompatibleAttachment(Magazines.FNFALMag, (model) -> {
-//        	GL11.glRotatef(35.000000f, 1f, 0f, 0f);
-//        	GL11.glRotatef(-50.000000f, 0f, 0f, 1f);
-//            GL11.glTranslatef(0.9f, 3.8f, -3.5f);
         })
         .withCompatibleAttachment(Attachments.FNFALRearSights, true, (model) -> {
         	GL11.glScaled(0.3F, 0.3F, 0.3F);
@@ -221,8 +199,6 @@ public class FNFALFactory {
 		            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 		            GL11.glScaled(0.15F, 0.15F, 0.15F);
 		        } else if (model instanceof SightMount) {
-		//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-		//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 		        }
 		    })
         
@@ -352,9 +328,6 @@ public class FNFALFactory {
             .withModel(new FNFAL())
             .withActionPiece(AuxiliaryAttachments.FNFALAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glTranslatef(0, 0f, 3f);
@@ -405,13 +378,6 @@ public class FNFALFactory {
                 		Magazines.FNFALMag)
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -475,13 +441,10 @@ public class FNFALFactory {
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                     GL11.glRotatef(12F, 0f, 0f, 1f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
                     
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.FNFALAction.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                     new Transition((renderContext) -> {
                     }, 500, 1000),
                     new Transition((renderContext) -> {
@@ -597,8 +560,7 @@ public class FNFALFactory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.2f, 0.7f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
             
@@ -658,13 +620,6 @@ public class FNFALFactory {
                   })
                    
            .withThirdPersonLeftHandPositioningReloading(
-//                   new Transition((renderContext) -> { // Reload position
-//                       GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                       GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                       GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                       GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                       GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                   }, 50, 200),
                    new Transition((renderContext) -> { // Reload position
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -730,13 +685,6 @@ public class FNFALFactory {
                    }, 280, 0))
                    
            .withThirdPersonRightHandPositioningReloading(
-//                   new Transition((renderContext) -> { // Reload position
-//                       GL11.glScalef(4f, 4f, 5f);
-//                       GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                       GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                       GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                       GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                   }, 250, 1000),
                    new Transition((renderContext) -> { // Reload position
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -811,4 +759,3 @@ public class FNFALFactory {
         .build(MWC.modContext);
     }
 }
-

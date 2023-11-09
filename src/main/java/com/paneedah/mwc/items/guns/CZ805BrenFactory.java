@@ -17,7 +17,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class CZ805BrenFactory implements GunFactory {
 
@@ -67,18 +66,6 @@ public class CZ805BrenFactory implements GunFactory {
         .withCrafting(CraftingComplexity.MEDIUM,
                 MWCItems.gunmetalIngot,
                 MWCItems.gunmetalPlate)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Assault Rifle/Carbine", 
-        "Damage: 6", 
-        "Cartridge: 5.56x45mm NATO",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 80/100",
-        "Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-        "60rnd 5.56x45mm NATO STANAG Drum Magazine",
-        "100rnd 5.56x45mm NATO STANAG Drum Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 1f, // x 
@@ -94,12 +81,8 @@ public class CZ805BrenFactory implements GunFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
         .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
         .withCompatibleAttachment(Attachments.CZ805BrenReceiver, true, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.CZ805BrenStock, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
       })
         .withCompatibleAttachment(Magazines.M4A1Mag, (model) -> {
         	GL11.glTranslatef(-0.31F, 0.4F, -1.4F);
@@ -125,7 +108,6 @@ public class CZ805BrenFactory implements GunFactory {
              GL11.glScaled(1.15F, 1.2F, 1.15F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.BrenAction, true, (model) -> {
-//            GL11.glTranslatef(0F, 0F, 0.75F);
         })
         .withCompatibleAttachment(Attachments.HK416RearSights, true, (model) -> {
             if(model instanceof G95_upright_rearsights) {
@@ -218,8 +200,6 @@ public class CZ805BrenFactory implements GunFactory {
 		            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 		            GL11.glScaled(0.15F, 0.15F, 0.15F);
 		        } else if (model instanceof SightMount) {
-		//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-		//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 		        }
 		    })
         .withCompatibleAttachment(Attachments.Holographic, () -> {
@@ -564,8 +544,7 @@ public class CZ805BrenFactory implements GunFactory {
                     //System.out.println("Position me for Reflex");
                 	GL11.glTranslatef(0F, 0.04f, 0.7f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
             

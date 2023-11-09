@@ -16,7 +16,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class BrowningHiPowerFactory implements GunFactory {
 
@@ -44,14 +43,6 @@ public class BrowningHiPowerFactory implements GunFactory {
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Single Action Semi-Automatic Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 65/100",
-        "Magazines:",
-        "13rnd 9x19mm Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  4f, // x 
@@ -110,11 +101,6 @@ public class BrowningHiPowerFactory implements GunFactory {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glRotatef(12F, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.100000f, 0.80000f, -2.1f);
-                
-//                GL11.glScaled(2F, 2F, 2F);
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glRotatef(13F, 0f, 0f, 1f);
-//                GL11.glTranslatef(0.400000f, 0.750000f, -2.1f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -130,12 +116,6 @@ public class BrowningHiPowerFactory implements GunFactory {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glRotatef(14F, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.25f, 0.45f, -2f);
-                
-//                GL11.glScaled(2F, 2F, 2F);
-//                GL11.glRotatef(-5.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(36.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(35.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.5f, 1.1f, -1.8f);
                 })
                 
             .withFirstPersonPositioningProningRecoiled((renderContext) -> {
@@ -148,14 +128,10 @@ public class BrowningHiPowerFactory implements GunFactory {
                 
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.BrowningHiPowerSlide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.5F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.BrowningHiPowerSlide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.5F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
                 

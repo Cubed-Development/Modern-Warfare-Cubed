@@ -23,7 +23,6 @@ public class M4A1Factory implements GunFactory {
 		return new Weapon.Builder()
 		
 		.withName("m4a1")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.75f)
 		.withRecoil(3f)
 		.withZoom(0.9f)
@@ -74,10 +73,6 @@ public class M4A1Factory implements GunFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
-//        .withCompatibleAttachment(Attachments.RailRiser, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glScaled(1F, 1F, 1F);
-//        })
         .withCompatibleAttachment(Attachments.CollapsableMOEStock, (model) -> {
         	GL11.glTranslatef(0f, -0.28f, -0f);
             GL11.glScaled(1F, 1F, 1F);
@@ -385,8 +380,6 @@ public class M4A1Factory implements GunFactory {
         .withCompatibleAttachment(Magazines.M4A1Mag, (model) -> {
 		    GL11.glTranslatef(-0.335F, 0.4F, -1.25F);
             GL11.glScaled(1.05F, 1.2F, 1.15F);
-            
-//            GL11.glTranslatef(0F, 0.35F, 0F);
         })
 		.withCompatibleAttachment(Magazines.SOCOM_Mag, (model) -> {
 		    GL11.glTranslatef(-0.335F, 0.4F, -1.25F);
@@ -398,12 +391,10 @@ public class M4A1Factory implements GunFactory {
         })
         .withCompatibleAttachment(Magazines.Stanag50, (model) -> {
             GL11.glTranslatef(0F, 0.05F, 0F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag60, (model) -> {
             GL11.glRotatef(-10F, 1f, 0f, 0f);
             GL11.glTranslatef(0F, 0.25F, -0F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag100, (model) -> {
             GL11.glTranslatef(-0.35F, 0.69F, -1.25F);
@@ -420,13 +411,10 @@ public class M4A1Factory implements GunFactory {
             GL11.glScaled(0.7F, 0.4F, 0.7F);
         })
 		.withCompatibleAttachment(AuxiliaryAttachments.M4EjectorAction, true, (model) -> {
-//            GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-//            GL11.glScaled(0.7F, 0.4F, 0.7F);
-        }).withCompatibleAttachment(Magazines.M4A1Mag, (model) -> {
+        })
+        .withCompatibleAttachment(Magazines.M4A1Mag, (model) -> {
 		    GL11.glTranslatef(-0.335F, 0.4F, -1.25F);
             GL11.glScaled(1.05F, 1.2F, 1.15F);
-            
-//            GL11.glTranslatef(0F, 0.35F, 0F);
         })
 		.withCompatibleAttachment(Magazines.SOCOM_Mag, (model) -> {
 		    GL11.glTranslatef(-0.335F, 0.4F, -1.25F);
@@ -677,8 +665,6 @@ public class M4A1Factory implements GunFactory {
                 GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             } else if (model instanceof SightMount) {
-//            	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                GL11.glScaled(0.4F, 0.4F, 0.4F);
             }
 		}, false, false)
 		
@@ -989,17 +975,12 @@ public class M4A1Factory implements GunFactory {
                 })
 		
 			.withFirstPersonCustomPositioning(AuxiliaryAttachments.AR15Action.getRenderablePart(), (renderContext) -> {
-//			    GL11.glTranslatef(0f, 0f, 0.5f);
                 })
                 
             .withFirstPersonCustomPositioning(Magazines.M4A1Mag, (renderContext) -> {
-//            	 GL11.glTranslatef(0.2f, 0.35f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
             
             .withFirstPersonCustomPositioning(Magazines.P90Mag, (renderContext) -> {
-//           	 GL11.glTranslatef(0.45f, -0.35f, 0f);
-//           	 GL11.glRotatef(10F, 1f, 1f, 0f);
                })
                     
             .withThirdPersonPositioningReloading(
@@ -1068,8 +1049,6 @@ public class M4A1Factory implements GunFactory {
                     )
 			
 			.withFirstPersonPositioningZooming((renderContext) -> {
-//				GL11.glRotatef(45F, 0f, 1f, 0f);
-//				GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
 				GL11.glTranslatef(0.18f, -0.02f, 0.6f);
 				
 				// Standard Iron Sight Zoom
@@ -1310,8 +1289,7 @@ public class M4A1Factory implements GunFactory {
                     	GL11.glTranslatef(0F, 0.055f, 0.3f);
                     }
                 } 
-				
-				// Everything else
+
 				else {
 				}
 				

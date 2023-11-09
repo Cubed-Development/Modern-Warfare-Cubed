@@ -81,17 +81,11 @@ public class M40A6Factory implements GunFactory {
 ////            GL11.glRotatef(-30f, 1f, 0f, 0f);
 ////        })
         .withCompatibleAttachment(Magazines.M40A6Mag, (model) -> {
-//        	GL11.glTranslatef(0F, 1.3F, 0.3F);
-//        	GL11.glRotatef(-10f, 1f, 0f, 0f);
-//        	GL11.glRotatef(-15f, 0f, 0f, 1f);
+
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M40A6BoltAction, true, (model) -> {
-//            GL11.glTranslatef(-1.39f, -1.13f, 1.5f);
-//            GL11.glRotatef(70f, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M40A6BoltActionPrime, true, (model) -> {
-//          GL11.glTranslatef(-1.39f, -1.13f, 1.5f);
-//          GL11.glRotatef(70f, 0f, 0f, 1f);
       })
         .withCompatibleAttachment(Attachments.MBUSFrontSight, true, (model) -> {
         	GL11.glTranslatef(0.08F, -2.16F, -4.5F);
@@ -151,8 +145,6 @@ public class M40A6Factory implements GunFactory {
 		            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 		            GL11.glScaled(0.15F, 0.15F, 0.15F);
 		        } else if (model instanceof SightMount) {
-		//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-		//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 		        }
 		    })
         .withCompatibleAttachment(Attachments.Reflex, () -> {
@@ -274,9 +266,6 @@ public class M40A6Factory implements GunFactory {
     
             .withModel(new GunwerksHAMR())
             .withADSBeizer(new Vec3d(-0.2F, 5.0, -1.0))
-            //.withTextureName("AWP")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glTranslatef(0, 0f, 3f);
@@ -330,7 +319,6 @@ public class M40A6Factory implements GunFactory {
               
             .withFirstPersonPositioningZooming((renderContext) -> {
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glTranslatef(-0.1f, 1.455f, -1.2f);
                 
              // HP Zoom
@@ -422,8 +410,7 @@ public class M40A6Factory implements GunFactory {
                     //System.out.println("Position me for Scope");
                     GL11.glTranslatef(0F, 0.27f, 1f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
