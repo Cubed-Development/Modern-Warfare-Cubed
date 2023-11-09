@@ -64,8 +64,11 @@ public class Attachments {
     public static ItemAttachment<Weapon> OSIPRLaser;
     public static ItemAttachment<Weapon> Grip2;
     public static ItemAttachment<Weapon> AngledGrip;
+    public static ItemAttachment<Weapon> AngledGripTan;
     public static ItemAttachment<Weapon> JunoGrip;
+    public static ItemAttachment<Weapon> JunoGripTan;
     public static ItemAttachment<Weapon> StubbyGrip;
+    public static ItemAttachment<Weapon> StubbyGripTan;
     public static ItemAttachment<Weapon> VGrip;
     public static ItemAttachment<Weapon> Bipod;
     public static ItemAttachment<Weapon> AUGgrip;
@@ -4597,6 +4600,37 @@ public class Attachments {
                 })
                 .withName("Grip2")
                 .build();
+				
+
+        Grip2Tan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
+                .withRenderablePart()
+                .withModel(new Grip2(), "guntan.png")
+                .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard,
+                        AK15HandleGuard, M4CarbineHandGuard, LVOAVHandGuard,
+                        M38HandGuard, UTGTriRailHandGuard, GripPlaceholder,
+                        Mk18HandGuard, M60E4HandGuard, P90Swordfish, AUGA3extGuard,
+                        AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
+                        Vector556Handguard, Remington870FABDefensePump,
+                        Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard,
+                        ACRHandGuardBlack, ACRWEMSKHandGuardTan,
+                        HoneyBadgerMatrixArmsHandguard, Mk14TanBody, Mk14SnowBody, Mk14BlackBody,
+                        FNFALPARAHandguard, M16A1PicatinnyRail, K2C1Handguard, AR10SuperSASSHandguard,
+                        UMP45Receiver, UMP9Receiver, ScorpionHandguardShort, APC9Placeholder, ARX160Chassis,
+                        FamasF1PicatinnyRail,
+                        HK417Handguard, HK417HandguardTan, AK12Handguard, AK12BHandguard, CZ805BrenReceiver, M14SOCOMChassis,
+                        Block2SOCOMHandguard, FSSTacLiteHandguard, Mk18HandGuardBlack, M110Handguard, Mk48HandGuard,
+                        KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
+                        ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
+                        NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, UziMLOKHandguard)
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_NORMAL,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
+                .withApply((a, i) -> {
+                    i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
+                })
+                .withName("Grip2Tan")
+                .build();
 
         JunoGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
@@ -4618,6 +4652,26 @@ public class Attachments {
                 .withName("JunoGrip")
                 .build();
 
+        JunoGripTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
+                .withRenderablePart()
+                .withModel(new JunoGrip(), "guntan.png")
+                .withRequiredAttachments(MLOKExtendedHandguard, M4CarbineHandGuard, LVOAVHandGuard,
+                        M38HandGuard, Mk18HandGuard, AR57Handguard, RPK16Handguard, M16A4HandGuard,
+                        HoneyBadgerMatrixArmsHandguard, AR10SuperSASSHandguard,
+                        HK417Handguard, HK417HandguardTan, Block2SOCOMHandguard, FSSTacLiteHandguard,
+                        Mk18HandGuardBlack, M110Handguard, HK416HandGuardBlackAndTan,
+                        ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
+                        NGSWRRail, G3HandguardRailed, ScarHHandGuard,
+                        SIG556HandguardKA, SIG556HandguardRailed)
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_NORMAL,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 3))
+                .withApply((a, i) -> {
+                    i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
+                })
+                .withName("JunoGripTan")
+                .build();
+				
         GlockStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withRenderablePart()
                 .withModel(new Glock18Cstock(), "gun.png")
@@ -4669,6 +4723,34 @@ public class Attachments {
                 .withName("AngledGrip")
                 .build();
 
+        AngledGripTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
+                .withRenderablePart()
+                .withModel(new AngledGrip(), "guntan.png")
+                .withRequiredAttachments(MLOKExtendedHandguard, M4CarbineHandGuard,
+                        LVOAVHandGuard, M38HandGuard, GripPlaceholder, UTGTriRailHandGuard, Mk18HandGuard,
+                        M60E4HandGuard, AUGA3extGuard, AR57Handguard, RPK16Handguard,
+                        StonerHANDGUARD, KrissVectorReceiver, Vector556Handguard,
+                        Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
+                        ACRWEMSKHandGuardTan,
+                        HoneyBadgerMatrixArmsHandguard, FNFALPARAHandguard, M16A1PicatinnyRail,
+                        AR10SuperSASSHandguard, ARX160Chassis, FamasF1PicatinnyRail,
+                        HK417Handguard, HK417HandguardTan, AK12Handguard, AK12BHandguard, CZ805BrenReceiver, M14SOCOMChassis,
+                        Block2SOCOMHandguard, FSSTacLiteHandguard, Mk18HandGuardBlack, M110Handguard, Mk48HandGuard,
+                        KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
+                        ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
+                        NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard)
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_NORMAL,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
+                .withApply((a, i) -> {
+                    i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
+                })
+                .withRenderablePart()
+                .withName("AngledGripTan")
+                .build();
+
+
         StubbyGrip = new AttachmentBuilder<Weapon>()
                 .withRenderablePart()
                 .withCategory(AttachmentCategory.GRIP)
@@ -4702,6 +4784,35 @@ public class Attachments {
                 // weapons.changeRecoil(player, 1);
                 // })
                 .withName("StubbyGrip")
+                .build();
+				
+        StubbyGripTan = new AttachmentBuilder<Weapon>()
+                .withRenderablePart()
+                .withCategory(AttachmentCategory.GRIP)
+                .withModel(new StubbyGrip(), "guntan.png")
+                .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
+                        M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
+                        GripPlaceholder, Mk18HandGuard, M60E4HandGuard, P90Swordfish, AUGA3extGuard,
+                        AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
+                        Vector556Handguard, Remington870FABDefensePump,
+                        Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
+                        HoneyBadgerMatrixArmsHandguard, Mk14TanBody, Mk14SnowBody, Mk14BlackBody,
+                        FNFALPARAHandguard, M16A1PicatinnyRail, K2C1Handguard, AR10SuperSASSHandguard,
+                        UMP45Receiver, UMP9Receiver, ScorpionHandguardShort, APC9Placeholder, ARX160Chassis,
+                        FamasF1PicatinnyRail,
+                        HK417Handguard, HK417HandguardTan, AK12Handguard, AK12BHandguard, CZ805BrenReceiver, M14SOCOMChassis,
+                        Block2SOCOMHandguard, FSSTacLiteHandguard, Mk18HandGuardBlack, M110Handguard, Mk48HandGuard,
+                        KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
+                        ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
+                        NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, UziMLOKHandguard)
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_NORMAL,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
+                .withApply((a, i) -> {
+                    i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
+                })
+                .withName("StubbyGripTan")
                 .build();
 
         VGrip = new AttachmentBuilder<Weapon>()
