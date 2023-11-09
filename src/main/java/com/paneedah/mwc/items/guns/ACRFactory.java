@@ -26,6 +26,7 @@ public class ACRFactory implements GunFactory {
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
 		
+		.withName("acr")
 		.withFireRate(0.65f)
 		.withRecoil(3f)
 		.withZoom(0.9f)
