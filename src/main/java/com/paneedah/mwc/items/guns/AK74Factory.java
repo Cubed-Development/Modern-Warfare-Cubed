@@ -21,7 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class AK74Factory {
 
@@ -29,7 +28,6 @@ public class AK74Factory {
         return new Weapon.Builder()
 
         .withName("ak74")
-//        .withAmmoCapacity(30)
         .withFireRate(0.6f)
         .withRecoil(3f)
         .withZoom(0.9f)
@@ -50,8 +48,6 @@ public class AK74Factory {
         .withFlashScale(() -> 0.5f)
         .withFlashOffsetX(() -> 0.12f)
         .withFlashOffsetY(() -> 0.16f)
-//        .withSpawnEntityModel(ammoModel)
-//        .withSpawnEntityModelTexture(ammoModelTextureName)
         .withShellCasingVerticalOffset(-0.05f)
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
@@ -73,15 +69,7 @@ public class AK74Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Assault Rifle",
-        "Damage: 6", 
-        "Cartridge: 5.56x45mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "30rnd 5.56x45mm Magazine",
-        "60rnd 5.56x45mm Magazine"))
+
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 1.5f, // x 
@@ -95,43 +83,34 @@ public class AK74Factory {
         
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
+        .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
+
         .withCrafting(CraftingComplexity.MEDIUM,
                 MWCItems.gunmetalIngot,
                 MWCItems.gunmetalPlate)
-//        .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
+
         .withCompatibleAttachment(Attachments.AK47Stock, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AK101Stock, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AK74Stock, true, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AK47DustCover, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AKMDustCover, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AK47HandleGuard, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AK101HandGuard, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AK74Handguard, true, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
       })
         .withCompatibleAttachment(Attachments.AKMagpulHandleGuard, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.AKMagpulHandleGuardTan, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.MLOKHandguard, (model) -> {
             if(model instanceof MLOKHandguard) {
-//                GL11.glScaled(1F, 0.98F, 1);
             } else if(model instanceof AKRail) {
                 GL11.glTranslatef(-0.22F, -1.3F, -4.3f);
                 GL11.glScaled(0.7F, 0.8F, 0.4F);
@@ -143,7 +122,6 @@ public class AK74Factory {
         })
         .withCompatibleAttachment(Attachments.MLOKExtendedHandguard, (model) -> {
             if(model instanceof MLOKExtendedHandguard) {
-//                GL11.glScaled(1F, 0.98F, 1);
             } else if(model instanceof AKRail) {
                 GL11.glTranslatef(-0.22F, -1.3F, -5.6f);
                 GL11.glScaled(0.7F, 0.8F, 1F);
@@ -155,7 +133,6 @@ public class AK74Factory {
         })
         .withCompatibleAttachment(Attachments.AK15HandleGuard, (model) -> {
             if(model instanceof AK15HandleGuard) {
-//                GL11.glScaled(1F, 0.98F, 1);
             } else if(model instanceof AKRail) {
                 GL11.glTranslatef(-0.22F, -1.3F, -4.3f);
                 GL11.glScaled(0.7F, 0.8F, 0.4F);
@@ -166,7 +143,6 @@ public class AK74Factory {
             }
         })
         .withCompatibleAttachment(Attachments.AK101DustCover, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.VeprDustCover, (model) -> {
             if(model instanceof VeprDustCover) {
@@ -189,20 +165,12 @@ public class AK74Factory {
             GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Attachments.AK47Grip, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Attachments.AK101Grip, true, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Attachments.AKErgoGrip, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Attachments.AKErgoGripTan, (model) -> {
-//          GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//          GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.AK15action, true, (model) -> {
         })
@@ -224,12 +192,8 @@ public class AK74Factory {
             }
         })
         .withCompatibleAttachment(Magazines.AK74Mag, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.5F, -1.25F);
-//            GL11.glScaled(1.15F, 1.2F, 1.15F);
         })
         .withCompatibleAttachment(Magazines.AK74Mag60, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.5F, -1.25F);
-//            GL11.glScaled(1.15F, 1.2F, 1.15F);
         })
         .withCompatibleAttachment(Magazines.AK12Mag545x39, (model) -> {
         })
@@ -376,8 +340,6 @@ public class AK74Factory {
 		            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 		            GL11.glScaled(0.15F, 0.15F, 0.15F);
 		        } else if (model instanceof SightMount) {
-		//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-		//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 		        }
 		    })
         
@@ -546,13 +508,6 @@ public class AK74Factory {
                     })
                         
                 .withThirdPersonPositioningReloading(
-//                        new Transition((renderContext) -> { // Reload position
-//                            GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                            GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                            GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                            GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                            GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                        }, 200, 200),
                         new Transition((renderContext) -> { // Reload position
                             GL11.glScaled(0.5F, 0.5F, 0.5F);
                             GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -616,13 +571,10 @@ public class AK74Factory {
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                         GL11.glRotatef(12F, 0f, 0f, 1f);
                     }, 120, 0)
-//                    }, 100, 0)
                 )
                 
                         
                 .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.AK15action.getRenderablePart(),
-//                        new Transition((renderContext) -> {
-//                        }, 500, 1000),
                         new Transition((renderContext) -> {
                         }, 500, 1000),
                         new Transition((renderContext) -> {
@@ -645,8 +597,6 @@ public class AK74Factory {
                             )
                 
                 .withFirstPersonPositioningZooming((renderContext) -> {
-//                    GL11.glRotatef(45F, 0f, 1f, 0f);
-//                    GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 	GL11.glTranslatef(0.18f, -0.23f, 0.7f);
 
                     
@@ -758,7 +708,6 @@ public class AK74Factory {
                         GL11.glTranslatef(-0.02F, 0.16f, -0.45f);
                     }
 
-                    // Everything else
                     else {
                     }
                     
@@ -819,13 +768,6 @@ public class AK74Factory {
                          })
                         
                 .withThirdPersonLeftHandPositioningReloading(
-//                        new Transition((renderContext) -> { // Reload position
-//                            GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                            GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                            GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                            GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                            GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                        }, 50, 200),
                         new Transition((renderContext) -> { // Reload position
                             GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                             GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -891,13 +833,6 @@ public class AK74Factory {
                         }, 280, 0))
                         
                 .withThirdPersonRightHandPositioningReloading(
-//                        new Transition((renderContext) -> { // Reload position
-//                            GL11.glScalef(4f, 4f, 5f);
-//                            GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                            GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                            GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                            GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                        }, 250, 1000),
                         new Transition((renderContext) -> { // Reload position
                             GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                             GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -972,4 +907,3 @@ public class AK74Factory {
             .build(MWC.modContext);
         }
     }
-

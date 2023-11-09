@@ -441,13 +441,6 @@ public class AK15Factory {
                     })
                         
                 .withThirdPersonPositioningReloading(
-//                        new Transition((renderContext) -> { // Reload position
-//                            GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                            GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                            GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                            GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                            GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                        }, 200, 200),
                         new Transition((renderContext) -> { // Reload position
                             GL11.glScaled(0.5F, 0.5F, 0.5F);
                             GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -511,13 +504,10 @@ public class AK15Factory {
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                         GL11.glRotatef(12F, 0f, 0f, 1f);
                     }, 120, 0)
-//                    }, 100, 0)
                 )
                 
                         
                 .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.AK15action.getRenderablePart(),
-//                        new Transition((renderContext) -> {
-//                        }, 500, 1000),
                         new Transition((renderContext) -> {
                         }, 500, 1000),
                         new Transition((renderContext) -> {
@@ -700,13 +690,6 @@ public class AK15Factory {
                       })
                         
                 .withThirdPersonLeftHandPositioningReloading(
-//                        new Transition((renderContext) -> { // Reload position
-//                            GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                            GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                            GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                            GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                            GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                        }, 50, 200),
                         new Transition((renderContext) -> { // Reload position
                             GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                             GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -772,13 +755,6 @@ public class AK15Factory {
                         }, 280, 0))
                         
                 .withThirdPersonRightHandPositioningReloading(
-//                        new Transition((renderContext) -> { // Reload position
-//                            GL11.glScalef(4f, 4f, 5f);
-//                            GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                            GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                            GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                            GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                        }, 250, 1000),
                         new Transition((renderContext) -> { // Reload position
                             GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                             GL11.glRotatef(-50.000000f, 1f, 0f, 0f);

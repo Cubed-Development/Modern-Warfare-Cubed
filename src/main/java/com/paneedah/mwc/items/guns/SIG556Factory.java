@@ -17,7 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class SIG556Factory implements GunFactory {
 
@@ -25,7 +24,6 @@ public class SIG556Factory implements GunFactory {
 		return new Weapon.Builder()
 		
 		.withName("sig556")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.8f)
 		.withRecoil(3f)
 		.withZoom(0.9f)
@@ -67,18 +65,6 @@ public class SIG556Factory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Assault Rifle", 
-		"Damage: 6", 
-		"Cartridge: 5.56x45mm NATO",
-		"Fire Rate: SEMI, BURST",
-		"Rate of Fire: 80/100",
-		"Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"60rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"100rnd 5.56x45mm NATO STANAG Drum Magazine"))
 		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                1f, // x 
@@ -93,10 +79,7 @@ public class SIG556Factory implements GunFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
-//        .withCompatibleAttachment(Attachments.RailRiser, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glScaled(1F, 1F, 1F);
-//        })
+
         .withCompatibleAttachment(Attachments.SIG556Grip, true, (model) -> {
         })
         .withCompatibleAttachment(Attachments.CollapsableMOEStock, (model) -> {
@@ -136,8 +119,6 @@ public class SIG556Factory implements GunFactory {
         .withCompatibleAttachment(Magazines.M4A1Mag, (model) -> {
 		    GL11.glTranslatef(-0.335F, 0.4F, -1.25F);
             GL11.glScaled(1.05F, 1.2F, 1.15F);
-            
-//            GL11.glTranslatef(0F, 0.35F, 0F);
         })
 		.withCompatibleAttachment(Magazines.SOCOM_Mag, (model) -> {
 		    GL11.glTranslatef(-0.335F, 0.4F, -1.25F);
@@ -149,20 +130,16 @@ public class SIG556Factory implements GunFactory {
         })
         .withCompatibleAttachment(Magazines.Stanag50, (model) -> {
             GL11.glTranslatef(0F, 0.05F, 0F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag60, (model) -> {
             GL11.glRotatef(-10F, 1f, 0f, 0f);
             GL11.glTranslatef(0F, 0.25F, -0F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag100, (model) -> {
             GL11.glTranslatef(-0.35F, 0.69F, -1.25F);
             GL11.glScaled(1.15F, 1.2F, 1.15F);
         })
 		.withCompatibleAttachment(AuxiliaryAttachments.SIG556Action, true, (model) -> {
-//          GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-//          GL11.glScaled(0.7F, 0.4F, 0.7F);
 		})
 		.withCompatibleAttachment(Attachments.HK416RearSights, true, (model) -> {
 	           if(model instanceof G95_upright_rearsights) {
@@ -177,10 +154,7 @@ public class SIG556Factory implements GunFactory {
                         AttachmentCategory.GUARD, instance);
                 if(activeAttachment == Attachments.SIG556HandguardKA) {
                 	GL11.glTranslatef(0F, 0F, -0.563F);
-// 	               GL11.glScaled(0.29F, 0.29F, 0.29F);
                 } else {
-//                	GL11.glTranslatef(-0.154F, -1.63F, -0.5F);
-// 	               GL11.glScaled(0.29F, 0.29F, 0.29F);
                     }
                 }
 		},(model) -> {
@@ -278,8 +252,6 @@ public class SIG556Factory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
 		
@@ -554,8 +526,6 @@ public class SIG556Factory implements GunFactory {
                 		Magazines.SOCOM_Mag)
                 
             .withFirstPersonCustomPositioning(Magazines.M4A1Mag, (renderContext) -> {
-//            	 GL11.glTranslatef(0.2f, 0.35f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
                     
             .withThirdPersonPositioningReloading(

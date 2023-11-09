@@ -178,44 +178,9 @@ public class MP40Factory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.19f, 0.5f);
                 } 
-                
-             // ACOG Zoom
-                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                    //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(0F, 0.21f, 0.8f);
-                } 
-                
-             // ACOG Zoom
-                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HP)) {
-                    //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(0F, 0.19f, 0.75f);
-                } 
-                
-                // ACOG Zoom
-                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(0F, 0.17f, 0.6f);
-                } 
-                
-             // ACOG Zoom
-                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(0F, 0.18f, 0.2f);
-                } 
-                
-             // ACOG Zoom
-                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                    //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(0F, 0.22f, 0.2f);
-                } 
 
-             // ACOG Zoom
-                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                    //System.out.println("Position me for Acog");
-                    GL11.glTranslatef(0F, 0.22f, 0.2f);
-                } 
                 
-                // Everything else
+
                 else {
                 }
                 

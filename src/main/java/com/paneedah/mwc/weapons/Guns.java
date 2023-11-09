@@ -126,14 +126,13 @@ public class Guns {
     public static Item AS50;
     public static Item M82;
 	public static Item PGMHecateII;
-//    public static Item NTW20;
+
     public static Item GL06;
     public static Item M79;
     public static Item M32MGL;
     public static Item RPG7;
     public static Item M202;
     public static Item M134;
-//    public static Item NinthSin;
     
     
     // TDM

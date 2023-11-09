@@ -29,7 +29,6 @@ public class TaurusRagingHunterFactory implements GunFactory {
         .withConfigGroup(GunConfigurationGroup.REVOLVER)
         .withMaxShots(1)
         .withShootSound("magnum44")
-//		.withIteratedLoad()
         .withReloadSound("revolver_reload")
         .withReloadIterationSound("revolver_insert_bullet")
         .withAllReloadIterationsCompletedSound("revolver_load_complete")
@@ -69,15 +68,8 @@ public class TaurusRagingHunterFactory implements GunFactory {
         .withCompatibleAttachment(AuxiliaryAttachments.MagnumChamber, true, (model) -> {
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoader, true, (model) -> {
-//			GL11.glTranslatef(-0f, -0.1f, 0.7f);
-//			GL11.glRotatef(30F, 0f, 1f, 0f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
-            })
+        })
 		.withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoaderBullets, true, (model) -> {
-			
-//			GL11.glTranslatef(-0.35f, -0.1f, 0.4f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
 		})
 //        .withCompatibleAttachment(Attachments.DanWessonLaser, () -> {
 //            GL11.glTranslatef(0.01F, -1.45F, -2.6F);
@@ -176,8 +168,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.32f, 1f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 

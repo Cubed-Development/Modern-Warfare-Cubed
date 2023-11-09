@@ -23,7 +23,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class APSFactory implements GunFactory {
 
@@ -70,14 +69,7 @@ public class APSFactory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Machine Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "20rnd 9x19mm Magazine (APS)"))
+
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2.5f, // x 
@@ -93,7 +85,6 @@ public class APSFactory implements GunFactory {
         .withCompatibleAttachment(AuxiliaryAttachments.APSslide, true, (model) -> {
             if(model instanceof APSslide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof APSrearsight) {
                 GL11.glTranslatef(-0.147F, -1.1F, 0.02F);
@@ -105,24 +96,18 @@ public class APSFactory implements GunFactory {
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.APShammer, true, (model) -> {
-//          GL11.glTranslatef(-0F, -0.17F, 0.53F);
-//        	GL11.glRotatef(45F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(Magazines.APSMag, (model) -> {
-//            GL11.glTranslatef(0F, 0.2F, 0.12F);
         })
         .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
             GL11.glTranslatef(-0.215F, -1.05F, -4.52F);
             GL11.glScaled(1.1F, 1.1F, 1.3F);
         })
         .withCompatibleAttachment(Attachments.APSStock, (model) -> {
-//            GL11.glTranslatef(-0.215F, -1.05F, -4.52F);
-//            GL11.glScaled(1.1F, 1.1F, 1.3F);
         })
         .withCompatibleAttachment(Attachments.APSGrip, true, (model) -> {
-//          GL11.glTranslatef(-0.215F, -1.05F, -4.52F);
-//          GL11.glScaled(1.1F, 1.1F, 1.3F);
-      })
+        })
+
         .withTextureNames("APS")
         .withRenderer(new WeaponRenderer.Builder()
 
@@ -279,7 +264,7 @@ public class APSFactory implements GunFactory {
                     //System.out.println("Position me for Holo");
                 } 
                 
-                // Everything else
+
                 else {
                 }
             

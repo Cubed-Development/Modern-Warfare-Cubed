@@ -16,7 +16,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class SW500MagnumFactory implements GunFactory {
 
@@ -45,12 +44,7 @@ public class SW500MagnumFactory implements GunFactory {
         .withInaccuracy(2)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-                "Type: Revolver",
-                "Damage: 7",
-                "Cartridge: .500 Magnum Bullet", 
-                "Fire Rate: Semi",
-                "Rate of Fire: 20/100"))
+
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 8f, // x 
@@ -63,24 +57,15 @@ public class SW500MagnumFactory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MagnumChamber, true, (model) -> {
-//          GL11.glTranslatef(-0.35f, -0.1f, 0f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MagnumRail, true, (model) -> {
             GL11.glTranslatef(0.1f, -2.09f, -2.1f);
             GL11.glScaled(0.7F, 0.6F, 0.45F);
           })
         .withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoader, true, (model) -> {
-//			GL11.glTranslatef(-0f, -0.1f, 0.7f);
-//			GL11.glRotatef(30F, 0f, 1f, 0f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
             })
 		.withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoaderBullets, true, (model) -> {
 			GL11.glTranslatef(0f, 0f, 0.001f);
-			
-//			GL11.glTranslatef(-0.35f, -0.1f, 0.4f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
 		})
           .withCompatibleAttachment(Attachments.RMR, () -> {
               GL11.glTranslatef(0.14F, -2.2F, -1.3F);
@@ -146,9 +131,6 @@ public class SW500MagnumFactory implements GunFactory {
                 })
             
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.MagnumChamber.getRenderablePart(), (renderContext) -> {
-//              GL11.glTranslatef(0F, 0F, 0F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.RevolverSpeedLoader.getRenderablePart(), (renderContext) -> {
@@ -159,10 +141,6 @@ public class SW500MagnumFactory implements GunFactory {
 				})
             
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.RevolverSpeedLoaderBullets.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(0.1f, 1.4f, 1.4f);
-//                GL11.glRotatef(25F, 0f, 0f, 1f);
-//                GL11.glRotatef(25F, 0f, 1f, 0f);
-//                GL11.glRotatef(-15F, 1f, 0f, 0f);
 				})
                 
             .withFirstPersonPositioningZoomingRecoiled((renderContext) -> {
@@ -181,7 +159,7 @@ public class SW500MagnumFactory implements GunFactory {
                    GL11.glTranslatef(0f, 0.2f, 0f);
                } 
                
-               // Everything else
+
                else {
                }
 

@@ -21,7 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class P90Factory {
 
@@ -40,7 +39,6 @@ public class P90Factory {
         .withSilencedShootSound("mp5_silenced")
         .withReloadSound("p90_reload")
         .withUnloadSound("p90_unload")
-        .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
         .withReloadingTime(45)
         .withFlashIntensity(0.5f)
@@ -69,15 +67,6 @@ public class P90Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Personal Defense Weapon",
-        "Damage: 5.5", 
-        "Cartridge: 5.7x28mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 80/100",
-        "Magazines:",
-        "50rnd 5.7x28mm Magazine",
-        "65rnd 5.7x28mm Terminator Magazine (w/ Terminator conversion kit)"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
@@ -92,7 +81,6 @@ public class P90Factory {
         .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
         .withUnremovableAttachmentCategories(AttachmentCategory.STOCK)
         .withCompatibleAttachment(AuxiliaryAttachments.P90Action, true, (model) -> {
-//            GL11.glTranslatef(0F, 0F, 1F);
         })
         .withCompatibleAttachment(Magazines.P90Mag, (model) -> {
         })
@@ -266,8 +254,6 @@ public class P90Factory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
         .withCompatibleAttachment(Attachments.Holographic, () -> {
@@ -414,20 +400,9 @@ public class P90Factory {
                 .setupModernMagazineAnimations("p90", Magazines.P90TerminatorMag)
             
             .withFirstPersonCustomPositioning(Magazines.P90TerminatorMag.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(-0.1F, -0.6F, 1.1F);
-//            	GL11.glRotatef(90F, 0f, 1f, 0f);
-//            	GL11.glRotatef(20F, 1f, 0f, 0f);
-//            	GL11.glRotatef(-10F, 0f, 0f, 1f);
                 })
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -488,100 +463,83 @@ public class P90Factory {
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
             .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 GL11.glTranslatef(0.13f, 1.8f, -1f);
 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.2f, 0.9f);
                 } 
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.21f, 1.2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.11f, 1.1f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                    //System.out.println("Position me for Acog");
                 	 GL11.glTranslatef(0F, 0.175f, 1.3f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.175f, 1.3f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.15f, 1f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.11f, 1f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.12f, 1f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.2f, 1f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.2f, 1f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.2f, 0.8f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.235f, 1f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.18f, 0.8f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.18f, 0.8f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -642,13 +600,6 @@ public class P90Factory {
                    })
                     
             .withThirdPersonLeftHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                    }, 50, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -714,13 +665,6 @@ public class P90Factory {
                     }, 300, 0))
                     
             .withThirdPersonRightHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(4f, 4f, 5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                    }, 250, 1000),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -795,4 +739,3 @@ public class P90Factory {
         .build(MWC.modContext);
     }
 }
-

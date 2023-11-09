@@ -21,7 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class VP70Factory implements GunFactory {
 
@@ -69,14 +68,6 @@ public class VP70Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Double-Single Action Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "18rnd 9x19mm Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2.5f, // x 
@@ -86,7 +77,6 @@ public class VP70Factory implements GunFactory {
         .withCompatibleAttachment(AuxiliaryAttachments.VP70slide, true, (model) -> {
             if(model instanceof VP70slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof GlockRearSight) {
                 GL11.glTranslatef(-0.1F, -1.16F, 0.1F);

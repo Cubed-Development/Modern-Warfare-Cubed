@@ -17,7 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class Mk14EBRFactory {
 
@@ -36,7 +35,6 @@ public class Mk14EBRFactory {
         .withSilencedShootSound("mk14ebr_silenced")
         .withReloadSound("mk14ebr_reload")
         .withUnloadSound("mk14_unload")
-        .withInspectSound("inspection")
         .withDrawSound("mk14_draw")
         .withReloadingTime(45)
         .withFlashIntensity(0.5f)
@@ -64,15 +62,6 @@ public class Mk14EBRFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Battle Rifle/Designated Marksmen Rifle",
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "20rnd 7.62x51mm NATO EBR Magazine",
-        "50rnd 7.62x51mm NATO EBR Drum Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
@@ -87,7 +76,6 @@ public class Mk14EBRFactory {
 //        .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withCompatibleAttachment(AuxiliaryAttachments.Mk14EBRaction, true, (model) -> {
-//        	GL11.glTranslatef(0f, 0f, 0.73f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Mk14EBRsight, true, (model) -> {
             GL11.glTranslatef(-0.125F, -1.16F, -1.334F);
@@ -95,8 +83,6 @@ public class Mk14EBRFactory {
         })
         .withCompatibleAttachment(Attachments.M14Body, true, (model) -> {
         	if(model instanceof M14Body) {
-//                GL11.glTranslatef(0F, 0F, 0F);
-//                GL11.glScaled(1F, 1F, 1F);
               } else if(model instanceof FALIron) {
                   GL11.glTranslatef(-0.19F, -1.34F, -8.5F);
                   GL11.glScaled(0F, 0F, 0F);
@@ -156,8 +142,6 @@ public class Mk14EBRFactory {
               }
         })
         .withCompatibleAttachment(Attachments.M14Cover, true, (model) -> {
-//          GL11.glTranslatef(-0.2F, -1.3F, -9F);
-//          GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.M14TriRailCover, (model) -> {
             if(model instanceof M14TriRailCover) {
@@ -181,8 +165,6 @@ public class Mk14EBRFactory {
             GL11.glScaled(1.15F, 1F, 1F);
         })
         .withCompatibleAttachment(Magazines.Mk14EBRMag, (model) -> {
-//        	GL11.glTranslatef(0F, 0.8F, -0.3F);
-//            GL11.glRotatef(-15F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(Magazines.M14Drum50, (model) -> {
             GL11.glTranslatef(0F, 0.1F, -0.62F);
@@ -219,7 +201,6 @@ public class Mk14EBRFactory {
                     GL11.glTranslatef(0F, 0F, 0.75F);
                     GL11.glScaled(1F, 1F, 1F);
                 } else {
-//                	GL11.glTranslatef(-0.2F, -1.06F, -8.8F);
                     GL11.glScaled(1F, 1F, 1F);
                 }
             }
@@ -331,8 +312,6 @@ public class Mk14EBRFactory {
 		            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 		            GL11.glScaled(0.15F, 0.15F, 0.15F);
 		        } else if (model instanceof SightMount) {
-		//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-		//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 		        }
 		    })
         .withCompatibleAttachment(Attachments.Specter, () -> {
@@ -454,9 +433,6 @@ public class Mk14EBRFactory {
             .withModel(new M14())
             .withActionPiece(AuxiliaryAttachments.Mk14EBRaction)
             .withActionTransform(new Transform().withPosition(0, 0, 0.95F))
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glTranslatef(0, 0f, 3f);
@@ -514,13 +490,6 @@ public class Mk14EBRFactory {
               })
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2F, -2.5F, 2.7F);
@@ -584,12 +553,9 @@ public class Mk14EBRFactory {
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                     GL11.glRotatef(12F, 0f, 0f, 1f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.Mk14EBRaction.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                     new Transition((renderContext) -> {
                     }, 500, 1000),
                     new Transition((renderContext) -> {
@@ -618,101 +584,84 @@ public class Mk14EBRFactory {
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.34f, 0.4f);
                 } 
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.35f, 0.4f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                    //System.out.println("Position me for Acog");
                 	GL11.glTranslatef(0F, 0.305f, 2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.305f, 2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM2)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.36f, 2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.35f, 0.2f);
                 } 
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.28f, 0.6f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.338f, 2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.355f, 2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.345f, 2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                    //System.out.println("Position me for Acog");
                 	GL11.glTranslatef(0F, 0.383f, 2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.383f, 2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.38f, 0.2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
-                    //System.out.println("Position me for Acog");
                 	GL11.glTranslatef(0F, 0.37f, 2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                    //System.out.println("Position me for Acog");
                 	GL11.glTranslatef(0F, 0.37f, 2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.37f, 2f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
             
@@ -772,13 +721,6 @@ public class Mk14EBRFactory {
                  })
                   
           .withThirdPersonLeftHandPositioningReloading(
-//                  new Transition((renderContext) -> { // Reload position
-//                      GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                      GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                      GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                      GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                      GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                  }, 50, 200),
                   new Transition((renderContext) -> { // Reload position
                       GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                       GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -844,13 +786,6 @@ public class Mk14EBRFactory {
                   }, 280, 0))
                   
           .withThirdPersonRightHandPositioningReloading(
-//                  new Transition((renderContext) -> { // Reload position
-//                      GL11.glScalef(4f, 4f, 5f);
-//                      GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                      GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                      GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                      GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                  }, 250, 1000),
                   new Transition((renderContext) -> { // Reload position
                       GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                       GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -925,4 +860,3 @@ public class Mk14EBRFactory {
         .build(MWC.modContext);
     }
 }
-

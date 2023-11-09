@@ -62,17 +62,12 @@ public class PythonFactory implements GunFactory {
 		.withCompatibleAttachment(AuxiliaryAttachments.PythonChamber, true, (model) -> {
 		})
 		.withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoader, true, (model) -> {
-//			GL11.glTranslatef(-0f, -0.1f, 0.7f);
-//			GL11.glRotatef(30F, 0f, 1f, 0f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
 		})
 		.withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoaderBullets, true, (model) -> {
 		})
 		.withCompatibleAttachment(Attachments.DanWessonLaser, () -> {
             GL11.glTranslatef(-0.3F, -0.8F, -3.0F);
             GL11.glScaled(0.9F, 0.9F, 0.9F);
-//            GL11.glRotatef(-90F, 0f, 0f, -4f);
         })
 		.withCompatibleBullet(Bullets.Bullet357, (model) -> {})
 		.withTextureNames("Python")
@@ -142,12 +137,10 @@ public class PythonFactory implements GunFactory {
                 GL11.glTranslatef(0.14f, 0.78f, -2.0f);
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0f, 1f);
                 } 
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                    //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.1f, 1f);
                 } 
                 

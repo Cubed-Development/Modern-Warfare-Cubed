@@ -23,7 +23,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class SCCYCPX2Factory implements GunFactory {
 
@@ -70,16 +69,6 @@ public class SCCYCPX2Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "10rnd 9x19mm Magazine",
-        "30rnd 9x19mm Magazine",
-        "65rnd 9x19mm Drum Magazine"))
         
         .withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 7), new
@@ -93,21 +82,14 @@ public class SCCYCPX2Factory implements GunFactory {
          .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
          .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withCompatibleAttachment(Attachments.SCCYCPX2Body, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.SCCYCPX2BodyTan, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.SCCYCPX2GripTape, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.SCCYCPX2Slide, true, (model) -> {
             if(model instanceof SCCYCPX2Slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof M9A1rearsight) {
                 GL11.glTranslatef(-0.155F, -1.095F, -0.15F);
@@ -121,7 +103,6 @@ public class SCCYCPX2Factory implements GunFactory {
         .withCompatibleAttachment(Attachments.SCCYCPX2BSlide, (model) -> {
             if(model instanceof SCCYCPX2Slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof M9A1rearsight) {
             	GL11.glTranslatef(-0.155F, -1.095F, -0.15F);
@@ -137,9 +118,6 @@ public class SCCYCPX2Factory implements GunFactory {
         .withCompatibleAttachment(Magazines.SCCYCPX2MagExt, (model) -> {
         })
         .withCompatibleAttachment(Attachments.SCCYCPX2Laser, () -> {
-//            GL11.glTranslatef(0.01F, -0.65F, -2.3F);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
-//            GL11.glRotatef(-90F, 0f, 0f, -4f);
         })
         .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
             GL11.glTranslatef(-0.22F, -1.12F, -4.06F);
@@ -315,8 +293,7 @@ public class SCCYCPX2Factory implements GunFactory {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.32f, 0f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
             
@@ -374,9 +351,7 @@ public class SCCYCPX2Factory implements GunFactory {
                      .withPivotPoint(0, 0, 0)
                      .applyTransformations();
                  })
-         
-            
-                    
+
             .withThirdPersonLeftHandPositioningReloading(
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);

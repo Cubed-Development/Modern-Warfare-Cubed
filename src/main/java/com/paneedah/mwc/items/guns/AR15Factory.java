@@ -16,7 +16,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class AR15Factory implements GunFactory {
 
@@ -24,7 +23,6 @@ public class AR15Factory implements GunFactory {
 		return new Weapon.Builder()
 		
 		.withName("ar15")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.8f)
 		.withRecoil(4f)
 		.withZoom(0.9f)
@@ -66,18 +64,6 @@ public class AR15Factory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Semi-Automatic Rifle", 
-		"Damage: 6", 
-		"Cartridge: 5.56x45mm NATO",
-		"Fire Rate: SEMI, BURST",
-		"Rate of Fire: 80/100",
-		"Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"60rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"100rnd 5.56x45mm NATO STANAG Drum Magazine"))
 		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                1f, // x 
@@ -113,8 +99,6 @@ public class AR15Factory implements GunFactory {
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.M16Stock, (model) -> {
-//            GL11.glTranslatef(0f, -0.28f, -0.55f);
-//            GL11.glScaled(1F, 1F, 0.85F);
         })
         .withCompatibleAttachment(Attachments.MagpulCTRStockTan, (model) -> {
         	GL11.glTranslatef(0f, -0.28f, -0f);
@@ -333,13 +317,10 @@ public class AR15Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.M4Grip, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.HeraArmsGrip, (model) -> {
             GL11.glTranslatef(0F, -0.05F, 0F);
@@ -348,8 +329,6 @@ public class AR15Factory implements GunFactory {
         .withCompatibleAttachment(Magazines.M4A1Mag, (model) -> {
 		    GL11.glTranslatef(-0.335F, 0.4F, -1.25F);
             GL11.glScaled(1.05F, 1.2F, 1.15F);
-            
-//            GL11.glTranslatef(0F, 0.35F, 0F);
         })
 		.withCompatibleAttachment(Magazines.SOCOM_Mag, (model) -> {
 		    GL11.glTranslatef(-0.335F, 0.4F, -1.25F);
@@ -361,12 +340,10 @@ public class AR15Factory implements GunFactory {
         })
         .withCompatibleAttachment(Magazines.Stanag50, (model) -> {
             GL11.glTranslatef(0F, 0.05F, 0F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag60, (model) -> {
             GL11.glRotatef(-10F, 1f, 0f, 0f);
             GL11.glTranslatef(0F, 0.25F, -0F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag100, (model) -> {
             GL11.glTranslatef(-0.35F, 0.69F, -1.25F);
@@ -377,16 +354,12 @@ public class AR15Factory implements GunFactory {
             GL11.glScaled(0.7F, 0.4F, 0.7F);
         })
 		.withCompatibleAttachment(AuxiliaryAttachments.M4EjectorAction, true, (model) -> {
-//          GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-//          GL11.glScaled(0.7F, 0.4F, 0.7F);
       })
 		.withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
 	    	if(model instanceof M4Iron1) {
 				GL11.glTranslatef(0.162F, -1.75F, 1F);
 				GL11.glScaled(0F, 0F, 0F);
 			} else if(model instanceof M4Iron2) {
-//				GL11.glTranslatef(-0.055F, -1.35F, -4.05F);
-//				GL11.glScaled(0.8F, 0.68F, 1F);
 				GL11.glScaled(0F, 0F, 0F);
 			} else if(model instanceof P90iron) {
 				GL11.glTranslatef(0.26F, -1.55F, -2.35F);
@@ -413,8 +386,6 @@ public class AR15Factory implements GunFactory {
 				GL11.glTranslatef(0.25F, -1.55F, -2F);
 				GL11.glScaled(0F, 0F, 0F);
 			} else if(model instanceof FALIron) {
-//				GL11.glTranslatef(-0.185F, -1.53F, -4.05F);
-//				GL11.glScaled(0.55F, 0.5F, 1F);
 				GL11.glScaled(0F, 0F, 0F);
 			} else if(model instanceof M14Iron) {
 				GL11.glTranslatef(0.129F, -1.63F, -2.08F);
@@ -561,8 +532,6 @@ public class AR15Factory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
 		
@@ -776,7 +745,6 @@ public class AR15Factory implements GunFactory {
                 		Magazines.SOCOM_Mag)
 		
 			.withFirstPersonCustomPositioning(AuxiliaryAttachments.AR15Action.getRenderablePart(), (renderContext) -> {
-//			    GL11.glTranslatef(0f, 0f, 0.5f);
                 })
 			
 			.withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M4EjectorAction.getRenderablePart(), (renderContext) -> {
@@ -950,8 +918,7 @@ public class AR15Factory implements GunFactory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                         GL11.glTranslatef(0F, 0.055f, 0.3f);
                 } 
-				
-				// Everything else
+
 				else {
 				}
 			

@@ -21,7 +21,6 @@ import org.lwjgl.opengl.GL11;
 public class APC9Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
-        Object Magazine;
         return new Weapon.Builder()
 
                 .withName("apc9")
@@ -34,9 +33,6 @@ public class APC9Factory implements GunFactory {
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withShootSound("apc9")
                 .withSilencedShootSound("mp5_silenced")
-                .withReloadSound("mpx_reload")
-                .withUnloadSound("mpx_unload")
-                .withInspectSound("inspection")
                 .withDrawSound("noaction_draw")
                 .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
@@ -427,12 +423,9 @@ public class APC9Factory implements GunFactory {
                                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                                     GL11.glRotatef(90F, 1f, 0f, 0f);
                                 }, 120, 0)
-//                }, 100, 0)
                         )
 
                         .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.APC9Action.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                                 new Transition((renderContext) -> {
                                 }, 500, 1000),
                                 new Transition((renderContext) -> {
@@ -554,7 +547,6 @@ public class APC9Factory implements GunFactory {
                                 GL11.glTranslatef(0F, 0.05f, 0.3f);
                             }
 
-                            // Everything else
                             else {
                             }
 
