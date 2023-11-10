@@ -113,10 +113,6 @@ public class ZbroyarZ10Factory implements GunFactory {
                 GL11.glScaled(0.6F, 0.8F, 0.85F);
             } 
         })
-//        .withCompatibleAttachment(AuxiliaryAttachments.M110EjectorAction, true, (model) -> {
-////            GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-////            GL11.glScaled(0.7F, 0.4F, 0.7F);
-//        })
         .withCompatibleAttachment(Attachments.HK416FrontSight, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
             if(instance != null) {

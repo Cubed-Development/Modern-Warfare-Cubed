@@ -609,7 +609,7 @@ public class AK74Factory {
                     // ACOG Zoom
                     if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
                         //System.out.println("Position me for Acog");
-                        GL11.glTranslatef(0F, 0.26f, 0.9f);
+                        GL11.glTranslatef(0F, 0.26f, 0.6f);
                     } 
                     
                  // ACOG Zoom

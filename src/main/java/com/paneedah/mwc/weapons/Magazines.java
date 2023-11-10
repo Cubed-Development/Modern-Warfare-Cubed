@@ -199,7 +199,7 @@ public class Magazines {
                 .withRotationPoint(-0.16000000476837162F, -0.16000000476837162F, -1.5200000452995304F)
                 .withModel(new M4A1Mag(), "M4A1Magazine.png")
                 .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver,
-                        Attachments.AUGDefaultKit, Attachments.Vector556Handguard, Attachments.M4AsiimovStock,
+                        Attachments.AUGDefaultKit, Attachments.Vector556Handguard,
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
                         Attachments.ScarLReceiver, Attachments.SIG556Grip)
                 .withMaxStackSize(6)
@@ -230,7 +230,7 @@ public class Magazines {
                 .withName("BeowulfMag")
                 .withModel(new Beowulf50CalMagazine(), "Beowulf50CalMagazine.png")
                 .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver,
-                        Attachments.AUGDefaultKit, Attachments.Vector556Handguard, Attachments.M4AsiimovStock,
+                        Attachments.AUGDefaultKit, Attachments.Vector556Handguard,
                         Attachments.M16A1RearSights, Attachments.Beowulf50CalReceiver)
                 .withMaxStackSize(6)
                 .build(ItemMagazine.class);

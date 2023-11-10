@@ -219,7 +219,7 @@ public class AR10SuperSASSFactory implements GunFactory {
           } else if(model instanceof AKRail2) {
               GL11.glTranslatef(-0.35F, -1.005F, -4.45F);
               GL11.glScaled(0.6F, 0.6F, 1F);
-              GL11.glRotatef(0F, 0f, 0f, 1f);
+              GL11.glRotatef(-90F, 0f, 0f, 1f);
           } else if(model instanceof AKRail3) {
               GL11.glTranslatef(-0.03F, -0.84F, -4.85F);
               GL11.glScaled(0.6F, 0.6F, 1.15F);
@@ -599,7 +599,7 @@ public class AR10SuperSASSFactory implements GunFactory {
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);
 				GL11.glTranslatef(0, 0f, 3f);
-				GL11.glRotatef(-90F, 0f, 0f, 4f);
+				GL11.glRotatef(0F, 0f, 0f, 4f);
 			})
 			.withInventoryPositioning(itemStack -> {
 			    GL11.glScaled(0.35F, 0.35F, 0.35F);

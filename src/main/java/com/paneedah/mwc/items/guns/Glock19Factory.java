@@ -448,7 +448,7 @@ public class Glock19Factory implements GunFactory {
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                     //System.out.println("Position me for Holo");
-                    GL11.glTranslatef(0f, 0.36f, 1.4f);
+                    GL11.glTranslatef(0f, 0.31f, 1.4f);
                 } 
                 
                 // Everything else

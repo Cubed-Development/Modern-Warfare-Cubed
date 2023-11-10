@@ -362,16 +362,12 @@ public class M4A1Factory implements GunFactory {
 //            }
 //        })
         .withCompatibleAttachment(Attachments.HK416Grip, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4Grip, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
-        })//50
+        })
         .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.HeraArmsGrip, (model) -> {
             GL11.glTranslatef(0F, -0.05F, 0F);
@@ -426,12 +422,10 @@ public class M4A1Factory implements GunFactory {
         })
         .withCompatibleAttachment(Magazines.Stanag50, (model) -> {
             GL11.glTranslatef(0F, 0.05F, 0F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag60, (model) -> {
             GL11.glRotatef(-10F, 1f, 0f, 0f);
             GL11.glTranslatef(0F, 0.25F, -0F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag100, (model) -> {
             GL11.glTranslatef(-0.35F, 0.69F, -1.25F);

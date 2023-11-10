@@ -191,7 +191,7 @@ public class FiveSevenFactory implements GunFactory {
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
                     //System.out.println("Position me for Holo");
-                    GL11.glTranslatef(0f, 0.22f, 0f);
+                    GL11.glTranslatef(0f, 0.26f, 0f);
                 } 
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {

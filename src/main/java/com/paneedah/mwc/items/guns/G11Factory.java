@@ -215,7 +215,7 @@ public class G11Factory {
         .withRenderer(new WeaponRenderer.Builder()
         .withActionPiece(
                 Magazines.G11Mag)
-        .withActionTransform(new Transform().withPosition(0, 0, 0.2F))
+        .withActionTransform(new Transform().withPosition(0, 0, 0.3F))
     
             .withModel(new G11())
             .withEntityPositioning(itemStack -> {
