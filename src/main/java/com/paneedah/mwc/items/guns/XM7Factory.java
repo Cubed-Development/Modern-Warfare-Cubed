@@ -18,13 +18,12 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Arrays;
 
-public class NGSWRFactory implements GunFactory {
+public class XM7Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
 		
-		.withName("ngsw_r")
-		//.withAmmoCapacity(30)
+		.withName("sig_xm7")
 		.withFireRate(0.75f)
 		.withRecoil(3f)
 		.withZoom(0.9f)

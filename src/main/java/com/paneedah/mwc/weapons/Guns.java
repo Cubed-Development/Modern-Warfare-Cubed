@@ -22,7 +22,7 @@ public class Guns {
     public static Item M4A1;
     public static Item AR15;
     public static Item SIGMCX;
-    public static Item NGSWR;
+    public static Item XM7;
     public static Item P226;
     public static Item FiveSeven;
     public static Item M9A1;
@@ -175,7 +175,7 @@ public class Guns {
         M16A4 = new M16A4Factory().createGun(proxy);
         M38 = new M38Factory().createGun(proxy);
         ACR = new ACRFactory().createGun(proxy);
-        NGSWR = new NGSWRFactory().createGun(proxy);
+        XM7 = new XM7Factory().createGun(proxy);
         SIGMCX = new SIGMCXFactory().createGun(proxy);
         AACHoneyBadger = new AACHoneyBadgerFactory().createGun(proxy);
 
