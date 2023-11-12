@@ -177,8 +177,6 @@ public class XM7Factory implements GunFactory {
             GL11.glScaled(0.85F, 0.85F, 0.85F);
         })
         .withCompatibleAttachment(Magazines.NGSWRMag, (model) -> {
-//		    GL11.glTranslatef(-0.333F, 0.45F, -1.4F);
-//            GL11.glScaled(1.02F, 1.35F, 1.33F);
         })
 		.withCompatibleAttachment(AuxiliaryAttachments.AR15Action, true, (model) -> {
             GL11.glTranslatef(-0.175F, -1.535F, -0.6F);
