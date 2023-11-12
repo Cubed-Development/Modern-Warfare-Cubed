@@ -153,6 +153,9 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> M249Hatch;
     public static ItemAttachment<Weapon> M249Belt;
     public static ItemAttachment<Weapon> M249Action;
+    public static ItemAttachment<Weapon> PKMHatch;
+    public static ItemAttachment<Weapon> PKMBelt;
+    public static ItemAttachment<Weapon> PKMAction;
     public static ItemAttachment<Weapon> FatmanGrip;
     public static ItemAttachment<Weapon> FatmanRack;
     public static ItemAttachment<Weapon> BrowningAuto5Action;
@@ -1010,6 +1013,30 @@ public class AuxiliaryAttachments {
                 .withName("M249Action")
                 .withRenderablePart()
 
+                .build();
+
+        PKMBelt = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA2)
+                .withModel(new PKMBelt(), "pkm.png")
+                .withName("PKMBelt")
+                .withRenderablePart()
+
+                .build();
+
+        PKMHatch = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA3)
+                .withModel(new PKMHatch(), "pkm.png")
+                .withRotationPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
+                .withName("PKMHatch")
+                .withRenderablePart()
+                .build();
+
+        PKMAction = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA4)
+                // .withCreativeTab(MWC.gunsTab)
+                .withModel(new PKMAction(), "pkm.png")
+                .withName("PKMAction")
+                .withRenderablePart()
                 .build();
 
         MG42action = new AttachmentBuilder<Weapon>()

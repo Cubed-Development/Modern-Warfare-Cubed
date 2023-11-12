@@ -67,7 +67,7 @@ public class M60E4Factory {
          })
         .withCompatibleAttachment(Attachments.M60HandGuard, true, (model) -> {
          })
-        .withCompatibleAttachment(Attachments.M60E4HandGuard, true, (model) -> {
+        .withCompatibleAttachment(Attachments.M60E4HandGuard, (model) -> {
              if(model instanceof AKRail) {
                  GL11.glTranslatef(0.295F, -1.28F, -4.2F);
                  GL11.glScaled(0.6F, 0.6F, 0.7F);

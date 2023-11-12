@@ -74,6 +74,7 @@ public class Attachments {
     public static ItemAttachment<Weapon> VGripTan;
     public static ItemAttachment<Weapon> Bipod;
     public static ItemAttachment<Weapon> AUGgrip;
+    public static ItemAttachment<Weapon> PechenegBipod;
     public static ItemAttachment<Weapon> USPMatchCompensator;
     public static ItemAttachment<Weapon> AKMIron;
     public static ItemAttachment<Weapon> MicroT1;
@@ -576,6 +577,15 @@ public class Attachments {
     public static ItemAttachment<Weapon> G36CStock;
     public static ItemAttachment<Weapon> G36CMGStock;
     public static ItemAttachment<Weapon> G36KVStock;
+    public static ItemAttachment<Weapon> PKMBarrel;
+    public static ItemAttachment<Weapon> PechenegBarrel;
+    public static ItemAttachment<Weapon> PKMGrip;
+    public static ItemAttachment<Weapon> RK3PGrip;
+    public static ItemAttachment<Weapon> PKMStock;
+    public static ItemAttachment<Weapon> PT2Stock;
+    public static ItemAttachment<Weapon> B51ScopeMountRail;
+    public static ItemAttachment<Weapon> B50PKMHandguard;
+    public static ItemAttachment<Weapon> B50PKPHandguard;
 
     public static void init() {
         G11HandguardK1 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
@@ -4914,6 +4924,17 @@ public class Attachments {
                 .withName("AUGgrip")
                 .build();
 
+        PechenegBipod = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.GRIP)
+                .withRenderablePart()
+                .withModel(new PechenegBipod(), "pkm.png")
+                .withApply((a, i) -> {
+                    i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
+                })
+                .withRenderablePart()
+                .withName("PechenegBipod")
+                .build();
+
         USPMatchCompensator = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
@@ -5096,6 +5117,74 @@ public class Attachments {
                         new CraftingEntry(MWCItems.gunmetalIngot, 3),
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withName("G36CMGStock")
+                .build();
+
+        PKMBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
+                .withModel(new PKMBarrel(), "pkm.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
+                .withName("PKMBarrel")
+                .build();
+
+        PechenegBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
+                .withModel(new PechenegBarrel(), "pkm.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
+                .withName("PechenegBarrel")
+                .build();
+
+        PKMGrip = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.BACKGRIP)
+                .withModel(new PKMGrip(), "pkm.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
+                .withName("PKMGrip")
+                .build();
+
+        RK3PGrip = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.BACKGRIP)
+                .withModel(new RK3PGrip(), "pkm.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
+                .withName("RK3PGrip")
+                .build();
+
+        PKMStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withModel(new PKMStock(), "pkm.png")
+                .withRenderablePart()
+                .withName("PKMStock")
+                .build();
+
+        PT2Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withModel(new PT2Stock(), "pkm.png")
+                .withRenderablePart()
+                .withName("PT2Stock")
+                .build();
+
+        B51ScopeMountRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
+                .withRenderablePart()
+                .withModel(new B51ScopeMountRail(), "pkm.png")
+                .withOnWeaponModel(new AKRail(), "akrail.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 1))
+                .withName("B51ScopeMountRail")
+                .build();
+
+        B50PKMHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new B50PKMHandguard(), "gun.png")
+                .withRequiredAttachments(PKMBarrel)
+                .withName("B50PKMHandguard")
+                .build();
+
+        B50PKPHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new B50PKPHandguard(), "gun.png")
+                .withRequiredAttachments(PechenegBarrel)
+                .withName("B50PKPHandguard")
                 .build();
     }
 }

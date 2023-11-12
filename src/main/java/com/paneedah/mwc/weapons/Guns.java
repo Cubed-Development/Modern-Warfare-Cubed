@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 public class Guns {
 
     public static Item M249;
+    public static Item PKM;
     public static Item M40A6;
     public static Item Beowulf50Cal;
     public static Item M110;
@@ -288,6 +289,7 @@ public class Guns {
         M1941Johnson = new M1941JohnsonFactory().createGun(proxy);
 
         M249 = new M249Factory().createGun(proxy);
+        PKM = new PKMFactory().createGun(proxy);
         StonerA1 = new StonerA1Factory().createGun(proxy);
         M134 = new M134Factory().createGun(proxy);
 

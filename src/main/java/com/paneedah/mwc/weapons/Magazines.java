@@ -123,6 +123,7 @@ public class Magazines {
     public static ItemMagazine DesertEagleMag;
     public static ItemMagazine M60Mag;
     public static ItemMagazine M249Mag;
+    public static ItemMagazine PKMMag;
     public static ItemMagazine StonerMag;
     public static ItemMagazine M134Mag;
     public static ItemMagazine FuelCell;
@@ -266,7 +267,7 @@ public class Magazines {
 
         Magazines.M60Mag = new ItemMagazine.Builder().withCapacity(100).withCompatibleBullet(Bullets.Bullet762x51).withName("M60Mag")
                 .withModel(new M60Mag(), "m60.png")
-                .withMaxStackSize(6)
+                .withMaxStackSize(3)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
                         MWCItems.gunmetalIngot)
@@ -278,7 +279,19 @@ public class Magazines {
                 .withName("M249Mag")
                 .withRotationPoint(0.8812000082910061F, 0.8648000418066975F, -1.40640004143715F)
                 .withModel(new M249Mag(), "m249.png")
-                .withMaxStackSize(6)
+                .withMaxStackSize(3)
+                .withCrafting(CraftingComplexity.MEDIUM,
+                        MWCItems.steelIngot,
+                        MWCItems.gunmetalIngot)
+                .build(ItemMagazine.class);
+
+        Magazines.PKMMag = new ItemMagazine.Builder()
+                .withCapacity(100)
+                .withCompatibleBullet(Bullets.Bullet556x45)
+                .withName("PKMMag")
+                .withRotationPoint(0.8812000082910061F, 0.8648000418066975F, -1.40640004143715F)
+                .withModel(new PKMMag(), "pkm.png")
+                .withMaxStackSize(3)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
                         MWCItems.gunmetalIngot)
@@ -286,7 +299,7 @@ public class Magazines {
 
         Magazines.StonerMag = new ItemMagazine.Builder().withCapacity(100).withCompatibleBullet(Bullets.Bullet556x45).withName("StonerMag")
                 .withModel(new StonerA1MAG(), "m249.png")
-                .withMaxStackSize(6)
+                .withMaxStackSize(3)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
                         MWCItems.gunmetalIngot)
