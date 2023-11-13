@@ -4584,7 +4584,7 @@ public class Attachments {
 
         Grip2 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
-                .withModel(new Grip2(), "gun.png")
+                .withModel(new Grip2(), "grip2.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard,
                         AK15HandleGuard, M4CarbineHandGuard, LVOAVHandGuard,
                         M38HandGuard, UTGTriRailHandGuard, GripPlaceholder,
@@ -4615,7 +4615,7 @@ public class Attachments {
 
         Grip2Tan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
-                .withModel(new Grip2(), "guntan.png")
+                .withModel(new Grip2(), "grip2tan.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard,
                         AK15HandleGuard, M4CarbineHandGuard, LVOAVHandGuard,
                         M38HandGuard, UTGTriRailHandGuard, GripPlaceholder,
@@ -4645,7 +4645,7 @@ public class Attachments {
 
         JunoGrip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
-                .withModel(new JunoGrip(), "gun.png")
+                .withModel(new JunoGrip(), "junogrip.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, M4CarbineHandGuard, LVOAVHandGuard,
                         M38HandGuard, Mk18HandGuard, AR57Handguard, RPK16Handguard, M16A4HandGuard,
                         HoneyBadgerMatrixArmsHandguard, AR10SuperSASSHandguard,
@@ -4665,7 +4665,7 @@ public class Attachments {
 
         JunoGripTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
-                .withModel(new JunoGrip(), "guntan.png")
+                .withModel(new JunoGrip(), "junogriptan.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, M4CarbineHandGuard, LVOAVHandGuard,
                         M38HandGuard, Mk18HandGuard, AR57Handguard, RPK16Handguard, M16A4HandGuard,
                         HoneyBadgerMatrixArmsHandguard, AR10SuperSASSHandguard,
@@ -4736,7 +4736,7 @@ public class Attachments {
 
         AngledGripTan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
-                .withModel(new AngledGrip(), "guntan.png")
+                .withModel(new AngledGrip(), "angledgriptan.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, M4CarbineHandGuard,
                         LVOAVHandGuard, M38HandGuard, GripPlaceholder, UTGTriRailHandGuard, Mk18HandGuard,
                         M60E4HandGuard, AUGA3extGuard, AR57Handguard, RPK16Handguard,
@@ -4765,7 +4765,7 @@ public class Attachments {
         StubbyGrip = new AttachmentBuilder<Weapon>()
                 .withRenderablePart()
                 .withCategory(AttachmentCategory.GRIP)
-                .withModel(new StubbyGrip(), "gun.png")
+                .withModel(new StubbyGrip(), "stubbygrip.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard, M60E4HandGuard, P90Swordfish, AUGA3extGuard,
@@ -4800,7 +4800,7 @@ public class Attachments {
         StubbyGripTan = new AttachmentBuilder<Weapon>()
                 .withRenderablePart()
                 .withCategory(AttachmentCategory.GRIP)
-                .withModel(new StubbyGrip(), "guntan.png")
+                .withModel(new StubbyGrip(), "stubbygriptan.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard, M60E4HandGuard, P90Swordfish, AUGA3extGuard,
@@ -4829,7 +4829,7 @@ public class Attachments {
         VGrip = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
-                .withModel(new VGrip(), "gun.png")
+                .withModel(new VGrip(), "vgrip.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard,
@@ -4860,7 +4860,7 @@ public class Attachments {
         VGripTan = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
-                .withModel(new VGrip(), "guntan.png")
+                .withModel(new VGrip(), "vgriptan.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard,
