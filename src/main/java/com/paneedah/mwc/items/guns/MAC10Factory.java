@@ -35,7 +35,6 @@ public class MAC10Factory {
         .withShellType(Type.PISTOL)
         .withMuzzlePosition(new Vec3d (-0.16000000476837156, -0.9519999985694882, -2.755999888420105))
         .withMaxShots(1, Integer.MAX_VALUE)
-        //.withMaxShots(5)
         .withShootSound("mac10")
         .withSilencedShootSound("mp5_silenced")
         .withReloadSound("mac10_reload")

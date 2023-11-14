@@ -33,7 +33,7 @@ public class M200InterventionFactory implements GunFactory {
         .withConfigGroup(GunConfigurationGroup.LONG_RANGE_RIFLES)
         .withMaxShots(1)
         .withShootSound("m200_intervention")
-        .withPumpTimeout(1000)
+        .withPumpTimeout(1500)
         .withSilencedShootSound("as50_silenced")
         .withDrawSound("noaction_draw")
         .withReloadingTime(40)
@@ -254,7 +254,7 @@ public class M200InterventionFactory implements GunFactory {
             })
         .withCompatibleAttachment(Attachments.Laser2, () -> {
             GL11.glTranslatef(-0.0F, -1.65F, -5.9F);
-            GL11.glScaled(0.85F, 0.85F, 0.85F);
+            GL11.glScaled(0.9F, 0.9F, 0.9F);
             GL11.glRotatef(-90F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Bullet, true, (model) -> {

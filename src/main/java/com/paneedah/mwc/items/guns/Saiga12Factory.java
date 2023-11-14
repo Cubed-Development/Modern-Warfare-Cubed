@@ -66,9 +66,9 @@ public class Saiga12Factory {
 				1.0
 		))		
          .withScreenShaking(RenderableState.SHOOTING, 
-                 5f, // x 
-                 1f, // y
-                 10f) // z
+                 5f,
+                 1f,
+                 10f)
         
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
