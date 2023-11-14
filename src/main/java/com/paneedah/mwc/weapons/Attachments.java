@@ -2383,8 +2383,8 @@ public class Attachments {
 				
         GeisseleURGIHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new GeisseleURGIHandguard(), "geisseleurgihandguard.png")
-                .withOnWeaponModel(new AKRail(), "akrail.png")
-                .withOnWeaponModel(new AKRail2(), "akrail.png")
+                .withOnWeaponModel(new AKRail(), "akrailm110.png")
+                .withOnWeaponModel(new AKRail2(), "akrailm110.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
                         new CraftingEntry(MWCItems.gunmetalIngot, 4))
