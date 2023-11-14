@@ -169,7 +169,8 @@ public class Attachments {
     public static ItemAttachment<Weapon> M16HandGuard;
     public static ItemAttachment<Weapon> M16A4HandGuard;
     public static ItemAttachment<Weapon> M16A1Handguard;
-
+    public static ItemAttachment<Weapon> GeisseleURGIHandguard;
+	
     // HK416
     public static ItemAttachment<Weapon> M38HandGuard;
     public static ItemAttachment<Weapon> HK416HandGuardBlackAndTan;
@@ -2378,6 +2379,16 @@ public class Attachments {
                         CraftingGroup.ATTACHMENT_MODIFICATION,
                         new CraftingEntry(MWCItems.gunmetalIngot, 4))
                 .withName("M16A1Handguard")
+                .build();
+				
+        GeisseleURGIHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new GeisseleURGIHandguard(), "geisseleurgihandguard.png")
+                .withOnWeaponModel(new AKRail(), "akrail.png")
+                .withOnWeaponModel(new AKRail2(), "akrail.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 4))
+                .withName("GeisseleURGIHandguard")
                 .build();
 
         M4CarbineHandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
