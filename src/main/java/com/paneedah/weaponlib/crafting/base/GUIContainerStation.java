@@ -338,9 +338,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
 
 
-						int count = (int) Math.round(s.getCount() * (s.getItem() instanceof ManufacturingItemBase
-								? ((ManufacturingItemBase) s.getItem()).getRecoveryChance()
-								: 1.0));
+						int count = (int) Math.round(s.getCount() * s.getYield());
 						strings.add(TextFormatting.GOLD + "" + count + "x " + TextFormatting.WHITE
 								+ format(s.getItem().getTranslationKey()));
 					}
@@ -693,26 +691,20 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 						if (GUIRenderHelper.checkInBox(mouseX, mouseY, x, y, 15, 15)) {
 
 							Item item = stack.getItem();
-							if (item instanceof ManufacturingItemBase) {
-
-								TextFormatting formatColor;
-								int percentage = ((int) Math
-										.round(((ManufacturingItemBase) item).getRecoveryChance() * 100));
-								if (percentage <= 25) {
-									formatColor = TextFormatting.RED;
-								} else if (percentage <= 50) {
-									formatColor = TextFormatting.GOLD;
-								} else if (percentage <= 75) {
-									formatColor = TextFormatting.YELLOW;
-								} else {
-									formatColor = TextFormatting.GREEN;
-								}
-
-								setItemRenderTooltip(itemStack, formatColor + "" + percentage + "% Yield");
+							TextFormatting formatColor;
+							int percentage = ((int) Math
+									.round(stack.getYield() * 100));
+							if (percentage <= 25) {
+								formatColor = TextFormatting.RED;
+							} else if (percentage <= 50) {
+								formatColor = TextFormatting.GOLD;
+							} else if (percentage <= 75) {
+								formatColor = TextFormatting.YELLOW;
 							} else {
-								setItemRenderTooltip(itemStack, TextFormatting.GREEN + "100% Yield");
-
+								formatColor = TextFormatting.GREEN;
 							}
+
+							setItemRenderTooltip(itemStack, formatColor + "" + percentage + "% Yield");
 
 							GlStateManager.enableTexture2D();
 							MC.getTextureManager().bindTexture(GUI_TEX);
