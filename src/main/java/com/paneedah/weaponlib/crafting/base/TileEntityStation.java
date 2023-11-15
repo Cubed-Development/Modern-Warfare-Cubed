@@ -180,10 +180,7 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 					if(!world.isRemote) {
 						for (CraftingEntry stack : modernRecipe) {
 							ItemStack itemStack = new ItemStack(stack.getItem());
-							if (stack.getItem() instanceof ManufacturingItemBase) {
-								itemStack.setCount((int) Math.round(
-										stack.getCount() * ((ManufacturingItemBase) stack.getItem()).getRecoveryChance()));
-							}
+							itemStack.setCount((int) Math.round(stack.getCount() * stack.getYield()));
 							addStackToInventoryRange(itemStack, 13, 22);
 						}
 						sendUpdate();

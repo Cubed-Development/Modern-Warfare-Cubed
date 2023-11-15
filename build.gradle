@@ -55,6 +55,13 @@ repositories {
         name 'Cleanroom'
         url 'https://maven.cleanroommc.com'
     }
+    maven {
+        name 'CurseMaven'
+        url 'https://cursemaven.com'
+        content {
+            includeGroup 'curse.maven'
+        }
+    }
 
     ivy {
         name 'Red Studio GitHub Releases'
@@ -69,10 +76,11 @@ repositories {
 dependencies {
     implementation 'Red-Studio-Ragnarok:Red-Core:0.4-Dev-2'
     sources 'Red-Studio-Ragnarok:Red-Core:0.4-Dev-2:sources@jar'
+    implementation rfg.deobf("curse.maven:groovyscript-687577:4691853")
+    implementation rfg.deobf('curse.maven:had-enough-items-557549:4543375')
 
     jmh 'org.openjdk.jmh:jmh-core:1.36'
     jmh 'org.openjdk.jmh:jmh-generator-annprocess:1.36'
-
     final String mixin = modUtils.enableMixins('zone.rong:mixinbooter:8.4', "mixins.${project.id}.refmap.json")
     api (mixin) { transitive = false }
     annotationProcessor 'org.ow2.asm:asm-debug-all:5.2'

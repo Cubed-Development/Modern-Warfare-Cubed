@@ -17,7 +17,7 @@ import java.util.HashMap;
 public class CraftingRegistry {
 	
 	// Stores a map of all the items registered in a certain category
-	private static final HashMap<CraftingGroup, ArrayList<IModernCrafting>> craftingMap = new HashMap<>(200, .7f);
+	public static final HashMap<CraftingGroup, ArrayList<IModernCrafting>> craftingMap = new HashMap<>(200, .7f);
 	
 	// Stores a map of a map of each group under their unlocalized names respectively
 	private static final HashMap<CraftingGroup, HashMap<String, IModernCrafting>> categoricalLookup = new HashMap<>(50, 0.7f);
@@ -117,12 +117,13 @@ public class CraftingRegistry {
 		deleteRecipeRegistry(getHook(item));
 	}
 	
-	protected static void deleteRecipeRegistry(IModernCrafting crafting) {
+	public static void deleteRecipeRegistry(IModernCrafting crafting) {
+		hookMap.remove(crafting.getItem(), crafting);
 		craftingMap.get(crafting.getCraftingGroup()).remove(crafting);
 		categoricalLookup.get(crafting.getCraftingGroup()).remove(crafting.getItem().getTranslationKey());
 	}
 
-	protected static void registerRecipe(Item item, CraftingGroup group, CraftingEntry[] entry) {
+	public static void registerRecipe(Item item, CraftingGroup group, CraftingEntry[] entry) {
 		IModernCrafting crafting = getHook(item);
 		
 		// Sets their crafting groups
@@ -143,12 +144,24 @@ public class CraftingRegistry {
 		categoricalLookup.get(crafting.getCraftingGroup()).put(crafting.getItem().getTranslationKey(), crafting);
 	}
 
+	public static void registerRecipe(IModernCrafting crafting) {
+		registerHook(crafting);
+		// Registers them
+		craftingMap.get(crafting.getCraftingGroup()).add(crafting);
+		categoricalLookup.get(crafting.getCraftingGroup()).put(crafting.getItem().getTranslationKey(), crafting);
+	}
+
 	public static void clearRegistry() {
 		
 		// Clear out the registry
 		for(CraftingGroup g : CraftingGroup.values()) {
-			craftingMap.get(g).clear();
-			categoricalLookup.get(g).clear();
+			clearGroup(g);
 		}
 	}
+
+	public static void clearGroup(CraftingGroup group){
+		craftingMap.get(group).clear();
+		categoricalLookup.get(group).clear();
+	}
+
 }

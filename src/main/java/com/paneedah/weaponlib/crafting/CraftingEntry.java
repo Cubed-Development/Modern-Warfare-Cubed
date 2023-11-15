@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.crafting;
 
+import com.paneedah.mwc.bases.ManufacturingItemBase;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
@@ -19,6 +20,8 @@ public class CraftingEntry {
 	private Item item;
 	private int count;
 	private String oreDictionary;
+
+	private double yield = 1;
 	
 	public CraftingEntry(Item i, int c) {
 		this.item = i;
@@ -41,6 +44,32 @@ public class CraftingEntry {
 		this.oreDictionary = oreDictionary;
 		this.count = count;
 	}
+
+	public CraftingEntry(Item i, int c, double yield) {
+		this.item = i;
+		this.count = c;
+		this.yield = yield;
+	}
+
+	public CraftingEntry(Block i, int c, double yield) {
+		this.item = Item.getItemFromBlock(i);
+		this.count = c;
+		this.yield = yield;
+	}
+
+	public CraftingEntry(Item dismantle, String oreDictionary, int count, double yield) {
+		this.item = dismantle;
+		this.oreDictionary = oreDictionary;
+		this.count = count;
+		this.yield = yield;
+	}
+
+	public CraftingEntry(Block dismantle, String oreDictionary, int count, double yield) {
+		this.item = Item.getItemFromBlock(dismantle);
+		this.oreDictionary = oreDictionary;
+		this.count = count;
+		this.yield = yield;
+	}
 	
 	public int getCount() {
 		return this.count;
@@ -55,7 +84,7 @@ public class CraftingEntry {
 	}
 	
 	public boolean isOreDictionary() {
-		return this.oreDictionary != null && this.oreDictionary.length() != 0;
+		return this.oreDictionary != null && !this.oreDictionary.isEmpty();
 	}
 	
 	@Override
@@ -65,6 +94,13 @@ public class CraftingEntry {
 		} else {
 			return "(" + this.item.getRegistryName().toString()  + ", " + getCount() + ")";
 		}
+	}
+
+	public double getYield(){
+		if(this.item instanceof ManufacturingItemBase && this.yield == 1){
+			return ((ManufacturingItemBase) this.item).getRecoveryChance();
+		}
+		return this.yield;
 	}
 
 }

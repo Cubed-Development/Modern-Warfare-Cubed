@@ -19,6 +19,7 @@ import io.redstudioragnarok.redcore.RedCore;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -45,6 +46,12 @@ import static com.paneedah.mwc.utils.ModReference.VERSION;
 //  |__/     |__/ \______/  \_______/ \_______/|__/      |__/  |__/      |__/     \__/ \_______/|__/      |__/     \_______/|__/       \_______/       \______/  \______/ |_______/  \_______/ \_______/
 @Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:redcore@[0.4,);", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/master/update.json")
 public final class MWC {
+
+    static{
+        if(Loader.isModLoaded("groovyscript")){
+            com.paneedah.mwc.groovyscript.MWC.register();
+        }
+    }
 
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
 
@@ -135,6 +142,11 @@ public final class MWC {
         CHANNEL.registerMessage(new WorkbenchServerMessageHandler(), WorkbenchServerMessage.class, 12, Side.SERVER);
         CHANNEL.registerMessage(new CraftingServerMessageHandler(), CraftingServerMessage.class, 13, Side.SERVER);
         CHANNEL.registerMessage(new EntityPickupMessageHandler(), EntityPickupMessage.class, 14, Side.SERVER);
+
+        /*
+        *   Load Recipes tad bit earlier so GS can add its own recipes.
+         */
+        CraftingFileManager.getInstance().loadDirectory();
     }
 
     @Mod.EventHandler
@@ -153,7 +165,6 @@ public final class MWC {
         serverStartingEvent.registerServerCommand(new BalancePackCommand());
         serverStartingEvent.registerServerCommand(new CraftingFileCommand());
         BalancePackManager.loadDirectory();
-        CraftingFileManager.getInstance().loadDirectory();
     }
 
     public static void updateDebugHandler() {
