@@ -1,8 +1,9 @@
 package com.paneedah.mwc.models.weapons;
 
+import com.paneedah.mwc.models.IModernModel;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.model.ModelBox;
 import net.minecraft.entity.Entity;
 
 // Made with Blockbench 4.7.4
@@ -10,7 +11,7 @@ import net.minecraft.entity.Entity;
 // Paste this class into your mod and generate all required imports
 
 
-public class SupplyDrop extends ModelBase {
+public class SupplyDrop extends ModelBase implements IModernModel {
 	private final ModelRenderer belts;
 	private final ModelRenderer Belt79_r1;
 	private final ModelRenderer Belt74_r1;
@@ -208,11 +209,5 @@ public class SupplyDrop extends ModelBase {
 		CardboardBox.render(f5);
 		shape.render(f5);
 		lock.render(f5);
-	}
-
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
 	}
 }

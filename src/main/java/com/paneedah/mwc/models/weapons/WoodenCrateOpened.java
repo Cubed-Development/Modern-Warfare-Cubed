@@ -1,17 +1,19 @@
 package com.paneedah.mwc.models.weapons;
 
+import com.paneedah.mwc.models.IModernModel;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.model.ModelBox;
 import net.minecraft.entity.Entity;
 
-// Made with Blockbench 3.5.4
-// Exported for Minecraft version 1.12
+// Made with Blockbench 4.8.1
+// Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
 
-public class WoodenCrateOpened extends ModelBase {
-	private final ModelRenderer bone;
+public class WoodenCrateOpened extends ModelBase implements IModernModel {
+	private final ModelRenderer woodenCrateOpened;
+	private final ModelRenderer bone_r1;
 	private final ModelRenderer bone2;
 	private final ModelRenderer bone3;
 	private final ModelRenderer bone11;
@@ -30,20 +32,27 @@ public class WoodenCrateOpened extends ModelBase {
 		textureWidth = 256;
 		textureHeight = 256;
 
-		bone = new ModelRenderer(this);
-		bone.setRotationPoint(7.0F, 16.0F, -7.0F);
-		setRotationAngle(bone, -1.5708F, 0.0F, 0.0F);
-		bone.cubeList.add(new ModelBox(bone, 18, 75, -1.0F, -1.0F, -9.0F, 2, 2, 14, 0.0F, false));
-		bone.cubeList.add(new ModelBox(bone, 0, 57, -15.0F, -1.0F, -9.0F, 2, 2, 14, 0.0F, false));
+		woodenCrateOpened = new ModelRenderer(this);
+		woodenCrateOpened.setRotationPoint(0.0F, 24.0F, 0.0F);
+		
+
+		bone_r1 = new ModelRenderer(this);
+		bone_r1.setRotationPoint(0.0F, -1.0F, -15.0F);
+		woodenCrateOpened.addChild(bone_r1);
+		setRotationAngle(bone_r1, -1.5708F, 0.0F, 0.0F);
+		bone_r1.cubeList.add(new ModelBox(bone_r1, 18, 75, 6.0F, -9.0F, -16.0F, 2, 2, 14, 0.0F, false));
+		bone_r1.cubeList.add(new ModelBox(bone_r1, 0, 57, -8.0F, -9.0F, -16.0F, 2, 2, 14, 0.0F, false));
 
 		bone2 = new ModelRenderer(this);
-		bone2.setRotationPoint(7.0F, 16.0F, 7.0F);
+		bone2.setRotationPoint(7.0F, -8.0F, 7.0F);
+		woodenCrateOpened.addChild(bone2);
 		setRotationAngle(bone2, -1.5708F, 0.0F, 0.0F);
 		bone2.cubeList.add(new ModelBox(bone2, 0, 73, -1.0F, -1.0F, -9.0F, 2, 2, 14, 0.0F, false));
 		bone2.cubeList.add(new ModelBox(bone2, 18, 59, -15.0F, -1.0F, -9.0F, 2, 2, 14, 0.0F, false));
 
 		bone3 = new ModelRenderer(this);
-		bone3.setRotationPoint(-21.0F, 10.0F, 15.0F);
+		bone3.setRotationPoint(-21.0F, -14.0F, 15.0F);
+		woodenCrateOpened.addChild(bone3);
 		bone3.cubeList.add(new ModelBox(bone3, 52, 52, 14.0F, -1.0F, -22.0F, 14, 12, 14, 0.0F, false));
 		bone3.cubeList.add(new ModelBox(bone3, 0, 89, 27.0F, -3.0F, -21.0F, 2, 2, 12, 0.0F, false));
 		bone3.cubeList.add(new ModelBox(bone3, 82, 84, 13.0F, -3.0F, -21.0F, 2, 2, 12, 0.0F, false));
@@ -127,14 +136,6 @@ public class WoodenCrateOpened extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		bone.render(f5);
-		bone2.render(f5);
-		bone3.render(f5);
-	}
-
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
+		woodenCrateOpened.render(f5);
 	}
 }
