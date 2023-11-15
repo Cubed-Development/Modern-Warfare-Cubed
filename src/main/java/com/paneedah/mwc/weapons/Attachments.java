@@ -4263,7 +4263,7 @@ public class Attachments {
                 .build();
 
         Silencer50BMG = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
-                .withModel(new Suppressor(), "GunmetalTexture.png")
+                .withModel(new QDLSuppressor(), "GunmetalTexture.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 4),
