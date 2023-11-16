@@ -13,7 +13,6 @@ import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
@@ -231,8 +230,8 @@ public class AS50Factory implements GunFactory {
           GL11.glScaled(1.2F, 1.2F, 1.2F);
       })
         .withCompatibleAttachment(Attachments.Silencer50BMG, (model) -> {
-            GL11.glTranslatef(-0.25F, -1.5F, -13.5F);
-            GL11.glScaled(2F, 2F, 2F);
+            GL11.glTranslatef(-0.25F, -1.3F, -11F);
+            GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.Laser2, () -> {
             GL11.glTranslatef(0.1F, -1.3F, -5.0F);

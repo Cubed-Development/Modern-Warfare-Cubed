@@ -68,9 +68,9 @@ public class M82Factory implements GunFactory {
         ))
          
          .withScreenShaking(RenderableState.SHOOTING, 
-                 6f, // x 
-                 -5f, // y
-                 12f) // z
+                 6f,
+                 -5f,
+                 12f)
          
          .withModernRecipe( new
 	        		CraftingEntry(MWCItems.carbonComposite, 12), new
@@ -246,8 +246,8 @@ public class M82Factory implements GunFactory {
             GL11.glScaled(1F, 1F, 1F);
       })
         .withCompatibleAttachment(Attachments.Silencer50BMG, (model) -> {
-            GL11.glTranslatef(-0.23F, -1.4F, -12.4F);
-            GL11.glScaled(1.5F, 1.5F, 1.5F);
+            GL11.glTranslatef(-0.23F, -1.37F, -11.5F);
+            GL11.glScaled(1.0F, 1.0F, 1.0F);
         })
         .withTextureNames("m82")
         .withRenderer(new WeaponRenderer.Builder()

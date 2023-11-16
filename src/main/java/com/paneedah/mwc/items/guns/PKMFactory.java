@@ -12,6 +12,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
@@ -37,6 +38,9 @@ public class PKMFactory {
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.1f)
                 .withFlashOffsetY(() -> 0.16f)
+                .withShellCasingVerticalOffset(-0.05f)
+                .withShellCasingForwardOffset(-0.2f)
+                .withShellCasingEjectEnabled(false)
                 .withInaccuracy(1f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
