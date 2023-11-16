@@ -1,8 +1,9 @@
 package com.paneedah.mwc.models.weapons;
 
+import com.paneedah.mwc.models.IModernModel;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.model.ModelBox;
 import net.minecraft.entity.Entity;
 
 // Made with Blockbench 3.5.4
@@ -10,7 +11,7 @@ import net.minecraft.entity.Entity;
 // Paste this class into your mod and generate all required imports
 
 
-public class Forklift extends ModelBase {
+public class Forklift extends ModelBase implements IModernModel {
 	private final ModelRenderer bone;
 	private final ModelRenderer bone52;
 	private final ModelRenderer bone3;
@@ -552,11 +553,5 @@ public class Forklift extends ModelBase {
 		bone53.render(f5);
 		bone55.render(f5);
 		bone57.render(f5);
-	}
-
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
 	}
 }

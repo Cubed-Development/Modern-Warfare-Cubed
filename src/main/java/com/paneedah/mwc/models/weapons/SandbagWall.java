@@ -1,8 +1,9 @@
 package com.paneedah.mwc.models.weapons;
 
+import com.paneedah.mwc.models.IModernModel;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.model.ModelBox;
 import net.minecraft.entity.Entity;
 
 // Made with Blockbench 3.6.6
@@ -10,7 +11,7 @@ import net.minecraft.entity.Entity;
 // Paste this class into your mod and generate all required imports
 
 
-public class SandbagWall extends ModelBase {
+public class SandbagWall extends ModelBase implements IModernModel {
 	private final ModelRenderer Sandbag;
 	private final ModelRenderer bone2;
 	private final ModelRenderer bone4;
@@ -211,11 +212,5 @@ public class SandbagWall extends ModelBase {
 		Sandbag2.render(f5);
 		Sandbag3.render(f5);
 		Sandbag4.render(f5);
-	}
-
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
 	}
 }

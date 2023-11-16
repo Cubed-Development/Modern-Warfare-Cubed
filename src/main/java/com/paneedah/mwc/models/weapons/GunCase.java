@@ -1,121 +1,116 @@
 package com.paneedah.mwc.models.weapons;
 
+import com.paneedah.mwc.models.IModernModel;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.model.ModelBox;
 import net.minecraft.entity.Entity;
 
-// Made with Blockbench 3.6.2
-// Exported for Minecraft version 1.12
+// Made with Blockbench 4.8.1
+// Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
 
-public class GunCase extends ModelBase {
-	private final ModelRenderer Shape1;
-	private final ModelRenderer Shape22;
-	private final ModelRenderer Shape23;
-	private final ModelRenderer Shape24;
-	private final ModelRenderer Shape25;
-	private final ModelRenderer Shape75Hatch;
-	private final ModelRenderer Shape79Hatch;
-	private final ModelRenderer Shape82Hatch;
-	private final ModelRenderer Shape86Hatch;
+public class GunCase extends ModelBase implements IModernModel {
+	private final ModelRenderer guncase;
+	private final ModelRenderer Shape86Hatch_r1;
+	private final ModelRenderer Shape82Hatch_r1;
+	private final ModelRenderer Shape79Hatch_r1;
+	private final ModelRenderer Shape75Hatch_r1;
+	private final ModelRenderer Shape25_r1;
+	private final ModelRenderer Shape24_r1;
+	private final ModelRenderer Shape23_r1;
+	private final ModelRenderer Shape22_r1;
 
 	public GunCase() {
 		textureWidth = 256;
 		textureHeight = 256;
 
-		Shape1 = new ModelRenderer(this);
-		Shape1.setRotationPoint(-5.0F, 18.0F, -24.0F);
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 0, 0.0F, 0.0F, 0.0F, 14, 5, 60, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 91, 7, -1.0F, -0.01F, 1.0F, 16, 5, 58, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 65, -2.3F, -1.5F, 10.0F, 2, 3, 9, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 33, 42, -2.3F, -1.5F, 41.0F, 2, 3, 9, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 65, -1.0F, -3.1F, 0.45F, 16, 3, 59, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 13, -0.99F, -3.3F, 24.0F, 16, 1, 12, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 0, -0.99F, -3.3F, 9.0F, 16, 1, 12, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 26, -0.99F, -3.3F, 39.0F, 16, 1, 12, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 45, -0.99F, -3.3F, 54.0F, 16, 1, 5, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 39, -0.99F, -3.3F, 1.0F, 16, 1, 5, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 44, 13, 14.5F, -2.1F, 6.0F, 2, 5, 3, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 26, 14.5F, -2.1F, 21.0F, 2, 5, 3, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 13, 14.5F, -2.1F, 36.0F, 2, 5, 3, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 0, 14.5F, -2.1F, 51.0F, 2, 5, 3, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 46, 39, 6.0F, -2.1F, -1.5F, 3, 5, 2, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 44, 26, 6.0F, -2.1F, 59.5F, 3, 5, 2, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 53, 0, 16.0F, -1.1F, 9.5F, 1, 2, 2, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 53, 53, 16.0F, -1.1F, 18.5F, 1, 2, 2, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 50, 8, 16.0F, -1.1F, 39.5F, 1, 2, 2, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 127, 15.0F, -1.1F, 1.0F, 1, 2, 58, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 44, 21, 16.0F, -1.1F, 48.5F, 1, 2, 2, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 44, 8, 16.0F, -1.1F, 54.5F, 1, 2, 2, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 55, 0.0F, -1.1F, 59.0F, 14, 2, 2, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 51, 0.0F, -1.1F, -1.0F, 14, 2, 2, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 92, 92, -2.0F, -1.1F, 1.0F, 1, 2, 58, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 44, 0, 16.0F, -1.1F, 3.5F, 1, 2, 2, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 52, 31, 14.2F, 1.0F, 25.0F, 2, 3, 2, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 52, 19, 14.2F, 1.0F, 33.0F, 2, 3, 2, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 36, 15.2F, 2.5F, 33.5F, 3, 1, 1, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 0, 34, 15.2F, 2.5F, 25.5F, 3, 1, 1, 0.0F, false));
-		Shape1.cubeList.add(new ModelBox(Shape1, 44, 0, 17.5F, 2.5F, 26.5F, 1, 1, 7, 0.0F, false));
+		guncase = new ModelRenderer(this);
+		guncase.setRotationPoint(17.8353F, 24.0F, -0.723F);
+		guncase.cubeList.add(new ModelBox(guncase, 0, 0, -22.8353F, -6.0F, -23.277F, 14, 5, 60, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 91, 7, -23.8353F, -6.01F, -22.277F, 16, 5, 58, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 65, -25.1353F, -7.5F, -13.277F, 2, 3, 9, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 33, 42, -25.1353F, -7.5F, 17.723F, 2, 3, 9, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 65, -23.8353F, -9.1F, -22.827F, 16, 3, 59, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 13, -23.8253F, -9.3F, 0.723F, 16, 1, 12, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 0, -23.8253F, -9.3F, -14.277F, 16, 1, 12, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 26, -23.8253F, -9.3F, 15.723F, 16, 1, 12, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 45, -23.8253F, -9.3F, 30.723F, 16, 1, 5, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 39, -23.8253F, -9.3F, -22.277F, 16, 1, 5, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 44, 13, -8.3353F, -8.1F, -17.277F, 2, 5, 3, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 26, -8.3353F, -8.1F, -2.277F, 2, 5, 3, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 13, -8.3353F, -8.1F, 12.723F, 2, 5, 3, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 0, -8.3353F, -8.1F, 27.723F, 2, 5, 3, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 46, 39, -16.8353F, -8.1F, -24.777F, 3, 5, 2, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 44, 26, -16.8353F, -8.1F, 36.223F, 3, 5, 2, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 53, 0, -6.8353F, -7.1F, -13.777F, 1, 2, 2, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 53, 53, -6.8353F, -7.1F, -4.777F, 1, 2, 2, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 50, 8, -6.8353F, -7.1F, 16.223F, 1, 2, 2, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 127, -7.8353F, -7.1F, -22.277F, 1, 2, 58, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 44, 21, -6.8353F, -7.1F, 25.223F, 1, 2, 2, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 44, 8, -6.8353F, -7.1F, 31.223F, 1, 2, 2, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 55, -22.8353F, -7.1F, 35.723F, 14, 2, 2, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 51, -22.8353F, -7.1F, -24.277F, 14, 2, 2, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 92, 92, -24.8353F, -7.1F, -22.277F, 1, 2, 58, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 44, 0, -6.8353F, -7.1F, -19.777F, 1, 2, 2, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 52, 31, -8.6353F, -5.0F, 1.723F, 2, 3, 2, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 52, 19, -8.6353F, -5.0F, 9.723F, 2, 3, 2, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 36, -7.6353F, -3.5F, 10.223F, 3, 1, 1, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 0, 34, -7.6353F, -3.5F, 2.223F, 3, 1, 1, 0.0F, false));
+		guncase.cubeList.add(new ModelBox(guncase, 44, 0, -5.3353F, -3.5F, 3.223F, 1, 1, 7, 0.0F, false));
 
-		Shape22 = new ModelRenderer(this);
-		Shape22.setRotationPoint(8.0F, 19.0F, -23.0F);
-		setRotationAngle(Shape22, 0.0F, 0.6981F, 0.0F);
-		Shape22.cubeList.add(new ModelBox(Shape22, 37, 45, 0.5F, 0.0F, 0.1F, 1, 4, 1, 0.0F, false));
+		Shape86Hatch_r1 = new ModelRenderer(this);
+		Shape86Hatch_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
+		guncase.addChild(Shape86Hatch_r1);
+		setRotationAngle(Shape86Hatch_r1, 0.0F, 0.7505F, 0.0F);
+		Shape86Hatch_r1.cubeList.add(new ModelBox(Shape86Hatch_r1, 44, 33, 8.1F, -7.1F, -23.9F, 2, 2, 3, 0.0F, false));
 
-		Shape23 = new ModelRenderer(this);
-		Shape23.setRotationPoint(-6.0F, 19.0F, 35.0F);
-		setRotationAngle(Shape23, 0.0F, 0.6981F, 0.0F);
-		Shape23.cubeList.add(new ModelBox(Shape23, 0, 45, -0.1F, 0.0F, 0.2F, 1, 4, 1, 0.0F, false));
+		Shape82Hatch_r1 = new ModelRenderer(this);
+		Shape82Hatch_r1.setRotationPoint(-3.5427F, 0.0F, -9.8993F);
+		guncase.addChild(Shape82Hatch_r1);
+		setRotationAngle(Shape82Hatch_r1, 0.0F, 0.7679F, 0.0F);
+		Shape82Hatch_r1.cubeList.add(new ModelBox(Shape82Hatch_r1, 0, 8, -6.8F, -7.1F, -23.7F, 3, 2, 2, 0.0F, false));
 
-		Shape24 = new ModelRenderer(this);
-		Shape24.setRotationPoint(-6.0F, 19.0F, -23.0F);
-		setRotationAngle(Shape24, 0.0F, 0.6981F, 0.0F);
-		Shape24.cubeList.add(new ModelBox(Shape24, 37, 39, 0.2F, 0.0F, -0.2F, 1, 4, 1, 0.0F, false));
+		Shape79Hatch_r1 = new ModelRenderer(this);
+		Shape79Hatch_r1.setRotationPoint(-44.3415F, 0.0F, 6.7316F);
+		guncase.addChild(Shape79Hatch_r1);
+		setRotationAngle(Shape79Hatch_r1, 0.0F, 0.7854F, 0.0F);
+		Shape79Hatch_r1.cubeList.add(new ModelBox(Shape79Hatch_r1, 46, 46, -6.7F, -7.1F, 34.2F, 2, 2, 3, 0.0F, false));
 
-		Shape25 = new ModelRenderer(this);
-		Shape25.setRotationPoint(8.0F, 19.0F, 35.0F);
-		setRotationAngle(Shape25, 0.0F, 0.6981F, 0.0F);
-		Shape25.cubeList.add(new ModelBox(Shape25, 0, 39, 0.3F, 0.0F, 0.4F, 1, 4, 1, 0.0F, false));
+		Shape75Hatch_r1 = new ModelRenderer(this);
+		Shape75Hatch_r1.setRotationPoint(-40.8886F, 0.0F, 17.7037F);
+		guncase.addChild(Shape75Hatch_r1);
+		setRotationAngle(Shape75Hatch_r1, 0.0F, 0.8203F, 0.0F);
+		Shape75Hatch_r1.cubeList.add(new ModelBox(Shape75Hatch_r1, 0, 21, 7.2F, -7.1F, 35.1F, 3, 2, 2, 0.0F, false));
 
-		Shape75Hatch = new ModelRenderer(this);
-		Shape75Hatch.setRotationPoint(8.0F, 16.9F, 35.0F);
-		setRotationAngle(Shape75Hatch, 0.0F, 0.8203F, 0.0F);
-		Shape75Hatch.cubeList.add(new ModelBox(Shape75Hatch, 0, 21, -0.8F, 0.0F, 0.1F, 3, 2, 2, 0.0F, false));
+		Shape25_r1 = new ModelRenderer(this);
+		Shape25_r1.setRotationPoint(-38.4606F, 0.0F, 14.0528F);
+		guncase.addChild(Shape25_r1);
+		setRotationAngle(Shape25_r1, 0.0F, 0.6981F, 0.0F);
+		Shape25_r1.cubeList.add(new ModelBox(Shape25_r1, 0, 39, 8.3F, -5.0F, 35.4F, 1, 4, 1, 0.0F, false));
 
-		Shape79Hatch = new ModelRenderer(this);
-		Shape79Hatch.setRotationPoint(-6.0F, 16.9F, 35.0F);
-		setRotationAngle(Shape79Hatch, 0.0F, 0.7854F, 0.0F);
-		Shape79Hatch.cubeList.add(new ModelBox(Shape79Hatch, 46, 46, -0.7F, 0.0F, -0.8F, 2, 2, 3, 0.0F, false));
+		Shape24_r1 = new ModelRenderer(this);
+		Shape24_r1.setRotationPoint(-4.4554F, 0.0F, -8.5141F);
+		guncase.addChild(Shape24_r1);
+		setRotationAngle(Shape24_r1, 0.0F, 0.6981F, 0.0F);
+		Shape24_r1.cubeList.add(new ModelBox(Shape24_r1, 37, 39, -5.8F, -5.0F, -23.2F, 1, 4, 1, 0.0F, false));
 
-		Shape82Hatch = new ModelRenderer(this);
-		Shape82Hatch.setRotationPoint(-6.0F, 16.9F, -23.0F);
-		setRotationAngle(Shape82Hatch, 0.0F, 0.7679F, 0.0F);
-		Shape82Hatch.cubeList.add(new ModelBox(Shape82Hatch, 0, 8, -0.8F, 0.0F, -0.7F, 3, 2, 2, 0.0F, false));
+		Shape23_r1 = new ModelRenderer(this);
+		Shape23_r1.setRotationPoint(-41.7356F, 0.0F, 5.0541F);
+		guncase.addChild(Shape23_r1);
+		setRotationAngle(Shape23_r1, 0.0F, 0.6981F, 0.0F);
+		Shape23_r1.cubeList.add(new ModelBox(Shape23_r1, 0, 45, -6.1F, -5.0F, 35.2F, 1, 4, 1, 0.0F, false));
 
-		Shape86Hatch = new ModelRenderer(this);
-		Shape86Hatch.setRotationPoint(8.0F, 16.9F, -23.0F);
-		setRotationAngle(Shape86Hatch, 0.0F, 0.7505F, 0.0F);
-		Shape86Hatch.cubeList.add(new ModelBox(Shape86Hatch, 44, 33, 0.1F, 0.0F, -0.9F, 2, 2, 3, 0.0F, false));
+		Shape22_r1 = new ModelRenderer(this);
+		Shape22_r1.setRotationPoint(-1.1803F, 0.0F, 0.4846F);
+		guncase.addChild(Shape22_r1);
+		setRotationAngle(Shape22_r1, 0.0F, 0.6981F, 0.0F);
+		Shape22_r1.cubeList.add(new ModelBox(Shape22_r1, 37, 45, 8.5F, -5.0F, -22.9F, 1, 4, 1, 0.0F, false));
 	}
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		Shape1.render(f5);
-		Shape22.render(f5);
-		Shape23.render(f5);
-		Shape24.render(f5);
-		Shape25.render(f5);
-		Shape75Hatch.render(f5);
-		Shape79Hatch.render(f5);
-		Shape82Hatch.render(f5);
-		Shape86Hatch.render(f5);
-	}
-
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
+		guncase.render(f5);
 	}
 }

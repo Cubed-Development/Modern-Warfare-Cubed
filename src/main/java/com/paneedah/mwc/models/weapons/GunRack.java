@@ -1,8 +1,9 @@
 package com.paneedah.mwc.models.weapons;
 
+import com.paneedah.mwc.models.IModernModel;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.model.ModelBox;
 import net.minecraft.entity.Entity;
 
 // Made with Blockbench 3.6.2
@@ -10,7 +11,7 @@ import net.minecraft.entity.Entity;
 // Paste this class into your mod and generate all required imports
 
 
-public class GunRack extends ModelBase {
+public class GunRack extends ModelBase implements IModernModel {
 	private final ModelRenderer bone;
 
 	public GunRack() {
@@ -57,11 +58,5 @@ public class GunRack extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		bone.render(f5);
-	}
-
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
 	}
 }
