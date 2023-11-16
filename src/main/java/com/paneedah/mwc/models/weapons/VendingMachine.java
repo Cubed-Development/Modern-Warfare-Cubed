@@ -1,44 +1,35 @@
 package com.paneedah.mwc.models.weapons;
 
+import com.paneedah.mwc.models.IModernModel;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.model.ModelBox;
 import net.minecraft.entity.Entity;
 
-// Made with Blockbench 3.5.4
-// Exported for Minecraft version 1.12
+// Made with Blockbench 4.8.1
+// Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
 
-public class VendingMachine extends ModelBase {
-	private final ModelRenderer bone;
+public class VendingMachine extends ModelBase implements IModernModel {
 	private final ModelRenderer bone2;
-	private final ModelRenderer bone3;
 	private final ModelRenderer bone4;
+	private final ModelRenderer bone;
+	private final ModelRenderer bone3_r1;
+	private final ModelRenderer bone2_r1;
+	private final ModelRenderer bone_r1;
 
 	public VendingMachine() {
 		textureWidth = 256;
 		textureHeight = 256;
 
-		bone = new ModelRenderer(this);
-		bone.setRotationPoint(-1.0F, -19.5F, 5.5F);
-		setRotationAngle(bone, -0.2618F, 0.0F, 0.0F);
-		bone.cubeList.add(new ModelBox(bone, 48, 130, -6.0F, -0.7511F, -1.4014F, 14, 3, 10, 0.0F, false));
-
 		bone2 = new ModelRenderer(this);
-		bone2.setRotationPoint(-1.0F, -19.5F, 5.5F);
-		setRotationAngle(bone2, 0.2618F, 0.0F, 0.0F);
-		bone2.cubeList.add(new ModelBox(bone2, 0, 130, -6.0F, -3.5981F, -19.2238F, 14, 3, 10, 0.0F, false));
-
-		bone3 = new ModelRenderer(this);
-		bone3.setRotationPoint(-1.0F, -8.0F, 2.5F);
-		setRotationAngle(bone3, 0.0F, 0.0F, -0.1745F);
-		bone3.cubeList.add(new ModelBox(bone3, 104, 111, -3.0F, -1.0F, -8.5F, 9, 2, 17, 0.0F, false));
-		bone3.cubeList.add(new ModelBox(bone3, 52, 111, -4.9101F, 9.8329F, -8.5F, 9, 2, 17, 0.0F, false));
-		bone3.cubeList.add(new ModelBox(bone3, 0, 111, -6.9939F, 21.6506F, -8.5F, 9, 2, 17, 0.0F, false));
+		bone2.setRotationPoint(0.0F, 24.0F, 0.0F);
+		
 
 		bone4 = new ModelRenderer(this);
-		bone4.setRotationPoint(0.0F, 24.0F, 0.0F);
+		bone4.setRotationPoint(0.0F, 0.0F, 0.0F);
+		bone2.addChild(bone4);
 		bone4.cubeList.add(new ModelBox(bone4, 0, 0, 5.0F, -42.0F, -6.0F, 2, 35, 17, 0.0F, false));
 		bone4.cubeList.add(new ModelBox(bone4, 62, 67, -7.0F, -42.0F, 11.0F, 14, 41, 3, 0.0F, false));
 		bone4.cubeList.add(new ModelBox(bone4, 56, 0, -7.0F, -42.0F, -14.0F, 14, 41, 8, 0.0F, false));
@@ -50,19 +41,35 @@ public class VendingMachine extends ModelBase {
 		bone4.cubeList.add(new ModelBox(bone4, 0, 162, -7.0F, -44.5882F, -0.6593F, 14, 3, 5, 0.0F, false));
 		bone4.cubeList.add(new ModelBox(bone4, 0, 178, -7.0F, -1.0F, 9.0F, 14, 1, 4, 0.0F, false));
 		bone4.cubeList.add(new ModelBox(bone4, 0, 173, -7.0F, -1.0F, -13.0F, 14, 1, 4, 0.0F, false));
+
+		bone = new ModelRenderer(this);
+		bone.setRotationPoint(5.5405F, -0.6596F, 0.0F);
+		bone2.addChild(bone);
+		
+
+		bone3_r1 = new ModelRenderer(this);
+		bone3_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
+		bone.addChild(bone3_r1);
+		setRotationAngle(bone3_r1, 0.0F, 0.0F, -0.1745F);
+		bone3_r1.cubeList.add(new ModelBox(bone3_r1, 52, 111, -5.9101F, -22.1671F, -6.0F, 9, 2, 17, 0.0F, false));
+		bone3_r1.cubeList.add(new ModelBox(bone3_r1, 0, 111, -7.9939F, -10.3494F, -6.0F, 9, 2, 17, 0.0F, false));
+		bone3_r1.cubeList.add(new ModelBox(bone3_r1, 104, 111, -4.0F, -33.0F, -6.0F, 9, 2, 17, 0.0F, false));
+
+		bone2_r1 = new ModelRenderer(this);
+		bone2_r1.setRotationPoint(-5.5405F, 0.6009F, 11.4461F);
+		bone.addChild(bone2_r1);
+		setRotationAngle(bone2_r1, 0.2618F, 0.0F, 0.0F);
+		bone2_r1.cubeList.add(new ModelBox(bone2_r1, 0, 130, -7.0F, -47.0981F, -13.7238F, 14, 3, 10, 0.0F, false));
+
+		bone_r1 = new ModelRenderer(this);
+		bone_r1.setRotationPoint(-5.5405F, -2.2462F, -11.0712F);
+		bone.addChild(bone_r1);
+		setRotationAngle(bone_r1, -0.2618F, 0.0F, 0.0F);
+		bone_r1.cubeList.add(new ModelBox(bone_r1, 48, 130, -7.0F, -44.2511F, 4.0986F, 14, 3, 10, 0.0F, false));
 	}
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		bone.render(f5);
 		bone2.render(f5);
-		bone3.render(f5);
-		bone4.render(f5);
-	}
-
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
 	}
 }
