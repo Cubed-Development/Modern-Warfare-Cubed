@@ -97,10 +97,10 @@ public class CraftingEntry {
 	}
 
 	public double getYield(){
-		if(this.item instanceof ManufacturingItemBase && this.yield == 1){
-			return ((ManufacturingItemBase) this.item).getRecoveryChance();
-		}
-		return this.yield;
+		if(this.item instanceof ManufacturingItemBase && this.yield == 1)
+			return ((ManufacturingItemBase)this.item).getRecoveryChance();
+		else
+			return this.yield;
 	}
 
 }
