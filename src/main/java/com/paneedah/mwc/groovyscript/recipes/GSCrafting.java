@@ -17,6 +17,7 @@ public class GSCrafting implements IModernCrafting {
         this.group = group;
         this.recipe = recipe;
     }
+    
     @Override
     public CraftingEntry[] getModernRecipe() {
         return this.recipe;
