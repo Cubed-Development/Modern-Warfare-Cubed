@@ -64,7 +64,7 @@ public final class MWC {
     public static CommonProxy commonProxy;
 
     @Mod.EventHandler
-    public void preInit(FMLConstructionEvent constructionEvent) {
+    public void construction(FMLConstructionEvent constructionEvent) {
         //Do this to avoid Groovyscript MWC Mod container getting ignored for being unused class
         if(Loader.isModLoaded("groovyscript")){
             new MWCContainer();
