@@ -1,6 +1,7 @@
 package com.paneedah.weaponlib.crafting;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 /**
  * Important interface that defines several properties:
@@ -14,7 +15,7 @@ import net.minecraft.item.Item;
 public interface IModernCrafting {
 	
 	CraftingEntry[] getModernRecipe();
-	Item getItem();
+	ItemStack getItem();
 	CraftingGroup getCraftingGroup();
 
 	void setCraftingRecipe(CraftingEntry[] recipe);

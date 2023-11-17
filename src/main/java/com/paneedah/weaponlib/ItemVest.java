@@ -336,8 +336,8 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
 
 
     @Override
-    public Item getItem() {
-        return this;
+    public ItemStack getItem() {
+        return new ItemStack(this);
     }
 
 

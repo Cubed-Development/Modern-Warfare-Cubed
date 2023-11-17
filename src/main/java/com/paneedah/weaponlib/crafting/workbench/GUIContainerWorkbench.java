@@ -197,9 +197,9 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 		
 		// This is just a backup check. This should only ever run if we are dealing
 		// with crafting mode one, so it will always be a weapon.
-		if(!(getSelectedCraftingPiece().getItem() instanceof Weapon)) return;
+		if(!(getSelectedCraftingPiece().getItem().getItem() instanceof Weapon)) return;
 	
-		Weapon weapon = (Weapon) getSelectedCraftingPiece().getItem();
+		Weapon weapon = (Weapon) getSelectedCraftingPiece().getItem().getItem();
         GuiRenderUtil.drawScaledString(fontRenderer, format(weapon.getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 1.2, 0xFDF17C);
         GuiRenderUtil.drawScaledString(fontRenderer, weapon.builder.getWeaponType(), this.guiLeft + 214, this.guiTop + 43, 0.75, 0xC8C49C);
         

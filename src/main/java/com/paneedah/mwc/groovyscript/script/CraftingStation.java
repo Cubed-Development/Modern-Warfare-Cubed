@@ -32,7 +32,12 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
      */
 
     public void removeAll() {
-        clearRegistry();
+        for (ArrayList<IModernCrafting> list : craftingMap.values()) {
+            for (IModernCrafting recipe : list) {
+                deleteRecipeRegistry(recipe);
+                this.addBackup(recipe);
+            }
+        }
     }
 
     /**
@@ -44,7 +49,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
     public void remove(IIngredient ingredient) {
         for (ArrayList<IModernCrafting> list : craftingMap.values()) {
             for (IModernCrafting recipe : list) {
-                if (ingredient.test(new ItemStack(recipe.getItem()))) {
+                if (ingredient.test(recipe.getItem())) {
                     deleteRecipeRegistry(recipe);
                     this.addBackup(recipe);
                 }
@@ -63,7 +68,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
 
     public void removeinGroup(IIngredient ingredient, CraftingGroup group) {
         for (IModernCrafting recipe : craftingMap.get(group)) {
-            if (ingredient.test(new ItemStack(recipe.getItem()))) {
+            if (ingredient.test(recipe.getItem())) {
                 deleteRecipeRegistry(recipe);
                 this.addBackup(recipe);
             }
@@ -91,7 +96,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
 
         @Override
         public String getErrorMsg() {
-            return "Error adding Modern Warefare Cubed Workbench Recipe";
+            return "Error adding Modern Warefare Cubed Workbench Recipe:"+this.name;
         }
 
         @Override
@@ -164,7 +169,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
                     entries.add(new CraftingEntry(item.getMatchingStacks()[0].getItem(), item.getAmount(), this.yields.get(i)));
                 }
             }
-            GSCrafting recipe = new GSCrafting(this.output.get(0).getItem(), this.group, entries.toArray(new CraftingEntry[0]));
+            GSCrafting recipe = new GSCrafting(this.output.get(0), this.group, entries.toArray(new CraftingEntry[0]));
             MWCContainer.MWC.get().craftingStation.addRecipe(recipe);
             return recipe;
         }

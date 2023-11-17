@@ -14,6 +14,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -173,8 +174,8 @@ public class HighIQSpawnEgg extends Item implements IModernCrafting {
 	}
 
 	@Override
-	public Item getItem() {
-		return this;
+	public ItemStack getItem() {
+		return new ItemStack(this);
 	}
 
 	@Override

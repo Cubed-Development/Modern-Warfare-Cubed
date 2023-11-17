@@ -248,10 +248,10 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 		this.postRenderer = postRenderer2;
 		
 	}
-	
+
 	@Override
-	public Item getItem() {
-		return this;
+	public ItemStack getItem() {
+		return new ItemStack(this);
 	}
 
 	@Override

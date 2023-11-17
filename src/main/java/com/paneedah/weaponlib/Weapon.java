@@ -1118,10 +1118,10 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     public CraftingGroup getCraftingGroup() {
         return this.craftingGroup;
     }
-    
+
     @Override
-    public Item getItem() {
-        return this;
+    public ItemStack getItem() {
+        return new ItemStack(this);
     }
 
     @Override

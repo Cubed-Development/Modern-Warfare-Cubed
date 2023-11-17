@@ -612,7 +612,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 										262f, 22, 22, 480, 370);
 
 							} else {
-								setItemRenderTooltip(new ItemStack(filteredCraftingList.get(c).getItem()));
+								setItemRenderTooltip(filteredCraftingList.get(c).getItem());
 								drawModalRectWithCustomSizedTexture(this.guiLeft + 12 + (x * 23), this.guiTop + 52 + (y * 23), 97f, 262f,
 										22, 22, 480, 370);
 							}
@@ -621,7 +621,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
 						RenderHelper.enableGUIStandardItemLighting();
 						MC.getRenderItem().renderItemIntoGUI(
-								new ItemStack(filteredCraftingList.get(c).getItem()), this.guiLeft + 15 + (x * 23),
+								filteredCraftingList.get(c).getItem(), this.guiLeft + 15 + (x * 23),
 								this.guiTop + 55 + (y * 23));
 
 
@@ -656,7 +656,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 				GlStateManager.scale(3, 3, 3);
 
 				MC.getRenderItem()
-						.renderItemIntoGUI(new ItemStack(getSelectedCraftingPiece().getItem()), 0, 0);
+						.renderItemIntoGUI(getSelectedCraftingPiece().getItem(), 0, 0);
 				GlStateManager.popMatrix();
 			}
 
