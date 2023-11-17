@@ -1,9 +1,11 @@
 package com.paneedah.weaponlib.crafting;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 
 /**
@@ -78,7 +80,7 @@ public class CraftingRegistry {
 	public static void registerHook(IModernCrafting crafting) {
 		//System.out.println("CABRON: " + crafting.getItem().getRegistryName());
 		//recipeMap.put(crafting.getItem().getRegistryName().toString(), null);
-		hookMap.put(crafting.getItem(), crafting);
+		hookMap.put(crafting.getItem().getItem(), crafting);
 		
 	}
 	
@@ -118,7 +120,7 @@ public class CraftingRegistry {
 	}
 	
 	public static void deleteRecipeRegistry(IModernCrafting crafting) {
-		hookMap.remove(crafting.getItem(), crafting);
+		hookMap.remove(crafting.getItem().getItem(), crafting);
 		craftingMap.get(crafting.getCraftingGroup()).remove(crafting);
 		categoricalLookup.get(crafting.getCraftingGroup()).remove(crafting.getItem().getTranslationKey());
 	}

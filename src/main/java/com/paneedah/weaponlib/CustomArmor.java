@@ -782,8 +782,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 	}
 
 	@Override
-	public Item getItem() {
-		return this;
+	public ItemStack getItem() {
+		return new ItemStack(this);
 	}
 
 	@Override

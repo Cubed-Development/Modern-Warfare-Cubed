@@ -4,15 +4,16 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class GSCrafting implements IModernCrafting {
 
-    private final Item output;
+    private final ItemStack output;
     private CraftingEntry[] recipe;
     private CraftingGroup group;
 
 
-    public GSCrafting(Item output, CraftingGroup group, CraftingEntry... recipe){
+    public GSCrafting(ItemStack output, CraftingGroup group, CraftingEntry... recipe){
         this.output = output;
         this.group = group;
         this.recipe = recipe;
@@ -24,7 +25,7 @@ public class GSCrafting implements IModernCrafting {
     }
 
     @Override
-    public Item getItem() {
+    public ItemStack getItem() {
         return this.output;
     }
 

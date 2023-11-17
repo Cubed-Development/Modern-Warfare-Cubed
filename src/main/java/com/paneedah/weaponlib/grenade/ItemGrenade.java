@@ -47,8 +47,8 @@ PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContai
     }
 
     @Override
-    public Item getItem() {
-        return this;
+    public ItemStack getItem() {
+        return new ItemStack(this);
     }
 
     @Override

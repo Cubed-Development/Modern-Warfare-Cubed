@@ -127,7 +127,7 @@ public class TileEntityWorkbench extends TileEntityStation {
 
 
 			if (!this.world.isRemote && this.craftingTarget != null) {
-				addStackToInventoryRange(new ItemStack(this.craftingTarget.getItem()), 0, 9);
+				addStackToInventoryRange(this.craftingTarget.getItem(), 0, 9);
 				sendUpdate();
 			}
 

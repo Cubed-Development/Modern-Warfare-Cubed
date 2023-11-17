@@ -265,8 +265,8 @@ public class ItemCarryable extends Item implements IModernCrafting {
     }
 
     @Override
-    public Item getItem() {
-        return this;
+    public ItemStack getItem() {
+        return new ItemStack(this);
     }
 
     @Override
