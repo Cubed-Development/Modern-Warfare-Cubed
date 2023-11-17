@@ -96,7 +96,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
 
         @Override
         public String getErrorMsg() {
-            return "Error adding Modern Warefare Cubed Workbench Recipe:"+this.name;
+            return "Error adding Modern Warefare Cubed Workbench Recipe: "+this.name;
         }
 
         @Override
