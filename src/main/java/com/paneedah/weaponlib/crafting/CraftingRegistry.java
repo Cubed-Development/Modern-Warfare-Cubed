@@ -163,5 +163,4 @@ public class CraftingRegistry {
 		craftingMap.get(group).clear();
 		categoricalLookup.get(group).clear();
 	}
-
 }
