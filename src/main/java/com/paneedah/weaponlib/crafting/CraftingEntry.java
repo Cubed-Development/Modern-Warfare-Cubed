@@ -102,5 +102,4 @@ public class CraftingEntry {
 		else
 			return this.yield;
 	}
-
 }
