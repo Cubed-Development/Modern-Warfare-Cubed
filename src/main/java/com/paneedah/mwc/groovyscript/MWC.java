@@ -5,6 +5,9 @@ import com.cleanroommc.groovyscript.compat.mods.ModSupport;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.groovyscript.script.CraftingStation;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.utils.ModReference.NAME;
+
 public class MWC extends ModPropertyContainer {
 
     public static final ModSupport.Container<MWC> MWC = new ModSupport.Container<>(ID, NAME, MWC::new);

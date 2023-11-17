@@ -1,5 +1,6 @@
 package com.paneedah.mwc;
 
+import com.paneedah.mwc.bases.ManufacturingItemBase;
 import com.paneedah.mwc.creativetab.*;
 import com.paneedah.mwc.handlers.ClientEventHandler;
 import com.paneedah.mwc.handlers.CommonEventHandler;
@@ -46,13 +47,6 @@ import static com.paneedah.mwc.utils.ModReference.VERSION;
 //  |__/     |__/ \______/  \_______/ \_______/|__/      |__/  |__/      |__/     \__/ \_______/|__/      |__/     \_______/|__/       \_______/       \______/  \______/ |_______/  \_______/ \_______/
 @Mod(modid = ID, name = NAME, version = VERSION, dependencies = "required-after:redcore@[0.4,);", guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory", updateJSON = "https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/master/update.json")
 public final class MWC {
-
-    static{
-        if(Loader.isModLoaded("groovyscript")){
-            com.paneedah.mwc.groovyscript.MWC.register();
-        }
-    }
-
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
 
     public static final CreativeTabs EQUIPMENT_TAB = new ArmorTab(CreativeTabs.getNextID(), "equipment");
@@ -71,6 +65,13 @@ public final class MWC {
 
     @SidedProxy(serverSide = "com.paneedah.mwc.proxies.CommonProxy", clientSide = "com.paneedah.mwc.proxies.ClientProxy")
     public static CommonProxy commonProxy;
+
+    public MWC(){
+        //Do this to avoid Groovyscript MWC Mod container getting ignored for being unused class
+        if(Loader.isModLoaded("groovyscript")){
+            com.paneedah.mwc.groovyscript.MWC.register();
+        }
+    }
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent preInitializationEvent) {
@@ -143,9 +144,7 @@ public final class MWC {
         CHANNEL.registerMessage(new CraftingServerMessageHandler(), CraftingServerMessage.class, 13, Side.SERVER);
         CHANNEL.registerMessage(new EntityPickupMessageHandler(), EntityPickupMessage.class, 14, Side.SERVER);
 
-        /*
-        *   Load Recipes tad bit earlier so GS can add its own recipes.
-         */
+        //Load Recipes tad bit earlier so GS can add its own recipes.
         CraftingFileManager.getInstance().loadDirectory();
     }
 

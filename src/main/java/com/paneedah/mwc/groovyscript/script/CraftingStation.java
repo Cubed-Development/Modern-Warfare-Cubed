@@ -19,6 +19,7 @@ import static com.paneedah.weaponlib.crafting.CraftingGroup.*;
 import static com.paneedah.weaponlib.crafting.CraftingRegistry.*;
 
 public class CraftingStation extends VirtualizedRegistry<GSCrafting> {
+
     @Override
     public void onReload() {
         this.removeScripted().forEach(CraftingRegistry::deleteRecipeRegistry);
@@ -26,17 +27,13 @@ public class CraftingStation extends VirtualizedRegistry<GSCrafting> {
     }
 
 
-    /**
-    * Nuke ALL recipes. no matter the category.
-    */
+    //Nuke ALL recipes. no matter the category.
 
     public void removeAll(){
         clearRegistry();
     }
 
-    /**
-     * Remove Recipe that outputs given Ingredient.
-     */
+    //Remove Recipe that outputs given Ingredient.
 
     public void remove(IIngredient ingredient){
         for(ArrayList<IModernCrafting> list:craftingMap.values()){
@@ -48,9 +45,7 @@ public class CraftingStation extends VirtualizedRegistry<GSCrafting> {
         }
     }
 
-    /**
-     * Nuke ALL recipes of Given Category.
-     */
+    //Nuke ALL recipes of Given Category.
 
     public void removeAllinGroup(CraftingGroup group){
         clearGroup(group);
@@ -76,9 +71,7 @@ public class CraftingStation extends VirtualizedRegistry<GSCrafting> {
         registerRecipe(crafting);
     }
 
-    /**
-     * Start Recipe Builder
-     */
+    //Start Recipe Builder
 
     public RecipeBuilder recipeBuilder(){
         return new RecipeBuilder();
@@ -94,33 +87,26 @@ public class CraftingStation extends VirtualizedRegistry<GSCrafting> {
         private final ArrayList<CraftingEntry> entries = new ArrayList<>();
         private CraftingGroup group = GUN;
 
-        /**
-         * Add Ingredient of recipe With ItemStack
-         */
+        //Add Ingredient of recipe With ItemStack
+
         public RecipeBuilder addEntry(ItemStack stack){
             return addEntry(stack, 1);
         }
 
-        /**
-         * Add Ingredient of recipe With Ore Dictionary Value
-         */
+        //Add Ingredient of recipe With Ore Dictionary Value
 
         public RecipeBuilder addOredict(String entry, int count){
             return addOredict(entry, count, 1);
         }
 
-        /**
-         * Add Ingredient of recipe With given ItemStack and yield(0.0~1.0)
-         */
+        //Add Ingredient of recipe With given ItemStack and yield(0.0~1.0)
 
         public RecipeBuilder addEntry(ItemStack stack, double yield){
             this.entries.add(new CraftingEntry(stack.getItem(), stack.getCount(), yield));
             return this;
         }
 
-        /**
-         * Add Ingredient of recipe With given Ore Dictionary Entry and yield(0.0~1.0)
-         */
+        //Add Ingredient of recipe With given Ore Dictionary Entry and yield(0.0~1.0)
 
 
         public RecipeBuilder addOredict(String entry, int count, double yield){
@@ -128,9 +114,7 @@ public class CraftingStation extends VirtualizedRegistry<GSCrafting> {
             return this;
         }
 
-        /**
-         * Set Category of Recipe
-         */
+        //Set Category of Recipe
         public RecipeBuilder group(String group){
             this.group = CraftingGroup.valueOf(group);
             return this;
@@ -177,9 +161,7 @@ public class CraftingStation extends VirtualizedRegistry<GSCrafting> {
             msg.add(this.entries.isEmpty() ,"Ingredient for Crafting Recipe can not be empty.");
         }
 
-        /**
-         * and we finalize the recipe and register it!
-         */
+        //and we finalize the recipe and register it!
 
         @Override
         public GSCrafting register() {
