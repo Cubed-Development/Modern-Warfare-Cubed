@@ -2,22 +2,18 @@ package com.paneedah.mwc.groovyscript;
 
 import com.cleanroommc.groovyscript.compat.mods.ModPropertyContainer;
 import com.cleanroommc.groovyscript.compat.mods.ModSupport;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.mwc.groovyscript.script.CraftingStation;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.NAME;
 
-public class MWC extends ModPropertyContainer {
+public class MWCContainer extends ModPropertyContainer {
 
-    public static final ModSupport.Container<MWC> MWC = new ModSupport.Container<>(ID, NAME, MWC::new);
+    public static final ModSupport.Container<MWCContainer> MWC = new ModSupport.Container<>(ID, NAME, MWCContainer::new);
 
     public final CraftingStation STATION = new CraftingStation();
 
-    public MWC(){
+    public MWCContainer(){
         addRegistry(STATION);
     }
-
-    public static void register(){}
-
 }
