@@ -173,5 +173,4 @@ public class CraftingStation extends VirtualizedRegistry<GSCrafting> {
             return recipe;
         }
     }
-
 }
