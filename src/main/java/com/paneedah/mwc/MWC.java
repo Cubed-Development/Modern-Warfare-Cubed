@@ -144,9 +144,6 @@ public final class MWC {
         CHANNEL.registerMessage(new WorkbenchServerMessageHandler(), WorkbenchServerMessage.class, 12, Side.SERVER);
         CHANNEL.registerMessage(new CraftingServerMessageHandler(), CraftingServerMessage.class, 13, Side.SERVER);
         CHANNEL.registerMessage(new EntityPickupMessageHandler(), EntityPickupMessage.class, 14, Side.SERVER);
-
-        //Load Recipes tad bit earlier so GS can add its own recipes.
-        CraftingFileManager.getInstance().loadDirectory();
     }
 
     @Mod.EventHandler
