@@ -88,18 +88,18 @@ public class PKMFactory {
         .withCompatibleAttachment(Attachments.PT2Stock, (model) -> {
         })
         .withCompatibleAttachment(Attachments.B51ScopeMountRail, (model) -> {
-             if(model instanceof AKRail) {
-                GL11.glTranslatef(-0.2F, -1.325F, -3.8f);
-                GL11.glScaled(0.6F, 0.8F, 0.6F);
+            if(model instanceof AKRail) {
+                GL11.glTranslatef(-0.23F, -1.95F, -2.6f);
+                GL11.glScaled(0.7F, 0.6F, 0.9F);
             }
         })
         .withCompatibleAttachment(Attachments.B50PKMHandguard, (model) -> {
-            GL11.glTranslatef(-0.13F, -1.97F, -1.71F);
-            GL11.glScaled(0.75F, 0.75F, 0.75F);
+            GL11.glTranslatef(-0.25F, -1.62F, -4.1F);
+            GL11.glScaled(0.45F, 0.45F, 0.45F);
          })
         .withCompatibleAttachment(Attachments.B50PKPHandguard, (model) -> {
-            GL11.glTranslatef(-0.13F, -1.97F, -1.71F);
-            GL11.glScaled(0.75F, 0.75F, 0.75F);
+            GL11.glTranslatef(-0.25F, -1.62F, -4.1F);
+            GL11.glScaled(0.45F, 0.45F, 0.45F);
         })
         .withCompatibleAttachment(Magazines.PKMMag, (model) -> {
         })

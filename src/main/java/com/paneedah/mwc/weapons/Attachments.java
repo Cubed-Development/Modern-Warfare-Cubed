@@ -5187,13 +5187,13 @@ public class Attachments {
                 .build();
 
         B50PKMHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
-                .withModel(new B50PKMHandguard(), "gun.png")
+                .withModel(new B50PKPHandguard(), "gun.png")
                 .withRequiredAttachments(PKMBarrel)
                 .withName("B50PKMHandguard")
                 .build();
 
         B50PKPHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
-                .withModel(new B50PKPHandguard(), "gun.png")
+                .withModel(new B50PKMHandguard(), "gun.png")
                 .withRequiredAttachments(PechenegBarrel)
                 .withName("B50PKPHandguard")
                 .build();
