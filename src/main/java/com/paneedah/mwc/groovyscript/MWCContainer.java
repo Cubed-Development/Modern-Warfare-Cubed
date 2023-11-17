@@ -11,9 +11,9 @@ public class MWCContainer extends ModPropertyContainer {
 
     public static final ModSupport.Container<MWCContainer> MWC = new ModSupport.Container<>(ID, NAME, MWCContainer::new);
 
-    public final CraftingStation STATION = new CraftingStation();
+    public final CraftingStation craftingStation = new CraftingStation();
 
     public MWCContainer(){
-        addRegistry(STATION);
+        addRegistry(craftingStation);
     }
 }
