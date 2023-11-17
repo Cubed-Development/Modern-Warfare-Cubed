@@ -4,7 +4,7 @@ import com.cleanroommc.groovyscript.api.GroovyLog;
 import com.cleanroommc.groovyscript.api.IIngredient;
 import com.cleanroommc.groovyscript.helper.recipe.AbstractRecipeBuilder;
 import com.cleanroommc.groovyscript.registry.VirtualizedRegistry;
-import com.paneedah.mwc.groovyscript.MWC;
+import com.paneedah.mwc.groovyscript.MWCContainer;
 import com.paneedah.mwc.groovyscript.recipes.GSCrafting;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -169,7 +169,7 @@ public class CraftingStation extends VirtualizedRegistry<GSCrafting> {
                 return null;
             }
             GSCrafting recipe = new GSCrafting(this.output.get(0).getItem(), this.group, this.entries.toArray(new CraftingEntry[0]));
-            MWC.MWC.get().STATION.addRecipe(recipe);
+            MWCContainer.MWC.get().STATION.addRecipe(recipe);
             return recipe;
         }
     }

@@ -1,7 +1,7 @@
 package com.paneedah.mwc;
 
-import com.paneedah.mwc.bases.ManufacturingItemBase;
 import com.paneedah.mwc.creativetab.*;
+import com.paneedah.mwc.groovyscript.MWCContainer;
 import com.paneedah.mwc.handlers.ClientEventHandler;
 import com.paneedah.mwc.handlers.CommonEventHandler;
 import com.paneedah.mwc.handlers.DebugHandler;
@@ -23,10 +23,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
@@ -66,12 +63,14 @@ public final class MWC {
     @SidedProxy(serverSide = "com.paneedah.mwc.proxies.CommonProxy", clientSide = "com.paneedah.mwc.proxies.ClientProxy")
     public static CommonProxy commonProxy;
 
-    public MWC(){
+    @Mod.EventHandler
+    public void preInit(FMLConstructionEvent constructionEvent) {
         //Do this to avoid Groovyscript MWC Mod container getting ignored for being unused class
         if(Loader.isModLoaded("groovyscript")){
-            com.paneedah.mwc.groovyscript.MWC.register();
+            new MWCContainer();
         }
     }
+
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent preInitializationEvent) {
