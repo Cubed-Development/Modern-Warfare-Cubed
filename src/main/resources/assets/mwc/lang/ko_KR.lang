@@ -142,10 +142,10 @@ item.m1a1_thompson.name=M1A1 톰슨
 item.m1928_thompson.name=M1928 톰슨
 item.remington870.name=레밍턴-870
 item.hk_416.name=HK 416
-item.pp91_kedr.name=PP-91 Kedr
+item.pp91_kedr.name=PP-91 케드르
 item.vp70.name=VP-70
 item.he_standard_combat_shotgun.name=HE-SCS
-item.cz805_bren.name=CZ-805 Bren
+item.cz805_bren.name=CZ-805 브렌
 item.albert_01r.name=알베르트-01R
 item.nv4.name=NV4
 item.volk.name=볼크
@@ -270,7 +270,7 @@ item.turretsilenced.name=자동 포탑 vers.SA
 
 
 item.mwc_FiveSevenMag.name=20발 5.7x28mm 파이브 세븐 탄창
-item.mwc_KedrMag_2.name=20발 9x19mm 탄창 (Kedr)
+item.mwc_KedrMag_2.name=20발 9x19mm 탄창 (케드르)
 item.mwc_M4A1Mag_2.name=30발 5.56x45mm NATO STANAG 탄창
 item.mwc_AK101Mag_2.name=30발 5.56x45mm 탄창
 item.mwc_AK60Mag.name=60발 5.56x45mm 탄창
