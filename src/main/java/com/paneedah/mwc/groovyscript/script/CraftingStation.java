@@ -13,11 +13,8 @@ import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 import static com.paneedah.weaponlib.crafting.CraftingGroup.*;
 import static com.paneedah.weaponlib.crafting.CraftingRegistry.*;
@@ -120,7 +117,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
         }
 
         /**
-         * Set return Yield of said Ingredient.
+         * Set return Yield of upcoming Ingredient.
          *
          * @param yield return Yield of upcoming ingredients
          * @return this RecipeBuilder
@@ -137,7 +134,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
          * @param group: name of the Group. valid values = "GUN", "ATTACHMENT_NORMAL", "ATTACHMENT_MODIFICATION", "BULLET", "MAGAZINE"
          * @return this RecipeBuilder
          */
-        public RecipeBuilder group(String group) {
+        public RecipeBuilder setGroup(String group) {
             this.group = CraftingGroup.valueOf(group);
             return this;
         }
@@ -150,9 +147,8 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
 
         @Override
         public GSCrafting register() {
-            if (!this.validate()) {
+            if (!this.validate())
                 return null;
-            }
 
             ArrayList<CraftingEntry> entries = new ArrayList<>();
 
