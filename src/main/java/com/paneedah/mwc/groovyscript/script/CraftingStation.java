@@ -58,13 +58,8 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
     /**
      * Remove ALL recipes of Given Category.
      *
-     * @param group CraftingGroup to remove all recipes inside.
+     * @param group CraftingGroup to remove all recipes inside. valid values = "GUN", "ATTACHMENT_NORMAL", "ATTACHMENT_MODIFICATION", "BULLET", "MAGAZINE"
      */
-
-    public void removeAllinGroup(CraftingGroup group) {
-        clearGroup(group);
-    }
-
     public void removeAllinGroup(String group) {
         clearGroup(CraftingGroup.valueOf(group));
     }
@@ -124,6 +119,13 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
             return super.input(ingredient);
         }
 
+        /**
+         * Set return Yield of said Ingredient.
+         *
+         * @param yield return Yield of upcoming ingredients
+         * @return this RecipeBuilder
+         */
+
         public RecipeBuilder setYield(double yield) {
             this.yield = yield;
             return this;
@@ -132,7 +134,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
         /**
          * Set Category of Recipe
          *
-         * @param group: name of the Group
+         * @param group: name of the Group. valid values = "GUN", "ATTACHMENT_NORMAL", "ATTACHMENT_MODIFICATION", "BULLET", "MAGAZINE"
          * @return this RecipeBuilder
          */
         public RecipeBuilder group(String group) {
