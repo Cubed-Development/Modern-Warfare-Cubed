@@ -7,7 +7,7 @@ import com.paneedah.mwc.groovyscript.script.CraftingStation;
 
 public class MWC extends ModPropertyContainer {
 
-    public static final ModSupport.Container<MWC> MWC = new ModSupport.Container<>(ModReference.ID, ModReference.NAME, MWC::new);
+    public static final ModSupport.Container<MWC> MWC = new ModSupport.Container<>(ID, NAME, MWC::new);
 
     public final CraftingStation STATION = new CraftingStation();
 
