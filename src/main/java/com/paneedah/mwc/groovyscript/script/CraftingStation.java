@@ -30,7 +30,6 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
     /**
      * Remove ALL recipes. no matter the category.
      */
-
     public void removeAll() {
         for (ArrayList<IModernCrafting> list : craftingMap.values()) {
             for (IModernCrafting recipe : list) {
@@ -45,7 +44,6 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
      *
      * @param ingredient Target Ingredient. any recipe with matching output will be removed.
      */
-
     public void remove(IIngredient ingredient) {
         for (ArrayList<IModernCrafting> list : craftingMap.values()) {
             for (IModernCrafting recipe : list) {
@@ -127,7 +125,6 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
          * @param yield return Yield of upcoming ingredients
          * @return this RecipeBuilder
          */
-
         public RecipeBuilder setYield(double yield) {
             this.yield = yield;
             return this;
@@ -149,7 +146,6 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
          *
          * @return Finished Recipe
          */
-
         @Override
         public GSCrafting register() {
             if (!this.validate())
