@@ -127,7 +127,6 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
          * @param yield return Yield of upcoming ingredients
          * @return this RecipeBuilder
          */
-
         public RecipeBuilder setYield(double yield) {
             this.yield = yield;
             return this;
