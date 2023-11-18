@@ -329,6 +329,21 @@ public class P90Factory {
             GL11.glRotatef(-90F, 0f, 0f, 1f);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(0.75F, -0.72F, -2.6F);
+            GL11.glRotatef(-90F, 0f, 0f, 1f);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(0.75F, -0.72F, -2.6F);
+            GL11.glRotatef(-90F, 0f, 0f, 1f);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(0.75F, -0.72F, -2.6F);
+            GL11.glRotatef(-90F, 0f, 0f, 1f);
+            GL11.glScaled(1F, 1F, 1F);
+        })
         .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(0.13F, -1.99F, -2F);
             GL11.glRotatef(-20F, 0f, 0f, 1f);

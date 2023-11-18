@@ -288,9 +288,29 @@ public class MalyukFactory {
             GL11.glTranslatef(-0.3F, -0.35F, -2.5F);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Grip2, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.1F, -2F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.1F, -2F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, 0.05F, -2.4F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.1F, -2.0F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.JunoGripTan, (model) -> {
+            GL11.glTranslatef(-0.3F, -0.35F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
         .withCompatibleAttachment(Attachments.Silencer762x39, renderContext -> {
-                    GL11.glTranslatef(-0.2F, -0.95F, -4.8F);
-                    GL11.glScaled(1F, 1F, 1F);
+            GL11.glTranslatef(-0.2F, -0.95F, -4.8F);
+            GL11.glScaled(1F, 1F, 1F);
         })
         .withTextureNames("malyuk")
         .withRenderer(new WeaponRenderer.Builder()

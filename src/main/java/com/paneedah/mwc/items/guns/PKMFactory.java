@@ -147,7 +147,7 @@ public class PKMFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Reflex, () -> {
-                    GL11.glTranslatef(0.1F, -1.9F, -1.8F);
+                    GL11.glTranslatef(-0.1F, -1.9F, -1.8F);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -156,7 +156,7 @@ public class PKMFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.MicroReflex, () -> {
-                    GL11.glTranslatef(-0.07F, -2.49F, -0.63F);
+                    GL11.glTranslatef(-0.17F, -2.5F, -1.8F);
                     GL11.glScaled(0.35F, 0.35F, 0.35F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -387,12 +387,12 @@ public class PKMFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                                GL11.glTranslatef(0.08F, 0.5f, 0f);
+                                GL11.glTranslatef(0.05F, 0.5f, 0f);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                                GL11.glTranslatef(0F, 0.08f, 0f);
+                                GL11.glTranslatef(0.04F, 0.47f, 0f);
                             }
 
                             // ACOG Zoom

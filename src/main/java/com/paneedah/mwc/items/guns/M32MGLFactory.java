@@ -270,6 +270,18 @@ public class M32MGLFactory implements GunFactory {
             GL11.glTranslatef(-0.2F, -0F, -2.1F);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0F, -2.1F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+             GL11.glTranslatef(-0.2F, -0F, -2.1F);
+             GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+             GL11.glTranslatef(-0.2F, -0F, -2.1F);
+             GL11.glScaled(1F, 1F, 1F);
+        })
 
         .withTextureNames("gun")
         .withRenderer(new WeaponRenderer.Builder()

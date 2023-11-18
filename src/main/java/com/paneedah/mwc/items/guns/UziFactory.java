@@ -162,7 +162,14 @@ public class UziFactory implements GunFactory {
             GL11.glTranslatef(-0.2F, -0.25F, -2.23F);
             GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
-
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.25F, -2.23F);
+            GL11.glScaled(1F, 1F, 1.2F);
+        })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.25F, -2.23F);
+            GL11.glScaled(1.2F, 1.2F, 1.2F);
+        })
         .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.288F, -1.47F, 0.05F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);

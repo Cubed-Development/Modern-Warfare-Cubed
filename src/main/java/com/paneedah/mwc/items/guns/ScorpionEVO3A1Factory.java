@@ -308,6 +308,18 @@ public class ScorpionEVO3A1Factory implements GunFactory {
 			GL11.glTranslatef(-0.2F, -0.35F, -2.8F);
 			GL11.glScaled(1F, 1F, 1F);
 		})
+       .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+           GL11.glTranslatef(-0.21F, -0.35F, -3F);
+           GL11.glScaled(1.1F, 1.1F, 1.1F);
+       })
+       .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+           GL11.glTranslatef(-0.2F, -0.35F, -3F);
+           GL11.glScaled(1F, 1F, 1F);
+       })
+       .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+           GL11.glTranslatef(-0.2F, -0.35F, -2.8F);
+           GL11.glScaled(1F, 1F, 1F);
+       })
 		.withCompatibleAttachment(Attachments.Laser2, () -> {
             GL11.glTranslatef(-0.05F, -1.25F, -3.7F);
             GL11.glScaled(1F, 1F, 1F);

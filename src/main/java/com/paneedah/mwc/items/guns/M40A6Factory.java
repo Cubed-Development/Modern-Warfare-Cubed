@@ -253,6 +253,18 @@ public class M40A6Factory implements GunFactory {
         	 GL11.glTranslatef(-0.05F, -0.8F, -3.5F);
              GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+              GL11.glTranslatef(-0.05F, -0.8F, -3.5F);
+              GL11.glScaled(1.1F, 1.1F, 1.1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+              GL11.glTranslatef(-0.05F, -0.8F, -3.5F);
+              GL11.glScaled(1.2F, 1.2F, 1.2F);
+        })
+         .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+             GL11.glTranslatef(-0.05F, -0.8F, -3.5F);
+             GL11.glScaled(1.2F, 1.2F, 1.2F);
+        })
         .withCompatibleAttachment(Attachments.Bipod, (model) -> {
           GL11.glTranslatef(0F, -0.7F, -4.3F);
           GL11.glScaled(1F, 1F, 1F);

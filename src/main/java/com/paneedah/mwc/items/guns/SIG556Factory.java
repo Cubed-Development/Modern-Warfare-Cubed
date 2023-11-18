@@ -433,6 +433,82 @@ public class SIG556Factory implements GunFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         }, false, false)
+		.withCompatibleAttachment(Attachments.Grip2Tan, renderContext -> {
+					PlayerWeaponInstance instance = renderContext.getWeaponInstance();
+					if(instance != null) {
+						ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
+								AttachmentCategory.GUARD, instance);
+						if(activeAttachment == Attachments.SIG556HandguardKA) {
+							GL11.glTranslatef(-0.2F, -0.15F, -3F);
+							GL11.glScaled(1F, 1F, 1F);
+						} else {
+							GL11.glTranslatef(-0.2F, -0.3F, -2.7F);
+							GL11.glScaled(1F, 1F, 1F);
+						}
+					}
+				},(model) -> {
+					if(model instanceof Reflex2) {
+						GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
+						GL11.glScaled(0.15F, 0.15F, 0.15F);
+					}
+				}, false, false)
+		.withCompatibleAttachment(Attachments.StubbyGripTan, renderContext -> {
+					PlayerWeaponInstance instance = renderContext.getWeaponInstance();
+					if(instance != null) {
+						ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
+								AttachmentCategory.GUARD, instance);
+						if(activeAttachment == Attachments.SIG556HandguardKA) {
+							GL11.glTranslatef(-0.2F, -0.15F, -3F);
+							GL11.glScaled(1F, 1F, 1F);
+						} else {
+							GL11.glTranslatef(-0.2F, -0.3F, -2.7F);
+							GL11.glScaled(1F, 1F, 1F);
+						}
+					}
+				},(model) -> {
+					if(model instanceof Reflex2) {
+						GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
+						GL11.glScaled(0.15F, 0.15F, 0.15F);
+					}
+				}, false, false)
+		.withCompatibleAttachment(Attachments.AngledGripTan, renderContext -> {
+					PlayerWeaponInstance instance = renderContext.getWeaponInstance();
+					if(instance != null) {
+						ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
+								AttachmentCategory.GUARD, instance);
+						if(activeAttachment == Attachments.SIG556HandguardKA) {
+							GL11.glTranslatef(-0.2F, 0.02F, -3.5F);
+							GL11.glScaled(1F, 1F, 1F);
+						} else {
+							GL11.glTranslatef(-0.2F, -0.1F, -3F);
+							GL11.glScaled(1F, 1F, 1F);
+						}
+					}
+				},(model) -> {
+					if(model instanceof Reflex2) {
+						GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
+						GL11.glScaled(0.15F, 0.15F, 0.15F);
+					}
+				}, false, false)
+		.withCompatibleAttachment(Attachments.VGripTan, renderContext -> {
+					PlayerWeaponInstance instance = renderContext.getWeaponInstance();
+					if(instance != null) {
+						ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
+								AttachmentCategory.GUARD, instance);
+						if(activeAttachment == Attachments.SIG556HandguardKA) {
+							GL11.glTranslatef(-0.2F, -0.15F, -3F);
+							GL11.glScaled(1F, 1F, 1F);
+						} else {
+							GL11.glTranslatef(-0.2F, -0.3F, -2.7F);
+							GL11.glScaled(1F, 1F, 1F);
+						}
+					}
+				},(model) -> {
+					if(model instanceof Reflex2) {
+						GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
+						GL11.glScaled(0.15F, 0.15F, 0.15F);
+					}
+				}, false, false)
 		.withCompatibleAttachment(Attachments.Bipod, renderContext -> {
 		    PlayerWeaponInstance instance = renderContext.getWeaponInstance();
             if(instance != null) {

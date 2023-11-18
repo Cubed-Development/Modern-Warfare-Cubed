@@ -314,6 +314,22 @@ public class M249Factory {
         	 GL11.glTranslatef(-0.2F, 0.2F, -3.3F);
              GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, 0.2F, -3.1F);
+            GL11.glScaled(1.2F, 1.2F, 1.2F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, 0.18F, -3.3F);
+            GL11.glScaled(1.2F, 1.2F, 1.2F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, 0.2F, -3.3F);
+            GL11.glScaled(1F, 1F, 0.9F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, 0.2F, -3.3F);
+            GL11.glScaled(1.2F, 1.2F, 1.2F);
+        })
         .withCompatibleAttachment(Attachments.Bipod, (model) -> {
             GL11.glTranslatef(-0.2F, -0.2F, -4.45F);
             GL11.glScaled(1F, 1F, 1F);
