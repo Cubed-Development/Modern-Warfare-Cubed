@@ -146,7 +146,6 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
          *
          * @return Finished Recipe
          */
-
         @Override
         public GSCrafting register() {
             if (!this.validate())
