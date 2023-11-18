@@ -30,7 +30,6 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
     /**
      * Remove ALL recipes. no matter the category.
      */
-
     public void removeAll() {
         for (ArrayList<IModernCrafting> list : craftingMap.values()) {
             for (IModernCrafting recipe : list) {
