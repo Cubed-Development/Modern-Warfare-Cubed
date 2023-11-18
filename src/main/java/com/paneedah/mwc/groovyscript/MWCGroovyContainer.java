@@ -7,13 +7,13 @@ import com.paneedah.mwc.groovyscript.script.CraftingStation;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.NAME;
 
-public class MWCContainer extends ModPropertyContainer {
+public class MWCGroovyContainer extends ModPropertyContainer {
 
-    public static final ModSupport.Container<MWCContainer> MWC = new ModSupport.Container<>(ID, NAME, MWCContainer::new);
+    public static final ModSupport.Container<MWCGroovyContainer> MWC = new ModSupport.Container<>(ID, NAME, MWCGroovyContainer::new);
 
     public final CraftingStation craftingStation = new CraftingStation();
 
-    public MWCContainer(){
+    public MWCGroovyContainer(){
         addRegistry(craftingStation);
     }
 }
