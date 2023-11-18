@@ -1,7 +1,7 @@
 package com.paneedah.mwc;
 
 import com.paneedah.mwc.creativetab.*;
-import com.paneedah.mwc.groovyscript.MWCContainer;
+import com.paneedah.mwc.groovyscript.MWCGroovyContainer;
 import com.paneedah.mwc.handlers.ClientEventHandler;
 import com.paneedah.mwc.handlers.CommonEventHandler;
 import com.paneedah.mwc.handlers.DebugHandler;
@@ -15,12 +15,10 @@ import com.paneedah.weaponlib.command.BalancePackCommand;
 import com.paneedah.weaponlib.command.CraftingFileCommand;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.config.BalancePackManager;
-import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import io.redstudioragnarok.redcore.RedCore;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -69,7 +67,7 @@ public final class MWC {
     public void construction(FMLConstructionEvent constructionEvent) {
         //Do this to avoid Groovyscript MWC Mod container getting ignored for being unused class
         if (Loader.isModLoaded("groovyscript"))
-            new MWCContainer();
+            new MWCGroovyContainer();
     }
 
 

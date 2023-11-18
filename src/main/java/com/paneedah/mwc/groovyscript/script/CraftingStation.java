@@ -6,13 +6,12 @@ import com.cleanroommc.groovyscript.helper.ingredient.ItemsIngredient;
 import com.cleanroommc.groovyscript.helper.ingredient.OreDictIngredient;
 import com.cleanroommc.groovyscript.helper.recipe.AbstractRecipeBuilder;
 import com.cleanroommc.groovyscript.registry.VirtualizedRegistry;
-import com.paneedah.mwc.groovyscript.MWCContainer;
+import com.paneedah.mwc.groovyscript.MWCGroovyContainer;
 import com.paneedah.mwc.groovyscript.recipes.GSCrafting;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
-import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
 
@@ -166,7 +165,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
                 }
             }
             GSCrafting recipe = new GSCrafting(this.output.get(0), this.group, entries.toArray(new CraftingEntry[0]));
-            MWCContainer.MWC.get().craftingStation.addRecipe(recipe);
+            MWCGroovyContainer.MWC.get().craftingStation.addRecipe(recipe);
             return recipe;
         }
     }
