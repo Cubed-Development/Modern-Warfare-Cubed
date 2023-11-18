@@ -12,7 +12,6 @@ public class GSCrafting implements IModernCrafting {
     private CraftingEntry[] recipe;
     private CraftingGroup group;
 
-
     public GSCrafting(ItemStack output, CraftingGroup group, CraftingEntry... recipe){
         this.output = output;
         this.group = group;
