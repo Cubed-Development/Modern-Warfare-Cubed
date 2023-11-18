@@ -346,7 +346,7 @@ public class PKMFactory {
                         .setupCustomKeyedPart(Attachments.VortexRedux, "m249", "scope")
                         .setupCustomKeyedPart(Attachments.Kobra, "m249", "scope")
                         .setupCustomKeyedPart(Attachments.KobraGen3, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.M60Rail, "m249", "scope")
+                        .setupCustomKeyedPart(Attachments.B51ScopeMountRail, "m249", "scope")
                         .setupModernMagazineAnimations("m249",
                                 Magazines.PKMMag)
 
@@ -439,7 +439,7 @@ public class PKMFactory {
                                     .withPosition(-1.905000f, 4.065000f, -3.645000f)
                                     .withRotation(0.000000f, -30.514396f, -26.062789f)
                                     .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                    .withScale(2.000000f, 2.000000f, 2.000000f)
+                                    .withScale(2.500000f, 2.500000f, 2.500000f)
                                     .applyTransformations();
                         })
 
@@ -448,7 +448,7 @@ public class PKMFactory {
                                     .withPosition(-1.425000f, 3.545000f, -5.685000f)
                                     .withRotation(-0.187566f, -46.164037f, -11.869230f)
                                     .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
-                                    .withScale(2.000000f, 2.000000f, 2.000000f)
+                                    .withScale(2.500000f, 2.500000f, 2.500000f)
                                     .applyTransformations();
                         })
                         .withFirstPersonHandPositioningModifying(
