@@ -382,6 +382,30 @@ public class ACRFactory implements GunFactory {
             GL11.glTranslatef(-0.2F, -0.4F, -2.7F);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.4F, -2.7F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+             GL11.glTranslatef(-0.2F, -0.4F, -2.7F);
+             GL11.glScaled(1F, 1F, 1F);
+        })
+
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+             GL11.glTranslatef(-0.2F, -0.3F, -2.95F);
+             GL11.glScaled(1F, 1F, 1F);
+        })
+
+        .withCompatibleAttachment(Attachments.JunoGripTan, (model) -> {
+             GL11.glTranslatef(-0.23F, -0.62F, -2.9F);
+             GL11.glScaled(0.8F, 0.8F, 0.8F);
+        })
+
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+             GL11.glTranslatef(-0.2F, -0.4F, -2.7F);
+             GL11.glScaled(1F, 1F, 1F);
+        })
 
         .withCompatibleAttachment(Attachments.Bipod, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();

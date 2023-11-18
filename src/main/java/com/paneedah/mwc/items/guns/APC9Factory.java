@@ -298,6 +298,18 @@ public class APC9Factory implements GunFactory {
                     GL11.glTranslatef(-0.2F, -0.35F, -2.8F);
                     GL11.glScaled(1F, 1F, 1F);
                 })
+                .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.35F, -2.8F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+                .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.35F, -2.8F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+                .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.35F, -2.8F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
                 .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
                     GL11.glTranslatef(-0.2F, -1.235F, -4.8F);
                     GL11.glScaled(1F, 1F, 1F);

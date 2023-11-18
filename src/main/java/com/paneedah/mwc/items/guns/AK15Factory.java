@@ -319,6 +319,22 @@ public class AK15Factory {
             GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+             GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+             GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+             GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+             GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+             GL11.glTranslatef(-0.2F, 0.05F, -4F);
+             GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+             GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+             GL11.glScaled(1F, 1F, 1F);
+        })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {
                 GL11.glTranslatef(0.125F, -1.8F, -0.5F);

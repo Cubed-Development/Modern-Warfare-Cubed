@@ -304,6 +304,22 @@ public class ARX160Factory implements GunFactory {
 			GL11.glTranslatef(-0.2F, -0.57F, -3.3F);
 			GL11.glScaled(1F, 1F, 1F);
 		})
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.57F, -3.3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.57F, -3.3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.5F, -3.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.57F, -3.3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
 		.withCompatibleAttachment(Attachments.Bipod, (model) -> {
 			GL11.glTranslatef(-0.18F, -0.6F, -3.5F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);

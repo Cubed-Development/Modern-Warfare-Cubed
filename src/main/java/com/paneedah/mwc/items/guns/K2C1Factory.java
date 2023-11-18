@@ -348,6 +348,18 @@ public class K2C1Factory implements GunFactory {
 		    GL11.glTranslatef(-0.2F, -0.3F, -2.5F);
             GL11.glScaled(1F, 1F, 1F);
 		})
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.3F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.3F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.3F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
 		.withCompatibleAttachment(Attachments.Bipod, (model) -> {
 		    GL11.glTranslatef(-0.18F, -0.3F, -2.5F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);

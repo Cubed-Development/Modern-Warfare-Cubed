@@ -282,6 +282,22 @@ public class AK12Factory {
             GL11.glTranslatef(-0.185F, -0.23F, -3F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.185F, -0.23F, -3F);
+            GL11.glScaled(0.8F, 0.8F, 0.8F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.185F, -0.23F, -3F);
+            GL11.glScaled(0.8F, 0.8F, 0.8F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.185F, -0.13F, -3F);
+            GL11.glScaled(0.8F, 0.8F, 0.8F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.185F, -0.23F, -3F);
+             GL11.glScaled(0.8F, 0.8F, 0.8F);
+        })
         .withCompatibleAttachment(Attachments.AK12ironsight, true, (model) -> {
             if(model instanceof AK15ironsight) {
                 GL11.glTranslatef(-0.162F, -1.4F, -0.3F);

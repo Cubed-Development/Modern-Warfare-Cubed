@@ -135,6 +135,18 @@ public class KBP9A91Factory {
         	GL11.glTranslatef(-0.2F, -0.15F, -3.3F);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.15F, -3.3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.15F, -3.3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.15F, -3.3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
         .withTextureNames("kbp9a91")
         .withRenderer(new WeaponRenderer.Builder()
     

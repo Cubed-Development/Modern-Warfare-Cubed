@@ -528,6 +528,36 @@ public class AACHoneyBadgerFactory implements GunFactory {
                     GL11.glScaled(1F, 1F, 1F);
                 })
 
+                // Compatible attachment honeybadger Grip2
+                .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+
+                // Compatible attachment honeybadger JunoGrip
+                .withCompatibleAttachment(Attachments.JunoGripTan, (model) -> {
+                    GL11.glTranslatef(-0.23F, -0.7F, -2.81F);
+                    GL11.glScaled(0.8F, 0.8F, 0.8F);
+                })
+
+                // Compatible attachment honeybadger StubbyGrip
+                .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+
+                // Compatible attachment honeybadger AngledGrip
+                .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.35F, -2.9F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+
+                // Compatible attachment honeybadger VGrip
+                .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+
                 .withCompatibleAttachment(Attachments.Bipod, (model) -> {
                     GL11.glTranslatef(-0.18F, -0.33F, -3.5F);
                     GL11.glScaled(0.8F, 0.8F, 0.8F);

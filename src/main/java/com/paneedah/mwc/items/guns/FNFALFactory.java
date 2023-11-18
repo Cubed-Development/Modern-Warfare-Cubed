@@ -318,6 +318,22 @@ public class FNFALFactory {
         	GL11.glTranslatef(-0.2F, -0.32F, -3.5F);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.32F, -3.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.32F, -3.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.28F, -3.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.32F, -3.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
         .withCompatibleAttachment(Attachments.Silencer762x51, (model) -> {
         	GL11.glTranslatef(-0.2F, -1.18F, -9F);
             GL11.glScaled(1F, 1F, 1F);

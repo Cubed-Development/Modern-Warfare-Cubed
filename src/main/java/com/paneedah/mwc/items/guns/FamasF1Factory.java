@@ -265,6 +265,22 @@ public class FamasF1Factory {
         	GL11.glTranslatef(-0.2F, -0.1F, -2.5F);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.1F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.1F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.05F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.1F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
         .withCompatibleAttachment(Attachments.Laser2, () -> {
         	GL11.glTranslatef(0.15F, -1F, -3.3F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);

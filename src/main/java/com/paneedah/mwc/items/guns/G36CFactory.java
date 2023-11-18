@@ -275,6 +275,18 @@ public class G36CFactory implements GunFactory {
                     GL11.glTranslatef(-0.2F, -0.15F, -3.6F);
                     GL11.glScaled(1F, 1F, 1F);
                 })
+                .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.15F, -3.6F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+                .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.15F, -3.6F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+                .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.15F, -3.6F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
                 .withCompatibleAttachment(Attachments.Laser2, () -> {
                     GL11.glTranslatef(0.07F, -1.04F, -4.6F);
                     GL11.glScaled(1F, 1F, 1F);

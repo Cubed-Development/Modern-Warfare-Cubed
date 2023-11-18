@@ -430,6 +430,26 @@ public class AK47Factory {
             GL11.glTranslatef(-0.3F, -0.35F, -4.5F);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+             GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+             GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+             GL11.glTranslatef(-0.2F, 0.05F, -4F);
+             GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+             GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+             GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.JunoGripTan, (model) -> {
+             GL11.glTranslatef(-0.3F, -0.35F, -4.5F);
+             GL11.glScaled(1F, 1F, 1F);
+        })
         .withCompatibleAttachment(Attachments.Silencer762x39, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
             if(instance != null) {

@@ -485,6 +485,22 @@ public class KrissVectorFactory {
             GL11.glTranslatef(-0.23F, 0.8F, -3.5F);
             GL11.glScaled(1.4F, 1.4F, 1.4F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.23F, 0.8F, -3.5F);
+            GL11.glScaled(1.4F, 1.4F, 1.4F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.23F, 0.8F, -3.5F);
+            GL11.glScaled(1.4F, 1.4F, 1.4F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.23F, 1F, -4F);
+            GL11.glScaled(1.4F, 1.4F, 1.4F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.23F, 0.8F, -3.5F);
+            GL11.glScaled(1.4F, 1.4F, 1.4F);
+        })
         .withCompatibleAttachment(Attachments.Silencer45ACP, (model) -> {
 			GL11.glTranslatef(-0.24F, -0.6F, -6.5F);
 			GL11.glScaled(1.5F, 1.5F, 1.5F);

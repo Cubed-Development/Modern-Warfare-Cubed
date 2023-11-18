@@ -5132,6 +5132,7 @@ public class Attachments {
 
         PKMBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new PKMBarrel(), "pkm.png")
+                .withOnWeaponModel(new PKMfrontsight(), "gun.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -5140,6 +5141,7 @@ public class Attachments {
 
         PechenegBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new PechenegBarrel(), "pkm.png")
+                .withOnWeaponModel(new PKMfrontsight(), "gun.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))

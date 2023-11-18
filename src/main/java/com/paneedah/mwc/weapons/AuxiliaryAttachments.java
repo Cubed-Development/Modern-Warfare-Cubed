@@ -1026,6 +1026,7 @@ public class AuxiliaryAttachments {
         PKMHatch = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 .withModel(new PKMHatch(), "pkm.png")
+                .withModel(new PKMrearsight(), "gun.png")
                 .withRotationPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
                 .withName("PKMHatch")
                 .withRenderablePart()
