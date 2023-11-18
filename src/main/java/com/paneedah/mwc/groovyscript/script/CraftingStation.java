@@ -44,7 +44,6 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
      *
      * @param ingredient Target Ingredient. any recipe with matching output will be removed.
      */
-
     public void remove(IIngredient ingredient) {
         for (ArrayList<IModernCrafting> list : craftingMap.values()) {
             for (IModernCrafting recipe : list) {
