@@ -68,9 +68,8 @@ public final class MWC {
     @Mod.EventHandler
     public void construction(FMLConstructionEvent constructionEvent) {
         //Do this to avoid Groovyscript MWC Mod container getting ignored for being unused class
-        if(Loader.isModLoaded("groovyscript")){
+        if (Loader.isModLoaded("groovyscript"))
             new MWCContainer();
-        }
     }
 
 
