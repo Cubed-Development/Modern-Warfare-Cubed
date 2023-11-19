@@ -24,7 +24,7 @@ public class CustomTileEntityRenderer extends net.minecraft.client.renderer.tile
     @Override
     public void render(CustomTileEntity<?> tileEntity, double posX, double posY, double posZ, float partialTicks, int destroyStage, float alpha) {
         GL11.glPushMatrix();
-        this.bindTexture(textureResource);
+        this.bindTexture(textureResource); // Todo: RENDERING, Who the fuck wrote this
         
       //  GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
