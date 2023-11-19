@@ -11,7 +11,7 @@ import net.minecraft.entity.Entity;
 
 
 public class B50PKMHandguard extends ModelWithAttachments {
-	private final ModelRenderer B_50PKMHandguard;
+	private final ModelRenderer B_50PKPHandguard;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -53,193 +53,193 @@ public class B50PKMHandguard extends ModelWithAttachments {
 		textureWidth = 150;
 		textureHeight = 150;
 
-		B_50PKMHandguard = new ModelRenderer(this);
-		B_50PKMHandguard.setRotationPoint(7.3F, 24.0F, -5.0F);
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -7.0F, 5.0F, 2, 7, 8, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.1F, -7.0F, 2, 2, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -4.5F, -13.7F, 2, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.5F, -13.7F, 2, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.5F, -11.4F, 2, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -4.5F, -9.3F, 2, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.5F, -9.3F, 2, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.1F, -17.0F, 2, 2, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -11.0F, -17.0F, 2, 1, 12, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.0F, -27.0F, 2, 1, 3, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -11.0F, -27.0F, 2, 1, 3, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -5.0F, -46.0F, 1, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -5.0F, -45.8F, 1, 3, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -5.0F, -40.8F, 1, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -5.0F, -36.8F, 1, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -5.0F, -32.8F, 1, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -5.0F, -28.8F, 1, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -5.0F, -25.0F, 1, 3, 3, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -2.0F, -46.0F, 1, 2, 24, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.0F, -46.0F, 1, 2, 24, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.0F, -46.0F, 1, 1, 17, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.1F, -46.0F, 1, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.1F, -42.6F, 1, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.1F, -39.2F, 1, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.1F, -35.8F, 1, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.1F, -32.4F, 1, 3, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.3F, -46.0F, 1, 1, 17, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.3F, -46.0F, 2, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.7F, -46.0F, 2, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.7F, -44.0F, 2, 1, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.3F, -44.0F, 2, 1, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.3F, -41.0F, 2, 1, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.7F, -41.0F, 2, 1, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.7F, -38.0F, 2, 1, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.3F, -38.0F, 2, 1, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.3F, -35.0F, 2, 1, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.7F, -35.0F, 2, 1, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.3F, -32.0F, 2, 1, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.7F, -32.0F, 2, 1, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -10.7F, -46.0F, 1, 1, 17, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -11.0F, -46.0F, 1, 1, 17, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -11.0F, -29.0F, 2, 5, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -11.0F, -24.0F, 2, 5, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -11.0F, -22.0F, 2, 9, 5, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -2.0F, -22.0F, 2, 2, 17, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.4F, -4.8F, 0.7F, 1, 3, 3, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -6.0F, -1.0F, 1, 5, 6, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -1.0F, -1.0F, 2, 1, 6, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.0F, -5.0F, 2, 7, 4, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -11.0F, -5.0F, 2, 5, 14, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -11.0F, 9.0F, 2, 1, 3, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -11.0F, 12.0F, 2, 4, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.0F, 5.0F, 2, 7, 8, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -7.0F, 5.0F, 2, 7, 8, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -7.0F, 5.0F, 2, 7, 8, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -11.0F, 12.0F, 2, 4, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -11.0F, 9.0F, 2, 1, 3, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -11.0F, -5.0F, 2, 5, 14, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -7.0F, -5.0F, 2, 7, 4, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -1.0F, -1.0F, 2, 1, 6, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, 0.0F, -22.0F, 13, 2, 35, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.7F, 1.6F, -46.0F, 4, 2, 59, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, 12.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, 12.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -3.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -3.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, 0.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, 0.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, 3.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, 3.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -12.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -12.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -9.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -9.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -6.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -6.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -39.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -39.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -36.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -36.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -33.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -33.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -46.0F, 1, 1, 2, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -46.0F, 1, 1, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -42.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -42.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -30.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -30.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -27.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -27.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -24.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -24.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -21.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -21.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -18.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -18.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, -15.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, -15.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, 9.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, 9.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.95F, 3.3F, 6.0F, 1, 1, 1, 0.0F, true));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.4F, 3.3F, 6.0F, 1, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 3.0F, 0.0F, -22.0F, 1, 2, 35, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, 0.0F, -46.0F, 11, 2, 24, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, 0.0F, -46.0F, 1, 2, 24, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -6.0F, -1.0F, 1, 5, 6, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.8F, -4.8F, 0.7F, 1, 3, 3, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -2.0F, -22.0F, 2, 2, 17, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -11.0F, -22.0F, 2, 9, 5, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -27.5F, -21.0F, 2, 17, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -27.5F, -3.0F, 2, 17, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -26.5F, -4.0F, 3, 1, 4, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 1.4F, -26.5F, -13.0F, 3, 1, 4, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -26.5F, -22.0F, 3, 1, 4, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -7.4F, -27.5F, -25.0F, 3, 1, 27, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -0.8F, -27.5F, -22.0F, 3, 1, 21, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.1F, -27.5F, -22.0F, 1, 1, 21, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -5.9F, -29.5F, -25.0F, 6, 2, 27, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.9F, -30.7F, 1.0F, 1, 2, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.9F, -30.7F, -2.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.9F, -30.7F, -2.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.9F, -30.7F, -5.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.9F, -30.7F, -5.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.9F, -30.7F, -8.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.9F, -30.7F, -8.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.9F, -30.7F, -11.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.9F, -30.7F, -11.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.9F, -30.7F, -14.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.9F, -30.7F, -14.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.9F, -30.7F, -17.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.9F, -30.7F, -17.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.9F, -30.7F, -20.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.9F, -30.7F, -20.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.9F, -30.7F, -23.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.9F, -30.7F, -23.0F, 1, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.9F, -30.7F, -25.0F, 1, 2, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -1.9F, -30.7F, -25.0F, 1, 2, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -4.9F, -30.7F, 1.0F, 1, 2, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, 2.0F, -27.5F, -12.0F, 2, 17, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -11.0F, -24.0F, 2, 5, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -11.0F, -29.0F, 2, 5, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -11.0F, -46.0F, 1, 1, 17, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -10.7F, -46.0F, 1, 1, 17, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -10.7F, -32.0F, 2, 1, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -7.3F, -32.0F, 2, 1, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -10.7F, -35.0F, 2, 1, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -7.3F, -35.0F, 2, 1, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -7.3F, -38.0F, 2, 1, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -10.7F, -38.0F, 2, 1, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -10.7F, -41.0F, 2, 1, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -7.3F, -41.0F, 2, 1, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -7.3F, -44.0F, 2, 1, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -10.7F, -44.0F, 2, 1, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -10.7F, -46.0F, 2, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -7.3F, -46.0F, 2, 1, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -7.3F, -46.0F, 1, 1, 17, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -10.1F, -32.4F, 1, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -10.1F, -35.8F, 1, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -10.1F, -39.2F, 1, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -10.1F, -42.6F, 1, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -10.1F, -46.0F, 1, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -7.0F, -46.0F, 1, 1, 17, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -7.0F, -46.0F, 1, 2, 24, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -2.0F, -46.0F, 1, 2, 24, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -5.0F, -25.0F, 1, 3, 3, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -5.0F, -28.8F, 1, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -5.0F, -32.8F, 1, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -5.0F, -36.8F, 1, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -5.0F, -40.8F, 1, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -5.0F, -45.8F, 1, 3, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -8.4F, -5.0F, -46.0F, 1, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -11.0F, -27.0F, 2, 1, 3, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -7.0F, -27.0F, 2, 1, 3, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -11.0F, -17.0F, 2, 1, 12, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -7.1F, -17.0F, 2, 2, 2, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -10.5F, -9.3F, 2, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -4.5F, -9.3F, 2, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -7.5F, -11.4F, 2, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -10.5F, -13.7F, 2, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -4.5F, -13.7F, 2, 3, 1, 0.0F, false));
-		B_50PKMHandguard.cubeList.add(new ModelBox(B_50PKMHandguard, 0, 0, -9.4F, -7.1F, -7.0F, 2, 2, 2, 0.0F, false));
+		B_50PKPHandguard = new ModelRenderer(this);
+		B_50PKPHandguard.setRotationPoint(7.0F, 24.0F, 0.0F);
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -7.0F, 5.0F, 2, 7, 8, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.1F, -7.0F, 2, 2, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -4.5F, -13.7F, 2, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.5F, -13.7F, 2, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.5F, -11.4F, 2, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -4.5F, -9.3F, 2, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.5F, -9.3F, 2, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.1F, -17.0F, 2, 2, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -11.0F, -17.0F, 2, 1, 12, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.0F, -27.0F, 2, 1, 3, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -11.0F, -27.0F, 2, 1, 3, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -5.0F, -46.0F, 1, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -5.0F, -45.8F, 1, 3, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -5.0F, -40.8F, 1, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -5.0F, -36.8F, 1, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -5.0F, -32.8F, 1, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -5.0F, -28.8F, 1, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -5.0F, -25.0F, 1, 3, 3, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -2.0F, -46.0F, 1, 2, 24, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.0F, -46.0F, 1, 2, 24, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.0F, -46.0F, 1, 1, 17, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.1F, -46.0F, 1, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.1F, -42.6F, 1, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.1F, -39.2F, 1, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.1F, -35.8F, 1, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.1F, -32.4F, 1, 3, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.3F, -46.0F, 1, 1, 17, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.3F, -46.0F, 2, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.7F, -46.0F, 2, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.7F, -44.0F, 2, 1, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.3F, -44.0F, 2, 1, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.3F, -41.0F, 2, 1, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.7F, -41.0F, 2, 1, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.7F, -38.0F, 2, 1, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.3F, -38.0F, 2, 1, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.3F, -35.0F, 2, 1, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.7F, -35.0F, 2, 1, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.3F, -32.0F, 2, 1, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.7F, -32.0F, 2, 1, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -10.7F, -46.0F, 1, 1, 17, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -11.0F, -46.0F, 1, 1, 17, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -11.0F, -29.0F, 2, 5, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -11.0F, -24.0F, 2, 5, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -11.0F, -22.0F, 2, 9, 5, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -2.0F, -22.0F, 2, 2, 17, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.4F, -4.8F, 0.7F, 1, 3, 3, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -6.0F, -1.0F, 1, 5, 6, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -1.0F, -1.0F, 2, 1, 6, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.0F, -5.0F, 2, 7, 4, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -11.0F, -5.0F, 2, 5, 14, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -11.0F, 9.0F, 2, 1, 3, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -11.0F, 12.0F, 2, 4, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.0F, 5.0F, 2, 7, 8, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -7.0F, 5.0F, 2, 7, 8, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -7.0F, 5.0F, 2, 7, 8, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -11.0F, 12.0F, 2, 4, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -11.0F, 9.0F, 2, 1, 3, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -11.0F, -5.0F, 2, 5, 14, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -7.0F, -5.0F, 2, 7, 4, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -1.0F, -1.0F, 2, 1, 6, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, 0.0F, -22.0F, 13, 2, 35, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.7F, 1.6F, -46.0F, 4, 2, 59, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, 12.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, 12.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -3.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -3.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, 0.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, 0.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, 3.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, 3.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -12.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -12.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -9.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -9.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -6.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -6.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -39.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -39.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -36.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -36.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -33.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -33.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -46.0F, 1, 1, 2, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -46.0F, 1, 1, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -42.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -42.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -30.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -30.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -27.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -27.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -24.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -24.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -21.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -21.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -18.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -18.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, -15.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, -15.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, 9.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, 9.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.95F, 3.3F, 6.0F, 1, 1, 1, 0.0F, true));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.4F, 3.3F, 6.0F, 1, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 3.0F, 0.0F, -22.0F, 1, 2, 35, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, 0.0F, -46.0F, 11, 2, 24, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, 0.0F, -46.0F, 1, 2, 24, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -6.0F, -1.0F, 1, 5, 6, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.8F, -4.8F, 0.7F, 1, 3, 3, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -2.0F, -22.0F, 2, 2, 17, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -11.0F, -22.0F, 2, 9, 5, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -16.5F, -21.0F, 2, 6, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -16.5F, -3.0F, 2, 6, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -15.5F, -4.0F, 3, 1, 4, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 1.4F, -15.5F, -13.0F, 3, 1, 4, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -15.5F, -22.0F, 3, 1, 4, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -7.4F, -16.5F, -25.0F, 3, 1, 27, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -0.8F, -16.5F, -22.0F, 3, 1, 21, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.1F, -16.5F, -22.0F, 1, 1, 21, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -5.9F, -18.5F, -25.0F, 6, 2, 27, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.9F, -19.7F, 1.0F, 1, 2, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.9F, -19.7F, -2.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.9F, -19.7F, -2.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.9F, -19.7F, -5.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.9F, -19.7F, -5.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.9F, -19.7F, -8.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.9F, -19.7F, -8.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.9F, -19.7F, -11.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.9F, -19.7F, -11.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.9F, -19.7F, -14.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.9F, -19.7F, -14.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.9F, -19.7F, -17.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.9F, -19.7F, -17.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.9F, -19.7F, -20.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.9F, -19.7F, -20.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.9F, -19.7F, -23.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.9F, -19.7F, -23.0F, 1, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.9F, -19.7F, -25.0F, 1, 2, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -1.9F, -19.7F, -25.0F, 1, 2, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -4.9F, -19.7F, 1.0F, 1, 2, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, 2.0F, -16.5F, -12.0F, 2, 6, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -11.0F, -24.0F, 2, 5, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -11.0F, -29.0F, 2, 5, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -11.0F, -46.0F, 1, 1, 17, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -10.7F, -46.0F, 1, 1, 17, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -10.7F, -32.0F, 2, 1, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -7.3F, -32.0F, 2, 1, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -10.7F, -35.0F, 2, 1, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -7.3F, -35.0F, 2, 1, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -7.3F, -38.0F, 2, 1, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -10.7F, -38.0F, 2, 1, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -10.7F, -41.0F, 2, 1, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -7.3F, -41.0F, 2, 1, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -7.3F, -44.0F, 2, 1, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -10.7F, -44.0F, 2, 1, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -10.7F, -46.0F, 2, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -7.3F, -46.0F, 2, 1, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -7.3F, -46.0F, 1, 1, 17, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -10.1F, -32.4F, 1, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -10.1F, -35.8F, 1, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -10.1F, -39.2F, 1, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -10.1F, -42.6F, 1, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -10.1F, -46.0F, 1, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -7.0F, -46.0F, 1, 1, 17, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -7.0F, -46.0F, 1, 2, 24, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -2.0F, -46.0F, 1, 2, 24, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -5.0F, -25.0F, 1, 3, 3, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -5.0F, -28.8F, 1, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -5.0F, -32.8F, 1, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -5.0F, -36.8F, 1, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -5.0F, -40.8F, 1, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -5.0F, -45.8F, 1, 3, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -8.4F, -5.0F, -46.0F, 1, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -11.0F, -27.0F, 2, 1, 3, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -7.0F, -27.0F, 2, 1, 3, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -11.0F, -17.0F, 2, 1, 12, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -7.1F, -17.0F, 2, 2, 2, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -10.5F, -9.3F, 2, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -4.5F, -9.3F, 2, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -7.5F, -11.4F, 2, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -10.5F, -13.7F, 2, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -4.5F, -13.7F, 2, 3, 1, 0.0F, false));
+		B_50PKPHandguard.cubeList.add(new ModelBox(B_50PKPHandguard, 0, 0, -9.4F, -7.1F, -7.0F, 2, 2, 2, 0.0F, false));
 
 		cube_r1 = new ModelRenderer(this);
 		cube_r1.setRotationPoint(-8.4F, -6.0F, -10.9F);
-		B_50PKMHandguard.addChild(cube_r1);
+		B_50PKPHandguard.addChild(cube_r1);
 		setRotationAngle(cube_r1, 1.0472F, 0.0F, 0.0F);
 		cube_r1.cubeList.add(new ModelBox(cube_r1, 0, 0, -1.0F, 0.5F, 2.6F, 2, 1, 1, 0.0F, false));
 		cube_r1.cubeList.add(new ModelBox(cube_r1, 0, 0, -1.0F, -3.9F, -7.0F, 2, 2, 1, 0.0F, false));
@@ -264,7 +264,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r2 = new ModelRenderer(this);
 		cube_r2.setRotationPoint(-8.4F, -6.0F, 10.9F);
-		B_50PKMHandguard.addChild(cube_r2);
+		B_50PKPHandguard.addChild(cube_r2);
 		setRotationAngle(cube_r2, -1.0472F, 0.0F, 0.0F);
 		cube_r2.cubeList.add(new ModelBox(cube_r2, 0, 0, -1.0F, 15.1F, -4.9F, 2, 2, 1, 0.0F, false));
 		cube_r2.cubeList.add(new ModelBox(cube_r2, 0, 0, -1.0F, 19.1F, -7.0F, 2, 2, 1, 0.0F, false));
@@ -291,7 +291,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r3 = new ModelRenderer(this);
 		cube_r3.setRotationPoint(-8.4F, -6.0F, -32.9F);
-		B_50PKMHandguard.addChild(cube_r3);
+		B_50PKPHandguard.addChild(cube_r3);
 		setRotationAngle(cube_r3, 1.0472F, 0.0F, 0.0F);
 		cube_r3.cubeList.add(new ModelBox(cube_r3, 0, 0, -1.0F, 23.4F, 12.6F, 2, 2, 1, 0.0F, false));
 		cube_r3.cubeList.add(new ModelBox(cube_r3, 0, 0, -1.0F, 12.4F, 8.8F, 2, 2, 1, 0.0F, false));
@@ -302,14 +302,14 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r4 = new ModelRenderer(this);
 		cube_r4.setRotationPoint(-8.4F, -6.0F, -11.1F);
-		B_50PKMHandguard.addChild(cube_r4);
+		B_50PKPHandguard.addChild(cube_r4);
 		setRotationAngle(cube_r4, -1.0472F, 0.0F, 0.0F);
 		cube_r4.cubeList.add(new ModelBox(cube_r4, 0, 0, -1.0F, 1.0F, -3.6F, 2, 3, 1, 0.0F, false));
 		cube_r4.cubeList.add(new ModelBox(cube_r4, 0, 0, 10.4F, 1.0F, -3.6F, 2, 3, 1, 0.0F, true));
 
 		cube_r5 = new ModelRenderer(this);
 		cube_r5.setRotationPoint(-8.4F, -8.5F, -25.4958F);
-		B_50PKMHandguard.addChild(cube_r5);
+		B_50PKPHandguard.addChild(cube_r5);
 		setRotationAngle(cube_r5, 0.7854F, 0.0F, 0.0F);
 		cube_r5.cubeList.add(new ModelBox(cube_r5, 0, 0, -1.0F, -1.0F, 1.5F, 2, 2, 1, 0.0F, false));
 		cube_r5.cubeList.add(new ModelBox(cube_r5, 0, 0, -1.0F, -1.0F, -2.5F, 2, 2, 1, 0.0F, false));
@@ -318,7 +318,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r6 = new ModelRenderer(this);
 		cube_r6.setRotationPoint(-8.4F, -8.5F, -25.4958F);
-		B_50PKMHandguard.addChild(cube_r6);
+		B_50PKPHandguard.addChild(cube_r6);
 		setRotationAngle(cube_r6, 2.3562F, 0.0F, 0.0F);
 		cube_r6.cubeList.add(new ModelBox(cube_r6, 0, 0, -1.0F, -1.0F, -2.5F, 2, 2, 1, 0.0F, false));
 		cube_r6.cubeList.add(new ModelBox(cube_r6, 0, 0, -1.0F, -1.0F, 1.5F, 2, 2, 1, 0.0F, false));
@@ -327,7 +327,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r7 = new ModelRenderer(this);
 		cube_r7.setRotationPoint(-7.9F, -3.5F, -26.3787F);
-		B_50PKMHandguard.addChild(cube_r7);
+		B_50PKPHandguard.addChild(cube_r7);
 		setRotationAngle(cube_r7, 0.7854F, 0.0F, 0.0F);
 		cube_r7.cubeList.add(new ModelBox(cube_r7, 0, 0, -0.5F, -0.8F, -2.5F, 1, 1, 1, 0.0F, false));
 		cube_r7.cubeList.add(new ModelBox(cube_r7, 0, 0, -0.5F, -0.2F, 1.5F, 1, 1, 1, 0.0F, false));
@@ -340,7 +340,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r8 = new ModelRenderer(this);
 		cube_r8.setRotationPoint(-7.9F, -3.5F, -30.3787F);
-		B_50PKMHandguard.addChild(cube_r8);
+		B_50PKPHandguard.addChild(cube_r8);
 		setRotationAngle(cube_r8, 0.7854F, 0.0F, 0.0F);
 		cube_r8.cubeList.add(new ModelBox(cube_r8, 0, 0, -0.5F, -0.2F, 1.5F, 1, 1, 1, 0.0F, false));
 		cube_r8.cubeList.add(new ModelBox(cube_r8, 0, 0, -0.5F, -0.8F, 1.5F, 1, 1, 1, 0.0F, false));
@@ -353,7 +353,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r9 = new ModelRenderer(this);
 		cube_r9.setRotationPoint(-7.9F, -3.5F, -30.3787F);
-		B_50PKMHandguard.addChild(cube_r9);
+		B_50PKPHandguard.addChild(cube_r9);
 		setRotationAngle(cube_r9, 2.3126F, 0.0F, 0.0F);
 		cube_r9.cubeList.add(new ModelBox(cube_r9, 0, 0, -0.5F, -0.2F, -2.5F, 1, 1, 1, 0.0F, false));
 		cube_r9.cubeList.add(new ModelBox(cube_r9, 0, 0, -0.5F, -0.8F, -2.5F, 1, 1, 1, 0.0F, false));
@@ -366,7 +366,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r10 = new ModelRenderer(this);
 		cube_r10.setRotationPoint(-7.9F, -3.5F, -26.3787F);
-		B_50PKMHandguard.addChild(cube_r10);
+		B_50PKPHandguard.addChild(cube_r10);
 		setRotationAngle(cube_r10, 2.3126F, 0.0F, 0.0F);
 		cube_r10.cubeList.add(new ModelBox(cube_r10, 0, 0, -0.5F, -0.2F, -2.5F, 1, 1, 1, 0.0F, false));
 		cube_r10.cubeList.add(new ModelBox(cube_r10, 0, 0, -0.5F, -0.8F, 1.5F, 1, 1, 1, 0.0F, false));
@@ -379,7 +379,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r11 = new ModelRenderer(this);
 		cube_r11.setRotationPoint(-7.9F, -3.5F, -42.3787F);
-		B_50PKMHandguard.addChild(cube_r11);
+		B_50PKPHandguard.addChild(cube_r11);
 		setRotationAngle(cube_r11, 2.3126F, 0.0F, 0.0F);
 		cube_r11.cubeList.add(new ModelBox(cube_r11, 0, 0, -0.5F, -0.2F, 1.5F, 1, 1, 1, 0.0F, false));
 		cube_r11.cubeList.add(new ModelBox(cube_r11, 0, 0, -0.5F, -0.8F, 1.5F, 1, 1, 1, 0.0F, false));
@@ -392,7 +392,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r12 = new ModelRenderer(this);
 		cube_r12.setRotationPoint(-7.9F, -3.5F, -42.3787F);
-		B_50PKMHandguard.addChild(cube_r12);
+		B_50PKPHandguard.addChild(cube_r12);
 		setRotationAngle(cube_r12, 0.7854F, 0.0F, 0.0F);
 		cube_r12.cubeList.add(new ModelBox(cube_r12, 0, 0, -0.5F, -0.8F, -2.5F, 1, 1, 1, 0.0F, false));
 		cube_r12.cubeList.add(new ModelBox(cube_r12, 0, 0, -0.5F, -0.2F, -2.5F, 1, 1, 1, 0.0F, false));
@@ -405,7 +405,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r13 = new ModelRenderer(this);
 		cube_r13.setRotationPoint(-7.9F, -3.5F, -38.3787F);
-		B_50PKMHandguard.addChild(cube_r13);
+		B_50PKPHandguard.addChild(cube_r13);
 		setRotationAngle(cube_r13, 2.3126F, 0.0F, 0.0F);
 		cube_r13.cubeList.add(new ModelBox(cube_r13, 0, 0, -0.5F, -0.2F, 1.5F, 1, 1, 1, 0.0F, false));
 		cube_r13.cubeList.add(new ModelBox(cube_r13, 0, 0, -0.5F, -0.8F, 1.5F, 1, 1, 1, 0.0F, false));
@@ -418,7 +418,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r14 = new ModelRenderer(this);
 		cube_r14.setRotationPoint(-7.9F, -3.5F, -38.3787F);
-		B_50PKMHandguard.addChild(cube_r14);
+		B_50PKPHandguard.addChild(cube_r14);
 		setRotationAngle(cube_r14, 0.7854F, 0.0F, 0.0F);
 		cube_r14.cubeList.add(new ModelBox(cube_r14, 0, 0, -0.5F, -0.8F, -2.5F, 1, 1, 1, 0.0F, false));
 		cube_r14.cubeList.add(new ModelBox(cube_r14, 0, 0, -0.5F, -0.2F, -2.5F, 1, 1, 1, 0.0F, false));
@@ -431,7 +431,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r15 = new ModelRenderer(this);
 		cube_r15.setRotationPoint(-7.9F, -3.5F, -34.3787F);
-		B_50PKMHandguard.addChild(cube_r15);
+		B_50PKPHandguard.addChild(cube_r15);
 		setRotationAngle(cube_r15, 2.3126F, 0.0F, 0.0F);
 		cube_r15.cubeList.add(new ModelBox(cube_r15, 0, 0, -0.5F, -0.2F, 1.5F, 1, 1, 1, 0.0F, false));
 		cube_r15.cubeList.add(new ModelBox(cube_r15, 0, 0, -0.5F, -0.8F, 1.5F, 1, 1, 1, 0.0F, false));
@@ -444,7 +444,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r16 = new ModelRenderer(this);
 		cube_r16.setRotationPoint(-7.9F, -3.5F, -34.3787F);
-		B_50PKMHandguard.addChild(cube_r16);
+		B_50PKPHandguard.addChild(cube_r16);
 		setRotationAngle(cube_r16, 0.7854F, 0.0F, 0.0F);
 		cube_r16.cubeList.add(new ModelBox(cube_r16, 0, 0, -0.5F, -0.8F, -2.5F, 1, 1, 1, 0.0F, false));
 		cube_r16.cubeList.add(new ModelBox(cube_r16, 0, 0, -0.5F, -0.2F, -2.5F, 1, 1, 1, 0.0F, false));
@@ -457,7 +457,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r17 = new ModelRenderer(this);
 		cube_r17.setRotationPoint(-8.4F, -8.5293F, -30.2029F);
-		B_50PKMHandguard.addChild(cube_r17);
+		B_50PKPHandguard.addChild(cube_r17);
 		setRotationAngle(cube_r17, 0.7854F, 0.0F, 0.0F);
 		cube_r17.cubeList.add(new ModelBox(cube_r17, 0, 0, 0.0F, -0.55F, 1.15F, 1, 1, 1, 0.0F, false));
 		cube_r17.cubeList.add(new ModelBox(cube_r17, 0, 0, 0.0F, -0.45F, 1.15F, 1, 1, 1, 0.0F, false));
@@ -470,7 +470,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r18 = new ModelRenderer(this);
 		cube_r18.setRotationPoint(-8.4F, -8.5293F, -30.2029F);
-		B_50PKMHandguard.addChild(cube_r18);
+		B_50PKPHandguard.addChild(cube_r18);
 		setRotationAngle(cube_r18, -0.7854F, 0.0F, 0.0F);
 		cube_r18.cubeList.add(new ModelBox(cube_r18, 0, 0, 0.0F, -0.55F, 1.15F, 1, 1, 1, 0.0F, false));
 		cube_r18.cubeList.add(new ModelBox(cube_r18, 0, 0, 0.0F, -0.45F, 1.15F, 1, 1, 1, 0.0F, false));
@@ -483,7 +483,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r19 = new ModelRenderer(this);
 		cube_r19.setRotationPoint(-8.4F, -8.5293F, -43.8029F);
-		B_50PKMHandguard.addChild(cube_r19);
+		B_50PKPHandguard.addChild(cube_r19);
 		setRotationAngle(cube_r19, -0.7854F, 0.0F, 0.0F);
 		cube_r19.cubeList.add(new ModelBox(cube_r19, 0, 0, 0.0F, -0.45F, -2.15F, 1, 1, 1, 0.0F, false));
 		cube_r19.cubeList.add(new ModelBox(cube_r19, 0, 0, 0.0F, -0.55F, -2.15F, 1, 1, 1, 0.0F, false));
@@ -496,7 +496,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r20 = new ModelRenderer(this);
 		cube_r20.setRotationPoint(-8.4F, -8.5293F, -43.8029F);
-		B_50PKMHandguard.addChild(cube_r20);
+		B_50PKPHandguard.addChild(cube_r20);
 		setRotationAngle(cube_r20, 0.7854F, 0.0F, 0.0F);
 		cube_r20.cubeList.add(new ModelBox(cube_r20, 0, 0, 0.0F, -0.55F, 1.15F, 1, 1, 1, 0.0F, false));
 		cube_r20.cubeList.add(new ModelBox(cube_r20, 0, 0, 0.0F, -0.45F, 1.15F, 1, 1, 1, 0.0F, false));
@@ -509,7 +509,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r21 = new ModelRenderer(this);
 		cube_r21.setRotationPoint(-8.4F, -8.5293F, -40.4029F);
-		B_50PKMHandguard.addChild(cube_r21);
+		B_50PKPHandguard.addChild(cube_r21);
 		setRotationAngle(cube_r21, -0.7854F, 0.0F, 0.0F);
 		cube_r21.cubeList.add(new ModelBox(cube_r21, 0, 0, 0.0F, -0.45F, -2.15F, 1, 1, 1, 0.0F, false));
 		cube_r21.cubeList.add(new ModelBox(cube_r21, 0, 0, 0.0F, -0.55F, -2.15F, 1, 1, 1, 0.0F, false));
@@ -522,7 +522,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r22 = new ModelRenderer(this);
 		cube_r22.setRotationPoint(-8.4F, -8.5293F, -40.4029F);
-		B_50PKMHandguard.addChild(cube_r22);
+		B_50PKPHandguard.addChild(cube_r22);
 		setRotationAngle(cube_r22, 0.7854F, 0.0F, 0.0F);
 		cube_r22.cubeList.add(new ModelBox(cube_r22, 0, 0, 0.0F, -0.55F, 1.15F, 1, 1, 1, 0.0F, false));
 		cube_r22.cubeList.add(new ModelBox(cube_r22, 0, 0, 0.0F, -0.45F, 1.15F, 1, 1, 1, 0.0F, false));
@@ -535,7 +535,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r23 = new ModelRenderer(this);
 		cube_r23.setRotationPoint(-8.4F, -8.5293F, -37.0029F);
-		B_50PKMHandguard.addChild(cube_r23);
+		B_50PKPHandguard.addChild(cube_r23);
 		setRotationAngle(cube_r23, -0.7854F, 0.0F, 0.0F);
 		cube_r23.cubeList.add(new ModelBox(cube_r23, 0, 0, 0.0F, -0.45F, -2.15F, 1, 1, 1, 0.0F, false));
 		cube_r23.cubeList.add(new ModelBox(cube_r23, 0, 0, 0.0F, -0.55F, -2.15F, 1, 1, 1, 0.0F, false));
@@ -548,7 +548,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r24 = new ModelRenderer(this);
 		cube_r24.setRotationPoint(-8.4F, -8.5293F, -37.0029F);
-		B_50PKMHandguard.addChild(cube_r24);
+		B_50PKPHandguard.addChild(cube_r24);
 		setRotationAngle(cube_r24, 0.7854F, 0.0F, 0.0F);
 		cube_r24.cubeList.add(new ModelBox(cube_r24, 0, 0, 0.0F, -0.55F, 1.15F, 1, 1, 1, 0.0F, false));
 		cube_r24.cubeList.add(new ModelBox(cube_r24, 0, 0, 0.0F, -0.45F, 1.15F, 1, 1, 1, 0.0F, false));
@@ -561,7 +561,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r25 = new ModelRenderer(this);
 		cube_r25.setRotationPoint(-8.4F, -8.5293F, -33.6029F);
-		B_50PKMHandguard.addChild(cube_r25);
+		B_50PKPHandguard.addChild(cube_r25);
 		setRotationAngle(cube_r25, -0.7854F, 0.0F, 0.0F);
 		cube_r25.cubeList.add(new ModelBox(cube_r25, 0, 0, 0.0F, -0.45F, -2.15F, 1, 1, 1, 0.0F, false));
 		cube_r25.cubeList.add(new ModelBox(cube_r25, 0, 0, 0.0F, -0.55F, -2.15F, 1, 1, 1, 0.0F, false));
@@ -574,7 +574,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r26 = new ModelRenderer(this);
 		cube_r26.setRotationPoint(-8.4F, -8.5293F, -33.6029F);
-		B_50PKMHandguard.addChild(cube_r26);
+		B_50PKPHandguard.addChild(cube_r26);
 		setRotationAngle(cube_r26, 0.7854F, 0.0F, 0.0F);
 		cube_r26.cubeList.add(new ModelBox(cube_r26, 0, 0, 0.0F, -0.55F, 1.15F, 1, 1, 1, 0.0F, false));
 		cube_r26.cubeList.add(new ModelBox(cube_r26, 0, 0, 0.0F, -0.45F, 1.15F, 1, 1, 1, 0.0F, false));
@@ -587,7 +587,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r27 = new ModelRenderer(this);
 		cube_r27.setRotationPoint(-8.4F, -6.8F, -31.0F);
-		B_50PKMHandguard.addChild(cube_r27);
+		B_50PKPHandguard.addChild(cube_r27);
 		setRotationAngle(cube_r27, 0.0F, 0.0F, -0.7854F);
 		cube_r27.cubeList.add(new ModelBox(cube_r27, 0, 0, -1.05F, -0.375F, -1.0F, 1, 1, 2, 0.0F, false));
 		cube_r27.cubeList.add(new ModelBox(cube_r27, 0, 0, -1.05F, -0.375F, -15.0F, 1, 1, 1, 0.0F, false));
@@ -598,7 +598,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r28 = new ModelRenderer(this);
 		cube_r28.setRotationPoint(-8.4F, -10.2F, -46.0F);
-		B_50PKMHandguard.addChild(cube_r28);
+		B_50PKPHandguard.addChild(cube_r28);
 		setRotationAngle(cube_r28, 0.0F, 0.0F, 0.7854F);
 		cube_r28.cubeList.add(new ModelBox(cube_r28, 0, 0, -1.05F, -0.625F, 0.0F, 1, 1, 1, 0.0F, false));
 		cube_r28.cubeList.add(new ModelBox(cube_r28, 0, 0, -1.05F, -0.625F, 2.0F, 1, 1, 2, 0.0F, false));
@@ -609,14 +609,14 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r29 = new ModelRenderer(this);
 		cube_r29.setRotationPoint(-8.4F, -8.5F, -23.0F);
-		B_50PKMHandguard.addChild(cube_r29);
+		B_50PKPHandguard.addChild(cube_r29);
 		setRotationAngle(cube_r29, 1.0036F, 0.0F, 0.0F);
 		cube_r29.cubeList.add(new ModelBox(cube_r29, 0, 0, -1.0F, 0.1F, -2.7F, 2, 3, 2, 0.0F, false));
 		cube_r29.cubeList.add(new ModelBox(cube_r29, 0, 0, 10.4F, 0.1F, -2.7F, 2, 3, 2, 0.0F, true));
 
 		cube_r30 = new ModelRenderer(this);
-		cube_r30.setRotationPoint(4.4F, -29.7F, -11.5F);
-		B_50PKMHandguard.addChild(cube_r30);
+		cube_r30.setRotationPoint(4.4F, -18.7F, -11.5F);
+		B_50PKPHandguard.addChild(cube_r30);
 		setRotationAngle(cube_r30, 0.0F, 0.0F, 0.7854F);
 		cube_r30.cubeList.add(new ModelBox(cube_r30, 0, 0, -3.85F, 3.025F, 12.5F, 1, 2, 1, 0.0F, true));
 		cube_r30.cubeList.add(new ModelBox(cube_r30, 0, 0, -4.45F, 3.025F, 12.5F, 1, 2, 1, 0.0F, true));
@@ -640,8 +640,8 @@ public class B50PKMHandguard extends ModelWithAttachments {
 		cube_r30.cubeList.add(new ModelBox(cube_r30, 0, 0, -4.45F, 3.025F, 9.5F, 1, 2, 2, 0.0F, true));
 
 		cube_r31 = new ModelRenderer(this);
-		cube_r31.setRotationPoint(-4.4F, -29.7F, -11.5F);
-		B_50PKMHandguard.addChild(cube_r31);
+		cube_r31.setRotationPoint(-4.4F, -18.7F, -11.5F);
+		B_50PKPHandguard.addChild(cube_r31);
 		setRotationAngle(cube_r31, 0.0F, 0.0F, -0.7854F);
 		cube_r31.cubeList.add(new ModelBox(cube_r31, 0, 0, -1.25F, -1.075F, 12.5F, 1, 2, 1, 0.0F, false));
 		cube_r31.cubeList.add(new ModelBox(cube_r31, 0, 0, -0.65F, -1.075F, 12.5F, 1, 2, 1, 0.0F, false));
@@ -666,7 +666,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r32 = new ModelRenderer(this);
 		cube_r32.setRotationPoint(0.0F, 1.0F, -6.0F);
-		B_50PKMHandguard.addChild(cube_r32);
+		B_50PKPHandguard.addChild(cube_r32);
 		setRotationAngle(cube_r32, 0.0F, 0.0F, -0.7854F);
 		cube_r32.cubeList.add(new ModelBox(cube_r32, 0, 0, -5.5F, -1.8F, 12.0F, 1, 1, 1, 0.0F, false));
 		cube_r32.cubeList.add(new ModelBox(cube_r32, 0, 0, -5.5F, -1.8F, 15.0F, 1, 1, 1, 0.0F, false));
@@ -691,7 +691,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r33 = new ModelRenderer(this);
 		cube_r33.setRotationPoint(-5.35F, 1.0F, -6.0F);
-		B_50PKMHandguard.addChild(cube_r33);
+		B_50PKPHandguard.addChild(cube_r33);
 		setRotationAngle(cube_r33, 0.0F, 0.0F, 0.7854F);
 		cube_r33.cubeList.add(new ModelBox(cube_r33, 0, 0, 4.5F, -1.8F, 12.0F, 1, 1, 1, 0.0F, true));
 		cube_r33.cubeList.add(new ModelBox(cube_r33, 0, 0, 4.5F, -1.8F, 15.0F, 1, 1, 1, 0.0F, true));
@@ -716,7 +716,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r34 = new ModelRenderer(this);
 		cube_r34.setRotationPoint(0.0F, 0.0F, 0.0F);
-		B_50PKMHandguard.addChild(cube_r34);
+		B_50PKPHandguard.addChild(cube_r34);
 		setRotationAngle(cube_r34, 0.7854F, 0.0F, 0.0F);
 		cube_r34.cubeList.add(new ModelBox(cube_r34, 0, 0, -9.4F, 2.9F, 12.4F, 2, 1, 2, 0.0F, false));
 		cube_r34.cubeList.add(new ModelBox(cube_r34, 0, 0, -9.4F, -1.0F, 12.4F, 2, 1, 2, 0.0F, false));
@@ -733,7 +733,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r35 = new ModelRenderer(this);
 		cube_r35.setRotationPoint(3.0F, -10.2F, -31.0F);
-		B_50PKMHandguard.addChild(cube_r35);
+		B_50PKPHandguard.addChild(cube_r35);
 		setRotationAngle(cube_r35, 0.0F, 0.0F, -0.7854F);
 		cube_r35.cubeList.add(new ModelBox(cube_r35, 0, 0, 0.05F, -0.625F, -1.0F, 1, 1, 2, 0.0F, true));
 		cube_r35.cubeList.add(new ModelBox(cube_r35, 0, 0, 0.05F, -0.625F, -4.0F, 1, 1, 2, 0.0F, true));
@@ -744,7 +744,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 		cube_r36 = new ModelRenderer(this);
 		cube_r36.setRotationPoint(3.0F, -6.8F, -34.0F);
-		B_50PKMHandguard.addChild(cube_r36);
+		B_50PKPHandguard.addChild(cube_r36);
 		setRotationAngle(cube_r36, 0.0F, 0.0F, 0.7854F);
 		cube_r36.cubeList.add(new ModelBox(cube_r36, 0, 0, 0.05F, -0.375F, -1.0F, 1, 1, 2, 0.0F, true));
 		cube_r36.cubeList.add(new ModelBox(cube_r36, 0, 0, 0.05F, -0.375F, -4.0F, 1, 1, 2, 0.0F, true));
@@ -756,7 +756,7 @@ public class B50PKMHandguard extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		B_50PKMHandguard.render(f5);
+		B_50PKPHandguard.render(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

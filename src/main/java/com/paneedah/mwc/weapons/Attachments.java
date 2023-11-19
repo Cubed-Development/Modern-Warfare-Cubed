@@ -5188,15 +5188,15 @@ public class Attachments {
                 .withName("B51ScopeMountRail")
                 .build();
 
-        B50PKMHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+        B50PKPHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new B50PKPHandguard(), "gun.png")
-                .withRequiredAttachments(PKMBarrel)
+                .withRequiredAttachments(PechenegBarrel)
                 .withName("B50PKMHandguard")
                 .build();
 
-        B50PKPHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+        B50PKMHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new B50PKMHandguard(), "gun.png")
-                .withRequiredAttachments(PechenegBarrel)
+                .withRequiredAttachments(PKMBarrel)
                 .withName("B50PKPHandguard")
                 .build();
     }

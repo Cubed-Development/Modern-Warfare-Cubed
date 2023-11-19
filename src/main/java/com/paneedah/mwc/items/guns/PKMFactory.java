@@ -6,10 +6,7 @@ import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.weaponlib.RenderableState;
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.WeaponRenderer;
+import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.ModernConfigManager;
@@ -42,6 +39,7 @@ public class PKMFactory {
                 .withShellCasingForwardOffset(-0.2f)
                 .withShellCasingEjectEnabled(false)
                 .withInaccuracy(1f)
+                .hasFlashPedals()
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -166,7 +164,7 @@ public class PKMFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
-                    GL11.glTranslatef(0.01F, -1.8F, -0.83F);
+                    GL11.glTranslatef(-0.07F, -1.8F, -1.5F);
                     GL11.glScaled(0.5F, 0.5F, 0.5F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -175,7 +173,7 @@ public class PKMFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Holographic, () -> {
-                    GL11.glTranslatef(0.03F, -1.85F, -0.67F);
+                    GL11.glTranslatef(-0.07F, -1.9F, -1.5F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -184,7 +182,7 @@ public class PKMFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
-                    GL11.glTranslatef(0.03F, -1.85F, -0.67F);
+                    GL11.glTranslatef(-0.07F, -1.9F, -1.5F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -193,7 +191,7 @@ public class PKMFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
-                    GL11.glTranslatef(0.03F, -1.85F, -0.67F);
+                    GL11.glTranslatef(-0.07F, -1.9F, -1.5F);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof EotechScopeRing) {
@@ -206,7 +204,7 @@ public class PKMFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.VortexRedux, () -> {
-                    GL11.glTranslatef(-0.215F, -2.05F, -0.93F);
+                    GL11.glTranslatef(-0.32F, -2.1F, -1.55F);
                     GL11.glScaled(0.45F, 0.45F, 0.45F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -215,7 +213,7 @@ public class PKMFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Kobra, () -> {
-                    GL11.glTranslatef(0.04f, -1.8f, -0.57f);
+                    GL11.glTranslatef(-0.06f, -1.85f, -1.5f);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -224,7 +222,7 @@ public class PKMFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.KobraGen3, () -> {
-                    GL11.glTranslatef(0.04f, -1.8f, -0.57f);
+                    GL11.glTranslatef(-0.06f, -1.85f, -1.5f);
                     GL11.glScaled(0.65F, 0.65F, 0.65F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -233,7 +231,7 @@ public class PKMFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.MicroT1, () -> {
-                    GL11.glTranslatef(-0.1F, -2.0F, -0.6F);
+                    GL11.glTranslatef(-0.19F, -2.0F, -1.3F);
                     GL11.glScaled(0.38F, 0.38F, 0.38F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -241,8 +239,12 @@ public class PKMFactory {
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
+                .withCompatibleAttachment(Attachments.Silencer762x54, (model) -> {
+                    GL11.glTranslatef(-0.2F, -1.3F, -10.6F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
                 .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
-                    GL11.glTranslatef(-0.1F, -2.0F, -0.6F);
+                    GL11.glTranslatef(-0.19F, -2.0F, -1.3F);
                     GL11.glScaled(0.38F, 0.38F, 0.38F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
@@ -251,37 +253,42 @@ public class PKMFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Grip2, (model) -> {
-                    GL11.glTranslatef(-0.1F, -0.01F, -3.8F);
-                    GL11.glScaled(1F, 1F, 1F);
-                    GL11.glRotatef(-10F, 1f, 0f, 0f);
+                    GL11.glTranslatef(-0.1F, -0.1F, -4.5F);
+                    GL11.glScaled(1.1F, 1.1F, 1.1F);
+                    GL11.glRotatef(0F, -45f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.StubbyGrip, (model) -> {
-                    GL11.glTranslatef(-0.1F, -0.01F, -3.8F);
-                    GL11.glScaled(1F, 1F, 1F);
-                    GL11.glRotatef(-10F, 1f, 0f, 0f);
-                })
-                .withCompatibleAttachment(Attachments.AngledGrip, (model) -> {
-                    GL11.glTranslatef(-0.1F, 0.11F, -3.8F);
-                    GL11.glScaled(1F, 1F, 1F);
-                    GL11.glRotatef(-10F, 1f, 0f, 0f);
+                    GL11.glTranslatef(-0.1F, -0.1F, -4.5F);
+                    GL11.glScaled(1.1F, 1.1F, 1.1F);
+                    GL11.glRotatef(0F, -45f, 0f, 0f);
                 })
                 .withCompatibleAttachment(Attachments.VGrip, (model) -> {
-                    GL11.glTranslatef(-0.1F, -0.01F, -3.8F);
-                    GL11.glScaled(1F, 1F, 1F);
-                    GL11.glRotatef(-10F, 1f, 0f, 0f);
+                    GL11.glTranslatef(-0.1F, -0.1F, -4.5F);
+                    GL11.glScaled(1.1F, 1.1F, 1.1F);
+                    GL11.glRotatef(0F, -45f, 0f, 0f);
                 })
-                .withCompatibleAttachment(Attachments.Bipod, (model) -> {
-                    GL11.glTranslatef(-0.1F, -0.41F, -5.4F);
-                    GL11.glScaled(1F, 1F, 1F);
-                })
-                .withCompatibleAttachment(Attachments.Laser2, () -> {
-                    GL11.glTranslatef(0.125F, -1.38F, -3.86F);
-                    GL11.glScaled(0.8F, 0.8F, 0.8F);
-                })
-                .withCompatibleAttachment(Attachments.Laser, () -> {
-                    GL11.glTranslatef(0.125F, -1.38F, -3.86F);
-                    GL11.glScaled(0.8F, 0.8F, 0.8F);
-                })
+                .withCompatibleAttachment(Attachments.Laser2, renderContext -> {
+                    PlayerWeaponInstance instance = renderContext.getWeaponInstance();
+                    if(instance != null) {
+                        ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
+                                AttachmentCategory.GUARD, instance);
+                        if(activeAttachment == Attachments.B50PKMHandguard) {
+                            GL11.glTranslatef(-0.2F, -1.3F, -4.8F);
+                            GL11.glScaled(1.0F, 1.0F, 1.0F);
+                            GL11.glRotatef(-90F, 0f, 0f, 1f);
+                        } else {
+                            GL11.glTranslatef(-0.2F, -1.43F, -4.8F);
+                            GL11.glScaled(1.0F, 1.0F, 1.0F);
+                            GL11.glRotatef(-90F, 0f, 0f, 1f);
+                        }
+                    }
+                },(model) -> {
+                    if(model instanceof Reflex2) {
+                        GL11.glTranslatef(0F, 0F, 0F);
+                        GL11.glScaled(0F, 0F, 0F);
+                    }
+                }, false, false)
+
                 .withTextureNames("pkm")
                 .withRenderer(new WeaponRenderer.Builder()
 
@@ -325,7 +332,7 @@ public class PKMFactory {
                                 new Transform()
                                         .withPosition(-0.2F, 0.1F, 2)
                                         .withRotation(-5.4027F, -4.7805F, -1.6694F)
-                                        .withScale(3.5F, 3.5F, 3.5F)
+                                        .withScale(3.0F, 3.0F, 3.0F)
                                         .withPivotPoint(0, 0, 0)
 
                         )
@@ -346,7 +353,7 @@ public class PKMFactory {
                         .setupCustomKeyedPart(Attachments.VortexRedux, "m249", "scope")
                         .setupCustomKeyedPart(Attachments.Kobra, "m249", "scope")
                         .setupCustomKeyedPart(Attachments.KobraGen3, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.B51ScopeMountRail, "m249", "scope")
+                        .setupCustomKeyedPart(Attachments.B51ScopeMountRail, "m249", "hatch")
                         .setupModernMagazineAnimations("m249",
                                 Magazines.PKMMag)
 
@@ -372,12 +379,12 @@ public class PKMFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                                GL11.glTranslatef(0F, 0.1f, 0.2f);
+                                GL11.glTranslatef(0.035F, 0.46f, 0f);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                                GL11.glTranslatef(0F, 0.05f, 0.2f);
+                                GL11.glTranslatef(0.035F, 0.46f, 0f);
                             }
 
                             // ACOG Zoom
@@ -397,37 +404,37 @@ public class PKMFactory {
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                GL11.glTranslatef(0F, 0.05f, 0f);
+                                GL11.glTranslatef(0.03F, 0.45F, 0.0F);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                GL11.glTranslatef(0F, 0.09f, 0f);
+                                GL11.glTranslatef(0.05F, 0.5f, 0f);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                GL11.glTranslatef(0F, 0.09f, 0f);
+                                GL11.glTranslatef(0.05F, 0.5f, 0f);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                GL11.glTranslatef(0F, 0.07f, 0.1f);
+                                GL11.glTranslatef(0.05F, 0.5f, 0f);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
-                                GL11.glTranslatef(0F, 0.12f, 0f);
+                                GL11.glTranslatef(0.04F, 0.57f, 0.1f);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                GL11.glTranslatef(0F, 0.08f, 0f);
+                                GL11.glTranslatef(0.04F, 0.47f, 0f);
                             }
 
                             // ACOG Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                                GL11.glTranslatef(0F, 0.08f, 0f);
+                                GL11.glTranslatef(0.04F, 0.47f, 0f);
                             } else {
                             }
 

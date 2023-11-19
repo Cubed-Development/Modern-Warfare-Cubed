@@ -286,12 +286,12 @@ public class Magazines {
                 .build(ItemMagazine.class);
 
         Magazines.PKMMag = new ItemMagazine.Builder()
-                .withCapacity(100)
-                .withCompatibleBullet(Bullets.Bullet556x45)
+                .withCapacity(120)
+                .withCompatibleBullet(Bullets.Bullet762x54)
                 .withName("PKMMag")
                 .withRotationPoint(0.8812000082910061F, 0.8648000418066975F, -1.40640004143715F)
                 .withModel(new PKMMag(), "pkm.png")
-                .withMaxStackSize(3)
+                .withMaxStackSize(2)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
                         MWCItems.gunmetalIngot)
