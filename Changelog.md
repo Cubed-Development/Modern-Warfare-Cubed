@@ -50,6 +50,10 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added `reconcileAmmunition` & `reconcileAttachments` gamerules, they are true by default and should only be used for debugging purposes, for example, when you have weapons that appear to "desync" / glitch out
 - Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
 - Added the gold and dark color variants of the Desert Eagle
+- Added Accuracy International AX50
+- Added Modernized Kalashnikov Machine Gun(PKM)
+- Added PGM Hécate II(WIP)
+- Improved and added variants Tan Color of the front grips
 
 ### Changed
 
@@ -100,6 +104,16 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Terrorist spawns are now lower by default
 - Flashbangs do not flash trough walls anymore
 - Change the name from NGSW-R to SIG XM7
+- Renewed M200 Intervention
+- Renewed M79(WIP)
+- Renewed Colt M1911
+- Renewed M60E4(WIP)
+- Renewed Saiga12 (WIP)
+- Renewed Uzi
+- Renewed APC9
+- Renewed S7-10 Tricun
+- Renewed AS50(WIP)
+- Renewed AUG(WIP)
 
 ### Fixed
 
@@ -225,27 +239,6 @@ The new balance pack manager version is `1.3`.
 
 - Added `inaccuracy`
 - Removed `headshotMultiplier`
-
-### New Guns Renewed and Added
-
-//  Renewed Guns
-
-- M200 Intervention
-- M79(WIP)
-- Colt M1911
-- M60E4(WIP)
-- Saiga12 (WIP)
-- Uzi
-- APC9
-- S7-10 Tricun
-- AS50
-- AUG(WIP)
-
-//  New Guns
-
-- Accuracy International AX50
-- Modernized Kalashnikov Machine Gun(PKM)
-- PGM Hécate II(WIP)
 
 ##### Credits
 
