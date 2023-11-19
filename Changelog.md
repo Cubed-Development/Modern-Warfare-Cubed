@@ -99,6 +99,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - The weapon stats in the modification GUI are now updated instantly
 - Terrorist spawns are now lower by default
 - Flashbangs do not flash trough walls anymore
+- Change the name from NGSW-R to SIG XM7
 
 ### Fixed
 
@@ -224,6 +225,27 @@ The new balance pack manager version is `1.3`.
 
 - Added `inaccuracy`
 - Removed `headshotMultiplier`
+
+### New Guns Renewed and Added
+
+//  Renewed Guns
+
+- M200 Intervention
+- M79(WIP)
+- Colt M1911
+- M60E4(WIP)
+- Saiga12 (WIP)
+- Uzi
+- APC9
+- S7-10 Tricun
+- AS50
+- AUG(WIP)
+
+//  New Guns
+
+- Accuracy International AX50
+- Modernized Kalashnikov Machine Gun(PKM)
+- PGM Hécate II(WIP)
 
 ##### Credits
 

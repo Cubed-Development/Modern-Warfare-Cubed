@@ -96,14 +96,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
         .withCompatibleBullet(Bullets.Bullet44, (model) -> {})
         .withTextureNames("taurusraginghunter")
         .withRenderer(new WeaponRenderer.Builder()
-			.withActionPiece(
-					AuxiliaryAttachments.MagnumChamber,
-					AuxiliaryAttachments.RevolverSpeedLoaderBullets)
-			.withActionTransform(
-					new Transform()
-							.withPivotPoint(0.13F, 0.87F, 0.0F)
-							.withRotation(0f, 0f, 90f)
-			)
+		
             .withModel(new TaurusRagingHunter())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);

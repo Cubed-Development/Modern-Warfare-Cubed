@@ -72,14 +72,6 @@ public class PythonFactory implements GunFactory {
 		.withCompatibleBullet(Bullets.Bullet357, (model) -> {})
 		.withTextureNames("Python")
 		.withRenderer(new WeaponRenderer.Builder()
-			.withActionPiece(
-					AuxiliaryAttachments.PythonChamber,
-					AuxiliaryAttachments.RevolverSpeedLoaderBullets)
-			.withActionTransform(
-					new Transform()
-							.withPivotPoint(0.13F, 0.87F, 0.0F)
-							.withRotation(0f, 0f, 90f)
-			)
 			.withModel(new Python())
 
 			.withEntityPositioning(itemStack -> {

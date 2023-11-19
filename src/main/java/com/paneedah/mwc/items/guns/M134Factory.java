@@ -63,12 +63,7 @@ public class M134Factory implements GunFactory {
         })
         .withTextureNames("m134")
         .withRenderer(new WeaponRenderer.Builder()
-            .withActionPiece(AuxiliaryAttachments.M134Barrels)
-            .withActionTransform(
-                    new Transform()
-                            .withPivotPoint(0.0F, -0.4F, 0.0F)
-                            .withRotation(0f, 0f, 1200f)
-            )
+
             .withModel(new M134())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
