@@ -190,6 +190,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Deleted broken Hescobastion and UMP45GFL props
 - Removed the vanilla ability to disable shaders with F4 (this allowed for flash to be disabled)
 - Removed the `WIP` status of the flashbang as it is fully usable and reliable
+- Removed the muzzle flash from the VSS Vintorez to make it more similar to it's real-life counterpart
 
 ### Optimization
 
