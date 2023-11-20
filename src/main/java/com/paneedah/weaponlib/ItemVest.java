@@ -268,6 +268,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
         this.percentDamageBlocked = percentDamageBlocked;
         this.damageReduceAmount = 1;
         this.durability = durability;
+        this.maxStackSize = 1;
     }
 
     @Override
