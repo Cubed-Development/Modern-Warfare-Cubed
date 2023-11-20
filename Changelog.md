@@ -52,6 +52,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added the gold and dark color variants of the Desert Eagle
 - Added Accuracy International AX50
 - Added Modernized Kalashnikov Machine Gun(PKM)
+- New Attachments for G36C
+- New Attachments for Uzi
 - Added PGM Hécate II(WIP)
 - Improved and added variants Tan Color of the front grips
 
@@ -103,17 +105,21 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - The weapon stats in the modification GUI are now updated instantly
 - Terrorist spawns are now lower by default
 - Flashbangs do not flash trough walls anymore
+- New Model for Suppresor .50 BMG
 - Change the name from NGSW-R to SIG XM7
 - Renewed M200 Intervention
 - Renewed M79(WIP)
 - Renewed Colt M1911
 - Renewed M60E4(WIP)
-- Renewed Saiga12 (WIP)
+- Renewed Saiga12(WIP)
 - Renewed Uzi
 - Renewed APC9
 - Renewed S7-10 Tricun
 - Renewed AS50(WIP)
 - Renewed AUG(WIP)
+- Renewed MP-40(WIP)
+- Removed the small tilt on handguns such as the Desert Eagle and some Revolvers
+- New recoil effect for the Desert Eagle
 
 ### Fixed
 
@@ -191,6 +197,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed the spawning position of the shells
 - Bullet spawning maths which was making the bullets spawn in inaccurate position
 - Fixed compatibility with Forge `Emissive Item Rendering`
+- Fixed bad position during aiming in handguns
+- The position of the weapons was fixed and is centered in the shadow when dropped.
 
 ### Removed
 
@@ -204,6 +212,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Deleted broken Hescobastion and UMP45GFL props
 - Removed the vanilla ability to disable shaders with F4 (this allowed for flash to be disabled)
 - Removed the `WIP` status of the flashbang as it is fully usable and reliable
+- Removed -90 degrees on weapons
 
 ### Optimization
 
