@@ -160,8 +160,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
                     OreDictIngredient dict = (OreDictIngredient) ingredient;
                     entries.add(new CraftingEntry(dict.getFirst().getItem(), dict.getOreDict(), dict.getAmount(), this.yields.get(i)));
                 } else {
-                    ItemsIngredient item = (ItemsIngredient) ingredient;
-                    entries.add(new CraftingEntry(item.getMatchingStacks()[0].getItem(), item.getAmount(), this.yields.get(i)));
+                    entries.add(new CraftingEntry(ingredient.getMatchingStacks()[0].getItem(), ingredient.getAmount(), this.yields.get(i)));
                 }
             }
             GSCrafting recipe = new GSCrafting(this.output.get(0), this.group, entries.toArray(new CraftingEntry[0]));
