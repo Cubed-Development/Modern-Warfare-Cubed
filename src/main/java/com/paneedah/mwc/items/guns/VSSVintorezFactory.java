@@ -45,7 +45,7 @@ public class VSSVintorezFactory {
         .withCrosshair("gun")
         .withCrosshairRunning("Running")
         .withCrosshairZoomed("Sight")
-        .withFlashIntensity(0.4f)
+        .withFlashIntensity(0.0f)
         .withFlashScale(() -> 0.4f)
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.11f)
