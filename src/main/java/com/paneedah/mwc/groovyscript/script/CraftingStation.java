@@ -84,7 +84,6 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
     /**
      * Start Recipe Builder for GroovyScript.
      */
-
     public RecipeBuilder recipeBuilder() {
         return new RecipeBuilder();
     }
