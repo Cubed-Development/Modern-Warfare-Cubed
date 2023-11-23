@@ -85,7 +85,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("russian_weapons_case")
-        .withModelClassName("com.paneedah.mwc.models.weapons.MilitaryCrate")
+        .withModelClassName("com.paneedah.mwc.models.props.MilitaryCrate")
         .withTextureName("textures/models/militarycrate.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -328,7 +328,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("scp_locker")
-        .withModelClassName("com.paneedah.mwc.models.weapons.SCPLocker")
+        .withModelClassName("com.paneedah.mwc.models.props.SCPLocker")
         .withTextureName("textures/models/scplocker.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -388,7 +388,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("pc")
-        .withModelClassName("com.paneedah.mwc.models.weapons.PC")
+        .withModelClassName("com.paneedah.mwc.models.props.PC")
         .withTextureName("textures/models/pc.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -400,7 +400,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("laptop")
-        .withModelClassName("com.paneedah.mwc.models.weapons.Laptop")
+        .withModelClassName("com.paneedah.mwc.models.props.Laptop")
         .withTextureName("textures/models/pc.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -594,7 +594,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("office_chair")
-        .withModelClassName("com.paneedah.mwc.models.weapons.OfficeChair2")
+        .withModelClassName("com.paneedah.mwc.models.props.OfficeChair2")
         .withTextureName("textures/models/officechair.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -629,7 +629,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("office_chair_2")
-        .withModelClassName("com.paneedah.mwc.models.weapons.OfficeChair")
+        .withModelClassName("com.paneedah.mwc.models.props.OfficeChair")
         .withTextureName("textures/models/officechair.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -937,7 +937,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("impaled_body")
-        .withModelClassName("com.paneedah.mwc.models.weapons.ImpaledBody")
+        .withModelClassName("com.paneedah.mwc.models.weapons.ImpaledBody") // Todo: Braiam optimized version
         .withTextureName("textures/models/impaledbody.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -1034,7 +1034,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("operating_table")
-        .withModelClassName("com.paneedah.mwc.models.weapons.OperatingTable")
+        .withModelClassName("com.paneedah.mwc.models.props.OperatingTable")
         .withTextureName("textures/models/operatingtable.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1047,7 +1047,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("operating_table_alt")
-        .withModelClassName("com.paneedah.mwc.models.weapons.OperatingTableAlt")
+        .withModelClassName("com.paneedah.mwc.models.props.OperatingTableAlt")
         .withTextureName("textures/models/operatingtable.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1741,7 +1741,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("propanetank")
-        .withModelClassName("com.paneedah.mwc.models.weapons.PropaneTank")
+        .withModelClassName("com.paneedah.mwc.models.props.PropaneTank")
         .withTextureName("textures/models/propanetank.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
