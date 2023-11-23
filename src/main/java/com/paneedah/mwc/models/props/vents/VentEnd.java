@@ -1,4 +1,4 @@
-package com.paneedah.mwc.models.props;
+package com.paneedah.mwc.models.props.vents;
 
 import com.paneedah.mwc.models.IModernModel;
 import net.minecraft.client.model.ModelBase;

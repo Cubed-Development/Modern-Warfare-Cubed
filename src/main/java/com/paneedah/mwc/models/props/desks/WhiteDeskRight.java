@@ -1,4 +1,4 @@
-package com.paneedah.mwc.models.props;
+package com.paneedah.mwc.models.props.desks;
 
 import com.paneedah.mwc.models.IModernModel;
 import net.minecraft.client.model.ModelBase;
@@ -12,21 +12,23 @@ import net.minecraft.entity.Entity;
  * @author Developer: Desoroxx
  */
 @SuppressWarnings({"FieldCanBeLocal", "NullableProblems"})
-public final class WhiteDeskMiddle extends ModelBase implements IModernModel {
+public final class WhiteDeskRight extends ModelBase implements IModernModel {
 
-    private final ModelRenderer desk1;
+    private final ModelRenderer bone;
 
-    public WhiteDeskMiddle() {
+    public WhiteDeskRight() {
         textureWidth = 128;
         textureHeight = 128;
 
-        desk1 = new ModelRenderer(this);
-        desk1.setRotationPoint(-8.0F, 8.0F, -5.0F);
-        desk1.cubeList.add(new ModelBox(desk1, 0, 0, 0.0F, 0.0F, 0.0F, 16, 2, 13, 0.0F, true));
+        bone = new ModelRenderer(this);
+        bone.setRotationPoint(0.0F, 24.0F, 0.0F);
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -8.0F, -16.0F, -5.0F, 16, 2, 13, 0.0F, true));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, 6.1F, -15.9F, -5.1F, 2, 16, 2, 0.0F, true));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, 6.1F, -15.9F, 6.1F, 2, 16, 2, 0.0F, true));
     }
 
     @Override
     public void render(final Entity entity, final float limbSwing, final float limbSwingAmount, final float ageInTicks, final float netHeadYaw, final float headPitch, final float scale) {
-        desk1.render(scale);
+        bone.render(scale);
     }
 }

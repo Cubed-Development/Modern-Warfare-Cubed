@@ -664,7 +664,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_corner")
-        .withModelClassName("com.paneedah.mwc.models.props.DeskCorner")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.DeskCorner")
         .withTextureName("textures/models/desk.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -677,7 +677,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_corner_alt1")
-        .withModelClassName("com.paneedah.mwc.models.props.DeskCornerAlt1")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.DeskCornerAlt1")
         .withTextureName("textures/models/desk.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -690,7 +690,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_left")
-        .withModelClassName("com.paneedah.mwc.models.props.DeskLeft")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.DeskLeft")
         .withTextureName("textures/models/desk.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -703,7 +703,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_left_alt1")
-        .withModelClassName("com.paneedah.mwc.models.props.DeskLeftAlt1")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.DeskLeftAlt1")
         .withTextureName("textures/models/desk.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -716,7 +716,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_middle")
-        .withModelClassName("com.paneedah.mwc.models.props.DeskMiddle")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.DeskMiddle")
         .withTextureName("textures/models/desk.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -729,7 +729,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_middle_alt1")
-        .withModelClassName("com.paneedah.mwc.models.props.DeskMiddleAlt1")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.DeskMiddleAlt1")
         .withTextureName("textures/models/deskmiddlealt1.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -742,7 +742,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_right")
-        .withModelClassName("com.paneedah.mwc.models.props.DeskRight")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.DeskRight")
         .withTextureName("textures/models/desk.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -755,7 +755,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_right_alt1")
-        .withModelClassName("com.paneedah.mwc.models.props.DeskRightAlt1")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.DeskRightAlt1")
         .withTextureName("textures/models/desk.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -768,7 +768,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_shelf")
-        .withModelClassName("com.paneedah.mwc.models.props.DeskShelf")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.DeskShelf")
         .withTextureName("textures/models/deskshelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -803,7 +803,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_shelf_alt1")
-        .withModelClassName("com.paneedah.mwc.models.props.DeskShelfAlt1")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.DeskShelfAlt1")
         .withTextureName("textures/models/deskshelfalt1.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -816,7 +816,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_shelf_alt2")
-        .withModelClassName("com.paneedah.mwc.models.props.DeskShelfAlt2")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.DeskShelfAlt2")
         .withTextureName("textures/models/deskshelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -851,7 +851,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("desk_shelf_alt3")
-        .withModelClassName("com.paneedah.mwc.models.props.DeskShelfAlt4")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.DeskShelfAlt4")
         .withTextureName("textures/models/deskshelfalt4.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1125,7 +1125,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent")
-        .withModelClassName("com.paneedah.mwc.models.props.Vent")
+        .withModelClassName("com.paneedah.mwc.models.props.vents.Vent")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1138,7 +1138,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_rotated")
-        .withModelClassName("com.paneedah.mwc.models.props.Vent")
+        .withModelClassName("com.paneedah.mwc.models.props.vents.Vent")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1151,7 +1151,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_corner")
-        .withModelClassName("com.paneedah.mwc.models.props.VentCorner")
+        .withModelClassName("com.paneedah.mwc.models.props.vents.VentCorner")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1164,7 +1164,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_corner_rotated")
-        .withModelClassName("com.paneedah.mwc.models.props.VentCorner")
+        .withModelClassName("com.paneedah.mwc.models.props.vents.VentCorner")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1177,7 +1177,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_corner_rotated_alt")
-        .withModelClassName("com.paneedah.mwc.models.props.VentCorner")
+        .withModelClassName("com.paneedah.mwc.models.props.vents.VentCorner")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1190,7 +1190,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_intersection")
-        .withModelClassName("com.paneedah.mwc.models.props.VentIntersection")
+        .withModelClassName("com.paneedah.mwc.models.props.vents.VentIntersection")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1203,7 +1203,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_end")
-        .withModelClassName("com.paneedah.mwc.models.props.VentEnd")
+        .withModelClassName("com.paneedah.mwc.models.props.vents.VentEnd")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1216,7 +1216,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("white_desk_left")
-        .withModelClassName("com.paneedah.mwc.models.props.WhiteDeskLeft")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.WhiteDeskLeft")
         .withTextureName("textures/models/shelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1229,7 +1229,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("white_desk_middle")
-        .withModelClassName("com.paneedah.mwc.models.props.WhiteDeskMiddle")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.WhiteDeskMiddle")
         .withTextureName("textures/models/shelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -1264,7 +1264,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("white_desk_right")
-        .withModelClassName("com.paneedah.mwc.models.props.WhiteDeskRight")
+        .withModelClassName("com.paneedah.mwc.models.props.desks.WhiteDeskRight")
         .withTextureName("textures/models/shelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
