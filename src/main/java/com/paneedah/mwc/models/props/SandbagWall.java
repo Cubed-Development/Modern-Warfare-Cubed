@@ -1,4 +1,4 @@
-package com.paneedah.mwc.models.weapons;
+package com.paneedah.mwc.models.props;
 
 import com.paneedah.mwc.models.IModernModel;
 import net.minecraft.client.model.ModelBase;
@@ -6,12 +6,13 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.entity.Entity;
 
-// Made with Blockbench 3.6.6
-// Exported for Minecraft version 1.12
-// Paste this class into your mod and generate all required imports
-
-
-public class SandbagWall extends ModelBase implements IModernModel {
+/**
+ * Made with Blockbench 4.8.1
+ *
+ * @author Developer: Desoroxx
+ */
+@SuppressWarnings({"FieldCanBeLocal", "NullableProblems"})
+public final class SandbagWall extends ModelBase implements IModernModel {
 	private final ModelRenderer Sandbag;
 	private final ModelRenderer bone2;
 	private final ModelRenderer bone4;
@@ -207,10 +208,10 @@ public class SandbagWall extends ModelBase implements IModernModel {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		Sandbag.render(f5);
-		Sandbag2.render(f5);
-		Sandbag3.render(f5);
-		Sandbag4.render(f5);
+	public void render(final Entity entity, final float limbSwing, final float limbSwingAmount, final float ageInTicks, final float netHeadYaw, final float headPitch, final float scale) {
+		Sandbag.render(scale);
+		Sandbag2.render(scale);
+		Sandbag3.render(scale);
+		Sandbag4.render(scale);
 	}
 }
