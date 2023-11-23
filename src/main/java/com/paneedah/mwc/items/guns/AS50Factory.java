@@ -322,12 +322,16 @@ public class AS50Factory implements GunFactory {
                 GL11.glTranslatef(0.19f, 1.38f, -0.745f);
                 
                 // HP Zoom
+                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416FrontSight)) {
+                    //System.out.println("Position me for Scope");
+                    GL11.glTranslatef(0.01F, 0.0f, 0.0f);
+                } 
+                
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
                     //System.out.println("Position me for Scope");
                     GL11.glTranslatef(-0.012F, 0.23f, 0.55f);
                 } 
                 
-                // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
                     //System.out.println("Position me for Scope");
                     GL11.glTranslatef(-0.01F, 0.24f, 1.0f);

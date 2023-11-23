@@ -41,7 +41,7 @@ public class VSSVintorezFactory {
         .withInspectSound("inspection")
         .withDrawSound("ak_draw")
         .withReloadingTime(45)
-        .withFlashIntensity(0.4f)
+        .withFlashIntensity(0.0f)
         .withFlashScale(() -> 0.4f)
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.11f)
