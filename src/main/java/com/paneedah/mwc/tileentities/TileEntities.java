@@ -247,7 +247,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("supply_drop")
-        .withModelClassName("com.paneedah.mwc.models.weapons.SupplyDrop")
+        .withModelClassName("com.paneedah.mwc.models.props.SupplyDrop")
         .withTextureName("textures/models/supplydrop.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -472,7 +472,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("shelf_right")
-        .withModelClassName("com.paneedah.mwc.models.weapons.ShelfRight")
+        .withModelClassName("com.paneedah.mwc.models.props.shelfs.ShelfRight")
         .withTextureName("textures/models/shelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -485,7 +485,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("shelf_left")
-        .withModelClassName("com.paneedah.mwc.models.weapons.ShelfLeft")
+        .withModelClassName("com.paneedah.mwc.models.props.shelfs.ShelfLeft")
         .withTextureName("textures/models/shelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -498,7 +498,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("shelf_top")
-        .withModelClassName("com.paneedah.mwc.models.weapons.ShelfTop")
+        .withModelClassName("com.paneedah.mwc.models.props.shelfs.ShelfTop")
         .withTextureName("textures/models/shelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -533,7 +533,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("tv")
-        .withModelClassName("com.paneedah.mwc.models.weapons.TV")
+        .withModelClassName("com.paneedah.mwc.models.props.TV")
         .withTextureName("textures/models/tv.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -1277,7 +1277,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("trash_bin")
-        .withModelClassName("com.paneedah.mwc.models.weapons.TrashBin")
+        .withModelClassName("com.paneedah.mwc.models.props.TrashBin")
         .withTextureName("textures/models/trashbin.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1933,7 +1933,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("swat_truck")
-        .withModelClassName("com.paneedah.mwc.models.weapons.SwatTruck")
+        .withModelClassName("com.paneedah.mwc.models.props.SwatTruck")
         .withTextureName("textures/models/swattruck.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {

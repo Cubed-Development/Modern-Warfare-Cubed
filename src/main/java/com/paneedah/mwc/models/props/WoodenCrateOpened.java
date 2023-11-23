@@ -133,7 +133,7 @@ public final class WoodenCrateOpened extends ModelBase implements IModernModel {
     }
 
     @Override
-    public void render(final Entity entity, final float limbSwing, final float limbSwingAmount, final float ageInTicks, final float netHeadYaw, final float headPitch, final float scale) {
+    public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         woodenCrateOpened.render(scale);
     }
 }
