@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
  * @author Developer: Desoroxx
  */
 @SuppressWarnings({"FieldCanBeLocal", "NullableProblems"})
-public class WoodenCrate extends ModelBase implements IModernModel {
+public final class WoodenCrate extends ModelBase implements IModernModel {
 
     private final ModelRenderer WoodenCrate;
     private final ModelRenderer bone6_r1;

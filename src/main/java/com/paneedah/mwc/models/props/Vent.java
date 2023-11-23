@@ -12,19 +12,18 @@ import net.minecraft.entity.Entity;
  * @author Developer: Desoroxx
  */
 @SuppressWarnings({"FieldCanBeLocal", "NullableProblems"})
-public final class WhiteDeskLeft extends ModelBase implements IModernModel {
+public final class Vent extends ModelBase implements IModernModel {
 
     private final ModelRenderer bone;
 
-    public WhiteDeskLeft() {
+    public Vent() {
         textureWidth = 128;
         textureHeight = 128;
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(0.0F, 24.0F, 0.0F);
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -8.1F, -15.9F, 6.1F, 2, 16, 2, 0.0F, true));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -8.0F, -16.0F, -5.0F, 16, 2, 13, 0.0F, true));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, -8.1F, -15.9F, -5.1F, 2, 16, 2, 0.0F, true));
+        bone.cubeList.add(new ModelBox(bone, 0, 40, -7.5F, -15.5F, -0.5F, 15, 15, 1, 0.0F, true));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -7.0F, -15.0F, -8.0F, 14, 14, 16, 0.0F, true));
     }
 
     @Override

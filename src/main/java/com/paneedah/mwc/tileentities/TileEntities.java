@@ -1125,7 +1125,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent")
-        .withModelClassName("com.paneedah.mwc.models.weapons.Vent")
+        .withModelClassName("com.paneedah.mwc.models.props.Vent")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1138,7 +1138,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_rotated")
-        .withModelClassName("com.paneedah.mwc.models.weapons.Vent")
+        .withModelClassName("com.paneedah.mwc.models.props.Vent")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1151,7 +1151,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_corner")
-        .withModelClassName("com.paneedah.mwc.models.weapons.VentCorner")
+        .withModelClassName("com.paneedah.mwc.models.props.VentCorner")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1164,7 +1164,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_corner_rotated")
-        .withModelClassName("com.paneedah.mwc.models.weapons.VentCorner")
+        .withModelClassName("com.paneedah.mwc.models.props.VentCorner")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1177,7 +1177,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_corner_rotated_alt")
-        .withModelClassName("com.paneedah.mwc.models.weapons.VentCorner")
+        .withModelClassName("com.paneedah.mwc.models.props.VentCorner")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1190,7 +1190,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_intersection")
-        .withModelClassName("com.paneedah.mwc.models.weapons.VentIntersection")
+        .withModelClassName("com.paneedah.mwc.models.props.VentIntersection")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1203,7 +1203,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vent_end")
-        .withModelClassName("com.paneedah.mwc.models.weapons.VentEnd")
+        .withModelClassName("com.paneedah.mwc.models.props.VentEnd")
         .withTextureName("textures/models/vent.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1403,7 +1403,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("vending_machine")
-        .withModelClassName("com.paneedah.mwc.models.weapons.VendingMachine")
+        .withModelClassName("com.paneedah.mwc.models.props.VendingMachine")
         .withTextureName("textures/models/vendingmachine.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(

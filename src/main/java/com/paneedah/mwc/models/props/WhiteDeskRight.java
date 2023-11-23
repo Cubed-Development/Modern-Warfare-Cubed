@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
  * @author Developer: Desoroxx
  */
 @SuppressWarnings({"FieldCanBeLocal", "NullableProblems"})
-public class WhiteDeskRight extends ModelBase implements IModernModel {
+public final class WhiteDeskRight extends ModelBase implements IModernModel {
 
     private final ModelRenderer bone;
 
