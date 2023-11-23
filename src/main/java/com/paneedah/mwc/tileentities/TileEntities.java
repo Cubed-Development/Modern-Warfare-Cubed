@@ -17,7 +17,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("weapons_case")
-        .withModelClassName("com.paneedah.mwc.models.weapons.GunCase")
+        .withModelClassName("com.paneedah.mwc.models.props.GunCase")
         .withTextureName("textures/models/gun_case.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -51,7 +51,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("weapons_case_small")
-        .withModelClassName("com.paneedah.mwc.models.weapons.GunCaseSmall")
+        .withModelClassName("com.paneedah.mwc.models.props.GunCaseSmall")
         .withTextureName("textures/models/gun_case_small.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -153,7 +153,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("weapons_locker")
-        .withModelClassName("com.paneedah.mwc.models.weapons.GunRack")
+        .withModelClassName("com.paneedah.mwc.models.props.GunRack")
         .withTextureName("textures/models/gunrack.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -434,7 +434,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("monitor")
-        .withModelClassName("com.paneedah.mwc.models.weapons.Monitor")
+        .withModelClassName("com.paneedah.mwc.models.props.Monitor")
         .withTextureName("textures/models/pc.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -446,7 +446,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("filingcabinet")
-        .withModelClassName("com.paneedah.mwc.models.weapons.FilingCabinet")
+        .withModelClassName("com.paneedah.mwc.models.props.FilingCabinet")
         .withTextureName("textures/models/filingcabinetopened.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -459,7 +459,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("filingcabinet_opened")
-        .withModelClassName("com.paneedah.mwc.models.weapons.FilingCabinetOpened")
+        .withModelClassName("com.paneedah.mwc.models.props.FilingCabinetOpened")
         .withTextureName("textures/models/filingcabinetopened.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1646,7 +1646,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("FloodLight")
-        .withModelClassName("com.paneedah.mwc.models.weapons.Floodlight")
+        .withModelClassName("com.paneedah.mwc.models.props.Floodlight")
         .withTextureName("textures/models/floodlight.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
