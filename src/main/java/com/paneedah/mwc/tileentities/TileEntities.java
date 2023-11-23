@@ -937,7 +937,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("impaled_body")
-        .withModelClassName("com.paneedah.mwc.models.weapons.ImpaledBody") // Todo: Braiam optimized version
+        .withModelClassName("com.paneedah.mwc.models.props.ImpaledBody") // Todo: Braiam optimized version
         .withTextureName("textures/models/impaledbody.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -1086,7 +1086,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("trusses")
-        .withModelClassName("com.paneedah.mwc.models.weapons.Trusses")
+        .withModelClassName("com.paneedah.mwc.models.props.Trusses")
         .withTextureName("textures/models/trusses.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1364,7 +1364,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("outdoor_chair")
-        .withModelClassName("com.paneedah.mwc.models.weapons.OutdoorChair")
+        .withModelClassName("com.paneedah.mwc.models.props.OutdoorChair")
         .withTextureName("textures/models/outdoorchair.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1390,7 +1390,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("outdoor_chair_rotated")
-        .withModelClassName("com.paneedah.mwc.models.weapons.OutdoorChair")
+        .withModelClassName("com.paneedah.mwc.models.props.OutdoorChair")
         .withTextureName("textures/models/outdoorchair.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1754,7 +1754,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("towablefloodlight")
-        .withModelClassName("com.paneedah.mwc.models.weapons.TowableFloodLight")
+        .withModelClassName("com.paneedah.mwc.models.props.TowableFloodLight")
         .withTextureName("textures/models/towablefloodlight.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1815,7 +1815,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("crossgravestone")
-        .withModelClassName("com.paneedah.mwc.models.weapons.CrossGravestone")
+        .withModelClassName("com.paneedah.mwc.models.props.CrossGravestone")
         .withTextureName("textures/models/crossgravestone.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1828,7 +1828,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("crossgravestone2")
-        .withModelClassName("com.paneedah.mwc.models.weapons.CrossGravestone2")
+        .withModelClassName("com.paneedah.mwc.models.props.CrossGravestone2")
         .withTextureName("textures/models/crossgravestone2.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1841,7 +1841,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("crossgravestone3")
-        .withModelClassName("com.paneedah.mwc.models.weapons.CrossGravestone3")
+        .withModelClassName("com.paneedah.mwc.models.props.CrossGravestone3")
         .withTextureName("textures/models/crossgravestone3.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1880,7 +1880,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("scarecrow")
-        .withModelClassName("com.paneedah.mwc.models.weapons.Scarecrow")
+        .withModelClassName("com.paneedah.mwc.models.props.Scarecrow")
         .withTextureName("textures/models/scarecrow.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(0.3, 0, 0.3, 0.7, 3.5, 0.7)
