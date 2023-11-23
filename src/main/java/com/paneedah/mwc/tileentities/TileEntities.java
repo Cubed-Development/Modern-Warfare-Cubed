@@ -1680,7 +1680,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("Radio_rotated")
-        .withModelClassName("com.paneedah.mwc.models.weapons.Radio")
+        .withModelClassName("com.paneedah.mwc.models.props.Radio")
         .withTextureName("textures/models/radio.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1693,7 +1693,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("Radio")
-        .withModelClassName("com.paneedah.mwc.models.weapons.Radio")
+        .withModelClassName("com.paneedah.mwc.models.props.Radio")
         .withTextureName("textures/models/radio.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -1894,7 +1894,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.CLOTH)
         .withName("spookyghost")
-        .withModelClassName("com.paneedah.mwc.models.weapons.SpookyGhost")
+        .withModelClassName("com.paneedah.mwc.models.props.SpookyGhost")
         .withTextureName("textures/models/spookyghost.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1907,7 +1907,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.CLOTH)
         .withName("spookyghost2")
-        .withModelClassName("com.paneedah.mwc.models.weapons.SpookyGhost")
+        .withModelClassName("com.paneedah.mwc.models.props.SpookyGhost")
         .withTextureName("textures/models/spookyghost2.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1920,7 +1920,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.CLOTH)
         .withName("spookyghost3")
-        .withModelClassName("com.paneedah.mwc.models.weapons.SpookyGhost")
+        .withModelClassName("com.paneedah.mwc.models.props.SpookyGhost")
         .withTextureName("textures/models/spookyghost3.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
