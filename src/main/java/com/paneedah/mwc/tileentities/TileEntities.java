@@ -889,7 +889,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("body_bag")
-        .withModelClassName("com.paneedah.mwc.models.weapons.BodyBag")
+        .withModelClassName("com.paneedah.mwc.models.props.BodyBag")
         .withTextureName("textures/models/bodybag.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -972,7 +972,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("dumpster")
-        .withModelClassName("com.paneedah.mwc.models.weapons.Dumpster")
+        .withModelClassName("com.paneedah.mwc.models.props.Dumpster")
         .withTextureName("textures/models/dumpster.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withCreativeTab(MWC.PROPS_TAB)
@@ -1303,7 +1303,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("electric_box")
-        .withModelClassName("com.paneedah.mwc.models.weapons.ElectricBox")
+        .withModelClassName("com.paneedah.mwc.models.props.ElectricBox")
         .withTextureName("textures/models/electricbox.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1316,7 +1316,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("electric_box_opened")
-        .withModelClassName("com.paneedah.mwc.models.weapons.ElectricBoxOpened")
+        .withModelClassName("com.paneedah.mwc.models.props.ElectricBoxOpened")
         .withTextureName("textures/models/electricboxopened.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
