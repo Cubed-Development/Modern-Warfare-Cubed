@@ -70,7 +70,7 @@ public final class StaticModelSourceRenderer extends ModelSourceRenderer {
 
         for (final TexturedModel texturedModel : iModelSource.getTexturedModels()) {
             if (texturedModel.getTextureName().startsWith("customskin_"))
-                MC.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getTextureName().toLowerCase().replace("customskin_", "").replace(".png", "")));
+                MC.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getTextureName()));
             else
                 MC.renderEngine.bindTexture(new ResourceLocation(ID + ":textures/models/" + texturedModel.getTextureName()));
 

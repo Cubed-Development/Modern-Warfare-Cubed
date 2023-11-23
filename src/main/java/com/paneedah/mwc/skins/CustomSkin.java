@@ -24,7 +24,7 @@ public class CustomSkin {
     }
 
     public static ResourceLocation getCustomSkinResource(String skinName) {
-        File image = new File("./config/mwc/skins/" + skinName + ".png");
+        File image = new File("./config/mwc/skins/" + skinName);
         if (!image.exists())
             return new ResourceLocation(ID + ":textures/models/" + GunSkins.WoodlandCamo.getTexturedModels().get(0).getTextureName() + ".png");
 
