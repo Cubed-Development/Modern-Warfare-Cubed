@@ -2,13 +2,11 @@ package com.paneedah.mwc.tileentities;
 
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.weapons.Guns;
 import com.paneedah.weaponlib.tile.CustomTileEntityBlock;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.world.EnumDifficulty;
 import org.lwjgl.opengl.GL11;
 
 public class TileEntities {
@@ -366,7 +364,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("barrel")
-        .withModelClassName("com.paneedah.mwc.models.weapons.Barrel")
+        .withModelClassName("com.paneedah.mwc.models.props.Barrel")
         .withTextureName("textures/models/barrel.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -378,7 +376,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("explosive_barrel")
-        .withModelClassName("com.paneedah.mwc.models.weapons.Barrel")
+        .withModelClassName("com.paneedah.mwc.models.props.Barrel")
         .withTextureName("textures/models/barrel_explosive.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1010,7 +1008,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("wooden_crate")
-        .withModelClassName("com.paneedah.mwc.models.weapons.WoodenCrate")
+        .withModelClassName("com.paneedah.mwc.models.props.WoodenCrate")
         .withTextureName("textures/models/woodencrate.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1023,7 +1021,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("wooden_crate_opened")
-        .withModelClassName("com.paneedah.mwc.models.weapons.WoodenCrateOpened")
+        .withModelClassName("com.paneedah.mwc.models.props.WoodenCrateOpened")
         .withTextureName("textures/models/woodencrateopened.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1218,7 +1216,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("white_desk_left")
-        .withModelClassName("com.paneedah.mwc.models.weapons.WhiteDeskLeft")
+        .withModelClassName("com.paneedah.mwc.models.props.WhiteDeskLeft")
         .withTextureName("textures/models/shelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1231,7 +1229,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("white_desk_middle")
-        .withModelClassName("com.paneedah.mwc.models.weapons.WhiteDeskMiddle")
+        .withModelClassName("com.paneedah.mwc.models.props.WhiteDeskMiddle")
         .withTextureName("textures/models/shelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -1266,7 +1264,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("white_desk_right")
-        .withModelClassName("com.paneedah.mwc.models.weapons.WhiteDeskRight")
+        .withModelClassName("com.paneedah.mwc.models.props.WhiteDeskRight")
         .withTextureName("textures/models/shelf.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
