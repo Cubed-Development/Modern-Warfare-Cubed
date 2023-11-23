@@ -568,7 +568,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("ceiling_tv")
-        .withModelClassName("com.paneedah.mwc.models.weapons.CeilingTV")
+        .withModelClassName("com.paneedah.mwc.models.props.CeilingTV")
         .withTextureName("textures/models/ceilingtv.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -581,7 +581,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("ceiling_tv_rotated")
-        .withModelClassName("com.paneedah.mwc.models.weapons.CeilingTV")
+        .withModelClassName("com.paneedah.mwc.models.props.CeilingTV")
         .withTextureName("textures/models/ceilingtv.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1099,7 +1099,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("ceiling_lamp")
-        .withModelClassName("com.paneedah.mwc.models.weapons.CeilingLamp")
+        .withModelClassName("com.paneedah.mwc.models.props.CeilingLamp")
         .withTextureName("textures/models/ceilinglamp.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1112,7 +1112,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("ceiling_lamp_alt")
-        .withModelClassName("com.paneedah.mwc.models.weapons.CeilingLampAlt")
+        .withModelClassName("com.paneedah.mwc.models.props.CeilingLampAlt")
         .withTextureName("textures/models/ceilinglampalt.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1290,7 +1290,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.ROCK)
         .withName("caution_sign")
-        .withModelClassName("com.paneedah.mwc.models.weapons.CautionSign")
+        .withModelClassName("com.paneedah.mwc.models.props.CautionSign")
         .withTextureName("textures/models/cautionsign.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -1727,7 +1727,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("camera_rotated")
-        .withModelClassName("com.paneedah.mwc.models.weapons.Camera")
+        .withModelClassName("com.paneedah.mwc.models.props.Camera")
         .withTextureName("textures/models/camera.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(0, 0, 0, 1, 0.8, 1)
