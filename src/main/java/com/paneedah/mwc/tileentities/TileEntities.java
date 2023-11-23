@@ -234,7 +234,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("artillery_PROP")
-        .withModelClassName("com.paneedah.mwc.models.weapons.ArtilleryProp20")
+        .withModelClassName("com.paneedah.mwc.models.props.ArtilleryProp20")
         .withTextureName("textures/models/artilleryprop.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withPositioning(tileEntity -> {
@@ -902,7 +902,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.WOOD)
         .withName("hanging_body")
-        .withModelClassName("com.paneedah.mwc.models.weapons.HangingBody")
+        .withModelClassName("com.paneedah.mwc.models.props.HangingBody")
         .withTextureName("textures/models/hangingbody.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
@@ -1612,7 +1612,7 @@ public class TileEntities {
         new LootBoxConfiguration()
         .withMaterial(Material.IRON)
         .withName("DuelFloodLight")
-        .withModelClassName("com.paneedah.mwc.models.weapons.DuelFloodLight")
+        .withModelClassName("com.paneedah.mwc.models.props.DuelFloodLight")
         .withTextureName("textures/models/duelfloodlight.png")
         .withCreativeTab(MWC.PROPS_TAB)
         .withBoundingBox(
