@@ -16,6 +16,7 @@ import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
@@ -77,18 +78,25 @@ public class PGMHecateIIFactory implements GunFactory {
 	        		CraftingEntry(MWCItems.steelIngot, 7), new
         		    CraftingEntry(Blocks.PLANKS, 5))
 
-        .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)	
+        .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
+
         .withCompatibleAttachment(Attachments.Placeholder, true, (model) -> {
             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
             GL11.glScaled(0F, 0F, 0F);
         })
-		
         .withCompatibleAttachment(Magazines.HecateIIMag, (model) -> {
         })
-		
         .withCompatibleAttachment(AuxiliaryAttachments.PGMHecateIIBoltAction, true, (model) -> {
         })
-
+        .withCompatibleAttachment(AuxiliaryAttachments.M4Rail, true, () -> {
+            GL11.glTranslatef(-0.24F, -1.54F, -2.8F);
+            GL11.glScaled(0.85F, 0.85F, 0.85F);
+        },(model) -> {
+            if(model instanceof AKRail) {
+                GL11.glTranslatef(0F, 0F, 0F);
+                GL11.glScaled(0F, 0F, 0F);
+            }
+        })
         .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.22F, -1.38F, -2.5F);
             GL11.glScaled(0.9F, 0.9F, 0.9F);
@@ -98,7 +106,6 @@ public class PGMHecateIIFactory implements GunFactory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-		
          .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.328F, -1.4F, -1.2F);
             GL11.glScaled(0.9F, 0.9F, 0.9F);
@@ -112,7 +119,6 @@ public class PGMHecateIIFactory implements GunFactory {
                 GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         })
-		
         .withCompatibleAttachment(Attachments.Specter, () -> {
             GL11.glTranslatef(-0.19F, -1.02F, -1.5F);
             GL11.glScaled(0.5F, 0.5F, 0.5F);
@@ -122,7 +128,6 @@ public class PGMHecateIIFactory implements GunFactory {
                  GL11.glScaled(0.1F, 0.1F, 0.1F);
             }
         })
-		
         .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
             GL11.glTranslatef(-0.155F, -1.2F, -2.2F);
             GL11.glScaled(0.55F, 0.55F, 0.55F);
@@ -132,7 +137,6 @@ public class PGMHecateIIFactory implements GunFactory {
 		        GL11.glScaled(0.04F, 0.04F, 0.04F);
 		    }
 		})
-
         .withCompatibleAttachment(Attachments.Reflex, () -> {
                 GL11.glTranslatef(-0.045F, -1.15F, -1.5F);
                 GL11.glScaled(0.55F, 0.55F, 0.55F);
@@ -142,7 +146,6 @@ public class PGMHecateIIFactory implements GunFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
-
         .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
         	GL11.glTranslatef(-0.186F, -1.4F, -1F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
@@ -152,16 +155,14 @@ public class PGMHecateIIFactory implements GunFactory {
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        }
 	    })
-		
         .withCompatibleAttachment(Attachments.Bipod, () -> {
-        	GL11.glTranslatef(-0.2F, -0.1F, -3.9F);
+        	GL11.glTranslatef(-0.2F, -0.15F, -3.9F);
             GL11.glScaled(1F, 1F, 1F);
         })
-
+		
         .withTextureNames("pgmhecateii")
         .withRenderer(new WeaponRenderer.Builder()
             .withModel(new PGMHecateII())
-            .withADSBeizer(new Vec3d(-0.2, 0.0, -1.0))
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
                 GL11.glTranslatef(0, 0f, 3f);

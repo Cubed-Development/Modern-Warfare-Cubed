@@ -322,9 +322,9 @@ public class AS50Factory implements GunFactory {
                 GL11.glTranslatef(0.19f, 1.38f, -0.745f);
                 
                 // HP Zoom
-                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416FrontSight)) {
+                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
                     //System.out.println("Position me for Scope");
-                    GL11.glTranslatef(0.01F, 0.0f, 0.0f);
+                    GL11.glTranslatef(-0.014f, 0.02f, 0.0f);
                 } 
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
@@ -394,7 +394,7 @@ public class AS50Factory implements GunFactory {
              // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
                     //System.out.println("Position me for Scope");
-                    GL11.glTranslatef(0F, 0.24f, 1f);
+                    GL11.glTranslatef(-0.014f, 0.24f, 1f);
                 } 
                 
              // HP Zoom
@@ -407,13 +407,7 @@ public class AS50Factory implements GunFactory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
                     //System.out.println("Position me for Scope");
                 	GL11.glTranslatef(0F, 0.22f, 0.5f);
-                } 
-                
-             // HP Zoom
-                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
-                    //System.out.println("Position me for Scope");
-                    GL11.glTranslatef(0F, 0.18f, 0.5f);
-                } 
+                }
                 
                 // Everything else
                 else {

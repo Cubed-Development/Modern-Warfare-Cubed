@@ -520,6 +520,11 @@ public class MP7Factory {
                         GL11.glTranslatef(0F, 0.07f, 0.6f);
                     }
 
+                    if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldDeltapointPro)) {
+                        //System.out.println("Position me for Acog");
+                        GL11.glTranslatef(0F, 0.07f, 0.6f);
+                    }
+
                     else {
                     }
                 }
