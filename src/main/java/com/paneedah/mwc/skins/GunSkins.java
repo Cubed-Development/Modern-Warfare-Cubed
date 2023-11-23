@@ -137,8 +137,8 @@ public class GunSkins {
                 continue;
 
             ItemSkin skin = new ItemSkin.Builder()
-                    .withTexture("customskin_" + name.toLowerCase().replace(".png", ""))
-                    .withName(name.replace(".png", ""))
+                    .withTexture("customskin_" + name.replace( ".png", ""))
+                    .withName(name.toLowerCase().replace(".png", ""))
                     .build(ItemSkin.class);
             CommonRegistry.gunSkins.add(skin);
             LOG.info("Registered custom gun skin: " + name);
