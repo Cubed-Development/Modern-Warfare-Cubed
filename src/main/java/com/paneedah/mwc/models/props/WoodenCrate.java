@@ -43,13 +43,11 @@ public final class WoodenCrate extends ModelBase implements IModernModel {
         WoodenCrate.cubeList.add(new ModelBox(WoodenCrate, 80, 37, -8.0F, -3.0F, -8.0F, 2, 3, 16, 0.0F, false));
 
         bone6_r1 = new ModelRenderer(this);
-        bone6_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         WoodenCrate.addChild(bone6_r1);
         setRotationAngle(bone6_r1, 0.0F, 0.7854F, 0.0F);
         bone6_r1.cubeList.add(new ModelBox(bone6_r1, 0, 68, -1.0F, -16.76F, -9.0F, 2, 2, 18, 0.0F, false));
 
         bone5_r1 = new ModelRenderer(this);
-        bone5_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         WoodenCrate.addChild(bone5_r1);
         setRotationAngle(bone5_r1, 0.0F, -0.7854F, 0.0F);
         bone5_r1.cubeList.add(new ModelBox(bone5_r1, 22, 70, -1.0F, -16.75F, -9.0F, 2, 2, 18, 0.0F, false));

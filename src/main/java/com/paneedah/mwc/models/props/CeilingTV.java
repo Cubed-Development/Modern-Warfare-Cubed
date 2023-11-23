@@ -28,7 +28,6 @@ public final class CeilingTV extends ModelBase implements IModernModel {
         tv.cubeList.add(new ModelBox(tv, 0, 0, -1.5F, -21.2208F, -8.4438F, 3, 9, 3, 0.0F, true));
 
         tv8_r1 = new ModelRenderer(this);
-        tv8_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         tv.addChild(tv8_r1);
         setRotationAngle(tv8_r1, 0.409F, 0.0F, 0.0F);
         tv8_r1.cubeList.add(new ModelBox(tv8_r1, 0, 30, -11.0F, -17.0F, -4.8F, 22, 12, 1, 0.0F, true));

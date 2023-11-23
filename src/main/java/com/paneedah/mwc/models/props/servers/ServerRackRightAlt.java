@@ -58,7 +58,6 @@ public final class ServerRackRightAlt extends ModelBase implements IModernModel 
         bone.cubeList.add(new ModelBox(bone, 220, 100, -4.0F, 0.6168F, -6.9658F, 1, 1, 1, 0.0F, true));
 
         rack37_r1 = new ModelRenderer(this);
-        rack37_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone.addChild(rack37_r1);
         setRotationAngle(rack37_r1, 1.0782F, 0.0F, 0.0F);
         rack37_r1.cubeList.add(new ModelBox(rack37_r1, 200, 100, -1.0F, -4.9F, -5.6F, 1, 2, 1, 0.0F, true));

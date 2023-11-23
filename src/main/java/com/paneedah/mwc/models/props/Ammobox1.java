@@ -30,7 +30,6 @@ public final class Ammobox1 extends ModelBase implements IModernModel {
         ammobox.setRotationPoint(0.0F, 24.0F, 0.0F);
 
         Shape = new ModelRenderer(this);
-        Shape.setRotationPoint(0.0F, 0.0F, 0.0F);
         ammobox.addChild(Shape);
         Shape.cubeList.add(new ModelBox(Shape, 0, 0, -3.0F, -17.0F, -11.0F, 6, 4, 1, 0.0F, true));
         Shape.cubeList.add(new ModelBox(Shape, 0, 0, -6.0F, -4.0F, -10.0F, 12, 1, 25, 0.0F, true));
@@ -73,7 +72,6 @@ public final class Ammobox1 extends ModelBase implements IModernModel {
         Shape8_r1.cubeList.add(new ModelBox(Shape8_r1, 0, 0, -6.5F, -19.0F, -9.5F, 13, 2, 23, 0.0F, true));
 
         handle = new ModelRenderer(this);
-        handle.setRotationPoint(0.0F, 0.0F, 0.0F);
         ammobox.addChild(handle);
         handle.cubeList.add(new ModelBox(handle, 0, 0, -3.5F, -13.0F, -11.5F, 1, 4, 1, 0.0F, true));
         handle.cubeList.add(new ModelBox(handle, 0, 0, 2.5F, -13.0F, -11.5F, 1, 4, 1, 0.0F, true));
@@ -85,7 +83,6 @@ public final class Ammobox1 extends ModelBase implements IModernModel {
         handle.cubeList.add(new ModelBox(handle, 0, 0, -1.5F, -28.0F, -3.5F, 3, 1, 12, 0.0F, true));
 
         text = new ModelRenderer(this);
-        text.setRotationPoint(0.0F, 0.0F, 0.0F);
         ammobox.addChild(text);
         text.cubeList.add(new ModelBox(text, 0, 0, 5.1F, -17.0F, -4.0F, 1, 9, 13, 0.0F, true));
         text.cubeList.add(new ModelBox(text, 0, 0, -6.1F, -17.0F, -4.0F, 1, 9, 13, 0.0F, true));

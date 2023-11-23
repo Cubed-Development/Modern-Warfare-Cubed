@@ -46,7 +46,6 @@ public final class ElectricBoxOpened extends ModelBase implements IModernModel {
         ElectricBox.cubeList.add(new ModelBox(ElectricBox, 0, 34, -2.7448F, -11.0F, 2.0303F, 8, 1, 2, 0.0F, false));
 
         bone5_r1 = new ModelRenderer(this);
-        bone5_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         ElectricBox.addChild(bone5_r1);
         setRotationAngle(bone5_r1, 0.0F, 0.7854F, 0.0F);
         bone5_r1.cubeList.add(new ModelBox(bone5_r1, 6, 70, -1.6945F, -16.75F, 4.1517F, 2, 1, 1, 0.0F, false));

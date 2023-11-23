@@ -33,7 +33,6 @@ public final class DeskShelfAlt4 extends ModelBase implements IModernModel {
         shelf.cubeList.add(new ModelBox(shelf, 0, 110, -8.0F, -14.1166F, -6.4769F, 1, 15, 14, 0.0F, true));
 
         shelf13_r1 = new ModelRenderer(this);
-        shelf13_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         shelf.addChild(shelf13_r1);
         setRotationAngle(shelf13_r1, 0.1859F, 0.0F, 0.0F);
         shelf13_r1.cubeList.add(new ModelBox(shelf13_r1, 0, 0, -3.0F, -3.0F, -4.5F, 2, 3, 1, 0.0F, true));

@@ -28,7 +28,6 @@ public final class CautionSign extends ModelBase implements IModernModel {
         caution.setRotationPoint(0.0F, 23.4912F, -5.543F);
 
         Caution9_r1 = new ModelRenderer(this);
-        Caution9_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         caution.addChild(Caution9_r1);
         setRotationAngle(Caution9_r1, -0.2231F, 0.0F, 0.0F);
         Caution9_r1.cubeList.add(new ModelBox(Caution9_r1, 0, 50, -2.5F, -16.0F, -0.6F, 5, 5, 1, 0.0F, true));

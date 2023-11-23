@@ -30,7 +30,6 @@ public final class Floodlight extends ModelBase implements IModernModel {
         setRotationAngle(bone5, 0.0F, -0.3927F, 0.0F);
 
         bone4 = new ModelRenderer(this);
-        bone4.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone5.addChild(bone4);
         bone4.cubeList.add(new ModelBox(bone4, 0, 40, -3.0F, -1.0F, 3.0F, 6, 1, 1, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 22, 0, -1.0F, -2.75F, -4.5F, 2, 2, 9, 0.0F, false));
@@ -61,7 +60,6 @@ public final class Floodlight extends ModelBase implements IModernModel {
         bone5.addChild(bone);
 
         bone3_r1 = new ModelRenderer(this);
-        bone3_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone.addChild(bone3_r1);
         setRotationAngle(bone3_r1, -0.7854F, 0.0F, -0.3927F);
         bone3_r1.cubeList.add(new ModelBox(bone3_r1, 20, 46, -3.4009F, -7.9619F, -1.9092F, 1, 2, 1, 0.0F, false));

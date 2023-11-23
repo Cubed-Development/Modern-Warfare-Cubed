@@ -32,7 +32,6 @@ public final class DeskLeftAlt1 extends ModelBase implements IModernModel {
         destkleftA1.cubeList.add(new ModelBox(destkleftA1, 0, 0, 5.3841F, -15.95F, -7.8085F, 4, 16, 13, 0.0F, true));
 
         desk9_r1 = new ModelRenderer(this);
-        desk9_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         destkleftA1.addChild(desk9_r1);
         setRotationAngle(desk9_r1, 0.0F, -0.5205F, 0.0F);
         desk9_r1.cubeList.add(new ModelBox(desk9_r1, 0, 50, -3.9F, -7.0F, -5.5F, 3, 7, 1, 0.0F, true));

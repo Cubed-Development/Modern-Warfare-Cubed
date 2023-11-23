@@ -118,7 +118,6 @@ public final class Barrel extends ModelBase implements IModernModel {
         bone11.cubeList.add(new ModelBox(bone11, 0, 34, -6.2113F, -1.99F, 0.4532F, 6, 21, 4, 0.0F, false));
 
         bone39 = new ModelRenderer(this);
-        bone39.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone13.addChild(bone39);
 
         bone17 = new ModelRenderer(this);

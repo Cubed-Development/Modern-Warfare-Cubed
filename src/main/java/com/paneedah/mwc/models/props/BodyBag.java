@@ -35,7 +35,6 @@ public final class BodyBag extends ModelBase implements IModernModel {
         bodybag.cubeList.add(new ModelBox(bodybag, 0, 0, -4.6894F, -2.0563F, -18.0F, 18, 1, 31, 0.0F, true));
 
         bodybag10_r1 = new ModelRenderer(this);
-        bodybag10_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         bodybag.addChild(bodybag10_r1);
         setRotationAngle(bodybag10_r1, 0.0F, 0.0F, 0.5577F);
         bodybag10_r1.cubeList.add(new ModelBox(bodybag10_r1, 0, 0, -4.0F, -7.0F, 5.0F, 4, 6, 8, 0.0F, true));

@@ -86,7 +86,6 @@ public final class Monitor extends ModelBase implements IModernModel {
         monitor.cubeList.add(new ModelBox(monitor, 200, 0, -8.7153F, -7.8312F, -2.0F, 1, 7, 3, 0.0F, true));
 
         Monitor9_r1 = new ModelRenderer(this);
-        Monitor9_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         monitor.addChild(Monitor9_r1);
         setRotationAngle(Monitor9_r1, 0.0F, 0.0F, -0.1396F);
         Monitor9_r1.cubeList.add(new ModelBox(Monitor9_r1, 200, 0, -6.7F, -7.0F, -9.0F, 1, 1, 17, 0.0F, true));

@@ -63,7 +63,6 @@ public final class GunCase extends ModelBase implements IModernModel {
         guncase.cubeList.add(new ModelBox(guncase, 44, 0, -5.3353F, -3.5F, 3.223F, 1, 1, 7, 0.0F, false));
 
         Shape86Hatch_r1 = new ModelRenderer(this);
-        Shape86Hatch_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         guncase.addChild(Shape86Hatch_r1);
         setRotationAngle(Shape86Hatch_r1, 0.0F, 0.7505F, 0.0F);
         Shape86Hatch_r1.cubeList.add(new ModelBox(Shape86Hatch_r1, 44, 33, 8.1F, -7.1F, -23.9F, 2, 2, 3, 0.0F, false));

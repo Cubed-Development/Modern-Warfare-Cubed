@@ -69,7 +69,6 @@ public final class MedicalCrate extends ModelBase implements IModernModel {
         shape.cubeList.add(new ModelBox(shape, 170, 0, 11.1F, 15.3328F, -6.7852F, 1, 4, 2, 0.0F, true));
 
         Shape69_r1 = new ModelRenderer(this);
-        Shape69_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         shape.addChild(Shape69_r1);
         setRotationAngle(Shape69_r1, -1.2566F, 0.0F, 0.0F);
         Shape69_r1.cubeList.add(new ModelBox(Shape69_r1, 0, 0, -7.0F, -3.9F, 21.7F, 5, 3, 1, 0.0F, true));

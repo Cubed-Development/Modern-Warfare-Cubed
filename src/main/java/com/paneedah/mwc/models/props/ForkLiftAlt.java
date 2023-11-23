@@ -64,7 +64,6 @@ public final class ForkLiftAlt extends ModelBase implements IModernModel {
         bone.cubeList.add(new ModelBox(bone, 0, 50, -16.5348F, -22.0F, 0.3679F, 14, 4, 10, 0.0F, true));
 
         forklift49_r1 = new ModelRenderer(this);
-        forklift49_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone.addChild(forklift49_r1);
         setRotationAngle(forklift49_r1, 0.0F, 0.2231F, 0.0F);
         forklift49_r1.cubeList.add(new ModelBox(forklift49_r1, 0, 160, 3.5F, -35.5F, -46.5F, 3, 1, 20, 0.0F, true));

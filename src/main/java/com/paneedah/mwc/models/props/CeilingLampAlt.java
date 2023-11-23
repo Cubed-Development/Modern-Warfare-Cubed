@@ -37,7 +37,6 @@ public final class CeilingLampAlt extends ModelBase implements IModernModel {
         light7_r1.cubeList.add(new ModelBox(light7_r1, 0, 40, 15.0F, -14.0F, -2.0F, 1, 4, 1, 0.0F, true));
 
         light6_r1 = new ModelRenderer(this);
-        light6_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         light.addChild(light6_r1);
         setRotationAngle(light6_r1, -3.1416F, -0.7854F, 3.1416F);
         light6_r1.cubeList.add(new ModelBox(light6_r1, 0, 40, 15.0F, -14.0F, 2.0F, 1, 4, 1, 0.0F, true));

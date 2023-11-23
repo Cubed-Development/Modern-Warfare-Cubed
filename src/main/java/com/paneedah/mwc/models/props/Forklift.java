@@ -88,7 +88,6 @@ public final class Forklift extends ModelBase implements IModernModel {
         wheel.cubeList.add(new ModelBox(wheel, 22, 64, -9.0F, 12.0209F, 12.1525F, 2, 3, 2, 0.0F, false));
 
         bone56_r1 = new ModelRenderer(this);
-        bone56_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         wheel.addChild(bone56_r1);
         setRotationAngle(bone56_r1, -0.7854F, 0.0F, 0.0F);
         bone56_r1.cubeList.add(new ModelBox(bone56_r1, 5, 54, -9.02F, -3.63F, 17.0931F, 2, 1, 1, 0.0F, false));
@@ -204,7 +203,6 @@ public final class Forklift extends ModelBase implements IModernModel {
         fork.cubeList.add(new ModelBox(fork, 18, 47, 0.5F, -26.5363F, 0.3133F, 1, 1, 5, 0.0F, false));
 
         bone43_r1 = new ModelRenderer(this);
-        bone43_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         fork.addChild(bone43_r1);
         setRotationAngle(bone43_r1, -0.6109F, 0.0F, 0.0F);
         bone43_r1.cubeList.add(new ModelBox(bone43_r1, 96, 110, 0.0F, -14.5F, -1.75F, 2, 2, 3, 0.0F, false));
@@ -241,7 +239,6 @@ public final class Forklift extends ModelBase implements IModernModel {
         main.cubeList.add(new ModelBox(main, 93, 16, -4.25F, -7.6243F, 20.5564F, 4, 1, 4, 0.0F, false));
 
         bone63_r1 = new ModelRenderer(this);
-        bone63_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         main.addChild(bone63_r1);
         setRotationAngle(bone63_r1, -0.7854F, 0.0F, 0.0F);
         bone63_r1.cubeList.add(new ModelBox(bone63_r1, 37, 18, -1.75F, -20.75F, 2.65F, 1, 1, 2, 0.0F, false));

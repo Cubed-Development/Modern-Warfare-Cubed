@@ -35,7 +35,6 @@ public final class TrashBin extends ModelBase implements IModernModel {
         bone.cubeList.add(new ModelBox(bone, 0, 0, -2.0F, -15.8678F, 11.7023F, 4, 4, 4, 0.0F, true));
 
         trashbin12_r1 = new ModelRenderer(this);
-        trashbin12_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone.addChild(trashbin12_r1);
         setRotationAngle(trashbin12_r1, -0.5949F, 0.0F, 0.0F);
         trashbin12_r1.cubeList.add(new ModelBox(trashbin12_r1, 0, 0, -2.0F, -19.7F, 0.8F, 4, 5, 4, 0.0F, true));

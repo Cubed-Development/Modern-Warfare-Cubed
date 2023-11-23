@@ -29,7 +29,6 @@ public final class DeskCornerAlt1 extends ModelBase implements IModernModel {
         deska1.cubeList.add(new ModelBox(deska1, 0, 0, -8.3772F, -15.95F, 7.0643F, 2, 16, 2, 0.0F, true));
 
         desk7_r1 = new ModelRenderer(this);
-        desk7_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         deska1.addChild(desk7_r1);
         setRotationAngle(desk7_r1, 0.0F, 0.5949F, 0.0F);
         desk7_r1.cubeList.add(new ModelBox(desk7_r1, 0, 50, -1.0F, -8.0F, 3.0F, 4, 8, 1, 0.0F, true));

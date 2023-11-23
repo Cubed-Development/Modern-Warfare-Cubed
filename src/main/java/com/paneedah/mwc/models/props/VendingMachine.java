@@ -29,7 +29,6 @@ public final class VendingMachine extends ModelBase implements IModernModel {
         bone2.setRotationPoint(0.0F, 24.0F, 0.0F);
 
         bone4 = new ModelRenderer(this);
-        bone4.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone2.addChild(bone4);
         bone4.cubeList.add(new ModelBox(bone4, 0, 0, 5.0F, -42.0F, -6.0F, 2, 35, 17, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 62, 67, -7.0F, -42.0F, 11.0F, 14, 41, 3, 0.0F, false));
@@ -48,7 +47,6 @@ public final class VendingMachine extends ModelBase implements IModernModel {
         bone2.addChild(bone);
 
         bone3_r1 = new ModelRenderer(this);
-        bone3_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         bone.addChild(bone3_r1);
         setRotationAngle(bone3_r1, 0.0F, 0.0F, -0.1745F);
         bone3_r1.cubeList.add(new ModelBox(bone3_r1, 52, 111, -5.9101F, -22.1671F, -6.0F, 9, 2, 17, 0.0F, false));

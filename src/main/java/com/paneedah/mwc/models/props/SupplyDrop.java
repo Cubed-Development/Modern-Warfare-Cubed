@@ -49,7 +49,6 @@ public final class SupplyDrop extends ModelBase implements IModernModel {
         belts.cubeList.add(new ModelBox(belts, 200, 300, 13.3325F, -43.3984F, -20.0F, 2, 1, 68, 0.0F, true));
 
         Belt79_r1 = new ModelRenderer(this);
-        Belt79_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         belts.addChild(Belt79_r1);
         setRotationAngle(Belt79_r1, 0.0F, 0.0F, -0.0873F);
         Belt79_r1.cubeList.add(new ModelBox(Belt79_r1, 200, 400, 29.8F, -16.8F, 20.0F, 1, 6, 2, 0.0F, true));
