@@ -184,6 +184,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed compatibility with Forge `Emissive Item Rendering`
 - Fixed props registration
 - Fixed rotated version of the ceiling tv being rotated the wrong way
+- Fixed duel floodlight not being centered
+- Fixed floodlight not being centered
 
 ### Removed
 

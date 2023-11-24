@@ -1581,7 +1581,7 @@ public class TileEntities {
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
-                    GL11.glTranslatef(0.6f, 0.35f, 0.6f);
+                    GL11.glTranslatef(0.65f, 0.35f, 0.65f);
                 }));
 
         props.add(new LootBoxConfiguration()
@@ -1613,7 +1613,7 @@ public class TileEntities {
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
-                    GL11.glTranslatef(0.6f, 0.35f, 0.6f);
+                    GL11.glTranslatef(0.65f, 0.35f, 0.65f);
                     GL11.glRotatef(45F, 0f, 1f, 0f);
                 }));
 
@@ -1646,7 +1646,7 @@ public class TileEntities {
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.6f, 0.175f, 0.6f);
+                    GL11.glTranslatef(0.55f, 0.175f, 0.55f);
                 }));
 
         props.add(new LootBoxConfiguration()
@@ -1678,7 +1678,7 @@ public class TileEntities {
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.6f, 0.175f, 0.6f);
+                    GL11.glTranslatef(0.55f, 0.175f, 0.55f);
                     GL11.glRotatef(45F, 0f, 1f, 0f);
                 }));
 
