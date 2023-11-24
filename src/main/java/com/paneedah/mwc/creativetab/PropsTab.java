@@ -9,9 +9,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 
-public class PropsTab extends CreativeTabs {
-	public PropsTab(int par1, String par2Str) {
-		super(par1, par2Str);
+public final class PropsTab extends CreativeTabs {
+
+	public PropsTab(final int index, final String label) {
+		super(index, label);
 	}
 
 	@Override
