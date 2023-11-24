@@ -202,6 +202,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Reduced overhead due to the removal of most of the compatibility layer leading to increased performance
 - Overhauled the networking, MWC as a whole should be more responsive and use less bandwidth
 - Optimized a majority of the models as a result,the jar size decreased (27.57MB -> 21.55MB)
+- Optimized all props models
 
 ### Internal
 
@@ -220,6 +221,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Changed name and mod id
 - Overhauled the networking
 - Separated props from the rest of the models
+- Cleaned up props models
 
 ### Balance Pack
 
