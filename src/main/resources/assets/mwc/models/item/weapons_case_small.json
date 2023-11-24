@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/weapons_case_small"
+        "layer0": "mwc:items/props/weapons_case_small"
     },
     "display": {
 		"thirdperson_righthand": {

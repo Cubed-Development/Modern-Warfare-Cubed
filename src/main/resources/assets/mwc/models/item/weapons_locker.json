@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/weapons_locker"
+        "layer0": "mwc:items/props/weapons_locker"
     },
     "display": {
 		"thirdperson_righthand": {

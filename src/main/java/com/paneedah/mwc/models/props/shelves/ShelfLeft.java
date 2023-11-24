@@ -1,4 +1,4 @@
-package com.paneedah.mwc.models.props.shelfs;
+package com.paneedah.mwc.models.props.shelves;
 
 import com.paneedah.mwc.models.IModernModel;
 import net.minecraft.client.model.ModelBase;
@@ -12,19 +12,19 @@ import net.minecraft.entity.Entity;
  * @author Developer: Desoroxx
  */
 @SuppressWarnings({"FieldCanBeLocal", "NullableProblems"})
-public final class ShelfRight extends ModelBase implements IModernModel {
+public final class ShelfLeft extends ModelBase implements IModernModel {
 
     private final ModelRenderer bone;
 
-    public ShelfRight() {
+    public ShelfLeft() {
         textureWidth = 128;
         textureHeight = 128;
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(0.0F, 24.0F, 0.0F);
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -8.1F, -16.0F, 3.1F, 2, 16, 2, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -8.0F, -3.0F, -5.0F, 16, 2, 10, 0.0F, true));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, 6.1F, -16.0F, -5.1F, 2, 16, 2, 0.0F, true));
-        bone.cubeList.add(new ModelBox(bone, 0, 0, 6.1F, -16.0F, 3.1F, 2, 16, 2, 0.0F, true));
+        bone.cubeList.add(new ModelBox(bone, 0, 0, -8.1F, -16.0F, -5.1F, 2, 16, 2, 0.0F, true));
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.paneedah.mwc.models.props.shelfs;
+package com.paneedah.mwc.models.props.shelves;
 
 import com.paneedah.mwc.models.IModernModel;
 import net.minecraft.client.model.ModelBase;

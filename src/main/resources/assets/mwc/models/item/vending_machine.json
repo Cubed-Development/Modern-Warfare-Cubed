@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/vending_machine"
+        "layer0": "mwc:items/props/vending_machine"
     },
     "display": {
 		"thirdperson_righthand": {

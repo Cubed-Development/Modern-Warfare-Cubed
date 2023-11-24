@@ -501,7 +501,7 @@ public class TileEntities {
                 new LootBoxConfiguration()
                         .withMaterial(Material.ROCK)
                         .withName("shelf_right")
-                        .withModelClassName("com.paneedah.mwc.models.props.shelfs.ShelfRight")
+                        .withModelClassName("com.paneedah.mwc.models.props.shelves.ShelfRight")
                         .withTextureName("textures/models/props/shelf.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
@@ -515,7 +515,7 @@ public class TileEntities {
                 new LootBoxConfiguration()
                         .withMaterial(Material.ROCK)
                         .withName("shelf_left")
-                        .withModelClassName("com.paneedah.mwc.models.props.shelfs.ShelfLeft")
+                        .withModelClassName("com.paneedah.mwc.models.props.shelves.ShelfLeft")
                         .withTextureName("textures/models/props/shelf.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
@@ -529,7 +529,7 @@ public class TileEntities {
                 new LootBoxConfiguration()
                         .withMaterial(Material.ROCK)
                         .withName("shelf_top")
-                        .withModelClassName("com.paneedah.mwc.models.props.shelfs.ShelfTop")
+                        .withModelClassName("com.paneedah.mwc.models.props.shelves.ShelfTop")
                         .withTextureName("textures/models/props/shelf.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
