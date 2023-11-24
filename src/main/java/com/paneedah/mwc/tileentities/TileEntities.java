@@ -1554,8 +1554,8 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
-                .withName("DuelFloodLight")
-                .withModelClassName("com.paneedah.mwc.models.props.lights.DuelFloodLight")
+                .withName("duelfloodlight")
+                .withModelClassName("com.paneedah.mwc.models.props.lights.DuelFloodlight")
                 .withTextureName("textures/models/props/lights/duelfloodlight.png")
                 .withBoundingBox(
                         blockState -> {
@@ -1582,6 +1582,39 @@ public class TileEntities {
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0.6f, 0.35f, 0.6f);
+                }));
+
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("duelfloodlight_rotated")
+                .withModelClassName("com.paneedah.mwc.models.props.lights.DuelFloodlight")
+                .withTextureName("textures/models/props/lights/duelfloodlight.png")
+                .withBoundingBox(
+                        blockState -> {
+                            AxisAlignedBB boundingBox = null;
+                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+                            switch (facing) {
+                                case WEST:
+                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
+                                    break;
+                                case EAST:
+                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
+                                    break;
+                                case NORTH:
+                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
+                                    break;
+                                case SOUTH:
+                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
+                                    break;
+                                default:
+                            }
+                            return boundingBox;
+                        }
+                )
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.8f, 0.8f, 0.8f);
+                    GL11.glTranslatef(0.6f, 0.35f, 0.6f);
+                    GL11.glRotatef(45F, 0f, 1f, 0f);
                 }));
 
         props.add(new LootBoxConfiguration()
