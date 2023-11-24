@@ -52,7 +52,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'Red-Studio-Ragnarok:Red-Core:0.5-Dev-1'
+    implementation "Red-Studio-Ragnarok:Red-Core:${redCoreVersion}"
     sources 'Red-Studio-Ragnarok:Red-Core:0.5-Dev-1:sources@jar'
 
     annotationProcessor 'org.ow2.asm:asm-debug-all:5.2'
