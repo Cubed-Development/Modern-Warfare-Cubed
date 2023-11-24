@@ -2,6 +2,7 @@ package com.paneedah.weaponlib.tile;
 
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ModContext;
+import lombok.Getter;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
@@ -15,7 +16,6 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
@@ -27,7 +27,7 @@ import static com.paneedah.mwc.utils.ModReference.ID;
 public class CustomTileEntityConfiguration<T extends CustomTileEntityConfiguration<T>> {
     
     private Material material;
-    private String name;
+    @Getter private String name;
     private String textureName;
     private CreativeTabs creativeTab;
     private float hardness = 6f;
@@ -119,9 +119,8 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         tileEntityBlock.setCreativeTab(creativeTab);
         tileEntityBlock.setBoundingBox(boundingBox);
         ResourceLocation textureResource = new ResourceLocation(ID, textureName);
-        GameRegistry.registerTileEntity(tileEntityClass, "tile" + name);
-        
-        //System.out.println("RUNNING!");
+        ResourceLocation tileEntity = new ResourceLocation(ID, "tile" + name);
+        GameRegistry.registerTileEntity(tileEntityClass, tileEntity);
 
         if (tileEntityBlock.getRegistryName() == null) {
             if (tileEntityBlock.getTranslationKey().length() < ID.length() + 2 + 5) {
@@ -138,10 +137,8 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
 
         modContext.registerRenderableItem(tileEntityBlock.getRegistryName(), itemBlock, null);
         
-        if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
-            RendererRegistration.registerRenderableEntity(modContext, name, tileEntityClass, modelClassName, 
-                    textureResource, positioning, tileEntityBlock);
-        }
+        if(FMLCommonHandler.instance().getSide().isClient())
+            RendererRegistration.registerRenderableEntity(modContext, name, tileEntityClass, modelClassName, textureResource, positioning, tileEntityBlock);
     }
     
     private static class RendererRegistration {
