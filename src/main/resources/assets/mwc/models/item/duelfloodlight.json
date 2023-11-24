@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/props/duelfloodlight"
+        "layer0": "mwc:items/props/lights/duelfloodlight"
     },
     "display": {
 		"thirdperson_righthand": {

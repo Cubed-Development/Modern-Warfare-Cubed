@@ -1082,8 +1082,8 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("ceiling_lamp")
-                .withModelClassName("com.paneedah.mwc.models.props.CeilingLamp")
-                .withTextureName("textures/models/props/ceilinglamp.png")
+                .withModelClassName("com.paneedah.mwc.models.props.lights.CeilingLamp")
+                .withTextureName("textures/models/props/lights/ceilinglamp.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1.8f, 0.5f);
@@ -1093,8 +1093,8 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("ceiling_lamp_alt")
-                .withModelClassName("com.paneedah.mwc.models.props.CeilingLampAlt")
-                .withTextureName("textures/models/props/ceilinglampalt.png")
+                .withModelClassName("com.paneedah.mwc.models.props.lights.CeilingLampAlt")
+                .withTextureName("textures/models/props/lights/ceilinglampalt.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, -0.2f, 0.5f);
@@ -1533,8 +1533,8 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("DuelFloodLight")
-                .withModelClassName("com.paneedah.mwc.models.props.DuelFloodLight")
-                .withTextureName("textures/models/props/duelfloodlight.png")
+                .withModelClassName("com.paneedah.mwc.models.props.lights.DuelFloodLight")
+                .withTextureName("textures/models/props/lights/duelfloodlight.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1565,8 +1565,8 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("FloodLight")
-                .withModelClassName("com.paneedah.mwc.models.props.Floodlight")
-                .withTextureName("textures/models/props/floodlight.png")
+                .withModelClassName("com.paneedah.mwc.models.props.lights.Floodlight")
+                .withTextureName("textures/models/props/lights/floodlight.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1663,8 +1663,8 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("towablefloodlight")
-                .withModelClassName("com.paneedah.mwc.models.props.TowableFloodLight")
-                .withTextureName("textures/models/props/towablefloodlight.png")
+                .withModelClassName("com.paneedah.mwc.models.props.lights.TowableFloodLight")
+                .withTextureName("textures/models/props/lights/towablefloodlight.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.3f, 0f, 0.5f);
