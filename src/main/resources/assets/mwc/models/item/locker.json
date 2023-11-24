@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/locker"
+        "layer0": "mwc:items/props/locker"
     },
     "display": {
 		"thirdperson_righthand": {

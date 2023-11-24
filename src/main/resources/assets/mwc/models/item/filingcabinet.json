@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/filingcabinet"
+        "layer0": "mwc:items/props/filingcabinet"
     },
     "display": {
 		"thirdperson_righthand": {

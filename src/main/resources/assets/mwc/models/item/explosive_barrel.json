@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/explosive_barrel"
+        "layer0": "mwc:items/props/explosive_barrel"
     },
     "display": {
 		"thirdperson_righthand": {

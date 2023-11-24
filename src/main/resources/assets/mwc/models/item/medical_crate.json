@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/medical_crate"
+        "layer0": "mwc:items/props/medical_crate"
     },
     "display": {
 		"thirdperson_righthand": {
