@@ -225,6 +225,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Separated props models from the rest of the models
 - Separated props textures from the rest of the textures
 - Cleaned up props models
+- Generally organized the project structure
 
 ### Balance Pack
 

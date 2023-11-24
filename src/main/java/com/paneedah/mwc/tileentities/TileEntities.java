@@ -1718,7 +1718,7 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
                 .withName("crossgravestone")
-                .withModelClassName("com.paneedah.mwc.models.props.CrossGravestone")
+                .withModelClassName("com.paneedah.mwc.models.props.gravestones.CrossGravestone")
                 .withTextureName("textures/models/props/gravestone/crossgravestone.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
@@ -1729,7 +1729,7 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
                 .withName("crossgravestone2")
-                .withModelClassName("com.paneedah.mwc.models.props.CrossGravestone2")
+                .withModelClassName("com.paneedah.mwc.models.props.gravestones.CrossGravestone2")
                 .withTextureName("textures/models/props/gravestone/crossgravestone2.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
@@ -1740,7 +1740,7 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
                 .withName("crossgravestone3")
-                .withModelClassName("com.paneedah.mwc.models.props.CrossGravestone3")
+                .withModelClassName("com.paneedah.mwc.models.props.gravestones.CrossGravestone3")
                 .withTextureName("textures/models/props/gravestone/crossgravestone3.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
@@ -1751,7 +1751,7 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
                 .withName("gravestoneskull")
-                .withModelClassName("com.paneedah.mwc.models.props.GravestoneSkull")
+                .withModelClassName("com.paneedah.mwc.models.props.gravestones.GravestoneSkull")
                 .withTextureName("textures/models/props/gravestone/gravestoneskull.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
@@ -1762,7 +1762,7 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
                 .withName("gravestone")
-                .withModelClassName("com.paneedah.mwc.models.props.Gravestone")
+                .withModelClassName("com.paneedah.mwc.models.props.gravestones.Gravestone")
                 .withTextureName("textures/models/props/gravestone/gravestone.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
