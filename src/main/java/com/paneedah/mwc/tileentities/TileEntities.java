@@ -1619,7 +1619,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
-                .withName("FloodLight")
+                .withName("floodlight")
                 .withModelClassName("com.paneedah.mwc.models.props.lights.Floodlight")
                 .withTextureName("textures/models/props/lights/floodlight.png")
                 .withBoundingBox(
@@ -1647,6 +1647,39 @@ public class TileEntities {
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.6f, 0.175f, 0.6f);
+                }));
+
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("floodlight_rotated")
+                .withModelClassName("com.paneedah.mwc.models.props.lights.Floodlight")
+                .withTextureName("textures/models/props/lights/floodlight.png")
+                .withBoundingBox(
+                        blockState -> {
+                            AxisAlignedBB boundingBox = null;
+                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
+                            switch (facing) {
+                                case WEST:
+                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
+                                    break;
+                                case EAST:
+                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
+                                    break;
+                                case NORTH:
+                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
+                                    break;
+                                case SOUTH:
+                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
+                                    break;
+                                default:
+                            }
+                            return boundingBox;
+                        }
+                )
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.9f, 0.9f, 0.9f);
+                    GL11.glTranslatef(0.6f, 0.175f, 0.6f);
+                    GL11.glRotatef(45F, 0f, 1f, 0f);
                 }));
 
         props.add(new LootBoxConfiguration()
