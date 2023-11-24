@@ -27,7 +27,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("weapons_case")
                         .withModelClassName("com.paneedah.mwc.models.props.GunCase")
-                        .withTextureName("textures/models/gun_case.png")
+                        .withTextureName("textures/models/props/gun_case.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -62,7 +62,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("weapons_case_small")
                         .withModelClassName("com.paneedah.mwc.models.props.GunCaseSmall")
-                        .withTextureName("textures/models/gun_case_small.png")
+                        .withTextureName("textures/models/props/gun_case_small.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -98,7 +98,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("russian_weapons_case")
                         .withModelClassName("com.paneedah.mwc.models.props.MilitaryCrate")
-                        .withTextureName("textures/models/militarycrate.png")
+                        .withTextureName("textures/models/props/militarycrate.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -133,7 +133,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("ammo_box")
                         .withModelClassName("com.paneedah.mwc.models.props.Ammobox1")
-                        .withTextureName("textures/models/ammobox.png")
+                        .withTextureName("textures/models/props/ammobox.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -169,7 +169,7 @@ public class TileEntities {
                         .withMaterial(Material.IRON)
                         .withName("weapons_locker")
                         .withModelClassName("com.paneedah.mwc.models.props.GunRack")
-                        .withTextureName("textures/models/gunrack.png")
+                        .withTextureName("textures/models/props/gunrack.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.6f, 0.6f, 0.6f);
@@ -182,7 +182,7 @@ public class TileEntities {
                         .withMaterial(Material.IRON)
                         .withName("fridge_open")
                         .withModelClassName("com.paneedah.mwc.models.props.FridgeOpen")
-                        .withTextureName("textures/models/fridge.png")
+                        .withTextureName("textures/models/props/fridge.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -217,7 +217,7 @@ public class TileEntities {
                         .withMaterial(Material.IRON)
                         .withName("fridge_closed")
                         .withModelClassName("com.paneedah.mwc.models.props.FridgeClosed")
-                        .withTextureName("textures/models/fridge.png")
+                        .withTextureName("textures/models/props/fridge.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -252,7 +252,7 @@ public class TileEntities {
                         .withMaterial(Material.IRON)
                         .withName("artillery_PROP")
                         .withModelClassName("com.paneedah.mwc.models.props.ArtilleryProp20")
-                        .withTextureName("textures/models/artilleryprop.png")
+                        .withTextureName("textures/models/props/artilleryprop.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.8f, 0.8f, 0.8f);
@@ -266,7 +266,7 @@ public class TileEntities {
                         .withMaterial(Material.WOOD)
                         .withName("supply_drop")
                         .withModelClassName("com.paneedah.mwc.models.props.SupplyDrop")
-                        .withTextureName("textures/models/supplydrop.png")
+                        .withTextureName("textures/models/props/supplydrop.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.5f, 0.5f, 0.5f);
@@ -280,7 +280,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("medical_crate")
                         .withModelClassName("com.paneedah.mwc.models.props.MedicalCrate")
-                        .withTextureName("textures/models/medicalcrate.png")
+                        .withTextureName("textures/models/props/medicalcrate.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -315,7 +315,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("locker")
                         .withModelClassName("com.paneedah.mwc.models.props.Locker")
-                        .withTextureName("textures/models/locker.png")
+                        .withTextureName("textures/models/props/locker.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -350,7 +350,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("scp_locker")
                         .withModelClassName("com.paneedah.mwc.models.props.SCPLocker")
-                        .withTextureName("textures/models/scplocker.png")
+                        .withTextureName("textures/models/props/scplocker.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -387,7 +387,7 @@ public class TileEntities {
                         .withMaterial(Material.IRON)
                         .withName("barrel")
                         .withModelClassName("com.paneedah.mwc.models.props.Barrel")
-                        .withTextureName("textures/models/barrel.png")
+                        .withTextureName("textures/models/props/barrel.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.9f, 0.8f, 0.9f);
@@ -400,7 +400,7 @@ public class TileEntities {
                         .withMaterial(Material.IRON)
                         .withName("explosive_barrel")
                         .withModelClassName("com.paneedah.mwc.models.props.Barrel")
-                        .withTextureName("textures/models/barrel_explosive.png")
+                        .withTextureName("textures/models/props/barrel_explosive.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.9f, 0.8f, 0.9f);
@@ -413,7 +413,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("pc")
                         .withModelClassName("com.paneedah.mwc.models.props.PC")
-                        .withTextureName("textures/models/pc.png")
+                        .withTextureName("textures/models/props/pc.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.9f, 0.9f, 0.9f);
@@ -426,7 +426,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("laptop")
                         .withModelClassName("com.paneedah.mwc.models.props.Laptop")
-                        .withTextureName("textures/models/pc.png")
+                        .withTextureName("textures/models/props/pc.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -461,7 +461,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("monitor")
                         .withModelClassName("com.paneedah.mwc.models.props.Monitor")
-                        .withTextureName("textures/models/pc.png")
+                        .withTextureName("textures/models/props/pc.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.9f, 0.9f, 0.9f);
@@ -474,7 +474,7 @@ public class TileEntities {
                         .withMaterial(Material.IRON)
                         .withName("filingcabinet")
                         .withModelClassName("com.paneedah.mwc.models.props.FilingCabinet")
-                        .withTextureName("textures/models/filingcabinetopened.png")
+                        .withTextureName("textures/models/props/filingcabinetopened.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
@@ -488,7 +488,7 @@ public class TileEntities {
                         .withMaterial(Material.IRON)
                         .withName("filingcabinet_opened")
                         .withModelClassName("com.paneedah.mwc.models.props.FilingCabinetOpened")
-                        .withTextureName("textures/models/filingcabinetopened.png")
+                        .withTextureName("textures/models/props/filingcabinetopened.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
@@ -502,7 +502,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("shelf_right")
                         .withModelClassName("com.paneedah.mwc.models.props.shelfs.ShelfRight")
-                        .withTextureName("textures/models/shelf.png")
+                        .withTextureName("textures/models/props/shelf.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
@@ -516,7 +516,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("shelf_left")
                         .withModelClassName("com.paneedah.mwc.models.props.shelfs.ShelfLeft")
-                        .withTextureName("textures/models/shelf.png")
+                        .withTextureName("textures/models/props/shelf.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
@@ -530,7 +530,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("shelf_top")
                         .withModelClassName("com.paneedah.mwc.models.props.shelfs.ShelfTop")
-                        .withTextureName("textures/models/shelf.png")
+                        .withTextureName("textures/models/props/shelf.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -566,7 +566,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("tv")
                         .withModelClassName("com.paneedah.mwc.models.props.TV")
-                        .withTextureName("textures/models/tv.png")
+                        .withTextureName("textures/models/props/tv.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -602,7 +602,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("ceiling_tv")
                         .withModelClassName("com.paneedah.mwc.models.props.CeilingTV")
-                        .withTextureName("textures/models/ceilingtv.png")
+                        .withTextureName("textures/models/props/ceilingtv.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
@@ -616,7 +616,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("ceiling_tv_rotated")
                         .withModelClassName("com.paneedah.mwc.models.props.CeilingTV")
-                        .withTextureName("textures/models/ceilingtv.png")
+                        .withTextureName("textures/models/props/ceilingtv.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
@@ -629,7 +629,7 @@ public class TileEntities {
                 .withMaterial(Material.ROCK)
                 .withName("office_chair")
                 .withModelClassName("com.paneedah.mwc.models.props.OfficeChair2")
-                .withTextureName("textures/models/officechair.png")
+                .withTextureName("textures/models/props/officechair.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -664,7 +664,7 @@ public class TileEntities {
                         .withMaterial(Material.ROCK)
                         .withName("office_chair_2")
                         .withModelClassName("com.paneedah.mwc.models.props.OfficeChair")
-                        .withTextureName("textures/models/officechair.png")
+                        .withTextureName("textures/models/props/officechair.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -699,7 +699,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("desk_corner")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskCorner")
-                .withTextureName("textures/models/desk.png")
+                .withTextureName("textures/models/props/desks/desk.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.07f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -710,7 +710,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("desk_corner_alt1")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskCornerAlt1")
-                .withTextureName("textures/models/desk.png")
+                .withTextureName("textures/models/props/desks/desk.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.07f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -721,7 +721,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("desk_left")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskLeft")
-                .withTextureName("textures/models/desk.png")
+                .withTextureName("textures/models/props/desks/desk.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -732,7 +732,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("desk_left_alt1")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskLeftAlt1")
-                .withTextureName("textures/models/desk.png")
+                .withTextureName("textures/models/props/desks/desk.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -743,7 +743,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("desk_middle")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskMiddle")
-                .withTextureName("textures/models/desk.png")
+                .withTextureName("textures/models/props/desks/desk.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -754,7 +754,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("desk_middle_alt1")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskMiddleAlt1")
-                .withTextureName("textures/models/deskmiddlealt1.png")
+                .withTextureName("textures/models/props/desks/deskmiddlealt1.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -765,7 +765,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("desk_right")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskRight")
-                .withTextureName("textures/models/desk.png")
+                .withTextureName("textures/models/props/desks/desk.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -776,7 +776,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("desk_right_alt1")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskRightAlt1")
-                .withTextureName("textures/models/desk.png")
+                .withTextureName("textures/models/props/desks/desk.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -787,7 +787,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("desk_shelf")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskShelf")
-                .withTextureName("textures/models/deskshelf.png")
+                .withTextureName("textures/models/props/desks/deskshelf.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -820,7 +820,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("desk_shelf_alt1")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskShelfAlt1")
-                .withTextureName("textures/models/deskshelfalt1.png")
+                .withTextureName("textures/models/props/desks/deskshelfalt1.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -831,7 +831,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("desk_shelf_alt2")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskShelfAlt2")
-                .withTextureName("textures/models/deskshelf.png")
+                .withTextureName("textures/models/props/desks/deskshelf.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -864,7 +864,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("desk_shelf_alt3")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskShelfAlt4")
-                .withTextureName("textures/models/deskshelfalt4.png")
+                .withTextureName("textures/models/props/desks/deskshelfalt4.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -875,7 +875,7 @@ public class TileEntities {
                 .withMaterial(Material.ROCK)
                 .withName("barrier")
                 .withModelClassName("com.paneedah.mwc.models.props.Barrier")
-                .withTextureName("textures/models/barrier.png")
+                .withTextureName("textures/models/props/barrier.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.1f, 1.2f, 1f);
                     GL11.glTranslatef(0.42f, -0.25f, 0.5f);
@@ -885,7 +885,7 @@ public class TileEntities {
                 .withMaterial(Material.ROCK)
                 .withName("barrier_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.Barrier")
-                .withTextureName("textures/models/barrier.png")
+                .withTextureName("textures/models/props/barrier.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.1f, 1.2f, 1.1f);
                     GL11.glTranslatef(0.42f, -0.25f, 0.5f);
@@ -896,7 +896,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("body_bag")
                 .withModelClassName("com.paneedah.mwc.models.props.BodyBag")
-                .withTextureName("textures/models/bodybag.png")
+                .withTextureName("textures/models/props/bodybag.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.5f, -0.9f, 0.55f);
@@ -907,7 +907,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("hanging_body")
                 .withModelClassName("com.paneedah.mwc.models.props.HangingBody")
-                .withTextureName("textures/models/hangingbody.png")
+                .withTextureName("textures/models/props/hangingbody.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -939,8 +939,8 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
                 .withName("impaled_body")
-                .withModelClassName("com.paneedah.mwc.models.props.ImpaledBody") // Todo: Braiam optimized version
-                .withTextureName("textures/models/impaledbody.png")
+                .withModelClassName("com.paneedah.mwc.models.props.ImpaledBody")
+                .withTextureName("textures/models/props/impaledbody.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -973,7 +973,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("dumpster")
                 .withModelClassName("com.paneedah.mwc.models.props.Dumpster")
-                .withTextureName("textures/models/dumpster.png")
+                .withTextureName("textures/models/props/dumpster.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1006,7 +1006,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("wooden_crate")
                 .withModelClassName("com.paneedah.mwc.models.props.WoodenCrate")
-                .withTextureName("textures/models/woodencrate.png")
+                .withTextureName("textures/models/props/woodencrate.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 0.95f, 1f);
                     GL11.glTranslatef(0.5f, 0.085f, 0.5f);
@@ -1017,7 +1017,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("wooden_crate_opened")
                 .withModelClassName("com.paneedah.mwc.models.props.WoodenCrateOpened")
-                .withTextureName("textures/models/woodencrateopened.png")
+                .withTextureName("textures/models/props/woodencrateopened.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1028,7 +1028,7 @@ public class TileEntities {
                 .withMaterial(Material.ROCK)
                 .withName("operating_table")
                 .withModelClassName("com.paneedah.mwc.models.props.OperatingTable")
-                .withTextureName("textures/models/operatingtable.png")
+                .withTextureName("textures/models/props/operatingtable.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1039,7 +1039,7 @@ public class TileEntities {
                 .withMaterial(Material.ROCK)
                 .withName("operating_table_alt")
                 .withModelClassName("com.paneedah.mwc.models.props.OperatingTableAlt")
-                .withTextureName("textures/models/operatingtable.png")
+                .withTextureName("textures/models/props/operatingtable.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1050,7 +1050,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("forklift")
                 .withModelClassName("com.paneedah.mwc.models.props.Forklift")
-                .withTextureName("textures/models/forklift.png")
+                .withTextureName("textures/models/props/forklift.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.5f, 1.5f, 1.5f);
                     GL11.glTranslatef(0.5f, -0.5f, 0.5f);
@@ -1061,7 +1061,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("forklift_alt")
                 .withModelClassName("com.paneedah.mwc.models.props.ForkLiftAlt")
-                .withTextureName("textures/models/forkliftalt.png")
+                .withTextureName("textures/models/props/forkliftalt.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1072,7 +1072,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("trusses")
                 .withModelClassName("com.paneedah.mwc.models.props.Trusses")
-                .withTextureName("textures/models/trusses.png")
+                .withTextureName("textures/models/props/trusses.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1083,7 +1083,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("ceiling_lamp")
                 .withModelClassName("com.paneedah.mwc.models.props.CeilingLamp")
-                .withTextureName("textures/models/ceilinglamp.png")
+                .withTextureName("textures/models/props/ceilinglamp.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1.8f, 0.5f);
@@ -1094,7 +1094,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("ceiling_lamp_alt")
                 .withModelClassName("com.paneedah.mwc.models.props.CeilingLampAlt")
-                .withTextureName("textures/models/ceilinglampalt.png")
+                .withTextureName("textures/models/props/ceilinglampalt.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, -0.2f, 0.5f);
@@ -1105,7 +1105,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("vent")
                 .withModelClassName("com.paneedah.mwc.models.props.vents.Vent")
-                .withTextureName("textures/models/vent.png")
+                .withTextureName("textures/models/props/vent.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1116,7 +1116,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("vent_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.vents.Vent")
-                .withTextureName("textures/models/vent.png")
+                .withTextureName("textures/models/props/vent.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1f, 1.5f);
@@ -1127,7 +1127,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("vent_corner")
                 .withModelClassName("com.paneedah.mwc.models.props.vents.VentCorner")
-                .withTextureName("textures/models/vent.png")
+                .withTextureName("textures/models/props/vent.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1138,7 +1138,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("vent_corner_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.vents.VentCorner")
-                .withTextureName("textures/models/vent.png")
+                .withTextureName("textures/models/props/vent.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1f, 1.5f);
@@ -1149,7 +1149,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("vent_corner_rotated_alt")
                 .withModelClassName("com.paneedah.mwc.models.props.vents.VentCorner")
-                .withTextureName("textures/models/vent.png")
+                .withTextureName("textures/models/props/vent.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1f, -0.5f);
@@ -1160,7 +1160,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("vent_intersection")
                 .withModelClassName("com.paneedah.mwc.models.props.vents.VentIntersection")
-                .withTextureName("textures/models/vent.png")
+                .withTextureName("textures/models/props/vent.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1171,7 +1171,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("vent_end")
                 .withModelClassName("com.paneedah.mwc.models.props.vents.VentEnd")
-                .withTextureName("textures/models/vent.png")
+                .withTextureName("textures/models/props/vent.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1182,7 +1182,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("white_desk_left")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.WhiteDeskLeft")
-                .withTextureName("textures/models/shelf.png")
+                .withTextureName("textures/models/props/shelf.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1193,7 +1193,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("white_desk_middle")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.WhiteDeskMiddle")
-                .withTextureName("textures/models/shelf.png")
+                .withTextureName("textures/models/props/shelf.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1226,7 +1226,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("white_desk_right")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.WhiteDeskRight")
-                .withTextureName("textures/models/shelf.png")
+                .withTextureName("textures/models/props/shelf.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1237,7 +1237,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("trash_bin")
                 .withModelClassName("com.paneedah.mwc.models.props.TrashBin")
-                .withTextureName("textures/models/trashbin.png")
+                .withTextureName("textures/models/props/trashbin.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1248,7 +1248,7 @@ public class TileEntities {
                 .withMaterial(Material.ROCK)
                 .withName("caution_sign")
                 .withModelClassName("com.paneedah.mwc.models.props.CautionSign")
-                .withTextureName("textures/models/cautionsign.png")
+                .withTextureName("textures/models/props/cautionsign.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0.6f, 0.45f, 0.6f);
@@ -1259,7 +1259,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("electric_box")
                 .withModelClassName("com.paneedah.mwc.models.props.ElectricBox")
-                .withTextureName("textures/models/electricbox.png")
+                .withTextureName("textures/models/props/electricbox.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0.8f, 0.5f);
@@ -1270,7 +1270,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("electric_box_opened")
                 .withModelClassName("com.paneedah.mwc.models.props.ElectricBoxOpened")
-                .withTextureName("textures/models/electricboxopened.png")
+                .withTextureName("textures/models/props/electricboxopened.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0.8f, 0.5f);
@@ -1281,7 +1281,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("home_chair")
                 .withModelClassName("com.paneedah.mwc.models.props.HomeChair")
-                .withTextureName("textures/models/homechair.png")
+                .withTextureName("textures/models/props/homechair.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1314,7 +1314,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("outdoor_chair")
                 .withModelClassName("com.paneedah.mwc.models.props.OutdoorChair")
-                .withTextureName("textures/models/outdoorchair.png")
+                .withTextureName("textures/models/props/outdoorchair.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1325,7 +1325,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("home_chair_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.HomeChair")
-                .withTextureName("textures/models/homechair.png")
+                .withTextureName("textures/models/props/homechair.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1336,7 +1336,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("outdoor_chair_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.OutdoorChair")
-                .withTextureName("textures/models/outdoorchair.png")
+                .withTextureName("textures/models/props/outdoorchair.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1347,7 +1347,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("vending_machine")
                 .withModelClassName("com.paneedah.mwc.models.props.VendingMachine")
-                .withTextureName("textures/models/vendingmachine.png")
+                .withTextureName("textures/models/props/vendingmachine.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1380,7 +1380,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("ServerRackLeft")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackLeft")
-                .withTextureName("textures/models/serverrackleft.png")
+                .withTextureName("textures/models/props/servers/serverrackleft.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1391,7 +1391,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("ServerRackEmptyLeft")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackEmptyLeft")
-                .withTextureName("textures/models/serverrackemptyright.png")
+                .withTextureName("textures/models/props/servers/serverrackemptyright.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1402,7 +1402,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("ServerRackLeftAlt")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackLeftAlt")
-                .withTextureName("textures/models/serverrackleftalt.png")
+                .withTextureName("textures/models/props/servers/serverrackleftalt.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1413,7 +1413,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("ServerRackLeftAlt2")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackLeftAlt2")
-                .withTextureName("textures/models/serverrackleftalt2.png")
+                .withTextureName("textures/models/props/servers/serverrackleftalt2.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1424,7 +1424,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("ServerRackLeftAlt3")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackLeftAlt3")
-                .withTextureName("textures/models/serverrackleftalt3.png")
+                .withTextureName("textures/models/props/servers/serverrackleftalt3.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1435,7 +1435,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("ServerRackEmptyRight")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackEmptyRight")
-                .withTextureName("textures/models/serverrackemptyright.png")
+                .withTextureName("textures/models/props/servers/serverrackemptyright.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1446,7 +1446,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("ServerRackRight")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackRight")
-                .withTextureName("textures/models/serverrackright.png")
+                .withTextureName("textures/models/props/servers/serverrackright.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1457,7 +1457,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("ServerRackRightAlt")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackRightAlt")
-                .withTextureName("textures/models/serverrackrightalt.png")
+                .withTextureName("textures/models/props/servers/serverrackrightalt.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1468,7 +1468,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("ServerRackTopLeft")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackTop")
-                .withTextureName("textures/models/serverrackleft.png")
+                .withTextureName("textures/models/props/servers/serverrackleft.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1501,7 +1501,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("ServerRackTopRight")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackTopRight")
-                .withTextureName("textures/models/serverrackleft.png")
+                .withTextureName("textures/models/props/servers/serverrackleft.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1534,7 +1534,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("DuelFloodLight")
                 .withModelClassName("com.paneedah.mwc.models.props.DuelFloodLight")
-                .withTextureName("textures/models/duelfloodlight.png")
+                .withTextureName("textures/models/props/duelfloodlight.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1566,7 +1566,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("FloodLight")
                 .withModelClassName("com.paneedah.mwc.models.props.Floodlight")
-                .withTextureName("textures/models/floodlight.png")
+                .withTextureName("textures/models/props/floodlight.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1598,7 +1598,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("Radio_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.Radio")
-                .withTextureName("textures/models/radio.png")
+                .withTextureName("textures/models/props/radio.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.7f, 0.7f, 0.7f);
                     GL11.glTranslatef(0.65f, 0.58f, 0.7f);
@@ -1609,7 +1609,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("Radio")
                 .withModelClassName("com.paneedah.mwc.models.props.Radio")
-                .withTextureName("textures/models/radio.png")
+                .withTextureName("textures/models/props/radio.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1641,7 +1641,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("camera_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.Camera")
-                .withTextureName("textures/models/camera.png")
+                .withTextureName("textures/models/props/camera.png")
                 .withBoundingBox(0, 0, 0, 1, 0.8, 1)
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
@@ -1653,7 +1653,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("propanetank")
                 .withModelClassName("com.paneedah.mwc.models.props.PropaneTank")
-                .withTextureName("textures/models/propanetank.png")
+                .withTextureName("textures/models/props/propanetank.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.85f, 1f, 0.85f);
@@ -1664,7 +1664,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("towablefloodlight")
                 .withModelClassName("com.paneedah.mwc.models.props.TowableFloodLight")
-                .withTextureName("textures/models/towablefloodlight.png")
+                .withTextureName("textures/models/props/towablefloodlight.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.3f, 0f, 0.5f);
@@ -1675,7 +1675,7 @@ public class TileEntities {
                 .withMaterial(Material.SAND)
                 .withName("sandbag")
                 .withModelClassName("com.paneedah.mwc.models.props.Sandbag")
-                .withTextureName("textures/models/sandbag.png")
+                .withTextureName("textures/models/props/sandbag.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1708,7 +1708,7 @@ public class TileEntities {
                 .withMaterial(Material.SAND)
                 .withName("sandbagwall")
                 .withModelClassName("com.paneedah.mwc.models.props.SandbagWall")
-                .withTextureName("textures/models/sandbag.png")
+                .withTextureName("textures/models/props/sandbag.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1719,7 +1719,7 @@ public class TileEntities {
                 .withMaterial(Material.ROCK)
                 .withName("crossgravestone")
                 .withModelClassName("com.paneedah.mwc.models.props.CrossGravestone")
-                .withTextureName("textures/models/crossgravestone.png")
+                .withTextureName("textures/models/props/gravestone/crossgravestone.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1730,7 +1730,7 @@ public class TileEntities {
                 .withMaterial(Material.ROCK)
                 .withName("crossgravestone2")
                 .withModelClassName("com.paneedah.mwc.models.props.CrossGravestone2")
-                .withTextureName("textures/models/crossgravestone2.png")
+                .withTextureName("textures/models/props/gravestone/crossgravestone2.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1741,7 +1741,7 @@ public class TileEntities {
                 .withMaterial(Material.ROCK)
                 .withName("crossgravestone3")
                 .withModelClassName("com.paneedah.mwc.models.props.CrossGravestone3")
-                .withTextureName("textures/models/crossgravestone3.png")
+                .withTextureName("textures/models/props/gravestone/crossgravestone3.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1752,7 +1752,7 @@ public class TileEntities {
                 .withMaterial(Material.ROCK)
                 .withName("gravestoneskull")
                 .withModelClassName("com.paneedah.mwc.models.props.GravestoneSkull")
-                .withTextureName("textures/models/gravestoneskull.png")
+                .withTextureName("textures/models/props/gravestone/gravestoneskull.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1763,7 +1763,7 @@ public class TileEntities {
                 .withMaterial(Material.ROCK)
                 .withName("gravestone")
                 .withModelClassName("com.paneedah.mwc.models.props.Gravestone")
-                .withTextureName("textures/models/gravestone.png")
+                .withTextureName("textures/models/props/gravestone/gravestone.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1774,7 +1774,7 @@ public class TileEntities {
                 .withMaterial(Material.WOOD)
                 .withName("scarecrow")
                 .withModelClassName("com.paneedah.mwc.models.props.Scarecrow")
-                .withTextureName("textures/models/scarecrow.png")
+                .withTextureName("textures/models/props/scarecrow.png")
                 .withBoundingBox(0.3, 0, 0.3, 0.7, 3.5, 0.7)
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
@@ -1786,7 +1786,7 @@ public class TileEntities {
                 .withMaterial(Material.CLOTH)
                 .withName("spookyghost")
                 .withModelClassName("com.paneedah.mwc.models.props.SpookyGhost")
-                .withTextureName("textures/models/spookyghost.png")
+                .withTextureName("textures/models/props/ghost/spookyghost.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1.05f, 0.5f);
@@ -1797,7 +1797,7 @@ public class TileEntities {
                 .withMaterial(Material.CLOTH)
                 .withName("spookyghost2")
                 .withModelClassName("com.paneedah.mwc.models.props.SpookyGhost")
-                .withTextureName("textures/models/spookyghost2.png")
+                .withTextureName("textures/models/props/ghost/spookyghost2.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1.05f, 0.5f);
@@ -1808,7 +1808,7 @@ public class TileEntities {
                 .withMaterial(Material.CLOTH)
                 .withName("spookyghost3")
                 .withModelClassName("com.paneedah.mwc.models.props.SpookyGhost")
-                .withTextureName("textures/models/spookyghost3.png")
+                .withTextureName("textures/models/props/ghost/spookyghost3.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1.05f, 0.5f);
@@ -1819,7 +1819,7 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("swat_truck")
                 .withModelClassName("com.paneedah.mwc.models.props.SwatTruck")
-                .withTextureName("textures/models/swattruck.png")
+                .withTextureName("textures/models/props/swattruck.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.5f, 1.5f, 1.5f);
                     GL11.glTranslatef(0.3f, -0.45f, -1f);

@@ -220,7 +220,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Overhauled the internal process of item and block creation
 - Changed name and mod id
 - Overhauled the networking
-- Separated props from the rest of the models
+- Separated props models from the rest of the models
+- Separated props textures from the rest of the textures
 - Cleaned up props models
 
 ### Balance Pack
