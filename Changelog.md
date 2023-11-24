@@ -101,6 +101,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Terrorist spawns are now lower by default
 - Flashbangs do not flash trough walls anymore
 - Moved the turret base from the `Props` creative tab to `Blocks & Ingots` creative tab
+- Changed the icon of the `Props` creative tab to the barrel
 
 ### Fixed
 
