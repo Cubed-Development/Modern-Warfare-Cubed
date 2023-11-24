@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/hanging_body"
+        "layer0": "mwc:items/props/hanging_body"
     },
     "display": {
 		"thirdperson_righthand": {
