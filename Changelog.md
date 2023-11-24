@@ -183,6 +183,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Bullet spawning maths which was making the bullets spawn in inaccurate position
 - Fixed compatibility with Forge `Emissive Item Rendering`
 - Fixed props registration
+- Fixed rotated version of the ceiling tv being rotated the wrong way
 
 ### Removed
 

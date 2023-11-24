@@ -620,8 +620,8 @@ public class TileEntities {
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
-                            GL11.glTranslatef(0.6f, 0.4f, 0.7f);
-                            GL11.glRotatef(-135F, 0f, 1f, 0f);
+                            GL11.glTranslatef(0.5f, 0.4f, 0.5f);
+                            GL11.glRotatef(-45F, 0f, 1f, 0f);
                         })
         );
 
