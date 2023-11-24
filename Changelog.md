@@ -51,6 +51,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
 - Added the gold and dark color variants of the Desert Eagle
 - Added loading bar for props building
+- Added rotated and non rotated versions of the forklift and its variants (Existing forklifts will become non-rotated)
 
 ### Changed
 

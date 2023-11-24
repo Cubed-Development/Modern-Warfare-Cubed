@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/props/ceiling_tv_rotated"
+        "layer0": "mwc:items/props/electronics/ceiling_tv_rotated"
     },
     "display": {
 		"thirdperson_righthand": {

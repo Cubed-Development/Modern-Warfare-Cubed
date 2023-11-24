@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/props/laptop"
+        "layer0": "mwc:items/props/electronics/laptop"
     },
     "display": {
 		"thirdperson_righthand": {

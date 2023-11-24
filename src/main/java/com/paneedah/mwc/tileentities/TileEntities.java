@@ -412,8 +412,8 @@ public class TileEntities {
                 new LootBoxConfiguration()
                         .withMaterial(Material.ROCK)
                         .withName("pc")
-                        .withModelClassName("com.paneedah.mwc.models.props.PC")
-                        .withTextureName("textures/models/props/pc.png")
+                        .withModelClassName("com.paneedah.mwc.models.props.electronics.PC")
+                        .withTextureName("textures/models/props/electronics/pc.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.9f, 0.9f, 0.9f);
@@ -425,8 +425,8 @@ public class TileEntities {
                 new LootBoxConfiguration()
                         .withMaterial(Material.ROCK)
                         .withName("laptop")
-                        .withModelClassName("com.paneedah.mwc.models.props.Laptop")
-                        .withTextureName("textures/models/props/pc.png")
+                        .withModelClassName("com.paneedah.mwc.models.props.electronics.Laptop")
+                        .withTextureName("textures/models/props/electronics/pc.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -460,8 +460,8 @@ public class TileEntities {
                 new LootBoxConfiguration()
                         .withMaterial(Material.ROCK)
                         .withName("monitor")
-                        .withModelClassName("com.paneedah.mwc.models.props.Monitor")
-                        .withTextureName("textures/models/props/pc.png")
+                        .withModelClassName("com.paneedah.mwc.models.props.electronics.Monitor")
+                        .withTextureName("textures/models/props/electronics/pc.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.9f, 0.9f, 0.9f);
@@ -565,8 +565,8 @@ public class TileEntities {
                 new LootBoxConfiguration()
                         .withMaterial(Material.ROCK)
                         .withName("tv")
-                        .withModelClassName("com.paneedah.mwc.models.props.TV")
-                        .withTextureName("textures/models/props/tv.png")
+                        .withModelClassName("com.paneedah.mwc.models.props.electronics.TV")
+                        .withTextureName("textures/models/props/electronics/tv.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
                                 blockState -> {
@@ -601,8 +601,8 @@ public class TileEntities {
                 new LootBoxConfiguration()
                         .withMaterial(Material.ROCK)
                         .withName("ceiling_tv")
-                        .withModelClassName("com.paneedah.mwc.models.props.CeilingTV")
-                        .withTextureName("textures/models/props/ceilingtv.png")
+                        .withModelClassName("com.paneedah.mwc.models.props.electronics.CeilingTV")
+                        .withTextureName("textures/models/props/electronics/ceilingtv.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
@@ -615,8 +615,8 @@ public class TileEntities {
                 new LootBoxConfiguration()
                         .withMaterial(Material.ROCK)
                         .withName("ceiling_tv_rotated")
-                        .withModelClassName("com.paneedah.mwc.models.props.CeilingTV")
-                        .withTextureName("textures/models/props/ceilingtv.png")
+                        .withModelClassName("com.paneedah.mwc.models.props.electronics.CeilingTV")
+                        .withTextureName("textures/models/props/electronics/ceilingtv.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
@@ -1054,12 +1054,34 @@ public class TileEntities {
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.5f, 1.5f, 1.5f);
                     GL11.glTranslatef(0.5f, -0.5f, 0.5f);
+                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                }));
+
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("forklift_rotated")
+                .withModelClassName("com.paneedah.mwc.models.props.Forklift")
+                .withTextureName("textures/models/props/forklift.png")
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(1.5f, 1.5f, 1.5f);
+                    GL11.glTranslatef(0.5f, -0.5f, 0.5f);
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                 }));
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("forklift_alt")
+                .withModelClassName("com.paneedah.mwc.models.props.ForkLiftAlt")
+                .withTextureName("textures/models/props/forkliftalt.png")
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(1f, 1f, 1f);
+                    GL11.glTranslatef(0.5f, 0f, 0.5f);
+                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                }));
+
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("forklift_alt_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.ForkLiftAlt")
                 .withTextureName("textures/models/props/forkliftalt.png")
                 .withPositioning(tileEntity -> {
@@ -1258,8 +1280,8 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("electric_box")
-                .withModelClassName("com.paneedah.mwc.models.props.ElectricBox")
-                .withTextureName("textures/models/props/electricbox.png")
+                .withModelClassName("com.paneedah.mwc.models.props.electronics.ElectricBox")
+                .withTextureName("textures/models/props/electronics/electricbox.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0.8f, 0.5f);
@@ -1269,8 +1291,8 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("electric_box_opened")
-                .withModelClassName("com.paneedah.mwc.models.props.ElectricBoxOpened")
-                .withTextureName("textures/models/props/electricboxopened.png")
+                .withModelClassName("com.paneedah.mwc.models.props.electronics.ElectricBoxOpened")
+                .withTextureName("textures/models/props/electronics/electricboxopened.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0.8f, 0.5f);
@@ -1346,8 +1368,8 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("vending_machine")
-                .withModelClassName("com.paneedah.mwc.models.props.VendingMachine")
-                .withTextureName("textures/models/props/vendingmachine.png")
+                .withModelClassName("com.paneedah.mwc.models.props.electronics.VendingMachine")
+                .withTextureName("textures/models/props/electronics/vendingmachine.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1597,8 +1619,8 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("Radio_rotated")
-                .withModelClassName("com.paneedah.mwc.models.props.Radio")
-                .withTextureName("textures/models/props/radio.png")
+                .withModelClassName("com.paneedah.mwc.models.props.electronics.Radio")
+                .withTextureName("textures/models/props/electronics/radio.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.7f, 0.7f, 0.7f);
                     GL11.glTranslatef(0.65f, 0.58f, 0.7f);
@@ -1608,8 +1630,8 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("Radio")
-                .withModelClassName("com.paneedah.mwc.models.props.Radio")
-                .withTextureName("textures/models/props/radio.png")
+                .withModelClassName("com.paneedah.mwc.models.props.electronics.Radio")
+                .withTextureName("textures/models/props/electronics/radio.png")
                 .withBoundingBox(
                         blockState -> {
                             AxisAlignedBB boundingBox = null;
@@ -1640,8 +1662,8 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("camera_rotated")
-                .withModelClassName("com.paneedah.mwc.models.props.Camera")
-                .withTextureName("textures/models/props/camera.png")
+                .withModelClassName("com.paneedah.mwc.models.props.electronics.Camera")
+                .withTextureName("textures/models/props/electronics/camera.png")
                 .withBoundingBox(0, 0, 0, 1, 0.8, 1)
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
