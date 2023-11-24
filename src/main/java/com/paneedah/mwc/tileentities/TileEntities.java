@@ -250,8 +250,8 @@ public class TileEntities {
         props.add(
                 new LootBoxConfiguration()
                         .withMaterial(Material.IRON)
-                        .withName("artillery_PROP")
-                        .withModelClassName("com.paneedah.mwc.models.props.ArtilleryProp20")
+                        .withName("artillery_prop")
+                        .withModelClassName("com.paneedah.mwc.models.props.ArtilleryProp")
                         .withTextureName("textures/models/props/artilleryprop.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {

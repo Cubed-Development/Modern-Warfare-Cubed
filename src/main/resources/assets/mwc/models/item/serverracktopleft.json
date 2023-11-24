@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/serverracktopleft"
+        "layer0": "mwc:items/props/servers/serverracktopleft"
     },
     "display": {
 		"thirdperson_righthand": {

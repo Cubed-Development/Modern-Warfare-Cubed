@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
  * @author Developer: Desoroxx
  */
 @SuppressWarnings({"FieldCanBeLocal", "NullableProblems"})
-public final class ArtilleryProp20 extends ModelBase implements IModernModel {
+public final class ArtilleryProp extends ModelBase implements IModernModel {
 
     private final ModelRenderer ArtilleryProp;
     private final ModelRenderer gun;
@@ -38,7 +38,7 @@ public final class ArtilleryProp20 extends ModelBase implements IModernModel {
     private final ModelRenderer ShieldOnGun_r1;
     private final ModelRenderer Wheel;
 
-    public ArtilleryProp20() {
+    public ArtilleryProp() {
         textureWidth = 512;
         textureHeight = 512;
 
