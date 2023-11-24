@@ -17,7 +17,7 @@ public class TurretBaseFactory implements TileEntityFactory {
         .withName("turret_base")
         .withModelClassName("com.paneedah.mwc.models.weapons.TurretBase")
         .withTextureName("textures/models/turretbase.png")
-        .withCreativeTab(MWC.PROPS_TAB)
+        .withCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB)
         .withBoundingBox(0.0, 0, 0.0, 1, 0.2, 1)
         .withPositioning(tileEntity -> {
 //            GL11.glScalef(0.5f, 0.5f, 0.5f);

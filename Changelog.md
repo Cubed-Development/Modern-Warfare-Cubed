@@ -100,6 +100,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - The weapon stats in the modification GUI are now updated instantly
 - Terrorist spawns are now lower by default
 - Flashbangs do not flash trough walls anymore
+- Moved the turret base from the `Props` creative tab to `Blocks & Ingots` creative tab
 
 ### Fixed
 
