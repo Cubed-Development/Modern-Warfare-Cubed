@@ -27,7 +27,6 @@ public final class Floodlight extends ModelBase implements IModernModel {
 
         bone5 = new ModelRenderer(this);
         bone5.setRotationPoint(0.0F, 24.0F, 0.0F);
-        setRotationAngle(bone5, 0.0F, -0.3927F, 0.0F);
 
         bone4 = new ModelRenderer(this);
         bone5.addChild(bone4);

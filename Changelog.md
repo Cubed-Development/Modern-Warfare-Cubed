@@ -51,7 +51,10 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
 - Added the gold and dark color variants of the Desert Eagle
 - Added loading bar for props building
-- Added missing non-rotated versions of the forklift and its variants (Existing forklifts will become non-rotated)
+- Added non-rotated versions of the forklift and its variants (Existing forklifts will become non-rotated)
+- Added non-rotated versions of the duel floodlight (Existing duel floodlight will become non-rotated)
+- Added non-rotated versions of the floodlight (Existing floodlight will become non-rotated)
+- Added icons for the gravestone and gravestone skull props
 
 ### Changed
 
@@ -181,6 +184,10 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Bullet spawning maths which was making the bullets spawn in inaccurate position
 - Fixed compatibility with Forge `Emissive Item Rendering`
 - Fixed props registration
+- Fixed rotated version of the ceiling tv being rotated the wrong way
+- Fixed duel floodlight not being centered
+- Fixed floodlight not being centered
+- Fixed body bag positioning
 
 ### Removed
 

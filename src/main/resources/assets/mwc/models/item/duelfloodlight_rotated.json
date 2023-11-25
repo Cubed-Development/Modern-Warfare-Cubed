@@ -1,8 +1,7 @@
-
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/props/gravestones/gravestone"
+        "layer0": "mwc:items/props/lights/duelfloodlight_rotated"
     },
     "display": {
 		"thirdperson_righthand": {

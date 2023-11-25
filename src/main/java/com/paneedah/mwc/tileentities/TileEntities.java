@@ -3,9 +3,9 @@ package com.paneedah.mwc.tileentities;
 import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.tile.CustomTileEntityBlock;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
+import dev.redstudio.redcore.utils.AABBUtil;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.fml.common.ProgressManager;
 import org.lwjgl.opengl.GL11;
@@ -30,26 +30,7 @@ public class TileEntities {
                         .withTextureName("textures/models/props/gun_case.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
-                                blockState -> {
-                                    AxisAlignedBB boundingBox = null;
-                                    EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                                    switch (facing) {
-                                        case WEST:
-                                            boundingBox = new AxisAlignedBB(0.82, 0, -0.65, 0.18, 0.3, 1.6);
-                                            break;
-                                        case EAST:
-                                            boundingBox = new AxisAlignedBB(0.81, 0, -0.6, 0.18, 0.3, 1.65);
-                                            break;
-                                        case NORTH:
-                                            boundingBox = new AxisAlignedBB(-0.58, 0, 0.2, 1.63, 0.3, 0.8);
-                                            break;
-                                        case SOUTH:
-                                            boundingBox = new AxisAlignedBB(-0.65, 0, 0.2, 1.6, 0.3, 0.8);
-                                            break;
-                                        default:
-                                    }
-                                    return boundingBox;
-                                }
+                                blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(-0.58, 0, 0.2, 1.63, 0.3, 0.8))
                         )
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.6f, 0.6f, 0.6f);
@@ -65,26 +46,7 @@ public class TileEntities {
                         .withTextureName("textures/models/props/gun_case_small.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
-                                blockState -> {
-                                    AxisAlignedBB boundingBox = null;
-                                    EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                                    switch (facing) {
-                                        case WEST:
-                                            boundingBox = new AxisAlignedBB(0.09, 0, 0.09, 0.77, 0.33, 0.93);
-                                            break;
-                                        case EAST:
-                                            boundingBox = new AxisAlignedBB(0.22, 0, 0.05, 0.92, 0.33, 0.9);
-                                            break;
-                                        case NORTH:
-                                            boundingBox = new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77);
-                                            break;
-                                        case SOUTH:
-                                            boundingBox = new AxisAlignedBB(0.1, 0, 0.23, 0.95, 0.33, 0.92);
-                                            break;
-                                        default:
-                                    }
-                                    return boundingBox;
-                                }
+                                blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77))
                         )
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.6f, 0.6f, 0.6f);
@@ -101,26 +63,7 @@ public class TileEntities {
                         .withTextureName("textures/models/props/militarycrate.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
-                                blockState -> {
-                                    AxisAlignedBB boundingBox = null;
-                                    EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                                    switch (facing) {
-                                        case WEST:
-                                            boundingBox = new AxisAlignedBB(0.03, 0, -0.43, 0.97, 0.54, 1.47);
-                                            break;
-                                        case EAST:
-                                            boundingBox = new AxisAlignedBB(0.03, 0, -0.43, 0.97, 0.54, 1.47);
-                                            break;
-                                        case NORTH:
-                                            boundingBox = new AxisAlignedBB(-0.47, 0, 0.03, 1.44, 0.54, 0.98);
-                                            break;
-                                        case SOUTH:
-                                            boundingBox = new AxisAlignedBB(-0.43, 0, 0.03, 1.46, 0.54, 0.98);
-                                            break;
-                                        default:
-                                    }
-                                    return boundingBox;
-                                }
+                                blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(-0.47, 0, 0.03, 1.44, 0.54, 0.98))
                         )
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.6f, 0.6f, 0.6f);
@@ -136,26 +79,7 @@ public class TileEntities {
                         .withTextureName("textures/models/props/ammobox.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
-                                blockState -> {
-                                    AxisAlignedBB boundingBox = null;
-                                    EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                                    switch (facing) {
-                                        case WEST:
-                                            boundingBox = new AxisAlignedBB(0.35, 0, 0.15, 0.7, 0.5, 0.85);
-                                            break;
-                                        case EAST:
-                                            boundingBox = new AxisAlignedBB(0.35, 0, 0.15, 0.7, 0.5, 0.85);
-                                            break;
-                                        case NORTH:
-                                            boundingBox = new AxisAlignedBB(0.15, 0, 0.35, 0.83, 0.5, 0.7);
-                                            break;
-                                        case SOUTH:
-                                            boundingBox = new AxisAlignedBB(0.15, 0, 0.35, 0.83, 0.5, 0.7);
-                                            break;
-                                        default:
-                                    }
-                                    return boundingBox;
-                                }
+                                blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0.15, 0, 0.35, 0.83, 0.5, 0.7))
                         )
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.4f, 0.4f, 0.4f);
@@ -185,26 +109,7 @@ public class TileEntities {
                         .withTextureName("textures/models/props/fridge.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
-                                blockState -> {
-                                    AxisAlignedBB boundingBox = null;
-                                    EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                                    switch (facing) {
-                                        case WEST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case EAST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case NORTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case SOUTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        default:
-                                    }
-                                    return boundingBox;
-                                }
+                                blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 2, 1))
                         )
                         .withPositioning(tileEntity -> {
                             GL11.glTranslatef(0.55f, 0f, 0.5f);
@@ -220,26 +125,7 @@ public class TileEntities {
                         .withTextureName("textures/models/props/fridge.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
-                                blockState -> {
-                                    AxisAlignedBB boundingBox = null;
-                                    EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                                    switch (facing) {
-                                        case WEST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case EAST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case NORTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case SOUTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        default:
-                                    }
-                                    return boundingBox;
-                                }
+                                blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 2, 1))
                         )
                         .withPositioning(tileEntity -> {
                             GL11.glTranslatef(0.55f, 0f, 0.5f);
@@ -283,26 +169,7 @@ public class TileEntities {
                         .withTextureName("textures/models/props/medicalcrate.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
-                                blockState -> {
-                                    AxisAlignedBB boundingBox = null;
-                                    EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                                    switch (facing) {
-                                        case WEST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                            break;
-                                        case EAST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                            break;
-                                        case NORTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                            break;
-                                        case SOUTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                            break;
-                                        default:
-                                    }
-                                    return boundingBox;
-                                }
+                                blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.5, 1))
                         )
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.6f, 0.6f, 0.6f);
@@ -318,26 +185,7 @@ public class TileEntities {
                         .withTextureName("textures/models/props/locker.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
-                                blockState -> {
-                                    AxisAlignedBB boundingBox = null;
-                                    EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                                    switch (facing) {
-                                        case WEST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case EAST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case NORTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case SOUTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        default:
-                                    }
-                                    return boundingBox;
-                                }
+                                blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 2, 1))
                         )
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.5f, 0.5f, 0.5f);
@@ -353,26 +201,7 @@ public class TileEntities {
                         .withTextureName("textures/models/props/scplocker.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
-                                blockState -> {
-                                    AxisAlignedBB boundingBox = null;
-                                    EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                                    switch (facing) {
-                                        case WEST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case EAST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case NORTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case SOUTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        default:
-                                    }
-                                    return boundingBox;
-                                }
+                                blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 2, 1))
                         )
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.8f, 0.8f, 0.8f);
@@ -429,26 +258,7 @@ public class TileEntities {
                         .withTextureName("textures/models/props/electronics/pc.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
-                                blockState -> {
-                                    AxisAlignedBB boundingBox = null;
-                                    EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                                    switch (facing) {
-                                        case WEST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                            break;
-                                        case EAST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                            break;
-                                        case NORTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                            break;
-                                        case SOUTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                            break;
-                                        default:
-                                    }
-                                    return boundingBox;
-                                }
+                                blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.5, 1))
                         )
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(0.7f, 0.7f, 0.7f);
@@ -533,26 +343,7 @@ public class TileEntities {
                         .withTextureName("textures/models/props/shelf.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
-                                blockState -> {
-                                    AxisAlignedBB boundingBox = null;
-                                    EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                                    switch (facing) {
-                                        case WEST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
-                                            break;
-                                        case EAST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
-                                            break;
-                                        case NORTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
-                                            break;
-                                        case SOUTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.2, 1);
-                                            break;
-                                        default:
-                                    }
-                                    return boundingBox;
-                                }
+                                blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.2, 1))
                         )
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
@@ -569,26 +360,7 @@ public class TileEntities {
                         .withTextureName("textures/models/props/electronics/tv.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
-                                blockState -> {
-                                    AxisAlignedBB boundingBox = null;
-                                    EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                                    switch (facing) {
-                                        case WEST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case EAST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case NORTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        case SOUTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                            break;
-                                        default:
-                                    }
-                                    return boundingBox;
-                                }
+                                blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 2, 1))
                         )
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
@@ -620,8 +392,8 @@ public class TileEntities {
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
-                            GL11.glTranslatef(0.6f, 0.4f, 0.7f);
-                            GL11.glRotatef(-135F, 0f, 1f, 0f);
+                            GL11.glTranslatef(0.5f, 0.4f, 0.5f);
+                            GL11.glRotatef(-45F, 0f, 1f, 0f);
                         })
         );
 
@@ -631,26 +403,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.props.OfficeChair2")
                 .withTextureName("textures/models/props/officechair.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.7, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
@@ -667,26 +420,7 @@ public class TileEntities {
                         .withTextureName("textures/models/props/officechair.png")
                         .withCreativeTab(MWC.PROPS_TAB)
                         .withBoundingBox(
-                                blockState -> {
-                                    AxisAlignedBB boundingBox = null;
-                                    EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                                    switch (facing) {
-                                        case WEST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                            break;
-                                        case EAST:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                            break;
-                                        case NORTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                            break;
-                                        case SOUTH:
-                                            boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                            break;
-                                        default:
-                                    }
-                                    return boundingBox;
-                                }
+                                blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.7, 1))
                         )
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
@@ -789,26 +523,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskShelf")
                 .withTextureName("textures/models/props/desks/deskshelf.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, .6, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
@@ -833,26 +548,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskShelfAlt2")
                 .withTextureName("textures/models/props/desks/deskshelf.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, .6, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, .6, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
@@ -899,7 +595,7 @@ public class TileEntities {
                 .withTextureName("textures/models/props/bodybag.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.5f, -0.9f, 0.55f);
+                    GL11.glTranslatef(0.4f, 0.17F, 0.555f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 }));
 
@@ -909,26 +605,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.props.HangingBody")
                 .withTextureName("textures/models/props/hangingbody.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, -1, 0, 1, 1, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, -1, 0, 1, 1, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, -1, 0, 1, 1, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, -1, 0, 1, 1, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, -1, 0, 1, 1, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
@@ -942,26 +619,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.props.ImpaledBody")
                 .withTextureName("textures/models/props/impaledbody.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 3, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 3, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 3, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 3, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 3, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
@@ -975,26 +633,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.props.Dumpster")
                 .withTextureName("textures/models/props/dumpster.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1, 2);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, -1, 1, 1, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(-1, 0, 0, 1, 1, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 2, 1, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(-1, 0, 0, 1, 1, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
@@ -1217,26 +856,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.props.desks.WhiteDeskMiddle")
                 .withTextureName("textures/models/props/shelf.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, .5, 0, 1, 1, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, .5, 0, 1, 1, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, .5, 0, 1, 1, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, .5, 0, 1, 1, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, .5, 0, 1, 1, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
@@ -1305,26 +925,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.props.HomeChair")
                 .withTextureName("textures/models/props/homechair.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.7, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.7, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
@@ -1371,26 +972,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.props.electronics.VendingMachine")
                 .withTextureName("textures/models/props/electronics/vendingmachine.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 2, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
@@ -1492,26 +1074,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackTop")
                 .withTextureName("textures/models/props/servers/serverrackleft.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.5, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
@@ -1525,26 +1088,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackTopRight")
                 .withTextureName("textures/models/props/servers/serverrackleft.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.5, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
@@ -1554,66 +1098,56 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
-                .withName("DuelFloodLight")
-                .withModelClassName("com.paneedah.mwc.models.props.lights.DuelFloodLight")
+                .withName("duelfloodlight")
+                .withModelClassName("com.paneedah.mwc.models.props.lights.DuelFloodlight")
                 .withTextureName("textures/models/props/lights/duelfloodlight.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 1.7, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 1.7, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
-                    GL11.glTranslatef(0.6f, 0.35f, 0.6f);
+                    GL11.glTranslatef(0.65f, 0.35f, 0.65f);
                 }));
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
-                .withName("FloodLight")
+                .withName("duelfloodlight_rotated")
+                .withModelClassName("com.paneedah.mwc.models.props.lights.DuelFloodlight")
+                .withTextureName("textures/models/props/lights/duelfloodlight.png")
+                .withBoundingBox(
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 1.7, 1))
+                )
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.8f, 0.8f, 0.8f);
+                    GL11.glTranslatef(0.65f, 0.35f, 0.65f);
+                    GL11.glRotatef(45F, 0f, 1f, 0f);
+                }));
+
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("floodlight")
                 .withModelClassName("com.paneedah.mwc.models.props.lights.Floodlight")
                 .withTextureName("textures/models/props/lights/floodlight.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.75, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.75, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.6f, 0.175f, 0.6f);
+                    GL11.glTranslatef(0.55f, 0.175f, 0.55f);
+                }));
+
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("floodlight_rotated")
+                .withModelClassName("com.paneedah.mwc.models.props.lights.Floodlight")
+                .withTextureName("textures/models/props/lights/floodlight.png")
+                .withBoundingBox(
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.75, 1))
+                )
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.9f, 0.9f, 0.9f);
+                    GL11.glTranslatef(0.55f, 0.175f, 0.55f);
+                    GL11.glRotatef(45F, 0f, 1f, 0f);
                 }));
 
         props.add(new LootBoxConfiguration()
@@ -1633,26 +1167,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.props.electronics.Radio")
                 .withTextureName("textures/models/props/electronics/radio.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0.09, 0, 0.09, 0.77, 0.33, 0.93);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0.22, 0, 0.05, 0.92, 0.33, 0.9);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0.1, 0, 0.23, 0.95, 0.33, 0.92);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.7f, 0.7f, 0.7f);
@@ -1699,26 +1214,7 @@ public class TileEntities {
                 .withModelClassName("com.paneedah.mwc.models.props.Sandbag")
                 .withTextureName("textures/models/props/sandbag.png")
                 .withBoundingBox(
-                        blockState -> {
-                            AxisAlignedBB boundingBox = null;
-                            EnumFacing facing = blockState.getValue(CustomTileEntityBlock.FACING);
-                            switch (facing) {
-                                case WEST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case EAST:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case NORTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                case SOUTH:
-                                    boundingBox = new AxisAlignedBB(0, 0, 0, 1, 0.5, 1);
-                                    break;
-                                default:
-                            }
-                            return boundingBox;
-                        }
+                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.5, 1))
                 )
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
