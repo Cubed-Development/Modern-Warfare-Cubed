@@ -4,12 +4,12 @@ import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ModContext;
 import lombok.Getter;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -36,7 +36,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
     private AtomicInteger counter = new AtomicInteger(10000);
     private Supplier<Integer> entityIdSupplier = () -> counter.incrementAndGet();
     private Consumer<TileEntity> positioning = tileEntity -> {};
-    private Function<IBlockState, AxisAlignedBB> boundingBox;
+    private Function<EnumFacing, AxisAlignedBB> boundingBox;
     
     
     private T safeCast(CustomTileEntityConfiguration<T> input) {
@@ -83,7 +83,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         return safeCast(this);
     }
     
-    public T withBoundingBox(Function<IBlockState, AxisAlignedBB> boundingBox) {
+    public T withBoundingBox(Function<EnumFacing, AxisAlignedBB> boundingBox) {
         this.boundingBox = boundingBox;
         return safeCast(this);
     }
