@@ -54,6 +54,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added non-rotated versions of the forklift and its variants (Existing forklifts will become non-rotated)
 - Added non-rotated versions of the duel floodlight (Existing duel floodlight will become non-rotated)
 - Added non-rotated versions of the floodlight (Existing floodlight will become non-rotated)
+- Added icons for the gravestone and gravestone skull props
 
 ### Changed
 
