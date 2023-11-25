@@ -96,14 +96,14 @@ public class M1911Factory implements GunFactory {
                 })
             .withCompatibleAttachment(Attachments.HardballerSlide, (model) -> {
              if (model instanceof HardballerIron) {
-                        GL11.glTranslatef(-0.155F, -2.17F, -1.43F);
-                        GL11.glScaled(0.45F, 0.55F, 0.5F);
+                 GL11.glTranslatef(-0.155F, -2.07F, -1.55F);
+                 GL11.glScaled(0.55F, 0.5F, 0.5F);
                }
             })
             .withCompatibleAttachment(Attachments.M45A1CQBPSlide, (model) -> {
              if (model instanceof m45a1Iron) {
-                        GL11.glTranslatef(-0.155F, -2.25F, -1.13F);
-                        GL11.glScaled(0.6F, 0.6F, 0.51F);
+                  GL11.glTranslatef(-0.155F, -2.21F, -1.1F);
+                  GL11.glScaled(0.6F, 0.6F, 0.49F);
                }
             })
 

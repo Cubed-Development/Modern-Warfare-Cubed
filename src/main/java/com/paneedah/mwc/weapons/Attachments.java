@@ -3767,7 +3767,7 @@ public class Attachments {
                 .withHolographicReticles(Reticles.REFLEX)
                 .withReticlePositioning(() -> {
                     GlStateManager.translate(0.22F, -2.75F, -0.53F);
-                    GlStateManager.scale(2.0F, 1.6F, 1.6F);
+                    GlStateManager.scale(3.0F, 2.6F, 1.6F);
                 })
                 .withCategory(AttachmentCategory.SCOPE)
                 .withRenderablePart()

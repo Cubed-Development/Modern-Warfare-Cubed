@@ -156,7 +156,7 @@ public class PGMHecateIIFactory implements GunFactory {
 	        }
 	    })
         .withCompatibleAttachment(Attachments.Bipod, () -> {
-        	GL11.glTranslatef(-0.2F, -0.15F, -3.9F);
+        	GL11.glTranslatef(-0.2F, -0.2F, -3.9F);
             GL11.glScaled(1F, 1F, 1F);
         })
 		
