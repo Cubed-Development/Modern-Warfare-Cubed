@@ -595,7 +595,7 @@ public class TileEntities {
                 .withTextureName("textures/models/props/bodybag.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
-                    GL11.glTranslatef(0.5f, -0.9f, 0.55f);
+                    GL11.glTranslatef(0.4f, 0.17F, 0.555f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
                 }));
 

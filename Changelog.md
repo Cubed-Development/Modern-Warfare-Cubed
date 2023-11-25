@@ -186,6 +186,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed rotated version of the ceiling tv being rotated the wrong way
 - Fixed duel floodlight not being centered
 - Fixed floodlight not being centered
+- Fixed body bag positioning
 
 ### Removed
 
