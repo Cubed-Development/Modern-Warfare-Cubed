@@ -668,6 +668,7 @@ public class TileEntities {
                 .withName("operating_table")
                 .withModelClassName("com.paneedah.mwc.models.props.OperatingTable")
                 .withTextureName("textures/models/props/operatingtable.png")
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, -0.5, 1, 1, 1.5)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -679,6 +680,7 @@ public class TileEntities {
                 .withName("operating_table_alt")
                 .withModelClassName("com.paneedah.mwc.models.props.OperatingTableAlt")
                 .withTextureName("textures/models/props/operatingtable.png")
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, -0.5, 1, 1, 1.5)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -734,6 +736,7 @@ public class TileEntities {
                 .withName("trusses")
                 .withModelClassName("com.paneedah.mwc.models.props.Trusses")
                 .withTextureName("textures/models/props/trusses.png")
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0.4, 1, 1, 0.6)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -924,9 +927,7 @@ public class TileEntities {
                 .withName("home_chair")
                 .withModelClassName("com.paneedah.mwc.models.props.HomeChair")
                 .withTextureName("textures/models/props/homechair.png")
-                .withBoundingBox(
-                        blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.7, 1))
-                )
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -938,6 +939,7 @@ public class TileEntities {
                 .withName("outdoor_chair")
                 .withModelClassName("com.paneedah.mwc.models.props.OutdoorChair")
                 .withTextureName("textures/models/props/outdoorchair.png")
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -949,6 +951,7 @@ public class TileEntities {
                 .withName("home_chair_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.HomeChair")
                 .withTextureName("textures/models/props/homechair.png")
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -960,6 +963,7 @@ public class TileEntities {
                 .withName("outdoor_chair_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.OutdoorChair")
                 .withTextureName("textures/models/props/outdoorchair.png")
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
