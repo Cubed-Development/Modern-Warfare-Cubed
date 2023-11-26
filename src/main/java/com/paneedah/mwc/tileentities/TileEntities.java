@@ -294,6 +294,7 @@ public class TileEntities {
                         .withModelClassName("com.paneedah.mwc.models.props.shelves.ShelfRight")
                         .withTextureName("textures/models/props/shelf.png")
                         .withCreativeTab(MWC.PROPS_TAB)
+                        .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0.1, 0.2, 1, 1, 0.8)))
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
                             GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -308,6 +309,7 @@ public class TileEntities {
                         .withModelClassName("com.paneedah.mwc.models.props.shelves.ShelfLeft")
                         .withTextureName("textures/models/props/shelf.png")
                         .withCreativeTab(MWC.PROPS_TAB)
+                        .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0.1, 0.2, 1, 1, 0.8)))
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
                             GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -322,7 +324,7 @@ public class TileEntities {
                         .withModelClassName("com.paneedah.mwc.models.props.shelves.ShelfTop")
                         .withTextureName("textures/models/props/shelf.png")
                         .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.2, 1)))
+                        .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0.2, 1, 0.11, 0.8)))
                         .withPositioning(tileEntity -> {
                             GL11.glScalef(1f, 1f, 1f);
                             GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -702,7 +704,8 @@ public class TileEntities {
                 .withName("trusses")
                 .withModelClassName("com.paneedah.mwc.models.props.Trusses")
                 .withTextureName("textures/models/props/trusses.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0.4, 1, 1, 0.6)))
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0.8, 0.4, 1, 1, 0.6)))
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0.2, 0.4, 1, 0.4, 0.6)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -714,6 +717,7 @@ public class TileEntities {
                 .withName("ceiling_lamp")
                 .withModelClassName("com.paneedah.mwc.models.props.lights.CeilingLamp")
                 .withTextureName("textures/models/props/lights/ceilinglamp.png")
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0.5, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1.8f, 0.5f);
@@ -824,7 +828,7 @@ public class TileEntities {
                 .withName("white_desk_middle")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.WhiteDeskMiddle")
                 .withTextureName("textures/models/props/shelf.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, .5, 0, 1, 1, 1)))
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0.8, 0, 1, 1, 0.9)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1039,7 +1043,7 @@ public class TileEntities {
                 .withName("ServerRackTopLeft")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackTop")
                 .withTextureName("textures/models/props/servers/serverrackleft.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.5, 1)))
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.3, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1051,7 +1055,7 @@ public class TileEntities {
                 .withName("ServerRackTopRight")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackTopRight")
                 .withTextureName("textures/models/props/servers/serverrackleft.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.5, 1)))
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 0.3, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
