@@ -828,7 +828,7 @@ public class TileEntities {
                 .withName("white_desk_middle")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.WhiteDeskMiddle")
                 .withTextureName("textures/models/props/shelf.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0.8, 0, 1, 1, 0.9)))
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0.95, 0, 1, 1, 0.8)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -943,7 +943,7 @@ public class TileEntities {
                 .withName("vending_machine")
                 .withModelClassName("com.paneedah.mwc.models.props.electronics.VendingMachine")
                 .withTextureName("textures/models/props/electronics/vendingmachine.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0, 1, 2, 1)))
+                .withBoundingBox(blockState -> AABBUtil.orientAABB(blockState.getValue(CustomTileEntityBlock.FACING), new AxisAlignedBB(0, 0, 0.1, 1, 2, 0.8)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0.55f, 0.4f, 0.62f);
