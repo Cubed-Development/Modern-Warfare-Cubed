@@ -28,7 +28,7 @@ public class CustomTileEntityBlock extends BlockContainer {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
     private Class<? extends TileEntity> tileEntityClass;
-    private Function<IBlockState, AxisAlignedBB> customBoundingBox;
+    private Function<EnumFacing, AxisAlignedBB> customBoundingBox;
     
     protected CustomTileEntityBlock(Material material, Class<? extends TileEntity> tileEntityClass) {
         super(material);
@@ -40,14 +40,14 @@ public class CustomTileEntityBlock extends BlockContainer {
         return new BlockStateContainer(this, new IProperty[] {FACING});
     }
     
-    public void setBoundingBox(Function<IBlockState, AxisAlignedBB> customBoundingBox) {
+    public void setBoundingBox(Function<EnumFacing, AxisAlignedBB> customBoundingBox) {
 		this.customBoundingBox = customBoundingBox;
 	}
     
     
 	@Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-    	return customBoundingBox != null ? customBoundingBox.apply(state) : super.getBoundingBox(state, source, pos);
+    	return customBoundingBox != null ? customBoundingBox.apply(state.getValue(CustomTileEntityBlock.FACING)) : super.getBoundingBox(state, source, pos);
     }
     
     @Override
