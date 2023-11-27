@@ -36,7 +36,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
     private AtomicInteger counter = new AtomicInteger(10000);
     private Supplier<Integer> entityIdSupplier = () -> counter.incrementAndGet();
     private Consumer<TileEntity> positioning = tileEntity -> {};
-    private Function<IBlockState, AxisAlignedBB> boundingBox;
+    private Function<EnumFacing, AxisAlignedBB> boundingBox;
     
     
     private T safeCast(CustomTileEntityConfiguration<T> input) {
@@ -83,7 +83,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         return safeCast(this);
     }
     
-    public T withBoundingBox(Function<IBlockState, AxisAlignedBB> boundingBox) {
+    public T withBoundingBox(Function<EnumFacing, AxisAlignedBB> boundingBox) {
         this.boundingBox = boundingBox;
         return safeCast(this);
     }
