@@ -1,7 +1,6 @@
 package com.paneedah.mwc.tileentities;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.weaponlib.tile.CustomTileEntityBlock;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
 import dev.redstudio.redcore.utils.AABBUtil;
 import net.minecraft.block.material.Material;
@@ -22,386 +21,330 @@ public class TileEntities {
 
         final ArrayDeque<LootBoxConfiguration> props = new ArrayDeque<>();
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("weapons_case")
-                        .withModelClassName("com.paneedah.mwc.models.props.GunCase")
-                        .withTextureName("textures/models/props/gun_case.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.58, 0, 0.2, 1.63, 0.3, 0.8)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.6f, 0.6f, 0.6f);
-                            GL11.glTranslatef(0.7f, 1.1f, 0.5f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("weapons_case")
+                .withModelClassName("com.paneedah.mwc.models.props.GunCase")
+                .withTextureName("textures/models/props/gun_case.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.58, 0, 0.2, 1.63, 0.3, 0.8)))
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.6f, 0.6f, 0.6f);
+                    GL11.glTranslatef(0.7f, 1.1f, 0.5f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("weapons_case_small")
-                        .withModelClassName("com.paneedah.mwc.models.props.GunCaseSmall")
-                        .withTextureName("textures/models/props/gun_case_small.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.6f, 0.6f, 0.6f);
-                            GL11.glTranslatef(0.8f, 1.1f, 0.8f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("weapons_case_small")
+                .withModelClassName("com.paneedah.mwc.models.props.GunCaseSmall")
+                .withTextureName("textures/models/props/gun_case_small.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77)))
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.6f, 0.6f, 0.6f);
+                    GL11.glTranslatef(0.8f, 1.1f, 0.8f);
+                }));
 
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("russian_weapons_case")
-                        .withModelClassName("com.paneedah.mwc.models.props.MilitaryCrate")
-                        .withTextureName("textures/models/props/militarycrate.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.47, 0, 0.03, 1.44, 0.54, 0.98)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.6f, 0.6f, 0.6f);
-                            GL11.glTranslatef(0.8f, 1.15f, 0.75f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("russian_weapons_case")
+                .withModelClassName("com.paneedah.mwc.models.props.MilitaryCrate")
+                .withTextureName("textures/models/props/militarycrate.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.47, 0, 0.03, 1.44, 0.54, 0.98)))
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.6f, 0.6f, 0.6f);
+                    GL11.glTranslatef(0.8f, 1.15f, 0.75f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("ammo_box")
-                        .withModelClassName("com.paneedah.mwc.models.props.Ammobox1")
-                        .withTextureName("textures/models/props/ammobox.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0.15, 0, 0.35, 0.83, 0.5, 0.7)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.4f, 0.4f, 0.4f);
-                            GL11.glTranslatef(1.2f, 2.5f, 1.1f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("ammo_box")
+                .withModelClassName("com.paneedah.mwc.models.props.Ammobox1")
+                .withTextureName("textures/models/props/ammobox.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0.15, 0, 0.35, 0.83, 0.5, 0.7)))
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.4f, 0.4f, 0.4f);
+                    GL11.glTranslatef(1.2f, 2.5f, 1.1f);
+                }));
 
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.IRON)
-                        .withName("weapons_locker")
-                        .withModelClassName("com.paneedah.mwc.models.props.GunRack")
-                        .withTextureName("textures/models/props/gunrack.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.6f, 0.6f, 0.6f);
-                            GL11.glTranslatef(0.4f, 1.15f, 0.6f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("weapons_locker")
+                .withModelClassName("com.paneedah.mwc.models.props.GunRack")
+                .withTextureName("textures/models/props/gunrack.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.6f, 0.6f, 0.6f);
+                    GL11.glTranslatef(0.4f, 1.15f, 0.6f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.IRON)
-                        .withName("fridge_open")
-                        .withModelClassName("com.paneedah.mwc.models.props.FridgeOpen")
-                        .withTextureName("textures/models/props/fridge.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glTranslatef(0.55f, 0f, 0.5f);
-                            GL11.glRotatef(-90F, 0f, 1f, 0f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("fridge_open")
+                .withModelClassName("com.paneedah.mwc.models.props.FridgeOpen")
+                .withTextureName("textures/models/props/fridge.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1)))
+                .withPositioning(tileEntity -> {
+                    GL11.glTranslatef(0.55f, 0f, 0.5f);
+                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.IRON)
-                        .withName("fridge_closed")
-                        .withModelClassName("com.paneedah.mwc.models.props.FridgeClosed")
-                        .withTextureName("textures/models/props/fridge.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glTranslatef(0.55f, 0f, 0.5f);
-                            GL11.glRotatef(-90F, 0f, 1f, 0f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("fridge_closed")
+                .withModelClassName("com.paneedah.mwc.models.props.FridgeClosed")
+                .withTextureName("textures/models/props/fridge.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1)))
+                .withPositioning(tileEntity -> {
+                    GL11.glTranslatef(0.55f, 0f, 0.5f);
+                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.IRON)
-                        .withName("artillery_prop")
-                        .withModelClassName("com.paneedah.mwc.models.props.ArtilleryProp")
-                        .withTextureName("textures/models/props/artilleryprop.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.8f, 0.8f, 0.8f);
-                            GL11.glTranslatef(0.55f, 0.6f, 0.55f);
-                            GL11.glRotatef(90F, 0f, 1f, 0f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("artillery_prop")
+                .withModelClassName("com.paneedah.mwc.models.props.ArtilleryProp")
+                .withTextureName("textures/models/props/artilleryprop.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.8f, 0.8f, 0.8f);
+                    GL11.glTranslatef(0.55f, 0.6f, 0.55f);
+                    GL11.glRotatef(90F, 0f, 1f, 0f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.WOOD)
-                        .withName("supply_drop")
-                        .withModelClassName("com.paneedah.mwc.models.props.SupplyDrop")
-                        .withTextureName("textures/models/props/supplydrop.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.5f, 0.5f, 0.5f);
-                            GL11.glTranslatef(0.2f, 1.63f, 1.7f);
-                            GL11.glRotatef(90F, 0f, 1f, 0f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.WOOD)
+                .withName("supply_drop")
+                .withModelClassName("com.paneedah.mwc.models.props.SupplyDrop")
+                .withTextureName("textures/models/props/supplydrop.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.5f, 0.5f, 0.5f);
+                    GL11.glTranslatef(0.2f, 1.63f, 1.7f);
+                    GL11.glRotatef(90F, 0f, 1f, 0f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("medical_crate")
-                        .withModelClassName("com.paneedah.mwc.models.props.MedicalCrate")
-                        .withTextureName("textures/models/props/medicalcrate.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.6f, 0.6f, 0.6f);
-                            GL11.glTranslatef(0.7f, 1.13f, 0.5f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("medical_crate")
+                .withModelClassName("com.paneedah.mwc.models.props.MedicalCrate")
+                .withTextureName("textures/models/props/medicalcrate.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1)))
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.6f, 0.6f, 0.6f);
+                    GL11.glTranslatef(0.7f, 1.13f, 0.5f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("locker")
-                        .withModelClassName("com.paneedah.mwc.models.props.Locker")
-                        .withTextureName("textures/models/props/locker.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.5f, 0.5f, 0.5f);
-                            GL11.glTranslatef(0.7f, 1.85f, 1f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("locker")
+                .withModelClassName("com.paneedah.mwc.models.props.Locker")
+                .withTextureName("textures/models/props/locker.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1)))
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.5f, 0.5f, 0.5f);
+                    GL11.glTranslatef(0.7f, 1.85f, 1f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("scp_locker")
-                        .withModelClassName("com.paneedah.mwc.models.props.SCPLocker")
-                        .withTextureName("textures/models/props/scplocker.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2.2, 1)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.8f, 0.8f, 0.8f);
-                            GL11.glTranslatef(0.5f, 0.45f, 0.6f);
-                            GL11.glRotatef(-90F, 0f, 1f, 0f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("scp_locker")
+                .withModelClassName("com.paneedah.mwc.models.props.SCPLocker")
+                .withTextureName("textures/models/props/scplocker.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1)))
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.8f, 0.8f, 0.8f);
+                    GL11.glTranslatef(0.5f, 0.45f, 0.6f);
+                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                }));
 
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("barrel")
+                .withModelClassName("com.paneedah.mwc.models.props.Barrel")
+                .withTextureName("textures/models/props/barrel.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.9f, 0.8f, 0.9f);
+                    GL11.glTranslatef(0.55f, 0.4f, 0.55f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.IRON)
-                        .withName("barrel")
-                        .withModelClassName("com.paneedah.mwc.models.props.Barrel")
-                        .withTextureName("textures/models/props/barrel.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.9f, 0.8f, 0.9f);
-                            GL11.glTranslatef(0.55f, 0.4f, 0.55f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("explosive_barrel")
+                .withModelClassName("com.paneedah.mwc.models.props.Barrel")
+                .withTextureName("textures/models/props/barrel_explosive.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.9f, 0.8f, 0.9f);
+                    GL11.glTranslatef(0.55f, 0.4f, 0.55f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.IRON)
-                        .withName("explosive_barrel")
-                        .withModelClassName("com.paneedah.mwc.models.props.Barrel")
-                        .withTextureName("textures/models/props/barrel_explosive.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.9f, 0.8f, 0.9f);
-                            GL11.glTranslatef(0.55f, 0.4f, 0.55f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("pc")
+                .withModelClassName("com.paneedah.mwc.models.props.electronics.PC")
+                .withTextureName("textures/models/props/electronics/pc.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.9f, 0.9f, 0.9f);
+                    GL11.glTranslatef(0.7f, 0.25f, 0.6f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("pc")
-                        .withModelClassName("com.paneedah.mwc.models.props.electronics.PC")
-                        .withTextureName("textures/models/props/electronics/pc.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.9f, 0.9f, 0.9f);
-                            GL11.glTranslatef(0.7f, 0.25f, 0.6f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("laptop")
+                .withModelClassName("com.paneedah.mwc.models.props.electronics.Laptop")
+                .withTextureName("textures/models/props/electronics/pc.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1)))
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.7f, 0.7f, 0.7f);
+                    GL11.glTranslatef(0.5f, 0.71f, 0.6f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("laptop")
-                        .withModelClassName("com.paneedah.mwc.models.props.electronics.Laptop")
-                        .withTextureName("textures/models/props/electronics/pc.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.7f, 0.7f, 0.7f);
-                            GL11.glTranslatef(0.5f, 0.71f, 0.6f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("monitor")
+                .withModelClassName("com.paneedah.mwc.models.props.electronics.Monitor")
+                .withTextureName("textures/models/props/electronics/pc.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(0.9f, 0.9f, 0.9f);
+                    GL11.glTranslatef(0.7f, 0.25f, 0.6f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("monitor")
-                        .withModelClassName("com.paneedah.mwc.models.props.electronics.Monitor")
-                        .withTextureName("textures/models/props/electronics/pc.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(0.9f, 0.9f, 0.9f);
-                            GL11.glTranslatef(0.7f, 0.25f, 0.6f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("filingcabinet")
+                .withModelClassName("com.paneedah.mwc.models.props.FilingCabinet")
+                .withTextureName("textures/models/props/filingcabinetopened.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(1f, 1f, 1f);
+                    GL11.glTranslatef(0.5f, 0f, 0.5f);
+                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.IRON)
-                        .withName("filingcabinet")
-                        .withModelClassName("com.paneedah.mwc.models.props.FilingCabinet")
-                        .withTextureName("textures/models/props/filingcabinetopened.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(1f, 1f, 1f);
-                            GL11.glTranslatef(0.5f, 0f, 0.5f);
-                            GL11.glRotatef(-90F, 0f, 1f, 0f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
+                .withName("filingcabinet_opened")
+                .withModelClassName("com.paneedah.mwc.models.props.FilingCabinetOpened")
+                .withTextureName("textures/models/props/filingcabinetopened.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(1f, 1f, 1f);
+                    GL11.glTranslatef(0.5f, 0f, 0.5f);
+                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.IRON)
-                        .withName("filingcabinet_opened")
-                        .withModelClassName("com.paneedah.mwc.models.props.FilingCabinetOpened")
-                        .withTextureName("textures/models/props/filingcabinetopened.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(1f, 1f, 1f);
-                            GL11.glTranslatef(0.5f, 0f, 0.5f);
-                            GL11.glRotatef(-90F, 0f, 1f, 0f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("shelf_right")
+                .withModelClassName("com.paneedah.mwc.models.props.shelves.ShelfRight")
+                .withTextureName("textures/models/props/shelf.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(1f, 1f, 1f);
+                    GL11.glTranslatef(0.5f, 0f, 0.5f);
+                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("shelf_right")
-                        .withModelClassName("com.paneedah.mwc.models.props.shelves.ShelfRight")
-                        .withTextureName("textures/models/props/shelf.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.1, 0.2, 1, 1, 0.8)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(1f, 1f, 1f);
-                            GL11.glTranslatef(0.5f, 0f, 0.5f);
-                            GL11.glRotatef(-90F, 0f, 1f, 0f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("shelf_left")
+                .withModelClassName("com.paneedah.mwc.models.props.shelves.ShelfLeft")
+                .withTextureName("textures/models/props/shelf.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(1f, 1f, 1f);
+                    GL11.glTranslatef(0.5f, 0f, 0.5f);
+                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("shelf_left")
-                        .withModelClassName("com.paneedah.mwc.models.props.shelves.ShelfLeft")
-                        .withTextureName("textures/models/props/shelf.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.1, 0.2, 1, 1, 0.8)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(1f, 1f, 1f);
-                            GL11.glTranslatef(0.5f, 0f, 0.5f);
-                            GL11.glRotatef(-90F, 0f, 1f, 0f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("shelf_top")
+                .withModelClassName("com.paneedah.mwc.models.props.shelves.ShelfTop")
+                .withTextureName("textures/models/props/shelf.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.2, 1)))
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(1f, 1f, 1f);
+                    GL11.glTranslatef(0.5f, 0f, 0.5f);
+                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("shelf_top")
-                        .withModelClassName("com.paneedah.mwc.models.props.shelves.ShelfTop")
-                        .withTextureName("textures/models/props/shelf.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0.2, 1, 0.11, 0.8)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(1f, 1f, 1f);
-                            GL11.glTranslatef(0.5f, 0f, 0.5f);
-                            GL11.glRotatef(-90F, 0f, 1f, 0f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("tv")
+                .withModelClassName("com.paneedah.mwc.models.props.electronics.TV")
+                .withTextureName("textures/models/props/electronics/tv.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1)))
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(1f, 1f, 1f);
+                    GL11.glTranslatef(0.5f, 0f, 0.5f);
+                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("tv")
-                        .withModelClassName("com.paneedah.mwc.models.props.electronics.TV")
-                        .withTextureName("textures/models/props/electronics/tv.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(1f, 1f, 1f);
-                            GL11.glTranslatef(0.5f, 0f, 0.5f);
-                            GL11.glRotatef(-90F, 0f, 1f, 0f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("ceiling_tv")
+                .withModelClassName("com.paneedah.mwc.models.props.electronics.CeilingTV")
+                .withTextureName("textures/models/props/electronics/ceilingtv.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(1f, 1f, 1f);
+                    GL11.glTranslatef(0.5f, 0.4f, 0.5f);
+                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("ceiling_tv")
-                        .withModelClassName("com.paneedah.mwc.models.props.electronics.CeilingTV")
-                        .withTextureName("textures/models/props/electronics/ceilingtv.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(1f, 1f, 1f);
-                            GL11.glTranslatef(0.5f, 0.4f, 0.5f);
-                            GL11.glRotatef(-90F, 0f, 1f, 0f);
-                        })
-        );
-
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("ceiling_tv_rotated")
-                        .withModelClassName("com.paneedah.mwc.models.props.electronics.CeilingTV")
-                        .withTextureName("textures/models/props/electronics/ceilingtv.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(1f, 1f, 1f);
-                            GL11.glTranslatef(0.5f, 0.4f, 0.5f);
-                            GL11.glRotatef(-45F, 0f, 1f, 0f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("ceiling_tv_rotated")
+                .withModelClassName("com.paneedah.mwc.models.props.electronics.CeilingTV")
+                .withTextureName("textures/models/props/electronics/ceilingtv.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(1f, 1f, 1f);
+                    GL11.glTranslatef(0.5f, 0.4f, 0.5f);
+                    GL11.glRotatef(-45F, 0f, 1f, 0f);
+                }));
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
                 .withName("office_chair")
                 .withModelClassName("com.paneedah.mwc.models.props.OfficeChair2")
                 .withTextureName("textures/models/props/officechair.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
-                })
-        );
+                }));
 
-        props.add(
-                new LootBoxConfiguration()
-                        .withMaterial(Material.ROCK)
-                        .withName("office_chair_2")
-                        .withModelClassName("com.paneedah.mwc.models.props.OfficeChair")
-                        .withTextureName("textures/models/props/officechair.png")
-                        .withCreativeTab(MWC.PROPS_TAB)
-                        .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
-                        .withPositioning(tileEntity -> {
-                            GL11.glScalef(1f, 1f, 1f);
-                            GL11.glTranslatef(0.5f, 0f, 0.5f);
-                            GL11.glRotatef(-90F, 0f, 1f, 0f);
-                        })
-        );
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.ROCK)
+                .withName("office_chair_2")
+                .withModelClassName("com.paneedah.mwc.models.props.OfficeChair")
+                .withTextureName("textures/models/props/officechair.png")
+                .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
+                .withPositioning(tileEntity -> {
+                    GL11.glScalef(1f, 1f, 1f);
+                    GL11.glTranslatef(0.5f, 0f, 0.5f);
+                    GL11.glRotatef(-90F, 0f, 1f, 0f);
+                }));
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
@@ -574,7 +517,7 @@ public class TileEntities {
                 .withName("hanging_body")
                 .withModelClassName("com.paneedah.mwc.models.props.HangingBody")
                 .withTextureName("textures/models/props/hangingbody.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, -1, 0, 1, 1, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, -1, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.5f, 1.8f, 0.55f);
@@ -586,9 +529,7 @@ public class TileEntities {
                 .withName("impaled_body")
                 .withModelClassName("com.paneedah.mwc.models.props.ImpaledBody")
                 .withTextureName("textures/models/props/impaledbody.png")
-                .withBoundingBox(
-                        blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 3, 1))
-                )
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 3, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.5f, 0.2f, 0.55f);
@@ -600,9 +541,7 @@ public class TileEntities {
                 .withName("dumpster")
                 .withModelClassName("com.paneedah.mwc.models.props.Dumpster")
                 .withTextureName("textures/models/props/dumpster.png")
-                .withBoundingBox(
-                        blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-1, 0, 0, 1, 1, 1))
-                )
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-1, 0, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.6f, 0.2f, 0.5f);
