@@ -439,7 +439,7 @@ public class TileEntities {
                 .withName("desk_shelf")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskShelf")
                 .withTextureName("textures/models/props/desks/deskshelf.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, .6, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, .6, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -462,7 +462,7 @@ public class TileEntities {
                 .withName("desk_shelf_alt2")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.DeskShelfAlt2")
                 .withTextureName("textures/models/props/desks/deskshelf.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, .6, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, .6, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -575,7 +575,7 @@ public class TileEntities {
                 .withName("operating_table")
                 .withModelClassName("com.paneedah.mwc.models.props.OperatingTable")
                 .withTextureName("textures/models/props/operatingtable.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, -0.5, 1, 1, 1.5)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, -0.5, 1, 1, 1.5)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -587,7 +587,7 @@ public class TileEntities {
                 .withName("operating_table_alt")
                 .withModelClassName("com.paneedah.mwc.models.props.OperatingTableAlt")
                 .withTextureName("textures/models/props/operatingtable.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, -0.5, 1, 1, 1.5)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, -0.5, 1, 1, 1.5)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -643,8 +643,8 @@ public class TileEntities {
                 .withName("trusses")
                 .withModelClassName("com.paneedah.mwc.models.props.Trusses")
                 .withTextureName("textures/models/props/trusses.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.8, 0.4, 1, 1, 0.6)))
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.2, 0.4, 1, 0.4, 0.6)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.8, 0.4, 1, 1, 0.6)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.2, 0.4, 1, 0.4, 0.6)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -656,7 +656,7 @@ public class TileEntities {
                 .withName("ceiling_lamp")
                 .withModelClassName("com.paneedah.mwc.models.props.lights.CeilingLamp")
                 .withTextureName("textures/models/props/lights/ceilinglamp.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.5, 0, 1, 1, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.5, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 1.8f, 0.5f);
@@ -767,7 +767,7 @@ public class TileEntities {
                 .withName("white_desk_middle")
                 .withModelClassName("com.paneedah.mwc.models.props.desks.WhiteDeskMiddle")
                 .withTextureName("textures/models/props/shelf.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.95, 0, 1, 1, 0.8)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.95, 0, 1, 1, 0.8)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -834,7 +834,7 @@ public class TileEntities {
                 .withName("home_chair")
                 .withModelClassName("com.paneedah.mwc.models.props.HomeChair")
                 .withTextureName("textures/models/props/homechair.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -846,7 +846,7 @@ public class TileEntities {
                 .withName("outdoor_chair")
                 .withModelClassName("com.paneedah.mwc.models.props.OutdoorChair")
                 .withTextureName("textures/models/props/outdoorchair.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -858,7 +858,7 @@ public class TileEntities {
                 .withName("home_chair_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.HomeChair")
                 .withTextureName("textures/models/props/homechair.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -870,7 +870,7 @@ public class TileEntities {
                 .withName("outdoor_chair_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.OutdoorChair")
                 .withTextureName("textures/models/props/outdoorchair.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -882,7 +882,7 @@ public class TileEntities {
                 .withName("vending_machine")
                 .withModelClassName("com.paneedah.mwc.models.props.electronics.VendingMachine")
                 .withTextureName("textures/models/props/electronics/vendingmachine.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0.1, 1, 2, 0.8)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0.1, 1, 2, 0.8)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0.55f, 0.4f, 0.62f);
@@ -982,7 +982,7 @@ public class TileEntities {
                 .withName("ServerRackTopLeft")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackTop")
                 .withTextureName("textures/models/props/servers/serverrackleft.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.3, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.3, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -994,7 +994,7 @@ public class TileEntities {
                 .withName("ServerRackTopRight")
                 .withModelClassName("com.paneedah.mwc.models.props.servers.ServerRackTopRight")
                 .withTextureName("textures/models/props/servers/serverrackleft.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.3, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.3, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -1006,7 +1006,7 @@ public class TileEntities {
                 .withName("duelfloodlight")
                 .withModelClassName("com.paneedah.mwc.models.props.lights.DuelFloodlight")
                 .withTextureName("textures/models/props/lights/duelfloodlight.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1.7, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1.7, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0.65f, 0.35f, 0.65f);
@@ -1017,7 +1017,7 @@ public class TileEntities {
                 .withName("duelfloodlight_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.lights.DuelFloodlight")
                 .withTextureName("textures/models/props/lights/duelfloodlight.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1.7, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 1.7, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0.65f, 0.35f, 0.65f);
@@ -1029,7 +1029,7 @@ public class TileEntities {
                 .withName("floodlight")
                 .withModelClassName("com.paneedah.mwc.models.props.lights.Floodlight")
                 .withTextureName("textures/models/props/lights/floodlight.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.75, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.75, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.55f, 0.175f, 0.55f);
@@ -1040,7 +1040,7 @@ public class TileEntities {
                 .withName("floodlight_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.lights.Floodlight")
                 .withTextureName("textures/models/props/lights/floodlight.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.75, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.75, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.9f, 0.9f, 0.9f);
                     GL11.glTranslatef(0.55f, 0.175f, 0.55f);
@@ -1063,7 +1063,7 @@ public class TileEntities {
                 .withName("Radio")
                 .withModelClassName("com.paneedah.mwc.models.props.electronics.Radio")
                 .withTextureName("textures/models/props/electronics/radio.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.7f, 0.7f, 0.7f);
                     GL11.glTranslatef(0.65f, 0.58f, 0.6f);
@@ -1108,7 +1108,7 @@ public class TileEntities {
                 .withName("sandbag")
                 .withModelClassName("com.paneedah.mwc.models.props.Sandbag")
                 .withTextureName("textures/models/props/sandbag.png")
-                .withBoundingBox(blockState -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
