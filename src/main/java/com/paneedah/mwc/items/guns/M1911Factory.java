@@ -200,6 +200,11 @@ public class M1911Factory implements GunFactory {
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glScaled(2F, 2F, 2);
                             GL11.glTranslatef(0.186f, 0.615f, -2f);
+
+                            // ACOG Zoom
+                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HardballerSlide)) {
+                                GL11.glTranslatef(0f, -0.06f, 0.0f);
+                            }
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {

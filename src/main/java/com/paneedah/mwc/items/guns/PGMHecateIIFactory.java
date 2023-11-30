@@ -129,7 +129,7 @@ public class PGMHecateIIFactory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
-            GL11.glTranslatef(-0.155F, -1.2F, -2.2F);
+            GL11.glTranslatef(-0.155F, -1.4F, -2.2F);
             GL11.glScaled(0.55F, 0.55F, 0.55F);
 		},(model) -> {
 		     if(model instanceof JPUreticle) {
@@ -138,7 +138,7 @@ public class PGMHecateIIFactory implements GunFactory {
 		    }
 		})
         .withCompatibleAttachment(Attachments.Reflex, () -> {
-                GL11.glTranslatef(-0.045F, -1.15F, -1.5F);
+                GL11.glTranslatef(-0.045F, -1.4F, -1.5F);
                 GL11.glScaled(0.55F, 0.55F, 0.55F);
         },(model) -> {
             if(model instanceof Reflex2) {
@@ -147,7 +147,7 @@ public class PGMHecateIIFactory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
-        	GL11.glTranslatef(-0.186F, -1.4F, -1F);
+        	GL11.glTranslatef(-0.186F, -1.6F, -1F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
 	    },(model) -> {
 	        if(model instanceof Reflex2) {

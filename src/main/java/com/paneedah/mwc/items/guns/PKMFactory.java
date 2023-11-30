@@ -75,6 +75,8 @@ public class PKMFactory {
         })
         .withCompatibleAttachment(AuxiliaryAttachments.PKMBelt, true, (model) -> {
         })
+        .withCompatibleAttachment(AuxiliaryAttachments.PKMBelt2, true, (model) -> {
+        })
         .withCompatibleAttachment(Attachments.PKMBarrel, true, (model) -> {
             if(model instanceof PKMfrontsight) {
                 GL11.glTranslatef(-0.0F, -1.93F, -8.2F);
@@ -312,8 +314,8 @@ public class PKMFactory {
 
                         .withFirstPersonPositioning(
                                 new Transform()
-                                        .withPosition(-1.825000f, 5.665000f, -5.605000f)
-                                        .withRotation(0.000000f, 1.000000f, 6.300000f)
+                                        .withPosition(-1.825000f, 5.665000f, -5.005000f)
+                                        .withRotation(0.000000f, -0.500000f, -1.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
                                         .withScale(3.5F, 3.5F, 3.5F)
                         )
@@ -322,7 +324,7 @@ public class PKMFactory {
 
                                 // Left hand
                                 new Transform()
-                                        .withPosition(1.730000f, 0.865000f, -1.146400f)
+                                        .withPosition(1.68f, 0.665f, -0.9464f)
                                         .withBBRotation(-15.4928F, -45.7685F, 66.3639F)
                                         .withScale(2.6F, 2.6F, 4.0F)
                                         .withPivotPoint(0, 0, 0),
@@ -330,38 +332,32 @@ public class PKMFactory {
 
                                 // Right hand
                                 new Transform()
-                                        .withPosition(-0.2F, 0.1F, 2)
-                                        .withRotation(-5.4027F, -4.7805F, -1.6694F)
+                                        .withPosition(-0.1F, 0.05F, 1.3F)
+                                        .withRotation(5.4027F, 4.7805F, -1.6694F)
                                         .withScale(3.0F, 3.0F, 3.0F)
                                         .withPivotPoint(0, 0, 0)
 
                         )
 
-                        .setupModernAnimations("m249", AuxiliaryAttachments.PKMAction)
-                        .setupCustomKeyedPart(AuxiliaryAttachments.PKMBelt, "m249", "belt")
-                        .setupCustomKeyedPart(AuxiliaryAttachments.PKMHatch, "m249", "hatch")
-                        .setupCustomKeyedPart(Attachments.ACOG, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.Specter, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.Reflex, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.NightRaider, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.BijiaReflex, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.Holographic, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.HolographicAlt, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.EotechHybrid2, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.MicroT1, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.AimpointCompM5, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.VortexRedux, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.Kobra, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.KobraGen3, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.B51ScopeMountRail, "m249", "hatch")
-                        .setupModernMagazineAnimations("m249",
+                        .setupModernAnimations("pkm", AuxiliaryAttachments.PKMAction)
+                        .setupCustomKeyedPart(AuxiliaryAttachments.PKMBelt, "pkm", "belt")
+                        .setupCustomKeyedPart(AuxiliaryAttachments.PKMBelt2, "pkm", "belt")
+                        .setupCustomKeyedPart(AuxiliaryAttachments.PKMHatch, "pkm", "hatch")
+                        .setupCustomKeyedPart(Attachments.B51ScopeMountRail, "pkm", "hatch")
+                        .setupModernMagazineAnimations("pkm",
                                 Magazines.PKMMag)
 
+                .withFirstPersonCustomPositioning(AuxiliaryAttachments.PKMBelt2.getRenderablePart(), (renderContext) -> {
+                    if(renderContext.getWeaponInstance().getAmmo() == 0) {
+                       GL11.glTranslatef(-0.5F, 3.0F, 5F);
+                }
+            })
               .withFirstPersonCustomPositioning(AuxiliaryAttachments.PKMBelt.getRenderablePart(), (renderContext) -> {
                 if(renderContext.getWeaponInstance().getAmmo() == 0) {
                     GL11.glTranslatef(-0.5F, 3.0F, 5F);
                 }
             })
+
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glScalef(3.000000f, 3.000000f, 3.000000f);

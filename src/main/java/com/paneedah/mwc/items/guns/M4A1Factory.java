@@ -927,7 +927,7 @@ public class M4A1Factory implements GunFactory {
 			.withModel(new M4A1())
 			.withADSBeizer(new Vec3d(0.2F, 1.7, 0.5F))
 			.withEntityPositioning(itemStack -> {
-				GL11.glScaled(0.5F, 0.5F, 0.5F);
+				GL11.glScaled(0.4F, 0.4F, 0.4F);
 				GL11.glTranslatef(0, 0f, 3f);
 				GL11.glRotatef(0F, 0f, 0f, 4f);
 			})

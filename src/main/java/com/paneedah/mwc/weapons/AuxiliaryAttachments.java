@@ -155,6 +155,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> M249Action;
     public static ItemAttachment<Weapon> PKMHatch;
     public static ItemAttachment<Weapon> PKMBelt;
+    public static ItemAttachment<Weapon> PKMBelt2;
     public static ItemAttachment<Weapon> PKMAction;
     public static ItemAttachment<Weapon> FatmanGrip;
     public static ItemAttachment<Weapon> FatmanRack;
@@ -1016,11 +1017,17 @@ public class AuxiliaryAttachments {
                 .build();
 
         PKMBelt = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.EXTRA2)
+                .withCategory(AttachmentCategory.EXTRA)
                 .withModel(new PKMBelt(), "pkm.png")
                 .withName("PKMBelt")
                 .withRenderablePart()
+                .build();
 
+        PKMBelt2 = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA2)
+                .withModel(new PKMBelt2(), "pkm.png")
+                .withName("PKMBelt2")
+                .withRenderablePart()
                 .build();
 
         PKMHatch = new AttachmentBuilder<Weapon>()

@@ -408,7 +408,12 @@ public class AS50Factory implements GunFactory {
                     //System.out.println("Position me for Scope");
                 	GL11.glTranslatef(0F, 0.22f, 0.5f);
                 }
-                
+
+                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
+                    //System.out.println("Position me for Scope");
+                    GL11.glTranslatef(0F, 0.18f, 0.5f);
+                }
+
                 // Everything else
                 else {
                 }
