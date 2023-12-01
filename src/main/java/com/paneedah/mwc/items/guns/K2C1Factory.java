@@ -20,7 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class K2C1Factory implements GunFactory {
 
@@ -28,7 +27,6 @@ public class K2C1Factory implements GunFactory {
 		return new Weapon.Builder()
 		
 		.withName("k2c1")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.75f)
 		.withRecoil(3f)
 		.withZoom(0.9f)
@@ -71,18 +69,6 @@ public class K2C1Factory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Assault Rifle", 
-		"Damage: 6", 
-		"Cartridge: 5.56x45mm NATO",
-		"Fire Rate: SEMI, AUTO",
-		"Rate of Fire: 75/100",
-		"Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"60rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"100rnd 5.56x45mm NATO STANAG Drum Magazine"))
 		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                1f, // x 
@@ -129,8 +115,6 @@ public class K2C1Factory implements GunFactory {
         	 GL11.glTranslatef(0.01f, -0.1f, 0.5f);
              GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
-//        .withCompatibleAttachment(Attachments.M4MagpulHandGuardTan, (model) -> {
-//        })
         .withCompatibleAttachment(AuxiliaryAttachments.M4Rail, true, (model) -> {
             if(model instanceof AKRail) {
             	GL11.glTranslatef(-0.2F, -1.5F, -1.82f);
@@ -156,7 +140,6 @@ public class K2C1Factory implements GunFactory {
           } 
         })
         .withCompatibleAttachment(Attachments.K2C1Grip, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.K2C1RearSights, true, (model) -> {
         	if(model instanceof ScarIron2) {
@@ -185,20 +168,16 @@ public class K2C1Factory implements GunFactory {
         })
         .withCompatibleAttachment(Magazines.Stanag50, (model) -> {
             GL11.glTranslatef(0F, 0.05F, 0F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag60, (model) -> {
             GL11.glRotatef(-10F, 1f, 0f, 0f);
             GL11.glTranslatef(0F, 0.25F, -0F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag100, (model) -> {
             GL11.glTranslatef(-0.35F, 0.69F, -1.25F);
             GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
 		.withCompatibleAttachment(AuxiliaryAttachments.K2C1Action, true, (model) -> {
-//            GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-//            GL11.glScaled(0.7F, 0.4F, 0.7F);
         })
         .withCompatibleAttachment(Attachments.NightRaider, () -> {
                     GL11.glTranslatef(-0.21F, -1.58F, -1.8F);
@@ -252,8 +231,6 @@ public class K2C1Factory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
 		
@@ -371,6 +348,18 @@ public class K2C1Factory implements GunFactory {
 		    GL11.glTranslatef(-0.2F, -0.3F, -2.5F);
             GL11.glScaled(1F, 1F, 1F);
 		})
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.3F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.3F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.3F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
 		.withCompatibleAttachment(Attachments.Bipod, (model) -> {
 		    GL11.glTranslatef(-0.18F, -0.3F, -2.5F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
@@ -396,7 +385,7 @@ public class K2C1Factory implements GunFactory {
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);
 				GL11.glTranslatef(0, 0f, 3f);
-				GL11.glRotatef(-90F, 0f, 0f, 4f);
+				GL11.glRotatef(0F, 0f, 0f, 4f);
 			})
 			.withInventoryPositioning(itemStack -> {
 			    GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -595,8 +584,7 @@ public class K2C1Factory implements GunFactory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                         GL11.glTranslatef(0F, 0.053f, 0.3f);
                 } 
-				
-				// Everything else
+
 				else {
 				}
 			

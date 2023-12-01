@@ -90,7 +90,6 @@ public class M17Factory implements GunFactory {
         .withCompatibleAttachment(AuxiliaryAttachments.M17_Slide, true, (model) -> {
             if(model instanceof M17Slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof M9A1rearsight) {
                 GL11.glTranslatef(-0.153F, -1.2F, -0.03F);
@@ -102,8 +101,6 @@ public class M17Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Magazines.M17Mag, (model) -> {
-//            GL11.glRotatef(-5F, 1f, 0f, 0f);
-//            GL11.glTranslatef(0F, 0.8F, 0.2F);
         })
         
         .withCompatibleAttachment(Attachments.Laser, () -> {
@@ -132,12 +129,10 @@ public class M17Factory implements GunFactory {
                  AuxiliaryAttachments.M17_Slide,
                  Attachments.RMR)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -189,7 +184,6 @@ public class M17Factory implements GunFactory {
             })
             
             .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScaled(3F, 3F, 3F);
                 GL11.glTranslatef(0.14f, 0.7f, -2.3f);
                 
@@ -197,8 +191,7 @@ public class M17Factory implements GunFactory {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.23f, 0f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 

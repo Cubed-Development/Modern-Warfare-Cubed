@@ -17,7 +17,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class Origin12Factory {
 
@@ -68,17 +67,7 @@ public class Origin12Factory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Tactical Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 30/100",
-        "Inaccuracy Rating: Moderately High",
-        "Magazines:",
-        "5rnd 12 Gauge Origin Magazine",
-        "20rnd 12 Gauge Drum Magazine"))
+
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 
@@ -93,10 +82,8 @@ public class Origin12Factory {
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withCompatibleAttachment(Attachments.Origin12Stock, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.HKS20Stock, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.CollapsableMOEStock, (model) -> {
             GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
@@ -128,7 +115,6 @@ public class Origin12Factory {
         })
         .withCompatibleAttachment(Attachments.Origin12Handguard, true, (model) -> {
             if(model instanceof Origin12Handguard) {
-//                GL11.glScaled(1F, 0.98F, 1);
             } else if(model instanceof AKRail) {
                 GL11.glTranslatef(-0.222F, -1.5F, -4.4f);
                 GL11.glScaled(0.72F, 0.72F, 0.8F);
@@ -140,7 +126,6 @@ public class Origin12Factory {
         })
         .withCompatibleAttachment(Attachments.HKS20Handguard, (model) -> {
             if(model instanceof HKS20Handguard) {
-//                GL11.glScaled(1F, 0.98F, 1);
             } else if(model instanceof AKRail) {
                 GL11.glTranslatef(-0.222F, -1.5F, -4.4f);
                 GL11.glScaled(0F, 0F, 0F);
@@ -172,18 +157,12 @@ public class Origin12Factory {
             }
         })
         .withCompatibleAttachment(Attachments.Origin12Grip, true, (model) -> {
-//            GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//            GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Attachments.HKS20Grip, (model) -> {
-//          GL11.glTranslatef(0.02f, 0.2f, -0.4f);
-//          GL11.glScaled(1.2F, 1.2F, 1.2F);
       })
         .withCompatibleAttachment(AuxiliaryAttachments.Origin12Action, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Magazines.Origin12Mag, (model) -> {
-//        	GL11.glTranslatef(0f, 0.4f, 0f);
         })
         .withCompatibleAttachment(Magazines.Origin12DrumMag, (model) -> {
             GL11.glTranslatef(0f, 0.2f, -0.05f);
@@ -350,6 +329,23 @@ public class Origin12Factory {
             GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(0.6F, -0.95F, -4F);
+            GL11.glRotatef(-90F, 0f, 0f, 1f);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, 0.05F, -4F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.1F, -3.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
         .withCompatibleAttachment(Attachments.Silencer12Gauge, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
             if(instance != null) {
@@ -373,12 +369,10 @@ public class Origin12Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new Origin12())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -434,13 +428,6 @@ public class Origin12Factory {
                 })
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -504,13 +491,10 @@ public class Origin12Factory {
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                     GL11.glRotatef(12F, 0f, 0f, 1f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
                     
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.Origin12Action.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                     new Transition((renderContext) -> {
                     }, 500, 1000),
                     new Transition((renderContext) -> {
@@ -533,7 +517,6 @@ public class Origin12Factory {
                         )
             
             .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 GL11.glTranslatef(0.14f, 1.26f, 0.0f);
                 
@@ -620,8 +603,7 @@ public class Origin12Factory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, -0.10f, 0f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -682,13 +664,6 @@ public class Origin12Factory {
                   })
                     
             .withThirdPersonLeftHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                    }, 50, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -754,13 +729,6 @@ public class Origin12Factory {
                     }, 280, 0))
                     
             .withThirdPersonRightHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(4f, 4f, 5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                    }, 250, 1000),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -835,4 +803,3 @@ public class Origin12Factory {
         .build(MWC.modContext);
     }
 }
-

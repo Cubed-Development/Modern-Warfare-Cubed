@@ -13,6 +13,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -21,7 +22,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M9A1Factory implements GunFactory {
 
@@ -69,17 +69,6 @@ public class M9A1Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Double-Single Action Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "15rnd 9x19mm Magazine",
-        "30rnd 9x19mm Magazine",
-        "65rnd 9x19mm Drum Magazine",
-        "15rnd .40 S&W Samurai Edge Magazine (w/ Samurai Edge kit)"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 
@@ -94,17 +83,12 @@ public class M9A1Factory implements GunFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withCompatibleAttachment(AuxiliaryAttachments.M9A1hammer, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
       })
         .withCompatibleAttachment(Attachments.M9A1Body, true, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.M9A1Slide, true, (model) -> {
             if(model instanceof M9slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof M9A1rearsight) {
                 GL11.glTranslatef(-0.155F, -1.175F, -0.15F);
@@ -116,17 +100,12 @@ public class M9A1Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.SamuraiEdgeBody, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.SamuraiEdgeMount, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.SamuraiEdgeSlide, (model) -> {
           if(model instanceof SamuraiEdgeSlide) {
-              GL11.glScaled(1F, 1F, 1F);
-//              GL11.glTranslatef(0F, 0F, 0.5F);
+              GL11.glScaled(1F, 1F, 1F);;
           }
           else if(model instanceof M9A1rearsight) {
               GL11.glTranslatef(-0.155F, -1.175F, -0.15F);
@@ -138,10 +117,8 @@ public class M9A1Factory implements GunFactory {
           }
           })
         .withCompatibleAttachment(Magazines.M9A1Mag, (model) -> {
-//           GL11.glTranslatef(0F, 0.2F, 0.12F);
         })
         .withCompatibleAttachment(Magazines.SamuraiEdgeMag, (model) -> {
-//            GL11.glTranslatef(0F, 0.2F, 0.12F);
         })
         .withCompatibleAttachment(Magazines.M9Mag30, (model) -> {
         })
@@ -157,8 +134,6 @@ public class M9A1Factory implements GunFactory {
             GL11.glScaled(1.3F, 1.3F, 1.3F);
         })
         .withCompatibleAttachment(Attachments.SamuraiEdgeSuppressor, (model) -> {
-//            GL11.glTranslatef(-0.22F, -1.2F, -4.35F);
-//            GL11.glScaled(1.3F, 1.3F, 1.3F);
         })
         .withCompatibleAttachment(Attachments.FABDefenseMount, (model) -> {
             GL11.glTranslatef(-0.23f, -0.53f, -1.9f);
@@ -190,7 +165,6 @@ public class M9A1Factory implements GunFactory {
 		            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 		            GL11.glScaled(0.15F, 0.15F, 0.15F);
 		        } else if (model instanceof SightMount) {
-		//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
 		            GL11.glScaled(0F, 0F, 0F);
 		        }
 		    })
@@ -202,12 +176,10 @@ public class M9A1Factory implements GunFactory {
             		Attachments.M9A1Slide,
             		Attachments.SamuraiEdgeSlide)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -251,17 +223,14 @@ public class M9A1Factory implements GunFactory {
                 
                 .setupModernAnimations("m9", Attachments.M9A1Slide)
                 .setupModernMagazineAnimations("m9", Magazines.M9A1Mag)
+                .setupCustomKeyedPart(Attachments.SamuraiEdgeSlide, "m9", BBLoader.KEY_ACTION)
                 
             .withFirstPersonPositioningCustomRecoiled(Attachments.M9A1Slide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.6F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(Attachments.M9A1Slide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.6F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
             .withFirstPersonCustomPositioning(Attachments.M9A1Slide.getRenderablePart(), (renderContext) -> {
@@ -272,14 +241,10 @@ public class M9A1Factory implements GunFactory {
             
             .withFirstPersonPositioningCustomRecoiled(Attachments.SamuraiEdgeSlide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.6F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(Attachments.SamuraiEdgeSlide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.6F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
             .withFirstPersonCustomPositioning(Attachments.SamuraiEdgeSlide.getRenderablePart(), (renderContext) -> {
@@ -299,8 +264,6 @@ public class M9A1Factory implements GunFactory {
                 })
             
             .withFirstPersonCustomPositioning(Magazines.M9A1Mag, (renderContext) -> {
-//          	 GL11.glTranslatef(0.1f, 1f, 0.2f);
-//          	 GL11.glRotatef(-20F, 0f, 0f, 1f);
               })
                     
             .withThirdPersonPositioningReloading(
@@ -407,8 +370,7 @@ public class M9A1Factory implements GunFactory {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.2f, 0f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 

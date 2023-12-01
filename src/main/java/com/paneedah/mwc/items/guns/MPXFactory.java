@@ -17,7 +17,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class MPXFactory implements GunFactory {
 
@@ -25,7 +24,6 @@ public class MPXFactory implements GunFactory {
 		return new Weapon.Builder()
 		
 		.withName("sig_mpx")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.85f)
 		.withRecoil(1.5f)
 		.withZoom(0.9f)
@@ -68,15 +66,7 @@ public class MPXFactory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Submachine Gun", 
-		"Damage: 5", 
-		"Cartridge: 9x19mm",
-		"Fire Rate: SEMI, AUTO",
-		"Rate of Fire: 85/100",
-		"Magazines:",
-        "30rnd 9x19mm MPX Magazine"))
-		 
+
 		 .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
                  0.1f, // y
@@ -200,8 +190,6 @@ public class MPXFactory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
 		
@@ -332,6 +320,22 @@ public class MPXFactory implements GunFactory {
 			GL11.glTranslatef(-0.2F, -0.35F, -3.2F);
 			GL11.glScaled(1F, 1F, 1F);
 		})
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.35F, -3.2F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.35F, -3.2F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.23F, -3.0F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.35F, -3.2F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
 		.withCompatibleAttachment(Attachments.Bipod, (model) -> {
 			GL11.glTranslatef(-0.2F, -0.25F, -3.3F);
 			GL11.glScaled(1F, 1F, 1F);
@@ -368,7 +372,7 @@ public class MPXFactory implements GunFactory {
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);
 				GL11.glTranslatef(0, 0f, 3f);
-				GL11.glRotatef(-90F, 0f, 0f, 4f);
+				GL11.glRotatef(0F, 0f, 0f, 4f);
 			})
 			.withInventoryPositioning(itemStack -> {
 			    GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -415,8 +419,6 @@ public class MPXFactory implements GunFactory {
                 		Magazines.MPXMag)
                 
             .withFirstPersonCustomPositioning(Magazines.MPXMag, (renderContext) -> {
-//            	 GL11.glTranslatef(0f, 0.5f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
                     
             .withThirdPersonPositioningReloading(
@@ -562,8 +564,7 @@ public class MPXFactory implements GunFactory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM2)) {
                 		GL11.glTranslatef(0F, 0.0555f, 0.6f);
                 } 
-				
-				// Everything else
+
 				else {
 				}
 			
@@ -623,13 +624,6 @@ public class MPXFactory implements GunFactory {
                  })
                    
            .withThirdPersonLeftHandPositioningReloading(
-//                   new Transition((renderContext) -> { // Reload position
-//                       GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                       GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                       GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                       GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                       GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                   }, 50, 200),
                    new Transition((renderContext) -> { // Reload position
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -695,13 +689,6 @@ public class MPXFactory implements GunFactory {
                    }, 300, 0))
                    
            .withThirdPersonRightHandPositioningReloading(
-//                   new Transition((renderContext) -> { // Reload position
-//                       GL11.glScalef(4f, 4f, 5f);
-//                       GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                       GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                       GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                       GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                   }, 250, 1000),
                    new Transition((renderContext) -> { // Reload position
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-50.000000f, 1f, 0f, 0f);

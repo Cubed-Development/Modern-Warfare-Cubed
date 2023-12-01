@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 public class Guns {
 
     public static Item M249;
+    public static Item PKM;
     public static Item M40A6;
     public static Item Beowulf50Cal;
     public static Item M110;
@@ -21,7 +22,7 @@ public class Guns {
     public static Item M4A1;
     public static Item AR15;
     public static Item SIGMCX;
-    public static Item NGSWR;
+    public static Item XM7;
     public static Item P226;
     public static Item FiveSeven;
     public static Item M9A1;
@@ -32,7 +33,7 @@ public class Guns {
     public static Item turretgunsilenced;
     
     public static Item MP443;
-    //public static Item AK12_kal;
+    public static Item AK12_kal;
     public static Item AK15;
     public static Item KBP9A91;
     public static Item Kedr;
@@ -122,16 +123,17 @@ public class Guns {
     public static Item DSR1;
     public static Item L96A1;
     public static Item M200Intervention;
+	public static Item AX50;
     public static Item AS50;
     public static Item M82;
-//    public static Item NTW20;
+	public static Item PGMHecateII;
+
     public static Item GL06;
     public static Item M79;
     public static Item M32MGL;
     public static Item RPG7;
     public static Item M202;
     public static Item M134;
-//    public static Item NinthSin;
     
     
     // TDM
@@ -173,14 +175,14 @@ public class Guns {
         M16A4 = new M16A4Factory().createGun(proxy);
         M38 = new M38Factory().createGun(proxy);
         ACR = new ACRFactory().createGun(proxy);
-        NGSWR = new NGSWRFactory().createGun(proxy);
+        XM7 = new XM7Factory().createGun(proxy);
         SIGMCX = new SIGMCXFactory().createGun(proxy);
         AACHoneyBadger = new AACHoneyBadgerFactory().createGun(proxy);
 
         AK47 = new AK47Factory().createGun(proxy);
         AK15 = new AK15Factory().createGun(proxy);
         Malyuk = new MalyukFactory().createGun(proxy);
-        AK12 = new AK12_kalFactory().createGun(proxy);
+        AK12_kal = new AK12_kalFactory().createGun(proxy);
         AK12 = new AK12Factory().createGun(proxy);
         AK101 = new AK101Factory().createGun(proxy);
         AK74 = new AK74Factory().createGun(proxy);
@@ -225,12 +227,14 @@ public class Guns {
 
         //SR2
         M82 = new M82Factory().createGun(proxy);
+        PGMHecateII = new PGMHecateIIFactory().createGun(proxy);
         M40A6 = new M40A6Factory().createGun(proxy);
         SVDDragunov = new SVDDragunovFactory().createGun(proxy);
         VSSVintorez = new VSSVintorezFactory().createGun(proxy);
 
         //SR1
         AS50 = new AS50Factory().createGun(proxy);
+        AX50 = new AX50Factory().createGun(proxy);
         SSG08 = new SSG08Factory().createGun(proxy);
         M200Intervention = new M200InterventionFactory().createGun(proxy);
         DSR1 = new DSR1Factory().createGun(proxy);
@@ -285,6 +289,7 @@ public class Guns {
         M1941Johnson = new M1941JohnsonFactory().createGun(proxy);
 
         M249 = new M249Factory().createGun(proxy);
+        PKM = new PKMFactory().createGun(proxy);
         StonerA1 = new StonerA1Factory().createGun(proxy);
         M134 = new M134Factory().createGun(proxy);
 

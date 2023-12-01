@@ -17,7 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class Type20Factory implements GunFactory {
 
@@ -63,18 +62,6 @@ public class Type20Factory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-        "Type: Modular Assault Rifle", 
-        "Damage: 6", 
-        "Cartridge: 5.56x45mm NATO",
-        "Fire Rate: SEMI, BURST, AUTO",
-        "Rate of Fire: 65/100",
-        "Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"60rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"100rnd 5.56x45mm NATO STANAG Drum Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 1f, // x 
@@ -96,17 +83,12 @@ public class Type20Factory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.M4Grip, true, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
 	      .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
-	//          GL11.glTranslatef(0f, 0f, 1f);
 	      })
 	      .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
-	//          GL11.glTranslatef(0f, 0f, 1f);
 	      })
         .withCompatibleAttachment(Attachments.Type20Handguard, true, (model) -> {
-//          GL11.glTranslatef(-0.35F, 0.3F, -1.31F);
-//          GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.M4A1Mag, (model) -> {
             GL11.glTranslatef(-0.322F, 0.5F, -1.25F);
@@ -118,12 +100,10 @@ public class Type20Factory implements GunFactory {
         })
         .withCompatibleAttachment(Magazines.Stanag50, (model) -> {
             GL11.glTranslatef(0F, -0.06F, -0.1F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag60, (model) -> {
             GL11.glRotatef(-10F, 1f, 0f, 0f);
             GL11.glTranslatef(0F, 0.2F, -0.15F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag100, (model) -> {
             GL11.glTranslatef(-0.36F, 0.5F, -1.31F);
@@ -177,8 +157,6 @@ public class Type20Factory implements GunFactory {
 	            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        } else if (model instanceof SightMount) {
-	//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-	//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 	        }
 	    })
         .withCompatibleAttachment(Attachments.Reflex, () -> {
@@ -335,12 +313,11 @@ public class Type20Factory implements GunFactory {
             .withModel(new Type20())
             .withActionPiece(AuxiliaryAttachments.ACRAction)
             .withActionTransform(new Transform().withPosition(0, 0, 1))
-            //.withTextureName("M4A1")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
+
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
@@ -562,8 +539,8 @@ public class Type20Factory implements GunFactory {
                     GL11.glTranslatef(0F, 0.039f, 0.2f);
                 }
 
-                // Everything else
-                {
+
+                else {
                 }
 
                 })

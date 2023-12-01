@@ -12,6 +12,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -22,7 +23,6 @@ import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class Glock19Factory implements GunFactory {
 
@@ -70,16 +70,7 @@ public class Glock19Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 99/100",
-        "Magazines:",
-        "13rnd 9x19mm Glock Magazine",
-        "20rnd 9x19mm Magazine",
-        "50rnd 9x19mm Drum Magazine"))
+
         .withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 7), new
         		CraftingEntry(MWCItems.gunmetalPlate, 3), new
@@ -97,25 +88,18 @@ public class Glock19Factory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.Glock19Body, true, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
         })
 //        .withCompatibleAttachment(Attachments.Glock18CBody, (model) -> {
 ////          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
 ////          GL11.glScaled(0F, 0F, 0F);
 //        })
         .withCompatibleAttachment(Attachments.Glock19XBody, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.Glock19RazorbackBody, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.Glock19Slide, true, (model) -> {
             if(model instanceof Glock19Slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof GlockRearSight) {
             	GL11.glTranslatef(-0.107F, -1.17F, 0F);
@@ -129,7 +113,6 @@ public class Glock19Factory implements GunFactory {
         .withCompatibleAttachment(Attachments.Glock19XSlide, (model) -> {
             if(model instanceof Glock19Slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof GlockRearSight) {
             	GL11.glTranslatef(-0.107F, -1.17F, 0F);
@@ -143,7 +126,6 @@ public class Glock19Factory implements GunFactory {
         .withCompatibleAttachment(Attachments.Glock19RazorbackSlide, (model) -> {
             if(model instanceof GlockRazorbackSlide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof GlockRearSight) {
             	GL11.glTranslatef(-0.107F, -1.17F, 0F);
@@ -157,7 +139,6 @@ public class Glock19Factory implements GunFactory {
         .withCompatibleAttachment(Attachments.Glock19RockSlideOlive, (model) -> {
             if(model instanceof Glock19Rockslide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof GlockRearSight) {
             	GL11.glTranslatef(-0.107F, -1.17F, 0F);
@@ -171,7 +152,6 @@ public class Glock19Factory implements GunFactory {
         .withCompatibleAttachment(Attachments.Glock19GhostPrecisionSlide, (model) -> {
             if(model instanceof Glock19Rockslide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof GlockRearSight) {
             	GL11.glTranslatef(-0.107F, -1.17F, 0F);
@@ -239,12 +219,11 @@ public class Glock19Factory implements GunFactory {
             		Attachments.Glock19RockSlideOlive,
             		Attachments.Glock19XSlide)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
+
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -291,17 +270,18 @@ public class Glock19Factory implements GunFactory {
                 		Magazines.GlockMag13,
                 		Magazines.Glock18CMag,
                 		Magazines.GlockMag50)
+                .setupCustomKeyedPart(Attachments.Glock19RazorbackSlide, "glock", BBLoader.KEY_ACTION)
+                .setupCustomKeyedPart(Attachments.Glock19GhostPrecisionSlide, "glock", BBLoader.KEY_ACTION)
+                .setupCustomKeyedPart(Attachments.Glock19RockSlideOlive, "glock", BBLoader.KEY_ACTION)
+                .setupCustomKeyedPart(Attachments.Glock19XSlide, "glock", BBLoader.KEY_ACTION)
+
                 
             .withFirstPersonPositioningCustomRecoiled(Attachments.Glock19Slide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.7F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(Attachments.Glock19Slide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.7F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
                 
@@ -313,14 +293,10 @@ public class Glock19Factory implements GunFactory {
             
             .withFirstPersonPositioningCustomRecoiled(Attachments.Glock19XSlide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.7F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(Attachments.Glock19XSlide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.7F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
                 
@@ -332,14 +308,10 @@ public class Glock19Factory implements GunFactory {
             
             .withFirstPersonPositioningCustomRecoiled(Attachments.Glock19RazorbackSlide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.7F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(Attachments.Glock19RazorbackSlide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.7F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
                 
@@ -351,14 +323,10 @@ public class Glock19Factory implements GunFactory {
             
             .withFirstPersonPositioningCustomRecoiled(Attachments.Glock19RockSlideOlive.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.7F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(Attachments.Glock19RockSlideOlive.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.7F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
                 
@@ -370,14 +338,10 @@ public class Glock19Factory implements GunFactory {
             
             .withFirstPersonPositioningCustomRecoiled(Attachments.Glock19GhostPrecisionSlide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.7F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(Attachments.Glock19GhostPrecisionSlide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.7F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
                 
@@ -474,7 +438,6 @@ public class Glock19Factory implements GunFactory {
                     )
                 
             .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScaled(3F, 3F, 3F);
                 GL11.glTranslatef(0.105f, 0.67f, -1.9f);
                 
@@ -485,7 +448,7 @@ public class Glock19Factory implements GunFactory {
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                     //System.out.println("Position me for Holo");
-                    GL11.glTranslatef(0f, 0.36f, 1.4f);
+                    GL11.glTranslatef(0f, 0.31f, 1.4f);
                 } 
                 
                 // Everything else

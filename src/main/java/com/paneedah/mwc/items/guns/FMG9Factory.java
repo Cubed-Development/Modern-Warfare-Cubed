@@ -21,7 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class FMG9Factory implements GunFactory {
 
@@ -29,7 +28,6 @@ public class FMG9Factory implements GunFactory {
 		return new Weapon.Builder()
 		
 		.withName("fmg9")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.8f)
 		.withRecoil(1f)
 		.withZoom(0.9f)
@@ -74,14 +72,6 @@ public class FMG9Factory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Assault Rifle", 
-		"Damage: 6", 
-		"Cartridge: 5.56x45mm NATO",
-		"Fire Rate: SEMI, BURST",
-		"Rate of Fire: 80/100",
-		"Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine"))
 		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                1f, // x 
@@ -147,8 +137,6 @@ public class FMG9Factory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
 		
@@ -266,7 +254,7 @@ public class FMG9Factory implements GunFactory {
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);
 				GL11.glTranslatef(0, 0f, 3f);
-				GL11.glRotatef(-90F, 0f, 0f, 4f);
+				GL11.glRotatef(0F, 0f, 0f, 4f);
 			})
 			.withInventoryPositioning(itemStack -> {
 			    GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -274,7 +262,7 @@ public class FMG9Factory implements GunFactory {
                 GL11.glRotatef(-120F, -0.5f, 7f, 3f);
 			})
 			.withThirdPersonPositioning((renderContext) -> {
-			    GL11.glScaled(0.6F, 0.6F, 0.6F);
+			    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 GL11.glTranslatef(-1.7F, -0.8F, 1.9F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
@@ -315,8 +303,6 @@ public class FMG9Factory implements GunFactory {
                 		Magazines.GlockMag50)
                 
             .withFirstPersonCustomPositioning(Magazines.M4A1Mag, (renderContext) -> {
-//            	 GL11.glTranslatef(0.2f, 0.35f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
                     
             .withThirdPersonPositioningReloading(
@@ -461,8 +447,7 @@ public class FMG9Factory implements GunFactory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                         GL11.glTranslatef(0F, 0.0f, 0.4f);
                 } 
-				
-				// Everything else
+
 				else {
 				}
 				

@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class HS12Factory implements GunFactory {
 
@@ -48,13 +47,7 @@ public class HS12Factory implements GunFactory {
                  10f) // z
          
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Double-Barrel Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: SEMI ACTION",
-        "Rate of Fire: 30/100"))
+
         .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
         .withCompatibleAttachment(Attachments.Placeholder, true, (model) -> {
             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
@@ -62,7 +55,6 @@ public class HS12Factory implements GunFactory {
         })
         .withCompatibleAttachment(AuxiliaryAttachments.HS12Barrels, true, (model) -> {
             if(model instanceof HS12Barrels) {
-//              GL11.glScaled(1F, 0.98F, 1);
           } else if(model instanceof AKRail) {
               GL11.glTranslatef(-0.148F, -0.75F, -0.91f);
               GL11.glScaled(0.5F, 0.6F, 0.4F);
@@ -180,12 +172,10 @@ public class HS12Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new HS12())
-            //.withTextureName("Remington900")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -226,7 +216,6 @@ public class HS12Factory implements GunFactory {
                 })
             
             .withFirstPersonPositioningReloading(
-            		
             		// left hand grabs double-barrel
                     
                 new Transition((renderContext) -> { // Reload position

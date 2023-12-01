@@ -21,7 +21,6 @@ import org.lwjgl.opengl.GL11;
 public class APC9Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
-        Object Magazine;
         return new Weapon.Builder()
 
                 .withName("apc9")
@@ -34,9 +33,6 @@ public class APC9Factory implements GunFactory {
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withShootSound("apc9")
                 .withSilencedShootSound("mp5_silenced")
-                .withReloadSound("mpx_reload")
-                .withUnloadSound("mpx_unload")
-                .withInspectSound("inspection")
                 .withDrawSound("noaction_draw")
                 .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
@@ -302,6 +298,18 @@ public class APC9Factory implements GunFactory {
                     GL11.glTranslatef(-0.2F, -0.35F, -2.8F);
                     GL11.glScaled(1F, 1F, 1F);
                 })
+                .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.35F, -2.8F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+                .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.35F, -2.8F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+                .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.35F, -2.8F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
                 .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
                     GL11.glTranslatef(-0.2F, -1.235F, -4.8F);
                     GL11.glScaled(1F, 1F, 1F);
@@ -316,7 +324,7 @@ public class APC9Factory implements GunFactory {
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.5F, 0.5F, 0.5F);
                             GL11.glTranslatef(0, 0f, 3f);
-                            GL11.glRotatef(-90F, 0f, 0f, 4f);
+                            GL11.glRotatef(0F, 0f, 0f, 4f);
                         })
                         .withInventoryPositioning(itemStack -> {
                             GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -427,12 +435,9 @@ public class APC9Factory implements GunFactory {
                                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                                     GL11.glRotatef(90F, 1f, 0f, 0f);
                                 }, 120, 0)
-//                }, 100, 0)
                         )
 
                         .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.APC9Action.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                                 new Transition((renderContext) -> {
                                 }, 500, 1000),
                                 new Transition((renderContext) -> {
@@ -554,7 +559,6 @@ public class APC9Factory implements GunFactory {
                                 GL11.glTranslatef(0F, 0.05f, 0.3f);
                             }
 
-                            // Everything else
                             else {
                             }
 

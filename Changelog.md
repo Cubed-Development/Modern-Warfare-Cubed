@@ -50,6 +50,12 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added `reconcileAmmunition` & `reconcileAttachments` gamerules, they are true by default and should only be used for debugging purposes, for example, when you have weapons that appear to "desync" / glitch out
 - Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
 - Added the gold and dark color variants of the Desert Eagle
+- Added Accuracy International AX50
+- Added Modernized Kalashnikov Machine Gun(PKM)
+- New Attachments for G36C
+- New Attachments for Uzi
+- Added PGM Hécate II(WIP)
+- Improved and added variants Tan Color of the front grips
 
 ### Changed
 
@@ -99,6 +105,20 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - The weapon stats in the modification GUI are now updated instantly
 - Terrorist spawns are now lower by default
 - Flashbangs do not flash trough walls anymore
+- New Model for Suppresor .50 BMG
+- Change the name from NGSW-R to SIG XM7
+- Renewed M200 Intervention
+- Renewed M79(WIP)
+- Renewed Colt M1911
+- Renewed M60E4(WIP)
+- Renewed Saiga12(WIP)
+- Renewed Uzi
+- Renewed APC9
+- Renewed S7-10 Tricun
+- Renewed AS50(WIP)
+- Renewed AUG(WIP)
+- Renewed MP-40(WIP)
+- Removed the small tilt on handguns such as the Desert Eagle and some Revolvers
 
 ### Fixed
 
@@ -176,6 +196,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed the spawning position of the shells
 - Bullet spawning maths which was making the bullets spawn in inaccurate position
 - Fixed compatibility with Forge `Emissive Item Rendering`
+- Fixed bad position during aiming in handguns
 
 ### Removed
 

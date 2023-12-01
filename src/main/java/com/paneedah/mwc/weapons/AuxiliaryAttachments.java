@@ -26,7 +26,6 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> AACRail;
     public static ItemAttachment<Weapon> M110Rail;
     public static ItemAttachment<Weapon> MagnumRail;
-    public static ItemAttachment<Weapon> M45A1slide;
     public static ItemAttachment<Weapon> M17_Slide;
     public static ItemAttachment<Weapon> Makarov_Slide;
     public static ItemAttachment<Weapon> P12_Slide;
@@ -35,12 +34,10 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> Albert01Rslide;
     public static ItemAttachment<Weapon> M40A6BoltAction;
     public static ItemAttachment<Weapon> M40A6BoltActionPrime;
-    public static ItemAttachment<Weapon> AX50BoltAction1;
-    public static ItemAttachment<Weapon> AX50BoltAction2;
+    public static ItemAttachment<Weapon> AX50BoltAction;
     public static ItemAttachment<Weapon> SSG08BoltAction1;
     public static ItemAttachment<Weapon> SSG08BoltAction2;
-    public static ItemAttachment<Weapon> HecateIIBoltAction1;
-    public static ItemAttachment<Weapon> HecateIIBoltAction2;
+    public static ItemAttachment<Weapon> PGMHecateIIBoltAction;
     public static ItemAttachment<Weapon> Remington700BoltAction;
     public static ItemAttachment<Weapon> Remington700BoltActionMain;
     public static ItemAttachment<Weapon> M500A2pump;
@@ -57,6 +54,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> SV98BoltAction;
     public static ItemAttachment<Weapon> L96A1BoltAction;
     public static ItemAttachment<Weapon> InterventionBoltAction;
+    public static ItemAttachment<Weapon> InterventionBoltActionPrime;
     public static ItemAttachment<Weapon> VSSVintorezAction;
     public static ItemAttachment<Weapon> AS50Action;
     public static ItemAttachment<Weapon> P10Slide;
@@ -73,6 +71,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> MG42action;
     public static ItemAttachment<Weapon> M60Hatch;
     public static ItemAttachment<Weapon> M60Belt;
+    public static ItemAttachment<Weapon> M60Action;
     public static ItemAttachment<Weapon> STG44action;
     public static ItemAttachment<Weapon> STG44actionCover;
     public static ItemAttachment<Weapon> G43GewehrAction;
@@ -130,6 +129,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> M79grenade;
     public static ItemAttachment<Weapon> GL06Cartridge;
     public static ItemAttachment<Weapon> M79Cartridge;
+    public static ItemAttachment<Weapon> M79Sight;
     public static ItemAttachment<Weapon> M32Cartridge;
     public static ItemAttachment<Weapon> SSG42Barrels;
     public static ItemAttachment<Weapon> HAR27Belt;
@@ -153,6 +153,10 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> M249Hatch;
     public static ItemAttachment<Weapon> M249Belt;
     public static ItemAttachment<Weapon> M249Action;
+    public static ItemAttachment<Weapon> PKMHatch;
+    public static ItemAttachment<Weapon> PKMBelt;
+    public static ItemAttachment<Weapon> PKMBelt2;
+    public static ItemAttachment<Weapon> PKMAction;
     public static ItemAttachment<Weapon> FatmanGrip;
     public static ItemAttachment<Weapon> FatmanRack;
     public static ItemAttachment<Weapon> BrowningAuto5Action;
@@ -449,7 +453,7 @@ public class AuxiliaryAttachments {
         M134Barrels = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
                 // .withCreativeTab(MWC.gunsTab)
-                .withModel(new M134Barrels(), "gun.png")
+                .withModel(new M134Barrels(), "m134.png")
                 .withName("M134Barrels")
                 .withRenderablePart()
                 .build();
@@ -597,7 +601,7 @@ public class AuxiliaryAttachments {
 
         M79grenade = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA6)
-                .withModel(new M79grenade(), "gun.png")
+                .withModel(new M79grenade(), "m79.png")
                 .withRenderablePart()
                 .withName("M79grenade")
                 .build();
@@ -611,9 +615,17 @@ public class AuxiliaryAttachments {
 
         M79Cartridge = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
+                .withRotationPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
                 .withModel(new M79Cartridge(), "m79.png")
                 .withRenderablePart()
                 .withName("M79Cartridge")
+                .build();
+
+        M79Sight = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA2)
+                .withModel(new M79Sight(), "m79.png")
+                .withRenderablePart()
+                .withName("M79Sight")
                 .build();
 
         M32Cartridge = new AttachmentBuilder<Weapon>()
@@ -955,10 +967,20 @@ public class AuxiliaryAttachments {
 
                 .build();
 
+        M60Action = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA)
+                // .withCreativeTab(MWC.gunsTab)
+                .withModel(new M60Action(), "m60.png")
+                .withName("M60Action")
+                .withRenderablePart()
+
+                .build();
+
         M60Hatch = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new M60Hatch(), "m60.png")
+                .withRotationPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
                 .withName("M60Hatch")
                 .withRenderablePart()
 
@@ -992,6 +1014,37 @@ public class AuxiliaryAttachments {
                 .withName("M249Action")
                 .withRenderablePart()
 
+                .build();
+
+        PKMBelt = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA)
+                .withModel(new PKMBelt(), "pkm.png")
+                .withName("PKMBelt")
+                .withRenderablePart()
+                .build();
+
+        PKMBelt2 = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA2)
+                .withModel(new PKMBelt2(), "pkm.png")
+                .withName("PKMBelt2")
+                .withRenderablePart()
+                .build();
+
+        PKMHatch = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA3)
+                .withModel(new PKMHatch(), "pkm.png")
+                .withModel(new PKMrearsight(), "gun.png")
+                .withRotationPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
+                .withName("PKMHatch")
+                .withRenderablePart()
+                .build();
+
+        PKMAction = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA4)
+                // .withCreativeTab(MWC.gunsTab)
+                .withModel(new PKMAction(), "pkm.png")
+                .withName("PKMAction")
+                .withRenderablePart()
                 .build();
 
         MG42action = new AttachmentBuilder<Weapon>()
@@ -1169,16 +1222,6 @@ public class AuxiliaryAttachments {
                 .withRenderablePart()
                 .build();
 
-        M45A1slide = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.EXTRA)
-                // .withCreativeTab(MWC.gunsTab)
-                .withModel(new Emp1911Slide(), "Emp1911.png")
-                .withModel(new M1911FrontSight(), "m1911frontsight")
-                .withModel(new M1911rearsight(), "m1911rearsight")
-                .withName("M45A1slide")
-                .withRenderablePart()
-                .build();
-
         M17_Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
                 // .withCreativeTab(MWC.gunsTab)
@@ -1302,7 +1345,7 @@ public class AuxiliaryAttachments {
         Saiga12action = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
                 // .withCreativeTab(MWC.gunsTab)
-                .withModel(new Saiga12action(), "gun.png").withName("Saiga12action")
+                .withModel(new Saiga12Action(), "gun.png").withName("Saiga12action")
                 .withRenderablePart()
                 .build();
 
@@ -1336,7 +1379,7 @@ public class AuxiliaryAttachments {
         UziAction = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
                 // .withCreativeTab(MWC.gunsTab)
-                .withModel(new UziAction(), "gun.png")
+                .withModel(new UziAction(), "uzi.png")
                 .withName("UziAction")
                 .withRenderablePart()
                 .build();
@@ -1344,7 +1387,7 @@ public class AuxiliaryAttachments {
         UziRelease = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA2)
                 // .withCreativeTab(MWC.gunsTab)
-                .withModel(new UziRelease(), "gun.png")
+                .withModel(new UziRelease(), "uzi.png")
                 .withName("UziRelease")
                 .withRenderablePart()
                 .build();
@@ -1384,6 +1427,13 @@ public class AuxiliaryAttachments {
                 .withRenderablePart()
                 .build();
 
+        AX50BoltAction = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA2)
+                .withModel(new AX50BoltAction(), "ax50.png")
+                .withName("AX50BoltAction")
+                .withRenderablePart()
+                .build();
+
         SSG08BoltAction1 = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA3)
                 // .withCreativeTab(MWC.gunsTab)
@@ -1397,6 +1447,14 @@ public class AuxiliaryAttachments {
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new SSG08BoltAction2(), "SSG08")
                 .withName("SSG08")
+                .withRenderablePart()
+                .build();
+				
+		PGMHecateIIBoltAction = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA2)
+                // .withCreativeTab(MWC.gunsTab)
+                .withModel(new PGMHecateIIBoltAction(), "pgmhecateii.png")
+                .withName("PGMHecateIIBoltAction")
                 .withRenderablePart()
                 .build();
 
@@ -1454,11 +1512,18 @@ public class AuxiliaryAttachments {
                 .withRenderablePart()
                 .build();
 
-        InterventionBoltAction = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.EXTRA3)
-                // .withCreativeTab(MWC.gunsTab)
+		InterventionBoltAction = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA2)
                 .withModel(new InterventionBoltAction(), "intervention.png")
                 .withName("InterventionBoltAction")
+                .withRenderablePart()
+                .build();
+				
+		InterventionBoltActionPrime = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA3)
+                .withRotationPoint(0.12159999456405646F, -1.5596000435292718F, 0.8224000258207329F)
+                .withModel(new InterventionBoltActionPrime(), "intervention.png")
+                .withName("InterventionBoltActionPrime")
                 .withRenderablePart()
                 .build();
 
@@ -1664,11 +1729,6 @@ public class AuxiliaryAttachments {
                 .withModel(new AKRail4(), "akrail.png")
                 .withModel(new AKRail5(), "akrail.png")
                 .withName("M4Rail").withRenderablePart()
-                .build();
-
-        M4AsiimovRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA5)
-                .withModel(new AKRail(), "m4asiimovrail.png")
-                .withName("M4AsiimovRail").withRenderablePart()
                 .build();
 
         MagnumRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA5)

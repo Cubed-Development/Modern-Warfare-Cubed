@@ -13,7 +13,6 @@ import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M32MGLFactory implements GunFactory {
 
@@ -21,7 +20,6 @@ public class M32MGLFactory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("m32_mgl")
-//      .withCapacity(CommonProxy.AR15Mag)
         .withAmmoCapacity(6)
         .withFireRate(0.16f)
         .withIteratedLoad()
@@ -35,7 +33,6 @@ public class M32MGLFactory implements GunFactory {
         .withAllReloadIterationsCompletedSound("krag_chamberclosed")
         .withReloadIterationSound("loadbullet")
         .withDrawSound("noaction_draw")
-//       .withReloadSound("drawweapon")
 //        .withReloadIterationSound("loadshell")
         .withReloadingTime(1000)
         .withFlashIntensity(0f)
@@ -51,8 +48,7 @@ public class M32MGLFactory implements GunFactory {
                 2f) // z
         
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList("Type: Multiple Grenade Launcher", 
-        "Cartridge: 40mm Grenade", "Fire Rate: Semi"))
+
         .withCompatibleAttachment(Bullets.Grenade40mm, (model) -> {})
         .withCompatibleAttachment(Attachments.Placeholder, true, (model) -> {
             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
@@ -98,8 +94,6 @@ public class M32MGLFactory implements GunFactory {
             GL11.glRotatef(-3F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M32Cartridge, true, (model) -> {
-//            GL11.glTranslatef(-0.2F, 0.1f, 0F);
-//            GL11.glRotatef(-20F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M32Main1B, true, (model) -> {
             if(model instanceof M32Main1B) {
@@ -276,30 +270,29 @@ public class M32MGLFactory implements GunFactory {
             GL11.glTranslatef(-0.2F, -0F, -2.1F);
             GL11.glScaled(1F, 1F, 1F);
         })
-        .withCompatibleAttachment(Attachments.Bipod, (model) -> {
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
             GL11.glTranslatef(-0.2F, -0F, -2.1F);
             GL11.glScaled(1F, 1F, 1F);
         })
-        .withCompatibleAttachment(Attachments.Laser2, () -> {
-            GL11.glTranslatef(0.05F, -0.8F, -2.85F);
-            GL11.glScaled(0.7F, 0.7F, 0.7F);
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+             GL11.glTranslatef(-0.2F, -0F, -2.1F);
+             GL11.glScaled(1F, 1F, 1F);
         })
-        .withCompatibleAttachment(Attachments.Laser, () -> {
-            GL11.glTranslatef(0.05F, -0.8F, -2.85F);
-            GL11.glScaled(0.7F, 0.7F, 0.7F);
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+             GL11.glTranslatef(-0.2F, -0F, -2.1F);
+             GL11.glScaled(1F, 1F, 1F);
         })
+
         .withTextureNames("gun")
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new M32())
             .withPrepareFirstLoadIterationAnimationDuration(1800)
             .withAllLoadIterationAnimationsCompletedDuration(1400)
-            //.withTextureName("M4A1")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.3F, 0.3F, 0.3F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -319,12 +312,6 @@ public class M32MGLFactory implements GunFactory {
                 GL11.glRotatef(4F, 0f, 0f, 1f);
                 GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
                 GL11.glTranslatef(-0.900000f, 0.715000f, -1.374999f);
-                
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glRotatef(-3F, 1f, 0f, 0f);
-//                GL11.glRotatef(4F, 0f, 0f, 1f);
-//                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-//                GL11.glTranslatef(-0.900000f, 0.715000f, -3.174999f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -342,9 +329,9 @@ public class M32MGLFactory implements GunFactory {
                 GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
                 GL11.glTranslatef(-0.700000f, 0.825000f, -1.174999f);
                 })
-                
-            
-                
+
+
+
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.M32Cartridge.getRenderablePart(), (renderContext) -> {
                 })
             
@@ -394,7 +381,6 @@ public class M32MGLFactory implements GunFactory {
                 })
                 
             .withFirstPersonPositioningReloading(
-                    
                     new Transition((renderContext) -> { // Reload position
                         GL11.glRotatef(44F, 0f, 1f, 0f);
                         GL11.glRotatef(-4F, 1f, 0f, 0f);
@@ -1121,8 +1107,7 @@ public class M32MGLFactory implements GunFactory {
                     //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(0F, 0.1f, 1f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 

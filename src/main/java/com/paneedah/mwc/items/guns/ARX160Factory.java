@@ -65,18 +65,7 @@ public class ARX160Factory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Assault Rifle", 
-        "Damage: 6", 
-        "Cartridge: 5.56x45mm NATO",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"60rnd 5.56x45mm NATO STANAG Drum Magazine",
-		"100rnd 5.56x45mm NATO STANAG Drum Magazine"))
+
          .withCrafting(CraftingComplexity.MEDIUM,
                  MWCItems.gunmetalIngot,
                  MWCItems.gunmetalPlate)
@@ -98,8 +87,6 @@ public class ARX160Factory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.ARX160Chassis, true, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Magazines.SOCOM_Mag, (model) -> {
         	GL11.glTranslatef(-0.325F, 0.1F, -1.49F);
@@ -115,19 +102,16 @@ public class ARX160Factory implements GunFactory {
         })
         .withCompatibleAttachment(Magazines.Stanag50, (model) -> {
             GL11.glTranslatef(0F, -0.35F, -0.2F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag60, (model) -> {
             GL11.glRotatef(-10F, 1f, 0f, 0f);
             GL11.glTranslatef(0F, -0.1F, -0.3F);
-//            GL11.glScaled(1.15F, 1.2F, 1.2F);
         })
         .withCompatibleAttachment(Magazines.Stanag100, (model) -> {
             GL11.glTranslatef(-0.35F, 0.3F, -1.4F);
             GL11.glScaled(1.15F, 1.2F, 1.15F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.ARX160Action, true, (model) -> {
-//            GL11.glTranslatef(0F, 0F, 1.1F);
         })
         .withCompatibleAttachment(Attachments.MBUSFrontSight, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
@@ -217,8 +201,6 @@ public class ARX160Factory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
         .withCompatibleAttachment(Attachments.Holographic, () -> {
@@ -322,6 +304,22 @@ public class ARX160Factory implements GunFactory {
 			GL11.glTranslatef(-0.2F, -0.57F, -3.3F);
 			GL11.glScaled(1F, 1F, 1F);
 		})
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.57F, -3.3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.57F, -3.3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.5F, -3.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.57F, -3.3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
 		.withCompatibleAttachment(Attachments.Bipod, (model) -> {
 			GL11.glTranslatef(-0.18F, -0.6F, -3.5F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
@@ -363,7 +361,7 @@ public class ARX160Factory implements GunFactory {
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
                 GL11.glTranslatef(0, 0f, 3f);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -519,8 +517,7 @@ public class ARX160Factory implements GunFactory {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0F, 0.22f, 0.75f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
             

@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M712Factory implements GunFactory {
 
@@ -43,14 +42,7 @@ public class M712Factory implements GunFactory {
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(1)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Machine Pistol", 
-        "Damage: 5.4", 
-        "Cartridge: 7.63x25mm Mauser",
-        "Fire Rate: AUTO",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "20rnd 7.63x25mm Mauser Magazine"))
+
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  1.5f, // x 
@@ -60,16 +52,9 @@ public class M712Factory implements GunFactory {
         .withCompatibleAttachment(AuxiliaryAttachments.M712action, true, (model) -> {
             if(model instanceof M712action) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.6F);
             }
         })
         .withCompatibleAttachment(Magazines.M712Mag, (model) -> {
-//        	GL11.glTranslatef(0.1f, 1f, -0.1f);
-//        	GL11.glRotatef(-5F, 1f, 0f, 0f);
-//        	GL11.glRotatef(-6F, 0f, 0f, 1f);
-        	
-//        	GL11.glTranslatef(0f, 0.9f, 0f);
-//        	GL11.glRotatef(2F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof M4Iron1) {
@@ -119,12 +104,10 @@ public class M712Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new M712())
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.25F, 0.25F, 0.25F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F); 
@@ -143,12 +126,6 @@ public class M712Factory implements GunFactory {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glRotatef(14F, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.3f, 0.8f, -2.0f);
-                
-//                GL11.glScaled(1F, 1F, 1F);
-//                GL11.glRotatef(-14.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(41.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(3.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.225000f, 0.875000f, -1.849999f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -176,14 +153,10 @@ public class M712Factory implements GunFactory {
                 
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M712action.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.5F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.M712action.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.5F);
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
-//              GL11.glScaled(0.55F, 0.55F, 0.55F);
                 })
                 
                 
@@ -413,7 +386,6 @@ public class M712Factory implements GunFactory {
                     // mag slides in
                     
                     new Transition((renderContext) -> { // Reload position
-//                    	GL11.glTranslatef(-0.02f, 0f, 0f);
                     }, 200, 0),
                     
                     // jiggle
@@ -680,8 +652,7 @@ public class M712Factory implements GunFactory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
                     //System.out.println("Position me for Holo");
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -698,8 +669,7 @@ public class M712Factory implements GunFactory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
                     //System.out.println("Position me for Holo");
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -727,8 +697,6 @@ public class M712Factory implements GunFactory {
                          GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(0.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.200000f, 0.000000f, 0.325000f);
-                         
-//                         GL11.glScalef(4f, 4f, 4f);
                    }, 
                    (renderContext) -> {
                        GL11.glScalef(4.5f, 4.5f, 4.5f);
@@ -895,7 +863,6 @@ public class M712Factory implements GunFactory {
                 )
                     
             .withFirstPersonRightHandPositioningReloading(
-                    
             		// left hand goes down
                     
                     new Transition((renderContext) -> { // Reload position

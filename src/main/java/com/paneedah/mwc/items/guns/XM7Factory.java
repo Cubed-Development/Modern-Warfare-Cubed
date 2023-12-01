@@ -16,15 +16,13 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
-public class NGSWRFactory implements GunFactory {
+public class XM7Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
 		return new Weapon.Builder()
 		
-		.withName("ngsw_r")
-		//.withAmmoCapacity(30)
+		.withName("sig_xm7")
 		.withFireRate(0.75f)
 		.withRecoil(3f)
 		.withZoom(0.9f)
@@ -66,14 +64,6 @@ public class NGSWRFactory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Assault Rifle", 
-		"Damage: 7", 
-		"Cartridge: .277 FURY",
-		"Fire Rate: SEMI, AUTO",
-		"Rate of Fire: 75/100",
-		"Magazines:",
-        "20rnd .277 FURY Magazine"))
 		
 		.withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 8), new
@@ -178,8 +168,6 @@ public class NGSWRFactory implements GunFactory {
             GL11.glScaled(0.85F, 0.85F, 0.85F);
         })
         .withCompatibleAttachment(Magazines.NGSWRMag, (model) -> {
-//		    GL11.glTranslatef(-0.333F, 0.45F, -1.4F);
-//            GL11.glScaled(1.02F, 1.35F, 1.33F);
         })
 		.withCompatibleAttachment(AuxiliaryAttachments.AR15Action, true, (model) -> {
             GL11.glTranslatef(-0.175F, -1.535F, -0.6F);
@@ -396,6 +384,26 @@ public class NGSWRFactory implements GunFactory {
 			GL11.glTranslatef(-0.2F, -0.37F, -3F);
 			GL11.glScaled(1F, 1F, 1F);
 		})
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.37F, -3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.JunoGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.7F, -3.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.37F, -3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.25F, -3.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.37F, -3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
 		.withCompatibleAttachment(Attachments.Bipod, (model) -> {
 			GL11.glTranslatef(-0.2F, -0.27F, -3.6F);
 			GL11.glScaled(1F, 1F, 1F);
@@ -419,7 +427,7 @@ public class NGSWRFactory implements GunFactory {
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);
 				GL11.glTranslatef(0, 0f, 3f);
-				GL11.glRotatef(-90F, 0f, 0f, 4f);
+				GL11.glRotatef(0F, 0f, 0f, 4f);
 			})
 			.withInventoryPositioning(itemStack -> {
 			    GL11.glScaled(0.35F, 0.35F, 0.35F);

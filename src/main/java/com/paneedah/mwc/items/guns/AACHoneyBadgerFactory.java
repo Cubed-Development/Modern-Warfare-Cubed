@@ -17,7 +17,7 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
+
 // IMPORT LIST END
 
 
@@ -34,17 +34,13 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withMaxShots(1, Integer.MAX_VALUE) // Max shots per reload
                 .withShootSound("aac_honeybadger") // Shoot sound
                 .withSilencedShootSound("aac_honeybadger") // Silenced shoot sound
-                .withReloadSound("honeybadger_reload") // Reload sound
-                .withUnloadSound("honeybadger_unload") // Unload sound
                 .withEndOfShootSound("gun_click") // End of shoot sound
-                .withInspectSound("m4a1_inspection") // Inspection sound
                 .withDrawSound("m4_draw") // Draw sound
                 .withReloadingTime(50)  // Reloading time in ticks
                 .withFlashIntensity(0.5f) // Flash intensity
                 .withFlashScale(() -> 0.6f) // Flash scale
                 .withFlashOffsetX(() -> 0.13f) // Flash offset X
                 .withFlashOffsetY(() -> 0.17f) // Flash offset Y
-//        .withShootSoundVolume(1f)
                 .withShellCasingForwardOffset(0.1f) // Shell casing forward offset
                 .withShellCasingVerticalOffset(-0.05f) // Shell casing vertical offset
                 .withCreativeTab(MWC.WEAPONS_TAB) // Creative tab
@@ -67,15 +63,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         // Ads similarity divisor
                         1.0
                 ))
-                .withInformationProvider(stack -> Arrays.asList( // Information provider
-                        "Type: Personal Defense Weapon",  // Information
-                        "Damage: 5.4", // Damage in Item Description
-                        "Cartridge: 7.62x35mm", // Cartridge in Item Description
-                        "Fire Rate: SEMI, AUTO", // Fire Rate in Item Description
-                        "Rate of Fire: 70/100", // Rate of Fire in Item Description
-                        "Magazines:", // Magazines in Item Description
-                        "30rnd 7.62x35mm Honeybadger Magazine" // Magazines Tyoes in Item Description
-                ))
+
 
                 .withScreenShaking(RenderableState.SHOOTING,  // Screen shaking
                         1.5f, // x
@@ -382,8 +370,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     } else if (model instanceof SightMount) {
-//                 	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                     GL11.glScaled(0.4F, 0.4F, 0.4F);
                     }
                 })
 
@@ -542,6 +528,36 @@ public class AACHoneyBadgerFactory implements GunFactory {
                     GL11.glScaled(1F, 1F, 1F);
                 })
 
+                // Compatible attachment honeybadger Grip2
+                .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+
+                // Compatible attachment honeybadger JunoGrip
+                .withCompatibleAttachment(Attachments.JunoGripTan, (model) -> {
+                    GL11.glTranslatef(-0.23F, -0.7F, -2.81F);
+                    GL11.glScaled(0.8F, 0.8F, 0.8F);
+                })
+
+                // Compatible attachment honeybadger StubbyGrip
+                .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+
+                // Compatible attachment honeybadger AngledGrip
+                .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.35F, -2.9F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+
+                // Compatible attachment honeybadger VGrip
+                .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+
                 .withCompatibleAttachment(Attachments.Bipod, (model) -> {
                     GL11.glTranslatef(-0.18F, -0.33F, -3.5F);
                     GL11.glScaled(0.8F, 0.8F, 0.8F);
@@ -572,8 +588,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                     }
                 },(model) -> {
                     if(model instanceof AACHoneyBadgerSilencer) {
-//            	GL11.glTranslatef(-0.16F, -1.5F, -3F);
-//                GL11.glScaled(0.35F, 0.35F, 0.35F);
                     }
                 }, true, false)
 
@@ -585,7 +599,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.5F, 0.5F, 0.5F);
                             GL11.glTranslatef(0, 0f, 3f);
-                            GL11.glRotatef(-90F, 0f, 0f, 4f);
+                            GL11.glRotatef(0F, 0f, 0f, 4f);
                         })
                         .withInventoryPositioning(itemStack -> {
                             GL11.glScaled(0.35F, 0.35F, 0.35F);

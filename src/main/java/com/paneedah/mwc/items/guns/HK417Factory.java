@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class HK417Factory implements GunFactory {
 
@@ -22,7 +21,6 @@ public class HK417Factory implements GunFactory {
 		return new Weapon.Builder()
 		
 		.withName("hk_417")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.75f)
 		.withRecoil(5f)
 		.withZoom(0.9f)
@@ -64,14 +62,6 @@ public class HK417Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Battle Rifle/Designated Marksmen Rifle", 
-		"Damage: 10", 
-		"Cartridge: 7.62x51mm",
-		"Fire Rate: SEMI, AUTO",
-		"Rate of Fire: 75/100",
-		"Magazines:",
-        "20rnd 7.62x51mm 417 Magazine"))
 		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                2f, // x 
@@ -81,10 +71,6 @@ public class HK417Factory implements GunFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
-//        .withCompatibleAttachment(Attachments.RailRiser, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glScaled(1F, 1F, 1F);
-//        })
         .withCompatibleAttachment(Attachments.CollapsableMOEStock, (model) -> {
         	GL11.glTranslatef(0.01f, -0.17f, -0.1f);
             GL11.glScaled(1.1F, 1.1F, 1.1F);
@@ -236,19 +222,14 @@ public class HK417Factory implements GunFactory {
           }
         })
         .withCompatibleAttachment(Attachments.HK416Grip, true, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.HK416GripTan, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4Grip, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
 		.withCompatibleAttachment(Magazines.HK417Mag, (model) -> {
         })
@@ -261,8 +242,6 @@ public class HK417Factory implements GunFactory {
 				GL11.glTranslatef(0.162F, -1.75F, 1F);
 				GL11.glScaled(0F, 0F, 0F);
 			} else if(model instanceof M4Iron2) {
-//				GL11.glTranslatef(-0.055F, -1.35F, -4.05F);
-//				GL11.glScaled(0.8F, 0.68F, 1F);
 				GL11.glScaled(0F, 0F, 0F);
 			} else if(model instanceof P90iron) {
 				GL11.glTranslatef(0.26F, -1.55F, -2.35F);
@@ -437,8 +416,6 @@ public class HK417Factory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
 		
@@ -574,6 +551,26 @@ public class HK417Factory implements GunFactory {
 		    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
             GL11.glScaled(1F, 1F, 1F);
 		})
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.JunoGripTan, (model) -> {
+            GL11.glTranslatef(-0.23F, -0.7F, -2.81F);
+            GL11.glScaled(0.8F, 0.8F, 0.8F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.35F, -2.9F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
 		.withCompatibleAttachment(Attachments.Bipod, (model) -> {
 		    GL11.glTranslatef(-0.18F, -0.38F, -3.5F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
@@ -598,7 +595,7 @@ public class HK417Factory implements GunFactory {
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);
 				GL11.glTranslatef(0, 0f, 3f);
-				GL11.glRotatef(-90F, 0f, 0f, 4f);
+				GL11.glRotatef(0F, 0f, 0f, 4f);
 			})
 			.withInventoryPositioning(itemStack -> {
 			    GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -644,12 +641,9 @@ public class HK417Factory implements GunFactory {
                 .setupModernMagazineAnimations("hk417", Magazines.HK417Mag)
 		
 			.withFirstPersonCustomPositioning(AuxiliaryAttachments.AR15Action.getRenderablePart(), (renderContext) -> {
-//			    GL11.glTranslatef(0f, 0f, 0.5f);
                 })
                 
             .withFirstPersonCustomPositioning(Magazines.HK417Mag, (renderContext) -> {
-//            	 GL11.glTranslatef(0.2f, 0.35f, 0f);
-//            	 GL11.glRotatef(-20F, 0f, 0f, 1f);
                 })
                     
             .withThirdPersonPositioningReloading(

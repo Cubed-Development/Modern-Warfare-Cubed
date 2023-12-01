@@ -35,7 +35,6 @@ public class M249Factory {
         .withUnloadSound("mg42_unload")
         .withInspectSound("inspection")
         .withDrawSound("mg42_draw")
-//        .withDrawSound("mg42_reload")
         .withReloadingTime(45)
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
@@ -116,12 +115,9 @@ public class M249Factory {
              } 
          })
         .withCompatibleAttachment(AuxiliaryAttachments.M249Action, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M249Hatch, true, (model) -> {
             if(model instanceof M249Hatch) {
-//            	GL11.glTranslatef(-0F, 2.45F, 3.8F);
-//                GL11.glRotatef(90F, 1f, 0f, 0f);
             } else if(model instanceof M249RearSight) {
                 GL11.glTranslatef(-0.13f, -1.63f, 0.5f);
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -131,17 +127,8 @@ public class M249Factory {
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M249Belt, true, (model) -> {
-//        	GL11.glTranslatef(0.15F, 0.35F, 0F);
-//            GL11.glRotatef(45F, 0f, 0f, 1f);
-            
-//        	GL11.glTranslatef(0.2F, -0.25F, 0F);
-//            GL11.glRotatef(50F, 0f, 0f, 1f);
-        	
-//        	GL11.glTranslatef(0.05F, -0.15F, 0F);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(Magazines.M249Mag, (model) -> {
-//            GL11.glTranslatef(0.4F, 0F, 0F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {
@@ -327,6 +314,22 @@ public class M249Factory {
         	 GL11.glTranslatef(-0.2F, 0.2F, -3.3F);
              GL11.glScaled(1.2F, 1.2F, 1.2F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, 0.2F, -3.1F);
+            GL11.glScaled(1.2F, 1.2F, 1.2F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, 0.18F, -3.3F);
+            GL11.glScaled(1.2F, 1.2F, 1.2F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, 0.2F, -3.3F);
+            GL11.glScaled(1F, 1F, 0.9F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, 0.2F, -3.3F);
+            GL11.glScaled(1.2F, 1.2F, 1.2F);
+        })
         .withCompatibleAttachment(Attachments.Bipod, (model) -> {
             GL11.glTranslatef(-0.2F, -0.2F, -4.45F);
             GL11.glScaled(1F, 1F, 1F);
@@ -343,12 +346,10 @@ public class M249Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new M249())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.24F, 0.24F, 0.24F);
@@ -392,7 +393,6 @@ public class M249Factory {
                 
                 .setupModernAnimations("m249", AuxiliaryAttachments.M249Action)
                 .setupCustomKeyedPart(AuxiliaryAttachments.M249Belt, "m249", "belt")
-//                .setupCustomKeyedPart(AuxiliaryAttachments.M249Belt2, "m249", "belt2")
                 .setupCustomKeyedPart(AuxiliaryAttachments.M249Hatch, "m249", "hatch")
                 .setupCustomKeyedPart(Attachments.ACOG, "m249", "scope")
                 .setupCustomKeyedPart(Attachments.Specter, "m249", "scope")
@@ -498,8 +498,7 @@ public class M249Factory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.29f, 0.3f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
             
@@ -565,4 +564,3 @@ public class M249Factory {
         .build(MWC.modContext);
     }
 }
-

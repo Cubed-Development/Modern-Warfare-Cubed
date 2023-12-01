@@ -18,7 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class KrissVectorFactory {
 
@@ -66,22 +65,8 @@ public class KrissVectorFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Submachine Gun",
-        "Damage: 5.3", 
-        "Cartridge: .45 ACP",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 99/100",
-        "Magazines:",
-        "25rnd .45 ACP Vector Magazine",
-        "30rnd 5.56x45mm NATO STANAG Magazine (w/ Vector 5.56 Handguard)",
-        "30rnd 5.56x45mm NATO PMAG Magazine (w/ Vector 5.56 Handguard)",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine (w/ Vector 5.56 Handguard)",
-        "60rnd 5.56x45mm NATO STANAG Drum Magazine (w/ Vector 5.56 Handguard)",
-        "100rnd 5.56x45mm NATO STANAG Drum Magazine (w/ Vector 5.56 Handguard)"))
+
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
-        
-        
         .withScreenShaking(RenderableState.SHOOTING, 
                 2f, // x 
                 0.1f, // y
@@ -102,19 +87,14 @@ public class KrissVectorFactory {
           }
         })
         .withCompatibleAttachment(Attachments.KrissVectorReceiver, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.Vector556Handguard, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.VectorMk1ModularHandguard, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.VectorCarbineHandguard, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.VectorTapedGrip, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.VectorStock, true, (model) -> {
         })
@@ -276,8 +256,6 @@ public class KrissVectorFactory {
 	            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 	            GL11.glScaled(0.15F, 0.15F, 0.15F);
 	        } else if (model instanceof SightMount) {
-	//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-	//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 	        }
 	    }, false, false)
         .withCompatibleAttachment(Attachments.Reflex, renderContext -> {
@@ -489,8 +467,6 @@ public class KrissVectorFactory {
             }
         },(model) -> {
             if(model instanceof Bipod) {
-//                GL11.glTranslatef(0.12F, -0.2F, 2.49F);
-//                GL11.glScaled(0.03F, 0.03F, 0.03F);
             }
         }, false, false)
         .withCompatibleAttachment(Attachments.Grip2, (model) -> {
@@ -509,6 +485,22 @@ public class KrissVectorFactory {
             GL11.glTranslatef(-0.23F, 0.8F, -3.5F);
             GL11.glScaled(1.4F, 1.4F, 1.4F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.23F, 0.8F, -3.5F);
+            GL11.glScaled(1.4F, 1.4F, 1.4F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.23F, 0.8F, -3.5F);
+            GL11.glScaled(1.4F, 1.4F, 1.4F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.23F, 1F, -4F);
+            GL11.glScaled(1.4F, 1.4F, 1.4F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.23F, 0.8F, -3.5F);
+            GL11.glScaled(1.4F, 1.4F, 1.4F);
+        })
         .withCompatibleAttachment(Attachments.Silencer45ACP, (model) -> {
 			GL11.glTranslatef(-0.24F, -0.6F, -6.5F);
 			GL11.glScaled(1.5F, 1.5F, 1.5F);
@@ -518,12 +510,10 @@ public class KrissVectorFactory {
     
             .withModel(new KrissVector())
             .withADSBeizer(new Vec3d(0.2F, 1.7, 0.5F))
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -575,13 +565,6 @@ public class KrissVectorFactory {
             })
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -645,12 +628,9 @@ public class KrissVectorFactory {
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                     GL11.glRotatef(12F, 0f, 0f, 1f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
             .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 GL11.glTranslatef(0.18f, -0.15f, 0.6f);
 
                 
@@ -923,13 +903,6 @@ public class KrissVectorFactory {
                    })
                     
             .withThirdPersonLeftHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                    }, 50, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -995,13 +968,6 @@ public class KrissVectorFactory {
                     }, 280, 0))
                     
             .withThirdPersonRightHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(4f, 4f, 5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                    }, 250, 1000),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -1076,4 +1042,3 @@ public class KrissVectorFactory {
         .build(MWC.modContext);
     }
 }
-

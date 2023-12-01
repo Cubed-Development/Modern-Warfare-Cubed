@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class MG42Factory {
 
@@ -32,9 +31,7 @@ public class MG42Factory {
         .withSilencedShootSound("ak15_silenced")
         .withReloadSound("mg42_reload")
         .withUnloadSound("mg42_unload")
-        .withInspectSound("inspection")
         .withDrawSound("mg42_draw")
-//        .withDrawSound("mg42_reload")
         .withReloadingTime(45)
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
@@ -42,14 +39,6 @@ public class MG42Factory {
         .withFlashOffsetY(() -> 0.15f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: General-Purpose Machine Gun",
-        "Damage: 13.5", 
-        "Cartridge: 7.92x57mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 95/100",
-        "Magazines:",
-        "50rnd 7.92x57mm MG Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 
@@ -57,14 +46,10 @@ public class MG42Factory {
                  6f) // z
          
         .withCompatibleAttachment(AuxiliaryAttachments.MG42action, true, (model) -> {
-//            GL11.glTranslatef(0F, 0F, 1F); 
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MG42latch, true, (model) -> {
-//            GL11.glTranslatef(0F, -2F, 0F);
-//            GL11.glRotatef(90F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MG42Belt, true, (model) -> {
-//            GL11.glTranslatef(0.45F, 0F, 0F);
         })
         .withCompatibleAttachment(Magazines.MG42Mag, (model) -> {
         })
@@ -115,12 +100,10 @@ public class MG42Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new MG42())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -165,11 +148,9 @@ public class MG42Factory {
                 })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.MG42action.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0f, 0f, 1f);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.MG42action.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0f, 0f, 1f);
                 })
             
             .withFirstPersonPositioningReloading(
@@ -298,9 +279,6 @@ public class MG42Factory {
             )
                     
             .withFirstPersonCustomPositioningReloading(AuxiliaryAttachments.MG42action.getRenderablePart(),
-                    
-                    
-                    
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
@@ -329,8 +307,6 @@ public class MG42Factory {
                         )
                         
             .withFirstPersonCustomPositioningUnloading(AuxiliaryAttachments.MG42action.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
@@ -340,15 +316,12 @@ public class MG42Factory {
                         )
                         
             .withFirstPersonCustomPositioningReloading(AuxiliaryAttachments.MG42latch.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
                         GL11.glTranslatef(0F, -2F, 0.1F);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 250, 1000),
-                    
                     new Transition((renderContext) -> {
                         GL11.glTranslatef(0F, -2F, 0.1F);
                         GL11.glRotatef(90F, 1f, 0f, 0f);
@@ -384,8 +357,6 @@ public class MG42Factory {
                         )
                         
             .withFirstPersonCustomPositioningUnloading(AuxiliaryAttachments.MG42latch.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
@@ -395,8 +366,6 @@ public class MG42Factory {
                         )
                         
             .withFirstPersonCustomPositioningReloading(AuxiliaryAttachments.MG42Belt.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                         GL11.glTranslatef(0.7F, 0.95F, 0F);
                     }, 250, 1000),
@@ -431,8 +400,6 @@ public class MG42Factory {
                         )
                         
             .withFirstPersonCustomPositioningUnloading(AuxiliaryAttachments.MG42Belt.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                         GL11.glTranslatef(0.45F, 0F, 0F);
                     }, 250, 1000),
@@ -445,8 +412,6 @@ public class MG42Factory {
                         )
                     
             .withFirstPersonCustomPositioningReloading(Magazines.MG42Mag,
-                    
-                    
                     new Transition((renderContext) -> {
                         GL11.glTranslatef(0.15F, 0.9F, 0F);
                         GL11.glRotatef(10F, 0f, 0f, 1f);
@@ -483,7 +448,6 @@ public class MG42Factory {
                     )
                     
             .withFirstPersonCustomPositioningUnloading(Magazines.MG42Mag,
-                    
                     new Transition((renderContext) -> {
                         
                     }, 250, 1000),
@@ -902,8 +866,7 @@ public class MG42Factory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.26f, 0.8f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -965,8 +928,7 @@ public class MG42Factory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.26f, 0.8f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -996,8 +958,6 @@ public class MG42Factory {
                          GL11.glRotatef(-40.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.200000f, -0.200000f, 0.175000f);
-                         
-//                         GL11.glScalef(4f, 4f, 4f);
                      }, 
                      (renderContext) -> {
                          GL11.glScalef(4f, 4f, 4f);
@@ -1056,8 +1016,6 @@ public class MG42Factory {
                      })
                      
             .withFirstPersonLeftHandPositioningReloading(
-                    
-                  
                     //hand grabs latch
                     new Transition((renderContext) -> {
                         GL11.glScalef(4f, 4f, 4f);
@@ -1157,8 +1115,6 @@ public class MG42Factory {
                     }, 250, 1000))
                     
             .withFirstPersonRightHandPositioningReloading(
-                    
-                    
                     new Transition((renderContext) -> {
                         GL11.glScalef(4f, 4f, 4f);
                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
@@ -1248,8 +1204,6 @@ public class MG42Factory {
                     }, 500, 1000))
                     
             .withFirstPersonLeftHandPositioningUnloading(
-                    
-                  
                   //hand grabs magazine
                     new Transition((renderContext) -> {
                         GL11.glScalef(4f, 4f, 4f);
@@ -1276,8 +1230,6 @@ public class MG42Factory {
                     }, 250, 1000))
                     
             .withFirstPersonRightHandPositioningUnloading(
-                    
-                    
                     new Transition((renderContext) -> {
                         GL11.glScalef(4f, 4f, 4f);
                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
@@ -1708,4 +1660,3 @@ public class MG42Factory {
         .build(MWC.modContext);
     }
 }
-

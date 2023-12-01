@@ -20,7 +20,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class MP443Factory implements GunFactory {
 
@@ -67,14 +66,7 @@ public class MP443Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Military Service Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "18rnd 9x19mm 443 Magazine"))
+
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 
                  0.1f, // y
@@ -94,8 +86,6 @@ public class MP443Factory implements GunFactory {
         .withCompatibleAttachment(Attachments.MP443Slide, true, (model) -> {
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MP443hammer, true, (model) -> {
-//            GL11.glTranslatef(0.08F, -1.97F, -4.15F);
-//            GL11.glScaled(1.5F, 1.5F, 1.5F);
         })
         .withCompatibleAttachment(Magazines.MP443Mag, (model) -> {
             GL11.glTranslatef(0F, 0F, 0.12F);
@@ -111,12 +101,10 @@ public class MP443Factory implements GunFactory {
             .withActionPiece(
             		Attachments.MP443Slide)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -225,8 +213,7 @@ public class MP443Factory implements GunFactory {
                         GL11.glRotatef(90F, 1f, 0f, 0f);
                     }, 70, 50)
                 )
-                    
-                    
+
             .withThirdPersonCustomPositioningReloading(Attachments.P226Slide.getRenderablePart(),
                     new Transition((renderContext) -> {
                     }, 250, 1000),
@@ -266,8 +253,7 @@ public class MP443Factory implements GunFactory {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.32f, 0f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
             

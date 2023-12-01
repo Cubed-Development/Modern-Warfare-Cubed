@@ -29,7 +29,6 @@ public class TaurusRagingHunterFactory implements GunFactory {
         .withConfigGroup(GunConfigurationGroup.REVOLVER)
         .withMaxShots(1)
         .withShootSound("magnum44")
-//		.withIteratedLoad()
         .withReloadSound("revolver_reload")
         .withReloadIterationSound("revolver_insert_bullet")
         .withAllReloadIterationsCompletedSound("revolver_load_complete")
@@ -67,20 +66,10 @@ public class TaurusRagingHunterFactory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MagnumChamber, true, (model) -> {
-//          GL11.glTranslatef(-0.35f, -0.1f, 0f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoader, true, (model) -> {
-//			GL11.glTranslatef(-0f, -0.1f, 0.7f);
-//			GL11.glRotatef(30F, 0f, 1f, 0f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
-            })
+        })
 		.withCompatibleAttachment(AuxiliaryAttachments.RevolverSpeedLoaderBullets, true, (model) -> {
-//			GL11.glTranslatef(0f, 0f, 0.001f);
-			
-//			GL11.glTranslatef(-0.35f, -0.1f, 0.4f);
-//            GL11.glRotatef(25F, 0f, 0f, 1f);
 		})
 //        .withCompatibleAttachment(Attachments.DanWessonLaser, () -> {
 //            GL11.glTranslatef(0.01F, -1.45F, -2.6F);
@@ -107,14 +96,12 @@ public class TaurusRagingHunterFactory implements GunFactory {
         .withCompatibleBullet(Bullets.Bullet44, (model) -> {})
         .withTextureNames("taurusraginghunter")
         .withRenderer(new WeaponRenderer.Builder()
-    
+		
             .withModel(new TaurusRagingHunter())
-            //.withTextureName("XEagle")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+				GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -131,7 +118,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
             .withFirstPersonPositioning(
 					new Transform()
 					.withPosition(-0.945000f, 4.065000f, -7.845000f)
-					.withRotation(0.000000f, 1.000000f, 10.681469f)
+					.withRotation(0.000000f, 1.000000f, 0.681469f)
 					.withPivotPoint(-0.12000000357627871F, -0.36000001072883614F, 0.040000001192092904F)
                     .withScale(3.0F, 3.0F, 3.0F)
                 )
@@ -174,8 +161,7 @@ public class TaurusRagingHunterFactory implements GunFactory {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.32f, 1f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 

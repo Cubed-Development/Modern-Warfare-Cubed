@@ -12,7 +12,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class Remington870Factory implements GunFactory {
 
@@ -20,7 +19,6 @@ public class Remington870Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("remington870")
-//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(5)
         .withMaxBulletsPerReload(4)
         .withFireRate(0.5f)
@@ -37,7 +35,6 @@ public class Remington870Factory implements GunFactory {
         .withSilencedShootSound("ShotgunSilenced")
         .withReloadSound("drawweapon")
         .withReloadIterationSound("load_shell")
-        .withInspectSound("inspection")
         .withDrawSound("noaction_draw")
         .withAllReloadIterationsCompletedSound("r870_reload_final")
         .withReloadingTime(15)
@@ -55,25 +52,14 @@ public class Remington870Factory implements GunFactory {
                 10f) // z
         
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: PUMP ACTION",
-        "Rate of Fire: 10/100",
-        "Inaccuracy Rating: Moderate"))
+
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.STOCK)
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
         .withCompatibleAttachment(Attachments.Remington870Pump, true, (model) -> {
-//            GL11.glTranslatef(0.007F, -0.5F, 0F);
             GL11.glScaled(1.1F, 1F, 1F);
-//            GL11.glTranslatef(0F, 0F, 1F);
         })
         .withCompatibleAttachment(Attachments.Remington870Barrel, true, () -> {
-//          GL11.glTranslatef(-0.14F, -0.58F, -4.1F);
-//          GL11.glScaled(1F, 1F, 1F);
         },(model) -> {
             if(model instanceof R870part) {
                 GL11.glTranslatef(-0.14F, -0.56F, -5.49F);
@@ -81,17 +67,11 @@ public class Remington870Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.Remington870Stock, true, (model) -> {
-//          GL11.glTranslatef(-0.14F, -0.58F, -4.1F);
-//          GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.Remington870PoliceMagnumPump, (model) -> {
-//          GL11.glTranslatef(0.007F, -0.5F, 0F);
           GL11.glScaled(1.1F, 1F, 1F);
-//          GL11.glTranslatef(0F, 0F, 1F);
           })
           .withCompatibleAttachment(Attachments.Remington870SawedOffBarrel, () -> {
-    //        GL11.glTranslatef(-0.14F, -0.58F, -4.1F);
-    //        GL11.glScaled(1F, 1F, 1F);
           },(model) -> {
               if(model instanceof M9A1frontsight) {
                   GL11.glTranslatef(-0.092F, -0.56F, -3.2F);
@@ -99,12 +79,8 @@ public class Remington870Factory implements GunFactory {
               }
           })
           .withCompatibleAttachment(Attachments.Remington870SawedGrip, (model) -> {
-    //        GL11.glTranslatef(-0.14F, -0.58F, -4.1F);
-    //        GL11.glScaled(1F, 1F, 1F);
           })
           .withCompatibleAttachment(Attachments.Remington870FABDefensePump, () -> {
-              //        GL11.glTranslatef(-0.14F, -0.58F, -4.1F);
-              //        GL11.glScaled(1F, 1F, 1F);
                     },(model) -> {
                         if(model instanceof AKRail) {
                             GL11.glTranslatef(0.03F, 0.06F, -3.08F);
@@ -113,13 +89,9 @@ public class Remington870Factory implements GunFactory {
                         }
                     })
           .withCompatibleAttachment(Attachments.Remington870MagpulPump, (model) -> {
-//            GL11.glTranslatef(0.007F, -0.5F, 0F);
             GL11.glScaled(1.1F, 1F, 1F);
-//            GL11.glTranslatef(0F, 0F, 1F);
             })
             .withCompatibleAttachment(Attachments.Remington870PoliceMagnumBarrel, () -> {
-      //        GL11.glTranslatef(-0.14F, -0.58F, -4.1F);
-      //        GL11.glScaled(1F, 1F, 1F);
             },(model) -> {
                 if(model instanceof M9A1frontsight) {
                     GL11.glTranslatef(-0.092F, -0.56F, -4.4F);
@@ -127,12 +99,8 @@ public class Remington870Factory implements GunFactory {
                 }
             })
             .withCompatibleAttachment(Attachments.Remington870PoliceMagnumStock, (model) -> {
-      //        GL11.glTranslatef(-0.14F, -0.58F, -4.1F);
-      //        GL11.glScaled(1F, 1F, 1F);
             })
             .withCompatibleAttachment(Attachments.Remington870MilspecStock, () -> {
-                //        GL11.glTranslatef(-0.14F, -0.58F, -4.1F);
-                //        GL11.glScaled(1F, 1F, 1F);
                       },(model) -> {
                           if(model instanceof MilSpecStock) {
                               GL11.glTranslatef(0F, 0.62F, 1.1F);
@@ -141,8 +109,6 @@ public class Remington870Factory implements GunFactory {
                           }
                       })
             .withCompatibleAttachment(Attachments.Remington870HK416Stock, () -> {
-                //        GL11.glTranslatef(-0.14F, -0.58F, -4.1F);
-                //        GL11.glScaled(1F, 1F, 1F);
                       },(model) -> {
                           if(model instanceof HK416Stock) {
                               GL11.glTranslatef(0F, 0.62F, 1.1F);
@@ -151,7 +117,6 @@ public class Remington870Factory implements GunFactory {
                           }
                       })
         .withCompatibleAttachment(Attachments.ShotgunRail, (model) -> {
-//                GL11.glTranslatef(0F, 0F, 0.3F);
             if(model instanceof AKRail) {
                 GL11.glTranslatef(-0.156F, -0.61F, -1.1f);
                 GL11.glScaled(0.55F, 0.4F, 0.4F);
@@ -290,8 +255,6 @@ public class Remington870Factory implements GunFactory {
       .withCompatibleAttachment(Attachments.Grip2, (model) -> {
               GL11.glTranslatef(-0.155F, 0.45F, -2.5F);
               GL11.glScaled(0.9F, 0.9F, 0.9F);
-              
-//              GL11.glTranslatef(0F, 0F, 0.75F);
           })
           .withCompatibleAttachment(Attachments.StubbyGrip, (model) -> {
               GL11.glTranslatef(-0.155F, 0.45F, -2.5F);
@@ -306,12 +269,10 @@ public class Remington870Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new Remington870())
-            //.withTextureName("Remington900")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -443,36 +404,30 @@ public class Remington870Factory implements GunFactory {
                 })
                 
             .withFirstPersonCustomPositioning(Attachments.Remington870Pump.getRenderablePart(), (renderContext) -> {
-//              GL11.glTranslatef(0F, 0F, 0.8F);
                 })
                 
             .withFirstPersonCustomPositioningLoadIterationCompleted(Attachments.Remington870Pump.getRenderablePart(), (renderContext) -> {
                 })
             
             .withFirstPersonCustomPositioning(Attachments.Remington870PoliceMagnumPump.getRenderablePart(), (renderContext) -> {
-//              GL11.glTranslatef(0F, 0F, 1F);
                 })
                 
             .withFirstPersonCustomPositioningLoadIterationCompleted(Attachments.Remington870PoliceMagnumPump.getRenderablePart(), (renderContext) -> {
                 })
             
             .withFirstPersonCustomPositioning(Attachments.Remington870MagpulPump.getRenderablePart(), (renderContext) -> {
-//              GL11.glTranslatef(0F, 0F, 1F);
                 })
                 
             .withFirstPersonCustomPositioningLoadIterationCompleted(Attachments.Remington870MagpulPump.getRenderablePart(), (renderContext) -> {
                 })
             
             .withFirstPersonCustomPositioning(Attachments.Remington870FABDefensePump.getRenderablePart(), (renderContext) -> {
-//              GL11.glTranslatef(0F, 0F, 1F);
                 })
                 
             .withFirstPersonCustomPositioningLoadIterationCompleted(Attachments.Remington870FABDefensePump.getRenderablePart(), (renderContext) -> {
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0.07F, 1.15F, -0.3F);
-//                GL11.glRotatef(-70F, 1f, 0f, 0f);
                 })
                 
             .withFirstPersonCustomPositioningLoadIterationCompleted(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
@@ -1349,12 +1304,6 @@ public class Remington870Factory implements GunFactory {
                            	 GL11.glRotatef(50.000000f, 0f, 0f, 1f);
                            	 GL11.glTranslatef(0.425000f, -0.470000f, 0.190000f);
                          } else {
-//                             GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                             GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                             GL11.glRotatef(-40.000000f, 0f, 1f, 0f);
-//                             GL11.glRotatef(40.000000f, 0f, 0f, 1f);
-//                             GL11.glTranslatef(0.125000f, -0.635000f, 0.300000f);
-                             
                         	 GL11.glScalef(3.5f, 3.5f, 3.5f);
                              GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
                              GL11.glRotatef(-40.000000f, 0f, 1f, 0f);

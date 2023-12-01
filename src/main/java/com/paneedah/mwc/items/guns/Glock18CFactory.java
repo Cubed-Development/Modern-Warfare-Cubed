@@ -12,6 +12,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -19,8 +20,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
-
-import java.util.Arrays;
 
 public class Glock18CFactory implements GunFactory {
 
@@ -68,16 +67,6 @@ public class Glock18CFactory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Machine Pistol", 
-        "Damage: 5", 
-        "Cartridge: 9x19mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 95/100",
-        "Magazines:",
-        "13rnd 9x19mm Glock Magazine",
-        "20rnd 9x19mm Magazine",
-        "50rnd 9x19mm Drum Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2.5f, // x 
@@ -96,25 +85,18 @@ public class Glock18CFactory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
 //        .withCompatibleAttachment(Attachments.Glock18CBody, true, (model) -> {
-////          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-////          GL11.glScaled(0F, 0F, 0F);
+//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
+//          GL11.glScaled(0F, 0F, 0F);
 //        })
         .withCompatibleAttachment(Attachments.Glock19Body, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//            GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.Glock19XBody, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.Glock19RazorbackBody, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.Glock18CSlide, true, (model) -> {
             if(model instanceof Glock19Slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof GlockRearSight) {
             	GL11.glTranslatef(-0.107F, -1.17F, 0F);
@@ -128,7 +110,6 @@ public class Glock18CFactory implements GunFactory {
         .withCompatibleAttachment(Attachments.Glock18CCNCSlide, (model) -> {
             if(model instanceof Glock19Slide) {
                 GL11.glScaled(1F, 1F, 1F);
-//                GL11.glTranslatef(0F, 0F, 0.5F);
             }
             else if(model instanceof GlockRearSight) {
             	GL11.glTranslatef(-0.107F, -1.17F, 0F);
@@ -193,12 +174,10 @@ public class Glock18CFactory implements GunFactory {
             		Attachments.Glock18CCNCSlide,
             		Attachments.Glock18CSlide)
             .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
-            //.withTextureName("M9")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -245,6 +224,7 @@ public class Glock18CFactory implements GunFactory {
                 		Magazines.GlockMag13,
                 		Magazines.Glock18CMag,
                 		Magazines.GlockMag50)
+                .setupCustomKeyedPart(Attachments.Glock18CCNCSlide, "glock", BBLoader.KEY_ACTION)
                 
             .withFirstPersonCustomPositioning(Attachments.Glock18CSlide.getRenderablePart(), (renderContext) -> {
                 if(renderContext.getWeaponInstance().getAmmo() == 0) {
@@ -345,7 +325,6 @@ public class Glock18CFactory implements GunFactory {
                     )
                 
             .withFirstPersonPositioningZooming((renderContext) -> {
-//              GL11.glRotatef(45F, 0f, 1f, 0f);
             	GL11.glScaled(3F, 3F, 3F);
             	GL11.glTranslatef(0.105f, 0.67f, -1.9f);
               
@@ -356,7 +335,7 @@ public class Glock18CFactory implements GunFactory {
               
               if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                   //System.out.println("Position me for Holo");
-                  GL11.glTranslatef(0f, 0.36f, 1.4f);
+                  GL11.glTranslatef(0f, 0.31f, 1.4f);
               } 
               
               // Everything else

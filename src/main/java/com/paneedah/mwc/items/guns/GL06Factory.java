@@ -13,8 +13,6 @@ import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
-
 public class GL06Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
@@ -44,19 +42,11 @@ public class GL06Factory implements GunFactory {
                 2f) // z
         
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList("Type: Grenade Launcher", "Damage: 70", 
-        "Cartridge: 40mm Grenade", "Fire Rate: Semi"))
         .withCompatibleAttachment(Bullets.Grenade40mm, (model) -> {})
         
         .withCompatibleAttachment(AuxiliaryAttachments.GLgrenade, true, (model) -> {
-//            GL11.glTranslatef(0F, -0.4f, 0F);
-//            GL11.glScaled(1F, 1F, 1F);
-//            GL11.glRotatef(8F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.GL06Cartridge, true, (model) -> {
-//            GL11.glTranslatef(0F, -0.4f, 0F);
-//            GL11.glScaled(1F, 1F, 1F);
-//            GL11.glRotatef(8F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(Attachments.ACOG, () -> {
             GL11.glTranslatef(-0.31F, -1.41F, -0.7F);
@@ -153,12 +143,10 @@ public class GL06Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
 
             .withModel(new GL06())
-            //.withTextureName("M4A1")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -232,8 +220,7 @@ public class GL06Factory implements GunFactory {
                     //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(0F, 0.06f, 1.5f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -788,8 +775,7 @@ public class GL06Factory implements GunFactory {
                     //System.out.println("Position me for Reflex");
                     GL11.glTranslatef(0F, 0.06f, 1.5f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 

@@ -17,7 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M110Factory implements GunFactory {
 
@@ -66,14 +65,7 @@ public class M110Factory implements GunFactory {
         		1.0
         ))
 //        .withRecoilParam(new RecoilParam(2, 80, 1, 1, 0))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Sniper System", 
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 65/100",
-        "Magazines:",
-        "10rnd 7.62x51mm NATO Magazine"))
+
         
         .withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 6), new
@@ -103,12 +95,8 @@ public class M110Factory implements GunFactory {
            }
          })
          .withCompatibleAttachment(Attachments.M110Grip, true, (model) -> {
-//             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//             GL11.glScaled(0F, 0F, 0F);
          })
          .withCompatibleAttachment(Attachments.M110Stock, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
        })
          .withCompatibleAttachment(Attachments.M110Receiver, true, (model) -> {
              if(model instanceof M110Receiver) {
@@ -118,16 +106,12 @@ public class M110Factory implements GunFactory {
            }
          })
         .withCompatibleAttachment(Magazines.M110Mag, (model) -> {
-//            GL11.glTranslatef(-0.33F, 0.5F, -1.3F);
-//            GL11.glScaled(1.05F, 1.2F, 1F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M110Action, true, (model) -> {
             GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
             GL11.glScaled(0.7F, 0.4F, 0.7F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M110EjectorAction, true, (model) -> {
-//            GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-//            GL11.glScaled(0.7F, 0.4F, 0.7F);
         })
         .withCompatibleAttachment(Attachments.HK416FrontSight, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
@@ -237,8 +221,6 @@ public class M110Factory implements GunFactory {
                      GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                      GL11.glScaled(0.15F, 0.15F, 0.15F);
                  } else if (model instanceof SightMount) {
-//                 	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                     GL11.glScaled(0.4F, 0.4F, 0.4F);
                  }
              })
  		
@@ -379,7 +361,7 @@ public class M110Factory implements GunFactory {
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
                 GL11.glTranslatef(0, 0f, 3f);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -498,8 +480,6 @@ public class M110Factory implements GunFactory {
                     )
             
             .withFirstPersonPositioningZooming((renderContext) -> {
-//				GL11.glRotatef(45F, 0f, 1f, 0f);
-//				GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
             	GL11.glTranslatef(0.18f, -0.02f, 0.3f);
 				
 				// Standard Iron Sight Zoom

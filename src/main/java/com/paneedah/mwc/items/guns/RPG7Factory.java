@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class RPG7Factory implements GunFactory {
 
@@ -22,7 +21,6 @@ public class RPG7Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("rpg7")
-//      .withCapacity(CommonProxy.AR15Mag)
         .withAmmoCapacity(1)
         .withFireRate(0.7f)
         .withRecoil(10f)
@@ -44,9 +42,7 @@ public class RPG7Factory implements GunFactory {
                 1f, // x 
                 1f, // y
                 8f) // z
-        
-        .withInformationProvider(stack -> Arrays.asList("Type: Rocket Launcher", 
-        "Cartridge: RPG-7 Rocket", "Fire Rate: Semi"))
+
         .withCompatibleAttachment(Bullets.RPGRocket, (model) -> {})
         .withCompatibleAttachment(AuxiliaryAttachments.RPG7rocket, true, (model) -> {
         })
@@ -54,12 +50,10 @@ public class RPG7Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
 
             .withModel(new RPG7())
-            //.withTextureName("M4A1")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -78,12 +72,7 @@ public class RPG7Factory implements GunFactory {
                 GL11.glRotatef(-3F, 0f, 0f, 1f);
                 GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                 GL11.glTranslatef(-0.425000f, 0.825000f, -2.500000f);
-                
-//                GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
-//                GL11.glRotatef(-25.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(-10.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-1.200000f, 1.200000f, 0.5f);
+
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -152,8 +141,7 @@ public class RPG7Factory implements GunFactory {
             })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.RPG7rocket.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0F, 0F, -50F);
-                })
+            })
                 
             .withFirstPersonPositioningReloading(
                     
@@ -693,12 +681,6 @@ public class RPG7Factory implements GunFactory {
                          GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(-0.225000f, -0.875000f, 0.150000f);
-                         
-//                         GL11.glScalef(4f, 4f, 4f);
-//                         GL11.glRotatef(-115.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(-165.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-10.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(-0.425000f, 0.075000f, -0.625000f);
                      }, 
                      (renderContext) -> {
                          GL11.glScalef(3f, 3f, 3f);

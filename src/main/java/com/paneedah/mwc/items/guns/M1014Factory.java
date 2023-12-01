@@ -16,7 +16,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M1014Factory implements GunFactory {
 
@@ -24,7 +23,6 @@ public class M1014Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("m1014")
-//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(7)
         .withMaxBulletsPerReload(7)
         .withFireRate(0.5f)
@@ -55,13 +53,6 @@ public class M1014Factory implements GunFactory {
         .withShellCasingModel(new Shotgun12Gauge())
         .withShellCasingModelTexture("shotgun12gauge")
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 30/100"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 
@@ -77,19 +68,15 @@ public class M1014Factory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Attachments.M1014Grip, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
           GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.M1014Stock, true, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.M4BenelliStock, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
           GL11.glScaled(1F, 1F, 1F);
       })
         .withCompatibleAttachment(AuxiliaryAttachments.M1014Action, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
           GL11.glScaled(1F, 1F, 1F);
       })
         .withCompatibleAttachment(AuxiliaryAttachments.M4Rail, true, (model) -> {
@@ -175,8 +162,6 @@ public class M1014Factory implements GunFactory {
                      GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                      GL11.glScaled(0.15F, 0.15F, 0.15F);
                  } else if (model instanceof SightMount) {
-//                 	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                     GL11.glScaled(0.4F, 0.4F, 0.4F);
                  }
              })
          .withCompatibleAttachment(Attachments.Holographic, () -> {
@@ -264,12 +249,10 @@ public class M1014Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new M1014())
-            //.withTextureName("Remington900")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -322,8 +305,6 @@ public class M1014Factory implements GunFactory {
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0.07F, 1.15F, -0.3F);
-//                GL11.glRotatef(-70F, 1f, 0f, 0f);
                 })
                 
             .withFirstPersonCustomPositioningLoadIterationCompleted(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
@@ -742,7 +723,7 @@ public class M1014Factory implements GunFactory {
                     GL11.glTranslatef(0f, 0.245f, 0.5f);
                 } 
                 
-//              // Holo Zoom
+              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.245f, 0.8f);
@@ -819,8 +800,7 @@ public class M1014Factory implements GunFactory {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -845,7 +825,7 @@ public class M1014Factory implements GunFactory {
                     GL11.glTranslatef(0f, 0.245f, 0.4f);
                 } 
                 
-//              // Holo Zoom
+              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.245f, 0.7f);
@@ -916,8 +896,7 @@ public class M1014Factory implements GunFactory {
                     //System.out.println("Position me for Holo");
                     GL11.glTranslatef(0f, 0.295f, 0.6f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -947,12 +926,6 @@ public class M1014Factory implements GunFactory {
              }) 
             .withFirstPersonHandPositioning(
                      (renderContext) -> {
-//                         GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(-35.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(50.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.220000f, -0.540000f, 0.245000f);
-                         
                          GL11.glScalef(3.5f, 3.5f, 3.5f);
                          GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
                          GL11.glRotatef(-40.000000f, 0f, 1f, 0f);

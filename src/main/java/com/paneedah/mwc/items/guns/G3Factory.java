@@ -19,7 +19,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class G3Factory {
 
@@ -64,14 +63,6 @@ public class G3Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Battle Rifle",
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "20rnd 7.62x51mm HK G3 Magazine"))
         
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 
@@ -126,16 +117,10 @@ public class G3Factory {
               }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.G3Bolt, true, (model) -> {
-//            GL11.glTranslatef(0.82F, -0.48F, 1.15F);
-//            GL11.glRotatef(-50F, 0f, 0f, 1f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.G3Action, true, (model) -> {
-//          GL11.glTranslatef(0.45F, -0.15F, 0.65F);
-//          GL11.glRotatef(-25F, 0f, 0f, 1f);
       })
         .withCompatibleAttachment(Magazines.G3Mag, (model) -> {
-//        	GL11.glTranslatef(0F, 0.85F, -0.55F);
-//        	GL11.glRotatef(-25F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {
@@ -343,6 +328,22 @@ public class G3Factory {
             GL11.glTranslatef(-0.2F, -0.1F, -3.3F);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.25F, -2.8F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.25F, -2.8F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.25F, -2.8F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.1F, -3.3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
         .withCompatibleAttachment(Attachments.Bipod, (model) -> {
             GL11.glTranslatef(-0.2F, -0.15F, -3F);
             GL11.glScaled(1F, 1F, 1F);
@@ -363,12 +364,10 @@ public class G3Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new G3())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);

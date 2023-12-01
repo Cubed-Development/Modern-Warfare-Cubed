@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class SV98Factory implements GunFactory {
 
@@ -44,14 +43,6 @@ public class SV98Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.09f)
         .withShellCasingEjectEnabled(false)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Sniper Rifle",
-        "Damage: 14", 
-        "Cartridge: 7.62x54mmR",
-        "Fire Rate: BOLT ACTION",
-        "Rate of Fire: 16/100",
-        "Magazines:",
-        "10rnd 7.62x54mmR Izhmash Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 
@@ -65,17 +56,8 @@ public class SV98Factory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(Magazines.SV98Mag, (model) -> {
-//            GL11.glScaled(1.55F, 1.6F, 1.6F);
-//            GL11.glTranslatef(-0.28F, 0.51F, -0.97F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.SV98BoltAction, true, (model) -> {
-//            GL11.glTranslatef(-0.08F, 0.01F, 0.02F);
-            
-//            GL11.glRotatef(50F, 0f, 0f, 1f);
-//            GL11.glTranslatef(-0.85F, 0.5F, 0F);
-            
-//              GL11.glRotatef(50F, 0f, 0f, 1f);
-//              GL11.glTranslatef(-0.85F, 0.5F, 1.05F);
         })
         .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.21F, -1.45F, -2.2F);
@@ -214,12 +196,10 @@ public class SV98Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new SV98())
-            //.withTextureName("AWP")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -1046,8 +1026,6 @@ public class SV98Factory implements GunFactory {
                          GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(50.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.490000f, -0.125000f, 0.055000f);
-                         
-//                         GL11.glScalef(4f, 4f, 4f);
                      }, 
                      (renderContext) -> {
                          GL11.glScalef(4f, 4f, 4f);
@@ -1055,8 +1033,6 @@ public class SV98Factory implements GunFactory {
                          GL11.glRotatef(20.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(-50.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.400000f, -0.500000f, 0.200000f);
-                         
-//                         GL11.glScalef(3f, 3f, 3f);
                      })
                      
             .withFirstPersonHandPositioningProning(

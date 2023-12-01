@@ -16,7 +16,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class Beowulf50CalFactory implements GunFactory {
 
@@ -24,7 +23,6 @@ public class Beowulf50CalFactory implements GunFactory {
 		return new Weapon.Builder()
 		
 		.withName("beowulf_50_cal")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.3f)
 		.withRecoil(7f)
 		.withZoom(0.9f)
@@ -66,14 +64,6 @@ public class Beowulf50CalFactory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: .50 Beowulf Rifle", 
-		"Damage: 7",
-		"Cartridge: .50 Beowulf",
-		"Fire Rate: SEMI",
-		"Rate of Fire: 30/100",
-		"Magazines:",
-        "10rnd .50 Beowulf Magazine"))
 		
 		.withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 10), new
@@ -83,10 +73,6 @@ public class Beowulf50CalFactory implements GunFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
-//        .withCompatibleAttachment(Attachments.RailRiser, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glScaled(1F, 1F, 1F);
-//        })
         .withCompatibleAttachment(Attachments.CollapsableMOEStock, (model) -> {
             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
             GL11.glScaled(1.1F, 1.1F, 1.1F);
@@ -124,7 +110,6 @@ public class Beowulf50CalFactory implements GunFactory {
             GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
         .withCompatibleAttachment(Attachments.PRSPrecisionStock, (model) -> {
-//            GL11.glTranslatef(0f, -0.28f, -0.55f);
             GL11.glScaled(1F, 1F, 0.85F);
         })
         .withCompatibleAttachment(Attachments.HK416FrontSight, renderContext -> {
@@ -307,30 +292,22 @@ public class Beowulf50CalFactory implements GunFactory {
           }
         })
         .withCompatibleAttachment(Attachments.M4Grip, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.HeraArmsGrip, (model) -> {
             GL11.glTranslatef(0F, -0.05F, 0F);
             GL11.glScaled(1F, 0.95F, 1F);
         })
         .withCompatibleAttachment(Magazines.BeowulfMag, (model) -> {
-//            GL11.glTranslatef(0F, 0.4F, -0F);
-//            GL11.glRotatef(15F, 0f, 0f, 0f);
-//            GL11.glScaled(1.05F, 1.2F, 1F);
         })
 		.withCompatibleAttachment(AuxiliaryAttachments.AR15Action, true, (model) -> {
             GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
             GL11.glScaled(0.7F, 0.4F, 0.7F);
         })
 		.withCompatibleAttachment(AuxiliaryAttachments.BeowulfAction, true, (model) -> {
-//            GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-//            GL11.glScaled(0.7F, 0.4F, 0.7F);
         })
 	   .withCompatibleAttachment(AuxiliaryAttachments.AR15Iron, (model) -> {
             if(model instanceof M4Iron1) {
@@ -469,8 +446,6 @@ public class Beowulf50CalFactory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
 		
@@ -606,6 +581,26 @@ public class Beowulf50CalFactory implements GunFactory {
 		    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
             GL11.glScaled(1F, 1F, 1F);
 		})
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.JunoGripTan, (model) -> {
+            GL11.glTranslatef(-0.23F, -0.7F, -2.81F);
+            GL11.glScaled(0.8F, 0.8F, 0.8F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.35F, -2.9F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
 		.withCompatibleAttachment(Attachments.Bipod, (model) -> {
 			GL11.glTranslatef(-0.18F, -0.38F, -3.5F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
@@ -628,7 +623,7 @@ public class Beowulf50CalFactory implements GunFactory {
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);
 				GL11.glTranslatef(0, 0f, 3f);
-				GL11.glRotatef(-90F, 0f, 0f, 4f);
+				GL11.glRotatef(0F, 0f, 0f, 4f);
 			})
 			.withInventoryPositioning(itemStack -> {
 			    GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -836,8 +831,7 @@ public class Beowulf50CalFactory implements GunFactory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                         GL11.glTranslatef(0F, 0.055f, 0.3f);
                 } 
-				
-				// Everything else
+
 				else {
 				}
 			

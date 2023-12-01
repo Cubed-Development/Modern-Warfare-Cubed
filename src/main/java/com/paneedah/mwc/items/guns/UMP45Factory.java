@@ -18,7 +18,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class UMP45Factory {
 
@@ -66,15 +65,6 @@ public class UMP45Factory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Universal Machine Pistol",
-        "Damage: 5.3", 
-        "Cartridge: .45 ACP",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "25rnd .45 ACP HK Magazine",
-        "30rnd 9x19mm HK UMP Magazine (w/ UMP-9 Receiver)"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
@@ -85,21 +75,17 @@ public class UMP45Factory {
          .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
          .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
          .withCompatibleAttachment(Attachments.UMP45Stock, true, (model) -> {
-//             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//             GL11.glScaled(0F, 0F, 0F);
          })
          .withCompatibleAttachment(Attachments.UMP45Receiver, true, (model) -> {
          })
          .withCompatibleAttachment(Attachments.UMP9Receiver, (model) -> {
          })
          .withCompatibleAttachment(AuxiliaryAttachments.UMP45action, true, (model) -> {
-//           GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//           GL11.glScaled(0F, 0F, 0F);
-       })
-	        .withCompatibleAttachment(Magazines.UMP45Mag, (model) -> {
-	        })
-	        .withCompatibleAttachment(Magazines.UMP9Mag, (model) -> {
-	        })
+         })
+         .withCompatibleAttachment(Magazines.UMP45Mag, (model) -> {
+	     })
+	     .withCompatibleAttachment(Magazines.UMP9Mag, (model) -> {
+	     })
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {
                 GL11.glTranslatef(0.125F, -1.8F, -0.5F);
@@ -217,8 +203,6 @@ public class UMP45Factory {
 		            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 		            GL11.glScaled(0.15F, 0.15F, 0.15F);
 		        } else if (model instanceof SightMount) {
-		//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-		//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 		        }
 		    })
         .withCompatibleAttachment(Attachments.Holographic, () -> {
@@ -291,6 +275,18 @@ public class UMP45Factory {
         	GL11.glTranslatef(-0.2F, -0.27F, -3F);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.27F, -3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.27F, -3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.27F, -3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
         .withCompatibleAttachment(Attachments.Laser, () -> {
             GL11.glTranslatef(0.07F, -1.11F, -3.8F);
             GL11.glScaled(1F, 1F, 1F);
@@ -307,12 +303,10 @@ public class UMP45Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new UMP45())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -360,13 +354,6 @@ public class UMP45Factory {
                 		Magazines.UMP9Mag)
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -427,7 +414,6 @@ public class UMP45Factory {
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
             .withFirstPersonPositioningZooming((renderContext) -> {
@@ -518,8 +504,7 @@ public class UMP45Factory {
                     //System.out.println("Position me for Acog");
                 	GL11.glTranslatef(0F, 0.23f, 0.6f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
             
@@ -579,13 +564,6 @@ public class UMP45Factory {
                  })
                    
            .withThirdPersonLeftHandPositioningReloading(
-//                   new Transition((renderContext) -> { // Reload position
-//                       GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                       GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                       GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                       GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                       GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                   }, 50, 200),
                    new Transition((renderContext) -> { // Reload position
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -651,13 +629,6 @@ public class UMP45Factory {
                    }, 300, 0))
                    
            .withThirdPersonRightHandPositioningReloading(
-//                   new Transition((renderContext) -> { // Reload position
-//                       GL11.glScalef(4f, 4f, 5f);
-//                       GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                       GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                       GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                       GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                   }, 250, 1000),
                    new Transition((renderContext) -> { // Reload position
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -732,4 +703,3 @@ public class UMP45Factory {
         .build(MWC.modContext);
     }
 }
-

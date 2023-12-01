@@ -19,7 +19,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class ScarLFactory implements GunFactory {
 
@@ -68,19 +67,7 @@ public class ScarLFactory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Carbine", 
-        "Damage: 6", 
-        "Cartridge: 5.56x45mm NATO",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 65/100",
-        "Magazines:",
-        "30rnd 5.56x45mm NATO STANAG Magazine",
-        "30rnd 5.56x45mm NATO PMAG Magazine",
-        "50rnd 5.56x45mm NATO STANAG Drum Magazine",
-        "60rnd 5.56x45mm NATO STANAG Drum Magazine",
-        "100rnd 5.56x45mm NATO STANAG Drum Magazine"))
-         
+
          .withScreenShaking(RenderableState.SHOOTING, 
                  1f, // x 
                  1f, // y
@@ -96,31 +83,23 @@ public class ScarLFactory implements GunFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
         .withCompatibleAttachment(Attachments.ScarHandGuard, true, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.ScarMidWestIndustriesHandGuard, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.ScarMLOKHandguard, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.ScarStock, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.ScarHStock, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
       })
         .withCompatibleAttachment(Attachments.ScarRetractableStock, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.ScarAdapterStock, (model) -> {
        	 if(model instanceof MilSpecStock) {
        		GL11.glTranslatef(0f, -0.28f, 0.2f);
-//               GL11.glScaled(1.2F, 1.2F, 1.2F);
            } 
        })
         .withCompatibleAttachment(Attachments.ScarLReceiver, true, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4Grip, (model) -> {
         	 GL11.glTranslatef(0f, 0.04f, -0.08f);
@@ -137,8 +116,6 @@ public class ScarLFactory implements GunFactory {
         .withCompatibleAttachment(Magazines.M4A1Mag, (model) -> {
 		    GL11.glTranslatef(-0.335F, 0.4F, -1.4F);
             GL11.glScaled(1.04F, 1.25F, 1.25F);
-            
-//            GL11.glTranslatef(0F, 0.35F, 0F);
         })
 		.withCompatibleAttachment(Magazines.SOCOM_Mag, (model) -> {
 			GL11.glTranslatef(-0.335F, 0.4F, -1.4F);
@@ -160,7 +137,6 @@ public class ScarLFactory implements GunFactory {
             GL11.glScaled(1.15F, 1.2F, 1.15F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.ScarAction, true, (model) -> {
-//        	 GL11.glTranslatef(0F, 0F, 0.2F);
         })
          .withCompatibleAttachment(Attachments.AKMIron, true, (model) -> {
              if(model instanceof M4Iron1) {
@@ -268,8 +244,6 @@ public class ScarLFactory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
         .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
@@ -376,7 +350,6 @@ public class ScarLFactory implements GunFactory {
         })
         .withCompatibleAttachment(Attachments.AngledGrip, (model) -> {
         	GL11.glTranslatef(-0.2F, -0.14F, -3.2F);
-//          GL11.glRotatef(180F, 0f, 1f, 0f);
           GL11.glScaled(1.1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.JunoGrip, (model) -> {
@@ -387,6 +360,26 @@ public class ScarLFactory implements GunFactory {
         	GL11.glTranslatef(-0.2F, -0.32F, -3F);
             GL11.glScaled(1F, 1F, 1F);
         })
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.32F, -3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.32F, -3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+       .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+           GL11.glTranslatef(-0.2F, -0.14F, -3.2F);
+           GL11.glScaled(1.1F, 1F, 1F);
+       })
+       .withCompatibleAttachment(Attachments.JunoGripTan, (model) -> {
+           GL11.glTranslatef(-0.23F, -0.74F, -3.5F);
+           GL11.glScaled(0.8F, 0.8F, 0.8F);
+       })
+       .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+           GL11.glTranslatef(-0.2F, -0.32F, -3F);
+           GL11.glScaled(1F, 1F, 1F);
+       })
         .withCompatibleAttachment(Attachments.Bipod, (model) -> {
             GL11.glTranslatef(-0.2F, -0.27F, -3.5F);
             GL11.glScaled(0.9F, 0.9F, 0.9F);
@@ -414,7 +407,7 @@ public class ScarLFactory implements GunFactory {
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
                 GL11.glTranslatef(0, 0f, 3f);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);

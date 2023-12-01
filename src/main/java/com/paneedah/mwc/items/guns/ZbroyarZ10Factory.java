@@ -17,7 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class ZbroyarZ10Factory implements GunFactory {
 
@@ -32,10 +31,7 @@ public class ZbroyarZ10Factory implements GunFactory {
         .withMaxShots(1)
         .withShootSound("m110")
         .withSilencedShootSound("m110_silenced")
-        .withReloadSound("m4a1_reload")
-        .withUnloadSound("m4_unload")
         .withEndOfShootSound("gun_click")
-        .withInspectSound("m4a1_inspection")
         .withDrawSound("m4_draw")
         .withReloadingTime(50)
         .withFlashIntensity(0.5f)
@@ -65,14 +61,6 @@ public class ZbroyarZ10Factory implements GunFactory {
         		1.0
         ))
 //        .withRecoilParam(new RecoilParam(2, 80, 1, 1, 0))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Sniper System", 
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 65/100",
-        "Magazines:",
-        "10rnd 7.62x51mm NATO Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2f, // x 
@@ -89,8 +77,6 @@ public class ZbroyarZ10Factory implements GunFactory {
          .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
          .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
         .withCompatibleAttachment(Magazines.Z10Mag, (model) -> {
-//            GL11.glTranslatef(-0.33F, 0.5F, -1.3F);
-//            GL11.glScaled(1.05F, 1.2F, 1F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.AR15Action, true, (model) -> {
             GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
@@ -127,10 +113,6 @@ public class ZbroyarZ10Factory implements GunFactory {
                 GL11.glScaled(0.6F, 0.8F, 0.85F);
             } 
         })
-//        .withCompatibleAttachment(AuxiliaryAttachments.M110EjectorAction, true, (model) -> {
-////            GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
-////            GL11.glScaled(0.7F, 0.4F, 0.7F);
-//        })
         .withCompatibleAttachment(Attachments.HK416FrontSight, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
             if(instance != null) {
@@ -239,8 +221,6 @@ public class ZbroyarZ10Factory implements GunFactory {
                      GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                      GL11.glScaled(0.15F, 0.15F, 0.15F);
                  } else if (model instanceof SightMount) {
-//                 	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                     GL11.glScaled(0.4F, 0.4F, 0.4F);
                  }
              })
  		
@@ -376,6 +356,26 @@ public class ZbroyarZ10Factory implements GunFactory {
 			GL11.glTranslatef(-0.2F, -0.35F, -2.9F);
 			GL11.glScaled(1F, 1F, 1F);
 		})
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.35F, -2.9F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.JunoGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.55F, -3.2F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.35F, -2.9F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.2F, -3.3F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.35F, -2.9F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
 		.withCompatibleAttachment(Attachments.Bipod, (model) -> {
 		    GL11.glTranslatef(-0.18F, -0.3F, -3.5F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
@@ -397,7 +397,7 @@ public class ZbroyarZ10Factory implements GunFactory {
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
                 GL11.glTranslatef(0, 0f, 3f);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -441,7 +441,6 @@ public class ZbroyarZ10Factory implements GunFactory {
                 
                 .setupModernAnimations("z10", AuxiliaryAttachments.AKaction)
                 .setupModernMagazineAnimations("z10", Magazines.Z10Mag)
-//                .setupModernAnimations("z10", AuxiliaryAttachments.AKaction)
         
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M110EjectorAction.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, 0.7f);
@@ -517,8 +516,6 @@ public class ZbroyarZ10Factory implements GunFactory {
                     )
             
             .withFirstPersonPositioningZooming((renderContext) -> {
-//				GL11.glRotatef(45F, 0f, 1f, 0f);
-//				GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
             	GL11.glTranslatef(0.18f, -0.02f, 0.3f);
 				
 				// Standard Iron Sight Zoom
@@ -627,7 +624,6 @@ public class ZbroyarZ10Factory implements GunFactory {
 			    GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 GL11.glTranslatef(0.35f, 0.995f, 0.2f);
-//                GL11.glRotatef(-0.5F, 1, 0, 0);
                 
              // Standard Iron Sight Zoom
 				if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), AuxiliaryAttachments.AR15Iron)) {

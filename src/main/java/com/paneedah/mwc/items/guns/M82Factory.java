@@ -20,7 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M82Factory implements GunFactory {
 
@@ -67,19 +66,11 @@ public class M82Factory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Anti-Materiel Sniper Rifle",
-        "Damage: 25", 
-        "Cartridge: .50 BMG",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 10/100",
-        "Magazines:",
-        "10rnd .50 BMG NATO Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
-                 6f, // x 
-                 -5f, // y
-                 12f) // z
+                 6f,
+                 -5f,
+                 12f)
          
          .withModernRecipe( new
 	        		CraftingEntry(MWCItems.carbonComposite, 12), new
@@ -97,22 +88,14 @@ public class M82Factory implements GunFactory {
             GL11.glScaled(0F, 0F, 0F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M82Action, true, (model) -> {
-//        	GL11.glTranslatef(0f, 0f, 0.8f);
-        	
-//            GL11.glTranslatef(0F, 0F, 1.5F);
         })
         .withCompatibleAttachment(Magazines.M82Mag, (model) -> {
-//            GL11.glTranslatef(-0.42F, 0.8F, -1.4F);
-//            GL11.glScaled(1.5F, 1.5F, 1.5F);
         })
         .withCompatibleAttachment(Attachments.M4Grip, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })//50
         .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.NightRaider, () -> {
             GL11.glTranslatef(-0.22F, -1.58F, -2.5F);
@@ -162,8 +145,6 @@ public class M82Factory implements GunFactory {
 		            GL11.glTranslatef(0.08F, 0.97F, -0.4F);
 		            GL11.glScaled(0.15F, 0.15F, 0.15F);
 		        } else if (model instanceof SightMount) {
-		//        	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-		//            GL11.glScaled(0.4F, 0.4F, 0.4F);
 		        }
 		    })
         .withCompatibleAttachment(Attachments.Reflex, () -> {
@@ -265,8 +246,8 @@ public class M82Factory implements GunFactory {
             GL11.glScaled(1F, 1F, 1F);
       })
         .withCompatibleAttachment(Attachments.Silencer50BMG, (model) -> {
-            GL11.glTranslatef(-0.23F, -1.4F, -12.4F);
-            GL11.glScaled(1.5F, 1.5F, 1.5F);
+            GL11.glTranslatef(-0.23F, -1.37F, -11.5F);
+            GL11.glScaled(1.0F, 1.0F, 1.0F);
         })
         .withTextureNames("m82")
         .withRenderer(new WeaponRenderer.Builder()
@@ -274,12 +255,10 @@ public class M82Factory implements GunFactory {
             .withModel(new M82())
             .withActionPiece(AuxiliaryAttachments.M82Action)
             .withActionTransform(new Transform().withPosition(0, 0, 1.5F))
-            //.withTextureName("AWP")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -326,18 +305,9 @@ public class M82Factory implements GunFactory {
                 		Magazines.M82Mag)
             
             .withFirstPersonCustomPositioning(Magazines.M82Mag, (renderContext) -> {
-//           	 GL11.glTranslatef(0f, 0.8f, -0.3f);
-//           	 GL11.glRotatef(-20F, 1f, 0f, 0f);
                })
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.47F, 0.47F, 0.47F);
                         GL11.glTranslatef(-3.5F, -1.8F, 3.4F);
@@ -398,12 +368,9 @@ public class M82Factory implements GunFactory {
                     GL11.glRotatef(-60F, 0f, 1f, 0f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 }, 220, 0)
-//                }, 100, 0)
             )
             
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.M82Action.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                     new Transition((renderContext) -> {
                     }, 500, 1000),
                     new Transition((renderContext) -> {
@@ -518,8 +485,7 @@ public class M82Factory implements GunFactory {
                     //System.out.println("Position me for Scope");
                 	GL11.glTranslatef(0f, 0.11f, 0.9f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
             
@@ -579,13 +545,6 @@ public class M82Factory implements GunFactory {
                   })
                    
            .withThirdPersonLeftHandPositioningReloading(
-//                   new Transition((renderContext) -> { // Reload position
-//                       GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                       GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                       GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                       GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                       GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                   }, 50, 200),
                    new Transition((renderContext) -> { // Reload position
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -651,13 +610,6 @@ public class M82Factory implements GunFactory {
                    }, 280, 0))
                    
            .withThirdPersonRightHandPositioningReloading(
-//                   new Transition((renderContext) -> { // Reload position
-//                       GL11.glScalef(4f, 4f, 5f);
-//                       GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                       GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                       GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                       GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                   }, 250, 1000),
                    new Transition((renderContext) -> { // Reload position
                        GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                        GL11.glRotatef(-50.000000f, 1f, 0f, 0f);

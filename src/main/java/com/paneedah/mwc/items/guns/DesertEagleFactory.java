@@ -8,6 +8,7 @@ import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
@@ -30,9 +31,6 @@ public class DesertEagleFactory implements GunFactory {
         .withMaxShots(1)
         .withShootSound("desert_eagle")
         .withSilencedShootSound("m9a1_silenced")
-        .withReloadSound("deagle_reload")
-        .withUnloadSound("pistol_unload")
-        .withInspectSound("inspection")
         .withDrawSound("handgun_draw")
         .withReloadingTime(50)
         .withFlashIntensity(0.5f)
@@ -106,10 +104,6 @@ public class DesertEagleFactory implements GunFactory {
                     }
                 }, false, false)
 		
-        .withCompatibleAttachment(Attachments.StubbyGrip, (model) -> {
-            GL11.glTranslatef(-0.2F, -0.38F, -1.45F);
-            GL11.glScaled(1F, 1F, 1F);
-        })
 //        .withCompatibleAttachment(Attachments.Silencer9mm, (model) -> {
 //            GL11.glTranslatef(-0.22F, -1.18F, -4.2F);
 //            GL11.glScaled(1.3F, 1.3F, 1.3F);
@@ -143,7 +137,8 @@ public class DesertEagleFactory implements GunFactory {
 		    .withActionTransform(new Transform().withPosition(0F, 0F, 0.6F))
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
+                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -160,7 +155,7 @@ public class DesertEagleFactory implements GunFactory {
             .withFirstPersonPositioning(
 					new Transform()
 					.withPosition(-0.945000f, 4.065000f, -7.845000f)
-					.withRotation(0.000000f, 1.000000f, 10.681469f)
+					.withRotation(0.000000f, 1.000000f, 0.681469f)
 					.withPivotPoint(-0.12000000357627871F, -0.36000001072883614F, 0.040000001192092904F)
                     .withScale(3.0F, 3.0F, 3.0F)
                 )
@@ -187,8 +182,20 @@ public class DesertEagleFactory implements GunFactory {
                 
                 .setupModernAnimations("deagle", Attachments.DesertEagleSlide)
                 .setupModernMagazineAnimations("deagle", Magazines.DesertEagleMag)
+                .setupCustomKeyedPart(Attachments.DesertEagleSlideGolden, "deagle", BBLoader.KEY_ACTION)
+                .setupCustomKeyedPart(Attachments.DesertEagleSlideBlack, "deagle", BBLoader.KEY_ACTION)
                 
             .withFirstPersonCustomPositioning(Attachments.DesertEagleSlide.getRenderablePart(), (renderContext) -> {
+                if(renderContext.getWeaponInstance().getAmmo() == 0) {
+                    GL11.glTranslatef(0F, 0F, 0.6F);
+                }
+            })
+            .withFirstPersonCustomPositioning(Attachments.DesertEagleSlideGolden.getRenderablePart(), (renderContext) -> {
+                if(renderContext.getWeaponInstance().getAmmo() == 0) {
+                    GL11.glTranslatef(0F, 0F, 0.6F);
+                }
+            })
+            .withFirstPersonCustomPositioning(Attachments.DesertEagleSlideBlack.getRenderablePart(), (renderContext) -> {
                 if(renderContext.getWeaponInstance().getAmmo() == 0) {
                     GL11.glTranslatef(0F, 0F, 0.6F);
                 }

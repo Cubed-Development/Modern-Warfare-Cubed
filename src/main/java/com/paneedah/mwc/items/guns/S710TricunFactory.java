@@ -15,7 +15,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class S710TricunFactory implements GunFactory {
 
@@ -63,14 +62,6 @@ public class S710TricunFactory implements GunFactory {
                         // Ads similarity divisor
                         1.0
                 ))
-                .withInformationProvider(stack -> Arrays.asList(
-                        "Type: Submachine Gun",
-                        "Damage: 5.4",
-                        "Cartridge: 10mm",
-                        "Fire Rate: SEMI, AUTO",
-                        "Rate of Fire: 80/100",
-                        "Magazines:",
-                        "30rnd 10mm Magazine"))
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         2f, // x
@@ -135,7 +126,6 @@ public class S710TricunFactory implements GunFactory {
                     GL11.glScaled(1.1F, 1.1F, 1.1F);
                 })
                 .withCompatibleAttachment(Attachments.PRSPrecisionStock, (model) -> {
-//            GL11.glTranslatef(0f, -0.28f, -0.55f);
                     GL11.glScaled(1F, 1F, 0.85F);
                 })
                 .withCompatibleAttachment(Attachments.HK416FrontSight, renderContext -> {
@@ -216,16 +206,12 @@ public class S710TricunFactory implements GunFactory {
                 .withCompatibleAttachment(Attachments.S710Handguard, true, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.S710TricunGrip, true, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.M4Grip, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
                 })
                 .withCompatibleAttachment(Attachments.HeraArmsGrip, (model) -> {
                     GL11.glTranslatef(0F, -0.05F, 0F);
@@ -428,6 +414,26 @@ public class S710TricunFactory implements GunFactory {
                     GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
                     GL11.glScaled(1F, 1F, 1F);
                 })
+                .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+                .withCompatibleAttachment(Attachments.JunoGripTan, (model) -> {
+                    GL11.glTranslatef(-0.23F, -0.7F, -2.81F);
+                    GL11.glScaled(0.8F, 0.8F, 0.8F);
+                })
+                .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+                .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.35F, -2.8F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
+                .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+                    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+                    GL11.glScaled(1F, 1F, 1F);
+                })
                 .withCompatibleAttachment(Attachments.Bipod, (model) -> {
                     GL11.glTranslatef(-0.18F, -0.38F, -2.5F);
                     GL11.glScaled(0.8F, 0.8F, 0.8F);
@@ -445,7 +451,7 @@ public class S710TricunFactory implements GunFactory {
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.5F, 0.5F, 0.5F);
                             GL11.glTranslatef(0, 0f, 3f);
-                            GL11.glRotatef(-90F, 0f, 0f, 4f);
+                            GL11.glRotatef(0F, 0f, 0f, 4f);
                         })
                         .withInventoryPositioning(itemStack -> {
                             GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -560,8 +566,6 @@ public class S710TricunFactory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(0.18f, -0.028f, 0.6f);
 
 

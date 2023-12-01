@@ -16,7 +16,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class AR10SuperSASSFactory implements GunFactory {
 
@@ -24,7 +23,6 @@ public class AR10SuperSASSFactory implements GunFactory {
 		return new Weapon.Builder()
 		
 		.withName("ar10_super_sass")
-		//.withAmmoCapacity(30)
 		.withFireRate(0.8f)
 		.withRecoil(5f)
 		.withZoom(0.9f)
@@ -33,10 +31,7 @@ public class AR10SuperSASSFactory implements GunFactory {
 		.withMaxShots(1)
 		.withShootSound("m110")
 		.withSilencedShootSound("m110_silenced")
-		.withReloadSound("m4a1_reload")
-		.withUnloadSound("scar_unload")
 		.withEndOfShootSound("gun_click")
-		.withInspectSound("m4a1_inspection")
 		.withDrawSound("m4_draw")
 		.withReloadingTime(50)
 		.withFlashIntensity(0.5f)
@@ -66,14 +61,6 @@ public class AR10SuperSASSFactory implements GunFactory {
         		// Ads similarity divisor
         		1.0
         ))
-		.withInformationProvider(stack -> Arrays.asList(
-		"Type: Semi-Automatic Sniper System", 
-		"Damage: 10", 
-		"Cartridge: 7.62x51mm",
-		"Fire Rate: SEMI",
-		"Rate of Fire: 80/100",
-		"Magazines:",
-        "10rnd 7.62x51mm NATO Magazine"))
 		
 		.withModernRecipe( new
         		CraftingEntry(MWCItems.carbonComposite, 10), new
@@ -83,10 +70,7 @@ public class AR10SuperSASSFactory implements GunFactory {
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
-//        .withCompatibleAttachment(Attachments.RailRiser, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 0f);
-//            GL11.glScaled(1F, 1F, 1F);
-//        })
+
         .withCompatibleAttachment(Attachments.CollapsableMOEStock, (model) -> {
             GL11.glTranslatef(0.01f, -0.19f, -0.4f);
             GL11.glScaled(1.1F, 1.1F, 1.1F);
@@ -124,7 +108,6 @@ public class AR10SuperSASSFactory implements GunFactory {
             GL11.glScaled(1.1F, 1.1F, 1.1F);
         })
         .withCompatibleAttachment(Attachments.PRSPrecisionStock, true, (model) -> {
-//            GL11.glTranslatef(0f, -0.28f, -0.55f);
             GL11.glScaled(1F, 1F, 0.85F);
         })
         .withCompatibleAttachment(Attachments.M4FrontSight, renderContext -> {
@@ -307,13 +290,10 @@ public class AR10SuperSASSFactory implements GunFactory {
           }
         })
         .withCompatibleAttachment(Attachments.M4Grip, true, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
-//            GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.HeraArmsGrip, (model) -> {
             GL11.glTranslatef(0F, -0.05F, 0F);
@@ -464,8 +444,6 @@ public class AR10SuperSASSFactory implements GunFactory {
                     GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                     GL11.glScaled(0.15F, 0.15F, 0.15F);
                 } else if (model instanceof SightMount) {
-//                	GL11.glTranslatef(-0.15F, -1.82F, -1F);
-//                    GL11.glScaled(0.4F, 0.4F, 0.4F);
                 }
             })
 		
@@ -597,6 +575,26 @@ public class AR10SuperSASSFactory implements GunFactory {
 		    GL11.glTranslatef(-0.2F, -0.35F, -2.9F);
             GL11.glScaled(1F, 1F, 1F);
 		})
+        .withCompatibleAttachment(Attachments.Grip2Tan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.JunoGripTan, (model) -> {
+            GL11.glTranslatef(-0.23F, -0.7F, -2.81F);
+            GL11.glScaled(0.8F, 0.8F, 0.8F);
+        })
+        .withCompatibleAttachment(Attachments.StubbyGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.AngledGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.35F, -2.9F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
+        .withCompatibleAttachment(Attachments.VGripTan, (model) -> {
+            GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
+            GL11.glScaled(1F, 1F, 1F);
+        })
 		.withCompatibleAttachment(Attachments.VGrip, (model) -> {
 		    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
             GL11.glScaled(1F, 1F, 1F);
@@ -621,7 +619,7 @@ public class AR10SuperSASSFactory implements GunFactory {
 			.withEntityPositioning(itemStack -> {
 				GL11.glScaled(0.5F, 0.5F, 0.5F);
 				GL11.glTranslatef(0, 0f, 3f);
-				GL11.glRotatef(-90F, 0f, 0f, 4f);
+				GL11.glRotatef(0F, 0f, 0f, 4f);
 			})
 			.withInventoryPositioning(itemStack -> {
 			    GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -667,7 +665,6 @@ public class AR10SuperSASSFactory implements GunFactory {
                 .setupModernMagazineAnimations("m110", Magazines.M110Mag)
 		
 			.withFirstPersonCustomPositioning(AuxiliaryAttachments.AR15Action.getRenderablePart(), (renderContext) -> {
-//			    GL11.glTranslatef(0f, 0f, 0.5f);
                 })
                     
             .withThirdPersonPositioningReloading(
@@ -833,8 +830,7 @@ public class AR10SuperSASSFactory implements GunFactory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                         GL11.glTranslatef(0F, 0.055f, 0.3f);
                 } 
-				
-				// Everything else
+
 				else {
 				}
 			
