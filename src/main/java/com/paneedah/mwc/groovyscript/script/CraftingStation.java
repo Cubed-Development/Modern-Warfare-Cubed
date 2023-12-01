@@ -6,7 +6,7 @@ import com.cleanroommc.groovyscript.helper.ingredient.ItemsIngredient;
 import com.cleanroommc.groovyscript.helper.ingredient.OreDictIngredient;
 import com.cleanroommc.groovyscript.helper.recipe.AbstractRecipeBuilder;
 import com.cleanroommc.groovyscript.registry.VirtualizedRegistry;
-import com.paneedah.mwc.groovyscript.MWCGroovyContainer;
+import com.paneedah.mwc.groovyscript.MWCGroovyPlugin;
 import com.paneedah.mwc.groovyscript.recipes.GSCrafting;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -15,6 +15,7 @@ import com.paneedah.weaponlib.crafting.IModernCrafting;
 
 import java.util.ArrayList;
 
+import static com.paneedah.mwc.groovyscript.MWCGroovyPlugin.craftingStation;
 import static com.paneedah.weaponlib.crafting.CraftingGroup.*;
 import static com.paneedah.weaponlib.crafting.CraftingRegistry.*;
 
@@ -155,16 +156,15 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
             int i = 0;
 
             for (IIngredient ingredient : this.input) {
-                i++;
                 if (ingredient instanceof OreDictIngredient) {
                     OreDictIngredient dict = (OreDictIngredient) ingredient;
                     entries.add(new CraftingEntry(dict.getFirst().getItem(), dict.getOreDict(), dict.getAmount(), this.yields.get(i)));
-                } else {
+                } else
                     entries.add(new CraftingEntry(ingredient.getMatchingStacks()[0].getItem(), ingredient.getAmount(), this.yields.get(i)));
-                }
+                i++;
             }
             GSCrafting recipe = new GSCrafting(this.output.get(0), this.group, entries.toArray(new CraftingEntry[0]));
-            MWCGroovyContainer.MWC.get().craftingStation.addRecipe(recipe);
+            craftingStation.addRecipe(recipe);
             return recipe;
         }
     }

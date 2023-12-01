@@ -1,7 +1,6 @@
 package com.paneedah.mwc;
 
 import com.paneedah.mwc.creativetab.*;
-import com.paneedah.mwc.groovyscript.MWCGroovyContainer;
 import com.paneedah.mwc.handlers.ClientEventHandler;
 import com.paneedah.mwc.handlers.CommonEventHandler;
 import com.paneedah.mwc.handlers.DebugHandler;
@@ -62,13 +61,6 @@ public final class MWC {
 
     @SidedProxy(serverSide = "com.paneedah.mwc.proxies.CommonProxy", clientSide = "com.paneedah.mwc.proxies.ClientProxy")
     public static CommonProxy commonProxy;
-
-    @Mod.EventHandler
-    public void construction(FMLConstructionEvent constructionEvent) {
-        //Do this to avoid Groovyscript MWC Mod container getting ignored for being unused class
-        if (Loader.isModLoaded("groovyscript"))
-            new MWCGroovyContainer();
-    }
 
 
     @Mod.EventHandler
