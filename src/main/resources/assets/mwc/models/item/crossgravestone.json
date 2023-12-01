@@ -2,7 +2,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/props/barrel"
+        "layer0": "mwc:items/props/gravestones/crossgravestone"
     },
     "display": {
 		"thirdperson_righthand": {
