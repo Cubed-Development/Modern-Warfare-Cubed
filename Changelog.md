@@ -60,6 +60,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Gravestone Cross
   - Gravestone Cross (ALT 1)
   - Gravestone Cross (ALT 2)
+  - Sandbag
+  - Sandbag Wall
 
 ### Changed
 
