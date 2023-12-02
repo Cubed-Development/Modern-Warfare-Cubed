@@ -1047,7 +1047,7 @@ public class TileEntities {
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.7f, 0.7f, 0.7f);
                     GL11.glTranslatef(0.65f, 0.58f, 0.7f);
-                    GL11.glRotatef(-45F, 0f, 1f, 0f);
+                    GL11.glRotatef(45F, 0f, 1f, 0f);
                 }));
 
         props.add(new LootBoxConfiguration()
@@ -1058,7 +1058,7 @@ public class TileEntities {
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0.05, 0, 0.1, 0.9, 0.33, 0.77)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.7f, 0.7f, 0.7f);
-                    GL11.glTranslatef(0.65f, 0.58f, 0.6f);
+                    GL11.glTranslatef(0.65f, 0.58f, 0.8f);
                 }));
 
         props.add(new LootBoxConfiguration()
@@ -1070,7 +1070,7 @@ public class TileEntities {
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0.05f, 0.6f);
-                    GL11.glRotatef(90F, 0f, 1f, 0f);
+                    GL11.glRotatef(45F, 0f, 1f, 0f);
                 }));
 
         props.add(new LootBoxConfiguration()
@@ -1225,7 +1225,7 @@ public class TileEntities {
                 .withTextureName("textures/models/props/swattruck.png")
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1.5f, 1.5f, 1.5f);
-                    GL11.glTranslatef(0.3f, -0.45f, -1f);
+                    GL11.glTranslatef(-1.7f, -0.45f, 0.275f);
                 }));
 
         final ProgressManager.ProgressBar propsProgressBar = ProgressManager.push("Building Props", props.size());

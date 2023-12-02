@@ -200,10 +200,15 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Bullet spawning maths which was making the bullets spawn in inaccurate position
 - Fixed compatibility with Forge `Emissive Item Rendering`
 - Fixed props registration
-- Fixed rotated version of the ceiling tv being rotated the wrong way
-- Fixed duel floodlight not being centered
-- Fixed floodlight not being centered
-- Fixed body bag positioning
+- Fixed rotated version of the ceiling tv prop being rotated the wrong way
+- Fixed duel floodlight prop not being centered
+- Fixed floodlight prop not being centered
+- Fixed body bag prop positioning
+- Fixed rotated version of the radio prop being rotated the wrong way
+- Fixed radio prop being rotated the wrong way
+- Fixed radio prop positioning
+- Fixed swat truck prop being rotated the wrong way
+- Fixed swat truck prop positioning
 
 ### Removed
 

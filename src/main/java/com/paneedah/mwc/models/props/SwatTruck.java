@@ -48,7 +48,7 @@ public final class SwatTruck extends ModelBase implements IModernModel {
         textureHeight = 500;
 
         Swartruck = new ModelRenderer(this);
-        Swartruck.setRotationPoint(0.0F, 32.2017F, 4.9019F);
+        Swartruck.setRotationPoint(19.0F, 32.2017F, 0.9019F);
         Swartruck.cubeList.add(new ModelBox(Swartruck, 0, 425, -7.0F, -24.2017F, -16.9019F, 14, 8, 64, 0.0F, true));
         Swartruck.cubeList.add(new ModelBox(Swartruck, 0, 310, -16.5F, -24.2017F, -12.9019F, 33, 4, 20, 0.0F, true));
         Swartruck.cubeList.add(new ModelBox(Swartruck, 0, 200, -16.5F, -36.2017F, 7.0981F, 33, 16, 39, 0.0F, true));
