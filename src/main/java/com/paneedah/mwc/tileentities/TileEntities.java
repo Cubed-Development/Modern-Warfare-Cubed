@@ -1,6 +1,7 @@
 package com.paneedah.mwc.tileentities;
 
 import com.paneedah.mwc.MWC;
+import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.tile.LootBoxConfiguration;
 import dev.redstudio.redcore.utils.AABBUtil;
 import net.minecraft.block.material.Material;
@@ -13,6 +14,7 @@ import java.util.ArrayDeque;
 
 import static com.paneedah.mwc.MWC.modContext;
 import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class TileEntities {
 
@@ -1063,15 +1065,23 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withName("camera")
+                .withModelClassName("com.paneedah.mwc.models.props.electronics.Camera")
+                .withTextureName("textures/models/props/electronics/camera.png")
+                .withBoundingBox(0, 0, 0, 1, 0.8, 1)
+                .modern());
+
+        props.add(new LootBoxConfiguration()
+                .withMaterial(Material.IRON)
                 .withName("camera_rotated")
                 .withModelClassName("com.paneedah.mwc.models.props.electronics.Camera")
                 .withTextureName("textures/models/props/electronics/camera.png")
                 .withBoundingBox(0, 0, 0, 1, 0.8, 1)
-                .withPositioning(tileEntity -> {
-                    GL11.glScalef(1f, 1f, 1f);
-                    GL11.glTranslatef(0.5f, 0.05f, 0.6f);
-                    GL11.glRotatef(45F, 0f, 1f, 0f);
-                }));
+                .withPositioning(tileEntity -> GL11.glRotatef(-45F, 0F, 1F, 0F))
+                .withTransform(Transform.ZERO
+                        .withRotation(0F, -45F, 0F)
+                        .withPosition(0F, 0F, -0.15F))
+                .modern());
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
@@ -1231,12 +1241,19 @@ public class TileEntities {
         final ProgressManager.ProgressBar propsProgressBar = ProgressManager.push("Building Props", props.size());
 
         for (final LootBoxConfiguration lootBoxConfiguration : props) {
-            propsProgressBar.step(I18n.format("tile." + ID + "_" + lootBoxConfiguration.getName() + ".name"));
+            final String name = I18n.format("tile." + ID + "_" + lootBoxConfiguration.getName() + ".name");
+
+            propsProgressBar.step(name);
+
+            if (!lootBoxConfiguration.isModern())
+                LOG.warn("Non modern loot box configuration found: " + lootBoxConfiguration.getName() + ". This may impact performance and should be modernized.");
 
             lootBoxConfiguration
                     .withCreativeTab(MWC.PROPS_TAB)
                     .build(modContext);
         }
+
+        LOG.debug("Built " + props.size() + " props");
 
         ProgressManager.pop(propsProgressBar);
     }
