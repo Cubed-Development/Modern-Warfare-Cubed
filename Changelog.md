@@ -65,6 +65,11 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Spooky Ghost
   - Spooky Ghost (ALT 1)
   - Spooky Ghost (ALT 2)
+  - Towable Floodlight
+  - Swat Truck
+  - Server Rack Left (ALT 3)
+  - Scarecrow
+  - Propane Tank
 
 ### Changed
 

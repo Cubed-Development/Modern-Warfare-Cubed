@@ -2,7 +2,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/props/barrel"
+        "layer0": "mwc:items/props/servers/server_rack_left_alt_3"
     },
     "display": {
 		"thirdperson_righthand": {
