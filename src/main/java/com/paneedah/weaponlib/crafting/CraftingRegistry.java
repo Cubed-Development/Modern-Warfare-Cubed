@@ -154,9 +154,7 @@ public class CraftingRegistry {
 	}
 
 	public static void clearRegistry() {
-		
-		// Clear out the registry
-		for(CraftingGroup g : CraftingGroup.values()) {
+		for (CraftingGroup g : CraftingGroup.values()) { // Clear out the registry
 			clearGroup(g);
 		}
 	}
