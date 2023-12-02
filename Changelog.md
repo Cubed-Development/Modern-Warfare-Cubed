@@ -62,6 +62,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Gravestone Cross (ALT 2)
   - Sandbag
   - Sandbag Wall
+  - Spooky Ghost
+  - Spooky Ghost (ALT 1)
+  - Spooky Ghost (ALT 2)
 
 ### Changed
 
