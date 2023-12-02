@@ -1,5 +1,6 @@
-package com.paneedah.weaponlib.tile;
+package com.paneedah.mwc.rendering.renderer;
 
+import com.paneedah.weaponlib.tile.CustomTileEntity;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;

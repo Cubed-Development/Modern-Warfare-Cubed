@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.tile;
 
+import com.paneedah.mwc.rendering.renderer.CustomTileEntityRenderer;
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ModContext;
 import lombok.Getter;
