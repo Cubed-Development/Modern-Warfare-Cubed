@@ -61,7 +61,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
     }
     
     public T withTextureName(String textureName) {
-        this.textureName = textureName;
+        this.textureName = textureName + ".png";
         return safeCast(this);
     }
     
@@ -140,7 +140,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         tileEntityBlock.setResistance(resistance);
         tileEntityBlock.setCreativeTab(creativeTab);
         tileEntityBlock.setBoundingBox(boundingBox);
-        ResourceLocation textureResource = new ResourceLocation(ID, textureName);
+        ResourceLocation textureResource = new ResourceLocation(ID, prop ? "textures/models/props/" + textureName : textureName);
         ResourceLocation tileEntity = new ResourceLocation(ID, "tile" + name);
         GameRegistry.registerTileEntity(tileEntityClass, tileEntity);
 
@@ -160,7 +160,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         modContext.registerRenderableItem(tileEntityBlock.getRegistryName(), itemBlock, null);
         
         if(FMLCommonHandler.instance().getSide().isClient())
-            RendererRegistration.registerRenderableEntity(modContext, name, tileEntityClass, modelClassName, textureResource, positioning, tileEntityBlock, modern, transform);
+            RendererRegistration.registerRenderableEntity(modContext, name, tileEntityClass, prop ? "com.paneedah.mwc.models.props." + modelClassName : modelClassName, textureResource, positioning, tileEntityBlock, modern, transform);
     }
     
     private static class RendererRegistration {
