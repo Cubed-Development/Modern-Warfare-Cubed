@@ -89,11 +89,10 @@ public class CraftingEntry {
 
     @Override
     public String toString() {
-        if (isOreDictionary()) {
+        if (isOreDictionary())
             return "(" + this.oreDictionary + "[" + this.item.getRegistryName().toString() + "], " + getCount() + ")";
-        } else {
+        else
             return "(" + this.item.getRegistryName().toString() + ", " + getCount() + ")";
-        }
     }
 
     public double getYield() {
