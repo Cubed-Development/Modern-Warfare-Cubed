@@ -1078,7 +1078,7 @@ public class TileEntities {
                 .withTextureName("electronics/camera")
                 .withBoundingBox(0, 0, 0, 1, 0.8, 1)
                 .withPositioning(tileEntity -> GL11.glRotatef(-45F, 0F, 1F, 0F))
-                .withTransform(Transform.ZERO
+                .withTransform(Transform.getZero()
                         .withRotation(0F, -45F, 0F)
                         .withPosition(0F, 0F, -0.15F))
                 .modern());
