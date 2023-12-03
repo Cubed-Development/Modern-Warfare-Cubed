@@ -1233,6 +1233,8 @@ public class TileEntities {
                 .withName("swat_truck")
                 .withModelClassName("SwatTruck")
                 .withTextureName("swat_truck")
+                .withTransform(Transform.getZero()
+                        .withScale(1.5F, 1.5F, 1.5F))
                 .modern());
 
         final ProgressManager.ProgressBar propsProgressBar = ProgressManager.push("Building Props", props.size());
