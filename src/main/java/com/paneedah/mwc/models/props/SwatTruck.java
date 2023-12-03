@@ -48,7 +48,8 @@ public final class SwatTruck extends ModelBase implements IModernModel {
         textureHeight = 500;
 
         Swartruck = new ModelRenderer(this);
-        Swartruck.setRotationPoint(19.0F, 32.2017F, 0.9019F);
+        Swartruck.setRotationPoint(0.0F, 32.9017F, -11.4981F);
+        setRotationAngle(Swartruck, 0.0F, 3.1416F, 0.0F);
         Swartruck.cubeList.add(new ModelBox(Swartruck, 0, 425, -7.0F, -24.2017F, -16.9019F, 14, 8, 64, 0.0F, true));
         Swartruck.cubeList.add(new ModelBox(Swartruck, 0, 310, -16.5F, -24.2017F, -12.9019F, 33, 4, 20, 0.0F, true));
         Swartruck.cubeList.add(new ModelBox(Swartruck, 0, 200, -16.5F, -36.2017F, 7.0981F, 33, 16, 39, 0.0F, true));
@@ -73,6 +74,7 @@ public final class SwatTruck extends ModelBase implements IModernModel {
         Swartruck.cubeList.add(new ModelBox(Swartruck, 400, 0, 11.0F, -18.9017F, 35.5981F, 6, 10, 10, 0.0F, true));
 
         truck58_r1 = new ModelRenderer(this);
+        truck58_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
         Swartruck.addChild(truck58_r1);
         setRotationAngle(truck58_r1, 0.1487F, 0.0F, 0.0F);
         truck58_r1.cubeList.add(new ModelBox(truck58_r1, 300, 35, -10.0F, -28.8F, 57.5F, 20, 2, 1, 0.0F, true));

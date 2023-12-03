@@ -1232,11 +1232,8 @@ public class TileEntities {
                 .withMaterial(Material.IRON)
                 .withName("swat_truck")
                 .withModelClassName("SwatTruck")
-                .withTextureName("swattruck")
-                .withPositioning(tileEntity -> {
-                    GL11.glScalef(1.5f, 1.5f, 1.5f);
-                    GL11.glTranslatef(-1.7f, -0.45f, 0.275f);
-                }));
+                .withTextureName("swat_truck")
+                .modern());
 
         final ProgressManager.ProgressBar propsProgressBar = ProgressManager.push("Building Props", props.size());
 
