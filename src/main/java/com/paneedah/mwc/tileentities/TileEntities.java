@@ -174,22 +174,22 @@ public class TileEntities {
                 .withName("barrel")
                 .withModelClassName("Barrel")
                 .withTextureName("barrel")
-                .withCreativeTab(MWC.PROPS_TAB)
-                .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.9f, 0.8f, 0.9f);
-                    GL11.glTranslatef(0.55f, 0.4f, 0.55f);
-                }));
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0.125, 0, 0.125, 0.875, 1, 0.875)))
+                .withTransform(Transform.getZero()
+                        .withPosition(0, 0.375F, 0)
+                        .withScale(0.75F, 0.75F, 0.75F))
+                .modern());
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("explosive_barrel")
                 .withModelClassName("Barrel")
                 .withTextureName("barrel_explosive")
-                .withCreativeTab(MWC.PROPS_TAB)
-                .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.9f, 0.8f, 0.9f);
-                    GL11.glTranslatef(0.55f, 0.4f, 0.55f);
-                }));
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0.125, 0, 0.125, 0.875, 1, 0.875)))
+                .withTransform(Transform.getZero()
+                        .withPosition(0, 0.375F, 0)
+                        .withScale(0.75F, 0.75F, 0.75F))
+                .modern());
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)

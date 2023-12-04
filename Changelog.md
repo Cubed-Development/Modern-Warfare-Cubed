@@ -211,6 +211,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed swat truck prop being rotated the wrong way
 - Fixed swat truck prop positioning
 - Fixed rotated camera prop not being rotated
+- Fixed barrel & variants prop positioning
+- Fixed barrel & variants prop sizing
+- Fixed barrel & variants prop bounding box
 
 ### Removed
 
