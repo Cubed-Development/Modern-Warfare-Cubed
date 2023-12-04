@@ -390,7 +390,7 @@ public class Magazines {
                 .withCompatibleBullet(Bullets.Bullet556x45)
                 .withName("Stanag100")
                 .withRotationPoint(-0.16000000476837162F, -0.16000000476837162F, -1.5200000452995304F)
-                .withModel(new NATODrum100(), "drum100rndmag.png")
+                .withModel(new NATODrum100(), "gun.png")
                 .withRequiredAttachments(Attachments.Placeholder, Attachments.M4Receiver, Attachments.VLTORReceiver,
                         Attachments.AUGDefaultKit, Attachments.Vector556Handguard,
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,

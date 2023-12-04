@@ -9,7 +9,6 @@ import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
@@ -315,7 +314,7 @@ public class PKMFactory {
                         .withFirstPersonPositioning(
                                 new Transform()
                                         .withPosition(-1.825000f, 5.665000f, -5.005000f)
-                                        .withRotation(0.000000f, -0.500000f, -1.300000f)
+                                        .withRotation(0.000000f, -0.500000f, 0.500000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
                                         .withScale(3.5F, 3.5F, 3.5F)
                         )
@@ -332,7 +331,7 @@ public class PKMFactory {
 
                                 // Right hand
                                 new Transform()
-                                        .withPosition(-0.1F, 0.05F, 1.3F)
+                                        .withPosition(-0.05F, -0.2F, 1.8F)
                                         .withRotation(5.4027F, 4.7805F, -1.6694F)
                                         .withScale(3.0F, 3.0F, 3.0F)
                                         .withPivotPoint(0, 0, 0)

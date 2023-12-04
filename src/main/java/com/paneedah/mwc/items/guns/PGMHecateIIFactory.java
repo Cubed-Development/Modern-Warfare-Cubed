@@ -16,7 +16,6 @@ import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
@@ -98,7 +97,7 @@ public class PGMHecateIIFactory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.NightRaider, () -> {
-            GL11.glTranslatef(-0.22F, -1.38F, -2.5F);
+            GL11.glTranslatef(-0.22F, -1.67F, -2.5F);
             GL11.glScaled(0.9F, 0.9F, 0.9F);
         },(model) -> {
             if(model instanceof JPUreticle) {
@@ -107,7 +106,7 @@ public class PGMHecateIIFactory implements GunFactory {
             }
         })
          .withCompatibleAttachment(Attachments.ACOG, () -> {
-            GL11.glTranslatef(-0.328F, -1.4F, -1.2F);
+             GL11.glTranslatef(-0.328F, -1.65F, -1.2F);
             GL11.glScaled(0.9F, 0.9F, 0.9F);
         },(model) -> {
             if(model instanceof AcogScope2) {
@@ -120,7 +119,7 @@ public class PGMHecateIIFactory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.Specter, () -> {
-            GL11.glTranslatef(-0.19F, -1.02F, -1.5F);
+            GL11.glTranslatef(-0.2F, -1.32F, -1.5F);
             GL11.glScaled(0.5F, 0.5F, 0.5F);
         },(model) -> {
              if(model instanceof Acog2) {
@@ -129,7 +128,7 @@ public class PGMHecateIIFactory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.LeupoldRailScope, () -> {
-            GL11.glTranslatef(-0.155F, -1.4F, -2.2F);
+            GL11.glTranslatef(-0.16F, -1.45F, -2.5F);
             GL11.glScaled(0.55F, 0.55F, 0.55F);
 		},(model) -> {
 		     if(model instanceof JPUreticle) {
@@ -138,8 +137,8 @@ public class PGMHecateIIFactory implements GunFactory {
 		    }
 		})
         .withCompatibleAttachment(Attachments.Reflex, () -> {
-                GL11.glTranslatef(-0.045F, -1.4F, -1.5F);
-                GL11.glScaled(0.55F, 0.55F, 0.55F);
+            GL11.glTranslatef(-0.055F, -1.46F, -1.5F);
+            GL11.glScaled(0.55F, 0.55F, 0.55F);
         },(model) -> {
             if(model instanceof Reflex2) {
                 GL11.glTranslatef(-0.125F, -0.7F, -0.4F);
@@ -147,7 +146,7 @@ public class PGMHecateIIFactory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
-        	GL11.glTranslatef(-0.186F, -1.6F, -1F);
+            GL11.glTranslatef(-0.19F, -1.7F, -1.3F);
             GL11.glScaled(0.45F, 0.45F, 0.45F);
 	    },(model) -> {
 	        if(model instanceof Reflex2) {
@@ -156,7 +155,7 @@ public class PGMHecateIIFactory implements GunFactory {
 	        }
 	    })
         .withCompatibleAttachment(Attachments.Bipod, () -> {
-        	GL11.glTranslatef(-0.2F, -0.2F, -3.9F);
+        	GL11.glTranslatef(-0.2F, -0.28F, -3.9F);
             GL11.glScaled(1F, 1F, 1F);
         })
 		
@@ -225,32 +224,32 @@ public class PGMHecateIIFactory implements GunFactory {
 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                    GL11.glTranslatef(0f, -0.08f, 0.8f);
+                    GL11.glTranslatef(0f, 0.225f, 0.65f);
                 }
 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    GL11.glTranslatef(-0.005f, -0.05f, 1.3f);
+                    GL11.glTranslatef(-0.0f, 2f, 1.0f);
                 }
 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    GL11.glTranslatef(0f, -0.15f, 1.2f);
+                    GL11.glTranslatef(0.01f, 0.15f, 1.0f);
                 }
 
                 // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                    GL11.glTranslatef(0f, -0.09f, 0.6f);
+                    GL11.glTranslatef(0f, 0.16f, 0.7f);
                 }
 
-             // HP Zoom
+                // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    GL11.glTranslatef(0f, -0.12f, 0.9f);
+                    GL11.glTranslatef(0f, -0.22f, 0.5f);
                 }
 
-             // HP Zoom
+                // HP Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                    GL11.glTranslatef(0f, -0.09f, 0.9f);
+                    GL11.glTranslatef(0.01f, 0.21f, 1.0f);
                 }
 
             })
