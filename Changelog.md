@@ -51,10 +51,26 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
 - Added the gold and dark color variants of the Desert Eagle
 - Added loading bar for props building
-- Added non-rotated versions of the forklift and its variants (Existing forklifts will become non-rotated)
-- Added non-rotated versions of the duel floodlight (Existing duel floodlight will become non-rotated)
-- Added non-rotated versions of the floodlight (Existing floodlight will become non-rotated)
-- Added icons for the gravestone and gravestone skull props
+- Added non-rotated versions of the forklift prop and its variants (Existing forklifts will become non-rotated)
+- Added non-rotated versions of the duel floodlight prop (Existing duel floodlight will become non-rotated)
+- Added non-rotated versions of the floodlight prop (Existing floodlight will become non-rotated)
+- Added non-rotated versions of the camera prop (Existing floodlight will become non-rotated)
+- Added icons for the following props:
+  - Gravestone
+  - Gravestone Skull
+  - Gravestone Cross
+  - Gravestone Cross (ALT 1)
+  - Gravestone Cross (ALT 2)
+  - Sandbag
+  - Sandbag Wall
+  - Spooky Ghost
+  - Spooky Ghost (ALT 1)
+  - Spooky Ghost (ALT 2)
+  - Towable Floodlight
+  - Swat Truck
+  - Server Rack Left (ALT 3)
+  - Scarecrow
+  - Propane Tank
 
 ### Changed
 
@@ -106,6 +122,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Flashbangs do not flash trough walls anymore
 - Moved the turret base from the `Props` creative tab to `Blocks & Ingots` creative tab
 - Changed the icon of the `Props` creative tab to the barrel
+- Made naming of props consistent
 
 ### Fixed
 
@@ -184,10 +201,19 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Bullet spawning maths which was making the bullets spawn in inaccurate position
 - Fixed compatibility with Forge `Emissive Item Rendering`
 - Fixed props registration
-- Fixed rotated version of the ceiling tv being rotated the wrong way
-- Fixed duel floodlight not being centered
-- Fixed floodlight not being centered
-- Fixed body bag positioning
+- Fixed rotated version of the ceiling tv prop being rotated the wrong way
+- Fixed duel floodlight prop not being centered
+- Fixed floodlight prop not being centered
+- Fixed body bag prop positioning
+- Fixed rotated version of the radio prop being rotated the wrong way
+- Fixed radio prop being rotated the wrong way
+- Fixed radio prop positioning
+- Fixed swat truck prop being rotated the wrong way
+- Fixed swat truck prop positioning
+- Fixed rotated camera prop not being rotated
+- Fixed barrel & variants prop positioning
+- Fixed barrel & variants prop sizing
+- Fixed barrel & variants prop bounding box
 
 ### Removed
 

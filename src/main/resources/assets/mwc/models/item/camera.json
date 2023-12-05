@@ -1,8 +1,7 @@
-
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "mwc:items/props/ghost/spookyghost"
+        "layer0": "mwc:items/props/electronics/camera"
     },
     "display": {
 		"thirdperson_righthand": {

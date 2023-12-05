@@ -26,7 +26,7 @@ public final class Camera extends ModelBase implements IModernModel {
 
         camara = new ModelRenderer(this);
         camara.setRotationPoint(0.0F, 24.0F, 0.0F);
-        camara.cubeList.add(new ModelBox(camara, 0, 4, 0.25F, -5.5F, -7.75F, 3, 4, 0, 0.2F, false));
+        camara.cubeList.add(new ModelBox(camara, 1, 6, 0.25F, -5.5F, -8.75F, 3, 4, 1, 0.5F, false));
         camara.cubeList.add(new ModelBox(camara, 42, 44, 0.75F, -4.35F, -7.75F, 2, 1, 7, 0.0F, false));
         camara.cubeList.add(new ModelBox(camara, 0, 0, 0.75F, -6.5F, -2.75F, 2, 2, 2, 0.2F, false));
 

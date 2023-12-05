@@ -32,6 +32,7 @@ public final class Radio extends ModelBase implements IModernModel {
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(0.0F, 24.0F, 0.0F);
+        setRotationAngle(bone, 0.0F, -1.5708F, 0.0F);
         bone.cubeList.add(new ModelBox(bone, 0, 0, -7.5F, -6.0F, -5.0F, 15, 7, 12, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -7.0F, -6.5F, -5.5F, 14, 1, 12, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -7.0F, -5.3F, -5.2F, 2, 4, 1, 0.0F, true));

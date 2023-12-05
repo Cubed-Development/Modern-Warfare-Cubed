@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.tile;
 
+import com.paneedah.mwc.rendering.Transform;
+import com.paneedah.mwc.rendering.renderer.CustomTileEntityRenderer;
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ModContext;
 import lombok.Getter;
@@ -25,7 +27,12 @@ import java.util.function.Supplier;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
 public class CustomTileEntityConfiguration<T extends CustomTileEntityConfiguration<T>> {
-    
+
+    @Getter private boolean modern;
+    @Getter private boolean prop = true;
+
+    private Transform transform = Transform.ZERO.duplicate();
+
     private Material material;
     @Getter private String name;
     private String textureName;
@@ -54,7 +61,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
     }
     
     public T withTextureName(String textureName) {
-        this.textureName = textureName;
+        this.textureName = textureName + ".png";
         return safeCast(this);
     }
     
@@ -93,6 +100,21 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         this.boundingBox = state -> bb;
         return safeCast(this);
     }
+
+    public T notAProp() {
+        prop = false;
+        return safeCast(this);
+    }
+
+    public T modern() {
+        modern = true;
+        return safeCast(this);
+    }
+
+    public T withTransform(Transform transform) {
+        this.transform = transform;
+        return safeCast(this);
+    }
     
     protected Class<? extends TileEntity> getBaseClass() {
         return CustomTileEntity.class;
@@ -118,7 +140,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         tileEntityBlock.setResistance(resistance);
         tileEntityBlock.setCreativeTab(creativeTab);
         tileEntityBlock.setBoundingBox(boundingBox);
-        ResourceLocation textureResource = new ResourceLocation(ID, textureName);
+        ResourceLocation textureResource = new ResourceLocation(ID, prop ? "textures/models/props/" + textureName : textureName);
         ResourceLocation tileEntity = new ResourceLocation(ID, "tile" + name);
         GameRegistry.registerTileEntity(tileEntityClass, tileEntity);
 
@@ -138,16 +160,14 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
         modContext.registerRenderableItem(tileEntityBlock.getRegistryName(), itemBlock, null);
         
         if(FMLCommonHandler.instance().getSide().isClient())
-            RendererRegistration.registerRenderableEntity(modContext, name, tileEntityClass, modelClassName, textureResource, positioning, tileEntityBlock);
+            RendererRegistration.registerRenderableEntity(modContext, name, tileEntityClass, prop ? "com.paneedah.mwc.models.props." + modelClassName : modelClassName, textureResource, positioning, tileEntityBlock, modern, transform);
     }
     
     private static class RendererRegistration {
         /*
          * This method is wrapped into a static class to facilitate conditional client-side only loading
          */
-        private static <T extends CustomTileEntityConfiguration<T>> void registerRenderableEntity(
-                ModContext context, String name, Class<? extends TileEntity> tileEntityClass, String modelClassName, 
-                ResourceLocation textureResource, Consumer<TileEntity> positioning, CustomTileEntityBlock tileEntityBlock) {
+        private static <T extends CustomTileEntityConfiguration<T>> void registerRenderableEntity(ModContext context, String name, Class<? extends TileEntity> tileEntityClass, String modelClassName, ResourceLocation textureResource, Consumer<TileEntity> positioning, CustomTileEntityBlock tileEntityBlock, boolean modern, Transform transform) {
             try {
 
 //                MC.getRenderItem().getItemModelMesher()
@@ -158,7 +178,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
 //                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(tileEntityBlock), 0, itemModelResourceLocation);
                 
                 ModelBase model = (ModelBase) Class.forName(modelClassName).newInstance();
-                ClientRegistry.bindTileEntitySpecialRenderer(tileEntityClass, (TileEntitySpecialRenderer)new CustomTileEntityRenderer(model, textureResource, positioning));
+                ClientRegistry.bindTileEntitySpecialRenderer(tileEntityClass, (TileEntitySpecialRenderer)new CustomTileEntityRenderer(model, textureResource, positioning, modern, transform));
                 
             } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
                 e.printStackTrace();

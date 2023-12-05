@@ -22,6 +22,7 @@ public final class ServerRackLeftAlt3 extends ModelBase implements IModernModel 
 
         bone = new ModelRenderer(this);
         bone.setRotationPoint(0.0F, 24.0F, 0.0F);
+        bone.cubeList.add(new ModelBox(bone, 100, 50, -0.2F, -12.0F, -5.6F, 1, 1, 1, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -8.0F, -4.0F, -6.0F, 16, 2, 13, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -8.2F, -16.0F, -6.1F, 2, 16, 2, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 0, 0, -8.2F, -16.0F, 5.1F, 2, 16, 2, 0.0F, true));
@@ -36,7 +37,6 @@ public final class ServerRackLeftAlt3 extends ModelBase implements IModernModel 
         bone.cubeList.add(new ModelBox(bone, 100, 50, -6.2F, -12.0F, -5.6F, 2, 1, 1, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 100, 50, -6.2F, -10.0F, -5.6F, 2, 1, 1, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 100, 50, -6.2F, -8.0F, -5.6F, 2, 1, 1, 0.0F, true));
-        bone.cubeList.add(new ModelBox(bone, 100, 50, -0.2F, -12.0F, -5.6F, 1, 1, 1, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 100, 50, -0.2F, -10.0F, -5.6F, 1, 1, 1, 0.0F, true));
         bone.cubeList.add(new ModelBox(bone, 100, 50, -0.2F, -8.0F, -5.6F, 1, 1, 1, 0.0F, true));
     }

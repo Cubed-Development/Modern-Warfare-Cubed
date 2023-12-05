@@ -16,7 +16,7 @@ public class TurretBaseFactory implements TileEntityFactory {
         .withMaterial(Material.ROCK)
         .withName("turret_base")
         .withModelClassName("com.paneedah.mwc.models.weapons.TurretBase")
-        .withTextureName("textures/models/turretbase.png")
+        .withTextureName("textures/models/turretbase")
         .withCreativeTab(MWC.BLOCKS_AND_INGOTS_TAB)
         .withBoundingBox(0.0, 0, 0.0, 1, 0.2, 1)
         .withPositioning(tileEntity -> {
@@ -24,6 +24,7 @@ public class TurretBaseFactory implements TileEntityFactory {
             GL11.glTranslatef(0.5f, 0f, 0.5f);
 //            GL11.glRotatef(-45F, 0f, 1f, 0f);
         })
+        .notAProp()
         .build(MWC.modContext);
     }
     
