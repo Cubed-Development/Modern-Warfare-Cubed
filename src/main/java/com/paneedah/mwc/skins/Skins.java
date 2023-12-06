@@ -19,7 +19,11 @@ import java.util.HashMap;
 
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
-public class GunSkins {
+/**
+ * @author paneedah
+ * @since 0.1
+ */
+public class Skins {
 
     public static ItemSkin WoodlandCamo;
     public static ItemSkin PinkCamo;
@@ -33,59 +37,59 @@ public class GunSkins {
     public static HashMap<String, CustomSkin> customSkins = new HashMap<>();
 
     public static void init() {
-        GunSkins.WoodlandCamo = new ItemSkin.Builder()
+        Skins.WoodlandCamo = new ItemSkin.Builder()
                 .withTexture("woodlandcamo")
                 .withName("WoodlandCamo")
                 .build(ItemSkin.class);
-        CommonRegistry.gunSkins.add(GunSkins.WoodlandCamo);
+        CommonRegistry.gunSkins.add(Skins.WoodlandCamo);
 
-        GunSkins.PinkCamo = new ItemSkin.Builder()
+        Skins.PinkCamo = new ItemSkin.Builder()
                 .withTexture("pinkcamo")
                 .withName("PinkCamo")
                 .build(ItemSkin.class);
-        CommonRegistry.gunSkins.add(GunSkins.PinkCamo);
+        CommonRegistry.gunSkins.add(Skins.PinkCamo);
 
-        GunSkins.ArcticCamo = new ItemSkin.Builder()
+        Skins.ArcticCamo = new ItemSkin.Builder()
                 .withTexture("arcticcamo")
                 .withName("ArcticCamo")
                 .build(ItemSkin.class);
-        CommonRegistry.gunSkins.add(GunSkins.ArcticCamo);
+        CommonRegistry.gunSkins.add(Skins.ArcticCamo);
 
-        GunSkins.BlueCamo = new ItemSkin.Builder()
+        Skins.BlueCamo = new ItemSkin.Builder()
                 .withTexture("bluecamo")
                 .withName("BlueCamo")
                 .build(ItemSkin.class);
-        CommonRegistry.gunSkins.add(GunSkins.BlueCamo);
+        CommonRegistry.gunSkins.add(Skins.BlueCamo);
 
-        GunSkins.Unit01Camo = new ItemSkin.Builder()
+        Skins.Unit01Camo = new ItemSkin.Builder()
                 .withTexture("unit01camo")
                 .withName("Unit01Camo")
                 .build(ItemSkin.class);
-        CommonRegistry.gunSkins.add(GunSkins.Unit01Camo);
+        CommonRegistry.gunSkins.add(Skins.Unit01Camo);
 
-        GunSkins.BloodForestCamo = new ItemSkin.Builder()
+        Skins.BloodForestCamo = new ItemSkin.Builder()
                 .withTexture("bloodforestcamo")
                 .withName("BloodForestCamo")
                 .build(ItemSkin.class);
-        CommonRegistry.gunSkins.add(GunSkins.BloodForestCamo);
+        CommonRegistry.gunSkins.add(Skins.BloodForestCamo);
 
-        GunSkins.DiamondCamo = new ItemSkin.Builder()
+        Skins.DiamondCamo = new ItemSkin.Builder()
                 .withTexture("diamondcamo")
                 .withName("DiamondCamo")
                 .build(ItemSkin.class);
-        CommonRegistry.gunSkins.add(GunSkins.DiamondCamo);
+        CommonRegistry.gunSkins.add(Skins.DiamondCamo);
 
-        GunSkins.GoldCamo = new ItemSkin.Builder()
+        Skins.GoldCamo = new ItemSkin.Builder()
                 .withTexture("goldcamo")
                 .withName("GoldCamo")
                 .build(ItemSkin.class);
-        CommonRegistry.gunSkins.add(GunSkins.GoldCamo);
+        CommonRegistry.gunSkins.add(Skins.GoldCamo);
 
         File customSkinsDir = new File("./config/mwc/skins");
         if (!customSkinsDir.exists())
             customSkinsDir.mkdirs();
 
-        ClassLoader classLoader = GunSkins.class.getClassLoader();
+        ClassLoader classLoader = Skins.class.getClassLoader();
 
         if (FMLCommonHandler.instance().getSide() == Side.SERVER) {
             try {
