@@ -643,7 +643,6 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("trusses")
-                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.8, 0.4, 1, 1, 0.6)))
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.2, 0.4, 1, 0.4, 0.6)))
                 .withModelClassName("Trusses")
                 .withTextureName("trusses")
