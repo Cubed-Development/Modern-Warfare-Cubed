@@ -575,6 +575,7 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
                 .withName("operating_table")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, -0.5, 1, 1, 1.5)))
                 .withModelClassName("OperatingTable")
                 .withTextureName("operatingtable")
                 .withPositioning(tileEntity -> {
@@ -586,6 +587,7 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
                 .withName("operating_table_alt")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, -0.5, 1, 1, 1.5)))
                 .withModelClassName("OperatingTableAlt")
                 .withTextureName("operatingtable")
                 .withPositioning(tileEntity -> {
@@ -641,6 +643,7 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("trusses")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.2, 0.4, 1, 0.4, 0.6)))
                 .withModelClassName("Trusses")
                 .withTextureName("trusses")
                 .withPositioning(tileEntity -> {
@@ -652,6 +655,7 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("ceiling_lamp")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.5, 0, 1, 1, 1)))
                 .withModelClassName("lights.CeilingLamp")
                 .withTextureName("lights/ceilinglamp")
                 .withPositioning(tileEntity -> {
@@ -762,9 +766,9 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("white_desk_middle")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.95, 0, 1, 1, 0.8)))
                 .withModelClassName("desks.WhiteDeskMiddle")
                 .withTextureName("shelf")
-                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, .5, 0, 1, 1, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -841,6 +845,7 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
                 .withName("outdoor_chair")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withModelClassName("OutdoorChair")
                 .withTextureName("outdoorchair")
                 .withPositioning(tileEntity -> {
@@ -852,6 +857,7 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
                 .withName("home_chair_rotated")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withModelClassName("HomeChair")
                 .withTextureName("homechair")
                 .withPositioning(tileEntity -> {
@@ -863,6 +869,7 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
                 .withName("outdoor_chair_rotated")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withModelClassName("OutdoorChair")
                 .withTextureName("outdoorchair")
                 .withPositioning(tileEntity -> {
@@ -874,9 +881,9 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("vending_machine")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0.1, 1, 2, 0.8)))
                 .withModelClassName("electronics.VendingMachine")
                 .withTextureName("electronics/vendingmachine")
-                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0.55f, 0.4f, 0.62f);
@@ -974,9 +981,9 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("ServerRackTopLeft")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.3, 1)))
                 .withModelClassName("servers.ServerRackTop")
                 .withTextureName("servers/serverrackleft")
-                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
@@ -986,9 +993,9 @@ public class TileEntities {
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
                 .withName("ServerRackTopRight")
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.3, 1)))
                 .withModelClassName("servers.ServerRackTopRight")
                 .withTextureName("servers/serverrackleft")
-                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.5, 1)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(1f, 1f, 1f);
                     GL11.glTranslatef(0.5f, 0f, 0.5f);
