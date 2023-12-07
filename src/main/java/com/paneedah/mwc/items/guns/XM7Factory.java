@@ -71,7 +71,7 @@ public class XM7Factory implements GunFactory {
         		CraftingEntry(MWCItems.steelIngot, 3))
 		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
-	                1f, // x 
+	                1f, // x
 	                1f, // y
 	                3f) // z
 		 
@@ -579,7 +579,7 @@ public class XM7Factory implements GunFactory {
 
 				// HP Zoomw
 				if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                        GL11.glTranslatef(0.001F, -0.0f, 0.2f);
+                        GL11.glTranslatef(0.001F, -0.0f, 0.1f);
 				} 
 				
 				// Reflex Zoom

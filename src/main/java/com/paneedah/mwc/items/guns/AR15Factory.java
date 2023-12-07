@@ -937,12 +937,8 @@ public class AR15Factory implements GunFactory {
              // Reflex Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                         GL11.glTranslatef(0F, 0.055f, 0.3f);
-                } 
-
-				else {
-				}
-			
-				})
+                }
+            })
             
             .withFirstPersonPositioningModifying((renderContext) -> {
 				 new Transform()

@@ -262,7 +262,7 @@ public class M38Factory implements GunFactory {
                 GL11.glTranslatef(-0.185F, -1.53F, -4.05F);
                 GL11.glScaled(0F, 0F, 0F);
             } else if(model instanceof ARCarryHandle) {
-                GL11.glTranslatef(-0.1425F, -1.533F, -0.12F);
+                GL11.glTranslatef(-0.1425F, -1.55F, -0.12F);
                 GL11.glScaled(0.29F, 0.29F, 0.29F);
             } else if(model instanceof MP5Iron) {
                 GL11.glTranslatef(0.215F, -1.54F, 1.2F);
@@ -673,7 +673,7 @@ public class M38Factory implements GunFactory {
 				
 				// Standard Iron Sight Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                	GL11.glTranslatef(0F, 0.025f, 0.2f);
+                	GL11.glTranslatef(0F, 0.025f, 0.5f);
                 } 
 				
 				// Standard Iron Sight Zoom
@@ -693,7 +693,7 @@ public class M38Factory implements GunFactory {
 
 				// HP Zoomw
 				if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                        GL11.glTranslatef(0.001F, -0.027f, 0.2f);
+                        GL11.glTranslatef(0F, -0.027f, 0.5f);
 				} 
 				
 				// Reflex Zoom
@@ -718,7 +718,7 @@ public class M38Factory implements GunFactory {
                 
              // Holo Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                	GL11.glTranslatef(-0.004F, 0.025f, 0.25f);
+                	GL11.glTranslatef(-0.004F, 0.025f, 0.5f);
                 } 
 				
              // Holo Zoom
@@ -744,14 +744,8 @@ public class M38Factory implements GunFactory {
              // Reflex Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                         GL11.glTranslatef(0F, 0.055f, 0.3f);
-                } 
-				
-				// Everything else
-				else {
-				}
-				
-			
-				})
+                }
+            })
             
 			 .withFirstPersonPositioningModifying((renderContext) -> {
 				 new Transform()

@@ -68,9 +68,9 @@ public class PGMHecateIIFactory implements GunFactory {
         ))
 
         .withScreenShaking(RenderableState.SHOOTING,
-                6f, // x
-                -5f, // y
-                12f) // z
+                1f, // x
+                1f, // y
+                3f) // z
         .withModernRecipe( new
 	        		CraftingEntry(MWCItems.carbonComposite, 12), new
 	        		CraftingEntry(MWCItems.gunmetalPlate, 10), new
