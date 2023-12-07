@@ -29,7 +29,7 @@ public class TileEntities {
                 .withModelClassName("GunCase")
                 .withTextureName("gun_case")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.58, 0, 0.2, 1.63, 0.3, 0.8)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.65, 0, 0.15, 1.7, 0.3, 0.9)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.7f, 1.1f, 0.5f);
@@ -79,6 +79,7 @@ public class TileEntities {
                 .withModelClassName("GunRack")
                 .withTextureName("gunrack")
                 .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.375, 0, 0.05, 1.45, 1.825, 0.7)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.6f, 0.6f, 0.6f);
                     GL11.glTranslatef(0.4f, 1.15f, 0.6f);
@@ -90,7 +91,7 @@ public class TileEntities {
                 .withModelClassName("FridgeOpen")
                 .withTextureName("fridge")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0.06, 0, 0.075, 0.94, 2.06, 1.02)))
                 .withPositioning(tileEntity -> {
                     GL11.glTranslatef(0.55f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
@@ -102,7 +103,7 @@ public class TileEntities {
                 .withModelClassName("FridgeClosed")
                 .withTextureName("fridge")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 2, 1)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0.06, 0, 0.075, 0.94, 2.06, 1.02)))
                 .withPositioning(tileEntity -> {
                     GL11.glTranslatef(0.55f, 0f, 0.5f);
                     GL11.glRotatef(-90F, 0f, 1f, 0f);
