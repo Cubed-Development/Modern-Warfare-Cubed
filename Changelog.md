@@ -173,18 +173,33 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Duel Floodlight
   - Single Floodlight
   - Shelf Top
-  - Server Rack Top (left/right)
+  - Server Rack Top Left
+  - Server Rack Top Right
   - Laptop
   - Desk Shelf
-  - Desk Shelf (Alt2)
+  - Desk Shelf (ALT 2)
   - Impaled Body
   - Hanging Body
   - Office Chair
   - Office Chair 2
-  - Home Chair
   - White Desk Middle
   - Medical Create
   - Camera Rotated
+  - Barrel
+  - Explosive Barrel
+  - Weapon Case
+  - Operating Table
+  - Operating Table (ALT 1)
+  - Trusses
+  - Ceiling Lamp
+  - Outdoor Chair
+  - Outdoor Chair (Rotated)
+  - Home Chair
+  - Home Chair (Rotated)
+  - Vending Machine
+  - Weapons Locker
+  - Fridge (Open)
+  - Fridge (Closed)
 - Fixed position of the backpacks in inventory
 - Fixed the client ticker "corruption" state
 - Fixed melee attack and heavy melee attack being switched
@@ -213,7 +228,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed rotated camera prop not being rotated
 - Fixed barrel & variants prop positioning
 - Fixed barrel & variants prop sizing
-- Fixed barrel & variants prop bounding box
 
 ### Removed
 
