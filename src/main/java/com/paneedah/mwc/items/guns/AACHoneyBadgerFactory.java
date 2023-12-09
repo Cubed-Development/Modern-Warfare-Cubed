@@ -30,7 +30,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withFireRate(0.80f) // Fire rate in rounds per minute
                 .withRecoil(3f) // Recoil in degrees
                 .withZoom(0.9f) // Zoom factor
-                .withConfigGroup(GunConfigurationGroup.RIFLES) // Config group
+                .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE) // Config group
                 .withMaxShots(1, Integer.MAX_VALUE) // Max shots per reload
                 .withShootSound("aac_honeybadger") // Shoot sound
                 .withSilencedShootSound("aac_honeybadger") // Silenced shoot sound
@@ -110,12 +110,10 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                 // Compatible attachment honeybadger Stock
                 .withCompatibleAttachment(Attachments.HoneyBadgerStock, true, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
                 })
 
                 // Compatible attachment honeybadger Stock Black
                 .withCompatibleAttachment(Attachments.HoneyBadgerStockBlack, (model) -> {
-//          GL11.glTranslatef(0f, 0f, 1f);
                 })
 
                 // Compatible attachment honeybadger Reciever
@@ -810,11 +808,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                                 GL11.glTranslatef(0F, 0.055f, 0.3f);
                             }
-
-                            // Everything else
-                            else {
-                            }
-
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {
