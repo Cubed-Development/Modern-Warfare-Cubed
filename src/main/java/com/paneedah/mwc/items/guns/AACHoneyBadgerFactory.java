@@ -738,7 +738,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                             // Standard Iron Sight Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                GL11.glTranslatef(0F, 0.025f, 0f);
+                                GL11.glTranslatef(0F, 0.025f, 0.15f);
                             }
 
                             // Standard Iron Sight Zoom
