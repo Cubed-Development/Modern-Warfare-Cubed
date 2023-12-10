@@ -47,21 +47,13 @@ public class XM7Factory implements GunFactory {
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
-                        // The weapons power
                         15.0,
-                        // Muzzle climb divisor
                         15.75,
-                        // "Stock Length"
                         50.0,
-                        // Recovery rate from initial shot
                         0.4,
-                        // Recovery rate @ "stock"
                         0.3125,
-                        // Recoil rotation (Y)
                         0.0,
-                        // Recoil rotation (Z)
                         0.0,
-                        // Ads similarity divisor
                         1.0
                 ))
 
@@ -71,9 +63,9 @@ public class XM7Factory implements GunFactory {
                         CraftingEntry(MWCItems.steelIngot, 3))
 
                 .withScreenShaking(RenderableState.SHOOTING,
-                        1f, // x
-                        1f, // y
-                        3f) // z
+                        1f, 
+                        1f, 
+                        3f) 
 
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
                 .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
@@ -445,7 +437,7 @@ public class XM7Factory implements GunFactory {
 
                         .withFirstPersonHandPositioning(
 
-                                // Left hand
+                                
                                 new Transform()
                                         .withPosition(1.090000f, -0.015000f, -0.620000f)
                                         .withBBRotation(-8.1997F, -23.6991F, 57.7232F)
@@ -453,7 +445,7 @@ public class XM7Factory implements GunFactory {
                                         .withPivotPoint(0, 0, 0),
 
 
-                                // Right hand
+                                
                                 new Transform()
                                         .withPosition(-0.2F, 0.1F, 2)
                                         .withRotation(-5.4027F, -4.7805F, -1.6694F)
@@ -467,63 +459,63 @@ public class XM7Factory implements GunFactory {
                                 Magazines.NGSWRMag)
 
                         .withThirdPersonPositioningReloading(
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);
                                     GL11.glTranslatef(-2F, -0.8F, 2.3F);
                                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                                     GL11.glRotatef(90F, 1f, 0f, 0f);
                                 }, 180, 200),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);
                                     GL11.glTranslatef(-2F, -0.8F, 2.3F);
                                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                                     GL11.glRotatef(90F, 1f, 0f, 0f);
                                 }, 240, 50),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);
                                     GL11.glTranslatef(-2F, -0.8F, 2.3F);
                                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                                     GL11.glRotatef(90F, 1f, 0f, 0f);
                                 }, 170, 0),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);
                                     GL11.glTranslatef(-2F, -0.8F, 2.3F);
                                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                                     GL11.glRotatef(90F, 1f, 0f, 0f);
                                 }, 170, 0),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);
                                     GL11.glTranslatef(-2F, -0.8F, 2.3F);
                                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                                     GL11.glRotatef(90F, 1f, 0f, 0f);
                                 }, 260, 0),
 
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);
                                     GL11.glTranslatef(-2F, -0.8F, 2.3F);
                                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                                     GL11.glRotatef(90F, 1f, 0f, 0f);
                                 }, 240, 100),
 
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);
                                     GL11.glTranslatef(-2F, -0.8F, 2.3F);
                                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                                     GL11.glRotatef(90F, 1f, 0f, 0f);
                                 }, 200, 0),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);
                                     GL11.glTranslatef(-2F, -0.8F, 2.3F);
                                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                                     GL11.glRotatef(90F, 1f, 0f, 0f);
                                 }, 170, 170),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);
                                     GL11.glTranslatef(-2F, -0.8F, 2.3F);
                                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                                     GL11.glRotatef(90F, 1f, 0f, 0f);
                                 }, 260, 10),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);
                                     GL11.glTranslatef(-2F, -0.8F, 2.3F);
                                     GL11.glRotatef(-45F, 0f, 1f, 0f);
@@ -535,100 +527,95 @@ public class XM7Factory implements GunFactory {
                             GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                             GL11.glTranslatef(0.14f, 1.36f, -0.2f);
 
-                            // Standard Iron Sight Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
                                 GL11.glTranslatef(0F, -0f, 0f);
                             }
 
-                            // Standard Iron Sight Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
                                 GL11.glTranslatef(0F, 0.015f, 0f);
                             }
 
-                            // Standard Iron Sight Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
                                 GL11.glTranslatef(0F, 0.0f, 0f);
                             }
 
-                            // Standard Iron Sight Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
                                 GL11.glTranslatef(0F, 0.00f, 0.15f);
                             }
 
-                            // Standard Iron Sight Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AKMIron)) {
                                 GL11.glTranslatef(0F, 0f, 0f);
                             }
 
-                            // ACOG Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
                                 GL11.glTranslatef(-0.01F, 0.01F, 0.3f);
                             }
 
-                            // ACOG Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
                                 GL11.glTranslatef(-0.003F, -0.025f, 0.4f);
                             }
 
-                            // HP Zoomw
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
                                 GL11.glTranslatef(0.001F, -0.0f, 0.1f);
                             }
 
-                            // Reflex Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
                                 GL11.glTranslatef(0F, 0.02f, 0.1f);
                             }
 
-                            // Reflex Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                                 GL11.glTranslatef(0F, -0.01f, 0f);
                             }
 
-                            // Holo Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
                                 GL11.glTranslatef(0F, 0.053f, 0f);
                             }
 
-                            // Holo Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
                                 GL11.glTranslatef(0F, 0.053f, 0f);
                             }
 
-                            // Holo Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
                                 GL11.glTranslatef(-0.004F, 0.05f, 0.2f);
                             }
 
-                            // Holo Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
                                 GL11.glTranslatef(0F, 0.06f, 0f);
                             }
 
-                            // Reflex Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
                                 GL11.glTranslatef(0F, 0.04f, 0f);
                             }
 
-                            // Reflex Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
                                 GL11.glTranslatef(0F, 0.04f, 0f);
                             }
 
-                            // Reflex Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
                                 GL11.glTranslatef(0F, 0.07f, 0.3f);
                             }
 
-                            // Reflex Zoom
+                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                                 GL11.glTranslatef(0F, 0.07f, 0.3f);
                             }
-
-                            // Everything else
-                            else {
-                            }
-
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {
@@ -685,70 +672,70 @@ public class XM7Factory implements GunFactory {
                                 })
 
                         .withThirdPersonLeftHandPositioningReloading(
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-60.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.000000f, -0.075000f, 0.075000f);
                                 }, 250, 1000),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-55.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.000000f, -0.025000f, 0.125000f);
                                 }, 250, 1000),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-15.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(15.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(-0.025000f, -0.075000f, 0.000000f);
                                 }, 250, 50),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-15.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(15.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(-0.025000f, -0.075000f, 0.000000f);
                                 }, 250, 50),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-15.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(15.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(-0.025000f, -0.075000f, 0.000000f);
                                 }, 250, 1000),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-55.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.000000f, -0.025000f, 0.125000f);
                                 }, 250, 50),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-45.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.000000f, -0.025000f, 0.125000f);
                                 }, 250, 50),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-55.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.000000f, -0.025000f, 0.125000f);
                                 }, 250, 0),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-60.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(-20.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(15.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(-0.050000f, -0.025000f, 0.000000f);
                                 }, 250, 0),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-60.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(-20.000000f, 0f, 1f, 0f);
@@ -757,70 +744,70 @@ public class XM7Factory implements GunFactory {
                                 }, 250, 0))
 
                         .withThirdPersonRightHandPositioningReloading(
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(-60.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(-25.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.325000f, -0.150000f, 0.375000f);
                                 }, 250, 1000),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-55.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(-26.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                                 }, 250, 1000),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-55.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(2.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(-26.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                                 }, 250, 50),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-55.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(1.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(-25.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                                 }, 250, 50),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-53.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(-25.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                                 }, 250, 1000),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-53.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(-25.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                                 }, 250, 50),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-54.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(-25.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                                 }, 250, 50),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-55.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(1.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(-24.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                                 }, 250, 0),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-55.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                                     GL11.glRotatef(-24.000000f, 0f, 0f, 1f);
                                     GL11.glTranslatef(0.000000f, -0.150000f, 0.075000f);
                                 }, 250, 0),
-                                new Transition((renderContext) -> { // Reload position
+                                new Transition((renderContext) -> { 
                                     GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                                     GL11.glRotatef(-55.000000f, 1f, 0f, 0f);
                                     GL11.glRotatef(2.000000f, 0f, 1f, 0f);

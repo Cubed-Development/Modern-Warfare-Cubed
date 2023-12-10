@@ -10,7 +10,6 @@ import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
@@ -40,21 +39,13 @@ public class M249Factory {
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
-                        // The weapons power
                         15.0,
-                        // Muzzle climb divisor
                         15.75,
-                        // "Stock Length"
                         50.0,
-                        // Recovery rate from initial shot
                         0.4,
-                        // Recovery rate @ "stock"
                         0.3125,
-                        // Recoil rotation (Y)
                         0.0,
-                        // Recoil rotation (Z)
                         0.0,
-                        // Ads similarity divisor
                         1.0
                 ))
 
@@ -376,7 +367,7 @@ public class M249Factory {
 
                         .withFirstPersonHandPositioning(
 
-                                // Left hand
+                                
                                 new Transform()
                                         .withPosition(1.730000f, 0.865000f, -1.146400f)
                                         .withBBRotation(-15.4928F, -45.7685F, 66.3639F)
@@ -384,7 +375,7 @@ public class M249Factory {
                                         .withPivotPoint(0, 0, 0),
 
 
-                                // Right hand
+                                
                                 new Transform()
                                         .withPosition(-0.2F, 0.1F, 2)
                                         .withRotation(-5.4027F, -4.7805F, -1.6694F)
@@ -427,7 +418,7 @@ public class M249Factory {
                             }
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                                //System.out.println("Position me for Acog");
+                                
                                 GL11.glTranslatef(0F, 0.265f, 0.3f);
                             }
 
