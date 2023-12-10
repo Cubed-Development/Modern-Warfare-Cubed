@@ -12,6 +12,7 @@ import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
+import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
 // Keep the annotation here for reference
@@ -26,6 +27,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 .withZoom(0.9f) // Zoom factor
                 .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE) // Config group
                 .withMaxShots(1, Integer.MAX_VALUE) // Max shots per reload
+                .withMuzzlePosition(new Vec3d(-.1, -1, -3.9)) // Default to .withMuzzlePosition(new Vec3d(-.2, -1.1, -5.3))
                 .withShootSound("aac_honeybadger") // Shoot sound
                 .withSilencedShootSound("aac_honeybadger") // Silenced shoot sound
                 .withEndOfShootSound("gun_click") // End of shoot sound
