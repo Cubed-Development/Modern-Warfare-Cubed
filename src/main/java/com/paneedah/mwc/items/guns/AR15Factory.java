@@ -180,32 +180,6 @@ public class AR15Factory implements GunFactory {
                     }
                 }, true, false)
 
-                .withCompatibleAttachment(Attachments.M38FrontSight, renderContext -> {
-                    PlayerWeaponInstance instance = renderContext.getWeaponInstance();
-                    if (instance != null) {
-                        ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
-                        if (activeAttachment == Attachments.Mk18HandGuard) {
-                            GL11.glTranslatef(-0.004F, -0.1F, 2.5F);
-                            GL11.glScaled(1F, 1F, 1F);
-                        } else {
-                            GL11.glTranslatef(0F, 0F, 0F);
-                            GL11.glScaled(1F, 1F, 1F);
-                        }
-                    }
-                }, (model) -> {
-                    if (model instanceof AKMiron2) {
-                        GL11.glTranslatef(-0.18F, -1.5F, -3.73F);
-                        GL11.glScaled(0.55F, 0.55F, 1F);
-                    } else if (model instanceof FALIron) {
-                        GL11.glTranslatef(-0.1F, -1.34F, -3.7F);
-                        GL11.glScaled(0.1F, 0.9F, 0.3F);
-                        GL11.glRotatef(180F, 0f, 0f, 1f);
-                    } else if (model instanceof AK47iron) {
-                        GL11.glTranslatef(-0.235F, -1.85F, -3.7F);
-                        GL11.glScaled(0.75F, 0.95F, 0.3F);
-                    }
-                }, false, false)
                 .withCompatibleAttachment(Attachments.M4HandGuard, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.M16HandGuard, (model) -> {
