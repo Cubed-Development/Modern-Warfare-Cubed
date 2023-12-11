@@ -136,8 +136,8 @@ public class AR15Factory implements GunFactory {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
                                 AttachmentCategory.GUARD, instance);
                         if (activeAttachment == Attachments.Mk18HandGuard) {
-                            GL11.glTranslatef(0F, 0F, -0.35F);
-                            GL11.glScaled(1F, 1F, 1F);
+                            GL11.glTranslatef(0F, -0.05F, -0.15F);
+                            GL11.glScaled(0.95F, 0.95F, 0.95F);
                         } else if (activeAttachment == Attachments.M16A4HandGuard) {
                             GL11.glTranslatef(0F, 0F, -0.8F);
                             GL11.glScaled(1F, 1F, 1F);
