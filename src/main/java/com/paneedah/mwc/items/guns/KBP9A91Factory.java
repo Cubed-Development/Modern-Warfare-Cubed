@@ -26,7 +26,7 @@ public class KBP9A91Factory {
         return new Weapon.Builder()
                 .withName("kbp_9a91")
                 .withFireRate(0.7f)
-                .withRecoil(2f)
+                .withRecoil(3f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE)
                 .hasFlashPedals()

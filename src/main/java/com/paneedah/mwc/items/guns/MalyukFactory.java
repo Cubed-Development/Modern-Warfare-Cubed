@@ -31,7 +31,7 @@ public class MalyukFactory {
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE)
                 .hasFlashPedals()
-                .withMuzzlePosition(new Vec3d(-0.12000000357627887, -0.7399999922513956, -3.7999999195337324))
+                .withMuzzlePosition(new Vec3d(-0.12, -0.74, -3.8))
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withShootSound("ak47")
                 .withSilencedShootSound("ak15_silenced")
@@ -439,7 +439,7 @@ public class MalyukFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glTranslatef(0.18f, 0f, -0.1f);
+                            GL11.glTranslatef(0.18f, -0.005f, -0.1f);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
                                 GL11.glTranslatef(0F, 0f, 0.3f);

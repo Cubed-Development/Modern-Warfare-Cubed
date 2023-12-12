@@ -124,7 +124,7 @@ public class M38Factory implements GunFactory {
                         GL11.glTranslatef(-0.155F, -1.6F, -3.5F);
                         GL11.glScaled(0.32F, 0.32F, 0.32F);
                     }
-                }, true, false)
+                }, false, false)
 
                 .withCompatibleAttachment(Attachments.MBUSFrontSight, renderContext -> {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
@@ -150,7 +150,7 @@ public class M38Factory implements GunFactory {
                         GL11.glTranslatef(-0.16F, -1.55F, -3.3F);
                         GL11.glScaled(0.35F, 0.35F, 0.35F);
                     }
-                }, false, false)
+                }, true, false)
                 .withCompatibleAttachment(Attachments.M38HandGuard, true, (model) -> {
                     if (model instanceof AKRail) {
                         GL11.glTranslatef(0.13F, -1.145F, -4.03F);
@@ -188,8 +188,7 @@ public class M38Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.HK416Receiver, true, (model) -> {
-                    if (model instanceof M4Receiver) {
-                    } else if (model instanceof AKRail) {
+                    if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.375F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.69F);
                     }
@@ -248,13 +247,13 @@ public class M38Factory implements GunFactory {
                         GL11.glScaled(0.35F, 0.35F, 0.35F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.HK416RearSights, true, (model) -> {
+                .withCompatibleAttachment(Attachments.HK416RearSights, (model) -> {
                     if (model instanceof G95_upright_rearsights) {
                         GL11.glTranslatef(-0.158F, -1.57F, -0.5F);
                         GL11.glScaled(0.32F, 0.32F, 0.32F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.MBUSRearSights, (model) -> {
+                .withCompatibleAttachment(Attachments.MBUSRearSights, true, (model) -> {
                     if (model instanceof MBUSRearSight) {
                         GL11.glTranslatef(-0.16F, -1.55F, -0.5F);
                         GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -311,7 +310,6 @@ public class M38Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
                     }
                 })
 
@@ -625,8 +623,7 @@ public class M38Factory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glTranslatef(0.18f, 0.03f, 0.3f);
-
+                            GL11.glTranslatef(0.18f, 0.03f, 0.4f);
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
                                 GL11.glTranslatef(0F, -0.05f, 0f);
@@ -644,7 +641,7 @@ public class M38Factory implements GunFactory {
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                GL11.glTranslatef(0F, 0.025f, 0.5f);
+                                GL11.glTranslatef(0F, 0.025f, 0.4f);
                             }
 
                             
@@ -654,17 +651,17 @@ public class M38Factory implements GunFactory {
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                GL11.glTranslatef(-0.01F, 0.03f, 0.5f);
+                                GL11.glTranslatef(-0.01F, 0.02f, 0.4f);
                             }
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                GL11.glTranslatef(-0.003F, -0.025f, 0.8f);
+                                GL11.glTranslatef(-0.003F, -0.025f, 0.7f);
                             }
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                                GL11.glTranslatef(0F, -0.027f, 0.5f);
+                                GL11.glTranslatef(0F, -0.027f, 0.4f);
                             }
 
                             
@@ -689,7 +686,7 @@ public class M38Factory implements GunFactory {
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                GL11.glTranslatef(-0.004F, 0.025f, 0.5f);
+                                GL11.glTranslatef(-0.004F, 0.025f, 0.4f);
                             }
 
                             

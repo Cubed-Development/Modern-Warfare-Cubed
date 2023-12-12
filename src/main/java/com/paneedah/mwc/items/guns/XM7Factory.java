@@ -24,7 +24,7 @@ public class XM7Factory implements GunFactory {
         return new Weapon.Builder()
                 .withName("sig_xm7")
                 .withFireRate(0.75f)
-                .withRecoil(3f)
+                .withRecoil(3.5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE)
                 .hasFlashPedals()

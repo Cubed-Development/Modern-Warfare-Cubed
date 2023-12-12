@@ -22,7 +22,7 @@ public class ARX160Factory implements GunFactory {
         return new Weapon.Builder()
                 .withName("arx160")
                 .withFireRate(0.75f)
-                .withRecoil(2.5f)
+                .withRecoil(2.8f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE)
                 .hasFlashPedals()
