@@ -13,7 +13,6 @@ import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
@@ -28,7 +27,7 @@ public class AS50Factory implements GunFactory {
                 .withZoom(0.8f)
                 .withConfigGroup(GunConfigurationGroup.SNIPER_RIFLE)
                 .withMuzzlePosition(new Vec3d(0, -1.4, -10))
-                .withMaxShots(1, Integer.MAX_VALUE)
+                .withMaxShots(1)
                 .withShootSound("as50")
                 .withPumpTimeout(1000)
                 .withSilencedShootSound("as50_silenced")

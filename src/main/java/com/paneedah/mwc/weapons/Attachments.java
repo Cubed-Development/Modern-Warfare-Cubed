@@ -4393,7 +4393,7 @@ public class Attachments {
                 .build();
 
         MP7IronSights = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.FRONTSIGHT)
+                .withCategory(AttachmentCategory.SCOPE)
                 .withModel(new MP7RearSights(), "MP7IronSights.png")
                 .withOnWeaponModel(new MP7FrontSights(), "MP7IronSights.png")
 
@@ -4403,7 +4403,7 @@ public class Attachments {
                 .build();
 
         MP7IronSightsStanding = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.FRONTSIGHT)
+                .withCategory(AttachmentCategory.SCOPE)
                 .withModel(new MP7RearSightFlipped(), "MP7IronSights.png")
                 .withOnWeaponModel(new MP7FrontSightFlipped(), "MP7IronSights.png")
 
