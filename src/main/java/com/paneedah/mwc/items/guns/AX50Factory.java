@@ -67,7 +67,6 @@ public class AX50Factory implements GunFactory {
                         CraftingEntry(MWCItems.gunmetalPlate, 16), new
                         CraftingEntry(MWCItems.steelIngot, 12))
 
-                .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
                 .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
                 .withCompatibleAttachment(Attachments.Placeholder, true, (model) -> {
                     GL11.glTranslatef(0.01f, -0.19f, -0.4f);

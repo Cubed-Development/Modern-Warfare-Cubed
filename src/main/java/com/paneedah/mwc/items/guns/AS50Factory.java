@@ -27,6 +27,7 @@ public class AS50Factory implements GunFactory {
                 .withZoom(0.8f)
                 .withConfigGroup(GunConfigurationGroup.SNIPER_RIFLE)
                 .withMuzzlePosition(new Vec3d(0, -1.4, -10))
+                .hasFlashPedals()
                 .withMaxShots(1)
                 .withShootSound("as50")
                 .withPumpTimeout(1000)
