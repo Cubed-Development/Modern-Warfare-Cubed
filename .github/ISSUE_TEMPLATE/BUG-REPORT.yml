@@ -1,8 +1,6 @@
 name: Bug Report
 description: File a bug report
 labels: Bug
-assignees:
-  - octocat
 body:
   - type: markdown
     attributes:
