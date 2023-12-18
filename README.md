@@ -8,18 +8,17 @@
 
 **Modern Warfare Cubed** is a well optimized, open source Modern Warfare fork, made in light of the now discontinued, Vic's Modern Warfare!
 
-
-![Features Showcase](https://github.com/Cubed-Development/Modern-Warfare-Cubed/tree/main/assets/showcase/Features%20Showcase.gif)
+![Features Showcase](https://github.com/Cubed-Development/Modern-Warfare-Cubed/blob/main/assets/showcase/Features%20Showcase.png)
 
 This mod introduces a plethora of new features to Minecraft, including an extensive arsenal of modern weaponry, new explosives, vehicles, and more.
 
 It introduces a wide range of modern weapons to Minecraft, including assault rifles, sniper rifles, shotguns, pistols, and more. These weapons are modeled after real-life firearms and come complete with authentic sound effects and animations.
 
-### High-Quality and realistic style guns!
+### High-Quality and realistic style weapons!
 
-![Weapon Showcase](https://github.com/Cubed-Development/Modern-Warfare-Cubed/tree/main/assets/showcase/Weapon%20Showcase.gif)
+![Weapon Showcase](https://github.com/Cubed-Development/Modern-Warfare-Cubed/blob/main/assets/showcase/Weapon%20Showcase.gif)
 
-## Gun Customization & Statistics!
+## Weapon Customization & Statistics!
 
 Our weaponry is heavily customizable with a highly advanced attachment system made up of 3 main parts; **Customization**, **Modification** and **Attachments**.
 
@@ -27,7 +26,7 @@ Each weapon has its own unique attributes, such as rate of fire, accuracy, and d
 
 Here's a sneak-peak into what it looks like in-game!
 
-![Modification Showcase](https://github.com/Cubed-Development/Modern-Warfare-Cubed/tree/main/assets/showcase/Modification%20Showcase.gif)
+![Modification Showcase](https://github.com/Cubed-Development/Modern-Warfare-Cubed/blob/main/assets/showcase/Modification%20Showcase.gif)
 
 ## Tablets and Cameras!
 
@@ -35,7 +34,7 @@ A feature that allows you to put cameras on entities and watch what they're doin
 
 Simply press your Left and Right arrow keys to navigate between cameras!
 
-![Camera Showcase](https://github.com/Cubed-Development/Modern-Warfare-Cubed/tree/main/assets/showcase/Camera%20Showcase.gif)
+![Camera Showcase](https://github.com/Cubed-Development/Modern-Warfare-Cubed/blob/main/assets/showcase/Camera%20Showcase.gif)
 
 ## Support Us!
 
