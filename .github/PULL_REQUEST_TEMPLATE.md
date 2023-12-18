@@ -10,7 +10,7 @@
   5. Complete the pull request template. 
         It is fine for draft pull requests to not have the template completed.
 
-  🚫 You must acknowledge that if your pull request does not respect those rules, your pull request might be rejected
+  🚫 Please note, pull requests not adhering to these rules may be rejected
 -->
 
 ## 📝 Description
