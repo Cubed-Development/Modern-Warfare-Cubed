@@ -85,6 +85,8 @@ We wouldn't be where we are now without the support from you all!
 ### Official Design Team
 
 - [Braiam23](https://github.com/Braiam23) - Lead Designer
+- [Medico](https://steamcommunity.com/profiles/76561198908516041/) - Designer
+- [papudinho](https://github.com/le-papudinho) - Designer
 - [.StarKnight](https://twitter.com/Star_SHoT_W) - Designer
 
 ### Our Contributors
