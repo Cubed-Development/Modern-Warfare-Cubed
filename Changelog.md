@@ -200,6 +200,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Weapons Locker
   - Fridge (Open)
   - Fridge (Closed)
+  - Artillery
+  - Supply Drop
 - Fixed position of the backpacks in inventory
 - Fixed the client ticker "corruption" state
 - Fixed melee attack and heavy melee attack being switched

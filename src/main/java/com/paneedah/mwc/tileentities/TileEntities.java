@@ -115,6 +115,7 @@ public class TileEntities {
                 .withModelClassName("ArtilleryProp")
                 .withTextureName("artilleryprop")
                 .withCreativeTab(MWC.PROPS_TAB)
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.3, 0, 0.1, 1.3, 1.5, 1.6)))
                 .withPositioning(tileEntity -> {
                     GL11.glScalef(0.8f, 0.8f, 0.8f);
                     GL11.glTranslatef(0.55f, 0.6f, 0.55f);
@@ -127,11 +128,11 @@ public class TileEntities {
                 .withModelClassName("SupplyDrop")
                 .withTextureName("supplydrop")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withPositioning(tileEntity -> {
-                    GL11.glScalef(0.5f, 0.5f, 0.5f);
-                    GL11.glTranslatef(0.2f, 1.63f, 1.7f);
-                    GL11.glRotatef(90F, 0f, 1f, 0f);
-                }));
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.3, 0, -0.6, 1.3, 1.45, 1.6)))
+                .withTransform(Transform.getZero()
+                        .withScale(0.5F, 0.5F, 0.5F)
+                        .withPosition(0, 1F, 0))
+                .modern());
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
