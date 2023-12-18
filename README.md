@@ -1,6 +1,3 @@
-[![Curse Forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/curseforge_vector.svg)](https://www.curseforge.com/minecraft/mc-mods/modern-warfare-cubed)
-[![Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/modern-warfare-cubed)
-
 [![Patreon](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/donate/patreon-plural_vector.svg)](https://patreon.com/ModernWarfareCubed)
 [![Discord](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-plural_vector.svg)](https://discord.gg/k5WPk93K7b)
 
@@ -8,7 +5,7 @@
 
 **Modern Warfare Cubed** is a well optimized, open source Modern Warfare fork, made in light of the now discontinued, Vic's Modern Warfare!
 
-![Features Showcase](https://github.com/Cubed-Development/Modern-Warfare-Cubed/blob/main/assets/showcase/Features%20Showcase.png)
+![Features Showcase](https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/main/assets/showcase/Features%20Showcase.png)
 
 This mod introduces a plethora of new features to Minecraft, including an extensive arsenal of modern weaponry, new explosives, vehicles, and more.
 
@@ -16,7 +13,7 @@ It introduces a wide range of modern weapons to Minecraft, including assault rif
 
 ### High-Quality and realistic style weapons!
 
-![Weapon Showcase](https://github.com/Cubed-Development/Modern-Warfare-Cubed/blob/main/assets/showcase/Weapon%20Showcase.gif)
+![Weapon Showcase](https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/main/assets/showcase/Weapon%20Showcase.gif)
 
 ## Weapon Customization & Statistics!
 
@@ -26,7 +23,7 @@ Each weapon has its own unique attributes, such as rate of fire, accuracy, and d
 
 Here's a sneak-peak into what it looks like in-game!
 
-![Modification Showcase](https://github.com/Cubed-Development/Modern-Warfare-Cubed/blob/main/assets/showcase/Modification%20Showcase.gif)
+![Modification Showcase](https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/main/assets/showcase/Modification%20Showcase.gif)
 
 ## Tablets and Cameras!
 
@@ -34,7 +31,7 @@ A feature that allows you to put cameras on entities and watch what they're doin
 
 Simply press your Left and Right arrow keys to navigate between cameras!
 
-![Camera Showcase](https://github.com/Cubed-Development/Modern-Warfare-Cubed/blob/main/assets/showcase/Camera%20Showcase.gif)
+![Camera Showcase](https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/main/assets/showcase/Camera%20Showcase.gif)
 
 ## Support Us!
 
@@ -79,7 +76,7 @@ We wouldn't be where we are now without the support from you all!
 ### Official Development Team
 - [Paneedah](https://github.com/Paneedah) - Lead Developer
 - [BurnhamR](https://github.com/BurnhamR) - Lead Developer
-- [Luna Lage (Desoroxxx)](https://github.com/JustDesoroxxx) - Head Developer
+- [Desoroxxx](https://github.com/JustDesoroxxx) - Head Developer
 - [SticksDev](https://github.com/SticksDeveloper) - Developer
 - [Koud-Wind](https://github.com/Koud-Wind) - Developer
 - [Azurae](https://github.com/azuraerae) - Developer
