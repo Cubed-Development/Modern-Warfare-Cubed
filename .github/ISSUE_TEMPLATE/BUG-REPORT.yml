@@ -60,35 +60,35 @@ body:
     id: mwc-version
     attributes:
       label: MWC Version
-      placeholder: 0.1 Dev 15
+      placeholder: "0.1 Dev 15"
     validations:
       required: true
   - type: input
     id: forge-version
     attributes:
       label: Forge Version
-      placeholder: 1.12.2 - 14.23.5.2860
+      placeholder: "1.12.2 - 14.23.5.2860"
     validations:
       required: true
   - type: input
     id: red-core-version
     attributes:
       label: Red Core Version
-      placeholder: 0.6 Dev 1
+      placeholder: "0.6 Dev 1"
     validations:
       required: true
   - type: input
     id: mixin-booter-version
     attributes:
       label: MixinBooter Version
-      placeholder: 8.9
+      placeholder: "8.9"
     validations:
       required: true
   - type: input
     id: java-version
     attributes:
       label: Java Version
-      placeholder: 1.8 - 392
+      placeholder: "1.8 - 392"
     validations:
       required: true
   - type: dropdown
