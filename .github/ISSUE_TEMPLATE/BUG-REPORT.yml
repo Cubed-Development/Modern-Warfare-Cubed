@@ -1,0 +1,129 @@
+name: Bug Report
+description: File a bug report
+labels: Bug
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: |
+        Tell us what is the issue, also what did you expect to happen?
+        And if possible guide us through the steps required the reproduce the issue.
+      placeholder: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: checkboxes
+    id: reproducibility
+    attributes:
+      label: Reproducibility
+      description: Please try to reproduce the issue with as few other mods as possible.
+      options:
+        - label: I reproduced this issue with as few other mods as possible installed.
+          required: true
+        - label: I am unable to reproduce this issue consistently.
+          required: false
+  - type: input
+    id: screenshots-and-or-videos
+    attributes:
+      label: Screenshots and/or videos
+      description: If applicable, add screenshots and/or videos to help explain your problem.
+    validations:
+      required: false
+  - type: input
+    id: logs
+    attributes:
+      label: Logs
+      description: Please use https://mclo.gs/ to upload your logs
+      placeholder: https://mclo.gs/
+    validations:
+      required: true
+  - type: input
+    id: debug-logs
+    attributes:
+      label: Debug Logs
+      description: Please use https://mclo.gs/ to upload your debug logs
+      placeholder: https://mclo.gs/
+    validations:
+      required: false
+  - type: input
+    id: crash-reports
+    attributes:
+      label: Crash Reports
+      description: Please use https://mclo.gs/ to upload your crash reports
+      placeholder: https://mclo.gs/
+    validations:
+      required: false
+  - type: input
+    id: mwc-version
+    attributes:
+      label: MWC Version
+      placeholder: "0.1 Dev 15"
+    validations:
+      required: true
+  - type: input
+    id: forge-version
+    attributes:
+      label: Forge Version
+      placeholder: "1.12.2 - 14.23.5.2860"
+    validations:
+      required: true
+  - type: input
+    id: red-core-version
+    attributes:
+      label: Red Core Version
+      placeholder: "0.6 Dev 1"
+    validations:
+      required: true
+  - type: input
+    id: mixin-booter-version
+    attributes:
+      label: MixinBooter Version
+      placeholder: "8.9"
+    validations:
+      required: true
+  - type: input
+    id: java-version
+    attributes:
+      label: Java Version
+      placeholder: "1.8 - 392"
+    validations:
+      required: true
+  - type: dropdown
+    id: jvm
+    attributes:
+      label: Java Virtual Machine
+      description: What Java Virtual Machine are you using? (If you don't know just leave the default)
+      options:
+        - Hotspot
+        - OpenJ9
+      default: 0
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      placeholder: Windows 11
+    validations:
+      required: true
+  - type: dropdown
+    id: gpu-vendor
+    attributes:
+      label: GPU Vendor
+      options:
+        - AMD
+        - NVIDIA
+        - Intel
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/Cubed-Development/Modern-Warfare-Cubed/blob/main/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
