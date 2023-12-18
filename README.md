@@ -74,15 +74,18 @@ Another massive thank you to all the contributors and members of the development
 We wouldn't be where we are now without the support from you all!
 
 ### Official Development Team
+
 - [Paneedah](https://github.com/Paneedah) - Lead Developer
 - [BurnhamR](https://github.com/BurnhamR) - Lead Developer
-- [Desoroxxx](https://github.com/JustDesoroxxx) - Head Developer
+- [Luna Lage (Desoroxxx)](https://github.com/JustDesoroxxx) - Head Developer
 - [SticksDev](https://github.com/SticksDeveloper) - Developer
 - [Koud-Wind](https://github.com/Koud-Wind) - Developer
 - [Azurae](https://github.com/azuraerae) - Developer
 
 ### Official Design Team
+
 - [Braiam23](https://github.com/Braiam23) - Lead Designer
+- [.StarKnight](https://twitter.com/Star_SHoT_W) - Designer
 
 ### Our Contributors
 
