@@ -1,0 +1,10 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Feature Requests
+    url: https://modernwarfarecubed.featurebase.app/
+    about: |
+      We use Featurebase for feature requests.
+      Don't worry; you can easily connect to it via GitHub, Discord or Google.
+  - name: MWC Discord Help
+    url: https://discord.gg/HGpwnmjbz9
+    about: Get help on the MWC Discord.
