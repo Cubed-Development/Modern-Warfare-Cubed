@@ -2,29 +2,13 @@
 name: Feature request
 about: Suggest an idea for this project
 title: ''
-labels: Enhancement
+labels: ''
 assignees: ''
 
 ---
 
-## Is your feature request related to a problem? Please describe
+# We do not use GitHub for feature requests anymore
 
-***A clear and concise description of what the problem is.*** 
+# Please use our [FeatureBase](https://modernwarfarecubed.featurebase.app/)
 
-Ex: I'm always frustrated when [...]
-
-## Describe the solution you'd like
-
-***A clear and concise description of what you want to happen.***
-
-> Remember that a great explanation leads to a greater understanding
-
-## Describe alternatives you've considered
-
-***A clear and concise description of any alternative solutions or features you've considered.***
-
-> Remember that a great explanation leads to a greater understanding
-
-## Additional context
-
-***Add any other context or screenshots about the feature request here.***
+Don't worry; you can easily connect to it via GitHub, Discord or Google.
