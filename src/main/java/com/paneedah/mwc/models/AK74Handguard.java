@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class AK74Handguard extends ModelBase {
-	private final QRenderer handguard;
+	private final ModelRenderer handguard;
 	private final ModelRenderer gun153_r1;
 	private final ModelRenderer gun154_r1;
 	private final ModelRenderer gun155_r1;
@@ -52,7 +52,7 @@ public class AK74Handguard extends ModelBase {
 		textureWidth = 128;
 		textureHeight = 128;
 
-		handguard = new QRenderer(this);
+		handguard = new ModelRenderer(this);
 		handguard.setRotationPoint(0.0F, 24.0F, 0.0F);
 		handguard.cubeList.add(new ModelBox(handguard, 84, 32, -4.0F, -37.0F, -41.5F, 5, 4, 5, 0.0F, false));
 		handguard.cubeList.add(new ModelBox(handguard, 57, 0, -4.0F, -36.5F, -53.5F, 5, 2, 12, 0.0F, false));

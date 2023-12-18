@@ -1,16 +1,14 @@
 package com.paneedah.weaponlib.animation;
 
-import akka.japi.Pair;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.PlayerWeaponInstance;
-import com.paneedah.weaponlib.compatibility.Interceptors;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.numerical.LerpedValue;
 import com.paneedah.weaponlib.numerical.RandomVector;
 import com.paneedah.weaponlib.numerical.SpringValue;
 import net.minecraft.entity.player.EntityPlayer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 /**
  * Stores a bunch of values that need to update on an interval, and typically
@@ -116,18 +114,7 @@ public class ClientValueRepo {
 
 		RecoilParam params = pwi.getRecoilParameters();
 
-		Pair<Double, Double> screenShakeParam = pwi.getScreenShakeParameters();
-
 		double power = params.getWeaponPower();
-
-		if (gunPow.currentValue < INITIAL_GUN_POWER_CUTOFF) {
-			Interceptors.nsm.impulse(screenShakeParam.first());
-			power *= INITIAL_GUN_POWER_MULTIPLIER;
-		} else if (gunPow.currentValue > params.getStockLength()) {
-			power *= GUN_POWER_PAST_STOCK_DIVISOR;
-			Interceptors.nsm.impulse(screenShakeParam.first() * GUN_POWER_PAST_STOCK_DIVISOR);
-		} else
-			Interceptors.nsm.impulse(screenShakeParam.first());
 
 		weaponRecovery.velocity += power * WEAPON_RECOVERY_VELOCITY_POWER;
 
@@ -156,7 +143,7 @@ public class ClientValueRepo {
 		slidePumpValue.dampen(0.0001);
 		
 		
-		EntityPlayer player = mc.player;
+		EntityPlayer player = MC.player;
 
 		PlayerWeaponInstance pwi = context.getMainHeldWeapon();
 
@@ -167,8 +154,8 @@ public class ClientValueRepo {
 		
 		if(!player.capabilities.isFlying && player.onGround) {
 			// Update movement values
-			if (!mc.player.onGround)
-				jumpingSpring.velocity += mc.player.motionY * JUMP_VELOCITY_MULTIPLIER;
+			if (!MC.player.onGround)
+				jumpingSpring.velocity += MC.player.motionY * JUMP_VELOCITY_MULTIPLIER;
 			if (player.moveForward < 0) {
 				strafe.add(player.moveForward * FORWARD_MOVEMENT_DIVISOR);
 			} else if(!player.isElytraFlying() && !player.capabilities.isFlying) {

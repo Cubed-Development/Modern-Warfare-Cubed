@@ -2,7 +2,7 @@ item.m40gasmask_helmet.name=M40 Gas Mask
 item.JPNVG18_helmet.name=GPNVG-18 Nightvision Helmet
 
 item.audis4.name=Audi S4
-item.mclaren_senna.name=Mclaren Senna
+item.MClaren_senna.name=Mclaren Senna
 item.ae86trueno.name=Toyota AE86 Trueno
 item.atv_polaris_sportsman_850_2019.name=2019 Polaris Sportsman 850
 
@@ -67,29 +67,21 @@ item.SCPGuard_boots.name=SCP Guard Boots
 item.Dclass_chest.name=D-Class Chestpiece
 item.Dclass_boots.name=D-Class Boots
 
-item.mwc_tactical_push_backpack.name=Tactical Push Pack
-
-item.mwc_combat_sustainment_backpack.name=Combat Sustainment Backpack
+item.mwc_combat_sustainment_backpack_tan.name=Combat Sustainment Backpack (Tan)
 item.mwc_combat_sustainment_backpack_black.name=Combat Sustainment Backpack (Black)
 item.mwc_combat_sustainment_backpack_forest.name=Combat Sustainment Backpack (Forest)
 
-item.mwc_assault_backpack.name=Assault Backpack
+item.mwc_assault_backpack_tan.name=Assault Backpack (Tan)
 item.mwc_assault_backpack_black.name=Assault Backpack (Black)
 item.mwc_assault_backpack_forest.name=Assault Backpack (Forest)
 
-item.mwc_tru_spec_cordura_backpack.name=Tru-Spec Cordura Backpack
+item.mwc_tru_spec_cordura_backpack_tan.name=Tru-Spec Cordura Backpack (Tan)
 item.mwc_tru_spec_cordura_backpack_black.name=Tru-Spec Cordura Backpack (Black)
 item.mwc_tru_spec_cordura_backpack_forest.name=Tru-Spec Cordura Backpack (Forest)
 
+item.mwc_f5_switchblade_backpack.name=F5 Switchblade Backpack
+
 item.mwc_duffle_bag.name=Duffle Bag
-
-item.mwc_pilgrim_backpack.name=Pilgrim Backpack
-
-item.mwc_f4m_terminator_backpack.name=F4M Terminator Backpack
-
-item.mwc_bergen_backpack.name=Bergen Backpack
-
-item.mwc_g2_gunslinger2_backpack.name=G2 Gunslinger II Backpack
 
 item.mwc_flyye_field_compact_plate_carrier.name=Molle Plate Carrier
 item.mwc_molle_black.name=Molle Plate Carrier (Black)
@@ -98,10 +90,10 @@ item.mwc_molle_urban.name=Molle Plate Carrier (Urban)
 
 item.mwc_fort_armor.name=6B43 6A Body Armor
 
-item.mwc_usmc_vest.name=Force Recon Vest
-item.mwc_usmc_vest_black.name=Force Recon Vest (Black)
-item.mwc_usmc_vest_green.name=Force Recon Vest (Green)
-item.mwc_usmc_vest_urban.name=Force Recon Vest (Urban)
+item.mwc_usMC_vest.name=Force Recon Vest
+item.mwc_usMC_vest_black.name=Force Recon Vest (Black)
+item.mwc_usMC_vest_green.name=Force Recon Vest (Green)
+item.mwc_usMC_vest_urban.name=Force Recon Vest (Urban)
 
 item.mwc_juggernaut_body_armor.name=Juggernaut Body Armor
 
@@ -254,7 +246,7 @@ item.g2_contender.name=G2 Contender
 item.beowulf_50_cal.name=Beowulf .50 Cal
 item.hk_417.name=HK 417
 item.ar15.name=AR-15
-item.sig_mcx.name=SIG MCX
+item.sig_MCx.name=SIG MCX
 item.mas_21.name=MAS-21
 item.mp443.name=MP443
 item.ump_45.name=UMP45
@@ -372,7 +364,7 @@ item.mwc_MPXMag.name=30rnd 9x19mm MPX Magazine
 item.mwc_APC9Mag.name=30rnd 9x19mm APC9 Magazine
 item.mwc_M6CMag.name=12rnd 9x19mm Magazine
 item.mwc_VectorDrumMag.name=50rnd .45 ACP Vector Drum Magazine
-item.mwc_NGSWR_Mag.name=20rnd 6.5mm Magazine
+item.mwc_NGSWR_Mag.name=20rnd .277 FURY Magazine
 item.mwc_FamasF1Mag.name=30rnd 5.56x45mm NATO F1 Magazine
 item.mwc_BeowulfMag.name=13rnd .50 Beowulf Magazine
 item.mwc_S710TricunMag.name=30rnd 10mm Magazine
@@ -432,6 +424,7 @@ item.mwc_Bullet57x28mm.name=5.7x28mm Bullet
 item.mwc_Bullet408CT.name=.408 Cheyenne Tactical Bullet
 item.mwc_Bullet4570.name=.45-70 Government Bullet
 item.mwc_Bullet65.name=6.5mm Bullet
+item.mwc_bullet_277.name=.277 FURY Bullet
 item.mwc_Bullet545x39.name=5.45x39mm Bullet
 item.mwc_Bullet40SW.name=.40 S&W Bullet
 item.mwc_Bullet50Beowulf.name=.50 Beowulf Bullet
@@ -440,18 +433,16 @@ item.mwc_Bullet473x33mm.name=4.73x33mm Bullet
 
 item.tactical_tomahawk.name=Tactical Tomahawk
 item.baseball_bat.name=Baseball Bat
-item.baseball_bat_nails.name=Baseball Bat w/ Nails
+item.baseball_bat_nails.name=Nailed Baseball Bat
 item.night_stick.name=Night Stick
 
-item.gas_can.name=Gas Can (PROP)
-item.mwc_wcam.name=MWC Camera
-item.mwc_tablet.name=MWC Tablet
-
+item.mwc_wcam.name=Camera
+item.mwc_tablet.name=Tablet
 
 item.mwc_M67Frag.name=M67 Frag Grenade
 item.mwc_ImpactGrenade.name=Impact Grenade
 item.mwc_M18White.name=M18 Smoke Grenade (White)
-item.mwc_Flash.name=Flash Grenade (WIP)
+item.mwc_Flash.name=Flash Grenade
 
 item.mwc_ShotgunShell.name=12 Gauge Shotgun Shell
 
@@ -961,9 +952,9 @@ tile.mwc_desk_middle_alt1.name=Desk Middle (ALT1)
 tile.mwc_desk_right.name=Desk Right
 tile.mwc_desk_right_alt1.name=Desk Right (ALT1)
 tile.mwc_desk_shelf.name=Desk Shelf
-tile.mwc_desk_shelf_alt1.name=Desk Shelf (A1)
-tile.mwc_desk_shelf_alt2.name=Desk Shelf (A2)
-tile.mwc_desk_shelf_alt3.name=Desk Shelf (A3)
+tile.mwc_desk_shelf_alt1.name=Desk Shelf (ALT1)
+tile.mwc_desk_shelf_alt2.name=Desk Shelf (ALT2)
+tile.mwc_desk_shelf_alt3.name=Desk Shelf (ALT3)
 tile.mwc_barrier.name=Barrier
 tile.mwc_barrier_rotated.name=Barrier (Rotated)
 tile.mwc_body_bag.name=Body Bag
@@ -1013,7 +1004,7 @@ tile.mwc_DuelFloodLight.name=Duel Flood Light
 tile.mwc_FloodLight.name=Flood Light
 tile.mwc_Radio_rotated.name=Radio (Rotated)
 tile.mwc_Radio.name=Radio
-tile.mwc_camera_rotated.name=Camera Rotated
+tile.mwc_camera_rotated.name=Camera (Rotated)
 tile.mwc_pc.name=PC
 tile.mwc_propanetank.name=Propane Tank
 tile.mwc_towablefloodlight.name=Towable Flood Light
@@ -1030,16 +1021,15 @@ tile.mwc_spookyghost2.name=Spooky Ghost 2
 tile.mwc_spookyghost3.name=Spooky Ghost 3
 tile.mwc_swat_truck.name=SWAT Truck
 
-itemGroup.AssaultRifles_tab=Weapons
-itemGroup.props_tab=Props (Creative Use Only)
-itemGroup.AmmoTab=Ammunition
-itemGroup.AttachmentsTab=Attachments
-itemGroup.ArmorTab=Armor
-itemGroup.GrenadesTab=Grenades
-itemGroup.GadgetsTab=Gadgets
-itemGroup.BlocksTab=Blocks & Ingots
+itemGroup.weapons=Weapons
+itemGroup.props=Props (Creative Use Only)
+itemGroup.ammunitionAndMagazines=Ammunition & Magazines
+itemGroup.attachments=Attachments
+itemGroup.equipment=Equipment
+itemGroup.throwables=Throwables
+itemGroup.blocksAndIngots=Blocks & Ingots
 
-key.categories.weaponlib=Modern Warfare
+key.categories.weaponlib=Modern Warfare Cubed
 key.texture_change=Change Gun Skin
 key.fire_mode=Selective Fire
 key.reload=Reload Gun
@@ -1047,10 +1037,23 @@ key.attachment=Attachment Mode
 key.recoil_fitter=Grip Catagory
 key.scope=Scope Catagory
 key.silencer=Barrel Catagory
-key.categories.futuristicarsenal=Modern Warfare
 key.laser=Switch Laser
 key.add=Zoom In
 key.subtract=Zoom Out
+key.inspect=Inspect
+key.nightVision=Toggle Night Vision
+key.opendoor=Open Door
+key.proning=Prone
+key.unload=Unload
+
+key.categories.vehicle=Modern Warfare Cubed (Vehicle)
+vehicle.brake=Brake
+vehicle.clutch=Clutch
+vehicle.handbrake=Handbreake
+vehicle.throttle=Throttle
+vehicle.turnleft=Turn Left
+vehicle.turnright=Turn Right
+vehicle.turnoff=Turn Off
 
 gui.attachmentMode.changeScope=Press [%s] to change scope
 gui.attachmentMode.changeBarrelRig=Press [%s] to change barrel rig
@@ -1059,7 +1062,7 @@ gui.attachmentMode.changeUnderBarrelRig=Press [%s] to add under-barrel rig
 gui.attachmentMode.applyLaser= Press [%s] to apply laser attachment
 gui.ammoCounter=Ammo: %s
 gui.noMagazine=No magazine
-gui.noAmmo=No ammo
+gui.noAmmo=No ammunition
 gui.firearmMode=Firearm mode: %s
 gui.firearmMode.semi=Semi
 gui.firearmMode.auto=Auto
@@ -1069,7 +1072,7 @@ gui.currentZoom=Zoom: %s%%
 gui.grenadeExplodes=Explodes in %s sec
 gui.coolingDown=Cooling down...
 
-config.category.ores.name=Ores Config
+config.category.ores.name=Ores
 config.ores.sulfurSpawnsPerChunk.property.name=Sulfur Ore Per Chunk
 config.ores.sulfurSpawnsPerChunk.property.tooltip=The amount of Sulfur Ore spawned per chunk.
 config.ores.copperSpawnsPerChunk.property.name=Copper Ore Per Chunk
@@ -1081,23 +1084,30 @@ config.ores.leadSpawnsPerChunk.property.tooltip=The amount of Lead Ore spawned p
 config.ores.graphiteSpawnsPerChunk.property.name=Graphite Ore Per Chunk
 config.ores.graphiteSpawnsPerChunk.property.tooltip=The amount of Graphite Ore spawned per chunk.
 
-config.category.gameplay.name=Gameplay Config
+config.category.gameplay.name=Gameplay
 config.gameplay.enableAmmoCounter.property.name=Ammo Counter
 config.gameplay.enableAmmoCounter.property.tooltip=Enable/Disable the Ammo Counter
+config.gameplay.ammoCounterX.property.name=Ammo Counter X
+config.gameplay.ammoCounterY.property.name=Ammo Counter Y
+config.gameplay.ammoCounterSize.property.name=Ammo Counter Size
 config.gameplay.enableOpenDoorDisplay.property.name=Open Door Display
+config.gameplay.enableAmmoCounterBackground.property.name=Ammo Counter Background
+config.gameplay.enableAmmoCounterBackgroundReverse.property.name=Ammo Counter Reverse
 config.gameplay.enableOpenDoorDisplay.property.tooltip=Enable/Disable the Open Door Display
 config.gameplay.holdToAim.property.name=Hold To Aim
 config.gameplay.holdToAim.property.tooltip=Enable/Disable hold to aim
-config.gameplay.enableAmmoCounterBackground.property.name=Ammo Counter Background
 config.gameplay.enableAmmoCounterBackground.property.tooltip=Enable/Disable the background for Ammo Counter
 config.gameplay.enableBleedingOnHit.property.name=Bleeding On Hit
 config.gameplay.enableBleedingOnHit.property.tooltip=Enable/Disable bleeding on hit
 config.gameplay.bulletBreakGlass.property.name=Bullet Break Glass
 config.gameplay.bulletBreakGlass.property.tooltip=Enable/Disable bullets breaking glass
+config.gameplay.penetrableBlocks.property.name=Penetrable Blocks
+config.gameplay.knockbackOnHit.property.name=Knockback On Hit
 config.gameplay.enableMuzzleEffects.property.name=Muzzle Effects
 config.gameplay.enableMuzzleEffects.property.tooltip=Enable/Disable the muzzle effects
 config.gameplay.enableBlurOnAim.property.name=Blur On Aim
 config.gameplay.enableBlurOnAim.property.tooltip=Enable/Disable blur on aim
+config.gameplay.explosionBreak.property.name=Explosion Break
 config.gameplay.explosionDamage.property.name=Explosion Damage
 config.gameplay.explosionDamage.property.tooltip=Customize the explosion damage
 config.gameplay.explodedBlockDropChance.property.name=Exploded Block Drop Chance
@@ -1105,8 +1115,7 @@ config.gameplay.explodedBlockDropChance.property.tooltip=The chance for blocks t
 config.gameplay.statusBarPosition.property.name=Status Bar Position
 config.gameplay.statusBarPosition.property.tooltip=The screen position for the Status Bar
 
-config.category.entities.name=Entities Config
-
+config.category.entities.name=Entities
 config.category.rendering.name=Rendering
 config.category.rendering.tooltip=Rendering/Shaders
 config.category.screenshaders.name=Screen Shaders
@@ -1139,3 +1148,6 @@ config.rendering.enableFancyRainAndSnow.property.name=On-Screen Rain and Snow
 config.rendering.enableFancyRainAndSnow.property.tooltip=Please keep this setting DISABLED as it is currently broken.
 
 overlay.opendoor.name=Open Door
+
+death.attack.gun=%s was shot by %s using %s
+death.attack.gun.noshooter=%s was shot to death using %s

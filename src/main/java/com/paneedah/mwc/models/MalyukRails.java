@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class MalyukRails extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer gun61_r1;
 	private final ModelRenderer gun60_r1;
 	private final ModelRenderer bone7;
@@ -158,7 +158,7 @@ public class MalyukRails extends ModelWithAttachments {
 	private final ModelRenderer teeth;
 	private final ModelRenderer DustCover9_r1;
 	private final ModelRenderer DustCover10_r1;
-	private final QRenderer grip;
+	private final ModelRenderer grip;
 	private final ModelRenderer gun12_r1;
 	private final ModelRenderer gun11_r1;
 	private final ModelRenderer gun10_r1;
@@ -172,13 +172,13 @@ public class MalyukRails extends ModelWithAttachments {
 	private final ModelRenderer gun5_r1;
 	private final ModelRenderer gun3;
 	private final ModelRenderer gun2;
-	private final QRenderer barrel;
+	private final ModelRenderer barrel;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
 	private final ModelRenderer cube_r4;
 	private final ModelRenderer cube_r5;
-	private final QRenderer rails;
+	private final ModelRenderer rails;
 	private final ModelRenderer griprails;
 	private final ModelRenderer teeth2;
 	private final ModelRenderer DustCover10_r2;
@@ -191,14 +191,14 @@ public class MalyukRails extends ModelWithAttachments {
 	private final ModelRenderer teeth4;
 	private final ModelRenderer DustCover12_r2;
 	private final ModelRenderer DustCover13_r1;
-	private final QRenderer action;
+	private final ModelRenderer action;
 	private final ModelRenderer cube_r6;
 
 	public MalyukRails() {
 		textureWidth = 360;
 		textureHeight = 360;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, 25.0F, 37.0F);
 		gun.cubeList.add(new ModelBox(gun, 85, 58, -3.451F, -33.0F, -21.5F, 1, 2, 12, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 83, 24, -0.549F, -33.0F, -21.5F, 1, 2, 12, 0.0F, false));
@@ -1240,7 +1240,7 @@ public class MalyukRails extends ModelWithAttachments {
 		DustCover10_r1.cubeList.add(new ModelBox(DustCover10_r1, 3, 94, -0.5F, -0.5F, 36.872F, 1, 1, 1, -0.1F, false));
 		DustCover10_r1.cubeList.add(new ModelBox(DustCover10_r1, 13, 95, -0.5F, -0.5F, 38.497F, 1, 1, 1, -0.1F, false));
 
-		grip = new QRenderer(this);
+		grip = new ModelRenderer(this);
 		grip.setRotationPoint(0.0F, 25.0F, 0.0F);
 		grip.cubeList.add(new ModelBox(grip, 58, 89, -2.999F, -31.5F, -5.001F, 3, 5, 5, 0.0F, false));
 		grip.cubeList.add(new ModelBox(grip, 83, 14, -3.001F, -26.8F, -14.251F, 3, 1, 6, -0.2F, false));
@@ -1322,7 +1322,7 @@ public class MalyukRails extends ModelWithAttachments {
 		setRotationAngle(gun2, 0.481F, 0.0F, 0.0F);
 		gun2.cubeList.add(new ModelBox(gun2, 58, 24, 0.5F, -0.75F, 0.0F, 3, 12, 5, 0.0F, false));
 
-		barrel = new QRenderer(this);
+		barrel = new ModelRenderer(this);
 		barrel.setRotationPoint(0.0F, 25.5F, 0.0F);
 		barrel.cubeList.add(new ModelBox(barrel, 116, 57, -2.0F, -35.0F, -46.0F, 1, 1, 56, 0.0F, false));
 		barrel.cubeList.add(new ModelBox(barrel, 0, 0, -1.2929F, -35.7071F, -46.0F, 1, 1, 56, 0.0F, false));
@@ -1360,7 +1360,7 @@ public class MalyukRails extends ModelWithAttachments {
 		setRotationAngle(cube_r5, 0.0873F, 0.0F, 0.0F);
 		cube_r5.cubeList.add(new ModelBox(cube_r5, 13, 28, -0.5F, -0.5F, -1.5F, 1, 4, 4, 0.0F, false));
 
-		rails = new QRenderer(this);
+		rails = new ModelRenderer(this);
 		rails.setRotationPoint(0.0F, 24.0F, 0.0F);
 		rails.cubeList.add(new ModelBox(rails, 288, 28, -0.1F, -33.4602F, -32.05F, 2, 3, 16, -0.3F, false));
 		rails.cubeList.add(new ModelBox(rails, 288, 28, -4.9F, -33.4602F, -32.05F, 2, 3, 16, -0.3F, true));
@@ -1501,7 +1501,7 @@ public class MalyukRails extends ModelWithAttachments {
 		DustCover13_r1.cubeList.add(new ModelBox(DustCover13_r1, 52, 50, -0.5F, -0.5F, 2.747F, 1, 1, 1, -0.1F, false));
 		DustCover13_r1.cubeList.add(new ModelBox(DustCover13_r1, 12, 53, -0.5F, -0.5F, 1.122F, 1, 1, 1, -0.1F, false));
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(0.0F, 24.0F, 0.0F);
 		action.cubeList.add(new ModelBox(action, 13, 36, 0.0F, -35.6F, -29.2F, 3, 1, 2, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 58, 19, 2.2F, -35.6F, -29.2F, 1, 1, 2, 0.2F, false));
@@ -1516,11 +1516,11 @@ public class MalyukRails extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		grip.render(f5);
-//		barrel.render(f5);
+//		gun.renderer(f5);
+//		grip.renderer(f5);
+//		barrel.renderer(f5);
 		rails.render(f5);
-//		action.render(f5);
+//		action.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

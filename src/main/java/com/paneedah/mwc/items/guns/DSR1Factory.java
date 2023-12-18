@@ -46,11 +46,11 @@ public class DSR1Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.08f)
         .withFlashOffsetY(() -> 0.08f)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Sniper Rifle",
         "Damage: 14", 
-        "Cartridge: 7.62x54mm",
+        "Cartridge: 7.62x51mm",
         "Fire Rate: BOLT ACTION",
         "Rate of Fire: 16/100",
         "Magazines:",
@@ -252,7 +252,7 @@ public class DSR1Factory implements GunFactory {
             GL11.glTranslatef(-0.18F, -0.15F, -3F);
             GL11.glScaled(0.7F, 0.7F, 0.7F);
       })
-        .withCompatibleAttachment(Attachments.Silencer762x54, (model) -> {
+        .withCompatibleAttachment(Attachments.Silencer762x51, (model) -> {
             GL11.glTranslatef(-0.22F, -1.1F, -7.2F);
             GL11.glScaled(1.2F, 1.2F, 1.5F);
         })

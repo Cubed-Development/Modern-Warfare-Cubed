@@ -66,7 +66,7 @@ public class GUIButtonCustom extends GuiButton {
 
 	
 	/**
-	 * Provides the standard state UV to the button in order to render
+	 * Provides the standard state UV to the button in order to renderer
 	 * the button normally (not hovered or disabled, etc.)
 	 * 
 	 * @param color - color as a hexidecimal value
@@ -82,7 +82,7 @@ public class GUIButtonCustom extends GuiButton {
 	}
 	
 	/**
-	 * Provides the hovered state UV to the button in order to render
+	 * Provides the hovered state UV to the button in order to renderer
 	 * the button with a different texture should the mouse cursor be
 	 * above it.
 	 * 
@@ -99,7 +99,7 @@ public class GUIButtonCustom extends GuiButton {
 	}
 	
 	/**
-	 * Provides the toggled state UV to the button in order to render
+	 * Provides the toggled state UV to the button in order to renderer
 	 * the button with its toggled on state should this be a toggle button.
 	 * 
 	 * @param color - color as a hexidecimal value
@@ -115,7 +115,7 @@ public class GUIButtonCustom extends GuiButton {
 	}
 	
 	/**
-	 * Provides the disabled state UV to the button in order to render
+	 * Provides the disabled state UV to the button in order to renderer
 	 * the button if it is in it's inactive/disabled state.
 	 * 
 	 * @param color - color as a hexidecimal value
@@ -131,7 +131,7 @@ public class GUIButtonCustom extends GuiButton {
 	}
 	
 	/**
-	 * Provides the disabled state UV to the button in order to render
+	 * Provides the disabled state UV to the button in order to renderer
 	 * the button if it is in it's inactive/disabled state.
 	 * 
 	 * @param color - color as a hexidecimal value
@@ -155,7 +155,7 @@ public class GUIButtonCustom extends GuiButton {
 	 * 	  return this.hat == 1;
 	 * }
 	 * 
-	 * In this case, if 'hat' is equal to one, it will not render the button.
+	 * In this case, if 'hat' is equal to one, it will not renderer the button.
 	 * 
 	 * @param supplier Java lambda function that returns a boolean stating the conditions under which the button should be disabled
 	 * @return itself
@@ -213,7 +213,7 @@ public class GUIButtonCustom extends GuiButton {
 	/**
 	 * The page ID that this button is isolated to.
 	 * 
-	 * @return this button will render only with this page ID, -1 if non-applicable.
+	 * @return this button will renderer only with this page ID, -1 if non-applicable.
 	 */
 	public int getPageID() {
 		return this.pageID;
@@ -243,7 +243,7 @@ public class GUIButtonCustom extends GuiButton {
 	
 	
 	@Override
-	public void drawButton(Minecraft mc, int mouseX, int mouseY, float partialTicks) {
+	public void drawButton(Minecraft MC, int mouseX, int mouseY, float partialTicks) {
 		if(!visible || (disabledCheck != null && disabledCheck.get() && !hasDisabledState)) return;
 		
 		
@@ -251,7 +251,7 @@ public class GUIButtonCustom extends GuiButton {
         
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		GlStateManager.enableTexture2D();
-		mc.getTextureManager().bindTexture(this.loc);
+		MC.getTextureManager().bindTexture(this.loc);
 		
 		
 		int stringColor = 0;
@@ -279,7 +279,7 @@ public class GUIButtonCustom extends GuiButton {
 	
 		
 		
-		GUIRenderHelper.drawScaledString(this.displayString, this.x + this.width/2.0 - mc.fontRenderer.getStringWidth(this.displayString)/2.0, this.y + this.height/2.0 - mc.fontRenderer.FONT_HEIGHT/2.0, 1.0, stringColor);
+		GUIRenderHelper.drawScaledString(this.displayString, this.x + this.width/2.0 - MC.fontRenderer.getStringWidth(this.displayString)/2.0, this.y + this.height/2.0 - MC.fontRenderer.FONT_HEIGHT/2.0, 1.0, stringColor);
 		GlStateManager.color(1, 1, 1);
 	}
 	

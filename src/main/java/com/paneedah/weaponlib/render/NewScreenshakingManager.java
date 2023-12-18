@@ -8,7 +8,7 @@ import com.paneedah.weaponlib.numerical.SpringVector;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class NewScreenshakingManager {
 	
@@ -59,7 +59,7 @@ public class NewScreenshakingManager {
 
 	
 	public void applyWorld() {
-		float pt = mc.getRenderPartialTicks();
+		float pt = MC.getRenderPartialTicks();
 		//double i = MatrixHelper.solveLerp(prevIntensity, intensity, pt);
 		
 		
@@ -87,7 +87,7 @@ public class NewScreenshakingManager {
 	
 	public void applyHead() {
 		
-		float pt = mc.getRenderPartialTicks();
+		float pt = MC.getRenderPartialTicks();
 		double i = MatrixHelper.solveLerp(prevIntensity, intensity, pt);
 		
 		

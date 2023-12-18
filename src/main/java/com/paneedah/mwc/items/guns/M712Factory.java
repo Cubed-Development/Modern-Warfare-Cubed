@@ -11,6 +11,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -26,6 +27,7 @@ public class M712Factory implements GunFactory {
         .withRecoil(4f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SIDEARM)
+        .withShellType(Type.PISTOL)
         .withMaxShots(1, Integer.MAX_VALUE)
         .withShootSound("m712")
         .withSilencedShootSound("colt_m45a1_silenced")
@@ -43,7 +45,7 @@ public class M712Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.18f)
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(1)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Machine Pistol", 
         "Damage: 5.4", 

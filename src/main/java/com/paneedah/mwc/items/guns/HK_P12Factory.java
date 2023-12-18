@@ -49,7 +49,7 @@ public class HK_P12Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.17f)
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -138,8 +138,8 @@ public class HK_P12Factory implements GunFactory {
             GL11.glRotatef(-90F, 0f, 0f, -4f);
         })
         .withCompatibleAttachment(Attachments.RMR, (player, stack) -> {
-            GL11.glTranslatef(-0.175F, -1.35F, -0.3F);
-            GL11.glScaled(0.4F, 0.4F, 0.4F);
+            GL11.glTranslatef(-0.19F, -1.45F, -1.3F);
+            GL11.glScaled(0.5F, 0.5F, 0.5F);
 	    },(model) -> {
 	        if(model instanceof Reflex2) {
 	            GL11.glTranslatef(0.155F, -0.1F, -0.5F);
@@ -155,10 +155,10 @@ public class HK_P12Factory implements GunFactory {
             GL11.glScaled(0.15F, 0.15F, 0.15F);
         }
         })
-//        .withCompatibleAttachment(Attachments.USPMatchCompensator, (model) -> {
+        .withCompatibleAttachment(Attachments.USPMatchCompensator, (model) -> {
 ////            GL11.glTranslatef(-0.23F, -1.14F, -4.92F);
 ////            GL11.glScaled(1.5F, 1.5F, 1.5F);
-//        })
+        })
         .withCompatibleAttachment(Attachments.Silencer45ACP, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
             if(instance != null) {
@@ -338,9 +338,13 @@ public class HK_P12Factory implements GunFactory {
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
                     //System.out.println("Position me for Holo");
-                    GL11.glTranslatef(0f, 0.22f, 0f);
-                } 
-                
+                    GL11.glTranslatef(-0.04f, 0.35f, 0f);
+                }
+
+                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
+                    //System.out.println("Position me for Holo");
+                    GL11.glTranslatef(-0.04f, 0.35f, 0f);
+                }
                 // Everything else
                 else {
                 }

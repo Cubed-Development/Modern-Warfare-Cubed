@@ -25,18 +25,18 @@ public class USMC extends ModelBiped {
 	private final ModelRenderer jacket5;
 	private final ModelRenderer jacket6;
 	private final ModelRenderer jacket7;
-	private final ModelRenderer leftleg_usmc;
+	private final ModelRenderer leftleg_usMC;
 	private final ModelRenderer leftleg1;
 	private final ModelRenderer leftleg2;
 	private final ModelRenderer leftleg3;
 	private final ModelRenderer leftleg4;
 	private final ModelRenderer leftleg5;
-	private final ModelRenderer rightleg_usmc;
+	private final ModelRenderer rightleg_usMC;
 	private final ModelRenderer rightleg1;
 	private final ModelRenderer rightleg2;
 	private final ModelRenderer rightleg3;
 	private final ModelRenderer rightleg4;
-	private final ModelRenderer leftarm_usmc;
+	private final ModelRenderer leftarm_usMC;
 	private final ModelRenderer leftarm1;
 	private final ModelRenderer leftarm2;
 	private final ModelRenderer leftarm3;
@@ -44,7 +44,7 @@ public class USMC extends ModelBiped {
 	private final ModelRenderer leftarm5;
 	private final ModelRenderer leftarm6;
 	private final ModelRenderer leftarm7;
-	private final ModelRenderer rightarm_usmc;
+	private final ModelRenderer rightarm_usMC;
 	private final ModelRenderer rightarm1;
 	private final ModelRenderer rightarm2;
 	private final ModelRenderer rightarm3;
@@ -155,31 +155,31 @@ public class USMC extends ModelBiped {
 		setRotationAngle(jacket7, 0.0175F, 0.0F, 0.0F);
 		jacket7.cubeList.add(new ModelBox(jacket7, 0, 32, -4.0F, -0.1191F, 1.0911F, 8, 13, 1, 0.0F, false));
 
-		leftleg_usmc = new ModelRenderer(this);
-		leftleg_usmc.setRotationPoint(0.0F, 0.0F, 0.0F);
+		leftleg_usMC = new ModelRenderer(this);
+		leftleg_usMC.setRotationPoint(0.0F, 0.0F, 0.0F);
 		
 
 		leftleg1 = new ModelRenderer(this);
 		leftleg1.setRotationPoint(0.0F, 0.0F, 0.0F);
-		leftleg_usmc.addChild(leftleg1);
+		leftleg_usMC.addChild(leftleg1);
 		setRotationAngle(leftleg1, 0.0F, -0.0524F, 0.0349F);
 		leftleg1.cubeList.add(new ModelBox(leftleg1, 60, 76, 1.27F, -0.0955F, -2.1F, 1, 6, 4, 0.0F, false));
 
 		leftleg2 = new ModelRenderer(this);
 		leftleg2.setRotationPoint(0.0F, 0.0F, 0.0F);
-		leftleg_usmc.addChild(leftleg2);
+		leftleg_usMC.addChild(leftleg2);
 		setRotationAngle(leftleg2, 0.0F, -0.0349F, -0.0349F);
 		leftleg2.cubeList.add(new ModelBox(leftleg2, 81, 0, 0.9226F, 4.1F, -2.0509F, 1, 5, 4, 0.0F, false));
 
 		leftleg3 = new ModelRenderer(this);
 		leftleg3.setRotationPoint(0.0F, 0.0F, 0.0F);
-		leftleg_usmc.addChild(leftleg3);
+		leftleg_usMC.addChild(leftleg3);
 		setRotationAngle(leftleg3, 0.0F, 0.0F, 0.0349F);
 		leftleg3.cubeList.add(new ModelBox(leftleg3, 50, 72, -2.0965F, 0.068F, -2.03F, 1, 9, 4, 0.0F, false));
 
 		leftleg4 = new ModelRenderer(this);
 		leftleg4.setRotationPoint(0.0F, 0.0F, 0.0F);
-		leftleg_usmc.addChild(leftleg4);
+		leftleg_usMC.addChild(leftleg4);
 		leftleg4.cubeList.add(new ModelBox(leftleg4, 62, 22, -1.9535F, -0.001F, -2.1786F, 4, 9, 3, 0.0F, false));
 		leftleg4.cubeList.add(new ModelBox(leftleg4, 68, 68, -2.0535F, -0.0001F, 0.2214F, 4, 9, 2, 0.0F, false));
 		leftleg4.cubeList.add(new ModelBox(leftleg4, 63, 94, -2.0F, 9.0F, 0.1F, 4, 3, 2, 0.0F, false));
@@ -190,17 +190,17 @@ public class USMC extends ModelBiped {
 
 		leftleg5 = new ModelRenderer(this);
 		leftleg5.setRotationPoint(0.0F, 0.0F, 0.0F);
-		leftleg_usmc.addChild(leftleg5);
+		leftleg_usMC.addChild(leftleg5);
 		setRotationAngle(leftleg5, -0.1222F, -0.1047F, 0.0F);
 		leftleg5.cubeList.add(new ModelBox(leftleg5, 91, 41, -2.1928F, 11.1268F, -0.9835F, 4, 1, 1, 0.0F, false));
 
-		rightleg_usmc = new ModelRenderer(this);
-		rightleg_usmc.setRotationPoint(0.0F, 0.0F, 0.0F);
+		rightleg_usMC = new ModelRenderer(this);
+		rightleg_usMC.setRotationPoint(0.0F, 0.0F, 0.0F);
 		
 
 		rightleg1 = new ModelRenderer(this);
 		rightleg1.setRotationPoint(0.0F, 0.0F, 0.0F);
-		rightleg_usmc.addChild(rightleg1);
+		rightleg_usMC.addChild(rightleg1);
 		rightleg1.cubeList.add(new ModelBox(rightleg1, 16, 51, -2.0F, -0.001F, -2.14F, 4, 9, 4, 0.0F, false));
 		rightleg1.cubeList.add(new ModelBox(rightleg1, 76, 21, -2.0F, -0.0005F, 1.2F, 4, 9, 1, 0.0F, false));
 		rightleg1.cubeList.add(new ModelBox(rightleg1, 75, 94, -2.0F, 9.0F, -2.1F, 4, 3, 2, 0.0F, false));
@@ -211,56 +211,56 @@ public class USMC extends ModelBiped {
 
 		rightleg2 = new ModelRenderer(this);
 		rightleg2.setRotationPoint(0.0F, 0.0F, 0.0F);
-		rightleg_usmc.addChild(rightleg2);
+		rightleg_usMC.addChild(rightleg2);
 		setRotationAngle(rightleg2, 0.0F, 0.0F, 0.0524F);
 		rightleg2.cubeList.add(new ModelBox(rightleg2, 80, 81, -2.0948F, 0.0999F, -2.0F, 1, 5, 4, 0.0F, false));
 
 		rightleg3 = new ModelRenderer(this);
 		rightleg3.setRotationPoint(0.0F, 0.0F, 0.0F);
-		rightleg_usmc.addChild(rightleg3);
+		rightleg_usMC.addChild(rightleg3);
 		setRotationAngle(rightleg3, 0.0F, 0.0F, -0.0175F);
 		rightleg3.cubeList.add(new ModelBox(rightleg3, 44, 82, -2.3855F, 4.97F, -2.0F, 1, 4, 4, 0.0F, false));
 		rightleg3.cubeList.add(new ModelBox(rightleg3, 28, 68, 1.1F, 0.05F, -2.0F, 1, 9, 4, 0.0F, false));
 
 		rightleg4 = new ModelRenderer(this);
 		rightleg4.setRotationPoint(0.0F, 0.0F, 0.0F);
-		rightleg_usmc.addChild(rightleg4);
+		rightleg_usMC.addChild(rightleg4);
 		setRotationAngle(rightleg4, -0.1222F, 0.1047F, 0.0F);
 		rightleg4.cubeList.add(new ModelBox(rightleg4, 91, 13, -1.8F, 11.1314F, -1.0206F, 4, 1, 1, 0.0F, false));
 
-		leftarm_usmc = new ModelRenderer(this);
-		leftarm_usmc.setRotationPoint(0.0F, 0.0F, 0.0F);
+		leftarm_usMC = new ModelRenderer(this);
+		leftarm_usMC.setRotationPoint(0.0F, 0.0F, 0.0F);
 		
 
 		leftarm1 = new ModelRenderer(this);
 		leftarm1.setRotationPoint(0.0F, 0.0F, 0.0F);
-		leftarm_usmc.addChild(leftarm1);
+		leftarm_usMC.addChild(leftarm1);
 		setRotationAngle(leftarm1, 0.0F, 0.0F, -0.0524F);
 		leftarm1.cubeList.add(new ModelBox(leftarm1, 70, 81, 2.2489F, -1.75F, -2.0F, 1, 5, 4, 0.0F, false));
 		leftarm1.cubeList.add(new ModelBox(leftarm1, 60, 86, -1.4477F, 3.0282F, -2.0F, 1, 2, 4, 0.0F, false));
 
 		leftarm2 = new ModelRenderer(this);
 		leftarm2.setRotationPoint(0.0F, 0.0F, 0.0F);
-		leftarm_usmc.addChild(leftarm2);
+		leftarm_usMC.addChild(leftarm2);
 		setRotationAngle(leftarm2, 0.0F, 0.0F, 0.0349F);
 		leftarm2.cubeList.add(new ModelBox(leftarm2, 28, 81, -1.1508F, -1.863F, -2.0F, 1, 5, 4, 0.0F, false));
 		leftarm2.cubeList.add(new ModelBox(leftarm2, 34, 86, 2.5216F, 2.97F, -2.0F, 1, 2, 4, 0.0F, false));
 
 		leftarm3 = new ModelRenderer(this);
 		leftarm3.setRotationPoint(0.0F, 0.0F, 0.0F);
-		leftarm_usmc.addChild(leftarm3);
+		leftarm_usMC.addChild(leftarm3);
 		setRotationAngle(leftarm3, -0.0175F, -0.0698F, 0.0F);
 		leftarm3.cubeList.add(new ModelBox(leftarm3, 86, 20, -1.1523F, -1.8719F, -2.2856F, 4, 5, 1, 0.0F, false));
 
 		leftarm4 = new ModelRenderer(this);
 		leftarm4.setRotationPoint(0.0F, 0.0F, 0.0F);
-		leftarm_usmc.addChild(leftarm4);
+		leftarm_usMC.addChild(leftarm4);
 		setRotationAngle(leftarm4, 0.0698F, -0.0524F, 0.0F);
 		leftarm4.cubeList.add(new ModelBox(leftarm4, 90, 34, -1.1F, 2.9234F, -2.5902F, 4, 2, 1, 0.0F, false));
 
 		leftarm5 = new ModelRenderer(this);
 		leftarm5.setRotationPoint(0.0F, 0.0F, 0.0F);
-		leftarm_usmc.addChild(leftarm5);
+		leftarm_usMC.addChild(leftarm5);
 		leftarm5.cubeList.add(new ModelBox(leftarm5, 10, 84, -1.0F, -1.95F, 1.2F, 4, 7, 1, 0.0F, false));
 		leftarm5.cubeList.add(new ModelBox(leftarm5, 91, 3, -1.0F, 5.05F, -2.1F, 4, 1, 1, 0.0F, false));
 		leftarm5.cubeList.add(new ModelBox(leftarm5, 90, 52, -1.0F, 7.55F, -2.1F, 4, 1, 1, 0.0F, false));
@@ -273,24 +273,24 @@ public class USMC extends ModelBiped {
 
 		leftarm6 = new ModelRenderer(this);
 		leftarm6.setRotationPoint(0.0F, 0.0F, 0.0F);
-		leftarm_usmc.addChild(leftarm6);
+		leftarm_usMC.addChild(leftarm6);
 		setRotationAngle(leftarm6, 0.0F, 0.0F, 0.0873F);
 		leftarm6.cubeList.add(new ModelBox(leftarm6, 38, 51, 2.9055F, 8.8926F, -1.5F, 1, 1, 3, 0.0F, false));
 		leftarm6.cubeList.add(new ModelBox(leftarm6, 28, 51, -0.4953F, 7.8851F, -1.9F, 1, 1, 3, 0.0F, false));
 
 		leftarm7 = new ModelRenderer(this);
 		leftarm7.setRotationPoint(0.0F, 0.0F, 0.0F);
-		leftarm_usmc.addChild(leftarm7);
+		leftarm_usMC.addChild(leftarm7);
 		setRotationAngle(leftarm7, 0.0F, 0.0F, 0.0349F);
 		leftarm7.cubeList.add(new ModelBox(leftarm7, 71, 44, -1.0684F, -2.1712F, -2.01F, 4, 1, 4, 0.0F, false));
 
-		rightarm_usmc = new ModelRenderer(this);
-		rightarm_usmc.setRotationPoint(0.0F, 0.0F, 0.0F);
+		rightarm_usMC = new ModelRenderer(this);
+		rightarm_usMC.setRotationPoint(0.0F, 0.0F, 0.0F);
 		
 
 		rightarm1 = new ModelRenderer(this);
 		rightarm1.setRotationPoint(0.0F, 0.0F, 0.0F);
-		rightarm_usmc.addChild(rightarm1);
+		rightarm_usMC.addChild(rightarm1);
 		rightarm1.cubeList.add(new ModelBox(rightarm1, 80, 91, -3.0F, 5.05F, -2.1F, 4, 1, 1, 0.0F, false));
 		rightarm1.cubeList.add(new ModelBox(rightarm1, 90, 66, -3.0F, 7.55F, -2.1F, 4, 1, 1, 0.0F, false));
 		rightarm1.cubeList.add(new ModelBox(rightarm1, 90, 68, -3.0F, 5.05F, 1.1F, 4, 1, 1, 0.0F, false));
@@ -304,38 +304,38 @@ public class USMC extends ModelBiped {
 
 		rightarm2 = new ModelRenderer(this);
 		rightarm2.setRotationPoint(0.0F, 0.0F, 0.0F);
-		rightarm_usmc.addChild(rightarm2);
+		rightarm_usMC.addChild(rightarm2);
 		setRotationAngle(rightarm2, 0.0F, 0.0F, 0.0524F);
 		rightarm2.cubeList.add(new ModelBox(rightarm2, 80, 61, -3.1893F, -1.7398F, -2.0F, 1, 5, 4, 0.0F, false));
 
 		rightarm3 = new ModelRenderer(this);
 		rightarm3.setRotationPoint(0.0F, 0.0F, 0.0F);
-		rightarm_usmc.addChild(rightarm3);
+		rightarm_usMC.addChild(rightarm3);
 		setRotationAngle(rightarm3, 0.0F, 0.0F, -0.0524F);
 		rightarm3.cubeList.add(new ModelBox(rightarm3, 84, 35, -3.5726F, 2.9014F, -2.0F, 1, 2, 4, 0.0F, false));
 
 		rightarm4 = new ModelRenderer(this);
 		rightarm4.setRotationPoint(0.0F, 0.0F, 0.0F);
-		rightarm_usmc.addChild(rightarm4);
+		rightarm_usMC.addChild(rightarm4);
 		setRotationAngle(rightarm4, -0.0349F, 0.0349F, 0.0F);
 		rightarm4.cubeList.add(new ModelBox(rightarm4, 0, 86, -2.93F, -1.8591F, -2.3035F, 4, 5, 1, 0.0F, false));
 
 		rightarm5 = new ModelRenderer(this);
 		rightarm5.setRotationPoint(0.0F, 0.0F, 0.0F);
-		rightarm_usmc.addChild(rightarm5);
+		rightarm_usMC.addChild(rightarm5);
 		setRotationAngle(rightarm5, 0.0349F, 0.1047F, 0.0F);
 		rightarm5.cubeList.add(new ModelBox(rightarm5, 70, 90, -2.78F, 2.9806F, -2.5493F, 4, 2, 1, 0.0F, false));
 
 		rightarm6 = new ModelRenderer(this);
 		rightarm6.setRotationPoint(0.0F, 0.0F, 0.0F);
-		rightarm_usmc.addChild(rightarm6);
+		rightarm_usMC.addChild(rightarm6);
 		setRotationAngle(rightarm6, 0.0F, 0.0F, -0.0873F);
 		rightarm6.cubeList.add(new ModelBox(rightarm6, 50, 39, -0.5F, 7.9063F, -1.9F, 1, 1, 3, 0.0F, false));
 		rightarm6.cubeList.add(new ModelBox(rightarm6, 30, 35, -3.9F, 8.9F, -1.5F, 1, 1, 3, 0.0F, false));
 
 		rightarm7 = new ModelRenderer(this);
 		rightarm7.setRotationPoint(0.0F, 0.0F, 0.0F);
-		rightarm_usmc.addChild(rightarm7);
+		rightarm_usMC.addChild(rightarm7);
 		setRotationAngle(rightarm7, 0.0F, 0.0F, -0.0349F);
 		rightarm7.cubeList.add(new ModelBox(rightarm7, 71, 16, -2.9437F, -2.2486F, -2.01F, 4, 1, 4, 0.0F, false));
 
@@ -531,29 +531,29 @@ public class USMC extends ModelBiped {
 		this.bipedHead.addChild(helmet);
 		this.bipedBody.addChild(jacket);
 //		this.bipedBody.addChild(vest);
-		this.bipedLeftArm.addChild(leftarm_usmc);
-		this.bipedRightArm.addChild(rightarm_usmc);
-		this.bipedLeftLeg.addChild(leftleg_usmc);
-		this.bipedRightLeg.addChild(rightleg_usmc);
+		this.bipedLeftArm.addChild(leftarm_usMC);
+		this.bipedRightArm.addChild(rightarm_usMC);
+		this.bipedLeftLeg.addChild(leftleg_usMC);
+		this.bipedRightLeg.addChild(rightleg_usMC);
 		
 		this.bipedHeadwear.isHidden = true;
 	}
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		head.render(f5);
-//		body.render(f5);
-//		rightarm.render(f5);
-//		leftarm.render(f5);
-//		rightleg.render(f5);
-//		leftleg.render(f5);
-//		jacket.render(f5);
-//		leftleg_usmc.render(f5);
-//		rightleg_usmc.render(f5);
-//		leftarm_usmc.render(f5);
-//		rightarm_usmc.render(f5);
-//		helmet.render(f5);
-//		vest.render(f5);
+//		head.renderer(f5);
+//		body.renderer(f5);
+//		rightarm.renderer(f5);
+//		leftarm.renderer(f5);
+//		rightleg.renderer(f5);
+//		leftleg.renderer(f5);
+//		jacket.renderer(f5);
+//		leftleg_usMC.renderer(f5);
+//		rightleg_usMC.renderer(f5);
+//		leftarm_usMC.renderer(f5);
+//		rightarm_usMC.renderer(f5);
+//		helmet.renderer(f5);
+//		vest.renderer(f5);
 		
 		super.render(entity, f, f1, f2, f3, f4, f5);
 	    setRotationAngles(f, f1, f2, f3, f4, f5, entity);

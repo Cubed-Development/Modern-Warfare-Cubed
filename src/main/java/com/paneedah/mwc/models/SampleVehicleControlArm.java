@@ -147,17 +147,17 @@ public class SampleVehicleControlArm extends ModelBase implements VehicleModel
 
     private void renderModel(float f5)
     {
-//        Wheel1.render(f5);
-//        Wheel2.render(f5);
-//        Wheel3.render(f5);
-//        Wheel4.render(f5);
+//        Wheel1.renderer(f5);
+//        Wheel2.renderer(f5);
+//        Wheel3.renderer(f5);
+//        Wheel4.renderer(f5);
         WheelAxle1.render(f5);
-//        WheelAxle2.render(f5);
-//        WheelAxle3.render(f5);
-//        WheelAxle4.render(f5);
-        //WheelSwingArm1.render(f5);
-//        WheelSwingArm2.render(f5);
-//        WheelSwingArm3.render(f5);
-//        WheelSwingArm4.render(f5);
+//        WheelAxle2.renderer(f5);
+//        WheelAxle3.renderer(f5);
+//        WheelAxle4.renderer(f5);
+        //WheelSwingArm1.renderer(f5);
+//        WheelSwingArm2.renderer(f5);
+//        WheelSwingArm3.renderer(f5);
+//        WheelSwingArm4.renderer(f5);
     }
 }

@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class MPX extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer receiver_lower;
 	private final ModelRenderer side_things_r1;
 	private final ModelRenderer receiver_upper_r1;
@@ -116,7 +116,7 @@ public class MPX extends ModelWithAttachments {
 	private final ModelRenderer receiver_upper_r72;
 	private final ModelRenderer receiver_upper_r73;
 	private final ModelRenderer action_flap;
-	private final QRenderer stock;
+	private final ModelRenderer stock;
 	private final ModelRenderer bone312_r2;
 	private final ModelRenderer bone308_r2;
 	private final ModelRenderer bone303_r2;
@@ -176,7 +176,7 @@ public class MPX extends ModelWithAttachments {
 		textureWidth = 256;
 		textureHeight = 256;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, 24.0F, -0.5F);
 		
 
@@ -860,7 +860,7 @@ public class MPX extends ModelWithAttachments {
 		action_flap.cubeList.add(new ModelBox(action_flap, 89, 85, -0.4251F, 0.2333F, -3.25F, 1, 2, 1, 0.0F, false));
 		action_flap.cubeList.add(new ModelBox(action_flap, 70, 74, -0.2395F, -0.0228F, -5.75F, 1, 3, 6, 0.0F, false));
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(0.0F, 24.0F, 0.0F);
 		stock.cubeList.add(new ModelBox(stock, 85, 30, -3.0F, -42.0F, 4.5F, 3, 4, 2, 0.0F, false));
 		stock.cubeList.add(new ModelBox(stock, 72, 65, -0.25F, -41.75F, 5.0F, 1, 4, 1, 0.2F, false));

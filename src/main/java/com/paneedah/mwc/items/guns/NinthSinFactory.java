@@ -45,7 +45,7 @@ public class NinthSinFactory implements GunFactory {
 //        .withBleedingCoefficient(10f)
         .withShellCasingEjectEnabled(false)
         .withPellets(3)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Vacuum Combat Sidearm", 
         "Damage: 4", 

@@ -18,6 +18,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class ItemAttachment<T> extends Item implements ModelSource, IModernCrafting {
 
 	private AttachmentCategory category;
@@ -69,7 +71,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 //			this.texturedModels.add(new Tuple<ModelBase, String>(model, textureName));
 //		}
 		this.textureName = textureName.toLowerCase();
-		this.crosshair = crosshair != null ? ModReference.ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
+		this.crosshair = crosshair != null ? ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;
 	}
@@ -77,7 +79,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 	protected ItemAttachment(AttachmentCategory category, String crosshair,
 			ApplyHandler<T> apply, ApplyHandler<T> remove) {
 		this.category = category;
-		this.crosshair = crosshair != null ? ModReference.ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
+		this.crosshair = crosshair != null ? ID + ":" + "textures/crosshairs/" + crosshair + ".png" : null;
 		this.apply = apply;
 		this.remove = remove;
 	}

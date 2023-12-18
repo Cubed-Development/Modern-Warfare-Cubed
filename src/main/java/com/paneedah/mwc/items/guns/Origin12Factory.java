@@ -51,7 +51,7 @@ public class Origin12Factory {
         .withShellCasingModelTexture("shotgun12gauge")
         .withInaccuracy(12f)
         .withPellets(10)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -102,31 +102,31 @@ public class Origin12Factory {
 //          GL11.glTranslatef(0f, 0f, 1f);
         })
         .withCompatibleAttachment(Attachments.CollapsableMOEStock, (model) -> {
-            GL11.glTranslatef(-0.008f, -0.52f, 0.2f);
+            GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
             GL11.glScaled(0.95F, 0.95F, 0.95F);
         })
         .withCompatibleAttachment(Attachments.MagpulCTRStock, (model) -> {
-            GL11.glTranslatef(-0.008f, -0.52f, 0.2f);
+            GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
             GL11.glScaled(0.95F, 0.95F, 0.95F);
         })
         .withCompatibleAttachment(Attachments.MilSpecStock, (model) -> {
-            GL11.glTranslatef(-0.008f, -0.52f, 0.2f);
+            GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
             GL11.glScaled(0.95F, 0.95F, 0.95F);
         })
         .withCompatibleAttachment(Attachments.HK416Stock, (model) -> {
-            GL11.glTranslatef(-0.008f, -0.52f, 0.2f);
+            GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
             GL11.glScaled(0.95F, 0.95F, 0.95F);
         })
         .withCompatibleAttachment(Attachments.MagpulCTRStockTan, (model) -> {
-            GL11.glTranslatef(-0.008f, -0.52f, 0.2f);
+            GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
             GL11.glScaled(0.95F, 0.95F, 0.95F);
         })
         .withCompatibleAttachment(Attachments.MilSpecStockTan, (model) -> {
-            GL11.glTranslatef(-0.008f, -0.52f, 0.2f);
+            GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
             GL11.glScaled(0.95F, 0.95F, 0.95F);
         })
         .withCompatibleAttachment(Attachments.HK416StockTan, (model) -> {
-            GL11.glTranslatef(-0.008f, -0.52f, 0.2f);
+            GL11.glTranslatef(-0.008f, -0.0f, 0.1f);
             GL11.glScaled(0.95F, 0.95F, 0.95F);
         })
         .withCompatibleAttachment(Attachments.Origin12Handguard, true, (model) -> {

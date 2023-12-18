@@ -1,10 +1,10 @@
 package com.paneedah.weaponlib.electronics;
 
 import com.paneedah.weaponlib.PlayerItemInstance;
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.perspective.WirelessCameraPerspective;
-import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
+import com.paneedah.weaponlib.tracking.LivingEntityTracker;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -15,7 +15,7 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 	
 	private static final int SERIAL_VERSION = 1;
 	static {
-		TypeRegistry.getInstance().register(PlayerTabletInstance.class);
+		TypeRegistry.getINSTANCE().register(PlayerTabletInstance.class);
 	}
 	
 	private int activeWatchIndex;
@@ -38,9 +38,9 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 	}
 	
 	@Override
-	public void serialize(ByteBuf buf) {
-	    super.serialize(buf);
-	    buf.writeInt(activeWatchIndex);
+	public void write(ByteBuf byteBuf) {
+	    super.write(byteBuf);
+	    byteBuf.writeInt(activeWatchIndex);
 	}
 	
 	public void setActiveWatchIndex(int activeWatchIndex) {
@@ -56,9 +56,9 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
     }
 	
 	@Override
-	public void init(ByteBuf buf) {
-	    super.init(buf);
-	    activeWatchIndex = buf.readInt();
+	public void read(ByteBuf byteBuf) {
+	    super.read(byteBuf);
+	    activeWatchIndex = byteBuf.readInt();
 	}
 	
 	@Override
@@ -67,7 +67,7 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 	}
 
     public void nextActiveWatchIndex() {
-        PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(player);
+        LivingEntityTracker tracker = LivingEntityTracker.getTracker(player);
         if(tracker != null) {
             if(activeWatchIndex >= tracker.getTrackableEntitites().size() - 1) {
                 setActiveWatchIndex(0);
@@ -79,7 +79,7 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
     
 
     public void previousActiveWatchIndex() {
-        PlayerEntityTracker tracker = PlayerEntityTracker.getTracker(player);
+        LivingEntityTracker tracker = LivingEntityTracker.getTracker(player);
         if(tracker != null) {
             if(activeWatchIndex == 0) {
                 setActiveWatchIndex(tracker.getTrackableEntitites().size() - 1);

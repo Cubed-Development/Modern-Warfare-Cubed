@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class UMP45 extends ModelWithAttachments {
-	private final QRenderer grip;
+	private final ModelRenderer grip;
 	private final ModelRenderer gun240_r1;
 	private final ModelRenderer gun239_r1;
 	private final ModelRenderer gun239_r2;
@@ -31,7 +31,7 @@ public class UMP45 extends ModelWithAttachments {
 		textureWidth = 200;
 		textureHeight = 200;
 
-		grip = new QRenderer(this);
+		grip = new ModelRenderer(this);
 		grip.setRotationPoint(-0.3915F, 0.9283F, -0.4854F);
 		
 

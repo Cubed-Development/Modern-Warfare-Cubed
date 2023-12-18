@@ -5,12 +5,13 @@ import com.paneedah.mwc.models.BrowningAuto5;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.wearables.Bullets;
+import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -22,7 +23,6 @@ public class BrowningAuto5Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("browning_auto_5")
-//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(4)
         .withMaxBulletsPerReload(4)
         .withFireRate(0.2f)
@@ -30,6 +30,7 @@ public class BrowningAuto5Factory implements GunFactory {
         .withRecoil(9f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SHOTGUN)
+        .withShellType(Type.SHOTGUN)
         .withMaxShots(1)
         .withPumpTimeout(800)
         .withShootSound("browningauto5")
@@ -40,7 +41,6 @@ public class BrowningAuto5Factory implements GunFactory {
         .withReloadingTime(15)
         .withCrosshair("gun")
         .withCrosshairRunning("Running")    
-        .withShellCasingEjectEnabled(false)
         .withCrosshairZoomed("Sight")
         .withInaccuracy(20)
         .withPellets(10)
@@ -48,7 +48,7 @@ public class BrowningAuto5Factory implements GunFactory {
         .withFlashScale(() -> 0.6f)
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.1f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Semi-Automatic Shotgun",
         "Damage per Pellet: 6",
@@ -78,9 +78,6 @@ public class BrowningAuto5Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new BrowningAuto5())
-            //.withTextureName("Remington900")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);

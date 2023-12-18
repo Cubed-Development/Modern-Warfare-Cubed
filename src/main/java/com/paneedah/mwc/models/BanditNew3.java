@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ai.EntityCustomMob;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -19,8 +19,8 @@ import net.minecraft.util.math.MathHelper;
 
 
 public class BanditNew3 extends ModelBiped {
-	private final QRenderer head;
-	private final QRenderer headset;
+	private final ModelRenderer head;
+	private final ModelRenderer headset;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -51,7 +51,7 @@ public class BanditNew3 extends ModelBiped {
 	private final ModelRenderer cube_r26;
 	private final ModelRenderer cube_r27;
 	private final ModelRenderer body;
-	private final QRenderer platecarrier;
+	private final ModelRenderer platecarrier;
 	private final ModelRenderer cube_r28;
 	private final ModelRenderer cube_r29;
 	private final ModelRenderer cube_r30;
@@ -60,20 +60,20 @@ public class BanditNew3 extends ModelBiped {
 	private final ModelRenderer cube_r33;
 	private final ModelRenderer cube_r34;
 	private final ModelRenderer cube_r35;
-	private final QRenderer rightarm;
-	private final QRenderer leftarm;
-	private final QRenderer rightleg;
-	private final QRenderer leftleg;
+	private final ModelRenderer rightarm;
+	private final ModelRenderer leftarm;
+	private final ModelRenderer rightleg;
+	private final ModelRenderer leftleg;
 
 	public BanditNew3() {
 		textureWidth = 85;
 		textureHeight = 128;
 
-		head = new QRenderer(this);
+		head = new ModelRenderer(this);
 		head.setRotationPoint(0.0F, 0.0F, 0.0F);
 		head.cubeList.add(new ModelBox(head, 0, 0, -4.0F, -8.0F, -4.0F, 8, 8, 8, 0.0F, false));
 
-		headset = new QRenderer(this);
+		headset = new ModelRenderer(this);
 		headset.setRotationPoint(0.0F, 0.0F, 0.0F);
 		head.addChild(headset);
 		headset.cubeList.add(new ModelBox(headset, 21, 81, -4.0F, -8.5F, -1.0F, 8, 1, 2, 0.0F, false));
@@ -257,7 +257,7 @@ public class BanditNew3 extends ModelBiped {
 		body.setRotationPoint(0.0F, 0.0F, 0.0F);
 		body.cubeList.add(new ModelBox(body, 0, 27, -4.0F, 0.0F, -2.0F, 8, 12, 4, 0.0F, false));
 
-		platecarrier = new QRenderer(this);
+		platecarrier = new ModelRenderer(this);
 		platecarrier.setRotationPoint(0.0F, 0.0F, 0.0F);
 		body.addChild(platecarrier);
 		platecarrier.cubeList.add(new ModelBox(platecarrier, 27, 22, -3.5F, 1.75F, -2.58F, 7, 9, 5, -0.1F, false));
@@ -312,19 +312,19 @@ public class BanditNew3 extends ModelBiped {
 		setRotation(cube_r35, -0.0433F, 0.2406F, -0.1798F);
 		cube_r35.cubeList.add(new ModelBox(cube_r35, 58, 57, 0.0F, 0.0F, -0.22F, 3, 5, 2, 0.0F, false));
 
-		rightarm = new QRenderer(this);
+		rightarm = new ModelRenderer(this);
 		rightarm.setRotationPoint(0.0F, 0.0F, 0.0F);
 		rightarm.cubeList.add(new ModelBox(rightarm, 51, 16, -3.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
-		leftarm = new QRenderer(this);
+		leftarm = new ModelRenderer(this);
 		leftarm.setRotationPoint(0.0F, 0.0F, 0.0F);
 		leftarm.cubeList.add(new ModelBox(leftarm, 16, 47, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
-		rightleg = new QRenderer(this);
+		rightleg = new ModelRenderer(this);
 		rightleg.setRotationPoint(0.0F, 0.0F, 0.0F);
 		rightleg.cubeList.add(new ModelBox(rightleg, 44, 43, -2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
-		leftleg = new QRenderer(this);
+		leftleg = new ModelRenderer(this);
 		leftleg.setRotationPoint(0.0F, 0.0F, 0.0F);
 		leftleg.cubeList.add(new ModelBox(leftleg, 0, 43, -2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F, false));
 		

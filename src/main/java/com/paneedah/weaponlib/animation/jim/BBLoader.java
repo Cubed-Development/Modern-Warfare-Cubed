@@ -14,12 +14,13 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class BBLoader {
 	
-	public static String directory  = ModReference.ID + ":animations/";
+	public static String directory  = ID + ":animations/";
 	public static Gson gson = (new GsonBuilder()).create();
 	public static String version = "1.8.0";
 
@@ -153,7 +154,7 @@ public class BBLoader {
 		BufferedReader br = null;
 		try {
 			ResourceLocation loc = new ResourceLocation(directory + fileName);
-			br = new BufferedReader(new InputStreamReader(mc.getResourceManager().getResource(loc).getInputStream()));
+			br = new BufferedReader(new InputStreamReader(MC.getResourceManager().getResource(loc).getInputStream()));
 		} catch(Exception e) {
 			LOG.error("Failed to create reader for file: {}", fileName);
 			return null;
@@ -247,7 +248,7 @@ public class BBLoader {
 
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new InputStreamReader(mc.getResourceManager().getResource(loc).getInputStream()));
+			br = new BufferedReader(new InputStreamReader(MC.getResourceManager().getResource(loc).getInputStream()));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

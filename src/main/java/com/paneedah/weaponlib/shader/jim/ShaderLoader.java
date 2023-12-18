@@ -12,7 +12,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
+import static com.paneedah.mwc.utils.ModReference.LOG;
 
 /**
  * This class is responsible for loading and compiling vertex and fragment shaders for use in rendering.
@@ -32,7 +34,7 @@ public class ShaderLoader {
         if (!enableShaders)
             return new Shader(0);
 
-        ResourceLocation file = new ResourceLocation(ModReference.ID + ":shaders/" + name);
+        ResourceLocation file = new ResourceLocation(ID + ":shaders/" + name);
 
         int vertexShaderId = GL20.glCreateShader(GL20.GL_VERTEX_SHADER);
         int fragmentShaderId = GL20.glCreateShader(GL20.GL_FRAGMENT_SHADER);
@@ -42,14 +44,14 @@ public class ShaderLoader {
             GL20.glShaderSource(vertexShaderId, readFileToBuf(new ResourceLocation(file.getNamespace(), file.getPath() + ".vert")));
             GL20.glCompileShader(vertexShaderId);
             if (GL20.glGetShaderi(vertexShaderId, GL20.GL_COMPILE_STATUS) == GL11.GL_FALSE) {
-                ModReference.LOG.error(GL20.glGetShaderInfoLog(vertexShaderId, GL20.GL_INFO_LOG_LENGTH));
+                LOG.error(GL20.glGetShaderInfoLog(vertexShaderId, GL20.GL_INFO_LOG_LENGTH));
                 throw new RuntimeException("Error creating vertex shader: " + file);
             }
 
             GL20.glShaderSource(fragmentShaderId, readFileToBuf(new ResourceLocation(file.getNamespace(), file.getPath() + ".frag")));
             GL20.glCompileShader(fragmentShaderId);
             if (GL20.glGetShaderi(fragmentShaderId, GL20.GL_COMPILE_STATUS) == GL11.GL_FALSE) {
-                ModReference.LOG.error(GL20.glGetShaderInfoLog(fragmentShaderId, GL20.GL_INFO_LOG_LENGTH));
+                LOG.error(GL20.glGetShaderInfoLog(fragmentShaderId, GL20.GL_INFO_LOG_LENGTH));
                 throw new RuntimeException("Error creating fragment shader: " + file);
             }
 
@@ -64,16 +66,16 @@ public class ShaderLoader {
 
             GL20.glLinkProgram(programId);
             if (GL20.glGetProgrami(programId, GL20.GL_LINK_STATUS) == GL11.GL_FALSE) {
-                ModReference.LOG.error(GL20.glGetProgramInfoLog(programId, GL20.GL_INFO_LOG_LENGTH));
+                LOG.error(GL20.glGetProgramInfoLog(programId, GL20.GL_INFO_LOG_LENGTH));
                 throw new RuntimeException("Error creating fragment shader: " + file);
             }
 
-            ModReference.LOG.debug("Loaded shader successfully for " + file);
+            LOG.debug("Loaded shader successfully for " + file);
 
             return new Shader(programId);
         } catch (IOException ioException) {
             GL20.glDeleteProgram(programId);
-            ModReference.LOG.error("Failed loading shader for " + ioException);
+            LOG.error("Failed loading shader for " + ioException);
         } finally {
             GL20.glDeleteShader(vertexShaderId);
             GL20.glDeleteShader(fragmentShaderId);
@@ -90,7 +92,7 @@ public class ShaderLoader {
      * @throws IOException If there is an error reading the file
      */
     private static ByteBuffer readFileToBuf(ResourceLocation file) throws IOException {
-        try (InputStream inputStream = mc.getResourceManager().getResource(file).getInputStream()) {
+        try (InputStream inputStream = MC.getResourceManager().getResource(file).getInputStream()) {
             byte[] bytes = IOUtils.toByteArray(inputStream);
             ByteBuffer buffer = BufferUtils.createByteBuffer(bytes.length);
             buffer.put(bytes);

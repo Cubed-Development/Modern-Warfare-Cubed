@@ -3622,10 +3622,10 @@ public class MP5NavyHandGuard extends ModelWithAttachments {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		mp5_navy_handguard.render(f5);
-//		mp5_blackmesa_handguard.render(f5);
-//		mp5_mi_handguard.render(f5);
-//		mp5_stock.render(f5);
-//		mp5_stock_adapter.render(f5);
+//		mp5_blackmesa_handguard.renderer(f5);
+//		mp5_mi_handguard.renderer(f5);
+//		mp5_stock.renderer(f5);
+//		mp5_stock_adapter.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

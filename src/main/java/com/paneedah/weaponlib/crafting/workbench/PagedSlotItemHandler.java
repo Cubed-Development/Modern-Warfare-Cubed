@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 
 /**
  * Paged slot class that works off a supplier lambda,
- * will only render should the integer align with the proper
+ * will only renderer should the integer align with the proper
  * page ID.
  * 
  * @author Homer Riva-Cambrin, 2022

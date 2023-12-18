@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Map.Entry;
 import java.util.Stack;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class LightManager {
 	
@@ -51,7 +51,7 @@ public class LightManager {
 		lights.clear();
 		for(Entry<Integer, Stack<Long>> registry : ClientEventHandler.muzzleFlashMap.entrySet()) {
 			if(!registry.getValue().empty() /*&& System.currentTimeMillis()-registry.getValue().peek() > 25*/) {
-				Entity entity = mc.world.getEntityByID(registry.getKey());
+				Entity entity = MC.world.getEntityByID(registry.getKey());
 				if(!(entity instanceof EntityPlayer)) continue;
 				
 				EntityPlayer player = (EntityPlayer) entity;
@@ -67,11 +67,11 @@ public class LightManager {
 			
 			float lightlevel = 0.0f;
 			
-			lightlevel = mc.world.getLight(new BlockPos(x, y, z)) * mc.world.getSunBrightness(1.0f);
+			lightlevel = MC.world.getLight(new BlockPos(x, y, z)) * MC.world.getSunBrightness(1.0f);
 			//System.out.println(lightlevel);
 			if(lightlevel > 8) return;
 			
-			//float lightlevel = mc.world.getLight(new BlockPos(x, y, z));
+			//float lightlevel = MC.world.getLight(new BlockPos(x, y, z));
 		//	System.out.println(lightlevel);
 			// bad correction maths
 			

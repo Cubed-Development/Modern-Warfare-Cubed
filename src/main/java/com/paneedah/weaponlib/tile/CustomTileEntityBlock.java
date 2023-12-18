@@ -44,7 +44,7 @@ public class CustomTileEntityBlock extends BlockContainer {
 		this.customBoundingBox = customBoundingBox;
 	}
     
-    @SuppressWarnings("deprecation")
+    
 	@Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
     	return customBoundingBox != null ? customBoundingBox.apply(state) : super.getBoundingBox(state, source, pos);
@@ -64,7 +64,12 @@ public class CustomTileEntityBlock extends BlockContainer {
     public boolean isOpaqueCube(IBlockState iBlockState) {
         return false;
     }
-    
+
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
+
     @Override
     public TileEntity createNewTileEntity(World world, int p_149915_2_) {
         try {

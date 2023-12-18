@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.melee;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
 import com.paneedah.weaponlib.crafting.CraftingComplexity;
@@ -26,10 +25,11 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 public class ItemMelee extends Item implements
-PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer, Modifiable, Updatable {
+        PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer, Modifiable, Updatable {
 
     public static class Builder {
 
@@ -115,12 +115,12 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         }
 
         public Builder withAttackSound(String attackSound) {
-            this.attackSound = attackSound.toLowerCase(); //ModReference.id + ":" + shootSound;
+            this.attackSound = attackSound.toLowerCase(); //ID + ":" + shootSound;
             return this;
         }
 
         public Builder withHeavyAttackSound(String heavyAttackSound) {
-            this.heavyAttackSound = heavyAttackSound.toLowerCase(); //ModReference.id + ":" + reloadSound;
+            this.heavyAttackSound = heavyAttackSound.toLowerCase(); //ID + ":" + reloadSound;
             return this;
         }
 
@@ -145,7 +145,7 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         }
 
         public Builder withCompatibleAttachment(ItemAttachment<ItemMelee> attachment, ItemAttachment.MeleeWeaponApplyHandler<ItemMelee> applyHandler,
-                ItemAttachment.MeleeWeaponApplyHandler<ItemMelee> removeHandler) {
+                                                ItemAttachment.MeleeWeaponApplyHandler<ItemMelee> removeHandler) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, applyHandler, removeHandler));
             return this;
         }
@@ -156,22 +156,22 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         }
 
         public Builder withCompatibleAttachment(ItemAttachment<ItemMelee> attachment, boolean isDefault,
-                BiConsumer<EntityLivingBase, ItemStack> positioning, Consumer<ModelBase> modelPositioning) {
+                                                BiConsumer<EntityLivingBase, ItemStack> positioning, Consumer<ModelBase> modelPositioning) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioning, modelPositioning, isDefault));
             return this;
         }
 
         public Builder withCompatibleAttachment(ItemAttachment<ItemMelee> attachment, boolean isDefault,
-                Consumer<ModelBase> positioner) {
+                                                Consumer<ModelBase> positioner) {
             compatibleAttachments.put(attachment, new CompatibleAttachment<>(attachment, positioner, isDefault));
             return this;
         }
 
-        public Builder withCrafting(CraftingComplexity craftingComplexity, Object...craftingMaterials) {
-            if(craftingComplexity == null) {
+        public Builder withCrafting(CraftingComplexity craftingComplexity, Object... craftingMaterials) {
+            if (craftingComplexity == null) {
                 throw new IllegalArgumentException("Crafting complexity not set");
             }
-            if(craftingMaterials.length < 2) {
+            if (craftingMaterials.length < 2) {
                 throw new IllegalArgumentException("2 or more materials required for crafting");
             }
             this.craftingComplexity = craftingComplexity;
@@ -179,7 +179,7 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
             return this;
         }
 
-        public Builder withCraftingRecipe(Object...craftingRecipe) {
+        public Builder withCraftingRecipe(Object... craftingRecipe) {
             this.craftingRecipe = craftingRecipe;
             return this;
         }
@@ -209,23 +209,23 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
 
             modContext.registerMeleeWeapon(name, itemMelee, renderer);
 
-            if(craftingRecipe != null && craftingRecipe.length >= 2) {
+            if (craftingRecipe != null && craftingRecipe.length >= 2) {
                 ItemStack itemStack = new ItemStack(itemMelee);
                 List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(itemMelee, craftingRecipe);
                 boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
-                if(hasOres) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
+                if (hasOres) {
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe"));
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
-            } else if(craftingComplexity != null) {
+            } else if (craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
                         .withSlotCount(9)
                         .build(craftingComplexity, Arrays.copyOf(craftingMaterials, craftingMaterials.length));
 
                 List<Object> shape = modContext.getRecipeManager().createShapedRecipe(itemMelee, itemMelee.getName(), optionsMetadata);
 
-                ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(itemMelee), shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, new ItemStack(itemMelee).getItem().getTranslationKey() + "_recipe"));
+                ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(itemMelee), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(itemMelee).getItem().getTranslationKey() + "_recipe"));
 
             } else {
                 //throw new IllegalStateException("No recipe defined for attachment " + name);
@@ -248,7 +248,9 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
     private SoundEvent unloadSound;
     private SoundEvent ejectSpentRoundSound;
 
-    public static enum State { READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND};
+    public static enum State {READY, SHOOTING, RELOAD_REQUESTED, RELOAD_CONFIRMED, UNLOAD_STARTED, UNLOAD_REQUESTED_FROM_SERVER, UNLOAD_CONFIRMED, PAUSED, MODIFYING, EJECT_SPENT_ROUND}
+
+    ;
 
     ItemMelee(Builder builder, ModContext modContext) {
         this.builder = builder;
@@ -323,7 +325,7 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
 
     @Override
     public void addInformation(ItemStack itemStack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        if(tooltip != null && builder.informationProvider != null) {
+        if (tooltip != null && builder.informationProvider != null) {
             tooltip.addAll(builder.informationProvider.apply(itemStack));
         }
     }
@@ -344,14 +346,14 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
 //    }
 
     @Override
-    public PlayerMeleeInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot){
+    public PlayerMeleeInstance createItemInstance(EntityLivingBase player, ItemStack itemStack, int slot) {
         PlayerMeleeInstance instance = new PlayerMeleeInstance(slot, player, itemStack);
         //state.setAmmo(Tags.getAmmo(itemStack)); // TODO: get ammo properly
         instance.setState(MeleeState.READY);
 
-        for(CompatibleAttachment<ItemMelee> compatibleAttachment: ((ItemMelee) itemStack.getItem()).getCompatibleAttachments().values()) {
+        for (CompatibleAttachment<ItemMelee> compatibleAttachment : ((ItemMelee) itemStack.getItem()).getCompatibleAttachments().values()) {
             ItemAttachment<ItemMelee> attachment = compatibleAttachment.getAttachment();
-            if(compatibleAttachment.isDefault() && attachment.getApply3() != null) {
+            if (compatibleAttachment.isDefault() && attachment.getApply3() != null) {
                 attachment.getApply3().apply(attachment, instance);
             }
         }
@@ -379,15 +381,13 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         return null;
     }
 
-    public void attack(EntityPlayer player, boolean heavy) {
-        if(heavy) {
-            modContext.getMeleeAttackAspect().onAttackButtonClick(player);
-        } else {
+    public void attack(final EntityPlayer player, final boolean heavy) {
+        if (heavy)
             modContext.getMeleeAttackAspect().onHeavyAttackButtonClick(player);
-        }
+        else
+            modContext.getMeleeAttackAspect().onAttackButtonClick(player);
     }
 
-//    @SuppressWarnings({ "rawtypes", "unchecked", "deprecation" })
 //    public Multimap getItemAttributeModifiers() {
 //        Multimap multimap = super.getItemAttributeModifiers();
 //        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),
@@ -399,7 +399,7 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase player) {
         //target.attackEntityFrom(DamageSource.fall, builder.damage);
         PlayerItemInstance<?> instance = Tags.getInstance(stack);
-        if(instance instanceof PlayerMeleeInstance) {
+        if (instance instanceof PlayerMeleeInstance) {
             LOG.debug("Player {} hits {} with {} in state {}", player, target, instance, instance.getState());
         }
         return true;

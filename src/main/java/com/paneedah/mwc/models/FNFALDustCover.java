@@ -1066,13 +1066,13 @@ public class FNFALDustCover extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		mag.render(f5);
-//		stock.render(f5);
-//		grip.render(f5);
-//		action.render(f5);
-//		gun.render(f5);
+//		mag.renderer(f5);
+//		stock.renderer(f5);
+//		grip.renderer(f5);
+//		action.renderer(f5);
+//		gun.renderer(f5);
 		dustcover.render(f5);
-//		handguard.render(f5);
+//		handguard.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

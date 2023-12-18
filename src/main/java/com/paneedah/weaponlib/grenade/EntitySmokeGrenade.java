@@ -1,9 +1,10 @@
 package com.paneedah.weaponlib.grenade;
 
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.particle.SpawnParticleMessage;
-import com.paneedah.weaponlib.particle.SpawnParticleMessage.ParticleType;
+import com.paneedah.mwc.network.messages.SpawnParticleMessage;
+import com.paneedah.mwc.network.messages.SpawnParticleMessage.ParticleType;
 import io.netty.buffer.ByteBuf;
+import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -11,6 +12,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+
+import static com.paneedah.mwc.MWC.CHANNEL;
 
 public class EntitySmokeGrenade extends AbstractEntityGrenade {
 
@@ -151,15 +154,7 @@ public class EntitySmokeGrenade extends AbstractEntityGrenade {
                     if (player.getDistanceSq(posX, posY, posZ) < 4096.0D) {
                         ParticleType particleType = ParticleType.SMOKE_GRENADE_SMOKE;
                         double movement = bounceCount > 0 ? 0.1 : 0.005;
-                        modContext.getChannel().sendTo(
-                                new SpawnParticleMessage(particleType, 1,
-                                        posX + rand.nextGaussian() / 7,
-                                        posY + rand.nextGaussian() / 10,
-                                        posZ + rand.nextGaussian() / 7,
-                                        rand.nextGaussian() * movement,
-                                        rand.nextGaussian() * movement / 4,
-                                        rand.nextGaussian() * movement),
-                                    (EntityPlayerMP) player);
+                        CHANNEL.sendTo(new SpawnParticleMessage(particleType, 2, new Vector3F((float) (posX + rand.nextGaussian() / 7), (float) (posY + rand.nextGaussian() / 10), (float) (posZ + rand.nextGaussian() / 7)), new Vector3F((float) (rand.nextGaussian() * movement), (float) (rand.nextGaussian() * movement / 4), (float) (rand.nextGaussian() * movement))), (EntityPlayerMP) player);
                     }
                 }
             }

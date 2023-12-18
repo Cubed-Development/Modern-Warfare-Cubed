@@ -5,7 +5,7 @@ import com.paneedah.weaponlib.animation.gui.GuiRenderUtil;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.base.GUIContainerStation;
-import com.paneedah.weaponlib.network.packets.StationPacket;
+import com.paneedah.mwc.network.messages.WorkbenchServerMessage;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.resources.I18n;
@@ -18,6 +18,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+
+import static com.paneedah.mwc.MWC.CHANNEL;
 
 
 /**
@@ -108,11 +110,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 		super.actionPerformed(button);
 		if (button == craftButton) {
 			if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1) {
-				modContext.getChannel()
-						.sendToServer(new StationPacket(StationPacket.CRAFT, tileEntity.getPos(), 0, getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME,
-								CraftingGroup.getValue(getCraftingMode()),
-								getSelectedCraftingPiece().getItem().getTranslationKey()));
-
+				CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), 0, getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME, CraftingGroup.getValue(getCraftingMode()), getSelectedCraftingPiece().getItem().getTranslationKey()));
 			}
 
 		} else if (button == assaultSelector) {

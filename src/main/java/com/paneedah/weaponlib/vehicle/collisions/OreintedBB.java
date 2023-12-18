@@ -11,7 +11,7 @@ import javax.vecmath.Matrix3d;
 import javax.vecmath.Matrix3f;
 import javax.vecmath.Vector3d;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class OreintedBB {
 	
@@ -19,7 +19,7 @@ public class OreintedBB {
 	//http://www.r-5.org/files/books/computers/algo-list/realtime-3d/Christer_Ericson-Real-Time_Collision_Detection-EN.pdf
 	
 	// also inspiration taken from Create mod 
-	//https://github.com/Creators-of-Create/Create/blob/mc1.15/dev/src/main/java/com/simibubi/create/foundation/collision/OBBCollider.java
+	//https://github.com/Creators-of-Create/Create/blob/MC1.15/dev/src/main/java/com/simibubi/create/foundation/collision/OBBCollider.java
 	
 	public Matrix3d inverse;
 	
@@ -125,7 +125,7 @@ public class OreintedBB {
 		
 		//GL11.glTranslated(c.x, c.y, c.z);
 		
-		float t = mc.getRenderPartialTicks();
+		float t = MC.getRenderPartialTicks();
 		
 		GL11.glRotated(Math.toDegrees(eulerRotations.x), 1, 0, 0);
 		GL11.glRotated(Math.toDegrees(eulerRotations.y), 0, 1, 0);

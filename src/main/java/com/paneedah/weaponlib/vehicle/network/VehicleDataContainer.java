@@ -3,9 +3,8 @@ package com.paneedah.weaponlib.vehicle.network;
 import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
 import io.netty.buffer.ByteBuf;
+import io.redstudioragnarok.redcore.vectors.Vector3D;
 import net.minecraft.util.math.Vec3d;
-
-import java.io.IOException;
 
 public class VehicleDataContainer {
 	
@@ -130,11 +129,9 @@ public EntityVehicle vehicle;
 		
 		
 		buf.writeInt(1);
-		
-		NetworkUtil.writeVec3d(buf, v.getPositionVector());
-		
-		
-		NetworkUtil.writeVec3d(buf, this.velocity);
+
+		new Vector3D(v.getPositionVector()).write(buf);
+		new Vector3D(this.velocity).write(buf);
 		
 		//System.out.println(v.getPositionVector());
 		buf.writeDouble(v.throttle);
@@ -158,7 +155,7 @@ public EntityVehicle vehicle;
 	}
 
 	
-	public static VehicleDataContainer read(ByteBuf buf) throws IOException {
+	public static VehicleDataContainer read(ByteBuf buf) {
 
 		VehicleDataContainer ds = new VehicleDataContainer();
 		
@@ -167,10 +164,12 @@ public EntityVehicle vehicle;
 			//System.out.println("cut short!!");
 			return ds;
 		}
-		
-		
-		ds.position = NetworkUtil.readVec3d(buf);
-		ds.velocity = NetworkUtil.readVec3d(buf);
+
+		Vector3D vector = new Vector3D();
+		vector.read(buf);
+		ds.position = vector.toVec3d();
+		vector.read(buf);
+		ds.velocity = vector.toVec3d();
 		
 		
 		ds.throttle = buf.readDouble();

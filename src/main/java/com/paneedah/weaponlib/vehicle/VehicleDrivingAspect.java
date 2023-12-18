@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.vehicle;
 
+import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.weaponlib.state.Aspect;
-import com.paneedah.weaponlib.state.PermitManager;
 import com.paneedah.weaponlib.state.StateManager;
 
 import java.util.Arrays;
@@ -46,7 +46,7 @@ public class VehicleDrivingAspect implements Aspect<VehicleState, EntityVehicle>
     private static Predicate<EntityVehicle> speedupTimeoutExpired = vehicle ->
         System.currentTimeMillis() >= 300 + vehicle.getStateUpdateTimestamp();
 
-//    @SuppressWarnings("unused")
+//    
 //    private ModContext modContext;
 
     private StateManager<VehicleState, ? super EntityVehicle> stateManager;
@@ -61,7 +61,7 @@ public class VehicleDrivingAspect implements Aspect<VehicleState, EntityVehicle>
     }
     
     @Override
-    public void setPermitManager(PermitManager permitManager) {}
+    public void setPermitManager(NetworkPermitManager permitManager) {}
 
     @Override
     public void setStateManager(StateManager<VehicleState, ? super EntityVehicle> stateManager) {

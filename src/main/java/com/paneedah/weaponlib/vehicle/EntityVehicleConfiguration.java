@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import static com.paneedah.mwc.utils.ModReference.ID;
+
 public class EntityVehicleConfiguration implements EntityConfiguration {
 
     public static class Seat {
@@ -344,14 +346,14 @@ public class EntityVehicleConfiguration implements EntityConfiguration {
             Class<? extends Entity> entityClass = EntityClassFactory.getInstance()
                     .generateEntitySubclass(baseClass, modEntityId, configuration);
 
-            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ModReference.ID, entityName),entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
+            net.minecraftforge.fml.common.registry.EntityRegistry.registerModEntity(new ResourceLocation(ID, entityName),entityClass, entityName, modEntityId, context.getMod(), trackingRange, updateFrequency, sendVelocityUpdates);
 
             ItemVehicle vehicleItem = new ItemVehicle(entityName, entityClass);
 
-            vehicleItem.setRegistryName(ModReference.ID, entityName); // temporary hack
+            vehicleItem.setRegistryName(ID, entityName); // temporary hack
             ForgeRegistries.ITEMS.register(vehicleItem);
-            //System.out.println("Renderer Registrar: " + (ModReference.id + ":"  + entityName));
-            //ModelLoader.setCustomModelResourceLocation(vehicleItem, 0, new net.minecraft.client.renderer.block.model.ModelResourceLocation(ModReference.id + ":"  + entityName, "inventory"));
+            //System.out.println("Renderer Registrar: " + (ID + ":"  + entityName));
+            //ModelLoader.setCustomModelResourceLocation(vehicleItem, 0, new net.minecraft.client.renderer.block.model.ModelResourceLocation(ID + ":"  + entityName, "inventory"));
             
             // register the item renderer
           

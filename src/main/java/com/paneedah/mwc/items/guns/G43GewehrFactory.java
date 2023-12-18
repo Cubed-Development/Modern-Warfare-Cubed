@@ -42,7 +42,7 @@ public class G43GewehrFactory {
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.13f)
         .withInaccuracy(1f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Semi-Automatic Rifle",
         "Damage: 13.5", 

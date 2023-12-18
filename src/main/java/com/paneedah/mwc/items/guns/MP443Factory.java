@@ -15,6 +15,7 @@ import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
@@ -31,6 +32,7 @@ public class MP443Factory implements GunFactory {
         .withRecoil(2f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SIDEARM)
+        .withShellType(Type.PISTOL)
         .withMaxShots(1)
         .withShootSound("mp443")
         .withSilencedShootSound("m9a1_silenced")
@@ -48,7 +50,7 @@ public class MP443Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.13f)
 //      .withShellCasingForwardOffset(0.001f)
         .withInaccuracy(3)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power

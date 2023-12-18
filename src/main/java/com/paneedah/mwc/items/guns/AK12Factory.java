@@ -40,6 +40,7 @@ public class AK12Factory {
         .withUnloadSound("ak_unload")
         .withInspectSound("inspection")
         .withDrawSound("ak_draw")
+        .withEndOfShootSound("gun_click")
         .withReloadingTime(45)
         .withCrosshair("gun")
         .withCrosshairRunning("Running")
@@ -51,7 +52,7 @@ public class AK12Factory {
         .withShellCasingVerticalOffset(-0.05f)
 //        .withShellCasingForwardOffset(-0.2f)
         .withInaccuracy(1f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power

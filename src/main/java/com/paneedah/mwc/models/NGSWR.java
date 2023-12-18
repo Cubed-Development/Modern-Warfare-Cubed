@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class NGSWR extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -107,7 +107,7 @@ public class NGSWR extends ModelWithAttachments {
 	private final ModelRenderer cube_r84;
 	private final ModelRenderer cube_r85;
 	private final ModelRenderer cube_r86;
-	private final QRenderer handguard;
+	private final ModelRenderer handguard;
 	private final ModelRenderer cube_r87;
 	private final ModelRenderer cube_r88;
 	private final ModelRenderer cube_r89;
@@ -152,7 +152,7 @@ public class NGSWR extends ModelWithAttachments {
 	private final ModelRenderer cube_r124;
 	private final ModelRenderer cube_r125;
 	private final ModelRenderer cube_r126;
-	private final QRenderer stock_adapter;
+	private final ModelRenderer stock_adapter;
 	private final ModelRenderer cube_r127;
 	private final ModelRenderer cube_r128;
 	private final ModelRenderer cube_r129;
@@ -183,7 +183,7 @@ public class NGSWR extends ModelWithAttachments {
 		textureWidth = 256;
 		textureHeight = 256;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(0.0F, 24.0F, 0.0F);
 		gun.cubeList.add(new ModelBox(gun, 88, 112, -0.65F, -35.7F, -14.0F, 1, 4, 13, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 98, 62, -0.45F, -35.9F, -14.2F, 1, 1, 15, 0.0F, false));
@@ -961,7 +961,7 @@ public class NGSWR extends ModelWithAttachments {
 		setRotationAngle(cube_r86, -0.2443F, 0.0F, 0.0F);
 		cube_r86.cubeList.add(new ModelBox(cube_r86, 24, 41, -1.8F, -0.2F, -0.2F, 2, 1, 2, -0.2F, false));
 
-		handguard = new QRenderer(this);
+		handguard = new ModelRenderer(this);
 		handguard.setRotationPoint(0.35F, -14.0F, -66.0F);
 		handguard.cubeList.add(new ModelBox(handguard, 127, 85, -0.1F, -2.0F, 0.0F, 1, 1, 38, 0.001F, false));
 		handguard.cubeList.add(new ModelBox(handguard, 192, 197, -2.85F, -5.7F, -1.0F, 2, 1, 22, 0.0F, false));
@@ -1312,7 +1312,7 @@ public class NGSWR extends ModelWithAttachments {
 		setRotationAngle(cube_r126, 0.0F, -0.3491F, 0.4014F);
 		cube_r126.cubeList.add(new ModelBox(cube_r126, 36, 23, -0.3368F, -3.9336F, -0.8774F, 1, 3, 1, 0.0F, false));
 
-		stock_adapter = new QRenderer(this);
+		stock_adapter = new ModelRenderer(this);
 		stock_adapter.setRotationPoint(0.0F, -11.3F, 6.9F);
 		stock_adapter.cubeList.add(new ModelBox(stock_adapter, 11, 23, -3.0F, -5.2F, 0.0F, 3, 4, 2, 0.0F, false));
 		stock_adapter.cubeList.add(new ModelBox(stock_adapter, 14, 14, -2.5F, -5.2F, 2.0F, 2, 4, 2, 0.0F, false));
@@ -1498,10 +1498,10 @@ public class NGSWR extends ModelWithAttachments {
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		gun.render(f5);
 		handguard.render(f5);
-//		rails_attachment.render(f5);
-//		action.render(f5);
+//		rails_attachment.renderer(f5);
+//		action.renderer(f5);
 		stock_adapter.render(f5);
-//		magazine.render(f5);
+//		magazine.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class DragunovMag extends ModelWithAttachments {
-	private final QRenderer mag;
+	private final ModelRenderer mag;
 	private final ModelRenderer cube_r101;
 	private final ModelRenderer cube_r102;
 	private final ModelRenderer cube_r103;
@@ -53,7 +53,7 @@ public class DragunovMag extends ModelWithAttachments {
 		textureWidth = 350;
 		textureHeight = 350;
 
-		mag = new QRenderer(this);
+		mag = new ModelRenderer(this);
 		mag.setRotationPoint(-1.0F, 0.0F, -36.0F);
 		mag.cubeList.add(new ModelBox(mag, 25, 11, -1.8F, -9.5F, 4.5F, 3, 3, 7, 0.0F, false));
 		mag.cubeList.add(new ModelBox(mag, 71, 9, -2.2F, -9.5F, 4.5F, 1, 3, 7, 0.001F, false));

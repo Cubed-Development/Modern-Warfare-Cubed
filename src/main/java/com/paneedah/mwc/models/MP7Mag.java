@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class MP7Mag extends ModelWithAttachments {
-	private final QRenderer mag_40;
+	private final ModelRenderer mag_40;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -193,7 +193,7 @@ public class MP7Mag extends ModelWithAttachments {
 		textureWidth = 200;
 		textureHeight = 200;
 
-		mag_40 = new QRenderer(this);
+		mag_40 = new ModelRenderer(this);
 		mag_40.setRotationPoint(0.2F, 7.9F, -2.8F);
 		mag_40.cubeList.add(new ModelBox(mag_40, 39, 77, -1.0F, -1.0F, 0.0F, 1, 1, 4, 0.0F, false));
 		mag_40.cubeList.add(new ModelBox(mag_40, 39, 32, -2.45F, -0.999F, 0.55F, 2, 1, 4, 0.0F, false));
@@ -1654,7 +1654,7 @@ public class MP7Mag extends ModelWithAttachments {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		mag_40.render(f5);
-//		action.render(f5);
+//		action.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

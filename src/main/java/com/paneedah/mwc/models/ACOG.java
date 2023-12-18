@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class ACOG extends ModelBase {
-	private final QRenderer bone;
+	private final ModelRenderer bone;
 	private final ModelRenderer scope;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
@@ -185,7 +185,7 @@ public class ACOG extends ModelBase {
 		textureWidth = 128;
 		textureHeight = 128;
 
-		bone = new QRenderer(this);
+		bone = new ModelRenderer(this);
 		bone.setRotationPoint(0.0F, 23.75F, -1.0F);
 		
 

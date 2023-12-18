@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.particle;
 
-import com.paneedah.mwc.render.ParticleRenderer;
+import com.paneedah.mwc.renderer.ParticleRenderer;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.RenderHelper;
@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class FlashFX extends Particle {
 
@@ -82,7 +82,7 @@ public class FlashFX extends Particle {
 
     @Override
     public void renderParticle(BufferBuilder buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
-        mc.getTextureManager().bindTexture(new ResourceLocation(texture));
+        MC.getTextureManager().bindTexture(new ResourceLocation(texture));
 
         GL11.glPushMatrix();
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT);

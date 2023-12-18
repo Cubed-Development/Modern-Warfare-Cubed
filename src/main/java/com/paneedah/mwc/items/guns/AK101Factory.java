@@ -36,25 +36,24 @@ public class AK101Factory {
         .withConfigGroup(GunConfigurationGroup.RIFLES)
         .hasFlashPedals()
         .withMaxShots(1, Integer.MAX_VALUE)
-        //.withMaxShots(5)
+        .withMuzzlePosition(new Vec3d(-0.16400000488758082, -1.0, -6.5))
         .withShootSound("ak101")
         .withSilencedShootSound("ak15_silenced")
         .withReloadSound("ak_reload")
         .withUnloadSound("ak_unload")
         .withInspectSound("inspection")
         .withDrawSound("ak_draw")
+        .withEndOfShootSound("gun_click")
         .withReloadingTime(45)
         .withCrosshair("gun")
         .withCrosshairRunning("Running")
         .withCrosshairZoomed("Sight")
-        .withFlashIntensity(0.6f)
+        .withFlashIntensity(0.3f)
         .withFlashScale(() -> 0.5f)
         .withFlashOffsetX(() -> 0.12f)
         .withFlashOffsetY(() -> 0.16f)
-//        .withSpawnEntityModel(ammoModel)
-//        .withSpawnEntityModelTexture(ammoModelTextureName)
         .withShellCasingVerticalOffset(-0.05f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -96,10 +95,7 @@ public class AK101Factory {
         
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
-        .withCrafting(CraftingComplexity.MEDIUM,
-                MWCItems.gunmetalIngot,
-                MWCItems.gunmetalPlate)
-//        .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
+
         .withCompatibleAttachment(Attachments.AK47Stock, (model) -> {
 //            GL11.glTranslatef(0f, 0f, 1f);
         })
@@ -737,8 +733,20 @@ public class AK101Factory {
                     if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AK15ironsight)) {
                         //System.out.println("Position me for Acog");
                         GL11.glTranslatef(0F, 0.008f, 0f);
-                    } 
-                    
+                    }
+
+                    // ACOG Zoom
+                    if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7)) {
+                        //System.out.println("Position me for Acog");
+                        GL11.glTranslatef(0F, 0.15f, 0f);
+                    }
+
+                    // ACOG Zoom
+                    if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
+                        //System.out.println("Position me for Acog");
+                        GL11.glTranslatef(-0.02F, 0.16f, -0.45f);
+                    }
+
                     // Everything else
                     else {
                     }

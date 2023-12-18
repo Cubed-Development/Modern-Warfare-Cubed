@@ -1,11 +1,11 @@
 package com.paneedah.weaponlib.config;
 
-import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import net.minecraftforge.common.config.Config.RangeDouble;
 import net.minecraftforge.common.config.Config.RangeInt;
 import net.minecraftforge.common.config.Config.RequiresMcRestart;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
 
 import java.io.File;
@@ -86,11 +86,9 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the HDR framebuffer, requires restart. The HDR is the cause of a lot of shader incompat")
 	public static boolean enableHDRFramebuffer = true;
 	
-	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the fancy MWC snow/rain")
+	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the fancy MWC snow/rain (BROKEN - CRASHES GAME IF ENABLED)")
 	public static boolean enableFancyRainAndSnow = false;
 	
-
-//	 Fixing Method
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables the ammo counter")
 	public static boolean enableAmmoCounter = true;
 
@@ -123,7 +121,7 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should glass blocks be breakable by bullets?")
 	public static boolean bulletBreakGlass = true;
 
-	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "A list of blocks that should be penetrable by bullets ")
+	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "A list of blocks that will be penetrable by bullets.")
 	public static String penetrableBlocks = "minecraft:glass, minecraft:glass_pane, minecraft:stained_glass, minecraft:stained_glass_pane";
 
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Whether entities should have knockback applied to them when shot.")
@@ -137,6 +135,7 @@ public class ModernConfigManager {
 
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Should the explosion break blocks?")
 	public static boolean explosionBreak = true;
+	
 	@RangeDouble(min=0.0, max=20.0)
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "How much damage explosions should deal.")
 	public static double explosionDamage = 5.0;
@@ -157,7 +156,7 @@ public class ModernConfigManager {
 	@RequiresMcRestart
 	@RangeDouble(min=0, max=2.0)
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much should terrorists spawn?")
-	public static double terroristSpawn = 0.2;
+	public static double terroristSpawn = 0.1;
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=5.0)
@@ -277,7 +276,7 @@ public class ModernConfigManager {
 
 			registerProperty(f, annotation);
 			
-			if(!VMWHooksHandler.isOnServer()) {
+			if(!FMLCommonHandler.instance().getSide().isServer()) {
 				// Submits field to be organized within the tree
 				VMWModConfigGUI.submitField(annotation, f);
 			}

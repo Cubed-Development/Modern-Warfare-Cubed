@@ -51,7 +51,7 @@ public class EntityShellCasing extends EntityProjectile {
     }
 
     @Override
-    public void setPositionAndDirection(boolean isAim) {
+    public void setPositionAndDirection(boolean isAiming) {
         this.setSize(0.001f, 0.001f);
         float forwardOffset = 0.1F
                 + weapon.getShellCasingForwardOffset(); // 0.1f;

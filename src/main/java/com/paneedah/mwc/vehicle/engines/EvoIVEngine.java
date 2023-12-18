@@ -7,7 +7,6 @@ public class EvoIVEngine extends Engine {
 	
 	public EvoIVEngine(String name, String engineBrand, int maxRPM, int redLine, int idleRPM) {
 		super(name, engineBrand, maxRPM, redLine, idleRPM);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

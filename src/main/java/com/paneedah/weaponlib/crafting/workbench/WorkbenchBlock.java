@@ -3,7 +3,7 @@ package com.paneedah.weaponlib.crafting.workbench;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.crafting.base.BlockStation;
 import com.paneedah.weaponlib.inventory.GuiHandler;
-import com.paneedah.weaponlib.network.packets.StationClientPacket;
+import com.paneedah.mwc.network.messages.WorkbenchClientMessage;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,6 +15,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import static com.paneedah.mwc.MWC.CHANNEL;
 
 /**
  * Block class for the workbench block
@@ -60,7 +62,7 @@ public class WorkbenchBlock extends BlockStation {
 		if(hand == EnumHand.MAIN_HAND) {
 			playerIn.swingArm(hand);
 			if(!worldIn.isRemote) {
-				modContext.getChannel().sendTo(new StationClientPacket(worldIn, pos), (EntityPlayerMP) playerIn);
+				CHANNEL.sendTo(new WorkbenchClientMessage(worldIn, pos), (EntityPlayerMP) playerIn);
 			}
 			return true;
 		}

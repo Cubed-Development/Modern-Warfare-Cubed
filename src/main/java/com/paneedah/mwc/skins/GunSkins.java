@@ -5,7 +5,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.CommonRegistry;
 import com.paneedah.weaponlib.ItemSkin;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -19,7 +18,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 
+import static com.paneedah.mwc.utils.ModReference.LOG;
+
 public class GunSkins {
+
     public static ItemSkin WoodlandCamo;
     public static ItemSkin PinkCamo;
     public static ItemSkin ArcticCamo;
@@ -114,11 +116,11 @@ public class GunSkins {
                             .withName(skinName)
                             .build(MWC.modContext, ItemSkin.class);
                     CommonRegistry.gunSkins.add(skin);
-                    ModReference.LOG.info("Registered custom gun skin: " + skinName);
+                    LOG.info("Registered custom gun skin: " + skinName);
                 }
 
             } catch (Exception e) {
-                ModReference.LOG.error("Failed to set up custom skins directory!");
+                LOG.error("Failed to set up custom skins directory!");
                 e.printStackTrace();
                 return;
             }
@@ -147,7 +149,7 @@ public class GunSkins {
                     .withName(name.replace(".png", ""))
                     .build(MWC.modContext, ItemSkin.class);
             CommonRegistry.gunSkins.add(skin);
-            ModReference.LOG.info("Registered custom gun skin: " + name);
+            LOG.info("Registered custom gun skin: " + name);
         }
     }
 }

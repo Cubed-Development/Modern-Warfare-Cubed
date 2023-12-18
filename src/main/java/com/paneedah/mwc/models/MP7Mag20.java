@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -21,7 +21,7 @@ public class MP7Mag20 extends ModelWithAttachments {
 	private final ModelRenderer cube_r6;
 	private final ModelRenderer cube_r7;
 	private final ModelRenderer cube_r8;
-	private final QRenderer mag_20;
+	private final ModelRenderer mag_20;
 	private final ModelRenderer cube_r9;
 	private final ModelRenderer cube_r10;
 	private final ModelRenderer cube_r11;
@@ -263,7 +263,7 @@ public class MP7Mag20 extends ModelWithAttachments {
 		setRotationAngle(cube_r8, -0.1745F, 0.0F, 0.0F);
 		cube_r8.cubeList.add(new ModelBox(cube_r8, 30, 65, -2.0F, 0.002F, -1.0F, 2, 9, 1, -0.001F, false));
 
-		mag_20 = new QRenderer(this);
+		mag_20 = new ModelRenderer(this);
 		mag_20.setRotationPoint(0.2F, 7.9F, -2.8F);
 		mag_20.cubeList.add(new ModelBox(mag_20, 78, 0, -1.0F, -1.0F, 0.0F, 1, 1, 4, 0.0F, false));
 		mag_20.cubeList.add(new ModelBox(mag_20, 51, 32, -2.45F, -0.999F, 0.55F, 2, 1, 4, 0.0F, false));
@@ -1653,10 +1653,10 @@ public class MP7Mag20 extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		mag_40.render(f5);
+//		mag_40.renderer(f5);
 		mag_20.render(f5);
-//		action.render(f5);
-//		grip.render(f5);
+//		action.renderer(f5);
+//		grip.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

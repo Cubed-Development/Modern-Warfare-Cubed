@@ -109,7 +109,7 @@ public class RevolverSpeedloader extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		speedloader.render(f5);
-//		speedloaderbullets.render(f5);
+//		speedloaderbullets.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

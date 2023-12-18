@@ -29,7 +29,7 @@ public class InventoryTab extends GuiButton {
     }
 
     @Override
-    public void drawButton(Minecraft mc, int mouseX, int mouseY, float partialTicks) {
+    public void drawButton(Minecraft MC, int mouseX, int mouseY, float partialTicks) {
         if (this.visible) {
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
@@ -38,10 +38,10 @@ public class InventoryTab extends GuiButton {
             int xOffset = this.id == 2 ? 0 : 1;
             int yPos = this.y + (this.enabled ? 3 : 0);
 
-            mc.renderEngine.bindTexture(this.texture);
+            MC.renderEngine.bindTexture(this.texture);
             this.drawTexturedModalRect(this.x, yPos, xOffset * 28, yTexPos, 28, ySize);
 
-            itemRenderer = mc.getRenderItem();
+            itemRenderer = MC.getRenderItem();
 
             RenderHelper.enableGUIStandardItemLighting();
             this.zLevel = 100.0F;
@@ -50,7 +50,7 @@ public class InventoryTab extends GuiButton {
             GL11.glEnable(GL12.GL_RESCALE_NORMAL);
             final ItemStack itemStack = getItemStack();
             this.itemRenderer.renderItemAndEffectIntoGUI(itemStack, x + 6, y + 8);
-            this.itemRenderer.renderItemOverlays(mc.fontRenderer, itemStack, x + 6, y + 8);
+            this.itemRenderer.renderItemOverlays(MC.fontRenderer, itemStack, x + 6, y + 8);
             GL11.glDisable(GL11.GL_LIGHTING);
             GL11.glEnable(GL11.GL_BLEND);
             this.itemRenderer.zLevel = 0.0F;
@@ -60,7 +60,7 @@ public class InventoryTab extends GuiButton {
     }
 
     @Override
-    public boolean mousePressed(Minecraft mc, int mouseX, int mouseY) {
+    public boolean mousePressed(Minecraft MC, int mouseX, int mouseY) {
         boolean inWindow = this.enabled && this.visible && mouseX >= this.x && mouseY >= this.y
                 && mouseX < this.x + this.width && mouseY < this.y + this.height;
 

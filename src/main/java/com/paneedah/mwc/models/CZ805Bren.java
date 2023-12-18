@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class CZ805Bren extends ModelWithAttachments {
-	private final QRenderer lowerreceiver;
+	private final ModelRenderer lowerreceiver;
 	private final ModelRenderer cube_r41;
 	private final ModelRenderer cube_r42;
 	private final ModelRenderer cube_r43;
@@ -40,20 +40,20 @@ public class CZ805Bren extends ModelWithAttachments {
 	private final ModelRenderer rail;
 	private final ModelRenderer cube_r65;
 	private final ModelRenderer cube_r66;
-	private final QRenderer grip;
+	private final ModelRenderer grip;
 	private final ModelRenderer grip2_r1;
 	private final ModelRenderer grip7_r1;
 	private final ModelRenderer grip6_r1;
 	private final ModelRenderer grip7_r2;
 	private final ModelRenderer grip10_r1;
 	private final ModelRenderer grip9_r1;
-	private final QRenderer barrel;
+	private final ModelRenderer barrel;
 
 	public CZ805Bren() {
 		textureWidth = 220;
 		textureHeight = 220;
 
-		lowerreceiver = new QRenderer(this);
+		lowerreceiver = new ModelRenderer(this);
 		lowerreceiver.setRotationPoint(0.0F, 24.0F, 0.0F);
 		lowerreceiver.cubeList.add(new ModelBox(lowerreceiver, 22, 162, -3.1F, -33.25F, -23.0F, 2, 3, 17, 0.0F, false));
 		lowerreceiver.cubeList.add(new ModelBox(lowerreceiver, 58, 0, -2.5F, -33.45F, -48.0F, 2, 1, 23, 0.001F, false));
@@ -313,7 +313,7 @@ public class CZ805Bren extends ModelWithAttachments {
 		cube_r66.cubeList.add(new ModelBox(cube_r66, 104, 1, -0.8F, -0.8F, 12.05F, 1, 1, 1, -0.202F, false));
 		cube_r66.cubeList.add(new ModelBox(cube_r66, 145, 56, -0.9F, -0.9F, 1.3F, 1, 1, 21, -0.3F, false));
 
-		grip = new QRenderer(this);
+		grip = new ModelRenderer(this);
 		grip.setRotationPoint(0.0F, 24.0F, 0.0F);
 		
 
@@ -353,7 +353,7 @@ public class CZ805Bren extends ModelWithAttachments {
 		setRotationAngle(grip9_r1, 0.2929F, 0.0F, 0.0F);
 		grip9_r1.cubeList.add(new ModelBox(grip9_r1, 56, 80, -3.0F, 0.0F, -6.0F, 3, 3, 6, 0.0F, false));
 
-		barrel = new QRenderer(this);
+		barrel = new ModelRenderer(this);
 		barrel.setRotationPoint(-2.0F, -11.25F, -73.0F);
 		barrel.cubeList.add(new ModelBox(barrel, 0, 162, 0.0F, -1.05F, 5.0F, 1, 1, 20, 0.0F, false));
 		barrel.cubeList.add(new ModelBox(barrel, 161, 106, 0.0F, -0.65F, 5.0F, 1, 1, 20, 0.0F, false));

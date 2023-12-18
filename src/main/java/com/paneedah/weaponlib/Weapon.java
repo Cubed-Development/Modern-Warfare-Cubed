@@ -1,8 +1,7 @@
 package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
-import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.BulletHoleRenderer.BulletHole;
+import com.paneedah.mwc.network.messages.BlockHitMessage;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
 import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
 import com.paneedah.weaponlib.animation.SpecialAttachments;
@@ -14,7 +13,7 @@ import com.paneedah.weaponlib.crafting.*;
 import com.paneedah.weaponlib.model.Shell;
 import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
-import io.redstudioragnarok.redcore.vectors.Vector3D;
+import io.redstudioragnarok.redcore.vectors.Vector3F;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
@@ -26,12 +25,12 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -46,10 +45,11 @@ import java.util.Map.Entry;
 import java.util.function.*;
 import java.util.stream.Collectors;
 
+import static com.paneedah.mwc.MWC.CHANNEL;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
-public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>,
-AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCrafting {
+public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>, AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCrafting {
 
     public enum ShellCasingEjectDirection { LEFT, RIGHT };
     
@@ -102,7 +102,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         
         private Vec3d muzzlePosition = new Vec3d(-.3, -1.0, -5.3);
 
-        @SuppressWarnings("unused")
+        
         private String exceededMaxShotsSound;
         ItemAmmo ammo;
         float fireRate = Weapon.DEFAULT_FIRE_RATE;
@@ -389,18 +389,18 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withCrosshair(String crosshair) {
-            this.crosshair = ModReference.ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
+            this.crosshair = ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
             return this;
         }
 
         public Builder withCrosshair(String crosshair, boolean fullScreen) {
-            this.crosshair = ModReference.ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
+            this.crosshair = ID + ":textures/crosshairs/" + crosshair.toLowerCase() + ".png";
             this.crosshairFullScreen = fullScreen;
             return this;
         }
 
         public Builder withCrosshairRunning(String crosshairRunning) {
-            this.crosshairRunning = ModReference.ID + ":textures/crosshairs/" + crosshairRunning.toLowerCase() + ".png";
+            this.crosshairRunning = ID + ":textures/crosshairs/" + crosshairRunning.toLowerCase() + ".png";
             return this;
         }
 
@@ -409,7 +409,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withCrosshairZoomed(String crosshairZoomed, boolean fullScreen) {
-            this.crosshairZoomed = ModReference.ID + ":textures/crosshairs/" + crosshairZoomed.toLowerCase() + ".png";
+            this.crosshairZoomed = ID + ":textures/crosshairs/" + crosshairZoomed.toLowerCase() + ".png";
             this.crosshairZoomedFullScreen = fullScreen;
             return this;
         }
@@ -420,12 +420,12 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withShootSound(String shootSound) {
-            this.shootSound = shootSound.toLowerCase(); //ModReference.id + ":" + shootSound;
+            this.shootSound = shootSound.toLowerCase(); //ID + ":" + shootSound;
             return this;
         }
         
         public Builder withEndOfShootSound(String endOfShootSound) {
-            this.endOfShootSound = endOfShootSound.toLowerCase(); //ModReference.id + ":" + shootSound;
+            this.endOfShootSound = endOfShootSound.toLowerCase(); //ID + ":" + shootSound;
             return this;
         }
 
@@ -440,37 +440,37 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
         
         public Builder withBurstShootSound(String burstShootSound) {
-            this.burstShootSound = burstShootSound.toLowerCase(); //ModReference.id + ":" + shootSound;
+            this.burstShootSound = burstShootSound.toLowerCase(); //ID + ":" + shootSound;
             return this;
         }
         
         public Builder withSilencedBurstShootSound(String silencedBurstShootSound) {
-            this.silencedBurstShootSound = silencedBurstShootSound.toLowerCase(); //ModReference.id + ":" + shootSound;
+            this.silencedBurstShootSound = silencedBurstShootSound.toLowerCase(); //ID + ":" + shootSound;
             return this;
         }
 
         public Builder withReloadSound(String reloadSound) {
-            this.reloadSound = reloadSound.toLowerCase(); //ModReference.id + ":" + reloadSound;
+            this.reloadSound = reloadSound.toLowerCase(); //ID + ":" + reloadSound;
             return this;
         }
         
         public Builder withReloadIterationSound(String reloadIterationSound) {
-            this.reloadIterationSound = reloadIterationSound.toLowerCase(); //ModReference.id + ":" + reloadSound;
+            this.reloadIterationSound = reloadIterationSound.toLowerCase(); //ID + ":" + reloadSound;
             return this;
         }
         
         public Builder withInspectSound(String inspectSound) {
-            this.inspectSound = inspectSound.toLowerCase(); //ModReference.id + ":" + reloadSound;
+            this.inspectSound = inspectSound.toLowerCase(); //ID + ":" + reloadSound;
             return this;
         }
         
         public Builder withDrawSound(String drawSound) {
-            this.drawSound = drawSound.toLowerCase(); //ModReference.id + ":" + reloadSound;
+            this.drawSound = drawSound.toLowerCase(); //ID + ":" + reloadSound;
             return this;
         }
         
         public Builder withAllReloadIterationsCompletedSound(String allReloadIterationCompletedSound) {
-            this.allReloadIterationsCompletedSound = allReloadIterationCompletedSound.toLowerCase(); //ModReference.id + ":" + reloadSound;
+            this.allReloadIterationsCompletedSound = allReloadIterationCompletedSound.toLowerCase(); //ID + ":" + reloadSound;
             return this;
         }
 
@@ -490,7 +490,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withExceededMaxShotsSound(String shootSound) {
-            this.exceededMaxShotsSound = shootSound.toLowerCase(); //ModReference.id + ":" + shootSound;
+            this.exceededMaxShotsSound = shootSound.toLowerCase(); //ID + ":" + shootSound;
             return this;
         }
 
@@ -557,7 +557,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
 
         
         public Builder withRenderer(WeaponRenderer renderer) {
-            //if(VMWHooksHandler.isOnServer()) return this;
+            //if(FMLCommonHandler.instance().getSide().isServer()) return this;
             this.renderer = renderer;
             return this;
         }
@@ -624,7 +624,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withSpawnEntityModelTexture(String ammoModelTextureName) {
-            this.ammoModelTextureName = ModReference.ID + ":textures/models/" + ammoModelTextureName.toLowerCase() + ".png";
+            this.ammoModelTextureName = ID + ":textures/models/" + ammoModelTextureName.toLowerCase() + ".png";
             return this;
         }
 
@@ -644,7 +644,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
 
         public Builder withShellCasingModelTexture(String shellModelTextureName) {
-            this.shellCasingModelTextureName = ModReference.ID + ":textures/models/" + shellModelTextureName.toLowerCase() + ".png";
+            this.shellCasingModelTextureName = ID + ":textures/models/" + shellModelTextureName.toLowerCase() + ".png";
             return this;
         }
 
@@ -715,7 +715,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         }
         
         public Builder withFlashTexture(String flashTexture) {
-            this.flashTexture = ModReference.ID + ":textures/particle/" + flashTexture.toLowerCase() + ".png";
+            this.flashTexture = ID + ":textures/particle/" + flashTexture.toLowerCase() + ".png";
             return this;
         }
 
@@ -769,7 +769,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             if(explosionParticleTexture.endsWith(".png") && explosionParticleTexture.length() > 4) {
                 explosionParticleTexture = explosionParticleTexture.substring(0, explosionParticleTexture.length() - 4);
             }
-            this.explosionParticleTexture = ModReference.ID + ":textures/particle/" + explosionParticleTexture.toLowerCase() + ".png";
+            this.explosionParticleTexture = ID + ":textures/particle/" + explosionParticleTexture.toLowerCase() + ".png";
             return this;
         }
         
@@ -777,7 +777,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             if(smokeParticleTexture.endsWith(".png") && smokeParticleTexture.length() > 4) {
                 smokeParticleTexture = smokeParticleTexture.substring(0, smokeParticleTexture.length() - 4);
             }
-            this.smokeParticleTexture = ModReference.ID + ":textures/particle/" + smokeParticleTexture.toLowerCase() + ".png";
+            this.smokeParticleTexture = ID + ":textures/particle/" + smokeParticleTexture.toLowerCase() + ".png";
             return this;
         }
         
@@ -915,10 +915,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                     if (ModernConfigManager.bulletBreakGlass && iBlockState.getMaterial() == Material.GLASS) {
                         world.destroyBlock(new BlockPos(new BlockPos(position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ())), true);
                     } else {
-                        //compatibility.addBlockHitEffect(position);
-                        //compatibility.playSound(world, posX, posY, posZ, explosionSound, volume, pitch);
-                        NetworkRegistry.TargetPoint point = new NetworkRegistry.TargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100);
-                        modContext.getChannel().sendToAllAround(new BlockHitMessage(position.getBlockPos(), position.hitVec.x, position.hitVec.y, position.hitVec.z, position.sideHit), point);
+                        CHANNEL.sendToAllAround(new BlockHitMessage(position.getBlockPos(), new Vector3F(position.hitVec), position.sideHit), new NetworkRegistry.TargetPoint(entity.dimension, position.getBlockPos().getX(), position.getBlockPos().getY(), position.getBlockPos().getZ(), 100));
                         
                         MaterialImpactSound materialImpactSound = modContext.getMaterialImpactSound(iBlockState, entity);
                         if(materialImpactSound != null) {
@@ -982,9 +979,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                 List<Object> registeredRecipe = modContext.getRecipeManager().registerShapedRecipe(weapon, craftingRecipe);
                 boolean hasOres = Arrays.stream(craftingRecipe).anyMatch(r -> r instanceof String);
                 if(hasOres) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe") /*TODO: temporary hack*/);
                 } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ModReference.ID, itemStack.getItem().getTranslationKey() + "_recipe"));
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, itemStack, registeredRecipe.toArray()).setMirrored(false).setRegistryName(ID, itemStack.getItem().getTranslationKey() + "_recipe"));
                 }
             } else if(craftingComplexity != null) {
                 OptionsMetadata optionsMetadata = new OptionsMetadata.OptionMetadataBuilder()
@@ -994,9 +991,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
                 List<Object> shape = modContext.getRecipeManager().createShapedRecipe(weapon, weapon.getName(), optionsMetadata);
 
                 if(optionsMetadata.hasOres()) {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
                 } else {
-                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ModReference.ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
+                    ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(weapon), shape.toArray()).setMirrored(false).setRegistryName(ID, new ItemStack(weapon).getItem().getTranslationKey() + "_recipe"));
                 }
 
             } else {
@@ -1192,7 +1189,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         return true;
     }
 
-    void toggleAiming() {
+    public void toggleAiming() {
 
         PlayerWeaponInstance mainHandHeldWeaponInstance = modContext.getMainHeldWeapon();
         
@@ -1286,14 +1283,12 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
 
     void onSpawnEntityBlockImpact(World world, EntityPlayer player, WeaponSpawnEntity entity, RayTraceResult position) {
 
-        if(world.isRemote) {
-            EnumFacing facing = EnumFacing.valueOf(position.sideHit.toString());
-            ClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vector3D(position.hitVec.x, position.hitVec.y, position.hitVec.z), facing, 0.05));
-        }
+        // Todo: Add when bullets are actually bullet and not entities
+//        if(world.isRemote)
+//            ClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vector3D(position.hitVec.x, position.hitVec.y, position.hitVec.z), position.sideHit, 0.05));
 
-        if(builder.blockImpactHandler != null) {
+        if (!world.isRemote && builder.blockImpactHandler != null)
             builder.blockImpactHandler.onImpact(world, player, entity, position);
-        }
     }
 
     @Override
@@ -1309,7 +1304,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         return builder.ejectSpentRoundRequired;
     }
 
-    List<ItemMagazine> getCompatibleMagazines() {
+    public List<ItemMagazine> getCompatibleMagazines() {
         return builder.compatibleAttachments.keySet().stream()
                 .filter(a -> a instanceof ItemMagazine)
                 .map(a -> (ItemMagazine)a)
@@ -1320,7 +1315,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         return builder.renderer;
     }
 
-    List<ItemAttachment<Weapon>> getCompatibleAttachments(Class<? extends ItemAttachment<Weapon>> target) {
+    public List<ItemAttachment<Weapon>> getCompatibleAttachments(Class<? extends ItemAttachment<Weapon>> target) {
         return builder.compatibleAttachments.entrySet().stream()
                 .filter(e -> target.isInstance(e.getKey()))
                 .map(e -> e.getKey())
@@ -1420,15 +1415,16 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         instance.setMaxShots(result);
         String message;
         if(result == 1) {
-            message = net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode.semi");
+            message = I18n.format("gui.firearmMode.semi");
         } else if(result == Integer.MAX_VALUE) {
-            message = net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode.auto");
+            message = I18n.format("gui.firearmMode.auto");
         } else {
-            message = net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode.burst");
+            message = I18n.format("gui.firearmMode.burst");
         }
         LOG.debug("Changed fire mode of {} to {}", instance, result);
 
-        modContext.getStatusMessageCenter().addMessage(net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.firearmMode", message), 1000);
+        if (instance.getPlayer() instanceof EntityPlayer)
+            ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.firearmMode", message)), true);
 
         instance.getPlayer().playSound(modContext.getChangeFireModeSound(), 1, 1);
     }
@@ -1495,7 +1491,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
 
-            modContext.getStatusMessageCenter().addMessage(net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.currentZoom", Math.round(ratio * 100)), 800);
+            if (instance.getPlayer() instanceof EntityPlayer)
+                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
             LOG.debug("Changed optical zoom to {}", instance.getZoom());
         } else {
@@ -1517,7 +1515,10 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             instance.setZoom(zoom);
 
             float ratio = (minZoom - zoom) / (minZoom - maxZoom);
-            modContext.getStatusMessageCenter().addMessage(net.minecraft.util.text.translation.I18n.translateToLocalFormatted("gui.currentZoom", Math.round(ratio * 100)), 800);
+
+            if (instance.getPlayer() instanceof EntityPlayer)
+                ((EntityPlayer) instance.getPlayer()).sendStatusMessage(new TextComponentString(I18n.format("gui.currentZoom", Math.round(ratio * 100))), true);
+
             instance.getPlayer().playSound(modContext.getZoomSound(), 1, 1);
             LOG.debug("Changed optical zoom to {}", zoom);
         } else {

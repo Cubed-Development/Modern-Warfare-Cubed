@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.electronics;
 
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
 
@@ -86,17 +86,17 @@ public enum HandheldState implements ManagedState<HandheldState> {
 	}
 
 	@Override
-	public void init(ByteBuf buf) {
+	public void read(ByteBuf byteBuf) {
 		// not need to initialize anything, type registry will take care of everything
 	}
 
 	@Override
-	public void serialize(ByteBuf buf) {
-		// not need to serialize anything, parent type registry should take care of it
+	public void write(ByteBuf byteBuf) {
+		// not need to write anything, parent type registry should take care of it
 	}
 	
 	static {
-		TypeRegistry.getInstance().register(HandheldState.class);
+		TypeRegistry.getINSTANCE().register(HandheldState.class);
 	}
 
 	

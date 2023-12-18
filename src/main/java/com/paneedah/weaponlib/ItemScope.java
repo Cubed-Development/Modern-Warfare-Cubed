@@ -4,12 +4,9 @@ import com.paneedah.weaponlib.electronics.ScopePerspective;
 import com.paneedah.weaponlib.perspective.ReflexScreen;
 import com.paneedah.weaponlib.render.scopes.CyclicList;
 import com.paneedah.weaponlib.render.scopes.Reticle;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Arrays;
-import java.util.function.BiConsumer;
 
 public class ItemScope extends ItemAttachment<Weapon> {
 
@@ -24,7 +21,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
         private boolean isOpticalZoom;
         private boolean hasNightVision;
         private boolean usesWhitePhosphor;
-        private BiConsumer<EntityLivingBase, ItemStack> viewfinderPositioning;
+        private Runnable viewfinderPositioning;
         private int width = DEFAULT_WIDTH;
         private int height = DEFAULT_HEIGHT;
         
@@ -41,7 +38,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
         private boolean hasReticle = false;
         public Vec3d background;
         */
-        private BiConsumer<EntityLivingBase, ItemStack> reticlePositioning;
+        private Runnable reticlePositioning;
 
         
         
@@ -94,12 +91,12 @@ public class ItemScope extends ItemAttachment<Weapon> {
         
      
         
-        public Builder withReticlePositioning(BiConsumer<EntityLivingBase, ItemStack> reticlePositioning) {
+        public Builder withReticlePositioning(Runnable reticlePositioning) {
         	this.reticlePositioning = reticlePositioning;
         	return this;
         }
 
-        public Builder withViewfinderPositioning(BiConsumer<EntityLivingBase, ItemStack> viewfinderPositioning) {
+        public Builder withViewfinderPositioning(Runnable viewfinderPositioning) {
             this.viewfinderPositioning = viewfinderPositioning;
             return this;
         }
@@ -108,7 +105,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
         protected ItemAttachment<Weapon> createAttachment(ModContext modContext) {
             if(isOpticalZoom) {
                 if(viewfinderPositioning == null) {
-                    viewfinderPositioning = (p, s) -> {
+                    viewfinderPositioning = () -> {
                         GL11.glScalef(1.1f, 1.1f, 1.1f);
                         GL11.glTranslatef(0.1f, 0.4f, 0.6f);
                     };
@@ -140,7 +137,7 @@ public class ItemScope extends ItemAttachment<Weapon> {
         }
     }
 
-    @SuppressWarnings("unused")
+    
     private ModContext modContext;
     private Builder builder;
 

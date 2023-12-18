@@ -1,8 +1,8 @@
 package com.paneedah.weaponlib.state;
 
-import com.paneedah.weaponlib.network.UniversallySerializable;
+import com.paneedah.mwc.network.ISerializable;
 
-public interface ManagedState<T extends ManagedState<T>> extends UniversallySerializable {
+public interface ManagedState<T extends ManagedState<T>> extends ISerializable {
 
 	public default T preparingPhase() {
 		return null;

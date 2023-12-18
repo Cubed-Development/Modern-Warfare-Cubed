@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib.state;
 
+import com.paneedah.mwc.network.NetworkPermitManager;
 import com.paneedah.weaponlib.state.Permit.Status;
 
 import java.util.*;
@@ -23,7 +24,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 		private BiPredicate<S, EE> predicate;
 		private BiFunction<S, EE, Permit<S>> permitProvider;
 		private BiFunction<S, EE, Boolean> stateUpdater;
-		private PermitManager permitManager;
+		private NetworkPermitManager permitManager;
 		private Predicate<EE> preparePredicate;
 		private long requestTimeout = DEFAULT_REQUEST_TIMEOUT;
 		private boolean isPermitRequired;
@@ -61,7 +62,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 		public RuleBuilder<EE> withPermit(
 				BiFunction<S, EE, Permit<S>> permitProvider,
 				BiFunction<S, EE, Boolean> stateUpdater,
-				PermitManager permitManager) {
+				NetworkPermitManager permitManager) {
 			this.isPermitRequired = true;
 			this.permitProvider = permitProvider;
 			this.stateUpdater = stateUpdater;
@@ -114,7 +115,9 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 			if(action == null) {
 				action = (c, f, t, p) -> null;
 			}
-			
+
+			// Todo: What does this mean???
+
 			/*
 			 * Problem with updating state. Need to specify which update is required.
 			 * 
@@ -196,18 +199,16 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 
 		private void applyPermit(Permit<S> processedPermit, E updatedState) {
 			// This is a permit granted callback which sets state to the final toState
-			
-			
-			
 			S updateToState = processedPermit.getStatus() == Status.GRANTED ? toState : fromState;
-			LOG.debug("Applying permit with status {} to {}, changing state to {}",
-			        processedPermit.getStatus(), updatedState, toState);
+			LOG.debug("Applying permit with status {} to {}, changing state to {}", processedPermit.getStatus(), updatedState, toState);
 			
-			if(stateUpdater.apply(updateToState, safeCast(updatedState))) {
+			if(Boolean.TRUE.equals(stateUpdater.apply(updateToState, safeCast(updatedState))))
 				action.execute(safeCast(updatedState), fromState, toState, processedPermit);
-			}
 			
-			//TODO: changeState(aspect, updatedState);
+			// T O D O: changeState(aspect, updatedState);
+			// This was probably a T o d o from Jim, adding this code seems to just work, so I will leave it like that
+			// It might cause issues as just putting a t o d o with the exact code seems weird
+			changeState(aspect, updatedState);
 		}
 	}
 	
@@ -256,7 +257,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 		public void execute(EE extendedState);
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	private static <T, U> T safeCast(U u) {
 		return (T) u;
 	}
@@ -287,7 +288,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 			this.auto = auto;
 		}
 		
-		boolean matches(StateComparator<S> stateComparator, E context, S fromState, @SuppressWarnings("unchecked") S...targetStates) {
+		boolean matches(StateComparator<S> stateComparator, E context, S fromState,  S...targetStates) {
 			
 			boolean result = fromState == null || stateComparator.compare(this.fromState, fromState);
 			result = result && ((auto && targetStates.length == 0) 
@@ -319,16 +320,16 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 		return new RuleBuilder<EE>(aspect);
 	}
 	
-	public Result changeState(Aspect<S, ? extends E> aspect, E extendedState, @SuppressWarnings("unchecked") S...targetStates) {
+	public Result changeState(Aspect<S, ? extends E> aspect, E extendedState,  S...targetStates) {
 		return changeState(aspect, extendedState, null, targetStates);
 	}
 	
-	public Result changeState(Aspect<S, ? extends E> aspect, E extendedState, Permit<S> permit, @SuppressWarnings("unchecked") S...targetStates) {
+	public Result changeState(Aspect<S, ? extends E> aspect, E extendedState, Permit<S> permit,  S...targetStates) {
 		S currentState = extendedState.getState();
 		return changeStateFromTo(aspect, extendedState, permit, currentState, targetStates);
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	public Result changeStateFromAnyOf(Aspect<S, ? extends E> aspect, E extendedState, Collection<S> fromStates, S...targetStates) {
 		S currentState = extendedState.getState();
 		if(!fromStates.contains(currentState)) {
@@ -337,11 +338,11 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 		return changeStateFromTo(aspect, extendedState, currentState, targetStates);
 	}
 	
-	protected Result changeStateFromTo(Aspect<S, ? extends E> aspect, E extendedState, S currentState, @SuppressWarnings("unchecked") S...targetStates) {
+	protected Result changeStateFromTo(Aspect<S, ? extends E> aspect, E extendedState, S currentState,  S...targetStates) {
 		return changeStateFromTo(aspect, extendedState, null, currentState, targetStates);
 	}
 	
-	protected Result changeStateFromTo(Aspect<S, ? extends E> aspect, E extendedState, Permit<S> permit, S currentState, @SuppressWarnings("unchecked") S...targetStates) {
+	protected Result changeStateFromTo(Aspect<S, ? extends E> aspect, E extendedState, Permit<S> permit, S currentState,  S...targetStates) {
 		
 		if(extendedState == null) {
 			return null;
@@ -375,7 +376,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 	}
 
 
-	private TransitionRule<S, E> findNextStateRule(Aspect<S, ? extends E> aspect, E extendedState, S currentState, @SuppressWarnings("unchecked") S... targetStates) {
+	private TransitionRule<S, E> findNextStateRule(Aspect<S, ? extends E> aspect, E extendedState, S currentState,  S... targetStates) {
 		
 		return contextRules.entrySet().stream()
 				.filter(e -> e.getKey() == aspect) 
@@ -388,7 +389,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 	
 //  Non-stream version to test performance
 //
-//	private TransitionRule<S, E> findNextStateRule(Aspect<S, ? extends E> aspect, E extendedState, S currentState, @SuppressWarnings("unchecked") S... targetStates) {
+//	private TransitionRule<S, E> findNextStateRule(Aspect<S, ? extends E> aspect, E extendedState, S currentState,  S... targetStates) {
 //		
 //		LinkedHashSet<TransitionRule<S, E>> aspectRules = contextRules.get(aspect);
 //		TransitionRule<S, E> result = null;

@@ -1,11 +1,10 @@
 package com.paneedah.weaponlib.animation.gui;
 
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
-import com.paneedah.weaponlib.jim.util.Vec2d;
-import com.paneedah.weaponlib.jim.util.Vec2i;
+import io.redstudioragnarok.redcore.vectors.Vector2D;
 import net.minecraft.client.renderer.GlStateManager;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Panel {
@@ -28,8 +27,8 @@ public class Panel {
 	private double buttonSize;
 	
 	private boolean grabbed = false;
-	private Vec2i originalMouseCoords;
-	private Vec2d originalPanelCoords;
+	private Vector2D originalMouseCoords;
+	private Vector2D originalPanelCoords;
 	
 	private boolean closed = false;
 	
@@ -95,8 +94,8 @@ public class Panel {
 				
 				
 				
-				this.originalMouseCoords = new Vec2i(mouseX, mouseY);
-				this.originalPanelCoords = new Vec2d(positionX, positionY);
+				this.originalMouseCoords = new Vector2D(mouseX, mouseY);
+				this.originalPanelCoords = new Vector2D(positionX, positionY);
 			} 
 		}
 		
@@ -275,22 +274,22 @@ public class Panel {
 	}
 
 
-	public Vec2i getOriginalMouseCoords() {
+	public Vector2D getOriginalMouseCoords() {
 		return originalMouseCoords;
 	}
 
 
-	public void setOriginalMouseCoords(Vec2i originalMouseCoords) {
+	public void setOriginalMouseCoords(Vector2D originalMouseCoords) {
 		this.originalMouseCoords = originalMouseCoords;
 	}
 
 
-	public Vec2d getOriginalPanelCoords() {
+	public Vector2D getOriginalPanelCoords() {
 		return originalPanelCoords;
 	}
 
 
-	public void setOriginalPanelCoords(Vec2d originalPanelCoords) {
+	public void setOriginalPanelCoords(Vector2D originalPanelCoords) {
 		this.originalPanelCoords = originalPanelCoords;
 	}
 

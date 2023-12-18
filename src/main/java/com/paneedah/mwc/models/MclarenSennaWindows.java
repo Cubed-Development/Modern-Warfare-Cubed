@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,16 +12,16 @@ import net.minecraft.entity.Entity;
 
 
 public class MclarenSennaWindows extends ModelBase {
-	private final QRenderer wheel5;
+	private final ModelRenderer wheel5;
 	private final ModelRenderer bone46;
 	private final ModelRenderer bone47;
-	private final QRenderer windows;
+	private final ModelRenderer windows;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
 	private final ModelRenderer cube_r4;
 	private final ModelRenderer cube_r5;
-	private final QRenderer steering_wheel;
+	private final ModelRenderer steering_wheel;
 	private final ModelRenderer bone111;
 	private final ModelRenderer cube_r6;
 	private final ModelRenderer bone110;
@@ -35,7 +35,7 @@ public class MclarenSennaWindows extends ModelBase {
 	private final ModelRenderer bone113;
 	private final ModelRenderer bone109;
 	private final ModelRenderer cube_r8;
-	private final QRenderer car;
+	private final ModelRenderer car;
 	private final ModelRenderer interior;
 	private final ModelRenderer front_seats_performance;
 	private final ModelRenderer seat_driver_performance;
@@ -287,7 +287,7 @@ public class MclarenSennaWindows extends ModelBase {
 		textureWidth = 512;
 		textureHeight = 512;
 
-		wheel5 = new QRenderer(this);
+		wheel5 = new ModelRenderer(this);
 		wheel5.setRotationPoint(-5.0F, 24.0F, 0.0F);
 		wheel5.cubeList.add(new ModelBox(wheel5, 362, 305, 0.0F, -22.0F, -5.0F, 7, 4, 10, 0.0F, true));
 		wheel5.cubeList.add(new ModelBox(wheel5, 147, 343, 2.0F, -18.0F, -7.0F, 3, 14, 14, 0.0F, true));
@@ -310,7 +310,7 @@ public class MclarenSennaWindows extends ModelBase {
 		bone47.cubeList.add(new ModelBox(bone47, 324, 293, -0.01F, 0.0F, 0.0F, 7, 8, 4, 0.0F, true));
 		bone47.cubeList.add(new ModelBox(bone47, 289, 170, 0.5F, 2.1213F, 9.1924F, 6, 4, 4, 0.0F, true));
 
-		windows = new QRenderer(this);
+		windows = new ModelRenderer(this);
 		windows.setRotationPoint(-31.0F, -3.8F, 12.0F);
 		windows.cubeList.add(new ModelBox(windows, 76, 467, 28.65F, 6.0F, 4.0F, 0, 18, 30, 0.0F, false));
 		windows.cubeList.add(new ModelBox(windows, 77, 444, -28.65F, 6.0F, 4.0F, 0, 18, 30, 0.0F, true));
@@ -345,7 +345,7 @@ public class MclarenSennaWindows extends ModelBase {
 		setRotationAngle(cube_r5, -0.2618F, 0.0F, 0.0F);
 		cube_r5.cubeList.add(new ModelBox(cube_r5, 218, 424, -20.0F, 0.0F, -18.0F, 23, 0, 18, 0.0F, false));
 
-		steering_wheel = new QRenderer(this);
+		steering_wheel = new ModelRenderer(this);
 		steering_wheel.setRotationPoint(-1.0F, 26.0F, -20.0F);
 		setRotationAngle(steering_wheel, -0.1309F, 0.0F, 0.0F);
 		
@@ -430,7 +430,7 @@ public class MclarenSennaWindows extends ModelBase {
 		cube_r8.cubeList.add(new ModelBox(cube_r8, 89, 119, -1.5F, -2.0F, 1.0F, 3, 4, 1, 0.0F, false));
 		cube_r8.cubeList.add(new ModelBox(cube_r8, 33, 168, -2.5F, -2.0F, -2.0F, 5, 3, 3, 0.0F, false));
 
-		car = new QRenderer(this);
+		car = new ModelRenderer(this);
 		car.setRotationPoint(-31.0F, 24.0F, 0.0F);
 		
 
@@ -1928,10 +1928,10 @@ public class MclarenSennaWindows extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		wheel5.render(f5);
+//		wheel5.renderer(f5);
 		windows.render(f5);
-//		steering_wheel.render(f5);
-//		car.render(f5);
+//		steering_wheel.renderer(f5);
+//		car.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

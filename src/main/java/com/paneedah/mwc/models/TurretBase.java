@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class TurretBase extends ModelBase {
-	private final QRenderer stand;
+	private final ModelRenderer stand;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -31,7 +31,7 @@ public class TurretBase extends ModelBase {
 		textureWidth = 64;
 		textureHeight = 64;
 
-		stand = new QRenderer(this);
+		stand = new ModelRenderer(this);
 		stand.setRotationPoint(0.0F, 25.0F, 0.25F);
 		
 

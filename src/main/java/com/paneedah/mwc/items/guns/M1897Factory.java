@@ -5,7 +5,7 @@ import com.paneedah.mwc.models.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.wearables.Bullets;
+import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
@@ -23,7 +23,7 @@ public class M1897Factory implements GunFactory {
 		
 		.withName("M1897")
 //		.withCapacity(CommonProxy.Remington870Mag)
-		.withAmmoCapacity(4)
+		.withAmmoCapacity(5)
 		.withMaxBulletsPerReload(4)
 		.withFireRate(0.5f)
 		.withEjectRoundRequired()
@@ -53,14 +53,14 @@ public class M1897Factory implements GunFactory {
 		.withFlashScale(() -> 0.8f)
 		.withFlashOffsetX(() -> 0.08f)
 		.withFlashOffsetY(() -> 0.13f)
-		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+		.withCreativeTab(MWC.WEAPONS_TAB)
 		 
 		 .withScreenShaking(RenderableState.SHOOTING, 
 	                5f, // x 
 	                1f, // y
 	                10f) // z
 		 
-	        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+	        .withCreativeTab(MWC.WEAPONS_TAB)
 	        .withInformationProvider(stack -> Arrays.asList(
 	        "Type: Shotgun",
 	        "Damage per Pellet: 6",

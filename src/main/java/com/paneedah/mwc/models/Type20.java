@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class Type20 extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -38,7 +38,7 @@ public class Type20 extends ModelWithAttachments {
 	private final ModelRenderer cube_r23;
 	private final ModelRenderer cube_r24;
 	private final ModelRenderer cube_r25;
-	private final QRenderer receiver;
+	private final ModelRenderer receiver;
 	private final ModelRenderer cube_r26;
 	private final ModelRenderer cube_r27;
 	private final ModelRenderer cube_r28;
@@ -50,7 +50,7 @@ public class Type20 extends ModelWithAttachments {
 	private final ModelRenderer cube_r33;
 	private final ModelRenderer cube_r34;
 	private final ModelRenderer cube_r35;
-	private final QRenderer stock;
+	private final ModelRenderer stock;
 	private final ModelRenderer cube_r84;
 	private final ModelRenderer cube_r85;
 	private final ModelRenderer cube_r86;
@@ -89,7 +89,7 @@ public class Type20 extends ModelWithAttachments {
 	private final ModelRenderer cube_r119;
 	private final ModelRenderer cube_r120;
 	private final ModelRenderer cube_r121;
-	private final QRenderer action;
+	private final ModelRenderer action;
 	private final ModelRenderer cube_r122;
 	private final ModelRenderer cube_r123;
 	private final ModelRenderer cube_r124;
@@ -99,7 +99,7 @@ public class Type20 extends ModelWithAttachments {
 		textureWidth = 210;
 		textureHeight = 210;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(-0.25F, -7.0F, -22.0F);
 		gun.cubeList.add(new ModelBox(gun, 86, 137, -1.35F, -4.0F, 4.0F, 2, 5, 17, 0.001F, false));
 		gun.cubeList.add(new ModelBox(gun, 0, 67, -0.05F, -2.1F, 17.75F, 1, 1, 2, 0.001F, false));
@@ -317,7 +317,7 @@ public class Type20 extends ModelWithAttachments {
 		setRotationAngle(cube_r25, 0.0F, -0.2094F, 0.0F);
 		cube_r25.cubeList.add(new ModelBox(cube_r25, 48, 65, 0.0F, -1.0F, 0.0F, 1, 1, 2, 0.001F, false));
 
-		receiver = new QRenderer(this);
+		receiver = new ModelRenderer(this);
 		receiver.setRotationPoint(0.0F, -12.0F, 0.0F);
 		receiver.cubeList.add(new ModelBox(receiver, 78, 0, -0.45F, -2.0F, -26.5F, 1, 3, 30, 0.0F, false));
 		receiver.cubeList.add(new ModelBox(receiver, 93, 20, -3.0F, -0.7F, -26.5F, 3, 3, 3, 0.001F, false));
@@ -500,7 +500,7 @@ public class Type20 extends ModelWithAttachments {
 		setRotationAngle(cube_r35, 0.4363F, 0.0F, 0.0F);
 		cube_r35.cubeList.add(new ModelBox(cube_r35, 85, 46, -2.0F, -1.0658F, -0.2967F, 2, 1, 1, -0.2F, false));
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(0.0F, -8.0F, 3.5F);
 		stock.cubeList.add(new ModelBox(stock, 58, 83, -3.0F, -3.1F, 0.0F, 3, 3, 2, 0.0F, false));
 		stock.cubeList.add(new ModelBox(stock, 78, 39, -0.75F, -4.0F, 2.0F, 1, 3, 13, 0.0F, false));
@@ -762,7 +762,7 @@ public class Type20 extends ModelWithAttachments {
 		setRotationAngle(cube_r121, 0.0F, 0.0F, -0.4538F);
 		cube_r121.cubeList.add(new ModelBox(cube_r121, 39, 0, -1.0F, -2.0F, 0.0F, 1, 2, 2, 0.0F, false));
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(-0.35F, -16.3F, -30.0F);
 		action.cubeList.add(new ModelBox(action, 136, 84, -3.0F, 2.3F, 7.5F, 1, 2, 9, 0.0F, false));
 

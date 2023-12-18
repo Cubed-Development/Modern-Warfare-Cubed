@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -46,7 +46,7 @@ public class MP7Grip extends ModelWithAttachments {
 	private final ModelRenderer gun9_r4;
 	private final ModelRenderer gun10_r5;
 	private final ModelRenderer gun9_r5;
-	private final QRenderer grip;
+	private final ModelRenderer grip;
 	private final ModelRenderer bone9;
 	private final ModelRenderer gun9_r6;
 	private final ModelRenderer gun8_r4;
@@ -440,7 +440,7 @@ public class MP7Grip extends ModelWithAttachments {
 		setRotationAngle(gun9_r5, 0.2618F, 0.0F, 0.0873F);
 		gun9_r5.cubeList.add(new ModelBox(gun9_r5, 55, 55, -2.0F, 4.1F, -1.0F, 2, 7, 2, -0.001F, false));
 
-		grip = new QRenderer(this);
+		grip = new ModelRenderer(this);
 		grip.setRotationPoint(-2.2F, -2.75F, -20.1F);
 		
 
@@ -1653,8 +1653,8 @@ public class MP7Grip extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		mag_40.render(f5);
-//		action.render(f5);
+//		mag_40.renderer(f5);
+//		action.renderer(f5);
 		grip.render(f5);
 	}
 

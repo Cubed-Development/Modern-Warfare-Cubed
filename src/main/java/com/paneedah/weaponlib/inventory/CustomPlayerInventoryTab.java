@@ -1,8 +1,11 @@
 package com.paneedah.weaponlib.inventory;
 
+import com.paneedah.mwc.network.messages.OpenCustomPlayerInventoryGuiMessage;
 import com.paneedah.weaponlib.ModContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+
+import static com.paneedah.mwc.MWC.CHANNEL;
 
 public class CustomPlayerInventoryTab extends InventoryTab {
 
@@ -15,8 +18,7 @@ public class CustomPlayerInventoryTab extends InventoryTab {
 
     @Override
     public void onTabClicked() {
-        clientModContext.getChannel()
-                .sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.CUSTOM_PLAYER_INVENTORY_GUI_ID));
+        CHANNEL.sendToServer(new OpenCustomPlayerInventoryGuiMessage(GuiHandler.CUSTOM_PLAYER_INVENTORY_GUI_ID));
 
     }
 

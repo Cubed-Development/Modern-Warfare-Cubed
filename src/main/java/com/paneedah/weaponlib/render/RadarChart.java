@@ -8,7 +8,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.LinkedList;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class RadarChart {
 	
@@ -208,9 +208,9 @@ public class RadarChart {
 			
 			
 			double angle = a - rotation;
-			double textCenter = mc.fontRenderer.getStringWidth(text)/2;
-			double centerHeight = mc.fontRenderer.FONT_HEIGHT/2.0;
-			mc.fontRenderer.drawStringWithShadow(text, (float) (Math.cos(angle)*textRadius + x - textCenter) , (float) (Math.sin(angle)*textRadius + y - centerHeight), 0xffffff);
+			double textCenter = MC.fontRenderer.getStringWidth(text)/2;
+			double centerHeight = MC.fontRenderer.FONT_HEIGHT/2.0;
+			MC.fontRenderer.drawStringWithShadow(text, (float) (Math.cos(angle)*textRadius + x - textCenter) , (float) (Math.sin(angle)*textRadius + y - centerHeight), 0xffffff);
 		}
 		
 		

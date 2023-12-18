@@ -47,7 +47,7 @@ public class M40A6Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.08f)
         .withFlashOffsetY(() -> 0.10f)
         .withShellCasingEjectEnabled(false)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power
@@ -107,7 +107,7 @@ public class M40A6Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
-            GL11.glTranslatef(0.03F, -2.06F, -1.2F);
+            GL11.glTranslatef(0.03F, -2.06F, -1.5F);
             GL11.glScaled(0.75F, 0.75F, 0.75F);
         },(model) -> {
             if(model instanceof JPUreticle) {

@@ -5,7 +5,7 @@ import com.paneedah.mwc.models.M79;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.wearables.Bullets;
+import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
@@ -40,7 +40,7 @@ public class M79Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.101f)
         .withShellCasingEjectEnabled(false)
         .withDestroyingBlocks(false)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 4f, // x 
@@ -52,9 +52,6 @@ public class M79Factory implements GunFactory {
         .withCompatibleAttachment(Bullets.Grenade40mm, (model) -> {})
         
         .withCompatibleAttachment(AuxiliaryAttachments.M79grenade, true, (model) -> {
-            GL11.glTranslatef(-1.76F, 0.6f, 0.5F);
-//            GL11.glScaled(1F, 1F, 1F);
-            GL11.glRotatef(90F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M79Cartridge, true, (model) -> {
         })
@@ -62,9 +59,6 @@ public class M79Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
 
             .withModel(new M79())
-            //.withTextureName("M4A1")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
                 GL11.glRotatef(-90F, 0f, 0f, 4f);

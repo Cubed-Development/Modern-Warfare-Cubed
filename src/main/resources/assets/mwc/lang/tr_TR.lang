@@ -2,7 +2,7 @@ item.m40gasmask_helmet.name=M40 Gaz Maskesi
 item.JPNVG18_helmet.name=GPNVG-18 Gece Görüşü Kaskı
 
 item.audis4.name=Audi S4
-item.mclaren_senna.name=Mclaren Senna
+item.MClaren_senna.name=Mclaren Senna
 item.ae86trueno.name=Toyota AE86 Trueno
 item.atv_polaris_sportsman_850_2019.name=2019 Polaris Sportsman 850
 
@@ -67,29 +67,21 @@ item.SCPGuard_boots.name=SCP Muhafızı Botları
 item.Dclass_chest.name=D Sınıfı Göğüslükleri
 item.Dclass_boots.name=D Sınıfı Botları
 
-item.mwc_tactical_push_backpack.name=Taktik Sırt Çantası
-
-item.mwc_combat_sustainment_backpack.name=Savaş Destek Çantası
+item.mwc_combat_sustainment_backpack_tan.name=Savaş Destek Çantası (Tan)
 item.mwc_combat_sustainment_backpack_black.name=Savaş Destek Çantası (Siyah)
 item.mwc_combat_sustainment_backpack_forest.name=Savaş Destek Çantası (Orman)
 
-item.mwc_assault_backpack.name=Taarruz Çantası
+item.mwc_assault_backpack_tan.name=Taarruz Çantası (Tan)
 item.mwc_assault_backpack_black.name=Taarruz Çantası (Siyah)
 item.mwc_assault_backpack_forest.name=Taarruz Çantası (Orman)
 
-item.mwc_tru_spec_cordura_backpack.name=Tru-Spec Cordura Çantası
+item.mwc_tru_spec_cordura_backpack_tan.name=Tru-Spec Cordura Çantası (Tan)
 item.mwc_tru_spec_cordura_backpack_black.name=Tru-Spec Cordura Çantası (Siyah)
 item.mwc_tru_spec_cordura_backpack_forest.name=Tru-Spec Cordura Çantası (Orman)
 
+item.mwc_f5_switchblade_backpack.name=F5 Sustalı Sırt Çantası
+
 item.mwc_duffle_bag.name=Spor Çantası
-
-item.mwc_pilgrim_backpack.name=Pilgrim Sırt Çantası
-
-item.mwc_f4m_terminator_backpack.name=F4M Terminator Sırt Çantası
-
-item.mwc_bergen_backpack.name=Bergen Sırt Çantası
-
-item.mwc_g2_gunslinger2_backpack.name=G2 Gunslinger II Sırt Çantası
 
 item.mwc_flyye_field_compact_plate_carrier.name=Molle Plaka Taşıyıcı
 item.mwc_molle_black.name=Molle Plaka Taşıyıcı (Siyah)
@@ -98,10 +90,10 @@ item.mwc_molle_urban.name=Molle Plaka Taşıyıcı (Şehir)
 
 item.mwc_fort_armor.name=6B43 6A Vücut Zırhı
 
-item.mwc_usmc_vest.name=Force Recon Yeleği
-item.mwc_usmc_vest_black.name=Force Recon Yeleği (Siyah)
-item.mwc_usmc_vest_green.name=Force Recon Yeleği (Yeşil)
-item.mwc_usmc_vest_urban.name=Force Recon Yeleği (Şehir)
+item.mwc_usMC_vest.name=Force Recon Yeleği
+item.mwc_usMC_vest_black.name=Force Recon Yeleği (Siyah)
+item.mwc_usMC_vest_green.name=Force Recon Yeleği (Yeşil)
+item.mwc_usMC_vest_urban.name=Force Recon Yeleği (Şehir)
 
 item.mwc_juggernaut_body_armor.name=Juggernaut Vücut Zırhı
 
@@ -254,7 +246,7 @@ item.g2_contender.name=G2 Contender
 item.beowulf_50_cal.name=Beowulf .50 Kalibre
 item.hk_417.name=HK 417
 item.ar15.name=AR-15
-item.sig_mcx.name=SIG MCX
+item.sig_MCx.name=SIG MCX
 item.mas_21.name=MAS-21
 item.mp443.name=MP443
 item.ump_45.name=UMP45
@@ -444,14 +436,14 @@ item.baseball_bat_nails.name=Çivili Beyzbol Sopası
 item.night_stick.name=Jop
 
 item.gas_can.name=Gas Can (PROP)
-item.mwc_wcam.name=MWC Kamera
-item.mwc_tablet.name=MWC Tablet
+item.mwc_wcam.name=Kamera
+item.mwc_tablet.name=Tablet
 
 
 item.mwc_M67Frag.name=M67 Frag Grenade
 item.mwc_ImpactGrenade.name=Impact Grenade
 item.mwc_M18White.name=M18 Smoke Grenade (White)
-item.mwc_Flash.name=Flash Grenade (WIP)
+item.mwc_Flash.name=Flash Grenade
 
 item.mwc_ShotgunShell.name=12 Gauge Pompalı Mermisi
 
@@ -1029,17 +1021,13 @@ tile.mwc_spookyghost2.name=Ürkütücü Hayalet 2
 tile.mwc_spookyghost3.name=Ürkütücü Hayalet 3
 tile.mwc_swat_truck.name=SWAT Kamyonu
 
-
-itemGroup.guns_tab=MWC Kaynakları
-itemGroup.AssaultRifles_tab=MWC Silahlar
-itemGroup.props_tab=MWC Eşyaları (Yaratıcı Modda Kullanım İçin)
-itemGroup.AmmoTab=MWC Mühimmat
-itemGroup.AttachmentsTab=MWC Aksesuarlar
-itemGroup.ArmorTab=MWC Zırh
-itemGroup.GrenadesTab=MWC El Bombaları
-itemGroup.SpartanTab=MWC Spartan Zırhı Sekmesi
-itemGroup.GadgetsTab=MWC Cihazlar
-itemGroup.BlocksTab=MWC Bloklar ve Lingotlar
+itemGroup.weapons=Silahlar
+itemGroup.props=Eşyaları (Yaratıcı Modda Kullanım İçin)
+itemGroup.ammunitionAndMagazines=Mühimmat ve Dergiler
+itemGroup.attachments=Aksesuarlar
+itemGroup.equipment=Ekipmanlar
+itemGroup.throwables=Fırlatılabilirler
+itemGroup.blocksAndIngots=Bloklar ve Lingotlar
 
 key.categories.weaponlib=Modern Warfare
 key.texture_change=Silah Desenini Değiştir

@@ -6,7 +6,7 @@ import com.paneedah.mwc.models.RPG7rocketPROJECTILE;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.wearables.Bullets;
+import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.RenderableState;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
@@ -41,7 +41,7 @@ public class RPG7Factory implements GunFactory {
         .withFlashOffsetY(() -> 0.14f)
         .withShellCasingEjectEnabled(false)
         .withDestroyingBlocks(false)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 1f, // x 

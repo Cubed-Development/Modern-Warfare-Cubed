@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -162,7 +162,7 @@ public class NGSWRMag extends ModelWithAttachments {
 	private final ModelRenderer cube_r133;
 	private final ModelRenderer cube_r134;
 	private final ModelRenderer cube_r135;
-	private final QRenderer magazine;
+	private final ModelRenderer magazine;
 	private final ModelRenderer cube_r136;
 	private final ModelRenderer cube_r137;
 	private final ModelRenderer cube_r138;
@@ -1374,7 +1374,7 @@ public class NGSWRMag extends ModelWithAttachments {
 		setRotationAngle(cube_r135, 0.0F, -0.1571F, 0.0F);
 		cube_r135.cubeList.add(new ModelBox(cube_r135, 0, 23, -1.0F, -4.0F, 0.0F, 1, 4, 2, -0.001F, false));
 
-		magazine = new QRenderer(this);
+		magazine = new ModelRenderer(this);
 		magazine.setRotationPoint(0.25F, -3.0F, -24.0F);
 		magazine.cubeList.add(new ModelBox(magazine, 73, 67, -1.0F, 1.0F, 8.0F, 1, 8, 1, 0.0F, false));
 		magazine.cubeList.add(new ModelBox(magazine, 24, 12, -2.75F, 1.0F, 0.0F, 2, 8, 1, 0.0F, false));
@@ -1496,11 +1496,11 @@ public class NGSWRMag extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		handguard.render(f5);
-//		rails_attachment.render(f5);
-//		action.render(f5);
-//		stock_adapter.render(f5);
+//		gun.renderer(f5);
+//		handguard.renderer(f5);
+//		rails_attachment.renderer(f5);
+//		action.renderer(f5);
+//		stock_adapter.renderer(f5);
 		magazine.render(f5);
 	}
 

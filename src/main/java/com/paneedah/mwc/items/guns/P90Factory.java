@@ -52,7 +52,7 @@ public class P90Factory {
         .withFlashOffsetY(() -> 0.27f)
         .withShellCasingEjectEnabled(false)
         .withInaccuracy(2f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power
@@ -99,10 +99,10 @@ public class P90Factory {
         })
         .withCompatibleAttachment(Magazines.P90Mag, (model) -> {
         })
-//        .withCompatibleAttachment(Magazines.P90TerminatorMag, (model) -> {
-//            GL11.glTranslatef(0.1F, 0.5F, 1.55F);
-//            GL11.glScaled(1.1F, 1.5F, 1.55F);
-//        })
+        .withCompatibleAttachment(Magazines.P90TerminatorMag, (model) -> {
+            GL11.glTranslatef(0.1F, 0.5F, 1.63F);
+            GL11.glScaled(1.1F, 1.5F, 1.55F);
+        })
         .withCompatibleAttachment(Attachments.P90Swordfish, (model) -> {
             if(model instanceof AKRail) {
                 GL11.glTranslatef(0.25F, -2F, -2.8F);
@@ -413,8 +413,9 @@ public class P90Factory {
                 )
                 
                 .setupModernAnimations("p90", AuxiliaryAttachments.P90Action)
-                .setupModernMagazineAnimations("p90", 
-                		Magazines.P90Mag)
+                .setupModernMagazineAnimations("p90", Magazines.P90Mag)
+                //TODO: Need a new reload action for the Terminator mag
+                .setupModernMagazineAnimations("p90", Magazines.P90TerminatorMag)
             
             .withFirstPersonCustomPositioning(Magazines.P90TerminatorMag.getRenderablePart(), (renderContext) -> {
 //            	GL11.glTranslatef(-0.1F, -0.6F, 1.1F);

@@ -5,7 +5,7 @@ import com.paneedah.mwc.models.Python;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.wearables.Bullets;
+import com.paneedah.mwc.weapons.Bullets;
 import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.WeaponRenderer;
 import com.paneedah.weaponlib.animation.Transform;
@@ -27,11 +27,10 @@ public class PythonFactory implements GunFactory {
 		.withConfigGroup(GunConfigurationGroup.REVOLVER)
 		.withMaxShots(1)
 		.withShootSound("python")
-		//.withSilencedShootSound("M9silenced")
 //		.withIteratedLoad()
-//		.withReloadSound("revolver_reload")
-//        .withReloadIterationSound("revolver_insert_bullet")
-//        .withAllReloadIterationsCompletedSound("revolver_load_complete")
+		.withReloadSound("revolver_reload")
+        .withReloadIterationSound("revolver_insert_bullet")
+        .withAllReloadIterationsCompletedSound("revolver_load_complete")
 		.withReloadingTime(25)
 		.withCrosshair("gun")
 		.withCrosshairRunning("Running")
@@ -42,7 +41,7 @@ public class PythonFactory implements GunFactory {
 		.withFlashOffsetY(() -> 0.15f)
 		.withInaccuracy(2)
 		.withShellCasingEjectEnabled(false)
-		.withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+		.withCreativeTab(MWC.WEAPONS_TAB)
 		.useNewSystem()
         .withRecoilParam(new RecoilParam(
         		// The weapon power

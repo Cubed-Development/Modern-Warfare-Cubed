@@ -1448,11 +1448,11 @@ public class M4A1Action extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		gun.render(f5);
-//		receiver.render(f5);
+//		gun.renderer(f5);
+//		receiver.renderer(f5);
 		action.render(f5);
-//		handguard.render(f5);
-//		grip.render(f5);
+//		handguard.renderer(f5);
+//		grip.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

@@ -6,7 +6,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.LinkedList;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class BasicStateAnimator {
 	
@@ -42,13 +42,13 @@ public class BasicStateAnimator {
 	
 	
 	public Vec3d getInterpolatedRotation() {
-		double mu = mc.getRenderPartialTicks();
+		double mu = MC.getRenderPartialTicks();
 		return InterpolationKit.interpolateVector(prevRot, currentRot, mu);
 		
 	}
 	
 	public Vec3d getInterpolatedPosition() {
-		double mu = mc.getRenderPartialTicks();
+		double mu = MC.getRenderPartialTicks();
 		return InterpolationKit.interpolateVector(previousPosition, currentPosition, mu);
 	}
 	

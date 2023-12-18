@@ -1,14 +1,13 @@
 package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
-import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.gui.AnimationGUI;
 import com.paneedah.weaponlib.command.DebugCommand;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.config.ModernConfigManager;
-import com.paneedah.weaponlib.network.TypeRegistry;
 import com.paneedah.weaponlib.perspective.OpticalScopePerspective;
 import com.paneedah.weaponlib.perspective.Perspective;
 import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
@@ -31,7 +30,8 @@ import java.util.Deque;
 import java.util.UUID;
 import java.util.concurrent.LinkedBlockingDeque;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
 
@@ -41,7 +41,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     private static final int SERIAL_VERSION = 9;
 
     static {
-        TypeRegistry.getInstance().register(PlayerWeaponInstance.class);
+        TypeRegistry.getINSTANCE().register(PlayerWeaponInstance.class);
     }
 
     private static final UUID NIGHT_VISION_SOURCE_UUID = UUID.randomUUID();
@@ -55,8 +55,8 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     public final DynamicShaderGroupSource NIGHT_VISION_SOURCE = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID,
             new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/night-vision.json"))
-            .withUniform("IntensityAdjust", context -> 40f - mc.gameSettings.gammaSetting * 38)
-            .withUniform("NoiseAmplification", context ->  2f + 3f * mc.gameSettings.gammaSetting);
+            .withUniform("IntensityAdjust", context -> 40f - MC.gameSettings.gammaSetting * 38)
+            .withUniform("NoiseAmplification", context ->  2f + 3f * MC.gameSettings.gammaSetting);
 
     public final DynamicShaderGroupSource VIGNETTE_SOURCE = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID,
             new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/vignette.json"))
@@ -65,7 +65,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
             .withUniform("Reticle", context -> {
             	
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-            	mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.ID + ":textures/hud/reticle1.png"));
+            	MC.getTextureManager().bindTexture(new ResourceLocation(ID + ":textures/hud/reticle1.png"));
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
             	
             	return 4;
@@ -245,39 +245,39 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 	}
 
 	@Override
-	public void init(ByteBuf buf) {
-		super.init(buf);
-		activeAttachmentIds = initIntArray(buf);
-		selectedAttachmentIndexes = initByteArray(buf);
-		ammo = buf.readInt();
-		aimed = buf.readBoolean();
-		recoil = buf.readFloat();
-		maxShots = buf.readInt();
-		zoom = buf.readFloat();
-		activeTextureIndex = buf.readByte();
-		laserOn = buf.readBoolean();
-		nightVisionOn = buf.readBoolean();
-		loadIterationCount = buf.readInt();
-		loadAfterUnloadEnabled = buf.readBoolean();
-		altModificationModeEnabled = buf.readBoolean();
+	public void read(ByteBuf byteBuf) {
+		super.read(byteBuf);
+		activeAttachmentIds = initIntArray(byteBuf);
+		selectedAttachmentIndexes = initByteArray(byteBuf);
+		ammo = byteBuf.readInt();
+		aimed = byteBuf.readBoolean();
+		recoil = byteBuf.readFloat();
+		maxShots = byteBuf.readInt();
+		zoom = byteBuf.readFloat();
+		activeTextureIndex = byteBuf.readByte();
+		laserOn = byteBuf.readBoolean();
+		nightVisionOn = byteBuf.readBoolean();
+		loadIterationCount = byteBuf.readInt();
+		loadAfterUnloadEnabled = byteBuf.readBoolean();
+		altModificationModeEnabled = byteBuf.readBoolean();
 	}
 
 	@Override
-	public void serialize(ByteBuf buf) {
-		super.serialize(buf);
-		serializeIntArray(buf, activeAttachmentIds);
-		serializeByteArray(buf, selectedAttachmentIndexes);
-		buf.writeInt(ammo);
-		buf.writeBoolean(aimed);
-		buf.writeFloat(recoil);
-		buf.writeInt(maxShots);
-		buf.writeFloat(zoom);
-		buf.writeByte(activeTextureIndex);
-		buf.writeBoolean(laserOn);
-		buf.writeBoolean(nightVisionOn);
-		buf.writeInt(loadIterationCount);
-		buf.writeBoolean(loadAfterUnloadEnabled);
-		buf.writeBoolean(altModificationModeEnabled);
+	public void write(ByteBuf byteBuf) {
+		super.write(byteBuf);
+		serializeIntArray(byteBuf, activeAttachmentIds);
+		serializeByteArray(byteBuf, selectedAttachmentIndexes);
+		byteBuf.writeInt(ammo);
+		byteBuf.writeBoolean(aimed);
+		byteBuf.writeFloat(recoil);
+		byteBuf.writeInt(maxShots);
+		byteBuf.writeFloat(zoom);
+		byteBuf.writeByte(activeTextureIndex);
+		byteBuf.writeBoolean(laserOn);
+		byteBuf.writeBoolean(nightVisionOn);
+		byteBuf.writeInt(loadIterationCount);
+		byteBuf.writeBoolean(loadAfterUnloadEnabled);
+		byteBuf.writeBoolean(altModificationModeEnabled);
 	}
 
 	private static void serializeIntArray(ByteBuf buf, int a[]) {
@@ -486,7 +486,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 		return scopeItem instanceof ItemScope;
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	public ItemAttachment<Weapon> getAttachmentItemWithCategory(AttachmentCategory category) {
 		if(activeAttachmentIds == null || activeAttachmentIds.length <= category.ordinal()) {
 			return null;
@@ -617,22 +617,33 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
    	
    	@Override
    	protected void reconcile() {
-        ItemStack itemStack = getItemStack();
+		if (!player.world.getGameRules().getBoolean("reconcileAmmunition") && !player.world.getGameRules().getBoolean("reconcileAttachment"))
+			return;
+
+        final ItemStack itemStack = getItemStack();
 
         if(itemStack != null) {
-            int expectedStackAmmo = Tags.getAmmo(itemStack);
-            if(this.ammo > expectedStackAmmo) {
-                LOG.debug("Reconciling. Expected ammo: {}, actual: {}", expectedStackAmmo, this.ammo);
-                this.ammo = expectedStackAmmo;
-            }
-            
-//            int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
-//            if(!Arrays.equals(expectedAttachmentIds, this.activeAttachmentIds)) {
-//                log.debug("Reconciling. Expected attachments: {}, actual: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(this.activeAttachmentIds));
-//                this.activeAttachmentIds = expectedAttachmentIds;
-//            }
+	        if (player.world.getGameRules().getBoolean("reconcileAmmunition")) {
+		        final int expectedStackAmmo = Tags.getAmmo(itemStack);
 
-            updateTimestamp = System.currentTimeMillis();
+		        if(ammo != expectedStackAmmo) {
+		            LOG.debug("Reconciling ammunition. Expected ammunition: {}, Current ammunition: {}", expectedStackAmmo, ammo);
+
+		            ammo = expectedStackAmmo;
+		        }
+	        }
+
+	        if (player.world.getGameRules().getBoolean("reconcileAttachments")) {
+		        final int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
+
+		        if(!Arrays.equals(expectedAttachmentIds, activeAttachmentIds)) {
+			        LOG.debug("Reconciling attachments. Expected attachments: {}, Current attachments: {}", Arrays.toString(expectedAttachmentIds), Arrays.toString(activeAttachmentIds));
+
+		            activeAttachmentIds = expectedAttachmentIds;
+		        }
+	        }
+
+	        updateTimestamp = System.currentTimeMillis();
         }
    	}
 

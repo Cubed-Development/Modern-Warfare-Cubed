@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -13,7 +13,7 @@ import net.minecraft.entity.Entity;
 
 public class UMP45Receiver extends ModelWithAttachments {
 	
-	private final QRenderer receiver;
+	private final ModelRenderer receiver;
 	private final ModelRenderer cube_r16;
 	private final ModelRenderer cube_r17;
 	private final ModelRenderer cube_r18;
@@ -102,7 +102,7 @@ public class UMP45Receiver extends ModelWithAttachments {
 
 		
 
-		receiver = new QRenderer(this);
+		receiver = new ModelRenderer(this);
 		receiver.setRotationPoint(0.75F, -6.0F, -18.0F);
 		receiver.cubeList.add(new ModelBox(receiver, 0, 74, -1.0F, -5.0F, 0.0F, 1, 5, 18, 0.0F, false));
 		receiver.cubeList.add(new ModelBox(receiver, 72, 94, -4.25F, -11.95F, -11.0F, 4, 4, 34, 0.0F, false));

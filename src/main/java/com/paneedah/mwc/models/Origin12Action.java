@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class Origin12Action extends ModelWithAttachments {
-	private final QRenderer gun;
+	private final ModelRenderer gun;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -69,7 +69,7 @@ public class Origin12Action extends ModelWithAttachments {
 	private final ModelRenderer gun5_r1;
 	private final ModelRenderer gun3_r1;
 	private final ModelRenderer gun1_r1;
-	private final QRenderer handguard;
+	private final ModelRenderer handguard;
 	private final ModelRenderer grip33_r3;
 	private final ModelRenderer grip34_r1;
 	private final ModelRenderer handguard51_r1;
@@ -101,7 +101,7 @@ public class Origin12Action extends ModelWithAttachments {
 	private final ModelRenderer handguard22_r1;
 	private final ModelRenderer handguard23_r1;
 	private final ModelRenderer handguard5_r1;
-	private final QRenderer stock;
+	private final ModelRenderer stock;
 	private final ModelRenderer grip53_r1;
 	private final ModelRenderer grip48_r1;
 	private final ModelRenderer grip52_r1;
@@ -131,7 +131,7 @@ public class Origin12Action extends ModelWithAttachments {
 	private final ModelRenderer stock11_r1;
 	private final ModelRenderer stock10_r1;
 	private final ModelRenderer stock8_r1;
-	private final QRenderer grip;
+	private final ModelRenderer grip;
 	private final ModelRenderer grip12_r1;
 	private final ModelRenderer grip9_r1;
 	private final ModelRenderer grip8_r1;
@@ -139,11 +139,11 @@ public class Origin12Action extends ModelWithAttachments {
 	private final ModelRenderer grip4_r1;
 	private final ModelRenderer grip3_r1;
 	private final ModelRenderer grip2_r1;
-	private final QRenderer mag;
+	private final ModelRenderer mag;
 	private final ModelRenderer mag11_r1;
 	private final ModelRenderer mag22_r1;
 	private final ModelRenderer mag19_r1;
-	private final QRenderer action;
+	private final ModelRenderer action;
 	private final ModelRenderer action5_r1;
 	private final ModelRenderer action8_r1;
 	private final ModelRenderer action6_r1;
@@ -152,7 +152,7 @@ public class Origin12Action extends ModelWithAttachments {
 		textureWidth = 200;
 		textureHeight = 200;
 
-		gun = new QRenderer(this);
+		gun = new ModelRenderer(this);
 		gun.setRotationPoint(-0.5F, -3.6462F, -13.5263F);
 		gun.cubeList.add(new ModelBox(gun, 0, 134, -4.0F, -6.8538F, -16.5727F, 6, 2, 15, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 18, 66, -4.001F, -4.8538F, -3.5737F, 6, 2, 2, 0.0F, false));
@@ -582,7 +582,7 @@ public class Origin12Action extends ModelWithAttachments {
 		setRotationAngle(gun1_r1, -0.1115F, 0.0F, 0.0F);
 		gun1_r1.cubeList.add(new ModelBox(gun1_r1, 36, 56, -4.499F, -33.2F, -23.1F, 6, 3, 7, 0.0F, false));
 
-		handguard = new QRenderer(this);
+		handguard = new ModelRenderer(this);
 		handguard.setRotationPoint(0.0F, 24.0F, 0.3F);
 		handguard.cubeList.add(new ModelBox(handguard, 19, 0, -4.3F, -39.5F, -32.5F, 5, 9, 2, 0.0F, false));
 		handguard.cubeList.add(new ModelBox(handguard, 57, 0, 0.3F, -39.5F, -32.5F, 1, 9, 2, 0.0F, false));
@@ -881,7 +881,7 @@ public class Origin12Action extends ModelWithAttachments {
 		handguard5_r1.cubeList.add(new ModelBox(handguard5_r1, 82, 41, -4.299F, -40.5F, -40.5F, 1, 2, 1, 0.0F, false));
 		handguard5_r1.cubeList.add(new ModelBox(handguard5_r1, 82, 46, 0.299F, -40.5F, -40.5F, 1, 2, 1, 0.0F, false));
 
-		stock = new QRenderer(this);
+		stock = new ModelRenderer(this);
 		stock.setRotationPoint(0.0F, 32.7316F, 35.7447F);
 		stock.cubeList.add(new ModelBox(stock, 102, 30, -2.0F, -50.0316F, -28.7447F, 1, 1, 26, 0.0F, false));
 		stock.cubeList.add(new ModelBox(stock, 74, 56, -2.0F, -48.7316F, -28.7447F, 1, 2, 26, 0.0F, false));
@@ -1099,7 +1099,7 @@ public class Origin12Action extends ModelWithAttachments {
 		stock8_r1.cubeList.add(new ModelBox(stock8_r1, 28, 95, -0.55F, -41.3F, 7.0F, 1, 1, 26, 0.0F, false));
 		stock8_r1.cubeList.add(new ModelBox(stock8_r1, 97, 3, -1.0F, -41.3004F, 7.0F, 1, 1, 26, 0.0F, false));
 
-		grip = new QRenderer(this);
+		grip = new ModelRenderer(this);
 		grip.setRotationPoint(-0.5F, -3.6301F, -7.3424F);
 		grip.cubeList.add(new ModelBox(grip, 84, 111, -2.999F, -3.8699F, 0.3424F, 4, 4, 6, 0.0F, false));
 		grip.cubeList.add(new ModelBox(grip, 84, 5, -3.001F, -3.8699F, 5.8424F, 4, 4, 1, 0.0F, false));
@@ -1147,7 +1147,7 @@ public class Origin12Action extends ModelWithAttachments {
 		setRotationAngle(grip2_r1, 0.2602F, 0.0F, 0.0F);
 		grip2_r1.cubeList.add(new ModelBox(grip2_r1, 102, 84, -3.5F, -27.5F, -5.5F, 4, 10, 5, 0.0F, false));
 
-		mag = new QRenderer(this);
+		mag = new ModelRenderer(this);
 		mag.setRotationPoint(0.0F, 11.325F, -49.1489F);
 		
 
@@ -1188,7 +1188,7 @@ public class Origin12Action extends ModelWithAttachments {
 		setRotationAngle(mag19_r1, -0.2602F, 0.0F, 0.0F);
 		mag19_r1.cubeList.add(new ModelBox(mag19_r1, 0, 16, -3.801F, -34.39F, -24.1F, 4, 9, 3, 0.0F, false));
 
-		action = new QRenderer(this);
+		action = new ModelRenderer(this);
 		action.setRotationPoint(0.0F, 24.0F, 0.0F);
 		action.cubeList.add(new ModelBox(action, 4, 100, -3.7F, -38.4F, -18.001F, 1, 1, 1, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 67, 47, -3.7F, -37.4F, -21.0F, 1, 1, 4, 0.0F, false));
@@ -1220,10 +1220,10 @@ public class Origin12Action extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		handguard.render(f5);
-//		stock.render(f5);
-//		grip.render(f5);
-//		mag.render(f5);
+//		handguard.renderer(f5);
+//		stock.renderer(f5);
+//		grip.renderer(f5);
+//		mag.renderer(f5);
 		action.render(f5);
 	}
 

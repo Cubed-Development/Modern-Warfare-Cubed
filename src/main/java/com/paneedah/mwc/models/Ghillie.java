@@ -258,17 +258,17 @@ public class Ghillie extends ModelBiped {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		hood.render(f5);
-//		torso.render(f5);
-//		leftarm_ghillie.render(f5);
-//		rightarm_ghillie.render(f5);
-//		leftleg_ghillie.render(f5);
-//		rightleg_ghillie.render(f5);
-//		head.render(f5);
-//		rightarm.render(f5);
-//		leftarm.render(f5);
-//		rightleg.render(f5);
-//		leftleg.render(f5);
+//		hood.renderer(f5);
+//		torso.renderer(f5);
+//		leftarm_ghillie.renderer(f5);
+//		rightarm_ghillie.renderer(f5);
+//		leftleg_ghillie.renderer(f5);
+//		rightleg_ghillie.renderer(f5);
+//		head.renderer(f5);
+//		rightarm.renderer(f5);
+//		leftarm.renderer(f5);
+//		rightleg.renderer(f5);
+//		leftleg.renderer(f5);
 		
 		super.render(entity, f, f1, f2, f3, f4, f5);
 	    setRotationAngles(f, f1, f2, f3, f4, f5, entity);

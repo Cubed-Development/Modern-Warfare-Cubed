@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class Bulletcaseless extends ModelBase {
-	private final QRenderer bullet;
+	private final ModelRenderer bullet;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
@@ -26,7 +26,7 @@ public class Bulletcaseless extends ModelBase {
 		textureWidth = 32;
 		textureHeight = 32;
 
-		bullet = new QRenderer(this);
+		bullet = new ModelRenderer(this);
 		bullet.setRotationPoint(0.5F, 24.0F, -0.8F);
 		bullet.cubeList.add(new ModelBox(bullet, 8, 0, -2.0F, -8.0F, 0.0F, 2, 1, 2, 0.0F, false));
 		bullet.cubeList.add(new ModelBox(bullet, 0, 0, -2.0F, -5.0F, 0.0F, 2, 5, 2, 0.0F, false));

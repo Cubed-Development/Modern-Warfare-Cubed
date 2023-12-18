@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.compatibility;
 
-import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.mwc.renderer.ModelSource;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 @Deprecated
+@SideOnly(Side.CLIENT)
 public class CompatibleRenderingRegistry implements ICustomModelLoader {
 
-	private List<ModelSourceRenderer> renderers = new ArrayList<>();
+	private List<ModelSource> renderers = new ArrayList<>();
 	private Set<String> modelSourceLocations = new HashSet<>();
 	private List<Consumer<RenderItem>> delayedRegistrations = new ArrayList<>();
 
@@ -46,20 +48,20 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void bakeModel(ModelBakeEvent event) {
-		for(ModelSourceRenderer model: renderers) {
-			event.getModelRegistry().putObject(model.getResourceLocation(), model);
+		for(ModelSource model: renderers) {
+			event.getModelRegistry().putObject(model.getModelResourceLocation(), model);
 		}
 	}
 
 	public void register(Item item, String name, Object renderer) {
 	    if(renderer != null) {
-	        renderers.add((ModelSourceRenderer) renderer);
+	        renderers.add((ModelSource) renderer);
 	    }
 		
-		modelSourceLocations.add(ModReference.ID + ":models/item/" + name);
-		ModelResourceLocation modelID = new ModelResourceLocation(ModReference.ID + ":" + name, "inventory");
+		modelSourceLocations.add(ID + ":models/item/" + name);
+		ModelResourceLocation modelID = new ModelResourceLocation(ID + ":" + name, "inventory");
 		if(renderer != null) {
-		    ((ModelSourceRenderer) renderer).setResourceLocation(modelID);
+		    ((ModelSource) renderer).setModelResourceLocation(modelID);
 		}
 		
 		delayedRegistrations.add((renderItem) -> {
@@ -71,13 +73,13 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	public void register(Item item, ResourceLocation name, Object renderer) {
 	    // TODO: figure out what's going on with this name
         if(renderer != null) {
-            renderers.add((ModelSourceRenderer) renderer);
-            modelSourceLocations.add(ModReference.ID + ":models/item/" + name);
+            renderers.add((ModelSource) renderer);
+            modelSourceLocations.add(ID + ":models/item/" + name);
         }
         
         ModelResourceLocation modelID = new ModelResourceLocation(name, "inventory");
         if(renderer != null) {
-            ((ModelSourceRenderer) renderer).setResourceLocation(modelID);
+            ((ModelSource) renderer).setModelResourceLocation(modelID);
         }
         
         delayedRegistrations.add((renderItem) -> {
@@ -93,7 +95,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	@Override
 	public boolean accepts(ResourceLocation modelLocation) {
 		// Do not accept attachments
-		return ModReference.ID.equals(modelLocation.getNamespace()) && modelSourceLocations.contains(modelLocation.toString());
+		return ID.equals(modelLocation.getNamespace()) && modelSourceLocations.contains(modelLocation.toString());
 	}
 
 	@Override
@@ -101,14 +103,13 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 		return ModelLoaderRegistry.getMissingModel();
 	}
 
-	@SuppressWarnings({ "deprecation", "unchecked" })
 	public void registerEntityRenderingHandler(Class<? extends Entity> class1,
 	        Object spawnEntityRenderer) {
 		RenderingRegistry.registerEntityRenderingHandler(class1, (Render<? extends Entity>) spawnEntityRenderer);
 	}
 	
 	public void processDelayedRegistrations() {
-        RenderItem renderItem = mc.getRenderItem();
+        RenderItem renderItem = MC.getRenderItem();
         delayedRegistrations.forEach(r -> { r.accept(renderItem);});
         delayedRegistrations.clear();
     }

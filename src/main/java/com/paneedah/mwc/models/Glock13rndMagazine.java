@@ -1,6 +1,6 @@
 package com.paneedah.mwc.models;
 
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,15 +12,15 @@ import net.minecraft.entity.Entity;
 
 
 public class Glock13rndMagazine extends ModelBase {
-	private final QRenderer mag13rnd;
+	private final ModelRenderer mag13rnd;
 	private final ModelRenderer mag3_r1;
 	private final ModelRenderer mag5_r1;
 	private final ModelRenderer mag4_r1;
-	private final QRenderer mag20rnd;
+	private final ModelRenderer mag20rnd;
 	private final ModelRenderer mag4_r2;
 	private final ModelRenderer mag6_r1;
 	private final ModelRenderer mag5_r2;
-	private final QRenderer G18slide;
+	private final ModelRenderer G18slide;
 	private final ModelRenderer slide55_r1;
 	private final ModelRenderer slide53_r1;
 	private final ModelRenderer slide19_r1;
@@ -30,7 +30,7 @@ public class Glock13rndMagazine extends ModelBase {
 	private final ModelRenderer slide20_r1;
 	private final ModelRenderer slide20_r2;
 	private final ModelRenderer slide19_r2;
-	private final QRenderer G18cncslide;
+	private final ModelRenderer G18cncslide;
 	private final ModelRenderer slide56_r1;
 	private final ModelRenderer slide54_r1;
 	private final ModelRenderer slide20_r3;
@@ -45,7 +45,7 @@ public class Glock13rndMagazine extends ModelBase {
 		textureWidth = 128;
 		textureHeight = 128;
 
-		mag13rnd = new QRenderer(this);
+		mag13rnd = new ModelRenderer(this);
 		mag13rnd.setRotationPoint(0.0F, 24.0F, 0.0F);
 		mag13rnd.cubeList.add(new ModelBox(mag13rnd, 52, 65, -3.0F, -16.2F, -3.5F, 4, 2, 6, 0.0F, false));
 		mag13rnd.cubeList.add(new ModelBox(mag13rnd, 0, 36, -2.5F, -16.2F, -4.25F, 3, 2, 1, 0.0F, false));
@@ -69,7 +69,7 @@ public class Glock13rndMagazine extends ModelBase {
 		setRotationAngle(mag4_r1, -1.2392F, 0.0F, 0.0F);
 		mag4_r1.cubeList.add(new ModelBox(mag4_r1, 15, 9, -4.0F, 0.0F, 0.0F, 4, 1, 2, -0.1F, false));
 
-		mag20rnd = new QRenderer(this);
+		mag20rnd = new ModelRenderer(this);
 		mag20rnd.setRotationPoint(0.0F, 24.0F, 0.0F);
 		mag20rnd.cubeList.add(new ModelBox(mag20rnd, 26, 62, -3.0F, -5.2F, -0.2F, 4, 2, 6, 0.0F, false));
 		mag20rnd.cubeList.add(new ModelBox(mag20rnd, 32, 35, -2.5F, -5.2F, -0.95F, 3, 2, 1, 0.0F, false));
@@ -93,7 +93,7 @@ public class Glock13rndMagazine extends ModelBase {
 		setRotationAngle(mag5_r2, -1.2392F, 0.0F, 0.0F);
 		mag5_r2.cubeList.add(new ModelBox(mag5_r2, 0, 10, -4.0F, 0.0F, 0.0F, 4, 1, 2, -0.1F, false));
 
-		G18slide = new QRenderer(this);
+		G18slide = new ModelRenderer(this);
 		G18slide.setRotationPoint(0.0F, 24.0F, 0.0F);
 		G18slide.cubeList.add(new ModelBox(G18slide, 37, 0, -2.5F, -37.5F, 0.9F, 3, 2, 1, 0.0F, false));
 		G18slide.cubeList.add(new ModelBox(G18slide, 23, 0, -2.3F, -37.5F, -28.499F, 2, 5, 1, 0.0F, false));
@@ -190,7 +190,7 @@ public class Glock13rndMagazine extends ModelBase {
 		setRotationAngle(slide19_r2, -0.7854F, 0.0F, 0.0F);
 		slide19_r2.cubeList.add(new ModelBox(slide19_r2, 40, 28, -2.0F, -1.0F, 0.0F, 3, 1, 1, 0.0F, false));
 
-		G18cncslide = new QRenderer(this);
+		G18cncslide = new ModelRenderer(this);
 		G18cncslide.setRotationPoint(0.0F, 24.0F, 0.0F);
 		G18cncslide.cubeList.add(new ModelBox(G18cncslide, 32, 32, -2.5F, -37.5F, 0.9F, 3, 2, 1, 0.0F, false));
 		G18cncslide.cubeList.add(new ModelBox(G18cncslide, 15, 0, -2.3F, -37.5F, -28.499F, 2, 5, 1, 0.0F, false));
@@ -300,9 +300,9 @@ public class Glock13rndMagazine extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		mag13rnd.render(f5);
-//		mag20rnd.render(f5);
-//		G18slide.render(f5);
-//		G18cncslide.render(f5);
+//		mag20rnd.renderer(f5);
+//		G18slide.renderer(f5);
+//		G18cncslide.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

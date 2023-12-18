@@ -2,7 +2,7 @@ package com.paneedah.weaponlib.compatibility;
 
 import com.paneedah.weaponlib.Exposure;
 import com.paneedah.weaponlib.ModContext;
-import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.mwc.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.minecraft.entity.Entity;
@@ -21,7 +21,6 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
-@Deprecated
 public class CompatibleExposureCapability implements ICapabilitySerializable<NBTBase> {
 
     public static void register(ModContext modContext) {
@@ -84,7 +83,7 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
             NBTTagList exposureTags = new NBTTagList();
             for(Exposure exposure: instance.getExposures().values()) {
                 ByteBuf buf = Unpooled.buffer();
-                TypeRegistry.getInstance().toBytes(exposure, buf);
+                TypeRegistry.getINSTANCE().toBytes(exposure, buf);
                 exposureTags.appendTag(new NBTTagByteArray(buf.array()));
             }
             tagCompound.setTag(TAG_EXPOSURES, exposureTags);
@@ -101,7 +100,7 @@ public class CompatibleExposureCapability implements ICapabilitySerializable<NBT
                 for(int i = 0; i < exposureTags.tagCount(); i++) {
                     NBTTagByteArray byteArray = (NBTTagByteArray) exposureTags.get(i);
                     ByteBuf buf = Unpooled.wrappedBuffer(byteArray.getByteArray());
-                    Exposure exposure = TypeRegistry.getInstance().fromBytes(buf);
+                    Exposure exposure = TypeRegistry.getINSTANCE().fromBytes(buf);
                     instance.getExposures().put(exposure.getClass(), exposure);
                 }
                 instance.setLastSyncTimestamp(tagCompound.getLong(TAG_LAST_SYNC));

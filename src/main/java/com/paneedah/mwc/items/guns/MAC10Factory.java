@@ -52,7 +52,7 @@ public class MAC10Factory {
         .withFlashOffsetX(() -> 0.16f)
         .withFlashOffsetY(() -> 0.16f)
         .withInaccuracy(3f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
 				// The weapon power

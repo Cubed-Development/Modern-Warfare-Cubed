@@ -1727,21 +1727,21 @@ public class M1A1Thompson extends ModelWithAttachments
     gun204.render(f5);
     gun205.render(f5);
     gun206.render(f5);
-//    action1.render(f5);
-//    action2.render(f5);
-//    action3.render(f5);
-//    action4.render(f5);
-//    action4.render(f5);
-//    action5.render(f5);
-//    action6.render(f5);
-//    action7.render(f5);
-//    action8.render(f5);
-//    mag1.render(f5);
-//    mag2.render(f5);
-//    mag3.render(f5);
-//    mag4.render(f5);
-//    mag5.render(f5);
-//    mag6.render(f5);
+//    action1.renderer(f5);
+//    action2.renderer(f5);
+//    action3.renderer(f5);
+//    action4.renderer(f5);
+//    action4.renderer(f5);
+//    action5.renderer(f5);
+//    action6.renderer(f5);
+//    action7.renderer(f5);
+//    action8.renderer(f5);
+//    mag1.renderer(f5);
+//    mag2.renderer(f5);
+//    mag3.renderer(f5);
+//    mag4.renderer(f5);
+//    mag5.renderer(f5);
+//    mag6.renderer(f5);
   }
  
 }

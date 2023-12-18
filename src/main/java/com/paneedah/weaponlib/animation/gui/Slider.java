@@ -8,7 +8,7 @@ import org.lwjgl.input.Mouse;
 
 import java.awt.Color;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class Slider implements IElement{
 
@@ -114,7 +114,7 @@ public class Slider implements IElement{
 		
 		GlStateManager.enableTexture2D();
 		AnimationGUI.renderScaledString(name, offsetX, offsetY-6, 0.5);
-		AnimationGUI.renderScaledString(proText, offsetX+width-mc.fontRenderer.getStringWidth(proText)*0.5, offsetY-6, 0.5);
+		AnimationGUI.renderScaledString(proText, offsetX+width-MC.fontRenderer.getStringWidth(proText)*0.5, offsetY-6, 0.5);
 		GlStateManager.disableTexture2D();
 	}
 

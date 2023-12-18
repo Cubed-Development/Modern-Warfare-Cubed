@@ -17,7 +17,7 @@ public class TacticalTomahawkFactory implements MeleeFactory {
         return new ItemMelee.Builder()
         
                 .withName("tactical_tomahawk")
-                .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+                .withCreativeTab(MWC.WEAPONS_TAB)
                 .withTextureNames("tacticaltomahawk")
                 .withAttackDamage(5f)
                 .withHeavyAttackDamage(10f)

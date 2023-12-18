@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ai.EntityCustomMob;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -19,8 +19,8 @@ import net.minecraft.util.math.MathHelper;
 
 
 public class BanditNew4 extends ModelBiped {
-	private final QRenderer head;
-	private final QRenderer body;
+	private final ModelRenderer head;
+	private final ModelRenderer body;
 	private final ModelRenderer chestharness;
 	private final ModelRenderer body_r1;
 	private final ModelRenderer body_r2;
@@ -29,20 +29,20 @@ public class BanditNew4 extends ModelBiped {
 	private final ModelRenderer bone6;
 	private final ModelRenderer bone7;
 	private final ModelRenderer bone5;
-	private final QRenderer rightarm;
-	private final QRenderer leftarm;
-	private final QRenderer rightleg;
-	private final QRenderer leftleg;
+	private final ModelRenderer rightarm;
+	private final ModelRenderer leftarm;
+	private final ModelRenderer rightleg;
+	private final ModelRenderer leftleg;
 
 	public BanditNew4() {
 		textureWidth = 64;
 		textureHeight = 64;
 
-		head = new QRenderer(this);
+		head = new ModelRenderer(this);
 		head.setRotationPoint(0.0F, 0.0F, 0.0F);
 		head.cubeList.add(new ModelBox(head, 0, 0, -4.0F, -8.0F, -4.0F, 8, 8, 8, 0.0F, false));
 
-		body = new QRenderer(this);
+		body = new ModelRenderer(this);
 		body.setRotationPoint(0.0F, 0.0F, 0.0F);
 		body.cubeList.add(new ModelBox(body, 0, 16, -4.0F, 0.0F, -2.0F, 8, 12, 4, 0.0F, false));
 
@@ -98,21 +98,21 @@ public class BanditNew4 extends ModelBiped {
 		bone5.cubeList.add(new ModelBox(bone5, 12, 32, -2.0F, -3.0F, 0.0F, 2, 3, 1, 0.0F, false));
 		bone5.cubeList.add(new ModelBox(bone5, 20, 16, -7.8F, -3.0F, 0.0F, 2, 3, 1, 0.0F, false));
 
-		rightarm = new QRenderer(this);
+		rightarm = new ModelRenderer(this);
 		rightarm.setRotationPoint(0.0F, 0.0F, 0.0F);
 		rightarm.cubeList.add(new ModelBox(rightarm, 16, 32, -3.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 		rightarm.cubeList.add(new ModelBox(rightarm, 32, 39, -3.0F, -2.0F, -2.0F, 4, 10, 4, 0.12F, false));
 
-		leftarm = new QRenderer(this);
+		leftarm = new ModelRenderer(this);
 		leftarm.setRotationPoint(0.0F, 0.0F, 0.0F);
 		leftarm.cubeList.add(new ModelBox(leftarm, 32, 0, -1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 		leftarm.cubeList.add(new ModelBox(leftarm, 40, 16, -1.0F, -2.0F, -2.0F, 4, 10, 4, 0.12F, false));
 
-		rightleg = new QRenderer(this);
+		rightleg = new ModelRenderer(this);
 		rightleg.setRotationPoint(0.0F, 0.0F, 0.0F);
 		rightleg.cubeList.add(new ModelBox(rightleg, 0, 32, -2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
-		leftleg = new QRenderer(this);
+		leftleg = new ModelRenderer(this);
 		leftleg.setRotationPoint(0.0F, 0.0F, 0.0F);
 		leftleg.cubeList.add(new ModelBox(leftleg, 24, 16, -2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F, false));
 		

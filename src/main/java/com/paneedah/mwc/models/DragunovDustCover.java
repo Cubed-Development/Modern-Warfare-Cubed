@@ -1,7 +1,7 @@
 package com.paneedah.mwc.models;
 
 import com.paneedah.weaponlib.ModelWithAttachments;
-import com.paneedah.weaponlib.render.qrender.QRenderer;
+
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 
 public class DragunovDustCover extends ModelWithAttachments {
-	private final QRenderer dustcover;
+	private final ModelRenderer dustcover;
 	private final ModelRenderer cube_r34;
 	private final ModelRenderer cube_r35;
 	private final ModelRenderer cube_r36;
@@ -46,7 +46,7 @@ public class DragunovDustCover extends ModelWithAttachments {
 		textureWidth = 350;
 		textureHeight = 350;
 
-		dustcover = new QRenderer(this);
+		dustcover = new ModelRenderer(this);
 		dustcover.setRotationPoint(0.0F, -15.0F, 0.0F);
 		dustcover.cubeList.add(new ModelBox(dustcover, 91, 44, -2.0F, -1.0F, -43.0F, 1, 1, 43, 0.0F, false));
 		dustcover.cubeList.add(new ModelBox(dustcover, 86, 20, -2.0F, -1.2F, -9.0F, 1, 1, 1, 0.001F, false));

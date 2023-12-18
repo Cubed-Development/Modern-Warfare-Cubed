@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
 
 public class ShellRenderer {
 
@@ -100,7 +100,7 @@ public class ShellRenderer {
 	 * Sets the lightmap texture coordinates
 	 */
 	public static void setupLightmapCoords(Vec3d pos) {
-		int i = mc.world.getCombinedLight(new BlockPos(pos.x, pos.y, pos.z), 0);
+		int i = MC.world.getCombinedLight(new BlockPos(pos.x, pos.y, pos.z), 0);
 		float f = (float) (i & 65535);
 		float f1 = (float) (i >> 16);
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, f, f1);
@@ -110,7 +110,7 @@ public class ShellRenderer {
 	
 	public static double getDistanceFromPlayer(Vector3d vec) {
 		
-		Vec3d player = mc.player.getPositionVector();
+		Vec3d player = MC.player.getPositionVector();
 		double d0 = vec.x - player.x;
         double d1 = vec.y - player.y;
         double d2 = vec.z - player.z;
@@ -159,14 +159,14 @@ public class ShellRenderer {
 		GlStateManager.enableTexture2D();
 
 		// Interpolate player's position for rendering
-		EntityPlayerSP pla = mc.player;
+		EntityPlayerSP pla = MC.player;
 
 		float interpX = (float) MatrixHelper.solveLerp(pla.prevPosX, pla.posX,
-				mc.getRenderPartialTicks());
+				MC.getRenderPartialTicks());
 		float interpY = (float) MatrixHelper.solveLerp(pla.prevPosY, pla.posY,
-				mc.getRenderPartialTicks());
+				MC.getRenderPartialTicks());
 		float interpZ = (float) MatrixHelper.solveLerp(pla.prevPosZ, pla.posZ,
-				mc.getRenderPartialTicks());
+				MC.getRenderPartialTicks());
 		GlStateManager.translate(-interpX, -interpY, -interpZ);
 		
 		if(GLCompatible.doesSupportInstancing()) {
@@ -184,7 +184,7 @@ public class ShellRenderer {
 	
 	public static void renderInstanced(ArrayList<Shell> shells) {
 		for(Entry<Type, InstancedShellObject> i : shellObjMap.entrySet()) {
-			mc.getTextureManager().bindTexture(ShellRegistry.getShellTexture(i.getKey()));
+			MC.getTextureManager().bindTexture(ShellRegistry.getShellTexture(i.getKey()));
 			i.getValue().updateData(shells);
 			i.getValue().render(shells.size());
 		}
@@ -195,7 +195,7 @@ public class ShellRenderer {
 	public static void renderNonInstanced(ArrayList<Shell> shells) {
 		GlStateManager.enableCull();
 		GlStateManager.color(1, 1, 1, 1);
-		mc.entityRenderer.enableLightmap();
+		MC.entityRenderer.enableLightmap();
 		
 		
 		//System.out.println(shells.size());
@@ -208,8 +208,8 @@ public class ShellRenderer {
 			
 			
 			// interpolate pos & rot
-			Vec3d iP = MatrixHelper.lerpVectors(sh.prevPos, sh.pos, mc.getRenderPartialTicks());
-			Vec3d iR = MatrixHelper.lerpVectors(sh.prevRot, sh.rot, mc.getRenderPartialTicks());
+			Vec3d iP = MatrixHelper.lerpVectors(sh.prevPos, sh.pos, MC.getRenderPartialTicks());
+			Vec3d iR = MatrixHelper.lerpVectors(sh.prevRot, sh.rot, MC.getRenderPartialTicks());
 			
 			// translate last
 			GlStateManager.translate(iP.x, iP.y, iP.z);
@@ -241,11 +241,11 @@ public class ShellRenderer {
 				if(ModernConfigManager.enableAllShaders) {
 					legacyShader.use();
 					legacyShader.uniform1i("lightmap", 1);
-					mc.getTextureManager().bindTexture(ShellRegistry.getShellTexture(sh.getType()));
+					MC.getTextureManager().bindTexture(ShellRegistry.getShellTexture(sh.getType()));
 					ShellRegistry.getShellModel(sh.getType()).render();
 					legacyShader.release();
 				} else {
-					mc.getTextureManager().bindTexture(ShellRegistry.getShellTexture(sh.getType()));
+					MC.getTextureManager().bindTexture(ShellRegistry.getShellTexture(sh.getType()));
 					ShellRegistry.getShellModel(sh.getType()).render();
 				}
 				
@@ -269,7 +269,7 @@ public class ShellRenderer {
 		}
 	
 		GlStateManager.enableTexture2D();
-		mc.entityRenderer.disableLightmap();
+		MC.entityRenderer.disableLightmap();
 		//GlStateManager.popMatrix();
 	}
 }

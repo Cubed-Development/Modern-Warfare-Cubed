@@ -12,7 +12,8 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.Arrays;
 
-import static com.paneedah.mwc.proxies.ClientProxy.mc;
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+import static com.paneedah.mwc.utils.ModReference.ID;
 
 // Made with Blockbench 4.3.1
 // Exported for Minecraft version 1.7 - 1.12
@@ -22,10 +23,10 @@ import static com.paneedah.mwc.proxies.ClientProxy.mc;
 public class AmmoPress extends ModelBase {
 	
 	private Bullet bulletModel = new Bullet();
-	private ResourceLocation bulletTexture = new ResourceLocation(ModReference.ID + ":textures/blocks/bullet.png");
+	private ResourceLocation bulletTexture = new ResourceLocation(ID + ":textures/blocks/bullet.png");
 	
 	private Gunpowder gunpowderModel = new Gunpowder();
-	private ResourceLocation powderTexture = new ResourceLocation(ModReference.ID + ":textures/blocks/gunpowder.png");
+	private ResourceLocation powderTexture = new ResourceLocation(ID + ":textures/blocks/gunpowder.png");
 	
 	
 	private final ModelRenderer bone13;
@@ -360,7 +361,7 @@ public class AmmoPress extends ModelBase {
 		
 		
 		
-		mc.getTextureManager().bindTexture(bulletTexture);
+		MC.getTextureManager().bindTexture(bulletTexture);
 		
 		boolean outOfBoolets = false;
 		
@@ -369,7 +370,7 @@ public class AmmoPress extends ModelBase {
 		
 		for(float i = 0; i < 2*Math.PI; i += Math.PI/6.0f) {
 		
-			// Calculate angle to render bullet at
+			// Calculate angle to renderer bullet at
 			float totalAngle = (float) (i - BottomRotor.rotateAngleY);
 			float wrappedAngle = (float) Math.toRadians(MathHelper.wrapDegrees(Math.toDegrees(totalAngle)));
 			
@@ -476,7 +477,7 @@ public class AmmoPress extends ModelBase {
 		}
 		
 		if(bulletAtPowdering) {
-			mc.getTextureManager().bindTexture(powderTexture);
+			MC.getTextureManager().bindTexture(powderTexture);
 			GlStateManager.pushMatrix();
 			GlStateManager.translate(0.0035, 0.101 + offset*0.0005f, 0.023);
 			GlStateManager.scale(0.0015*offset, 0.05*offset, 0.0015*offset);

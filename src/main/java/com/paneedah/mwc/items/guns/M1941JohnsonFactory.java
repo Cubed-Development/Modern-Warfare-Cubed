@@ -44,7 +44,7 @@ public class M1941JohnsonFactory {
         .withFlashOffsetY(() -> 0.15f)
 //        .withShellCasingSideOffset(0f)
         .withShellCasingVerticalOffset(-0.1f)
-        .withCreativeTab(MWC.ASSAULT_RIFLES_TAB)
+        .withCreativeTab(MWC.WEAPONS_TAB)
         .withInformationProvider(stack -> Arrays.asList(
         "Type: Light Machine Gun",
         "Damage: 15", 

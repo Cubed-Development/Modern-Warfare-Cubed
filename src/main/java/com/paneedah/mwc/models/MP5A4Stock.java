@@ -3621,19 +3621,19 @@ public class MP5A4Stock extends ModelWithAttachments {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-//		mp5_navy_handguard.render(f5);
-//		mp5_blackmesa_handguard.render(f5);
-//		mp5_a5_handguard.render(f5);
-//		mp5_mi_handguard.render(f5);
-//		mp5_sd_handguard.render(f5);
-//		mp5_utg_tri_rail_handguard.render(f5);
-//		mp5_stock.render(f5);
-//		mp5_stock_adapter.render(f5);
+//		mp5_navy_handguard.renderer(f5);
+//		mp5_blackmesa_handguard.renderer(f5);
+//		mp5_a5_handguard.renderer(f5);
+//		mp5_mi_handguard.renderer(f5);
+//		mp5_sd_handguard.renderer(f5);
+//		mp5_utg_tri_rail_handguard.renderer(f5);
+//		mp5_stock.renderer(f5);
+//		mp5_stock_adapter.renderer(f5);
 		mp5_a5_stock.render(f5);
-//		mp5_hogue_grip.render(f5);
-//		magazine30.render(f5);
-//		magazinedrum50.render(f5);
-//		action.render(f5);
+//		mp5_hogue_grip.renderer(f5);
+//		magazine30.renderer(f5);
+//		magazinedrum50.renderer(f5);
+//		action.renderer(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
