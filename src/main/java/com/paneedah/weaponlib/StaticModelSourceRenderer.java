@@ -434,7 +434,7 @@ public class StaticModelSourceRenderer extends ModelSourceRenderer implements IB
 
 		for(Tuple<ModelBase, String> texturedModel: modelSource.getTexturedModels()) {
 			if (texturedModel.getV().startsWith("customskin_")) {
-				mc.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getV().toLowerCase().replace("customskin_", "").replace(".png", "")));
+				mc.renderEngine.bindTexture(CustomSkin.getCustomSkinResource(texturedModel.getV()));
 			} else {
 				mc.renderEngine.bindTexture(new ResourceLocation(ModReference.ID + ":textures/models/" + texturedModel.getV()));
 			}
