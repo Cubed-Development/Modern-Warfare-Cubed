@@ -408,24 +408,23 @@ public class G36CFactory implements GunFactory {
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glTranslatef(0.177F, 0.154F, 0.4F);
 
-
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                GL11.glTranslatef(-0.001F, 0.215f, 0.7f);
+                                GL11.glTranslatef(0.002F, 0.215f, 0.75f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                GL11.glTranslatef(-0.001F, 0.275f, 0.75f);
+                                GL11.glTranslatef(-0.001F, 0.265f, 0.75f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                GL11.glTranslatef(0F, 0.185f, 0.65f);
+                                GL11.glTranslatef(0F, 0.185f, 0.8f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                                GL11.glTranslatef(0.005F, 0.2f, 0.9f);
+                                GL11.glTranslatef(0.005F, 0.19f, 0.8f);
                             }
 
 
@@ -440,22 +439,22 @@ public class G36CFactory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                GL11.glTranslatef(0F, 0.26f, 0.85f);
+                                GL11.glTranslatef(0F, 0.26f, 0.75f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                                GL11.glTranslatef(0F, 0.26f, 0.85f);
+                                GL11.glTranslatef(0F, 0.26f, 0.75f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                GL11.glTranslatef(0F, 0.245f, 0.55f);
+                                GL11.glTranslatef(0.005F, 0.235f, 0.5f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                GL11.glTranslatef(0F, 0.245f, 0.55f);
+                                GL11.glTranslatef(0.005F, 0.235f, 0.5f);
                             }
 
 
@@ -465,12 +464,12 @@ public class G36CFactory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                                GL11.glTranslatef(0F, 0.27f, 0.75f);
+                                GL11.glTranslatef(0F, 0.28f, 0.75f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                                GL11.glTranslatef(0F, 0.27f, 0.75f);
+                                GL11.glTranslatef(0F, 0.28f, 0.75f);
                             }
                         })
 

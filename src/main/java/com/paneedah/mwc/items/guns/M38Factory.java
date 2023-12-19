@@ -17,7 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-
 public class M38Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
@@ -29,7 +28,7 @@ public class M38Factory implements GunFactory {
                 .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE)
                 .hasFlashPedals()
                 .withMaxShots(1, Integer.MAX_VALUE)
-                .withMuzzlePosition(new Vec3d(-0.2, -1.15, -5.5))
+                .withMuzzlePosition(new Vec3d(-.15, -1.15, -5.5))
                 .withShootSound("m38_dmr")
                 .withSilencedShootSound("m4a1_silenced")
                 .withReloadSound("m4a1_reload")
@@ -624,12 +623,7 @@ public class M38Factory implements GunFactory {
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glTranslatef(0.18f, 0.03f, 0.4f);
-                            
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
-                                GL11.glTranslatef(0F, -0.05f, 0f);
-                            }
 
-                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
                                 GL11.glTranslatef(0F, 0.015f, 0f);
                             }
@@ -645,18 +639,13 @@ public class M38Factory implements GunFactory {
                             }
 
                             
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AKMIron)) {
-                                GL11.glTranslatef(0F, 0f, 0f);
-                            }
-
-                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                GL11.glTranslatef(-0.01F, 0.02f, 0.4f);
+                                GL11.glTranslatef(-0.01F, 0.02f, 0.5f);
                             }
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                GL11.glTranslatef(-0.003F, -0.025f, 0.7f);
+                                GL11.glTranslatef(-0.003F, -0.035f, 0.7f);
                             }
 
                             
@@ -671,17 +660,17 @@ public class M38Factory implements GunFactory {
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                GL11.glTranslatef(0F, -0.01f, 0.3f);
+                                GL11.glTranslatef(0F, 0f, 0.3f);
                             }
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                GL11.glTranslatef(0F, 0.01f, 0.5f);
+                                GL11.glTranslatef(-0.005F, 0.01f, 0.5f);
                             }
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                GL11.glTranslatef(0F, 0.01f, 0.5f);
+                                GL11.glTranslatef(-0.005F, 0.01f, 0.5f);
                             }
 
                             
@@ -696,12 +685,12 @@ public class M38Factory implements GunFactory {
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                GL11.glTranslatef(0F, 0.035f, 0.3f);
+                                GL11.glTranslatef(0F, 0.025f, 0.3f);
                             }
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                                GL11.glTranslatef(0F, 0.035f, 0.3f);
+                                GL11.glTranslatef(0F, 0.025f, 0.3f);
                             }
 
                             

@@ -262,54 +262,6 @@ public class SIGMCXFactory implements GunFactory {
                         GL11.glScaled(0.37F, 0.37F, 0.37F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.AKMIron, (model) -> {
-                    if (model instanceof M4Iron1) {
-                        GL11.glTranslatef(0.215F, -1.54F, 1.2F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
-                        GL11.glTranslatef(0.255F, -1.55F, -2.25F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
-                        GL11.glTranslatef(0.26F, -1.55F, -2.35F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron1) {
-                        GL11.glTranslatef(0.125F, -1.8F, -0.5F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
-                        GL11.glTranslatef(0.13F, -1.55F, -3.05F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
-                        GL11.glTranslatef(0.092F, -1.91F, -0.9F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron1) {
-                        GL11.glTranslatef(-0.22F, -1.94F, 0.13F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron2) {
-                        GL11.glTranslatef(-0.205F, -1.9F, -3.15F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron1) {
-                        GL11.glTranslatef(0.165F, -1.65F, 1F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron2) {
-                        GL11.glTranslatef(0.25F, -1.55F, -2F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
-                        GL11.glTranslatef(0.127F, -1.77F, -2.22F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M14Iron) {
-                        GL11.glTranslatef(0.129F, -1.63F, -2.08F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof MP5Iron) {
-                        GL11.glTranslatef(0.215F, -1.54F, 1.2F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M27rearsight) {
-                        GL11.glTranslatef(-0.16F, -1.5F, -0.3F);
-                        GL11.glScaled(0.35F, 0.35F, 0.35F);
-                    } else if (model instanceof MBUSiron) {
-                        GL11.glTranslatef(0.215F, -1.54F, 1.2F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    }
-                })
 
                 .withCompatibleAttachment(Attachments.NightRaider, () -> {
                     GL11.glTranslatef(-0.21F, -1.67F, -1.9F);
@@ -652,52 +604,40 @@ public class SIGMCXFactory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                            GL11.glTranslatef(0.14f, 1.36f, -0.3f);
+                            GL11.glTranslatef(00.178F, 0.28F, 0.5F);
 
-                            
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
-                                GL11.glTranslatef(0F, -0f, 0f);
-                            }
-
-                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
                                 GL11.glTranslatef(0F, 0.015f, 0f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
                                 GL11.glTranslatef(0F, 0.0f, 0f);
                             }
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                GL11.glTranslatef(0F, 0.00f, 0.2f);
-                            }
-
-                            
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AKMIron)) {
-                                GL11.glTranslatef(0F, 0f, 0f);
+                                GL11.glTranslatef(0F, -0.01f, 0.3f);
                             }
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                GL11.glTranslatef(-0.01F, 0.02f, 0.3f);
+                                GL11.glTranslatef(-0.008F, 0.01f, 0.4f);
                             }
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                GL11.glTranslatef(-0.003F, -0.025f, 0.4f);
+                                GL11.glTranslatef(-0.003F, -0.025f, 0.45f);
                             }
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                                GL11.glTranslatef(0.001F, -0.0f, 0.2f);
+                                GL11.glTranslatef(0F, -0.0f, 0.2f);
                             }
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                                GL11.glTranslatef(0F, 0.02f, 0.1f);
+                                GL11.glTranslatef(0F, 0.015f, 0.1f);
                             }
 
                             
@@ -707,12 +647,12 @@ public class SIGMCXFactory implements GunFactory {
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                GL11.glTranslatef(0F, 0.053f, 0f);
+                                GL11.glTranslatef(-0.005F, 0.033f, 0f);
                             }
 
                             
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                GL11.glTranslatef(0F, 0.053f, 0f);
+                                GL11.glTranslatef(-0.005F, 0.033f, 0f);
                             }
 
                             

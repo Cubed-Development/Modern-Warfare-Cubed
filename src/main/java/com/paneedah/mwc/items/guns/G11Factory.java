@@ -22,7 +22,7 @@ public class G11Factory {
         return new Weapon.Builder()
                 .withName("g11")
                 .withFireRate(0.9f)
-                .withRecoil(1f)
+                .withRecoil(1.8f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE)
                 .withMaxShots(1, 3, Integer.MAX_VALUE)
@@ -250,67 +250,67 @@ public class G11Factory {
                             GL11.glTranslatef(0.173F, 0.56F, -0.35F);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                GL11.glTranslatef(0F, 0f, 0f);
+                                GL11.glTranslatef(0.005F, 0.01f, 0.15f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                GL11.glTranslatef(0F, -0.035f, 0.2f);
+                                GL11.glTranslatef(0.005F, -0.035f, 0.25f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                                GL11.glTranslatef(0F, -0.03f, 0.5f);
+                                GL11.glTranslatef(0.005F, -0.025f, 0.2f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                                GL11.glTranslatef(0F, -0.03f, 0.5f);
+                                GL11.glTranslatef(0.005F, -0.025f, 0.2f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                GL11.glTranslatef(0.01F, -0.1f, 0.3f);
+                                GL11.glTranslatef(0.01F, -0.1f, 0.35f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                                GL11.glTranslatef(0F, -0.07f, 0.5f);
+                                GL11.glTranslatef(0.007F, -0.07f, 0.3f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                GL11.glTranslatef(0F, -0.11f, 0.5f);
+                                GL11.glTranslatef(0.005F, -0.11f, 0.5f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                GL11.glTranslatef(0F, 0f, 0f);
+                                GL11.glTranslatef(0.005F, -0.01f, 0f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                GL11.glTranslatef(0F, 0f, 0f);
+                                GL11.glTranslatef(0.005F, -0.01f, 0f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                GL11.glTranslatef(0F, 0f, 0f);
+                                GL11.glTranslatef(0.005F, 0f, 0.05f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                GL11.glTranslatef(0F, -0.02f, 0.2f);
+                                GL11.glTranslatef(0F, -0.02f, 0f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                                GL11.glTranslatef(0F, -0.02f, 0.2f);
+                                GL11.glTranslatef(0F, -0.02f, 0f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                                GL11.glTranslatef(0F, -0.15f, 0.2f);
+                                GL11.glTranslatef(0.005F, -0.15f, 0.1f);
                             }
                         })
 

@@ -276,12 +276,12 @@ public class KBP9A91Factory {
                             GL11.glTranslatef(0.18f, -0.28f, 0.4f);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraMount)) {
-                                GL11.glTranslatef(0F, 0.305f, 0f);
+                                GL11.glTranslatef(0F, 0.285f, -0.4f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7)) {
-                                GL11.glTranslatef(-0.0F, 0.17f, 0f);
+                                GL11.glTranslatef(-0.0F, 0.17f, 0.1f);
                             }
 
 

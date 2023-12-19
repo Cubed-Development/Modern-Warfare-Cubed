@@ -541,17 +541,17 @@ public class AK15Factory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                                GL11.glTranslatef(0F, 0.18f, 0.5f);
+                                GL11.glTranslatef(-0.003F, 0.18f, 0.55f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                GL11.glTranslatef(0F, 0.18f, 0.7f);
+                                GL11.glTranslatef(0F, 0.18f, 0.85f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                                GL11.glTranslatef(0F, 0.22f, 0.7f);
+                                GL11.glTranslatef(0F, 0.22f, 0.4f);
                             }
 
 
@@ -566,42 +566,42 @@ public class AK15Factory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                                GL11.glTranslatef(0F, 0.2f, 0.7f);
+                                GL11.glTranslatef(0F, 0.2f, 0.4f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                GL11.glTranslatef(0F, 0.19f, 0.7f);
+                                GL11.glTranslatef(0F, 0.19f, 0.5f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                GL11.glTranslatef(0F, 0.26f, 0.7f);
+                                GL11.glTranslatef(-0.005F, 0.26f, 0.5f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                GL11.glTranslatef(0F, 0.26f, 0.7f);
+                                GL11.glTranslatef(-0.005F, 0.26f, 0.5f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                GL11.glTranslatef(0F, 0.28f, 0.7f);
+                                GL11.glTranslatef(0F, 0.275f, 0.8f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
-                                GL11.glTranslatef(0F, 0.28f, 0.7f);
+                                GL11.glTranslatef(-0.005F, 0.28f, 0.4f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                GL11.glTranslatef(0F, 0.24f, 0.7f);
+                                GL11.glTranslatef(0F, 0.24f, 0.5f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                                GL11.glTranslatef(0F, 0.24f, 0.7f);
+                                GL11.glTranslatef(0F, 0.24f, 0.5f);
                             }
 
 

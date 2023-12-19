@@ -657,7 +657,7 @@ public class SIG556Factory implements GunFactory {
 						)
 
 						.withFirstPersonPositioningZooming((renderContext) -> {
-							GL11.glTranslatef(0.175f, -0.02f, 0.6f);
+							GL11.glTranslatef(0.179F, -0.02f, 0.6f);
 
 							if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
 								GL11.glTranslatef(0F, 0.125f, 0.1f);
@@ -671,22 +671,22 @@ public class SIG556Factory implements GunFactory {
 
 
 							if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-								GL11.glTranslatef(0F, 0.125f, 0.1f);
+								GL11.glTranslatef(-0.004F, 0.125f, 0.15f);
 							}
 
 
 							if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-								GL11.glTranslatef(-0.005F, 0.11f, 0.3f);
+								GL11.glTranslatef(-0.01F, 0.11f, 0.35f);
 							}
 
 
 							if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-								GL11.glTranslatef(-0.003F, 0.1f, 0.2f);
+								GL11.glTranslatef(-0.007F, 0.09f, 0.25f);
 							}
 
 
 							if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-								GL11.glTranslatef(0.001F, 0.085f, 0f);
+								GL11.glTranslatef(-0.004F, 0.098f, 0f);
 							}
 
 
@@ -701,17 +701,17 @@ public class SIG556Factory implements GunFactory {
 
 
 							if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-								GL11.glTranslatef(0F, 0.14f, 0f);
+								GL11.glTranslatef(-0.005F, 0.14f, -0.2f);
 							}
 
 
 							if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-								GL11.glTranslatef(0F, 0.14f, 0f);
+								GL11.glTranslatef(-0.005F, 0.14f, -0.2f);
 							}
 
 
 							if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-								GL11.glTranslatef(-0.00F, 0.15f, 0.2f);
+								GL11.glTranslatef(-0.00F, 0.15f, 0.25f);
 							}
 
 

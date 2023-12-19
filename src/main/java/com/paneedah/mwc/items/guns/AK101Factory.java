@@ -574,9 +574,8 @@ public class AK101Factory {
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glTranslatef(0.18f, -0.23f, 0.7f);
 
-
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                GL11.glTranslatef(0F, 0.23f, 0.3f);
+                                GL11.glTranslatef(0F, 0.23f, 0.35f);
                             }
 
 
@@ -586,7 +585,7 @@ public class AK101Factory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                                GL11.glTranslatef(0F, 0.18f, 0.2f);
+                                GL11.glTranslatef(0F, 0.18f, 0.25f);
                             }
 
 
@@ -596,7 +595,7 @@ public class AK101Factory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                                GL11.glTranslatef(0F, 0.22f, 0.4f);
+                                GL11.glTranslatef(0F, 0.22f, 0f);
                             }
 
 
@@ -611,22 +610,22 @@ public class AK101Factory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                                GL11.glTranslatef(0F, 0.2f, 0.4f);
+                                GL11.glTranslatef(0F, 0.2f, 0f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                GL11.glTranslatef(0F, 0.19f, 0.4f);
+                                GL11.glTranslatef(0F, 0.19f, 0.1f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                GL11.glTranslatef(0F, 0.26f, 0.4f);
+                                GL11.glTranslatef(-0.005F, 0.26f, 0.1f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                GL11.glTranslatef(0F, 0.26f, 0.4f);
+                                GL11.glTranslatef(-0.005F, 0.26f, 0.1f);
                             }
 
 
@@ -636,17 +635,17 @@ public class AK101Factory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
-                                GL11.glTranslatef(0F, 0.28f, 0.4f);
+                                GL11.glTranslatef(0F, 0.28f, 0.1f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                GL11.glTranslatef(0F, 0.24f, 0.4f);
+                                GL11.glTranslatef(0F, 0.24f, 0.1f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                                GL11.glTranslatef(0F, 0.24f, 0.4f);
+                                GL11.glTranslatef(0F, 0.24f, 0.1f);
                             }
 
 
@@ -656,12 +655,12 @@ public class AK101Factory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7)) {
-                                GL11.glTranslatef(0F, 0.13f, 0f);
+                                GL11.glTranslatef(0F, 0.13f, -0.3f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
-                                GL11.glTranslatef(-0.015F, 0.16f, -0.45f);
+                                GL11.glTranslatef(-0.015F, 0.16f, -0.35f);
                             }
                         })
 

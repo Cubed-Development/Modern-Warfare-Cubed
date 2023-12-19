@@ -31,7 +31,7 @@ public class K2C1Factory implements GunFactory {
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE)
                 .hasFlashPedals()
-                .withMuzzlePosition(new Vec3d(-0.11600000345706937, -1.0720000021457676, -7.044000016212464))
+                .withMuzzlePosition(new Vec3d(-.1, -1.05, -7.0))
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withShootSound("k2c1")
                 .withSilencedShootSound("m4a1_silenced")
@@ -501,7 +501,7 @@ public class K2C1Factory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                GL11.glTranslatef(0F, 0.025f, 0.2f);
+                                GL11.glTranslatef(0F, 0.025f, 0.3f);
                             }
 
 
@@ -511,7 +511,7 @@ public class K2C1Factory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                GL11.glTranslatef(0F, -0.04f, 0.4f);
+                                GL11.glTranslatef(0F, -0.04f, 0.5f);
                             }
 
 
@@ -526,22 +526,22 @@ public class K2C1Factory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                GL11.glTranslatef(0F, -0.03f, 0f);
+                                GL11.glTranslatef(0F, -0.04f, 0f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                GL11.glTranslatef(0F, 0.03f, 0f);
+                                GL11.glTranslatef(0F, 0.01f, -0.2f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                GL11.glTranslatef(0F, 0.03f, 0f);
+                                GL11.glTranslatef(0F, 0.01f, -0.2f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                GL11.glTranslatef(0F, 0.03f, 0.3f);
+                                GL11.glTranslatef(0F, 0.03f, 0.4f);
                             }
 
 

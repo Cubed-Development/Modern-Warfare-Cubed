@@ -331,15 +331,13 @@ public class M4A1Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.M4Receiver, true, (model) -> {
-                    if (model instanceof M4Receiver) {
-                    } else if (model instanceof AKRail) {
+                    if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.319F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.78F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.VLTORReceiver, (model) -> {
-                    if (model instanceof VLTORReceiver) {
-                    } else if (model instanceof AKRail) {
+                    if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.2F, -1.319F, -1.82f);
                         GL11.glScaled(0.6F, 0.8F, 0.78F);
                     }
@@ -647,7 +645,6 @@ public class M4A1Factory implements GunFactory {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
                     }
                 }, false, false)
 
@@ -1051,25 +1048,22 @@ public class M4A1Factory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glTranslatef(0.18f, -0.02f, 0.6f);
-
+                            GL11.glTranslatef(0.18f, -0.02f, 0.4f);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), AuxiliaryAttachments.AR15Iron)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(-0.0005F, 0.1f, 0f);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.028f, -0.3f);
+                                    GL11.glTranslatef(0F, 0.028f, -0.1f);
                                 }
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.1f, 0f);
                                 } else {
@@ -1084,33 +1078,30 @@ public class M4A1Factory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.155f, 0f);
+                                    GL11.glTranslatef(0F, 0.155f, 0.2f);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.035f, 0f);
+                                    GL11.glTranslatef(0F, 0.035f, 0.2f);
                                 }
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.14f, 0f);
+                                    GL11.glTranslatef(-0.002F, 0.14f, 0.35f);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.025f, 0f);
+                                    GL11.glTranslatef(-0.002F, 0.025f, 0.35f);
                                 }
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AKMIron)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(-0.0005F, 0.1f, 0f);
                                 } else {
@@ -1120,45 +1111,41 @@ public class M4A1Factory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(-0.01F, 0.125f, 0.1f);
                                 } else {
-                                    GL11.glTranslatef(-0.01F, 0.03f, 0.3f);
+                                    GL11.glTranslatef(-0.01F, 0.02f, 0.5f);
                                 }
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(-0.003F, 0.05f, 0.2f);
                                 } else {
-                                    GL11.glTranslatef(-0.003F, -0.05f, 0.2f);
+                                    GL11.glTranslatef(-0.003F, -0.055f, 0.4f);
                                 }
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0.001F, 0.092f, -0.2f);
+                                    GL11.glTranslatef(-0.005F, 0.092f, 0f);
                                 } else {
-                                    GL11.glTranslatef(0.001F, -0.027f, -0.2f);
+                                    GL11.glTranslatef(-0.005F, -0.032f, 0f);
                                 }
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.08f, 0f);
                                 } else {
@@ -1168,69 +1155,63 @@ public class M4A1Factory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.07f, 0f);
+                                    GL11.glTranslatef(0F, 0.07f, 0.2f);
                                 } else {
-                                    GL11.glTranslatef(0F, -0.01f, 0f);
+                                    GL11.glTranslatef(0F, -0.02f, 0.2f);
                                 }
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.13f, 0f);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.03f, 0f);
+                                    GL11.glTranslatef(-0.005F, 0.01f, 0f);
                                 }
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.13f, 0f);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.03f, 0f);
+                                    GL11.glTranslatef(-0.005F, 0.01f, 0f);
                                 }
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(-0.004F, 0.13f, -0f);
+                                    GL11.glTranslatef(0F, 0.13f, -0f);
                                 } else {
-                                    GL11.glTranslatef(-0.004F, 0.025f, 0.25f);
+                                    GL11.glTranslatef(0F, 0.015f, 0.45f);
                                 }
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.16f, 0f);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.06f, 0f);
+                                    GL11.glTranslatef(0F, 0.06f, 0.2f);
                                 }
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.13f, 0.2f);
                                 } else {
@@ -1240,9 +1221,8 @@ public class M4A1Factory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.13f, 0.2f);
                                 } else {
@@ -1252,25 +1232,23 @@ public class M4A1Factory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
                                     GL11.glTranslatef(0F, 0.14f, 0.5f);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.055f, 0.3f);
+                                    GL11.glTranslatef(0F, 0.055f, 0.5f);
                                 }
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                                RenderContext<?> rc = (RenderContext<?>) renderContext;
                                 ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, rc.getWeaponInstance());
+                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
                                 if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.14f, 0.3f);
+                                    GL11.glTranslatef(0F, 0.14f, 0.5f);
                                 } else {
-                                    GL11.glTranslatef(0F, 0.055f, 0.3f);
+                                    GL11.glTranslatef(0F, 0.055f, 0.5f);
                                 }
                             }
                         })

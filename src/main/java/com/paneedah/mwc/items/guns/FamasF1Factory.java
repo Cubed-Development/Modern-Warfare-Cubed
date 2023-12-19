@@ -434,37 +434,37 @@ public class FamasF1Factory {
                             GL11.glTranslatef(0.175F, 0.35F, -0.15F);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                GL11.glTranslatef(0F, 0.45f, 1f);
+                                GL11.glTranslatef(0.002F, 0.45f, 1.05f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                GL11.glTranslatef(0F, 0.5f, 1.2f);
+                                GL11.glTranslatef(0.002F, 0.5f, 1.2f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                                GL11.glTranslatef(0F, 0.45f, 0.75f);
+                                GL11.glTranslatef(0F, 0.45f, 0.8f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                GL11.glTranslatef(0F, 0.41f, 1.2f);
+                                GL11.glTranslatef(0.005F, 0.41f, 1.25f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                                GL11.glTranslatef(0F, 0.47f, 0.7f);
+                                GL11.glTranslatef(0F, 0.46f, 0.7f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                                GL11.glTranslatef(0F, 0.445f, 1.1f);
+                                GL11.glTranslatef(0F, 0.435f, 1.3f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                                GL11.glTranslatef(0F, 0.445f, 1f);
+                                GL11.glTranslatef(0F, 0.435f, 1.3f);
                             }
 
 
@@ -474,37 +474,37 @@ public class FamasF1Factory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                GL11.glTranslatef(0F, 0.4f, 0.8f);
+                                GL11.glTranslatef(0F, 0.39f, 0.9f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                GL11.glTranslatef(0F, 0.47f, 0.7f);
+                                GL11.glTranslatef(0.003F, 0.46f, 0.9f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                GL11.glTranslatef(0F, 0.47f, 0.7f);
+                                GL11.glTranslatef(0.003F, 0.46f, 0.9f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                GL11.glTranslatef(0F, 0.47f, 0.85f);
+                                GL11.glTranslatef(0F, 0.48f, 0.9f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
-                                GL11.glTranslatef(0F, 0.48f, 0.7f);
+                                GL11.glTranslatef(0F, 0.48f, 0.9f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                GL11.glTranslatef(0F, 0.48f, 0.8f);
+                                GL11.glTranslatef(0F, 0.47f, 0.85f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                                GL11.glTranslatef(0F, 0.48f, 0.8f);
+                                GL11.glTranslatef(0F, 0.47f, 0.85f);
                             }
                         })
 

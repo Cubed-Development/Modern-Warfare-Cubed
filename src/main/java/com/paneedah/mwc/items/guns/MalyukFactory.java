@@ -502,12 +502,12 @@ public class MalyukFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                GL11.glTranslatef(0F, 0.01f, 0.5f);
+                                GL11.glTranslatef(0F, 0.01f, 0.3f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                                GL11.glTranslatef(0F, 0.01f, 0.5f);
+                                GL11.glTranslatef(0F, 0.01f, 0.3f);
                             }
 
                         })

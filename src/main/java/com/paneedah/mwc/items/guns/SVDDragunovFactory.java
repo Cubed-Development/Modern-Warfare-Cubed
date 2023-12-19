@@ -25,7 +25,7 @@ public class SVDDragunovFactory {
         return new Weapon.Builder()
                 .withName("svd_dragunov")
                 .withFireRate(0.3f)
-                .withRecoil(4f)
+                .withRecoil(8f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.SNIPER_RIFLE)
                 .withMuzzlePosition(new Vec3d(-.15, -1, -10.8))

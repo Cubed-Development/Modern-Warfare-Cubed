@@ -236,7 +236,7 @@ public class ScarHFactory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
-                    GL11.glTranslatef(-0.03F, -1.46F, -1.1F);
+                    GL11.glTranslatef(-0.035F, -1.46F, -1.1F);
                     GL11.glScaled(0.75F, 0.75F, 0.75F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
@@ -498,22 +498,22 @@ public class ScarHFactory implements GunFactory {
                             GL11.glTranslatef(0.179F, 0.217F, 0.3F);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                GL11.glTranslatef(0F, -0.01f, 0.5f);
+                                GL11.glTranslatef(0F, -0.01f, 0.55f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                GL11.glTranslatef(-0.003F, 0.053f, 0.65f);
+                                GL11.glTranslatef(-0.003F, 0.053f, 0.7f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                GL11.glTranslatef(-0.005F, -0.04f, 0.85f);
+                                GL11.glTranslatef(-0.005F, -0.04f, 0.95f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                                GL11.glTranslatef(-0.002F, -0.02f, 0.6f);
+                                GL11.glTranslatef(-0.005F, -0.02f, 0.65f);
                             }
 
 
@@ -523,12 +523,12 @@ public class ScarHFactory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                                GL11.glTranslatef(0F, 0.00f, 0.4f);
+                                GL11.glTranslatef(0F, -0.005f, 0.4f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                GL11.glTranslatef(0F, -0.03f, 0.4f);
+                                GL11.glTranslatef(0F, -0.035f, 0.4f);
                             }
 
 
@@ -563,17 +563,17 @@ public class ScarHFactory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                GL11.glTranslatef(0.005F, 0.032f, 0.4f);
+                                GL11.glTranslatef(0F, 0.032f, 0.4f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                GL11.glTranslatef(0.005F, 0.032f, 0.4f);
+                                GL11.glTranslatef(0F, 0.032f, 0.4f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                GL11.glTranslatef(0.004F, 0.05f, 0.3f);
+                                GL11.glTranslatef(0F, 0.05f, 0.35f);
                             }
                         })
 

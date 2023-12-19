@@ -458,7 +458,7 @@ public class CZ805BrenFactory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                                GL11.glTranslatef(-0.002F, -0.015f, 0.35f);
+                                GL11.glTranslatef(-0.005F, -0.01f, 0.35f);
                             }
 
 
@@ -493,12 +493,12 @@ public class CZ805BrenFactory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                                GL11.glTranslatef(0F, 0.03f, 0.6f);
+                                GL11.glTranslatef(0F, 0.04f, 0.6f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM2)) {
-                                GL11.glTranslatef(0F, 0.03f, 0.6f);
+                                GL11.glTranslatef(0F, 0.04f, 0.6f);
                             }
 
 
@@ -508,17 +508,17 @@ public class CZ805BrenFactory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                GL11.glTranslatef(0F, 0.032f, 0.4f);
+                                GL11.glTranslatef(-0.005F, 0.022f, 0.4f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                GL11.glTranslatef(0F, 0.032f, 0.4f);
+                                GL11.glTranslatef(-0.005F, 0.022f, 0.4f);
                             }
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                GL11.glTranslatef(0F, 0.03f, 0.6f);
+                                GL11.glTranslatef(0F, 0.035f, 0.6f);
                             }
                         })
 

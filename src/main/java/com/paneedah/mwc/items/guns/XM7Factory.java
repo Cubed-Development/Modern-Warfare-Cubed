@@ -17,7 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-
 public class XM7Factory implements GunFactory {
 
 	public Item createGun(CommonProxy commonProxy) {
@@ -524,95 +523,83 @@ public class XM7Factory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                            GL11.glTranslatef(0.14f, 1.36f, -0.2f);
+                            GL11.glTranslatef(00.178F, 0.28F, 0.5F);
 
-                            
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
-                                GL11.glTranslatef(0F, -0f, 0f);
-                            }
-
-                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
                                 GL11.glTranslatef(0F, 0.015f, 0f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
                                 GL11.glTranslatef(0F, 0.0f, 0f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                GL11.glTranslatef(0F, 0.00f, 0.15f);
+                                GL11.glTranslatef(0F, -0.01f, 0.3f);
                             }
 
-                            
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AKMIron)) {
-                                GL11.glTranslatef(0F, 0f, 0f);
-                            }
 
-                            
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                GL11.glTranslatef(-0.01F, 0.01F, 0.3f);
+                                GL11.glTranslatef(-0.008F, 0.01f, 0.4f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                GL11.glTranslatef(-0.003F, -0.025f, 0.4f);
+                                GL11.glTranslatef(-0.003F, -0.025f, 0.45f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                                GL11.glTranslatef(0.001F, -0.0f, 0.1f);
+                                GL11.glTranslatef(0F, -0.0f, 0.2f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                                GL11.glTranslatef(0F, 0.02f, 0.1f);
+                                GL11.glTranslatef(0F, 0.015f, 0.1f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                                 GL11.glTranslatef(0F, -0.01f, 0f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                GL11.glTranslatef(0F, 0.053f, 0f);
+                                GL11.glTranslatef(-0.005F, 0.033f, 0f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                GL11.glTranslatef(0F, 0.053f, 0f);
+                                GL11.glTranslatef(-0.005F, 0.033f, 0f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                GL11.glTranslatef(-0.004F, 0.05f, 0.2f);
+                                GL11.glTranslatef(-0.004F, 0.05f, 0.25f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
                                 GL11.glTranslatef(0F, 0.06f, 0f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
                                 GL11.glTranslatef(0F, 0.04f, 0f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
                                 GL11.glTranslatef(0F, 0.04f, 0f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
                                 GL11.glTranslatef(0F, 0.07f, 0.3f);
                             }
 
-                            
+
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
                                 GL11.glTranslatef(0F, 0.07f, 0.3f);
                             }

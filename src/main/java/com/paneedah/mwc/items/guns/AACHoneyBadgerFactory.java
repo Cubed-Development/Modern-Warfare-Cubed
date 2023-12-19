@@ -640,7 +640,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                                 Magazines.HoneyBadgerMag)
 
 
-
                         .withThirdPersonPositioningReloading(
                                 new Transition((renderContext) -> { 
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);
@@ -707,17 +706,11 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                            GL11.glTranslatef(0.14f, 1.05f, -0.3f);
+                            GL11.glTranslatef(0.178F, -0.03F, 0.3F);
 
                             // Standard Iron Sight Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), AuxiliaryAttachments.AR15Iron)) {
-                                GL11.glTranslatef(0F, 0.028f, -0.3f);
-                            }
-
-                            // Standard Iron Sight Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
-                                GL11.glTranslatef(0F, 0f, 0f);
+                                GL11.glTranslatef(0F, 0.038f, -0.3f);
                             }
 
                             // Standard Iron Sight Zoom
@@ -727,32 +720,27 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                             // Standard Iron Sight Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                                GL11.glTranslatef(0F, 0.035f, 0f);
+                                GL11.glTranslatef(0F, 0.035f, 0.2f);
                             }
 
                             // Standard Iron Sight Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                GL11.glTranslatef(0F, 0.025f, 0.15f);
-                            }
-
-                            // Standard Iron Sight Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AKMIron)) {
-                                GL11.glTranslatef(0F, 0f, 0f);
+                                GL11.glTranslatef(0.001F, 0.035f, 0.45f);
                             }
 
                             // ACOG Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                GL11.glTranslatef(-0.01F, 0.03f, 0.3f);
+                                GL11.glTranslatef(-0.01F, 0.027f, 0.6f);
                             }
 
                             // ACOG Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                GL11.glTranslatef(-0.003F, -0.05f, 0.2f);
+                                GL11.glTranslatef(-0.003F, -0.05f, 0.55f);
                             }
 
                             // HP Zoomw
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                                GL11.glTranslatef(0.001F, -0.027f, -0.2f);
+                                GL11.glTranslatef(-0.001F, -0.022f, 0.1f);
                             }
 
                             // Reflex Zoom
@@ -762,22 +750,22 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                             // Reflex Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                GL11.glTranslatef(0F, -0.01f, 0f);
+                                GL11.glTranslatef(0F, -0.03f, 0.2f);
                             }
 
                             // Holo Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                GL11.glTranslatef(0F, 0.03f, 0f);
+                                GL11.glTranslatef(-0.003F, 0.02f, 0f);
                             }
 
                             // Holo Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                GL11.glTranslatef(0F, 0.03f, 0f);
+                                GL11.glTranslatef(-0.003F, 0.02f, 0f);
                             }
 
                             // Holo Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                GL11.glTranslatef(-0.004F, 0.025f, 0.25f);
+                                GL11.glTranslatef(0F, 0.025f, 0.55f);
                             }
 
                             // Holo Zoom
@@ -787,22 +775,22 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                             // Reflex Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                GL11.glTranslatef(0F, 0.035f, 0f);
+                                GL11.glTranslatef(0F, 0.035f, 0.2f);
                             }
 
                             // Reflex Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                                GL11.glTranslatef(0F, 0.035f, 0f);
+                                GL11.glTranslatef(0F, 0.035f, 0.2f);
                             }
 
                             // Reflex Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                                GL11.glTranslatef(0F, 0.055f, 0.3f);
+                                GL11.glTranslatef(0F, 0.055f, 0.5f);
                             }
 
                             // Reflex Zoom
                             if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                                GL11.glTranslatef(0F, 0.055f, 0.3f);
+                                GL11.glTranslatef(0F, 0.055f, 0.5f);
                             }
                         })
 
