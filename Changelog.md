@@ -51,6 +51,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
 - Added the gold and dark color variants of the Desert Eagle
 - Added Hardness values to props
+- Added Groovyscript support plugin for workbench and ammo press recipes
 
 ### Changed
 
@@ -101,6 +102,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - The weapon stats in the modification GUI are now updated instantly
 - Terrorist spawns are now lower by default
 - Flashbangs do not flash trough walls anymore
+- Moved recipe registration from server starting to Registryevent<IRecipes>
 
 ### Fixed
 
