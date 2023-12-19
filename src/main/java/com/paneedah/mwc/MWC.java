@@ -62,7 +62,6 @@ public final class MWC {
     @SidedProxy(serverSide = "com.paneedah.mwc.proxies.CommonProxy", clientSide = "com.paneedah.mwc.proxies.ClientProxy")
     public static CommonProxy commonProxy;
 
-
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent preInitializationEvent) {
         if (preInitializationEvent.getSide().isClient())
