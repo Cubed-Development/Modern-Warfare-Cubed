@@ -45,8 +45,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     if (tileEntity instanceof TileEntityAmmoPress) {
                         // Since it's based on a queue, you can add whatever you'd like, and it will merely refuse to craft it until you have the resources available.
                         final TileEntityAmmoPress press = (TileEntityAmmoPress) station;
-                        final ItemStack newStack = CraftingRegistry.getModernCrafting(workbenchServerMessage.getCraftingGroup(), workbenchServerMessage.getCraftingName()).getItem();
-                        newStack.setCount(workbenchServerMessage.getQuantity());
+                        final ItemStack newStack = new ItemStack(CraftingRegistry.getModernCrafting(workbenchServerMessage.getCraftingGroup(), workbenchServerMessage.getCraftingName()).getItem(), workbenchServerMessage.getQuantity());
 
                         if (press.hasStack()) {
                             final ItemStack topQueue = press.getCraftingQueue().getLast();
