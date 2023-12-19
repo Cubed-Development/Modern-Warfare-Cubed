@@ -127,7 +127,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 		if (button == craftButton && !craftButton.isDisabled()) {
 			if (hasSelectedCraftingPiece() && quantityBox.getText().length() != 0) {
 				int quantity = Integer.parseInt(quantityBox.getText());
-				CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), getSelectedCraftingPiece().getItem().getTranslationKey(), getSelectedCraftingPiece().getCraftingGroup(), quantity));
+				CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), getSelectedCraftingPiece().getItemStack().getTranslationKey(), getSelectedCraftingPiece().getCraftingGroup(), quantity));
 			}
 
 		}  else if (button == bulletSelector) {
@@ -197,7 +197,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			}
 		}
 		
-		if(hasSelectedCraftingPiece() && getSelectedCraftingPiece().getItem().getItem() instanceof ItemBullet &&
+		if(hasSelectedCraftingPiece() && getSelectedCraftingPiece().getItemStack().getItem() instanceof ItemBullet &&
 				GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 268, this.guiTop + 201, 20, 20)) {
 			
 			tooltip.add(String.format("Amount %d will make %d bullets", getCurrentAmountInQuantityBox(), getCurrentAmountInQuantityBox() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
@@ -237,7 +237,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 				GUIRenderHelper.drawScaledString("x" + stack.getCount(), this.guiLeft + 212 + i*20, this.guiTop + 16, 0.7, GOLD);
 			}
 
-			if(hasSelectedCraftingPiece() && getSelectedCraftingPiece().getItem().getItem() instanceof ItemBullet) {
+			if(hasSelectedCraftingPiece() && getSelectedCraftingPiece().getItemStack().getItem() instanceof ItemBullet) {
 				GUIRenderHelper.drawScaledString("x" + (getCurrentAmountInQuantityBox() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS),
 						this.guiLeft + 268, this.guiTop + 201, 0.7, GREEN);
 			}

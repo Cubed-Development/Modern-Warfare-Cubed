@@ -2,16 +2,14 @@ package com.paneedah.mwc.groovyscript.script;
 
 import com.cleanroommc.groovyscript.api.GroovyLog;
 import com.cleanroommc.groovyscript.api.IIngredient;
-import com.cleanroommc.groovyscript.helper.ingredient.ItemsIngredient;
 import com.cleanroommc.groovyscript.helper.ingredient.OreDictIngredient;
 import com.cleanroommc.groovyscript.helper.recipe.AbstractRecipeBuilder;
 import com.cleanroommc.groovyscript.registry.VirtualizedRegistry;
-import com.paneedah.mwc.groovyscript.MWCGroovyPlugin;
 import com.paneedah.mwc.groovyscript.recipes.GSCrafting;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 
 import java.util.ArrayList;
 
@@ -19,7 +17,7 @@ import static com.paneedah.mwc.groovyscript.MWCGroovyPlugin.craftingStation;
 import static com.paneedah.weaponlib.crafting.CraftingGroup.*;
 import static com.paneedah.weaponlib.crafting.CraftingRegistry.*;
 
-public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
+public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> {
 
     @Override
     public void onReload() {
@@ -31,8 +29,8 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
      * Remove ALL recipes. no matter the category.
      */
     public void removeAll() {
-        for (ArrayList<IModernCrafting> list : craftingMap.values()) {
-            for (IModernCrafting recipe : list) {
+        for (ArrayList<IModernCraftingRecipe> list : craftingMap.values()) {
+            for (IModernCraftingRecipe recipe : list) {
                 deleteRecipeRegistry(recipe);
                 this.addBackup(recipe);
             }
@@ -45,9 +43,9 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
      * @param ingredient Target Ingredient. any recipe with matching output will be removed.
      */
     public void remove(IIngredient ingredient) {
-        for (ArrayList<IModernCrafting> list : craftingMap.values()) {
-            for (IModernCrafting recipe : list) {
-                if (ingredient.test(recipe.getItem())) {
+        for (ArrayList<IModernCraftingRecipe> list : craftingMap.values()) {
+            for (IModernCraftingRecipe recipe : list) {
+                if (ingredient.test(recipe.getItemStack())) {
                     deleteRecipeRegistry(recipe);
                     this.addBackup(recipe);
                 }
@@ -65,8 +63,8 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
     }
 
     public void removeinGroup(IIngredient ingredient, CraftingGroup group) {
-        for (IModernCrafting recipe : craftingMap.get(group)) {
-            if (ingredient.test(recipe.getItem())) {
+        for (IModernCraftingRecipe recipe : craftingMap.get(group)) {
+            if (ingredient.test(recipe.getItemStack())) {
                 deleteRecipeRegistry(recipe);
                 this.addBackup(recipe);
             }
@@ -77,7 +75,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCrafting> {
         removeinGroup(ingredient, CraftingGroup.valueOf(group));
     }
 
-    public void addRecipe(IModernCrafting crafting) {
+    public void addRecipe(IModernCraftingRecipe crafting) {
         registerRecipe(crafting);
         this.addScripted(crafting);
     }

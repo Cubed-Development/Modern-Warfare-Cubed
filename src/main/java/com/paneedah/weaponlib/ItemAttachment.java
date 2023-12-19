@@ -1,9 +1,8 @@
 package com.paneedah.weaponlib;
 
-import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.util.ITooltipFlag;
@@ -20,7 +19,7 @@ import java.util.function.Function;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 
-public class ItemAttachment<T> extends Item implements ModelSource, IModernCrafting {
+public class ItemAttachment<T> extends Item implements ModelSource, IModernCraftingRecipe {
 
 	private AttachmentCategory category;
 	private String crosshair;
@@ -250,7 +249,7 @@ public class ItemAttachment<T> extends Item implements ModelSource, IModernCraft
 	}
 
 	@Override
-	public ItemStack getItem() {
+	public ItemStack getItemStack() {
 		return new ItemStack(this);
 	}
 

@@ -49,7 +49,7 @@ import static com.paneedah.mwc.MWC.CHANNEL;
 import static com.paneedah.mwc.utils.ModReference.ID;
 import static com.paneedah.mwc.utils.ModReference.LOG;
 
-public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>, AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCrafting {
+public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>, AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraftingRecipe {
 
     public enum ShellCasingEjectDirection { LEFT, RIGHT };
     
@@ -1120,7 +1120,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
     }
 
     @Override
-    public ItemStack getItem() {
+    public ItemStack getItemStack() {
         return new ItemStack(this);
     }
 
