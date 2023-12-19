@@ -25,13 +25,8 @@ public class CustomSkin {
     }
 
     public static ResourceLocation getCustomSkinResource(final String skinName) {
-        final File image = new File("./config/mwc/skins/" + skinName.replace("customskin_", "") + ".png");
-
-        if (!image.exists())
-            return new ResourceLocation(ID + ":textures/models/" + GunSkins.WoodlandCamo.getTextureName() + ".png");
-
         if (!GunSkins.customSkins.containsKey(skinName))
-            GunSkins.customSkins.put(skinName, new CustomSkin(skinName, image));
+            GunSkins.customSkins.put(skinName, new CustomSkin(skinName, new File("./config/mwc/skins/" + skinName.replace("customskin_", "") + ".png")));
 
         return GunSkins.customSkins.get(skinName).resourceLocation;
     }
