@@ -76,10 +76,7 @@ public class CraftingRegistry {
 	 * @param crafting - IModernCraftingRecipe to register
 	 */
 	public static void registerHook(IModernCraftingRecipe crafting) {
-		//System.out.println("CABRON: " + crafting.getItem().getRegistryName());
-		//recipeMap.put(crafting.getItem().getRegistryName().toString(), null);
 		hookMap.put(crafting.getItemStack().getItem(), crafting);
-		
 	}
 	
 	public static boolean hasHook(String registryName) {
