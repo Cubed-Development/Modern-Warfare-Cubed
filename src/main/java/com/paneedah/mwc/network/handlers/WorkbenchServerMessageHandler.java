@@ -5,7 +5,7 @@ import com.paneedah.mwc.network.messages.WorkbenchClientMessage;
 import com.paneedah.mwc.network.messages.WorkbenchServerMessage;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
@@ -45,7 +45,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     if (tileEntity instanceof TileEntityAmmoPress) {
                         // Since it's based on a queue, you can add whatever you'd like, and it will merely refuse to craft it until you have the resources available.
                         final TileEntityAmmoPress press = (TileEntityAmmoPress) station;
-                        final ItemStack newStack = new ItemStack(CraftingRegistry.getModernCrafting(workbenchServerMessage.getCraftingGroup(), workbenchServerMessage.getCraftingName()).getItem().getItem(), workbenchServerMessage.getQuantity());
+                        final ItemStack newStack = new ItemStack(CraftingRegistry.getModernCrafting(workbenchServerMessage.getCraftingGroup(), workbenchServerMessage.getCraftingName()).getItemStack().getItem(), workbenchServerMessage.getQuantity());
 
                         if (press.hasStack()) {
                             final ItemStack topQueue = press.getCraftingQueue().getLast();
@@ -116,9 +116,9 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                             continue;
 
                         final ItemStack stack = station.mainInventory.getStackInSlot(i);
-                        if (stack.getItem() instanceof IModernCrafting && ((IModernCrafting) stack.getItem()).getModernRecipe() != null && (station.dismantleStatus[i - 9] == -1 || station.dismantleStatus[i - 9] > station.dismantleDuration[i - 9])) {
+                        if (stack.getItem() instanceof IModernCraftingRecipe && ((IModernCraftingRecipe) stack.getItem()).getModernRecipe() != null && (station.dismantleStatus[i - 9] == -1 || station.dismantleStatus[i - 9] > station.dismantleDuration[i - 9])) {
                             station.dismantleStatus[i - 9] = 0;
-                            station.dismantleDuration[i - 9] = ((TileEntityStation) tileEntity).getDismantlingTime(((IModernCrafting) stack.getItem()));
+                            station.dismantleDuration[i - 9] = ((TileEntityStation) tileEntity).getDismantlingTime(((IModernCraftingRecipe) stack.getItem()));
                         }
                     }
 

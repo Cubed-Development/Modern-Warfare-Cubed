@@ -750,7 +750,7 @@ public class BalancePackManager {
 			return;
 		}
 
-		JsonObject object;
+		JsonObject object = null;
 		// Create balance pack from JSON file
 		try {
 			object = readJSONFile(balancePack);

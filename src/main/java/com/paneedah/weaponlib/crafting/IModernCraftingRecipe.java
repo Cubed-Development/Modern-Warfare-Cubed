@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.crafting;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 /**
@@ -12,10 +11,10 @@ import net.minecraft.item.ItemStack;
  * @author Homer Riva-Cambrin
  * @version September 23rd, 2022
  */
-public interface IModernCrafting {
+public interface IModernCraftingRecipe {
 	
 	CraftingEntry[] getModernRecipe();
-	ItemStack getItem();
+	ItemStack getItemStack();
 	CraftingGroup getCraftingGroup();
 
 	void setCraftingRecipe(CraftingEntry[] recipe);

@@ -6,7 +6,7 @@ import com.paneedah.weaponlib.animation.Transform;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.render.IHasModel;
 import com.paneedah.weaponlib.render.modelrepo.ServerGearModelHookRegistry;
 import net.minecraft.client.model.ModelBase;
@@ -30,7 +30,7 @@ import java.util.function.Consumer;
 
 import static com.paneedah.mwc.utils.ModReference.ID;
 
-public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModernCrafting, IHasModel {
+public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModernCraftingRecipe, IHasModel {
 
 
     public static class Builder {
@@ -336,7 +336,7 @@ public class ItemVest extends Item implements ISpecialArmor, ModelSource, IModer
 
 
     @Override
-    public ItemStack getItem() {
+    public ItemStack getItemStack() {
         return new ItemStack(this);
     }
 

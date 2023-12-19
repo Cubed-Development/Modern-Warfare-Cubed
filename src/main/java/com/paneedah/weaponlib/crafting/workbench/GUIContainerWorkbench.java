@@ -110,7 +110,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 		super.actionPerformed(button);
 		if (button == craftButton) {
 			if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1) {
-				CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), 0, getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME, CraftingGroup.getValue(getCraftingMode()), getSelectedCraftingPiece().getItem().getTranslationKey()));
+				CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), 0, getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME, CraftingGroup.getValue(getCraftingMode()), getSelectedCraftingPiece().getItemStack().getTranslationKey()));
 			}
 
 		} else if (button == assaultSelector) {
@@ -197,9 +197,9 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 		
 		// This is just a backup check. This should only ever run if we are dealing
 		// with crafting mode one, so it will always be a weapon.
-		if(!(getSelectedCraftingPiece().getItem().getItem() instanceof Weapon)) return;
+		if(!(getSelectedCraftingPiece().getItemStack().getItem() instanceof Weapon)) return;
 	
-		Weapon weapon = (Weapon) getSelectedCraftingPiece().getItem().getItem();
+		Weapon weapon = (Weapon) getSelectedCraftingPiece().getItemStack().getItem();
         GuiRenderUtil.drawScaledString(fontRenderer, format(weapon.getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 1.2, 0xFDF17C);
         GuiRenderUtil.drawScaledString(fontRenderer, weapon.builder.getWeaponType(), this.guiLeft + 214, this.guiTop + 43, 0.75, 0xC8C49C);
         

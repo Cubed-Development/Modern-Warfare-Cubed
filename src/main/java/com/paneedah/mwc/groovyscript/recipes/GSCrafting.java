@@ -2,11 +2,10 @@ package com.paneedah.mwc.groovyscript.recipes;
 
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
-import net.minecraft.item.Item;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import net.minecraft.item.ItemStack;
 
-public class GSCrafting implements IModernCrafting {
+public class GSCrafting implements IModernCraftingRecipe {
 
     private final ItemStack output;
     private CraftingEntry[] recipe;
@@ -24,7 +23,7 @@ public class GSCrafting implements IModernCrafting {
     }
 
     @Override
-    public ItemStack getItem() {
+    public ItemStack getItemStack() {
         return this.output;
     }
 
