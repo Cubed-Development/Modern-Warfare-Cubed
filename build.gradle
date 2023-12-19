@@ -55,10 +55,6 @@ repositories {
         name 'Cleanroom'
         url 'https://maven.cleanroommc.com'
     }
-    maven {
-        name 'Mixin'
-        url 'https://repo.spongepowered.org/repository/maven-public/'
-    }
 
     ivy {
         name 'Red Studio GitHub Releases'
@@ -73,7 +69,9 @@ repositories {
 dependencies {
     implementation 'Red-Studio-Ragnarok:Red-Core:0.4-Dev-2'
     sources 'Red-Studio-Ragnarok:Red-Core:0.4-Dev-2:sources@jar'
-    compileOnly 'com.cleanroommc:groovyscript:0.7.2'
+    compileOnly('com.cleanroommc:groovyscript:0.7.2'){
+        transitive = false
+    }
 
     jmh 'org.openjdk.jmh:jmh-core:1.36'
     jmh 'org.openjdk.jmh:jmh-generator-annprocess:1.36'
