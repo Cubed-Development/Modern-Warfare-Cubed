@@ -69,7 +69,7 @@ public class ModernConfigManager {
 	
 	@RangeDouble(min = 0.0, max = 1.0)
 	@ConfigSync(category = CATEGORY_RENDERING_SCREENSHADERS, comment = "Configures the intensity of the film grain effect")
-	public static double filmGrainIntensity = 0.025;
+	public static double filmGrainIntensity = 0.03;
 	
 	@ConfigSync(category = CATEGORY_RENDERING_SCREENSHADERS, comment = "Enables glow around bright objects (bloom)")
 	public static boolean bloomEffect = true;
@@ -80,14 +80,14 @@ public class ModernConfigManager {
 	public static int bloomLayers = 3;
 	
 	@ConfigSync(category = CATEGORY_RENDERING_SCREENSHADERS, comment = "Enable on-screen rain/snow VFX")
-	public static boolean onScreenRainAndSnow = false;
+	public static boolean onScreenRainAndSnow = true;
 	
 	@RequiresMcRestart
 	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the HDR framebuffer, requires restart. The HDR is the cause of a lot of shader incompat")
 	public static boolean enableHDRFramebuffer = true;
 	
 	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the fancy MWC snow/rain")
-	public static boolean enableFancyRainAndSnow = false;
+	public static boolean enableFancyRainAndSnow = true;
 	
 
 //	 Fixing Method
@@ -125,9 +125,6 @@ public class ModernConfigManager {
 
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "A list of blocks that should be penetrable by bullets ")
 	public static String penetrableBlocks = "minecraft:glass, minecraft:glass_pane, minecraft:stained_glass, minecraft:stained_glass_pane";
-
-	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Whether entities should have knockback applied to them when shot.")
-	public static boolean knockbackOnHit = true;
 
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables muzzle effects.")
 	public static boolean enableMuzzleEffects = true;

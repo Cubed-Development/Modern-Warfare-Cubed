@@ -3315,7 +3315,7 @@ public class WeaponRenderer extends ModelSourceRenderer implements IBakedModel {
 				GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 3);
 
 				if (itemSkin.getTextureName().startsWith("customskin_")) {
-					mc.getTextureManager().bindTexture(CustomSkin.getCustomSkinResource(itemSkin.getTextureName().toLowerCase().replace("customskin_", "")));
+					mc.getTextureManager().bindTexture(CustomSkin.getCustomSkinResource(itemSkin.getTextureName() + ".png"));
 				} else {
 					mc.getTextureManager().bindTexture(new ResourceLocation(ModReference.ID +":textures/models/"+itemSkin.getTextureName()+".png"));
 				}

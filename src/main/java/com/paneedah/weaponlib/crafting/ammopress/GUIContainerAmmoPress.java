@@ -9,19 +9,19 @@ import com.paneedah.weaponlib.crafting.workbench.CustomSearchTextField;
 import com.paneedah.weaponlib.crafting.workbench.GUIButtonCustom;
 import com.paneedah.weaponlib.network.packets.StationPacket;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
+import io.redstudioragnarok.redcore.utils.MathUtil;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
 import org.lwjgl.input.Keyboard;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
-
-import static net.minecraft.util.text.TextFormatting.WHITE;
 
 /**
  * GUIContainer for the Workbench Block
@@ -59,7 +59,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 		super.initGui();
 		
 		this.quantityBox = new CustomSearchTextField(AMMO_PRESS_TEX, "Amt.", 1, 1, this.fontRenderer, this.guiLeft + 267, this.guiTop + 183, 84, 13);
-		this.quantityBox.setMaxStringLength(50);
+		this.quantityBox.setMaxStringLength(3);
 		this.quantityBox.setEnableBackgroundDrawing(true);
 		this.quantityBox.setVisible(true);
 		this.quantityBox.setTextColor(16777215);
@@ -111,7 +111,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 	@Override
 	public void updateScreen() {
 		super.updateScreen();
-		if(this.tileEntity.getCraftingQueue().size() > 9) {
+		if(this.tileEntity.getCraftingQueue().size() > 4) {
 			craftButton.setErrored(true);
 		} else {
 			craftButton.setErrored(false);
@@ -161,13 +161,15 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 	@Override
 	public void addCraftingInformationToTooltip(ArrayList<String> tooltip) {
 		ItemStack stack = tileEntity.getLatestStackInQueue();
-		tooltip.add(GOLD + "Crafting: " + WHITE + format(stack.getTranslationKey()));
+		tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + format(stack.getTranslationKey()));
+
+		final int remainingTicks = tileEntity.craftingDuration - tileEntity.craftingTimer;
+		tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + String.format("%.2f", remainingTicks / 20F) + "s");
 
 		if(stack.getItem() instanceof ItemBullet) {
-			tooltip.add(GOLD + "Quantity: " + WHITE
-					+ stack.getCount() + GREEN +  " -> " + (stack.getCount() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
+			tooltip.add(TextFormatting.GOLD + "Quantity: " + TextFormatting.WHITE + stack.getCount() + TextFormatting.GREEN +  " -> " + (stack.getCount() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
 		} else {
-			tooltip.add(GOLD + "Quantity: " + WHITE + stack.getCount());
+			tooltip.add(TextFormatting.GOLD + "Quantity: " + TextFormatting.WHITE + stack.getCount());
 		}
 	}
 
@@ -185,10 +187,10 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 				
 					tooltip.add(format(stack.getTranslationKey()));
 					if(stack.getItem() instanceof ItemBullet) {
-						tooltip.add(GRAY + "Quantity: " + GOLD +
-								stack.getCount() + GREEN + " -> " + (stack.getCount() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
+						tooltip.add(TextFormatting.GRAY + "Quantity: " + TextFormatting.GOLD +
+								stack.getCount() + TextFormatting.GREEN + " -> " + (stack.getCount() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
 					} else {
-						tooltip.add(GRAY + "Quantity: " + GOLD + stack.getCount());
+						tooltip.add(TextFormatting.GRAY + "Quantity: " + TextFormatting.GOLD + stack.getCount());
 					}
 					
 				}
@@ -219,9 +221,9 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			for(int i = 0; i < queue.size(); ++i) {
 				mc.getTextureManager().bindTexture(AMMO_PRESS_TEX);
 				if(GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 200 + i*20, this.guiTop, 20, 20)) {
-					GUIRenderHelper.drawTexturedRect(this.guiLeft + 200 + i*20, this.guiTop, 20, 40, 20, 20, 256, 256);
+					GUIRenderHelper.drawTexturedRect(this.guiLeft + 200 + i*20, this.guiTop, 20, 80, 20, 20, 256, 256);
 				} else {
-					GUIRenderHelper.drawTexturedRect(this.guiLeft + 200 + i*20, this.guiTop, 0, 40, 20, 20, 256, 256);
+					GUIRenderHelper.drawTexturedRect(this.guiLeft + 200 + i*20, this.guiTop, 0, 80, 20, 20, 256, 256);
 				}
 			}
 			
@@ -243,8 +245,10 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 	}
 
 	private int getCurrentAmountInQuantityBox() {
-		if(quantityBox.getText().length() == 0) return 0;
-		return Integer.parseInt(quantityBox.getText());
+		if(quantityBox.getText().length() == 0)
+			return 0;
+
+		return (int) MathUtil.clampMaxFirst(Integer.parseInt(quantityBox.getText()), 1, 999);
 	}
 	
 	@Override

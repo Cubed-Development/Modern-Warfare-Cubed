@@ -382,8 +382,7 @@ public class ClientEventHandler {
 			PostProcessPipeline.captureMatricesIntoBuffers();
 
 		// Replaces the weather renderer.
-		if (!ModernConfigManager.enableFancyRainAndSnow)
-			PostProcessPipeline.setWorldElements();
+		PostProcessPipeline.setWorldElements();
 
 		// Marks the frame-timer
 		frametimer.markFrame();
@@ -444,7 +443,8 @@ public class ClientEventHandler {
 		}
 
 		if (ModernConfigManager.enableAllShaders && ModernConfigManager.enableWorldShaders) {
-			PostProcessPipeline.blitDepth();
+			if (PostProcessPipeline.shouldDoFog())
+				PostProcessPipeline.blitDepth();
 			// PostProcessPipeline.setupDistortionBufferEffects();
 			PostProcessPipeline.doWorldProcessing();
 		}

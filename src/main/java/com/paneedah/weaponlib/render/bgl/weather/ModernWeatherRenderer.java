@@ -41,6 +41,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 	//private int previousThirdPerson;
 	
 	// Textures
+	// Todo: Actually use the different rain textures
 	public static final ResourceLocation RAIN_LIGHT = new ResourceLocation(ModReference.ID + ":textures/environment/lightrain.png");
 	public static final ResourceLocation RAIN_MEDIUM = new ResourceLocation(ModReference.ID + ":textures/environment/mediumrain.png");
 	public static final ResourceLocation RAIN_HEAVY = new ResourceLocation(ModReference.ID + ":textures/environment/heavyrain.png");

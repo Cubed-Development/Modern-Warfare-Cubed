@@ -6,8 +6,8 @@ item.mclaren_senna.name=Mclaren Senna
 item.ae86trueno.name=Toyota AE86 Trueno
 item.atv_polaris_sportsman_850_2019.name=2019 Polaris Sportsman 850
 
-entity.terrorist.name=Terrorist
-entity.soldier.name=Soldier
+entity.mwc_terrorist.name=Terrorist
+entity.mwc_soldier.name=Soldier
 
 item.mwc_gas-detector.name=Gas Detector
 item.mwc_GasGrenade.name=Gas Grenade
@@ -1135,7 +1135,9 @@ config.rendering.screenshaders.filmGrainIntensity.property.name=Film Grain Inten
 config.rendering.screenshaders.filmGrainIntensity.property.tooltip=Film Grain Intensity
 config.rendering.screenshaders.bloomLayers.property.name=Amount of Bloom Layers
 config.rendering.screenshaders.bloomLayers.property.tooltip=Amount of Bloom Layers
-config.rendering.enableFancyRainAndSnow.property.name=On-Screen Rain and Snow
-config.rendering.enableFancyRainAndSnow.property.tooltip=Please keep this setting DISABLED as it is currently broken.
+config.rendering.screenshaders.onScreenRainAndSnow.property.name=On-Screen Rain and Snow
+config.rendering.screenshaders.onScreenRainAndSnow.property.tooltip=Add rain and snow effect to the screen
+config.rendering.enableFancyRainAndSnow.property.name=Fancy Rain and Snow
+config.rendering.enableFancyRainAndSnow.property.tooltip=Replaces Minecraft's rain and snow rendering with a fancier variant
 
 overlay.opendoor.name=Open Door
