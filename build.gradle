@@ -59,6 +59,7 @@ repositories {
         name 'Mixin'
         url 'https://repo.spongepowered.org/repository/maven-public/'
     }
+
     ivy {
         name 'Red Studio GitHub Releases'
         url 'https://github.com/'
