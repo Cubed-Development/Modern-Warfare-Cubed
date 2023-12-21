@@ -5,6 +5,7 @@ import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.ClientValueRepo;
 import com.paneedah.weaponlib.config.ModernConfigManager;
+import com.paneedah.weaponlib.render.Bloom;
 import com.paneedah.weaponlib.render.DepthTexture;
 import com.paneedah.weaponlib.render.HDRFramebuffer;
 import com.paneedah.weaponlib.render.Shaders;
@@ -882,6 +883,9 @@ public class PostProcessPipeline {
 	public static void doPostProcess() {
 		if (!ModernConfigManager.enableScreenShaders)
 			return;
+
+		if(ModernConfigManager.bloomEffect)
+			Bloom.doBloom();
 		
 		// if(true) return;
 
@@ -936,6 +940,11 @@ public class PostProcessPipeline {
 		Shaders.post.boolean1b("enableFilmGrain", ModernConfigManager.filmGrain);
 		Shaders.post.uniform1f("mdf", (float) ModernConfigManager.filmGrainIntensity);
 		Shaders.post.boolean1b("onScreenLiquids", ModernConfigManager.onScreenRainAndSnow);
+
+		// Draw full-screen triangle in order to ensure the fragment shader
+		// runs for every pixel on screen
+		Framebuffer boof = mc.getFramebuffer();
+		Bloom.renderFboTriangle(boof, boof.framebufferWidth, boof.framebufferHeight);
 
 		Shaders.post.release();
 
