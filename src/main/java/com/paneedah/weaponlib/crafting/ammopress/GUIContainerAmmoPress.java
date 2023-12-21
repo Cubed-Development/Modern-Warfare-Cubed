@@ -15,13 +15,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
 import org.lwjgl.input.Keyboard;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
-
-import static net.minecraft.util.text.TextFormatting.WHITE;
 
 /**
  * GUIContainer for the Workbench Block
@@ -161,13 +160,12 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 	@Override
 	public void addCraftingInformationToTooltip(ArrayList<String> tooltip) {
 		ItemStack stack = tileEntity.getLatestStackInQueue();
-		tooltip.add(GOLD + "Crafting: " + WHITE + format(stack.getTranslationKey()));
+		tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + format(stack.getTranslationKey()));
 
 		if(stack.getItem() instanceof ItemBullet) {
-			tooltip.add(GOLD + "Quantity: " + WHITE
-					+ stack.getCount() + GREEN +  " -> " + (stack.getCount() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
+			tooltip.add(TextFormatting.GOLD + "Quantity: " + TextFormatting.WHITE + stack.getCount() + TextFormatting.GREEN +  " -> " + (stack.getCount() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
 		} else {
-			tooltip.add(GOLD + "Quantity: " + WHITE + stack.getCount());
+			tooltip.add(TextFormatting.GOLD + "Quantity: " + TextFormatting.WHITE + stack.getCount());
 		}
 	}
 
@@ -185,10 +183,10 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 				
 					tooltip.add(format(stack.getTranslationKey()));
 					if(stack.getItem() instanceof ItemBullet) {
-						tooltip.add(GRAY + "Quantity: " + GOLD +
-								stack.getCount() + GREEN + " -> " + (stack.getCount() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
+						tooltip.add(TextFormatting.GRAY + "Quantity: " + TextFormatting.GOLD +
+								stack.getCount() + TextFormatting.GREEN + " -> " + (stack.getCount() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
 					} else {
-						tooltip.add(GRAY + "Quantity: " + GOLD + stack.getCount());
+						tooltip.add(TextFormatting.GRAY + "Quantity: " + TextFormatting.GOLD + stack.getCount());
 					}
 					
 				}
