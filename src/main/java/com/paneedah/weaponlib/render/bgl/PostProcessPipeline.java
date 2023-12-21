@@ -586,12 +586,6 @@ public class PostProcessPipeline {
 		if(!ModernConfigManager.enableWorldShaders)
 			return;
 
-		if(ModernConfigManager.enableAllShaders && ModernConfigManager.onScreenRainAndSnow)
-			drawRainBuffer();
-
-		if(true) // I don't know why Jim did this, but removing it renders a white screen.
-			 return;
-
 		//Shaders.postWorld = ShaderLoader.loadVMWShader("postworld");
 
 		// Check if buffers need to be remade
