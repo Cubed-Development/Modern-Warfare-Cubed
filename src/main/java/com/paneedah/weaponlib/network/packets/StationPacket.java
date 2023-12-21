@@ -11,6 +11,7 @@ import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
 import io.netty.buffer.ByteBuf;
 import io.redstudioragnarok.redcore.utils.MathUtil;
+import io.redstudioragnarok.redcore.utils.ModReference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -191,14 +192,19 @@ public class StationPacket implements IMessage {
 		            				// Does it even have that item? / Does it have enough of that item?
 									for (int i = 23; i < station.mainInventory.getSlots(); ++i) {
 										final ItemStack iS = station.mainInventory.getStackInSlot(i);
-										if (iS.getItem() == stack.getItem()) {
-											if(count != 0) {
-												count -= iS.getCount();
-												iS.shrink(stack.getCount());
+										if (itemList.containsKey(iS.getItem()) && stack.getCount() <= iS.getCount()) {
+											if (iS.getItem() == stack.getItem()) {
+												if (count != 0) {
+													count -= iS.getCount();
+													iS.shrink(stack.getCount());
 
-												if (count == 0)
-													break;
+													if (count == 0)
+														break;
+												}
 											}
+										} else {
+											ModReference.LOG.error("You have encountered a bug please report this to the Developers");
+											return;
 										}
 									}
 		            			} else {
