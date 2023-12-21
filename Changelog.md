@@ -111,8 +111,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Duel Floodlight
 - Fixed unused variable in shader `postflat.frag` causing a crash
 - Fixed `20rnd 6.5mm Magazine` using the wrong bullet
-- Fixed unused variable in shader `postflat.frag` causing a crash
-- Fixed `20rnd 6.5mm Magazine` using the wrong bullet
 - Fixed custom skin system not using the Minecraft missing texture
 - Fixed multiple `ResourceLocation`  in the `PostProcessPipeline` being incorrect leading to missing textures
 - Fixed fog rendering ignoring if fog should render
