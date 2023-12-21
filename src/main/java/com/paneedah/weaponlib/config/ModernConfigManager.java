@@ -126,9 +126,6 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "A list of blocks that should be penetrable by bullets ")
 	public static String penetrableBlocks = "minecraft:glass, minecraft:glass_pane, minecraft:stained_glass, minecraft:stained_glass_pane";
 
-	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Whether entities should have knockback applied to them when shot.")
-	public static boolean knockbackOnHit = true;
-
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Enables muzzle effects.")
 	public static boolean enableMuzzleEffects = true;
 
