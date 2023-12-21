@@ -32,7 +32,7 @@ minecraft {
 
     username = 'Desoroxxx'
 
-    extraRunJvmArguments.addAll('-Xmx4G', '-Xms4G', '-Dforge.logging.console.level=debug', '-Dmixin.hotSwap=true', '-Dmixin.checks.interfaces=true', '-Dmixin.debug.export=true')
+    extraRunJvmArguments.addAll('-Xmx4G', '-Xms4G', '-Dforge.logging.console.level=debug', '-Dfml.coreMods.load=com.paneedah.weaponlib.core.WeaponlibCorePlugin', '-Dmixin.hotSwap=true', '-Dmixin.checks.interfaces=true', '-Dmixin.debug.export=true')
 
     injectedTags.put('ID', project.id)
     injectedTags.put('VERSION', project.version)
