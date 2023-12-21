@@ -126,7 +126,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed ammunition press animating even when it wasn't actively crafting
 - Fixed ammunition press setting the ammunition of the magazines after they where crafted when this isn't necessary anymore
 - Fixed tooltip formatting in the ammunition press
-- Fixed the workbench not consuming items within different stacks when crafting
+- Fixed workbench and ammunition press handling their inventory stack by stack instead of all at once
 
 ### Removed
 
