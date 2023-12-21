@@ -6,7 +6,6 @@ import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import com.paneedah.weaponlib.crafting.base.GUIContainerStation;
 import com.paneedah.weaponlib.network.packets.StationPacket;
-import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +16,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -180,9 +178,10 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	
 	@Override
 	public void addCraftingInformationToTooltip(ArrayList<String> tooltip) {
-		int seconds = (tileEntity.craftingDuration - tileEntity.craftingTimer) / 20;
 		tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + I18n.format(tileEntity.craftingTargetName + ".name"));
-		tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + GUIRenderHelper.formatTimeString(seconds, TimeUnit.SECONDS));
+
+		final int remainingTicks = tileEntity.craftingDuration - tileEntity.craftingTimer;
+		tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + String.format("%.2f", remainingTicks / 20F) + "s");
 	}
 
 	/**
