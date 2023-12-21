@@ -382,8 +382,7 @@ public class ClientEventHandler {
 			PostProcessPipeline.captureMatricesIntoBuffers();
 
 		// Replaces the weather renderer.
-		if (!ModernConfigManager.enableFancyRainAndSnow)
-			PostProcessPipeline.setWorldElements();
+		PostProcessPipeline.setWorldElements();
 
 		// Marks the frame-timer
 		frametimer.markFrame();
