@@ -162,6 +162,9 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 		ItemStack stack = tileEntity.getLatestStackInQueue();
 		tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + format(stack.getTranslationKey()));
 
+		final int remainingTicks = tileEntity.craftingDuration - tileEntity.craftingTimer;
+		tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + String.format("%.2f", remainingTicks / 20F) + "s");
+
 		if(stack.getItem() instanceof ItemBullet) {
 			tooltip.add(TextFormatting.GOLD + "Quantity: " + TextFormatting.WHITE + stack.getCount() + TextFormatting.GREEN +  " -> " + (stack.getCount() * TileEntityAmmoPress.BULLETS_CRAFTED_PER_PRESS));
 		} else {
