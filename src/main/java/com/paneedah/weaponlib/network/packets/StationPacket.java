@@ -185,12 +185,21 @@ public class StationPacket implements IMessage {
 
 		            		// Verify
 		            		for(CraftingEntry stack : modernRecipe) {
+								int count = stack.getCount();
 		            			if(!stack.isOreDictionary()) {
 		            				// Does it even have that item? / Does it have enough of that item?
-			            			if(!itemList.containsKey(stack.getItem()) || stack.getCount() > itemList.get(stack.getItem()).getCount())
-			            				return;
+									for (int i = 23; i < station.mainInventory.getSlots(); ++i) {
+										final ItemStack iS = station.mainInventory.getStackInSlot(i);
+										if (iS.getItem() == stack.getItem()) {
+											if(count != 0) {
+												count -= iS.getCount();
+												iS.shrink(stack.getCount());
 
-			            			toConsume.add(new Pair<Item, Integer>(stack.getItem(), stack.getCount()));
+												if (count == 0)
+													break;
+											}
+										}
+									}
 		            			} else {
 		            				// Stack is an OreDictionary term
 		            				boolean hasAny = false;
