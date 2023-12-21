@@ -80,7 +80,7 @@ public class ModernConfigManager {
 	public static int bloomLayers = 3;
 	
 	@ConfigSync(category = CATEGORY_RENDERING_SCREENSHADERS, comment = "Enable on-screen rain/snow VFX")
-	public static boolean onScreenRainAndSnow = false;
+	public static boolean onScreenRainAndSnow = true;
 	
 	@RequiresMcRestart
 	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the HDR framebuffer, requires restart. The HDR is the cause of a lot of shader incompat")
