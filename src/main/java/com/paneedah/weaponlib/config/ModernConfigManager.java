@@ -69,7 +69,7 @@ public class ModernConfigManager {
 	
 	@RangeDouble(min = 0.0, max = 1.0)
 	@ConfigSync(category = CATEGORY_RENDERING_SCREENSHADERS, comment = "Configures the intensity of the film grain effect")
-	public static double filmGrainIntensity = 0.025;
+	public static double filmGrainIntensity = 0.03;
 	
 	@ConfigSync(category = CATEGORY_RENDERING_SCREENSHADERS, comment = "Enables glow around bright objects (bloom)")
 	public static boolean bloomEffect = true;
