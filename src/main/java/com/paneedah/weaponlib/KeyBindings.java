@@ -33,6 +33,8 @@ public class KeyBindings {
 
 	public static KeyBinding customInventoryKey;
 
+	public static KeyBinding configKey;
+
 	public static KeyBinding jDebugKey;
 	public static KeyBinding kDebugKey;
 
@@ -95,6 +97,8 @@ public class KeyBindings {
 
 		proningSwitchKey = new KeyBinding("key.proning", Keyboard.KEY_Z, "key.categories.weaponlib");
 
+		configKey = new KeyBinding("key.config", Keyboard.KEY_RSHIFT, "key.categories.weaponlib");
+
 		/*
 		 * laserAttachmentKey = new KeyBinding("key.attach_laser", Keyboard.KEY_RSHIFT,
 		 * "key.categories.weaponlib");
@@ -142,6 +146,7 @@ public class KeyBindings {
 		ClientRegistry.registerKeyBinding(subtractKey);
 		ClientRegistry.registerKeyBinding(fireModeKey);
 		ClientRegistry.registerKeyBinding(proningSwitchKey);
+		ClientRegistry.registerKeyBinding(configKey);
 		ClientRegistry.registerKeyBinding(freecamLock);
 		ClientRegistry.registerKeyBinding(freecamRotate);
 		/*
