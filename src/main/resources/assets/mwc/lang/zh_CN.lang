@@ -1,21 +1,21 @@
 //为方便使用平衡包, 一些武器类型可能与现实(百科)不符
 
-entity.bandit1.name=强盜
-entity.zombieBlistered.name=疱尸
-entity.zombieRipper.name=撕裂者
-entity.tornzombie.name=残尸
-entity.necromorph.name=尸变体
-entity.licker.name=舔食者
-entity.zombie.name=丧尸
-entity.hazmat_zombie.name=防化僵尸
-entity.Defiled Zombie.name=污损者
-entity.deathclaw.name=死亡爪
-entity.molded.name=菌兽
-entity.soldier.name=士兵
-entity.terrorist.name=土匪
-entity.turret.name=自动炮台
-entity.turretupgraded.name=自动炮台二代
-entity.turretsilenced.name=自动炮台二代 (消音)
+entity.mwc_bandit1.name=强盜
+entity.mwc_zombieBlistered.name=疱尸
+entity.mwc_zombieRipper.name=撕裂者
+entity.mwc_tornzombie.name=残尸
+entity.mwc_necromorph.name=尸变体
+entity.mwc_licker.name=舔食者
+entity.mwc_zombie.name=丧尸
+entity.mwc_hazmat_zombie.name=防化僵尸
+entity.mwc_Defiled Zombie.name=污损者
+entity.mwc_deathclaw.name=死亡爪
+entity.mwc_molded.name=菌兽
+entity.mwc_soldier.name=士兵
+entity.mwc_terrorist.name=土匪
+entity.mwc_turret.name=自动炮台
+entity.mwc_turretupgraded.name=自动炮台二代
+entity.mwc_turretsilenced.name=自动炮台二代 (消音)
 
 item.audis4.name=奥迪S4
 item.mclaren_senna.name=迈凯伦塞纳
