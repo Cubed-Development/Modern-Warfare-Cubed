@@ -20,7 +20,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - penetratesGlass
   - explosionBreak
   - penetrableBlocks
-  - knockbackOnHi
   - hipFireSpread
   - ammoCounterX 
   - ammoCounterY
@@ -37,6 +36,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - GitHub URL in `mcmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
 - Shells life got increased to 1606 with no performance impact in extreme cases
+- Added new fancy rain splash to go with the fancy rain
+- Added remaining time for the craft in the ammunition press
 
 ### Changed
 
@@ -74,6 +75,11 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Magazines are created empty
 - The position of the bullet when shooting is now centered when aiming
 - Explosive projectiles are now linked to the player who launched them meaning that the kill message will say who killed whom
+- Crafting stations (Workbench, Ammunition Press etc...) now display the remaining time with millisecond precision
+- Changed default `filmGrain` config from `0.025` to `0.03`
+- Changed default `onScreenRainAndSnow` config from `false` to `true`
+- Changed default `enableFancyRainAndSnow` config from `false` to `true`
+- Changed base fog density from `0.6` to `0.2`
 
 ### Fixed
 
@@ -103,6 +109,25 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Dumpster
   - Sandbag
   - Duel Floodlight
+- Fixed unused variable in shader `postflat.frag` causing a crash
+- Fixed `20rnd 6.5mm Magazine` using the wrong bullet
+- Fixed unused variable in shader `postflat.frag` causing a crash
+- Fixed `20rnd 6.5mm Magazine` using the wrong bullet
+- Fixed custom skin system not using the Minecraft missing texture
+- Fixed multiple `ResourceLocation`  in the `PostProcessPipeline` being incorrect leading to missing textures
+- Fixed fog rendering ignoring if fog should render
+- Fixed depth testing being disabled in the world post processing causing issue with first person hand rendering
+- Fixed the issue where fog was hardcoded to be disabled
+- Fixed world post processing never rendering due to bandage fix
+- Fixed world post processing causing a white screen
+- Fixed `onScreenRainAndSnow` missing lang entries
+- Fixed `enableFancyRainAndSnow` missing lang entries
+- Fixed `enableFancyRainAndSnow` having the lang entries for `onScreenRainAndSnow`
+- Fixed fancy rain and snow never replacing vanilla rain and snow
+- Fixed entities not having a prefix causing collisions with other mods
+- Fixed ammunition press animating even when it wasn't actively crafting
+- Fixed ammunition press setting the ammunition of the magazines after they where crafted when this isn't necessary anymore
+- Fixed tooltip formatting in the ammunition press
 
 ### Removed
 
