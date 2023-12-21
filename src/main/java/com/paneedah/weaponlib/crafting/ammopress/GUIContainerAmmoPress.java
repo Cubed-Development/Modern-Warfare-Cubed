@@ -9,6 +9,7 @@ import com.paneedah.weaponlib.crafting.workbench.CustomSearchTextField;
 import com.paneedah.weaponlib.crafting.workbench.GUIButtonCustom;
 import com.paneedah.weaponlib.network.packets.StationPacket;
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
+import io.redstudioragnarok.redcore.utils.MathUtil;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -58,7 +59,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 		super.initGui();
 		
 		this.quantityBox = new CustomSearchTextField(AMMO_PRESS_TEX, "Amt.", 1, 1, this.fontRenderer, this.guiLeft + 267, this.guiTop + 183, 84, 13);
-		this.quantityBox.setMaxStringLength(50);
+		this.quantityBox.setMaxStringLength(3);
 		this.quantityBox.setEnableBackgroundDrawing(true);
 		this.quantityBox.setVisible(true);
 		this.quantityBox.setTextColor(16777215);
@@ -110,7 +111,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 	@Override
 	public void updateScreen() {
 		super.updateScreen();
-		if(this.tileEntity.getCraftingQueue().size() > 9) {
+		if(this.tileEntity.getCraftingQueue().size() > 4) {
 			craftButton.setErrored(true);
 		} else {
 			craftButton.setErrored(false);
@@ -220,9 +221,9 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			for(int i = 0; i < queue.size(); ++i) {
 				mc.getTextureManager().bindTexture(AMMO_PRESS_TEX);
 				if(GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 200 + i*20, this.guiTop, 20, 20)) {
-					GUIRenderHelper.drawTexturedRect(this.guiLeft + 200 + i*20, this.guiTop, 20, 40, 20, 20, 256, 256);
+					GUIRenderHelper.drawTexturedRect(this.guiLeft + 200 + i*20, this.guiTop, 20, 80, 20, 20, 256, 256);
 				} else {
-					GUIRenderHelper.drawTexturedRect(this.guiLeft + 200 + i*20, this.guiTop, 0, 40, 20, 20, 256, 256);
+					GUIRenderHelper.drawTexturedRect(this.guiLeft + 200 + i*20, this.guiTop, 0, 80, 20, 20, 256, 256);
 				}
 			}
 			
@@ -244,8 +245,10 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 	}
 
 	private int getCurrentAmountInQuantityBox() {
-		if(quantityBox.getText().length() == 0) return 0;
-		return Integer.parseInt(quantityBox.getText());
+		if(quantityBox.getText().length() == 0)
+			return 0;
+
+		return (int) MathUtil.clampMaxFirst(Integer.parseInt(quantityBox.getText()), 1, 999);
 	}
 	
 	@Override
