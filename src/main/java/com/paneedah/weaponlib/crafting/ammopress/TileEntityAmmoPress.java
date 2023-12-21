@@ -25,6 +25,8 @@ public class TileEntityAmmoPress extends TileEntityStation {
 	//public static final int BULLET_DISMANTLE_DURATION = 2;
 	public static final int BULLETS_CRAFTED_PER_PRESS = 6;
 
+	private boolean crafting;
+
 	public LinkedList<ItemStack> craftStack = new LinkedList<>();
 
 	private double currentWheelRotation = 0.0;
@@ -150,13 +152,16 @@ public class TileEntityAmmoPress extends TileEntityStation {
 			if (craftingDuration == -1 && canCraftNextItem)
 				craftingDuration = getCraftingDurationForItem(getLatestStackInQueue().getItem());
 
-			if (craftingDuration != -1)
+			if (craftingDuration != -1) {
 				craftingTimer++;
+				crafting = true;
+			}
 
 			if (craftingTimer > craftingDuration) {
 				craftingTimer = -1;
 				prevCraftingTimer = -1;
 				craftingDuration = -1;
+				crafting = false;
 				ItemStack stack = getLatestStackInQueue();
 				
 				IModernCrafting craftingRecipe = (IModernCrafting)stack.getItem();
@@ -178,7 +183,7 @@ public class TileEntityAmmoPress extends TileEntityStation {
 			}
 		}
 	
-		if(this.world.isRemote && hasStack()) {
+		if(this.world.isRemote && hasStack() && crafting) {
 			prevWheelRotation = currentWheelRotation;
 			currentWheelRotation += Math.PI/32;
 			
@@ -187,7 +192,7 @@ public class TileEntityAmmoPress extends TileEntityStation {
 				currentWheelRotation = 0;
 			}
 
-		} else if(!hasStack() && this.world.isRemote) {
+		} else if((!hasStack() || !crafting) && this.world.isRemote) {
 			// Velocity verlet integrator
 			double delta = (currentWheelRotation - prevWheelRotation) * 0.05;
 			prevWheelRotation = currentWheelRotation;
