@@ -409,14 +409,6 @@ public class PostProcessPipeline {
 		height = mc.displayHeight;
 
 		recreateDepthFramebuffer();
-		
-		// Create color attachment
-		if (fauxColorTexture == -1)
-			fauxColorTexture = GL11.glGenTextures();
-		GlStateManager.bindTexture(fauxColorTexture);
-		GlStateManager.glTexImage2D(3553, 0, 32856, width, height, 0, 6408, 5121, (IntBuffer) null);
-		OpenGlHelper.glFramebufferTexture2D(OpenGlHelper.GL_FRAMEBUFFER, OpenGlHelper.GL_COLOR_ATTACHMENT0,
-				GL11.GL_TEXTURE_2D, fauxColorTexture, 0);
 
 		if (distortionBuffer != null)
 			distortionBuffer.deleteFramebuffer();
