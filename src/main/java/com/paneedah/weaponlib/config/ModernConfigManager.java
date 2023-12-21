@@ -87,7 +87,7 @@ public class ModernConfigManager {
 	public static boolean enableHDRFramebuffer = true;
 	
 	@ConfigSync(category = CATEGORY_RENDERING, comment = "Enables the fancy MWC snow/rain")
-	public static boolean enableFancyRainAndSnow = false;
+	public static boolean enableFancyRainAndSnow = true;
 	
 
 //	 Fixing Method
