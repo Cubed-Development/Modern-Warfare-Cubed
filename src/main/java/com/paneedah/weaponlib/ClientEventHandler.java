@@ -444,7 +444,8 @@ public class ClientEventHandler {
 		}
 
 		if (ModernConfigManager.enableAllShaders && ModernConfigManager.enableWorldShaders) {
-			PostProcessPipeline.blitDepth();
+			if (PostProcessPipeline.shouldDoFog())
+				PostProcessPipeline.blitDepth();
 			// PostProcessPipeline.setupDistortionBufferEffects();
 			PostProcessPipeline.doWorldProcessing();
 		}
