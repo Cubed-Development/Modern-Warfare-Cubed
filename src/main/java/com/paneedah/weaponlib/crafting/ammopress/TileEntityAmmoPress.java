@@ -1,8 +1,6 @@
 package com.paneedah.weaponlib.crafting.ammopress;
 
 import com.paneedah.weaponlib.ItemBullet;
-import com.paneedah.weaponlib.ItemMagazine;
-import com.paneedah.weaponlib.Tags;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.IModernCrafting;
@@ -173,10 +171,6 @@ public class TileEntityAmmoPress extends TileEntityStation {
 				// For every bullet crafted, output BULLETS_CRAFTED_PER_PRESS.
 				if (splitOff.getItem() instanceof ItemBullet)
 					splitOff.setCount(splitOff.getCount() * BULLETS_CRAFTED_PER_PRESS);
-				
-				// Make magazines empty
-				if (splitOff.getItem() instanceof ItemMagazine)
-					Tags.setAmmo(splitOff, 0);
 
 				addStackToInventoryRange(splitOff, 0, 8);
 				sendUpdate();
