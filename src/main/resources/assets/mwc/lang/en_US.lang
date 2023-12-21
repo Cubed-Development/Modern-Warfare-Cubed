@@ -1135,8 +1135,8 @@ config.rendering.screenshaders.filmGrainIntensity.property.name=Film Grain Inten
 config.rendering.screenshaders.filmGrainIntensity.property.tooltip=Film Grain Intensity
 config.rendering.screenshaders.bloomLayers.property.name=Amount of Bloom Layers
 config.rendering.screenshaders.bloomLayers.property.tooltip=Amount of Bloom Layers
-config.rendering.onScreenRainAndSnow.property.name=On-Screen Rain and Snow
-config.rendering.onScreenRainAndSnow.property.tooltip=Add rain and snow effect to the screen
+config.rendering.screenshaders.onScreenRainAndSnow.property.name=On-Screen Rain and Snow
+config.rendering.screenshaders.onScreenRainAndSnow.property.tooltip=Add rain and snow effect to the screen
 config.rendering.enableFancyRainAndSnow.property.name=Fancy Rain and Snow
 config.rendering.enableFancyRainAndSnow.property.tooltip=Replaces Minecraft's rain and snow rendering with a fancier variant
 
