@@ -650,6 +650,8 @@ public class PostProcessPipeline {
 		// Rebind the MC Framebuffer
 		mc.getFramebuffer().bindFramebuffer(false);
 
+		GL11.glEnable(GL11.GL_DEPTH_TEST);
+
 		if(ModernConfigManager.enableAllShaders && ModernConfigManager.onScreenRainAndSnow)
 			drawRainBuffer();
 	}
