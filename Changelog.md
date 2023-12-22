@@ -24,7 +24,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - penetratesGlass
   - explosionBreak
   - penetrableBlocks
-  - knockbackOnHit
+  - hipFireSpread
   - ammoCounterX 
   - ammoCounterY
   - ammoCounterSize
@@ -43,6 +43,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Translations for Chinese, Spanish, and Turkish languages
 - GitHub URL in `MCmod.info`
 - Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
+- Added new fancy rain splash to go with the fancy rain
+- Added remaining time for the craft in the ammunition press
 - Custom death Messages when shot with a gun
 - Added status messages for `No ammunition`, `No magazine`, `Tracking`, `Firearm mode`, `Zoom` and `Explodes in`
 - Added the .277 FURY bullet for the NGSW-R
@@ -88,8 +90,14 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - OptiFine configuration `Fast Render` is now forced to be off
 - Changed categories of some weapons
 - Magazines are created empty
-- Shells life go increased 1606% no performance impact in extreme cases
+- Shells life go increased 1606% no performance impact in extreme cases // Todo: This is not supposed to be percent iirc - Luna Lage (Desoroxxx) 2023-12-22
 - The position of the bullet when shooting is now centered when aiming
+- - Explosive projectiles are now linked to the player who launched them meaning that the kill message will say who killed whom
+- Crafting stations (Workbench, Ammunition Press etc...) now display the remaining time with millisecond precision
+- Changed default `filmGrain` config from `0.025` to `0.03`
+- Changed default `onScreenRainAndSnow` config from `false` to `true`
+- Changed default `enableFancyRainAndSnow` config from `false` to `true`
+- Changed base fog density from `0.6` to `0.2`
 - Explosive projectiles are now linked to the player who launched them, meaning that the kill message will say who killed whom
 - Renamed `Armor` creative tab to `Equipment`
 - Renamed `Ammunition` creative tab to `Ammunition & Magazines`
@@ -165,6 +173,24 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - White Desk Middle
   - Medical Create
   - Camera Rotated
+- Fixed unused variable in shader `postflat.frag` causing a crash
+- Fixed `20rnd 6.5mm Magazine` using the wrong bullet
+- Fixed custom skin system not using the Minecraft missing texture
+- Fixed multiple `ResourceLocation`  in the `PostProcessPipeline` being incorrect leading to missing textures
+- Fixed fog rendering ignoring if fog should render
+- Fixed depth testing being disabled in the world post processing causing issue with first person hand rendering
+- Fixed the issue where fog was hardcoded to be disabled
+- Fixed world post processing never rendering due to bandage fix
+- Fixed world post processing causing a white screen
+- Fixed `onScreenRainAndSnow` missing lang entries
+- Fixed `enableFancyRainAndSnow` missing lang entries
+- Fixed `enableFancyRainAndSnow` having the lang entries for `onScreenRainAndSnow`
+- Fixed fancy rain and snow never replacing vanilla rain and snow
+- Fixed entities not having a prefix causing collisions with other mods
+- Fixed ammunition press animating even when it wasn't actively crafting
+- Fixed ammunition press setting the ammunition of the magazines after they where crafted when this isn't necessary anymore
+- Fixed tooltip formatting in the ammunition press
+- Fixed workbench and ammunition press handling their inventory stack by stack instead of all at once
 - Fixed position of the backpacks in inventory
 - Fixed the client ticker "corruption" state
 - Fixed melee attack and heavy melee attack being switched

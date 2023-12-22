@@ -34,7 +34,7 @@ minecraft {
 
     username = 'Desoroxxx'
 
-    extraRunJvmArguments.addAll('-Xmx4G', '-Xms4G', '-Dforge.logging.console.level=debug', '-Dmixin.hotSwap=true', '-Dmixin.checks.interfaces=true', '-Dmixin.debug.export=true', '-Dfml.coreMods.load=com.paneedah.mwc.asm.MWCPlugin')
+    extraRunJvmArguments.addAll('-Xmx4G', '-Xms4G', '-Dforge.logging.console.level=debug', '-Dfml.coreMods.load=com.paneedah.mwc.asm.MWCPlugin', '-Dmixin.hotSwap=true', '-Dmixin.checks.interfaces=true', '-Dmixin.debug.export=true')
 
     injectedTags.put('ID', project.id)
     injectedTags.put('VERSION', project.version)
