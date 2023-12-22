@@ -1030,6 +1030,7 @@ itemGroup.throwables=Throwables
 itemGroup.blocksAndIngots=Blocks & Ingots
 
 key.categories.weaponlib=Modern Warfare Cubed
+key.custom_invertory=Open Custom Inventory 
 key.texture_change=Change Gun Skin
 key.fire_mode=Selective Fire
 key.reload=Reload Gun
@@ -1116,16 +1117,22 @@ config.gameplay.statusBarPosition.property.name=Status Bar Position
 config.gameplay.statusBarPosition.property.tooltip=The screen position for the Status Bar
 
 config.category.entities.name=Entities
+config.entities.terroristHealth.property.name=Terrorist Health
+config.entities.terroristEquipmentConfiguration.property.name=Terrorist Equipment
+config.entities.terroristSpawn.property.name=Terrorist Spawn
+config.entities.soldierHealth.property.name=Soldier Health
+config.entities.soldierSpawn.property.name=Soldier Spawn
+
 config.category.rendering.name=Rendering
 config.category.rendering.tooltip=Rendering/Shaders
 config.category.screenshaders.name=Screen Shaders
 config.category.screenshaders.tooltip=Screen Shaders
 config.rendering.enableAllShaders.property.name=Enable All Shaders
 config.rendering.enableAllShaders.property.tooltip=Enable All Shaders
-config.rendering.enableScreenShaders.property.name=Disable Screen Shaders
-config.rendering.enableScreenShaders.property.tooltip=Disable Screen Shaders
-config.rendering.enableWorldShaders.property.name=Disable World Shaders
-config.rendering.enableWorldShaders.property.tooltip=Disable World Shaders
+config.rendering.enableScreenShaders.property.name=Enable Screen Shaders
+config.rendering.enableScreenShaders.property.tooltip=Enable Screen Shaders
+config.rendering.enableWorldShaders.property.name=Enable World Shaders
+config.rendering.enableWorldShaders.property.tooltip=Enable World Shaders
 config.rendering.enableGunShaders.property.name=Enable Gun Shaders
 config.rendering.enableGunShaders.property.tooltip=Enable Gun Shaders
 config.rendering.enableFlashShaders.property.name=Enable Flash Shaders
