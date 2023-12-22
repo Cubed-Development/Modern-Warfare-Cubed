@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.compatibility;
+package com.paneedah.mwc.asm;
 
 import com.paneedah.weaponlib.WeaponSpawnEntity;
 import net.minecraft.util.DamageSource;

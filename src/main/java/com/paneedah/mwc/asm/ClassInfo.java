@@ -1,4 +1,4 @@
-package com.paneedah.weaponlib.core;
+package com.paneedah.mwc.asm;
 
 import java.util.HashMap;
 import java.util.Map;

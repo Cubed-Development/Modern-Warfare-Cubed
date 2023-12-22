@@ -3,7 +3,7 @@ package com.paneedah.mwc.asm;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CompatibleClassInfoProvider {
+public class ClassInfoProvider {
 
     private static Map<String, ClassInfo> classInfoMap = new HashMap<>();
 
@@ -97,9 +97,9 @@ public class CompatibleClassInfoProvider {
         
     }
 
-    private static CompatibleClassInfoProvider instance = new CompatibleClassInfoProvider();
+    private static ClassInfoProvider instance = new ClassInfoProvider();
 
-    public static CompatibleClassInfoProvider getInstance() {
+    public static ClassInfoProvider getInstance() {
         return instance;
     }
 

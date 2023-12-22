@@ -9,6 +9,7 @@ import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
 import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
+import io.redstudioragnarok.redcore.utils.MathUtil;
 import io.redstudioragnarok.redcore.utils.NetworkUtil;
 import lombok.NoArgsConstructor;
 import net.minecraft.entity.player.EntityPlayer;
@@ -50,7 +51,7 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                         if (press.hasStack()) {
                             final ItemStack topQueue = press.getCraftingQueue().getLast();
                             if (ItemStack.areItemsEqualIgnoreDurability(topQueue, newStack))
-                                topQueue.grow(workbenchServerMessage.getQuantity());
+                                topQueue.setCount((int) MathUtil.clampMaxFirst(topQueue.getCount() + workbenchServerMessage.getQuantity(), 1, 999));
                             else
                                 press.addStack(newStack);
                         } else
@@ -74,12 +75,21 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
 
                     // Verify
                     for (CraftingEntry stack : modernRecipe) {
+                        int count = stack.getCount();
                         if (!stack.isOreDictionary()) {
                             // Does it even have that item? / Does it have enough of that item?
-                            if (!itemList.containsKey(stack.getItem()) || stack.getCount() > itemList.get(stack.getItem()).getCount())
-                                return;
+                            for (int i = 23; i < station.mainInventory.getSlots(); ++i) {
+                                final ItemStack iS = station.mainInventory.getStackInSlot(i);
 
-                            toConsume.add(new Pair<>(stack.getItem(), stack.getCount()));
+                                if (!itemList.containsKey(iS.getItem()) || stack.getCount() > iS.getCount() || (iS.getItem() != stack.getItem() || (count == 0)))
+                                    continue;
+
+                                count -= iS.getCount();
+                                iS.shrink(stack.getCount());
+
+                                if (count == 0)
+                                    break;
+                            }
                         } else {
                             // Stack is an OreDictionary term
                             boolean hasAny = false;
