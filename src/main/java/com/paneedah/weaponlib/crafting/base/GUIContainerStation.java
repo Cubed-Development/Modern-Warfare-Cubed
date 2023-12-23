@@ -238,7 +238,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 					}
 				}
 				
-				if(!foundSomething) {
+				if(!foundSomething || is.getCount() > counter.get(is.getItem())) {
 					hasRequiredItems = false;
 					hasAvailiableMaterials.put(is.getItem(), false);
 				}
