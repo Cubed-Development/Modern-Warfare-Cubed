@@ -177,6 +177,8 @@ public class ModernConfigManager {
 	public static double x44 = 0.0;
 	@ConfigSync(category = "DE_BUG", comment = "")
 	public static double x55 = 0.0;
+	@ConfigSync(category = "DE_BUG", comment = "")
+	public static double x66 = 0.0;
 
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=5.0)

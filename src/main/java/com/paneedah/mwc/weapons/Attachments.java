@@ -1525,6 +1525,15 @@ public class Attachments {
                 .withName("RailRiser")
                 .build();
 
+        UziSightRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
+                .withModel(new UziSightRail(), "uzi.png")
+                .withOnWeaponModel(new AKRail(), "akrail.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
+                .withName("UziSightRail")
+                .build();
+
        M1911Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new M1911Slide(), "m1911.png")
@@ -4613,7 +4622,7 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4664,7 +4673,7 @@ public class Attachments {
                         Mk18HandGuardBlack, M110Handguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard,
-                        SIG556HandguardKA, SIG556HandguardRailed)
+                        SIG556HandguardKA, SIG556HandguardRailed, S710Handguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 3))
@@ -4734,7 +4743,7 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, S710Handguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4761,7 +4770,7 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, S710Handguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4792,7 +4801,7 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4827,7 +4836,7 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4857,7 +4866,7 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4888,7 +4897,7 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4914,7 +4923,7 @@ public class Attachments {
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort,
                         DSR1HandguardRailed, Z10Handguard, NGSWRRail, G3HandguardRailed, ScarHHandGuard,
                         MPXHandguardRailed, MPXHandguardExtended, B50PKMHandguard, B50PKPHandguard,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4991,15 +5000,6 @@ public class Attachments {
                         new CraftingEntry(MWCItems.gunmetalIngot, 4),
                         new CraftingEntry(MWCItems.steelIngot, 3))
                 .withName("UziMLOKHandguard")
-                .build();
-
-        UziSightRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
-                .withModel(new UziSightRail(), "uzi.png")
-                .withOnWeaponModel(new AKRail(), "akrail.png")
-                .withModernRecipe(
-                        CraftingGroup.ATTACHMENT_MODIFICATION,
-                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withName("UziSightRail")
                 .build();
 		
         InterventionCarryHandle = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
