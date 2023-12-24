@@ -553,7 +553,14 @@ public class EntityConfiguration {
                     weightedProb = (int) (spawn.weightedProb * ModernConfigManager.soldierSpawn);
                     configuration.maxHealth = ModernConfigManager.soldierHealth * maxHealth;
                 }
-
+                else if(entityName.equals("zombie_blistered") || entityName.equals("zombie_ripper") || entityName.equals("zombie_torn") || entityName.equals("necromorph") || entityName.equals("licker") || entityName.equals("zombie") || entityName.equals("zombie") || entityName.equals("zombie_hazmat") || entityName.equals("zombie_defiled")) {
+                    weightedProb = (int) (spawn.weightedProb * ModernConfigManager.zombieSpawn);
+                    configuration.maxHealth = ModernConfigManager.zombieHealth * maxHealth;
+                }
+                else if(entityName.equals("deathclaw")) {
+                    weightedProb = (int) (spawn.weightedProb * ModernConfigManager.deathclawSpawn);
+                    configuration.maxHealth = ModernConfigManager.deathclawHealth * maxHealth;
+                }
                 if(weightedProb > 0) {
                     Set<Biome> biomes = new HashSet<>();
 
