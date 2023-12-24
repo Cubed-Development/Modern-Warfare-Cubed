@@ -1122,6 +1122,10 @@ config.entities.terroristEquipmentConfiguration.property.name=Terrorist Equipmen
 config.entities.terroristSpawn.property.name=Terrorist Spawn
 config.entities.soldierHealth.property.name=Soldier Health
 config.entities.soldierSpawn.property.name=Soldier Spawn
+config.entities.zombieHealth.property.name=Zombie Health
+config.entities.zombieSpawn.property.name=Zombie Health
+config.entities.deathclawHealth.property.name=Deathclaw Health
+config.entities.deathclawSpawn.property.name=Deathclaw Spawn
 
 config.category.rendering.name=Rendering
 config.category.rendering.tooltip=Rendering/Shaders
