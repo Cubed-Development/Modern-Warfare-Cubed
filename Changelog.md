@@ -128,6 +128,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed tooltip formatting in the ammunition press
 - Fixed workbench and ammunition press handling their inventory stack by stack instead of all at once
 - Fixed crafting stations buttons playing sounds even when disabled
+- Fixed crafting stations craft button being enabled even when no crafting recipe was selected
 
 ### Removed
 
