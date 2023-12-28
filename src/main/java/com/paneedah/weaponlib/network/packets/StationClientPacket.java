@@ -65,8 +65,10 @@ public class StationClientPacket implements IMessage {
 		public IMessage onMessage(StationClientPacket message, MessageContext messageContext) {
 			mc.addScheduledTask(() -> {
 				TileEntity tileEntity = mc.world.getTileEntity(message.pos);
-				if(tileEntity != null && tileEntity instanceof TileEntityStation)
+				if(tileEntity != null && tileEntity instanceof TileEntityStation) {
 					((TileEntityStation) tileEntity).readBytesFromClientSync(message.copiedBuf);
+					((TileEntityStation) tileEntity).pushInventoryRefresh = true;
+				}
 			});
 
 			return null;

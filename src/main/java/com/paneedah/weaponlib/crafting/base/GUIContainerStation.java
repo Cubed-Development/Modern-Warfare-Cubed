@@ -136,6 +136,9 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 				"DISMANTLE").withStandardState(GRAY, 0, 283).withHoveredState(GOLD, 0, 300)
 						.withErroredState(RED, 0, 317).withPageRestriction(1);
 		
+
+		craftButton.setErrored(true);
+
 		addButton(craftButton);
 		addButton(leftArrow);
 		addButton(rightArrow);
@@ -183,6 +186,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 	}
 	
 	public void setCraftingMode(int mode) {
+		craftButton.setErrored(true);
 		this.craftingMode = mode;
 	}
 	
@@ -247,6 +251,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		}
 
 		if(requiresMaterialsToSubmitCraftRequest()) this.craftButton.setErrored(!hasRequiredItems);
+		else this.craftButton.setErrored(false);
 
 	}
 	
