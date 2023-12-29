@@ -588,7 +588,10 @@ public class SIG556Factory implements GunFactory {
 								Magazines.Stanag60,
 								Magazines.SOCOM_Mag)
 
-						.withFirstPersonCustomPositioning(Magazines.M4A1Mag, (renderContext) -> {
+						.withFirstPersonCustomPositioning(AuxiliaryAttachments.SIG556Action.getRenderablePart(), (renderContext) -> {
+							if (renderContext.getWeaponInstance().getAmmo() == 0) {
+								GL11.glTranslatef(0F, 0F, 0.55F);
+							}
 						})
 
 						.withThirdPersonPositioningReloading(

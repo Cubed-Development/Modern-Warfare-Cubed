@@ -30,7 +30,7 @@ public class APC9Factory implements GunFactory {
                 .withShellType(Type.PISTOL)
                 .hasFlashPedals()
                 .withMaxShots(1, Integer.MAX_VALUE)
-                .withMuzzlePosition(new Vec3d(-.1, -1.2, -3.7))
+                .withMuzzlePosition(new Vec3d(-.1, -1.1, -3.7))
                 .withShootSound("apc9")
                 .withSilencedShootSound("mp5_silenced")
                 .withDrawSound("noaction_draw")
@@ -54,7 +54,7 @@ public class APC9Factory implements GunFactory {
                 ))
                 .withScreenShaking(RenderableState.SHOOTING,
                         2f,
-                        1f,
+                        2f,
                         1f)
 
                 .withModernRecipe(new
@@ -359,8 +359,10 @@ public class APC9Factory implements GunFactory {
                         .setupModernMagazineAnimations("apc9",
                                 Magazines.APC9Mag)
 
-                        .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.APC9Action.getRenderablePart(), (renderContext) -> {
-                            GL11.glTranslatef(0f, 0f, 0.6f);
+                        .withFirstPersonCustomPositioning(AuxiliaryAttachments.APC9Action.getRenderablePart(), (renderContext) -> {
+                            if (renderContext.getWeaponInstance().getAmmo() == 0) {
+                                GL11.glTranslatef(0F, 0F, 0.55F);
+                            }
                         })
 
                         .withThirdPersonPositioningReloading(
@@ -449,7 +451,7 @@ public class APC9Factory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glTranslatef(0.178f+(float)com.paneedah.weaponlib.config.ModernConfigManager.x11, 0.27f+(float)com.paneedah.weaponlib.config.ModernConfigManager.x22, 0.25f+(float)com.paneedah.weaponlib.config.ModernConfigManager.x33);
+                            GL11.glTranslatef(0.178f, 0.27f, 0.25f);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
                                 GL11.glTranslatef(-0.007F, 0.04f, 0.5f);
@@ -457,7 +459,7 @@ public class APC9Factory implements GunFactory {
 
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                GL11.glTranslatef(-0.004F, 0.08f, 0.7f);
+                                GL11.glTranslatef(-0.004F, 0.08f, 0.75f);
                             }
 
 

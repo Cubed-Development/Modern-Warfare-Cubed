@@ -537,7 +537,6 @@ public class ACRFactory implements GunFactory {
                     if (model instanceof ACRAction) {
                         GL11.glTranslatef(-0.06F, -1.4F, -2.9F);
                         GL11.glScaled(0.6F, 0.6F, 0.5F);
-                    } else if (model instanceof ACRAction2) {
                     }
                 })
 
@@ -591,7 +590,7 @@ public class ACRFactory implements GunFactory {
 
                         )
 
-                        .setupModernAnimations("acr", AuxiliaryAttachments.AKaction)
+                        .setupModernAnimations("acr", AuxiliaryAttachments.ACRAction)
                         .setupModernMagazineAnimations("acr",
                                 Magazines.M4A1Mag,
                                 Magazines.M38Mag,

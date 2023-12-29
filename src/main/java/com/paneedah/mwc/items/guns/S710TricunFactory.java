@@ -11,6 +11,7 @@ import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
@@ -24,6 +25,7 @@ public class S710TricunFactory implements GunFactory {
                 .withRecoil(2.2f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
+                .withShellType(ShellParticleSimulator.Shell.Type.PISTOL)
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withMuzzlePosition(new Vec3d(-.1, -1, -4))
                 .withShootSound("mpx")

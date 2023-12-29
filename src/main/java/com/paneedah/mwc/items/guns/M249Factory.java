@@ -338,7 +338,6 @@ public class M249Factory {
                 })
                 .withTextureNames("m249")
                 .withRenderer(new WeaponRenderer.Builder()
-
                         .withModel(new M249())
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.35F, 0.35F, 0.35F);

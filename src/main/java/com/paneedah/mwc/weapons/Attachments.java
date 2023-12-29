@@ -3297,7 +3297,7 @@ public class Attachments {
                         ARX160Chassis, HK417Handguard, HK417HandguardTan,
                         Block2SOCOMHandguard, FSSTacLiteHandguard, Mk18HandGuardBlack, M110Handguard, Placeholder,
                         HK416HandGuardBlackAndTan, SIGMCXHandguard, SIGMCXHandguardShort, AR15HandGuard, Z10Handguard,
-                        Origin12Grip, HKS20Grip)
+                        Origin12Handguard)
                 .withName("MBUSFrontSight")
                 .build();
 
@@ -3413,7 +3413,7 @@ public class Attachments {
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
                         MIMP5TRRail, MIMP5MRail, ShotgunRail, FABDefenseMount,
                         Placeholder, Kar98Krail, M60Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
-                        Attachments.EF88Handguard, KrissVectorReceiver,
+                        M4Receiver, VLTORReceiver, Attachments.EF88Handguard, KrissVectorReceiver,
                         Vector556Handguard, DesertEagleSlide, DesertEagleSlideBlack, DesertEagleSlideGolden, M1CarbineScoutHandguard,
 			Origin12Grip, HKS20Grip, HoneyBadgerKnightsReceiver, HoneyBadgerKnightsReceiverBlack,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, SSG08Chassis, SA58DustCover,
@@ -4923,7 +4923,7 @@ public class Attachments {
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort,
                         DSR1HandguardRailed, Z10Handguard, NGSWRRail, G3HandguardRailed, ScarHHandGuard,
                         MPXHandguardRailed, MPXHandguardExtended, B50PKMHandguard, B50PKPHandguard,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, M60E4HandGuard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))

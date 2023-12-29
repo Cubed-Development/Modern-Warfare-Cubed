@@ -380,6 +380,12 @@ public class CZ805BrenFactory implements GunFactory {
                                 Magazines.Stanag60,
                                 Magazines.SOCOM_Mag)
 
+                        .withFirstPersonCustomPositioning(AuxiliaryAttachments.BrenAction.getRenderablePart(), (renderContext) -> {
+                            if (renderContext.getWeaponInstance().getAmmo() == 0) {
+                                GL11.glTranslatef(0F, 0F, 1.1F);
+                            }
+                        })
+
                         .withThirdPersonPositioningReloading(
                                 new Transition((renderContext) -> {
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);

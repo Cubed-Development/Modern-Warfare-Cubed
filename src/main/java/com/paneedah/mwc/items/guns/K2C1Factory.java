@@ -421,6 +421,12 @@ public class K2C1Factory implements GunFactory {
                                 Magazines.Stanag60,
                                 Magazines.SOCOM_Mag)
 
+                        .withFirstPersonCustomPositioning(AuxiliaryAttachments.K2C1Action.getRenderablePart(), (renderContext) -> {
+                            if (renderContext.getWeaponInstance().getAmmo() == 0) {
+                                GL11.glTranslatef(0F, 0F, 0.55F);
+                            }
+                        })
+
                         .withThirdPersonPositioningReloading(
                                 new Transition((renderContext) -> {
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);
