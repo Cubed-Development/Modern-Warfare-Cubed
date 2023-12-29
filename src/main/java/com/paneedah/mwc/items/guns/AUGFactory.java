@@ -55,6 +55,7 @@ public class AUGFactory implements GunFactory {
                         3f)
 
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
+                .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
                 .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
                 .withCompatibleAttachment(Attachments.AUGA1handguard, (model) -> {
                 })
@@ -499,8 +500,6 @@ public class AUGFactory implements GunFactory {
                 .withTextureNames("aug")
                 .withRenderer(new WeaponRenderer.Builder()
                         .withModel(new AUG())
-                        .withActionPiece(AuxiliaryAttachments.AUGAction)
-                        .withActionTransform(new Transform().withPosition(0F, 0F, 0.7F))
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.5F, 0.5F, 0.5F);
                             GL11.glTranslatef(0, 0f, 3f);
@@ -553,6 +552,7 @@ public class AUGFactory implements GunFactory {
                                 Magazines.Stanag60,
                                 Magazines.SOCOM_Mag,
                                 Magazines.AUG9mmMag)
+
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.AUGAction.getRenderablePart(), (renderContext) -> {
                             GL11.glTranslatef(0f, 0f, 0.0f);
                         })

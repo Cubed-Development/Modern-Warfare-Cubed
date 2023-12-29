@@ -178,7 +178,7 @@ public class F2000Factory {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.F2000Scope, () -> {
+                .withCompatibleAttachment(Attachments.F2000Scope, true, () -> {
                 }, (model) -> {
                     if (model instanceof F2000Reticle) {
                         GL11.glTranslatef(-0.002F, -0.856F, 0.895F);

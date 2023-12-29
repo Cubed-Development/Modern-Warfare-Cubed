@@ -1006,18 +1006,18 @@ public class Attachments {
                 .withName("StonerHANDGUARD")
                 .build();
 
-        AUGA1handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+        AUGA1handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new AUGHandguard(), "aug.png")
                 .withName("AUGA1")
                 .build();
 
-        AUGA2handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+        AUGA2handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new AUGScopeRail(), "aug.png")
                 .withOnWeaponModel(new AKRail(), "akrail.png")
                 .withName("AUGA2handguard")
                 .build();
 
-        AUGA3handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+        AUGA3handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new AUGA3M1(), "aug.png")
                 .withOnWeaponModel(new AKRail(), "akrail.png")
                 .withName("AUGA3handguard")
@@ -1029,17 +1029,17 @@ public class Attachments {
                 .withName("EF88Handguard")
                 .build();
 
-        AUGDefaultKit = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
+        AUGDefaultKit = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new AUG9mmConversionkit(), "aug.png")
                 .withName("AUGDefaultKit")
                 .build();
 
-        AUGParaConversion = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
+        AUGParaConversion = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new AUG9mmConversionkit(), "aug.png")
                 .withName("AUGParaConversion")
                 .build();
 
-        AUGA3extGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
+        AUGA3extGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new AUGA3M1_Ext(), "aug.png")
                 .withOnWeaponModel(new AKRail(), "akrail.png")
                 .withOnWeaponModel(new AKRail2(), "akrail.png")

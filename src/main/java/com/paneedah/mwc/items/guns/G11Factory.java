@@ -195,13 +195,13 @@ public class G11Factory {
                 .withRenderer(new WeaponRenderer.Builder()
                         .withActionPiece(
                                 Magazines.G11Mag)
-                        .withActionTransform(new Transform().withPosition(0, 0, 0.3F))
+                        .withActionTransform(new Transform().withPosition(0, 0, 0.5F))
 
                         .withModel(new G11())
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.35F, 0.35F, 0.35F);
                             GL11.glTranslatef(0, 0f, 3f);
-                            GL11.glRotatef(0F, 0f, 0f, 4f);
+                            GL11.glRotatef(0F, 0f, 0f, 45f);
                         })
                         .withInventoryPositioning(itemStack -> {
                             GL11.glScaled(0.28F, 0.28F, 0.28F);
