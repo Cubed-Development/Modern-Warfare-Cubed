@@ -222,7 +222,10 @@ public class M9A1Factory implements GunFactory {
                 )
                 
                 .setupModernAnimations("m9", Attachments.M9A1Slide)
-                .setupModernMagazineAnimations("m9", Magazines.M9A1Mag)
+                .setupModernMagazineAnimations("m9", Magazines.M9A1Mag,
+                        Magazines.M9Mag30,
+                        Magazines.M9DrumMag)
+
                 .setupCustomKeyedPart(Attachments.SamuraiEdgeSlide, "m9", BBLoader.KEY_ACTION)
                 
             .withFirstPersonPositioningCustomRecoiled(Attachments.M9A1Slide.getRenderablePart(), (renderContext) -> {

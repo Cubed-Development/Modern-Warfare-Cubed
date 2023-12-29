@@ -249,7 +249,7 @@ public class FMG9Factory implements GunFactory {
                         })
                         .withThirdPersonPositioning((renderContext) -> {
                             GL11.glScaled(0.4F, 0.4F, 0.4F);
-                            GL11.glTranslatef(-1.7F, -0.8F, 1.9F);
+                            GL11.glTranslatef(-1.7F, -0.6F, 2.0F);
                             GL11.glRotatef(-45F, 0f, 1f, 0f);
                             GL11.glRotatef(70F, 1f, 0f, 0f);
                         })

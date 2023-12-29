@@ -1023,7 +1023,7 @@ public class Attachments {
                 .withName("AUGA3handguard")
                 .build();
 
-        EF88Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+        EF88Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new AUGEF88(), "aug.png")
                 .withOnWeaponModel(new AKRail(), "akrail.png")
                 .withName("EF88Handguard")
