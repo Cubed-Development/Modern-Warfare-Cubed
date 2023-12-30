@@ -534,10 +534,6 @@ public class ACRFactory implements GunFactory {
                 })
 
                 .withCompatibleAttachment(AuxiliaryAttachments.ACRAction, true, (model) -> {
-                    if (model instanceof ACRAction) {
-                        GL11.glTranslatef(-0.06F, -1.4F, -2.9F);
-                        GL11.glScaled(0.6F, 0.6F, 0.5F);
-                    }
                 })
 
                 .withTextureNames("acr")
