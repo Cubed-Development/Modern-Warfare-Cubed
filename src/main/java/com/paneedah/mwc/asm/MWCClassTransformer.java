@@ -611,6 +611,23 @@ public class MWCClassTransformer implements IClassTransformer {
         }
     }
 
+    private static class KnockBackMethodVisitor extends MethodVisitor {
+
+        public KnockBackMethodVisitor(MethodVisitor mv) {
+            super(Opcodes.ASM4, mv);
+        }
+
+        @Override
+        public void visitLdcInsn(Object cst) {
+            if (cst instanceof Double && cst.equals(2.0d)) {
+                mv.visitVarInsn(Opcodes.FLOAD, 2);
+                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/weaponlib/compatibility/ServerInterceptors", "getKnockback", "(F)D", false);
+            } else {
+                super.visitLdcInsn(cst);
+            }
+        }
+    }
+
     private static class CVTransform extends ClassVisitor {
 
         String classname;
@@ -707,8 +724,14 @@ public class MWCClassTransformer implements IClassTransformer {
                     && entityLivingBaseClassInfo.methodMatches("attackEntityFrom", "(Lnet/minecraft/util/DamageSource;F)Z", classname, name, desc)) {
                 return new AttackEntityFromMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
             } else if (entityLivingBaseClassInfo != null
-                    && entityLivingBaseClassInfo.methodMatches("attackEntityFrom", "(Lnet/minecraft/util/DamageSource;F)Z", classname, name, desc)) {
-                return new AttackEntityFromMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
+                    && entityLivingBaseClassInfo.methodMatches("knockBack", "(Lnet/minecraft/entity/Entity;FDD)V", classname, name, desc)) {
+                return new KnockBackMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
+            } else if (modelRendererClassInfo.classMatches(classname) && name.equals("<init>")) {
+                return new ModelRendererConstructorVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
+            } else if (modelRendererClassInfo != null
+                    && modelRendererClassInfo.methodMatches("render", "(F)V", classname, name, desc)) {
+                return new ModelRendererRenderMethodVisitor(
+                        cv.visitMethod(access, name, desc, signature, exceptions), !name.equals("render"));
             } /*else if(playSoundClassInfo != null && playSoundClassInfo.methodMatches("play", "(Lpaulscode/sound/Channel;)V", classname, name, desc)) {
                 return new SoundInterceptorMethodVistor(cv.visitMethod(access, name, desc, signature, exceptions));
             }*/
