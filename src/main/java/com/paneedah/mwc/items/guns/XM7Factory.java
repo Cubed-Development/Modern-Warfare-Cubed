@@ -68,7 +68,6 @@ public class XM7Factory implements GunFactory {
 
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
                 .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
-                .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
                 .withCompatibleAttachment(Attachments.Placeholder, true, (model) -> {
                     GL11.glTranslatef(0.01f, -0.19f, -0.4f);
                     GL11.glScaled(0F, 0F, 0F);

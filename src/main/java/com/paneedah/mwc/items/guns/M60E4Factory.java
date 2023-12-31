@@ -20,7 +20,7 @@ public class M60E4Factory {
         return new Weapon.Builder()
                 .withName("m60e4")
                 .withFireRate(0.4f)
-                .withRecoil(3f)
+                .withRecoil(4f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.MACHINE_GUN)
                 .withMuzzlePosition(new Vec3d(-.1, -1, -8))
@@ -509,7 +509,7 @@ public class M60E4Factory {
 
 
                         .build())
-                .withSpawnEntityDamage(10f)
+                .withSpawnEntityDamage(8f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
                 .build(MWC.modContext);

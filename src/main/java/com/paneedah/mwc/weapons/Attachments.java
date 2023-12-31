@@ -3237,6 +3237,46 @@ public class Attachments {
                 .withName("FNFALPARAHandguard")
                 .build();
 
+        B51ScopeMountRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
+                .withRenderablePart()
+                .withModel(new B51ScopeMountRail(), "pkm.png")
+                .withOnWeaponModel(new AKRail(), "akrail.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 1))
+                .withName("B51ScopeMountRail")
+                .build();
+
+        PKMBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
+                .withModel(new PKMBarrel(), "pkm.png")
+                .withOnWeaponModel(new PKMfrontsight(), "gun.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
+                .withName("PKMBarrel")
+                .build();
+
+        PechenegBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
+                .withModel(new PechenegBarrel(), "pkm.png")
+                .withOnWeaponModel(new PKMfrontsight(), "gun.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
+                .withName("PechenegBarrel")
+                .build();
+
+        B50PKPHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new B50PKPHandguard(), "gun.png")
+                .withRequiredAttachments(PechenegBarrel)
+                .withName("B50PKPHandguard")
+                .build();
+
+        B50PKMHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new B50PKMHandguard(), "gun.png")
+                .withRequiredAttachments(PKMBarrel)
+                .withName("B50PKMHandguard")
+                .build();
+
         M4FrontSight = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new M4Iron2(), "gun.png")
                 .withOnWeaponModel(new FALIron(), "gun.png")
@@ -3389,7 +3429,7 @@ public class Attachments {
                         HoneyBadgerKnightsReceiver, HoneyBadgerKnightsReceiverBlack, M14TriRailCover,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, SSG08Chassis, SA58DustCover,
                         M16A1ScopeMount, UMP45Receiver, UMP9Receiver, G2ContenderBarrelLong, S710Receiver,
-                        Beowulf50CalReceiver, FamasF1ScopeMount,B51ScopeMountRail,
+                        Beowulf50CalReceiver, FamasF1ScopeMount, B51ScopeMountRail,
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver, HK416Receiver,
                         M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
@@ -3523,7 +3563,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver,
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
-                        VSSMDustCover, Dragunov98DustCover)
+                        VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withName("Specter")
                 .withRotationPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
                 .build();
@@ -3649,7 +3689,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver,
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
-                        VSSMDustCover, Dragunov98DustCover)
+                        VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withName("VortexSight")
                 .build();
 
@@ -3680,7 +3720,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver,
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
-                        VSSMDustCover, Dragunov98DustCover)
+                        VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withName("MicroT1")
                 .build();
 
@@ -3743,7 +3783,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, AK12DustCover, AK12BDustCover, CZ805BrenReceiver,
                         HK416Receiver, M110Receiver, ScarLReceiver, Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
-                        VSSMDustCover, Dragunov98DustCover)
+                        VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withName("AimpointCompM5")
                 .build();
 
@@ -3973,7 +4013,7 @@ public class Attachments {
                         HK417Receiver, HK417ReceiverTan, CZ805BrenReceiver, HK416Receiver, M110Receiver, ScarLReceiver,
                         Remington700Chassis, Remington700APACChassis,
                         Remington700MDTXRSChassis, DSR1Handguard, DSR1HandguardRailed, Z10Receiver, MAC21Stock,
-                        VSSMDustCover, Dragunov98DustCover)
+                        VSSMDustCover, Dragunov98DustCover, UziSightRail)
                 .withName("NightRaiderScope")
                 .build();
 
@@ -4543,7 +4583,7 @@ public class Attachments {
                         HK416HandGuardBlackAndTan, ScarHandGuard, ScarMidWestIndustriesHandGuard,
                         Z10Handguard, SIGMCXHandguard, SIGMCXHandguardShort, NGSWRRail, K2C1Handguard, G3HandguardRailed,
                         ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, B50PKMHandguard, B50PKPHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2),
@@ -4622,7 +4662,8 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, B50PKMHandguard,
+                        B50PKPHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -4940,7 +4981,6 @@ public class Attachments {
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
                 })
-                .withRenderablePart()
                 .withName("AUGgrip")
                 .build();
 
@@ -4951,7 +4991,6 @@ public class Attachments {
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.6F);
                 })
-                .withRenderablePart()
                 .withName("PechenegBipod")
                 .build();
 
@@ -4962,7 +5001,6 @@ public class Attachments {
                 .withApply((a, i) -> {
                     i.setRecoil(i.getWeapon().getRecoil() * 0.4f);
                 })
-                .withRenderablePart()
                 .withName("USPMatchCompensator")
                 .build();
 
@@ -5130,24 +5168,6 @@ public class Attachments {
                 .withName("G36CMGStock")
                 .build();
 
-        PKMBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
-                .withModel(new PKMBarrel(), "pkm.png")
-                .withOnWeaponModel(new PKMfrontsight(), "gun.png")
-                .withModernRecipe(
-                        CraftingGroup.ATTACHMENT_MODIFICATION,
-                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withName("PKMBarrel")
-                .build();
-
-        PechenegBarrel = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
-                .withModel(new PechenegBarrel(), "pkm.png")
-                .withOnWeaponModel(new PKMfrontsight(), "gun.png")
-                .withModernRecipe(
-                        CraftingGroup.ATTACHMENT_MODIFICATION,
-                        new CraftingEntry(MWCItems.gunmetalIngot, 2))
-                .withName("PechenegBarrel")
-                .build();
-
         PKMGrip = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
                 .withModel(new PKMGrip(), "pkm.png")
@@ -5176,28 +5196,6 @@ public class Attachments {
                 .withModel(new PT2Stock(), "pkm.png")
                 .withRenderablePart()
                 .withName("PT2Stock")
-                .build();
-
-        B51ScopeMountRail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
-                .withRenderablePart()
-                .withModel(new B51ScopeMountRail(), "pkm.png")
-                .withOnWeaponModel(new AKRail(), "akrail.png")
-                .withModernRecipe(
-                        CraftingGroup.ATTACHMENT_MODIFICATION,
-                        new CraftingEntry(MWCItems.gunmetalIngot, 1))
-                .withName("B51ScopeMountRail")
-                .build();
-
-        B50PKPHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
-                .withModel(new B50PKPHandguard(), "gun.png")
-                .withRequiredAttachments(PechenegBarrel)
-                .withName("B50PKMHandguard")
-                .build();
-
-        B50PKMHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
-                .withModel(new B50PKMHandguard(), "gun.png")
-                .withRequiredAttachments(PKMBarrel)
-                .withName("B50PKPHandguard")
                 .build();
     }
 }
