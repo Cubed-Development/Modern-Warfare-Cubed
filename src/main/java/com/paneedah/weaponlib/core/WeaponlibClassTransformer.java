@@ -661,6 +661,23 @@ public class WeaponlibClassTransformer implements IClassTransformer {
         }
     }
 
+    private static class KnockBackMethodVisitor extends MethodVisitor {
+
+        public KnockBackMethodVisitor(MethodVisitor mv) {
+            super(Opcodes.ASM4, mv);
+        }
+
+        @Override
+        public void visitLdcInsn(Object cst) {
+            if (cst instanceof Double && cst.equals(2.0d)) {
+                mv.visitVarInsn(Opcodes.FLOAD, 2);
+                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/weaponlib/compatibility/ServerInterceptors", "getKnockback", "(F)D", false);
+            } else {
+                super.visitLdcInsn(cst);
+            }
+        }
+    }
+
     private static class CVTransform extends ClassVisitor {
 
         String classname;
@@ -757,8 +774,8 @@ public class WeaponlibClassTransformer implements IClassTransformer {
                     && entityLivingBaseClassInfo.methodMatches("attackEntityFrom", "(Lnet/minecraft/util/DamageSource;F)Z", classname, name, desc)) {
                 return new AttackEntityFromMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
             } else if (entityLivingBaseClassInfo != null
-                    && entityLivingBaseClassInfo.methodMatches("attackEntityFrom", "(Lnet/minecraft/util/DamageSource;F)Z", classname, name, desc)) {
-                return new AttackEntityFromMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
+                    && entityLivingBaseClassInfo.methodMatches("knockBack", "(Lnet/minecraft/entity/Entity;FDD)V", classname, name, desc)) {
+                return new KnockBackMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
             } else if (modelRendererClassInfo.classMatches(classname) && name.equals("<init>")) {
                 return new ModelRendererConstructorVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
             } else if (modelRendererClassInfo != null

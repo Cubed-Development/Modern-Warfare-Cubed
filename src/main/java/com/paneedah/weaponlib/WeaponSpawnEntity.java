@@ -7,16 +7,22 @@ import com.paneedah.weaponlib.network.packets.BloodPacketClient;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.RayTraceResult.Type;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 import static com.paneedah.mwc.utils.ModReference.LOG;
@@ -82,12 +88,12 @@ public class WeaponSpawnEntity extends EntityProjectile {
             Explosion.createServerSideExplosion(weapon.getModContext(), world, this.getThrower(), this, position.hitVec.x, position.hitVec.y, position.hitVec.z, explosionRadius, false, true, isDestroyingBlocks, explosionParticleAgeCoefficient, smokeParticleAgeCoefficient, explosionParticleScaleCoefficient, smokeParticleScaleCoefficient, weapon.getModContext().getRegisteredTexture(explosionParticleTextureId), weapon.getModContext().getRegisteredTexture(smokeParticleTextureId), weapon.getModContext().getExplosionSound());
         } else if (position.entityHit != null) {
             if (this.getThrower() != null)
-                position.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
+                position.entityHit.attackEntityFrom(new ProjectileDamageSource(this, this.getThrower()), damage);
             else
-                position.entityHit.attackEntityFrom(new DamageSource("thrown"), damage);
+                position.entityHit.attackEntityFrom(new DamageSource("arrow"), damage);
 
             position.entityHit.hurtResistantTime = 0;
-            position.entityHit.prevRotationYaw -= 0.3;
+            position.entityHit.prevRotationYaw -= 0.3F;
 
             LOG.debug("Hit entity {}", position.entityHit);
 
@@ -182,5 +188,20 @@ public class WeaponSpawnEntity extends EntityProjectile {
 
     public Weapon getWeapon() {
         return weapon;
+    }
+
+    public static class ProjectileDamageSource extends EntityDamageSourceIndirect {
+        public ProjectileDamageSource(Entity projectile, @Nonnull Entity shooter) {
+            super("arrow", projectile, shooter);
+            this.setProjectile();
+        }
+
+        @Override
+        public ITextComponent getDeathMessage(EntityLivingBase entityLivingBaseIn) {
+            ITextComponent itextcomponent = getTrueSource().getDisplayName();
+            ItemStack itemstack = getTrueSource() instanceof EntityLivingBase ? ((EntityLivingBase) getTrueSource()).getHeldItemMainhand() : ItemStack.EMPTY;
+            String s1 = "death.attack." + this.damageType + ".item";
+            return new TextComponentTranslation(s1, entityLivingBaseIn.getDisplayName(), itextcomponent, itemstack.getTextComponent());
+        }
     }
 }
