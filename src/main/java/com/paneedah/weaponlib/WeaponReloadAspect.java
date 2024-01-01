@@ -564,24 +564,25 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
         Weapon weapon = instance.getWeapon();
 
         List<ItemMagazine> compatibleMagazines = weapon.getCompatibleMagazines().stream().filter(compatibleMagazine -> WeaponAttachmentAspect.hasRequiredAttachments(compatibleMagazine, instance)).collect(Collectors.toList());
-        
-        // Unload weapon
 
+        // Unload weapon
         ItemAttachment<Weapon> attachment = modContext.getAttachmentAspect().removeAttachment(AttachmentCategory.MAGAZINE, instance);
         
         //	processUnloadPermit(new UnloadPermit(p.getState()), instance);
-
         int originalAmmo = instance.getAmmo();
-        
-        // Mag list is empty
 
+        // Mag list is empty
         if (compatibleMagazines.isEmpty())
             return;
 
-        ItemStack magazineStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, (stack1, stack2) -> Integer.compare(Tags.getAmmo(stack1), Tags.getAmmo(stack2)), player);
+        ItemStack magazineStack = MWCUtil.consumeItemsFromPlayerInventory(compatibleMagazines, Comparator.comparingInt(Tags::getAmmo), player);
 
-        if (magazineStack == null)
+        if (magazineStack == null) {
+            // Cancel unload when magazine cannot be found in inventory
+            WeaponAttachmentAspect.addAttachment(attachment, instance);
+            p.setStatus(Status.GRANTED);
             return;
+        }
 
         //ItemStack magazineStack = ItemStack.EMPTY;
         int ammo = Tags.getAmmo(magazineStack);
