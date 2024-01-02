@@ -28,7 +28,7 @@ public class M9A1Factory implements GunFactory {
         return new Weapon.Builder()
                 .withName("m9a1")
                 .withFireRate(0.5f)
-                .withRecoil(4f)
+                .withRecoil(5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withMuzzlePosition(new Vec3d(-.15, -0.8, -2.4))

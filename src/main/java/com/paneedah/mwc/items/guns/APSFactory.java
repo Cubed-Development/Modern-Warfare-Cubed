@@ -30,7 +30,7 @@ public class APSFactory implements GunFactory {
         return new Weapon.Builder()
                 .withName("aps")
                 .withFireRate(0.6f)
-                .withRecoil(4f)
+                .withRecoil(5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withShellType(Type.PISTOL)

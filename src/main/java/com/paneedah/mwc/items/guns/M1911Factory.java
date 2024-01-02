@@ -17,67 +17,55 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
+import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
 public class M1911Factory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-
                 .withName("m1911")
                 .withFireRate(0.5f)
-                .withRecoil(3f)
+                .withRecoil(6.25f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.SIDEARM)
+                .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withShellType(Type.PISTOL)
                 .withMaxShots(1)
+                .withMuzzlePosition(new Vec3d(-.15, -0.8, -2.4))
                 .withShootSound("colt_m45a1")
                 .withSilencedShootSound("colt_m45a1_silenced")
                 .withDrawSound("handgun_draw")
-                .withReloadingTime(70)
+                .withReloadingTime(40)
                 .withFlashIntensity(0.5f)
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.13f)
                 .withFlashOffsetY(() -> 0.12f)
-                .withInaccuracy(3)
+                .withInaccuracy(1)
                 .useNewSystem()
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .withScreenShaking(RenderableState.SHOOTING,
-                        4f, // x
-                        0.1f, // y
-                        1f) // z
+                        4f,
+                        0.1f,
+                        1f)
 
                 .withRecoilParam(new RecoilParam(
-                        // The weapons power
                         65.0,
-                        // Muzzle climb divisor
                         13.125,
-                        // "Stock Length"
                         30.0,
-                        // Recovery rate from initial shot
                         0.3625,
-                        // Recovery rate @ "stock"
                         0.325,
-                        // Recoil rotation (Y)
                         0.020,
-                        // Recoil rotation (Z)
                         0.0,
-                        // Ads similarity divisor
                         1.0
                 ))
-                .withModernRecipe( new
-         		        CraftingEntry(MWCItems.carbonComposite, 7), new
-         		        CraftingEntry(MWCItems.gunmetalPlate, 3), new
-         		        CraftingEntry(MWCItems.steelIngot, 3))
-         
+                .withModernRecipe(new
+                        CraftingEntry(MWCItems.carbonComposite, 7), new
+                        CraftingEntry(MWCItems.gunmetalPlate, 3), new
+                        CraftingEntry(MWCItems.steelIngot, 3))
+
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
                 .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
                 .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
-
-                .withCompatibleAttachment(Attachments.PistolPlaceholder, true, (model) -> {
-                    GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-                    GL11.glScaled(0F, 0F, 0F);
-                })
                 .withCompatibleAttachment(Attachments.M1911Body, true, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.HardballerBody, (model) -> {
@@ -85,8 +73,7 @@ public class M1911Factory implements GunFactory {
                 .withCompatibleAttachment(Attachments.M45A1CQBPBody, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.M1911Slide, true, (model) -> {
-                    if (model instanceof M1911Slide) {
-                    } else if (model instanceof makarovrearsight) {
+                    if (model instanceof makarovrearsight) {
                         GL11.glTranslatef(-0.21F, -1.355F, -0.09F);
                         GL11.glScaled(0.3F, 0.3F, 0.3F);
                     } else if (model instanceof M1911FrontSight) {
@@ -94,18 +81,18 @@ public class M1911Factory implements GunFactory {
                         GL11.glScaled(0.25F, 0.25F, 0.25F);
                     }
                 })
-            .withCompatibleAttachment(Attachments.HardballerSlide, (model) -> {
-             if (model instanceof HardballerIron) {
-                 GL11.glTranslatef(-0.155F, -2.07F, -1.55F);
-                 GL11.glScaled(0.55F, 0.5F, 0.5F);
-               }
-            })
-            .withCompatibleAttachment(Attachments.M45A1CQBPSlide, (model) -> {
-             if (model instanceof m45a1Iron) {
-                  GL11.glTranslatef(-0.155F, -2.21F, -1.1F);
-                  GL11.glScaled(0.6F, 0.6F, 0.49F);
-               }
-            })
+                .withCompatibleAttachment(Attachments.HardballerSlide, (model) -> {
+                    if (model instanceof HardballerIron) {
+                        GL11.glTranslatef(-0.155F, -2.07F, -1.55F);
+                        GL11.glScaled(0.55F, 0.5F, 0.5F);
+                    }
+                })
+                .withCompatibleAttachment(Attachments.M45A1CQBPSlide, (model) -> {
+                    if (model instanceof m45a1Iron) {
+                        GL11.glTranslatef(-0.155F, -2.21F, -1.1F);
+                        GL11.glScaled(0.6F, 0.6F, 0.49F);
+                    }
+                })
 
                 .withCompatibleAttachment(Magazines.M1911Mag, (model) -> {
                 })
@@ -116,7 +103,7 @@ public class M1911Factory implements GunFactory {
                     GL11.glScaled(1.5F, 1.5F, 1.5F);
                 })
                 .withCompatibleAttachment(Attachments.Laser, () -> {
-                    GL11.glTranslatef(0.01F, -0.85F, -2.3F);
+                    GL11.glTranslatef(0.01F, -0.75F, -2.2F);
                     GL11.glScaled(1.2F, 1.2F, 1.2F);
                     GL11.glRotatef(-90F, 0f, 0f, -4f);
                 })
@@ -156,7 +143,7 @@ public class M1911Factory implements GunFactory {
 
                         .withFirstPersonHandPositioning(
 
-                                // Left hand
+
                                 new Transform()
                                         .withPosition(1.370000f, 0.865000f, 2.020000f)
                                         .withBBRotation(-12.9672F, -29.0825F, 67.8433F)
@@ -164,8 +151,6 @@ public class M1911Factory implements GunFactory {
                                         .withPivotPoint(0, 0, 0),
 
 
-
-                                // Right hand
                                 new Transform()
                                         .withPosition(-0.320000f, 0.140000f, 2.040000f)
                                         .withBBRotation(10.0931F, 10.9576F, -10.0294F)
@@ -198,12 +183,10 @@ public class M1911Factory implements GunFactory {
                         })
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glScaled(2F, 2F, 2);
-                            GL11.glTranslatef(0.186f, 0.615f, -2f);
+                            GL11.glTranslatef(0.219F, -0.235F, -1.2F);
 
-                            // ACOG Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HardballerSlide)) {
-                                GL11.glTranslatef(0f, -0.06f, 0.0f);
+                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HardballerSlide)) {
+                                GL11.glTranslatef(0f, -0.01f, 0.0f);
                             }
                         })
 
@@ -265,7 +248,6 @@ public class M1911Factory implements GunFactory {
                         .build())
                 .withSpawnEntityDamage(5.3f)
                 .withSpawnEntityGravityVelocity(0.02f)
-
 
                 .build(MWC.modContext);
     }
