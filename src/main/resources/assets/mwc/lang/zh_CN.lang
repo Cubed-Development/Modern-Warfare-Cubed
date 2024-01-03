@@ -1266,57 +1266,67 @@ gui.currentZoom=缩放: %s%%
 gui.grenadeExplodes=%s秒后爆炸
 gui.coolingDown=冷却...
 
+config.category.server.name=服务端设定
+config.category.client.name=客户端设定
+
+config.server.penetrableBlocks.property.name=玻璃穿透
+config.server.bulletBreakGlass.property.name=玻璃破坏
+config.server.explosionBreak.property.name=爆炸破坏
+config.server.explosionDamage.property.name=爆炸伤害倍率
+config.server.explodedBlockDropChance.property.name=爆炸时方块掉落概率
+
 config.category.ores.name=矿物设定
-config.ores.sulfurSpawnsPerChunk.property.name=硫矿石单区块生成数量
-config.ores.copperSpawnsPerChunk.property.name=铜矿石单区块生成数量
-config.ores.tinSpawnsPerChunk.property.name=锡矿石单区块生成数量
-config.ores.leadSpawnsPerChunk.property.name=铅矿石单区块生成数量
-config.ores.graphiteSpawnsPerChunk.property.name=石墨矿石单区块生成数量
+config.server.ores.sulfurSpawnsPerChunk.property.name=硫矿石单区块生成数量
+config.server.ores.copperSpawnsPerChunk.property.name=铜矿石单区块生成数量
+config.server.ores.tinSpawnsPerChunk.property.name=锡矿石单区块生成数量
+config.server.ores.leadSpawnsPerChunk.property.name=铅矿石单区块生成数量
+config.server.ores.graphiteSpawnsPerChunk.property.name=石墨矿石单区块生成数量
 
 config.category.rendering.name=画面渲染设定
 config.category.screenshaders.name=屏幕着色器设定
-config.rendering.enableAllShaders.property.name=全局着色器
-config.rendering.enableAllShaders.property.tooltip=关闭后可解决大部分黑屏/卡屏、光影兼容问题，并提高帧数
-config.rendering.enableScreenShaders.property.name=屏幕着色器
-config.rendering.enableScreenShaders.property.tooltip=关闭后才可使用光影游玩，否则黑屏/卡屏
-config.rendering.enableWorldShaders.property.name=世界着色器
-config.rendering.enableWorldShaders.property.tooltip=关闭后才可使用光影游玩，否则黑屏/卡屏
-config.rendering.enableGunShaders.property.name=武器着色器
-config.rendering.enableGunShaders.property.tooltip=决定手中武器是否渲染涂装，关闭后解决光影的实体阴影错位问题
-config.rendering.enableFlashShaders.property.name=枪口火光着色器
-config.rendering.enableFlashShaders.property.tooltip=让枪口火焰发光, 开启光影后颜色可能会有变化
-config.rendering.enableReticleShaders.property.name=瞄具着色器
-config.rendering.enableReticleShaders.property.tooltip=开启时不影响光影的渲染, 让 红点/全息瞄准镜的准星 不再是贴图并带有光效, 令瞄准镜带有镜片, 且准星保持在屏幕中间
-config.rendering.enableHDRFramebuffer.property.name=HDR帧缓冲区
-config.rendering.enableScopeEffects.property.name=瞄准镜效果
-config.rendering.enableFancyRainAndSnow.property.name=绚丽雨雪(务必禁用)
-config.rendering.screenshaders.bloomEffect.property.name=泛光
-config.rendering.screenshaders.filmGrain.property.name=胶片颗粒
-config.rendering.screenshaders.filmGrainIntensity.property.name=胶片颗粒强度
-config.rendering.screenshaders.bloomLayers.property.name=泛光层数量
-config.rendering.screenshaders.onScreenRainAndSnow.property.name=雨&雪屏幕残留
+config.client.rendering.enableAllShaders.property.name=全局着色器
+config.client.rendering.enableAllShaders.property.tooltip=关闭后可解决大部分黑屏/卡屏、光影兼容问题，并提高帧数
+config.client.rendering.enableScreenShaders.property.name=屏幕着色器
+config.client.rendering.enableScreenShaders.property.tooltip=关闭后才可使用光影游玩，否则黑屏/卡屏
+config.client.rendering.enableWorldShaders.property.name=世界着色器
+config.client.rendering.enableWorldShaders.property.tooltip=关闭后才可使用光影游玩，否则黑屏/卡屏
+config.client.rendering.enableGunShaders.property.name=武器着色器
+config.client.rendering.enableGunShaders.property.tooltip=决定手中武器是否渲染涂装，关闭后解决光影的实体阴影错位问题
+config.client.rendering.enableFlashShaders.property.name=枪口火光着色器
+config.client.rendering.enableFlashShaders.property.tooltip=让枪口火焰发光, 开启光影后颜色可能会有变化
+config.client.rendering.enableReticleShaders.property.name=瞄具着色器
+config.client.rendering.enableReticleShaders.property.tooltip=开启时不影响光影的渲染, 让 红点/全息瞄准镜的准星 不再是贴图并带有光效, 令瞄准镜带有镜片, 且准星保持在屏幕中间
+config.client.rendering.enableHDRFramebuffer.property.name=HDR帧缓冲区
+config.client.rendering.enableScopeEffects.property.name=瞄准镜效果
+config.client.rendering.enableFancyRainAndSnow.property.name=绚丽雨雪
+config.client.rendering.screenshaders.bloomEffect.property.name=泛光
+config.client.rendering.screenshaders.filmGrain.property.name=胶片颗粒
+config.client.rendering.screenshaders.filmGrainIntensity.property.name=胶片颗粒强度
+config.client.rendering.screenshaders.bloomLayers.property.name=泛光层数量
+config.client.rendering.screenshaders.onScreenRainAndSnow.property.name=雨雪屏幕残留
 
-config.category.gameplay.name=游戏习惯设定
-config.gameplay.enableAmmoCounter.property.name=子弹计数器
-config.gameplay.enableOpenDoorDisplay.property.name=开门提示
-config.gameplay.holdToAim.property.name=按住瞄准
-config.gameplay.enableAmmoCounterBackground.property.name=子弹计数器背景
-config.gameplay.enableBleedingOnHit.property.name=血液粒子大小
-config.gameplay.penetratesGlass.property.name=玻璃穿透
-config.gameplay.bulletBreakGlass.property.name=玻璃破坏
-config.gameplay.enableMuzzleEffects.property.name=枪口火焰
-config.gameplay.enableBlurOnAim.property.name=瞄准模糊
-config.gameplay.explosionBreak.property.name=爆炸破坏
-config.gameplay.explosionDamage.property.name=爆炸伤害倍率
-config.gameplay.explodedBlockDropChance.property.name=爆炸时方块掉落概率
-config.gameplay.statusBarPosition.property.name=状态栏位置
+
+config.category.ammocounter.name=子弹计数器设定
+config.client.ammocounter.enableAmmoCounter.property.name=子弹计数器
+config.client.ammocounter.enableAmmoCounterBackground.property.name=子弹计数器背景
+config.client.ammocounter.ammoCounterBackgroundReverse.property.name=子弹计数器背景反转
+config.client.ammocounter.ammoCounterX.property.name=子弹计数器X轴位置
+config.client.ammocounter.ammoCounterY.property.name=子弹计数器Y轴位置
+config.client.ammocounter.ammoCounterSize.property.name=子弹计数器大小
+
+config.client.enableOpenDoorDisplay.property.name=开门提示
+config.client.holdToAim.property.name=按住瞄准
+config.client.enableBleedingOnHit.property.name=血液粒子大小
+config.client.enableMuzzleEffects.property.name=枪口火焰
+config.client.enableBlurOnAim.property.name=瞄准模糊
+config.client.statusBarPosition.property.name=状态栏位置
 
 config.category.entities.name=实体设定
-config.entities.terroristHealth.property.name=土匪生命倍率
-config.entities.terroristsSpawn.property.name=土匪生成倍率
-config.entities.terroristEquipmentConfiguration.property.name=土匪/士兵装备设定
-config.entities.solderSpawn.property.name=士兵生成倍率
-config.entities.soldierHealth.property.name=士兵生命倍率
+config.server.entities.terroristHealth.property.name=土匪生命倍率
+config.server.entities.terroristSpawn.property.name=土匪生成倍率
+config.server.entities.terroristEquipmentConfiguration.property.name=土匪/士兵装备设定
+config.server.entities.soldierSpawn.property.name=士兵生成倍率
+config.server.entities.soldierHealth.property.name=士兵生命倍率
 
 
 
