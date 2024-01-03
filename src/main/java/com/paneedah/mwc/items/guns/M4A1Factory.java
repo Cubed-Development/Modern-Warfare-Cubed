@@ -965,23 +965,6 @@ public class M4A1Factory implements GunFactory {
                             GL11.glRotatef(70F, 1f, 0f, 0f);
                         })
 
-                        .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M4EjectorAction.getRenderablePart(), (renderContext) -> {
-                            GL11.glTranslatef(0f, 0f, 0.7f);
-                        })
-
-                        .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.M4EjectorAction.getRenderablePart(), (renderContext) -> {
-                            GL11.glTranslatef(0f, 0f, 0.7f);
-                        })
-
-                        .withFirstPersonCustomPositioning(AuxiliaryAttachments.AR15Action.getRenderablePart(), (renderContext) -> {
-                        })
-
-                        .withFirstPersonCustomPositioning(Magazines.M4A1Mag, (renderContext) -> {
-                        })
-
-                        .withFirstPersonCustomPositioning(Magazines.P90Mag, (renderContext) -> {
-                        })
-
                         .withThirdPersonPositioningReloading(
                                 new Transition((renderContext) -> {
                                     GL11.glScaled(0.6F, 0.6F, 0.6F);
@@ -1048,209 +1031,50 @@ public class M4A1Factory implements GunFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glTranslatef(0.18f, -0.02f, 0.4f);
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), AuxiliaryAttachments.AR15Iron)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(-0.0005F, 0.1f, 0f);
-                                } else {
-                                    GL11.glTranslatef(0F, 0.028f, -0.1f);
-                                }
-                            }
+                            ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
+                            ItemAttachment<Weapon> scopeAttachment = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.SCOPE, renderContext.getWeaponInstance());
+                            if (activeAttachment == Attachments.AR57Receiver)
+                                GL11.glTranslatef(0.18f, 0.1f, 0.4f);
+                            else
+                                GL11.glTranslatef(0.18f, -0.02f, 0.4f);
 
 
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.1f, 0f);
-                                } else {
-                                    GL11.glTranslatef(0F, 0f, 0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
+                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), AuxiliaryAttachments.AR15Iron))
+                                GL11.glTranslatef(0F, 0.028f, -0.1f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights))
+                                GL11.glTranslatef(0F, 0f, 0f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights))
                                 GL11.glTranslatef(0F, 0.03f, 0f);
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.155f, 0.2f);
-                                } else {
-                                    GL11.glTranslatef(0F, 0.035f, 0.2f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(-0.002F, 0.14f, 0.35f);
-                                } else {
-                                    GL11.glTranslatef(-0.002F, 0.025f, 0.35f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AKMIron)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(-0.0005F, 0.1f, 0f);
-                                } else {
-                                    GL11.glTranslatef(0F, 0f, 0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(-0.01F, 0.125f, 0.1f);
-                                } else {
-                                    GL11.glTranslatef(-0.01F, 0.02f, 0.5f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(-0.003F, 0.05f, 0.2f);
-                                } else {
-                                    GL11.glTranslatef(-0.003F, -0.055f, 0.4f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(-0.005F, 0.092f, 0f);
-                                } else {
-                                    GL11.glTranslatef(-0.005F, -0.032f, 0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.08f, 0f);
-                                } else {
-                                    GL11.glTranslatef(0F, -0.015f, 0.1f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.07f, 0.2f);
-                                } else {
-                                    GL11.glTranslatef(0F, -0.02f, 0.2f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.13f, 0f);
-                                } else {
-                                    GL11.glTranslatef(-0.005F, 0.01f, 0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.13f, 0f);
-                                } else {
-                                    GL11.glTranslatef(-0.005F, 0.01f, 0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.13f, -0f);
-                                } else {
-                                    GL11.glTranslatef(0F, 0.015f, 0.45f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.16f, 0f);
-                                } else {
-                                    GL11.glTranslatef(0F, 0.06f, 0.2f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.13f, 0.2f);
-                                } else {
-                                    GL11.glTranslatef(0F, 0.035f, 0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.13f, 0.2f);
-                                } else {
-                                    GL11.glTranslatef(0F, 0.035f, 0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.14f, 0.5f);
-                                } else {
-                                    GL11.glTranslatef(0F, 0.055f, 0.5f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.RECEIVER, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AR57Receiver) {
-                                    GL11.glTranslatef(0F, 0.14f, 0.5f);
-                                } else {
-                                    GL11.glTranslatef(0F, 0.055f, 0.5f);
-                                }
-                            }
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex))
+                                GL11.glTranslatef(0F, 0.035f, 0.2f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider))
+                                GL11.glTranslatef(-0.002F, 0.025f, 0.35f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG))
+                                GL11.glTranslatef(-0.01F, 0.02f, 0.5f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter))
+                                GL11.glTranslatef(-0.003F, -0.055f, 0.4f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope))
+                                GL11.glTranslatef(-0.005F, -0.032f, 0f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex))
+                                GL11.glTranslatef(0F, -0.015f, 0.1f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex))
+                                GL11.glTranslatef(0F, -0.02f, 0.2f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic))
+                                GL11.glTranslatef(-0.005F, 0.01f, 0f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt))
+                                GL11.glTranslatef(-0.005F, 0.01f, 0f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2))
+                                GL11.glTranslatef(0F, 0.015f, 0.45f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux))
+                                GL11.glTranslatef(0F, 0.06f, 0.2f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra))
+                                GL11.glTranslatef(0F, 0.035f, 0f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3))
+                                GL11.glTranslatef(0F, 0.035f, 0f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1))
+                                GL11.glTranslatef(0F, 0.055f, 0.5f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5))
+                                GL11.glTranslatef(0F, 0.055f, 0.5f);
                         })
                         .withFirstPersonPositioningModifying((renderContext) -> {
                             new Transform()

@@ -275,19 +275,12 @@ public class KBP9A91Factory {
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glTranslatef(0.18f, -0.28f, 0.4f);
 
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraMount)) {
+                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraMount))
                                 GL11.glTranslatef(0F, 0.285f, -0.4f);
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7))
                                 GL11.glTranslatef(-0.0F, 0.17f, 0.1f);
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1))
                                 GL11.glTranslatef(-0.015F, 0.2f, 0.0f);
-                            }
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {

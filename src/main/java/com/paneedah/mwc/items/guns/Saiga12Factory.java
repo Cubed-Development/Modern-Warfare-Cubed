@@ -172,26 +172,13 @@ public class Saiga12Factory {
                                 Magazines.SaigaMag,
                                 Magazines.SaigaMagExtended)
 
-                        .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.Saiga12action.getRenderablePart(), (renderContext) -> {
-                            GL11.glTranslatef(0f, 0f, 1f);
-                        })
-
-                        .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.Saiga12action.getRenderablePart(), (renderContext) -> {
-                            GL11.glTranslatef(0f, 0f, 1f);
-                        })
-
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glTranslatef(0.18f, -0.25f, 0.7f);
 
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
+                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1))
                                 GL11.glTranslatef(-0.014f, 0.217f, -0.2f);
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7))
                                 GL11.glTranslatef(-0.01f, 0.12f, -0.2f);
-                            }
-
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {

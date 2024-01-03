@@ -171,9 +171,8 @@ public class M17Factory implements GunFactory {
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glTranslatef(0.178F, -0.395F, -1f);
 
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
+                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR))
                                 GL11.glTranslatef(0f, 0.23f, 0.3f);
-                            }
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {

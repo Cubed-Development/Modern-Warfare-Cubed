@@ -31,7 +31,7 @@ public class M1911Factory implements GunFactory {
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withShellType(Type.PISTOL)
                 .withMaxShots(1)
-                .withMuzzlePosition(new Vec3d(-.15, -0.8, -2.4))
+                .withMuzzlePosition(new Vec3d(-.15, -0.8, -3.4))
                 .withShootSound("colt_m45a1")
                 .withSilencedShootSound("colt_m45a1_silenced")
                 .withDrawSound("handgun_draw")
@@ -185,9 +185,8 @@ public class M1911Factory implements GunFactory {
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glTranslatef(0.219F, -0.235F, -1.2F);
 
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HardballerSlide)) {
+                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HardballerSlide))
                                 GL11.glTranslatef(0f, -0.01f, 0.0f);
-                            }
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {

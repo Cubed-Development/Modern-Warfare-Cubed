@@ -3,7 +3,6 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.AuxiliaryAttachments;
 import com.paneedah.mwc.weapons.Magazines;
 import com.paneedah.weaponlib.RenderableState;
@@ -153,14 +152,9 @@ public class MP40Factory {
                         .setupModernMagazineAnimations("apc9",
                                 Magazines.MP40Mag)
 
-                        .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.MP40action.getRenderablePart(), (renderContext) -> {
-                            GL11.glTranslatef(0f, 0f, -1f);
-                        })
-
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glTranslatef(0.187F, -0.32F, 0.5F);
                         })
-
 
                         .build())
                 .withSpawnEntityDamage(5f)

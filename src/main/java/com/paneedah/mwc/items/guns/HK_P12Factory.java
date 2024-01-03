@@ -292,17 +292,12 @@ public class HK_P12Factory implements GunFactory {
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glTranslatef(0.178F, -0.42F, -1f);
 
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
+                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG))
                                 GL11.glTranslatef(0f, 0.48f, 1.45f);
-                            }
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR))
                                 GL11.glTranslatef(0f, 0.39f, 0.2f);
-                            }
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex))
                                 GL11.glTranslatef(-0.005f, 0.32f, 1.2f);
-                            }
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {

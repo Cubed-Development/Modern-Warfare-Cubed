@@ -527,9 +527,6 @@ public class KrissVectorFactory {
                                 Magazines.VectorDrumMag,
                                 Magazines.FamasF1Mag)
 
-                        .withFirstPersonCustomPositioning(Magazines.VectorMag, (renderContext) -> {
-                        })
-
                         .withThirdPersonPositioningReloading(
                                 new Transition((renderContext) -> {
                                     GL11.glScaled(0.5F, 0.5F, 0.5F);
@@ -597,150 +594,89 @@ public class KrissVectorFactory {
                         )
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
+                            ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                             GL11.glTranslatef(0.18f, -0.15f, 0.6f);
 
-                            ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.RAILING, renderContext.getWeaponInstance());
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(0F, 0.44f, 0.2f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.045f, -0.4f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MBUSRearSights)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MBUSRearSights)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(0F, 0.44f, 0.2f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.045f, -0.6f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(-0.005F, 0.42f, 0.6f);
-                                } else {
+                                else
                                     GL11.glTranslatef(-0.005F, 0.06f, 0.3f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(-0.005F, 0.48f, 0.95f);
-                                } else {
+                                else
                                     GL11.glTranslatef(-0.005F, 0.11f, -0.05f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(0F, 0.41f, 1.1f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.045f, 0.35f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(-0.005F, 0.45f, 0.3f);
-                                } else {
+                                else
                                     GL11.glTranslatef(-0.005F, 0.1f, -0.4f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(0F, 0.36f, 0.5f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.01f, 0.3f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(-0.005F, 0.365f, 0.3f);
-                                } else {
+                                else
                                     GL11.glTranslatef(-0.005F, 0.02f, 0.2f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(-0.005F, 0.45f, 0.3f);
-                                } else {
+                                else
                                     GL11.glTranslatef(-0.005F, 0.1f, 0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(-0.005F, 0.45f, 0.3f);
-                                } else {
+                                else
                                     GL11.glTranslatef(-0.005F, 0.1f, 0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(-0.005F, 0.47f, 0.65f);
-                                } else {
+                                else
                                     GL11.glTranslatef(-0.005F, 0.12f, -0.35f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(-0.005F, 0.46f, 0.4f);
-                                } else {
+                                else
                                     GL11.glTranslatef(-0.005F, 0.077f, -0.1f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(0F, 0.44f, 0.8f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.04f, -0.2f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(-0.005F, 0.46f, 0.8f);
-                                } else {
+                                else
                                     GL11.glTranslatef(-0.005F, 0.11f, 0.2f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(-0.005F, 0.46f, 0.8f);
-                                } else {
+                                else
                                     GL11.glTranslatef(-0.005F, 0.11f, 0.2f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                                if (activeAttachment == Attachments.RailRiser) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
+                                if (activeAttachment == Attachments.RailRiser)
                                     GL11.glTranslatef(0F, 0.25f, 0.8f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, -0.105f, 0.5f);
-                                }
                             }
                         })
 

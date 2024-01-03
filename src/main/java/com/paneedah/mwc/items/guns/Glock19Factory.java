@@ -357,13 +357,10 @@ public class Glock19Factory implements GunFactory {
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glTranslatef(0.142f, -0.4f, -1f);
 
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
+                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR))
                                 GL11.glTranslatef(0f, 0.23f, 1.4f);
-                            }
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex))
                                 GL11.glTranslatef(0f, 0.295f, 1.4f);
-                            }
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {

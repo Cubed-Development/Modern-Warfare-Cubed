@@ -141,13 +141,10 @@ public class TaurusRagingHunterFactory implements GunFactory {
 						.withFirstPersonPositioningZooming((renderContext) -> {
 							GL11.glTranslatef(0.188F, -0.295F, -1.3F);
 
-							if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
+							if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR))
 								GL11.glTranslatef(0f, 0.18f, 1.7f);
-							}
-
-							if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
+							else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex))
 								GL11.glTranslatef(0f, 0.28f, 2f);
-							}
 						})
 
 						.withFirstPersonPositioningModifying((renderContext) -> {

@@ -24,7 +24,7 @@ public class AUGFactory implements GunFactory {
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE)
                 .withMaxShots(1, Integer.MAX_VALUE)
-                .withMuzzlePosition(new Vec3d(-.15, -.9, -4.7))
+                .withMuzzlePosition(new Vec3d(-.15, -.8, -4.7))
                 .withShootSound("aug")
                 .withSilencedShootSound("m4a1_silenced")
                 .withEndOfShootSound("gun_click")
@@ -53,8 +53,7 @@ public class AUGFactory implements GunFactory {
                         -1f,
                         -2f,
                         3f)
-
-                .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
+                
                 .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
                 .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
                 .withCompatibleAttachment(Attachments.AUGA1handguard, (model) -> {
@@ -135,7 +134,7 @@ public class AUGFactory implements GunFactory {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
+                                AttachmentCategory.FRONTSIGHT, instance);
                         if (activeAttachment == Attachments.AUGA2handguard) {
                             GL11.glTranslatef(0F, 0F, 0F);
                             GL11.glScaled(1F, 1F, 1F);
@@ -213,7 +212,7 @@ public class AUGFactory implements GunFactory {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
+                                AttachmentCategory.FRONTSIGHT, instance);
                         if (activeAttachment == Attachments.AUGA2handguard) {
                             GL11.glTranslatef(-0.21F, -1.68F, -1.2F);
                             GL11.glScaled(0.75F, 0.75F, 0.75F);
@@ -232,7 +231,7 @@ public class AUGFactory implements GunFactory {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
+                                AttachmentCategory.FRONTSIGHT, instance);
                         if (activeAttachment == Attachments.AUGA2handguard) {
                             GL11.glTranslatef(-0.29F, -1.7F, 0.3F);
                             GL11.glScaled(0.7F, 0.7F, 0.7F);
@@ -254,7 +253,7 @@ public class AUGFactory implements GunFactory {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
+                                AttachmentCategory.FRONTSIGHT, instance);
                         if (activeAttachment == Attachments.AUGA2handguard) {
                             GL11.glTranslatef(-0.185F, -1.4F, -0.3F);
                             GL11.glScaled(0.42F, 0.42F, 0.42F);
@@ -273,7 +272,7 @@ public class AUGFactory implements GunFactory {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
+                                AttachmentCategory.FRONTSIGHT, instance);
                         if (activeAttachment == Attachments.AUGA2handguard) {
                             GL11.glTranslatef(-0.07F, -1.5F, -0.5F);
                             GL11.glScaled(0.45F, 0.45F, 0.45F);
@@ -292,7 +291,7 @@ public class AUGFactory implements GunFactory {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
+                                AttachmentCategory.FRONTSIGHT, instance);
                         if (activeAttachment == Attachments.AUGA2handguard) {
                             GL11.glTranslatef(-0.066F, -1.47F, -0.3F);
                             GL11.glScaled(0.45F, 0.45F, 0.45F);
@@ -311,7 +310,7 @@ public class AUGFactory implements GunFactory {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
+                                AttachmentCategory.FRONTSIGHT, instance);
                         if (activeAttachment == Attachments.AUGA2handguard) {
                             GL11.glTranslatef(-0.041F, -1.55F, -0.3F);
                             GL11.glScaled(0.65F, 0.65F, 0.65F);
@@ -330,7 +329,7 @@ public class AUGFactory implements GunFactory {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
+                                AttachmentCategory.FRONTSIGHT, instance);
                         if (activeAttachment == Attachments.AUGA2handguard) {
                             GL11.glTranslatef(-0.041F, -1.55F, -0.3F);
                             GL11.glScaled(0.65F, 0.65F, 0.65F);
@@ -349,7 +348,7 @@ public class AUGFactory implements GunFactory {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
+                                AttachmentCategory.FRONTSIGHT, instance);
                         if (activeAttachment == Attachments.AUGA2handguard) {
                             GL11.glTranslatef(-0.041F, -1.55F, -0.7F);
                             GL11.glScaled(0.65F, 0.65F, 0.65F);
@@ -373,7 +372,7 @@ public class AUGFactory implements GunFactory {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
+                                AttachmentCategory.FRONTSIGHT, instance);
                         if (activeAttachment == Attachments.AUGA2handguard) {
                             GL11.glTranslatef(-0.041F, -1.55F, -0F);
                             GL11.glScaled(0.65F, 0.65F, 0.65F);
@@ -392,7 +391,7 @@ public class AUGFactory implements GunFactory {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
+                                AttachmentCategory.FRONTSIGHT, instance);
                         if (activeAttachment == Attachments.AUGA2handguard) {
                             GL11.glTranslatef(-0.18F, -1.72F, -0.2F);
                             GL11.glScaled(0.38F, 0.38F, 0.38F);
@@ -411,7 +410,7 @@ public class AUGFactory implements GunFactory {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
+                                AttachmentCategory.FRONTSIGHT, instance);
                         if (activeAttachment == Attachments.AUGA2handguard) {
                             GL11.glTranslatef(-0.18F, -1.72F, -0.2F);
                             GL11.glScaled(0.38F, 0.38F, 0.38F);
@@ -430,7 +429,7 @@ public class AUGFactory implements GunFactory {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
                     if (instance != null) {
                         ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                AttachmentCategory.GUARD, instance);
+                                AttachmentCategory.FRONTSIGHT, instance);
                         if (activeAttachment == Attachments.AUGA2handguard) {
                             GL11.glTranslatef(-0.17F, -1.7F, 0F);
                             GL11.glScaled(0.32F, 0.32F, 0.32F);
@@ -553,162 +552,77 @@ public class AUGFactory implements GunFactory {
                                 Magazines.SOCOM_Mag,
                                 Magazines.AUG9mmMag)
 
-                        .withFirstPersonCustomPositioning(AuxiliaryAttachments.AUGAction.getRenderablePart(), (renderContext) -> {
-                            GL11.glTranslatef(0f, 0f, 0.0f);
-                        })
-
                         .withFirstPersonPositioningZooming((renderContext) -> {
+                            ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
+                                    AttachmentCategory.FRONTSIGHT, renderContext.getWeaponInstance());
                             GL11.glTranslatef(0.175F, -0.277F, -0.3F);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AKMIron)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AUGA2handguard) {
+                                if (activeAttachment == Attachments.AUGA2handguard)
                                     GL11.glTranslatef(0F, 0.47f, 0f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.17F, 0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AUGA2handguard) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
+                                if (activeAttachment == Attachments.AUGA2handguard)
                                     GL11.glTranslatef(0.003F, 0.55f, 0.45f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0.003F, 0.247F, 0.45f);
-                                }
-                            }
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AUGA2handguard) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
+                                if (activeAttachment == Attachments.AUGA2handguard)
                                     GL11.glTranslatef(0.005F, 0.57f, 0.4f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.27f, 0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AUGA2handguard) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
+                                if (activeAttachment == Attachments.AUGA2handguard)
                                     GL11.glTranslatef(0F, 0.52f, 0.65f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.18f, 0.5f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AUGA2handguard) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
+                                if (activeAttachment == Attachments.AUGA2handguard)
                                     GL11.glTranslatef(0F, 0.56f, 0.0f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.25f, 0.0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AUGA2handguard) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
+                                if (activeAttachment == Attachments.AUGA2handguard)
                                     GL11.glTranslatef(0F, 0.56f, 0.0f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.25f, 0.0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AUGA2handguard) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
+                                if (activeAttachment == Attachments.AUGA2handguard)
                                     GL11.glTranslatef(0F, 0.52f, 0.0f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.22f, 0.0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AUGA2handguard) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
+                                if (activeAttachment == Attachments.AUGA2handguard)
                                     GL11.glTranslatef(0F, 0.48f, 0.0f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.22f, 0.0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AUGA2handguard) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
+                                if (activeAttachment == Attachments.AUGA2handguard)
                                     GL11.glTranslatef(0F, 0.55f, 0.0f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.23f, 0.0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AUGA2handguard) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
+                                if (activeAttachment == Attachments.AUGA2handguard)
                                     GL11.glTranslatef(0F, 0.55f, 0.0f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.23f, 0.0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AUGA2handguard) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
+                                if (activeAttachment == Attachments.AUGA2handguard)
                                     GL11.glTranslatef(0.005F, 0.57f, 0.4f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0.005F, 0.25f, 0.2f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AUGA2handguard) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
+                                if (activeAttachment == Attachments.AUGA2handguard)
                                     GL11.glTranslatef(0F, 0.56f, -0.1f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.24f, -0.1f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AK15ironsight)) {
-
-                                GL11.glTranslatef(0F, 0.008f, 0f);
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                                ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(
-                                        AttachmentCategory.GUARD, renderContext.getWeaponInstance());
-                                if (activeAttachment == Attachments.AUGA2handguard) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
+                                if (activeAttachment == Attachments.AUGA2handguard)
                                     GL11.glTranslatef(0F, 0.45f, 0.0f);
-                                } else {
+                                else
                                     GL11.glTranslatef(0F, 0.15f, 0f);
-                                }
-                            }
-
-
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AUGscope)) {
+                            } else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AUGscope)) {
                                 GL11.glTranslatef(0F, 0.17f, 0.4f);
                             }
                         })

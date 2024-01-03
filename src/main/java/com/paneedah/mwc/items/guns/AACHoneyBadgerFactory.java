@@ -363,7 +363,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                     if(model instanceof Reflex2) {
                         GL11.glTranslatef(0.08F, 0.97F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    } else if (model instanceof SightMount) {
                     }
                 })
 
@@ -581,8 +580,6 @@ public class AACHoneyBadgerFactory implements GunFactory {
                         }
                     }
                 },(model) -> {
-                    if(model instanceof AACHoneyBadgerSilencer) {
-                    }
                 }, true, false)
 
                 // BUILDS THE GUN
@@ -709,89 +706,40 @@ public class AACHoneyBadgerFactory implements GunFactory {
                             GL11.glTranslatef(0.178F, -0.03F, 0.3F);
 
                             // Standard Iron Sight Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), AuxiliaryAttachments.AR15Iron)) {
+                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), AuxiliaryAttachments.AR15Iron))
                                 GL11.glTranslatef(0F, 0.038f, -0.3f);
-                            }
-
-                            // Standard Iron Sight Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights))
                                 GL11.glTranslatef(0F, 0.03f, 0f);
-                            }
-
-                            // Standard Iron Sight Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex))
                                 GL11.glTranslatef(0F, 0.035f, 0.2f);
-                            }
-
-                            // Standard Iron Sight Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider))
                                 GL11.glTranslatef(0.001F, 0.035f, 0.45f);
-                            }
-
-                            // ACOG Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG))
                                 GL11.glTranslatef(-0.01F, 0.027f, 0.6f);
-                            }
-
-                            // ACOG Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter))
                                 GL11.glTranslatef(-0.003F, -0.05f, 0.55f);
-                            }
-
-                            // HP Zoomw
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope))
                                 GL11.glTranslatef(-0.001F, -0.022f, 0.1f);
-                            }
-
-                            // Reflex Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex))
                                 GL11.glTranslatef(0F, -0.015f, 0.1f);
-                            }
-
-                            // Reflex Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex))
                                 GL11.glTranslatef(0F, -0.03f, 0.2f);
-                            }
-
-                            // Holo Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic))
                                 GL11.glTranslatef(-0.003F, 0.02f, 0f);
-                            }
-
-                            // Holo Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt))
                                 GL11.glTranslatef(-0.003F, 0.02f, 0f);
-                            }
-
-                            // Holo Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2))
                                 GL11.glTranslatef(0F, 0.025f, 0.55f);
-                            }
-
-                            // Holo Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux))
                                 GL11.glTranslatef(0F, 0.06f, 0f);
-                            }
-
-                            // Reflex Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra))
                                 GL11.glTranslatef(0F, 0.035f, 0.2f);
-                            }
-
-                            // Reflex Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3))
                                 GL11.glTranslatef(0F, 0.035f, 0.2f);
-                            }
-
-                            // Reflex Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1))
                                 GL11.glTranslatef(0F, 0.055f, 0.5f);
-                            }
-
-                            // Reflex Zoom
-                            if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5)) {
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5))
                                 GL11.glTranslatef(0F, 0.055f, 0.5f);
-                            }
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {
