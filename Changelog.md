@@ -122,6 +122,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Fixed
 
+- Fix the aiming position and flame position of all v2 weapons
+- Fix some misplaced attachment for v2 weapons
+- Fix some v2 weapon attachment that cannot be installed/uninstalled
 - Fixed modifying the number of bullets through memory
 - Fixed some issues with incorrect weapon shell throwing
 - Fixed the perspective issue with MP7ironsightsstanding
