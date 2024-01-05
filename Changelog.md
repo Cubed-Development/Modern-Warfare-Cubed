@@ -178,17 +178,17 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed custom skin system not using the Minecraft missing texture
 - Fixed multiple `ResourceLocation`  in the `PostProcessPipeline` being incorrect leading to missing textures
 - Fixed fog rendering ignoring if fog should render
-- Fixed depth testing being disabled in the world post processing causing issue with first person hand rendering
+- Fixed depth testing being disabled in the world post-processing causing issues with first person hand rendering
 - Fixed the issue where fog was hardcoded to be disabled
-- Fixed world post processing never rendering due to bandage fix
-- Fixed world post processing causing a white screen
+- Fixed world post-processing never rendering due to bandage fix
+- Fixed world post-processing causing a white screen
 - Fixed `onScreenRainAndSnow` missing lang entries
 - Fixed `enableFancyRainAndSnow` missing lang entries
 - Fixed `enableFancyRainAndSnow` having the lang entries for `onScreenRainAndSnow`
 - Fixed fancy rain and snow never replacing vanilla rain and snow
 - Fixed entities not having a prefix causing collisions with other mods
 - Fixed ammunition press animating even when it wasn't actively crafting
-- Fixed ammunition press setting the ammunition of the magazines after they where crafted when this isn't necessary anymore
+- Fixed ammunition press setting the ammunition of the magazines after they were crafted when this isn't necessary anymore
 - Fixed tooltip formatting in the ammunition press
 - Fixed workbench and ammunition press handling their inventory stack by stack instead of all at once
 - Fixed position of the backpacks in inventory
@@ -204,7 +204,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed the exposure decreasing on the client side even when the game is paused
 - Fixed spectators being able to shoot weapons
 - Fixed the spawning position of the shells
-- Bullet spawning maths which was making the bullets spawn in inaccurate position
+- Fixed the VSS Vintorez having a flash when it shouldn't
+- Fixed bullet spawning maths which was making the bullets spawn in an inaccurate position
 
 ### Removed
 
@@ -221,14 +222,14 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 ### Optimization
 
-- As a result of a BIG code cleanup, MWC as a whole should now be slightly faster, load slightly faster and use slightly less resources
-- As a result of the equipment overhaul, MWC should use less ram and lag less when rendering equipment
+- As a result of a BIG code cleanup, MWC as a whole should now be slightly faster, load slightly faster, and use slightly less resources
+- As a result of the equipment overhaul, MWC should use less RAM and lag less when rendering equipment
 - As a result of networking improvements, MWC should use less bandwidth and consume less resources as well as have less latency
 - Losslessly compressed assets as a result, the jar size decreased (35.3MB -> 27.57MB)
 - Improved ShaderLoader
 - Reduced overhead due to the removal of most of the compatibility layer leading to increased performance
 - Overhauled the networking, MWC as a whole should be more responsive and use less bandwidth
-- Optimized a majority of the models as a result,the jar size decreased (27.57MB -> 21.55MB)
+- Optimized a majority of the models as a result, the jar size decreased (27.57MB -> 21.55MB)
 
 ### Internal
 
