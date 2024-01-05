@@ -34,7 +34,6 @@ public class VSSVintorezFactory {
         .withConfigGroup(GunConfigurationGroup.LONG_RANGE_RIFLES)
         .withMuzzlePosition(new Vec3d (-0.13200000393390654, -0.7959999939203257, -6.976000014185902))
         .withMaxShots(1, Integer.MAX_VALUE)
-        //.withMaxShots(5)
         .withShootSound("vss_vintorez")
         .withSilencedShootSound("ak15_silenced")
         .withReloadSound("ak15_reload")
@@ -45,7 +44,7 @@ public class VSSVintorezFactory {
         .withCrosshair("gun")
         .withCrosshairRunning("Running")
         .withCrosshairZoomed("Sight")
-        .withFlashIntensity(0.4f)
+        .withFlashIntensity(0.0f)
         .withFlashScale(() -> 0.4f)
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.11f)
@@ -70,14 +69,6 @@ public class VSSVintorezFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Special Sniper Rifle",
-        "Damage: 7", 
-        "Cartridge: 9x39mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 70/100",
-        "Magazines:",
-        "20rnd 9x39mm Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2f, // x 
