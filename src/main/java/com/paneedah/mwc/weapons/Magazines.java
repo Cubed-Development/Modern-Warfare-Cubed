@@ -665,7 +665,7 @@ public class Magazines {
                 .withCompatibleBullet(Bullets.Bullet9x18mm)
                 .withName("MakarovMag")
                 .withRequiredAttachments(Attachments.MakarovSlide, Attachments.MakarovPBBody)
-                .withModel(new MakarovMag(), "makarovmag.png")
+                .withModel(new MakarovMag(), "makarovpm.png")
                 .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
