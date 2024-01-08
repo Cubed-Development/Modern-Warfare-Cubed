@@ -1895,9 +1895,9 @@ public class Attachments {
 
         MakarovSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
-                .withModel(new MakarovPMSlide(), "gun.png")
-                .withOnWeaponModel(new makarovrearsight(), "gun.png")
-                .withOnWeaponModel(new makarovfrontsight(), "gun.png")
+                .withModel(new MakarovPMSlide(), "makarovpm.png")
+                .withOnWeaponModel(new makarovrearsight(), "makarovpm.png")
+                .withOnWeaponModel(new makarovfrontsight(), "makarovpm.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -1907,8 +1907,8 @@ public class Attachments {
 
         MakarovPBSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
-                .withModel(new MakarovPBSSlide(), "gun.png")
-                .withOnWeaponModel(new makarovrearsight(), "gun.png")
+                .withModel(new MakarovPBSSlide(), "makarovpm.png")
+                .withOnWeaponModel(new makarovrearsight(), "makarovpm.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2),
@@ -1931,7 +1931,7 @@ public class Attachments {
                 .withCategory(AttachmentCategory.BACKGRIP)
                 .withRequiredAttachments(Attachments.MakarovPBSlide)
                 .withModel(new MakarovPBBody(), "makarovpm.png")
-                .withOnWeaponModel(new makarovfrontsight(), "gun.png")
+                .withOnWeaponModel(new makarovfrontsight(), "makarovpm.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
                         new CraftingEntry(MWCItems.gunmetalIngot, 3),
