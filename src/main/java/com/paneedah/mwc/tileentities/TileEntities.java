@@ -128,7 +128,7 @@ public class TileEntities {
                 .withModelClassName("SupplyDrop")
                 .withTextureName("supplydrop")
                 .withCreativeTab(MWC.PROPS_TAB)
-                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.3, 0, -0.6, 1.3, 1.45, 1.6)))
+                .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.3, 0, -0.6, 1.3, 1.2, 1.6)))
                 .withTransform(Transform.getZero()
                         .withScale(0.5F, 0.5F, 0.5F)
                         .withPosition(0, 0.75F, 0))
