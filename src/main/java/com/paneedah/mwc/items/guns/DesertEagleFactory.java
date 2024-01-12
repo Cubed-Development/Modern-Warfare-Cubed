@@ -63,36 +63,15 @@ public class DesertEagleFactory implements GunFactory {
         })
         .withCompatibleAttachment(Magazines.DesertEagleMag, (model) -> {
         })
-        .withCompatibleAttachment(Attachments.DesertEagleLongBody, (model) -> {
-        })
         .withCompatibleAttachment(Attachments.DesertEagleBodyGolden, (model) -> {
         })
         .withCompatibleAttachment(Attachments.DesertEagleSlideGolden, (model) -> {
         })
-        .withCompatibleAttachment(Attachments.DesertEagleBodyBlack, (model) -> {
+        .withCompatibleAttachment(Attachments.Laser, (model) -> {
+             GL11.glTranslatef(0.01F, -0.76F, -2.4F);
+             GL11.glScaled(1.1F, 1.1F, 1.1F);
+             GL11.glRotatef(-90F, 0f, 0f, -4f);
         })
-        .withCompatibleAttachment(Attachments.DesertEagleSlideBlack, (model) -> {
-        })
-        .withCompatibleAttachment(Attachments.Laser, renderContext -> {
-            PlayerWeaponInstance instance = renderContext.getWeaponInstance();
-            if(instance != null) {
-               ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.BACKGRIP, instance);
-            if(activeAttachment == Attachments.DesertEagleLongBody) {
-                GL11.glTranslatef(0.01F, -0.76F, -3.0F);
-                GL11.glScaled(1.1F, 1.1F, 1.1F);
-                GL11.glRotatef(-90F, 0f, 0f, -4f);
-            } else {
-                GL11.glTranslatef(0.01F, -0.76F, -2.4F);
-                GL11.glScaled(1.1F, 1.1F, 1.1F);
-                GL11.glRotatef(-90F, 0f, 0f, -4f);
-            }
-        }
-                },(model) -> {
-                    if(model instanceof Reflex2) {
-                        GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    }
-                }, false, false)
 		
         .withCompatibleAttachment(Attachments.RMR, () -> {
                 GL11.glTranslatef(-0.19F, -1.5F, -1.25F);
@@ -118,8 +97,7 @@ public class DesertEagleFactory implements GunFactory {
             .withModel(new Glock18C())
 			.withActionPiece(
 			    Attachments.DesertEagleSlide,
-				Attachments.DesertEagleSlideGolden,
-				Attachments.DesertEagleSlideBlack)
+				Attachments.DesertEagleSlideGolden)
 		    .withActionTransform(new Transform().withPosition(0F, 0F, 0.6F))
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
@@ -135,13 +113,13 @@ public class DesertEagleFactory implements GunFactory {
                 GL11.glTranslatef(-1.6F, -1F, 1.8F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
-                })
+            })
             
             .withFirstPersonPositioning(
-					new Transform()
-					.withPosition(-0.845000f, 4.165000f, -8.145000f)
-					.withRotation(0.000000f, -2.000000f, 0.681469f)
-					.withPivotPoint(-0.12000000357627871F, -0.36000001072883614F, 0.040000001192092904F)
+		    new Transform()
+		    .withPosition(-0.845000f, 4.165000f, -8.145000f)
+		    .withRotation(0.000000f, -2.000000f, 0.681469f)
+		    .withPivotPoint(-0.12000000357627871F, -0.36000001072883614F, 0.040000001192092904F)
                     .withScale(3.0F, 3.0F, 3.0F)
                 )
                 
@@ -168,7 +146,6 @@ public class DesertEagleFactory implements GunFactory {
                 .setupModernAnimations("deagle", Attachments.DesertEagleSlide)
                 .setupModernMagazineAnimations("deagle", Magazines.DesertEagleMag)
                 .setupCustomKeyedPart(Attachments.DesertEagleSlideGolden, "deagle", BBLoader.KEY_ACTION)
-                .setupCustomKeyedPart(Attachments.DesertEagleSlideBlack, "deagle", BBLoader.KEY_ACTION)
                 
             .withFirstPersonCustomPositioning(Attachments.DesertEagleSlide.getRenderablePart(), (renderContext) -> {
                 if(renderContext.getWeaponInstance().getAmmo() == 0) {
@@ -176,11 +153,6 @@ public class DesertEagleFactory implements GunFactory {
                 }
             })
             .withFirstPersonCustomPositioning(Attachments.DesertEagleSlideGolden.getRenderablePart(), (renderContext) -> {
-                if(renderContext.getWeaponInstance().getAmmo() == 0) {
-                    GL11.glTranslatef(0F, 0F, 0.6F);
-                }
-            })
-            .withFirstPersonCustomPositioning(Attachments.DesertEagleSlideBlack.getRenderablePart(), (renderContext) -> {
                 if(renderContext.getWeaponInstance().getAmmo() == 0) {
                     GL11.glTranslatef(0F, 0F, 0.6F);
                 }
