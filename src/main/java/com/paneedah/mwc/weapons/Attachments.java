@@ -492,11 +492,8 @@ public class Attachments {
     public static ItemAttachment<Weapon> SamuraiEdgeMount;
     public static ItemAttachment<Weapon> DesertEagleBody;
     public static ItemAttachment<Weapon> DesertEagleSlide;
-    public static ItemAttachment<Weapon> DesertEagleLongBody;
     public static ItemAttachment<Weapon> DesertEagleBodyGolden;
     public static ItemAttachment<Weapon> DesertEagleSlideGolden;
-    public static ItemAttachment<Weapon> DesertEagleBodyBlack;
-    public static ItemAttachment<Weapon> DesertEagleSlideBlack;
     public static ItemAttachment<Weapon> Glock19Body;
     //    public static ItemAttachment<Weapon> Glock18CBody;
     public static ItemAttachment<Weapon> Glock19XBody;
@@ -1648,13 +1645,6 @@ public class Attachments {
                 .withRenderablePart()
                 .build();
 
-        DesertEagleLongBody = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.BACKGRIP)
-                .withModel(new DesertEagleLong(), "Deagle.png")
-                .withName("DesertEagleLongBody")
-                .withRenderablePart()
-                .build();
-
         DesertEagleBodyGolden = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
                 .withModel(new DesertEagle(), "deaglegolden.png")
@@ -1666,20 +1656,6 @@ public class Attachments {
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new DesertEagleSlide(), "deaglegolden.png")
                 .withName("DesertEagleSlideGolden")
-                .withRenderablePart()
-                .build();
-
-        DesertEagleBodyBlack = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.BACKGRIP)
-                .withModel(new DesertEagle(), "deagleblack.png")
-                .withName("DesertEagleBodyBlack")
-                .withRenderablePart()
-                .build();
-
-        DesertEagleSlideBlack = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.FRONTSIGHT)
-                .withModel(new DesertEagleSlide(), "deagleblack.png")
-                .withName("DesertEagleSlideBlack")
                 .withRenderablePart()
                 .build();
 
@@ -3454,7 +3430,7 @@ public class Attachments {
                         MIMP5TRRail, MIMP5MRail, ShotgunRail, FABDefenseMount,
                         Placeholder, Kar98Krail, M60Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, Attachments.EF88Handguard, KrissVectorReceiver,
-                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideBlack, DesertEagleSlideGolden, M1CarbineScoutHandguard,
+                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideGolden, M1CarbineScoutHandguard,
 			Origin12Grip, HKS20Grip, HoneyBadgerKnightsReceiver, HoneyBadgerKnightsReceiverBlack,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, SSG08Chassis, SA58DustCover,
                         M16A1ScopeMount, UMP45Receiver, UMP9Receiver, G2ContenderBarrelLong, S710Receiver,
@@ -3806,7 +3782,7 @@ public class Attachments {
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver,
                         Attachments.EF88Handguard, KrissVectorReceiver, B51ScopeMountRail,
-                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideBlack, DesertEagleSlideGolden, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
+                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideGolden, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, MAS21Mount, APC9Placeholder,
                         MAC21Stock, VSSMDustCover, Dragunov98DustCover)
                 .withName("RMRsight")
@@ -3830,7 +3806,7 @@ public class Attachments {
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver,
                         Attachments.EF88Handguard, KrissVectorReceiver, B51ScopeMountRail,
-                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideBlack, DesertEagleSlideGolden, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
+                        Vector556Handguard, DesertEagleSlide, DesertEagleSlideGolden, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, MAS21Mount, APC9Placeholder,
                         MAC21Stock, VSSMDustCover, Dragunov98DustCover)
                 .withName("LeupoldDeltapointPro")
