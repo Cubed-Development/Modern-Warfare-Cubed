@@ -131,7 +131,7 @@ public class TileEntities {
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(-0.3, 0, -0.6, 1.3, 1.45, 1.6)))
                 .withTransform(Transform.getZero()
                         .withScale(0.5F, 0.5F, 0.5F)
-                        .withPosition(0, 1F, 0))
+                        .withPosition(0, 0.75F, 0))
                 .modern());
 
         props.add(new LootBoxConfiguration()
