@@ -614,7 +614,7 @@ public class Magazines {
                 .withCompatibleBullet(Bullets.Bullet50AE)
                 .withName("DesertEagleMag")
                 .withRotationPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
-                .withModel(new DesertEagleMag(), "deagle.png")
+                .withModel(new DesertEagleMag(), "gun.png")
                 .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
