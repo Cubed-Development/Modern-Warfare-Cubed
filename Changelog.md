@@ -55,6 +55,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - New Attachments for G36C
 - New Attachments for Uzi
 - Added PGM Hécate II(WIP)
+- Added PP-19 Vityaz
 - Improved and added variants Tan Color of the front grips
 
 ### Changed
@@ -119,6 +120,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Renewed AUG(WIP)
 - Renewed MP-40(WIP)
 - Removed the small tilt on handguns such as the Desert Eagle and some Revolvers
+- New model for IMI Desert Eagle 
 
 ### Fixed
 
@@ -213,6 +215,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Deleted broken Hescobastion and UMP45GFL props
 - Removed the vanilla ability to disable shaders with F4 (this allowed for flash to be disabled)
 - Removed the `WIP` status of the flashbang as it is fully usable and reliable
+- Removed some Attachments Deagle
 
 ### Optimization
 
