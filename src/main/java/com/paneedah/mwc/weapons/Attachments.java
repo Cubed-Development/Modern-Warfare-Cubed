@@ -584,6 +584,15 @@ public class Attachments {
     public static ItemAttachment<Weapon> B51ScopeMountRail;
     public static ItemAttachment<Weapon> B50PKMHandguard;
     public static ItemAttachment<Weapon> B50PKPHandguard;
+	
+    public static ItemAttachment<Weapon> DeltaTekMPIFlashhider;
+    public static ItemAttachment<Weapon> AKSStock;
+    public static ItemAttachment<Weapon> PP1901HandGuard;
+    public static ItemAttachment<Weapon> PP1901HandGuardB10;
+    public static ItemAttachment<Weapon> PP1901HandGuardMagpul;
+    public static ItemAttachment<Weapon> PP1901Grip;
+    public static ItemAttachment<Weapon> RK9Grip;
+    public static ItemAttachment<Weapon> RailMountB22;
 
     public static void init() {
         G11HandguardK1 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
@@ -5172,6 +5181,46 @@ public class Attachments {
                 .withModel(new PT2Stock(), "pkm.png")
                 .withRenderablePart()
                 .withName("PT2Stock")
+                .build();
+				
+        DeltaTekMPIFlashhider = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
+                .withModel(new DeltaTekMPIFlashHider(), "pp1901.png")
+                .withName("Delta_Tek_MPI_flashhider")
+                .build();
+	
+        PP1901HandGuardMagpul = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new PP1901HandguardMagpul(), "pp1901.png")
+                .withName("PP1901HandGuardMagpul")
+                .build();
+	
+        PP1901HandGuardB10 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new PP1901HandguardB10(), "pp1901.png")
+                .withName("PP1901HandGuardB10")
+                .build();
+	
+        PP1901HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new PP1901Handguard(), "pp1901.png")
+                .withName("PP1901HandGuard")
+                .build();
+	
+        AKSStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+                .withModel(new AKSStock(), "pp1901.png")
+                .withName("AKSStock")
+                .build();
+	
+        RailMountB22 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
+                .withModel(new RailMountB22(), "pp1901.png")
+                .withName("RailMountB22")
+                .build();
+	
+        PP1901Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
+                .withModel(new PP1901Grip(), "pp1901.png")
+                .withName("PP1901Grip")
+                .build();
+				
+        RK9Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
+                .withModel(new RK9Grip(), "pp1901.png")
+                .withName("RK9Grip")
                 .build();
     }
 }

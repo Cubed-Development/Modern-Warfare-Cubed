@@ -120,6 +120,7 @@ public class Magazines {
     public static ItemMagazine HoneyBadgerMag;
     public static ItemMagazine VectorMag;
     public static ItemMagazine VectorDrumMag;
+    public static ItemMagazine PP1901Mag;
     public static ItemMagazine DesertEagleMag;
     public static ItemMagazine M60Mag;
     public static ItemMagazine M249Mag;
@@ -609,6 +610,13 @@ public class Magazines {
                 .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
+	    Magazines.PP1901Mag = new ItemMagazine.Builder()
+                .withCapacity(30).withCompatibleBullet(Bullets.Bullet9x19mm)
+                .withName("PP1901Mag")
+                .withModel(new PP1901Mag(), "pp1901.png")
+                .withMaxStackSize(6)
+                .build(ItemMagazine.class);
+				
         Magazines.DesertEagleMag = new ItemMagazine.Builder()
                 .withCapacity(7)
                 .withCompatibleBullet(Bullets.Bullet50AE)

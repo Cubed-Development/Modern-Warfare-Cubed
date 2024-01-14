@@ -117,6 +117,7 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> R870part;
     public static ItemAttachment<Weapon> KedrAction;
     public static ItemAttachment<Weapon> KedrStock;
+    public static ItemAttachment<Weapon> PP1901Action;
     public static ItemAttachment<Weapon> MP7Grip;
     public static ItemAttachment<Weapon> VP70slide;
     public static ItemAttachment<Weapon> HESCSpump;
@@ -728,6 +729,13 @@ public class AuxiliaryAttachments {
 
                 .build();
 
+	    PP1901Action = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.EXTRA)
+                .withModel(new PP1901Action(), "pp1901.png")
+                .withName("PP1901Action")
+                .withRenderablePart()
+                .build();
+				
         MP7Grip = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.EXTRA)
                 // .withCreativeTab(MWC.gunsTab)

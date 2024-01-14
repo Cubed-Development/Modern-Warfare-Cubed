@@ -35,6 +35,7 @@ public class Guns {
     public static Item MP443;
     public static Item AK12_kal;
     public static Item AK15;
+    public static Item PP1901Vityaz;
     public static Item KBP9A91;
     public static Item Kedr;
     public static Item VSSVintorez;
@@ -187,6 +188,7 @@ public class Guns {
         AK101 = new AK101Factory().createGun(proxy);
         AK74 = new AK74Factory().createGun(proxy);
         KBP9A91 = new KBP9A91Factory().createGun(proxy);
+        PP1901Vityaz = new PP1901VityazFactory().createGun(proxy);
         K2C1 = new K2C1Factory().createGun(proxy);
 
         ScarH = new ScarHFactory().createGun(proxy);
