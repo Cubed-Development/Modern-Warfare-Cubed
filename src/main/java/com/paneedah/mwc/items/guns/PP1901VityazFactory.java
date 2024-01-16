@@ -455,7 +455,7 @@ public class PP1901VityazFactory {
                                 })
 
                         .build())
-                .withSpawnEntityDamage(7f)
+                .withSpawnEntityDamage(5.5f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
                 .build(MWC.modContext);
