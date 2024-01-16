@@ -246,6 +246,7 @@ item.fiveseven.name=FN Five-Seven
 item.zbroyar_z10.name=Zbroyar-Z10
 item.malyuk.name=Malyuk
 item.pgm_hecate_ii.name=PGM Hecate II
+item.pp19vityaz.name=PP-19-01 Vityaz
 item.turret.name=Automated Turret
 item.turretupgraded.name=Automated Turret vers.2
 item.turretsilenced.name=Automated Turret vers.SA
@@ -371,7 +372,7 @@ item.mwc_AK74Mag60.name=60rnd 5.45x39mm 74 Magazine
 item.mwc_AK75Mag545x39.name=75rnd 5.45x39mm Drum Magazine
 item.mwc_AK12Mag_2.name=30rnd 5.45x39mm 12 Magazine
 item.mwc_Z10Mag.name=10rnd 7.62x51mm NATO Z10 Magazine
-
+item.mwc_PP1901Mag.name=30rnd 9x19mm Magazine(PP-19 vityaz)
 
 item.mwc_Bullet765x21.name=7.65x21mm Bullet
 item.mwc_Bullet9x18mm.name=9x18mm Bullet
@@ -736,7 +737,7 @@ item.mwc_JunoGripTan.name=Juno Grip (Tan)
 item.mwc_VGrip.name=Foregrip
 item.mwc_VGripTan.name=Foregrip (Tan)
 item.mwc_StubbyGrip.name=Stubby Grip
-item.mwc_StubbyGrip.name=Stubby Grip (Tan)
+item.mwc_StubbyGripTan.name=Stubby Grip (Tan)
 item.mwc_MP5HOGUEGrip.name=MP5 Hogue Grip
 item.mwc_GlockHogueGrip.name=Glock Hogue Grip
 item.mwc_GlockHogueGripTan.name=Glock Hogue Grip (Tan)

@@ -24,7 +24,7 @@ public class DesertEagleFactory implements GunFactory {
         .withRecoil(5f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SIDEARM)
-        .withMuzzlePosition(new Vec3d(-0.14400000429153445, -0.8639999959468836, -2.755999876499175))
+        .withMuzzlePosition(new Vec3d(-0.14400000429153445, -0.8639999959468836, -2.855999876499175))
         .withShellType(Type.PISTOL)
         .withMaxShots(1)
         .withShootSound("desert_eagle")
@@ -109,7 +109,7 @@ public class DesertEagleFactory implements GunFactory {
                 GL11.glRotatef(-120F, -0.5f, 7f, 3f);
             })
             .withThirdPersonPositioning((renderContext) -> {
-                GL11.glScaled(0.6F, 0.6F, 0.6F);
+                GL11.glScaled(0.45F, 0.45F, 0.45F);
                 GL11.glTranslatef(-1.6F, -1F, 1.8F);
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
@@ -117,7 +117,7 @@ public class DesertEagleFactory implements GunFactory {
             
             .withFirstPersonPositioning(
 		    new Transform()
-		    .withPosition(-0.845000f, 4.165000f, -8.145000f)
+		    .withPosition(-1.145000f, 4.165000f, -8.295000f)
 		    .withRotation(0.000000f, -2.000000f, 0.681469f)
 		    .withPivotPoint(-0.12000000357627871F, -0.36000001072883614F, 0.040000001192092904F)
                     .withScale(3.0F, 3.0F, 3.0F)
@@ -163,11 +163,11 @@ public class DesertEagleFactory implements GunFactory {
                 GL11.glTranslatef(0.14f, 0.92f, -2.3f);
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR)) {
-                	GL11.glTranslatef(0f, 0.21f, 0.24f);
+                	GL11.glTranslatef(0f, 0.2f, 0.24f);
                 } 
                 
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
-                    GL11.glTranslatef(0f, 0.26f, 0.24f);
+                    GL11.glTranslatef(0f, 0.2f, 0.24f);
                 } 
 
                 else {

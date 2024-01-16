@@ -5,9 +5,7 @@ import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.weapons.Attachments;
-import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Magazines;
+import com.paneedah.mwc.weapons.*;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
@@ -261,7 +259,6 @@ public class M200InterventionFactory implements GunFactory {
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.35F, 0.35F, 0.35F);
                             GL11.glTranslatef(0, 0f, 3f);
-                            GL11.glRotatef(0F, 0f, 0f, 4f);
                         })
                         .withInventoryPositioning(itemStack -> {
                             GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -277,14 +274,13 @@ public class M200InterventionFactory implements GunFactory {
 
                         .withFirstPersonPositioning(
                                 new Transform()
-                                        .withPosition(-2.265000f, 5.605000f, -5.005000f)
+                                        .withPosition(-2.265000f, 5.405000f, -5.455000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(0.610000f, -2.780000f, 3.300000f)
                                         .withScale(3.0f, 3.0f, 3.0f)
                         )
 
                         .withFirstPersonHandPositioning(
-
 
                                 new Transform()
                                         .withPosition(1.410000f, -0.175000f, 0.580000f)

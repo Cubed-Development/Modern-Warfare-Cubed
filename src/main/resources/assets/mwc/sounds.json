@@ -584,15 +584,6 @@
       }
     ]
   },
-  "sr3_vikhr": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:sr3_vikhr",
-       "stream": false
-      }
-    ]
-  },
   "mp443": {
     "category": "master",
     "sounds": [
@@ -1196,24 +1187,6 @@
       }
     ]
   },
-  "csa16": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:csa16",
-       "stream": false
-      }
-    ]
-  },
-  "csa16_pump_action": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:csa16_pump_action",
-       "stream": false
-      }
-    ]
-  },
   "gpca1": {
     "category": "master",
     "sounds": [
@@ -1340,15 +1313,6 @@
       }
     ]
   },
-  "m56": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:m56",
-       "stream": false
-      }
-    ]
-  },
   "rpg7": {
     "category": "master",
     "sounds": [
@@ -1363,15 +1327,6 @@
     "sounds": [
       {
        "name": "mwc:ssg42",
-       "stream": false
-      }
-    ]
-  },
-  "har27": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:har27",
        "stream": false
       }
     ]
@@ -1399,15 +1354,6 @@
     "sounds": [
       {
        "name": "mwc:sl8",
-       "stream": false
-      }
-    ]
-  },
-  "dl44": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:dl44",
        "stream": false
       }
     ]
@@ -1979,15 +1925,6 @@
       }
     ]
   },
-  "g95": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:g95",
-       "stream": false
-      }
-    ]
-  },
   "p12": {
     "category": "master",
     "sounds": [
@@ -2114,15 +2051,6 @@
       }
     ]
   },
-  "c8_sfw": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:c8_sfw",
-       "stream": false
-      }
-    ]
-  },
   "ax50_boltaction": {
     "category": "master",
     "sounds": [
@@ -2200,24 +2128,6 @@
     "sounds": [
       {
        "name": "mwc:r700_boltaction",
-       "stream": false
-      }
-    ]
-  },
-  "m4a4": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:m4a4",
-       "stream": false
-      }
-    ]
-  },
-  "akmvulcan": {
-    "category": "master",
-    "sounds": [
-      {
-       "name": "mwc:akmvulcan",
        "stream": false
       }
     ]

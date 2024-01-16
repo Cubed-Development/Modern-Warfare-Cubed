@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 
 
 public class PP1901VityazFactory {
