@@ -121,6 +121,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Renewed MP-40(WIP)
 - Removed the small tilt on handguns such as the Desert Eagle and some Revolvers
 - New model for IMI Desert Eagle 
+- New Model for Bipod
 
 ### Fixed
 
