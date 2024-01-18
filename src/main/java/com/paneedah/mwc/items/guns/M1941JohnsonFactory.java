@@ -70,7 +70,6 @@ public class M1941JohnsonFactory {
             .withModel(new JohnsonLMG())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(0F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);

@@ -49,12 +49,12 @@ public class M1911Factory implements GunFactory {
                         1f)
 
                 .withRecoilParam(new RecoilParam(
-                        65.0,
-                        13.125,
-                        30.0,
-                        0.3625,
-                        0.325,
-                        0.020,
+                        45.0,
+                        13.5,
+                        37.5,
+                        0.425,
+                        0.2125,
+                        0.0,
                         0.0,
                         1.0
                 ))
@@ -119,7 +119,6 @@ public class M1911Factory implements GunFactory {
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.4F, 0.4F, 0.4F);
                             GL11.glTranslatef(0, 0f, 3f);
-                            GL11.glRotatef(0F, 0f, 0f, 4f);
                         })
                         .withInventoryPositioning(itemStack -> {
                             GL11.glScaled(0.35F, 0.35F, 0.35F);

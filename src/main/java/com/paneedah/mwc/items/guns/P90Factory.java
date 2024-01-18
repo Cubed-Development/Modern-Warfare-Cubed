@@ -350,14 +350,12 @@ public class P90Factory {
                 })
                 .withTextureNames("p90")
                 .withRenderer(new WeaponRenderer.Builder()
-
                         .withModel(new P90())
                         .withADSBeizer(new Vec3d(0.2F, 6, -1))
 
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.35F, 0.35F, 0.35F);
                             GL11.glTranslatef(0, 0f, 3f);
-                            GL11.glRotatef(0F, 0f, 0f, 4f);
                         })
                         .withInventoryPositioning(itemStack -> {
                             GL11.glScaled(0.28F, 0.28F, 0.28F);

@@ -40,14 +40,14 @@ public class DesertEagleFactory implements GunFactory {
         .withCreativeTab(MWC.WEAPONS_TAB)
         .useNewSystem()
         .withRecoilParam(new RecoilParam(
-        		45.0,
-        		13.5,
-        		37.5,
-        		0.425,
-        		0.2125,
-        		0.0,
-        		0.0,
-        		1.0
+                65.0,
+                13.125,
+                30.0,
+                0.3625,
+                0.325,
+                0.020,
+                0.0,
+                1.0
         ))
          
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)

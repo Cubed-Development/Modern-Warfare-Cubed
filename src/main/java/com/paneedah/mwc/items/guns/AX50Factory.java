@@ -271,7 +271,6 @@ public class AX50Factory implements GunFactory {
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.35F, 0.35F, 0.35F);
                             GL11.glTranslatef(0, 0f, 4f);
-                            GL11.glRotatef(0F, 0f, 0f, 4f);
                         })
                         .withInventoryPositioning(itemStack -> {
                             GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -290,7 +289,7 @@ public class AX50Factory implements GunFactory {
                                         .withPosition(-1.705000f, 4.705000f, -2.145000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.230000f, -1.740000f, 0.140000f)
-                                        .withScale(3.2F, 3.2F, 3.2F)
+                                        .withScale(3F, 3F, 3F)
                         )
 
                         .withFirstPersonHandPositioning(

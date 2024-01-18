@@ -91,7 +91,6 @@ public class VP70Factory implements GunFactory {
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.4F, 0.4F, 0.4F);
                             GL11.glTranslatef(0, 0f, 3f);
-                            GL11.glRotatef(0F, 0f, 0f, 4f);
                         })
                         .withInventoryPositioning(itemStack -> {
                             GL11.glScaled(0.6F, 0.6F, 0.6F);

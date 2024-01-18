@@ -234,7 +234,7 @@ public class M82Factory implements GunFactory {
                     GL11.glScaled(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Attachments.Silencer50BMG, (model) -> {
-                    GL11.glTranslatef(-0.23F, -1.37F, -11.5F);
+                    GL11.glTranslatef(-0.2F, -1.35F, -11.5F);
                     GL11.glScaled(1.0F, 1.0F, 1.0F);
                 })
                 .withTextureNames("m82")
@@ -245,7 +245,6 @@ public class M82Factory implements GunFactory {
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.35F, 0.35F, 0.35F);
                             GL11.glTranslatef(0, 0f, 3f);
-                            GL11.glRotatef(0F, 0f, 0f, 4f);
                         })
                         .withInventoryPositioning(itemStack -> {
                             GL11.glScaled(0.28F, 0.28F, 0.28F);
