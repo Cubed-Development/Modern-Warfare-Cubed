@@ -15,17 +15,15 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-
 public class PP1901VityazFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-
                 .withName("pp19vityaz")
                 .withFireRate(0.7f)
                 .withRecoil(2f)
                 .withZoom(0.9f)
-                .withMuzzlePosition(new Vec3d(-0.1, -0.9, -4.7))
+                .withMuzzlePosition(new Vec3d(-0.1, -1, -4.7))
                 .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE)
                 .withShellType(Type.PISTOL)
                 .hasFlashPedals()
@@ -268,7 +266,6 @@ public class PP1901VityazFactory {
 
                 .withTextureNames("pp1901")
                 .withRenderer(new WeaponRenderer.Builder()
-
                         .withModel(new PP1901())
                         .withActionPiece(AuxiliaryAttachments.PP1901Action)
                         .withActionTransform(new Transform().withPosition(0, 0, 1F))
@@ -455,7 +452,7 @@ public class PP1901VityazFactory {
                                 })
 
                         .build())
-                .withSpawnEntityDamage(5.5f)
+                .withSpawnEntityDamage(5f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
                 .build(MWC.modContext);

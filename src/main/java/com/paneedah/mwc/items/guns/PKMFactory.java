@@ -447,7 +447,7 @@ public class PKMFactory {
 
 
                         .build())
-                .withSpawnEntityDamage(8f)
+                .withSpawnEntityDamage(10f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
                 .build(MWC.modContext);
