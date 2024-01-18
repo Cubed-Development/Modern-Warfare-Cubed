@@ -13,6 +13,7 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 
 public class DesertEagleFactory implements GunFactory {
 
@@ -91,6 +92,27 @@ public class DesertEagleFactory implements GunFactory {
                 GL11.glScaled(0.15F, 0.15F, 0.15F);
             }
         })
+		
+        .withCompatibleAttachment(Attachments.VortexRedux, () -> {
+            GL11.glTranslatef(-0.35F, -1.45F, -2.0F);
+            GL11.glScaled(0.6F, 0.6F, 0.6F);
+        }, (model) -> {
+            if (model instanceof Holo2) {
+                GL11.glTranslatef(0.395F, -0.33F, -0.1F);
+                GL11.glScaled(0.15F, 0.15F, 0.15F);
+            }
+        })
+		
+        .withCompatibleAttachment(Attachments.LeupoldDeltapointPro, () -> {
+            GL11.glTranslatef(-0.18F, -1.45F, -1.7F);
+            GL11.glScaled(0.38F, 0.38F, 0.38F);
+        },(model) -> {
+            if(model instanceof Reflex2) {
+                GL11.glTranslatef(0.155F, -0.1F, -0.5F);
+                GL11.glScaled(0.2F, 0.2F, 0.2F);
+            }
+        })
+
         .withTextureNames("deagle")
         .withRenderer(new WeaponRenderer.Builder()
     
@@ -166,8 +188,16 @@ public class DesertEagleFactory implements GunFactory {
                 	GL11.glTranslatef(0f, 0.2f, 0.24f);
                 } 
                 
+                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldDeltapointPro)) {
+                	GL11.glTranslatef(0f, 0.1f, 0.24f);
+                } 
+				
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex)) {
                     GL11.glTranslatef(0f, 0.2f, 0.24f);
+                } 
+				
+                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux)) {
+                    GL11.glTranslatef(-0.005F, 0.23f, 0.7f);
                 } 
 
                 else {
