@@ -1,16 +1,16 @@
 package com.paneedah.mwc.models.weapons;
 
-import net.minecraft.client.model.ModelBase;
+import com.paneedah.weaponlib.ModelWithAttachments;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-// Made with Blockbench 4.7.4
+// Made with Blockbench 4.9.3
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
 
-public class Suppressor extends ModelBase {
+public class Suppressor extends ModelWithAttachments {
 	private final ModelRenderer suppressor;
 	private final ModelRenderer gun49_r1;
 	private final ModelRenderer gun48_r1;
@@ -51,8 +51,6 @@ public class Suppressor extends ModelBase {
 		suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 2.2F, -23.0F, 3.0F, 1, 2, 1, 0.0F, true));
 		suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -24.2F, 3.0F, 2, 1, 1, 0.0F, true));
 		suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 0.0F, -20.8F, 3.0F, 2, 1, 1, 0.0F, true));
-		suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, 3.0F, -22.5F, 10.0F, 1, 1, 5, 0.0F, true));
-		suppressor.cubeList.add(new ModelBox(suppressor, 0, 0, -2.0F, -22.5F, 10.0F, 1, 1, 5, 0.0F, true));
 
 		gun49_r1 = new ModelRenderer(this);
 		gun49_r1.setRotationPoint(-14.9208F, -6.1398F, 0.0F);
