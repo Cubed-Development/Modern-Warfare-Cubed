@@ -468,7 +468,7 @@ public class M60E4Factory {
 
 
                         .build())
-                .withSpawnEntityDamage(7f)
+                .withSpawnEntityDamage(8f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
                 .build(MWC.modContext);
