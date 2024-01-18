@@ -262,15 +262,6 @@ public class MP7Factory {
                         GL11.glScaled(0.2F, 0.2F, 0.2F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.LeupoldDeltapointPro, () -> {
-                    GL11.glTranslatef(-0.165F, -1.1F, -0.3F);
-                    GL11.glScaled(0.25F, 0.25F, 0.25F);
-                }, (model) -> {
-                    if (model instanceof Reflex2) {
-                        GL11.glTranslatef(0.155F, -0.1F, -0.5F);
-                        GL11.glScaled(0.2F, 0.2F, 0.2F);
-                    }
-                })
                 .withCompatibleAttachment(Attachments.Laser, () -> {
                     GL11.glTranslatef(-0.0F, -0.55F, -2F);
                     GL11.glScaled(0.8F, 0.8F, 0.8F);
@@ -436,8 +427,6 @@ public class MP7Factory {
                                 GL11.glTranslatef(-0.005F, 0.17f, 0.4f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.RMR))
                                 GL11.glTranslatef(-0.01F, 0.06f, 0.7f);
-                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldDeltapointPro))
-                                GL11.glTranslatef(0F, 0.07f, 0.6f);
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {
