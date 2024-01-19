@@ -8,24 +8,24 @@ import net.minecraft.util.ResourceLocation;
 
 import java.util.function.Supplier;
 
+import static com.paneedah.mwc.proxies.ClientProxy.MC;
+
 /**
  * Custom GUI button class that adds several functionalities:
  * - Hovered UV
  * - Toggled UV
  * - Disabled UV (+ a disabled state)
- * 
+ * <p>
  * Works well with sprite sheets.
  * 
  * @author Homer Riva-Cambrin, 2022
  */
 public class GUIButtonCustom extends GuiButton {
-	
-	
+
 	// Sprite sheet this button should use while rendering & the texture width and height
-	private ResourceLocation loc;
-	private int texWidth;
-	private int texHeight;
-	
+	private final ResourceLocation loc;
+	private final int texWidth;
+	private final int texHeight;
 	
 	// Stores the various UVs should they be provided
 	private int standardU, standardV, hoveredU, hoveredV, erroredU, erroredV, toggledU, toggledV, disabledU, disabledV;
@@ -33,18 +33,14 @@ public class GUIButtonCustom extends GuiButton {
 	// Gets string color for rendering
 	private int standardStringColor, hoveredStringColor, erroredStringColor, toggleStringColor, disabledStringColor;
 	
-	
 	// Draws 'disabled' (or inactive) button
 	private boolean isErrored = false;
-	
 	private boolean hasDisabledState = false;
 
-	
 	// Allows the user to supply a condition where
 	// the button should be disabled (and should hence
 	// not be rendered)
 	private Supplier<Boolean> disabledCheck;
-	
 
 	// The page ID-- buttons have the optionality
 	// of being unique to a singular page.
@@ -53,23 +49,18 @@ public class GUIButtonCustom extends GuiButton {
 	private boolean isToggleButton = false;
 	private boolean isToggled = false;
 
-	
-	
-
 	public GUIButtonCustom(ResourceLocation resourceLoc, int buttonId, int x, int y, int widthIn, int heightIn, int imgW, int imgH, String buttonText) {
 		super(buttonId, x, y, widthIn, heightIn, buttonText);
 		this.loc = resourceLoc;
 		this.texWidth = imgW;
 		this.texHeight = imgH;
 	}
-	
 
-	
 	/**
 	 * Provides the standard state UV to the button in order to renderer
 	 * the button normally (not hovered or disabled, etc.)
 	 * 
-	 * @param color - color as a hexidecimal value
+	 * @param color - color as a hexadecimal value
 	 * @param u - top left coordinate of texture selection (x component)
 	 * @param v - top left coordinate of texture selection (y component)
 	 * @return itself
@@ -86,7 +77,7 @@ public class GUIButtonCustom extends GuiButton {
 	 * the button with a different texture should the mouse cursor be
 	 * above it.
 	 * 
-	 * @param color - color as a hexidecimal value
+	 * @param color - color as a hexadecimal value
 	 * @param u - top left coordinate of texture selection (x component)
 	 * @param v - top left coordinate of texture selection (y component)
 	 * @return itself
@@ -102,7 +93,7 @@ public class GUIButtonCustom extends GuiButton {
 	 * Provides the toggled state UV to the button in order to renderer
 	 * the button with its toggled on state should this be a toggle button.
 	 * 
-	 * @param color - color as a hexidecimal value
+	 * @param color - color as a hexadecimal value
 	 * @param u - top left coordinate of texture selection (x component)
 	 * @param v - top left coordinate of texture selection (y component)
 	 * @return itself
@@ -116,9 +107,9 @@ public class GUIButtonCustom extends GuiButton {
 	
 	/**
 	 * Provides the disabled state UV to the button in order to renderer
-	 * the button if it is in it's inactive/disabled state.
+	 * the button if it is in its inactive/disabled state.
 	 * 
-	 * @param color - color as a hexidecimal value
+	 * @param color - color as a hexadecimal value
 	 * @param u - top left coordinate of texture selection (x component)
 	 * @param v - top left coordinate of texture selection (y component)
 	 * @return itself
@@ -132,9 +123,9 @@ public class GUIButtonCustom extends GuiButton {
 	
 	/**
 	 * Provides the disabled state UV to the button in order to renderer
-	 * the button if it is in it's inactive/disabled state.
+	 * the button if it is in its inactive/disabled state.
 	 * 
-	 * @param color - color as a hexidecimal value
+	 * @param color - color as a hexadecimal value
 	 * @param u - top left coordinate of texture selection (x component)
 	 * @param v - top left coordinate of texture selection (y component)
 	 * @return itself
@@ -150,12 +141,12 @@ public class GUIButtonCustom extends GuiButton {
 	/**
 	 * Allows the user to specify a lambda function under which the button should not be rendered. An example of this would
 	 * be providing it with the following:
-	 * 
+	 * <p>
 	 * () -> {
 	 * 	  return this.hat == 1;
 	 * }
-	 * 
-	 * In this case, if 'hat' is equal to one, it will not renderer the button.
+	 * <p>
+	 * In this case, if 'hat' is equal to one, it will not render the button.
 	 * 
 	 * @param supplier Java lambda function that returns a boolean stating the conditions under which the button should be disabled
 	 * @return itself
@@ -164,8 +155,7 @@ public class GUIButtonCustom extends GuiButton {
 		this.disabledCheck = supplier;
 		return this;
 	}
-	
-	
+
 	/**
 	 * Button will only appear if using the following page
 	 * 
@@ -177,9 +167,6 @@ public class GUIButtonCustom extends GuiButton {
 		return this;
 	}
 	
-	
-	
-	
 	/**
 	 * Turns this GUI button into a toggle button.
 	 * 
@@ -189,9 +176,7 @@ public class GUIButtonCustom extends GuiButton {
 		this.isToggleButton = true;
 		return this;
 	}
-	
-	
-	
+
 	/**
 	 * Returns the button's disabled status
 	 * 
@@ -204,7 +189,7 @@ public class GUIButtonCustom extends GuiButton {
 	/**
 	 * Is the button in a disabled state?
 	 * 
-	 * @param is button in disabled state
+	 * @param disable button in disabled state
 	 */
 	public void setErrored(boolean disable) {
 		this.isErrored = disable;
@@ -218,13 +203,10 @@ public class GUIButtonCustom extends GuiButton {
 	public int getPageID() {
 		return this.pageID;
 	}
-	
-	
+
 	/**
 	 * Toggle button stuff
 	 */
-
-	
 	public void toggleOff() {
 		this.isToggled = false;
 	}
@@ -241,44 +223,41 @@ public class GUIButtonCustom extends GuiButton {
 		return this.isToggled;
 	}
 	
-	
 	@Override
 	public void drawButton(Minecraft MC, int mouseX, int mouseY, float partialTicks) {
-		if(!visible || (disabledCheck != null && disabledCheck.get() && !hasDisabledState)) return;
-		
-		
+		if (!visible || (disabledCheck != null && disabledCheck.get() && !hasDisabledState))
+			return;
+
 		this.hovered = mouseX >= this.x && mouseY >= this.y && mouseX < this.x + this.width && mouseY < this.y + this.height;
         
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		GlStateManager.enableTexture2D();
 		MC.getTextureManager().bindTexture(this.loc);
-		
-		
+
 		int stringColor = 0;
-		
-		if(disabledCheck != null && disabledCheck.get()) {
+		if (disabledCheck != null && disabledCheck.get()) {
 			GUIRenderHelper.drawTexturedRect(this.x, this.y, this.disabledU, this.disabledV, this.width, this.height, this.texWidth, this.texHeight);
 			stringColor = disabledStringColor;
-		} else if(isErrored) {
+
+		} else if (isErrored) {
 			GUIRenderHelper.drawTexturedRect(this.x, this.y, this.erroredU, this.erroredV, this.width, this.height, this.texWidth, this.texHeight);
 			stringColor = erroredStringColor;
+
 		} else {
-			if(isToggleButton && isToggled) {
+			if (isToggleButton && isToggled) {
 				GUIRenderHelper.drawTexturedRect(this.x, this.y, this.toggledU, this.toggledV, this.width, this.height, this.texWidth, this.texHeight);
 				stringColor = toggleStringColor;
-			} else if(!hovered) {
+
+			} else if (!this.hovered) {
 				GUIRenderHelper.drawTexturedRect(this.x, this.y, this.standardU, this.standardV, this.width, this.height, this.texWidth, this.texHeight);
 				stringColor = standardStringColor;
+
 			} else {
 				GUIRenderHelper.drawTexturedRect(this.x, this.y, this.hoveredU, this.hoveredV, this.width, this.height, this.texWidth, this.texHeight);
 				stringColor = hoveredStringColor;
 			}
 		}
-		
-		
-	
-		
-		
+
 		GUIRenderHelper.drawScaledString(this.displayString, this.x + this.width/2.0 - MC.fontRenderer.getStringWidth(this.displayString)/2.0, this.y + this.height/2.0 - MC.fontRenderer.FONT_HEIGHT/2.0, 1.0, stringColor);
 		GlStateManager.color(1, 1, 1);
 	}
@@ -286,7 +265,5 @@ public class GUIButtonCustom extends GuiButton {
 	@Override
 	public void drawButtonForegroundLayer(int mouseX, int mouseY) {
 		super.drawButtonForegroundLayer(mouseX, mouseY);
-		
 	}
-
 }
