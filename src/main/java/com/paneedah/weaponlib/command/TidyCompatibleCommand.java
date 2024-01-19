@@ -121,7 +121,7 @@ public abstract class TidyCompatibleCommand extends CommandBase {
 	public void addSubOption(String mainOption, String subOption, String description, String...args) {
 		if(!tree.containsKey(mainOption)) return;
 		CommandInfo comInfo = new CommandInfo(subOption, description, args);
-		tree.get(mainOption).second().add(new Pair<String, CommandInfo>(subOption, comInfo));
+		tree.get(mainOption).getSecond().add(new Pair<String, CommandInfo>(subOption, comInfo));
 	}
 
 	@Override
