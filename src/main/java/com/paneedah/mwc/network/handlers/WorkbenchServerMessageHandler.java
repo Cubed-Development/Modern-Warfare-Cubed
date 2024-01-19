@@ -1,6 +1,5 @@
 package com.paneedah.mwc.network.handlers;
 
-import akka.japi.Pair;
 import com.paneedah.mwc.network.messages.WorkbenchClientMessage;
 import com.paneedah.mwc.network.messages.WorkbenchServerMessage;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
@@ -16,15 +15,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
@@ -66,49 +62,46 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     if (modernRecipe == null)
                         return;
 
-                    // Add all items to an item list to verify that they exist.
-                    final HashMap<Item, ItemStack> itemList = new HashMap<>(27, 0.7f);
-                    for (int i = 23; i < station.mainInventory.getSlots(); ++i)
-                        itemList.put(station.mainInventory.getStackInSlot(i).getItem(), station.mainInventory.getStackInSlot(i));
+                    final HashMap<Item, HashMap<ItemStack, Integer>> itemRemovalList = new HashMap<>();
 
-                    final ArrayList<Pair<Item, Integer>> toConsume = new ArrayList<>();
+                    // Calculate the itemstacks to remove
+                    for (CraftingEntry stack : modernRecipe) {
+                        itemRemovalList.computeIfAbsent(stack.getItem(), k -> new HashMap<>());
+                        final Item stackItem = stack.getItem();
+                        final int requiredCount = stack.getCount();
+
+                        for (int i = 23; i < station.mainInventory.getSlots(); ++i) {
+                            final ItemStack iS = station.mainInventory.getStackInSlot(i);
+                            if (iS.getItem() != stackItem)
+                                continue;
+
+                            final int existingCount = itemRemovalList.get(stackItem).values().stream().mapToInt(Integer::intValue).sum();
+                            if (existingCount >= requiredCount)
+                                break;
+
+                            final int iSCount = iS.getCount();
+                            if (existingCount + iSCount >= requiredCount) {
+                                itemRemovalList.get(stackItem).put(iS, requiredCount - existingCount);
+                                break;
+                            }
+
+                            itemRemovalList.get(stackItem).put(iS, iSCount);
+                        }
+                    }
 
                     // Verify
                     for (CraftingEntry stack : modernRecipe) {
-                        int count = stack.getCount();
                         if (!stack.isOreDictionary()) {
-                            // Does it even have that item? / Does it have enough of that item?
-                            for (int i = 23; i < station.mainInventory.getSlots(); ++i) {
-                                final ItemStack iS = station.mainInventory.getStackInSlot(i);
-
-                                if (!itemList.containsKey(iS.getItem()) || stack.getCount() > iS.getCount() || (iS.getItem() != stack.getItem() || (count == 0)))
-                                    continue;
-
-                                count -= iS.getCount();
-                                iS.shrink(stack.getCount());
-
-                                if (count == 0)
-                                    break;
-                            }
-                        } else {
-                            // Stack is an OreDictionary term
-                            boolean hasAny = false;
-                            final NonNullList<ItemStack> list = OreDictionary.getOres(stack.getOreDictionaryEntry());
-                            for (ItemStack toTest : list) {
-                                if (itemList.containsKey(toTest.getItem()) && stack.getCount() <= itemList.get(toTest.getItem()).getCount()) {
-                                    hasAny = true;
-                                    toConsume.add(new Pair<>(toTest.getItem(), stack.getCount()));
-                                    break;
-                                }
-                            }
-
-                            if (!hasAny)
+                            final Item stackItem = stack.getItem();
+                            if (!itemRemovalList.containsKey(stackItem) || itemRemovalList.get(stackItem).values().stream().mapToInt(Integer::intValue).sum() < stack.getCount())
                                 return;
                         }
                     }
 
-                    for (Pair<Item, Integer> i : toConsume)
-                        itemList.get(i.first()).shrink(i.second());
+                    // Remove the items
+                    for (Item i : itemRemovalList.keySet())
+                        for (ItemStack iS : itemRemovalList.get(i).keySet())
+                            iS.shrink(itemRemovalList.get(i).get(iS));
 
                     if (station instanceof TileEntityWorkbench) {
                         final TileEntityWorkbench workbench = (TileEntityWorkbench) station;

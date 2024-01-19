@@ -2,8 +2,11 @@ package com.paneedah.weaponlib.crafting.workbench;
 
 import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.PositionedSoundRecord;
+import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.function.Supplier;
@@ -265,5 +268,13 @@ public class GUIButtonCustom extends GuiButton {
 	@Override
 	public void drawButtonForegroundLayer(int mouseX, int mouseY) {
 		super.drawButtonForegroundLayer(mouseX, mouseY);
+	}
+
+	@Override
+	public void playPressSound(SoundHandler soundHandlerIn) {
+		if ((disabledCheck != null && disabledCheck.get()) || isErrored)
+			return;
+
+		soundHandlerIn.playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
 	}
 }
