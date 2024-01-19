@@ -251,10 +251,10 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 			}
 		}
 
-		if(requiresMaterialsToSubmitCraftRequest()) 
-      this.craftButton.setErrored(!hasRequiredItems);
+		if (requiresMaterialsToSubmitCraftRequest())
+      		this.craftButton.setErrored(!hasRequiredItems);
 		else 
-        this.craftButton.setErrored(false);
+        	this.craftButton.setErrored(false);
 	}
 
 	public static void setModContext(ModContext context) {
