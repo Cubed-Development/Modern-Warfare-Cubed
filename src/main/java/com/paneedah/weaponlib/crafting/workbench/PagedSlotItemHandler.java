@@ -14,8 +14,8 @@ import java.util.function.Supplier;
  */
 public class PagedSlotItemHandler extends SlotItemHandler {
 	
-	private Supplier<Integer> pageNumber;
-	private int pageID;
+	private final Supplier<Integer> pageNumber;
+	private final int pageID;
 
 	public PagedSlotItemHandler(Supplier<Integer> pageNumber, IItemHandler itemHandler, int index, int pageID, int xPosition, int yPosition) {
 		super(itemHandler, index, xPosition, yPosition);
@@ -27,5 +27,4 @@ public class PagedSlotItemHandler extends SlotItemHandler {
 	public boolean isEnabled() {
 		return pageNumber.get() == pageID;
 	}
-
 }
