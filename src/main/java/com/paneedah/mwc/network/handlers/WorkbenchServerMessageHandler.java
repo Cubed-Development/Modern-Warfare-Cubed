@@ -64,9 +64,10 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
 
                     // Calculate the itemstacks to remove
                     for (CraftingEntry stack : modernRecipe) {
-                        itemRemovalList.computeIfAbsent(stack.getItem(), k -> new HashMap<>());
                         final Item stackItem = stack.getItem();
                         final int requiredCount = stack.getCount();
+
+                        itemRemovalList.computeIfAbsent(stackItem, k -> new HashMap<>());
 
                         for (int i = 23; i < station.mainInventory.getSlots(); ++i) {
                             final ItemStack iS = station.mainInventory.getStackInSlot(i);
@@ -109,8 +110,8 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     }
 
                     station.sendUpdate();
-
                     CHANNEL.sendToAllAround(new WorkbenchClientMessage(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 20));
+
                 } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.DISMANTLE) {
                     for (int i = 9; i < 13; ++i) {
                         if (station.mainInventory.getStackInSlot(i).isEmpty())
@@ -124,13 +125,15 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                     }
 
                     CHANNEL.sendToAllAround(new WorkbenchClientMessage(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 25));
+
                 } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.MOVE_OUTPUT) {
                     ((EntityPlayer) world.getEntityByID(workbenchServerMessage.getPlayerID())).addItemStackToInventory(station.mainInventory.getStackInSlot(workbenchServerMessage.getSlotToMove()));
+
                 } else if (workbenchServerMessage.getOpCode() == WorkbenchServerMessage.POP_FROM_QUEUE) {
-                    if (!(tileEntity instanceof TileEntityAmmoPress)) return;
+                    if (!(tileEntity instanceof TileEntityAmmoPress))
+                        return;
 
                     final TileEntityAmmoPress teAmmoPress = (TileEntityAmmoPress) tileEntity;
-
                     if (teAmmoPress.hasStack() && teAmmoPress.getCraftingQueue().size() > workbenchServerMessage.getSlotToMove())
                         teAmmoPress.getCraftingQueue().remove(workbenchServerMessage.getSlotToMove());
 
