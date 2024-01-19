@@ -32,7 +32,6 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
     public IMessage onMessage(final WorkbenchServerMessage workbenchServerMessage, final MessageContext messageContext) {
         NetworkUtil.processMessage(messageContext, () -> {
             final World world = messageContext.getServerHandler().player.world;
-
             final TileEntity tileEntity = world.getTileEntity(workbenchServerMessage.getTeLocation());
 
             if (tileEntity instanceof TileEntityStation) {
@@ -54,7 +53,6 @@ public final class WorkbenchServerMessageHandler implements IMessageHandler<Work
                             press.addStack(newStack);
 
                         CHANNEL.sendToAllAround(new WorkbenchClientMessage(station.getWorld(), workbenchServerMessage.getTeLocation()), new TargetPoint(0, workbenchServerMessage.getTeLocation().getX(), workbenchServerMessage.getTeLocation().getY(), workbenchServerMessage.getTeLocation().getZ(), 20));
-
                         return;
                     }
 

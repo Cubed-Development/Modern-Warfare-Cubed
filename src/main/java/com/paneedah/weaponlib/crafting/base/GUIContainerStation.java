@@ -115,17 +115,17 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 		this.searchBox.setVisible(true);
 		this.searchBox.setTextColor(16777215);
 
-		craftButton = new GUIButtonCustom(GUI_TEX, 0, this.guiLeft + 211, this.guiTop + 179, 53, 17, 480, 370, "CRAFT")
+		this.craftButton = new GUIButtonCustom(GUI_TEX, 0, this.guiLeft + 211, this.guiTop + 179, 53, 17, 480, 370, "CRAFT")
 				.withStandardState(GRAY, 0, 240).withHoveredState(GOLD, 0, 257).withErroredState(RED, 0, 274)
 				.withPageRestriction(2);
 
-		leftArrow = new GUIButtonCustom(GUI_TEX, 1, this.guiLeft + 318 , this.guiTop, 42, 20, 480, 370, "")
+		this.leftArrow = new GUIButtonCustom(GUI_TEX, 1, this.guiLeft + 318 , this.guiTop, 42, 20, 480, 370, "")
 				.withStandardState(0xFFFFFF, 99, 304)
 				.withHoveredState(0xFFFFFF, 141, 304)
 				.withDisabledState(0xFFFFFF, 57, 304)
 				.withDisabledCheck(() -> this.getPage() == 1);
 
-		rightArrow = new GUIButtonCustom(GUI_TEX, 2,
+		this.rightArrow = new GUIButtonCustom(GUI_TEX, 2,
 				this.guiLeft + 360, this.guiTop, 42, 20, 480,
 				370, "")
 				.withStandardState(0xFFFFFF, 99, 284)
@@ -134,17 +134,17 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 				.withDisabledState(0xFFFFFF, 57, 284)
 				.withDisabledCheck(() -> this.getPage() == 2);
 
-		dismantleButton = new GUIButtonCustom(GUI_INV_TEX, 6, this.guiLeft + 286, this.guiTop + 70, 73, 17, 480, 370, "DISMANTLE")
+		this.dismantleButton = new GUIButtonCustom(GUI_INV_TEX, 6, this.guiLeft + 286, this.guiTop + 70, 73, 17, 480, 370, "DISMANTLE")
 				.withStandardState(GRAY, 0, 283).withHoveredState(GOLD, 0, 300)
 				.withErroredState(RED, 0, 317).withPageRestriction(1);
 
 
-		craftButton.setErrored(true);
+		this.craftButton.setErrored(true);
 
-		addButton(craftButton);
-		addButton(leftArrow);
-		addButton(rightArrow);
-		addButton(dismantleButton);
+		addButton(this.craftButton);
+		addButton(this.leftArrow);
+		addButton(this.rightArrow);
+		addButton(this.dismantleButton);
 
 		setPage(1);
 
@@ -371,7 +371,6 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 			}
 		}
 	}
-
 
 	@Override
 	protected void keyTyped(char typedChar, int keyCode) throws IOException {

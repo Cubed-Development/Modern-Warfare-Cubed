@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 import static com.paneedah.mwc.MWC.CHANNEL;
 
-
 /**
  * GUI class for the Workbench Block
  * <p>
@@ -49,34 +48,34 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	@Override
 	public void initGui() {
 		super.initGui();
-		
-		assaultSelector = new GUIButtonCustom(GUI_TEX, 3, this.guiLeft + 92, this.guiTop + 29, 19, 20, 480, 370, "")
+
+		this.assaultSelector = new GUIButtonCustom(GUI_TEX, 3, this.guiLeft + 92, this.guiTop + 29, 19, 20, 480, 370, "")
 				.withStandardState(0xFFFFFF, 0, 291).withHoveredState(0xFFFFFF, 19, 291)
 				.withToggledState(0xFFFFFF, 38, 291).withPageRestriction(2).makeToggleButton();
 
-		attachSelector = new GUIButtonCustom(GUI_TEX, 4, this.guiLeft + 115, this.guiTop + 29, 19, 20, 480, 370, "")
+		this.attachSelector = new GUIButtonCustom(GUI_TEX, 4, this.guiLeft + 115, this.guiTop + 29, 19, 20, 480, 370, "")
 				.withStandardState(0xFFFFFF, 0, 311).withHoveredState(0xFFFFFF, 19, 311)
 				.withToggledState(0xFFFFFF, 38, 311).withPageRestriction(2).makeToggleButton();
 
-		modSelector = new GUIButtonCustom(GUI_TEX, 5, this.guiLeft + 138, this.guiTop + 29, 19, 20, 480, 370, "")
+		this.modSelector = new GUIButtonCustom(GUI_TEX, 5, this.guiLeft + 138, this.guiTop + 29, 19, 20, 480, 370, "")
 				.withStandardState(0xFFFFFF, 0, 331)
 				.withHoveredState(0xFFFFFF, 19, 331)
 				.withToggledState(0xFFFFFF, 38, 331)
 				.withPageRestriction(2).makeToggleButton();
-		
-		gearSelector = new GUIButtonCustom(GUI_TEX, 6, this.guiLeft + 161, this.guiTop + 29, 19, 20, 480, 370, "")
+
+		this.gearSelector = new GUIButtonCustom(GUI_TEX, 6, this.guiLeft + 161, this.guiTop + 29, 19, 20, 480, 370, "")
 				.withStandardState(0xFFFFFF, 57, 331)
 				.withHoveredState(0xFFFFFF, 76, 331)
 				.withToggledState(0xFFFFFF, 95, 331)
 				.withPageRestriction(2).makeToggleButton();
-		
-		
-		assaultSelector.toggleOn();
 
-		addButton(assaultSelector);
-		addButton(attachSelector);
-		addButton(modSelector);
-		addButton(gearSelector);
+
+		this.assaultSelector.toggleOn();
+
+		addButton(this.assaultSelector);
+		addButton(this.attachSelector);
+		addButton(this.modSelector);
+		addButton(this.gearSelector);
 		
 		setPage(1);
 	}
@@ -84,7 +83,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	@Override
 	public void fillFilteredList() {
 		filteredCraftingList.clear();
-		if(getCraftingMode() == CraftingGroup.GUN.getID()) {
+		if (getCraftingMode() == CraftingGroup.GUN.getID()) {
 			filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.GUN));
 		} else if(getCraftingMode() == CraftingGroup.ATTACHMENT_NORMAL.getID()) {
 			filteredCraftingList.addAll(CraftingRegistry.getCraftingListForGroup(CraftingGroup.ATTACHMENT_NORMAL));
@@ -104,39 +103,43 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
 		super.actionPerformed(button);
+
 		if (button == craftButton) {
-			if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1) {
+			if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1 && !this.craftButton.isDisabled()) {
 				final int craftingTime = getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME;
 				CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), 0, craftingTime, CraftingGroup.getValue(getCraftingMode()), getSelectedCraftingPiece().getItemStack().getTranslationKey()));
 			}
+
 		} else if (button == assaultSelector) {
 			((GUIButtonCustom) button).toggleOn();
 			modSelector.toggleOff();
 			attachSelector.toggleOff();
 			gearSelector.toggleOff();
+
 			setCraftingMode(1);
-
 			setSelectedCraftingPiece(null);
-
 			fillFilteredList();
+
 		} else if (button == attachSelector) {
 			((GUIButtonCustom) button).toggleOn();
 			modSelector.toggleOff();
 			assaultSelector.toggleOff();
 			gearSelector.toggleOff();
+
 			setCraftingMode(2);
-
 			setSelectedCraftingPiece(null);
-
 			fillFilteredList();
+
 		} else if (button == modSelector) {
 			((GUIButtonCustom) button).toggleOn();
 			attachSelector.toggleOff();
 			assaultSelector.toggleOff();
 			gearSelector.toggleOff();
+
 			setCraftingMode(3);
 			setSelectedCraftingPiece(null);
 			fillFilteredList();
+
 		} else if(button == gearSelector) {
 			((GUIButtonCustom) button).toggleOn();
 			attachSelector.toggleOff();
