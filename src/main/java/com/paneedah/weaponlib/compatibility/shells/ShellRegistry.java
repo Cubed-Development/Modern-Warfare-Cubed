@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.compatibility.shells;
 
-import akka.japi.Pair;
 import com.paneedah.mwc.utils.ModReference;
+import com.paneedah.weaponlib.Pair;
 import com.paneedah.weaponlib.render.WavefrontLoader;
 import com.paneedah.weaponlib.render.WavefrontModel;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
@@ -48,8 +48,7 @@ public class ShellRegistry {
 	 * @param textureName
 	 */
 	public static void addShellToRegistry(Type type, String modelName, String textureName) {
-		shellRegistrar.put(type, new Pair<WavefrontModel, ResourceLocation>(WavefrontLoader.loadSubModel(modelName, "casing"),
-				new ResourceLocation(ModReference.ID + ":textures/models/" + textureName + ".png")));
+		shellRegistrar.put(type, new Pair<WavefrontModel, ResourceLocation>(WavefrontLoader.loadSubModel(modelName, "casing"), new ResourceLocation(ModReference.ID + ":textures/models/" + textureName + ".png")));
 	}
 	
 	public static HashMap<Shell.Type, Pair<WavefrontModel, ResourceLocation>> getShellMappings() {
@@ -58,21 +57,21 @@ public class ShellRegistry {
 	
 	/**
 	 * Returns the model of the shell 
-	 * @param shell type
+	 * @param type type
 	 * @return Wavefront model
 	 */
 	public static WavefrontModel getShellModel(Type type) {
-		return shellRegistrar.get(type).first();
+		return shellRegistrar.get(type).getFirst();
 	}
 	
 	/**
 	 * Returns the texture of the shell
 	 * 
-	 * @param shell type
+	 * @param type type
 	 * @return Resource location
 	 */
 	public static ResourceLocation getShellTexture(Type type) {
-		return shellRegistrar.get(type).second();
+		return shellRegistrar.get(type).getSecond();
 	}
 
 }

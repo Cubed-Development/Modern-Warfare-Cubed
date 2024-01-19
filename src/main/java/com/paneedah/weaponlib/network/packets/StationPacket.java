@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib.network.packets;
 
-import akka.japi.Pair;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
@@ -15,7 +14,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
@@ -24,15 +22,11 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class StationPacket implements IMessage {
 
-	
-	
 	public static final int CRAFT = 1;
 	public static final int DISMANTLE = 2;
 	public static final int MOVE_OUTPUT = 3;
@@ -41,8 +35,7 @@ public class StationPacket implements IMessage {
 	
 	public int opcode;
 	public BlockPos teLocation;
-	
-	
+
 	public int craftingTimer;
 	public int craftingDuration;
 	

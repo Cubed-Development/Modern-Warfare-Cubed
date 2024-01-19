@@ -1,10 +1,10 @@
 package com.paneedah.weaponlib.command;
 
-import akka.japi.Pair;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.ClientEventHandler;
 import com.paneedah.weaponlib.ClientModContext;
 import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.Pair;
 import com.paneedah.weaponlib.Part;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
@@ -181,7 +181,7 @@ public class DebugCommand extends CommandBase {
     private static boolean isForceLiveRenderGUI = true;
     private static boolean isEditingGUI;
     public static Transform debugSlideTransform = new Transform();
-    public static Pair<Double, Double> screenShakeParam = new Pair<Double, Double>(0.0, 0.0);
+    public static Pair<Double, Double> screenShakeParam = new Pair<>(0.0, 0.0);
     
     public static boolean isDebuggingActionPosition() {
     	return isDebuggingActionPosition;
@@ -333,8 +333,8 @@ public class DebugCommand extends CommandBase {
     		
     		ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder().firstPersonLeftHandTransform.withScale(x, y, z);
     	
+        }
     }
-     }
     
     private void processFreecamAndMuzzleSubCommands(String[] args) {
     	switch(args[0].toLowerCase()) {
