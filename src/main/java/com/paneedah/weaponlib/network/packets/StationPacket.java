@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.network.packets;
 
-import akka.japi.Pair;
 import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.Pair;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -240,7 +240,7 @@ public class StationPacket implements IMessage {
 		            		}*/
 
 		            		for(Pair<Item, Integer> i : toConsume)
-		            			itemList.get(i.first()).shrink(i.second());
+		            			itemList.get(i.getFirst()).shrink(i.getSecond());
 
 		            		if(station instanceof TileEntityWorkbench) {
 		            			TileEntityWorkbench workbench = (TileEntityWorkbench) station;

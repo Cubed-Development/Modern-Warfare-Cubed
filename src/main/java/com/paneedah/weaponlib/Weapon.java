@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import akka.japi.Pair;
 import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.BulletHoleRenderer.BulletHole;
 import com.paneedah.weaponlib.animation.ScreenShakeAnimation;

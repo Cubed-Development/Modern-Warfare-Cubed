@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.animation;
 
-import akka.japi.Pair;
+import com.paneedah.weaponlib.Pair;
 import com.paneedah.weaponlib.ModContext;
 import com.paneedah.weaponlib.PlayerWeaponInstance;
 import com.paneedah.weaponlib.compatibility.Interceptors;
@@ -121,13 +121,13 @@ public class ClientValueRepo {
 		double power = params.getWeaponPower();
 
 		if (gunPow.currentValue < INITIAL_GUN_POWER_CUTOFF) {
-			Interceptors.nsm.impulse(screenShakeParam.first());
+			Interceptors.nsm.impulse(screenShakeParam.getFirst());
 			power *= INITIAL_GUN_POWER_MULTIPLIER;
 		} else if (gunPow.currentValue > params.getStockLength()) {
 			power *= GUN_POWER_PAST_STOCK_DIVISOR;
-			Interceptors.nsm.impulse(screenShakeParam.first() * GUN_POWER_PAST_STOCK_DIVISOR);
+			Interceptors.nsm.impulse(screenShakeParam.getFirst() * GUN_POWER_PAST_STOCK_DIVISOR);
 		} else
-			Interceptors.nsm.impulse(screenShakeParam.first());
+			Interceptors.nsm.impulse(screenShakeParam.getFirst());
 
 		weaponRecovery.velocity += power * WEAPON_RECOVERY_VELOCITY_POWER;
 

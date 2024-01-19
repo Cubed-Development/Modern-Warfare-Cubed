@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.command;
 
-import akka.japi.Pair;
+import com.paneedah.weaponlib.Pair;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -98,10 +98,10 @@ public abstract class TidyCompatibleCommand extends CommandBase {
 		for(Entry<String, Pair<CommandInfo, ArrayList<Pair<String, CommandInfo>>>> e : tree.entrySet()) {
 		
 			help[index] = this.primaryColor + e.getKey();
-			for(String arg : e.getValue().first().arguments) {
+			for(String arg : e.getValue().getFirst().arguments) {
 				help[index] += this.primaryColor + " [" + arg + this.primaryColor + "]";
 			}
-			help[index] += " - " + this.secondaryColor + e.getValue().first().description;
+			help[index] += " - " + this.secondaryColor + e.getValue().getFirst().description;
 			
 			
 			index++;
@@ -175,8 +175,8 @@ public abstract class TidyCompatibleCommand extends CommandBase {
 			return false;
 		} else {
 		
-			for(Pair<String, CommandInfo> str : this.tree.get(arg0).second()) {
-				if(str.first().equals(arg1)) return true;
+			for(Pair<String, CommandInfo> str : this.tree.get(arg0).getSecond()) {
+				if(str.getFirst().equals(arg1)) return true;
 			}
 			return false;
 		}
@@ -203,15 +203,15 @@ public abstract class TidyCompatibleCommand extends CommandBase {
 	
 	public void sendOptionHelp(ICommandSender sender, String option) {
 		
-		ArrayList<Pair<String, CommandInfo>> result = this.tree.get(option).second();
+		ArrayList<Pair<String, CommandInfo>> result = this.tree.get(option).getSecond();
 		sendFormattedMessage(sender, "For command " + option);
 		for(Pair<String, CommandInfo> pair : result) {
 			
-			String string = this.primaryColor + pair.first();
-			for(String arg : pair.second().arguments) {
+			String string = this.primaryColor + pair.getFirst();
+			for(String arg : pair.getSecond().arguments) {
 				string += this.primaryColor + " [" + arg + "]";
 			}
-			string += " - " + this.secondaryColor + pair.second().description;
+			string += " - " + this.secondaryColor + pair.getSecond().description;
 			
 			sender.sendMessage(new TextComponentString(string));
 		}

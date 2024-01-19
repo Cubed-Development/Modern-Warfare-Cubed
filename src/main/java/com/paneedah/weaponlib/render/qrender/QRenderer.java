@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.render.qrender;
 
-import akka.japi.Pair;
+import com.paneedah.weaponlib.Pair;
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import net.minecraft.client.model.*;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -46,8 +46,8 @@ public class QRenderer extends ModelRenderer {
 		BufferBuilder bufferbuilder = Tessellator.getInstance().getBuffer();
 
 		for (Pair<Matrix4f, ModelRenderer> parents : list) {
-			for (ModelBox b : parents.second().cubeList) {
-				transformQuads(b, parents.first());
+			for (ModelBox b : parents.getSecond().cubeList) {
+				transformQuads(b, parents.getFirst());
 				b.render(bufferbuilder, scale);
 			}
 		}

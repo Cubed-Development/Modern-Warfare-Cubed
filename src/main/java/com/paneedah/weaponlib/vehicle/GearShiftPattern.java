@@ -1,6 +1,6 @@
 package com.paneedah.weaponlib.vehicle;
 
-import akka.japi.Pair;
+import com.paneedah.weaponlib.Pair;
 import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -170,11 +170,11 @@ public class GearShiftPattern {
 		
 		for(int x = 0; x < realTimeTransitions.size()-1; ++x) {
 			
-			double firstBound = realTimeTransitions.get(x).first();
-			double secondBound = realTimeTransitions.get(x+1).first();
+			double firstBound = realTimeTransitions.get(x).getFirst();
+			double secondBound = realTimeTransitions.get(x+1).getFirst();
 			if(globalStep <= secondBound && globalStep >= firstBound) {
-				f = realTimeTransitions.get(x).second();
-				s = realTimeTransitions.get(x+1).second();
+				f = realTimeTransitions.get(x).getSecond();
+				s = realTimeTransitions.get(x+1).getSecond();
 				fB = firstBound;
 				sB = secondBound;
 				break;
