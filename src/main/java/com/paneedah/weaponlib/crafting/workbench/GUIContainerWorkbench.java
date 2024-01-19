@@ -22,13 +22,13 @@ import static com.paneedah.mwc.MWC.CHANNEL;
 
 /**
  * GUI class for the Workbench Block
- * 
+ * <p>
  * Crafting Modes:
  * 1.) Guns
  * 2.) Attachments (normal ones)
  * 3.) Modification mode attachments
- * 
- * Features (plus the features of it's parent class {@link GUIContainerStation})
+ * <p>
+ * Features (plus the features of its parent class {@link GUIContainerStation})
  * 1. Player has three categories to choose from weapons, attachments, and modification attachments
  * 2. If the player has the materials to craft an item, they can craft it
  * 3. 3D weapon rendering into the GUI
@@ -42,11 +42,9 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	// Buttons & Search box
 	private GUIButtonCustom assaultSelector, attachSelector, modSelector, gearSelector;
 
-	public GUIContainerWorkbench(EntityPlayer player, InventoryPlayer inventory,
-			TileEntityWorkbench tileEntityWorkbench) {
+	public GUIContainerWorkbench(EntityPlayer player, InventoryPlayer inventory, TileEntityWorkbench tileEntityWorkbench) {
 		super(tileEntityWorkbench, new ContainerWorkbench(player, inventory, tileEntityWorkbench));
 	}
-	
 
 	@Override
 	public void initGui() {
@@ -108,9 +106,9 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 		super.actionPerformed(button);
 		if (button == craftButton) {
 			if (hasSelectedCraftingPiece() && tileEntity.craftingTimer == -1) {
-				CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), 0, getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME, CraftingGroup.getValue(getCraftingMode()), getSelectedCraftingPiece().getItemStack().getTranslationKey()));
+				final int craftingTime = getCraftingMode() == 1 ? WorkbenchBlock.WORKBENCH_WEAPON_CRAFTING_TIME : WorkbenchBlock.WORKBENCH_ATTACHMENT_CRAFTING_TIME;
+				CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.CRAFT, tileEntity.getPos(), 0, craftingTime, CraftingGroup.getValue(getCraftingMode()), getSelectedCraftingPiece().getItemStack().getTranslationKey()));
 			}
-
 		} else if (button == assaultSelector) {
 			((GUIButtonCustom) button).toggleOn();
 			modSelector.toggleOff();
@@ -146,22 +144,18 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 			
 			setCraftingMode(CraftingGroup.GEAR.getID());
 			fillFilteredList();
-			
-			
 		}
 	}
-
-
 
 	@Override
 	public void updateScreen() {
 		super.updateScreen();
-		if (!this.craftButton.isDisabled() && tileEntity.getProgress() != 0) {
+
+		if (!this.craftButton.isDisabled() && tileEntity.getProgress() != 0)
 			this.craftButton.setErrored(true);
-		}
-		if(hasSelectedCraftingPiece() && hasRequiredItems() && tileEntity.getProgress() == 0) {
+
+		if (hasSelectedCraftingPiece() && hasRequiredItems() && tileEntity.getProgress() == 0)
 			this.craftButton.setErrored(false);
-		}
 	}
 	
 	/**
@@ -176,9 +170,8 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	
 	@Override
 	public void addCraftingInformationToTooltip(ArrayList<String> tooltip) {
-		tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + I18n.format(tileEntity.craftingTargetName + ".name"));
-
 		final int remainingTicks = tileEntity.craftingDuration - tileEntity.craftingTimer;
+		tooltip.add(TextFormatting.GOLD + "Crafting: " + TextFormatting.WHITE + I18n.format(tileEntity.craftingTargetName + ".name"));
 		tooltip.add(TextFormatting.GOLD + "Time remaining: " + TextFormatting.WHITE + String.format("%.2f", remainingTicks / 20F) + "s");
 	}
 
@@ -193,18 +186,15 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 	
 	@Override
 	public void doCraftingModeOneRender(float partialTicks, int mouseX, int mouseY) {
-		
 		// This is just a backup check. This should only ever run if we are dealing
 		// with crafting mode one, so it will always be a weapon.
-		if(!(getSelectedCraftingPiece().getItemStack().getItem() instanceof Weapon)) return;
+		if (!(getSelectedCraftingPiece().getItemStack().getItem() instanceof Weapon))
+			return;
 	
-		Weapon weapon = (Weapon) getSelectedCraftingPiece().getItemStack().getItem();
+		final Weapon weapon = (Weapon) getSelectedCraftingPiece().getItemStack().getItem();
         GuiRenderUtil.drawScaledString(fontRenderer, format(weapon.getTranslationKey()), this.guiLeft + 214, this.guiTop + 31, 1.2, 0xFDF17C);
         GuiRenderUtil.drawScaledString(fontRenderer, weapon.builder.getWeaponType(), this.guiLeft + 214, this.guiTop + 43, 0.75, 0xC8C49C);
         
         render3DItemInGUI(weapon, this.guiLeft + 300, this.guiTop + 55, mouseX, mouseY);
-        
-        
 	}
-
 }
