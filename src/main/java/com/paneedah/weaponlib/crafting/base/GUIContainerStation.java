@@ -388,7 +388,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 			if (keyCode == Keyboard.KEY_BACK)
 				fillFilteredList();
 
-			if (searchBox.getText().length() != 0) {
+			if (!searchBox.getText().isEmpty()) {
 				// Filter out bad results.
 				filteredCraftingList.removeIf((a) -> !I18n.format(a.getItemStack().getTranslationKey() + ".name").toLowerCase().contains(searchBox.getText().toLowerCase()));
 			}

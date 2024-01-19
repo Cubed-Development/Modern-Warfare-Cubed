@@ -18,8 +18,6 @@ public class TileEntityWorkbench extends TileEntityStation {
 
 	public int ticker;
 
-	public TileEntityWorkbench() {}
-
 	@Override
 	public void onLoad() {
 		super.onLoad();
