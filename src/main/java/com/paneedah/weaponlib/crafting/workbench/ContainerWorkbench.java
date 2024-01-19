@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerWorkbench extends ContainerStation {
 
+	// Panda: Does this have to be here? There's no getters or setters for this. Couldn't we just not set this here and just utilize workbenchTileEntity that's passed?
 	private TileEntityWorkbench tileEntityWorkbench;
 
 	public ContainerWorkbench(EntityPlayer player, InventoryPlayer inventory, TileEntityWorkbench workbenchTileEntity) {
@@ -17,9 +18,7 @@ public class ContainerWorkbench extends ContainerStation {
 		int id = 0;
 		for (int y = 0; y < 3; ++y) {
 			for (int x = 0; x < 9; ++x) {
-				addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory,
-						23 + id, 1, 13 + x * 22, 37 + y * 22));
-
+				addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory, 23 + id, 1, 13 + x * 22, 37 + y * 22));
 				id += 1;
 			}
 		}
@@ -44,52 +43,47 @@ public class ContainerWorkbench extends ContainerStation {
 		}
 
 		// Hotbar slots
-		for (int i = 0; i < 9; ++i) {
+		for (int i = 0; i < 9; ++i)
 			addSlotToContainer(new PagedSlot(currentPageSupplier, inventory, i, 1, 13 + i * 22, 205));
-		}
 
 		// 2nd
 		// Output slots
-		for (int i = 0; i < 9; ++i) {
-			addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory, i, 3,
-					40 + i * 22, 219));
-		}
-
+		for (int i = 0; i < 9; ++i)
+			addSlotToContainer(new PagedSlotItemHandler(currentPageSupplier, tileEntityWorkbench.mainInventory, i, 3, 40 + i * 22, 219));
 	}
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
-		
-		
-		Slot slot = this.inventorySlots.get(index);
+		final Slot slot = this.inventorySlots.get(index);
 
-		if (index < 27) {
+		// TODO: [PANDA] Self reminder to triple check this merge of if statements cuz i'm incompetent.
+
+		if (index < 27 && !this.mergeItemStack(slot.getStack(), 41, 76, false)) {
 			// Workbench inventory
-			if (!this.mergeItemStack(slot.getStack(), 41, 76, false)) {
-				return ItemStack.EMPTY;
-			}
-		} else if (index >= 41 && index <= 76) {
-			// Main inventory & hotbar
-			if (!this.mergeItemStack(slot.getStack(), 0, 26, false)) {
-				return ItemStack.EMPTY;
-			}
-		} else if (index <= 30) {
-
-			if (!this.mergeItemStack(slot.getStack(), 41, 76, false)) {
-				return ItemStack.EMPTY;
-			}
-		} else if (index <= 40) {
-			if (!this.mergeItemStack(slot.getStack(), 41, 76, false)) {
-				return ItemStack.EMPTY;
-			}
+			return ItemStack.EMPTY;
 		}
-		return ItemStack.EMPTY;
+
+		if (index >= 41 && index <= 76 && !this.mergeItemStack(slot.getStack(), 0, 26, false)) {
+			// Main inventory & hotbar
+			return ItemStack.EMPTY;
+		}
+
+		if (index <= 30 && !this.mergeItemStack(slot.getStack(), 41, 76, false)) {
+			return ItemStack.EMPTY;
+		}
+
+        if (index <= 40) {
+            this.mergeItemStack(slot.getStack(), 41, 76, false);
+        }
+
+        return ItemStack.EMPTY;
 	}
 
-
-	@Override
-	public boolean canInteractWith(EntityPlayer playerIn) {
-		return true;
-	}
-
+	//	Panda: Redundant - Same as superclass.
+	//
+	//	@Override
+	//	public boolean canInteractWith(EntityPlayer playerIn) {
+	//		return true;
+	//	}
+	//
 }
