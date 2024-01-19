@@ -165,8 +165,6 @@ public class AuxiliaryAttachments {
     public static ItemAttachment<Weapon> M1GarandMag;
     public static ItemAttachment<Weapon> G11Action;
     public static ItemAttachment<Weapon> AUGAction;
-    public static ItemAttachment<Weapon> StonerHATCH;
-    public static ItemAttachment<Weapon> StonerBELT;
     public static ItemAttachment<Weapon> JohnsonACTION;
     public static ItemAttachment<Weapon> NTW20Barrel;
     public static ItemAttachment<Weapon> NTW20Action;
@@ -889,25 +887,6 @@ public class AuxiliaryAttachments {
                 // .withCreativeTab(MWC.gunsTab)
                 .withModel(new M60Belt(), "m60.png")
                 .withName("M60Belt")
-                .withRenderablePart()
-
-                .build();
-
-        StonerHATCH = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.EXTRA3)
-                // .withCreativeTab(MWC.gunsTab)
-                .withModel(new StonerA1HATCH(), "gun.png")
-                .withModel(new M27rearsight(), "gun.png")
-                .withName("StonerHATCH")
-                .withRenderablePart()
-
-                .build();
-
-        StonerBELT = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.EXTRA2)
-                // .withCreativeTab(MWC.gunsTab)
-                .withModel(new StonerA1BELT(), "gun.png")
-                .withName("StonerBELT")
                 .withRenderablePart()
 
                 .build();
