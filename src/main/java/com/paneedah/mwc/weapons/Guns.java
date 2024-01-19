@@ -119,6 +119,7 @@ public class Guns {
     public static Item MG34;
     public static Item MG42;
     public static Item M60E4;
+    public static Item StonerA1;
     public static Item SSG08;
     public static Item DSR1;
     public static Item L96A1;
@@ -291,6 +292,7 @@ public class Guns {
 
         M249 = new M249Factory().createGun(proxy);
         PKM = new PKMFactory().createGun(proxy);
+        StonerA1 = new StonerA1Factory().createGun(proxy);
         M134 = new M134Factory().createGun(proxy);
 
         //REVOLVER

@@ -125,6 +125,7 @@ public class Magazines {
     public static ItemMagazine M60Mag;
     public static ItemMagazine M249Mag;
     public static ItemMagazine PKMMag;
+    public static ItemMagazine StonerMag;
     public static ItemMagazine M134Mag;
     public static ItemMagazine FuelCell;
     public static ItemMagazine NinthSinMag;
@@ -292,6 +293,14 @@ public class Magazines {
                 .withRotationPoint(0.8812000082910061F, 0.8648000418066975F, -1.40640004143715F)
                 .withModel(new PKMMag(), "pkm.png")
                 .withMaxStackSize(2)
+                .withCrafting(CraftingComplexity.MEDIUM,
+                        MWCItems.steelIngot,
+                        MWCItems.gunmetalIngot)
+                .build(ItemMagazine.class);
+
+        Magazines.StonerMag = new ItemMagazine.Builder().withCapacity(100).withCompatibleBullet(Bullets.Bullet556x45).withName("StonerMag")
+                .withModel(new StonerA1MAG(), "m249.png")
+                .withMaxStackSize(3)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
                         MWCItems.gunmetalIngot)

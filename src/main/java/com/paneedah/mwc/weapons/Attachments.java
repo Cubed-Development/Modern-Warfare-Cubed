@@ -243,6 +243,8 @@ public class Attachments {
     public static ItemAttachment<Weapon> AUGA3handguard;
     public static ItemAttachment<Weapon> AUGA3extGuard;
 
+    public static ItemAttachment<Weapon> StonerHANDGUARD;
+
     public static ItemAttachment<Weapon> AR57Handguard;
 
     public static ItemAttachment<Weapon> NTW20HandguardRAIL;
@@ -1001,6 +1003,13 @@ public class Attachments {
                 .withOnWeaponModel(new AKRail2(), "akrail.png")
                 .withOnWeaponModel(new AKRail3(), "akrail.png")
                 .withName("Mk48UpperHandGuard")
+                .build();
+
+        StonerHANDGUARD = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new StonerHANDGUARD(), "gun.png")
+                .withOnWeaponModel(new AKRail(), "akrail.png")
+                .withOnWeaponModel(new AKRail2(), "akrail.png")
+                .withName("StonerHANDGUARD")
                 .build();
 
         AUGA1handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.FRONTSIGHT)
@@ -3275,7 +3284,7 @@ public class Attachments {
                 .withOnWeaponModel(new FALIron(), "gun.png")
                 .withOnWeaponModel(new AKMiron2(), "gun.png")
                 .withRequiredAttachments(M38HandGuard, LVOAVHandGuard, Mk18HandGuard,
-                        AR57Handguard, HK417Handguard, HK417HandguardTan,
+                        StonerHANDGUARD, AR57Handguard, HK417Handguard, HK417HandguardTan,
                         HK416HandGuardBlackAndTan)
                 .withName("M38FrontSight")
                 .build();
@@ -3286,7 +3295,7 @@ public class Attachments {
                         CraftingGroup.ATTACHMENT_MODIFICATION,
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withRequiredAttachments(M38HandGuard, LVOAVHandGuard, Mk18HandGuard,
-                        AR57Handguard, M16A4HandGuard, M4CarbineHandGuard,
+                        StonerHANDGUARD, AR57Handguard, M16A4HandGuard, M4CarbineHandGuard,
                         ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
                         ACRPrecisionHandGuardTan,
                         ACRSBRHandGuardTan, ACRPolymerHandGuardTan,
@@ -3304,7 +3313,7 @@ public class Attachments {
                         CraftingGroup.ATTACHMENT_MODIFICATION,
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withRequiredAttachments(M38HandGuard, LVOAVHandGuard, Mk18HandGuard,
-                        AR57Handguard, M16A4HandGuard, M4CarbineHandGuard,
+                        StonerHANDGUARD, AR57Handguard, M16A4HandGuard, M4CarbineHandGuard,
                         ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
                         ACRPrecisionHandGuardTan,
                         ACRSBRHandGuardTan, ACRPolymerHandGuardTan,
@@ -4520,7 +4529,7 @@ public class Attachments {
         Laser = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.LASER)
                 .withRequiredAttachments(M4CarbineHandGuard, M38HandGuard, UTGTriRailHandGuard, PistolPlaceholder,
                         FABDefenseMount, LaserPlaceholder, Mk18HandGuard, M60E4HandGuard,
-                        P90Swordfish, AUGA3extGuard, M9A1Body, SamuraiEdgeBody,
+                        P90Swordfish, AUGA3extGuard, StonerHANDGUARD, M9A1Body, SamuraiEdgeBody,
                         M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         HoneyBadgerMatrixArmsHandguard,
                         UMP45Receiver, UMP9Receiver, ScorpionHandguardShort, APC9Placeholder, ARX160Chassis,
@@ -4550,7 +4559,7 @@ public class Attachments {
                 .withModel(new Laser3(), "laser2.png")
                 .withRequiredAttachments(M4CarbineHandGuard, M38HandGuard, UTGTriRailHandGuard, PistolPlaceholder,
                         LaserPlaceholder, Mk18HandGuard, M60E4HandGuard, P90Swordfish,
-                        AUGA3extGuard, AR57Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
+                        AUGA3extGuard, StonerHANDGUARD, AR57Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         HoneyBadgerMatrixArmsHandguard, AR10SuperSASSHandguard,
                         UMP45Receiver, UMP9Receiver, ScorpionHandguardShort, APC9Placeholder, ARX160Chassis, FamasF1PicatinnyRail,
                         HK417Handguard, HK417HandguardTan, AK12BHandguard, CZ805BrenReceiver, Block2SOCOMHandguard,
@@ -4625,7 +4634,7 @@ public class Attachments {
                         AK15HandleGuard, M4CarbineHandGuard, LVOAVHandGuard,
                         M38HandGuard, UTGTriRailHandGuard, GripPlaceholder,
                         Mk18HandGuard, M60E4HandGuard, P90Swordfish, AUGA3extGuard,
-                        AR57Handguard, RPK16Handguard, KrissVectorReceiver,
+                        AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
                         Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard,
                         ACRHandGuardBlack, ACRWEMSKHandGuardTan,
@@ -4657,7 +4666,7 @@ public class Attachments {
                         AK15HandleGuard, M4CarbineHandGuard, LVOAVHandGuard,
                         M38HandGuard, UTGTriRailHandGuard, GripPlaceholder,
                         Mk18HandGuard, M60E4HandGuard, P90Swordfish, AUGA3extGuard,
-                        AR57Handguard, RPK16Handguard, KrissVectorReceiver,
+                        AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
                         Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard,
                         ACRHandGuardBlack, ACRWEMSKHandGuardTan,
@@ -4750,7 +4759,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, M4CarbineHandGuard,
                         LVOAVHandGuard, M38HandGuard, GripPlaceholder, UTGTriRailHandGuard, Mk18HandGuard,
                         M60E4HandGuard, AUGA3extGuard, AR57Handguard, RPK16Handguard,
-                        KrissVectorReceiver, Vector556Handguard,
+                        StonerHANDGUARD, KrissVectorReceiver, Vector556Handguard,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, FNFALPARAHandguard, M16A1PicatinnyRail,
@@ -4777,7 +4786,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, M4CarbineHandGuard,
                         LVOAVHandGuard, M38HandGuard, GripPlaceholder, UTGTriRailHandGuard, Mk18HandGuard,
                         M60E4HandGuard, AUGA3extGuard, AR57Handguard, RPK16Handguard,
-                        KrissVectorReceiver, Vector556Handguard,
+                        StonerHANDGUARD, KrissVectorReceiver, Vector556Handguard,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, FNFALPARAHandguard, M16A1PicatinnyRail,
@@ -4806,7 +4815,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard, M60E4HandGuard, P90Swordfish, AUGA3extGuard,
-                        AR57Handguard, RPK16Handguard, KrissVectorReceiver,
+                        AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
                         Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, Mk14TanBody, Mk14SnowBody, Mk14BlackBody,
@@ -4841,7 +4850,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard, M60E4HandGuard, P90Swordfish, AUGA3extGuard,
-                        AR57Handguard, RPK16Handguard, KrissVectorReceiver,
+                        AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
                         Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, Mk14TanBody, Mk14SnowBody, Mk14BlackBody,
@@ -4870,7 +4879,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard,
-                        M60E4HandGuard, P90Swordfish, AUGA3extGuard, AR57Handguard, RPK16Handguard,
+                        M60E4HandGuard, P90Swordfish, AUGA3extGuard, AR57Handguard, RPK16Handguard, StonerHANDGUARD,
                         KrissVectorReceiver, Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         ACRWEMSKHandGuardTan, B50PKMHandguard, B50PKPHandguard,
@@ -4901,7 +4910,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard,
-                        M60E4HandGuard, P90Swordfish, AUGA3extGuard, AR57Handguard, RPK16Handguard,
+                        M60E4HandGuard, P90Swordfish, AUGA3extGuard, AR57Handguard, RPK16Handguard, StonerHANDGUARD,
                         KrissVectorReceiver, Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         ACRWEMSKHandGuardTan, B50PKMHandguard, B50PKPHandguard,
@@ -4929,8 +4938,8 @@ public class Attachments {
                 .withCategory(AttachmentCategory.GRIP).withModel(new Bipod(), "bipod.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard, GripPlaceholder,
-                        Mk18HandGuard, AUGA3extGuard, AR57Handguard, RPK16Handguard,
-                        KrissVectorReceiver, Vector556Handguard, M16A4HandGuard, ACRHandGuard,
+                        Mk18HandGuard, AUGA3extGuard, AR57Handguard, RPK16Handguard, StonerHANDGUARD,
+                        StonerHANDGUARD, KrissVectorReceiver, Vector556Handguard, M16A4HandGuard, ACRHandGuard,
                         ACRPrecisionHandGuardTan, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
                         HoneyBadgerMatrixArmsHandguard, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, SSG08Chassis,
                         FNFALPARAHandguard, M16A1PicatinnyRail, K2C1Handguard, AR10SuperSASSHandguard, ARX160Chassis,
