@@ -20,8 +20,10 @@ public final class WorkbenchClientMessageHandler implements IMessageHandler<Work
         NetworkUtil.processMessage(messageContext, () -> {
             final TileEntity tileEntity = MC.world.getTileEntity(workbenchClientMessage.getPosition());
 
-            if (tileEntity instanceof TileEntityStation)
+            if (tileEntity instanceof TileEntityStation) {
                 ((TileEntityStation) tileEntity).readBytesFromClientSync(workbenchClientMessage.getBuffer());
+                ((TileEntityStation) tileEntity).pushInventoryRefresh = true;
+            }
         });
 
         return null;
