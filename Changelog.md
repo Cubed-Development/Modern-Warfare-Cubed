@@ -191,6 +191,10 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed ammunition press setting the ammunition of the magazines after they where crafted when this isn't necessary anymore
 - Fixed tooltip formatting in the ammunition press
 - Fixed workbench and ammunition press handling their inventory stack by stack instead of all at once
+- Fixed crafting stations GUI not updating after clicking craft showing outdated information
+- Fixed crafting stations buttons playing sounds even when disabled
+- Fixed crafting stations craft button being enabled even when no crafting recipe was selected
+- Fixed crash because of using bad `Pair`
 - Fixed position of the backpacks in inventory
 - Fixed the client ticker "corruption" state
 - Fixed melee attack and heavy melee attack being switched

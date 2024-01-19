@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import akka.japi.Pair;
 import com.google.common.collect.Maps;
 import com.paneedah.mwc.renderer.ModelSource;
 import com.paneedah.mwc.skins.CustomSkin;
@@ -3840,10 +3839,10 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 		for(Pair<FloatBuffer, CustomRenderer<RenderableState>> pair : this.deferredPost) {
 			GL11.glPushMatrix();
 			
-			GL11.glLoadMatrix(pair.first());
+			GL11.glLoadMatrix(pair.getFirst());
 			
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);
-			pair.second().render(renderContext);
+			pair.getSecond().render(renderContext);
 			GL11.glPopAttrib();
 			GL11.glPopMatrix();
 		}

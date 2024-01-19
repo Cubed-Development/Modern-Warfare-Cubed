@@ -1,7 +1,7 @@
 package com.paneedah.weaponlib.render;
 
-import akka.japi.Pair;
 import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.weaponlib.Pair;
 import com.paneedah.weaponlib.animation.MatrixHelper;
 import com.paneedah.weaponlib.numerical.RandomVector;
 import com.paneedah.weaponlib.numerical.SpringVector;
@@ -66,8 +66,8 @@ public class NewScreenshakingManager {
 		if(ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
 			
 			Pair<Double, Double> param = ClientModContext.getContext().getMainHeldWeapon().getScreenShakeParameters();
-			springVector.setXSpringParam(2, 3000*param.second(), 200*param.second());
-			springVector.setZSpringParam(4, 9000*param.second(), 75*param.second());
+			springVector.setXSpringParam(2, 3000*param.getSecond(), 200*param.getSecond());
+			springVector.setZSpringParam(4, 9000*param.getSecond(), 75*param.getSecond());
 		} else {
 			springVector.setXSpringParam(2, 3000, 200);
 			springVector.setZSpringParam(4, 9000, 75);
