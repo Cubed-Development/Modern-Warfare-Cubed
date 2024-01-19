@@ -139,6 +139,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 			assaultSelector.toggleOff();
 			gearSelector.toggleOff();
 			setCraftingMode(3);
+			setSelectedCraftingPiece(null);
 			fillFilteredList();
 		} else if(button == gearSelector) {
 			((GUIButtonCustom) button).toggleOn();
@@ -147,6 +148,7 @@ public class GUIContainerWorkbench extends GUIContainerStation<TileEntityWorkben
 			modSelector.toggleOff();
 			
 			setCraftingMode(CraftingGroup.GEAR.getID());
+			setSelectedCraftingPiece(null);
 			fillFilteredList();
 			
 			

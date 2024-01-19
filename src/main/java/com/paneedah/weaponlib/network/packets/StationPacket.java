@@ -11,7 +11,6 @@ import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
 import io.netty.buffer.ByteBuf;
 import io.redstudioragnarok.redcore.utils.MathUtil;
-import io.redstudioragnarok.redcore.utils.ModReference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -172,75 +171,53 @@ public class StationPacket implements IMessage {
 
 		            			modContext.getChannel().sendToAllAround(new StationClientPacket(station.getWorld(), message.teLocation), new TargetPoint(0, message.teLocation.getX(), message.teLocation.getY(), message.teLocation.getZ(), 20));
 
-		            			return;
+								return;
 	            			}
+
 	            			CraftingEntry[] modernRecipe = CraftingRegistry.getModernCrafting(message.craftingGroup, message.craftingName).getModernRecipe();
-		            		if(modernRecipe == null)
+		            		if (modernRecipe == null)
 								return;
 
-		            		// Add all items to an item list to verify that they exist.
-		            		HashMap<Item, ItemStack> itemList = new HashMap<>(27, 0.7f);
-		            		for(int i = 23; i < station.mainInventory.getSlots(); ++i)
-		            			itemList.put(station.mainInventory.getStackInSlot(i).getItem(), station.mainInventory.getStackInSlot(i));
+							final HashMap<Item, HashMap<ItemStack, Integer>> itemRemovalList = new HashMap<>();
 
-		            		ArrayList<Pair<Item, Integer>> toConsume = new ArrayList<>();
+							// Calculate the itemstacks to remove
+							for (CraftingEntry stack : modernRecipe) {
+								itemRemovalList.computeIfAbsent(stack.getItem(), k -> new HashMap<>());
+								final Item stackItem = stack.getItem();
+								final int requiredCount = stack.getCount();
 
-		            		// Verify
-		            		for(CraftingEntry stack : modernRecipe) {
-								int count = stack.getCount();
-		            			if(!stack.isOreDictionary()) {
-		            				// Does it even have that item? / Does it have enough of that item?
-									for (int i = 23; i < station.mainInventory.getSlots(); ++i) {
-										final ItemStack iS = station.mainInventory.getStackInSlot(i);
-										if (itemList.containsKey(iS.getItem()) && stack.getCount() <= iS.getCount()) {
-											if (iS.getItem() == stack.getItem()) {
-												if (count != 0) {
-													count -= iS.getCount();
-													iS.shrink(stack.getCount());
+								for (int i = 23; i < station.mainInventory.getSlots(); ++i) {
+									final ItemStack iS = station.mainInventory.getStackInSlot(i);
+									if (iS.getItem() != stackItem)
+										continue;
 
-													if (count == 0)
-														break;
-												}
-											}
-										} else {
-											ModReference.LOG.error("You have encountered a bug please report this to the Developers");
-											return;
-										}
+									final int existingCount = itemRemovalList.get(stackItem).values().stream().mapToInt(Integer::intValue).sum();
+									if (existingCount >= requiredCount)
+										break;
+
+									final int iSCount = iS.getCount();
+									if (existingCount + iSCount >= requiredCount) {
+										itemRemovalList.get(stackItem).put(iS, requiredCount - existingCount);
+										break;
 									}
-		            			} else {
-		            				// Stack is an OreDictionary term
-		            				boolean hasAny = false;
-		            				NonNullList<ItemStack> list = OreDictionary.getOres(stack.getOreDictionaryEntry());
-		            				for(ItemStack toTest : list) {
-		            					if(itemList.containsKey(toTest.getItem()) && stack.getCount() <= itemList.get(toTest.getItem()).getCount()) {
-		            						hasAny = true;
-		            						toConsume.add(new Pair<Item, Integer>(toTest.getItem(), stack.getCount()));
-		            						break;
-		            					}
-		            				}
 
-		            				if(!hasAny) return;
-		            			}
-		            		}
+									itemRemovalList.get(stackItem).put(iS, iSCount);
+								}
+							}
 
-		            		/*
-		            		// Consume materials
-		            		for(CraftingEntry stack : modernRecipe) {
-		            			if(!stack.isOreDictionary()) {
-		            				itemList.get(stack.getItem()).shrink(stack.getCount());
-		            			} else {
+							// Verify
+							for (CraftingEntry stack : modernRecipe) {
+								if (!stack.isOreDictionary()) {
+									final Item stackItem = stack.getItem();
+									if (!itemRemovalList.containsKey(stackItem) || itemRemovalList.get(stackItem).values().stream().mapToInt(Integer::intValue).sum() < stack.getCount())
+										return;
+								}
+							}
 
-		            				List<ItemStack> list = OreDictionary.getOres(stack.getOreDictionaryEntry());
-		            				for(ItemStack test : list) {
-
-		            				}
-		            				itemList.get(stack.getItem()).shrink(stack.getCount());
-		            			}
-
-		            		}*/
-
-		            		for(Pair<Item, Integer> i : toConsume)
-		            			itemList.get(i.getFirst()).shrink(i.getSecond());
+							// Remove the items
+							for (Item i : itemRemovalList.keySet())
+								for (ItemStack iS : itemRemovalList.get(i).keySet())
+									iS.shrink(itemRemovalList.get(i).get(iS));
 
 		            		if(station instanceof TileEntityWorkbench) {
 		            			TileEntityWorkbench workbench = (TileEntityWorkbench) station;
