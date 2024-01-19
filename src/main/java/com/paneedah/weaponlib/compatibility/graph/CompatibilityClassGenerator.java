@@ -1,9 +1,9 @@
 package com.paneedah.weaponlib.compatibility.graph;
 
-import akka.japi.Pair;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.reflect.ClassPath;
 import com.google.common.reflect.ClassPath.ClassInfo;
+import com.paneedah.weaponlib.Pair;
 import org.lwjgl.opengl.GLContext;
 
 import java.lang.reflect.Field;
@@ -124,13 +124,13 @@ public class CompatibilityClassGenerator {
 		HashMap<String, Pair<String, String>> methodNameMap = new HashMap<>();
 		
 		StringBuilder builder = new StringBuilder();
-		builder.append("public static " + original.second().getReturnType().getSimpleName() + " " + original.second().getName());
+		builder.append("public static " + original.getSecond().getReturnType().getSimpleName() + " " + original.getSecond().getName());
 		builder.append("(");
 		
 		StringBuilder parameterBuilder = new StringBuilder();
 		
 		parameterBuilder.append("(");
-		java.lang.reflect.Parameter[] parameters = original.second().getParameters();
+		java.lang.reflect.Parameter[] parameters = original.getSecond().getParameters();
 		for(int i = 0; i < parameters.length; ++i) {
 			
 			if(i == 0) {
@@ -154,7 +154,7 @@ public class CompatibilityClassGenerator {
 		builder.append("\tswitch(case) {");
 		
 		for(Pair<Class<?>, Method> pair : methods) {
-			String genericName = pair.first().getSimpleName();
+			String genericName = pair.getFirst().getSimpleName();
 			builder.append("\n\t\tcase ");
 			
 			if(genericName.contains("ARB")) {
@@ -167,10 +167,10 @@ public class CompatibilityClassGenerator {
 				builder.append("NORMAL:");
 			}
 			
-			if(!original.second().getReturnType().toString().equals("void")) {
-				builder.append("\n\t\t\treturn " + genericName + "." + pair.second().getName() + parameterBuilder.toString() + ";");
+			if(!original.getSecond().getReturnType().toString().equals("void")) {
+				builder.append("\n\t\t\treturn " + genericName + "." + pair.getSecond().getName() + parameterBuilder.toString() + ";");
 			} else {
-				builder.append("\n\t\t\t" + genericName + "." + pair.second().getName() + parameterBuilder.toString() + ";");
+				builder.append("\n\t\t\t" + genericName + "." + pair.getSecond().getName() + parameterBuilder.toString() + ";");
 				builder.append("\n\t\t\tbreak;");
 			}
 			
@@ -178,9 +178,9 @@ public class CompatibilityClassGenerator {
 		
 		
 		builder.append("\n\t}");
-		if(original.second().getReturnType().toString().equals("int")) {
+		if(original.getSecond().getReturnType().toString().equals("int")) {
 			builder.append("\n\treturn 0;");
-		} else if(original.second().getReturnType().toString().equals("boolean")) {
+		} else if(original.getSecond().getReturnType().toString().equals("boolean")) {
 			builder.append("\n\treturn false;");
 		} else {
 			builder.append("\n\treturn;");
@@ -208,7 +208,7 @@ public class CompatibilityClassGenerator {
 			for(Method m : clazz.getMethods()) {
 				if(m.getName().contains(search)) {
 				
-					if(!isMethodEquivalent(m, original.second())) continue;
+					if(!isMethodEquivalent(m, original.getSecond())) continue;
 					extensionsList.add(new Pair<Class<?>, Method>(clazz, m));
 				}
 			
