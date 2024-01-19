@@ -130,6 +130,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed crafting stations GUI not updating after clicking craft showing outdated information
 - Fixed crafting stations buttons playing sounds even when disabled
 - Fixed crafting stations craft button being enabled even when no crafting recipe was selected
+- Fixed crash because of using bad `Pair`
 
 ### Removed
 
