@@ -1,7 +1,11 @@
 package com.paneedah.weaponlib.command;
 
 import com.paneedah.mwc.utils.ModReference;
-import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.ClientEventHandler;
+import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.Pair;
+import com.paneedah.weaponlib.Part;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.weaponlib.animation.Transform;
@@ -329,8 +333,8 @@ public class DebugCommand extends CommandBase {
     		
     		ClientModContext.getContext().getMainHeldWeapon().getWeapon().getRenderer().getWeaponRendererBuilder().firstPersonLeftHandTransform.withScale(x, y, z);
     	
+        }
     }
-     }
     
     private void processFreecamAndMuzzleSubCommands(String[] args) {
     	switch(args[0].toLowerCase()) {
