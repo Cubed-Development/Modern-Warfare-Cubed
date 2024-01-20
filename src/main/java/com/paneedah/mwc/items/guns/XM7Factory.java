@@ -524,6 +524,8 @@ public class XM7Factory implements GunFactory {
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights))
                                 GL11.glTranslatef(0F, 0.015f, 0f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights))
+                                GL11.glTranslatef(0F, 0.0f, 0.3f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex))
                                 GL11.glTranslatef(0F, 0.0f, 0f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider))

@@ -4,9 +4,7 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.weapons.Attachments;
-import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Magazines;
+import com.paneedah.mwc.weapons.*;
 import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
@@ -607,6 +605,8 @@ public class SIGMCXFactory implements GunFactory {
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights))
                                 GL11.glTranslatef(0F, 0.015f, 0f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights))
+                                GL11.glTranslatef(0F, 0.0f, 0.3f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex))
                                 GL11.glTranslatef(0F, 0.0f, 0f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider))

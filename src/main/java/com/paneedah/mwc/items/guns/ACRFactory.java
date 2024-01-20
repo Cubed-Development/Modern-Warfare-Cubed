@@ -663,41 +663,59 @@ public class ACRFactory implements GunFactory {
                             GL11.glTranslatef(0.176f, 0.14f, 0.3f);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MBUSRearSights))
-                                GL11.glTranslatef(0F, 0.07f, 0f);
+                                GL11.glTranslatef(0F, 0.07f, 0.2f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights))
-                                GL11.glTranslatef(0F, 0.055f, 0f);
+                                GL11.glTranslatef(0F, 0.055f, 0.15f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights))
-                                GL11.glTranslatef(0F, 0.05f, 0f);
+                                GL11.glTranslatef(0F, 0.07f, 0.15f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider))
                                 GL11.glTranslatef(0F, 0.08f, 0.4f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG))
                                 GL11.glTranslatef(-0F, 0.11f, 0.85f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter))
                                 GL11.glTranslatef(0F, 0.05f, 0.55f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope))
                                 GL11.glTranslatef(0F, 0.06f, 0.3f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex))
                                 GL11.glTranslatef(-0F, 0.055f, 0.4f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex))
                                 GL11.glTranslatef(-0F, 0.055f, 0.4f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex))
                                 GL11.glTranslatef(-0F, 0.045f, 0.4f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic))
                                 GL11.glTranslatef(-0F, 0.09f, 0.5f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt))
                                 GL11.glTranslatef(-0F, 0.09f, 0.5f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2))
                                 GL11.glTranslatef(-0F, 0.1f, 0.5f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux))
                                 GL11.glTranslatef(-0F, 0.08f, 0.6f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra))
                                 GL11.glTranslatef(0F, 0.05f, 0.4f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3))
                                 GL11.glTranslatef(0F, 0.05f, 0.4f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1))
                                 GL11.glTranslatef(-0.001F, 0.08f, 0.7f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5))
                                 GL11.glTranslatef(-0.001F, 0.08f, 0.7f);
+
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AKMIron))
                                 GL11.glTranslatef(0F, 0.039f, 0.2f);
                         })

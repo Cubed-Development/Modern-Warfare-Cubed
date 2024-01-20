@@ -418,6 +418,8 @@ public class Type20Factory implements GunFactory {
                         .withFirstPersonPositioningZooming((renderContext) -> {
                             GL11.glTranslatef(0.178F, 0.13F, 0.4F);
 
+                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MBUSRearSights))
+                                GL11.glTranslatef(0F, 0.0f, 0.1f);
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider))
                                 GL11.glTranslatef(0F, 0.01f, 0.3f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG))

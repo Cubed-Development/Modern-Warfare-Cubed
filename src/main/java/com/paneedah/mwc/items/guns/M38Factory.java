@@ -4,9 +4,7 @@ import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.weapons.Attachments;
-import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Magazines;
+import com.paneedah.mwc.weapons.*;
 import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
@@ -597,7 +595,11 @@ public class M38Factory implements GunFactory {
                             GL11.glTranslatef(0.18f, 0.03f, 0.4f);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights))
-                                GL11.glTranslatef(0F, 0.015f, 0f);
+                                GL11.glTranslatef(0f, 0.015f, 0.2f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MBUSRearSights))
+                                GL11.glTranslatef(0f, 0.0f, 0.3f);
+                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights))
+                                GL11.glTranslatef(0f, 0.0f, 0.35f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex))
                                 GL11.glTranslatef(0F, 0.035f, 0.3f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider))

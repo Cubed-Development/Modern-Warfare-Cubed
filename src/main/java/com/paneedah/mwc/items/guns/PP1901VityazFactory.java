@@ -10,10 +10,10 @@ import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
-import com.paneedah.weaponlib.crafting.CraftingEntry;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
+import com.paneedah.weaponlib.config.ModernConfigManager;
 
 public class PP1901VityazFactory {
 
@@ -319,7 +319,7 @@ public class PP1901VityazFactory {
                                 Magazines.PP1901Mag)
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glTranslatef(0.152F+(float)com.paneedah.weaponlib.config.ModernConfigManager.x11, -0.13F+(float)com.paneedah.weaponlib.config.ModernConfigManager.x22, 0.4f+(float)com.paneedah.weaponlib.config.ModernConfigManager.x33);
+                            GL11.glTranslatef(0.152F, -0.12f, 1f);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG))
                                 GL11.glTranslatef(-0.003F, 0.26f, 1.15f);
