@@ -298,8 +298,8 @@ public class AS50Factory implements GunFactory {
 
                         )
 
-                        .setupModernAnimations("m82", AuxiliaryAttachments.AS50Action)
-                        .setupModernMagazineAnimations("m82",
+                        .setupModernAnimations("as50", AuxiliaryAttachments.AS50Action)
+                        .setupModernMagazineAnimations("as50",
                                 Magazines.AS50Mag)
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
