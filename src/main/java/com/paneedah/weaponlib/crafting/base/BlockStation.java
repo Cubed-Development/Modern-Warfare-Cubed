@@ -59,17 +59,15 @@ public abstract class BlockStation extends Block {
 		final IBlockState iblockstate3 = worldIn.getBlockState(pos.east());
 		EnumFacing enumfacing = state.getValue(FACING);
 
-		if (enumfacing == EnumFacing.NORTH && iblockstate.isFullBlock() && !iblockstate1.isFullBlock())
+		if (enumfacing == EnumFacing.NORTH && iblockstate.isFullBlock() && !iblockstate1.isFullBlock()) {
 			enumfacing = EnumFacing.SOUTH;
-
-		else if (enumfacing == EnumFacing.SOUTH && iblockstate1.isFullBlock() && !iblockstate.isFullBlock())
+		} else if (enumfacing == EnumFacing.SOUTH && iblockstate1.isFullBlock() && !iblockstate.isFullBlock()) {
 			enumfacing = EnumFacing.NORTH;
-
-		else if (enumfacing == EnumFacing.WEST && iblockstate2.isFullBlock() && !iblockstate3.isFullBlock())
+		} else if (enumfacing == EnumFacing.WEST && iblockstate2.isFullBlock() && !iblockstate3.isFullBlock()) {
 			enumfacing = EnumFacing.EAST;
-
-		else if (enumfacing == EnumFacing.EAST && iblockstate3.isFullBlock() && !iblockstate2.isFullBlock())
+		} else if (enumfacing == EnumFacing.EAST && iblockstate3.isFullBlock() && !iblockstate2.isFullBlock()) {
 			enumfacing = EnumFacing.WEST;
+		}
 
 		worldIn.setBlockState(pos, state.withProperty(FACING, enumfacing), 2);
     }

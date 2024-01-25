@@ -6,6 +6,7 @@ import com.cleanroommc.groovyscript.helper.ingredient.OreDictIngredient;
 import com.cleanroommc.groovyscript.helper.recipe.AbstractRecipeBuilder;
 import com.cleanroommc.groovyscript.registry.VirtualizedRegistry;
 import com.paneedah.mwc.groovyscript.recipes.GSCrafting;
+import com.paneedah.mwc.utils.ModReference;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
@@ -91,7 +92,7 @@ public class CraftingStation extends VirtualizedRegistry<IModernCraftingRecipe> 
 
         @Override
         public String getErrorMsg() {
-            return "Error adding Modern Warfare Cubed Workbench Recipe: " + this.name;
+            return "Error adding " + ModReference.NAME + " Workbench Recipe: " + name;
         }
 
         @Override

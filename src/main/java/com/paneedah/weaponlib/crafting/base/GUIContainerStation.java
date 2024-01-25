@@ -109,43 +109,38 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 	public void initGui() {
 		super.initGui();
 
-		this.searchBox = new CustomSearchTextField(GUI_TEX, "Search Items...", 0, 0, this.fontRenderer, this.guiLeft + 15, this.guiTop + 32, 84, 13);
-		this.searchBox.setMaxStringLength(50);
-		this.searchBox.setEnableBackgroundDrawing(true);
-		this.searchBox.setVisible(true);
-		this.searchBox.setTextColor(16777215);
+		searchBox = new CustomSearchTextField(GUI_TEX, "Search Items...", 0, 0, fontRenderer, guiLeft + 15, guiTop + 32, 84, 13);
+		searchBox.setMaxStringLength(50);
+		searchBox.setEnableBackgroundDrawing(true);
+		searchBox.setVisible(true);
+		searchBox.setTextColor(16777215);
 
-		this.craftButton = new GUIButtonCustom(GUI_TEX, 0, this.guiLeft + 211, this.guiTop + 179, 53, 17, 480, 370, "CRAFT")
+		craftButton = new GUIButtonCustom(GUI_TEX, 0, guiLeft + 211, guiTop + 179, 53, 17, 480, 370, "CRAFT")
 				.withStandardState(GRAY, 0, 240).withHoveredState(GOLD, 0, 257).withErroredState(RED, 0, 274)
 				.withPageRestriction(2);
 
-		this.leftArrow = new GUIButtonCustom(GUI_TEX, 1, this.guiLeft + 318 , this.guiTop, 42, 20, 480, 370, "")
+		leftArrow = new GUIButtonCustom(GUI_TEX, 1, guiLeft + 318 , guiTop, 42, 20, 480, 370, "")
 				.withStandardState(0xFFFFFF, 99, 304)
 				.withHoveredState(0xFFFFFF, 141, 304)
 				.withDisabledState(0xFFFFFF, 57, 304)
-				.withDisabledCheck(() -> this.getPage() == 1);
+				.withDisabledCheck(() -> getPage() == 1);
 
-		this.rightArrow = new GUIButtonCustom(GUI_TEX, 2,
-				this.guiLeft + 360, this.guiTop, 42, 20, 480,
-				370, "")
+		rightArrow = new GUIButtonCustom(GUI_TEX, 2, guiLeft + 360, guiTop, 42, 20, 480, 370, "")
 				.withStandardState(0xFFFFFF, 99, 284)
 				.withHoveredState(0xFFFFFF, 141, 284)
 				//.withDisabledState(0xFFFFFF, u, v)
 				.withDisabledState(0xFFFFFF, 57, 284)
-				.withDisabledCheck(() -> this.getPage() == 2);
+				.withDisabledCheck(() -> getPage() == 2);
 
-		this.dismantleButton = new GUIButtonCustom(GUI_INV_TEX, 6, this.guiLeft + 286, this.guiTop + 70, 73, 17, 480, 370, "DISMANTLE")
+		dismantleButton = new GUIButtonCustom(GUI_INV_TEX, 6, guiLeft + 286, guiTop + 70, 73, 17, 480, 370, "DISMANTLE")
 				.withStandardState(GRAY, 0, 283).withHoveredState(GOLD, 0, 300)
 				.withErroredState(RED, 0, 317).withPageRestriction(1);
 
-
-		this.craftButton.setErrored(true);
-
-		addButton(this.craftButton);
-		addButton(this.leftArrow);
-		addButton(this.rightArrow);
-		addButton(this.dismantleButton);
-
+		craftButton.setErrored(true);
+		addButton(craftButton);
+		addButton(leftArrow);
+		addButton(rightArrow);
+		addButton(dismantleButton);
 		setPage(1);
 
 		// Fill the filtered list with the default set of options
@@ -158,10 +153,8 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 
 		if (button == dismantleButton) {
 			CHANNEL.sendToServer(new WorkbenchServerMessage(WorkbenchServerMessage.DISMANTLE, tileEntity.getPos(), 0, -1, null, ""));
-
 		} else if (button == leftArrow) {
 			setPage(getPage() - 1);
-
 		} else if (button == rightArrow) {
 			setPage(getPage() + 1);
 			if (getPage() == 2)
@@ -251,10 +244,11 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends G
 			}
 		}
 
-		if (requiresMaterialsToSubmitCraftRequest())
-      		this.craftButton.setErrored(!hasRequiredItems);
-		else 
-        	this.craftButton.setErrored(false);
+		if (requiresMaterialsToSubmitCraftRequest()) {
+			this.craftButton.setErrored(!hasRequiredItems);
+		} else {
+			this.craftButton.setErrored(false);
+		}
 	}
 
 	public static void setModContext(ModContext context) {
