@@ -78,12 +78,4 @@ public class ContainerWorkbench extends ContainerStation {
 
         return ItemStack.EMPTY;
 	}
-
-	//	Panda: Redundant - Same as superclass.
-	//
-	//	@Override
-	//	public boolean canInteractWith(EntityPlayer playerIn) {
-	//		return true;
-	//	}
-	//
 }
