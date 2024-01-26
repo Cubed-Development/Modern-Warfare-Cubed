@@ -67,7 +67,7 @@ public class OpticalScopePerspective extends FirstPersonPerspective<RenderableSt
     public void update(TickEvent.RenderTickEvent event) {
     	
          PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
-        if(instance != null && instance.isAimed()) {
+        if(instance != null) {
             ItemScope scope = instance.getScope();
             
             
