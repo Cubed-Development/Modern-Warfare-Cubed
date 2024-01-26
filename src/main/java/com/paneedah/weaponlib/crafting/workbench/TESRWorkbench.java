@@ -9,8 +9,6 @@ import org.lwjgl.opengl.GL11;
 
 public class TESRWorkbench extends TESRStation<TileEntityWorkbench> {
 
-
-	
 	private static final float ROTATION_NORTH = 180f;
 	private static final float ROTATION_SOUTH = 0f;
 	private static final float ROTATION_EAST = 270f;
@@ -22,17 +20,13 @@ public class TESRWorkbench extends TESRStation<TileEntityWorkbench> {
 	private static final float MODEL_X_OFFSET = 0.5f;
 	private static final float MODEL_Y_OFFSET = 1.5f;
 	private static final float MODEL_Z_OFFSET = 0.5f;
-	
-	
-	
+
 	public TESRWorkbench(ModelBase model, ResourceLocation location) {
 		super(model, location);
 	}
 
 	@Override
-	public void render(TileEntityWorkbench te, double x, double y, double z, float partialTicks, int destroyStage,
-			float alpha) {
-     
+	public void render(TileEntityWorkbench te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         // Set initial state
         GlStateManager.enableTexture2D();
         GlStateManager.enableRescaleNormal();
@@ -43,7 +37,6 @@ public class TESRWorkbench extends TESRStation<TileEntityWorkbench> {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         GL11.glTranslatef((float)x + MODEL_X_OFFSET, (float)y + MODEL_Y_OFFSET, (float)z + MODEL_Z_OFFSET);
         GL11.glScalef(1.0F, -1.0F, -1.0F);
-        
         
         // Set rotation
         float blockRotation = 0f;
@@ -63,6 +56,7 @@ public class TESRWorkbench extends TESRStation<TileEntityWorkbench> {
 			default:
 				break;
         }
+
         GlStateManager.rotate(blockRotation, 0, 1, 0);
         
         // Re-scale
@@ -75,7 +69,4 @@ public class TESRWorkbench extends TESRStation<TileEntityWorkbench> {
         GlStateManager.disableRescaleNormal();
         GL11.glPopMatrix();
 	}
-	
-	
-	
 }

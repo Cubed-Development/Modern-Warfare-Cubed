@@ -34,16 +34,15 @@ import java.util.LinkedList;
 public class TileEntityStation extends TileEntity implements ITickable, ISidedInventory {
 	
 	/*
-	 * --------------------------|
-	 * Contents:                 |
-	 * ------------------------- |
-	 * 9 for crafting output     |
-	 * 4 for dismantling slots   |
-	 * 10 dismantling inventory  |
-	 * 27 for main inventory (+) |
-	 * ------------------------- |
+	 * |---------------------------|
+	 * | Contents:                 |
+	 * |-------------------------- |
+	 * | 9 for crafting output     |
+	 * | 4 for dismantling slots   |
+	 * | 10 dismantling inventory  |
+	 * | 27 for main inventory (+) |
+	 * |-------------------------- |
 	 * 50 slots total
-	 * 
 	 */
 	public ItemStackHandler mainInventory = new ItemStackHandler(50);
 
@@ -59,16 +58,11 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 	public int craftingDuration = -1;
 	
 	public boolean pushInventoryRefresh = false;
-
-	
-	
 	private boolean shouldUpdate = false;
 	
 	private EnumFacing facing = null;
 	
-	public TileEntityStation() {
-		
-	}
+	public TileEntityStation() {}
 	
 	public void sendUpdate() {
 		this.shouldUpdate = true;
@@ -77,6 +71,7 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 	public double getProgress() {
 		if (craftingTimer == -1 || craftingDuration == -1)
 			return 0.0;
+
 		return craftingTimer / (double) craftingDuration;
 	}
 	
@@ -86,7 +81,6 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 		world.scheduleBlockUpdate(pos, getBlockType(), 0, 0);
 		markDirty();
 	}
-	
 
 	@Override
 	public NBTTagCompound getUpdateTag() {
@@ -106,51 +100,34 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
 		super.onDataPacket(net, pkt);
 	}
-	
-	
-	
+
 	public EnumFacing getFacing() {
-		if(facing == null) {
+		if (facing == null)
 			facing = getWorld().getBlockState(getPos()).getValue(BlockStation.FACING);
-		}
-		
-		
+
 		return facing;
 	}
-	
 
 	public int getDismantlingTime(IModernCraftingRecipe crafting) {
 		return 0;
 	}
-	
-	
+
 	public void setDismantling(int[] instant, int[] lengths) {
 		this.previousDismantleStatus = instant.clone();
 		this.dismantleStatus = instant;
 		this.dismantleDuration = lengths;
 	}
 
-
 	@Override
 	public void update() {
-		
-		
-
-		
-		
-		
 		prevCraftingTimer = craftingTimer;
 		
 		for (int i = 0; i < dismantleStatus.length; ++i) {
-			
-			
 			if (dismantleStatus[i] == -1 || dismantleDuration[i] == -1)
 				continue;
+
 			previousDismantleStatus[i] = dismantleStatus[i];
 			dismantleStatus[i]++;
-			
-			
-			
 
 			if (mainInventory.getStackInSlot(i + 9).isEmpty()) {
 				previousDismantleStatus[i] = -1;
@@ -158,16 +135,16 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 				dismantleDuration[i] = -1;
 			}
 
-			
 			if (dismantleStatus[i] > dismantleDuration[i]) {
+				final ItemStack stackToDismantle = mainInventory.getStackInSlot(i + 9);
 
-				
-				
-				ItemStack stackToDismantle = mainInventory.getStackInSlot(i + 9);
 				if (stackToDismantle.getItem() instanceof IModernCraftingRecipe) {
-					CraftingEntry[] modernRecipe = ((IModernCraftingRecipe) stackToDismantle.getItem()).getModernRecipe();
-					if(!world.isRemote) stackToDismantle.shrink(1);
-					if((!world.isRemote && stackToDismantle.getCount() != 0) || (world.isRemote && stackToDismantle.getCount() >= 1)) {
+					final CraftingEntry[] modernRecipe = ((IModernCraftingRecipe) stackToDismantle.getItem()).getModernRecipe();
+
+					if (!world.isRemote)
+						stackToDismantle.shrink(1);
+
+					if ((!world.isRemote && stackToDismantle.getCount() != 0) || (world.isRemote && stackToDismantle.getCount() >= 1)) {
 						previousDismantleStatus[i] = 0;
 						dismantleStatus[i] = 0;
 					} else {
@@ -176,26 +153,24 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 						dismantleDuration[i] = -1;
 					}
 
-					if(!world.isRemote) {
+					if (!world.isRemote) {
 						for (CraftingEntry stack : modernRecipe) {
-							ItemStack itemStack = new ItemStack(stack.getItem());
+							final ItemStack itemStack = new ItemStack(stack.getItem());
 							itemStack.setCount((int) Math.round(stack.getCount() * stack.getYield()));
 							addStackToInventoryRange(itemStack, 13, 22);
 						}
+
 						sendUpdate();
 					}
-					
 				}
 			}
-
-			
 		}
 		
-	//	System.out.println(this.world.isRemote + " | " + this.mainInventory.serializeNBT());
-		
+		// System.out.println(this.world.isRemote + " | " + this.mainInventory.serializeNBT());
+
 		//if(!world.isRemote) System.out.println(mainInventory.serializeNBT());
 		
-		if(shouldUpdate) {
+		if (shouldUpdate) {
 			syncChanges();
 			shouldUpdate = false;
 		}
@@ -203,78 +178,72 @@ public class TileEntityStation extends TileEntity implements ITickable, ISidedIn
 		//if(!world.isRemote) {
 			//System.out.println("yo");
 			//mainInventory.setStackInSlot(24, new ItemStack(Items.GOLD_INGOT, 24));
-			
 		//}
 		//System.out.println(mainInventory.serializeNBT());
-		
 	}
-	
-	
+
 	public boolean inventoryContainsEnoughItems(Item item, int quantity, int start, int end) {
 		int count = 0;
-		for(int i = start; i <= end; ++i) {
-			ItemStack slotStack = mainInventory.getStackInSlot(i);
-			if(slotStack.getItem() == item) {
+		for (int i = start; i <= end; ++i) {
+			final ItemStack slotStack = mainInventory.getStackInSlot(i);
+
+			if (slotStack.getItem() == item) {
 				count += slotStack.getCount();
-				if(count >= quantity) return true;
+				if (count >= quantity)
+					return true;
 			}
 		}
-		
-		
-		
+
 		return count >= quantity;
 	}
 	
 	public boolean consumeFromInventory(Item item, int quantity, int start, int end) {
-		LinkedList<ItemStack> stackQueue = new LinkedList<>();
-		
+		final LinkedList<ItemStack> stackQueue = new LinkedList<>();
 		int consumedSimulated = 0;
-		for(int i = start; i <= end; ++i) {
-			ItemStack slotStack = mainInventory.getStackInSlot(i);
+
+		for (int i = start; i <= end; ++i) {
+			final ItemStack slotStack = mainInventory.getStackInSlot(i);
 			
-			if(slotStack.getItem() == item) {
+			if (slotStack.getItem() == item) {
 				stackQueue.add(slotStack);
 				consumedSimulated += slotStack.getCount();
-				if(consumedSimulated >= quantity) {
+				if (consumedSimulated >= quantity)
 					break;
-				}
 			}
-			
 		}
 		
-		if(consumedSimulated >= quantity) {
-			
-			for(ItemStack s : stackQueue) {
-				int toConsume = Math.min(quantity, s.getCount());
+		if (consumedSimulated >= quantity) {
+			for (ItemStack s : stackQueue) {
+				final int toConsume = Math.min(quantity, s.getCount());
 				s.shrink(toConsume);
 				quantity -= toConsume;
-				if(quantity == 0) {
+
+				if (quantity == 0)
 					return true;
-				}
 			}
 			
 		} else {
 			// Failed
 			return false;
 		}
+
 		return tileEntityInvalid;
 	}
 	
 	public void addStackToInventoryRange(ItemStack stack, int start, int end) {
-
 		for (int i = start; i <= end; ++i) {
 			if (ItemStack.areItemsEqual(mainInventory.getStackInSlot(i), stack)) {
 				ItemStack inInventory = mainInventory.getStackInSlot(i);
 				if (inInventory.getCount() + stack.getCount() <= inInventory.getMaxStackSize()) {
 					inInventory.grow(stack.getCount());
 					stack.shrink(stack.getCount());
-				} else if (inInventory.getCount() >= inInventory.getMaxStackSize()) {
 					continue;
-				} else if (inInventory.getCount() + inInventory.getCount() >= inInventory.getMaxStackSize()) {
+				}
+
+				if ((inInventory.getCount() <= inInventory.getMaxStackSize()) && inInventory.getCount() * 2 >= inInventory.getMaxStackSize()) {
 					int difference = inInventory.getMaxStackSize() - inInventory.getCount();
 					inInventory.grow(difference);
 					stack.shrink(difference);
-					continue;
 				}
 			}
 		}
