@@ -19,16 +19,7 @@ public final class EntityControlClientMessageHandler implements IMessageHandler<
     @SideOnly(Side.CLIENT)
     public IMessage onMessage(final EntityControlClientMessage entityControlClientMessage, final MessageContext messageContext) {
         NetworkUtil.processMessage(messageContext, () -> {
-            final EntityPlayer player = MC.player;
-
             CompatibleExtraEntityFlags.setFlags( entityControlClientMessage.getEntity(), entityControlClientMessage.getFlags(), entityControlClientMessage.getValues());
-
-            final int updatedFlags = CompatibleExtraEntityFlags.getFlags(player);
-
-            if ((updatedFlags & CompatibleExtraEntityFlags.PRONING) != 0)
-                PlayerUtil.setSize(player, 0.6F);
-            else
-                PlayerUtil.setSize(player, 1.8F);
         });
 
         return null;

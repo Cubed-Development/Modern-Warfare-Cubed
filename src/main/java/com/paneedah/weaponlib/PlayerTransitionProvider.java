@@ -32,8 +32,7 @@ public class PlayerTransitionProvider implements MultipartTransitionProvider<Ren
     
     private List<MultipartTransition<Part, RenderContext<RenderableState>>> normalTransitions = 
             Arrays.asList(
-                    new MultipartTransition<Part, RenderContext<RenderableState>>(
-                            Part.MAIN, renderContext -> {}, 200, 0)
+                    new MultipartTransition<Part, RenderContext<RenderableState>>(Part.MAIN, renderContext -> {}, 200, 0)
                     .withPartPositionFunction(Part.LEFT_HAND, rc -> {})
                     .withPartPositionFunction(Part.RIGHT_HAND, rc -> {})
                     .withPartPositionFunction(Part.LEFT_LEG, rc -> {})
@@ -50,12 +49,13 @@ public class PlayerTransitionProvider implements MultipartTransitionProvider<Ren
 
     @Override
     public List<MultipartTransition<Part, RenderContext<RenderableState>>> getTransitions(RenderableState state) {
-        if(state == RenderableState.PRONING) {
-            return builder.proningTransitions;
-        } else if(state == RenderableState.PRONING_AIMING) {
-            return builder.proningAimingTransitions;
-        } else {
-            return normalTransitions;
-        }
+        return normalTransitions;
+        //if(state == RenderableState.PRONING) {
+        //    return builder.proningTransitions;
+        //} else if(state == RenderableState.PRONING_AIMING) {
+        //    return builder.proningAimingTransitions;
+        //} else {
+        //    return normalTransitions;
+        //}
     }
 }

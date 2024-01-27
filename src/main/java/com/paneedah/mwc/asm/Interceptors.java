@@ -847,20 +847,7 @@ public class Interceptors {
         	}
         }
     }
-    
-    public static boolean isProning(EntityPlayer player) {
-        return (CompatibleExtraEntityFlags.getFlags(player) & CompatibleExtraEntityFlags.PRONING) != 0;
-    }
-    
-    public static float adjustCameraPosition(EntityLivingBase player, float position) {
-    
-        return player instanceof EntityPlayer && isProning((EntityPlayer) player) 
-                && MC.gameSettings.thirdPersonView == 0 ? position 
-                + player.getEyeHeight() * 1.6f : position;
-    }
-    
 
-    
     public static void turn(EntityPlayer player, float yawDelta, float pitchDelta) {
     	//if(1+1==2) return;'
     	

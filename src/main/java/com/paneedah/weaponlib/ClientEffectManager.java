@@ -43,12 +43,8 @@ final class ClientEffectManager implements EffectManager {
 		posZ += weapon.getMuzzlePosition().z;
 		*/
 		
-	    if(player instanceof EntityPlayer) {
-	        if(player.isSneaking())
-	            posY -= 0.1f;
-            else if(MWCUtil.isProning((EntityPlayer) player))
-                posY -= 1.2f;
-	    }
+	    if (player instanceof EntityPlayer && player.isSneaking())
+			posY -= 0.1f;
 
 	    BetterMuzzleSmoke smokeParticle = new BetterMuzzleSmoke(MC.world, posX, posY, posZ, scale, (float)motionX, (float)motionY, (int)motionZ);
 

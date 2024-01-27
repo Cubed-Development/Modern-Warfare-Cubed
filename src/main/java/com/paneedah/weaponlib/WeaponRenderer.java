@@ -2644,42 +2644,15 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			//log.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
 		}
 
-		if(currentState == null) {
-			
+		if (currentState == null)
 			currentState = RenderableState.NORMAL;
-		}
-		
-        
-        if(player instanceof EntityPlayer && MWCUtil.isProning((EntityPlayer) player)) {
-            switch(currentState) {
-            case NORMAL:
-                currentState = RenderableState.PRONING;
-                break;
-            case RECOILED:
-                currentState = RenderableState.PRONING_RECOILED;
-                break;
-            case SHOOTING:
-                currentState = RenderableState.PRONING_SHOOTING;
-                break;
-            default:
-                break;
-            }
-        }
-
-        
-      
 
 		MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager = firstPersonStateManagers.get(player);
 		if(stateManager == null) {
 			stateManager = new MultipartRenderStateManager<>(currentState, firstPersonTransitionProvider);
 			firstPersonStateManagers.put(player, stateManager);
 		} else {
-			stateManager.setState(currentState, true, currentState == RenderableState.SHOOTING
-			        || currentState == RenderableState.PRONING_SHOOTING
-					|| currentState == RenderableState.ZOOMING_SHOOTING
-					|| currentState == RenderableState.RUNNING
-					|| currentState == RenderableState.ZOOMING
-					|| currentState == RenderableState.DRAWING);
+			stateManager.setState(currentState, true, currentState == RenderableState.SHOOTING || currentState == RenderableState.ZOOMING_SHOOTING || currentState == RenderableState.RUNNING || currentState == RenderableState.ZOOMING || currentState == RenderableState.DRAWING);
 		}
 
 		return new StateDescriptor(playerWeaponInstance, stateManager, rate, amplitude);
@@ -3001,158 +2974,137 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 
 		@Override
 		public List<MultipartTransition<Part, RenderContext<RenderableState>>> getTransitions(RenderableState state) {
-			
-		
 			switch(state) {
-			case MODIFYING:
-				return getSimpleTransition(getBuilder().firstPersonPositioningModifying,
+				case MODIFYING:
+					return getSimpleTransition(getBuilder().firstPersonPositioningModifying,
 						getBuilder().firstPersonLeftHandPositioningModifying,
 						getBuilder().firstPersonRightHandPositioningModifying,
-						getBuilder().firstPersonCustomPositioning,
-						DEFAULT_ANIMATION_DURATION);
-			case MODIFYING_ALT:
-                return getSimpleTransition(getBuilder().firstPersonPositioningModifyingAlt,
+						getBuilder().firstPersonCustomPositioning, DEFAULT_ANIMATION_DURATION);
+
+				case MODIFYING_ALT:
+               		 return getSimpleTransition(getBuilder().firstPersonPositioningModifyingAlt,
                         getBuilder().firstPersonLeftHandPositioningModifyingAlt,
                         getBuilder().firstPersonRightHandPositioningModifyingAlt,
-                        getBuilder().firstPersonCustomPositioning,
-                        DEFAULT_ANIMATION_DURATION);
-			case RUNNING:
-				return
-						getSimpleTransition(getBuilder().firstPersonPositioningRunning,
+                        getBuilder().firstPersonCustomPositioning, DEFAULT_ANIMATION_DURATION);
+
+				case RUNNING:
+					return getSimpleTransition(getBuilder().firstPersonPositioningRunning,
 						getBuilder().firstPersonLeftHandPositioningRunning,
 						getBuilder().firstPersonRightHandPositioningRunning,
-						getBuilder().firstPersonCustomPositioning,
-						325, Interpolation.ACCELERATION);
-			case UNLOAD_EMPTY:
-				return getComplexTransition(getBuilder().unloadEmptyContainer);
-			case LOAD_EMPTY:
-				return getComplexTransition(getBuilder().loadEmptyContainer);
-			case TACTICAL_RELOAD:
-				
-				
-				return getComplexTransition(getBuilder().tacticalReloadContainer);
-			case UNLOADING:
-				return getComplexTransition(getBuilder().firstPersonPositioningUnloading,
+						getBuilder().firstPersonCustomPositioning, 325, Interpolation.ACCELERATION);
+
+				case UNLOAD_EMPTY:
+					return getComplexTransition(getBuilder().unloadEmptyContainer);
+
+				case LOAD_EMPTY:
+					return getComplexTransition(getBuilder().loadEmptyContainer);
+
+				case TACTICAL_RELOAD:
+					return getComplexTransition(getBuilder().tacticalReloadContainer);
+
+				case UNLOADING:
+					return getComplexTransition(getBuilder().firstPersonPositioningUnloading,
 						getBuilder().firstPersonLeftHandPositioningUnloading,
 						getBuilder().firstPersonRightHandPositioningUnloading,
-						getBuilder().firstPersonCustomPositioningUnloading
-						);
-			case RELOADING:
-				return getComplexTransition(getBuilder().firstPersonPositioningReloading,
+						getBuilder().firstPersonCustomPositioningUnloading);
+
+				case RELOADING:
+					return getComplexTransition(getBuilder().firstPersonPositioningReloading,
 						getBuilder().firstPersonLeftHandPositioningReloading,
 						getBuilder().firstPersonRightHandPositioningReloading,
-						getBuilder().firstPersonCustomPositioningReloading
-						);
-			case COMPOUND_RELOAD:
-				
-				return getComplexTransition(getBuilder().compoundReloadContainer);
-			case COMPOUND_RELOAD_EMPTY:
-				
-				
-				
-				return getComplexTransition(getBuilder().compoundReloadEmptyContainer);
-			case LOAD_ITERATION:
-                return getComplexTransition(getBuilder().firstPersonPositioningLoadIteration,
+						getBuilder().firstPersonCustomPositioningReloading);
+
+				case COMPOUND_RELOAD:
+					return getComplexTransition(getBuilder().compoundReloadContainer);
+
+				case COMPOUND_RELOAD_EMPTY:
+					return getComplexTransition(getBuilder().compoundReloadEmptyContainer);
+
+				case LOAD_ITERATION:
+            	    return getComplexTransition(getBuilder().firstPersonPositioningLoadIteration,
                         getBuilder().firstPersonLeftHandPositioningLoadIteration,
                         getBuilder().firstPersonRightHandPositioningLoadIteration,
-                        getBuilder().firstPersonCustomPositioningLoadIteration
-                        );
-			case INSPECTING:
-				
-                return getComplexTransition(getBuilder().firstPersonPositioningInspecting,
+                        getBuilder().firstPersonCustomPositioningLoadIteration);
+
+				case INSPECTING:
+           		    return getComplexTransition(getBuilder().firstPersonPositioningInspecting,
                         getBuilder().firstPersonLeftHandPositioningInspecting,
                         getBuilder().firstPersonRightHandPositioningInspecting,
-                        getBuilder().firstPersonCustomPositioningInspecting
-                        );
-            case DRAWING:
-                return getComplexTransition(getBuilder().firstPersonPositioningDrawing,
+                        getBuilder().firstPersonCustomPositioningInspecting);
+
+            	case DRAWING:
+            	    return getComplexTransition(getBuilder().firstPersonPositioningDrawing,
                         getBuilder().firstPersonLeftHandPositioningDrawing,
                         getBuilder().firstPersonRightHandPositioningDrawing,
-                        getBuilder().firstPersonCustomPositioningDrawing
-                        );
-			case LOAD_ITERATION_COMPLETED:
-                return getSimpleTransition(getBuilder().firstPersonPositioningLoadIterationCompleted,
+                        getBuilder().firstPersonCustomPositioningDrawing);
+
+				case LOAD_ITERATION_COMPLETED:
+            	    return getSimpleTransition(getBuilder().firstPersonPositioningLoadIterationCompleted,
                         getBuilder().firstPersonLeftHandPositioningLoadIterationCompleted,
                         getBuilder().firstPersonRightHandPositioningLoadIterationCompleted,
                         getBuilder().firstPersonCustomPositioningLoadIterationCompleted,
                         getBuilder().loadIterationCompletedAnimationDuration);
-			case ALL_LOAD_ITERATIONS_COMPLETED:
-                return getComplexTransition(getBuilder().firstPersonPositioningAllLoadIterationsCompleted,
+
+				case ALL_LOAD_ITERATIONS_COMPLETED:
+            	    return getComplexTransition(getBuilder().firstPersonPositioningAllLoadIterationsCompleted,
                         getBuilder().firstPersonLeftHandPositioningAllLoadIterationsCompleted,
                         getBuilder().firstPersonRightHandPositioningAllLoadIterationsCompleted,
-                        getBuilder().firstPersonCustomPositioningLoadIterationsCompleted
-                        );
-			case RECOILED:
-				return getSimpleTransition(getBuilder().firstPersonPositioningRecoiled,
+                        getBuilder().firstPersonCustomPositioningLoadIterationsCompleted);
+
+				case RECOILED:
+					return getSimpleTransition(getBuilder().firstPersonPositioningRecoiled,
 						getBuilder().firstPersonLeftHandPositioningRecoiled,
 						getBuilder().firstPersonRightHandPositioningRecoiled,
 						getBuilder().firstPersonCustomPositioningRecoiled,
 						getBuilder().recoilAnimationDuration);
-            case PRONING_RECOILED:
-                return getSimpleTransition(getBuilder().firstPersonPositioningProningRecoiled,
-                        getBuilder().firstPersonLeftHandPositioningProningRecoiled,
-                        getBuilder().firstPersonRightHandPositioningProningRecoiled,
-                        getBuilder().firstPersonCustomPositioningProningRecoiled,
-                        getBuilder().recoilAnimationDuration);
-			case SHOOTING:
-				return getSimpleTransition(getBuilder().firstPersonPositioningShooting,
+
+				case SHOOTING:
+					return getSimpleTransition(getBuilder().firstPersonPositioningShooting,
 						getBuilder().firstPersonLeftHandPositioningShooting,
 						getBuilder().firstPersonRightHandPositioningShooting,
 						getBuilder().firstPersonCustomPositioning,
 						getBuilder().shootingAnimationDuration);
-            case PRONING_SHOOTING:
-                return getSimpleTransition(getBuilder().firstPersonPositioningProningShooting,
-                        getBuilder().firstPersonLeftHandPositioningProningShooting,
-                        getBuilder().firstPersonRightHandPositioningProningShooting,
-                        getBuilder().firstPersonCustomPositioning,
-                        getBuilder().shootingAnimationDuration);
-			case EJECT_SPENT_ROUND:
-				return getComplexTransition(getBuilder().firstPersonPositioningEjectSpentRound,
+
+				case EJECT_SPENT_ROUND:
+					return getComplexTransition(getBuilder().firstPersonPositioningEjectSpentRound,
 						getBuilder().firstPersonLeftHandPositioningEjectSpentRound,
 						getBuilder().firstPersonRightHandPositioningEjectSpentRound,
-						getBuilder().firstPersonCustomPositioningEjectSpentRound
-						);
-			case EJECT_SPENT_ROUND_AIMED:
-                return getComplexTransition(getBuilder().firstPersonPositioningEjectSpentRoundAimed,
+						getBuilder().firstPersonCustomPositioningEjectSpentRound);
+
+				case EJECT_SPENT_ROUND_AIMED:
+           		    return getComplexTransition(getBuilder().firstPersonPositioningEjectSpentRoundAimed,
                         getBuilder().firstPersonLeftHandPositioningEjectSpentRoundAimed,
                         getBuilder().firstPersonRightHandPositioningEjectSpentRoundAimed,
-                        getBuilder().firstPersonCustomPositioningEjectSpentRoundAimed
-                        );
-			case NORMAL:
-				return getSimpleTransitionBeizer(getBuilder().firstPersonPositioning,
+                        getBuilder().firstPersonCustomPositioningEjectSpentRoundAimed);
+
+				case NORMAL:
+					return getSimpleTransitionBeizer(getBuilder().firstPersonPositioning,
 						getBuilder().firstPersonLeftHandPositioning,
 						getBuilder().firstPersonRightHandPositioning,
 						getBuilder().firstPersonCustomPositioning,
 						DEFAULT_ANIMATION_DURATION, getBuilder().beizer);
-            case PRONING:
-                return getSimpleTransition(getBuilder().firstPersonPositioningProning,
-                        getBuilder().firstPersonLeftHandPositioningProning,
-                        getBuilder().firstPersonRightHandPositioningProning,
-                        getBuilder().firstPersonCustomPositioningProning,
-                        DEFAULT_ANIMATION_DURATION);
-			case ZOOMING:
-				
-				
-				return getSimpleTransitionBeizer(getBuilder().firstPersonPositioningZooming,
+
+				case ZOOMING:
+					return getSimpleTransitionBeizer(getBuilder().firstPersonPositioningZooming,
 						getBuilder().firstPersonLeftHandPositioningZooming,
 						getBuilder().firstPersonRightHandPositioningZooming,
 						getBuilder().firstPersonCustomPositioningZooming,
 						DEFAULT_ANIMATION_DURATION, getBuilder().beizer);
 				
-			case ZOOMING_SHOOTING:
-				return getSimpleTransition(getBuilder().firstPersonPositioningZoomingShooting,
+				case ZOOMING_SHOOTING:
+					return getSimpleTransition(getBuilder().firstPersonPositioningZoomingShooting,
 						getBuilder().firstPersonLeftHandPositioningZooming,
 						getBuilder().firstPersonRightHandPositioningZooming,
 						getBuilder().firstPersonCustomPositioningZoomingShooting,
 						60);
-			case ZOOMING_RECOILED:
-				return getSimpleTransition(getBuilder().firstPersonPositioningZoomingRecoiled,
+				case ZOOMING_RECOILED:
+					return getSimpleTransition(getBuilder().firstPersonPositioningZoomingRecoiled,
 						getBuilder().firstPersonLeftHandPositioningZooming,
 						getBuilder().firstPersonRightHandPositioningZooming,
 						getBuilder().firstPersonCustomPositioningZoomingRecoiled,
 						60);
-			default:
-				break;
+				default:
+					break;
 			}
 			return null;
 		}
@@ -4171,13 +4123,12 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 				GL11.glRotatef(110F, 1f, 0f, 0f);
 				GL11.glRotatef(135F, 0f, 1f, 0f);
 				GL11.glRotatef(-180F, 0f, 0f, 1f);
-				if (player instanceof EntityPlayer && !MWCUtil.isProning((EntityPlayer) player)) {
+				if (player instanceof EntityPlayer) {
 					StateDescriptor thirdPersonStateDescriptor = getThirdPersonStateDescriptor(player, itemStack);
 
 					renderContext.setPlayerItemInstance(thirdPersonStateDescriptor.instance);
 
-					MultipartPositioning<Part, RenderContext<RenderableState>> thirdPersonMultipartPositioning = thirdPersonStateDescriptor.stateManager
-							.nextPositioning();
+					MultipartPositioning<Part, RenderContext<RenderableState>> thirdPersonMultipartPositioning = thirdPersonStateDescriptor.stateManager.nextPositioning();
 
 					renderContext.setTransitionProgress(thirdPersonMultipartPositioning.getProgress());
 

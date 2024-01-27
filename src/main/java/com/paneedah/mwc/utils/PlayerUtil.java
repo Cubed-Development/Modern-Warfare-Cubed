@@ -18,10 +18,6 @@ public final class PlayerUtil {
             entityPlayer.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).applyModifier(modifier);
     }
 
-    public static boolean isProning(final EntityPlayer player) {
-        return (CompatibleExtraEntityFlags.getFlags(player) & CompatibleExtraEntityFlags.PRONING) != 0;
-    }
-
     public static void setSize(final EntityPlayer entityPlayer, final float height) {
         if (height == entityPlayer.height)
             return;

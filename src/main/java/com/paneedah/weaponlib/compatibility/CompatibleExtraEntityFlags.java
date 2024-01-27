@@ -13,8 +13,7 @@ import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
 public class CompatibleExtraEntityFlags implements ICapabilitySerializable<NBTBase> {
-    
-    public static int PRONING = 0x01;
+
     public static int FLIP = 0x80000000;
 
     public static void register(ModContext modContext) {
@@ -117,9 +116,5 @@ public class CompatibleExtraEntityFlags implements ICapabilitySerializable<NBTBa
     @Override
     public void deserializeNBT(NBTBase nbt) {
         capabilityContainer.getStorage().readNBT(capabilityContainer, instance, null, nbt);
-    }
-
-    public static boolean isProning(EntityPlayer player) {
-        return (CompatibleExtraEntityFlags.getFlags(player) & CompatibleExtraEntityFlags.PRONING) != 0;
     }
 }

@@ -298,15 +298,8 @@ public class CommonEventHandler {
     public final void onPlayerTickEvent(TickEvent.PlayerTickEvent event) {
         // We check the phase to see if it is at "Phase.END" as we
         // do not want this running twice.
-        if (event.phase != TickEvent.Phase.END)
-            return;
-
-        int updatedFlags = CompatibleExtraEntityFlags.getFlags(event.player);
-        if ((updatedFlags & CompatibleExtraEntityFlags.PRONING) != 0) {
-            // If the player is proning, change their hitbox. TO-DO: Is there a more
-            // efficient way to do this?
-            setSize(event.player, 0.6f, 0.6f); //player.width, player.width);
-        }
+        //if (event.phase != TickEvent.Phase.END)
+        //    return;
     }
 
     @SubscribeEvent

@@ -366,9 +366,5 @@ public class WeaponKeyInputHandler {
             if (instance != null && (instance.getState() == WeaponState.READY || instance.getState() == WeaponState.EJECT_REQUIRED))
                 instance.getWeapon().decrementZoom(instance);
         }
-
-        else if (MC.isSingleplayer() && KeyBindings.proningSwitchKey.isPressed()) {
-            CHANNEL.sendToServer(new EntityControlServerMessage(player, CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
-        }
     }
 }

@@ -91,25 +91,16 @@ public class PlayerRenderer {
     }
     
     private MultipartRenderStateDescriptor<RenderableState, Part, RenderContext<RenderableState>> getStateDescriptor(EntityPlayer player) {
-        
-        if(currentFlags != newFlags) {
+        if (currentFlags != newFlags)
             generalPlayerStateManager = null;
-        }
-        
-        boolean isProning = (newFlags & CompatibleExtraEntityFlags.PRONING) != 0;
-                
-        
-        if(generalPlayerStateManager == null) {
+
+        if (generalPlayerStateManager == null) {
             //log.trace("Creating state manager");
-            generalPlayerStateManager = new MultipartRenderStateManager<>(RenderableState.NORMAL, transitionProvider,
-                  () -> currentTime(player));
-        } else if(isProning && player.distanceWalkedModified == player.prevDistanceWalkedModified
-                /*|| player.motionX == 0 || player.motionZ == 0*/) {
-            //log.trace("Setting aiming state");
-            generalPlayerStateManager.setState(RenderableState.PRONING_AIMING, true, true, true);
-        } else if(isProning) {
-            //log.trace("Setting proning state");
-            generalPlayerStateManager.setCycleState(RenderableState.PRONING, false);
+            generalPlayerStateManager = new MultipartRenderStateManager<>(RenderableState.NORMAL, transitionProvider, () -> currentTime(player));
+        //} else if (isProning && player.distanceWalkedModified == player.prevDistanceWalkedModified
+        //        /*|| player.motionX == 0 || player.motionZ == 0*/) {
+        //    //log.trace("Setting aiming state");
+        //    generalPlayerStateManager.setState(RenderableState.PRONING_AIMING, true, true, true);
         } else {
             ItemStack heldStack = player.getHeldItemMainhand();
             

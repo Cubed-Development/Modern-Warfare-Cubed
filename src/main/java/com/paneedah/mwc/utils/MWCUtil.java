@@ -231,8 +231,4 @@ public class MWCUtil {
 
         return new Vec3d(interpolatedX, interpolatedY, interpolatedZ);
     }
-
-    public static boolean isProning(EntityPlayer player) {
-        return (CompatibleExtraEntityFlags.getFlags(player) & CompatibleExtraEntityFlags.PRONING) != 0;
-    }
 }
