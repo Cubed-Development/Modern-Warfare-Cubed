@@ -45,15 +45,15 @@ public class PlayerRenderer {
         }
 
         public List<MultipartTransition<Part, RenderContext<RenderableState>>> getTransitions(RenderableState state) {
-            ItemStack heldStack = player.getHeldItemMainhand();
-            if(heldStack != null && heldStack.getItem() instanceof Weapon) {
-                //((Weapon)heldStack.getItem()).getRenderer().
-            }
+            //ItemStack heldStack = player.getHeldItemMainhand();
+            //if(heldStack != null && heldStack.getItem() instanceof Weapon) {
+            //    ((Weapon)heldStack.getItem()).getRenderer().
+            //}
             return delegate.getTransitions(state);
         }
     }
      
-    private PlayerTransitionProvider transitionProvider;// = new PlayerTransitionProvider();
+    private final PlayerTransitionProvider transitionProvider;// = new PlayerTransitionProvider();
     
     private class PositionerDescriptor {
         Positioner<Part, RenderContext<RenderableState>> positioner;
