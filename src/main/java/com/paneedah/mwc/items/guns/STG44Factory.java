@@ -155,13 +155,6 @@ public class STG44Factory {
                 GL11.glRotatef(-2F, 1f, 0f, 0f);
                 })
                 
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(13.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.3f, 1.1f, -1.4f);
-                })
-                
             .withFirstPersonPositioningProningRecoiled((renderContext) -> {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScalef(2f, 2f, 2f);

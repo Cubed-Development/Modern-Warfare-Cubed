@@ -197,13 +197,6 @@ public class KS23Factory implements GunFactory {
                     GL11.glRotatef(-2F, 1f, 0f, 0f);
             })
                 
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(13F, 0f, 0f, 1f);
-                GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
-                GL11.glTranslatef(-0.15f, 0.25f, -1.5f);
-                })
-                
             .withFirstPersonPositioningProningRecoiled((renderContext) -> {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glRotatef(13F, 0f, 0f, 1f);

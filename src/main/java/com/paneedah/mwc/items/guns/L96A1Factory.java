@@ -297,13 +297,6 @@ public class L96A1Factory implements GunFactory {
                 GL11.glRotatef(-1f, 1f, 0f, 0f);
                 })
                 
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(8f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.4f, 1.05f, -0.4f);
-                })
-                
             .withFirstPersonPositioningProningRecoiled((renderContext) -> {
             	 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                  GL11.glRotatef(45F, 0f, 1f, 0f);

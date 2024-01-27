@@ -287,39 +287,32 @@ public class AS50Factory implements GunFactory {
                 GL11.glRotatef(-45F, 0f, 1f, 0f);
                 GL11.glRotatef(70F, 1f, 0f, 0f);
                 })
-                
+
             .withFirstPersonPositioning((renderContext) -> {
                 GL11.glScalef(2.5f, 2.5f, 2.5f);
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glRotatef(5f, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.600000f, 2.500000f, -0.725000f);
-                
+
 //                GL11.glScalef(2.5f, 2.5f, 2.5f);
 //                GL11.glRotatef(-65.000000f, 1f, 0f, 0f);
 //                GL11.glRotatef(25.000000f, 0f, 1f, 0f);
 //                GL11.glRotatef(15.000000f, 0f, 0f, 1f);
 //                GL11.glTranslatef(-1.399999f, 2.975002f, 0.675000f);
-                
+
 //                GL11.glScalef(2.5f, 2.5f, 2.5f);
 //                GL11.glRotatef(-3.500000f, 1f, 0f, 0f);
 //                GL11.glRotatef(30.000000f, 0f, 1f, 0f);
 //                GL11.glRotatef(34.000000f, 0f, 0f, 1f);
 //                GL11.glTranslatef(0.025000f, 2.874999f, -0.125000f);
                 })
-                
+
             .withFirstPersonPositioningRecoiled((renderContext) -> {
                 GL11.glScalef(2.5f, 2.5f, 2.5f);
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glRotatef(5f, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.600000f, 2.500000f, -0.1f);
                 GL11.glRotatef(-3f, 1f, 0f, 0f);
-                })
-                
-             .withFirstPersonPositioningProning((renderContext) -> {
-                 GL11.glScalef(2.5f, 2.5f, 2.5f);
-                 GL11.glRotatef(45F, 0f, 1f, 0f);
-                 GL11.glRotatef(8f, 0f, 0f, 1f);
-                 GL11.glTranslatef(-0.6f, 2.2f, -1.2f);
                 })
                 
             .withFirstPersonPositioningProningRecoiled((renderContext) -> {

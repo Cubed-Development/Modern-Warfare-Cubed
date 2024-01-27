@@ -155,13 +155,6 @@ public class M1GarandFactory implements GunFactory {
                 GL11.glRotatef(-2F, 1f, 0f, 0f); 
                 })
                 
-            .withFirstPersonPositioningProning((renderContext) -> {
-            	GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(3.00000f, 3.00000f, 3.00000f);
-                GL11.glRotatef(16.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.275000f, 0.950000f, 0.275000f);
-                })
-                
             .withFirstPersonPositioningProningRecoiled((renderContext) -> {
             	GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScalef(3.00000f, 3.00000f, 3.00000f);

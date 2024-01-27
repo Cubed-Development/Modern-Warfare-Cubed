@@ -143,13 +143,6 @@ public class G43GewehrFactory {
                 GL11.glRotatef(-1F, 1f, 0f, 0f);
                 })
                 
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2.5f, 2.5f, 2.5f);
-                GL11.glRotatef(14.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.250000f, 0.275000f, -1.150000f);
-                })
-                
             .withFirstPersonPositioningProningRecoiled((renderContext) -> {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScalef(2.5f, 2.5f, 2.5f);

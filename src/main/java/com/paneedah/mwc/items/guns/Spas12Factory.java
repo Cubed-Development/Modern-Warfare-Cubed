@@ -269,14 +269,7 @@ public class Spas12Factory implements GunFactory {
                 GL11.glTranslatef(-0.250000f, 0.425000f, -0.075000f);
                 GL11.glRotatef(-5F, 1f, 0f, 0f);
                 })
-                
-            .withFirstPersonPositioningProning((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(2F, 0f, 0f, 1f);
-                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                GL11.glTranslatef(-0.250000f, 0.300000f, -1.050000f);
-                })
-                
+
             .withFirstPersonPositioningProningRecoiled((renderContext) -> {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glRotatef(2F, 0f, 0f, 1f);

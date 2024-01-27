@@ -546,15 +546,7 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			this.firstPersonPositioning = firstPersonPositioning;
 			return this;
 		}
-		
-		
-		
-		
-		
-		public Builder withFirstPersonPositioningProning(Consumer<RenderContext<RenderableState>> firstPersonPositioningProning) {
-		    this.firstPersonPositioningProning = firstPersonPositioningProning;
-		    return this;
-		}
+
 
 		@Deprecated
 		public Builder withFirstPersonPositioningRunning(Consumer<RenderContext<RenderableState>> firstPersonPositioningRunning) {
