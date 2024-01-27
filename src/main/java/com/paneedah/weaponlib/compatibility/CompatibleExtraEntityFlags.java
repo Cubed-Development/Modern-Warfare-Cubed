@@ -17,8 +17,7 @@ public class CompatibleExtraEntityFlags implements ICapabilitySerializable<NBTBa
     public static int FLIP = 0x80000000;
 
     public static void register(ModContext modContext) {
-        CapabilityManager.INSTANCE.register(ExtraEntityFlagsContainer.class, new ExtraEntityFlagsContainerStorage(), 
-                ExtraEntityFlagsContainerImpl.class);
+        CapabilityManager.INSTANCE.register(ExtraEntityFlagsContainer.class, new ExtraEntityFlagsContainerStorage(), ExtraEntityFlagsContainerImpl.class);
     }
 
     public static interface ExtraEntityFlagsContainer {

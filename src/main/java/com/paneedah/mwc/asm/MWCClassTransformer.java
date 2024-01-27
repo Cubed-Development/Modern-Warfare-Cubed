@@ -503,8 +503,7 @@ public class MWCClassTransformer implements IClassTransformer {
                     //String notchFieldType = layerHeldItemClassInfo.getNotchFieldType(mcpFieldName);
                 }
 
-                mv.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/renderer/entity/layers/LayerHeldItem",
-                        fieldName, "Lnet/minecraft/client/renderer/entity/RenderLivingBase;");
+                mv.visitFieldInsn(Opcodes.GETFIELD, "net/minecraft/client/renderer/entity/layers/LayerHeldItem", fieldName, "Lnet/minecraft/client/renderer/entity/RenderLivingBase;");
                 mv.visitVarInsn(Opcodes.ALOAD, 1);
                 mv.visitVarInsn(Opcodes.ALOAD, 2);
                 mv.visitVarInsn(Opcodes.ALOAD, 3);
@@ -517,23 +516,6 @@ public class MWCClassTransformer implements IClassTransformer {
                 mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/Interceptors", "positionItemSide", "(Lnet/minecraft/client/renderer/entity/RenderLivingBase;Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/renderer/block/model/ItemCameraTransforms$TransformType;Lnet/minecraft/util/EnumHandSide;)V", false);
             } else {
                 super.visitMethodInsn(opcode, owner, name, desc, itf);
-            }
-        }
-    }
-
-    private static class IsSneakingMethodVisitor extends MethodVisitor {
-
-        public IsSneakingMethodVisitor(MethodVisitor mv) {
-            super(Opcodes.ASM4, mv);
-        }
-
-        @Override
-        public void visitJumpInsn(int opcode, Label label) {
-            mv.visitJumpInsn(opcode, label);
-            if (opcode == Opcodes.IFNE) {
-                mv.visitVarInsn(Opcodes.ALOAD, 0);
-                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/Interceptors", "isProning", "(Lnet/minecraft/entity/player/EntityPlayer;)Z", false);
-                mv.visitJumpInsn(Opcodes.IFNE, label);
             }
         }
     }
@@ -592,8 +574,7 @@ public class MWCClassTransformer implements IClassTransformer {
         public void visitFieldInsn(int opcode, String owner, String name, String desc) {
 
             super.visitFieldInsn(opcode, owner, name, desc);
-            if (opcode == Opcodes.GETFIELD && (owner.equals("bnl") || owner.equals("net/minecraft/util/MovementInput"))
-                    && (name.equals("jump") || name.equals("g"))) {
+            if (opcode == Opcodes.GETFIELD && (owner.equals("bnl") || owner.equals("net/minecraft/util/MovementInput")) && (name.equals("jump") || name.equals("g"))) {
                 Label l6 = new Label();
                 mv.visitJumpInsn(Opcodes.IFEQ, l6);
                 mv.visitVarInsn(Opcodes.ALOAD, 0);
@@ -697,9 +678,6 @@ public class MWCClassTransformer implements IClassTransformer {
                     && layerHeldItemClassInfo.methodMatches("renderHeldItem", "(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/renderer/block/model/ItemCameraTransforms$TransformType;Lnet/minecraft/util/EnumHandSide;)V", classname, name, desc)) {
                 return new RenderHeldItemMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions),
                         !name.equals("renderHeldItem"));
-            } else if (entityPlayerSPClassInfo != null
-                    && entityPlayerSPClassInfo.methodMatches("isSneaking", "()Z", classname, name, desc)) {
-                return new IsSneakingMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
             } else if (entityPlayerSPClassInfo != null
                     && entityPlayerSPClassInfo.methodMatches("updateEntityActionState", "()V", classname, name, desc)) {
                 return new UpdateEntityActionStateMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
