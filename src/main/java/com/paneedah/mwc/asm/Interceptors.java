@@ -689,13 +689,9 @@ public class Interceptors {
             ModelPlayer modelPlayer = (ModelPlayer) modelBase;
             EntityPlayer player = (EntityPlayer) entityIn;
 
-            PlayerRenderer playerRenderer = renderers.computeIfAbsent(entityIn, 
-                    e -> new PlayerRenderer((EntityPlayer) entityIn, ClientModContext.getContext()));
-            
-            
+            PlayerRenderer playerRenderer = renderers.computeIfAbsent(entityIn, e -> new PlayerRenderer());
+
             playerRenderer.renderModel(modelPlayer, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-
-
 
             EquipmentInventory equipmentInventory = EquipmentCapability.getInventory(player);
             if(equipmentInventory != null) {

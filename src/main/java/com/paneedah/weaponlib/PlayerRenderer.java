@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.MWC;
 import com.paneedah.weaponlib.animation.*;
 import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
 import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
@@ -17,12 +18,13 @@ import java.util.List;
 
 public class PlayerRenderer {
 
-    protected static class StateDescriptor implements MultipartRenderStateDescriptor<RenderableState, Part, RenderContext<RenderableState>>{
+    protected static class StateDescriptor implements MultipartRenderStateDescriptor<RenderableState, Part, RenderContext<RenderableState>> {
+
         protected MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager;
         protected float rate;
         protected float amplitude = 0.04f;
-        public StateDescriptor(MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager,
-                float rate, float amplitude) {
+
+        public StateDescriptor(MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager, float rate, float amplitude) {
             this.stateManager = stateManager;
             this.rate = rate;
             this.amplitude = amplitude;
@@ -33,40 +35,22 @@ public class PlayerRenderer {
             return stateManager;
         }
     }
-    
-    private static class EquippedPlayerTransitionProvider extends PlayerTransitionProvider {
-
-        private PlayerTransitionProvider delegate;
-        private EntityPlayer player;
-
-        EquippedPlayerTransitionProvider(EntityPlayer player, PlayerTransitionProvider delegate) {
-            this.player = player;
-            this.delegate = delegate;
-        }
-
-        public List<MultipartTransition<Part, RenderContext<RenderableState>>> getTransitions(RenderableState state) {
-            //ItemStack heldStack = player.getHeldItemMainhand();
-            //if(heldStack != null && heldStack.getItem() instanceof Weapon) {
-            //    ((Weapon)heldStack.getItem()).getRenderer().
-            //}
-            return delegate.getTransitions(state);
-        }
-    }
      
-    private final PlayerTransitionProvider transitionProvider;// = new PlayerTransitionProvider();
+    private final PlayerTransitionProvider transitionProvider;
     
-    private class PositionerDescriptor {
-        Positioner<Part, RenderContext<RenderableState>> positioner;
+    private static class PositionerDescriptor {
 
+        Positioner<Part, RenderContext<RenderableState>> positioner;
         boolean leftHandPositioned;
         boolean rightHandPositioned;
+
         PositionerDescriptor(Positioner<Part, RenderContext<RenderableState>> positioner) {
             super();
             this.positioner = positioner;
         }
     }
     
-    private ThreadLocal<PositionerDescriptor> currentPositioner = new ThreadLocal<>();
+    private final ThreadLocal<PositionerDescriptor> currentPositioner = new ThreadLocal<>();
 
 //    private ThreadLocal<Positioner<Part, RenderContext<RenderableState>>> currentPositioner = new ThreadLocal<>();
     
@@ -74,15 +58,11 @@ public class PlayerRenderer {
     private int newFlags;
     private long renderingStartTimestamp;
     private long playerStopMovingTimestamp;
-    private ClientModContext clientModContext;
     
     private MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> generalPlayerStateManager;
     
-    public PlayerRenderer(EntityPlayer player, ClientModContext clientModContext) {
-        this.clientModContext = clientModContext;
-        this.transitionProvider = new EquippedPlayerTransitionProvider(
-                player,
-                clientModContext.getPlayerTransitionProvider());
+    public PlayerRenderer() {
+        this.transitionProvider = ClientModContext.getContext().getPlayerTransitionProvider();
     }
     
     public Positioner<Part, RenderContext<RenderableState>> getCurrentPositioner() {
@@ -97,13 +77,9 @@ public class PlayerRenderer {
         if (generalPlayerStateManager == null) {
             //log.trace("Creating state manager");
             generalPlayerStateManager = new MultipartRenderStateManager<>(RenderableState.NORMAL, transitionProvider, () -> currentTime(player));
-        //} else if (isProning && player.distanceWalkedModified == player.prevDistanceWalkedModified
-        //        /*|| player.motionX == 0 || player.motionZ == 0*/) {
-        //    //log.trace("Setting aiming state");
-        //    generalPlayerStateManager.setState(RenderableState.PRONING_AIMING, true, true, true);
         } else {
-            ItemStack heldStack = player.getHeldItemMainhand();
-            
+            final ItemStack heldStack = player.getHeldItemMainhand();
+
             if(heldStack != null && heldStack.getItem() instanceof Weapon) {
                 /*
                  * if this player is not proning and holds a weapon, get a weapon state descriptor
