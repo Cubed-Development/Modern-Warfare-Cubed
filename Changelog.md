@@ -222,6 +222,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Deleted broken Hescobastion and UMP45GFL props
 - Removed the vanilla ability to disable shaders with F4 (this allowed for flash to be disabled)
 - Removed the `WIP` status of the flashbang as it is fully usable and reliable
+- Removed the `PRONE` feature that was meant to be removed in VMW^3
 
 ### Optimization
 
