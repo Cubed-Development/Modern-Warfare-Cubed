@@ -827,22 +827,6 @@ public class MP40Factory {
                          GL11.glTranslatef(0.350000f, -0.450000f, 0.250000f);
                      })
                      
-            .withFirstPersonHandPositioningProning(
-            		(renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-40.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(60.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.450000f, -0.375000f, 0.115000f);
-                    }, 
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.350000f, -0.450000f, 0.250000f);
-                    })
-                     
             .withFirstPersonHandPositioningZooming(
                      (renderContext) -> {
                          GL11.glScalef(4f, 4f, 4f);

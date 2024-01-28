@@ -369,22 +369,6 @@ public class BrowningAuto5Factory implements GunFactory {
 //                    	 GL11.glScalef(4f, 4f, 4f);
                      })
                      
-            .withFirstPersonHandPositioningProning(
-            		(renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.050000f, -0.600000f, 0.125000f);
-                    }, 
-                    (renderContext) -> {
-                   	 GL11.glScalef(4f, 4f, 4f);
-                   	 GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
-                   	 GL11.glRotatef(30.000000f, 0f, 1f, 0f);
-                   	 GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-                   	 GL11.glTranslatef(0.700000f, -1.100000f, 0.225000f);
-                    })
-                     
             .withFirstPersonHandPositioningLoadIterationCompleted(
                      (renderContext) -> {
                     	 GL11.glScalef(4f, 4f, 4f);

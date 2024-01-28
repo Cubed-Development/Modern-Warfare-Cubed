@@ -1306,22 +1306,6 @@ public class SSG08Factory implements GunFactory {
 //                    	 GL11.glScalef(3.5f, 3.5f, 3.5f);
                      })
                      
-            .withFirstPersonHandPositioningProning(
-            		(renderContext) -> {
-                   	 GL11.glScalef(4f, 4f, 4f);
-                   	 GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
-                   	 GL11.glRotatef(-50.000000f, 0f, 1f, 0f);
-                   	 GL11.glRotatef(55.000000f, 0f, 0f, 1f);
-                   	 GL11.glTranslatef(0.625000f, -0.130000f, 0.055000f);
-                    }, 
-                    (renderContext) -> {
-                   	 GL11.glScalef(4f, 4f, 4f);
-                   	 GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                   	 GL11.glRotatef(25.000000f, 0f, 1f, 0f);
-                   	 GL11.glRotatef(-50.000000f, 0f, 0f, 1f);
-                   	 GL11.glTranslatef(0.375000f, -0.475000f, 0.225000f);
-                    })
-                     
             .withFirstPersonHandPositioningZooming(
             		(renderContext) -> {
                    	 GL11.glScalef(4f, 4f, 4f);

@@ -510,22 +510,6 @@ public class BrenMkIIFactory {
                     	 GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
                      })
                      
-            .withFirstPersonHandPositioningProning(
-                     (renderContext) -> {
-                    	 GL11.glScalef(4f, 4f, 5f);
-                         GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
-                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-                         GL11.glRotatef(25.000000f, 0f, 0f, 1f);
-                         GL11.glTranslatef(0.125000f, -0.700000f, 0.325000f);
-                     }, 
-                     (renderContext) -> {
-                    	 GL11.glScalef(4f, 4f, 4f);
-                    	 GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-                    	 GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-                    	 GL11.glRotatef(-45.000000f, 0f, 0f, 1f);
-                    	 GL11.glTranslatef(0.700000f, -0.975000f, 0.375000f);
-                     })
-                     
             .withFirstPersonHandPositioningZooming(
                      (renderContext) -> {
                     	 GL11.glScalef(4f, 4f, 5f);

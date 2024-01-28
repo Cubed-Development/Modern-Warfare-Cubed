@@ -995,22 +995,6 @@ public class MG42Factory {
                          GL11.glTranslatef(0.650000f, -0.650000f, 0.175000f);
                      })
                      
-            .withFirstPersonHandPositioningProning(
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(5.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(40.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.025000f, -0.925000f, 0.125000f);
-                    }, 
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(15.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.55f, -0.6f, 0.175000f);
-                    })
-                     
             .withFirstPersonHandPositioningZooming(
                      (renderContext) -> {
                          GL11.glScalef(4f, 4f, 4f);

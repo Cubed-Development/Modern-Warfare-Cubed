@@ -1320,22 +1320,6 @@ public class Remington700Factory implements GunFactory {
 //                    	 GL11.glScalef(3f, 3f, 3f);
                      })
                      
-            .withFirstPersonHandPositioningProning(
-            		(renderContext) -> {
-                   	 GL11.glScalef(3f, 3f, 3f);
-                   	 GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                   	 GL11.glRotatef(-35.000000f, 0f, 1f, 0f);
-                   	 GL11.glRotatef(35.000000f, 0f, 0f, 1f);
-                   	 GL11.glTranslatef(0.250000f, -0.400000f, 0.325000f);
-                    }, 
-                    (renderContext) -> {
-                   	 GL11.glScalef(3f, 3f, 3f);
-                   	 GL11.glRotatef(-90.000000f, 1f, 0f, 0f);
-                   	 GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-                   	 GL11.glRotatef(-65.000000f, 0f, 0f, 1f);
-                   	 GL11.glTranslatef(0.650000f, -0.900000f, 0.175000f);
-                    })
-                     
             .withFirstPersonHandPositioningZooming(
             		(renderContext) -> {
             			GL11.glScalef(3f, 3f, 3f);
