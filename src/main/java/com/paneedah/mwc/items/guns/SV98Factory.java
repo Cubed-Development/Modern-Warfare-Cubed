@@ -1047,22 +1047,6 @@ public class SV98Factory implements GunFactory {
 //                         GL11.glScalef(3f, 3f, 3f);
                      })
                      
-            .withFirstPersonHandPositioningProning(
-                    (renderContext) -> {
-                    	GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(50.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.490000f, -0.125000f, 0.055000f);
-                    }, 
-                    (renderContext) -> {
-                        GL11.glScalef(4f, 4f, 4f);
-                        GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(-50.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.400000f, -0.500000f, 0.200000f);
-                    })
-                     
             .withFirstPersonHandPositioningZooming(
                     (renderContext) -> {
                     	GL11.glScalef(4f, 4f, 4f);

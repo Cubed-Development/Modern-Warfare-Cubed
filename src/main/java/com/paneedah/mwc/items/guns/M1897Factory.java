@@ -772,22 +772,6 @@ public class M1897Factory implements GunFactory {
                          GL11.glTranslatef(0.700000f, -0.875000f, 0.200000f);
                      })
                      
-            .withFirstPersonHandPositioningProning(
-                     (renderContext) -> {
-                         GL11.glScalef(4f, 4f, 4f);
-                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                         GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-                         GL11.glRotatef(35.000000f, 0f, 0f, 1f);
-                         GL11.glTranslatef(0.275000f, -0.400000f, 0.275000f);
-                     }, 
-                     (renderContext) -> {
-                         GL11.glScalef(3f, 3f, 3f);
-                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                         GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-                         GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-                         GL11.glTranslatef(0.557000f, -0.851000f, 0.200000f);
-                     })
-                     
             .withFirstPersonHandPositioningLoadIterationCompleted(
                      (renderContext) -> {
                          GL11.glScalef(4f, 4f, 4f);

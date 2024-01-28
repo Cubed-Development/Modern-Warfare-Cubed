@@ -1020,35 +1020,7 @@ public class M1911Factory implements GunFactory {
                 	   GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
                 	   GL11.glTranslatef(0.405000f, -0.514000f, 0.140000f);
                    })
-             
-            .withFirstPersonHandPositioningProning(
-            		(renderContext) -> {
-//                      GL11.glScalef(4.500000f, 4.500000f, 4.500000f);
-//                      GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                      GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-//                      GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-//                      GL11.glTranslatef(0.050000f, -0.025000f, 0.475000f);
-                      
-                      GL11.glScalef(4f, 4f, 4f);
-                      GL11.glRotatef(-80.000000f, 1f, 0f, 0f);
-                      GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-                      GL11.glRotatef(35.000000f, 0f, 0f, 1f);
-                      GL11.glTranslatef(-0.125000f, -0.750000f, 0.075000f);
-            }, 
-            (renderContext) -> {
-//         	   GL11.glScalef(4.5f, 4.5f, 4.5f);
-//                GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(0.385000f, -0.500000f, 0.170000f);
-                
-                GL11.glScalef(4f, 4f, 4f);
-                GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-                GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-                GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(0.400000f, -0.485000f, 0.160000f);
-            })
-            
+
             .withFirstPersonHandPositioningRunning(
                      (renderContext) -> {
                     	 GL11.glScalef(4.500000f, 4.500000f, 4.500000f);

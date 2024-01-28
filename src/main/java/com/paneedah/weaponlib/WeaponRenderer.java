@@ -660,12 +660,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			this.firstPersonRightHandPositioning = rightHand;
 			return this;
 		}
-		
-		public Builder withFirstPersonHandPositioningProning(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
-		    //this.firstPersonLeftHandPositioningProning = leftHand;
-		    //this.firstPersonRightHandPositioningProning = rightHand;
-		    return this;
-		}
 
 		@Deprecated
 		public Builder withFirstPersonHandPositioningRunning(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {

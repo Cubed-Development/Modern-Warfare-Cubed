@@ -505,22 +505,6 @@ public class G43GewehrFactory {
                          GL11.glTranslatef(0.550000f, -0.850000f, 0.125000f);
                      })
                      
-            .withFirstPersonHandPositioningProning(
-                    (renderContext) -> {
-                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-                        GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(-35.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(25.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.225000f, -0.325000f, 0.425000f);
-                }, 
-                (renderContext) -> {
-                    GL11.glScalef(0f, 0f, 0f);
-                    GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                    GL11.glRotatef(20.000000f, 0f, 1f, 0f);
-                    GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-                    GL11.glTranslatef(0.550000f, -0.850000f, 0.125000f);
-                })
-                     
             .withFirstPersonHandPositioningZooming(
                     (renderContext) -> {
                         GL11.glScalef(3.5f, 3.5f, 3.5f);

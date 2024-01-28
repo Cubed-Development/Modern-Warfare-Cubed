@@ -725,21 +725,7 @@ public class M712Factory implements GunFactory {
                        GL11.glRotatef(-50.000000f, 0f, 0f, 1f);
                        GL11.glTranslatef(0.420000f, -0.450000f, 0.140000f);
                    })
-            .withFirstPersonHandPositioningProning(
-                    (renderContext) -> {
-                        GL11.glScalef(6f, 6f, 6f);
-                        GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
-                        GL11.glRotatef(15.000000f, 0f, 1f, 0f);
-                        GL11.glRotatef(25.000000f, 0f, 0f, 1f);
-                        GL11.glTranslatef(0.050000f, -0.875000f, 0.075000f);
-                  }, 
-                  (renderContext) -> {
-                      GL11.glScalef(6f, 6f, 6f);
-                      GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-                      GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-                      GL11.glRotatef(-40.000000f, 0f, 0f, 1f);
-                      GL11.glTranslatef(0.375000f, -0.500000f, 0.200000f);
-                  })
+
             .withFirstPersonHandPositioningModifying(
                     (renderContext) -> {
                         GL11.glScalef(6f, 6f, 6f);

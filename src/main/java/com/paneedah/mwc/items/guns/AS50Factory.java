@@ -1254,22 +1254,6 @@ public class AS50Factory implements GunFactory {
 //                         GL11.glScalef(4.5f, 4.5f, 4.5f);
                      })
                      
-            .withFirstPersonHandPositioningProning(
-                     (renderContext) -> {
-                         GL11.glScalef(4f, 4f, 4f);
-                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                         GL11.glRotatef(0.000000f, 0f, 1f, 0f);
-                         GL11.glRotatef(15.000000f, 0f, 0f, 1f);
-                         GL11.glTranslatef(-0.12f, -0.4f, -0.250000f);
-                     }, 
-                     (renderContext) -> {
-                         GL11.glScalef(4.5f, 4.5f, 4.5f);
-                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-                         GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-                         GL11.glTranslatef(0.525000f, -0.525000f, 0.050000f);
-                     })
-                     
             .withFirstPersonHandPositioningZooming(
                     (renderContext) -> {
                         GL11.glScalef(4.5f, 4.5f, 4.5f);
