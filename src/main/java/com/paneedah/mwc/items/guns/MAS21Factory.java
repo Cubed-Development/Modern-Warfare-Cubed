@@ -180,14 +180,6 @@ public class MAS21Factory implements GunFactory {
                     GL11.glRotatef(-5F, 1f, 0f, 0f);
                 })
                 
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glScaled(2F, 2F, 2F);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(18F, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.15f, 0.45f, -1.8f);
-                GL11.glRotatef(-3F, 1f, 0f, 0f);    
-                })
-                
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.MAS21Slide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.37F);
 //              GL11.glRotatef(45F, 0f, 1f, 0f);

@@ -152,13 +152,6 @@ public class M1941JohnsonFactory {
                 GL11.glTranslatef(-0.500000f, 0.000000f, -3.099999f);
                 GL11.glRotatef(-1F, 1f, 0f, 0f);
                 })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(12.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.775000f, -0.025000f, -2.600001f);
-                })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.JohnsonACTION.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, 1f);

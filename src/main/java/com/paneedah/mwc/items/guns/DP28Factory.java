@@ -153,14 +153,6 @@ public class DP28Factory {
                 GL11.glTranslatef(-0.300000f, 0.125000f, -1.224999f);
                 GL11.glRotatef(-0.5F, 1f, 0f, 0f);
                 })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2.5f, 2.5f, 2.5f);
-                GL11.glRotatef(13F, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.45000f, 0.025000f, -1.224999f);
-                GL11.glRotatef(-0.7F, 1f, 0f, 0f);
-                })
             
             .withFirstPersonPositioningReloading(
                     

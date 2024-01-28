@@ -159,14 +159,6 @@ public class M1928ThompsonFactory {
                 GL11.glTranslatef(-0.200000f, 0.450000f, -1.794999f);
                 GL11.glRotatef(-0.3F, 1f, 0f, 0f);
                 })
-            
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(12.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.25f, 0.6f, -1.1f);
-                GL11.glRotatef(-0.7F, 1f, 0f, 0f);
-                })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.M1928ThompsonAction.getRenderablePart(), (renderContext) -> {
                 if(renderContext.getWeaponInstance().getAmmo() == 0) {

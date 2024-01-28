@@ -121,14 +121,7 @@ public class NTW20Factory implements GunFactory {
                 GL11.glTranslatef(-0.400000f, 0.100000f, -3.5599999f);
                 GL11.glRotatef(-1.000000f, 1f, 0f, 0f);
                 })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glScalef(2.5f, 2.5f, 2.5f);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(10.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.500000f, 0.100000f, -2.899999f);
-                })
-                
+
              .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.NTW20Action.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, 1f);
                 })

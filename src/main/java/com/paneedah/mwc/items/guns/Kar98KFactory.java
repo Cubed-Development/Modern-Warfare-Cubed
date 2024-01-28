@@ -312,14 +312,6 @@ public class Kar98KFactory implements GunFactory {
                 GL11.glRotatef(-1F, 1f, 0f, 0f);
                 })
                 
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-                GL11.glRotatef(15F, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.12f, 0.7f, 0.8f);
-                GL11.glRotatef(1F, 0f, 0f, 1f);
-                })
-                
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.Kar98Kaction.getRenderablePart(), (renderContext) -> {
                 })
                 

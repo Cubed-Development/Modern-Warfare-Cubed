@@ -163,14 +163,6 @@ public class NinthSinFactory implements GunFactory {
                 GL11.glRotatef(-5.000000f, 1f, 0f, 0f);
                 GL11.glTranslatef(-0.700000f, -0.505000f, -1.449999f);
                 })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(12.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.15f, 0.6f, -0.1f);
-                GL11.glRotatef(-0.7F, 1f, 0f, 0f);
-                })
             
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.RegulatorUpper.getRenderablePart(), (renderContext) -> {
             	GL11.glTranslatef(0.2F, -0.7F, 1.1F);

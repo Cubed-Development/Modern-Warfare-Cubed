@@ -171,14 +171,6 @@ public class SpringfieldFactory implements GunFactory {
                 GL11.glRotatef(-1F, 1f, 0f, 0f);
                 })
                 
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-                GL11.glRotatef(10F, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.12f, 0.7f, 0.8f);
-                GL11.glRotatef(1F, 0f, 0f, 1f);
-                })
-                
             .withFirstPersonPositioningZoomingRecoiled((renderContext) -> {
                 GL11.glRotatef(45F, 0f, 1f, 0f);
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);

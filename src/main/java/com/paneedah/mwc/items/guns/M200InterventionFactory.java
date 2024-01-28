@@ -312,14 +312,6 @@ public class M200InterventionFactory implements GunFactory {
                 GL11.glRotatef(-1.5f, 1f, 0f, 0f);
                 })
                 
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(12f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.3f, 0.95f, -0f);
-                GL11.glRotatef(0.5F, 1f, 0f, 0f);
-                })
-                
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.InterventionBoltAction.getRenderablePart(), (renderContext) -> {
                 })
                 

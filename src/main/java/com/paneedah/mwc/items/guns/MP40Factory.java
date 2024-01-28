@@ -150,14 +150,6 @@ public class MP40Factory {
                 GL11.glTranslatef(-0.175000f, 0.800000f, -0.175000f);
                 GL11.glRotatef(-1F, 1f, 0f, 0f);
                 })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(8.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.25f, 0.7f, -0.6f);
-                GL11.glRotatef(-0.7F, 1f, 0f, 0f);
-                })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.MP40action.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, -1f);

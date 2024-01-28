@@ -312,14 +312,6 @@ public class M1CarbineFactory {
                     GL11.glRotatef(-1F, 1f, 0f, 0f);
                 }
                 })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2.5f, 2.5f, 2.5f);
-                GL11.glRotatef(12.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.225000f, 0.675000f, 0.455000f);
-                GL11.glRotatef(-1F, 1f, 0f, 0f);
-                })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M1CarbineAction.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, 0.5f);

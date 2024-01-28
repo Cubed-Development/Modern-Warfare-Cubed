@@ -406,13 +406,6 @@ public class StonerA1Factory {
                 GL11.glTranslatef(-0.445000f, 0.700000f, -6.000000f);
                 GL11.glRotatef(-0.500000f, 1f, 0f, 0f);
                 })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(0.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.500000f, -0.400000f, -4.774998f);
-                })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.StonerBELT.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0.1F, -0.1F, 0F);

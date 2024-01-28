@@ -153,13 +153,6 @@ public class M1941JohnsonRifleFactory {
                 GL11.glTranslatef(-0.500000f, -0.2f, -2.999999f);
                 GL11.glRotatef(-1F, 1f, 0f, 0f);
                 })
-                
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glScalef(2f, 2f, 2f);
-                GL11.glRotatef(12.000000f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.775000f, -0.025000f, -2.600001f);
-                })
             
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.StripperClipBullets.getRenderablePart(), (renderContext) -> {
 //                GL11.glTranslatef(-0.7F, -0F, 0F);

@@ -277,14 +277,6 @@ public class SupernovaFactory implements GunFactory {
                 GL11.glRotatef(-2F, 1f, 0f, 0f);
                 })
                 
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-            	 GL11.glRotatef(45F, 0f, 1f, 0f);
-                 GL11.glRotatef(12F, 0f, 0f, 1f);
-                 GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
-                 GL11.glTranslatef(-0.205000f, 0.515000f, -0.699999f);
-                GL11.glRotatef(-2F, 0f, 0f, 1f);
-                })
-                
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
 //                GL11.glTranslatef(0.07F, 1.15F, -0.3F);
 //                GL11.glRotatef(-70F, 1f, 0f, 0f);

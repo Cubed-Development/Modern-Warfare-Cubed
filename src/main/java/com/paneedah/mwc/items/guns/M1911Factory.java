@@ -167,14 +167,6 @@ public class M1911Factory implements GunFactory {
                     GL11.glRotatef(-7F, 1f, 0f, 0f);
                 })
                 
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glScaled(2F, 2F, 2F);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(18F, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.25f, 0.45f, -1.8f);
-                GL11.glRotatef(-3F, 1f, 0f, 0f);    
-                })
-                
             .withFirstPersonPositioningCustomRecoiled(Attachments.M1911Slide.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0F, 0F, 0.5F);
 //              GL11.glRotatef(45F, 0f, 1f, 0f);

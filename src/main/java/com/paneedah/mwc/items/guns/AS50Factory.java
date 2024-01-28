@@ -315,14 +315,6 @@ public class AS50Factory implements GunFactory {
                 GL11.glRotatef(-3f, 1f, 0f, 0f);
                 })
                 
-            .withFirstPersonPositioningProningRecoiled((renderContext) -> {
-                GL11.glScalef(2.5f, 2.5f, 2.5f);
-                GL11.glRotatef(45F, 0f, 1f, 0f);
-                GL11.glRotatef(12f, 0f, 0f, 1f);
-                GL11.glTranslatef(-0.6f, 2.2f, -1f);
-//                GL11.glRotatef(-0.7F, 1f, 0f, 0f);
-                })
-                
              .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.AS50Action.getRenderablePart(), (renderContext) -> {
                 GL11.glTranslatef(0f, 0f, 1f);
                 })
