@@ -1,7 +1,6 @@
 package com.paneedah.mwc.items.guns;
 
 import com.paneedah.mwc.MWC;
-import com.paneedah.mwc.init.MWCItems;
 import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.*;
@@ -13,7 +12,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
-import com.paneedah.weaponlib.config.ModernConfigManager;
 
 public class PP1901VityazFactory {
 
@@ -23,8 +21,8 @@ public class PP1901VityazFactory {
                 .withFireRate(0.7f)
                 .withRecoil(2f)
                 .withZoom(0.9f)
-                .withMuzzlePosition(new Vec3d(-0.1, -1, -4.7))
-                .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE)
+                .withMuzzlePosition(new Vec3d(-0.1, -0.9, -4.7))
+                .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(Type.PISTOL)
                 .hasFlashPedals()
                 .withMaxShots(1, Integer.MAX_VALUE)
@@ -76,11 +74,12 @@ public class PP1901VityazFactory {
                 .withCompatibleAttachment(Attachments.AKSStock, true, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.RailMountB22, (model) -> {
+                    GL11.glTranslatef(0.02F, 0F, 0F);
                 })
 
                 .withCompatibleAttachment(Attachments.ACOG, () -> {
-                    GL11.glTranslatef(-0.275F, -1.6F, -1.85F);
-                    GL11.glScaled(0.73F, 0.73F, 0.73F);
+                    GL11.glTranslatef(-0.285F, -1.62F, -1.8F);
+                    GL11.glScaled(0.83F, 0.83F, 0.83F);
                 }, (model) -> {
                     if (model instanceof AcogScope2) {
                         GL11.glTranslatef(-0.018F, -0.25F, 0.13F);
@@ -90,9 +89,20 @@ public class PP1901VityazFactory {
                         GL11.glScaled(0.03F, 0.03F, 0.03F);
                     }
                 })
+
+                .withCompatibleAttachment(Attachments.MicroReflex, () -> {
+                    GL11.glTranslatef(-0.13F, -2.31F, -2.4F);
+                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                }, (model) -> {
+                    if (model instanceof Reflex2) {
+                        GL11.glTranslatef(0.08F, 0.97F, -0.4F);
+                        GL11.glScaled(0.15F, 0.15F, 0.15F);
+                    }
+                })
+
                 .withCompatibleAttachment(Attachments.MicroT1, () -> {
-                    GL11.glTranslatef(-0.16F, -1.65F, -2.3F);
-                    GL11.glScaled(0.36F, 0.36F, 0.36F);
+                    GL11.glTranslatef(-0.15F, -1.63F, -2.2F);
+                    GL11.glScaled(0.43F, 0.43F, 0.43F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.155F, -0.4F, -0.5F);
@@ -100,35 +110,17 @@ public class PP1901VityazFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.AimpointCompM5, () -> {
-                    GL11.glTranslatef(-0.16F, -1.65F, -2.3F);
-                    GL11.glScaled(0.36F, 0.36F, 0.36F);
+                    GL11.glTranslatef(-0.15F, -1.63F, -2.2F);
+                    GL11.glScaled(0.43F, 0.43F, 0.43F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(0.155F, -0.4F, -0.5F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.AimpointCompM2, () -> {
-                    GL11.glTranslatef(-0.1F, -0.9F, -2.0F);
-                    GL11.glScaled(0.9F, 0.9F, 0.9F);
-                }, (model) -> {
-                    if (model instanceof Reflex2) {
-                        GL11.glTranslatef(-0.005F, -0.89F, -1.5F);
-                        GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    }
-                })
-                .withCompatibleAttachment(Attachments.Specter, () -> {
-                    GL11.glTranslatef(-0.165F, -1.3F, -2.3F);
-                    GL11.glScaled(0.4F, 0.4F, 0.4F);
-                }, (model) -> {
-                    if (model instanceof Acog2) {
-                        GL11.glTranslatef(0.15F, -1.035F, 1.513F);
-                        GL11.glScaled(0.1F, 0.1F, 0.1F);
-                    }
-                })
                 .withCompatibleAttachment(Attachments.Reflex, () -> {
-                    GL11.glTranslatef(-0.05F, -1.4F, -2.55F);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GL11.glTranslatef(-0.022F, -1.4F, -2.7F);
+                    GL11.glScaled(0.6F, 0.6F, 0.6F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(-0.125F, -0.7F, -0.4F);
@@ -136,26 +128,17 @@ public class PP1901VityazFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.BijiaReflex, () -> {
-                    GL11.glTranslatef(-0.05F, -1.4F, -2.55F);
-                    GL11.glScaled(0.45F, 0.45F, 0.45F);
+                    GL11.glTranslatef(-0.02F, -1.38F, -2.7F);
+                    GL11.glScaled(0.6F, 0.6F, 0.6F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(-0.125F, -0.68F, -0.4F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.MicroReflex, () -> {
-                    GL11.glTranslatef(-0.145F, -1.98F, -1.3F);
-                    GL11.glScaled(0.35F, 0.35F, 0.35F);
-                }, (model) -> {
-                    if (model instanceof Reflex2) {
-                        GL11.glTranslatef(0.08F, 0.97F, -0.4F);
-                        GL11.glScaled(0.15F, 0.15F, 0.15F);
-                    }
-                })
                 .withCompatibleAttachment(Attachments.Holographic, () -> {
-                    GL11.glTranslatef(-0.02F, -1.46F, -2.4F);
-                    GL11.glScaled(0.65F, 0.65F, 0.65F);
+                    GL11.glTranslatef(0F, -1.47F, -2.4F);
+                    GL11.glScaled(0.73F, 0.73F, 0.73F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
                         GL11.glTranslatef(-0.125F, -0.5F, -0.1F);
@@ -163,17 +146,18 @@ public class PP1901VityazFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.HolographicAlt, () -> {
-                    GL11.glTranslatef(-0.02F, -1.46F, -2.4F);
-                    GL11.glScaled(0.65F, 0.65F, 0.65F);
+                    GL11.glTranslatef(0F, -1.47F, -2.4F);
+                    GL11.glScaled(0.73F, 0.73F, 0.73F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
                         GL11.glTranslatef(-0.125F, -0.5F, -0.1F);
                         GL11.glScaled(0.1F, 0.1F, 0.1F);
                     }
                 })
+
                 .withCompatibleAttachment(Attachments.EotechHybrid2, () -> {
-                    GL11.glTranslatef(-0.02F, -1.46F, -2.6F);
-                    GL11.glScaled(0.65F, 0.65F, 0.65F);
+                    GL11.glTranslatef(-0.005F, -1.45F, -2.8F);
+                    GL11.glScaled(0.73F, 0.73F, 0.73F);
                 }, (model) -> {
                     if (model instanceof EotechScopeRing) {
                         GL11.glTranslatef(-0.2F, -0.41F, 1.8F);
@@ -184,9 +168,10 @@ public class PP1901VityazFactory {
                         GL11.glScaled(0.05F, 0.05F, 0.05F);
                     }
                 })
+
                 .withCompatibleAttachment(Attachments.VortexRedux, () -> {
-                    GL11.glTranslatef(-0.27F, -1.63F, -2.5F);
-                    GL11.glScaled(0.44F, 0.44F, 0.44F);
+                    GL11.glTranslatef(-0.295F, -1.66F, -2.8F);
+                    GL11.glScaled(0.52F, 0.52F, 0.52F);
                 }, (model) -> {
                     if (model instanceof Holo2) {
                         GL11.glTranslatef(0.395F, -0.33F, -0.1F);
@@ -194,8 +179,8 @@ public class PP1901VityazFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.Kobra, () -> {
-                    GL11.glTranslatef(-0.015F, -1.45F, -2.2F);
-                    GL11.glScaled(0.65F, 0.65F, 0.65F);
+                    GL11.glTranslatef(-0.005F, -1.46F, -2.2F);
+                    GL11.glScaled(0.7F, 0.7F, 0.7F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
                         GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
@@ -203,11 +188,11 @@ public class PP1901VityazFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.KobraGen3, () -> {
-                    GL11.glTranslatef(-0.015F, -1.45F, -2.2F);
-                    GL11.glScaled(0.65F, 0.65F, 0.65F);
+                    GL11.glTranslatef(-0.005F, -1.46F, -2.2F);
+                    GL11.glScaled(0.7F, 0.7F, 0.7F);
                 }, (model) -> {
                     if (model instanceof Reflex2) {
-                        GL11.glTranslatef(-0.125F, -0.45F, -0.75F);
+                        GL11.glTranslatef(-0.125F, -0.45F, -0.85F);
                         GL11.glScaled(0.15F, 0.15F, 0.15F);
                     }
                 })
@@ -319,38 +304,36 @@ public class PP1901VityazFactory {
                                 Magazines.PP1901Mag)
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glTranslatef(0.152F, -0.12f, 1f);
+                            GL11.glTranslatef(0.154F, -0.13F, 0.8f);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG))
-                                GL11.glTranslatef(-0.003F, 0.26f, 1.15f);
+                                GL11.glTranslatef(-0.01F, 0.375F, 1.25F);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1))
-                                GL11.glTranslatef(0.008F, 0.34f, 1.4f);
+                                GL11.glTranslatef(-0.01F, 0.355F, 1.1f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5))
-                                GL11.glTranslatef(0.008F, 0.34f, 1.4f);
-                            else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter))
-                                GL11.glTranslatef(0F, 0.21f, 1.25f);
+                                GL11.glTranslatef(-0.001F, 0.355F, 1.1f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex))
-                                GL11.glTranslatef(0F, 0.2f, 1f);
+                                GL11.glTranslatef(0F, 0.38F, 0.9F);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.BijiaReflex))
-                                GL11.glTranslatef(0F, 0.19f, 1f);
+                                GL11.glTranslatef(-0.005F, 0.34f, 1.1f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex))
-                                GL11.glTranslatef(-0.01F, 0.263f, 0.9f);
+                                GL11.glTranslatef(-0.005F, 0.413f, 0.8f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic))
-                                GL11.glTranslatef(0.003F, 0.315f, 1.5f);
+                                GL11.glTranslatef(-0.005F, 0.365f, 1.1f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HolographicAlt))
-                                GL11.glTranslatef(0.003F, 0.315f, 1.5f);
+                                GL11.glTranslatef(-0.005F, 0.365f, 1.1f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2))
-                                GL11.glTranslatef(0F, 0.275f, 1f);
+                                GL11.glTranslatef(0F, 0.375f, 1.3f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux))
-                                GL11.glTranslatef(0F, 0.33f, 1.4f);
+                                GL11.glTranslatef(-0.007F, 0.39F, 1.2f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra))
-                                GL11.glTranslatef(-0.002F, 0.325f, 1.3f);
+                                GL11.glTranslatef(-0.008F, 0.36f, 1.1f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3))
-                                GL11.glTranslatef(-0.002F, 0.325f, 1.3f);
+                                GL11.glTranslatef(-0.008F, 0.36f, 1.1f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraMount))
-                                GL11.glTranslatef(-0F, 0.305f, 0f);
+                                GL11.glTranslatef(0.025F, 0.135f, -0.3f);
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.OKP7))
-                                GL11.glTranslatef(-0.06F, 0.17f, 0f);
+                                GL11.glTranslatef(0F, 0.02F, 0F);
                             else
                                 GL11.glRotatef(-1.3F, 1f, 0f, 0f);
                         })
