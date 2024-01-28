@@ -115,21 +115,13 @@ public class PlayerRenderer {
     }
 
     public void renderModel(ModelBiped modelPlayer, EntityPlayer player, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-     
     	newFlags = CompatibleExtraEntityFlags.getFlags(player);
-        if(newFlags != currentFlags) {
+        if (newFlags != currentFlags)
             renderingStartTimestamp = System.currentTimeMillis();
-        }
-        
-    
+
         currentPositioner.remove();
-        if(false) { //(newFlags & CompatibleExtraEntityFlags.PRONING) != 0) {
-        	//System.out.println("hi");
-        	renderAnimatedModel(modelPlayer, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        } else {
-            //currentPositioner.remove();
-            renderBipedModel(modelPlayer, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-        }
+        renderBipedModel(modelPlayer, player, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+
         currentFlags = newFlags;
     }
     

@@ -721,16 +721,9 @@ public class Interceptors {
 //        GL11.glScalef(0.8f, 0.8f, 0.8f);
 //        GL11.glTranslatef(-0.02f, 0.69f, -0.35f);
 //        GL11.glRotatef(180f, 0, 0, 1);
-//        if(isProning(player)) {
-//            GL11.glScalef(0.8f, 0.8f, 0.8f);
-//            GL11.glTranslatef(-0.02f, -3f, -0.35f);
-//            GL11.glRotatef(180f, 0, 0, 1);
-//        } else {
-//            GL11.glScalef(0.8f, 0.8f, 0.8f);
-//            GL11.glTranslatef(-0.02f, 0.69f, -0.35f);
-//            GL11.glRotatef(180f, 0, 0, 1);
-//        }
-        
+//        GL11.glScalef(0.8f, 0.8f, 0.8f);
+//        GL11.glTranslatef(-0.02f, 0.69f, -0.35f);
+//        GL11.glRotatef(180f, 0, 0, 1);
     }
 
     public static void renderArmorLayer(ModelBase modelBase, Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {

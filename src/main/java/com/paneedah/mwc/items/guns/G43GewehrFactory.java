@@ -151,10 +151,6 @@ public class G43GewehrFactory {
                 GL11.glTranslatef(0f, 0f, 0.9f);
                 })
             
-            .withFirstPersonPositioningCustomProningRecoiled(AuxiliaryAttachments.G43GewehrAction.getRenderablePart(), (renderContext) -> {
-                GL11.glTranslatef(0f, 0f, 0.9f);
-                })
-            
             .withFirstPersonPositioningReloading(
                     
                     new Transition((renderContext) -> { // Reload position

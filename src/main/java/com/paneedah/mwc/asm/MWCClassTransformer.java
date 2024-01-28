@@ -578,7 +578,6 @@ public class MWCClassTransformer implements IClassTransformer {
                 Label l6 = new Label();
                 mv.visitJumpInsn(Opcodes.IFEQ, l6);
                 mv.visitVarInsn(Opcodes.ALOAD, 0);
-                mv.visitMethodInsn(Opcodes.INVOKESTATIC, "com/paneedah/mwc/asm/Interceptors", "isProning", "(Lnet/minecraft/entity/player/EntityPlayer;)Z", false);
                 mv.visitJumpInsn(Opcodes.IFNE, l6);
                 mv.visitInsn(Opcodes.ICONST_1);
                 Label l7 = new Label();

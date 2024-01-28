@@ -269,7 +269,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 		private float firingRandomizingAmplitude = DEFAULT_FIRING_RANDOMIZING_AMPLITUDE;
 
 		private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioning = new LinkedHashMap<>();
-	    private LinkedHashMap<Part, Consumer<RenderContext<RenderableState>>> firstPersonCustomPositioningProning = new LinkedHashMap<>();
 
 		private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningUnloading = new LinkedHashMap<>();
 		private LinkedHashMap<Part, List<Transition<RenderContext<RenderableState>>>> firstPersonCustomPositioningReloading = new LinkedHashMap<>();
@@ -680,13 +679,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			//this.firstPersonRightHandPositioningRecoiled = rightHand;
 			return this;
 		}
-		
-		@Deprecated
-		public Builder withFirstPersonHandPositioningProningRecoiled(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
-		  //  this.firstPersonLeftHandPositioningProningRecoiled = leftHand;
-		  //  this.firstPersonRightHandPositioningProningRecoiled = rightHand;
-		    return this;
-		}
 
 		public Builder withFirstPersonHandPositioningShooting(Consumer<RenderContext<RenderableState>> leftHand, Consumer<RenderContext<RenderableState>> rightHand) {
 			this.firstPersonLeftHandPositioningShooting = leftHand;
@@ -876,16 +868,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 			return this;
 		}
 		
-		public Builder withFirstPersonCustomPositioningProning(Part part, Consumer<RenderContext<RenderableState>> positioning) {
-		    if(part instanceof DefaultPart) {
-		        throw new IllegalArgumentException("Part " + part + " is not custom");
-		    }
-		    if(this.firstPersonCustomPositioningProning.put(part, positioning) != null) {
-		        throw new IllegalArgumentException("Part " + part + " already added");
-		    }
-		    return this;
-		}
-		
 		public Builder withFirstPersonCustomPositioningZooming(Part part, Consumer<RenderContext<RenderableState>> positioning) {
             if(part instanceof DefaultPart) {
                 throw new IllegalArgumentException("Part " + part + " is not custom");
@@ -906,18 +888,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 				throw new IllegalArgumentException("Part " + part + " already added");
 			}*/
 			return this;
-		}
-		
-		@Deprecated
-		public Builder withFirstPersonPositioningCustomProningRecoiled(Part part, Consumer<RenderContext<RenderableState>> positioning) {
-		    /*
-			if(part instanceof DefaultPart) {
-		        throw new IllegalArgumentException("Part " + part + " is not custom");
-		    }
-		    if(this.firstPersonCustomPositioningProningRecoiled.put(part, positioning) != null) {
-		        throw new IllegalArgumentException("Part " + part + " already added");
-		    }*/
-		    return this;
 		}
 
 		public Builder withFirstPersonPositioningCustomZoomingShooting(Part part, Consumer<RenderContext<RenderableState>> positioning) {
@@ -2103,12 +2073,6 @@ public class WeaponRenderer extends ModelSource implements IBakedModel {
 					firstPersonCustomPositioningRecoiled.put(part, pos);
 				});
 			}
-			
-			if(!firstPersonCustomPositioning.isEmpty() && firstPersonCustomPositioningProning.isEmpty()) {
-                firstPersonCustomPositioning.forEach((part, pos) -> {
-                    firstPersonCustomPositioningProning.put(part, pos);
-                });
-             }
 			
 			if(!firstPersonCustomPositioning.isEmpty() && firstPersonCustomPositioningZooming.isEmpty()) {
 			    firstPersonCustomPositioning.forEach((part, pos) -> {

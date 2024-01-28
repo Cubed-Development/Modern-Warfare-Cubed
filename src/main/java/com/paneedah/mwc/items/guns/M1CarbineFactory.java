@@ -321,10 +321,6 @@ public class M1CarbineFactory {
                 GL11.glTranslatef(0f, 0f, 0.5f);
                 })
             
-            .withFirstPersonPositioningCustomProningRecoiled(AuxiliaryAttachments.M1CarbineAction.getRenderablePart(), (renderContext) -> {
-                GL11.glTranslatef(0f, 0f, 0.5f);
-                })
-            
             .withFirstPersonPositioningReloading(
                     
                     new Transition((renderContext) -> { // Reload position

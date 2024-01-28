@@ -42,7 +42,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added the Workbench and the Ammo Press to the Creative Tab
 - Translations for Chinese, Spanish, and Turkish languages
 - GitHub URL in `MCmod.info`
-- Proning in single player mode (**Note: Currently unanimated; player will appear standing**)
 - Added new fancy rain splash to go with the fancy rain
 - Added remaining time for the craft in the ammunition press
 - Custom death Messages when shot with a gun
