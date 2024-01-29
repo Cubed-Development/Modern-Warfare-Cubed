@@ -4,7 +4,7 @@ import com.paneedah.weaponlib.WeaponSpawnEntity;
 import net.minecraft.util.DamageSource;
 
 public class ServerInterceptors {
-    private static final float KNOCKBACK_STRENGTH = 0.051f;
+    private static final float KNOCKBACK_STRENGTH = 0.0341f;
     
     public static float getKnockback(DamageSource source) {
         float strength = 0.4f;
