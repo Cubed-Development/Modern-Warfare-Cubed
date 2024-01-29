@@ -51,7 +51,8 @@ public class WeaponRotationHandler {
 	
 	
 	private static final float SWAY_AMPLITUDE_NORMAL = 0.15f;
-	private static final float SWAY_AMPLITUDE_OPTICAL_ADS = 0.03f;
+	private static final float SWAY_AMPLITUDE_OPTICAL_ADS = 0.10f;
+	private static final float SWAY_AMPLITUDE_FOCUS = 0.02f;
 	
 	// Divisor multiplier if the player is using an optical scope
 	private static final float DIVISOR_MULTIPLIER_OPTICAL= 0.33f;
@@ -63,10 +64,8 @@ public class WeaponRotationHandler {
 	private static final float RECOIL_AMPLITUDE_ADS_DIVISOR = 0.33f; // 0.3 -> 1/3
 	private static final float WEAPON_RECOVERY_ADS_DIVISOR = 0.5f; // 0.5 -> 1/2
 	private static final float WALKING_SWAY_ADS_DIVISOR = 0.25f; // 0.25 -> 1/4
-	
-	
-	
-	
+
+
 	/**
 	 * Applies rotation at a point (xOffset, yOffset, zOffset) in degrees. By
 	 * shifting the object by the inverse of that translation and shifting it back.
@@ -129,8 +128,7 @@ public class WeaponRotationHandler {
 		
 		// Sway & walk
 		float swayAmplitude = SWAY_AMPLITUDE_NORMAL;
-		float walkingSwayAmplitude = strafeMagnitude * WALKING_SWAY_COMPONENT_DIVISOR
-					+ forwardMagnitude * WALKING_SWAY_COMPONENT_DIVISOR;
+		float walkingSwayAmplitude = strafeMagnitude * WALKING_SWAY_COMPONENT_DIVISOR + forwardMagnitude * WALKING_SWAY_COMPONENT_DIVISOR;
 
 		// Recoil
 		float recoilAmplitude = ClientValueRepo.gunPow.getLerpedFloat();
@@ -141,18 +139,15 @@ public class WeaponRotationHandler {
 		float rotationZDivisor = (float) params.getWeaponRotationY();
 
 		SpringValue recoverySpring = ClientValueRepo.weaponRecovery;
-		
+
 		
 
 		if (renderContext.getWeaponInstance().isAimed()) {
 			float divisorMultiplier = 1f;
-
-		
 				
-				if (renderContext.getWeaponInstance().getScope() != null
-						&& renderContext.getWeaponInstance().getScope().isOptical()) {
+				if (renderContext.getWeaponInstance().getScope() != null && renderContext.getWeaponInstance().getScope().isOptical()) {
 					divisorMultiplier = DIVISOR_MULTIPLIER_OPTICAL;
-					swayAmplitude = SWAY_AMPLITUDE_OPTICAL_ADS;
+					swayAmplitude = renderContext.getPlayer().isSneaking() ? SWAY_AMPLITUDE_FOCUS : SWAY_AMPLITUDE_OPTICAL_ADS;
 					walkingSwayAmplitude *= 0.33f;
 				}
 
@@ -162,30 +157,21 @@ public class WeaponRotationHandler {
 				// so, by increasing the damping we can make
 				// it look better.
 				recoverySpring.setDamping(RECOVERY_SPRING_ADS_DAMPING);
-
-				
-				
-				
 				
 				forwardMagnitude *= FORWARD_MAGNITUDE_ADS_DIVISOR * divisorMultiplier;
 				strafeMagnitude *= STRAFE_MAGNITUDE_ADS_DIVISOR * divisorMultiplier;
 				recoilAmplitude *= RECOIL_AMPLITUDE_ADS_DIVISOR * divisorMultiplier;
 				weaponRecoveryAmplitude *= WEAPON_RECOVERY_ADS_DIVISOR * divisorMultiplier;
 				walkingSwayAmplitude *= WALKING_SWAY_ADS_DIVISOR * divisorMultiplier;
-			
 
 		}
-		
-		double gunSwayX = LissajousCurve.getXOffsetOnCurve(swayAmplitude, 0.25, Math.PI, 0,
-				ClientValueRepo.TICKER.getLerpedFloat());
-		double gunSwayY = LissajousCurve.getXOffsetOnCurve(swayAmplitude, 0.5, Math.PI, HALF_PI,
-				ClientValueRepo.TICKER.getLerpedFloat());
 
-		double walkSwayX = LissajousCurve.getXOffsetOnCurve(walkingSwayAmplitude, 0.5, Math.PI, 0,
-				ClientValueRepo.TICKER.getLerpedFloat());
-		double walkSwayY = LissajousCurve.getXOffsetOnCurve(walkingSwayAmplitude, 0.25, Math.PI, HALF_PI,
-				ClientValueRepo.TICKER.getLerpedFloat());
-		
+		double gunSwayX = LissajousCurve.getXOffsetOnCurve(swayAmplitude, 0.05, Math.PI, 0, ClientValueRepo.TICKER.getLerpedFloat());
+		double gunSwayY = LissajousCurve.getXOffsetOnCurve(swayAmplitude, 0.08, Math.PI, HALF_PI, ClientValueRepo.TICKER.getLerpedFloat());
+
+		double walkSwayX = LissajousCurve.getXOffsetOnCurve(walkingSwayAmplitude, 0.08, Math.PI, 0, ClientValueRepo.TICKER.getLerpedFloat());
+		double walkSwayY = LissajousCurve.getXOffsetOnCurve(walkingSwayAmplitude, 0.05, Math.PI, HALF_PI, ClientValueRepo.TICKER.getLerpedFloat());
+
 		Vec3d stressVector = ClientValueRepo.stressVec.getInterpolatedVector(2.0);
 		Vec3d recoilRotation = ClientValueRepo.recoilRotationVector.getInterpolatedVector(1.0);
 
@@ -195,11 +181,15 @@ public class WeaponRotationHandler {
 		
 		// Apply movement animations
 		STRAFING_ANIMATION.doPositioning((float) strafeMagnitude, MOVEMENT_ANIMATION_ROTATION_POINT);
-		WALKING_ANIMATION.doPositioning((float) Math.max(forwardMagnitude - runningMagnitude, 0),
-				MOVEMENT_ANIMATION_ROTATION_POINT);
+		WALKING_ANIMATION.doPositioning((float) Math.max(forwardMagnitude - runningMagnitude, 0), MOVEMENT_ANIMATION_ROTATION_POINT);
 		RUNNING_ANIMATION.doPositioning((float) Math.max(runningMagnitude, 0), MOVEMENT_ANIMATION_ROTATION_POINT);
 		
 		// Apply sway animations
+		if (renderContext.getWeaponInstance().isAimed() && renderContext.getWeaponInstance().getScope() != null && renderContext.getWeaponInstance().getScope().isOptical()) {
+			renderContext.getPlayer().rotationYaw += (float) gunSwayY / 30;
+			renderContext.getPlayer().rotationPitch += (float) gunSwayX / 30;
+		}
+
 		GlStateManager.translate(walkSwayY, walkSwayX, 0);
 		applyRotationAtPoint(SWAY_ANIMATION_ROTATION_POINT, (float) gunSwayX, (float) gunSwayY, 0f);
 
@@ -216,11 +206,8 @@ public class WeaponRotationHandler {
 		
 		// Apply recoil animation
 		GlStateManager.translate(0, 0, recoilAmplitude * RECOIL_ANIMATION_AMPLITUDE);
-		applyRotationAtPoint(RECOIL_ANIMATION_ROTATION_POINT, (float) recoilRotation.x, (float) recoilRotation.y,
-				(float) recoilRotation.z);
-		applyRotationAtPoint(RECOIL_ANIMATION_ROTATION_POINT, -recoilAmplitude / muzzleClimbDivisor, recoilAmplitude * rotationYDivisor,
-				recoilAmplitude * rotationZDivisor);
+		applyRotationAtPoint(RECOIL_ANIMATION_ROTATION_POINT, (float) recoilRotation.x, (float) recoilRotation.y, (float) recoilRotation.z);
+		applyRotationAtPoint(RECOIL_ANIMATION_ROTATION_POINT, -recoilAmplitude / muzzleClimbDivisor, recoilAmplitude * rotationYDivisor, recoilAmplitude * rotationZDivisor);
 
 	}
-
 }
