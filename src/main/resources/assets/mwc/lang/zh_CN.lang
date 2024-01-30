@@ -1106,6 +1106,7 @@ config.server.bulletBreakGlass.property.name=玻璃破坏
 config.server.explosionBreak.property.name=爆炸破坏
 config.server.explosionDamage.property.name=爆炸伤害倍率
 config.server.explodedBlockDropChance.property.name=爆炸时方块掉落概率
+config.server.enableBleedingOnHit.property.name=血液粒子大小
 
 config.category.ores.name=矿物设定
 config.server.ores.sulfurSpawnsPerChunk.property.name=硫矿石单区块生成数量
@@ -1148,7 +1149,6 @@ config.client.ammocounter.ammoCounterSize.property.name=子弹计数器大小
 
 config.client.enableOpenDoorDisplay.property.name=开门提示
 config.client.holdToAim.property.name=按住瞄准
-config.client.enableBleedingOnHit.property.name=血液粒子大小
 config.client.enableMuzzleEffects.property.name=枪口火焰
 config.client.enableBlurOnAim.property.name=瞄准模糊
 config.client.statusBarPosition.property.name=状态栏位置

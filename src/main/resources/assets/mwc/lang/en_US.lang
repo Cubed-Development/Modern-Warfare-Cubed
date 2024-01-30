@@ -1082,6 +1082,8 @@ config.server.explosionDamage.property.name=Explosion Damage
 config.server.explosionDamage.property.tooltip=Customize the explosion damage
 config.server.explodedBlockDropChance.property.name=Exploded Block Drop Chance
 config.server.explodedBlockDropChance.property.tooltip=The chance for blocks to drop when exploded
+config.server.enableBleedingOnHit.property.name=Bleeding On Hit
+config.server.enableBleedingOnHit.property.tooltip=Enable/Disable bleeding on hit
 
 config.category.ores.name=Ores Config
 config.server.ores.sulfurSpawnsPerChunk.property.name=Sulfur Ore Per Chunk
@@ -1113,8 +1115,6 @@ config.client.enableOpenDoorDisplay.property.name=Open Door Display
 config.client.enableOpenDoorDisplay.property.tooltip=Enable/Disable the Open Door Display
 config.client.holdToAim.property.name=Hold To Aim
 config.client.holdToAim.property.tooltip=Enable/Disable hold to aim
-config.client.enableBleedingOnHit.property.name=Bleeding On Hit
-config.client.enableBleedingOnHit.property.tooltip=Enable/Disable bleeding on hit
 config.client.enableMuzzleEffects.property.name=Muzzle Effects
 config.client.enableMuzzleEffects.property.tooltip=Enable/Disable the muzzle effects
 config.client.enableBlurOnAim.property.name=Blur On Aim

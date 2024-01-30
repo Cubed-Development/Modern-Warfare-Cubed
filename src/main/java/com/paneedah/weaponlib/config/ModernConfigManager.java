@@ -85,6 +85,10 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_SERVER, comment = "What should the block drop chance be?")
 	public static double explodedBlockDropChance = 1.0;
 
+	@RangeDouble(min=0.0, max=1.0)
+	@ConfigSync(category = CATEGORY_SERVER, comment = "Should players bleed when hit?")
+	public static double enableBleedingOnHit = 1.0F;
+
 
 
 
@@ -172,10 +176,6 @@ public class ModernConfigManager {
 
 	@ConfigSync(category = CATEGORY_CLIENT, comment = "Should blur be applied when aiming?")
 	public static boolean enableBlurOnAim = true;
-
-	@RangeDouble(min=0.0, max=1.0)
-	@ConfigSync(category = CATEGORY_CLIENT, comment = "Should players bleed when hit?")
-	public static double enableBleedingOnHit = 1.0F;
 
 	@ConfigSync(category = CATEGORY_CLIENT, comment = "Where should the status bar be located?")
 	public static String statusBarPosition = "TOP_RIGHT";
