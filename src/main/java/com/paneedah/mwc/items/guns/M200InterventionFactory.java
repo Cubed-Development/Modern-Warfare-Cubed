@@ -297,10 +297,10 @@ public class M200InterventionFactory implements GunFactory {
 
                         )
 
-                        .setupModernAnimations("intervention", AuxiliaryAttachments.InterventionBoltAction)
-                        .setupCustomKeyedPart(AuxiliaryAttachments.InterventionBoltAction, "intervention", BBLoader.KEY_BOLT_ACTION)
-                        .setupCustomKeyedPart(AuxiliaryAttachments.InterventionBoltActionPrime, "intervention", "boltprime")
-                        .setupModernMagazineAnimations("intervention",
+                        .setupModernAnimations("m40a6", AuxiliaryAttachments.InterventionBoltAction)
+                        .setupCustomKeyedPart(AuxiliaryAttachments.InterventionBoltAction, "m40a6", BBLoader.KEY_BOLT_ACTION)
+                        .setupCustomKeyedPart(AuxiliaryAttachments.InterventionBoltActionPrime, "m40a6", "boltprime")
+                        .setupModernMagazineAnimations("m40a6",
                                 Magazines.InterventionMag,
                                 Magazines.InterventionMagExtend)
 

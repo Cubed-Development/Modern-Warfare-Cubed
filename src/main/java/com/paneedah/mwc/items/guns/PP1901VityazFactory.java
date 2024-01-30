@@ -299,8 +299,8 @@ public class PP1901VityazFactory {
 
                         )
 
-                        .setupModernAnimations("pp19", AuxiliaryAttachments.PP1901Action)
-                        .setupModernMagazineAnimations("pp19",
+                        .setupModernAnimations("ak12", AuxiliaryAttachments.PP1901Action)
+                        .setupModernMagazineAnimations("ak12",
                                 Magazines.PP1901Mag)
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
