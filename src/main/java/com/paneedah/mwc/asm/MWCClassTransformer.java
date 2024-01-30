@@ -726,12 +726,6 @@ public class MWCClassTransformer implements IClassTransformer {
             } else if (entityLivingBaseClassInfo != null
                     && entityLivingBaseClassInfo.methodMatches("knockBack", "(Lnet/minecraft/entity/Entity;FDD)V", classname, name, desc)) {
                 return new KnockBackMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if (modelRendererClassInfo.classMatches(classname) && name.equals("<init>")) {
-                return new ModelRendererConstructorVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if (modelRendererClassInfo != null
-                    && modelRendererClassInfo.methodMatches("render", "(F)V", classname, name, desc)) {
-                return new ModelRendererRenderMethodVisitor(
-                        cv.visitMethod(access, name, desc, signature, exceptions), !name.equals("render"));
             } /*else if(playSoundClassInfo != null && playSoundClassInfo.methodMatches("play", "(Lpaulscode/sound/Channel;)V", classname, name, desc)) {
                 return new SoundInterceptorMethodVistor(cv.visitMethod(access, name, desc, signature, exceptions));
             }*/
