@@ -6,10 +6,7 @@ import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
 import com.paneedah.mwc.weapons.Attachments;
 import com.paneedah.mwc.weapons.Magazines;
-import com.paneedah.weaponlib.AttachmentCategory;
-import com.paneedah.weaponlib.RenderableState;
-import com.paneedah.weaponlib.Weapon;
-import com.paneedah.weaponlib.WeaponRenderer;
+import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.jim.BBLoader;
 import com.paneedah.weaponlib.compatibility.RecoilParam;
@@ -68,23 +65,15 @@ public class M1911Factory implements GunFactory {
                 .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
                 .withCompatibleAttachment(Attachments.M1911Body, true, (model) -> {
                 })
-                .withCompatibleAttachment(Attachments.HardballerBody, (model) -> {
-                })
                 .withCompatibleAttachment(Attachments.M45A1CQBPBody, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.M1911Slide, true, (model) -> {
                     if (model instanceof makarovrearsight) {
-                        GL11.glTranslatef(-0.21F, -1.355F, -0.09F);
+                        GL11.glTranslatef(-0.23F, -1.355F, -0.09F);
                         GL11.glScaled(0.3F, 0.3F, 0.3F);
                     } else if (model instanceof M1911FrontSight) {
-                        GL11.glTranslatef(-0.215F, -1.35F, -2.35F);
+                        GL11.glTranslatef(-0.235F, -1.35F, -2.35F);
                         GL11.glScaled(0.25F, 0.25F, 0.25F);
-                    }
-                })
-                .withCompatibleAttachment(Attachments.HardballerSlide, (model) -> {
-                    if (model instanceof HardballerIron) {
-                        GL11.glTranslatef(-0.155F, -2.07F, -1.55F);
-                        GL11.glScaled(0.55F, 0.5F, 0.5F);
                     }
                 })
                 .withCompatibleAttachment(Attachments.M45A1CQBPSlide, (model) -> {
@@ -113,9 +102,8 @@ public class M1911Factory implements GunFactory {
                         .withModel(new Glock18C())
                         .withActionPiece(
                                 Attachments.M1911Slide,
-                                Attachments.HardballerSlide,
                                 Attachments.M45A1CQBPSlide)
-                        .withActionTransform(new Transform().withPosition(0, 0, 0.55F))
+                        .withActionTransform(new Transform().withPosition(0, 0, 0.6F))
                         .withEntityPositioning(itemStack -> {
                             GL11.glScaled(0.4F, 0.4F, 0.4F);
                             GL11.glTranslatef(0, 0f, 3f);
@@ -134,10 +122,10 @@ public class M1911Factory implements GunFactory {
 
                         .withFirstPersonPositioning(
                                 new Transform()
-                                        .withPosition(-0.945000f, 4.065000f, -7.845000f)
+                                        .withPosition(-0.945000f, 4.305000f, -7.945000f)
                                         .withRotation(0.000000f, 1.000000f, 10.681469f)
                                         .withPivotPoint(-0.12000000357627871F, -0.36000001072883614F, 0.040000001192092904F)
-                                        .withScale(2.8F, 2.8F, 2.8F)
+                                        .withScale(2.9F, 2.9F, 2.9F)
                         )
 
                         .withFirstPersonHandPositioning(
@@ -151,9 +139,9 @@ public class M1911Factory implements GunFactory {
 
 
                                 new Transform()
-                                        .withPosition(-0.320000f, 0.140000f, 2.040000f)
+                                        .withPosition(-0.420000f, 0.260000f, 2.040000f)
                                         .withBBRotation(10.0931F, 10.9576F, -10.0294F)
-                                        .withScale(3, 3, 3.5F)
+                                        .withScale(3.3F, 3.3F, 3.5F)
                                         .withPivotPoint(0, 0, 0)
 
                         )
@@ -162,30 +150,24 @@ public class M1911Factory implements GunFactory {
                         .setupModernMagazineAnimations("m9",
                                 Magazines.M1911Mag,
                                 Magazines.M1911Mag15)
-                        .setupCustomKeyedPart(Attachments.HardballerSlide, "m9", BBLoader.KEY_ACTION)
                         .setupCustomKeyedPart(Attachments.M45A1CQBPSlide, "m9", BBLoader.KEY_ACTION)
 
                         .withFirstPersonCustomPositioning(Attachments.M1911Slide.getRenderablePart(), (renderContext) -> {
                             if (renderContext.getWeaponInstance().getAmmo() == 0) {
-                                GL11.glTranslatef(0F, 0F, 0.5F);
-                            }
-                        })
-                        .withFirstPersonCustomPositioning(Attachments.HardballerSlide.getRenderablePart(), (renderContext) -> {
-                            if (renderContext.getWeaponInstance().getAmmo() == 0) {
-                                GL11.glTranslatef(0F, 0F, 0.5F);
+                                GL11.glTranslatef(0F, 0F, 0.6F);
                             }
                         })
                         .withFirstPersonCustomPositioning(Attachments.M45A1CQBPSlide.getRenderablePart(), (renderContext) -> {
                             if (renderContext.getWeaponInstance().getAmmo() == 0) {
-                                GL11.glTranslatef(0F, 0F, 0.5F);
+                                GL11.glTranslatef(0F, 0F, 0.6F);
                             }
                         })
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glTranslatef(0.219F, -0.235F, -1.2F);
+                            GL11.glTranslatef(0.239F, -0.235F, -1.2F);
 
-                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HardballerSlide))
-                                GL11.glTranslatef(0f, -0.01f, 0.0f);
+                            if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.M45A1CQBPSlide))
+                                GL11.glTranslatef(0f, 0f, 0f);
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {

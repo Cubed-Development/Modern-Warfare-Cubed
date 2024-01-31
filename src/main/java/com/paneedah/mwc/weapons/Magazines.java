@@ -649,13 +649,13 @@ public class Magazines {
                 .build(ItemMagazine.class);
 
         Magazines.M1911Mag = new ItemMagazine.Builder().withCapacity(7).withCompatibleBullet(Bullets.Bullet45ACP).withName("M1911Mag")
-                .withModel(new M1911Mag(), "m1911mag.png")
+                .withModel(new M1911Mag(), "m1911.png")
                 .withMaxStackSize(6)
                 .withRotationPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
                 .build(ItemMagazine.class);
 
         Magazines.M1911Mag15 = new ItemMagazine.Builder().withCapacity(15).withCompatibleBullet(Bullets.Bullet45ACP).withName("M1911Mag_2")
-                .withModel(new M1911Mag15(), "m1911mag.png")
+                .withModel(new M1911Mag15(), "m1911.png")
                 .withMaxStackSize(6)
                 .withRotationPoint(-0.16000000476837162F, 0.5600000166893007F, 0.040000001192092904F)
                 .build(ItemMagazine.class);

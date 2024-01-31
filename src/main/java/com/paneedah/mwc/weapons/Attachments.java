@@ -481,8 +481,6 @@ public class Attachments {
     public static ItemAttachment<Weapon> RailRiser;
     public static ItemAttachment<Weapon> M1911Slide;
     public static ItemAttachment<Weapon> M1911Body;
-    public static ItemAttachment<Weapon> HardballerBody;
-    public static ItemAttachment<Weapon> HardballerSlide;
     public static ItemAttachment<Weapon> M45A1CQBPBody;
     public static ItemAttachment<Weapon> M45A1CQBPSlide;
     public static ItemAttachment<Weapon> M9A1Slide;
@@ -1553,21 +1551,6 @@ public class Attachments {
                 .withCategory(AttachmentCategory.BACKGRIP)
                 .withModel(new M1911(), "m1911.png")
                 .withName("M1911Body")
-                .withRenderablePart()
-                .build();
-
-        HardballerBody = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.BACKGRIP)
-                .withModel(new M1911HardBaller(), "m1911.png")
-                .withName("HardballerBody")
-                .withRenderablePart()
-                .build();
-
-        HardballerSlide = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.FRONTSIGHT)
-                .withModel(new M1911HardBallerSlide(), "m1911.png")
-                .withOnWeaponModel(new HardballerIron(), "gun")
-                .withName("HardballerSlide")
                 .withRenderablePart()
                 .build();
 
