@@ -263,7 +263,7 @@ public class M60E4Factory {
 
                         .withFirstPersonPositioning(
                                 new Transform()
-                                        .withPosition(-1.825000f, 6.665000f, -5.805000f)
+                                        .withPosition(-1.825000f, 6.665000f, -5.905000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
                                         .withScale(3.0F, 3.0F, 3.0F)
@@ -316,7 +316,7 @@ public class M60E4Factory {
                         })
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glTranslatef(0.2F, 0.4F, 0.53F);
+                            GL11.glTranslatef(0.2F, 0.75F, 0.53F);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider))
                                 GL11.glTranslatef(-0.003F, 0.04f, 0.15f);
