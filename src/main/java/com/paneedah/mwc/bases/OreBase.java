@@ -11,7 +11,7 @@ import java.util.Random;
 public class OreBase extends BlockOre {
 
     Item itemBlock, drop;
-    int harvestLevel = 2, minDrop = 1, maxDrop = 1;
+    int harvestLevel = 2, minDrop = 5, maxDrop = 8;
     boolean smelt = true;
 
     public OreBase(String registryName) {
