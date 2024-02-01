@@ -290,17 +290,17 @@ public class M200InterventionFactory implements GunFactory {
 
 
                                 new Transform()
-                                        .withPosition(0.080000f, -0.180000f, 3.020000f)
+                                        .withPosition(-0.10000f, -0.60000f, 3.020000f)
                                         .withRotation(-5.4027f, -4.7805f, -1.6694f)
-                                        .withScale(3.5f, 3.5f, 3.5f)
+                                        .withScale(3f, 3f, 3.5f)
                                         .withPivotPoint(0, 0, 0)
 
                         )
 
-                        .setupModernAnimations("m40a6", AuxiliaryAttachments.InterventionBoltAction)
-                        .setupCustomKeyedPart(AuxiliaryAttachments.InterventionBoltAction, "m40a6", BBLoader.KEY_BOLT_ACTION)
-                        .setupCustomKeyedPart(AuxiliaryAttachments.InterventionBoltActionPrime, "m40a6", "boltprime")
-                        .setupModernMagazineAnimations("m40a6",
+                        .setupModernAnimations("intervention", AuxiliaryAttachments.InterventionBoltAction)
+                        .setupCustomKeyedPart(AuxiliaryAttachments.InterventionBoltAction, "intervention", BBLoader.KEY_BOLT_ACTION)
+                        .setupCustomKeyedPart(AuxiliaryAttachments.InterventionBoltActionPrime, "intervention", "boltprime")
+                        .setupModernMagazineAnimations("intervention",
                                 Magazines.InterventionMag,
                                 Magazines.InterventionMagExtend)
 
@@ -342,6 +342,16 @@ public class M200InterventionFactory implements GunFactory {
                                 new Transition((renderContext) -> {
                                 }, 250, 50),
                                 new Transition((renderContext) -> {
+                                }, 250, 50),
+                                new Transition((renderContext) -> {
+                                }, 250, 50),
+                                new Transition((renderContext) -> {
+                                }, 250, 300),
+                                new Transition((renderContext) -> {
+                                }, 250, 300),
+                                new Transition((renderContext) -> {
+                                }, 250, 50),
+                                new Transition((renderContext) -> {
                                 }, 250, 300),
                                 new Transition((renderContext) -> {
                                 }, 250, 300),
@@ -379,6 +389,14 @@ public class M200InterventionFactory implements GunFactory {
                                 }, 250, 50),
                                 new Transition((renderContext) -> {
                                 }, 250, 50),
+                                new Transition((renderContext) -> {
+                                }, 250, 50),
+                                new Transition((renderContext) -> {
+                                }, 250, 50),
+                                new Transition((renderContext) -> {
+                                }, 250, 50),
+                                new Transition((renderContext) -> {
+                                }, 250, 300),
                                 new Transition((renderContext) -> {
                                 }, 250, 300),
                                 new Transition((renderContext) -> {
