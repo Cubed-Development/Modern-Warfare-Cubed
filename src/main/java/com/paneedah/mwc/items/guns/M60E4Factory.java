@@ -23,13 +23,10 @@ public class M60E4Factory {
                 .withRecoil(4f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.MACHINE_GUN)
-                .withMuzzlePosition(new Vec3d(-.1, -1, -8))
+                .withMuzzlePosition(new Vec3d(-.1, -1, -11))
                 .withMaxShots(Integer.MAX_VALUE)
                 .withShootSound("m60")
                 .withSilencedShootSound("ak15_silenced")
-                .withReloadSound("m60_reload")
-                .withUnloadSound("m60_unload")
-                .withInspectSound("inspection")
                 .withDrawSound("mg42_draw")
                 .withReloadingTime(45)
                 .withFlashIntensity(0.5f)
@@ -56,83 +53,17 @@ public class M60E4Factory {
                 })
                 .withCompatibleAttachment(Attachments.M60HandGuard, true, (model) -> {
                 })
-                .withCompatibleAttachment(Attachments.M60E4HandGuard, (model) -> {
-                    if (model instanceof AKRail) {
-                        GL11.glTranslatef(0.295F, -1.28F, -4.2F);
-                        GL11.glScaled(0.6F, 0.6F, 0.7F);
-                        GL11.glRotatef(90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail2) {
-                        GL11.glTranslatef(-0.35F, -1.1F, -4.2F);
-                        GL11.glScaled(0.6F, 0.6F, 0.7F);
-                        GL11.glRotatef(-90F, 0f, 0f, 1f);
-                    } else if (model instanceof AKRail3) {
-                        GL11.glTranslatef(0.12F, -0.44F, -4.85F);
-                        GL11.glScaled(0.6F, 0.6F, 1.05F);
-                        GL11.glRotatef(180F, 0f, 0f, 1f);
-                    }
+                .withCompatibleAttachment(Attachments.M60MK43Handguard, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.M60FrontSight, true, (model) -> {
                 })
-                .withCompatibleAttachment(Attachments.M60Rail, (model) -> {
-                    GL11.glTranslatef(-0.155f, -1.87f, -1.43f);
-                    GL11.glScaled(0.78F, 0.83F, 0.6F);
+                .withCompatibleAttachment(Attachments.M60Mk43Rail, (model) -> {
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.M60Hatch, true, (model) -> {
                 })
-                .withCompatibleAttachment(AuxiliaryAttachments.M60Belt, renderContext -> {
-                    PlayerWeaponInstance instance = renderContext.getWeaponInstance();
-                    if (instance != null) {
-                        ItemAttachment<Weapon> activeAttachment = WeaponAttachmentAspect.getActiveAttachment(AttachmentCategory.MAGAZINE, instance);
-                        if (activeAttachment == null) {
-                            GL11.glScaled(0F, 0F, 0F);
-                        }
-                    }
-                }, (model) -> {
-                }, true, false)
-                .withCompatibleAttachment(Magazines.M60Mag, (model) -> {
+                .withCompatibleAttachment(AuxiliaryAttachments.M60Belt, true, (model) -> {
                 })
-                .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
-                    if (model instanceof AKMiron1) {
-                        GL11.glTranslatef(0.125F, -1.8F, -0.5F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AKMiron2) {
-                        GL11.glTranslatef(-0.183F, -1.32F, -5F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof AK47iron) {
-                        GL11.glTranslatef(-0.25F, -1.65F, -3.05F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron1) {
-                        GL11.glTranslatef(0.155F, -1.74F, 1F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof M4Iron2) {
-                        GL11.glTranslatef(0.26F, -1.55F, -2.35F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof P90iron) {
-                        GL11.glTranslatef(0.26F, -1.55F, -2.35F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron1) {
-                        GL11.glTranslatef(-0.22F, -1.94F, 0.13F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof G36CIron2) {
-                        GL11.glTranslatef(-0.205F, -1.9F, -3.15F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron1) {
-                        GL11.glTranslatef(0.165F, -1.65F, 1F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof ScarIron2) {
-                        GL11.glTranslatef(0.25F, -1.55F, -2F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof FALIron) {
-                        GL11.glTranslatef(-0.019F, -1.935F, -6.55F);
-                        GL11.glScaled(0.15F, 0.3F, 0.8F);
-                        GL11.glRotatef(-180F, 0f, 0f, 1f);
-                    } else if (model instanceof M14Iron) {
-                        GL11.glTranslatef(0.129F, -1.63F, -2.08F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    } else if (model instanceof MP5Iron) {
-                        GL11.glTranslatef(0.215F, -1.54F, 1.2F);
-                        GL11.glScaled(0F, 0F, 0F);
-                    }
+                .withCompatibleAttachment(Magazines.M60Mag, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.NightRaider, () -> {
                     GL11.glTranslatef(-0.13F, -1.95F, -1.71F);
@@ -332,7 +263,7 @@ public class M60E4Factory {
 
                         .withFirstPersonPositioning(
                                 new Transform()
-                                        .withPosition(-1.825000f, 5.665000f, -5.605000f)
+                                        .withPosition(-1.825000f, 6.665000f, -5.805000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
                                         .withScale(3.0F, 3.0F, 3.0F)
@@ -373,18 +304,19 @@ public class M60E4Factory {
                         .setupCustomKeyedPart(Attachments.VortexRedux, "m249", "scope")
                         .setupCustomKeyedPart(Attachments.Kobra, "m249", "scope")
                         .setupCustomKeyedPart(Attachments.KobraGen3, "m249", "scope")
-                        .setupCustomKeyedPart(Attachments.M60Rail, "m249", "scope")
+                        .setupCustomKeyedPart(Attachments.M60Mk43Rail, "m249", "scope")
                         .setupModernMagazineAnimations("m249",
                                 Magazines.M60Mag)
 
                         .withFirstPersonCustomPositioning(AuxiliaryAttachments.M60Belt.getRenderablePart(), (renderContext) -> {
-                            //if (renderContext.getWeaponInstance().getAmmo() == 0) {
-                            //    GL11.glTranslatef(-0.5F, 0.4F, 0F);
-                            //}
+                            if (renderContext.getWeaponInstance().getAmmo() == 0) {
+                                GL11.glTranslatef(-0.5F, 0.4F, 0F);
+								GL11.glScaled(0F, 0F, 0F);
+                            }
                         })
 
                         .withFirstPersonPositioningZooming((renderContext) -> {
-                            GL11.glTranslatef(0.1F, 0.51F, 0.53F);
+                            GL11.glTranslatef(0.2F, 0.4F, 0.53F);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider))
                                 GL11.glTranslatef(-0.003F, 0.04f, 0.15f);

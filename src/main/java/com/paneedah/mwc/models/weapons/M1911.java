@@ -12,6 +12,7 @@ import net.minecraft.entity.Entity;
 
 public class M1911 extends ModelWithAttachments {
 	private final ModelRenderer gun;
+	private final ModelRenderer slide_r3_r1;
 	private final ModelRenderer Cubes;
 	private final ModelRenderer cube_r1_r1_r1;
 	private final ModelRenderer cube_r2_r1_r1;
@@ -80,7 +81,14 @@ public class M1911 extends ModelWithAttachments {
 
 		gun = new ModelRenderer(this);
 		gun.setRotationPoint(-2.3313F, -5.9604F, -6.1731F);
-		
+		gun.cubeList.add(new ModelBox(gun, 72, 69, -1.267F, -6.2273F, 5.8731F, 3, 1, 2, -0.001F, false));
+		gun.cubeList.add(new ModelBox(gun, 0, 19, -1.267F, -9.5273F, 5.8731F, 3, 4, 2, 0.0F, false));
+
+		slide_r3_r1 = new ModelRenderer(this);
+		slide_r3_r1.setRotationPoint(-25.1447F, 20.3177F, 6.1731F);
+		gun.addChild(slide_r3_r1);
+		setRotationAngle(slide_r3_r1, 0.0F, 0.0F, 0.7854F);
+		slide_r3_r1.cubeList.add(new ModelBox(slide_r3_r1, 4, 79, -2.8F, -38.3877F, 0.9F, 1, 1, 1, -0.15F, false));
 
 		Cubes = new ModelRenderer(this);
 		Cubes.setRotationPoint(-0.3187F, -3.1396F, 11.7731F);

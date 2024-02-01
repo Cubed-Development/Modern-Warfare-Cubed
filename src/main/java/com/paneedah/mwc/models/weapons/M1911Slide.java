@@ -32,7 +32,6 @@ public class M1911Slide extends ModelWithAttachments {
 	private final ModelRenderer cube_r1_r1;
 	private final ModelRenderer slide_r1;
 	private final ModelRenderer slide_r2;
-	private final ModelRenderer slide_r3;
 
 	public M1911Slide() {
 		textureWidth = 160;
@@ -41,8 +40,6 @@ public class M1911Slide extends ModelWithAttachments {
 		slide = new ModelRenderer(this);
 		slide.setRotationPoint(-2.9416F, -13.5686F, -10.7976F);
 		slide.cubeList.add(new ModelBox(slide, 0, 35, -1.7594F, -1.5314F, 10.8976F, 1, 4, 2, 0.0F, false));
-		slide.cubeList.add(new ModelBox(slide, 0, 19, -0.6567F, -1.9191F, 10.4976F, 3, 4, 2, 0.0F, false));
-		slide.cubeList.add(new ModelBox(slide, 72, 69, -0.6567F, 1.3809F, 10.4976F, 3, 1, 2, -0.001F, false));
 		slide.cubeList.add(new ModelBox(slide, 30, 124, 1.9413F, -0.1191F, -23.2024F, 1, 1, 8, 0.0F, false));
 		slide.cubeList.add(new ModelBox(slide, 36, 0, 1.9433F, -1.5191F, -23.2024F, 1, 2, 27, 0.0F, false));
 		slide.cubeList.add(new ModelBox(slide, 69, 93, 1.9433F, 1.3559F, 12.6976F, 1, 1, 1, 0.0F, false));
@@ -227,12 +224,6 @@ public class M1911Slide extends ModelWithAttachments {
 		slide_r2.cubeList.add(new ModelBox(slide_r2, 5, 0, -0.6F, -1.0367F, -11.5F, 1, 2, 1, 0.0F, false));
 		slide_r2.cubeList.add(new ModelBox(slide_r2, 65, 110, -0.6F, -1.0367F, -10.8F, 1, 2, 17, 0.0F, false));
 		slide_r2.cubeList.add(new ModelBox(slide_r2, 0, 70, -0.6F, -1.0367F, 12.5F, 1, 2, 11, 0.0F, false));
-
-		slide_r3 = new ModelRenderer(this);
-		slide_r3.setRotationPoint(0.8433F, -0.4191F, 13.6976F);
-		slide.addChild(slide_r3);
-		setRotationAngle(slide_r3, 0.0F, 0.0F, 0.7854F);
-		slide_r3.cubeList.add(new ModelBox(slide_r3, 4, 79, -0.7017F, -0.4F, -2.0F, 1, 1, 1, -0.15F, false));
 	}
 
 	@Override

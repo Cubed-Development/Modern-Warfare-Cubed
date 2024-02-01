@@ -230,7 +230,7 @@ public class Attachments {
     public static ItemAttachment<Weapon> HoneyBadgerMatrixArmsHandguard;
 
     public static ItemAttachment<Weapon> M60HandGuard;
-    public static ItemAttachment<Weapon> M60E4HandGuard;
+    public static ItemAttachment<Weapon> M60MK43Handguard;
 
     public static ItemAttachment<Weapon> M249HandGuard;
     public static ItemAttachment<Weapon> M249UpperHandGuard;
@@ -472,7 +472,7 @@ public class Attachments {
     public static ItemAttachment<Weapon> MIMP5MRail;
     public static ItemAttachment<Weapon> ShotgunRail;
     public static ItemAttachment<Weapon> Kar98Krail;
-    public static ItemAttachment<Weapon> M60Rail;
+    public static ItemAttachment<Weapon> M60Mk43Rail;
     public static ItemAttachment<Weapon> M16A1ScopeMount;
     public static ItemAttachment<Weapon> FamasF1ScopeMount;
     public static ItemAttachment<Weapon> M16A1PicatinnyRail;
@@ -967,16 +967,13 @@ public class Attachments {
                 .build();
 
         M60HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
-                .withModel(new M60HandGuard(), "m60.png")
+                .withModel(new M60Handguard(), "m60.png")
                 .withName("M60HandGuard")
                 .build();
 
-        M60E4HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
-                .withModel(new M60E4Guard(), "m60.png")
-                .withOnWeaponModel(new AKRail(), "akrail.png")
-                .withOnWeaponModel(new AKRail2(), "akrail.png")
-                .withOnWeaponModel(new AKRail3(), "akrail.png")
-                .withName("M60E4Guard")
+        M60MK43Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+                .withModel(new M60MK43Handguard(), "m60.png")
+                .withName("M60MK43Handguard")
                 .build();
 
         M249HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
@@ -1468,10 +1465,10 @@ public class Attachments {
                 .withName("Kar98Krail")
                 .build();
 
-        M60Rail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
+        M60Mk43Rail = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
                 .withRenderablePart()
-                .withModel(new AKRail(), "akrail.png")
-                .withName("M60Rail")
+                .withModel(new M60Mk43Rail(), "gun.png")
+                .withName("M60Mk43Rail")
                 .build();
 
         M16A1ScopeMount = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RAILING)
@@ -3339,7 +3336,7 @@ public class Attachments {
                 .withCategory(AttachmentCategory.SCOPE)
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
                         MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail,
-                        M60Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
+                        M60Mk43Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL, Attachments.EF88Handguard, KrissVectorReceiver,
                         Vector556Handguard, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip, G2ContenderBarrelLong,
                         HK417Receiver, HK417ReceiverTan, B51ScopeMountRail)
@@ -3411,7 +3408,7 @@ public class Attachments {
 //                .withOnWeaponModel(new Reflex2(), "Reflex2.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
                         MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail,
-                        M60Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
+                        M60Mk43Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL, Attachments.EF88Handguard, KrissVectorReceiver,
                         Vector556Handguard, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
                         HoneyBadgerKnightsReceiver, HoneyBadgerKnightsReceiverBlack, M14TriRailCover,
@@ -3440,7 +3437,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 2))
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
                         MIMP5TRRail, MIMP5MRail, ShotgunRail, FABDefenseMount,
-                        Placeholder, Kar98Krail, M60Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
+                        Placeholder, Kar98Krail, M60Mk43Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, Attachments.EF88Handguard, KrissVectorReceiver,
                         Vector556Handguard, DesertEagleSlide, DesertEagleSlideGolden, M1CarbineScoutHandguard,
 			Origin12Grip, HKS20Grip, HoneyBadgerKnightsReceiver, HoneyBadgerKnightsReceiverBlack,
@@ -3475,7 +3472,7 @@ public class Attachments {
                 }))
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
                         MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail,
-                        M60Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
+                        M60Mk43Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
                         Attachments.EF88Handguard, KrissVectorReceiver,
                         Vector556Handguard, M1CarbineScoutHandguard, Origin12Grip, HKS20Grip,
@@ -3508,7 +3505,7 @@ public class Attachments {
 //                .withOnWeaponModel(new AcogScope2(), "gun.png")
 //                .withOnWeaponModel(new AcogReticle(), "acogreticle.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
-                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail, P90Placeholder,
+                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail, P90Placeholder,
                         AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
                         Attachments.EF88Handguard, KrissVectorReceiver,
@@ -3541,7 +3538,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 3))
 //                .withModel(new Acog2(), "Acog2.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder, MIMP5TRRail,
-                        MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail, P90Placeholder,
+                        MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail, P90Placeholder,
                         AUGA2handguard, AUGA3handguard, B51ScopeMountRail,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
                         Attachments.EF88Handguard, KrissVectorReceiver,
@@ -3572,7 +3569,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 2))
 //                .withModel(new Holo2(), "Holo3.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
-                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail,
+                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail,
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
                         Attachments.EF88Handguard, KrissVectorReceiver, B51ScopeMountRail,
@@ -3604,7 +3601,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 2))
 //                .withModel(new Holo2(), "Holo3.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder, MIMP5TRRail,
-                        MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail, P90Placeholder,
+                        MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail, P90Placeholder,
                         AUGA2handguard, AUGA3handguard, B51ScopeMountRail,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
                         Attachments.EF88Handguard, KrissVectorReceiver,
@@ -3637,7 +3634,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.gunmetalIngot, 3),
                         new CraftingEntry(MWCItems.steelIngot, 2))
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
-                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail,
+                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail,
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
                         Attachments.EF88Handguard, KrissVectorReceiver, B51ScopeMountRail,
@@ -3666,7 +3663,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.gunmetalIngot, 2),
                         new CraftingEntry(MWCItems.steelIngot, 2))
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
-                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail,
+                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail,
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
                         Attachments.EF88Handguard, KrissVectorReceiver, B51ScopeMountRail,
@@ -3697,7 +3694,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.gunmetalIngot, 2),
                         new CraftingEntry(MWCItems.steelIngot, 2))
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
-                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail,
+                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail,
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
                         Attachments.EF88Handguard, KrissVectorReceiver, B51ScopeMountRail,
@@ -3728,7 +3725,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.gunmetalIngot, 2),
                         new CraftingEntry(MWCItems.steelIngot, 2))
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
-                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail,
+                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail,
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
                         Attachments.EF88Handguard, KrissVectorReceiver, B51ScopeMountRail,
@@ -3760,7 +3757,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.gunmetalIngot, 2),
                         new CraftingEntry(MWCItems.steelIngot, 2))
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
-                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail,
+                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail,
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
                         Attachments.EF88Handguard, KrissVectorReceiver, B51ScopeMountRail,
@@ -3839,7 +3836,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.gunmetalIngot, 2),
                         new CraftingEntry(MWCItems.steelIngot, 2))
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
-                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail,
+                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail,
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL
                         , Attachments.EF88Handguard, KrissVectorReceiver, B51ScopeMountRail,
@@ -3870,7 +3867,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.gunmetalIngot, 2),
                         new CraftingEntry(MWCItems.steelIngot, 2))
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
-                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail,
+                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail,
                         P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, AR57Receiver, NTW20HandguardRAIL,
                         Attachments.EF88Handguard, KrissVectorReceiver, B51ScopeMountRail,
@@ -3994,7 +3991,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.gunmetalIngot, 6),
                         new CraftingEntry(MWCItems.steelIngot, 5))
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder, MIMP5TRRail,
-                        MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
+                        MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
                         Attachments.EF88Handguard, KrissVectorReceiver, B51ScopeMountRail,
                         Vector556Handguard, M1CarbineScoutHandguard, M14Rail, SSG08Chassis, SA58DustCover,
                         M16A1ScopeMount, UMP45Receiver, UMP9Receiver, G2ContenderBarrelLong, S710Receiver,
@@ -4338,7 +4335,7 @@ public class Attachments {
                 .withOnWeaponModel(new MP5Iron(), "gun.png")
                 .withOnWeaponModel(new MBUSiron(), "gun.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
-                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail,
+                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail,
                         P90Placeholder, AUGA2handguard, AUGA3handguard, M4Receiver,
                         VLTORReceiver, AR57Receiver, Attachments.EF88Handguard,
                         KrissVectorReceiver, Vector556Handguard, Origin12Grip, HKS20Grip,
@@ -4350,7 +4347,7 @@ public class Attachments {
                 .withCategory(AttachmentCategory.SCOPE)
                 .withModel(new TritiumRearSights(), "gun.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
-                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail,
+                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail,
                         P90Placeholder, AUGA2handguard, AUGA3handguard, M4Receiver,
                         VLTORReceiver, AR57Receiver, Attachments.EF88Handguard,
                         KrissVectorReceiver, Vector556Handguard, Origin12Grip, HKS20Grip,
@@ -4367,7 +4364,7 @@ public class Attachments {
                 .withCategory(AttachmentCategory.SCOPE)
                 .withModel(new MBUSRearSight(), "gun.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
-                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail,
+                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail,
                         P90Placeholder, AUGA2handguard, AUGA3handguard, M4Receiver,
                         VLTORReceiver, AR57Receiver, Attachments.EF88Handguard,
                         KrissVectorReceiver, Vector556Handguard, Origin12Grip, HKS20Grip,
@@ -4385,7 +4382,7 @@ public class Attachments {
                 .withCategory(AttachmentCategory.SCOPE)
                 .withModel(new G95_upright_rearsights(), "gun.png")
                 .withRequiredAttachments(VeprDustCover, AK15DustCover, Placeholder,
-                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Rail,
+                        MIMP5TRRail, MIMP5MRail, ShotgunRail, Kar98Krail, M60Mk43Rail,
                         P90Placeholder, AUGA2handguard, AUGA3handguard, M4Receiver,
                         VLTORReceiver, AR57Receiver, Attachments.EF88Handguard,
                         KrissVectorReceiver, Vector556Handguard, Origin12Grip, HKS20Grip,
@@ -4532,7 +4529,7 @@ public class Attachments {
 
         Laser = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.LASER)
                 .withRequiredAttachments(M4CarbineHandGuard, M38HandGuard, UTGTriRailHandGuard, PistolPlaceholder,
-                        FABDefenseMount, LaserPlaceholder, Mk18HandGuard, M60E4HandGuard,
+                        FABDefenseMount, LaserPlaceholder, Mk18HandGuard, M60MK43Handguard,
                         P90Swordfish, AUGA3extGuard, StonerHANDGUARD, M9A1Body, SamuraiEdgeBody,
                         M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         HoneyBadgerMatrixArmsHandguard,
@@ -4562,7 +4559,7 @@ public class Attachments {
         Laser2 = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.LASER)
                 .withModel(new Laser3(), "laser2.png")
                 .withRequiredAttachments(M4CarbineHandGuard, M38HandGuard, UTGTriRailHandGuard, PistolPlaceholder,
-                        LaserPlaceholder, Mk18HandGuard, M60E4HandGuard, P90Swordfish,
+                        LaserPlaceholder, Mk18HandGuard, M60MK43Handguard, P90Swordfish,
                         AUGA3extGuard, StonerHANDGUARD, AR57Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         HoneyBadgerMatrixArmsHandguard, AR10SuperSASSHandguard,
                         UMP45Receiver, UMP9Receiver, ScorpionHandguardShort, APC9Placeholder, ARX160Chassis, FamasF1PicatinnyRail,
@@ -4637,7 +4634,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard,
                         AK15HandleGuard, M4CarbineHandGuard, LVOAVHandGuard,
                         M38HandGuard, UTGTriRailHandGuard, GripPlaceholder,
-                        Mk18HandGuard, M60E4HandGuard, P90Swordfish, AUGA3extGuard,
+                        Mk18HandGuard, M60MK43Handguard, P90Swordfish, AUGA3extGuard,
                         AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
                         Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard,
@@ -4669,7 +4666,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard,
                         AK15HandleGuard, M4CarbineHandGuard, LVOAVHandGuard,
                         M38HandGuard, UTGTriRailHandGuard, GripPlaceholder,
-                        Mk18HandGuard, M60E4HandGuard, P90Swordfish, AUGA3extGuard,
+                        Mk18HandGuard, M60MK43Handguard, P90Swordfish, AUGA3extGuard,
                         AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
                         Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard,
@@ -4762,7 +4759,7 @@ public class Attachments {
                 .withModel(new AngledGrip(), "angledgrip.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, M4CarbineHandGuard,
                         LVOAVHandGuard, M38HandGuard, GripPlaceholder, UTGTriRailHandGuard, Mk18HandGuard,
-                        M60E4HandGuard, AUGA3extGuard, AR57Handguard, RPK16Handguard,
+                        M60MK43Handguard, AUGA3extGuard, AR57Handguard, RPK16Handguard,
                         StonerHANDGUARD, KrissVectorReceiver, Vector556Handguard,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         ACRWEMSKHandGuardTan,
@@ -4789,7 +4786,7 @@ public class Attachments {
                 .withModel(new AngledGrip(), "angledgriptan.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, M4CarbineHandGuard,
                         LVOAVHandGuard, M38HandGuard, GripPlaceholder, UTGTriRailHandGuard, Mk18HandGuard,
-                        M60E4HandGuard, AUGA3extGuard, AR57Handguard, RPK16Handguard,
+                        M60MK43Handguard, AUGA3extGuard, AR57Handguard, RPK16Handguard,
                         StonerHANDGUARD, KrissVectorReceiver, Vector556Handguard,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         ACRWEMSKHandGuardTan,
@@ -4818,7 +4815,7 @@ public class Attachments {
                 .withModel(new StubbyGrip(), "stubbygrip.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
-                        GripPlaceholder, Mk18HandGuard, M60E4HandGuard, P90Swordfish, AUGA3extGuard,
+                        GripPlaceholder, Mk18HandGuard, M60MK43Handguard, P90Swordfish, AUGA3extGuard,
                         AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
                         Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
@@ -4853,7 +4850,7 @@ public class Attachments {
                 .withModel(new StubbyGrip(), "stubbygriptan.png")
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
-                        GripPlaceholder, Mk18HandGuard, M60E4HandGuard, P90Swordfish, AUGA3extGuard,
+                        GripPlaceholder, Mk18HandGuard, M60MK43Handguard, P90Swordfish, AUGA3extGuard,
                         AR57Handguard, RPK16Handguard, StonerHANDGUARD, KrissVectorReceiver,
                         Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack, ACRWEMSKHandGuardTan,
@@ -4883,7 +4880,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard,
-                        M60E4HandGuard, P90Swordfish, AUGA3extGuard, AR57Handguard, RPK16Handguard, StonerHANDGUARD,
+                        M60MK43Handguard, P90Swordfish, AUGA3extGuard, AR57Handguard, RPK16Handguard, StonerHANDGUARD,
                         KrissVectorReceiver, Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         ACRWEMSKHandGuardTan, B50PKMHandguard, B50PKPHandguard,
@@ -4914,7 +4911,7 @@ public class Attachments {
                 .withRequiredAttachments(MLOKExtendedHandguard, MLOKHandguard, AK15HandleGuard,
                         M4CarbineHandGuard, LVOAVHandGuard, M38HandGuard, UTGTriRailHandGuard,
                         GripPlaceholder, Mk18HandGuard,
-                        M60E4HandGuard, P90Swordfish, AUGA3extGuard, AR57Handguard, RPK16Handguard, StonerHANDGUARD,
+                        M60MK43Handguard, P90Swordfish, AUGA3extGuard, AR57Handguard, RPK16Handguard, StonerHANDGUARD,
                         KrissVectorReceiver, Vector556Handguard, Remington870FABDefensePump,
                         Origin12Handguard, HKS20Handguard, M16A4HandGuard, ACRHandGuard, ACRHandGuardBlack,
                         ACRWEMSKHandGuardTan, B50PKMHandguard, B50PKPHandguard,
@@ -4953,7 +4950,7 @@ public class Attachments {
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort,
                         DSR1HandguardRailed, Z10Handguard, NGSWRRail, G3HandguardRailed, ScarHHandGuard,
                         MPXHandguardRailed, MPXHandguardExtended, B50PKMHandguard, B50PKPHandguard,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, M60E4HandGuard,
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, M60MK43Handguard,
                         PP1901HandGuardB10)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,

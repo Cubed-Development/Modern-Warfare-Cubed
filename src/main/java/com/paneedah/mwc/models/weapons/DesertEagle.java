@@ -15,6 +15,7 @@ public class DesertEagle extends ModelWithAttachments {
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer Grip;
+	private final ModelRenderer cube_r21_r1;
 	private final ModelRenderer cubes;
 	private final ModelRenderer cube_r3;
 	private final ModelRenderer cube_r4;
@@ -97,7 +98,13 @@ public class DesertEagle extends ModelWithAttachments {
 
 		Grip = new ModelRenderer(this);
 		Grip.setRotationPoint(-1.475F, -2.0F, -1.7F);
-		
+		Grip.cubeList.add(new ModelBox(Grip, 25, 38, -0.925F, -14.0F, 4.1F, 2, 5, 1, 0.0F, false));
+
+		cube_r21_r1 = new ModelRenderer(this);
+		cube_r21_r1.setRotationPoint(-26.3708F, 15.6256F, 1.7F);
+		Grip.addChild(cube_r21_r1);
+		setRotationAngle(cube_r21_r1, 0.0F, 0.0F, 0.7854F);
+		cube_r21_r1.cubeList.add(new ModelBox(cube_r21_r1, 25, 78, -1.9F, -39.3F, 2.8F, 1, 1, 1, -0.1F, false));
 
 		cubes = new ModelRenderer(this);
 		cubes.setRotationPoint(0.6F, 0.0F, 0.0F);

@@ -35,7 +35,6 @@ public class DesertEagleSlide extends ModelWithAttachments {
 	private final ModelRenderer cube_r18;
 	private final ModelRenderer cube_r19;
 	private final ModelRenderer cube_r20;
-	private final ModelRenderer cube_r21;
 	private final ModelRenderer cube_r22;
 	private final ModelRenderer cube_r23;
 	private final ModelRenderer cube_r24;
@@ -142,7 +141,6 @@ public class DesertEagleSlide extends ModelWithAttachments {
 		Cubes2.cubeList.add(new ModelBox(Cubes2, 34, 38, -2.1F, -3.6F, 1.2F, 1, 1, 6, 0.0F, false));
 		Cubes2.cubeList.add(new ModelBox(Cubes2, 26, 90, -1.1F, -3.6F, -4.8F, 3, 1, 12, 0.0F, false));
 		Cubes2.cubeList.add(new ModelBox(Cubes2, 11, 7, -2.1F, -3.6F, 6.6F, 5, 1, 1, 0.0F, false));
-		Cubes2.cubeList.add(new ModelBox(Cubes2, 25, 38, -0.6F, -3.0F, 7.1F, 2, 5, 1, 0.0F, false));
 		Cubes2.cubeList.add(new ModelBox(Cubes2, 74, 45, -2.1F, -2.7F, -4.8F, 1, 1, 7, 0.0F, false));
 		Cubes2.cubeList.add(new ModelBox(Cubes2, 53, 0, -1.6F, -2.7F, -4.8F, 1, 6, 7, -0.002F, false));
 		Cubes2.cubeList.add(new ModelBox(Cubes2, 14, 78, 1.925F, 2.0F, 2.85F, 1, 1, 1, 0.0F, false));
@@ -272,12 +270,6 @@ public class DesertEagleSlide extends ModelWithAttachments {
 		setRotationAngle(cube_r20, 0.0F, 0.0F, 0.8029F);
 		cube_r20.cubeList.add(new ModelBox(cube_r20, 50, 60, -3.4F, -1.7F, -4.8F, 1, 1, 7, 0.0F, false));
 		cube_r20.cubeList.add(new ModelBox(cube_r20, 0, 73, -3.4F, -1.35F, -4.8F, 1, 1, 7, 0.0F, false));
-
-		cube_r21 = new ModelRenderer(this);
-		cube_r21.setRotationPoint(0.4F, -1.8F, 8.0F);
-		Cubes2.addChild(cube_r21);
-		setRotationAngle(cube_r21, 0.0F, 0.0F, 0.7854F);
-		cube_r21.cubeList.add(new ModelBox(cube_r21, 25, 78, -0.5F, -0.5F, -0.5F, 1, 1, 1, -0.1F, false));
 
 		cube_r22 = new ModelRenderer(this);
 		cube_r22.setRotationPoint(3.6F, 0.0F, 0.0F);

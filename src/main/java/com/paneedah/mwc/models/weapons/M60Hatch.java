@@ -5,174 +5,193 @@ import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-// Made with Blockbench 4.8.1
+// Made with Blockbench 4.9.3
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
 
 public class M60Hatch extends ModelWithAttachments {
-	private final ModelRenderer Hatch;
-	private final ModelRenderer Hatch47_r1;
-	private final ModelRenderer Hatch46_r1;
-	private final ModelRenderer Hatch43_r1;
-	private final ModelRenderer Hatch42_r1;
-	private final ModelRenderer Hatch41_r1;
-	private final ModelRenderer Hatch38_r1;
-	private final ModelRenderer Hatch36_r1;
-	private final ModelRenderer Hatch35_r1;
-	private final ModelRenderer Hatch34_r1;
-	private final ModelRenderer Hatch32_r1;
-	private final ModelRenderer Hatch27_r1;
-	private final ModelRenderer Hatch26_r1;
-	private final ModelRenderer Hatch25_r1;
-	private final ModelRenderer Hatch23_r1;
-	private final ModelRenderer Hatch22_r1;
-	private final ModelRenderer Hatch16_r1;
-	private final ModelRenderer Hatch15_r1;
-	private final ModelRenderer Hatch5_r1;
+	private final ModelRenderer hatch;
+	private final ModelRenderer cube_r1;
+	private final ModelRenderer cube_r2;
+	private final ModelRenderer cube_r3;
+	private final ModelRenderer cube_r4;
+	private final ModelRenderer cube_r5;
+	private final ModelRenderer cube_r6;
+	private final ModelRenderer cube_r7;
+	private final ModelRenderer cube_r8;
+	private final ModelRenderer cube_r9;
+	private final ModelRenderer cube_r10;
+	private final ModelRenderer cube_r11;
+	private final ModelRenderer cube_r12;
+	private final ModelRenderer cube_r13;
+	private final ModelRenderer cube_r14;
+	private final ModelRenderer cube_r15;
+	private final ModelRenderer cube_r16;
 
 	public M60Hatch() {
-		textureWidth = 330;
-		textureHeight = 330;
+		textureWidth = 850;
+		textureHeight = 850;
 
-		Hatch = new ModelRenderer(this);
-		Hatch.setRotationPoint(-1.0F, 2.0F, -53.0F);
-		Hatch.cubeList.add(new ModelBox(Hatch, 18, 25, 3.0F, -23.0F, 46.0F, 2, 3, 1, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 172, 40, -3.2F, -24.0F, 40.0F, 8, 1, 7, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 0, 91, 5.0F, -23.0F, 37.0F, 1, 2, 10, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 94, 92, -3.2F, -23.5F, 40.0F, 1, 3, 7, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 26, 43, -3.2F, -24.3F, 40.0F, 8, 1, 5, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 168, 78, -1.5F, -22.0F, 62.0F, 4, 1, 19, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 0, 220, -3.2F, -21.0F, 47.0F, 1, 3, 34, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 56, 74, -1.5F, -24.0F, 47.0F, 4, 1, 5, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 39, 256, 3.2F, -21.0F, 50.0F, 1, 2, 31, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 218, 140, -2.5F, -24.0F, 37.0F, 8, 1, 10, -0.002F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 37, 126, 3.2F, -22.0F, 50.0F, 1, 1, 7, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 96, 59, 3.2F, -23.0F, 50.0F, 1, 1, 2, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 112, 56, -3.2F, -22.0F, 47.0F, 1, 1, 10, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 26, 79, -3.2F, -23.0F, 47.0F, 1, 1, 5, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 15, 42, -3.8F, -20.0F, 51.0F, 1, 2, 3, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 72, 0, 4.4F, -24.3F, 40.0F, 1, 1, 5, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 0, 45, -2.7F, -24.6F, 41.0F, 6, 1, 3, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 26, 85, -1.7F, -24.4F, 44.0F, 2, 1, 4, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 82, 74, 0.3F, -24.4F, 45.0F, 2, 1, 2, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 94, 50, -2.0F, -23.0F, 37.0F, 7, 3, 1, 0.0F, false));
-		Hatch.cubeList.add(new ModelBox(Hatch, 0, 61, -1.0F, -23.1F, 56.0F, 3, 1, 2, 0.0F, false));
+		hatch = new ModelRenderer(this);
+		hatch.setRotationPoint(-1.0F, -24.0F, -20.0F);
+		hatch.cubeList.add(new ModelBox(hatch, 17, 92, -1.5F, -1.0F, 0.0F, 3, 2, 3, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 51, 144, -2.5F, -1.0F, 21.0F, 5, 2, 3, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 51, 139, -2.5F, 0.3F, 33.0F, 5, 2, 3, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 0, 119, -2.5F, 0.3F, 33.0F, 5, 2, 3, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 104, 74, -3.0F, 2.0F, 16.0F, 1, 3, 20, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 0, 125, -2.0F, 2.0F, 16.0F, 2, 3, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 128, 97, -2.5F, 0.3F, 36.0F, 5, 2, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 51, 28, -2.025F, 1.3F, 37.0F, 4, 1, 19, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 66, 0, -3.0F, 2.0F, 56.0F, 1, 3, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 104, 124, -3.0F, 4.0F, 37.0F, 1, 1, 19, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 36, 191, -2.8F, 2.9F, 37.4F, 1, 1, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 191, 33, -2.8F, 2.9F, 48.0F, 1, 1, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 20, 191, 1.8F, 2.9F, 37.4F, 1, 1, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 32, 191, 1.8F, 2.9F, 48.0F, 1, 1, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 104, 104, 2.0F, 4.0F, 37.0F, 1, 1, 19, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 104, 120, -2.5F, 0.3F, 56.0F, 5, 2, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 66, 9, 2.0F, 2.0F, 56.0F, 1, 3, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 104, 0, -2.7F, 2.0F, 36.0F, 1, 3, 20, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 104, 51, 1.6F, 2.0F, 36.0F, 1, 3, 20, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 104, 23, 1.7F, 2.0F, 36.0F, 1, 3, 20, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 23, 70, -3.0F, 2.0F, 36.0F, 1, 3, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 66, 51, 2.0F, 2.0F, 36.0F, 1, 3, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 42, 14, 2.0F, 2.0F, 34.0F, 1, 3, 2, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 0, 103, -3.0F, 0.7F, 3.05F, 1, 1, 21, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 0, 70, -3.0F, 1.7F, 3.05F, 1, 1, 21, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 347, 0, -2.5F, -1.0F, 3.0F, 11, 2, 18, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 155, 80, 6.9F, 0.0F, 3.0F, 1, 2, 16, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 60, 51, -1.1F, -0.2F, 11.5F, 1, 2, 4, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 9, 83, -1.1F, -0.2F, 5.8F, 1, 2, 5, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 82, 119, -0.1F, -0.6F, 14.0F, 5, 2, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 118, 46, -0.1F, -0.6F, 9.5F, 5, 2, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 116, 97, -0.1F, -0.6F, 6.0F, 5, 2, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 51, 119, -0.1F, -0.6F, 12.0F, 5, 2, 1, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 0, 78, -1.5F, -1.6F, 10.0F, 7, 2, 3, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 88, 138, -0.35F, -1.6F, 13.0F, 2, 2, 5, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 0, 154, 7.5F, 0.5F, 3.0F, 1, 1, 18, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 51, 51, 7.5F, 1.5F, 19.0F, 1, 4, 2, 0.0F, false));
+		hatch.cubeList.add(new ModelBox(hatch, 51, 0, 7.5F, 1.5F, 18.7F, 1, 4, 2, 0.0F, false));
 
-		Hatch47_r1 = new ModelRenderer(this);
-		Hatch47_r1.setRotationPoint(-16.5798F, -8.7729F, 0.0F);
-		Hatch.addChild(Hatch47_r1);
-		setRotationAngle(Hatch47_r1, 0.0F, 0.0F, 0.7854F);
-		Hatch47_r1.cubeList.add(new ModelBox(Hatch47_r1, 96, 56, 2.3F, -24.4F, 45.0F, 1, 1, 2, 0.0F, false));
+		cube_r1 = new ModelRenderer(this);
+		cube_r1.setRotationPoint(-2.5F, -0.3082F, 29.2547F);
+		hatch.addChild(cube_r1);
+		setRotationAngle(cube_r1, -0.1252F, 0.0382F, 0.2943F);
+		cube_r1.cubeList.add(new ModelBox(cube_r1, 155, 185, 0.0F, 0.7914F, -5.3695F, 1, 1, 10, 0.0F, false));
+		cube_r1.cubeList.add(new ModelBox(cube_r1, 104, 186, 0.0F, -0.0086F, -5.3695F, 1, 1, 10, 0.0F, false));
 
-		Hatch46_r1 = new ModelRenderer(this);
-		Hatch46_r1.setRotationPoint(0.0F, -41.0877F, -3.1945F);
-		Hatch.addChild(Hatch46_r1);
-		setRotationAngle(Hatch46_r1, -0.7854F, 0.0F, 0.0F);
-		Hatch46_r1.cubeList.add(new ModelBox(Hatch46_r1, 18, 22, -1.7F, -24.4F, 48.0F, 2, 1, 1, 0.0F, false));
+		cube_r2 = new ModelRenderer(this);
+		cube_r2.setRotationPoint(-2.5F, -0.3082F, 29.2547F);
+		hatch.addChild(cube_r2);
+		setRotationAngle(cube_r2, -0.1309F, 0.0F, 0.0F);
+		cube_r2.cubeList.add(new ModelBox(cube_r2, 155, 36, 0.0F, -0.0086F, -5.3695F, 5, 2, 11, 0.0F, false));
 
-		Hatch43_r1 = new ModelRenderer(this);
-		Hatch43_r1.setRotationPoint(0.0F, -36.1966F, -5.3862F);
-		Hatch.addChild(Hatch43_r1);
-		setRotationAngle(Hatch43_r1, -0.7854F, 0.0F, 0.0F);
-		Hatch43_r1.cubeList.add(new ModelBox(Hatch43_r1, 60, 22, -2.7F, -24.6F, 41.0F, 6, 1, 1, 0.0F, false));
+		cube_r3 = new ModelRenderer(this);
+		cube_r3.setRotationPoint(8.5F, 3.5F, 21.0F);
+		hatch.addChild(cube_r3);
+		setRotationAngle(cube_r3, 0.0F, -0.3752F, 0.0F);
+		cube_r3.cubeList.add(new ModelBox(cube_r3, 9, 103, -1.0F, -3.5F, 0.0F, 1, 2, 5, 0.0F, false));
+		cube_r3.cubeList.add(new ModelBox(cube_r3, 155, 137, -1.0F, -1.5F, 0.0F, 1, 1, 15, 0.0F, false));
+		cube_r3.cubeList.add(new ModelBox(cube_r3, 155, 155, -1.0F, -1.0F, 0.0F, 1, 3, 15, 0.0F, false));
 
-		Hatch42_r1 = new ModelRenderer(this);
-		Hatch42_r1.setRotationPoint(0.0F, -38.3179F, -4.5075F);
-		Hatch.addChild(Hatch42_r1);
-		setRotationAngle(Hatch42_r1, -0.7854F, 0.0F, 0.0F);
-		Hatch42_r1.cubeList.add(new ModelBox(Hatch42_r1, 60, 47, -2.7F, -24.6F, 44.0F, 6, 1, 1, 0.0F, false));
+		cube_r4 = new ModelRenderer(this);
+		cube_r4.setRotationPoint(6.2948F, 2.0F, 26.6954F);
+		hatch.addChild(cube_r4);
+		setRotationAngle(cube_r4, -0.2086F, -0.3143F, 0.6004F);
+		cube_r4.cubeList.add(new ModelBox(cube_r4, 88, 164, -4.3356F, 0.0F, 0.8927F, 2, 1, 3, 0.0F, false));
+		cube_r4.cubeList.add(new ModelBox(cube_r4, 51, 184, -3.0356F, 0.0F, 0.8927F, 3, 1, 9, 0.0F, false));
+		cube_r4.cubeList.add(new ModelBox(cube_r4, 149, 193, -5.0356F, 0.0F, 0.1927F, 1, 1, 1, 0.0F, false));
+		cube_r4.cubeList.add(new ModelBox(cube_r4, 0, 92, -5.0356F, 0.0F, -6.1073F, 5, 1, 7, 0.0F, false));
 
-		Hatch41_r1 = new ModelRenderer(this);
-		Hatch41_r1.setRotationPoint(-7.8956F, -2.448F, 0.0F);
-		Hatch.addChild(Hatch41_r1);
-		setRotationAngle(Hatch41_r1, 0.0F, 0.0F, 0.3346F);
-		Hatch41_r1.cubeList.add(new ModelBox(Hatch41_r1, 69, 86, 3.3F, -24.6F, 41.0F, 1, 1, 3, 0.0F, false));
+		cube_r5 = new ModelRenderer(this);
+		cube_r5.setRotationPoint(8.5F, 0.0F, 21.0F);
+		hatch.addChild(cube_r5);
+		setRotationAngle(cube_r5, 0.0F, -0.3752F, 0.0F);
+		cube_r5.cubeList.add(new ModelBox(cube_r5, 24, 92, -6.0F, -1.0F, 0.0F, 6, 3, 5, 0.0F, false));
 
-		Hatch38_r1 = new ModelRenderer(this);
-		Hatch38_r1.setRotationPoint(1.7176F, -46.3808F, 0.0F);
-		Hatch.addChild(Hatch38_r1);
-		setRotationAngle(Hatch38_r1, 0.0F, 0.0F, 2.7053F);
-		Hatch38_r1.cubeList.add(new ModelBox(Hatch38_r1, 72, 25, 6.0F, -22.6F, 40.0F, 1, 1, 5, 0.0F, false));
-		Hatch38_r1.cubeList.add(new ModelBox(Hatch38_r1, 83, 111, 6.0F, -23.0F, 37.0F, 1, 1, 10, 0.0F, false));
+		cube_r6 = new ModelRenderer(this);
+		cube_r6.setRotationPoint(0.65F, -1.6F, 18.0F);
+		hatch.addChild(cube_r6);
+		setRotationAngle(cube_r6, 0.6545F, 0.0F, 0.0F);
+		cube_r6.cubeList.add(new ModelBox(cube_r6, 79, 154, -1.0F, 0.0F, -1.0F, 2, 2, 1, 0.0F, false));
 
-		Hatch36_r1 = new ModelRenderer(this);
-		Hatch36_r1.setRotationPoint(-39.2968F, 0.0F, 13.1292F);
-		Hatch.addChild(Hatch36_r1);
-		setRotationAngle(Hatch36_r1, 0.0F, 0.7854F, 0.0F);
-		Hatch36_r1.cubeList.add(new ModelBox(Hatch36_r1, 20, 42, -3.8F, -20.0F, 54.0F, 1, 2, 1, 0.0F, false));
+		cube_r7 = new ModelRenderer(this);
+		cube_r7.setRotationPoint(-1.5F, -1.6F, 11.5F);
+		hatch.addChild(cube_r7);
+		setRotationAngle(cube_r7, 0.0F, 0.0F, 0.6545F);
+		cube_r7.cubeList.add(new ModelBox(cube_r7, 185, 159, 0.0F, 0.0F, -1.5F, 1, 1, 3, 0.0F, false));
 
-		Hatch35_r1 = new ModelRenderer(this);
-		Hatch35_r1.setRotationPoint(-37.1754F, 0.0F, 12.2505F);
-		Hatch.addChild(Hatch35_r1);
-		setRotationAngle(Hatch35_r1, 0.0F, 0.7854F, 0.0F);
-		Hatch35_r1.cubeList.add(new ModelBox(Hatch35_r1, 79, 0, -3.8F, -20.0F, 51.0F, 1, 2, 1, 0.0F, false));
+		cube_r8 = new ModelRenderer(this);
+		cube_r8.setRotationPoint(5.5F, -1.6F, 11.5F);
+		hatch.addChild(cube_r8);
+		setRotationAngle(cube_r8, 0.0F, 0.0F, -0.6545F);
+		cube_r8.cubeList.add(new ModelBox(cube_r8, 186, 51, -1.0F, 0.0F, -1.5F, 1, 1, 3, 0.0F, false));
 
-		Hatch34_r1 = new ModelRenderer(this);
-		Hatch34_r1.setRotationPoint(13.0291F, -8.5449F, 0.0F);
-		Hatch.addChild(Hatch34_r1);
-		setRotationAngle(Hatch34_r1, 0.0F, 0.0F, -0.7854F);
-		Hatch34_r1.cubeList.add(new ModelBox(Hatch34_r1, 82, 86, -3.8F, -20.0F, 51.0F, 1, 1, 3, 0.0F, false));
+		cube_r9 = new ModelRenderer(this);
+		cube_r9.setRotationPoint(2.9F, 0.4F, 10.0F);
+		hatch.addChild(cube_r9);
+		setRotationAngle(cube_r9, 0.0F, 0.7854F, 0.0F);
+		cube_r9.cubeList.add(new ModelBox(cube_r9, 165, 166, 1.0F, -1.0F, 0.7F, 1, 2, 1, 0.0F, false));
 
-		Hatch32_r1 = new ModelRenderer(this);
-		Hatch32_r1.setRotationPoint(-41.8198F, 0.0F, 29.1028F);
-		Hatch.addChild(Hatch32_r1);
-		setRotationAngle(Hatch32_r1, 0.0F, 1.3756F, 0.0F);
-		Hatch32_r1.cubeList.add(new ModelBox(Hatch32_r1, 56, 81, -3.2F, -24.0F, 40.0F, 3, 4, 1, 0.0F, false));
+		cube_r10 = new ModelRenderer(this);
+		cube_r10.setRotationPoint(4.9F, 1.0F, 13.5F);
+		hatch.addChild(cube_r10);
+		setRotationAngle(cube_r10, 0.0F, 0.0F, 0.3054F);
+		cube_r10.cubeList.add(new ModelBox(cube_r10, 114, 132, 1.2F, -1.6F, -1.5F, 1, 2, 3, 0.0F, false));
+		cube_r10.cubeList.add(new ModelBox(cube_r10, 24, 145, 0.0F, -1.6F, -7.5F, 2, 2, 4, 0.0F, false));
+		cube_r10.cubeList.add(new ModelBox(cube_r10, 60, 0, 1.2F, -1.6F, -7.5F, 1, 2, 4, 0.0F, false));
+		cube_r10.cubeList.add(new ModelBox(cube_r10, 51, 164, 0.0F, -1.6F, -1.5F, 2, 2, 3, 0.0F, false));
 
-		Hatch27_r1 = new ModelRenderer(this);
-		Hatch27_r1.setRotationPoint(0.0F, -10.5967F, -3.4902F);
-		Hatch.addChild(Hatch27_r1);
-		setRotationAngle(Hatch27_r1, -0.1965F, 0.0F, 0.0F);
-		Hatch27_r1.cubeList.add(new ModelBox(Hatch27_r1, 112, 190, 2.2F, -23.0F, 47.0F, 2, 1, 16, 0.0F, false));
-		Hatch27_r1.cubeList.add(new ModelBox(Hatch27_r1, 218, 120, -3.2F, -23.0F, 52.0F, 5, 1, 12, 0.0F, false));
+		cube_r11 = new ModelRenderer(this);
+		cube_r11.setRotationPoint(2.5F, 0.3F, 37.5F);
+		hatch.addChild(cube_r11);
+		setRotationAngle(cube_r11, 0.0F, 0.0F, -0.3054F);
+		cube_r11.cubeList.add(new ModelBox(cube_r11, 140, 193, -1.0F, 0.0F, -1.5F, 1, 1, 1, 0.0F, false));
+		cube_r11.cubeList.add(new ModelBox(cube_r11, 193, 136, -1.0F, 0.8F, 18.5F, 1, 1, 1, 0.0F, false));
+		cube_r11.cubeList.add(new ModelBox(cube_r11, 193, 116, -1.0F, 0.0F, 18.5F, 1, 1, 1, 0.0F, false));
+		cube_r11.cubeList.add(new ModelBox(cube_r11, 193, 138, -1.0F, 0.8F, -1.5F, 1, 1, 1, 0.0F, false));
 
-		Hatch26_r1 = new ModelRenderer(this);
-		Hatch26_r1.setRotationPoint(-9.8873F, -4.8696F, 0.0F);
-		Hatch.addChild(Hatch26_r1);
-		setRotationAngle(Hatch26_r1, 0.0F, 0.0F, 0.5205F);
-		Hatch26_r1.cubeList.add(new ModelBox(Hatch26_r1, 258, 35, 2.2F, -21.0F, 51.0F, 2, 1, 30, 0.0F, false));
+		cube_r12 = new ModelRenderer(this);
+		cube_r12.setRotationPoint(-2.5F, 0.3F, 57.5F);
+		hatch.addChild(cube_r12);
+		setRotationAngle(cube_r12, 0.0F, 0.0F, 0.3054F);
+		cube_r12.cubeList.add(new ModelBox(cube_r12, 193, 113, 0.0F, 0.8F, -1.5F, 1, 1, 1, 0.0F, false));
+		cube_r12.cubeList.add(new ModelBox(cube_r12, 193, 111, 0.0F, 0.0F, -1.5F, 1, 1, 1, 0.0F, false));
+		cube_r12.cubeList.add(new ModelBox(cube_r12, 193, 142, 0.0F, 0.8F, -21.5F, 1, 1, 1, 0.0F, false));
+		cube_r12.cubeList.add(new ModelBox(cube_r12, 193, 140, 0.0F, 0.0F, -21.5F, 1, 1, 1, 0.0F, false));
+		cube_r12.cubeList.add(new ModelBox(cube_r12, 186, 55, 0.0F, 0.8F, -24.5F, 1, 1, 3, 0.0F, false));
+		cube_r12.cubeList.add(new ModelBox(cube_r12, 66, 186, 0.0F, 0.0F, -24.5F, 1, 1, 3, 0.0F, false));
 
-		Hatch25_r1 = new ModelRenderer(this);
-		Hatch25_r1.setRotationPoint(10.0198F, -4.3724F, 0.0F);
-		Hatch.addChild(Hatch25_r1);
-		setRotationAngle(Hatch25_r1, 0.0F, 0.0F, -0.5205F);
-		Hatch25_r1.cubeList.add(new ModelBox(Hatch25_r1, 73, 259, -3.2F, -21.0F, 51.0F, 2, 1, 30, 0.0F, false));
+		cube_r13 = new ModelRenderer(this);
+		cube_r13.setRotationPoint(2.025F, 1.3F, 46.5F);
+		hatch.addChild(cube_r13);
+		setRotationAngle(cube_r13, 0.0F, 0.0F, -0.7854F);
+		cube_r13.cubeList.add(new ModelBox(cube_r13, 0, 125, -1.0F, 0.0F, -9.5F, 1, 1, 19, 0.0F, false));
 
-		Hatch23_r1 = new ModelRenderer(this);
-		Hatch23_r1.setRotationPoint(-16.2679F, 0.0F, 1.74F);
-		Hatch.addChild(Hatch23_r1);
-		setRotationAngle(Hatch23_r1, 0.0F, 0.3491F, 0.0F);
-		Hatch23_r1.cubeList.add(new ModelBox(Hatch23_r1, 96, 143, -3.2F, -24.0F, 47.0F, 2, 2, 5, 0.0F, false));
+		cube_r14 = new ModelRenderer(this);
+		cube_r14.setRotationPoint(-2.025F, 1.3F, 46.5F);
+		hatch.addChild(cube_r14);
+		setRotationAngle(cube_r14, 0.0F, 0.0F, 0.7854F);
+		cube_r14.cubeList.add(new ModelBox(cube_r14, 51, 131, 0.0F, 0.0F, -9.5F, 1, 1, 19, 0.0F, false));
 
-		Hatch22_r1 = new ModelRenderer(this);
-		Hatch22_r1.setRotationPoint(0.0F, -78.6456F, 40.314F);
-		Hatch.addChild(Hatch22_r1);
-		setRotationAngle(Hatch22_r1, -1.7802F, 0.0F, 0.0F);
-		Hatch22_r1.cubeList.add(new ModelBox(Hatch22_r1, 82, 56, -3.2F, -23.0F, 52.0F, 5, 5, 1, 0.0F, false));
+		cube_r15 = new ModelRenderer(this);
+		cube_r15.setRotationPoint(-2.5F, -1.0F, 22.5F);
+		hatch.addChild(cube_r15);
+		setRotationAngle(cube_r15, 0.0F, 0.0F, 0.288F);
+		cube_r15.cubeList.add(new ModelBox(cube_r15, 0, 0, 0.0F, 0.8F, -19.5F, 2, 1, 21, 0.0F, false));
+		cube_r15.cubeList.add(new ModelBox(cube_r15, 255, 104, 0.0F, 0.0F, -19.5F, 5, 1, 21, 0.0F, false));
 
-		Hatch16_r1 = new ModelRenderer(this);
-		Hatch16_r1.setRotationPoint(49.2361F, 0.0F, 66.3813F);
-		Hatch.addChild(Hatch16_r1);
-		setRotationAngle(Hatch16_r1, -3.1416F, -1.0224F, 3.1416F);
-		Hatch16_r1.cubeList.add(new ModelBox(Hatch16_r1, 8, 135, 6.0F, -23.0F, 47.0F, 6, 4, 1, 0.0F, false));
-
-		Hatch15_r1 = new ModelRenderer(this);
-		Hatch15_r1.setRotationPoint(48.4755F, 0.0F, 66.808F);
-		Hatch.addChild(Hatch15_r1);
-		setRotationAngle(Hatch15_r1, -3.1416F, -1.0224F, 3.1416F);
-		Hatch15_r1.cubeList.add(new ModelBox(Hatch15_r1, 26, 126, 5.5F, -24.0F, 47.0F, 6, 4, 3, -0.002F, false));
-
-		Hatch5_r1 = new ModelRenderer(this);
-		Hatch5_r1.setRotationPoint(0.0F, -10.6159F, -3.6854F);
-		Hatch.addChild(Hatch5_r1);
-		setRotationAngle(Hatch5_r1, -0.1965F, 0.0F, 0.0F);
-		Hatch5_r1.cubeList.add(new ModelBox(Hatch5_r1, 0, 206, -1.5F, -24.0F, 52.0F, 4, 1, 12, 0.0F, false));
+		cube_r16 = new ModelRenderer(this);
+		cube_r16.setRotationPoint(-0.5F, 2.7F, 24.0F);
+		hatch.addChild(cube_r16);
+		setRotationAngle(cube_r16, -0.1309F, 0.0F, 0.0F);
+		cube_r16.cubeList.add(new ModelBox(cube_r16, 25, 0, -2.5F, -2.0F, -0.2F, 1, 3, 11, 0.0F, false));
 	}
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		Hatch.render(f5);
+		hatch.render(f5);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
