@@ -88,7 +88,7 @@ public class M1911Factory implements GunFactory {
                 .withCompatibleAttachment(Magazines.M1911Mag15, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.Silencer45ACP, (model) -> {
-                    GL11.glTranslatef(-0.385F, -1.3F, -5.1F);
+                    GL11.glTranslatef(-0.38F, -1.3F, -5.1F);
                     GL11.glScaled(1.5F, 1.5F, 1.5F);
                 })
                 .withCompatibleAttachment(Attachments.Laser, () -> {
