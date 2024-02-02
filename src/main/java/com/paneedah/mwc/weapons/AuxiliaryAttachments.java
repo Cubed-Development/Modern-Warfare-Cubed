@@ -550,8 +550,8 @@ public class AuxiliaryAttachments {
                 .build();
 
         ACRAction = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.EXTRA2)
-                .withModel(new ACRAction(), "ACR.png")
-                .withModel(new ACRAction2(), "gun.png")
+                .withModel(new ACRAction(), "acr.png")
+                .withModel(new ACRAction2(), "acr.png")
                 .withName("ACRAction").withRenderablePart()
                 .build();
 
