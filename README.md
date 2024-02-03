@@ -8,7 +8,7 @@
 
 **Modern Warfare Cubed** is a well optimized, open source Modern Warfare fork, made in light of the now discontinued, Vic's Modern Warfare!
 
-![Features Showcase](https://raw.githubusercontent.com/Cubed-Development/Modern-Warfare-Cubed/main/assets/showcase/Features%20Showcase.png)
+![Features Showcase](https://www.bisecthosting.com/images/CF/Modern_Warfare_Cubed/BH_MWC_ProjectPage.webp)
 
 This mod introduces a plethora of new features to Minecraft, including an extensive arsenal of modern weaponry, new explosives, vehicles, and more.
 
@@ -50,7 +50,7 @@ All monetary contributions made via Patreon are being put right back into the de
 
 You can find out about all the juicy perks that you unlock on our [Discord](https://discord.gg/k5WPk93K7b) (and on our Patreon home-page)! But honestly, what more do you need other than our love?
 
-[![BisectHostingPromoBanner](https://www.bisecthosting.com/partners/custom-banners/98433ee8-ec42-4242-907c-f2c949bb0e8b.png)](https://bisecthosting.com/mwc?r=MWC+GitHub)
+[![BisectHostingPromoBanner](https://www.bisecthosting.com/images/CF/Modern_Warfare_Cubed/BH_MWC_Promo.webp)](https://bisecthosting.com/mwc?r=MWC+GitHub)
 
 ## Need to get in touch?
 
