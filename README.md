@@ -78,7 +78,7 @@ The main way to get noticed is by either contacting a member of the team (only i
 
 ## Meet our Team & Credits
 
-Massive shoutout to the author of [Vic's Modern Warfare Mod](https://www.curseforge.com/minecraft/mc-mods/vics-modern-warfare-mod) and the rest of his team for the original mod, and some of the textures, models, other assets that are continiuing to utilized from their mod.
+Massive shoutout to the author of [Vic's Modern Warfare Mod](https://www.curseforge.com/minecraft/mc-mods/vics-modern-warfare-mod) and the rest of his team for the original mod, and some of the textures, models, other assets that are continuing to be utilized from their mod.
 
 Another massive thank you to all the contributors and members of the development team.
 We wouldn't be where we are now without the support from you all!
