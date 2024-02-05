@@ -10,7 +10,7 @@ import net.minecraft.entity.Entity;
 // Paste this class into your mod and generate all required imports
 
 
-public class M60HandGuard extends ModelWithAttachments {
+public class M60Handguard extends ModelWithAttachments {
 	private final ModelRenderer handguard;
 	private final ModelRenderer cubes;
 	private final ModelRenderer cube_r1;
@@ -22,7 +22,7 @@ public class M60HandGuard extends ModelWithAttachments {
 	private final ModelRenderer cube_r7;
 	private final ModelRenderer cube_r8;
 
-	public M60HandGuard() {
+	public M60Handguard() {
 		textureWidth = 850;
 		textureHeight = 850;
 

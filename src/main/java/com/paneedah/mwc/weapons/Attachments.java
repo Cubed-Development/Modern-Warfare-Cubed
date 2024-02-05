@@ -967,7 +967,7 @@ public class Attachments {
                 .build();
 
         M60HandGuard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
-                .withModel(new M60HandGuard(), "m60.png")
+                .withModel(new M60Handguard(), "m60.png")
                 .withName("M60HandGuard")
                 .build();
 
