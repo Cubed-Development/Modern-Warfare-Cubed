@@ -49,7 +49,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Browning Auto 5 now ejects shotgun shells 
 - Added `reconcileAmmunition` & `reconcileAttachments` gamerules, they are true by default and should only be used for debugging purposes, for example, when you have weapons that appear to "desync" / glitch out
 - Added small delay to inputs after closing a GUI to prevent accidentally shooting weapons
-- Added the gold and dark color variants of the Desert Eagle
 - Added Accuracy International AX50
 - Added Modernized Kalashnikov Machine Gun(PKM)
 - New Attachments for G36C
@@ -121,6 +120,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Renewed MP-40(WIP)
 - Removed the small tilt on handguns such as the Desert Eagle and some Revolvers
 - New model for IMI Desert Eagle 
+- New Model for M1911
+- New Model for M60
 - New Model for Bipod
 
 ### Fixed
