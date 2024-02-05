@@ -1553,14 +1553,14 @@ public class Attachments {
 
         M45A1CQBPBody = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.BACKGRIP)
-                .withModel(new M45A1(), "m1911.png")
+                .withModel(new M45A1(), "m45.png")
                 .withName("M45A1CQBPBody")
                 .withRenderablePart()
                 .build();
 
         M45A1CQBPSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
-                .withModel(new M45A1Slide(), "m1911.png")
+                .withModel(new M45A1Slide(), "m45.png")
                 .withOnWeaponModel(new m45a1Iron(), "gun")
                 .withName("M45A1CQBPSlide")
                 .withRenderablePart()
