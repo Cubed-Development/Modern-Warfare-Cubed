@@ -28,7 +28,7 @@ public class M200InterventionFactory implements GunFactory {
                 .withRecoil(16f)
                 .withZoom(0.8f)
                 .withConfigGroup(GunConfigurationGroup.SNIPER_RIFLE)
-                .withMaxShots(1, Integer.MAX_VALUE)
+                .withMaxShots(1)
                 .withShootSound("m200_intervention")
                 .withPumpTimeout(1500)
                 .withSilencedShootSound("as50_silenced")
