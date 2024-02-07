@@ -109,8 +109,8 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Change the name from NGSW-R to SIG XM7
 - Renewed M200 Intervention
 - Renewed M79(WIP)
-- Renewed Colt M1911
-- Renewed M60E4(WIP)
+- Renewed Colt M1911(WIP)
+- Renewed M60(WIP)(unplayable)
 - Renewed Saiga12(WIP)
 - Renewed Uzi
 - Renewed APC9
