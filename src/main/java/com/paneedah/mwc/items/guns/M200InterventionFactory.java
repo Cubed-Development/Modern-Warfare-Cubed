@@ -482,7 +482,7 @@ public class M200InterventionFactory implements GunFactory {
 
 
                         .build())
-                .withSpawnEntityDamage(20f)
+                .withSpawnEntityDamage(25f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
 

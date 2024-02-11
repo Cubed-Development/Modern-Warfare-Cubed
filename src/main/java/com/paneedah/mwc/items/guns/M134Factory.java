@@ -74,7 +74,7 @@ public class M134Factory implements GunFactory {
                         .withFirstPersonPositioning(
                                 new Transform()
                                         .withPosition(-2.925000f, 3.825000f, -3.825000f)
-                                        .withRotation(0.000000f, 1.000000f, 10.300000f)
+                                        .withRotation(0.000000f, 1.000000f, 15.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
                                         .withScale(4.0F, 4.0F, 4.0F)
                         )
