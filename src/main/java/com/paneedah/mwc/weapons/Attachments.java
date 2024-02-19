@@ -1537,7 +1537,7 @@ public class Attachments {
        M1911Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new M1911Slide(), "m1911.png")
-                .withOnWeaponModel(new M1911FrontSight(), "gun")
+                .withOnWeaponModel(new M1911FrontSight(), "m1911frontsight")
                 .withOnWeaponModel(new makarovrearsight(), "gun")
                 .withName("M1911Slide")
                 .withRenderablePart()
@@ -4205,7 +4205,7 @@ public class Attachments {
 
         SilencerPBS = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withRequiredAttachments(MakarovPBBody)
-                .withModel(new MakarovPBSSilencer(), "MakarovPBSSilencer.png")
+                .withModel(new MakarovPBSSilencer(), "makarovpm.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2),

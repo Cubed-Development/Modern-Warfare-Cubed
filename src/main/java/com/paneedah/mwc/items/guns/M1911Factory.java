@@ -85,7 +85,7 @@ public class M1911Factory implements GunFactory {
                 .withCompatibleAttachment(Magazines.M1911Mag15, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.Silencer45ACP, (model) -> {
-                    GL11.glTranslatef(-0.295F, -1.3F, -5.1F);
+                    GL11.glTranslatef(-0.298F, -1.3F, -5.1F);
                     GL11.glScaled(1.5F, 1.5F, 1.5F);
                 })
                 .withCompatibleAttachment(Attachments.Laser, () -> {
@@ -119,25 +119,25 @@ public class M1911Factory implements GunFactory {
 
                         .withFirstPersonPositioning(
                                 new Transform()
-                                        .withPosition(-0.945000f, 4.305000f, -8.145000f)
+                                        .withPosition(-0.845000f, 4.065000f, -7.845000f)
                                         .withRotation(0.000000f, 1.000000f, 10.681469f)
                                         .withPivotPoint(-0.12000000357627871F, -0.36000001072883614F, 0.040000001192092904F)
-                                        .withScale(2.8F, 2.8F, 2.8F)
+                                        .withScale(2.6F, 2.6F, 2.6F)
                         )
 
                         .withFirstPersonHandPositioning(
 
                                 new Transform()
-                                        .withPosition(1.370000f, 0.865000f, 2.020000f)
+                                        .withPosition(1.370000f, 0.925000f, 2.020000f)
                                         .withBBRotation(-12.9672F, -29.0825F, 67.8433F)
                                         .withScale(3, 3, 4)
                                         .withPivotPoint(0, 0, 0),
 
 
                                 new Transform()
-                                        .withPosition(-0.420000f, 0.260000f, 2.040000f)
+                                        .withPosition(-0.420000f, 0.360000f, 2.040000f)
                                         .withBBRotation(10.0931F, 10.9576F, -10.0294F)
-                                        .withScale(3.4F, 3.4F, 3.5F)
+                                        .withScale(3.5F, 3.5F, 4F)
                                         .withPivotPoint(0, 0, 0)
 
                         )
