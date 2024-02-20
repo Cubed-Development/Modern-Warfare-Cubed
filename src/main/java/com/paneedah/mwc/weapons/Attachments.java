@@ -1537,7 +1537,7 @@ public class Attachments {
        M1911Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new M1911Slide(), "m1911.png")
-                .withOnWeaponModel(new M1911FrontSight(), "m1911frontsight")
+                .withOnWeaponModel(new M1911FrontSight(), "gun")
                 .withOnWeaponModel(new makarovrearsight(), "gun")
                 .withName("M1911Slide")
                 .withRenderablePart()
@@ -1560,7 +1560,8 @@ public class Attachments {
         M45A1CQBPSlide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new M45A1Slide(), "m45.png")
-                .withOnWeaponModel(new m45a1Iron(), "gun")
+                .withOnWeaponModel(new M1911FrontSight(), "m1911frontsight")
+                .withOnWeaponModel(new M1911rearsight(), "m1911rearsight")
                 .withName("M45A1CQBPSlide")
                 .withRenderablePart()
                 .build();

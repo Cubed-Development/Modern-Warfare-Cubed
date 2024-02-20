@@ -75,9 +75,12 @@ public class M1911Factory implements GunFactory {
                     }
                 })
                 .withCompatibleAttachment(Attachments.M45A1CQBPSlide, (model) -> {
-                    if (model instanceof m45a1Iron) {
-                        GL11.glTranslatef(-0.197F, -2.21F, -1.1F);
-                        GL11.glScaled(0.62F, 0.6F, 0.49F);
+                    if (model instanceof M1911rearsight) {
+                        GL11.glTranslatef(-0.235F, -1.33F, -0.0F);
+                        GL11.glScaled(0.3F, 0.3F, 0.3F);
+                    } else if (model instanceof M1911FrontSight) {
+                        GL11.glTranslatef(-0.24F, -1.335F, -2.35F);
+                        GL11.glScaled(0.25F, 0.25F, 0.25F);
                     }
                 })
                 .withCompatibleAttachment(Magazines.M1911Mag, (model) -> {
@@ -85,7 +88,7 @@ public class M1911Factory implements GunFactory {
                 .withCompatibleAttachment(Magazines.M1911Mag15, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.Silencer45ACP, (model) -> {
-                    GL11.glTranslatef(-0.298F, -1.3F, -5.1F);
+                    GL11.glTranslatef(-0.31F, -1.3F, -5.1F);
                     GL11.glScaled(1.5F, 1.5F, 1.5F);
                 })
                 .withCompatibleAttachment(Attachments.Laser, () -> {
@@ -163,7 +166,7 @@ public class M1911Factory implements GunFactory {
                             GL11.glTranslatef(0.239F, -0.235F, -1.2F);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.M45A1CQBPSlide))
-                                GL11.glTranslatef(0.02f, 0.01f, 0f);
+                                GL11.glTranslatef(0.01f, 0.01f, 0f);
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {
