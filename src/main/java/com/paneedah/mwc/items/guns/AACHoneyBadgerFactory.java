@@ -3,9 +3,7 @@ package com.paneedah.mwc.items.guns;
 import com.paneedah.mwc.MWC;
 import com.paneedah.mwc.models.weapons.*;
 import com.paneedah.mwc.proxies.CommonProxy;
-import com.paneedah.mwc.weapons.Attachments;
-import com.paneedah.mwc.weapons.AuxiliaryAttachments;
-import com.paneedah.mwc.weapons.Magazines;
+import com.paneedah.mwc.weapons.*;
 import com.paneedah.weaponlib.*;
 import com.paneedah.mwc.rendering.Transform;
 import com.paneedah.weaponlib.animation.Transition;
@@ -724,13 +722,13 @@ public class AACHoneyBadgerFactory implements GunFactory {
                                 GL11.glTranslatef(0.001F, 0.035f, 0.45f);
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG))
-                                GL11.glTranslatef(-0.01F, 0.027f, 0.6f);
+                                GL11.glTranslatef(-0.01F, 0.027f, 0.8f);
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter))
                                 GL11.glTranslatef(-0.003F, -0.05f, 0.55f);
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.LeupoldRailScope))
-                                GL11.glTranslatef(-0.001F, -0.022f, 0.1f);
+                                GL11.glTranslatef(-0.001F, -0.01f, 0.1f);
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex))
                                 GL11.glTranslatef(0F, -0.015f, 0.1f);
@@ -745,22 +743,22 @@ public class AACHoneyBadgerFactory implements GunFactory {
                                 GL11.glTranslatef(-0.003F, 0.02f, 0f);
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.EotechHybrid2))
-                                GL11.glTranslatef(0F, 0.025f, 0.55f);
+                                GL11.glTranslatef(0F, 0.035f, 0.75f);
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.VortexRedux))
-                                GL11.glTranslatef(0F, 0.06f, 0f);
+                                GL11.glTranslatef(0F, 0.07f, 0f);
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra))
-                                GL11.glTranslatef(0F, 0.035f, 0.2f);
+                                GL11.glTranslatef(0F, 0.04f, 0.2f);
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.KobraGen3))
-                                GL11.glTranslatef(0F, 0.035f, 0.2f);
+                                GL11.glTranslatef(0F, 0.04f, 0.2f);
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1))
-                                GL11.glTranslatef(0F, 0.055f, 0.5f);
+                                GL11.glTranslatef(0F, 0.065f, 0.5f);
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.AimpointCompM5))
-                                GL11.glTranslatef(0F, 0.055f, 0.5f);
+                                GL11.glTranslatef(0F, 0.065f, 0.5f);
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {
