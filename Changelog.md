@@ -65,17 +65,19 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 
 - Overhauled the textures:
   -Guns:
-    -AAC Honey Badger, 
+        -AAC Honey Badger, 
 	-Bushmaster ACR
 	-Beowulf .50Cal 
 	-Remington 870, 
 	-HK 417, 
 	-M16A1, 
 	-FN F2000
+        -FN FAL(By Vic4games)
+        -FN MakarovPM and MakarovPB(By Vic4games)
 	-100rnd 5.56x45mm NATO STANAG Drum Magazine 
 	-pink camo skin
   -Attachments:
-    -Leupold Scope
+        -Leupold Scope
 	-EOTech Holographic A65 Sight
 	-Aim Point Comp M5 Sight 
 	-OKP-7 Sight 
