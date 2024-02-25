@@ -54,12 +54,12 @@ public class AUGFactory implements GunFactory {
                 
                 .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
                 .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)
-                .withCompatibleAttachment(Attachments.AUGA1handguard, (model) -> {
+                .withCompatibleAttachment(Attachments.AUGA1handguard, true, (model) -> {
                 })
                 .withCompatibleAttachment(Attachments.AUGDefaultKit, true, (model) -> {
+                    GL11.glScaled(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.AUGParaConversion, (model) -> {
-                    GL11.glTranslatef(0F, 0F, 0F);
                 })
                 .withCompatibleAttachment(Attachments.AUGA2handguard, (model) -> {
                     if (model instanceof AKRail) {
@@ -67,7 +67,7 @@ public class AUGFactory implements GunFactory {
                         GL11.glScaled(0.7F, 0.7F, 0.8F);
                     }
                 })
-                .withCompatibleAttachment(Attachments.AUGA3handguard, true, (model) -> {
+                .withCompatibleAttachment(Attachments.AUGA3handguard, (model) -> {
                     if (model instanceof AKRail) {
                         GL11.glTranslatef(-0.23F, -1.27F, -1.53F);
                         GL11.glScaled(0.8F, 0.8F, 0.95F);
@@ -126,7 +126,7 @@ public class AUGFactory implements GunFactory {
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.AUGAction, true, (model) -> {
                     GL11.glTranslatef(-0.02F, 0.03F, 0.3F);
-                    GL11.glScaled(1.1F, 1.1F, 1.1F);
+                    GL11.glScaled(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Attachments.AKMIron, renderContext -> {
                     PlayerWeaponInstance instance = renderContext.getWeaponInstance();
@@ -190,8 +190,8 @@ public class AUGFactory implements GunFactory {
                         GL11.glScaled(0.45F, 0.4F, 0.4F);
                     }
 
-                }, true, false)
-                .withCompatibleAttachment(Attachments.AUGscope, () -> {
+                }, false, false)
+                .withCompatibleAttachment(Attachments.AUGscope, true, () -> {
                     GL11.glTranslatef(0F, 0F, 0F);
                     GL11.glScaled(1F, 1F, 1F);
                 }, (model) -> {
@@ -443,8 +443,6 @@ public class AUGFactory implements GunFactory {
                     }
                 }, false, false)
                 .withCompatibleAttachment(Attachments.AUGgrip, true, (model) -> {
-                    GL11.glTranslatef(0F, 0F, 0F);
-                    GL11.glScaled(1F, 1F, 1F);
                 })
                 .withCompatibleAttachment(Attachments.Grip2, (model) -> {
                     GL11.glTranslatef(-0.2F, -0.07F, -2.6F);
@@ -515,7 +513,7 @@ public class AUGFactory implements GunFactory {
 
                         .withFirstPersonPositioning(
                                 new Transform()
-                                        .withPosition(-1.425000f, 3.325000f, -4.725000f)
+                                        .withPosition(-1.425000f, 3.325000f, -5.425000f)
                                         .withRotation(0.000000f, 1.000000f, 6.300000f)
                                         .withPivotPoint(-0.350000f, -2.900000f, -0.100000f)
                                         .withScale(3.0F, 3.0F, 3.0F)

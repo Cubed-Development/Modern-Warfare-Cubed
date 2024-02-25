@@ -5,43 +5,45 @@ import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-// Made with Blockbench 4.7.4
+// Made with Blockbench 4.9.4
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
 
 public class AUGaction extends ModelWithAttachments {
 	private final ModelRenderer action;
-	private final ModelRenderer action3_r1;
-	private final ModelRenderer action2_r1;
-	private final ModelRenderer action1_r1;
+	private final ModelRenderer action_r1;
+	private final ModelRenderer action_r2;
+	private final ModelRenderer action_r3;
 	private final ModelRenderer action4_r1;
 
 	public AUGaction() {
-		textureWidth = 300;
-		textureHeight = 300;
+		textureWidth = 270;
+		textureHeight = 270;
 
 		action = new ModelRenderer(this);
 		action.setRotationPoint(1.7514F, -9.7904F, -17.3F);
 		
 
-		action3_r1 = new ModelRenderer(this);
-		action3_r1.setRotationPoint(24.623F, 22.3055F, 17.3F);
-		action.addChild(action3_r1);
-		setRotationAngle(action3_r1, 0.0F, 0.0F, -0.887F);
-		action3_r1.cubeList.add(new ModelBox(action3_r1, 32, 87, 1.1F, -33.5F, -20.5F, 1, 1, 3, 0.0F, false));
+		action_r1 = new ModelRenderer(this);
+		action_r1.setRotationPoint(-16.7225F, 14.0802F, 13.3F);
+		action.addChild(action_r1);
+		setRotationAngle(action_r1, 0.0F, 0.0F, 0.7854F);
+		action_r1.cubeList.add(new ModelBox(action_r1, 36, 54, 1.55F, -22.425F, -16.5F, 1, 1, 3, 0.0F, false));
+		action_r1.cubeList.add(new ModelBox(action_r1, 5, 34, 1.4F, -21.825F, -15.1F, 1, 1, 1, -0.2F, false));
+		action_r1.cubeList.add(new ModelBox(action_r1, 50, 68, 1.55F, -24.425F, -16.25F, 1, 2, 2, -0.001F, false));
 
-		action2_r1 = new ModelRenderer(this);
-		action2_r1.setRotationPoint(24.8407F, 22.3636F, 17.3F);
-		action.addChild(action2_r1);
-		setRotationAngle(action2_r1, 0.0F, 0.0F, -0.887F);
-		action2_r1.cubeList.add(new ModelBox(action2_r1, 47, 47, 1.27F, -33.7F, -20.0F, 1, 1, 1, 0.0F, false));
+		action_r2 = new ModelRenderer(this);
+		action_r2.setRotationPoint(0.2304F, 0.7335F, -3.2F);
+		action.addChild(action_r2);
+		setRotationAngle(action_r2, 1.7977F, 0.0F, 0.7854F);
+		action_r2.cubeList.add(new ModelBox(action_r2, 16, 54, -1.0F, 2.15F, 0.3F, 1, 1, 3, 0.001F, false));
 
-		action1_r1 = new ModelRenderer(this);
-		action1_r1.setRotationPoint(25.1764F, 22.4702F, 17.3F);
-		action.addChild(action1_r1);
-		setRotationAngle(action1_r1, 0.0F, 0.0F, -0.887F);
-		action1_r1.cubeList.add(new ModelBox(action1_r1, 67, 45, 1.55F, -34.03F, -19.5F, 2, 1, 2, 0.0F, false));
+		action_r3 = new ModelRenderer(this);
+		action_r3.setRotationPoint(0.2304F, 0.7335F, -3.2F);
+		action.addChild(action_r3);
+		setRotationAngle(action_r3, 2.6398F, 0.0F, 0.7854F);
+		action_r3.cubeList.add(new ModelBox(action_r3, 52, 54, -1.0F, 2.575F, -0.15F, 1, 2, 2, 0.0F, false));
 
 		action4_r1 = new ModelRenderer(this);
 		action4_r1.setRotationPoint(-28.3225F, -17.037F, 17.3F);
