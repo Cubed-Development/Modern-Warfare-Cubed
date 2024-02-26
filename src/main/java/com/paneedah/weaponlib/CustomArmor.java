@@ -3,7 +3,7 @@ package com.paneedah.weaponlib;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
 import com.paneedah.weaponlib.crafting.CraftingRegistry;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.model.ModelBaseRendererWrapper;
 import com.paneedah.weaponlib.model.WrappableModel;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -35,7 +35,7 @@ import java.util.function.Function;
 import static com.paneedah.mwc.proxies.ClientProxy.MC;
 import static com.paneedah.mwc.utils.ModReference.ID;
 
-public class CustomArmor extends ItemArmor implements ExposureProtection , ISpecialArmor, IModernCrafting {
+public class CustomArmor extends ItemArmor implements ExposureProtection , ISpecialArmor, IModernCraftingRecipe {
 
     private static final String ACTIVE_ATTACHMENT_TAG = "ActiveAttachments";
 
@@ -782,8 +782,8 @@ public class CustomArmor extends ItemArmor implements ExposureProtection , ISpec
 	}
 
 	@Override
-	public Item getItem() {
-		return this;
+	public ItemStack getItemStack() {
+		return new ItemStack(this);
 	}
 
 	@Override

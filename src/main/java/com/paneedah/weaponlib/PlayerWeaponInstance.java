@@ -1,6 +1,5 @@
 package com.paneedah.weaponlib;
 
-import akka.japi.Pair;
 import com.paneedah.mwc.network.TypeRegistry;
 import com.paneedah.mwc.rendering.perspective.OpticalScopePerspective;
 import com.paneedah.mwc.rendering.perspective.Perspective;

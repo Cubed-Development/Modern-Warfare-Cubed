@@ -6,8 +6,8 @@ item.MClaren_senna.name=Mclaren Senna
 item.ae86trueno.name=Toyota AE86 Trueno
 item.atv_polaris_sportsman_850_2019.name=2019 Polaris Sportsman 850
 
-entity.terrorist.name=Terörist
-entity.soldier.name=Asker
+entity.mwc_terrorist.name=Terörist
+entity.mwc_soldier.name=Asker
 
 item.mwc_gas-detector.name=Gaz Detektörü
 item.mwc_GasGrenade.name=Gaz Bombası

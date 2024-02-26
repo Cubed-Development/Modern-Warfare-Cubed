@@ -304,9 +304,8 @@ public class ClientEventHandler {
         if (ModernConfigManager.enableAllShaders && ModernConfigManager.enableWorldShaders)
             PostProcessPipeline.captureMatricesIntoBuffers();
 
-        // Replaces the weather renderer.
-        if (!ModernConfigManager.enableFancyRainAndSnow)
-            PostProcessPipeline.setWorldElements();
+		// Replaces the weather renderer.
+		PostProcessPipeline.setWorldElements();
 
         // Marks the frame-timer
         frameTimer.markFrame();
@@ -358,12 +357,13 @@ public class ClientEventHandler {
             return;
         }
 
-        if (ModernConfigManager.enableAllShaders && ModernConfigManager.enableWorldShaders) {
-            PostProcessPipeline.blitDepth();
-            // PostProcessPipeline.setupDistortionBufferEffects();
-            PostProcessPipeline.doWorldProcessing();
-        }
-    }
+		if (ModernConfigManager.enableAllShaders && ModernConfigManager.enableWorldShaders) {
+			if (PostProcessPipeline.shouldDoFog())
+				PostProcessPipeline.blitDepth();
+			// PostProcessPipeline.setupDistortionBufferEffects();
+			PostProcessPipeline.doWorldProcessing();
+		}
+	}
 
     @SubscribeEvent
     @SideOnly(Side.CLIENT)

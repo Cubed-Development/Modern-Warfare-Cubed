@@ -1,10 +1,21 @@
 //为方便使用平衡包, 一些武器类型可能与现实(百科)不符
 
-entity.soldier.name=士兵
-entity.terrorist.name=恐怖分子
-entity.turret.name=自动炮台
-entity.turretupgraded.name=自动炮台二代
-entity.turretsilenced.name=自动炮台二代 (消音)
+entity.mwc_bandit1.name=强盜
+entity.mwc_zombieBlistered.name=疱尸
+entity.mwc_zombieRipper.name=撕裂者
+entity.mwc_tornzombie.name=残尸
+entity.mwc_necromorph.name=尸变体
+entity.mwc_licker.name=舔食者
+entity.mwc_zombie.name=丧尸
+entity.mwc_hazmat_zombie.name=防化僵尸
+entity.mwc_Defiled Zombie.name=污损者
+entity.mwc_deathclaw.name=死亡爪
+entity.mwc_molded.name=菌兽
+entity.mwc_soldier.name=士兵
+entity.mwc_terrorist.name=土匪
+entity.mwc_turret.name=自动炮台
+entity.mwc_turretupgraded.name=自动炮台二代
+entity.mwc_turretsilenced.name=自动炮台二代 (消音)
 
 item.audis4.name=奥迪S4
 item.MClaren_senna.name=迈凯伦 塞纳
@@ -810,7 +821,7 @@ item.mwc_UMP45Receiver.name=UMP45 机匣
 item.mwc_UMP9Receiver.name=UMP9 机匣
 item.mwc_HK416Receiver.name=HK416 机匣
 item.mwc_HK417Receiver.name=HK417 机匣
-item.mwc_HK417ReceiverTan.name=HK417 机匣 (褐色)
+item.mwc_HK417ReceiverTan.name=HK417 机匣 (黄褐色)
 item.mwc_M110Receiver.name=M110 机匣
 item.mwc_Beowulf50CalReceiver.name=Beowulf .50 Cal 机匣
 item.mwc_S710Receiver.name=S7-10 机匣
@@ -827,7 +838,7 @@ item.mwc_KrissVector556Handguard.name=Kriss Vector 5.56x45mm NATO 枪身
 item.mwc_M1CarbineBody.name=M1 步枪枪身
 item.mwc_M1A1CarbineBody.name=M1 [M1A1] 步枪枪身
 item.mwc_M14Body.name=M14 DMR 枪身
-item.mwc_Mk14TanBody.name=Mk14 EBR 枪身 (褐色)
+item.mwc_Mk14TanBody.name=Mk14 EBR 枪身 (黄褐色)
 item.mwc_Mk14SnowBody.name=Mk14 EBR 枪身 (北极)
 item.mwc_Mk14BlackBody.name=Mk14 EBR 枪身
 item.mwc_SamuraiEdgeBody.name=M9A1 武士之刃枪身
@@ -839,11 +850,11 @@ item.mwc_Remington700APACChassis.name=Remington-700 APAC 枪身
 item.mwc_Remington700MDTXRSChassis.name=Remington-700 MDTXRS 枪身
 item.mwc_ARX160Chassis.name=ARX-160 枪身
 item.mwc_ARX160ChassisOlive.name=ARX-160 枪身(黄绿色)
-item.mwc_ARX160ChassisTan.name=ARX-160 枪身(褐色)
+item.mwc_ARX160ChassisTan.name=ARX-160 枪身(黄褐色)
 item.mwc_M14DMRSocomChassis.name=M14 DMR 特战枪身
 item.mwc_MAC10Body.name=MAC-10 枪身
 item.mwc_SCCYCPX2Body.name=CPX-2 枪身
-item.mwc_SCCYCPX2BodyTan.name=CPX-2 枪身(褐色)
+item.mwc_SCCYCPX2BodyTan.name=CPX-2 枪身(黄褐色)
 item.mwc_MakarovPBBody.name=PB 枪身
 item.mwc_MakarovBody.name=PM 枪身
 item.mwc_MAC10Action.name=MAC-10 枪身
@@ -878,7 +889,7 @@ item.mwc_MakarovPMSlide.name=PM 套筒
 item.mwc_MakarovPBSlide.name=PB 套筒
 item.mwc_MP443Slide.name=MP443 套筒
 
-item.mwc_fmg9Gcarryhandle.name=FMG-9 提把
+item.mwc_FMGcarryhandle.name=FMG-9 提把
 item.mwc_AR15Iron.name=AR 提把
 
 item.mwc_Bipod.name=脚架
