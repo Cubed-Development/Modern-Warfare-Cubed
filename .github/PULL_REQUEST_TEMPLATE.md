@@ -1,59 +1,57 @@
 <!--
-  🚀 For Work In Progress Pull Requests, please use the Draft PR feature,
-  see https://github.blog/2019-02-14-introducing-draft-pull-requests/ for further details.
+  🚀 For Work In Progress Pull Requests, please use the Draft PR feature, see https://github.blog/2019-02-14-introducing-draft-pull-requests/ for further details.
   
-  ⏱️ For a timely review/response, please avoid force-pushing additional
-  commits if your PR already received reviews or comments.
-  
-  📚 Before submitting a Pull Request, please ensure you've done the following:
-  - 🛠️ Create small PRs. In most cases, this will be possible.
-  - 📝 Use descriptive commit messages.
-  - 📖 Update any related documentation and include any relevant screenshots.
+  📚 Before submitting a Pull Request, make sure you agree to the following rules:
+  1. 🛠️ Only one subject at a time, we will accept "Add balloon", we won't accept "Add balloon & Piñata & Fireworks"
+  2. 📝 Use descriptive commit messages, we can't really know what "fix" or "what the hell" or "aaaaaaa" changed.
+  3. 📖 Update any related documentation and include any relevant screenshots.
+  4. ⛓️ Do not make a pull request to another pull request branch. 
+        You can depend on other pull requests, but you will need to wait for them to be merged before submitting your pull request.
+  5. Complete the pull request template. 
+        It is fine for draft pull requests to not have the template completed.
+
+  🚫 Please note, pull requests not adhering to these rules may be rejected
 -->
-
-## 🤔 What type of PR is this? (check all applicable)
-
-- [ ] 🍕 Addition
-- [ ] ⌨️ Productivity
-- [ ] 🐛 Bug Fix
-- [ ] 🔥 Optimization
-- [ ] ⚙️ Configuration
-- [ ] 🌟 Quality Of Life
-- [ ] ✨ Enhancement
-- [ ] 📝 Documentation
 
 ## 📝 Description
 
 <!-- 
-Please do not leave this blank 
-This PR [adds/removes/fixes/replaces] the [feature/bug/etc]. 
+Please do not leave this blank
+Example:
+    This PR [adds/removes/fixes/replaces] the [feature/bug/etc]. 
 -->
 
-## 🧐 The Rationale
+## 🎯 Goals
 
-<!-- 
-Why is this change being proposed?
-What problem does it solve?
-What are the benefits of this change?
+<!--
+What do you aim to achieve with this?
+Example:
+    - Make X faster to render
+    - Reduce the edge cases of Y
+    - Make Z easier to work with
 -->
 
-## 🎯 Key Objectives
+## ❌ Non Goals
 
-<!-- 
-What specific goals are you trying to achieve with this PR?
+<!--
+Precise what are you not aiming to achieve with this?
+Example:
+    - It is not a goal to fix issues with X
+    - It is not a goal to make Y faster
+    - It is not a goal to add Z features
 -->
 
 ## 🚦 Testing 
 
 <!--
-What steps did you take to test and verify your changes? 
+What steps did you take to test and verify your changes do not have issues? 
 Provide instructions so we can reproduce.
 -->
 
 ## ⏮️ Backwards Compatibility 
 
 <!--
-Is this change backwards compatible? 
+Is this change backwards compatible?
 If not, what might the impact be?
 -->
 
@@ -71,10 +69,9 @@ https://docs.github.com/en/free-pro-team@latest/github/managing-your-work-on-git
 ## 📖 Added to documentation?
 
 - [ ] 📜 README.md
+- [ ] 📑 Documentation
 - [ ] 📓 Javadoc
 - [ ] 🍕 Comments
-- [ ] 🙅 no documentation needed
+- [ ] 🙅 No documentation needed
 
 ## 😄 [optional] What gif best describes this PR or how it makes you feel?
-
-<!-- note: PRs with deleted sections will be marked invalid -->

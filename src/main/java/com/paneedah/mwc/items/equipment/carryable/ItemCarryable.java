@@ -6,7 +6,7 @@ import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.config.BalancePackManager;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,7 +19,7 @@ import java.util.function.Predicate;
 
 import static com.paneedah.mwc.utils.ModReference.RED_LOG;
 
-public class ItemCarryable extends Item implements IEquipmentModelSource, IModernCrafting {
+public class ItemCarryable extends Item implements IEquipmentModelSource, IModernCraftingRecipe {
 
     public abstract static class Builder<T extends Builder<T>> {
 
@@ -205,8 +205,8 @@ public class ItemCarryable extends Item implements IEquipmentModelSource, IModer
     }
 
     @Override
-    public Item getItem() {
-        return this;
+    public ItemStack getItemStack() {
+        return new ItemStack(this);
     }
 
     @Override

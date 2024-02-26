@@ -1,11 +1,7 @@
 package com.paneedah.weaponlib.command;
 
-import akka.japi.Pair;
 import com.paneedah.mwc.MWC;
-import com.paneedah.weaponlib.ClientEventHandler;
-import com.paneedah.weaponlib.ClientModContext;
-import com.paneedah.weaponlib.ItemAttachment;
-import com.paneedah.weaponlib.Part;
+import com.paneedah.weaponlib.*;
 import com.paneedah.weaponlib.animation.AnimationModeProcessor;
 import com.paneedah.weaponlib.animation.DebugPositioner;
 import com.paneedah.mwc.rendering.Transform;
@@ -178,7 +174,7 @@ public class DebugCommand extends CommandBase {
     private static boolean isForceLiveRenderGUI = true;
     private static boolean isEditingGUI;
     public static Transform debugSlideTransform = new Transform();
-    public static Pair<Double, Double> screenShakeParam = new Pair<Double, Double>(0.0, 0.0);
+    public static Pair<Double, Double> screenShakeParam = new Pair<>(0.0, 0.0);
     
     public static boolean isDebuggingActionPosition() {
     	return isDebuggingActionPosition;

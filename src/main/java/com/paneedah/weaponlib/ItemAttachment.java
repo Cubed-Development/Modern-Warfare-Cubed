@@ -4,9 +4,9 @@ import com.paneedah.mwc.rendering.IModelSource;
 import com.paneedah.mwc.rendering.TexturedModel;
 import com.paneedah.weaponlib.crafting.CraftingEntry;
 import com.paneedah.weaponlib.crafting.CraftingGroup;
-import com.paneedah.weaponlib.crafting.IModernCrafting;
 import com.paneedah.weaponlib.grenade.GrenadeRenderableState;
 import com.paneedah.weaponlib.melee.MeleeRenderableState;
+import com.paneedah.weaponlib.crafting.IModernCraftingRecipe;
 import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
 import dev.redstudio.redcore.vectors.Vector3F;
 import net.minecraft.client.model.ModelBase;
@@ -21,7 +21,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
-public class ItemAttachment<T> extends Item implements IModelSource, IModernCrafting {
+import static com.paneedah.mwc.utils.ModReference.ID;
+
+public class ItemAttachment<T> extends Item implements IModelSource, IModernCraftingRecipe {
 
 	private AttachmentCategory category;
 	private ApplyHandler<T> apply;
@@ -253,10 +255,10 @@ public class ItemAttachment<T> extends Item implements IModelSource, IModernCraf
 		this.postRenderer = postRenderer2;
 
 	}
-	
+
 	@Override
-	public Item getItem() {
-		return this;
+	public ItemStack getItemStack() {
+		return new ItemStack(this);
 	}
 
 	@Override

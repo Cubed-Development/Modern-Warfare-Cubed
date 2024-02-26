@@ -287,7 +287,7 @@ vec4 raindrop(vec4 color, vec2 c) {
 			// d.r -> only x% of drops are kept on, with x depending on the size of drops
 			if (d.r < (5.-r)*.08 && t > .5) {
 					// Drop normal
-					vec3 v = normalize(-vec3(cos(p), mix(.2, 1., t-.5)));
+					// vec3 v = normalize(-vec3(cos(p), mix(.2, 1., t-.5)));
 					// fragColor = vec4(v * 0.5 + 0.5, 1.0);  // show normals
 
 					// Poor man's refraction (no visual need to do more)
