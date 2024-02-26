@@ -44,13 +44,13 @@ public class PKMFactory {
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
-                        40.0,
+                        25.0,
                         15.75,
                         50.0,
-                        0.4,
-                        0.3125,
-                        -0.0425,
-                        -0.0225,
+                        0,
+                        0,
+                        0,
+                        0.05,
                         1.8
                 ))
 

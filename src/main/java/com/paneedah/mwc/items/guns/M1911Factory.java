@@ -20,7 +20,7 @@ public class M1911Factory implements GunFactory {
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
                 .withName("m1911")
-                .withFireRate(0.4f)
+                .withFireRate(0.5f)
                 .withRecoil(6.25f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
@@ -166,7 +166,7 @@ public class M1911Factory implements GunFactory {
                             GL11.glTranslatef(0.239F, -0.235F, -1.2F);
 
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.M45A1CQBPSlide))
-                                GL11.glTranslatef(0.01f, 0.01f, 0f);
+                                GL11.glTranslatef(0.01f, -0.02f, 0f);
                         })
 
                         .withFirstPersonPositioningModifying((renderContext) -> {
@@ -225,7 +225,7 @@ public class M1911Factory implements GunFactory {
 
 
                         .build())
-                .withSpawnEntityDamage(5.0f)
+                .withSpawnEntityDamage(5.3f)
                 .withSpawnEntityGravityVelocity(0.02f)
 
                 .build(MWC.modContext);

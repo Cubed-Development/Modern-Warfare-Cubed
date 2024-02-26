@@ -25,7 +25,7 @@ public class Saiga12Factory {
                 .withShellType(Type.SHOTGUN)
                 .withModernScreenShaking(100.0, 0.7F)
                 .hasFlashPedals()
-                .withMaxShots(1, Integer.MAX_VALUE)
+                .withMaxShots(1)
                 .withMuzzlePosition(new Vec3d(-.1, -.85, -7.7))
                 .withShootSound("saiga12")
                 .withSilencedShootSound("ak15_silenced")

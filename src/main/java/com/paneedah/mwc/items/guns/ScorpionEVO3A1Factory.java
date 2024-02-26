@@ -338,7 +338,7 @@ public class ScorpionEVO3A1Factory implements GunFactory {
                 .withRenderer(new WeaponRenderer.Builder()
                         .withModel(new ScorpionEVO3A1())
                         .withEntityPositioning(itemStack -> {
-                            GL11.glScaled(0.5F, 0.5F, 0.5F);
+                            GL11.glScaled(0.35F, 0.35F, 0.35F);
                             GL11.glTranslatef(0, 0f, 3f);
                         })
                         .withInventoryPositioning(itemStack -> {

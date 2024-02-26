@@ -8147,7 +8147,7 @@ public class Attachments {
 
         VLTORReceiver = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.RECEIVER)
-                .withModel(new VLTORReceiver(), "gun.png")
+                .withModel(new VLTORReceiver(), "vltorreceiver.png")
                 .withModel(new AKRail(), "akrail.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
@@ -12444,6 +12444,28 @@ public class Attachments {
                 .withModel(new PP1901Handguard(), "pp1901.png")
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("PP1901HandGuard")
+                .build(MWC.modContext);
+
+        G36CHandguard = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.GUARD)
+                .withModel(new G36CHandguard(), "g36c.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 3),
+                        new CraftingEntry(MWCItems.steelIngot, 1))
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withName("G36CHandguard")
+                .build(MWC.modContext);
+
+        G36KHandguard = new AttachmentBuilder<Weapon>()
+                .withCategory(AttachmentCategory.GUARD)
+                .withModel(new G36KHandguard(), "g36c.png")
+                .withModernRecipe(
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 3),
+                        new CraftingEntry(MWCItems.steelIngot, 1))
+                .withCreativeTab(MWC.ATTACHMENTS_TAB)
+                .withName("G36KHandguard")
                 .build(MWC.modContext);
 
         VSSVintorezTriRailMount = new AttachmentBuilder<Weapon>()
@@ -16830,7 +16852,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.gunmetalIngot, 4),
                         new CraftingEntry(MWCItems.steelIngot, 4))
                 .withFirstPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.weapons.Suppressor) {
+                    if (model instanceof com.paneedah.mwc.models.weapons.QDLSuppressor) {
                         GL11.glTranslatef(0.5F, -1.3F, -0.1F);
                         GL11.glRotatef(30F, 0f, 1f, 0f);
                         GL11.glScaled(0.6F, 0.6F, 0.6F);
@@ -16838,7 +16860,7 @@ public class Attachments {
 
                 })
                 .withThirdPersonModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.weapons.Suppressor) {
+                    if (model instanceof com.paneedah.mwc.models.weapons.QDLSuppressor) {
                         GL11.glTranslatef(-0.7F, -0.5F, 0.6F);
                         GL11.glRotatef(-50F, 0f, 1f, 0f);
                         GL11.glRotatef(80F, 1f, 0f, 0f);
@@ -16846,17 +16868,17 @@ public class Attachments {
                     }
                 })
                 .withInventoryModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.weapons.Suppressor) {
-                        GL11.glTranslatef(0.6F, 0.1F, 0.3F);
+                    if (model instanceof com.paneedah.mwc.models.weapons.QDLSuppressor) {
+                        GL11.glTranslatef(0.6F, 0.1F, 0.0F);
 
                         GL11.glRotatef(-180F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
-                        GL11.glScaled(1F, 1F, 1f);
+                        GL11.glScaled(0.6F, 0.6F, 0.6f);
 
                     }
                 })
                 .withEntityModelPositioning(model -> {
-                    if (model instanceof com.paneedah.mwc.models.weapons.Suppressor) {
+                    if (model instanceof com.paneedah.mwc.models.weapons.QDLSuppressor) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
@@ -17833,7 +17855,7 @@ public class Attachments {
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, NGSWRRail, K2C1Handguard, G3HandguardRailed,
                         ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
                         SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, M45A1CQBPBody, PP1901HandGuardB10,
-                        F2000TRHandguard)
+                        F2000TRHandguard, G36CHandguard, G36KHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2),
@@ -17906,7 +17928,7 @@ public class Attachments {
                         Z10Handguard, SIGMCXHandguard, SIGMCXHandguardShort, NGSWRRail, K2C1Handguard, G3HandguardRailed,
                         ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
                         SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, B50PKMHandguard, B50PKPHandguard, PP1901HandGuardB10,
-                        F2000TRHandguard)
+                        F2000TRHandguard, G36CHandguard, G36KHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2),
@@ -18173,7 +18195,7 @@ public class Attachments {
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
                         SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, B50PKMHandguard,
-                        B50PKPHandguard, PP1901HandGuardB10, F2000TRHandguard)
+                        B50PKPHandguard, PP1901HandGuardB10, F2000TRHandguard, G36CHandguard, G36KHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -18240,7 +18262,8 @@ public class Attachments {
                         KBP9A91KulaTacHandguard, VSSVintorezTriRailMount, MP5BMHandguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
-                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, PP1901HandGuardB10, F2000TRHandguard)
+                        SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, PP1901HandGuardB10, F2000TRHandguard,
+                        G36CHandguard, G36KHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -18263,7 +18286,8 @@ public class Attachments {
                         Mk18HandGuardBlack, M110Handguard, HK416HandGuardBlackAndTan,
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard,
-                        SIG556HandguardKA, SIG556HandguardRailed, S710Handguard, PP1901HandGuardB10)
+                        SIG556HandguardKA, SIG556HandguardRailed, S710Handguard, PP1901HandGuardB10,
+                        G36CHandguard, G36KHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 3))
@@ -18542,7 +18566,7 @@ public class Attachments {
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
                         SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, PP1901HandGuardB10,
-                        F2000TRHandguard)
+                        F2000TRHandguard, G36CHandguard, G36KHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -18613,7 +18637,7 @@ public class Attachments {
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
                         SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, PP1901HandGuardB10,
-                        F2000TRHandguard)
+                        F2000TRHandguard, G36CHandguard, G36KHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -18646,7 +18670,7 @@ public class Attachments {
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
                         SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, PP1901HandGuardB10,
-                        F2000TRHandguard)
+                        F2000TRHandguard, G36CHandguard, G36KHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -18714,7 +18738,7 @@ public class Attachments {
                         ScarHandGuard, ScarMidWestIndustriesHandGuard, SIGMCXHandguard, SIGMCXHandguardShort, Z10Handguard,
                         NGSWRRail, G3HandguardRailed, ScarHHandGuard, MPXHandguardRailed, MPXHandguardExtended,
                         SIG556HandguardKA, SIG556HandguardRailed, Type20Handguard, AK12kalHandguard, S710Handguard, PP1901HandGuardB10,
-                        F2000TRHandguard)
+                        F2000TRHandguard, G36CHandguard, G36KHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_NORMAL,
                         new CraftingEntry(MWCItems.gunmetalIngot, 2))
@@ -19040,28 +19064,6 @@ public class Attachments {
                 .withCreativeTab(MWC.ATTACHMENTS_TAB)
                 .withName("Saiga12Grip")
                 .withRenderablePart()
-                .build(MWC.modContext);
-
-        G36CHandguard = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.GUARD)
-                .withModel(new G36CHandguard(), "g36c.png")
-                .withModernRecipe(
-                        CraftingGroup.ATTACHMENT_MODIFICATION,
-                        new CraftingEntry(MWCItems.gunmetalIngot, 3),
-                        new CraftingEntry(MWCItems.steelIngot, 1))
-                .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withName("G36CHandguard")
-                .build(MWC.modContext);
-
-        G36KHandguard = new AttachmentBuilder<Weapon>()
-                .withCategory(AttachmentCategory.GUARD)
-                .withModel(new G36KHandguard(), "g36c.png")
-                .withModernRecipe(
-                        CraftingGroup.ATTACHMENT_MODIFICATION,
-                        new CraftingEntry(MWCItems.gunmetalIngot, 3),
-                        new CraftingEntry(MWCItems.steelIngot, 1))
-                .withCreativeTab(MWC.ATTACHMENTS_TAB)
-                .withName("G36KHandguard")
                 .build(MWC.modContext);
 
         G36CStock = new AttachmentBuilder<Weapon>()

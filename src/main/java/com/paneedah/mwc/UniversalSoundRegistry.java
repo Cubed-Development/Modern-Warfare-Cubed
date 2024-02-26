@@ -49,5 +49,11 @@ public class UniversalSoundRegistry {
 		UniversalSoundLookup.registerSoundToLookup("smallmag_unload");
 		UniversalSoundLookup.registerSoundToLookup("attachmenton");
 		UniversalSoundLookup.registerSoundToLookup("attachmentoff");
+		UniversalSoundLookup.registerSoundToLookup("m200_intervention_boltaction");
+		UniversalSoundLookup.registerSoundToLookup("m40a6_boltaction");
+		UniversalSoundLookup.registerSoundToLookup("revolver_reload");
+		UniversalSoundLookup.registerSoundToLookup("revolverbullet");
+		UniversalSoundLookup.registerSoundToLookup("revolver_insert_bullet");
+		UniversalSoundLookup.registerSoundToLookup("revolver_load_complete");
 	}
 }

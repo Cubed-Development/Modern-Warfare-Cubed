@@ -1502,6 +1502,15 @@
       }
     ]
   },
+  "revolver_reload": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "mwc:revolver_reload",
+        "stream": false
+      }
+    ]
+  },
   "super90": {
     "category": "master",
     "sounds": [

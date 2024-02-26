@@ -26,7 +26,6 @@ public class Spas12Factory implements GunFactory {
         .withMaxBulletsPerReload(7)
         .withFireRate(0.2f)
         .withIteratedLoad()
-        .withFireRate(0.2f)
         .withRecoil(7f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SHOTGUN)

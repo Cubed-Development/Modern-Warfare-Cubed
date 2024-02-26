@@ -80,14 +80,6 @@ public class G36CFactory implements GunFactory {
                     GL11.glTranslatef(0.01f, -0.19f, -0.4f);
                     GL11.glScaled(0F, 0F, 0F);
                 })
-                .withCompatibleAttachment(Attachments.GripPlaceholder, true, (model) -> {
-                    GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-                    GL11.glScaled(0F, 0F, 0F);
-                })
-                .withCompatibleAttachment(Attachments.LaserPlaceholder, true, (model) -> {
-                    GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-                    GL11.glScaled(0F, 0F, 0F);
-                })
                 .withCompatibleAttachment(AuxiliaryAttachments.G36CAction, true, (model) -> {
                 })
                 .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
@@ -289,7 +281,7 @@ public class G36CFactory implements GunFactory {
                         .withActionPiece(AuxiliaryAttachments.G36CAction)
                         .withActionTransform(new Transform().withPosition(0, 0, 1))
                         .withEntityPositioning(itemStack -> {
-                            GL11.glScaled(0.5F, 0.5F, 0.5F);
+                            GL11.glScaled(0.35F, 0.35F, 0.35F);
                             GL11.glTranslatef(0, 0f, 3f);
                         })
                         .withInventoryPositioning(itemStack -> {
