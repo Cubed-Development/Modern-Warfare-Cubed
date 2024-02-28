@@ -23,7 +23,7 @@ public class Glock18CFactory implements GunFactory {
         return new Weapon.Builder()
                 .withName("glock_18c")
                 .withFireRate(0.999f)
-                .withRecoil(5f)
+                .withRecoil(3f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withMuzzlePosition(new Vec3d(-.15, -0.8, -2.4))

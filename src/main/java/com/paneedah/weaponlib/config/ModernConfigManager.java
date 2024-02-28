@@ -144,39 +144,6 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Where should the status bar be located?")
 	public static String statusBarPosition = "TOP_RIGHT";
 
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x1 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x2 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x3 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x4 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x5 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x6 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x7 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x8 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x9 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x0 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x11 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x22 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x33 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x44 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x55 = 0.0;
-	@ConfigSync(category = "DE_BUG", comment = "")
-	public static double x66 = 0.0;
-
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=5.0)
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should terrorists have?")

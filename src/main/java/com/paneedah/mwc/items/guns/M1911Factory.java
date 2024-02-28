@@ -21,7 +21,7 @@ public class M1911Factory implements GunFactory {
         return new Weapon.Builder()
                 .withName("m1911")
                 .withFireRate(0.4f)
-                .withRecoil(6f)
+                .withRecoil(3f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withShellType(Type.PISTOL)

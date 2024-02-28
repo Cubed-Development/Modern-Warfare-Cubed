@@ -371,9 +371,5 @@ public class WeaponKeyInputHandler {
         else if (MC.isSingleplayer() && KeyBindings.proningSwitchKey.isPressed()) {
             CHANNEL.sendToServer(new EntityControlServerMessage(player, CompatibleExtraEntityFlags.PRONING | CompatibleExtraEntityFlags.FLIP, 0));
         }
-
-        else if (KeyBindings.configKey.isPressed()) {
-            MC.displayGuiScreen(new VMWModConfigGUI(null));
-        }
     }
 }

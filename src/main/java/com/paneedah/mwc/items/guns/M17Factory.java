@@ -21,7 +21,7 @@ public class M17Factory implements GunFactory {
         return new Weapon.Builder()
                 .withName("m17")
                 .withFireRate(0.5f)
-                .withRecoil(5f)
+                .withRecoil(3f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withShellType(Type.PISTOL)

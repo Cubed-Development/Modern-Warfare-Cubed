@@ -22,7 +22,7 @@ public class MP443Factory implements GunFactory {
         return new Weapon.Builder()
                 .withName("mp443")
                 .withFireRate(0.5f)
-                .withRecoil(5f)
+                .withRecoil(2f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withShellType(Type.PISTOL)

@@ -169,7 +169,7 @@ public class Attachments {
     public static ItemAttachment<Weapon> M16HandGuard;
     public static ItemAttachment<Weapon> M16A4HandGuard;
     public static ItemAttachment<Weapon> M16A1Handguard;
-	
+
     // HK416
     public static ItemAttachment<Weapon> M38HandGuard;
     public static ItemAttachment<Weapon> HK416HandGuardBlackAndTan;
@@ -566,7 +566,7 @@ public class Attachments {
     public static ItemAttachment<Weapon> Saiga12Handguard;
     public static ItemAttachment<Weapon> Saiga12Stock;
     public static ItemAttachment<Weapon> Saiga12Grip;
-	
+
     public static ItemAttachment<Weapon> G36CHandguard;
     public static ItemAttachment<Weapon> G36KHandguard;
     public static ItemAttachment<Weapon> G36CStock;
@@ -581,7 +581,7 @@ public class Attachments {
     public static ItemAttachment<Weapon> B51ScopeMountRail;
     public static ItemAttachment<Weapon> B50PKMHandguard;
     public static ItemAttachment<Weapon> B50PKPHandguard;
-	
+
     public static ItemAttachment<Weapon> DeltaTekMPIFlashhider;
     public static ItemAttachment<Weapon> AKSStock;
     public static ItemAttachment<Weapon> PP1901HandGuard;
@@ -1534,7 +1534,7 @@ public class Attachments {
                 .withName("UziSightRail")
                 .build();
 
-       M1911Slide = new AttachmentBuilder<Weapon>()
+        M1911Slide = new AttachmentBuilder<Weapon>()
                 .withCategory(AttachmentCategory.FRONTSIGHT)
                 .withModel(new M1911Slide(), "m1911.png")
                 .withOnWeaponModel(new M1911FrontSight(), "gun")
@@ -3430,7 +3430,7 @@ public class Attachments {
                         Placeholder, Kar98Krail, M60Mk43Rail, P90Placeholder, AUGA2handguard, AUGA3handguard,
                         M4Receiver, VLTORReceiver, Attachments.EF88Handguard, KrissVectorReceiver,
                         Vector556Handguard, DesertEagleSlide, DesertEagleSlideGolden, M1CarbineScoutHandguard,
-			Origin12Grip, HKS20Grip, HoneyBadgerKnightsReceiver, HoneyBadgerKnightsReceiverBlack,
+                        Origin12Grip, HKS20Grip, HoneyBadgerKnightsReceiver, HoneyBadgerKnightsReceiverBlack,
                         M14TriRailCover, Mk14TanBody, Mk14SnowBody, Mk14BlackBody, SSG08Chassis, SA58DustCover,
                         M16A1ScopeMount, UMP45Receiver, UMP9Receiver, G2ContenderBarrelLong, S710Receiver,
                         Beowulf50CalReceiver, FamasF1ScopeMount, B51ScopeMountRail,
@@ -3935,7 +3935,7 @@ public class Attachments {
                 .withName("LeupoldRailScope")
                 .withRotationPoint(-0.12079999459981924F, -1.4240000168085098F, -2.392400065904859F)
                 .build();
-				
+
         PMII525x56P4FLScope = new ItemScope.Builder()
                 .withSniperReticle(Reticles.RETICLE)
                 .withOpticalZoom()
@@ -4648,7 +4648,7 @@ public class Attachments {
                 })
                 .withName("Grip2")
                 .build();
-				
+
 
         Grip2Tan = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GRIP)
                 .withRenderablePart()
@@ -4719,7 +4719,7 @@ public class Attachments {
                 })
                 .withName("JunoGripTan")
                 .build();
-				
+
         GlockStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withRenderablePart()
                 .withModel(new Glock18Cstock(), "gun.png")
@@ -4833,7 +4833,7 @@ public class Attachments {
                 // })
                 .withName("StubbyGrip")
                 .build();
-				
+
         StubbyGripTan = new AttachmentBuilder<Weapon>()
                 .withRenderablePart()
                 .withCategory(AttachmentCategory.GRIP)
@@ -4981,12 +4981,12 @@ public class Attachments {
                 .withName("USPMatchCompensator")
                 .build();
 
-       UziWoodStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
+        UziWoodStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withModel(new UziWoodStock(), "uzi.png")
                 .withModernRecipe(
-                       CraftingGroup.ATTACHMENT_MODIFICATION,
-                       new CraftingEntry(MWCItems.gunmetalIngot, 1),
-                       new CraftingEntry(Blocks.PLANKS, 4))
+                        CraftingGroup.ATTACHMENT_MODIFICATION,
+                        new CraftingEntry(MWCItems.gunmetalIngot, 1),
+                        new CraftingEntry(Blocks.PLANKS, 4))
                 .withName("UziWoodStock")
                 .build();
 
@@ -5008,7 +5008,7 @@ public class Attachments {
                 .withName("UziFoldingStockClosed")
                 .build();
 
-        UziMLOKHandguard =  new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
+        UziMLOKHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new UziMLOKHandguard(), "uzi.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
@@ -5016,16 +5016,16 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 3))
                 .withName("UziMLOKHandguard")
                 .build();
-		
+
         InterventionCarryHandle = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new InterventionCarryHandle(), "intervention.png")
-				.withRequiredAttachments(InterventionQTDRifleHandguard, InterventionHandguard)
+                .withRequiredAttachments(InterventionQTDRifleHandguard, InterventionHandguard)
                 .withName("InterventionCarryHandle")
                 .build();
 
         InterventionKeystoneHandle = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
                 .withModel(new InterventionKeystoneHandle(), "intervention.png")
-				.withRequiredAttachments(InterventionRailSystemHandguard)
+                .withRequiredAttachments(InterventionRailSystemHandguard)
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,
                         new CraftingEntry(MWCItems.gunmetalIngot, 1),
@@ -5083,23 +5083,23 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 2))
                 .withName("InterventionKiloTaCStock")
                 .build();
-		
+
         Saiga12Handguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new Saiga12Handguard(), "gunmetaltexture.png")
                 .withName("Saiga12Handguard")
                 .build();
-				
+
         Saiga12Stock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withModel(new Saiga12Stock(), "gunmetaltexture.png")
                 .withName("Saiga12Stock")
                 .build();
-				
+
         Saiga12Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withModel(new Saiga12Grip(), "gunmetaltexture.png")
                 .withName("Saiga12Grip")
                 .withRenderablePart()
                 .build();
-				
+
         G36CHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new G36CHandguard(), "g36c.png")
                 .withModernRecipe(
@@ -5108,7 +5108,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withName("G36CHandguard")
                 .build();
-				
+
         G36KHandguard = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.GUARD)
                 .withModel(new G36KHandguard(), "g36c.png")
                 .withModernRecipe(
@@ -5117,7 +5117,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withName("G36KHandguard")
                 .build();
-				
+
         G36CStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withModel(new G36CStock(), "g36c.png")
                 .withModernRecipe(
@@ -5126,7 +5126,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withName("G36CStock")
                 .build();
-				
+
         G36KVStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withModel(new G36KVStock(), "g36c.png")
                 .withModernRecipe(
@@ -5135,7 +5135,7 @@ public class Attachments {
                         new CraftingEntry(MWCItems.steelIngot, 1))
                 .withName("G36KVStock")
                 .build();
-				
+
         G36CMGStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withModel(new G36CMGStock(), "g36c.png")
                 .withModernRecipe(
@@ -5174,22 +5174,22 @@ public class Attachments {
                 .withRenderablePart()
                 .withName("PT2Stock")
                 .build();
-				
+
         DeltaTekMPIFlashhider = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.SILENCER)
                 .withModel(new DeltaTekMPIFlashHider(), "pp1901.png")
                 .withName("Delta_Tek_MPI_flashhider")
                 .build();
-	
+
         AKSStock = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.STOCK)
                 .withModel(new AKSStock(), "pp1901.png")
                 .withName("AKSStock")
                 .build();
-	
+
         PP1901Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withModel(new PP1901Grip(), "pp1901.png")
                 .withName("PP1901Grip")
                 .build();
-				
+
         RK9Grip = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.BACKGRIP)
                 .withModel(new RK9Grip(), "pp1901.png")
                 .withName("RK9Grip")
