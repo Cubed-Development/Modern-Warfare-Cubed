@@ -23,7 +23,7 @@ public class Glock19Factory implements GunFactory {
         return new Weapon.Builder()
                 .withName("glock_19")
                 .withFireRate(0.999f)
-                .withRecoil(5f)
+                .withRecoil(2f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withMuzzlePosition(new Vec3d(-.15, -0.8, -2.4))

@@ -23,7 +23,7 @@ public class MakarovPMFactory implements GunFactory {
         return new Weapon.Builder()
                 .withName("makarov_pm")
                 .withFireRate(0.3f)
-                .withRecoil(4.7f)
+                .withRecoil(2f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withShellType(Type.PISTOL)

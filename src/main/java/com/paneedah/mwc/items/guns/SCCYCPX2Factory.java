@@ -23,7 +23,7 @@ public class SCCYCPX2Factory implements GunFactory {
         return new Weapon.Builder()
                 .withName("sccy_cpx_2")
                 .withFireRate(0.5f)
-                .withRecoil(5f)
+                .withRecoil(2f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withShellType(Type.PISTOL)
