@@ -385,7 +385,7 @@ public class AS50Factory implements GunFactory {
 
                         .build())
                 .withSpawnEntityDamage(25f)
-                .withSpawnEntityGravityVelocity(0.0118f)
+                .withSpawnEntityGravityVelocity(0f)
 
                 .build(MWC.modContext);
     }

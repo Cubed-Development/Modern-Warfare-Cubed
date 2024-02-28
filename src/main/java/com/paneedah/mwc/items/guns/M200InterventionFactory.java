@@ -25,7 +25,7 @@ public class M200InterventionFactory implements GunFactory {
                 .withEjectRoundRequired()
                 .withEjectSpentRoundSound("m200_intervention_boltaction")
                 .withMuzzlePosition(new Vec3d(.1, -1.5, -9.0))
-                .withRecoil(16f)
+                .withRecoil(12f)
                 .withZoom(0.8f)
                 .withConfigGroup(GunConfigurationGroup.SNIPER_RIFLE)
                 .withMaxShots(1)
@@ -482,8 +482,8 @@ public class M200InterventionFactory implements GunFactory {
 
 
                         .build())
-                .withSpawnEntityDamage(25f)
-                .withSpawnEntityGravityVelocity(0.0118f)
+                .withSpawnEntityDamage(20f)
+                .withSpawnEntityGravityVelocity(0f)
 
 
                 .build(MWC.modContext);

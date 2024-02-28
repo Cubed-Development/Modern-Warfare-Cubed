@@ -4043,7 +4043,7 @@ public class Attachments {
                     GL11.glTranslatef(-0.23F, -0.77F, 0.65F);
                 })
                 .withCrosshair("HP")
-                .withModel(new AUGScope_scope(), "gun.png")
+                .withModel(new AUGScope_scope(), "augscope.png")
                 .withOnWeaponModel(new JPUreticle(), "black.png")
                 .withOnWeaponModel(new AUGScope(), "gun.png")
                 .withRequiredAttachments(AUGA1handguard)

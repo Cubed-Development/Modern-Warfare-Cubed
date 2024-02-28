@@ -20,7 +20,7 @@ public class FNFALFactory {
         return new Weapon.Builder()
                 .withName("fnfal")
                 .withFireRate(0.6f)
-                .withRecoil(5.5f)
+                .withRecoil(5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.BATTLE_RIFLE)
                 .withMuzzlePosition(new Vec3d(-.2, -1, -8.7))

@@ -20,7 +20,7 @@ public class DesertEagleFactory implements GunFactory {
         return new Weapon.Builder()
                 .withName("desert_eagle")
                 .withFireRate(0.2f)
-                .withRecoil(15f)
+                .withRecoil(10f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withMuzzlePosition(new Vec3d(-.15, -0.8, -3.3))
@@ -43,7 +43,7 @@ public class DesertEagleFactory implements GunFactory {
                         30.0,
                         0.3625,
                         0.325,
-                        0.020,
+                        0.0,
                         0.0,
                         1.0
                 ))

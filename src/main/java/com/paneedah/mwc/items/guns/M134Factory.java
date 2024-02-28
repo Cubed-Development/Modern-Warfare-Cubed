@@ -31,7 +31,7 @@ public class M134Factory implements GunFactory {
                 .withFlashOffsetY(() -> 0.2f)
                 .withShellCasingForwardOffset(-0.52f)
                 .withShellCasingVerticalOffset(-0.05f)
-                .withInaccuracy(2.5f)
+                .withInaccuracy(2f)
                 .hasFlashPedals()
                 .withBleedingCoefficient(7f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
@@ -163,7 +163,7 @@ public class M134Factory implements GunFactory {
                                 })
 
                         .build())
-                .withSpawnEntityDamage(8f)
+                .withSpawnEntityDamage(10f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
 

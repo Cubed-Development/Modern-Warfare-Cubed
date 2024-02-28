@@ -21,7 +21,7 @@ public class FiveSevenFactory implements GunFactory {
         return new Weapon.Builder()
                 .withName("fiveseven")
                 .withFireRate(0.5f)
-                .withRecoil(5.3f)
+                .withRecoil(5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withMuzzlePosition(new Vec3d(-.15, -0.8, -2.4))
@@ -358,7 +358,7 @@ public class FiveSevenFactory implements GunFactory {
                                 }, 250, 0))
 
                         .build())
-                .withSpawnEntityDamage(5.5f)
+                .withSpawnEntityDamage(5f)
                 .withSpawnEntityGravityVelocity(0.02f)
 
                 .build(MWC.modContext);

@@ -20,7 +20,7 @@ public class F2000Factory {
         return new Weapon.Builder()
                 .withName("f2000")
                 .withFireRate(0.85f)
-                .withRecoil(2.8f)
+                .withRecoil(1.5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE)
                 .hasFlashPedals()

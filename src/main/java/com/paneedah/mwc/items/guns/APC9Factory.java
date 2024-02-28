@@ -52,7 +52,7 @@ public class APC9Factory implements GunFactory {
                 ))
                 .withScreenShaking(RenderableState.SHOOTING,
                         2f,
-                        2f,
+                        0.1f,
                         1f)
 
                 .withModernRecipe(new

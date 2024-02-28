@@ -22,7 +22,7 @@ public class MP5A5Factory {
         return new Weapon.Builder()
                 .withName("mp5a5")
                 .withFireRate(0.8f)
-                .withRecoil(1.7f)
+                .withRecoil(1.5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(Type.PISTOL)
