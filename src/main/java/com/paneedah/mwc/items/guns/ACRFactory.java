@@ -667,7 +667,7 @@ public class ACRFactory implements GunFactory {
                                 GL11.glTranslatef(0F, 0.055f, 0.15f);
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.TritiumRearSights))
-                                GL11.glTranslatef(0F, 0.07f, 0.15f);
+                                GL11.glTranslatef(0F, 0.055f, 0.1f);
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider))
                                 GL11.glTranslatef(0F, 0.08f, 0.4f);
