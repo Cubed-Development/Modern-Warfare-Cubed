@@ -35,13 +35,13 @@ public class M60E4Factory {
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
-                        30.0,
+                        25.0,
                         15.75,
                         50.0,
-                        0.4,
-                        0.3125,
-                        -0.0425,
-                        -0.0325,
+                        0,
+                        0,
+                        0,
+                        0,
                         1.8
                 ))
 
