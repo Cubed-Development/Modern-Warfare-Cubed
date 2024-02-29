@@ -704,7 +704,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                             // Standard Iron Sight Zoom
                             if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), AuxiliaryAttachments.AR15Iron))
-                                GL11.glTranslatef(0F, 0.038f, -0.3f);
+                                GL11.glTranslatef(0F, 0.038f, 0f);
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HK416RearSights))
                                 GL11.glTranslatef(0F, 0.038f, 0f);
@@ -717,7 +717,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
 
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroReflex))
                                 GL11.glTranslatef(0F, 0.035f, 0.2f);
-
+                            
                             else if (Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider))
                                 GL11.glTranslatef(0.001F, 0.035f, 0.45f);
 
