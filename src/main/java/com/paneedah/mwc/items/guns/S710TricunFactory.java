@@ -390,7 +390,7 @@ public class S710TricunFactory implements GunFactory {
                         .withModel(new S710Tricun())
                         .withADSBeizer(new Vec3d(0.2F, 1.7, 0.5F))
                         .withEntityPositioning(itemStack -> {
-                            GL11.glScaled(0.5F, 0.5F, 0.5F);
+                            GL11.glScaled(0.35F, 0.35F, 0.35F);
                             GL11.glTranslatef(0, 0f, 3f);
                         })
                         .withInventoryPositioning(itemStack -> {

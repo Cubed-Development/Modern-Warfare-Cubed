@@ -2185,7 +2185,7 @@ public class Attachments {
                 .build();
 
         VLTORReceiver = new AttachmentBuilder<Weapon>().withCategory(AttachmentCategory.RECEIVER)
-                .withModel(new VLTORReceiver(), "gun.png")
+                .withModel(new VLTORReceiver(), "vltorreceiver.png")
                 .withOnWeaponModel(new AKRail(), "akrail.png")
                 .withModernRecipe(
                         CraftingGroup.ATTACHMENT_MODIFICATION,

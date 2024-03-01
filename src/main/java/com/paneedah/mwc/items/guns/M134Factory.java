@@ -55,7 +55,7 @@ public class M134Factory implements GunFactory {
                 .withRenderer(new WeaponRenderer.Builder()
                         .withModel(new M134())
                         .withEntityPositioning(itemStack -> {
-                            GL11.glScaled(0.5F, 0.5F, 0.5F);
+                            GL11.glScaled(0.4F, 0.4F, 0.4F);
                             GL11.glTranslatef(0, 0f, 3f);
                         })
                         .withInventoryPositioning(itemStack -> {

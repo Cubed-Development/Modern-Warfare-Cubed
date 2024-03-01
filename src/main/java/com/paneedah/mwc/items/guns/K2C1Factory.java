@@ -365,7 +365,7 @@ public class K2C1Factory implements GunFactory {
                         .withActionPiece(AuxiliaryAttachments.K2C1Action)
                         .withActionTransform(new Transform().withPosition(0, 0, 1))
                         .withEntityPositioning(itemStack -> {
-                            GL11.glScaled(0.5F, 0.5F, 0.5F);
+                            GL11.glScaled(0.35F, 0.35F, 0.35F);
                             GL11.glTranslatef(0, 0f, 3f);
                         })
                         .withInventoryPositioning(itemStack -> {
