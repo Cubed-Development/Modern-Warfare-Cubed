@@ -146,6 +146,14 @@ tasks.processResources.configure {
     filesMatching("mcmod.info") {
         expand(mapOf("version" to project.version, "id" to id))
     }
+
+    // TODO: Move all of that to assets and remove this
+    from("src/main/java") {
+        include("**/*.png")
+        include("**/*.json")
+        include("**/*.vsh")
+        include("**/*.fsh")
+    }
 }
 
 tasks.named<Jar>("jar") {
