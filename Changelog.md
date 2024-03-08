@@ -54,41 +54,81 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added the gold and dark color variants of the Desert Eagle
 - Added Hardness values to props
 - Added Groovyscript support plugin for workbench and ammo press recipes
--Guns:
-  - Added Accuracy International AX50
-  - Added Modernized Kalashnikov Machine Gun(PKM)
-  - New Attachments for G36C
-  - New Attachments for Uzi
-  - Added PGM Hécate II(WIP)
-  - Added PP-19 Vityaz
-  - Added M45A1 CQB attachment for M1911
-  - Improved and added variants Tan Color of the front grips
-  - New Model for Suppresor .50 BMG
-  - New Model for Bipod
+- **Weapons:**
+  - Accuracy International AX50 (AI AX50)
+  - Modernized Kalashnikov Machine Gun (PKM)
+  - PP-19-01 Vityaz
+  - PGM Hécate II
+- **Modifications:**
+  - HK G36C:
+    - **MISSING NAMES** Handguard for HK G36C
+    - G36C Stock
+    - G36CMG Stock
+    - G36KV Stock
+  - Uzi:
+    - Uzi MLOK Handguard
+    - Uzi Sight Rail *(Which allows sights attachments)*
+    - Uzi Folding Stock (Open)
+    - Uzi Folding Stock (Closed)
+    - Uzi Wood Stock
+  - Colt M1911
+    - M1911 Body
+    - M1911 Slide
+    - M45A1 CQB Body *(Which allows laser attachments)*
+    - M45A1 CQB Slide
+- **Attachments:**
+  - Leupold DeltaPoint Pro
+  - S&B 5-25x56 PM II
+  - Grip (Tan)
+  - Foregrip (Tan)
+  - Angled Grip (Tan)
+  - Juny Grip (Tan)
+  - Stuby Grip (Tan)
+  - Juno Grip (Tan)
 
 ### Changed
 
-- Overhauled the textures:
-  -Guns:
-        -AAC Honey Badger, 
-	-Bushmaster ACR
-	-Beowulf .50Cal 
-	-Remington 870, 
-	-HK 417, 
-	-M16A1, 
-	-FN F2000
-        -FN FAL(By Vic4games)
-        -FN MakarovPM and MakarovPB(By Vic4games)
-	-100rnd 5.56x45mm NATO STANAG Drum Magazine 
-	-pink camo skin
-  -Attachments:
-        -Leupold Scope
-	-EOTech Holographic A65 Sight
-	-Aim Point Comp M5 Sight 
-	-OKP-7 Sight 
-	-Bijia Reflex Sight
-	-RMR Sight
-	-Eotech Hybrid HHS™ II Sight
+- **Overhauled Models:**
+  - Weapons:
+    - M134 Minigun
+    - Colt M1911
+    - M60E4
+    - M79 GL
+    - Makarov PM
+    - Uzi
+  - Modifications:
+  - Attachments:
+    - Bipod
+    - Silencer
+  - Magazines:
+    - 100rnd 5.56x45mm NATO STANAG Drum Magazine
+- **Overhauled Textures:**
+  - Weapons:
+    - Remington ACR
+    - Steyr AUG A1
+    - IMI Desert Eagle
+    - FN FAL
+    - HK G36C
+    - HK 417
+    - M200 Intervention
+    - M134 Minigun
+    - Colt M1911
+    - M60E4
+    - M79 GL
+    - Makarov PM
+    - Uzi
+  - Modifications:
+    - VLTOR Receiver
+  - Attachments:
+    - Bipod
+    - Grip
+    - Foregrip
+    - Angled Grip
+    - Juno Grip
+    - Stubby Grip
+    - EOTech EXPS3-0 (Tan)
+  - Magazines:
+    - 100rnd 5.56x45mm NATO STANAG Drum Magazine
 - Overhauled animations and sound effects of the M40A6 and Uzi
 - Sidearms can now be carried in backpacks
 - Added keybindings to switching cameras on the tablet
@@ -140,27 +180,9 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Terrorist spawns are now lower by default
 - Flashbangs do not flash trough walls anymore
 - Moved recipe registration from server starting to Registryevent<IRecipes>
-- Change the name from NGSW-R to SIG XM7
-- Renewed M200 Intervention
-- Renewed M79(WIP)
-- Renewed Colt M1911
-- Renewed M60(WIP)(unplayable)
-- Renewed Saiga12(WIP)
-- Renewed Uzi
-- Renewed APC9
-- Renewed S7-10 Tricun
-- Renewed AS50(WIP)
-- Renewed AUG A1
-- Renewed MP-40(WIP)
-- Removed the small tilt on handguns such as the Desert Eagle and some Revolvers
-- New model for IMI Desert Eagle 
-- New Model for M60
 
 ### Fixed
 
-- Fix the aiming position and flame position of all v2 weapons
-- Fix some misplaced attachment for v2 weapons
-- Fix some v2 weapon attachment that cannot be installed/uninstalled
 - Fixed modifying the number of bullets through memory
 - Fixed some issues with incorrect weapon shell throwing
 - Fixed the perspective issue with MP7ironsightsstanding
@@ -256,7 +278,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Fixed the spawning position of the shells
 - Bullet spawning maths which was making the bullets spawn in inaccurate position
 - Fixed compatibility with Forge `Emissive Item Rendering`
-- Fixed bad position during aiming in handguns
+- Fixed some sights cursors being too low and/or cutoff
 
 ### Removed
 
@@ -270,7 +292,6 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Deleted broken Hescobastion and UMP45GFL props
 - Removed the vanilla ability to disable shaders with F4 (this allowed for flash to be disabled)
 - Removed the `WIP` status of the flashbang as it is fully usable and reliable
-- Removed some Attachments Deagle
 
 ### Optimization
 

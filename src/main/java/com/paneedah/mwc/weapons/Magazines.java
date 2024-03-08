@@ -268,7 +268,7 @@ public class Magazines {
 
         Magazines.M60Mag = new ItemMagazine.Builder().withCapacity(100).withCompatibleBullet(Bullets.Bullet762x51).withName("M60Mag")
                 .withModel(new M60Mag(), "m60.png")
-                .withMaxStackSize(3)
+                .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
                         MWCItems.gunmetalIngot)
@@ -280,7 +280,7 @@ public class Magazines {
                 .withName("M249Mag")
                 .withRotationPoint(0.8812000082910061F, 0.8648000418066975F, -1.40640004143715F)
                 .withModel(new M249Mag(), "m249.png")
-                .withMaxStackSize(3)
+                .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
                         MWCItems.gunmetalIngot)
@@ -300,7 +300,7 @@ public class Magazines {
 
         Magazines.StonerMag = new ItemMagazine.Builder().withCapacity(100).withCompatibleBullet(Bullets.Bullet556x45).withName("StonerMag")
                 .withModel(new StonerA1MAG(), "m249.png")
-                .withMaxStackSize(3)
+                .withMaxStackSize(6)
                 .withCrafting(CraftingComplexity.MEDIUM,
                         MWCItems.steelIngot,
                         MWCItems.gunmetalIngot)
@@ -396,7 +396,7 @@ public class Magazines {
                         Attachments.AUGDefaultKit, Attachments.Vector556Handguard,
                         Attachments.M16A1RearSights, Attachments.CZ805BrenReceiver, Attachments.HK416Receiver,
                         Attachments.ScarLReceiver, Attachments.SIG556Grip)
-                .withMaxStackSize(3)
+                .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
         Magazines.G36CMag = new ItemMagazine.Builder()
@@ -522,7 +522,7 @@ public class Magazines {
                 .withName("AK100Mag")
                 .withRotationPoint(-0.12000000357627871F, 0.28000000834465033F, -1.8800000560283665F)
                 .withModel(new AKDrum100(), "gun.png")
-                .withMaxStackSize(3)
+                .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
         Magazines.DragunovMag = new ItemMagazine.Builder()
@@ -538,14 +538,14 @@ public class Magazines {
 		        .withCapacity(5).withCompatibleBullet(Bullets.Shotgun12Guage)
 				.withName("SaigaMag_2")
                 .withModel(new Saiga12Mag(), "gun.png")
-                .withMaxStackSize(4)
+                .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 				
         Magazines.SaigaMagExtended = new ItemMagazine.Builder()
 		        .withCapacity(12).withCompatibleBullet(Bullets.Shotgun12Guage)
 		        .withName("SaigaMag_3")
                 .withModel(new Saiga12ExtenMag(), "gun.png")
-                .withMaxStackSize(2)
+                .withMaxStackSize(3)
                 .build(ItemMagazine.class);
 
         Magazines.Origin12Mag = new ItemMagazine.Builder()
@@ -563,7 +563,7 @@ public class Magazines {
                 .withName("Origin12DrumMag")
                 .withRotationPoint(-0.12000000357627871F, 1.0000000298023226F, -1.9200000572204607F)
                 .withModel(new Origin12DrumMag(), "Origin12DrumMag.png")
-                .withMaxStackSize(3)
+                .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
         Magazines.M9A1Mag = new ItemMagazine.Builder()
@@ -798,7 +798,7 @@ public class Magazines {
                 .withCompatibleBullet(Bullets.Bullet408CT)
                 .withName("InterventionMag")
                 .withModel(new InterventionMag(), "intervention.png")
-                .withMaxStackSize(4)
+                .withMaxStackSize(6)
                 .build(ItemMagazine.class);
 
 		Magazines.InterventionMagExtend = new ItemMagazine.Builder()
@@ -806,7 +806,7 @@ public class Magazines {
                .withCompatibleBullet(Bullets.Bullet408CT)
                .withName("InterventionMagExtend")
                .withModel(new InterventionMagExtend(), "intervention.png")
-               .withMaxStackSize(2)
+               .withMaxStackSize(3)
                .build(ItemMagazine.class);
 
 
