@@ -205,7 +205,6 @@ item.hk_p12.name=HK P12
 item.mp7a1.name=HK MP7A1
 item.sa80.name=SA80
 item.mp443_grach.name=MP443 Grach
-item.g36k.name=HK G36K
 item.m14_dmr.name=M14 DMR
 item.remington_700.name=Remington-700
 item.ak74.name=AK-74
@@ -454,6 +453,7 @@ item.mwc_SilencerPBS.name=PBS Silencer
 item.mwc_HoneyBadgerSilencer.name=AAC Honey Badger Silencer
 item.mwc_KBP9A91Suppressor.name=KBP 9A-91 Carbine Silencer
 item.mwc_SamuraiEdgeSuppressor.name=Samurai Edge Silencer
+item.mwc_Delta_Tek_MPI_flashhider.name=Delta-Tek MPI KP-9 9x19 Flash Hider
 
 item.mwc_G11HandguardK1.name=G11 K1 Handguard
 item.mwc_G11HandguardK2.name=G11 K2 Handguard
@@ -575,6 +575,11 @@ item.mwc_B50PKPHandguard.name=B-50 PKP Handguard
 item.mwc_InterventionHandguard.name=Intervention Handguard
 item.mwc_InterventionQTDRifleHandguard.name=Intervention QTD-Rifle Handguard
 item.mwc_InterventionRailSystemHandguard.name=Intervention Rail System Handguard
+item.mwc_PP1901HandGuard.name=PP-1901 Handguard
+item.mwc_PP1901HandGuardB10.name=B-10 Handguard
+item.mwc_PP1901HandGuardMagpul.name=PP-19 Magpul Handguard
+item.mwc_G36CHandguard.name=G36C Handguard
+item.mwc_G36KHandguard.name=G36K Handguard
 
 
 item.mwc_AKMIron.name=Standard Iron Sight
@@ -622,7 +627,6 @@ item.mwc_KobraGen3.name=Kobra Gen-3 Sight
 item.mwc_HPScope.name=JPU HP 3-9x40 Scope
 item.mwc_Leupold.name=Leupold VX-6 CDS TMOA Rifle Scope
 item.mwc_PSO1.name=PSO-1 Scope
-item.mwc_G36Scope.name=UFC G36 Scope
 item.mwc_PUscope.name=PU Scope
 item.mwc_Unertl.name=Unertl Scope
 item.mwc_PriscopicScope.name=Priscopic Prism Scope
@@ -724,6 +728,7 @@ item.mwc_UziFoldingStockClosed.name=Uzi Folding Stock (Closed)
 item.mwc_InterventionStock.name=Intervention Stock
 item.mwc_InterventionFJXLUX7Stock.name=Intervention FJX-LUX Stock
 item.mwc_InterventionKiloTaCStock.name=Intervention Kilo TaC Stock
+item.mwc_AKSStock.name=AKS Stock
 
 
 item.mwc_AngledGrip.name=Angled Grip
@@ -772,6 +777,8 @@ item.mwc_KS23RaptorGrip.name=KS-23 Grip
 item.mwc_Saiga12Grip.name=Saiga 12 Grip
 item.mwc_PKMGrip.name=PKM Grip
 item.mwc_RK3PGrip.name=RK-3P Grip
+item.mwc_RK9Grip.name=RK-9 Grip
+item.mwc_PP1901Grip.name=PP-1901 Grip
 
 
 item.mwc_MA5Dcover.name=MA5D ICWS Dust Cover
@@ -799,6 +806,7 @@ item.mwc_KrissVectorSwordfish.name=Kriss Vector Swordfish Kit
 
 
 item.mwc_Bipod.name=Bipod
+item.mwc_PechenegBipod.name=Pecheneg Bipod
 item.mwc_RailRiser.name=Rail Riser
 item.mwc_FMGcarryhandle.name=FMG-9 Carry Handle
 item.mwc_InterventionCarryHandle.name=Intervention Carry Handle
@@ -811,6 +819,8 @@ item.mwc_UziSightRail.name= Uzi Sight Rail
 item.mwc_ShotgunRail.name=Shotgun Rail
 item.mwc_Kar98KRail.name=Kar98K Rail
 item.mwc_M60Mk43Rail.name=M60 Rail
+item.mwc_B51ScopeMountRail.name=B-51 Scope Mount Rail
+item.mwc_RailMountB22.name=B-22 Rear Sight Rail
 item.mwc_Remington700Chassis.name=Remington-700 Chassis
 item.mwc_SSG08Chassis.name=SSG-08 Chassis
 item.mwc_M4Receiver.name=M4 Receiver
@@ -846,7 +856,9 @@ item.mwc_SamuraiEdgeAWSlide.name=M9A1 Samurai Edge Slide (Wesker Model)
 item.mwc_SamuraiEdgeAWBody.name=M9A1 Samurai Edge Body (Wesker Model)
 item.mwc_SamuraiEdgeAlbertExt.name=M9A1 Samurai Edge Muzzle Extension
 item.mwc_DesertEagleBody.name=IMI Desert Eagle Body
-item.mwc_DesertEagleLongBody.name=IMI Desert Eagle Body (Extended Muzzle)
+item.mwc_DesertEagleSlide.name=IMI Desert Eagle Slide
+item.mwc_DesertEagleBodyGolden.name=Desert Eagle Golden Body
+item.mwc_DesertEagleSlideGolden.name=Desert Eagle Golden Slide
 item.mwc_KrissVectorHandguard.name=Kriss Vector .45 ACP Body
 item.mwc_KrissVector556Handguard.name=Kriss Vector 5.56x45mm NATO Body
 item.mwc_M1CarbineBody.name=M1 Carbine Body
