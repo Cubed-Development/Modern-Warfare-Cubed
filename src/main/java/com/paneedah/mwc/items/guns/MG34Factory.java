@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class MG34Factory {
 
@@ -34,7 +33,6 @@ public class MG34Factory {
         .withUnloadSound("mg42_unload")
         .withInspectSound("inspection")
         .withDrawSound("mg42_draw")
-//        .withDrawSound("mg42_reload")
         .withReloadingTime(45)
         .withFlashIntensity(0.5f)
         .withFlashScale(() -> 0.6f)
@@ -42,14 +40,6 @@ public class MG34Factory {
         .withFlashOffsetY(() -> 0.14f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: General-Purpose Machine Gun",
-        "Damage: 13.5", 
-        "Cartridge: 7.92x57mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 75/100",
-        "Magazines:",
-        "50rnd 7.92x57mm MG Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 
@@ -57,14 +47,10 @@ public class MG34Factory {
                  6f) // z
          
         .withCompatibleAttachment(AuxiliaryAttachments.MG42action, true, (model) -> {
-//            GL11.glTranslatef(0F, 0F, 1F); 
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MG34latch, true, (model) -> {
-//            GL11.glTranslatef(0F, -2F, 0F);
-//            GL11.glRotatef(90F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.MG42Belt, true, (model) -> {
-//            GL11.glTranslatef(0.45F, 0F, 0F);
         })
         .withCompatibleAttachment(Magazines.MG42Mag, (model) -> {
         })
@@ -115,12 +101,9 @@ public class MG34Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new MG34())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -165,15 +148,12 @@ public class MG34Factory {
                 })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.MG42action.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0f, 0f, 1f);
                 })
                 
             .withFirstPersonPositioningCustomZoomingRecoiled(AuxiliaryAttachments.MG42action.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0f, 0f, 1f);
                 })
             
             .withFirstPersonPositioningReloading(
-                    
                     //hand grabs latch
                     new Transition((renderContext) -> { // Reload position
                         GL11.glRotatef(44F, 0f, 1f, 0f);
@@ -298,9 +278,6 @@ public class MG34Factory {
             )
                     
             .withFirstPersonCustomPositioningReloading(AuxiliaryAttachments.MG42action.getRenderablePart(),
-                    
-                    
-                    
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
@@ -329,8 +306,6 @@ public class MG34Factory {
                         )
                         
             .withFirstPersonCustomPositioningUnloading(AuxiliaryAttachments.MG42action.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
@@ -340,8 +315,6 @@ public class MG34Factory {
                         )
                         
             .withFirstPersonCustomPositioningReloading(AuxiliaryAttachments.MG34latch.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
@@ -384,8 +357,6 @@ public class MG34Factory {
                         )
                         
             .withFirstPersonCustomPositioningUnloading(AuxiliaryAttachments.MG34latch.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
@@ -395,8 +366,6 @@ public class MG34Factory {
                         )
                         
             .withFirstPersonCustomPositioningReloading(AuxiliaryAttachments.MG42Belt.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                         GL11.glTranslatef(0.7F, 0.95F, 0F);
                     }, 250, 1000),
@@ -431,8 +400,6 @@ public class MG34Factory {
                         )
                         
             .withFirstPersonCustomPositioningUnloading(AuxiliaryAttachments.MG42Belt.getRenderablePart(),
-                    
-                    
                     new Transition((renderContext) -> {
                         GL11.glTranslatef(0.45F, 0F, 0F);
                     }, 250, 1000),
@@ -445,8 +412,6 @@ public class MG34Factory {
                         )
                     
             .withFirstPersonCustomPositioningReloading(Magazines.MG42Mag,
-                    
-                    
                     new Transition((renderContext) -> {
                         GL11.glTranslatef(0.15F, 0.9F, 0F);
                         GL11.glRotatef(10F, 0f, 0f, 1f);
@@ -483,7 +448,6 @@ public class MG34Factory {
                     )
                     
             .withFirstPersonCustomPositioningUnloading(Magazines.MG42Mag,
-                    
                     new Transition((renderContext) -> {
                         
                     }, 250, 1000),
@@ -918,53 +882,44 @@ public class MG34Factory {
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.ACOG)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.24f, 0.75f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.MicroT1)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.23f, 1.2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.HP)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.19f, 0.75f);
                 } 
                 
                 // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Specter)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.17f, 0.85f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Reflex)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.195f, 1.2f);
                 } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Holographic)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.25f, 0.9f);
                 } 
                 
 //             // ACOG Zoom
 //                if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Vortex)) {
-//                    //System.out.println("Position me for Acog");
 //                    GL11.glTranslatef(0F, 0.27f, 0.9f);
 //                } 
                 
              // ACOG Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.Kobra)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.26f, 0.8f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -1052,8 +1007,6 @@ public class MG34Factory {
                      })
                      
             .withFirstPersonLeftHandPositioningReloading(
-                    
-                  
                     //hand grabs latch
                     new Transition((renderContext) -> {
                         GL11.glScalef(4f, 4f, 4f);
@@ -1153,8 +1106,6 @@ public class MG34Factory {
                     }, 250, 1000))
                     
             .withFirstPersonRightHandPositioningReloading(
-                    
-                    
                     new Transition((renderContext) -> {
                         GL11.glScalef(4f, 4f, 4f);
                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
@@ -1244,8 +1195,6 @@ public class MG34Factory {
                     }, 500, 1000))
                     
             .withFirstPersonLeftHandPositioningUnloading(
-                    
-                  
                   //hand grabs magazine
                     new Transition((renderContext) -> {
                         GL11.glScalef(4f, 4f, 4f);
@@ -1272,8 +1221,6 @@ public class MG34Factory {
                     }, 250, 1000))
                     
             .withFirstPersonRightHandPositioningUnloading(
-                    
-                    
                     new Transition((renderContext) -> {
                         GL11.glScalef(4f, 4f, 4f);
                         GL11.glRotatef(-95.000000f, 1f, 0f, 0f);
@@ -1704,4 +1651,3 @@ public class MG34Factory {
         .build(MWC.modContext);
     }
 }
-

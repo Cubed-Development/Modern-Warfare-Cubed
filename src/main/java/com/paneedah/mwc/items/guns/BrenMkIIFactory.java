@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class BrenMkIIFactory {
 
@@ -30,9 +29,6 @@ public class BrenMkIIFactory {
         //.withMaxShots(5)
         .withShootSound("bren")
         .withSilencedShootSound("ak15_silenced")
-        .withReloadSound("ak15_reload")
-        .withUnloadSound("ak_unload")
-        .withInspectSound("inspection")
         .withDrawSound("ak_draw")
         .withReloadingTime(45)
         .withFlashIntensity(0.5f)
@@ -40,23 +36,12 @@ public class BrenMkIIFactory {
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Light Machine Gun",
-        "Damage: 10", 
-        "Cartridge: 7.62x51mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 50/100",
-        "Magazines:",
-        "30rnd 7.62x51mm Bren Magazine"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 2f, // x 
                 2f, // y
                 5f) // z
-        
-//        .withCompatibleAttachment(AuxiliaryAttachments.AKaction, true, (model) -> {
-////            GL11.glTranslatef(0f, 0f, 1f);
-//        })
+
         .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof AKMiron1) {
                 GL11.glTranslatef(0.125F, -1.8F, -0.5F);
@@ -110,12 +95,10 @@ public class BrenMkIIFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new BrenMkII())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
+
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -330,13 +313,6 @@ public class BrenMkIIFactory {
                     )
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.5F, 0.5F, 0.5F);
                         GL11.glTranslatef(-2.2F, -2F, 2.7F);
@@ -400,7 +376,6 @@ public class BrenMkIIFactory {
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                     GL11.glRotatef(12F, 0f, 0f, 1f);
                 }, 120, 0)
-//                }, 100, 0)
             )
                         
             .withFirstPersonPositioningDrawing(
@@ -471,8 +446,7 @@ public class BrenMkIIFactory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.24f, -0.05f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -510,8 +484,6 @@ public class BrenMkIIFactory {
                          GL11.glRotatef(0.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(25.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.125000f, -0.700000f, 0.325000f);
-                         
-//                         GL11.glScalef(4f, 4f, 4f);
                      }, 
                      (renderContext) -> {
                     	 GL11.glScalef(4f, 4f, 4f);
@@ -778,13 +750,6 @@ public class BrenMkIIFactory {
                     }, 250, 50))
                     
             .withThirdPersonLeftHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                    }, 50, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -850,13 +815,6 @@ public class BrenMkIIFactory {
                     }, 280, 0))
                     
             .withThirdPersonRightHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(4f, 4f, 5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                    }, 250, 1000),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -1007,4 +965,3 @@ public class BrenMkIIFactory {
         .build(MWC.modContext);
     }
 }
-

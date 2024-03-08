@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class SpringfieldFactory implements GunFactory {
 
@@ -22,7 +21,6 @@ public class SpringfieldFactory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("Springfield")
-//      .withCapacity(CommonProxy.XWPMag)
         .withAmmoCapacity(5)
         .withFireRate(0.16f)
         .withIteratedLoad()
@@ -39,7 +37,6 @@ public class SpringfieldFactory implements GunFactory {
         .withAllReloadIterationsCompletedSound("springfield_bolt_close")
         .withReloadIterationSound("loadbullet")
         .withDrawSound("noaction_draw")
-//       .withReloadSound("drawweapon")
 //        .withReloadIterationSound("loadshell")
         .withReloadingTime(500)
         .withFlashIntensity(0.4f)
@@ -54,16 +51,9 @@ public class SpringfieldFactory implements GunFactory {
                  7f) // z
          
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Bolt-action rifle",
-        "Damage: 15",
-        "Cartridge: .30-06 Springfield Bullet", 
-        "Fire Rate: Bolt Action",
-        "Rate of Fire: 16/100"))
+
         .withCompatibleAttachment(AuxiliaryAttachments.SpringfieldAction, true, (model) -> {
             if(model instanceof SpringfieldAction) {
-//                GL11.glTranslatef(-1.38F, -1.05F, 0.5F);
-//                GL11.glRotatef(90f, 0f, 0f, 1f);
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Bullet, true, (model) -> {
@@ -71,12 +61,6 @@ public class SpringfieldFactory implements GunFactory {
                 GL11.glScaled(0.4F, 0.4F, 0.6F);
                 GL11.glTranslatef(-0.52F, -2.9F, -3.5F);
                 GL11.glRotatef(90f, 1f, 0f, 0f);
-                
-                
-//                GL11.glScaled(0.4F, 0.4F, 0.6F);
-//                GL11.glTranslatef(-0.95F, -3.1F, -3.5F);
-//                GL11.glRotatef(70f, 1f, 0f, 0f);
-//                GL11.glRotatef(5f, 0f, 1f, 0f);
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.SpringfieldRearSight, true, (model) -> {
@@ -133,12 +117,10 @@ public class SpringfieldFactory implements GunFactory {
             .withModel(new Springfield())
             .withPrepareFirstLoadIterationAnimationDuration(1100)
             .withAllLoadIterationAnimationsCompletedDuration(1000)
-            //.withTextureName("AWP")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
+
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.32F, 0.32F, 0.32F);
@@ -173,13 +155,6 @@ public class SpringfieldFactory implements GunFactory {
                 GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
                 GL11.glRotatef(10F, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.1f, 0.7f, 0.6f);
-                
-//                GL11.glRotatef(45F, 0f, 1f, 0f);
-//                GL11.glScalef(2.000000f, 2.000000f, 2.000000f);
-//                GL11.glRotatef(0.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(-5.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(15.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(-0.100000f, 0.900000f, 0.850000f);
                 })
                 
             .withFirstPersonPositioningProningRecoiled((renderContext) -> {
@@ -948,8 +923,6 @@ public class SpringfieldFactory implements GunFactory {
                          GL11.glRotatef(-40.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(40.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.625000f, 0.075000f, 0.265000f);
-                         
-//                         GL11.glScalef(3.5f, 3.5f, 3.5f);
                      }, 
                      (renderContext) -> {
                          GL11.glScalef(3f, 3f, 3f);
@@ -957,8 +930,6 @@ public class SpringfieldFactory implements GunFactory {
                          GL11.glRotatef(30.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(-70.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.250000f, -0.350000f, 0.025000f);
-                         
-//                         GL11.glScalef(3f, 3f, 3f);
                      })
                      
             .withFirstPersonHandPositioningProning(
