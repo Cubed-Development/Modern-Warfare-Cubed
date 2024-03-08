@@ -7,7 +7,7 @@ import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
-// Made with Blockbench 4.7.4
+// Made with Blockbench 4.9.2
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
@@ -91,10 +91,7 @@ public class AACHoneyBadger extends ModelWithAttachments {
 		gun.cubeList.add(new ModelBox(gun, 39, 29, -0.75F, -38.0F, -22.7F, 1, 2, 1, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 39, 17, -3.25F, -38.0F, -22.7F, 1, 2, 1, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 52, 65, -3.7F, -37.8F, -22.7F, 1, 1, 2, 0.0F, false));
-		gun.cubeList.add(new ModelBox(gun, 52, 54, -2.7F, -39.3F, -22.0F, 2, 1, 23, 0.0F, false));
-		gun.cubeList.add(new ModelBox(gun, 0, 78, -2.5F, -40.1F, -22.0F, 2, 1, 21, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 39, 65, -2.7F, -39.3F, -22.7F, 2, 2, 1, 0.0F, false));
-		gun.cubeList.add(new ModelBox(gun, 54, 8, -2.501F, -40.101F, -22.7F, 2, 1, 1, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 26, 65, -3.7F, -38.4F, -22.7F, 1, 1, 2, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 0, 16, -2.5F, -39.3F, 1.0F, 2, 4, 2, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 46, 54, -0.3F, -35.6F, -12.5F, 1, 1, 1, 0.0F, false));
@@ -105,12 +102,7 @@ public class AACHoneyBadger extends ModelWithAttachments {
 		gun.cubeList.add(new ModelBox(gun, 50, 0, -4.3F, -39.0F, -11.0F, 2, 1, 1, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 12, 50, -4.3F, -38.5F, -11.0F, 2, 1, 1, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 92, 154, -3.7F, -37.8F, -11.0F, 1, 1, 13, 0.0F, false));
-		gun.cubeList.add(new ModelBox(gun, 55, 25, -1.3F, -39.3F, -22.0F, 1, 2, 23, 0.0F, false));
-		gun.cubeList.add(new ModelBox(gun, 62, 50, -2.0F, -40.3F, -1.0F, 1, 1, 2, 0.0F, false));
 		gun.cubeList.add(new ModelBox(gun, 12, 39, -1.3F, -39.3F, -22.7F, 1, 2, 1, 0.0F, false));
-		gun.cubeList.add(new ModelBox(gun, 26, 54, -2.8F, -39.3F, -21.0F, 1, 1, 10, 0.0F, false));
-		gun.cubeList.add(new ModelBox(gun, 158, 114, 0.1F, -37.7F, -8.9F, 1, 1, 12, 0.0F, false));
-		gun.cubeList.add(new ModelBox(gun, 158, 97, 0.11F, -37.2F, -8.9F, 1, 1, 12, 0.0F, false));
 
 		gun745_r1 = new ModelRenderer(this);
 		gun745_r1.setRotationPoint(0.0F, -19.855F, 18.534F);
@@ -210,7 +202,7 @@ public class AACHoneyBadger extends ModelWithAttachments {
 		gun125_r1.setRotationPoint(0.0F, -7.1547F, -23.8826F);
 		gun.addChild(gun125_r1);
 		setRotationAngle(gun125_r1, -0.632F, 0.0F, 0.0F);
-		gun125_r1.cubeList.add(new ModelBox(gun125_r1, 54, 45, -2.5F, -40.1F, -1.0F, 2, 1, 2, 0.0F, false));
+		
 
 		gun114_r1 = new ModelRenderer(this);
 		gun114_r1.setRotationPoint(24.9379F, -13.3948F, 0.0F);

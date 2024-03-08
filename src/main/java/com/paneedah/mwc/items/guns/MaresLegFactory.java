@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class MaresLegFactory implements GunFactory {
 
@@ -23,14 +22,12 @@ public class MaresLegFactory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("mares_leg")
-//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(6)
         .withMaxBulletsPerReload(6)
-        .withFireRate(0.5f)
+        .withFireRate(0.1f)
         .withEjectRoundRequired()
         .withIteratedLoad()
         .withEjectSpentRoundSound("m1873action")
-        .withFireRate(0.1f)
         .withRecoil(9f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.RIFLES)
@@ -51,12 +48,6 @@ public class MaresLegFactory implements GunFactory {
         .withFlashOffsetX(() -> 0.11f)
         .withFlashOffsetY(() -> 0.13f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Lever Action Rifle",
-        "Damage: 5.5",
-        "Cartridge: .44 Magnum",
-        "Fire Rate: LEVER ACTION",
-        "Rate of Fire: 50/100"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 4f, // x 
@@ -107,20 +98,15 @@ public class MaresLegFactory implements GunFactory {
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M1873action, true, (model) -> {
-//            GL11.glRotatef(-50f, 1f, 0f, 0f);
-//            GL11.glTranslatef(0f, -0.43f, -0.5f);
         })
         .withCompatibleBullet(Bullets.Bullet44, (model) -> {})
         .withTextureNames("M1873")
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new MaresLeg())
-            //.withTextureName("Remington900")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -147,8 +133,6 @@ public class MaresLegFactory implements GunFactory {
                 GL11.glRotatef(8F, 0f, 0f, 1f);
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 GL11.glTranslatef(-0.245000f, 0.440000f, -1.100000f);
-                
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -301,7 +285,6 @@ public class MaresLegFactory implements GunFactory {
             )
                 
             .withFirstPersonPositioningReloading(
-                    
                 new Transition((renderContext) -> { // Reload position
                     GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                     GL11.glRotatef(2.000000f, 1f, 0f, 0f);
@@ -320,7 +303,6 @@ public class MaresLegFactory implements GunFactory {
             )
             
             .withFirstPersonPositioningAllLoadIterationsCompleted(
-                    
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(4.000000f, 4.000000f, 4.000000f);
                         GL11.glRotatef(7.000000f, 1f, 0f, 0f);
@@ -445,8 +427,7 @@ public class MaresLegFactory implements GunFactory {
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.PSO1)) {
                     //System.out.println("Position me for Holo");
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -480,8 +461,6 @@ public class MaresLegFactory implements GunFactory {
                          GL11.glRotatef(25.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(-65.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.575000f, -0.900000f, 0.150000f);
-                         
-//                         GL11.glScalef(3f, 3f, 3f);
                      })
                      
             .withFirstPersonHandPositioningLoadIterationCompleted(

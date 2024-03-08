@@ -103,7 +103,7 @@ public class Weapon extends Item implements PlayerItemInstanceFactory<PlayerWeap
         
         private GunConfigurationGroup configGroup = GunConfigurationGroup.NONE;
         
-        private Vec3d muzzlePosition = new Vec3d(-.3, -1.0, -5.3);
+        private Vec3d muzzlePosition = new Vec3d(-.2, -1.1, -5.3);
 
         
         private String exceededMaxShotsSound;

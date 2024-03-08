@@ -10,6 +10,123 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 ### Added
 
 - Added German translation
+- **Weapons:**
+  - Accuracy International AX50 (AI AX50)
+  - Pulemyot-Kalashnikov Machine Gun (PKM)
+  - PP-19-01 Vityaz
+  - PGM Hécate II
+- **Modifications:**
+  - HK G36C:
+    - G36K Handguard
+    - G36C Stock
+    - G36CMG Stock
+    - G36KV Stock
+  - Uzi:
+    - Uzi MLOK Handguard
+    - Uzi Sight Rail *(Which allows sights attachments)*
+    - Uzi Folding Stock (Open)
+    - Uzi Folding Stock (Closed)
+    - Uzi Wood Stock
+  - Colt M1911
+    - M1911 Body
+    - M1911 Slide
+    - M45A1 CQB Body *(Which allows laser attachments)*
+    - M45A1 CQB Slide
+  - M200 Intervention
+    - Intervention Handguard
+    - Intervention Rail System Handguard
+    - Intervention QTD-Rifle Handguard
+    - Intervention Carry Handle
+    - Intervention Keys Tone Carry Handle
+    - Intervention Stock
+    - Intervention Kilo TaC Stock
+    - Intervention FJX-LUX Stock
+- **Attachments:**
+  - Leupold DeltaPoint Pro
+  - S&B 5-25x56 PM II
+  - Grip (Tan)
+  - Foregrip (Tan)
+  - Angled Grip (Tan)
+  - Juny Grip (Tan)
+  - Stuby Grip (Tan)
+  - Juno Grip (Tan)
+- **Magazines:**
+  - 120rnd 7.62x54mm Magazine
+  - 12rnd 12 Gauge Magazine
+  - 30rnd 9x19mm Magazine
+  - 7rnd .45 ACP Magazine
+  - 15rnd .45 ACP Magazine
+  - 10rnd .408 CT Magazine
+  - 5rnd .50 BMG Magazine
+  - 7rnd .50 BMG Magazine
+  - 45rnd 9x19mm Magazine
+  - 60rnd 9x19mm Drum Magazine
+
+### Changed
+
+- **Overhauled Models:**
+  - Weapons:
+    - Remington ACR
+    - Steyr AUG A1
+    - IMI Desert Eagle
+    - FN FAL
+    - HK G36C
+    - HK 417
+    - M200 Intervention
+    - M134 Minigun
+    - Colt M1911
+    - M60E4
+    - M79 GL
+    - Makarov PM
+    - Uzi
+    - Saiga 12
+    - AAC Honey Badger
+  - Modifications:
+    - VLTOR Receiver
+  - Attachments:
+    - Bipod
+    - Grip
+    - Foregrip
+    - Angled Grip
+    - Juno Grip
+    - Stubby Grip
+    - Silencer/Suppressor
+    - Elcan Specter SFOV4-A1 Sight
+    - - EOTech EXPS3-0 (Tan)
+  - Magazines:
+    - 100rnd 5.56x45mm NATO STANAG Drum Magazine
+- **Overhauled Textures:**
+  - Weapons:
+    - Remington ACR
+    - Steyr AUG A1
+    - IMI Desert Eagle
+    - FN FAL
+    - HK G36C
+    - HK 417
+    - M200 Intervention
+    - M134 Minigun
+    - Colt M1911
+    - M60E4
+    - M79 GL
+    - Makarov PM
+    - Uzi
+  - Modifications:
+    - VLTOR Receiver
+  - Attachments:
+    - Bipod
+    - Grip
+    - Foregrip
+    - Angled Grip
+    - Juno Grip
+    - Stubby Grip
+    - EOTech EXPS3-0 (Tan)
+  - Magazines:
+    - 100rnd 5.56x45mm NATO STANAG Drum Magazine
+- Renamed the `NGSW-R` to `XM7`
+
+### Fixed
+
+- Fixed some sights cursors being too low and/or cutoff
 
 ### Removed
 
@@ -162,8 +279,6 @@ and this project follows the [Ragnarök Versioning Convention](https://gist.gith
 
 ### Changed
 
-- Overhauled the textures of the AAC Honey Badger, Bushmaster ACR, Beowulf, AUG, Remington 870, AS-50, S7-10, M79, HK 417, M16A1, FN F2000, 100rnd 5.56x45mm NATO STANAG Drum Magazine and the pink camo skin
-- Overhauled the texture of the Leupold Scope, EOTech Holographic A65 Sight, Aim Point Comp M5 Sight, OKP-7 Sight, Bijia Reflex Sight, RMR Sight, OKP-7 Sight, and Eotech Hybrid HHS™ II Sight
 - Overhauled animations and sound effects of the M40A6 and Uzi
 - Sidearms can now be carried in backpacks
 - Added keybindings to switching cameras on the tablet

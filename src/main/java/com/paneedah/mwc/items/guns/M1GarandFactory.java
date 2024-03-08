@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class M1GarandFactory implements GunFactory {
 
@@ -29,11 +28,8 @@ public class M1GarandFactory implements GunFactory {
         .withConfigGroup(GunConfigurationGroup.RIFLES)
         .withMaxShots(1)
         .withShootSound("m1garand")
-//        .withSilencedShootSound("m4a1_silenced")
         .withReloadSound("m1garand_reload")
         .withEndOfShootSound("m1garandping")
-//        .withInspectSound("m4a1_inspection")
-//        .withDrawSound("m4_draw")
         .withReloadingTime(50)
         .withCrosshair("gun")
         .withCrosshairRunning("Running")
@@ -45,12 +41,6 @@ public class M1GarandFactory implements GunFactory {
         .withShellCasingForwardOffset(0.05f)
         .withShellCasingVerticalOffset(-0.03f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Rifle", 
-        "Damage: 15", 
-        "Cartridge: .30-06 Springfield Bullet",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 20/100"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  3f, // x 
@@ -64,7 +54,6 @@ public class M1GarandFactory implements GunFactory {
                 GL11.glScaled(0F, 0F, 0F);
             } else if(model instanceof M4Iron2) {
                 GL11.glTranslatef(-0.055F, -1.35F, -4.05F);
-//                GL11.glScaled(0.8F, 0.68F, 1F);
               GL11.glScaled(0F, 0F, 0F);
             } else if(model instanceof P90iron) {
                 GL11.glTranslatef(0.26F, -1.55F, -2.35F);
@@ -102,12 +91,9 @@ public class M1GarandFactory implements GunFactory {
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M1GarandAction, true, (model) -> {
-//        	GL11.glTranslatef(0f, 0f, 0.44f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M1GarandMag, true, (model) -> {
-//          GL11.glScaled(0.5F, 0.5F, 0.5F);
           GL11.glTranslatef(-0.1f, 0f, 1f);
-//          GL11.glRotatef(-20F, 1f, 0f, 0f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.Mk14EBRsight, true, (model) -> {
         	GL11.glTranslatef(-0.125F, -1.075F, -0.85F);
@@ -120,7 +106,6 @@ public class M1GarandFactory implements GunFactory {
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
                 GL11.glTranslatef(0, 0f, 3f);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -139,12 +124,6 @@ public class M1GarandFactory implements GunFactory {
                 GL11.glScalef(3.00000f, 3.00000f, 3.00000f);
                 GL11.glRotatef(10.000000f, 0f, 0f, 1f);
                 GL11.glTranslatef(-0.175000f, 1.050000f, 0.175000f);
-                
-//                GL11.glRotatef(41F, 0f, 1f, 0f);
-//                GL11.glScalef(3.00000f, 3.00000f, 3.00000f);
-//                GL11.glRotatef(11.000000f, 0f, 0f, 1f);
-//                GL11.glRotatef(1.000000f, 1f, 0f, 0f);
-//                GL11.glTranslatef(-0.175000f, 1.150000f, 0.2f);
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -185,7 +164,6 @@ public class M1GarandFactory implements GunFactory {
                 })
             
             .withFirstPersonPositioningReloading(
-                    
                     new Transition((renderContext) -> { // Reload position
                     	GL11.glRotatef(43F, 0f, 1f, 0f);
                         GL11.glScalef(3.00000f, 3.00000f, 3.00000f);
@@ -247,7 +225,6 @@ public class M1GarandFactory implements GunFactory {
                 )
                 
                 .withFirstPersonCustomPositioningReloading(AuxiliaryAttachments.M1GarandAction.getRenderablePart(),
-                        
                         new Transition((renderContext) -> { // Reload position
                             GL11.glTranslatef(0F, 0F, 0.44F);
                         }, 250, 200),
@@ -377,8 +354,7 @@ public class M1GarandFactory implements GunFactory {
                     //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.03f, 0.3f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -393,11 +369,9 @@ public class M1GarandFactory implements GunFactory {
                 
              // Standard Iron Sight Zoom
                 if(Weapon.isActiveAttachment(renderContext.getWeaponInstance(), Attachments.NightRaider)) {
-                    //System.out.println("Position me for Acog");
                     GL11.glTranslatef(0F, 0.03f, 0.3f);
                 } 
-                
-                // Everything else
+
                 else {
                 }
                 
@@ -434,8 +408,6 @@ public class M1GarandFactory implements GunFactory {
                          GL11.glRotatef(10.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-                         
-//                         GL11.glScalef(3f, 3f, 3f);
                      })
                      
             .withFirstPersonHandPositioningProning(
@@ -452,8 +424,6 @@ public class M1GarandFactory implements GunFactory {
                         GL11.glRotatef(10.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-                        
-//                        GL11.glScalef(3f, 3f, 3f);
                     })
                      
             .withFirstPersonHandPositioningModifying(

@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class Spas12Factory implements GunFactory {
 
@@ -23,12 +22,10 @@ public class Spas12Factory implements GunFactory {
         return new Weapon.Builder()
 
         .withName("spas_12")
-//      .withCapacity(CommonProxy.Remington870Mag)
         .withAmmoCapacity(7)
         .withMaxBulletsPerReload(7)
         .withFireRate(0.2f)
         .withIteratedLoad()
-        .withFireRate(0.2f)
         .withRecoil(7f)
         .withZoom(0.9f)
         .withConfigGroup(GunConfigurationGroup.SHOTGUN)
@@ -53,13 +50,7 @@ public class Spas12Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.12f)
         .withFlashOffsetY(() -> 0.12f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 20/100"))
+
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 
@@ -67,17 +58,14 @@ public class Spas12Factory implements GunFactory {
                 8f) // z
         
         .withCompatibleAttachment(Attachments.Spas12Stock, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
           GL11.glScaled(1F, 1F, 1F);
-      })
+        })
         .withCompatibleAttachment(Attachments.M1014Stock, (model) -> {
-//            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
             GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(Attachments.M4BenelliStock, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
           GL11.glScaled(1F, 1F, 1F);
-      })
+        })
         .withCompatibleAttachment(Attachments.ShotgunRail, (model) -> {
             if(model instanceof AKRail) {
                 GL11.glTranslatef(-0.156F, -0.61F, -1.1f);
@@ -85,7 +73,6 @@ public class Spas12Factory implements GunFactory {
             }
         })
         .withCompatibleAttachment(AuxiliaryAttachments.M1014Action, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
           GL11.glScaled(1F, 1F, 1F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.ShotgunShell, true, (model) -> {
@@ -94,8 +81,6 @@ public class Spas12Factory implements GunFactory {
             GL11.glScaled(0.45F, 0.45F, 0.45F);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.ShotgunInsertion, true, (model) -> {
-//          GL11.glTranslatef(0.01f, -0.19f, -0.4f);
-//          GL11.glScaled(1F, 1F, 1F);
         })
          .withCompatibleAttachment(AuxiliaryAttachments.Extra, true, (model) -> {
             if(model instanceof M4Iron1) {
@@ -222,12 +207,9 @@ public class Spas12Factory implements GunFactory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new Spas12())
-            //.withTextureName("Remington900")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -254,12 +236,7 @@ public class Spas12Factory implements GunFactory {
                 GL11.glRotatef(6F, 0f, 0f, 1f);
                 GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
                 GL11.glTranslatef(-0.250000f, 0.425000f, -0.875000f);
-                
-//                GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                GL11.glRotatef(-55.000000f, 1f, 0f, 0f);
-//                GL11.glRotatef(35.000000f, 0f, 1f, 0f);
-//                GL11.glRotatef(165.000000f, 0f, 0f, 1f);
-//                GL11.glTranslatef(0.900000f, -0.075000f, -0.150000f);
+
                 })
                 
             .withFirstPersonPositioningRecoiled((renderContext) -> {
@@ -285,27 +262,6 @@ public class Spas12Factory implements GunFactory {
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
-            	
-            	// back
-            	
-//            	GL11.glTranslatef(0.06F, -0F, 0.5F);
-//                GL11.glRotatef(17F, 1f, 0f, 0f);
-                
-                
-                // forward
-                
-//          	  	GL11.glTranslatef(0.07F, 0.43F, 0.2F);
-//                GL11.glRotatef(-20F, 1f, 0f, 0f);
-//                GL11.glRotatef(5F, 0f, 1f, 0f);
-                
-                //about to be inserted
-                
-//            	GL11.glTranslatef(0F, 0.12F, 0.2F);
-//                GL11.glRotatef(-6F, 1f, 0f, 0f);
-                
-                // inserted
-                
-//            	GL11.glTranslatef(0.0F, -0.03F, -0.075F);
                 })
                 
             .withFirstPersonCustomPositioningLoadIterationCompleted(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
@@ -317,8 +273,6 @@ public class Spas12Factory implements GunFactory {
             })
             
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunInsertion.getRenderablePart(), (renderContext) -> {
-//            	GL11.glTranslatef(0F, -0.012F, 0F);
-//                GL11.glRotatef(1F, 1f, 0f, 0f);
             })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.M1014Action.getRenderablePart(), (renderContext) -> {
@@ -377,13 +331,9 @@ public class Spas12Factory implements GunFactory {
                 
                 .withFirstPersonCustomPositioningLoadIteration(AuxiliaryAttachments.ShotgunInsertion.getRenderablePart(),  
                 		new Transition((renderContext) -> { // Reload position
-//                  			GL11.glTranslatef(0.06F, -0F, 0.5F);
-//                              GL11.glRotatef(17F, 1f, 0f, 0f);
                           }, 250, 50),
                           
                           new Transition((renderContext) -> { // Reload position
-//                        	  GL11.glTranslatef(0F, 0.033F, 0F);
-//                              GL11.glRotatef(-6F, 1f, 0f, 0f);
                           }, 250, 50),
                           
                           new Transition((renderContext) -> { // Reload position
@@ -737,12 +687,6 @@ public class Spas12Factory implements GunFactory {
                          GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(35.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.275000f, -0.400000f, 0.275000f);
-                         
-//                         GL11.glScalef(4f, 4f, 4f);
-//                         GL11.glRotatef(-85.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(65.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(55.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(-0.325000f, -0.575000f, 0.075000f);
                      }, 
                      (renderContext) -> {
                          GL11.glScalef(3f, 3f, 3f);
@@ -750,8 +694,6 @@ public class Spas12Factory implements GunFactory {
                          GL11.glRotatef(10.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.600000f, -0.775000f, 0.250000f);
-                         
-//                         GL11.glScalef(3f, 3f, 3f);
                      })
                      
             .withFirstPersonHandPositioningProning(
@@ -768,12 +710,6 @@ public class Spas12Factory implements GunFactory {
                          GL11.glRotatef(10.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.600000f, -0.775000f, 0.250000f);
-                         
-//                         GL11.glScalef(3f, 3f, 3f);
-//                         GL11.glRotatef(-105.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.03f, -0.07f, -0.03f);
                      })
                      
             .withFirstPersonHandPositioningLoadIterationCompleted(

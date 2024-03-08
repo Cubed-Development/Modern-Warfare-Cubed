@@ -5,7 +5,7 @@ import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-// Made with Blockbench 4.7.4
+// Made with Blockbench 4.8.1
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
@@ -22,12 +22,12 @@ public class AS50action extends ModelWithAttachments {
 		textureHeight = 352;
 
 		action = new ModelRenderer(this);
-		action.setRotationPoint(26.2688F, 12.0F, -9.6383F);
+		action.setRotationPoint(22.2688F, 24.0F, -9.6383F);
 		action.cubeList.add(new ModelBox(action, 37, 35, -26.7688F, -41.0F, -27.0617F, 1, 3, 21, 0.0F, false));
-		action.cubeList.add(new ModelBox(action, 60, 111, -29.7688F, -40.7F, -26.0617F, 3, 1, 1, 0.0F, false));
-		action.cubeList.add(new ModelBox(action, 76, 71, -30.7688F, -41.2F, -26.5617F, 1, 2, 2, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 74, 0, -26.7688F, -43.0F, -24.0617F, 1, 2, 3, 0.0F, false));
 		action.cubeList.add(new ModelBox(action, 212, 50, -26.5688F, -41.0F, -6.0617F, 1, 3, 14, 0.0F, false));
+		action.cubeList.add(new ModelBox(action, 60, 111, -29.7688F, -40.7F, -26.0617F, 3, 1, 1, 0.0F, false));
+		action.cubeList.add(new ModelBox(action, 76, 71, -30.7688F, -41.2F, -26.5617F, 1, 2, 2, 0.0F, false));
 
 		Action6_r1 = new ModelRenderer(this);
 		Action6_r1.setRotationPoint(-4.0F, 12.0F, 1.0F);

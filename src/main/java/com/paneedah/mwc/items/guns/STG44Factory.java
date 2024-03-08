@@ -14,7 +14,6 @@ import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class STG44Factory {
 
@@ -44,14 +43,6 @@ public class STG44Factory {
         .withFlashOffsetY(() -> 0.14f)
         .withInaccuracy(1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Assault rifle",
-        "Damage: 7.7", 
-        "Cartridge: 7.92x33mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 60/100",
-        "Magazines:",
-        "30rnd 7.92x33mm Magazine"))
          
          .withScreenShaking(RenderableState.SHOOTING, 
                  2.5f, // x 
@@ -59,15 +50,10 @@ public class STG44Factory {
                  5f) // z
          
         .withCompatibleAttachment(AuxiliaryAttachments.STG44action, true, (model) -> {
-//        	 GL11.glTranslatef(0f, 0f, 1.5f);
         })
         .withCompatibleAttachment(AuxiliaryAttachments.STG44actionCover, true, (model) -> {
-//       	 GL11.glTranslatef(0.5f, -0.2f, 0f);
-//        	GL11.glRotatef(-20F, 0f, 0f, 1f);
        })
         .withCompatibleAttachment(Magazines.STG44Mag, (model) -> {
-//        	GL11.glTranslatef(0F, 0.45F, -0.15F);
-//            GL11.glRotatef(-10F, 1f, 0f, 0f);
         })
 //        .withCompatibleAttachment(Attachments.Silencer762x39, (model) -> {
 //          GL11.glTranslatef(-0.2F, -1.06F, -7.55F);
@@ -84,7 +70,6 @@ public class STG44Factory {
             } else if(model instanceof AKMiron1) {
                 GL11.glTranslatef(0F, -1.5F, -0.5F);
                 GL11.glScaled(0F, 0F, 0F);
-//              GL11.glScaled(0.3F, 0.3F, 0.3F);
             } else if(model instanceof AKMiron2) {
                 GL11.glTranslatef(0.13F, -1.55F, -3.05F);
                 GL11.glScaled(0F, 0F, 0F);
@@ -121,12 +106,9 @@ public class STG44Factory {
         .withRenderer(new WeaponRenderer.Builder()
     
             .withModel(new STG44())
-            //.withTextureName("AK47")
-            //.withWeaponProximity(0.99F)
-            //.withYOffsetZoom(5F)
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.3F, 0.3F, 0.3F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.28F, 0.28F, 0.28F);
@@ -455,8 +437,6 @@ public class STG44Factory {
                         )
                         
             .withFirstPersonCustomPositioningUnloading(AuxiliaryAttachments.STG44action.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                     new Transition((renderContext) -> {
                     }, 500, 1000),
                     new Transition((renderContext) -> {
@@ -515,8 +495,6 @@ public class STG44Factory {
                     )
                     
             .withFirstPersonCustomPositioningUnloading(Magazines.STG44Mag,
-//                    new Transition((renderContext) -> {
-//                    }, 250, 1000),
                     new Transition((renderContext) -> {
                     }, 250, 1000),
                     new Transition((renderContext) -> {
@@ -547,13 +525,6 @@ public class STG44Factory {
                     )
                     
             .withThirdPersonPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.000000f, 3.000000f, 3.000000f);
-//                        GL11.glRotatef(-10.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.150000f, 1.149999f, 0.175000f);
-//                    }, 200, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
                         GL11.glTranslatef(-2.8F, -1.5F, 3.5F);
@@ -614,13 +585,10 @@ public class STG44Factory {
                     GL11.glRotatef(-45F, 0f, 1f, 0f);
                     GL11.glRotatef(90F, 1f, 0f, 0f);
                 }, 120, 0)
-//                }, 100, 0)
             )
             
                     
             .withThirdPersonCustomPositioningReloading(AuxiliaryAttachments.STG44action.getRenderablePart(),
-//                    new Transition((renderContext) -> {
-//                    }, 500, 1000),
                     new Transition((renderContext) -> {
                     }, 500, 1000),
                     new Transition((renderContext) -> {
@@ -1230,13 +1198,6 @@ public class STG44Factory {
                     }, 250, 50))
                     
             .withThirdPersonLeftHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(3.5f, 3.5f, 3.5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(30.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.250000f, -0.175000f, 0.225000f);
-//                    }, 50, 200),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-40.000000f, 1f, 0f, 0f);
@@ -1302,13 +1263,6 @@ public class STG44Factory {
                     }, 300, 0))
                     
             .withThirdPersonRightHandPositioningReloading(
-//                    new Transition((renderContext) -> { // Reload position
-//                        GL11.glScalef(4f, 4f, 5f);
-//                        GL11.glRotatef(-100.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(10.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(-55.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.375000f, -0.500000f, 0.150000f);
-//                    }, 250, 1000),
                     new Transition((renderContext) -> { // Reload position
                         GL11.glScalef(1.000000f, 1.000000f, 1.000000f);
                         GL11.glRotatef(-50.000000f, 1f, 0f, 0f);
@@ -1461,4 +1415,3 @@ public class STG44Factory {
         .build(MWC.modContext);
     }
 }
-

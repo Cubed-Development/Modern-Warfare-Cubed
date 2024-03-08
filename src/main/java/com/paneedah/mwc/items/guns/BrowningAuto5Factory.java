@@ -15,7 +15,6 @@ import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Arrays;
 
 public class BrowningAuto5Factory implements GunFactory {
 
@@ -49,13 +48,6 @@ public class BrowningAuto5Factory implements GunFactory {
         .withFlashOffsetX(() -> 0.1f)
         .withFlashOffsetY(() -> 0.1f)
         .withCreativeTab(MWC.WEAPONS_TAB)
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Semi-Automatic Shotgun",
-        "Damage per Pellet: 6",
-        "Pellets per Shot: 10", 
-        "Cartridge: 12 Gauge Shotgun Shell",
-        "Fire Rate: SEMI",
-        "Rate of Fire: 20/100"))
         
         .withScreenShaking(RenderableState.SHOOTING, 
                 5f, // x 
@@ -80,7 +72,7 @@ public class BrowningAuto5Factory implements GunFactory {
             .withModel(new BrowningAuto5())
             .withEntityPositioning(itemStack -> {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
-                GL11.glRotatef(-90F, 0f, 0f, 4f);
+                GL11.glTranslatef(0, 0f, 3f);
             })
             .withInventoryPositioning(itemStack -> {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -151,8 +143,6 @@ public class BrowningAuto5Factory implements GunFactory {
                 })
                 
             .withFirstPersonCustomPositioning(AuxiliaryAttachments.ShotgunShell.getRenderablePart(), (renderContext) -> {
-//                GL11.glTranslatef(0.07F, 1.15F, -0.3F);
-//                GL11.glRotatef(-70F, 1f, 0f, 0f);
                 })
             
             .withFirstPersonPositioningCustomRecoiled(AuxiliaryAttachments.BrowningAuto5Action.getRenderablePart(), (renderContext) -> {
@@ -367,12 +357,6 @@ public class BrowningAuto5Factory implements GunFactory {
                          GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
                          GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                          GL11.glTranslatef(0.050000f, -0.600000f, 0.125000f);
-                         
-//                         GL11.glScalef(4f, 4f, 4f);
-//                         GL11.glRotatef(-75.000000f, 1f, 0f, 0f);
-//                         GL11.glRotatef(-20.000000f, 0f, 1f, 0f);
-//                         GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                         GL11.glTranslatef(0.025000f, -0.675000f, 0.175000f);
                      }, 
                      (renderContext) -> {
                     	 GL11.glScalef(4f, 4f, 4f);
@@ -380,8 +364,6 @@ public class BrowningAuto5Factory implements GunFactory {
                     	 GL11.glRotatef(30.000000f, 0f, 1f, 0f);
                     	 GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
                     	 GL11.glTranslatef(0.700000f, -1.100000f, 0.225000f);
-                    	 
-//                    	 GL11.glScalef(4f, 4f, 4f);
                      })
                      
             .withFirstPersonHandPositioningProning(
@@ -439,12 +421,6 @@ public class BrowningAuto5Factory implements GunFactory {
                         GL11.glRotatef(-45.000000f, 0f, 1f, 0f);
                         GL11.glRotatef(30.000000f, 0f, 0f, 1f);
                         GL11.glTranslatef(0.050000f, -0.600000f, 0.125000f);
-                        
-//                        GL11.glScalef(4f, 4f, 4f);
-//                        GL11.glRotatef(-75.000000f, 1f, 0f, 0f);
-//                        GL11.glRotatef(-20.000000f, 0f, 1f, 0f);
-//                        GL11.glRotatef(65.000000f, 0f, 0f, 1f);
-//                        GL11.glTranslatef(0.025000f, -0.675000f, 0.175000f);
                     }, 
                     (renderContext) -> {
                    	 GL11.glScalef(4f, 4f, 4f);
@@ -452,8 +428,6 @@ public class BrowningAuto5Factory implements GunFactory {
                    	 GL11.glRotatef(30.000000f, 0f, 1f, 0f);
                    	 GL11.glRotatef(-60.000000f, 0f, 0f, 1f);
                    	 GL11.glTranslatef(0.700000f, -1.100000f, 0.225000f);
-                   	 
-//                   	 GL11.glScalef(4f, 4f, 4f);
                     })
                      
             .withFirstPersonLeftHandPositioningReloading(

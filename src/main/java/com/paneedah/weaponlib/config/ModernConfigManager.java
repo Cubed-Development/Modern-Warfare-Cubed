@@ -144,7 +144,6 @@ public class ModernConfigManager {
 	@ConfigSync(category = CATEGORY_GAMEPLAY, comment = "Where should the status bar be located?")
 	public static String statusBarPosition = "TOP_RIGHT";
 
-
 	@RequiresMcRestart
 	@RangeDouble(min=0.1, max=5.0)
 	@ConfigSync(category = CATEGORY_ENTITIES, comment = "How much health should terrorists have?")
