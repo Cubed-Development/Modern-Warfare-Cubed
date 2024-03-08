@@ -21,7 +21,7 @@ public class M200InterventionFactory implements GunFactory {
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
                 .withName("m200_intervention")
-                .withFireRate(0.1f)
+                .withFireRate(0.6f)
                 .withEjectRoundRequired()
                 .withEjectSpentRoundSound("m200_intervention_boltaction")
                 .withMuzzlePosition(new Vec3d(.1, -1.5, -9.0))
@@ -52,9 +52,9 @@ public class M200InterventionFactory implements GunFactory {
                         1.0
                 ))
                 .withScreenShaking(RenderableState.SHOOTING,
-                        7f,
-                        -10f,
-                        12f)
+                        4f,
+                        4f,
+                        9f)
 
                 .withModernRecipe(new
                         CraftingEntry(MWCItems.carbonComposite, 8), new

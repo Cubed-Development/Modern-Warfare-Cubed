@@ -37,7 +37,7 @@ public class APC9Factory implements GunFactory {
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.12f)
                 .withFlashOffsetY(() -> 0.15f)
-                .withInaccuracy(1f)
+                .withInaccuracy(1.1f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -53,7 +53,7 @@ public class APC9Factory implements GunFactory {
                 .withScreenShaking(RenderableState.SHOOTING,
                         2f,
                         0.1f,
-                        1f)
+                        3f)
 
                 .withModernRecipe(new
                         CraftingEntry(MWCItems.carbonComposite, 7), new

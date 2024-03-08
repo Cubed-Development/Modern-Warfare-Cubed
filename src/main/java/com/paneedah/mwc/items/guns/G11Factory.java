@@ -18,7 +18,7 @@ public class G11Factory {
         return new Weapon.Builder()
                 .withName("g11")
                 .withFireRate(0.9f)
-                .withRecoil(1.8f)
+                .withRecoil(1f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE)
                 .withMaxShots(1, 3, Integer.MAX_VALUE)

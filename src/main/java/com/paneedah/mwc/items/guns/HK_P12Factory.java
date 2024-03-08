@@ -21,7 +21,7 @@ public class HK_P12Factory implements GunFactory {
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
                 .withName("hk_p12")
-                .withFireRate(0.5f)
+                .withFireRate(0.3f)
                 .withRecoil(4f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
@@ -34,12 +34,12 @@ public class HK_P12Factory implements GunFactory {
                 .withUnloadSound("p12_unload")
                 .withInspectSound("inspection")
                 .withDrawSound("handgun_draw")
-                .withReloadingTime(40)
+                .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.1f)
                 .withFlashOffsetY(() -> 0.17f)
-                .withInaccuracy(2)
+                .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(

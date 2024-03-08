@@ -21,7 +21,7 @@ public class FamasF1Factory {
         return new Weapon.Builder()
                 .withName("famas_f1")
                 .withFireRate(0.8f)
-                .withRecoil(3f)
+                .withRecoil(2.5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.ASSAULT_RIFLE)
                 .hasFlashPedals()

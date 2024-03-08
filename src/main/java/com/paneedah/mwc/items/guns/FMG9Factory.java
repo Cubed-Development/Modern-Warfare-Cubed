@@ -22,7 +22,7 @@ public class FMG9Factory implements GunFactory {
         return new Weapon.Builder()
                 .withName("fmg9")
                 .withFireRate(0.8f)
-                .withRecoil(2f)
+                .withRecoil(1f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(Type.PISTOL)

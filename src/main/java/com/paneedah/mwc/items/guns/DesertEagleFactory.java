@@ -20,7 +20,7 @@ public class DesertEagleFactory implements GunFactory {
         return new Weapon.Builder()
                 .withName("desert_eagle")
                 .withFireRate(0.2f)
-                .withRecoil(10f)
+                .withRecoil(5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
                 .withMuzzlePosition(new Vec3d(-.15, -0.8, -3.3))
@@ -29,20 +29,20 @@ public class DesertEagleFactory implements GunFactory {
                 .withShootSound("desert_eagle")
                 .withSilencedShootSound("m9a1_silenced")
                 .withDrawSound("handgun_draw")
-                .withReloadingTime(40)
+                .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
                 .withFlashScale(() -> 0.7f)
                 .withFlashOffsetX(() -> 0.13f)
                 .withFlashOffsetY(() -> 0.14f)
-                .withInaccuracy(2)
+                .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
-                        65.0,
-                        13.125,
-                        30.0,
-                        0.3625,
-                        0.325,
+                        45.0,
+                        13.5,
+                        37.5,
+                        0.425,
+                        0.2125,
                         0.0,
                         0.0,
                         1.0

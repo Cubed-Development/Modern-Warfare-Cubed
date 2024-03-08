@@ -13,9 +13,9 @@ public class turretgunsilencedFactory implements GunFactory {
         return new Weapon.Builder()
                 .withName("turretgunsilenced")
                 .withFireRate(0.6f)
-                .withRecoil(20f)
+                .withRecoil(3f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.NONE)
+                .withConfigGroup(GunConfigurationGroup.RIFLES)
                 .hasFlashPedals()
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withShootSound("m4a1_silenced")
@@ -25,12 +25,12 @@ public class turretgunsilencedFactory implements GunFactory {
                 .withEndOfShootSound("gun_click")
                 .withInspectSound("inspection")
                 .withDrawSound("noaction_draw")
-                .withReloadingTime(40)
-                .withFlashIntensity(0f)
+                .withReloadingTime(50)
+                .withFlashIntensity(0.5f)
                 .withTextureNames("scarl")
                 .withRenderer(new WeaponRenderer.Builder().build())
                 // turret silenced 's damage
-                .withSpawnEntityDamage(25f)
+                .withSpawnEntityDamage(30f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
                 .build(MWC.modContext);

@@ -13,9 +13,9 @@ public class turretgunFactory implements GunFactory {
         return new Weapon.Builder()
                 .withName("turretgun")
                 .withFireRate(0.6f)
-                .withRecoil(6f)
+                .withRecoil(3f)
                 .withZoom(0.9f)
-                .withConfigGroup(GunConfigurationGroup.NONE)
+                .withConfigGroup(GunConfigurationGroup.RIFLES)
                 .hasFlashPedals()
                 .withMaxShots(1, Integer.MAX_VALUE)
                 .withShootSound("turret_shoot")
@@ -25,11 +25,12 @@ public class turretgunFactory implements GunFactory {
                 .withEndOfShootSound("gun_click")
                 .withInspectSound("inspection")
                 .withDrawSound("noaction_draw")
-                .withReloadingTime(40)
+                .withReloadingTime(50)
+                .withFlashIntensity(0.5f)
                 .withTextureNames("scarl")
                 .withRenderer(new WeaponRenderer.Builder().build())
                 // turret 's damage
-                .withSpawnEntityDamage(10f)
+                .withSpawnEntityDamage(6f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
                 .build(MWC.modContext);

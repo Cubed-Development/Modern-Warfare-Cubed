@@ -18,7 +18,7 @@ public class MP40Factory {
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
                 .withName("mp40")
-                .withFireRate(0.6f)
+                .withFireRate(0.55f)
                 .withRecoil(1.5f)
                 .withZoom(0.9f)
                 .withMuzzlePosition(new Vec3d(-.15, -.9, -6))

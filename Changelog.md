@@ -56,12 +56,12 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Added Groovyscript support plugin for workbench and ammo press recipes
 - **Weapons:**
   - Accuracy International AX50 (AI AX50)
-  - Modernized Kalashnikov Machine Gun (PKM)
+  - Pulemyot-Kalashnikov Machine Gun (PKM)
   - PP-19-01 Vityaz
   - PGM Hécate II
 - **Modifications:**
   - HK G36C:
-    - **MISSING NAMES** Handguard for HK G36C
+    - G36K Handguard
     - G36C Stock
     - G36CMG Stock
     - G36KV Stock
@@ -76,6 +76,15 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
     - M1911 Slide
     - M45A1 CQB Body *(Which allows laser attachments)*
     - M45A1 CQB Slide
+  - M200 Intervention
+    - Intervention Handguard
+    - Intervention Rail System Handguard
+    - Intervention QTD-Rifle Handguard
+    - Intervention Carry Handle
+    - Intervention Keys Tone Carry Handle
+    - Intervention Stock
+    - Intervention Kilo TaC Stock
+    - Intervention FJX-LUX Stock
 - **Attachments:**
   - Leupold DeltaPoint Pro
   - S&B 5-25x56 PM II
@@ -85,21 +94,49 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
   - Juny Grip (Tan)
   - Stuby Grip (Tan)
   - Juno Grip (Tan)
+- **Magazines:**
+  - 120rnd 7.62x54mm Magazine
+  - 12rnd 12 Gauge Magazine
+  - 30rnd 9x19mm Magazine
+  - 7rnd .45 ACP Magazine
+  - 15rnd .45 ACP Magazine
+  - 10rnd .408 CT Magazine
+  - 5rnd .50 BMG Magazine
+  - 7rnd .50 BMG Magazine
+  - 45rnd 9x19mm Magazine
+  - 60rnd 9x19mm Drum Magazine
 
 ### Changed
 
 - **Overhauled Models:**
   - Weapons:
+    - Remington ACR
+    - Steyr AUG A1
+    - IMI Desert Eagle
+    - FN FAL
+    - HK G36C
+    - HK 417
+    - M200 Intervention
     - M134 Minigun
     - Colt M1911
     - M60E4
     - M79 GL
     - Makarov PM
     - Uzi
+    - Saiga 12
+    - AAC Honey Badger
   - Modifications:
+    - VLTOR Receiver
   - Attachments:
     - Bipod
-    - Silencer
+    - Grip
+    - Foregrip
+    - Angled Grip
+    - Juno Grip
+    - Stubby Grip
+    - Silencer/Suppressor
+    - Elcan Specter SFOV4-A1 Sight
+    - - EOTech EXPS3-0 (Tan)
   - Magazines:
     - 100rnd 5.56x45mm NATO STANAG Drum Magazine
 - **Overhauled Textures:**
@@ -180,6 +217,7 @@ and this project follows to [Ragnarök Versioning Convention](https://gist.githu
 - Terrorist spawns are now lower by default
 - Flashbangs do not flash trough walls anymore
 - Moved recipe registration from server starting to Registryevent<IRecipes>
+- Renamed the `NGSW-R` to `XM7`
 
 ### Fixed
 

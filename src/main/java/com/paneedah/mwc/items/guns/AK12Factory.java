@@ -55,8 +55,8 @@ public class AK12Factory {
                 ))
 
                 .withScreenShaking(RenderableState.SHOOTING,
-                        1f,
-                        0f,
+                        2.5f,
+                        1.5f,
                         2.7f)
 
                 .withModernRecipe(new

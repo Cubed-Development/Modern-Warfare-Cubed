@@ -52,8 +52,8 @@ public class F2000Factory {
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         1f,
-                        0f,
-                        1f)
+                        2f,
+                        3f)
 
                 .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
                 .withUnremovableAttachmentCategories(AttachmentCategory.FRONTSIGHT)

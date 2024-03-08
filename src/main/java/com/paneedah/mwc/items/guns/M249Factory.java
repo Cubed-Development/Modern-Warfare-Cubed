@@ -18,7 +18,7 @@ public class M249Factory {
         return new Weapon.Builder()
                 .withName("m249")
                 .withFireRate(0.7f)
-                .withRecoil(3f)
+                .withRecoil(2f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.MACHINE_GUN)
                 .withMuzzlePosition(new Vec3d(-.15, -1.1, -8.3))

@@ -22,7 +22,7 @@ public class MP7Factory {
         return new Weapon.Builder()
                 .withName("mp7")
                 .withFireRate(0.9f)
-                .withRecoil(2f)
+                .withRecoil(1f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(Type.PISTOL)

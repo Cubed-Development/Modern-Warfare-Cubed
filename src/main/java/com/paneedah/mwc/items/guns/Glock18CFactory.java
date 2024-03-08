@@ -35,7 +35,7 @@ public class Glock18CFactory implements GunFactory {
                 .withUnloadSound("pistol_unload")
                 .withInspectSound("inspection")
                 .withDrawSound("handgun_draw")
-                .withReloadingTime(40)
+                .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.14f)

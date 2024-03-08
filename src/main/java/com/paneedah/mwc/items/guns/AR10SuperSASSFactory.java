@@ -21,7 +21,7 @@ public class AR10SuperSASSFactory implements GunFactory {
         return new Weapon.Builder()
                 .withName("ar10_super_sass")
                 .withFireRate(0.8f)
-                .withRecoil(7f)
+                .withRecoil(5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.BATTLE_RIFLE)
                 .hasFlashPedals()

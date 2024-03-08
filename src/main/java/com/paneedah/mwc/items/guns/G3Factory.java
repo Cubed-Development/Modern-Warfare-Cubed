@@ -22,7 +22,7 @@ public class G3Factory {
         return new Weapon.Builder()
                 .withName("g3")
                 .withFireRate(0.5f)
-                .withRecoil(4f)
+                .withRecoil(3f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.BATTLE_RIFLE)
                 .withMaxShots(1, Integer.MAX_VALUE)

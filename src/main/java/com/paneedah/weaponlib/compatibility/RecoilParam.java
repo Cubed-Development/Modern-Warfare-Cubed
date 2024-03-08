@@ -15,7 +15,17 @@ public class RecoilParam {
 		this.weaponRotationY = 0;
 		this.adsSimilarity = 1;
 	}
-	
+
+	/**
+	 * @param weaponPower The weapon power
+	 * @param muzzleClimbDivisor The muzzle climb divisor
+	 * @param stockLength The "Stock Length"
+	 * @param prnr The recovery rate from initial shot
+	 * @param prnsr The recovery rate @ "stock"
+	 * @param weaponRotX The recoil rotation (Y)
+	 * @param weaponRotY The recoil rotation (Z)
+	 * @param adsSimilarity The ads similarity divisor
+	 */
 	public RecoilParam(double weaponPower, double muzzleClimbDivisor, double stockLength, double prnr, double prnsr, double weaponRotX, double weaponRotY, double adsSimilarity) {
 		this.weaponPower = weaponPower;
 		this.muzzleClimbDivisor = muzzleClimbDivisor;

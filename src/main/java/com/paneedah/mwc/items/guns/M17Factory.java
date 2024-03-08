@@ -38,7 +38,7 @@ public class M17Factory implements GunFactory {
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.08f)
                 .withFlashOffsetY(() -> 0.18f)
-                .withInaccuracy(2)
+                .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(

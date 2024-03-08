@@ -23,7 +23,7 @@ public class P90Factory {
         return new Weapon.Builder()
                 .withName("p90")
                 .withFireRate(0.85f)
-                .withRecoil(2f)
+                .withRecoil(1.5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(Type.PISTOL)
@@ -56,7 +56,7 @@ public class P90Factory {
 
                 .withScreenShaking(RenderableState.SHOOTING,
                         2f,
-                        1f,
+                        0.1f,
                         3f)
 
                 .withModernRecipe(new

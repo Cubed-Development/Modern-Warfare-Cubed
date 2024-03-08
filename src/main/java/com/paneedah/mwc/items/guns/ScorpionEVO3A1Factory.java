@@ -22,7 +22,7 @@ public class ScorpionEVO3A1Factory implements GunFactory {
         return new Weapon.Builder()
                 .withName("scorpion_evo3_a1")
                 .withFireRate(0.999f)
-                .withRecoil(2.0f)
+                .withRecoil(1.5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(Type.PISTOL)

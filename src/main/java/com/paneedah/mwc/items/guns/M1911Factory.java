@@ -20,7 +20,7 @@ public class M1911Factory implements GunFactory {
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
                 .withName("m1911")
-                .withFireRate(0.4f)
+                .withFireRate(0.5f)
                 .withRecoil(3f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.HANDGUN)
@@ -30,12 +30,12 @@ public class M1911Factory implements GunFactory {
                 .withShootSound("colt_m45a1")
                 .withSilencedShootSound("colt_m45a1_silenced")
                 .withDrawSound("handgun_draw")
-                .withReloadingTime(40)
+                .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.13f)
                 .withFlashOffsetY(() -> 0.12f)
-                .withInaccuracy(1)
+                .withInaccuracy(3)
                 .useNewSystem()
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .withScreenShaking(RenderableState.SHOOTING,

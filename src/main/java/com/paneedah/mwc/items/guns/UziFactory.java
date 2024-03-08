@@ -30,7 +30,7 @@ public class UziFactory implements GunFactory {
                 .withShootSound("uzi")
                 .withSilencedShootSound("m9a1_silenced")
                 .withDrawSound("uzi_draw")
-                .withReloadingTime(90)
+                .withReloadingTime(50)
                 .withFlashIntensity(0.4f)
                 .withFlashScale(() -> 1f)
                 .withFlashOffsetX(() -> 0.17f)

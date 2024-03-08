@@ -20,7 +20,7 @@ public class S710TricunFactory implements GunFactory {
         return new Weapon.Builder()
                 .withName("s7_10_tricun")
                 .withFireRate(0.85f)
-                .withRecoil(2.2f)
+                .withRecoil(1.8f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(ShellParticleSimulator.Shell.Type.PISTOL)

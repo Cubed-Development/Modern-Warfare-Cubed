@@ -21,7 +21,7 @@ public class VSSVintorezFactory {
         return new Weapon.Builder()
                 .withName("vss_vintorez")
                 .withFireRate(0.7f)
-                .withRecoil(3.7f)
+                .withRecoil(1.5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.SNIPER_RIFLE)
                 .withMuzzlePosition(new Vec3d(-0.132, -0.8, -7))
@@ -697,7 +697,7 @@ public class VSSVintorezFactory {
                                 }, 280, 0))
 
                         .build())
-                .withSpawnEntityDamage(14f)
+                .withSpawnEntityDamage(13f)
                 .withSpawnEntityGravityVelocity(0.0118f)
 
                 .build(MWC.modContext);

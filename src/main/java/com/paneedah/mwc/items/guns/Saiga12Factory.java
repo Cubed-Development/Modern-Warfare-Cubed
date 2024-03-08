@@ -19,7 +19,7 @@ public class Saiga12Factory {
         return new Weapon.Builder()
                 .withName("saiga12")
                 .withFireRate(0.4f)
-                .withRecoil(9f)
+                .withRecoil(5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.SHOTGUN)
                 .withShellType(Type.SHOTGUN)

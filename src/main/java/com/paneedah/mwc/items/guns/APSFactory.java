@@ -34,7 +34,7 @@ public class APSFactory implements GunFactory {
                 .withUnloadSound("pistol_unload")
                 .withInspectSound("inspection")
                 .withDrawSound("handgun_draw")
-                .withReloadingTime(40)
+                .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.12f)

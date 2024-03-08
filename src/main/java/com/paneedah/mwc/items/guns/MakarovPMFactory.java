@@ -34,12 +34,12 @@ public class MakarovPMFactory implements GunFactory {
                 .withReloadSound("makarovreload")
                 .withUnloadSound("makarovunload")
                 .withDrawSound("handgun_draw")
-                .withReloadingTime(40)
+                .withReloadingTime(50)
                 .withFlashIntensity(0.5f)
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.12f)
                 .withFlashOffsetY(() -> 0.19f)
-                .withInaccuracy(2)
+                .withInaccuracy(3)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(
@@ -438,7 +438,7 @@ public class MakarovPMFactory implements GunFactory {
                                 }, 250, 0))
 
                         .build())
-                .withSpawnEntityDamage(4.9f)
+                .withSpawnEntityDamage(4.5f)
                 .withSpawnEntityGravityVelocity(0.02f)
 
                 .build(MWC.modContext);

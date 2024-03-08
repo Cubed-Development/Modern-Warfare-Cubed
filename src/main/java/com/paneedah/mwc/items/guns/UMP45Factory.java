@@ -20,7 +20,7 @@ public class UMP45Factory {
         return new Weapon.Builder()
                 .withName("ump_45")
                 .withFireRate(0.6f)
-                .withRecoil(2.2f)
+                .withRecoil(2f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(Type.PISTOL)
@@ -38,7 +38,7 @@ public class UMP45Factory {
                 .withFlashScale(() -> 0.6f)
                 .withFlashOffsetX(() -> 0.13f)
                 .withFlashOffsetY(() -> 0.17f)
-                .withInaccuracy(1f)
+                .withInaccuracy(2f)
                 .withCreativeTab(MWC.WEAPONS_TAB)
                 .useNewSystem()
                 .withRecoilParam(new RecoilParam(

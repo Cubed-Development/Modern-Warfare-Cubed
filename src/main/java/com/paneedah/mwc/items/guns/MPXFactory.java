@@ -22,7 +22,7 @@ public class MPXFactory implements GunFactory {
         return new Weapon.Builder()
                 .withName("sig_mpx")
                 .withFireRate(0.85f)
-                .withRecoil(2.0f)
+                .withRecoil(1.5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.SUBMACHINE_GUN)
                 .withShellType(Type.PISTOL)

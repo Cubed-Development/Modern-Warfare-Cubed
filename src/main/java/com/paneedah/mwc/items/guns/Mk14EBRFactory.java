@@ -21,7 +21,7 @@ public class Mk14EBRFactory {
         return new Weapon.Builder()
                 .withName("mk14_ebr")
                 .withFireRate(0.7f)
-                .withRecoil(5.5f)
+                .withRecoil(4.5f)
                 .withZoom(0.9f)
                 .withConfigGroup(GunConfigurationGroup.BATTLE_RIFLE)
                 .withMuzzlePosition(new Vec3d(-.1, -1.1, -9.1))
