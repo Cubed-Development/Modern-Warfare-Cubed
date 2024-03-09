@@ -205,7 +205,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 			if(Boolean.TRUE.equals(stateUpdater.apply(updateToState, safeCast(updatedState))))
 				action.execute(safeCast(updatedState), fromState, toState, processedPermit);
 
-			// Below D D D O is a today from VMW crew, I have no idea why it is here, using it breaks unloading behavior. - Luna Lage (Desoroxxx)
+			// Below T O D O is a today from VMW crew, I have no idea why it is here, using it breaks unloading behavior. - Luna Lage (Desoroxxx)
 			// TODO: changeState(aspect, updatedState);
 		}
 	}
