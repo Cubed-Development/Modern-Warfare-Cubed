@@ -1,5 +1,7 @@
 package com.paneedah.weaponlib.animation;
 
+import com.paneedah.mwc.asm.Interceptors;
+import com.paneedah.weaponlib.DefaultPart;
 import com.paneedah.weaponlib.RenderContext;
 import com.paneedah.weaponlib.RenderableState;
 import net.minecraft.client.audio.PositionedSoundRecord;
@@ -321,6 +323,12 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 						e.printStackTrace();
 					}
 					 */
+
+					//System.out.println(partData.matrices.get(currentIndex));
+
+					if(part == DefaultPart.MAIN_ITEM) {
+						Interceptors.nc.addToMatrixStack(partData.matrices.get(currentIndex+1));
+					}
 					
 					boolean revertFlag = (toState == RenderableState.NORMAL && fromState == RenderableState.ZOOMING);
 					

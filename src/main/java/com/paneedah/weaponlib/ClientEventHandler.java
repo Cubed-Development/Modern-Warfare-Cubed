@@ -1,5 +1,6 @@
 package com.paneedah.weaponlib;
 
+import com.paneedah.mwc.asm.Interceptors;
 import com.paneedah.mwc.network.messages.VehicleInteractMessage;
 import com.paneedah.mwc.proxies.ClientProxy;
 import com.paneedah.mwc.utils.MWCUtil;
@@ -315,6 +316,7 @@ public class ClientEventHandler {
 		// Frame-timer syncs to 120
 		double divisor = 120 / frameTimer.getFramerate() * 0.05;
 		divisor = Math.min(0.08, divisor);
+		Interceptors.nsm.update();
 
 		BULLET_HOLE_RENDERER.render();
 
