@@ -160,7 +160,7 @@ tasks.named<Jar>("jar") {
     manifest {
         attributes(
             "ModSide" to "BOTH",
-            "FMLAT": "${project.id}_at.cfg",
+            "FMLAT" to "${id}_at.cfg",
             "FMLCorePlugin" to "${plugin}",
             "FMLCorePluginContainsFMLMod" to "true",
             "ForceLoadAsMod" to "true"
