@@ -204,11 +204,9 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 			
 			if(Boolean.TRUE.equals(stateUpdater.apply(updateToState, safeCast(updatedState))))
 				action.execute(safeCast(updatedState), fromState, toState, processedPermit);
-			
-			// T O D O: changeState(aspect, updatedState);
-			// This was probably a T o d o from Jim, adding this code seems to just work, so I will leave it like that
-			// It might cause issues as just putting a t o d o with the exact code seems weird
-			changeState(aspect, updatedState);
+
+			// Below D D D O is a today from VMW crew, I have no idea why it is here, using it breaks unloading behavior. - Luna Lage (Desoroxxx)
+			// TODO: changeState(aspect, updatedState);
 		}
 	}
 	
