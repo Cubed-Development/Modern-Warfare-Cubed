@@ -25,6 +25,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("weapons_case")
                 .withModelClassName("GunCase")
                 .withTextureName("gun_case")
@@ -37,6 +38,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("weapons_case_small")
                 .withModelClassName("GunCaseSmall")
                 .withTextureName("gun_case_small")
@@ -50,6 +52,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("russian_weapons_case")
                 .withModelClassName("MilitaryCrate")
                 .withTextureName("militarycrate")
@@ -62,6 +65,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("ammo_box")
                 .withModelClassName("Ammobox1")
                 .withTextureName("ammobox")
@@ -75,6 +79,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("weapons_locker")
                 .withModelClassName("GunRack")
                 .withTextureName("gunrack")
@@ -87,6 +92,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("fridge_open")
                 .withModelClassName("FridgeOpen")
                 .withTextureName("fridge")
@@ -99,6 +105,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("fridge_closed")
                 .withModelClassName("FridgeClosed")
                 .withTextureName("fridge")
@@ -111,6 +118,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("artillery_prop")
                 .withModelClassName("ArtilleryProp")
                 .withTextureName("artilleryprop")
@@ -124,6 +132,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("supply_drop")
                 .withModelClassName("SupplyDrop")
                 .withTextureName("supplydrop")
@@ -136,6 +145,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("medical_crate")
                 .withModelClassName("MedicalCrate")
                 .withTextureName("medicalcrate")
@@ -148,6 +158,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("locker")
                 .withModelClassName("Locker")
                 .withTextureName("locker")
@@ -160,6 +171,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("scp_locker")
                 .withModelClassName("SCPLocker")
                 .withTextureName("scplocker")
@@ -173,6 +185,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("barrel")
                 .withModelClassName("Barrel")
                 .withTextureName("barrel")
@@ -184,6 +197,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("explosive_barrel")
                 .withModelClassName("Barrel")
                 .withTextureName("barrel_explosive")
@@ -195,6 +209,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("pc")
                 .withModelClassName("electronics.PC")
                 .withTextureName("electronics/pc")
@@ -206,6 +221,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("laptop")
                 .withModelClassName("electronics.Laptop")
                 .withTextureName("electronics/pc")
@@ -218,6 +234,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("monitor")
                 .withModelClassName("electronics.Monitor")
                 .withTextureName("electronics/pc")
@@ -229,6 +246,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("filingcabinet")
                 .withModelClassName("FilingCabinet")
                 .withTextureName("filingcabinetopened")
@@ -241,6 +259,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("filingcabinet_opened")
                 .withModelClassName("FilingCabinetOpened")
                 .withTextureName("filingcabinetopened")
@@ -253,6 +272,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("shelf_right")
                 .withModelClassName("shelves.ShelfRight")
                 .withTextureName("shelf")
@@ -265,6 +285,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("shelf_left")
                 .withModelClassName("shelves.ShelfLeft")
                 .withTextureName("shelf")
@@ -277,6 +298,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("shelf_top")
                 .withModelClassName("shelves.ShelfTop")
                 .withTextureName("shelf")
@@ -290,6 +312,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("tv")
                 .withModelClassName("electronics.TV")
                 .withTextureName("electronics/tv")
@@ -303,6 +326,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("ceiling_tv")
                 .withModelClassName("electronics.CeilingTV")
                 .withTextureName("electronics/ceilingtv")
@@ -315,6 +339,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("ceiling_tv_rotated")
                 .withModelClassName("electronics.CeilingTV")
                 .withTextureName("electronics/ceilingtv")
@@ -327,6 +352,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("office_chair")
                 .withModelClassName("OfficeChair2")
                 .withTextureName("officechair")
@@ -339,6 +365,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("office_chair_2")
                 .withModelClassName("OfficeChair")
                 .withTextureName("officechair")
@@ -352,6 +379,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("desk_corner")
                 .withModelClassName("desks.DeskCorner")
                 .withTextureName("desks/desk")
@@ -363,6 +391,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("desk_corner_alt1")
                 .withModelClassName("desks.DeskCornerAlt1")
                 .withTextureName("desks/desk")
@@ -374,6 +403,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("desk_left")
                 .withModelClassName("desks.DeskLeft")
                 .withTextureName("desks/desk")
@@ -385,6 +415,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("desk_left_alt1")
                 .withModelClassName("desks.DeskLeftAlt1")
                 .withTextureName("desks/desk")
@@ -396,6 +427,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("desk_middle")
                 .withModelClassName("desks.DeskMiddle")
                 .withTextureName("desks/desk")
@@ -407,6 +439,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("desk_middle_alt1")
                 .withModelClassName("desks.DeskMiddleAlt1")
                 .withTextureName("desks/deskmiddlealt1")
@@ -418,6 +451,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("desk_right")
                 .withModelClassName("desks.DeskRight")
                 .withTextureName("desks/desk")
@@ -429,6 +463,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("desk_right_alt1")
                 .withModelClassName("desks.DeskRightAlt1")
                 .withTextureName("desks/desk")
@@ -440,6 +475,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("desk_shelf")
                 .withModelClassName("desks.DeskShelf")
                 .withTextureName("desks/deskshelf")
@@ -452,6 +488,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("desk_shelf_alt1")
                 .withModelClassName("desks.DeskShelfAlt1")
                 .withTextureName("desks/deskshelfalt1")
@@ -463,6 +500,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("desk_shelf_alt2")
                 .withModelClassName("desks.DeskShelfAlt2")
                 .withTextureName("desks/deskshelf")
@@ -475,6 +513,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("desk_shelf_alt3")
                 .withModelClassName("desks.DeskShelfAlt4")
                 .withTextureName("desks/deskshelfalt4")
@@ -486,6 +525,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("barrier")
                 .withModelClassName("Barrier")
                 .withTextureName("barrier")
@@ -496,6 +536,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("barrier_rotated")
                 .withModelClassName("Barrier")
                 .withTextureName("barrier")
@@ -507,6 +548,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("body_bag")
                 .withModelClassName("BodyBag")
                 .withTextureName("bodybag")
@@ -518,6 +560,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("hanging_body")
                 .withModelClassName("HangingBody")
                 .withTextureName("hangingbody")
@@ -530,6 +573,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("impaled_body")
                 .withModelClassName("ImpaledBody")
                 .withTextureName("impaledbody")
@@ -542,6 +586,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("dumpster")
                 .withModelClassName("Dumpster")
                 .withTextureName("dumpster")
@@ -554,6 +599,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("wooden_crate")
                 .withModelClassName("WoodenCrate")
                 .withTextureName("woodencrate")
@@ -565,6 +611,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("wooden_crate_opened")
                 .withModelClassName("WoodenCrateOpened")
                 .withTextureName("woodencrateopened")
@@ -576,6 +623,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("operating_table")
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, -0.5, 1, 1, 1.5)))
                 .withModelClassName("OperatingTable")
@@ -588,6 +636,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("operating_table_alt")
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, -0.5, 1, 1, 1.5)))
                 .withModelClassName("OperatingTableAlt")
@@ -600,6 +649,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("forklift")
                 .withModelClassName("Forklift")
                 .withTextureName("forklift")
@@ -611,6 +661,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("forklift_rotated")
                 .withModelClassName("Forklift")
                 .withTextureName("forklift")
@@ -622,6 +673,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("forklift_alt")
                 .withModelClassName("ForkLiftAlt")
                 .withTextureName("forkliftalt")
@@ -633,6 +685,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("forklift_alt_rotated")
                 .withModelClassName("ForkLiftAlt")
                 .withTextureName("forkliftalt")
@@ -644,6 +697,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("trusses")
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.2, 0.4, 1, 0.4, 0.6)))
                 .withModelClassName("Trusses")
@@ -656,6 +710,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("ceiling_lamp")
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.5, 0, 1, 1, 1)))
                 .withModelClassName("lights.CeilingLamp")
@@ -668,6 +723,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("ceiling_lamp_alt")
                 .withModelClassName("lights.CeilingLampAlt")
                 .withTextureName("lights/ceilinglampalt")
@@ -679,6 +735,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("vent")
                 .withModelClassName("vents.Vent")
                 .withTextureName("vent")
@@ -690,6 +747,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("vent_rotated")
                 .withModelClassName("vents.Vent")
                 .withTextureName("vent")
@@ -701,6 +759,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("vent_corner")
                 .withModelClassName("vents.VentCorner")
                 .withTextureName("vent")
@@ -712,6 +771,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("vent_corner_rotated")
                 .withModelClassName("vents.VentCorner")
                 .withTextureName("vent")
@@ -723,6 +783,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("vent_corner_rotated_alt")
                 .withModelClassName("vents.VentCorner")
                 .withTextureName("vent")
@@ -734,6 +795,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("vent_intersection")
                 .withModelClassName("vents.VentIntersection")
                 .withTextureName("vent")
@@ -745,6 +807,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("vent_end")
                 .withModelClassName("vents.VentEnd")
                 .withTextureName("vent")
@@ -756,6 +819,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("white_desk_left")
                 .withModelClassName("desks.WhiteDeskLeft")
                 .withTextureName("shelf")
@@ -767,6 +831,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("white_desk_middle")
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0.95, 0, 1, 1, 0.8)))
                 .withModelClassName("desks.WhiteDeskMiddle")
@@ -779,6 +844,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("white_desk_right")
                 .withModelClassName("desks.WhiteDeskRight")
                 .withTextureName("shelf")
@@ -790,6 +856,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("trash_bin")
                 .withModelClassName("TrashBin")
                 .withTextureName("trashbin")
@@ -801,6 +868,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("caution_sign")
                 .withModelClassName("CautionSign")
                 .withTextureName("cautionsign")
@@ -812,6 +880,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("electric_box")
                 .withModelClassName("electronics.ElectricBox")
                 .withTextureName("electronics/electricbox")
@@ -823,6 +892,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("electric_box_opened")
                 .withModelClassName("electronics.ElectricBoxOpened")
                 .withTextureName("electronics/electricboxopened")
@@ -834,6 +904,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("home_chair")
                 .withModelClassName("HomeChair")
                 .withTextureName("homechair")
@@ -846,6 +917,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("outdoor_chair")
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withModelClassName("OutdoorChair")
@@ -858,6 +930,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("home_chair_rotated")
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withModelClassName("HomeChair")
@@ -870,6 +943,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("outdoor_chair_rotated")
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.7, 1)))
                 .withModelClassName("OutdoorChair")
@@ -882,6 +956,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("vending_machine")
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0.1, 1, 2, 0.8)))
                 .withModelClassName("electronics.VendingMachine")
@@ -894,6 +969,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("ServerRackLeft")
                 .withModelClassName("servers.ServerRackLeft")
                 .withTextureName("servers/serverrackleft")
@@ -905,6 +981,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("ServerRackEmptyLeft")
                 .withModelClassName("servers.ServerRackEmptyLeft")
                 .withTextureName("servers/serverrackemptyright")
@@ -916,6 +993,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("ServerRackLeftAlt")
                 .withModelClassName("servers.ServerRackLeftAlt")
                 .withTextureName("servers/serverrackleftalt")
@@ -927,6 +1005,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("ServerRackLeftAlt2")
                 .withModelClassName("servers.ServerRackLeftAlt2")
                 .withTextureName("servers/serverrackleftalt2")
@@ -938,6 +1017,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("ServerRackLeftAlt3")
                 .withModelClassName("servers.ServerRackLeftAlt3")
                 .withTextureName("servers/serverrackleftalt3")
@@ -949,6 +1029,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("ServerRackEmptyRight")
                 .withModelClassName("servers.ServerRackEmptyRight")
                 .withTextureName("servers/serverrackemptyright")
@@ -960,6 +1041,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("ServerRackRight")
                 .withModelClassName("servers.ServerRackRight")
                 .withTextureName("servers/serverrackright")
@@ -971,6 +1053,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("ServerRackRightAlt")
                 .withModelClassName("servers.ServerRackRightAlt")
                 .withTextureName("servers/serverrackrightalt")
@@ -982,6 +1065,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("ServerRackTopLeft")
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.3, 1)))
                 .withModelClassName("servers.ServerRackTop")
@@ -994,6 +1078,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("ServerRackTopRight")
                 .withBoundingBox(facing -> AABBUtil.orientAABB(facing, new AxisAlignedBB(0, 0, 0, 1, 0.3, 1)))
                 .withModelClassName("servers.ServerRackTopRight")
@@ -1006,6 +1091,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("duelfloodlight")
                 .withModelClassName("lights.DuelFloodlight")
                 .withTextureName("lights/duelfloodlight")
@@ -1017,6 +1103,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("duelfloodlight_rotated")
                 .withModelClassName("lights.DuelFloodlight")
                 .withTextureName("lights/duelfloodlight")
@@ -1029,6 +1116,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("floodlight")
                 .withModelClassName("lights.Floodlight")
                 .withTextureName("lights/floodlight")
@@ -1040,6 +1128,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("floodlight_rotated")
                 .withModelClassName("lights.Floodlight")
                 .withTextureName("lights/floodlight")
@@ -1052,6 +1141,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("Radio_rotated")
                 .withModelClassName("electronics.Radio")
                 .withTextureName("electronics/radio")
@@ -1063,6 +1153,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("Radio")
                 .withModelClassName("electronics.Radio")
                 .withTextureName("electronics/radio")
@@ -1074,6 +1165,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("camera")
                 .withModelClassName("electronics.Camera")
                 .withTextureName("electronics/camera")
@@ -1082,6 +1174,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("camera_rotated")
                 .withModelClassName("electronics.Camera")
                 .withTextureName("electronics/camera")
@@ -1094,6 +1187,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("propanetank")
                 .withModelClassName("PropaneTank")
                 .withTextureName("propanetank")
@@ -1105,6 +1199,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("towablefloodlight")
                 .withModelClassName("lights.TowableFloodLight")
                 .withTextureName("lights/towablefloodlight")
@@ -1139,6 +1234,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("crossgravestone")
                 .withModelClassName("gravestones.CrossGravestone")
                 .withTextureName("gravestone/crossgravestone")
@@ -1150,6 +1246,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("crossgravestone2")
                 .withModelClassName("gravestones.CrossGravestone2")
                 .withTextureName("gravestone/crossgravestone2")
@@ -1161,6 +1258,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("crossgravestone3")
                 .withModelClassName("gravestones.CrossGravestone3")
                 .withTextureName("gravestone/crossgravestone3")
@@ -1172,6 +1270,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("gravestoneskull")
                 .withModelClassName("gravestones.GravestoneSkull")
                 .withTextureName("gravestone/gravestoneskull")
@@ -1183,6 +1282,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.ROCK)
+                .withHardness(3.5F)
                 .withName("gravestone")
                 .withModelClassName("gravestones.Gravestone")
                 .withTextureName("gravestone/gravestone")
@@ -1194,6 +1294,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.WOOD)
+                .withHardness(2)
                 .withName("scarecrow")
                 .withModelClassName("Scarecrow")
                 .withTextureName("scarecrow")
@@ -1239,6 +1340,7 @@ public class TileEntities {
 
         props.add(new LootBoxConfiguration()
                 .withMaterial(Material.IRON)
+                .withHardness(22.5F)
                 .withName("swat_truck")
                 .withModelClassName("SwatTruck")
                 .withTextureName("swat_truck")
